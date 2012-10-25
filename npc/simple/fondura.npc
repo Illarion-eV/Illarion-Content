@@ -14,7 +14,7 @@
 name = "Fondura"
 race = orc
 sex = female
-position = 0, 0, 0
+position = 798, 820 0
 direction = south
 affiliation = "Runewick"
 job = "Firesage"
@@ -58,7 +58,7 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is <Fondura> the <Flamesage>. Keyphrases: Waresage, Fire, Apple, Gods.")
+"Help" -> inform("[Game Help] This NPC is <Fondura> the <Flamesage>. Keyphrases: Waresage, Fire, Lerghanis , Gods.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- Mandatory: General speech
@@ -89,9 +89,9 @@ itemShoes = 53
 --"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "Warsage, that is what I am.", "I work for Runewick.", "I live in the service of Archmage Elvaine by the grace of Apple the Lifesage."
+"profession" -> "Warsage, that is what I am.", "I work for Runewick.", "I live in the service of Archmage Elvaine by the grace of Lerghanis  the Lifesage."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "Warsage, that is what I am.", "I work for Runewick.", "I live in the service of Archmage Elvaine by the grace of Apple the Lifesage."
+"job", english -> "Warsage, that is what I am.", "I work for Runewick.", "I live in the service of Archmage Elvaine by the grace of Lerghanis  the Lifesage."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
@@ -99,7 +99,7 @@ itemShoes = 53
 "Fire","Flame" -> "In my belly is an oil that can make a very hot flame.", "Fire is lituraly inside of me.", "Fire and Naginata are my form of self defence."
 "Elf","Elves" -> "The world was better when I was in my little village and did not know what an elf was.", "They are so damn arrogant.", "Us Opcs of Duh Rah have only ever known about thirty others in our lifetime, so we do not know how to talk so much, unlike the elves."
 "Elvaine","Morgan","Archmage" -> "He is the wise rular of this land.", "His magical ability is not easily matched. Only the seven are a match for him.", "He is stronger than I."
-"Apple." -> "He saved me from a life of servatude.", "He rescued me from the circus.", "Sir Apple saw that I was pristine in my use of flame. He spent years working with me until my physical ability to defend myself was up to par."
+"Lerghanis ." -> "He saved me from a life of servatude.", "He rescued me from the circus.", "Sir Lerghanis  saw that I was pristine in my use of flame. He spent years working with me until my physical ability to defend myself was up to par."
 "DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."

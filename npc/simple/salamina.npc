@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Salamina                                                Runewick --
--- NPC Job:  Earthsage                                                        --
+-- NPC Job:  Dirtsage                                                         --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  0, 0, 0                --
 -- NPC Sex:  female                     NPC Direction: south                  --
@@ -14,7 +14,7 @@
 name = "Salamina"
 race = human
 sex = female
-position = 0, 0, 0
+position = 786, 818, 0
 direction = south
 affiliation = "Runewick"
 job = "Earthsage"
@@ -47,6 +47,48 @@ itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
+--Name: Salamina Zi
+--Position: Dirtsage
+--Age: 30
+--Race human
+--Sex: Female
+--Weight: Skinny
+--Height: Short
+--Hair: Black Long
+--Eyes: Black
+--Skin: Yellow
+--Extra: Horizontal scar across her eyes
+
+--Personality:
+--Buck, wild, ready to fight, explosive, antagonistic, stubborn, strong, focus.
+
+--Background:
+
+--Salamina does not go looking for fights, but she has never been one to turn one down,
+--and sadly for her fights often come to her. As a babe she had to deal with an abusive father
+--and mother, whom led to the scar across her face. As a small child, she had to beg for her own
+--food, and learn whatever food she brought home her parents would eat and not share, so she
+--learned to get her fill before bringing the rest of the food or beggar money home.
+
+--One day when she was about seven Salamina saw an earth magic user use his magic to defend
+--himself against a bunch of bullies. At the end of the ordeal all four bullies were on the ground
+--reeling in pain and the earth user was walking away.
+
+--Salamina ran in front of the teen and prostrated herself in front of him, begging that he teach
+--her. The guy laughed and said no.  Salamina pleaded with him. The guy started to walk away saying
+--he does not know enough to teach her. She wrapped her arms around his legs as he walked. He
+--slipped his legs out. She tried again. He ran out of the alley. Salimina waited for him the next
+--day. She punched him saying she will make him teach her.
+
+--The boy said he would not hit a girl. Salamina did not stop. She kept punching and kicking
+--the boy was forced to defend himself. This daily activity happened for a whole year before the teen
+--decided to teach her. It was another three years before Salamina transcended the boy in earth magic
+--ability.
+
+--In her later teen years Salamina traveled the world learning about different places and improving her magic, fighting when necessary. She eventually became one of the strongest earth mages in existence and because of her physical ability to fight she made the perfect candidate to be the Dirtsage.
+
+--Note: Sezin was the young earth mage’s name
+
 -- Template Version 1.04, 07/12/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
@@ -58,147 +100,69 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is <Salamina> the <Dirtsage>. Keyphrases: Warsage, God, Dirt, Parents, Sezin, Fight.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "What do you want?", "Why are you bothering me?", "Please, what is it? Your interrupting my day."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greeb", english -> "What do you want?", "Why are you bothering me?", "Please, what is it? Your interrupting my day."
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Farewell", "Bye", "Fare well", "See you" -> "Get out of here.", "Just leave, I have no desire to talk to you.", "Bye."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Get out of here.", "Just leave, I have no desire to talk to you.", "Bye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"How are you", "How feel", "How do you do" -> "I feel like bashing some heads.", "I feel like I'd rather be out fighting.", "I'm so bored inside."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"your name", "who are you", "who art thou" -> "Salamina Zi is my name.", "Salamina the Dirtsage.", "Salamina, I bury those who stand in my way."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-english, "quest", "mission" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "quest", "mission", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "task", "adventure", "order" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+-- "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"profession" -> "Dirtsage of the Runewick Seven Warsages", "As Mashital always says I am a dog of the Archmage.", "I am a straight killer."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "job" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"job", english -> "Dirtsage of the Runewick Seven Warsages", "As Mashital always says I am a dog of the Archmage.", "I am a straight killer."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Warsage" -> "I am one of the seven Warsages. We are the strongest warriors in all of Runewick.", "We hone both our physical capabilites and our magic.", "We go around the world killing things by the orders of Archmage Morgan."
+"Dirt" -> "Earth is strong, it's independent", "Rocks, mud, dust, I can manipulate all that stuff.", "This boy named Sezin was my origional teacher."
+"Parents" -> "I remember having to bring home food only to have my mother and father take it from me and eat it greedily themselves.", "I left home at the age of eight because my parents were less than human.", "These scars on my face are because the people that birthed me are monsters."
+"Sezin" -> "He was the first person to teach me earth magic. It took me a year of trying to fight him to get him to teach me.", "Not a day goes by where I don't think about what happened to him, but I never cared to go back to my village to find out.", "He wasn't even an adult and I was nearly a babe when he began teaching me."
+"Fight" -> "I don't look for fights, but they always find me.", "I love the sensation of fighting, the putting ones own physical strength, magic and will against each other.", "Sometimes I go crazy when I fight, I know, and sometimes I destroy whole villages, I know, but it's who I am and everyone will just have to deal wih it."
 "DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
--- Optional: Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"god" -> "Magic was created by the Gods to communicate with the hand of man."
 "Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Adron" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Bragon", "Brágon" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Cherga" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Elara" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Eldan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Findari" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Irmorom" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Malachin", "Malachín" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Moshran" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Nargun", "Nargún", "Nargùn" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Oldra" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Ronagan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Sirani" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Tanora", "Zelphia" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Ushara" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Zhambra" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Optional: Faction stuff
-"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Elvaine", "Morgan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Runewick" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Valerio", "Guilianni", "Don" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Galmair" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "rosaline", "edwards" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Cadomyr" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Optional: Main land factions
-english, "albar" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "gynk", "gync" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "salkama" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Gobaith
-english, "Gobaith", "Gobiath" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Gobaith", "Gobiath", english -> "Earth that has fallen below the sea becomes a lot harder to move."
 "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Optional: Last catch - Think about keywords the player might say and that are not caught until here
-"my name" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "<NPC first name>", "<NPC last name>" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-german, chance(20.0), ".*" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "Those who mess with the Dustsage get destroyed. No metaphors necessary."
+cycletext "GERMAN.", "We need a regular cook in this place. My stomach has been quaking all day."
+cycletext "GERMAN.", "Mashital is so annoying. I'm going to kick her in the face."
+cycletext "GERMAN.", "I wonder whatever happened to him."
+cycletext "GERMAN.", "Galmair stinks. I have to hold my breath everytime I go there."
+cycletext "GERMAN.", "Cadomyr brawlers are weak. Nothing compared to the honed warriors of Runewick."
+cycletext "GERMAN.", "If you want to fight, simplly hit me."
+cycletext "GERMAN.", "Gangs are a collection of weak individuals. Real woman fight on their own."
+cycletext "GERMAN.", "I once seen Fo char a whole caravan in one breath."
+cycletext "GERMAN.", "I love to fight, but I will never use my ability to pick on those weaker than me. Bullying is the trueth sign of inner weakness."

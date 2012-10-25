@@ -2,18 +2,18 @@
 -- NPC Name: Fondura                                                 Runewick --
 -- NPC Job:  Firesage                                                         --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  0, 0, 0                --
+-- NPC Race: orc                        NPC Position:  798, 820, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Regallo                                                          --
 --           ...with a little help of Estralis Seborian                       --
 --                                                                            --
--- Last parsing: October 23, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 24, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (4, 0, 0, 0, 4, 'Fondura', 'npc.fondura', 1, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (4, 798, 820, 0, 4, 'Fondura', 'npc.fondura', 1, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -28,7 +28,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is <Fondura> the <Flamesage>. Keyphrases: Waresage, Fire, Apple, Gods."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is <Fondura> the <Flamesage>. Keyphrases: Waresage, Fire, Lerghanis , Gods."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -179,7 +179,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("Warsage, that is what I am.");
 talkEntry:addResponse("I work for Runewick.");
-talkEntry:addResponse("I live in the service of Archmage Elvaine by the grace of Apple the Lifesage.");
+talkEntry:addResponse("I live in the service of Archmage Elvaine by the grace of Lerghanis  the Lifesage.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -196,7 +196,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
 talkEntry:addResponse("Warsage, that is what I am.");
 talkEntry:addResponse("I work for Runewick.");
-talkEntry:addResponse("I live in the service of Archmage Elvaine by the grace of Apple the Lifesage.");
+talkEntry:addResponse("I live in the service of Archmage Elvaine by the grace of Lerghanis  the Lifesage.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -245,10 +245,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Apple.");
+talkEntry:addTrigger("Lerghanis .");
 talkEntry:addResponse("He saved me from a life of servatude.");
 talkEntry:addResponse("He rescued me from the circus.");
-talkEntry:addResponse("Sir Apple saw that I was pristine in my use of flame. He spent years working with me until my physical ability to defend myself was up to par.");
+talkEntry:addResponse("Sir Lerghanis  saw that I was pristine in my use of flame. He spent years working with me until my physical ability to defend myself was up to par.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

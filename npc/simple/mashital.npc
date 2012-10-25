@@ -14,7 +14,7 @@
 name = "Mashital"
 race = elf
 sex = female
-position = 0, 0, 0
+position = 794, 820, 0
 direction = south
 affiliation = "Runewick"
 job = "Windsage"
@@ -99,11 +99,11 @@ itemShoes = 53
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"Warsage" -> "We are the best magic useing fighters in the land.", "We answer only to Archmage Morgan.", "If you wish to join talk to Apple."
+"Warsage" -> "We are the best magic useing fighters in the land.", "We answer only to Archmage Morgan.", "If you wish to join talk to Lerghanis ."
 "Noble" -> "Disgusting pariahs of man and elf.", "We eat the food that you fish, we smoke the reeds that you grow and then we pass laws that make this all legal.","The enimies of equality."
 "Equality" ->"There should not be a rich or poor, Orc or Elf. We are all the same. It is only through the manipulation of the some that we are seperated into hierarchie."
 "Lightning" -> "The most direct of all the magics. It suits me.", "Beautiful, quick, deadly.", "In my hands lightning is a blade from heaven to strike down those that strike down others."
-"Naginata" ->"Its kind of like a spear with a curved blade.","None of the other seven use it. Apple jokes about having lost his. I don't think it a joke.", "A beautiful weapon for killing things at a safe distance."
+"Naginata" ->"Its kind of like a spear with a curved blade.","None of the other seven use it. Lerghanis  jokes about having lost his. I don't think it a joke.", "A beautiful weapon for killing things at a safe distance."
 "DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
