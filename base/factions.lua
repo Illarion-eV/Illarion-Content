@@ -574,8 +574,7 @@ function makeCharMemberOfTown(originator,fv,theRank, theTown)
 		if (fv.tid == theTown) then --already citizen
 		 	gText="Ihr seid bereits Bürger dieser Stadt!";
 			eText="You're already citizen of this town!";
-			outText=base.common.GetNLS(originator,gText,eText);
-            thisNPC:talk(Character.say, outText);
+			base.common.InformNLS(originator,gText,eText);
 			return;
 		end
 
@@ -583,8 +582,7 @@ function makeCharMemberOfTown(originator,fv,theRank, theTown)
 		if not CheckMoney(originator,GAmount,SAmount,CAmount) then --not enough money!
 		 	gText="Ihr habt nicht genug Geld dabei!";
 			eText="You don't have enough money with you!";
-			outText=base.common.GetNLS(originator,gText,eText);
-            thisNPC:talk(Character.say, outText);
+			base.common.InformNLS(originator,gText,eText);
 			return;
 		end
 		
@@ -601,8 +599,7 @@ function makeCharMemberOfTown(originator,fv,theRank, theTown)
 
 		gText="Ihr seid nun als Bürger dieser Stadt eingetragen.";
 		eText="You're now registered as citizen of this town.";
-		outText=base.common.GetNLS(originator,gText,eText);
-        thisNPC:talk(Character.say, outText);
+		base.common.InformNLS(originator,gText,eText);
 	end
 	return;
 end
@@ -614,6 +611,8 @@ end
     @param originator -- the PlayerStruct
 ]]
 function deleteDecree(originator)
+	thisNPC = world:getNPCSInRangeOf(originator.pos, 3);
+	
 	if not ((originator:countItem(3110))==0) then --does he really have decrees
 			fv = get(originator); --read faction values
 			  decree= originator:getItemList(3110); --get a list of decrees
