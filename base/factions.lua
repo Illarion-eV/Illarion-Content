@@ -572,6 +572,9 @@ function makeCharMemberOfTown(originator,fv,theRank, theTown)
 
 	elseif theRank==citizenRank then --make char to citizen
 		if (fv.tid == theTown) then --already citizen
+		 	gText="Ihr seid bereits Bürger dieser Stadt!";
+			eText="You're already citizen of this town!";
+			base.common.InformNLS(originator,gText,eText);
 			return;
 		end
 
@@ -593,6 +596,10 @@ function makeCharMemberOfTown(originator,fv,theRank, theTown)
 		if fv.towncnt ~=9 then fv.towncnt = fv.towncnt+1; end -- raise the town counter
 		fv = put_Faction(originator,fv); --write fv in Questprogress
 		Pay(originator,GAmount,SAmount,CAmount); --take money
+
+		gText="Ihr seid nun als Bürger dieser Stadt eingetragen.";
+		eText="You're now registered as citizen of this town.";
+		base.common.InformNLS(originator,gText,eText);
 	end
 	return;
 end
