@@ -564,6 +564,8 @@ end
     @param theRank(number) -- the rank the char shall get in the town
 ]]
 function makeCharMemberOfTown(originator,fv,theRank, theTown)
+	thisNPC = world:getNPCSInRangeOf(originator.pos, 3);
+	
 	if theRank==leaderRank then --make char to leader of this town
 		fv.tid = theTown; --make him member of this town
 		fv.rankTown = leaderRank; --give him the leader rank
@@ -614,6 +616,8 @@ end
     @param originator -- the PlayerStruct
 ]]
 function deleteDecree(originator)
+	thisNPC = world:getNPCSInRangeOf(originator.pos, 3);
+	
 	if not ((originator:countItem(3110))==0) then --does he really have decrees
 			fv = get(originator); --read faction values
 			  decree= originator:getItemList(3110); --get a list of decrees
