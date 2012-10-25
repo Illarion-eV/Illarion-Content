@@ -754,23 +754,6 @@ talkEntry:addResponse("Ihr seht dies also anders?");
 talkEntry:addResponse("Nun ja... so würde ich das nicht sagen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("become citizen");
-talkEntry:addTrigger("be a citizen");
-talkEntry:addTrigger("join faction");
-talkEntry:addTrigger("join Cadomyr");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("bürger werden");
-talkEntry:addTrigger("faction beitreten");
-talkEntry:addTrigger("cadomyr beitreten");
-talkEntry:addCondition(npc.base.condition.town.town(1));
-talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
