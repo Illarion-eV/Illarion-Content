@@ -18,6 +18,7 @@ VALUES (0, 106, 553, 0, 4, 'Torina Scibrim', 'npc.torina_scibrim', 1, 1, 0, 255,
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.town")
 require("npc.base.talk")
 module("npc.torina_scibrim", package.seeall)
 
