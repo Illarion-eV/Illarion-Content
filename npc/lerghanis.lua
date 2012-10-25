@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           ...with a little help of Estralis Seborian                       --
 --                                                                            --
--- Last parsing: October 24, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 25, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
