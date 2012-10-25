@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 25, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Miggs"
@@ -51,8 +51,8 @@ itemShoes = 326
 -- queststatus(77) Overview
 -- QuestID=77
 -- 0: No Quest taken
--- 1: Quest 1 taken - kill 10 flies, player receives torch
--- 2-11: Killing 10 flies
+-- 1: Quest 1 taken - kill 10 ratmen, player receives torch
+-- 2-11: Killing 10 ratmen
 -- 12: Quest 1 solved, reward: 100cp, +5 rankpoints
 -- 13: Quest 2 taken - kill 5 mummies
 -- 14-18: Killing 5 mummies
@@ -80,58 +80,58 @@ english, "Ciao", "Adieu", "Au revoir" -> "Go and come back. But not too soon.", 
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Miggs!", "Ich bin Miggs. Und dies ist meine Faust. Ich und sie freuen uns darauf, deine Bekanntschaft zu machen.", "Ich bin Miggs, die rechte Hand... nein, die rechte Faust Don Valerios."
 
 -- Quest 107: A message from Groktan Flintsplit
-queststatus(107) = 3, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."), queststatus(107) = 4, "Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... When I'm done with 'em."
-queststatus(107) = 3, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."), queststatus(107) = 4, "Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin."
-queststatus(107) = 3, english, "Groktan", "Flintsplit" -> inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."), queststatus(107) = 4, "Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... When I'm done with 'em."
-queststatus(107) = 3, "Groktan", "Flintsplit" -> inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."), queststatus(107) = 4, "Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin."
+queststatus(107) = 3, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."), "Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... When I'm done with 'em.", queststatus(107) = 4
+queststatus(107) = 3, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."), "Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin.", queststatus(107) = 4
+queststatus(107) = 3, english, "Groktan", "Flintsplit" -> inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."), "Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... When I'm done with 'em.", queststatus(107) = 4
+queststatus(107) = 3, "Groktan", "Flintsplit" -> inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."), "Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin.", queststatus(107) = 4
 
--- 1st quest: Kill 10 flies, player receives torch.
+-- 1st quest: Kill 10 ratmen, player receives torch.
 
 -- Give out quest 1 and a torch
-queststatus(77) = 0, english, "quest", "mission" -> inform("[New quest] Galmair Sewers I"), item(391, 1, 399), queststatus(77) = 1, "Blasted flies! The Don wants me to keep the streets clean, but dirty flies seem to emerge from the sewers over and over again. Climb down and slay at least ten of those annoyances! Here, have this torch."
-queststatus(77) = 0, "quest", "mission" -> inform("[Neues Quest] Die Kanalisation von Galmair I"), item(391, 1, 399), queststatus(77) = 1, "Verdammte Fliegen! Der Don wünscht sich saubere Straßen, aber diese Schmeißfliegen steigen ein ums andere Mal aus der Kanalisation auf. Nehmt diese Fackel, steigt hinab und erschlagt wenigstens zehn dieser Plagegeister."
-queststatus(77) = 0, "task", "adventure" -> inform("[New quest] Galmair Sewers I"), item(391, 1, 399), queststatus(77) = 1, "Blasted flies! The Don wants me to keep the streets clean, but dirty flies seem to emerge from the sewers over and over again. Climb down and slay at least ten of those annoyances! Here, have this torch."
-queststatus(77) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Kanalisation von Galmair I"), item(391, 1, 399), queststatus(77) = 1, "Verdammte Fliegen! Der Don wünscht sich saubere Straßen, aber diese Schmeißfliegen steigen ein ums andere Mal aus der Kanalisation auf. Nehmt diese Fackel, steigt hinab und erschlagt wenigstens zehn dieser Plagegeister."
+queststatus(77) = 0, english, "quest", "mission" -> inform("[New quest] Galmair Sewers I"), "Blasted ratmen! The Don wants me to keep the streets clean, but dirty ratmen seem to emerge from the sewers over and over again. Climb down and slay at least ten of those annoyances! Here, have this torch.", item(391, 1, 399), queststatus(77) = 1
+queststatus(77) = 0, "quest", "mission" -> inform("[Neues Quest] Die Kanalisation von Galmair I"), "Verdammte Rattenmenschen! Der Don wünscht sich saubere Straßen, aber diese Drecksratten steigen ein ums andere Mal aus der Kanalisation auf. Nehmt diese Fackel, steigt hinab und erschlagt wenigstens zehn dieser Plagegeister.", item(391, 1, 399), queststatus(77) = 1
+queststatus(77) = 0, "task", "adventure" -> inform("[New quest] Galmair Sewers I"), "Blasted ratmen! The Don wants me to keep the streets clean, but dirty ratmen seem to emerge from the sewers over and over again. Climb down and slay at least ten of those annoyances! Here, have this torch.", item(391, 1, 399), queststatus(77) = 1
+queststatus(77) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Kanalisation von Galmair I"), "Verdammte Rattenmenschen! Der Don wünscht sich saubere Straßen, aber diese Drecksratten steigen ein ums andere Mal aus der Kanalisation auf. Nehmt diese Fackel, steigt hinab und erschlagt wenigstens zehn dieser Plagegeister.", item(391, 1, 399), queststatus(77) = 1
 
 -- Quest 1 solved, reward: 100cp, +5 rankpoints
-queststatus(77) = 11, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Don Valerio Guilianni's favour."), money + 100, queststatus(77) = 12, rankpoints(Galmair) + 5, "#me hands over a small purse: 'Good job. Now I owe you one. But those flies were only the beginning of tasks I have for you."
-queststatus(77) = 11, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), money + 100, queststatus(77) = 12, "#me hands over a small purse: 'Good job. Now I owe you one. But those flies were only the beginning of tasks I have for you."
-queststatus(77) = 11, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 100, queststatus(77) = 12, rankpoints(Galmair) + 5, "#me überreicht eine kleine Geldbörse: 'Gut gemacht, ihr habt einen gut bei mir. Aber diese Fliegen waren erst der Anfang der Aufträge, die ich für euch habe."
-queststatus(77) = 11, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), money + 100, queststatus(77) = 12, "#me überreicht eine kleine Geldbörse: 'Gut gemacht, ihr habt einen gut bei mir. Aber diese Fliegen waren erst der Anfang der Aufträge, die ich für euch habe."
+queststatus(77) = 11, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Don Valerio Guilianni's favour."), "#me hands over a small purse: 'Good job. Now I owe you one. But those ratmen were only the beginning of tasks I have for you.", money + 100, queststatus(77) = 12, rankpoints(Galmair) + 5
+queststatus(77) = 11, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), "#me hands over a small purse: 'Good job. Now I owe you one. But those ratmen were only the beginning of tasks I have for you.", money + 100, queststatus(77) = 12
+queststatus(77) = 11, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), "#me überreicht eine kleine Geldbörse: 'Gut gemacht, ihr habt einen gut bei mir. Aber diese Rattenmenschen waren erst der Anfang der Aufträge, die ich für euch habe.", money + 100, queststatus(77) = 12, rankpoints(Galmair) + 5
+queststatus(77) = 11, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "#me überreicht eine kleine Geldbörse: 'Gut gemacht, ihr habt einen gut bei mir. Aber diese Rattenmenschen waren erst der Anfang der Aufträge, die ich für euch habe.", money + 100, queststatus(77) = 12
 
 -- Quest 1 taken but not solved, repeat the instructions
-queststatus(77) > 0, queststatus(77) < 11, english, "quest", "mission" -> "I hear their buzzing everywhere. Go back to the sewers and smite as many flies as possible."
-queststatus(77) > 0, queststatus(77) < 11, "quest", "mission" -> "Ich hör sie überall summen! Geht zurück in die Kanalisation und erschlagt so viele Fliegen wie möglich."
-queststatus(77) > 0, queststatus(77) < 11, "task", "adventure" -> "I hear their buzzing everywhere. Go back to the sewers and smite as many flies as possible."
-queststatus(77) > 0, queststatus(77) < 11, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich hör sie überall summen! Geht zurück in die Kanalisation und erschlagt so viele Fliegen wie möglich."
+queststatus(77) > 0, queststatus(77) < 11, english, "quest", "mission" -> "I hear their squeaking everywhere. Go back to the sewers and smite as many ratmen as possible."
+queststatus(77) > 0, queststatus(77) < 11, "quest", "mission" -> "Ich hör sie überall quieken! Geht zurück in die Kanalisation und erschlagt so viele Rattenmenschen wie möglich."
+queststatus(77) > 0, queststatus(77) < 11, "task", "adventure" -> "I hear their squeaking everywhere. Go back to the sewers and smite as many ratmen as possible."
+queststatus(77) > 0, queststatus(77) < 11, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich hör sie überall quieken! Geht zurück in die Kanalisation und erschlagt so viele Rattenmenschen wie möglich."
 
 -- 2nd quest: Kill 5 mummies
 
 -- Give out quest 2
-queststatus(77) = 12, english, "quest", "mission" -> inform("[New quest] Galmair Sewers II"), queststatus(77) = 13, "Did you ever notice this... moaning in the night? I don't know why, but smelly sewer mummies haunt the sewers. Smite at least five of them for a small reward."
-queststatus(77) = 12, "quest", "mission" -> inform("[Neues Quest] Die Kanalisation von Galmair II"), queststatus(77) = 13, "Habt ihr jemals dieses Wehklagen in der Nacht vernommen? Ich weiß nicht warum, aber stinkende Gullimumien spuken in der Kanalisation. Erschlagt wenigstens fünf von ihnen für eine kleine Belohnung."
-queststatus(77) = 12, "task", "adventure" -> inform("[New quest] Galmair Sewers II"), queststatus(77) = 13, "Did you ever notice this... moaning in the night? I don't know why, but smelly sewer mummies haunt the sewers. Smite at least five of them for a small reward."
-queststatus(77) = 12, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Kanalisation von Galmair II"), queststatus(77) = 13, "Habt ihr jemals dieses Wehklagen in der Nacht vernommen? Ich weiß nicht warum, aber stinkende Gullimumien spuken in der Kanalisation. Erschlagt wenigstens fünf von ihnen für eine kleine Belohnung."
+queststatus(77) = 12, english, "quest", "mission" -> inform("[New quest] Galmair Sewers II"), "Did you ever notice this... moaning in the night? I don't know why, but smelly sewer mummies haunt the sewers. Smite at least five of them for a small reward.", queststatus(77) = 13
+queststatus(77) = 12, "quest", "mission" -> inform("[Neues Quest] Die Kanalisation von Galmair II"), "Habt ihr jemals dieses Wehklagen in der Nacht vernommen? Ich weiß nicht warum, aber stinkende Gullimumien spuken in der Kanalisation. Erschlagt wenigstens fünf von ihnen für eine kleine Belohnung.", queststatus(77) = 13
+queststatus(77) = 12, "task", "adventure" -> inform("[New quest] Galmair Sewers II"), "Did you ever notice this... moaning in the night? I don't know why, but smelly sewer mummies haunt the sewers. Smite at least five of them for a small reward.", queststatus(77) = 13
+queststatus(77) = 12, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Kanalisation von Galmair II"), "Habt ihr jemals dieses Wehklagen in der Nacht vernommen? Ich weiß nicht warum, aber stinkende Gullimumien spuken in der Kanalisation. Erschlagt wenigstens fünf von ihnen für eine kleine Belohnung.", queststatus(77) = 13
 
 -- Quest 2 solved, reward: 100cp, ornate dagger, +10 rankpoints
-queststatus(77) = 18, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a ornate dagger. You advance in Don Valerio Guilianni's favour."), money + 100, item(190, 1, 599), queststatus(77) = 19, rankpoints(Galmair) + 10, "Each bad day for the undead is a good for the living. Here, have this dagger as compensation for your favour."
-queststatus(77) = 18, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a ornate dagger."), money + 100, item(190, 1, 599), queststatus(77) = 19, "Each bad day for the undead is a good for the living. Here, have this dagger as compensation for your favour."
-queststatus(77) = 18, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen verzierten Dolch. Dein Ansehen bei Don Valerio Guilianni steigt."), money + 100, item(190, 1, 599), queststatus(77) = 19, rankpoints(Galmair) + 10, "Jeder schlechte Tag für die Untoten ist ein guter für die Lebenden. Hier, nehmt diesen Dolch als Ausgleich für eure Gefälligkeit."
-queststatus(77) = 18, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen verzierten Dolch."), money + 100, item(190, 1, 599), queststatus(77) = 19, "Jeder schlechte Tag für die Untoten ist ein guter für die Lebenden. Hier, nehmt diesen Dolch als Ausgleich für eure Gefälligkeit."
+queststatus(77) = 18, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a ornate dagger. You advance in Don Valerio Guilianni's favour."), "Each bad day for the undead is a good for the living. Here, have this dagger as compensation for your favour.", money + 100, item(190, 1, 599), queststatus(77) = 19, rankpoints(Galmair) + 10
+queststatus(77) = 18, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a ornate dagger."), "Each bad day for the undead is a good for the living. Here, have this dagger as compensation for your favour.", money + 100, item(190, 1, 599), queststatus(77) = 19
+queststatus(77) = 18, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen verzierten Dolch. Dein Ansehen bei Don Valerio Guilianni steigt."), "Jeder schlechte Tag für die Untoten ist ein guter für die Lebenden. Hier, nehmt diesen Dolch als Ausgleich für eure Gefälligkeit.", money + 100, item(190, 1, 599), queststatus(77) = 19, rankpoints(Galmair) + 10
+queststatus(77) = 18, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen verzierten Dolch."), "Jeder schlechte Tag für die Untoten ist ein guter für die Lebenden. Hier, nehmt diesen Dolch als Ausgleich für eure Gefälligkeit.", money + 100, item(190, 1, 599), queststatus(77) = 19
 
 -- Quest 2 taken but not solved, repeat the instructions
-queststatus(77) > 12, queststatus(77) < 18, english, "quest", "mission" -> trade, "Those undead bastards in the sewers scare away customers. Help Galmair and itsrs, slay as many as possible."
+queststatus(77) > 12, queststatus(77) < 18, english, "quest", "mission" -> "Those undead bastards in the sewers scare away customers. Help Galmair and itsrs, slay as many as possible.", trade
 queststatus(77) > 12, queststatus(77) < 18, "quest", "mission" -> "Diese untoten Bastarde in der Kanalisation verschrecken die Kundschaft. Helft Galmair und seinen Händlern, erschlagt so viele wie möglich."
-queststatus(77) > 12, queststatus(77) < 18, "task", "adventure" -> trade, "Those undead bastards in the sewers scare away customers. Help Galmair and itsrs, slay as many as possible."
+queststatus(77) > 12, queststatus(77) < 18, "task", "adventure" -> "Those undead bastards in the sewers scare away customers. Help Galmair and itsrs, slay as many as possible.", trade
 queststatus(77) > 12, queststatus(77) < 18, "Auftrag", "Aufgabe", "Abenteuer" -> "Diese untoten Bastarde in der Kanalisation verschrecken die Kundschaft. Helft Galmair und seinen Händlern, erschlagt so viele wie möglich."
 
 -- 3rd quest: Kill 1 halfling bandit
 
 -- Give out quest 3
-queststatus(77) = 19, english, "quest", "mission" -> inform("[New quest] Galmair Sewers III"), queststatus(77) = 20, "The Don has a special assignment for you. The leader of a bunch of halfling thieves who dared to steal from the Don is suspected to hide in the sewers. End his life!"
-queststatus(77) = 19, "quest", "mission" -> inform("[Neues Quest] Die Kanalisation von Galmair III"), queststatus(77) = 20, "Der Don hat einen Spezialauftrag für euch. Der Anführer eine Bande von Halblingdieben, die sich erdreisteten, den Don zu bestehlen, versteckt sich wohl in der Kanalisation. Beendet sein Leben!"
-queststatus(77) = 19, "task", "adventure" -> inform("[New quest] Galmair Sewers III"), queststatus(77) = 20, "The Don has a special assignment for you. The leader of a bunch of halfling thieves who dared to steal from the Don is suspected to hide in the sewers. End his life!"
-queststatus(77) = 19, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Kanalisation von Galmair III"), queststatus(77) = 20, "Der Don hat einen Spezialauftrag für euch. Der Anführer eine Bande von Halblingdieben, die sich erdreisteten, den Don zu bestehlen, versteckt sich wohl in der Kanalisation. Beendet sein Leben!"
+queststatus(77) = 19, english, "quest", "mission" -> inform("[New quest] Galmair Sewers III"), "The Don has a special assignment for you. The leader of a bunch of halfling thieves who dared to steal from the Don is suspected to hide in the sewers. End his life!", queststatus(77) = 20
+queststatus(77) = 19, "quest", "mission" -> inform("[Neues Quest] Die Kanalisation von Galmair III"), "Der Don hat einen Spezialauftrag für euch. Der Anführer eine Bande von Halblingdieben, die sich erdreisteten, den Don zu bestehlen, versteckt sich wohl in der Kanalisation. Beendet sein Leben!", queststatus(77) = 20
+queststatus(77) = 19, "task", "adventure" -> inform("[New quest] Galmair Sewers III"), "The Don has a special assignment for you. The leader of a bunch of halfling thieves who dared to steal from the Don is suspected to hide in the sewers. End his life!", queststatus(77) = 20
+queststatus(77) = 19, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Kanalisation von Galmair III"), "Der Don hat einen Spezialauftrag für euch. Der Anführer eine Bande von Halblingdieben, die sich erdreisteten, den Don zu bestehlen, versteckt sich wohl in der Kanalisation. Beendet sein Leben!", queststatus(77) = 20
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(77) > 19, queststatus(77) < 21, english, "quest", "mission" -> "The halfling thieves continue to steal from clients of the Don. Track down their leader and execute him."
@@ -152,7 +152,7 @@ english, "job" -> "Some call me a henchman. I work for the Don; and I am good in
 "job" -> "Manche nennen mich einen Handlanger. Ich arbeite für den Don; und ich bin gut darin, was ich mache."
 "castle" -> "Some say, this castle was once built by dwarves. I don't care at all!"
 "Burg" -> "Manche behaupten, diese Burg wurde einst von Zwergen erbaut. Das ist mir sowas von egal!"
-"trader", "merchant", "collegue", "vendor", "market" -> trade, trade, "In Galmair, you maywhatever you want with whoever you want whenever you want.", "The market place is a good place to. It is outside. So... get out!"
+"trader", "merchant", "collegue", "vendor", "market" -> "In Galmair, you maywhatever you want with whoever you want whenever you want.", "The market place is a good place to. It is outside. So... get out!", trade, trade
 "händler", "kollege", "höker", "markt" -> "In Galmair könnt ihr Handel treiben, was immer ihr wollt, mit wem ihr wollt und wann ihr es wollt.", "Der Marktplatz ist ein guter Ort, um Handeln zu treiben. Er ist draußen. Also... raus mit euch!"
 english, "Gobaith", "Gobiath" -> "Ruffian? You call me a ruffian? You're so right!"
 "Gobaith", "Gobiath" -> "Grobian? Ihr nennt mich einen Grobian? Recht habt ihr!"
@@ -163,7 +163,7 @@ english, "Gobaith", "Gobiath" -> "Ruffian? You call me a ruffian? You're so righ
 "henchman", "henchman", "thug" -> "I'm not a simple henchman. I'm a convincer. With irresistible arguments."
 "halfling" -> "Blasted halfers! They pickpocket all day long. Nothing wrong with that, but they should know from whom they may take."
 english, "hobbit" -> "Blasted halfers! They pickpocket all day long. Nothing wrong with that, but they should know from whom they may take."
-"fly", "flies" -> "Blasted flies! They buzz all day long. Nothing wrong with that, but they should know who's head they may buzz around."
+"ratmen", "rat" -> "Blasted ratmen! They squeak all day long. Nothing wrong with that, but they should know who they may annoy."
 "mummy", "mummies" -> "Blasted mummies! They moan all day long. Nothing wrong with that, but they should know about they should not moan about."
 "dwarf", "dwarves" -> "So, you think us dwarves kneel to a king, drink beer and dig for pebbles all day long? Bad guess!"
 "protection", "fee" -> "Protection can be paid with money. The more money, the more protection. No money... bad idea."
@@ -171,15 +171,15 @@ english, "hobbit" -> "Blasted halfers! They pickpocket all day long. Nothing wro
 "Handlanger", "Gauner" -> "Ich bin kein einfacher Handlanger. Ich bin ein Überzeugungskünstler - mit schlagenden Argumenten."
 "halbling" -> "Verdammte Halblinge! Sie stibitzen den ganzen Tag aus allen möglichen Taschen. Das wäre alleine nicht schlimm, doch sollten sie wissen, aus welchen Taschen sie ihre Finger raushalten sollten."
 "Hobbit" -> "Verdammte Halblinge! Sie stibitzen den ganzen Tag aus allen möglichen Taschen. Das wäre alleine nicht schlimm, doch sollten sie wissen, aus welchen Taschen sie ihre Finger raushalten sollten."
-"Fliege" -> "Verdammte Fliegen! Sie summen den ganzen Tag. Das alleine wäre nicht schlimm, doch sollten sie wissen, um welchen Kopf sie besser nicht herumsummen sollten."
+"Ratte" -> "Verdammte Rattenmenschen! Sie quieken den ganzen Tag. Das alleine wäre nicht schlimm, doch sollten sie wissen, wen sie besser nicht nerven sollten."
 "Mumie" -> "Verdammte Mumien! Sie stöhnen den ganzen Tag. Das alleine wäre nicht schlimm, doch sollten sie wissen, über was sie besser nicht stöhnen sollten."
 "Zwerg" -> "So, ihr denkt also, wir Zwerge knien vor einem König, saufen Bier und buddeln den ganzen Tag nach Kieselsteinen? Falsch gedacht!"
-"Schutzgeld", "Schutzgebühr" -> "Sicherheit kann man erkaufen. Je mehr Geld, desto mehr Schutz. Kein Geld... Schlechte Idee."
+"Schutz", " geld", "gebühr" -> "Sicherheit kann man erkaufen. Je mehr Geld, desto mehr Schutz. Kein Geld... Schlechte Idee."
 "Gefallen", "Gefälligkeit" -> "Jeder Galmair schuldet dem Don einen Gefallen, manche mehr als einen. Denn der Don hilft jedem, er ist unser Pate."
 
 -- Rules of the Don
-"rules" -> trade, "1. The Don protects you if you pay the fee.", "2. Pay the toll and the interest and no harm will be done.", "3.freely, stay and depart as you wish.", "4. Come to the Don if you need help. He is your godfather.", "5. A deal with the Don is a deal with your fate.", "6. If you did harm, compensate generously twice the damage."
-"Regeln" -> "1. Der Don beschützt euch, wenn ihr die Gebühr bezahlt.", "2. Zahlt den Zoll und den Zins und kein Leid wird euch zugefügt.", "3. Handelt frei, kommt und geht, wie es euch beliebt.", "4. Kommt zum Don, wenn ihr Hilfe braucht. Er euer Pate.", "5. Ein Handel mit dem Don ist ein Handel mit dem Schicksal.", "6. Habt ihr Schaden verursacht, gleicht den Schaden zweifach aus."
+"rules" -> "1. The Don protects you if you pay the fee.", "2. Pay the toll and the interest and no harm will be done.", "3. Trade freely, stay and depart as you wish.", "4. Come to the Don if you need help. He is your godfather.", "5. A deal with the Don is a deal with your fate.", "6. If you did harm, compensate generously twice the damage."
+"Regel" -> "1. Der Don beschützt euch, wenn ihr die Gebühr bezahlt.", "2. Zahlt den Zoll und den Zins und kein Leid wird euch zugefügt.", "3. Handelt frei, kommt und geht, wie es euch beliebt.", "4. Kommt zum Don, wenn ihr Hilfe braucht. Er ist euer Pate.", "5. Ein Handel mit dem Don ist ein Handel mit dem Schicksal.", "6. Habt ihr Schaden verursacht, gleicht den Schaden zweifach aus."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Hiding behind books, fighting with words; that is not the way of a man. The archmage of Runewick can't be a true man!"
@@ -218,7 +218,7 @@ english, "Sirani" -> "Sirani, Sirani... The Don mentioned something about Sirani
 "Sirani" -> "Sirani, Sirani... der Don erwähnte irgendwas über Sirani. Fragt ihn besser selbst."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> trade, "I'm not ar. You may give me your money, though."
+"what sell", "what buy", "list wares", "price of" -> "I'm not a trader. You may give me your money, though."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler. Ihr könnt mir aber trotzdem euer Gold geben."
 "tell something" -> "Let me tell you something: Never mess with the Don. Messing with him is just as bad as messing with me.", "Do you see any campfire here? No? So, no tales for you.", "Leave me alone."
 "erzähl was", "erzähl etwas" -> "Lasst euch das gesagt sein: Legt euch nie mit dem Don an. Das würde bedeuten, ihr bekommt es mit mir zu tun.", "Seht ihr hier irgendwo ein Lagerfeuer? Nein? Also, keine Märchen für euch!", "Haut ab."
