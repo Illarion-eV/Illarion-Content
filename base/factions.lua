@@ -380,7 +380,7 @@ function put_Rankpoints(originator, rankpoints)
 	 ---increase rank ----
 	if (Faction.rankpoints >99) then
 		local rank = Faction.rankTown; 
-		local Faction.rankpoints,Faction.rankTown = IncreaseRank(Faction.rankpoints,Faction.rankTown);
+		Faction.rankpoints, Faction.rankTown = IncreaseRank(Faction.rankpoints,Faction.rankTown);
 		if Faction.rankTown>rank then  
 			base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in "..getTownNameByID(Faction.tid).." erreicht.", 
 				"You reached a new town rank in "..getTownNameByID(Faction.tid).. ) end
@@ -388,7 +388,7 @@ function put_Rankpoints(originator, rankpoints)
 	----lower rank----------
 	if (Faction.rankpoints <10) then
 		local rank = Faction.rankTown; 
-		local Faction.rankpoints,Faction.rankTown = DecreaseRank(Faction.rankpoints,Faction.rankTown);
+		Faction.rankpoints,Faction.rankTown = DecreaseRank(Faction.rankpoints,Faction.rankTown);
 		if Faction.rankTown<rank then  
 			base.common.InformNLS( originator, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in "..getTownNameByID(Faction.tid).." um eine Stufe gesunken.", 
 				"Because of your permanent conflicts with the law your rank sinks for a degree in "..getTownNameByID(Faction.tid).. ) end
