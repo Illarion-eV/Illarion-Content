@@ -564,8 +564,6 @@ end
     @param theRank(number) -- the rank the char shall get in the town
 ]]
 function makeCharMemberOfTown(originator,fv,theRank, theTown)
-	thisNPC = world:getNPCSInRangeOf(originator.pos, 3);
-	
 	if theRank==leaderRank then --make char to leader of this town
 		fv.tid = theTown; --make him member of this town
 		fv.rankTown = leaderRank; --give him the leader rank
@@ -574,10 +572,6 @@ function makeCharMemberOfTown(originator,fv,theRank, theTown)
 
 	elseif theRank==citizenRank then --make char to citizen
 		if (fv.tid == theTown) then --already citizen
-		 	gText="Ihr seid bereits Bürger dieser Stadt!";
-			eText="You're already citizen of this town!";
-			outText=base.common.GetNLS(originator,gText,eText);
-            thisNPC:talk(Character.say, outText);
 			return;
 		end
 
@@ -585,8 +579,7 @@ function makeCharMemberOfTown(originator,fv,theRank, theTown)
 		if not CheckMoney(originator,GAmount,SAmount,CAmount) then --not enough money!
 		 	gText="Ihr habt nicht genug Geld dabei!";
 			eText="You don't have enough money with you!";
-			outText=base.common.GetNLS(originator,gText,eText);
-            thisNPC:talk(Character.say, outText);
+			base.common.InformNLS(originator,gText,eText);
 			return;
 		end
 		
@@ -600,11 +593,6 @@ function makeCharMemberOfTown(originator,fv,theRank, theTown)
 		if fv.towncnt ~=9 then fv.towncnt = fv.towncnt+1; end -- raise the town counter
 		fv = put_Faction(originator,fv); --write fv in Questprogress
 		Pay(originator,GAmount,SAmount,CAmount); --take money
-
-		gText="Ihr seid nun als Bürger dieser Stadt eingetragen.";
-		eText="You're now registered as citizen of this town.";
-		outText=base.common.GetNLS(originator,gText,eText);
-        thisNPC:talk(Character.say, outText);
 	end
 	return;
 end
