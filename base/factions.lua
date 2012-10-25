@@ -52,46 +52,6 @@ function InitFactionLists()
 	TownRankList[0] = {gRank="Geächteter", eRank="outcast"};         --rank 0
 end
 
-if not InitFaction then
-	InitFactionLists();
-	InitFaction = true;
-	RANK_OFFSET = 2;      --needed to know from where the ranks for each town begin (look return value of get)
-	RANKPOINTS_OFFSET = 8;--needed to know from where the rankpoints for each town begin (look return value of get)
-    citizenRank = 1;
-    outcastRank = 0;
-    leaderRank = 9;
-
---==================================ADD NEW TOWNS AND GUILDS HERE===============
---AddTown(TownID,TownName), IDs from 1-9
---AddAdditionalTownName(German Trigger, English Trigger)
---AddTownMainKey(TownID, KeyID, KeyQuality, KeyData)
-
-AddTown(1,"Cadomyr");
-AddTownMainKey(1,2121, 333, 5030);
-AddTownJailKey(12,2121, 333, 5031);
-AddTown(2,"Runewick");
-AddTown(3,"Galmair");
-
---[[AddTown(12,"Silberbrand","Silverbrand", 1022, 102, 111);
-AddTownMainKey(12,2121, 333, 5030);
-AddTownJailKey(12,2121, 333, 5031);   ]]--
-
-
-
-
--------The Guilds        Same as above IDs from 11-99 only!
-AddGuild(11,"Graue Rose","Grey Rose");
-AddGuildMainKey(11,2121, 333,5014);
-AddGuildJailKey(11,2121, 333,5015);
-AddGuild(12,"Die Illarion Gruppe", "The Illarion Group");
-AddGuild(13,"Stadtwache Cadomyr","Townguard Cadomyr");
-AddGuildJailKey(13,2121, 333,5015);
-AddGuild(14,"Stadtwache Runewick","Townguard Runewick");
-AddGuild(15,"Stadtwache Galmair","Townguard Galmair");
-end
---==================================END OF THE EDITABLE PART====================
-
-
 --[[
     AddTown
 	Add a Town to the Faction System(be carefull, adding a new town needs further changes in the whole script!)
@@ -144,6 +104,43 @@ function AddGuildJailKey(GuildJID,KeyID, KeyQuality,KeyData)
 	if KeyQuality==nil then KeyQuality=333; end
 	table.insert(GuildJailKey,GuildJID, {KeyID,KeyQuality,KeyData});
 end
+
+if not InitFaction then
+	InitFactionLists();
+	InitFaction = true;
+	RANK_OFFSET = 2;      --needed to know from where the ranks for each town begin (look return value of get)
+	RANKPOINTS_OFFSET = 8;--needed to know from where the rankpoints for each town begin (look return value of get)
+    citizenRank = 1;
+    outcastRank = 0;
+    leaderRank = 9;
+
+--==================================ADD NEW TOWNS AND GUILDS HERE===============
+--AddTown(TownID,TownName), IDs from 1-9
+--AddAdditionalTownName(German Trigger, English Trigger)
+--AddTownMainKey(TownID, KeyID, KeyQuality, KeyData)
+
+AddTown(1,"Cadomyr");
+AddTownMainKey(1,2121, 333, 5030);
+AddTownJailKey(12,2121, 333, 5031);
+AddTown(2,"Runewick");
+AddTown(3,"Galmair");
+
+--[[AddTown(12,"Silberbrand","Silverbrand", 1022, 102, 111);
+AddTownMainKey(12,2121, 333, 5030);
+AddTownJailKey(12,2121, 333, 5031);   ]]--
+
+-------The Guilds        Same as above IDs from 11-99 only!
+AddGuild(11,"Graue Rose","Grey Rose");
+AddGuildMainKey(11,2121, 333,5014);
+AddGuildJailKey(11,2121, 333,5015);
+AddGuild(12,"Die Illarion Gruppe", "The Illarion Group");
+AddGuild(13,"Stadtwache Cadomyr","Townguard Cadomyr");
+AddGuildJailKey(13,2121, 333,5015);
+AddGuild(14,"Stadtwache Runewick","Townguard Runewick");
+AddGuild(15,"Stadtwache Galmair","Townguard Galmair");
+end
+--==================================END OF THE EDITABLE PART====================
+
 
 function getTownNameByID(TownID)
 	for i=1, #(TownList) do

@@ -10,7 +10,7 @@ local POSTCONDITION_QUESTSTATE = 3
 local MONSTER_AMNT = 2
 
 function onDeath(MONSTER)
-    debug ("*** IN ONDEATH")
+
     if monster.base.kills.lastAttacker[MONSTER.id]~=nil then
         debug("*** FOUND PLAYER!!")
         PLAYER = monster.base.kills.lastAttacker[MONSTER.id]  -- get killer

@@ -2,19 +2,14 @@
 -- reworked to work with new client by Lillian
 
 require("base.common")
+require("base.lookat")
 require("quest.aquest28")    
 require("lte.tying_capturer") 
 module("item.id_2760_rope", package.seeall)      
 -- UPDATE common SET com_script='I_2760_seil.lua' WHERE com_itemid=2760;
 
-tyingQuality = {};
-tyingQuality[0] = {"Starkes", "Stabiles", "", "Fadenscheiniges", "Schwaches"};
-tyingQuality[1] = {"strong", "stable", "", "threadbare", "weak"};
--- index of limit adresses a quality string in field 0 or 1
-tyingQuality["limits"] = {15,10,5,2,0};
-
 function LookAtItem(User,Item)
-	return
+	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.CLOTH));
 end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
