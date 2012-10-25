@@ -752,6 +752,16 @@ talkEntry:addResponse("Ihr seht dies also anders?");
 talkEntry:addResponse("Nun ja... so würde ich das nicht sagen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("be a citizen");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town("!=",1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("You have chosen to join Cadomyr, the realm of honour and glory."));
+talkEntry:addConsequence(npc.base.consequence.town.town("=",1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
 talkingNPC:addCycleText("#me blättert duch einen Stapel Pergamente.", "#me skims throug a pile of parchments.");
 talkingNPC:addCycleText("#me betrachtet die Schreibfeder in ihrer Hand.", "#me looks at the quill, she's holding in her hand.");
 talkingNPC:addCycleText("#me liest einen Brief.", "#me reads a letter.");
