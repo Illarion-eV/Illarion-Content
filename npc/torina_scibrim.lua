@@ -758,9 +758,43 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("be a citizen");
+talkEntry:addTrigger("join faction");
+talkEntry:addTrigger("join Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addResponse("You are already a citizen of Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("bürger werden");
+talkEntry:addTrigger("faction beitreten");
+talkEntry:addTrigger("cadomyr beitreten");
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addResponse("Ihr seid bereits Bürger von Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("be a citizen");
+talkEntry:addTrigger("join faction");
+talkEntry:addTrigger("join Cadomyr");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town("!=",1));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("You have chosen to join Cadomyr, the realm of honour and glory."));
+talkEntry:addResponse("Congratulations, you are now a citizen of Cadomyr. Welcome to this wonderful realm, be sure to follow the laws.");
+talkEntry:addConsequence(npc.base.consequence.town.town("=",1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("bürger werden");
+talkEntry:addTrigger("faction beitreten");
+talkEntry:addTrigger("cadomyr beitreten");
+talkEntry:addCondition(npc.base.condition.town.town("!=",1));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Du hast dich dazu entschlossen, Cadomyr beizutreten, dem Reich von Ruhm und Ehre."));
+talkEntry:addResponse("Glückwunsch, du bist nun Bürger von Cadomyr. Willkommen in diesem wundervollen Reich, aber haltet Euch an die Gesetze.");
 talkEntry:addConsequence(npc.base.consequence.town.town("=",1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
