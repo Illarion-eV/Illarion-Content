@@ -27,8 +27,8 @@ autointroduce = on
 author = "Regallo"
 author = "...with a little help of Estralis Seborian"
 
-lookatDE = "Dieser NPC ist <Name> der <Beruf/Funktion>."
-lookatUS = "This NPC is <Name> the <profession/function>."
+lookatDE = "Dieser NPC ist Fondura die Feuermagierin."
+lookatUS = "This NPC is Fondura the firesage."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
@@ -58,27 +58,27 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is <Fondura> the <Flamesage>. Keyphrases: Waresage, Fire, Lerghanis , Gods.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Fondura the Flamesage. Keyphrases: Waresage, Fire, Apple, Gods.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Fondura die Feuermagierin. Schlüsselwörter: Kampfmagier, Feuer, Apfel, Götter.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Please make your business known.", "Yes?", "What?"
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Wie kann ich euch helfen?", "Ja?", "Was?"
 
 "Hiho", "Hallo", "Hey", "Greeb", english -> "Please make your business known.", "Yes?", "What?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Wie kann ich euch helfen?", "Ja?", "Was?"
 
-"Farewell", "Bye", "Fare well", "See you" -> "Please Leave in haste.", "Goodbye.", "#Fo Stares at you."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Farewell", "Bye", "Fare well", "See you" -> "Please leave in haste.", "Goodbye.", "Fondura stares at you."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Sputet euch!", "Auf bald.", "Fondura beobachtet euch."
 
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Please Leave in haste.", "Goodbye.", "#Fo Stares at you."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Please leave in haste.", "Goodbye.", "Fondura stares at you."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Sputet euch!", "Auf bald.", "Fondura beobachtet euch."
 
-"How are you", "How feel", "How do you do" -> "I am me.", "I am feeling in balance.", "I don't feel like answering you."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"How are you", "How feel", "How do you do" -> "I am me.", "I am well.", "That's none of your business."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich bin ich.", "Mir geht es gut", "Das geht euch nichts an."
 
-"your name", "who are you", "who art thou" -> "Fo Duh Rah.", "The Sage of Flame.", "I am one of the seven Warsages."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"your name", "who are you", "who art thou" -> "Fondura.", "The Sage of Flame.", "I am one of the seven Warsages."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Fondura.", "Der Magier der Flamme", "Ich bin einer der sieben Kampfmagier"
 
 -- OPTIONAL TRIGGERS
 
@@ -89,45 +89,44 @@ itemShoes = 53
 --"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "Warsage, that is what I am.", "I work for Runewick.", "I live in the service of Archmage Elvaine by the grace of Lerghanis  the Lifesage."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "Warsage, that is what I am.", "I work for Runewick.", "I live in the service of Archmage Elvaine by the grace of Lerghanis  the Lifesage."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"profession" -> "Warsage, that is what I am.", "I work for Runewick.", "I live in the service of Archmage Elvaine."
+"beruf" -> "Kampfmagier, das ist mein Beruf.", "Ich arbeite für Runewick.", "Ich stehe im Dienste von Erzmagier Elvaine."
+"job", english -> "Warsage, that is what I am.", "I work for Runewick.", "I live in the service of Archmage Elvaine."
+"job" -> "Kampfmagier, das ist mein Beruf.", "Ich arbeite für Runewick.", "Ich stehe im Dienste von Erzmagier Elvaine."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "Warsage" -> "We are the emergency fighting force for Runewick, though this city is so well defended we are not generally needed.", "We use both magic and fighting skills to form a polished warrior.", "If you wish to know more about us a book could give you more information than I can."
-"Fire","Flame" -> "In my belly is an oil that can make a very hot flame.", "Fire is lituraly inside of me.", "Fire and Naginata are my form of self defence."
-"Elf","Elves" -> "The world was better when I was in my little village and did not know what an elf was.", "They are so damn arrogant.", "Us Opcs of Duh Rah have only ever known about thirty others in our lifetime, so we do not know how to talk so much, unlike the elves."
-"Elvaine","Morgan","Archmage" -> "He is the wise rular of this land.", "His magical ability is not easily matched. Only the seven are a match for him.", "He is stronger than I."
-"Lerghanis ." -> "He saved me from a life of servatude.", "He rescued me from the circus.", "Sir Lerghanis  saw that I was pristine in my use of flame. He spent years working with me until my physical ability to defend myself was up to par."
-"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Fire","Flame" -> "In my belly is an oil that can make a very hot flame.", "Fire is litereally inside of me.", "Fire and Naginata are my form of self defence."
+"Elf","Elves" -> "The world was better when I was in my little village and did not know what an elf was.", "They are so damn arrogant."
+"Elvaine","Morgan","Archmage" -> "He is the wise rular of this land.", "He is stronger than I."
+"Apple." -> "He saved me from a life of servitude.", "He rescued me from the circus."
+"Kampfmagier" -> "Wir sind die Notbrigade von Runewick, allerdings ist diese Stadt so gut geschützt, dass wir kaum benötigt werden.", "Wir nutzen beides, sowohl unsere magisches als auch unser kämpferisches Können um geeignete Krieger auszubilden.", "Wenn ihr mehr über uns wissen wollt, dann lest ein Buch, dort findet ihr mehr Informationen als ich euch geben kann."
+"Feuer","Flamme" -> "In meinem Bauch befindet sich ein Öl, welches eine sehr heiße Flamme erzeugen kann.", "Feuer ist wortwörtlich in mir.", "Ich nutze das Feuer und mein Naginata zur Selbsverteidigung."
+"Elf", "Elfen" -> "Die Welt war besser als ich in meinem kleinen Dorft lebte und noch nicht wusste was ein Elf ist.", "Sie sind so verdammt arrogant."
+"Elvaine", "Morgan", "Erzmagier" -> "Er ist der weise Anführer dieses Landes.", "Er ist stärker als ich."
+"Apfel." -> "Er hat mich aus einem Leben in Knechtschaft gerettet.", "Er hat mich aus dem Zirkus befreit."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Magic was created by the Gods to communicate with the hand of man."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"god", "gods" -> "Magic was created by the Gods."
+"Gott", "Götter" -> "Magie wurde von den Göttern erschaffen."
 
 -- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
-"my name" -> "Fo Duh Rah."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"<Fo>", "<Duh Rah>", english -> "That is me, please state your business."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"my name" -> "Fondura Duh Rah."
+"mein Name" -> "Fondura Duh Rah."
+"Fondura", "Duh Rah", english -> "That is me, please state your business."
+"Fondura", "Duh Rah" -> "Das bin ich, wie kann ich euch helfen?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "Runewick is too warm of a place."
-cycletext "GERMAN.", "I wish those dirty elves would leave me alone."
-cycletext "GERMAN.", "The Windsage is missing again."
-cycletext "GERMAN.", "Magic was created by the Gods to communicate with the hand of man."
-cycletext "GERMAN.", "Please keep this place quiet."
-cycletext "GERMAN.", "Yes I can breath fire and no I will not do it for your entertainment."
-cycletext "GERMAN.", "Please leave this place when you are done with your business."
-cycletext "GERMAN.", "I do not wish to take on a student at this time. Please leave."
-cycletext "GERMAN.", "What do you want?"
-cycletext "GERMAN.", "I do not have time to speak long."
+cycletext "Runewick ist ein recht warmer Ort.", "Runewick is too warm of a place."
+cycletext "Ich wünschte diese dreckigen Elfen würden mich in ruhe lassen.", "I wish those dirty elves would leave me alone."
+cycletext "Der Windmagier wird wiedermal vermisst.", "The Windsage is missing again."
+cycletext "Bitte seid ruhig an diesem Ort.", "Please keep this place quiet."
+cycletext "Ja ich kann Feuer spucken und nein, ich werde dies nicht zur eurer Unterhaltung tun.", "Yes I can breath fire and no I will not do it for your entertainment."
+cycletext "Bitte verlasst diesen Ort, solltet ihr hier fertig sein.", "Please leave this place when you are done with your business."
+cycletext "Ich habe nicht vor einen Studenten derzeit aufzunehmen. Bitte lasst mich in Frieden.", "I do not wish to take on a student at this time. Please leave."
+cycletext "Was wollt ihr?", "What do you want?"
+cycletext "Ich hab keine Zeit mich lange mit euch zu unterhalten.", "I do not have time to speak long."
