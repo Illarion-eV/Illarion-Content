@@ -69,7 +69,7 @@ function callEffect( Effect, Character) -- Initiallisierungs Script
         if ( EffectValue > 400 ) then -- voll besoffen
             oldpos = Character.pos;
             Character:move(math.random(0,3)*2, true);
-            if equapos(oldpos,Character.pos) then -- Step wurde nicht ausgeführt
+            if oldpos == Character.pos then -- Step wurde nicht ausgeführt
                 Effect:addValue("alcohol",math.max(0,value - Character:increaseAttrib("constitution",0))); -- Alkohol langsam abbauen
                 Effect.nextCalled = 40; -- Gleich nochmal versuchen
             else -- Schritt wurde gemacht

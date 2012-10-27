@@ -73,7 +73,7 @@ function InCave (User)
 		player:inform("your sequence is: " ..myseq);
 		
 		for i=1, table.maxn(magPortal) do -- lookup through which portal he goes
-			if ( equapos(player.pos, magPortal[i]) ) then
+			if player.pos == magPortal[i] then
 				portalindex = i;
 			end
 		end
@@ -92,7 +92,7 @@ function InCave (User)
 	end
 
 	for i=1, table.maxn(magPortal) do -- lookup through which portal he goes
-		if ( equapos(player.pos, magPortal[i]) ) then
+		if player.pos == magPortal[i] then
 			portalindex = i;
 		end
 	end

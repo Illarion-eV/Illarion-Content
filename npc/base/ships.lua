@@ -97,7 +97,7 @@ function MoveShip(Direction)
         else
             return false;
         end
-        if not equapos(ShipPart[2].pos,NeedPos) then
+        if not (ShipPart[2].pos == NeedPos) then
             ShipPart[2]:forceWarp(NeedPos);
         end
         JesusItem = PlaceJesusItem(NewPos);
@@ -121,7 +121,7 @@ function MoveShip(Direction)
             else
                 return false;
             end
-            if not equapos(Passangers[i].pos,NeedPos) then
+            if not (Passangers[i].pos == NeedPos) then
                 if Passangers[i]:isInRangeToPosition(NeedPos,15) then
                     Passangers[i]:forceWarp(NeedPos);
                 else
@@ -161,7 +161,7 @@ function RotateTo(newDir)
         else
             return false;
         end
-        if not equapos(ShipPart[2].pos,NeedPos) then
+        if not (ShipPart[2].pos == NeedPos) then
             ShipPart[2]:forceWarp(NeedPos);
             ShipPart[2]:setAttrib("faceto",newDir);
         end
@@ -177,7 +177,7 @@ function RotateTo(newDir)
             elseif (newDir == 6) then
                 NeedPos = position(oldcenterpos.x+PassPart[2],oldcenterpos.y-PassPart[1],oldcenterpos.z);
             end
-            if not equapos(Passangers[i].pos,NeedPos) then
+            if not (Passangers[i].pos == NeedPos) then
                 if Passangers[i]:isInRangeToPosition(NeedPos,15) then
                     Passangers[i]:forceWarp(NeedPos);
                     Passangers[i]:setAttrib("faceto",newDir);
@@ -202,7 +202,7 @@ function InitShipPos(Dir)
         else
             return false;
         end
-        if not equapos(ShipPart[2].pos,NeedPos) then
+        if not (ShipPart[2].pos == NeedPos) then
             ShipPart[2]:forceWarp(NeedPos);
             ShipPart[2]:setAttrib("faceto",Dir);
         end

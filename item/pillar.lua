@@ -154,7 +154,7 @@ function LookAtItem(User,Item)
 	if signCoo ~= nil then
 		if (signCoo[tablePosition] ~= nil) then
 			for i, signpos in pairs(signCoo[tablePosition]) do
-				if equapos(Item.pos,signpos) then
+				if (Item.pos == signpos) then
 					if (UserPer >= signPerception[tablePosition][i]) then
 						found = true;
 						world:itemInform(User,Item,base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name)));
@@ -203,7 +203,7 @@ end
 --copyed from id_272_statue.lua; locations are all in gobaith
 function UseItem( User, Item, TargetItem, counter, param )
     lang=User:getPlayerLanguage();
-    if equapos(Item.pos,position(-28, 192, -9)) then
+    if (Item.pos == position(-28, 192, -9)) then
         if ( not base.common.isItemIdInFieldStack( 35, position(-29, 195, -9) ) ) then
             if lang==0 then
                 User:inform("Während du vorsichtig die Statue abtastest öffnet sich plötzlich eine Luke in der Decke und eine hölzerne Leiter führt herab.");
@@ -219,7 +219,7 @@ function UseItem( User, Item, TargetItem, counter, param )
             end
             base.common.removeItemIdFromFieldStack( 35, position(-29, 195, -9) );
         end
-    elseif equapos(Item.pos,position(-389,-218,2)) then
+    elseif (Item.pos == position(-389,-218,2)) then
         if ((User:increaseAttrib("essence",0)+User:increaseAttrib("willpower",0)+User:increaseAttrib("intelligence",0))>29) then
             User:warp(position(102,56,52));
             if lang==0 then
@@ -228,14 +228,14 @@ function UseItem( User, Item, TargetItem, counter, param )
                 User:inform("You touch the statue and the world around you become blurred and you feel a little strange. A moment after you can see clearly again and you are on a completly other place");
             end
         end
-    elseif equapos(Item.pos,position(102,55,52)) then
+    elseif (Item.pos == position(102,55,52)) then
         User:warp(position(-389,-217,2));
         if lang==0 then
             User:inform("Als du die Statue berührst verschwimmt die Welt um dich und dir wird schwummrig. Als du wieder klar siehst, bist du an einem völlig anderen Ort");
         else
             User:inform("You touch the statue and the world around you become blurred and you feel a little strange. A moment after you can see clearly again and you are on a completly other place");
         end
-    elseif equapos(Item.pos,position(-60,-229,0)) then
+    elseif (Item.pos == position(-60,-229,0)) then
         for i=-69,-61 do
             posi = position(i,-227,0);
             item = world:createItemFromId(3097,1,posi,true,333,0);

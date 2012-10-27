@@ -12,7 +12,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         -- bottle in hand
 		local frontPos = base.common.GetFrontPosition(User);
 		-- TODO: convert quests & positions to New Illarion
-        -- if equapos( frontPos, position( 32, 190, -12 ) ) then -- Irundar
+        -- if ( frontPos == position( 32, 190, -12 ) ) then -- Irundar
             -- local progress = User:getQuestProgress(1);
             -- if ((LuaAnd( progress, 64 ) == 0) or (LuaAnd( progress, 3840 ) ~= (world:getTime("month")-1)*256)) then
 				-- if ( User:createItem( 2496, 1, 999, 3 ) == 0 ) then
@@ -35,7 +35,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 					-- User:inform("The fountain has dried up.");
 				-- end;
             -- end;
-		-- elseif equapos(frontPos, position(51, -55, 0)) then -- Troll's Vein
+		-- elseif (frontPos == position(51, -55, 0)) then -- Troll's Vein
             -- --User:inform("at vein");
 			-- local itempos = SourceItem.itempos;
 			-- local number = SourceItem.number;
@@ -45,7 +45,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			-- bottles.data = 1;
 			-- bottles.number = number;
 			-- world:changeItem(bottles);
-		-- elseif equapos(frontPos, position(116, -121, 0)) then -- Fairy's Tears
+		-- elseif (frontPos == position(116, -121, 0)) then -- Fairy's Tears
             -- --User:inform("at tears");
 			-- local itempos = SourceItem.itempos;
 			-- local number = SourceItem.number;

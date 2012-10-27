@@ -160,7 +160,7 @@ choose and set a new (temporary) waypoint.
 NextWp has to be set (which is actually the current waypoint)
 ]]
 function SetNewWp(guard)
-	if equapos(guard.pos,PatrolList[PatrolPointer[guard.id]][WpPointer[guard.id]].pos) then
+	if (guard.pos == PatrolList[PatrolPointer[guard.id]][WpPointer[guard.id]].pos) then
 		WpDone[guard.id] = WpDone[guard.id] + 1;
 		if WpDone[guard.id]>=WpMax[guard.id] then
 			ChooseNewPatrol(guard);
@@ -184,7 +184,7 @@ continues patrol when route is aborted (set new wp, warp or restart patrol)
 should be called in the respective function of the monster/npc OR in base_guard.lua
 ]]
 function AbortRoute(guard)
-	if equapos(guard.pos,NextWp[guard.id].pos) then
+	if (guard.pos == NextWp[guard.id].pos) then
 		npcdebug("try OK");
 		WpTry[guard.id] = 0;
 		guard.waypoints:clear();
@@ -214,7 +214,7 @@ end
 -- open the door of curWp
 function OpenDoor(guard)
 	local door = CurWp[guard.id].data.door;
-	if door and equapos(door.toPos,NextWp[guard.id].pos) then
+	if door and (door.toPos == NextWp[guard.id].pos) then
 		local item = GetDoorItem(door.pos);
 		base.doors.OpenDoor(item);
 	end
@@ -223,7 +223,7 @@ end
 -- close the door of NextWp
 function CloseDoor(guard)
 	local door = NextWp[guard.id].data.door;
-	if door and equapos(door.toPos,CurWp[guard.id].pos) then
+	if door and (door.toPos == CurWp[guard.id].pos) then
 		local item = world:getItemOnField(door.pos);
 		base.doors.CloseDoor(item);
 	end
@@ -240,7 +240,7 @@ end;
 
 function CharacterNear(guard,char)
 	--npcdebug("char near");
-	if equapos(NextWp[guard.id].pos,char.pos) then
+	if (NextWp[guard.id].pos == char.pos) then
 		npcdebug("char on waypoint, abort route!");
 		AbortRoute(guard);
 	end
