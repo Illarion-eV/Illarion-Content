@@ -10,8 +10,8 @@ module("alchemy.base.herbs", package.seeall)
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
     -- infront of a cauldron?
-	local cauldron = base.common.GetFrontItem(User)
-    if cauldron == 1008 then
+	local cauldron = GetCauldronInfront(User)
+    if cauldron then
 	  
         -- is the char an alchemist?
 	    local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
@@ -43,16 +43,17 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 end
 
 function PlantInEssenceBrew(User,cauldron,plant)
-    local success = false
+    local success = nil
     for i=1,8 do 
 		if cauldron:getData("essenceHerb"..i) == "" then
 			cauldron:setData("essenceHerb"..i,plant.id)
-			world:changeItem(cauldron)
 			success = true
 			break
 		end				
 	end
-	if not success then
+	if success then
+	    world:changeItem(cauldron)
+	else
 	    alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)
 	end	
 end
@@ -73,7 +74,7 @@ function PlantInStock(User,cauldron,plant)
 			    return
 			else
                 cauldron:setData(plusSubstance..Concentration,newConcentration)
-                world:changeItem(cauldron)
+                cauldron.id = 1012
 			end				
 	    end
 		if minusSubstance ~= "" then
@@ -87,9 +88,10 @@ function PlantInStock(User,cauldron,plant)
 			    return
 			else
                 cauldron:setData(minusSubstance.."Concentration",newConcentration)
-                world:changeItem(cauldron)
+                cauldron.id = 1012
 			end				
 	    end
+	    world:changeItem(cauldron)
 	end
 end
 
@@ -121,15 +123,14 @@ function FilterStock(User,cauldron,plant)
 		if not oldConcentration == nil then
 		    if oldConcentration > 5 then
 			    cauldron:setData(mySubstance.."Concentration",oldConcentration-1)
-				world:changeItem(cauldron)
 				success = true
 			elseif oldConcentration < 5 then
 			    cauldron:setData(mySubstance.."Concentration",oldConcentration+1)
-				world:changeItem(cauldron)
 				success = true
             end    			
         end
 	end
+	world:changeItem(cauldron)
     if success == false then
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)	
 	end	
