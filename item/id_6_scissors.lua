@@ -1,6 +1,7 @@
--- I_6.lua garn aus darm
-
 -- UPDATE common SET com_script='item.id_6_scissors' WHERE com_itemid IN (6);
+
+-- sheep (monster 18) --> wool (170)
+-- entrails (63) --> thread (50)
 
 require("item.general.metal")
 require("item.base.crafts")
