@@ -23,7 +23,7 @@ testPos = position(0,0,0)
 function String2Number(str)
 	local _,_,num = string.find(str, "(%d+)");
 	if (num~="") then
-		num = num+0;
+		num = tonumber(num);
 		return num, true;
 	end
 	return 0, false;
@@ -109,7 +109,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 			if (qual=="") then
 				qual = 333;
 			end
-			User:createItem(id, count, qual, nil);
+			User:createItem(tonumber(id), tonumber(count), tonumber(qual), nil);
 		end
 	end
 	
@@ -125,7 +125,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 				qual = 333;
 			end
 			local frontPos = base.common.GetFrontPosition(User);
-			world:createItemFromId(id+0, count+0, frontPos, true, qual+0, nil);
+			world:createItemFromId(tonumber(id), tonumber(count), frontPos, true, tonumber(qual), nil);
 		end
 	end
 	
