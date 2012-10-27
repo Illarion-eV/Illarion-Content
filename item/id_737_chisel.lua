@@ -107,9 +107,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	User:learn( stonecutting.LeadSkill, stonecutting.LeadSkillGroup, stonecutting.SavedWorkTime[User.id], 100, User:increaseAttrib(stonecutting.LeadAttribute,0) );
 	User:eraseItem( WorkOnStone, 1 ); -- erase the item we're working on
-	local notCreated = User:createItem( WorkOnStone, Stones[WorkOnStone].amount, 333, nil ); -- create the new produced items
+	local notCreated = User:createItem( WorkOnStone.productId, Stones[WorkOnStone].amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( WorkOnStone, notCreated, User.pos, true, 333, nil );
+		world:createItemFromId( WorkOnStone.productId, notCreated, User.pos, true, 333, nil );
 		base.common.InformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
