@@ -438,7 +438,8 @@ end;
 -- @return Index value of the second gem
 -- @return Strength of the second gem
 function GetBonusFromTool(toolItem)
-    local dataValue=toolItem.data;
+    local dataValue=0; --toolItem.data;
+		-- TODO get correct bonus
     if ((dataValue > 9) and (dataValue < 100)) then
         str1 = math.mod(dataValue, 10) + 1;
         dataValue = dataValue - str1 + 1;
