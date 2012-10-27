@@ -28,7 +28,7 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
     -- if shield equipped in hands
     if ( TargetItem.itempos == 5 ) or ( TargetItem.pos == 6 )then
         -- if curse gets in effect
-        local curseChance = math.random( 5 + User:increaseAttrib( "essence", 0 ) + math.floor( User:getSkill(Skill.magicResistance) / 5 ) );
+        local curseChance = math.random( 5 + User:increaseAttrib( "essence", 0 ) + math.floor( User:getSkill(Character.magicResistance) / 5 ) );
         -- if shield curse had already been effected, but user managed to remove it
         if ( SourceItem.data == 2 ) then curseChance = 1; end;
         

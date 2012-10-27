@@ -736,7 +736,7 @@ end
 
 -- Added by abcfantasy for wine contest
 function GetWineQuality( User )
-        local skill = User:getSkill(Skill.cooking);
+        local skill = User:getSkill(Character.cooking);
         local attr = User:increaseAttrib( "dexterity", 0 );
 
         local randValue = math.random( -23, 23 );

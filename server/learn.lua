@@ -7,12 +7,12 @@ module("server.learn", package.seeall)
 --[[
 Call: Character:learn(skill,movePoints,opponent,leadAttrib);
 
-skill: Name of the skill as skill key, e.g. Skill.mining
+skill: Name of the skill as skill key, e.g. Character.mining
 movePoints: The amount of movePoints or time (1/10s), required by the action, as integer. Do NOT fill in 0, every action relevant for skillgain HAS TO take some time.
 opponent: In case the action requires a minimum skill, fill it in here as integer. If the action should only yield skillgain up to a certain level, fill in this level-20. Otherwise, fill in 100.
 leadAttrib: The value of the lead attribute as integer. You find the mandatory(!) definition of lead attributes here: 
 
-Example: Character:learn(Skill.mining,2,20,100,Character:increaseAttrib("constitution",0));
+Example: Character:learn(Character.mining,2,20,100,Character:increaseAttrib("constitution",0));
 ]]
 
 function learn( user, skill, actionPoints, opponent, leadAttrib )
@@ -79,34 +79,34 @@ function getLeadAttrib(Char, Skill)
 
     if iniLed==nil then
         leadAtt={};
-        leadAtt[Skill.tailoring]="dexterity"
-        leadAtt[Skill.alchemy]="perception"
-        leadAtt[Skill.tactics]="perception"
-        leadAtt[Skill.farming]="constitution"
-        leadAtt[Skill.poisoning]="perception"
-        leadAtt[Skill.harp]="dexterity"
-        leadAtt[Skill.woodcutting]="constitution"
-        leadAtt[Skill.smithing]="dexterity"
-        leadAtt[Skill.punctureWeapons]="agility"
-        leadAtt[Skill.horn]="dexterity"
-        leadAtt[Skill.distanceWeapons]="perception"
-        leadAtt[Skill.gemcutting]="dexterity"
-        leadAtt[Skill.slashingWeapons]="strength"
-        --leadAtt[Skill.magicResistance]="essence"
-        leadAtt[Skill.carpentry]="dexterity"
-        leadAtt[Skill.cooking]="dexterity"
-        leadAtt[Skill.goldsmithing]="dexterity"
-        leadAtt[Skill.concussionWeapons]="strength"
-        leadAtt[Skill.flute]="dexterity"
-        leadAtt[Skill.parry]="agility"
-        leadAtt[Skill.lute]="dexterity"
-        leadAtt[Skill.dodge]="agility"
-        leadAtt[Skill.herblore]="constitution"
-        leadAtt[Skill.mining]="constitution"
-        leadAtt[Skill.smithing]="dexterity"
-        leadAtt[Skill.glassBlowing]="dexterity"
-        leadAtt[Skill.fishing]="constitution"
-        leadAtt[Skill.wrestling]="strength"
+        leadAtt[Character.tailoring]="dexterity"
+        leadAtt[Character.alchemy]="perception"
+        leadAtt[Character.tactics]="perception"
+        leadAtt[Character.farming]="constitution"
+        leadAtt[Character.poisoning]="perception"
+        leadAtt[Character.harp]="dexterity"
+        leadAtt[Character.woodcutting]="constitution"
+        leadAtt[Character.smithing]="dexterity"
+        leadAtt[Character.punctureWeapons]="agility"
+        leadAtt[Character.horn]="dexterity"
+        leadAtt[Character.distanceWeapons]="perception"
+        leadAtt[Character.gemcutting]="dexterity"
+        leadAtt[Character.slashingWeapons]="strength"
+        --leadAtt[Character.magicResistance]="essence"
+        leadAtt[Character.carpentry]="dexterity"
+        leadAtt[Character.cooking]="dexterity"
+        leadAtt[Character.goldsmithing]="dexterity"
+        leadAtt[Character.concussionWeapons]="strength"
+        leadAtt[Character.flute]="dexterity"
+        leadAtt[Character.parry]="agility"
+        leadAtt[Character.lute]="dexterity"
+        leadAtt[Character.dodge]="agility"
+        leadAtt[Character.herblore]="constitution"
+        leadAtt[Character.mining]="constitution"
+        leadAtt[Character.smithing]="dexterity"
+        leadAtt[Character.glassBlowing]="dexterity"
+        leadAtt[Character.fishing]="constitution"
+        leadAtt[Character.wrestling]="strength"
         iniLed=1;
     end
 

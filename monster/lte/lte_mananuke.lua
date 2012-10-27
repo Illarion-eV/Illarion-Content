@@ -4,7 +4,7 @@ module("monster.lte.lte_mananuke", package.seeall);
 -- INSERT INTO longtimeeffects VALUES (500, 'satk_mananuke', 'monster.lte.mananuke');
 
 function addEffect(manaNuke, User)
-	local magicResistance = User:getSkill(Skill.magicResistance);
+	local magicResistance = User:getSkill(Character.magicResistance);
 	local essence = User:increaseAttrib("essence", 0);
 	
 	local resistance = math.ceil(magicResistance / 10) + math.ceil(essence / 10);

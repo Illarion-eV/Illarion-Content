@@ -64,7 +64,7 @@ function DeleteFlame(User, FlameItem)
 end
 
 function SpellResistence(TChar)                 -- should be 0 (no res) to 100 (super res)
-    MRes=TChar:getSkill(Skill.magicResistance);    -- should depend on Int, Wp and magic resistency
+    MRes=TChar:getSkill(Character.magicResistance);    -- should depend on Int, Wp and magic resistency
     RInt=TChar:increaseAttrib("intelligence",0);
     RWillpower=TChar:increaseAttrib("willpower",0);
 

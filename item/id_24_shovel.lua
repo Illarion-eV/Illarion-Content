@@ -65,7 +65,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	-- first check for a treasure
 	if (groundType ~= gt.rocks) and
-			base.treasure.DigForTreasure( User, TargetPos, (User:getSkill(Skill.mining)/10)+1,
+			base.treasure.DigForTreasure( User, TargetPos, (User:getSkill(Character.mining)/10)+1,
 			base.common.GetNLS( User,
 				"Du gräbst mit deiner Schaufel in den Boden und stößt auf etwas hartes, von dem ein hölzerner Klang ausgeht. Noch einmal graben und du hältst den Schatz in deinen Händen.",
 				"You dig with your shovel into the ground and hit suddenly something hard and wooden sounding. You only have to dig another time to get the treasure." ),

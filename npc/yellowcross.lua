@@ -39,14 +39,14 @@ function nextCycle(thisNPC)
                     player:increaseAttrib("foodlevel",-(player:increaseAttrib("foodlevel",0)-10000))
                 end
                 player:setPoisonValue(0);
-                langSkill = player:getSkill(Skill.commonLanguage);
+                langSkill = player:getSkill(Character.commonLanguage);
                 if ((langSkill > 0) and (langSkill < 100 )) then
-                    player:increaseSkill(1,Skill.commonLanguage,100-langSkill);
+                    player:increaseSkill(Character.commonLanguage,100-langSkill);
                 end
                 SkillName = LangSkillName(player:getRace());
                 langSkill = player:getSkill(SkillName);
                 if ((langSkill > 0) and (langSkill < 100 )) then
-                    player:increaseSkill(1,SkillName,100-langSkill);
+                    player:increaseSkill(SkillName,100-langSkill);
                 end
                 world:gfx(53,player.pos)
                 world:gfx(53,thisNPC.pos);
@@ -103,12 +103,12 @@ function doubleEffect( rebirthEffect, Reborn )
 end
 
 function LangSkillName(Race)
-    if (Race == 0) then return Skill.humanLanguage;
-    elseif (Race == 1) then return Skill.dwarfLanguage
-    elseif (Race == 2) then return Skill.halflingLanguage
-    elseif (Race == 3) then return Skill.elfLanguage
-    elseif (Race == 4) then return Skill.orcLanguage
-    elseif (Race == 5) then return Skill.lizardLanguage
+    if (Race == 0) then return Character.humanLanguage;
+    elseif (Race == 1) then return Character.dwarfLanguage
+    elseif (Race == 2) then return Character.halflingLanguage
+    elseif (Race == 3) then return Character.elfLanguage
+    elseif (Race == 4) then return Character.orcLanguage
+    elseif (Race == 5) then return Character.lizardLanguage
     end
 end
 

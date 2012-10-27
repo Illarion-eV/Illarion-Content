@@ -23,7 +23,7 @@ function DrinkPotion(User,SourceItem)
 	elseif (potionEffectId <= 8) then -- language potion
             
 		ListPotionEffectId={1,2,3,4,5,6,7,8}
-		ListLanguages={Skill.commonLanguage,Skill.humanLanguage,Skill.dwarfLanguage,Skill.elfLanguage,Skill.lizardLanguage,Skill.orcLanguage,Skill.halflingLanguage,Skill.ancientLanguage}
+		ListLanguages={Character.commonLanguage,Character.humanLanguage,Character.dwarfLanguage,Character.elfLanguage,Character.lizardLanguage,Character.orcLanguage,Character.halflingLanguage,Character.ancientLanguage}
 		
         find, myEffect = User.effects:find(330)
 		if find then --  there is already an effect, we remove it, only one language at a time

@@ -59,7 +59,7 @@ end
 function SpellResistence( Char )
     local CWil   = Char:increaseAttrib("willpower",0);
     local CEss   = Char:increaseAttrib("essence",0);
-    local CSkill = Char:getSkill(Skill.magicResistance) ;
+    local CSkill = Char:getSkill(Character.magicResistance) ;
     CSkill = base.common.Limit( CSkill, 0, MaximalMagicResistance( Char ) );
 
     local ResTry=base.common.Limit(CSkill * ( ( CEss*3 + CWil*2 ) / 63 ), 0, 100 );
@@ -68,7 +68,7 @@ function SpellResistence( Char )
 end
 
 function LearnMagicResistance( Char )
-    if (MaximalMagicResistance( Char ) > Char:getSkill(Skill.magicResistance)) then
+    if (MaximalMagicResistance( Char ) > Char:getSkill(Character.magicResistance)) then
         --Char:learn(3,"magic resistance",2,100);
 		--Replace with new learn function, see learn.lua 
     end
@@ -348,7 +348,7 @@ function MonsterRandomTalk(Monster,msgs)
 
     if (math.random(1,300) == 1 ) then --once each 5 minutes (300) in average a message is spoken
         
-        Monster:increaseSkill(Skill.commonLanguage,100-Monster:getSkill(Skill.commonLanguage)); --if the monster could not talk, it can talk now
+        Monster:increaseSkill(Character.commonLanguage,100-Monster:getSkill(Character.commonLanguage)); --if the monster could not talk, it can talk now
 
         germanMessage, englishMessage = msgs:getRandomMessage(); --choses a random message
         base.common.TalkNLS( Monster, Character.say, germanMessage, englishMessage ); --does the talking in both languages

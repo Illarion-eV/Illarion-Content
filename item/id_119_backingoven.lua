@@ -119,7 +119,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         User:startAction( GenWorkTime(User), 0, 0, 0, 0 );
     end
     
-    --User:learn(Skill.baking, 2, 20, User:increaseAttrib("dexterity", 0));
+    --User:learn(Character.baking, 2, 20, User:increaseAttrib("dexterity", 0));
 	--Replace with new learn function, see learn.lua 
     base.common.GetHungry( User, 200 );
 end
@@ -127,7 +127,7 @@ end
     
 function GenWorkTime(User)
     local Attrib = User:increaseAttrib("dexterity",0); -- Geschicklichkeit: 0 - 20
-    local Skill  = User:getSkill(Skill.cooking);     -- Backen: 0 - 100
+    local Skill  = User:getSkill(Character.cooking);     -- Backen: 0 - 100
     
     return math.floor(-0.5 * (Attrib + Skill) + 80);
 end

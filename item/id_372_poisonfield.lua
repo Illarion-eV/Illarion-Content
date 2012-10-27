@@ -81,7 +81,7 @@ end
 function SpellResistence(TargetChar)
     local TInt=TargetChar:increaseAttrib("intelligence",0);
     local TEss=TargetChar:increaseAttrib("essence",0);
-    local TSkill=TargetChar:getSkill(Skill.magicResistance);
+    local TSkill=TargetChar:getSkill(Character.magicResistance);
     local ResTry=(((TSkill*2)+(TEss*2)+TInt)/300)*999;
     return math.max(0,math.min(999,math.floor(ResTry*(math.random(8,12)/10))))
 end

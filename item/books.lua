@@ -13,7 +13,7 @@ function InitBook()
 		-- Book of the priests of Eldan (1)
 		bookTitleDE[1] = "Das Buch der Priester Eldans";
 		bookTitleEN[1] = "Book of the priests of Eldan";	
-		bookLanguage[1] = Skill.commonLanguage;			
+		bookLanguage[1] = Character.commonLanguage;			
 		bookMinimumLanguage[1] = 0;			
 		
 		Init = true;

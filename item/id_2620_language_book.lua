@@ -9,7 +9,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     local modecode = SourceItem.data - (langcode * 10);
     
     if (modecode == 2) then
-        if (User:getSkill(Skill.ancientLanguage) < 60) then return end
+        if (User:getSkill(Character.ancientLanguage) < 60) then return end
         if ( ltstate == nil or ltstate == Action.success ) then
             User:warp(position(-243,-340,-3));
         elseif ( ltstate == Action.none ) then
@@ -139,14 +139,14 @@ function Learning(User,Value,Skillname)
 end
 
 function GetSkillName(code)
-    if (code==0) then return Skill.ancientLanguage;
-    elseif (code==1) then return Skill.commonLanguage;
-    elseif (code==2) then return Skill.humanLanguage;
-    elseif (code==3) then return Skill.dwarfLanguage;
-    elseif (code==4) then return Skill.elfLanguage;
-    elseif (code==5) then return Skill.orcLanguage;
-    elseif (code==6) then return Skill.halflingLanguage;
-    elseif (code==7) then return Skill.lizardLanguage;
+    if (code==0) then return Character.ancientLanguage;
+    elseif (code==1) then return Character.commonLanguage;
+    elseif (code==2) then return Character.humanLanguage;
+    elseif (code==3) then return Character.dwarfLanguage;
+    elseif (code==4) then return Character.elfLanguage;
+    elseif (code==5) then return Character.orcLanguage;
+    elseif (code==6) then return Character.halflingLanguage;
+    elseif (code==7) then return Character.lizardLanguage;
     end
 end;
 

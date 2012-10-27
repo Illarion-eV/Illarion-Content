@@ -239,9 +239,9 @@ end
 
 function Teach(User)
     local retVal=0;
-    Skill=User:getSkill(Skill.concussionWeapons);
+    Skill=User:getSkill(Character.concussionWeapons);
     if (Skill<=25) then
-        User:increaseSkill(Skill.concussionWeapons,5);
+        User:increaseSkill(Character.concussionWeapons,5);
         retVal=7;
     else
         retVal=8;
