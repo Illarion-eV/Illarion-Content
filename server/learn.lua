@@ -5,22 +5,17 @@ module("server.learn", package.seeall)
 -- called by the server when user:learn(...) is issued by a script
 
 --[[
-Call: Character:learn(skill,movePoints,opponent,leadAttrib);
+Call: Character:learn(skill, movePoints, opponent);
 
 skill: Name of the skill as skill key, e.g. Character.mining
 movePoints: The amount of movePoints or time (1/10s), required by the action, as integer. Do NOT fill in 0, every action relevant for skillgain HAS TO take some time.
 opponent: In case the action requires a minimum skill, fill it in here as integer. If the action should only yield skillgain up to a certain level, fill in this level-20. Otherwise, fill in 100.
-leadAttrib: The value of the lead attribute as integer. You find the mandatory(!) definition of lead attributes here: 
 
-Example: Character:learn(Character.mining,2,20,100,Character:increaseAttrib("constitution",0));
 ]]
 
-function learn( user, skill, actionPoints, opponent, leadAttrib )
+function learn(user, skill, actionPoints, opponent)
 
-	if (leadAttrib == nil) then
-		debug("Missing lead attribute. Applying default value.");
-		leadAttrib = getLeadAttrib(user,skill);
-	end;
+	leadAttrib = getLeadAttrib(user,skill);
 	
 	user:inform("learn called: skill: "..skill.." AP: "..actionPoints.." opponent: "..opponent);
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
