@@ -86,8 +86,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		if ((User:countItemAt("all",2560) > 0) and (User:countItemAt("all",543) > 0) and
-            (User:countItemAt("all",544) > 0) and (User:countItemAt("all",3) > 0)) then   -- there are still items we can work on
+		if ((User:countItemAt("all",2560) > 0) or (User:countItemAt("all",543) > 0) or
+            (User:countItemAt("all",544) > 0) or (User:countItemAt("all",3) > 0)) then   -- there are still items we can work on
 			potashproducing.SavedWorkTime[User.id] = potashproducing:GenWorkTime(User,nil);
 			User:startAction( potashproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
