@@ -94,11 +94,6 @@ gemList        = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
 cauldronPotion = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017} 
 bottlePotion   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
 
-newBottle = {}
-for i, gem in pairs(gemList) do
-  newBottle[gem] = bottleExchList[i]
-end
-
 -- Liste der Wirkstoffnamen
 wirkstoff = {};
 wirkung_de = {};
