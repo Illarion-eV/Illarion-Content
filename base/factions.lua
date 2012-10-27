@@ -77,6 +77,7 @@ if not InitFaction then
 --AddAdditionalTownName(German Trigger, English Trigger)
 --AddTownMainKey(TownID, KeyID, KeyQuality, KeyData)
 
+AddTown(0,"None");
 AddTown(1,"Cadomyr");
 AddTownMainKey(1,2121, 333, 5030);
 AddTownJailKey(12,2121, 333, 5031);
