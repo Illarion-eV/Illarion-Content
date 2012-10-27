@@ -423,13 +423,7 @@ function CombineStockEssence( User, stock, essenceBrew)
 		end
         parameters[1] = stockConc
 		
-		
-		    
-		    
-		    
-   
-   
-   getPotion(...)
+	end
    
    
 end
