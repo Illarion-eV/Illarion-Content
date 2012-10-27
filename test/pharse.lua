@@ -125,7 +125,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 				qual = 333;
 			end
 			local frontPos = base.common.GetFrontPosition(User);
-			world:createItemFromId(id, count, frontPos, true, qual, nil);
+			world:createItemFromId(id+0, count+0, frontPos, true, qual+0, nil);
 		end
 	end
 	
