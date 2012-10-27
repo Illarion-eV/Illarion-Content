@@ -10,7 +10,7 @@ require("item.lever")
 require("content.areas")
 require("alchemy.base.alchemy")
 
-module("server.reload_defs", package.seeall)
+module("server.reload", package.seeall)
 
 function onReload()
     -- logToFile("start onReload");
