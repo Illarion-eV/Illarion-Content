@@ -102,11 +102,11 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		if (dialog:getSuccess()) then
 			local input = dialog:getInput();
 			local _,_,id,count,_,qual = string.find(input,"(%d+) (%d+)(%s*)(%d*)");
-			if (id==nil or count==nil) then
+			if (id=="" or count=="") then
 				User:inform("You have to enter at least the ID and the count.");
 				return;
 			end
-			if (qual==nil) then
+			if (qual=="") then
 				qual = 333;
 			end
 			User:createItem(id, count, qual, nil);
@@ -117,11 +117,11 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		if (dialog:getSuccess()) then
 			local input = dialog:getInput();
 			local _,_,id,count,_,qual = string.find(input,"(%d+) (%d+)(%s*)(%d*)");
-			if (id==nil or count==nil) then
+			if (id=="" or count=="") then
 				User:inform("You have to enter at least the ID and the count.");
 				return;
 			end
-			if (qual==nil) then
+			if (qual=="") then
 				qual = 333;
 			end
 			local frontPos = base.common.GetFrontPosition(User);
