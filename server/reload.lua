@@ -8,7 +8,7 @@ require("content.signpost")
 require("content.gods")
 require("item.lever")
 require("content.areas")
-require("alchemy.base.alchemy")
+--require("alchemy.base.alchemy")
 
 module("server.reload", package.seeall)
 
@@ -21,7 +21,7 @@ function onReload()
     content.signpost.InitWegweiser();
 	initNoobia();
 	initTreasureChests();
-    alchemy.base.alchemy.InitAlchemy();
+   -- alchemy.base.alchemy.InitAlchemy();
 	-- logToFile("end onReload");
     item.lever.init();
 	content.areas.Init();
