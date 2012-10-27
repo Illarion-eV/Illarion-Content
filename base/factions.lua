@@ -117,7 +117,7 @@ function get_Faction(originator)
 		originator:setQuestProgress(200,00); --set the qpg to "zero"
 	end
 
-	local 	  tid = math.floor ((qpg/10);   -- the id of the town the char belongs to
+	local 	  tid = math.floor(qpg/10);   -- the id of the town the char belongs to
 	local rankTown = math.floor(qpg-tid*10);
 
 	return { towncnt = towncnt, tid = tid, rankTown = rankTown};
