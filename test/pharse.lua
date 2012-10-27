@@ -153,9 +153,9 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 				User:createItem(527,1,999,nil);
 				User:createItem(698,1,999,nil);
 			elseif (input == "create item") then
-				User:requestDialogInput(InputDialog("What item do you want?","Format:\n ID COUNT [QUALITY]\n quality is optional, default is 333", false, 255, cbCreateItem));
+				User:requestInputDialog(InputDialog("What item do you want?","Format:\n ID COUNT [QUALITY]\n quality is optional, default is 333", false, 255, cbCreateItem));
 			elseif (input == "create front item") then
-				User:requestDialogInput(InputDialog("What item do you want to create in front of you?","Format:\n ID COUNT [QUALITY]\n quality is optional, default is 333", false, 255, cbCreateFrontItem));
+				User:requestInputDialog(InputDialog("What item do you want to create in front of you?","Format:\n ID COUNT [QUALITY]\n quality is optional, default is 333", false, 255, cbCreateFrontItem));
 			else
 				User:inform("Sorry, I didn't understand you.");
 			end
