@@ -243,7 +243,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Apple.");
+talkEntry:addTrigger("Apple");
 talkEntry:addResponse("He saved me from a life of servitude.");
 talkEntry:addResponse("He rescued me from the circus.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -284,7 +284,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Apfel.");
+talkEntry:addTrigger("Apfel");
 talkEntry:addResponse("Er hat mich aus einem Leben in Knechtschaft gerettet.");
 talkEntry:addResponse("Er hat mich aus dem Zirkus befreit.");
 talkingNPC:addTalkingEntry(talkEntry);

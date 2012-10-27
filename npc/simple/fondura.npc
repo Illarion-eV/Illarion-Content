@@ -99,12 +99,12 @@ itemShoes = 53
 "Fire","Flame" -> "In my belly is an oil that can make a very hot flame.", "Fire is litereally inside of me.", "Fire and Naginata are my form of self defence."
 "Elf","Elves" -> "The world was better when I was in my little village and did not know what an elf was.", "They are so damn arrogant."
 "Elvaine","Morgan","Archmage" -> "He is the wise rular of this land.", "He is stronger than I."
-"Apple." -> "He saved me from a life of servitude.", "He rescued me from the circus."
+"Apple" -> "He saved me from a life of servitude.", "He rescued me from the circus."
 "Kampfmagier" -> "Wir sind die Notbrigade von Runewick, allerdings ist diese Stadt so gut geschützt, dass wir kaum benötigt werden.", "Wir nutzen beides, sowohl unsere magisches als auch unser kämpferisches Können um geeignete Krieger auszubilden.", "Wenn ihr mehr über uns wissen wollt, dann lest ein Buch, dort findet ihr mehr Informationen als ich euch geben kann."
 "Feuer","Flamme" -> "In meinem Bauch befindet sich ein Öl, welches eine sehr heiße Flamme erzeugen kann.", "Feuer ist wortwörtlich in mir.", "Ich nutze das Feuer und mein Naginata zur Selbsverteidigung."
 "Elf", "Elfen" -> "Die Welt war besser als ich in meinem kleinen Dorft lebte und noch nicht wusste was ein Elf ist.", "Sie sind so verdammt arrogant."
 "Elvaine", "Morgan", "Erzmagier" -> "Er ist der weise Anführer dieses Landes.", "Er ist stärker als ich."
-"Apfel." -> "Er hat mich aus einem Leben in Knechtschaft gerettet.", "Er hat mich aus dem Zirkus befreit."
+"Apfel" -> "Er hat mich aus einem Leben in Knechtschaft gerettet.", "Er hat mich aus dem Zirkus befreit."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god", "gods" -> "Magic was created by the Gods."
