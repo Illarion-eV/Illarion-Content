@@ -77,6 +77,7 @@ if not InitFaction then
 --AddAdditionalTownName(German Trigger, English Trigger)
 --AddTownMainKey(TownID, KeyID, KeyQuality, KeyData)
 
+AddTown(0,"None");
 AddTown(1,"Cadomyr");
 AddTownMainKey(1,2121, 333, 5030);
 AddTownJailKey(12,2121, 333, 5031);
@@ -100,6 +101,14 @@ function getTownNameByID(TownID)
 	end
 end
 
+function getMemberShip(player)
+	return player:getQuestProgress(199);
+end
+
+function getMemberShipByName(player)
+	return getTownNameByID(player:getQuestProgress(199));
+end
+
 --[[
     get_Faction
 	Looks up to which Faction a Character belongs and checks also his rank
@@ -110,17 +119,18 @@ end
 ]]
 function get_Faction(originator)
 
-	--format of questprogress 1. digit town id, 2. digit town rank
-	local qpg = originator:getQuestProgress(200);
-	local towncnt = originator:getQuestProgress(201)
-	if qpg==nil then
-		originator:setQuestProgress(200,00); --set the qpg to "zero"
+	local rankTown = originator:getQuestProgress(200);
+	local factionMembership = originator:getQuestProgress(199);
+	local towncnt = originator:getQuestProgress(201);
+	if rankTown==nil then
+		originator:setQuestProgress(200,0);
+	elseif factionMembership == nil then
+		originator:setQuestProgress(199,0);
+	elseif towncnt == nil then
+		originator:setQuestProgress(201,0);
 	end
 
-	local 	  tid = math.floor(qpg/10);   -- the id of the town the char belongs to
-	local rankTown = math.floor(qpg-tid*10);
-
-	return { towncnt = towncnt, tid = tid, rankTown = rankTown};
+	return { towncnt = towncnt, tid = factionMembership, rankTown = rankTown};
 end
 
 --[[
@@ -168,9 +178,8 @@ function put_Faction(originator,Faction)
 	--------don't allow unknown ranks-----
 	if Faction.rankTown>9 then Faction.rankTown = 9 elseif Faction.rankTown<0 then Faction.rankTown = 0; end
 	-------------write changes------------
-	
-	local qpg=tonumber(Faction.tid..Faction.rankTown);
-	originator:setQuestProgress(200,qpg);
+	originator:setQuestProgress(199,tonumber(tid));
+	originator:setQuestProgress(200,tonumber(rankTown));
 	originator:setQuestProgress(201,tonumber(Faction.towncnt));
 end
 
