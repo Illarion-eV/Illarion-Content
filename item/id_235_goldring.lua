@@ -119,7 +119,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		and ( string.find( User.lastSpokenText, "[Hh][Oo][Nn][Ii][Gg][Kk][Uu][Cc][Hh][Ee][Nn][Pp][Ff][Ee][Rr][Dd]" ) ~= nil ) then  -- Losung ok?
 			User:talkLanguage( Character.say, Player.german, "#me dreht den schmalen Goldring an "..gText.." Finger.");
 			User:talkLanguage( Character.say, Player.english, "#me spins the small goldring on "..eText.." finger.");
-			if equapos(User.pos,position(-89,-123,0)) then		-- Standort: Bane
+			if (User.pos == position(-89,-123,0)) then		-- Standort: Bane
 				world:gfx(31,position(-88,-123,0));
 				world:gfx(31,position(-90,-123,0));
 				world:gfx(41,position(-89,-123,0));
@@ -127,7 +127,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 				world:gfx(31,position(34,26,50));
 				world:gfx(31,position(36,26,50));
 				world:gfx(41,position(35,26,50));
-			elseif equapos(User.pos,position(35,26,50)) then
+			elseif (User.pos == position(35,26,50)) then
 				world:gfx(31,position(34,26,50));
 				world:gfx(31,position(36,26,50));
 				world:gfx(41,position(35,26,50));

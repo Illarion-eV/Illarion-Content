@@ -61,14 +61,14 @@ function DoGFXSpell(Caster, TargetPos, ltstate)
     local SpellRadius=CalcEffectRadius(CalcRadius(),CasterVal);
 
     HittedPosition = {};
-    if equapos(Caster.pos,TargetPos) and TargetEffects and (TargetEffects.minSkill.hitpoints < 0 or TargetEffects.minSkill.foodpoints < 0 or TargetEffects.minSkill.actionpoints < 0 or TargetEffects.minSkill.manapoints < 0 or TargetEffects.minSkill.poison > 0 ) then
+    if (Caster.pos == TargetPos) and TargetEffects and (TargetEffects.minSkill.hitpoints < 0 or TargetEffects.minSkill.foodpoints < 0 or TargetEffects.minSkill.actionpoints < 0 or TargetEffects.minSkill.manapoints < 0 or TargetEffects.minSkill.poison > 0 ) then
         table.insert(HittedPosition, base.common.GetFrontPosition( Caster ) );
     else
         table.insert(HittedPosition, base.common.CopyPosition(TargetPos) );
     end
     if ( SpellEffects.Line ~= nil and ( ( SpellEffects.Line.gfx ~= nil and SpellEffects.Line.gfx ~= 0 ) or ( SpellEffects.Line.sfx ~= nil and SpellEffects.Line.sfx ~= 0 ) ) ) or Settings.FirstInLine or Settings.AllInLine then
         base.common.CreateLine(Caster.pos,TargetPos,function( currPos )
-            if equapos( Caster.pos, currPos ) then
+            if ( Caster.pos == currPos ) then
                 return true;
             end
             if not Settings.FirstInLine or not world:isCharacterOnField( currPos ) then

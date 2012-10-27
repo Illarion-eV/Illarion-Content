@@ -255,10 +255,10 @@ function BW_intern_MoveX(Character,XOff,forced)
     else
         Character:move(2,true);
     end
-    if equapos(old_pos,Character.pos) then
+    if (old_pos == Character.pos) then
         if forced and (XOff == 0) then
             Character:move(6,true);
-            if not equapos(old_pos,Character.pos) then
+            if not (old_pos == Character.pos) then
                 return true;
             end
         end
@@ -279,10 +279,10 @@ function BW_intern_MoveY(Character,YOff,forced)
     else
         Character:move(4,true);
     end
-    if equapos(old_pos,Character.pos) then
+    if (old_pos == Character.pos) then
         if forced and (YOff == 0) then
             Character:move(0,true);
-            if not equapos(old_pos,Character.pos) then
+            if not (old_pos == Character.pos) then
                 return true;
             end
         end

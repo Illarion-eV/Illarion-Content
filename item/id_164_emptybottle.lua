@@ -82,7 +82,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		-- check for frontPos
 		local frontPos = base.common.GetFrontPosition(User);
 		-- TODO: convert quests & positions to New Illarion
-		-- if equapos(frontPos, position(51, -55, 0)) then -- Troll's Vein
+		-- if (frontPos == position(51, -55, 0)) then -- Troll's Vein
             -- --User:inform("at vein");
 			-- local itempos = SourceItem.itempos;
 			-- local number = SourceItem.number;
@@ -93,7 +93,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			-- bottles.number = number;
 			-- world:changeItem(bottles);
 			-- return;
-		-- elseif equapos(frontPos, position(116, -121, 0)) then -- Fairy's Tears
+		-- elseif (frontPos == position(116, -121, 0)) then -- Fairy's Tears
             -- --User:inform("at tears");
 			-- local itempos = SourceItem.itempos;
 			-- local number = SourceItem.number;

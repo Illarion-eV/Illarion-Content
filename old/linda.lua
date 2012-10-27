@@ -16,7 +16,7 @@ function nextCycle()
 --    else
 --        cycCount=cycCount+1;
 --        if (cycCount==300) then
---            if (equapos(thisNPC.pos,position(234,43,0))==false) then     --does not run to the pier
+--            if ((thisNPC.pos == position(234,43,0))==false) then     --does not run to the pier
 --                direction = math random(3);
 --                direction = direction*2;
 --                thisNPC:move(direction);               --runs around

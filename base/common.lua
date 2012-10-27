@@ -134,7 +134,7 @@ function IsLookingAt(User, Location)
         return false;
     end;
 
-    if equapos(User.pos, Location) then
+    if User.pos == Location then
         return true;
     end
 
@@ -1083,7 +1083,7 @@ end;
     @return float - phi
 ]]
 function GetPhi(StartPos, TargetPos)
-    if equapos(StartPos, TargetPos) then
+    if StartPos == TargetPos then
         return math.random()*2;
     end
     local dx = TargetPos.x - StartPos.x;

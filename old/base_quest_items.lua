@@ -95,7 +95,7 @@ function UseItem( User, Item, TargetItem, counter, param )
         first=1;
     end
     for i, c in pairs(getCoord) do
-        if equapos(Item.pos,position(c[1],c[2],c[3])) then
+        if Item.pos == position(c[1],c[2],c[3]) then
             if (getMageOnly[i]) then
                 if ((User:increaseAttrib("essence",0)+User:increaseAttrib("willpower",0)+User:increaseAttrib("intelligence",0))>29) then
                     doit=true;
