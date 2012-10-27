@@ -79,7 +79,7 @@ function FillStockIn(User,cauldron,SourceItem)
 	elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
 		alchemy.base.alchemy.CombineStockEssence( User, SourceItem, cauldron)
 
-	elseif cauldron.id == 1008 -- nothing in the cauldron, we just fill in the stock
+	elseif cauldron.id == 1008 then -- nothing in the cauldron, we just fill in the stock
 		alchemy.base.alchemy.StockFromTo(SourceItem,cauldron)
 		cauldron:setData("cauldronFilledWith","stock")
 		cauldron.id = 1012
