@@ -21,9 +21,9 @@ wMirror = false;
 testPos = position(0,0,0)
 
 function String2Number(str)
-	_,_,num = string.find(str, "(%d+)");
+	local _,_,num = string.find(str, "(%d+)");
 	if (num~="") then
-		num = num+0;
+		num = tonumber(num);
 		return num, true;
 	end
 	return 0, false;
@@ -35,6 +35,8 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	get skill
 	heal
 	restore items
+	create item
+	create front item
 	]];
 	
 	local cbRemoveAll = function (dialog)
@@ -78,10 +80,10 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 							User:increaseSkill(skillGroup, skillName, skillValue-curSkill);
 						end
 					end
-					User:requestInputDialog(InputDialog("Chosen skill name: " .. skillName .. ", now enter the skill value:", false, 255, cbSkillValue));
+					User:requestInputDialog(InputDialog("Enter the skill value","Chosen skill name: " .. skillName, false, 255, cbSkillValue));
 				end
 			end
-			User:requestInputDialog(InputDialog("Chosen skill group: " .. groupNames[skillGroup] .. ", now enter the skill name:", false, 255, cbSkillName));
+			User:requestInputDialog(InputDialog("Enter the skill name","Chosen skill group: " .. groupNames[skillGroup], false, 255, cbSkillName));
 		end
 	end
 	
@@ -96,17 +98,48 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		end
 	end
 	
+	local cbCreateItem = function (dialog)
+		if (dialog:getSuccess()) then
+			local input = dialog:getInput();
+			local _,_,id,count,_,qual = string.find(input,"(%d+) (%d+)(%s*)(%d*)");
+			if (id=="" or count=="") then
+				User:inform("You have to enter at least the ID and the count.");
+				return;
+			end
+			if (qual=="") then
+				qual = 333;
+			end
+			User:createItem(tonumber(id), tonumber(count), tonumber(qual), nil);
+		end
+	end
+	
+	local cbCreateFrontItem = function (dialog)
+		if (dialog:getSuccess()) then
+			local input = dialog:getInput();
+			local _,_,id,count,_,qual = string.find(input,"(%d+) (%d+)(%s*)(%d*)");
+			if (id=="" or count=="") then
+				User:inform("You have to enter at least the ID and the count.");
+				return;
+			end
+			if (qual=="") then
+				qual = 333;
+			end
+			local frontPos = base.common.GetFrontPosition(User);
+			world:createItemFromId(tonumber(id), tonumber(count), frontPos, true, tonumber(qual), nil);
+		end
+	end
+	
 	local cbChooseOne = function (dialog)
 		if (dialog:getSuccess()) then
 			local input = dialog:getInput();
 			if (input == "remove all") then
-				local inputDialog = InputDialog("Enter an item ID you want to remove", false, 255, cbRemoveAll);
+				local inputDialog = InputDialog("Enter an item ID you want to remove","", false, 255, cbRemoveAll);
 				User:requestInputDialog(inputDialog);
 				return;
 			elseif (input == "set skill") then
-				User:requestInputDialog(InputDialog("For setting a skill value, first enter the skill group:  1=Language,  2=Craftsmanship,  3=Magic,  4=Other,  5=Fighting,  6=Druid,7=Priest, 8=Bard", false, 255, cbSetSkill));
+				User:requestInputDialog(InputDialog("For setting a skill value, first enter the skill group","1=Language,\n 2=Craftsmanship,\n 3=Magic,\n 4=Other,\n 5=Fighting,  6=Druid,7=Priest, 8=Bard", false, 255, cbSetSkill));
 			elseif (input == "get skill") then
-				User:requestInputDialog(InputDialog("For getting a skill value, enter the skill name:", false, 255, cbGetSkill));
+				User:requestInputDialog(InputDialog("For getting a skill value, enter the skill name:","", false, 255, cbGetSkill));
 			elseif (input == "heal") then
 				User:increaseAttrib("hitpoints", 10000);
 				User:increaseAttrib("foodlevel", 10000);
@@ -119,6 +152,10 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 				User:createItem(366,1,999,nil);
 				User:createItem(527,1,999,nil);
 				User:createItem(698,1,999,nil);
+			elseif (input == "create item") then
+				User:requestInputDialog(InputDialog("What item do you want?","Format:\n ID COUNT [QUALITY]\n quality is optional, default is 333", false, 255, cbCreateItem));
+			elseif (input == "create front item") then
+				User:requestInputDialog(InputDialog("What item do you want to create in front of you?","Format:\n ID COUNT [QUALITY]\n quality is optional, default is 333", false, 255, cbCreateFrontItem));
 			else
 				User:inform("Sorry, I didn't understand you.");
 			end

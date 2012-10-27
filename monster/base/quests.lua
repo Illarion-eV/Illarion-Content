@@ -1,4 +1,4 @@
---Generic 'Kill X monsters'-Quests by Estralis Seborian
+--Generic 'Kill X monsters' quests by Estralis Seborian
 
 module("monster.base.quests", package.seeall)
 
@@ -24,7 +24,7 @@ module("monster.base.quests", package.seeall)
 --Quest 3: To accept quest 3, set queststatus to 20 with the NPC. Use queststatus 20->21 to count 1 monster. If the quest is finished, set queststatus to 22 with the NPC.
 
 function iniQuests()
--- --debug("INI QUEETS START")
+
     --Initilisation
     
     statusId={};
@@ -295,7 +295,7 @@ function iniQuests()
     questList[1071]={}; --Crazy Chicken
     questList[1081]={}; --Black Chicken
     questList[2000]={}; --Guards
---debug("INI QUEETS MID 1")
+
     --Quest 1: Galmair Sewers I (77)
     
     local id=1;
@@ -303,18 +303,19 @@ function iniQuests()
     englishTitle[id]="Galmair Sewers I";
     NPCName[id]="Miggs"; 
     statusId[id]=77;
-    germanRace[id]="Schmeißfliegen"; 
-    englishRace[id]="dirty flies";
-    --table.insert(questList[131],id); 
-    --table.insert(questList[132],id); 
-    --table.insert(questList[133],id); 
-    --table.insert(questList[134],id); 
-    --table.insert(questList[135],id); 
+    germanRace[id]="Rattenmenschen"; 
+    englishRace[id]="ratmen";
+    table.insert(questList[921],id); 
+    table.insert(questList[922],id); 
+    table.insert(questList[931],id); 
+    table.insert(questList[932],id); 
+    table.insert(questList[941],id); 
+	table.insert(questList[942],id);
     minimumQueststatus[id]=1; 
     maximumQueststatus[id]=11; 
     questLocation[id]=position(298,352,-6); 
     radius[id]=50;
---debug("INI QUEETS MID 2")
+
     --Quest 2: Galmair Sewers II (77)
 
     local id=2;
@@ -390,7 +391,7 @@ function iniQuests()
     maximumQueststatus[id]=18;
     questLocation[id]=position(135,655,-4); 
     radius[id]=50; 
---debug("INI QUEETS MID 3")
+
     --Quest 6: Sir Reginald's Tomb III (78)
 
     local id=6;
@@ -496,7 +497,7 @@ function iniQuests()
     maximumQueststatus[id]=21; 
     questLocation[id]=position(775,475,0); 
     radius[id]=75; 
---debug("INI QUEETS MID 4")
+
     --Quest 12: The Poacher III (4)
 
     local id=12;
@@ -591,7 +592,7 @@ function iniQuests()
     maximumQueststatus[id]=9; 
     questLocation[id]=position(705,410,-3); 
     radius[id]=75; 
---debug("INI QUEETS MID 5")
+
     --Quest 17: The Errant Crusade III
 
     local id=17;
@@ -665,7 +666,7 @@ function iniQuests()
     statusId[id]=112;
     germanRace[id]="Geist der Eiche"; 
     englishRace[id]="Oak Ghost";
-    table.insert(questList[231],id); 
+    table.insert(questList[743],id); 
     minimumQueststatus[id]=9; 
     maximumQueststatus[id]=10; 
     questLocation[id]=position(501,107,0); 
@@ -685,7 +686,7 @@ function iniQuests()
     maximumQueststatus[id]=5; 
     questLocation[id]=position(41,46,100); 
     radius[id]=50;
---debug("INI QUEETS END")
+
 end
 
 
@@ -714,11 +715,6 @@ function checkQuest(User,Monster)
                     base.common.InformNLS(User,"[Queststatus] "..germanTitle[quest]..": Du hast "..(queststatus+1-minimumQueststatus[quest]).." von "..(maximumQueststatus[quest]-minimumQueststatus[quest]).." "..germanRace[quest].." besiegt." ,"[Quest status] "..englishTitle[quest]..": You have slain "..(queststatus+1-minimumQueststatus[quest]).." of "..(maximumQueststatus[quest]-minimumQueststatus[quest]).." "..englishRace[quest].."."); 
 
                 end
-
-            else ----debugging
-
-                --base.common.InformNLS(User,"[Queststatus] --debugging: Bedingungen für Kill nicht erfüllt.","[Quest status] --debugging: Conditions for kill not fulfilled."); 
-
             end
         end
     end

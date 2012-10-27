@@ -86,7 +86,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lothar Piero der Holzhändler. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Beruf, Poesie, Pfennigmühle, Erzmagier Morgan.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "May Oldra bless you. Do you need... wood?", "#me nods slowly: 'Wisdom and patience. How can I help you?'", "Hiho! How can I help you?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "May Oldra bless you. Do you need wooden goods?", "#me nods slowly: 'Wisdom and patience. How can I help you?'", "Hiho! How can I help you?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Oldra mit Euch. Benötigt Ihr hölzernes Gut?", "#me neigt seinen Kopf: 'Weisheit und Ausgeglichenheit. Wie darf ich Euch behilfich sein?'", "Hiho! Womit kann ich dienlich sein?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "May Oldra bless you. Do you need... wood?", "#me nods slowly: 'Wisdom and patience. How can I help you?'", "Hiho! How can I help you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Das ist durchwegs salopp gesagt, aber ich bin nicht kleinlich. Seid gegrüßt.", "Ehre den Göttern, wollt ihr Bretter kaufen?", "Guten Tag. Im Namen aller Händler will ich Euch willkommen heißen."
@@ -96,7 +96,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Good bye. May Oldra bless y
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Möge Oldra Eure Gärten und Fälder hüten.", "Gehabt Euch wohl. Bis Bald.", "Adieu! Besucht mich wieder einmal."
 "How are you", "How feel", "How do you do" -> "Wonderful! Indeed, Oldra smiles upon me.", "Even if a cloud covers the sun, I know that it shines on my every day.", "A dark night is defeated by the sunrise."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Ausgezeichnet. Ja, Oldra blickt wohlwollend auf mich herab.", "Auch wenn hier und dort eine Wolke die Sonne verdecken mag, ich weiß, dass sie trotzdem jeden neuen Tag am Himmel stehen wird.", "So finster Euch manche Nacht erscheinen kann, die Sonne wird erwachen und alles Finstere vertreiben."
-"your name", "who are you", "who art thou" -> trade, "My name is Lothar Piero. Welcome to the market of Runewick.", "I am Lothar Piero and I... wood.", "Boards, shields, bows, what do you desire? I am Lothar Piero and I got wood!"
+"your name", "who are you", "who art thou" -> "My name is Lothar Piero. Welcome to the market of Runewick.", "I am Lothar Piero and I... wood.", "Boards, shields, bows, what do you desire? I am Lothar Piero and I got wood!"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Lothar Piero. Seid mir willkommen am Markt von Runewick.", "Ich bin Lothar Piero und handle mit allerlei hölzernen Gut.", "Bretter, Schilde, Bögen, was wollt Ihr wohl mögen? Ich bin Lothar Piero und handle mit Holz."
 
 -- Catching quest triggers
@@ -106,14 +106,14 @@ english, "quest", "mission" -> "Sorry, I have no job for you."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es tut mir Leid, ich habe keine Arbeit für Euch."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> trade, trade, "Wood is good.", "I am ar and thus, Iwood. My wood makes me proud, hihi."
+"profession" -> trade, trade, "Wood is good.", "I am a merchant and thus, I trade wood. My wood makes me proud, hihi."
 "beruf" -> "Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!"
-english, "job" -> "Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!"
-"job" -> trade, trade, "Wood is good.", "I am ar and thus, Iwood. My wood makes me proud, hihi."
+english, "job" -> "Wood is good.", "I am a merchant and thus, I trade wood. My wood makes me proud, hihi."
+"job" -> trade, trade, "Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!"
 english, "Gobaith", "Gobiath" -> "Gobaith, isn't that a tiny a island in the ocean?", "Gobaith isn't important enough to attract Runewick's attention."
 "Gobaith", "Gobiath" -> "Gobaith, ist das nicht eine dieser winzigen Inseln im Splittermeer?", "Gobaith ist viel zu unwichtig, um die Aufmerksamkeit Runewicks Wert zu sein."
 "my name" -> "I am delighted. A pleasure to meet you.", "Well, I should remember that.", "Be greeted and be told: I won't betray you with my wood."
-"mein Name" -> "Sehr erfreut - sehr erfreut. Schön Euch kennen zu lernen.", "So, so? Das werde ich mir gut merken.", "Seid gegrüßt, und lasst Euch sagen, Lothar hat noch keinen Kunden übers Ohr geschlagen."
+"mein Name" -> "Sehr erfreut - sehr erfreut. Schön Euch kennen zu lernen.", "So, so? Das werde ich mir gut merken.", "Seid gegrüßt, und lasst Euch sagen, Lothar hat noch keinen Kunden übers Ohr gehauen."
 
 -- More small talk; add at least five triggers
 -- Boah, Rince, so viel Blablubb über Pennymill!? Das interessiert doch keine Nuss...
@@ -121,7 +121,7 @@ english, "Gobaith", "Gobiath" -> "Gobaith, isn't that a tiny a island in the oce
 "Pfennigmühle" -> "In Pfennigmühle, ich will es Euch erzählen - kontrolliert die Miliz alle Tavernen und Gasthäuser des Hafenviertels. So braucht sich ein Halbling niemals vor Unruhestiftern und Grobianen fürchten.", "Die Straßen in Pfennigmühle werden stehts mit dicken Ölkerzen beleuchtet. Wenn man abends nach Hause geht, gibt es kein schattiges Plätzchen, wo sich Unholde verkreichen könnten.", "Nachts sind die Tore von Pfennigmühle geschlossen. Man kann sich so nur innerhalb der verschiedenen Viertel bewegen. So ist alles viel sicherer und kontrollierbar.", "Ich möchte nicht prahlen, doch in Pfennigmühle gibt es die saftigsten und riesigsten Melonen, Kürbisse und Tomaten Illarions!"
 "poetry" -> "Poetry, poetry. The carpenter's poetry's masterpiece is a harp. If you behold a true master carving the harp, you can almost hear the melody."
 "Poesie" -> "Poesie, Poesie. Das Schönste was ein Schreiner zu schaffen vermag, ist zweifelsfrei eine Harfe. Sehe ich einem Meister beim Schnitzen zu, glaube ich oft eine Melodie zu hören."
-"trader", "merchant", "collegue", "vendor", "market" -> trade, trade, "Usrs of Runewick always try to offer as many goods and wares as possible.", "The archmage asked us to import as few items as possible and rely on domestic goods.", "Hiho! Thers of Runewick stand united and the archmage backs us up."
+"trader", "merchant", "collegue", "vendor", "market" -> trade, trade, "We merchants of Runewick always try to offer as many goods and wares as possible.", "The archmage himself asked us to import as few items as possible and rely on domestic goods.", "Hiho! We merchants of Runewick stand united and the archmage backs us up."
 "händler", "kollege", "höker", "markt" -> "Wir Händler Runewicks geben uns Mühe, ein möglichst großes Angebot an Waren und Güter für die Stadt bereitzustellen.", "Der Erzmagier persönlich hat uns Händlern aufgetragen, ausschließlich die nötigsten Güter zu importieren. Alles andere sind Güter aus Runewick.", "Hiho! Die Händler Runewicks stehen zusammen. Und der Erzmagier hinter uns."
 
 -- Faction stuff
@@ -158,12 +158,6 @@ english, "Elara" -> "O Elara, guide archmage Morgan, for he may take the wisest 
 english, "Oldra" -> "Oldra, I thank thee for my wood, for the trees and for all what is made from them."
 "Oldra" -> "Oldra, ich danke für das Holz deiner Bäume, die meine Schilder so stark und die Instrumente so wohlklingend machen."
 
--- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Staffs, pipes, bolts, Lothar has it all.", "Are you a carpenter? Then you came to the right place.", "Tall elves, small halflings, everyone buys his wood at Lothar's."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Stäbe, Pfeifen, Bolzen, bei Lothar werdet's ihr finden, solang es ist aus Holzen.", "Seid ihr Schreiner? Lasst Euch sagen, bei mir hat es Euch an den rechten Ort verschlagen.", "Ob großer Elf, ob Halbling ganz klein, bei Lothar kauft jeder sein Hölzchen ein."
-"tell something" -> "I love poetry. I really enjoy it, perhaps you feel likewise?", "My home is Pennymill, maybe you heard about it.", "I really adore sharing Runewick with the fair folk. Everywhere, you can feel this sparkling magic, I'd miss it elsewhere."
-"erzähl was", "erzähl etwas" -> "Ich liebe die Poesie. All zu gern lass ich mich davon betören. Liebt ihr die schönen Künste so sehr wie ich?", "Meine Heimat liegt in Pfennigmühle. Vielleicht kennt Ihr meine Heimat.", "Ich finde es im Allgemeinen sehr annehmlich, zusammen mit dem schönen Volk Runewick zu bewohnen. Immerzu ungiebt uns alle eine betörende und fantastische Magie, die ich nicht missen mag."
-
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Lothar", "Piero" -> "Hiho! What goods may I offer to you?"
 "Lothar", "Piero" -> "Hiho! Welche meiner Güter vermögen Euch zu begeistern?"
@@ -183,11 +177,11 @@ german, chance(20.0), ".*" -> "Oldras Segen über Eure Gärten.", "Elaras Weishe
 
 cycletext "#me greift sich mit beiden Händen in die wuscheligen braunen Haare und lächelt.", "#me combs his tousled hairs with his hands, smiling."
 cycletext "#me poliert mit einem öligen Laken einen gefinkelt verzierten Gehstock.", "#me polishes a decorated walking cane with an oiled rag."
-cycletext "#me klimpert mit seinen spröden Fingern auf einer zierlichen Laute.", "ENGLISH."
+cycletext "#me klimpert mit seinen Fingern auf einer zierlichen Laute.", "#me jingles with his fingers on a petite lute."
 cycletext "#me hohlt tief Luft und seufzt leise: 'H-hm! Tannenholz!'", "#me breathes deeply and sighs: 'Ahh, fir wood!'."
-cycletext "#me lächelt sanft und sein faltiges Gesicht wirkt dabei wie eine große Rosine.", "ENGLISH."
-cycletext "#me streicht mit der Hand über verschiedene hölzerne Dinge welche ihn umgeben.", "ENGLISH."
-cycletext "Rosen sind Rot, Veilchen sind Blau, ich mag den Himmel, und meine Frau. - Hab mein Holz, was braucht ein Halbling mehr? Darauf bin ich stolz.", "ENGLISH."
+cycletext "#me lächelt sanft und sein faltiges Gesicht wirkt dabei wie eine große Rosine.", "#me smiles softly while his wrinkled face appears like a big raisin."
+cycletext "#me streicht mit der Hand über verschiedene hölzerne Dinge welche ihn umgeben.", "#me runs with a hand over a few different wooden things which surround him."
+cycletext "Rosen sind Rot, Veilchen sind Blau, ich mag den Himmel, und meine Frau. - Hab mein Holz, was braucht ein Halbling mehr? Darauf bin ich stolz.", "Roses are red, violets are blue, i like the sky and my wife too. - I got my wood, what else does a halfling need? I'm proud of it."
 cycletext "#me verängt mit einem Lächeln die Augen und mustert seine Umgebung.", "#me blinks with one eye and inspects his surrounding."
 cycletext "#me lehnt sich zufrieden lächelnd zurück.", "#me leans back, smiling contently."
-cycletext "#me steckt seine Hand in die Tasche neben dem Stuhl und zieht ein Brötchen heraus. Dann beginnt er daran zu knabbern.", "ENGLISH."
+cycletext "#me steckt seine Hand in die Tasche neben dem Stuhl und zieht ein Brötchen heraus. Dann beginnt er daran zu knabbern.", "#me puts his hand into the bag near the chair, pulling out a bread roll and starts nibbling on it."

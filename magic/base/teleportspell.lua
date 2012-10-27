@@ -67,11 +67,11 @@ function DoTeleSpell(Caster, TargetPos, ltstate)
 
     local oldPos = base.common.CopyPosition( Caster.pos );
     Caster:warp( TargetPos );
-    if not equapos( TargetPos, Caster.pos ) then
+    if not ( TargetPos == Caster.pos ) then
         Caster:warp( oldPos );
     end
 
-    if not equapos( oldPos, Caster.pos ) then
+    if not ( oldPos == Caster.pos ) then
         magic.base.basics.performGFX( Teleport.TargetLocation.gfx, Caster.pos );
         magic.base.basics.performSFX( Teleport.TargetLocation.sfx, Caster.pos );
     end

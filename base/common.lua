@@ -134,7 +134,7 @@ function IsLookingAt(User, Location)
         return false;
     end;
 
-    if equapos(User.pos, Location) then
+    if User.pos == Location then
         return true;
     end
 
@@ -438,7 +438,8 @@ end;
 -- @return Index value of the second gem
 -- @return Strength of the second gem
 function GetBonusFromTool(toolItem)
-    local dataValue=toolItem.data;
+    local dataValue=0; --toolItem.data;
+		-- TODO get correct bonus
     if ((dataValue > 9) and (dataValue < 100)) then
         str1 = math.mod(dataValue, 10) + 1;
         dataValue = dataValue - str1 + 1;
@@ -1082,7 +1083,7 @@ end;
     @return float - phi
 ]]
 function GetPhi(StartPos, TargetPos)
-    if equapos(StartPos, TargetPos) then
+    if StartPos == TargetPos then
         return math.random()*2;
     end
     local dx = TargetPos.x - StartPos.x;

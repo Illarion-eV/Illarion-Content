@@ -136,7 +136,7 @@ function CreateCircle(GFXid,CenterPos,Radius)
 end
 
 function CalcNewPos(StartPosi,TargetPosi,MoveRange)
-    if not equapos(StartPosi,TargetPosi) then
+    if not (StartPosi == TargetPosi) then
         local XAbweich=StartPosi.x-TargetPosi.x;
         local YAbweich=StartPosi.y-TargetPosi.y;
         local GAbweich=math.sqrt(math.pow(XAbweich,2)+math.pow(YAbweich,2));

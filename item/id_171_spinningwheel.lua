@@ -1,4 +1,4 @@
--- spinning wheel ( 270 )
+-- spinning wheel ( 171 )
 
 -- 2x wool (170)  --> thread (50)
 -- 3x sibanac leaf (155) --> thread (50)
@@ -37,7 +37,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- additional tool item is needed
 	if (User:countItemAt("all",6)==0) then
 		base.common.InformNLS( User,
-		"Du brauchst eine Schere Garn herzustellen.", 
+		"Du brauchst eine Schere um Garn herzustellen.", 
 		"You need a pair of scissors for producing thread." );
 		return
 	end
@@ -98,15 +98,17 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	User:learn( threadproducing.LeadSkill, threadproducing.SavedWorkTime[User.id], 100, User:increaseAttrib(threadproducing.LeadAttribute,0) );
 	local itemId = 170; -- first check for wool
+	local eraseCount = 2;
 	if ( User:countItemAt("all",170)<2 ) then
 		itemId = 155; -- not enough wool, then there must be enough sibanac leaves
+		eraseCount = 3;
 		if ( User:countItemAt("all",155)<3 ) then
 			-- this should never happen ...
 			User:inform("[ERROR] Not enough wool and sibanac leaves. Please inform a developer.");
 			return;
 		end
 	end
-	User:eraseItem( itemId, 1 ); -- erase the item we're working on
+	User:eraseItem( itemId, eraseCount ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 50, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore

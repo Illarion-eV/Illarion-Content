@@ -17,7 +17,9 @@ VALUES (0, 106, 553, 0, 4, 'Torina Scibrim', 'npc.torina_scibrim', 1, 1, 0, 255,
 
 require("npc.base.basic")
 require("npc.base.condition.language")
+require("npc.base.condition.town")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.town")
 require("npc.base.talk")
 module("npc.torina_scibrim", package.seeall)
 
@@ -750,6 +752,24 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
 talkEntry:addResponse("Ihr seht dies also anders?");
 talkEntry:addResponse("Nun ja... so würde ich das nicht sagen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("be a citizen");
+talkEntry:addTrigger("join faction");
+talkEntry:addTrigger("join Cadomyr");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.town.town("=",1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("bürger werden");
+talkEntry:addTrigger("faction beitreten");
+talkEntry:addTrigger("cadomyr beitreten");
+talkEntry:addConsequence(npc.base.consequence.town.town("=",1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me blättert duch einen Stapel Pergamente.", "#me skims throug a pile of parchments.");

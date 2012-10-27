@@ -41,14 +41,15 @@ end
 potionsList = {};
 
 -- on reload, this function is called
--- setPotion(effect id, stock data, Herb1, Herb2, Herb3, Herb4, Herb5, Herb6, Herb7, Herb8)
+-- setPotion(effect id, stock data, gemdust ,Herb1, Herb2, Herb3, Herb4, Herb5, Herb6, Herb7, Herb8)
 -- every effect id is only used once!
 -- stock data is the concentration of the active substances put together in the following order: Adrazin, Illidrium, Caprazin, Hyperborelium, Echolon, Dracolin, Orcanol, Fenolin 
+-- gemdust is the id of the gemdust used
 -- Herb1...Herb8 are optional. If you use only x Herbs and x < 8 just leave the others out
 -- Example: setPotion(15, 95554553, 133, 15, 81)
 -- document properly, please
 function InitPotions()
-    setPotion(45, 55555555, 45, 775, 3443, 33);
+    setPotion(45, 55555555, 450, 775, 3443, 33);
 end;
 
 --- Set the effect of a potion
@@ -84,32 +85,14 @@ function getPotion(...)
 end;
 
 
-dataZList = { }
-plantList =     { 158,159,160,161,162,758,759,763,15,155,388,81,80,151,147,199,9001,133,134,135,136,137,138,140,141,142,9016,144,145,146,9014,148,9004,152,153,9005,9015,156,9013,9003,9006,9007,9002,9008,9009,9010,9011,9012}
-plantDataList = {   1,  2,  3,  4,  5,  6,  7,  8,10, 20, 30,40,50, 60, 70, 80,  81, 15, 16, 17, 18, 25, 26, 27, 28, 35,  36, 37, 38, 45,  46, 47,  48, 51, 52,  53,  54, 61,  62,  63,  64,  71,  72,  73,  82,  74,  83,  84}
-plantNames = {"a", "b","c","df","ww","rer","wf","jwe","wd","fe","je","pe","bj","qk","fqq","qg","qq","wh","öö","klk","rrg","fef","ilui","fgege","efc","jjhth","few","threg","he","rg","gr","rgr","grerg","rgerg","jzgheg","efe","ilztg","uwef","grq","rbw","gr","dwd","fwsd","urs","erh","wfw","wfki","htw","sdf"} 
-
-plantDataListById = {};
-for i,plant in pairs(plantList) do
-	plantDataListById[plant] = plantDataList[i];
-end
-
 --Qualitätsbezeichnungen
 qListDe={"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"};
 qListEn={"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"};
 
-bottleList = { 164,166,331 }
-bottleExchList = {166,329,165,330,59,327,328,167}
-
--- list with gemDust
-gemList = {450,449,446,452,447,448,451,234}
-
-newBottle = {}
-for i, gem in pairs(gemList) do
-  newBottle[gem] = bottleExchList[i]
-end
-
-
+--                stock,bluestone,ruby,emerald,blackstone,amethyst,topaz,diamant
+gemList        = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
+cauldronPotion = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017} 
+bottlePotion   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
 
 -- Liste der Wirkstoffnamen
 wirkstoff = {};
@@ -117,13 +100,13 @@ wirkung_de = {};
 wirkung_en = {};
 
 wirkstoff[1] = "Adrazin";
-wirkstoff[2] = "Echolon";
-wirkstoff[3] = "Orcanol";
-wirkstoff[4] = "Illidrium";
-wirkstoff[5] = "Hyperborelium";
-wirkstoff[6] = "Fenolin";
-wirkstoff[7] = "Caprazin";
-wirkstoff[8] = "Dracolin";
+wirkstoff[2] = "Illidrium";
+wirkstoff[3] = "Caprazin";
+wirkstoff[4] = "Hyperborlium";
+wirkstoff[5] = "Echolon";
+wirkstoff[6] = "Dracolin";
+wirkstoff[7] = "Orcanol";
+wirkstoff[8] = "Fenolin";
 
 wirkung_de[1] = "gesättigte Anreicherung von";
 wirkung_de[2] = "eine sehr ausgeprägte Menge";
@@ -288,33 +271,6 @@ function generateTasteMessage(Character,dataZList)
     base.common.InformNLS(Character,textDe,textEn);
 end
 
-function checkPotionSpam(User)
-	-- Check ob der Begrenzungseffekt da ist
-	foundEffect, myEffect = User.effects:find(331);
-	if not foundEffect then -- nicht da, also erstellen
-		myEffect=LongTimeEffect(331,144000);
-		User.effects:addEffect(myEffect);
-		myEffect:addValue("potioncount", 1);
-		return false;
-	else -- Effekt schon da, potioncount prüfen
-		found, count = myEffect:findValue("potioncount");
-		if(found) then -- increase potioncount
-			count = count + 1;
-		else -- looks like a bug, so simply set potioncount to 1
-			count = 1;
-		end
-		
-		if(count >= 3) then -- more than 3 potions in 4 hours? no!
-			return true;
-		end
-		
-		myEffect:addValue("potioncount", count);
-		
-		-- all is fine
-		return false;
-	end
-end
-
 function CheckIfGemDust(SourceItem)
 local retVal = nil;
 for i,checkId in pairs(gemList) do
@@ -325,6 +281,15 @@ for i,checkId in pairs(gemList) do
     end
 end	
 return retVal
+end
+
+function GetCauldronInfront(User)
+    local retVal = nil
+    Item = base.common.base.common.GetFrontItem(User)
+	if (Item.id >= 1008) and (Item.id <= 1018) then
+	    retVal = Item
+	end
+	return retVal
 end
 
 function CheckIfAlchemist(User,textDE,textEN)
@@ -340,24 +305,39 @@ function RemoveEssenceBrew(Item)
     for i=1,8 do
 	    Item:setData("essenceHerb"..i,"")  
 	end	
-    world:changeItem(Item)
 end
 
 function RemoveStock(Item)
     for i=1,8 do
 	    Item:setData(wirkstoff[i].."Concentration","")
 	end
-	world:changeItem(Item)
+end
+
+function StockFromTo(fromItem,toItem)
+    for i=1,8 do
+	    toItem:setData(wirkstoff[i].."Concentration",fromItem:getData(wirkstoff[i].."Concentration"))
+		fromItem:setData(wirkstoff[i].."Concentration","")
+	end	
 end
 
 function RemoveAll(Item)
     RemoveEssenceBrew(Item)
 	RemoveStock(Item)
-	cauldron:setData("potionEffectId","")
-	cauldron:setData("potionQuality","")
-	cauldron:setData("cauldronFilledWith","")
-	cauldron:setData("potionId","") -- cauldron.id = X 
-	world:changeItem(cauldron)
+	Item:setData("potionEffectId","")
+	Item:setData("potionQuality","")
+	Item:setData("cauldronFilledWith","")
+	Item:setData("bottleFilledWith","")
+end
+
+function EmptyBottle(User,Bottle)
+    if math.random(1,20) == 1 then
+	   User:eraseItem(SourceItem,1) -- bottle breaks
+	   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
+	else	
+		Bottle.id = 164
+	    Bottle.quality = 333
+		world:changeItem(SourceItem)
+	end
 end
 
 function CauldronDestruction(User,cauldron,effectId)
@@ -386,103 +366,59 @@ function CauldronDestruction(User,cauldron,effectId)
 	    end			
 	end
 	RemoveAll(cauldron)
+	cauldron.id = 1008
+	world:changeItem(cauldron)
 end
 
 function GetQuality(User)
 return 999
 end
+
+gemDustList  = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
+cauldronList = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017} 
+bottleList   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
+
+function GemDustBottleCauldron(gemdust, cauldron, bottle)
+
+    local myList
+	local myValue
+    if gemDust then
+	    myList = gemDustList
+		myValue = gemDust
+	elseif cauldron then
+	    myList = cauldronList
+		myValue = cauldron
+    elseif bottle then
+        myList = bottleList	
+		myValue = bottle
+    else 
+	    return 
+	end	
+	local reGemdust; local reCauldron; local reBottle
+	for i=1,#myList do
+	    if myList[i] == myValue then
+		    reGemdust = gemDustList[i]
+	        reCauldron = cauldronList[i]
+			reBottle = bottleList[i]
+	    end
+	end
+	return reGemdust, reCauldron, reBottle
+end
 ----------------------------------------------------
 -- combine of stock and essence brew to create a potion
 -- function is only called when item 331 is a stock or when a potion-bottle is an essence brew
-function CombineStockEssence( User, SourceItem, TargetItem, Counter, Param, ltstate )
-    local ourStock
-	local ourEssence
-	local potionId
-	local essenceHerbs
-	local potionEffectId
-	
-	if base.common.GetFrontItemID(User) == 1008 then
-		TargetItem = base.common.GetFrontItem( User ); -- cauldron
-		
-		if SourceItem.id == 331 then
-		    ourStock = SourceItem -- SourceItem is a stock, so it becomes our stock!
-		    ourEssence = TargetItem -- and the essence brew is in the cauldron (TargetItem)
-		    potionId = ourEssence:getData("potionId") -- essence brew in cauldron: we need to check the data
-		else -- not a stock bottle (but a potion bottle = essence brew)
-		    ourStock = TargetItem -- the stock is in the cauldron
-			ourEssence = SourceItem -- and the essence brew in the bottle
-		    potionId = ourEssence.id -- essence brew in bottle: we use the id of the SourceItem
+function CombineStockEssence( User, stock, essenceBrew)
+   
+    local cauldron = GetCauldronInfront(User)
+    if cauldron then
+        local parameters = {}
+		local stockConc = ""
+		for i=1,8 do 
+		    stockConc = stockConc..stock:getData(wirkstoff[1].."Concentration")
 		end
-        
-		essenceHerbs = ourEssence:getData("essenceHerbs")  
-	
-        if checkStringEssence == "" then -- when there was not even one herb in the essence brew
-		    if (potionId == 166) or (potionId == 59) then -- attribute pushers and healing potions do not need essenced hersb
-			    potionEffectId = ourStock:getData("stockData") -- the PotionEffectId is the same as the stock data
-			else 
-                potionEffectId = 0 -- effect id 0 means no effect			
-	        end
-		else
-            for i=1,#ListPotionStock[potionId] do
-                if ListPotionStock[potionId][i] == ourStock:getData("stockData") then
-	                if ListPotionEssence[potionId][i] == essenceHerbs then
-	                    potionEffectId = ListPotionEffectId[potionId][i] -- we have a stock and an essence brew which matchn so that's our effect id
-	                    break
-	                end
-                end
-            end
-        end
-        
-		if not potionEffectId then -- if the potion effect id hasn't been set yet, it has to be 0
-		    potionEffectId = 0 
-		end
+        parameters[1] = stockConc
 		
-		-- now we have to put everything together
-		TargetItem:setData("stockData","")
-		TargetItem:setData("potionId",""..potionId)
-		TargetItem:setData("potionEffectId",""..potionEffectId)
-		potionQuality = 999
-	    TargetItem:setData("potionQuality",""..potionQuality)
-	    world:changeItem(TargetItem)
-	    world:makeSound(13,TargetItem.pos)
-		world:gfx(53,TargetItem.pos)
-	end    
-end	
--------------------------------------------------------		
--- ListPotionStock[potion.id][x] and ListPotionEssence[potion.id][x] ->  ListPotionEffectId[potion.id][x]
--- in ListPotionStock: stockData
--- in ListPotionEssence: herbs the essence brew has to contain; must not be more herbs than 8! 
--- never the exact same combination of herbs twice in one essence brew list of the same potion kind!
--- in ListPotionEffectId: the id of the effect, obviously
-
-ListPotionStock = {}
-ListPotionEssence = {}		
-ListPotionEffectId = {}
--- red bottle:
-ListPotionStock[59] = {}
-ListPotionEssence[59] = {}		
-ListPotionEffectId[59] = {}
--- light blue bottle:
-ListPotionStock[165] = {}
-ListPotionEssence[165] = {}		
-ListPotionEffectId[165] = {}
--- pink bottle: 
-ListPotionStock[166] = {}
-ListPotionEssence[166] = {}		
-ListPotionEffectId[166] = {}
--- dark blue bottle:
-ListPotionStock[327] = {}
-ListPotionEssence[327] = {}		
-ListPotionEffectId[327] = {}
--- orange bottle:
-ListPotionStock[328] = {}
-ListPotionEssence[328] = {}		
-ListPotionEffectId[328] = {}
--- black bottle: 
-ListPotionStock[329] = {"65554555","75553555"}
-ListPotionEssence[329] = {"133"   ,"133 133"}		
-ListPotionEffectId[329] = {1     ,2}
--- white bottle:
-ListPotionStock[330] = {}
-ListPotionEssence[330] = {}		
-ListPotionEffectId[330] = {}
+	end
+   
+   
+end

@@ -2,19 +2,14 @@
 -- reworked to work with new client by Lillian
 
 require("base.common")
+require("base.lookat")
 require("quest.aquest28")    
 require("lte.tying_capturer") 
 module("item.id_2760_rope", package.seeall)      
 -- UPDATE common SET com_script='I_2760_seil.lua' WHERE com_itemid=2760;
 
-tyingQuality = {};
-tyingQuality[0] = {"Starkes", "Stabiles", "", "Fadenscheiniges", "Schwaches"};
-tyingQuality[1] = {"strong", "stable", "", "threadbare", "weak"};
--- index of limit adresses a quality string in field 0 or 1
-tyingQuality["limits"] = {15,10,5,2,0};
-
 function LookAtItem(User,Item)
-	return
+	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.CLOTH));
 end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
@@ -53,27 +48,27 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     end
     local dummy_1, task = quest.aquest28.split_questdata(User);
     
-	--if equapos(TargetItem.pos,position(-73,-108,0)) then
+	--if TargetItem.pos == position(-73,-108,0)) then
       --  User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
         --User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         --User:warp(position(-73,-108,-3));
-   -- elseif equapos(TargetItem.pos,position(-131,-123,0)) then
+   -- elseif (TargetItem.pos == position(-131,-123,0)) then
    --     User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
    --     User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
    --     User:warp(position(-131,-123,-3));
-	--elseif equapos(TargetItem.pos,position(787,801,0)) then
+	--elseif (TargetItem.pos == position(787,801,0)) then
     --    User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
     --    User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
     --    User:warp(position(797,791,-3));
-	if equapos(TargetItem.pos,position(528, 555, 0)) then
+	if (TargetItem.pos == position(528, 555, 0)) then
         User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         User:warp(position(518,559, -3));
-	elseif equapos(TargetItem.pos,position(367, 253, 0)) then
+	elseif (TargetItem.pos == position(367, 253, 0)) then
         User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         User:warp(position(292, 377, -6));
-    elseif ( equapos(TargetItem.pos,position(787,801,0)) and (task == 4 or true)) then
+    elseif ( (TargetItem.pos == position(787,801,0)) and (task == 4 or true)) then
         User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         local monster_list = world:getMonstersInRangeOf(position(799,794,-3),10); --check if already a monster spawned there
@@ -216,7 +211,7 @@ function UseRopeWithCharacter( User, SourceItem, Target, ltstate )
 		return;
 	end
 	-- check if target has moved
-	if TargetPosList and not equapos( TargetPosList[Target.id], Target.pos ) then
+	if TargetPosList and not ( TargetPosList[Target.id] == Target.pos ) then
 		base.common.InformNLS( User,
 			"Dein Gefangener sollte still halten, damit du ihn fesseln kannst.",
 			"Your captive should hold still so you can tie him up.");

@@ -1981,7 +1981,7 @@ function MissingTarget( Attacker, Defender )
     repeat
         dropPos = position( Defender.Char.pos.x + math.random( -maxOffset, maxOffset ), Defender.Char.pos.y + math.random( -maxOffset, maxOffset ), Defender.Char.pos.z );
         loop_protection = loop_protection - 1;
-    until( not equapos( Defender.Char.pos, dropPos ) and not equapos( Attacker.Char.pos, dropPos ) and base.common.IsLookingAt( Defender.Char, dropPos ) or loop_protection == 0 );
+    until( not ( Defender.Char.pos == dropPos ) and not ( Attacker.Char.pos == dropPos ) and base.common.IsLookingAt( Defender.Char, dropPos ) or loop_protection == 0 );
 
     if ( loop_protection == 0 ) then
         return false;

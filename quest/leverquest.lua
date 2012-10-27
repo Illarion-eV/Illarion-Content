@@ -29,7 +29,7 @@ function LeverQuest:getLeverHint(levPos)                -- get the corrsponding 
     myIndex=0;
     
     for i, lvPos in pairs(self.levPos) do
-        if equapos(lvPos,levPos) then
+        if (lvPos == levPos) then
             myIndex=i;                                  -- this is the index of the lever. Now find out what its place is in the sequence...
         end
     end

@@ -27,7 +27,7 @@ function LookAtItemIdent(User,Item)
 	if signCoo ~= nil then
 		if (signCoo[tablePosition] ~= nil) then
 			for i, signpos in pairs(signCoo[tablePosition]) do
-				if equapos(Item.pos,signpos) then
+				if (Item.pos == signpos) then
 					if (UserPer >= signPerception[tablePosition][i]) then
 						found = true;
 						world:itemInform(User,Item,base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name)));

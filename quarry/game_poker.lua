@@ -695,7 +695,7 @@ function newPokerTable(
         ------------------------------------------------------------------------------------------------
         -- CAUTION: any access to self.listPlayer[i] WILL crash this method if the player logged out! --
         ------------------------------------------------------------------------------------------------
-        if (originator.id == self.listPlayer[self.activePlayer].id) and equapos( originator.pos, self.listPosSeat[self.activePlayer] ) then
+        if (originator.id == self.listPlayer[self.activePlayer].id) and ( originator.pos == self.listPosSeat[self.activePlayer] ) then
             if (self.gameState == 1) then -- small blind
                 if string.find( message, "[Bb]lind" ) then
                     if bet( self.smallBlind ) then

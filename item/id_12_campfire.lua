@@ -1,5 +1,7 @@
 -- UPDATE common SET com_script='item.id_12_campfire' where com_itemid=12;
 
+-- logs (2560,543,544,3) --> potash (314)
+
 require("base.common")
 require("content.gathering")
 
@@ -68,24 +70,24 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	User:learn( potashproducing.LeadSkill, potashproducing.SavedWorkTime[User.id], 100, User:increaseAttrib(potashproducing.LeadAttribute,0) );
 	local woodList = {2560,543,544,3};
-    local woodID = 0;
-    for _,wood in pairs(woodList) do
-		if (User:countItemAt("all",wood)>0) then
-            woodID = wood;
-            break;
-        end
-    end
-    User:eraseItem( woodID, 1 ); -- erase the item we're working on
+	local woodID = 0;
+	for _,wood in pairs(woodList) do
+	if (User:countItemAt("all",wood)>0) then
+					woodID = wood;
+					break;
+			end
+	end
+	User:eraseItem( woodID, 1 ); -- erase the item we're working on
 	local amount = 3; -- set the amount of items that are produced
-	local notCreated = User:createItem( woodID, amount, 333, nil ); -- create the new produced items
+	local notCreated = User:createItem( 314, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( woodID, notCreated, User.pos, true, 333, nil );
+		world:createItemFromId( 314, notCreated, User.pos, true, 333, nil );
 		base.common.InformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		if ((User:countItemAt("all",2560) == 0) and (User:countItemAt("all",543) == 0) and
-            (User:countItemAt("all",544) == 0) and (User:countItemAt("all",3) == 0)) then   -- there are still items we can work on
+		if ((User:countItemAt("all",2560) > 0) or (User:countItemAt("all",543) > 0) or
+            (User:countItemAt("all",544) > 0) or (User:countItemAt("all",3) > 0)) then   -- there are still items we can work on
 			potashproducing.SavedWorkTime[User.id] = potashproducing:GenWorkTime(User,nil);
 			User:startAction( potashproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left

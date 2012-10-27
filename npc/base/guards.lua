@@ -201,7 +201,7 @@ function Approach(guard,char)
 end
 
 function CharacterNear(guard,enemy)
-	if not IsBusy(guard) and EnemyWp[guard.id] and equapos(enemy.pos,EnemyWp[guard.id].pos) then
+	if not IsBusy(guard) and EnemyWp[guard.id] and (enemy.pos == EnemyWp[guard.id].pos) then
 		Enemy[guard.id] = 0;
 		npc.base.patrol.AbortRoute(guard);
 	else

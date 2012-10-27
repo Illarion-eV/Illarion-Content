@@ -141,7 +141,7 @@ function CheckWalk()
         OldPos[thisNPC.id]=thisNPC.pos;
         return
     else
-        if equapos(OldPos[thisNPC.id],thisNPC.pos) then
+        if OldPos[thisNPC.id] == thisNPC.pos then
             step[thisNPC.id] = step[thisNPC.id] - 1;
             outloop = false;
             nextpos=GetNextPos(thisNPC.pos,step[thisNPC.id])

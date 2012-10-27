@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           ...with a little help of Estralis Seborian                       --
 --                                                                            --
--- Last parsing: September 09, 2012                       easyNPC Parser v1.2 --
+-- Last parsing: October 27, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -28,13 +28,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: Warsage, Water, God, Hero, Ice."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Chalzhek the Watersage. Keywords: Warsage, Water, God, Hero, Ice."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Chalzhek die Wassermagierrin. Schlüsselwörter: Kampfmagier, Wasser, Gott, Held, Eis."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -63,18 +63,18 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Willkommen in unserem Tempel.");
+talkEntry:addResponse("Großartiger Morgen, nicht wahr?");
+talkEntry:addResponse("Hey! Wie kann ich euch helfen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Welcome to our temple.");
 talkEntry:addResponse("Great morning isnt it?");
 talkEntry:addResponse("Hey! How may I help you?");
@@ -86,9 +86,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Willkommen in unserem Tempel.");
+talkEntry:addResponse("Großartiger Morgen, nicht wahr?");
+talkEntry:addResponse("Hey! Wie kann ich euch helfen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -108,18 +108,18 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Schönen Tag noch.");
+talkEntry:addResponse("Wenn du wieder etwas brauchst, ich werde hier sein.");
+talkEntry:addResponse("Bis bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addResponse("Have a good day.");
 talkEntry:addResponse("If you ever need something I will be here.");
 talkEntry:addResponse("I will see you later, ok.");
@@ -131,9 +131,9 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Schönen Tag noch.");
+talkEntry:addResponse("Wenn du wieder etwas brauchst, ich werde hier sein.");
+talkEntry:addResponse("Bis bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -152,9 +152,9 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Selbst in meinem hohen Alter kann ich die Energie um mich herum spüren.");
+talkEntry:addResponse("Ich bin wahrlich glücklich.");
+talkEntry:addResponse("Recht gelangweilt derzeit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -162,20 +162,21 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Chazhek");
-talkEntry:addResponse("Chal The Aquasage");
+talkEntry:addResponse("Chazhek.");
+talkEntry:addResponse("Chal The Aquasage.");
 talkEntry:addResponse("I am Chal of the Reed 13, former Hero and leader of Paltaka Village.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Chezhek.");
+talkEntry:addResponse("Chal der Wassermagier.");
+talkEntry:addResponse("Ich bin Chal, Mitglied der Schilf 13, ehemaliger Held und Anführer des Dorfes Paltaka.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -183,21 +184,19 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I am one of the seven Warsages.");
 talkEntry:addResponse("I am a Warsage and part time adventurer, yes even now.");
-talkEntry:addResponse("I am the Aquasage, A Warsage that uses aqua magic and the tagik fighting style, a most explosive combination if I do say so myself.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin einer der sieben Kampfmagier.");
+talkEntry:addResponse("Ich bin Kampfmagier und Teilzeitabenteurer, ja selbst gerade eben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("job");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
 talkEntry:addResponse("I am one of the seven Warsages.");
 talkEntry:addResponse("I am a Warsage and part time adventurer, yes even now.");
 talkEntry:addResponse("I am the Aquasage, A Warsage that uses aqua magic and the tagik fighting style, a most explosive combination if I do say so myself.");
@@ -206,41 +205,27 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin einer der sieben Kampfmagier.");
+talkEntry:addResponse("Ich bin Kampfmagier und Teilzeitabenteurer, ja selbst gerade eben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Warsage");
 talkEntry:addResponse("We are the most elite fighting force in Runewick and possibly all of Illarion.");
-talkEntry:addResponse("We are the weapons that are a deadly, I prefer the word explosive, balance between magic and fighting.");
 talkEntry:addResponse("We are the gaurdians of Runewick, order and justice.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Aqua");
-talkEntry:addResponse("I specialize in water and ice magic. I can do massive damage with steam too. You should have seen me in the battle of Arktch, Hahahahaha.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Water");
-talkEntry:addResponse("It's so versitle it can be used for anything.");
+talkEntry:addResponse("It's so versatile it can be used for anything.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ice");
 talkEntry:addResponse("Use this when you really want to make a point.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tagik");
-talkEntry:addResponse("A lizardman origionated fighting style where every hit is basically a kick to the face.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -257,65 +242,54 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER1");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Kampfmagier");
+talkEntry:addResponse("Wir sind die größte elite Kampfeinheit in Runewick, wahrscheinlich sogar in ganz Illarion.");
+talkEntry:addResponse("Wir sind die Wache von Runewick, die Ordnung und das Recht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER2");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Wasser");
+talkEntry:addResponse("Es ist so vielseitig, es kann für alles benutzt werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER3");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Eis");
+talkEntry:addResponse("Benutz Eis wenn du wirklich großen Wert darauf legst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER4");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Held");
+talkEntry:addResponse("In meiner Blütezeit rettet ich mein Dorf von dem gemeinen Banditen Keith. Ich hab es meinen vielen Lehrern zu verdanken die ich auf meinem Weg antraf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER5");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Himmelsmagier");
+talkEntry:addResponse("Einst forderte der Himmelsmagier mich und Fondura zu einem Kampf heraus. Er wollte das wir zusammen kämpfen obwohl er wusste, dass wenn Feuer- und Wassermagier zusammen kämpfen, sie stärker als jedes andere Paar sind. Unnötig zu erwähnen, dass wir ihn besiegt haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Magic was created by the Gods to communicate with the hand of man.");
+talkEntry:addTrigger("Götter");
+talkEntry:addResponse("Magic was created by the Gods");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Magie wurde von den Göttern erschaffen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addResponse("It sadly dissapeared.");
 talkEntry:addResponse("If only that island had a hero.");
 talkEntry:addResponse("I wish we could have saved it.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -324,9 +298,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Wenn diese Insel nur einen Helden gehabt hätte.");
+talkEntry:addResponse("Ich wünschte wir hätten es retten können.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -338,42 +311,36 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Chal Pal");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<Chal>");
-talkEntry:addTrigger("<Pal>");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Chal");
+talkEntry:addTrigger("Pal");
 talkEntry:addResponse("Yes, Here I am, Do you need me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Chal");
+talkEntry:addTrigger("Pal");
+talkEntry:addResponse("Ja, da bin ich, brauchst du mich?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("GERMAN.", "So bored. I'd rather be outside.");
-talkingNPC:addCycleText("GERMAN.", "I bet you can't swim faster than me.");
-talkingNPC:addCycleText("GERMAN.", "Yes, I am probably the deadliest grandma in existance.");
-talkingNPC:addCycleText("GERMAN.", "Aqua is my magic. Kicking people is my past time.");
-talkingNPC:addCycleText("GERMAN.", "hahahahahahahaha.");
-talkingNPC:addCycleText("GERMAN.", "I love to hear the lute players strum the tunes of my past hero days.");
-talkingNPC:addCycleText("GERMAN.", "Maybe someday I will give up this gig and become a full time adventurer.");
-talkingNPC:addCycleText("GERMAN.", "I'm so hungry. Meat, give me meat.");
-talkingNPC:addCycleText("GERMAN.", "Fondura needs to be more social. He gives orcs a bad name, hahahaha.");
-talkingNPC:addCycleText("GERMAN.", "I'm going to die soon. I'm just kidding, I'm not human, hahahaha");
+talkingNPC:addCycleText("So langwelig. Ich würde lieber drausen sein.", "So bored. I'd rather be outside.");
+talkingNPC:addCycleText("Ich wette du kannst nicht schneller als ich schwimmen.", "I bet you can't swim faster than me.");
+talkingNPC:addCycleText("Ja ich bin wahrscheinlich die tödlichste Großmutter die existiert.", "Yes, I am probably the deadliest grandma in existance.");
+talkingNPC:addCycleText("Hahahahahahahaha", "Hahahahahahahaha.");
+talkingNPC:addCycleText("Ich liebe es den Lautespielern zuzuhören wie sie die Melodien meiner vergangenen Heldentage spielen.", "I love to hear the lute players strum the tunes of my past hero days.");
+talkingNPC:addCycleText("Ich bin so hungrig. Fleisch, gib mir Fleisch!", "I'm so hungry. Meat, give me meat");
+talkingNPC:addCycleText("Fondura sollte sich sozialer verhalten. Sie bringt Orks in Verruf, hahahaha.", "Fondura needs to be more social. She gives orcs a bad name, hahahaha.");
+talkingNPC:addCycleText("Ich werde bald sterben. Ich mach nur Spaß. Ich bin kein Mensch, hahahaha.", "I'm going to die soon. I'm just kidding, I'm not human, hahahaha.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(4);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist <Chalzhek> der <Watersage>.", "This NPC is <Chalzhek> the <Watersage>.");
+mainNPC:setLookat("Dieser NPC ist Chalzhek der Wassermagier.", "This NPC is Chalzhek the Watersage.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);

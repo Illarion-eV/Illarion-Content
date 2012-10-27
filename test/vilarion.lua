@@ -35,6 +35,11 @@ function LookAtItem(player, item)
 end
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
+    if (User.lastSpokenText == "scriptvar") then
+        ScriptVars:set("var_test", 42)
+        ScriptVars:save()
+    end
+    
     if (User.lastSpokenText == "random") then
         User:inform("uniform: " .. Random.uniform())
         User:inform("d6: " .. Random.uniform(1, 6))

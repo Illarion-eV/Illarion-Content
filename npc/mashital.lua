@@ -2,18 +2,18 @@
 -- NPC Name: Mashital                                                Runewick --
 -- NPC Job:  Windsage                                                         --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  0, 0, 0                --
+-- NPC Race: elf                        NPC Position:  794, 820, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Regallo                                                          --
 --           ...with a little help of Estralis Seborian                       --
 --                                                                            --
--- Last parsing: October 23, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 25, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 0, 0, 0, 4, 'Mashital', 'npc.mashital', 1, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (3, 794, 820, 0, 4, 'Mashital', 'npc.mashital', 1, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -224,7 +224,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Warsage");
 talkEntry:addResponse("We are the best magic useing fighters in the land.");
 talkEntry:addResponse("We answer only to Archmage Morgan.");
-talkEntry:addResponse("If you wish to join talk to Apple.");
+talkEntry:addResponse("If you wish to join talk to Lerghanis .");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -253,7 +253,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Naginata");
 talkEntry:addResponse("Its kind of like a spear with a curved blade.");
-talkEntry:addResponse("None of the other seven use it. Apple jokes about having lost his. I don't think it a joke.");
+talkEntry:addResponse("None of the other seven use it. Lerghanis  jokes about having lost his. I don't think it a joke.");
 talkEntry:addResponse("A beautiful weapon for killing things at a safe distance.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

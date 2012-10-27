@@ -85,19 +85,19 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		User:talkLanguage( Character.say, Player.english, "#me starts to cut stones."); 
 		-- save the item we're working on
 		if ( User:countItemAt("all",735) > 0 ) then
-			WorkOnStone = 735; -- if there are raw stones, we work on those
+			WorkOnStone[User.id] = 735; -- if there are raw stones, we work on those
 		else
-			WorkOnStone = 733; -- no raw stones? Then there must be stone blocks
+			WorkOnStone[User.id] = 733; -- no raw stones? Then there must be stone blocks
 		end
 		return
 	end
 
 	-- since we're here, we're working
 	-- But do we still have the stone type we're really working on?
-	if ( User:countItemAt("all",WorkOnStone) == 0 ) then
+	if ( User:countItemAt("all",WorkOnStone[User.id]) == 0 ) then
 		base.common.InformNLS( User, 
-		"Du hast keine " .. Stones[WorkOnStone].nameDE .. " mehr.", 
-		"You have no " .. Stones[WorkOnStone].nameEN .. " anymore." );
+		"Du hast keine " .. Stones[WorkOnStone[User.id]].nameDE .. " mehr.", 
+		"You have no " .. Stones[WorkOnStone[User.id]].nameEN .. " anymore." );
 		return;
 	end
 
@@ -106,21 +106,21 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	User:learn( stonecutting.LeadSkill, stonecutting.SavedWorkTime[User.id], 100, User:increaseAttrib(stonecutting.LeadAttribute,0) );
-	User:eraseItem( WorkOnStone, 1 ); -- erase the item we're working on
-	local notCreated = User:createItem( WorkOnStone, Stones[WorkOnStone].amount, 333, nil ); -- create the new produced items
+	User:eraseItem( WorkOnStone[User.id], 1 ); -- erase the item we're working on
+	local notCreated = User:createItem( Stones[WorkOnStone[User.id]].productId, Stones[WorkOnStone[User.id]].amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( WorkOnStone, notCreated, User.pos, true, 333, nil );
+		world:createItemFromId( Stones[WorkOnStone[User.id]].productId, notCreated, User.pos, true, 333, nil );
 		base.common.InformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		if (User:countItemAt("all",WorkOnStone)>0) then  -- there are still items we can work on
+		if (User:countItemAt("all",WorkOnStone[User.id])>0) then  -- there are still items we can work on
 			stonecutting.SavedWorkTime[User.id] = stonecutting:GenWorkTime(User,SourceItem);
 			User:startAction( stonecutting.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
 			base.common.InformNLS( User, 
-			"Du hast keine " .. Stones[WorkOnStone].nameDE .. " mehr.", 
-			"You have no " .. Stones[WorkOnStone].nameEN .. " anymore." );
+			"Du hast keine " .. Stones[WorkOnStone[User.id]].nameDE .. " mehr.", 
+			"You have no " .. Stones[WorkOnStone[User.id]].nameEN .. " anymore." );
 		end
 	end
 
