@@ -28,7 +28,7 @@ function InitGathering()
 		grainharvesting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = Character.farming, FastActionFactor = 0.5}; -- id_271_scythe
 		threadproducing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = Character.tailoring}; -- id_171_spinningwheel
 		oilsqueezing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = Character.farming}; -- id_44_squeezer
-		doughproducing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "baking", LeadSkillGroup = 2}; -- id_119_bakingoven
+		doughproducing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "cookingAndBaking", LeadSkillGroup = 2}; -- id_119_bakingoven
 		
 		-- TODO
         -- id_52_filledbucket ("peasantry")
