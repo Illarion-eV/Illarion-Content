@@ -141,6 +141,28 @@ function getMemberShipByName(player)
 	return getTownNameByID(player:getQuestProgress(199));
 end
 
+function informPlayerAboutStatus(player)
+	NPCList = world:getNPCSInRangeOf(originator.pos, 3);
+	for i = 1, #(NPCList) do
+		for j=1, #(notaryNames) do
+			if NPCList[i].name == notaryNames[j] then
+				thisNPC = NPCList[i]
+			end
+		end
+	end
+
+	local Faction = getFaction(player)
+	local townMember = getMemberShipByName(player)
+	local rankName = townRanks[Faction.tid][Faction.rankTown]
+	local rankpoints = getRankpoints(player)
+	local missingPoints = (math.floor(rankpoints/100)+1)*100-rankpoints --calculates the missing points to advance a rank
+
+	local gText = "Ihr seid Mitglied des Reiches "..townMember..". Dort habt ihr den Rang "..rankName.gRank.." und besitzt "..rankpoints.." Rangpunkte. Ihr benötigt noch "..missingPoints.." Rangpunkte um einen Rang aufzusteigen."
+	local eText = "You are member of the realm "..townMember..". You have the rank "..rankName.eRank.." and possess "..rankpoints.." rankpoints. You still need "..missingPoints.." rankpoints to advance a rank."
+	outText=base.common.GetNLS(originator,gText,eText);
+    thisNPC:talk(Character.say, outText);
+end
+
 --[[
     getFaction
 	Looks up to which Faction a Character belongs and checks also his rank
