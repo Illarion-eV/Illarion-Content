@@ -9,6 +9,8 @@ function(self, mode, value)
     self["value"], self["valuetype"] = npc.base.talk._set_value(value);
     if (mode == "=") then
         self["perform"] = _town_helper_set;
+	elseif (mode == "?") then
+		self["perform"] = _town_helper_status;
     else
         -- unkonwn comparator
     end;
@@ -18,4 +20,8 @@ function _town_helper_set(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);	
 	local factionValues = base.factions.get_Faction(player);
 	base.factions.makeCharMemberOfTown(player,factionValues,1, value);
+end;
+
+function _town_helper_status(self, npcChar, player)
+	base.factions.informPlayerAboutStatus(npcChar, player)
 end;
