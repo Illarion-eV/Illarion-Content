@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Zaida"
@@ -69,24 +69,24 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Anwärterin Zaida. Um mehr über sie zu erfahren, grüße sie zunächst.")
 
 -- General speech
-queststatus(76) = 0, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> inform("[New quest] Runewick's Gossiper"), queststatus(76) = 1, "#me nods her head respectfully: 'Be greeted, traveler. Should you wish to join my company, you must first bring me a glass filled with wine. Then, if it still pleases you, we may discuss.'"
+queststatus(76) = 0, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> inform("[New quest] Runewick's Gossiper"), "#me nods her head respectfully: 'Be greeted, traveler. Should you wish to join my company, you must first bring me a glass filled with wine. Then, if it still pleases you, we may discuss.'", queststatus(76) = 1
 queststatus(76) = 1, item(2057, all) < 1, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me points at the innkeeper. 'Bring me a glass of wine, and I answer your questions. Should be simple enough, I presume.'"
 queststatus(76) = 2, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "#me nods respectfully: 'Greetings. Now that you have fulfilled my request, you may disturb me with your presence and bother me with your questions.'"
-queststatus(76) = 0, english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[New quest] Runewick's Gossiper"), queststatus(76) = 1, "#me's lips form a somewhat condescending smile. 'Greetings, traveler. Should you wish to ask me something, you must first bring me a glass full of wine.'"
+queststatus(76) = 0, english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[New quest] Runewick's Gossiper"), "#me's lips form a somewhat condescending smile. 'Greetings, traveler. Should you wish to ask me something, you must first bring me a glass full of wine.'", queststatus(76) = 1
 queststatus(76) = 1, item(2057, all) < 1, english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me points at the innkeeper. 'Bring me a glass of wine, and I answer your questions. Should be simple enough, I presume.'"
 queststatus(76) = 2, english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me nods once. 'Very well, now that you have done your part, I presume that I must do mine as well...'"
-queststatus(76) = 0, "How are you", "How feel", "How do you do" -> inform("[New quest] Runewick's Gossiper"), queststatus(76) = 1, "#me frowns and brushes over the front of her apprentice's robe. 'I feel thirsty. Until I have a glas full of wine, I will not be much of assistance for you.'"
+queststatus(76) = 0, "How are you", "How feel", "How do you do" -> inform("[New quest] Runewick's Gossiper"), "#me frowns and brushes over the front of her apprentice's robe. 'I feel thirsty. Until I have a glas full of wine, I will not be much of assistance for you.'", queststatus(76) = 1
 queststatus(76) = 1, item(2057, all) < 1, "How are you", "How feel", "How do you do" -> "#me points at the innkeeper. 'Bring me a glass of wine, and I answer your questions. Should be simple enough, I presume.'"
 queststatus(76) = 2, "How are you", "How feel", "How do you do" -> "I feel reinvigorated, thank you for asking."
 "Farewell", "Bye", "Fare well", "See you" -> "Until next time, traveler!"
 english, "Ciao", "Adieu", "Au revoir" -> "Farewell, traveler!"
-queststatus(76) = 0, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> inform("[Neues Quest] Die Schwätzerin von Runewick"), queststatus(76) = 1, "#me nickt respektvoll mit dem Kopf: 'Seid gegrüßt, Reisender. Wenn ihr meine Gesellschaft genießen wollt, so bringt mir doch ein Glas Wein zunächst. Dann, wenn ihr es noch wünscht, können wir diskutieren.'"
+queststatus(76) = 0, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> inform("[Neues Quest] Die Schwätzerin von Runewick"), "#me nickt respektvoll mit dem Kopf: 'Seid gegrüßt, Reisender. Wenn ihr meine Gesellschaft genießen wollt, so bringt mir doch ein Glas Wein zunächst. Dann, wenn ihr es noch wünscht, können wir diskutieren.'", queststatus(76) = 1
 queststatus(76) = 1, item(2057, all) < 1, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me deutet auf den Wirt. 'Bringt mir ein Glas Wein und ich werde eure Fragen beantworten. Sollte nicht allzu schwer sein, möchte man meinen.'"
 queststatus(76) = 2, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "#me nickt respektvoll: 'Seid gegrüßt. Nun, da ihr meiner Bitte entsprochen habt, könnt ihr mich mit eurer Anwesenheit belästigen und mich mit euren Fragen nerven.'"
-queststatus(76) = 0, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Neues Quest] Die Schwätzerin von Runewick"), queststatus(76) = 1, "#me lächelt herablassend. 'Seid gegrüßt, Reisender. Solltet ihr mich etwas fragen wollen, so müsst ihr mir zunächst ein Glas Wein bringen.'"
+queststatus(76) = 0, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Neues Quest] Die Schwätzerin von Runewick"), "#me lächelt herablassend. 'Seid gegrüßt, Reisender. Solltet ihr mich etwas fragen wollen, so müsst ihr mir zunächst ein Glas Wein bringen.'", queststatus(76) = 1
 queststatus(76) = 1, item(2057, all) < 1, "Hiho", "Hallo", "Hey", "Greeb" -> "#me deutet auf den Wirt. 'Bringt mir ein Glas Wein und ich werde eure Fragen beantworten. Sollte nicht allzu schwer sein, möchte man meinen.'"
 queststatus(76) = 2, "Hiho", "Hallo", "Hey", "Greeb" -> "#me nickt knapp. 'Nun denn, da ihr euren Teil der Abmachung eingehalten habt, ist es nun an mir, meinen Teil zu leisten.'"
-queststatus(76) = 0, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> inform("[Neues Quest] Die Schwätzerin von Runewick"), queststatus(76) = 1, "#me blickt missbilligend drein und streicht über ihre Anwärterinnenrobe. 'Ich bin durstig. Solange ich kein Glas voll Wein habe, kann ich euch nicht wirklich beistehen."
+queststatus(76) = 0, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> inform("[Neues Quest] Die Schwätzerin von Runewick"), "#me blickt missbilligend drein und streicht über ihre Anwärterinnenrobe. 'Ich bin durstig. Solange ich kein Glas voll Wein habe, kann ich euch nicht wirklich beistehen.", queststatus(76) = 1
 queststatus(76) = 1, item(2057, all) < 1, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "#me deutet auf den Wirt. 'Bringt mir ein Glas Wein und ich werde eure Fragen beantworten. Sollte nicht allzu schwer sein, möchte man meinen.'"
 queststatus(76) = 2, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich fühle mich wie neu geboren, danke der Nachfrage."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Bis zum nächsten mal, Reisender."
@@ -95,24 +95,24 @@ queststatus(76) = 2, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich f�
 "your name", "who are you", "who art thou" -> "Mein Name ist Zaida. Eines Tages werde ich eine ehrenhafte Magierin sein, jetzt bin ich aber erstmal durstig."
 
 -- First part, the gossiper is thirsty
-queststatus(76) = 0, english, "quest", "mission" -> inform("[New quest] Runewick's Gossiper"), queststatus(76) = 1, "#me smiles in a slightly condescending way. 'A task? I give you a most demanding one; Fetch me a glass of wine and as a reward for your quest, I shall answer your questions.'"
+queststatus(76) = 0, english, "quest", "mission" -> inform("[New quest] Runewick's Gossiper"), "#me smiles in a slightly condescending way. 'A task? I give you a most demanding one; Fetch me a glass of wine and as a reward for your quest, I shall answer your questions.'", queststatus(76) = 1
 queststatus(76) = 2, english, "quest", "mission" -> "Now it is your turn to ask what you wish to know, traveler. I know all about the town."
 queststatus(76) = 1, item(2057, all) < 1, english, "quest", "mission" -> "#me points at the innkeeper. 'Bring me a glass of wine, and I answer your questions. Should be simple enough, I presume.'"
-queststatus(76) = 0, "task", "adventure", "question" -> inform("[New quest] Runewick's Gossiper"), queststatus(76) = 1, "#me smiles in a slightly condescending way. 'A task? I give you a most demanding one; Fetch me a glass of wine and as a reward for your quest, I shall answer your questions.'"
+queststatus(76) = 0, "task", "adventure", "question" -> inform("[New quest] Runewick's Gossiper"), "#me smiles in a slightly condescending way. 'A task? I give you a most demanding one; Fetch me a glass of wine and as a reward for your quest, I shall answer your questions.'", queststatus(76) = 1
 queststatus(76) = 2, "task", "adventure", "question" -> "Now it is your turn to ask what you wish to know, traveler. I know all about the town."
 queststatus(76) = 1, item(2057, all) < 1, "task", "what", "question" -> "#me points at the innkeeper. 'Bring me a glass of wine, and I answer your questions. Should be simple enough, I presume.'"
-queststatus(76) = 0, "quest", "mission" -> inform("[Neues Quest] Die Schwätzerin von Runewick"), queststatus(76) = 1, "#me lächelt etwas herablassend. 'Eine Aufgabe? Ich gebe euch die schwerste von allen; Bringt mir ein Glas Wein und als Belohnung für eure Mühen werde ich eure Fragen beantworten.'"
+queststatus(76) = 0, "quest", "mission" -> inform("[Neues Quest] Die Schwätzerin von Runewick"), "#me lächelt etwas herablassend. 'Eine Aufgabe? Ich gebe euch die schwerste von allen; Bringt mir ein Glas Wein und als Belohnung für eure Mühen werde ich eure Fragen beantworten.'", queststatus(76) = 1
 queststatus(76) = 2, "quest", "mission" -> "Nun ist es an euch, die Dinge zu erfragen, die ihr wissen wollt. Denn ich kenne mich wahrhaftig gut in der Stadt aus."
 queststatus(76) = 1, item(2057, all) < 1, "quest", "mission" -> "#me deutet auf den Wirt. 'Bringt mir ein Glas Wein und ich werde eure Fragen beantworten. Sollte nicht allzu schwer sein, möchte man meinen.'"
-queststatus(76) = 0, "Aufgabe", "Abenteuer", "Frage" -> inform("[Neues Quest] Die Schwätzerin von Runewick"), queststatus(76) = 1, "#me lächelt etwas herablassend. 'Eine Aufgabe? Ich gebe euch die schwerste von allen; Bringt mir ein Glas Wein und als Belohnung für eure Mühen werde ich eure Fragen beantworten.'"
+queststatus(76) = 0, "Aufgabe", "Abenteuer", "Frage" -> inform("[Neues Quest] Die Schwätzerin von Runewick"), "#me lächelt etwas herablassend. 'Eine Aufgabe? Ich gebe euch die schwerste von allen; Bringt mir ein Glas Wein und als Belohnung für eure Mühen werde ich eure Fragen beantworten.'", queststatus(76) = 1
 queststatus(76) = 2, "Aufgabe", "Abenteuer", "Frage" -> "Nun ist es an euch, die Dinge zu erfragen, die ihr wissen wollt. Denn ich kenne mich wahrhaftig gut in der Stadt aus."
 queststatus(76) = 1, item(2057, all) < 1, "Aufgabe", "Abenteuer", "Frage" -> "#me deutet auf den Wirt. 'Bringt mir ein Glas Wein und ich werde eure Fragen beantworten. Sollte nicht allzu schwer sein, möchte man meinen.'"
 
 -- bringing the wine
-queststatus(76) = 1, item(2057, all) > 0, english, town = Runewick, ".+" -> inform("[Quest solved] Zaida will now answer your questions. You advance in archmage Elvaine Morgan's favour."), deleteItem(2057, 1), queststatus(76) = 2, rankpoints(Runewick) + 20, "#me takes the glass and smiles: 'Thank you very much. Now that you have given me the wine, I can answer your questions... be they about the town, our archmage, Runewick or our neighbours - whom the gods should bless with pox.'"
-queststatus(76) = 1, item(2057, all) > 0, english, ".+" -> inform("[Quest solved] Zaida will now answer your questions."), deleteItem(2057, 1), queststatus(76) = 2, "#me takes the glass and smiles: 'Thank you very much. Now that you have given me the wine, I can answer your questions.. be they about the town, our lady, runewick or our neighbours - whom the gods should bless with pox.'"
-queststatus(76) = 1, item(2057, all) > 0, town = Runewick, ".+" -> inform("[Quest solved] Zaida wird nun deine Fragen beantworten. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), deleteItem(2057, 1), queststatus(76) = 2, rankpoints(Runewick) + 20, "#me nimmt das Glas und lächelt: 'Vielen, vielen Dank. Nun da ihr mir Wein gebracht habt, kann ich eure Fragen beantworten, sei es über die Stadt, den Erzmagier, Runewick oder unsere Nachbarn - denen die Götter die Pest schicken mögen.'"
-queststatus(76) = 1, item(2057, all) > 0, ".+" -> inform("[Quest solved] Zaida wird nun deine Fragen beantworten."), deleteItem(2057, 1), queststatus(76) = 2, "#me nimmt das Glas und lächelt: 'Vielen, vielen Dank. Nun da ihr mir Wein gebracht habt, kann ich eure Fragen beantworten, sei es über die Stadt, den Erzmagier, Runewick oder unsere Nachbarn - denen die Götter die Pest schicken mögen.'"
+queststatus(76) = 1, item(2057, all) > 0, english, town = Runewick, ".+" -> inform("[Quest solved] Zaida will now answer your questions. You advance in archmage Elvaine Morgan's favour."), "#me takes the glass and smiles: 'Thank you very much. Now that you have given me the wine, I can answer your questions... be they about the town, our archmage, Runewick or our neighbours - whom the gods should bless with pox.'", deleteItem(2057, 1), queststatus(76) = 2, rankpoints(Runewick) + 20
+queststatus(76) = 1, item(2057, all) > 0, english, ".+" -> inform("[Quest solved] Zaida will now answer your questions."), "#me takes the glass and smiles: 'Thank you very much. Now that you have given me the wine, I can answer your questions.. be they about the town, our lady, runewick or our neighbours - whom the gods should bless with pox.'", deleteItem(2057, 1), queststatus(76) = 2
+queststatus(76) = 1, item(2057, all) > 0, town = Runewick, ".+" -> inform("[Quest solved] Zaida wird nun deine Fragen beantworten. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "#me nimmt das Glas und lächelt: 'Vielen, vielen Dank. Nun da ihr mir Wein gebracht habt, kann ich eure Fragen beantworten, sei es über die Stadt, den Erzmagier, Runewick oder unsere Nachbarn - denen die Götter die Pest schicken mögen.'", deleteItem(2057, 1), queststatus(76) = 2, rankpoints(Runewick) + 20
+queststatus(76) = 1, item(2057, all) > 0, ".+" -> inform("[Quest solved] Zaida wird nun deine Fragen beantworten."), "#me nimmt das Glas und lächelt: 'Vielen, vielen Dank. Nun da ihr mir Wein gebracht habt, kann ich eure Fragen beantworten, sei es über die Stadt, den Erzmagier, Runewick oder unsere Nachbarn - denen die Götter die Pest schicken mögen.'", deleteItem(2057, 1), queststatus(76) = 2
 queststatus(76) = 1, item(2057, all) < 1, english, ".+" -> "Where is my wine?"
 queststatus(76) = 1, item(2057, all) < 1, ".+" -> "Wo bleibt mein Wein?"
 
@@ -183,7 +183,7 @@ queststatus(76) = 2, english, "Eldan" -> "Some say Eldan is Elara's father. They
 queststatus(76) = 2, "Eldan" -> "Manche sagen, Eldan sei Elaras Vater. Aber das meinen sie metaphorisch, nicht wörtlich."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> trade, "I do notsorry."
+"what sell", "what buy", "list wares", "price of" -> "I do notsorry.", trade
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler."
 "tell something" -> "The wine is marvellous, isn't it?"
 "erzähl was", "erzähl etwas" -> "Der Wein hier ist wunderbar, nicht wahr?"

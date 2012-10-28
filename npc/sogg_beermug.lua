@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 30, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -53,10 +53,6 @@ talkEntry:addResponse("Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba di
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can't afford that!");
-tradingNPC:addDialogClosedMsg("Vielen Dank, komm bald wieder!", "Thank you, come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Farebaaaa...!", "Farebaaaa...!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -730,10 +726,6 @@ talkEntry:addResponse("Hehe! So ist's.");
 talkEntry:addResponse("Heut empfehl isch... Bohnenschnaps!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can't afford that!");
-tradingNPC:addDialogClosedMsg("Vielen Dank, komm bald wieder!", "Thank you, come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Farebaaaa...!", "Farebaaaa...!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("#me schlägt ein Fass Bier an: 'O-zopft is!'", "#me taps another barrel with beer: 'O-zopft is!'");
 talkingNPC:addCycleText("#me nimmt einen kräftigen Schluck aus seinem Krug.", "#me takes a swig out of his mug.");
 talkingNPC:addCycleText("Booohnenschnäps!! Isch des Beschte!", "Beans Booooze!! Tha besht booze!");
@@ -772,10 +764,6 @@ mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.")
 mainNPC:setEquipment(3, 811);
 mainNPC:setEquipment(9, 821);
 mainNPC:setEquipment(10, 369);
-tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can't afford that!");
-tradingNPC:addDialogClosedMsg("Vielen Dank, komm bald wieder!", "Thank you, come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Farebaaaa...!", "Farebaaaa...!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

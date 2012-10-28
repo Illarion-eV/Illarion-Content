@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   ?? + Miriam                                                      --
 --                                                                            --
--- Last parsing: October 16, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -34,10 +34,6 @@ function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
-tradingNPC:addNotEnoughMoneyMsg("Ihr habt nicht genug Geld.", "You don't have enought Money.");
-tradingNPC:addDialogClosedMsg("Danke euch.", "Thank you.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal.", "Hope to see you again!");
-tradingNPC:addWrongItemMsg("Oh, Das kaufe ixch nicht. Tut mir leid.", "Oh, I don't buy that. Sorry.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -906,10 +902,6 @@ talkEntry:addTrigger(".*");
 talkEntry:addResponse("Willkommen in Cadomyr. Möchtet Ihr hier Bürger werden?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Ihr habt nicht genug Geld.", "You don't have enought Money.");
-tradingNPC:addDialogClosedMsg("Danke euch.", "Thank you.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal.", "Hope to see you again!");
-tradingNPC:addWrongItemMsg("Oh, Das kaufe ixch nicht. Tut mir leid.", "Oh, I don't buy that. Sorry.");
 talkingNPC:addCycleText("#me unterzeichnet ein Dokument.", "#me signs a document.");
 talkingNPC:addCycleText("#me befestigt ein Siegel an einem Brief.", "#me puts a seal under a letter.");
 talkingNPC:addCycleText("#me lächelt", "#me smilies");
@@ -939,10 +931,6 @@ mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 34);
 mainNPC:setEquipment(10, 45);
-tradingNPC:addNotEnoughMoneyMsg("Ihr habt nicht genug Geld.", "You don't have enought Money.");
-tradingNPC:addDialogClosedMsg("Danke euch.", "Thank you.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal.", "Hope to see you again!");
-tradingNPC:addWrongItemMsg("Oh, Das kaufe ixch nicht. Tut mir leid.", "Oh, I don't buy that. Sorry.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

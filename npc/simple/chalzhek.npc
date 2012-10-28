@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           ...with a little help of Estralis Seborian                       --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Chalzhek"
@@ -64,11 +64,11 @@ itemShoes = 53
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome to our temple.", "Great morning isnt it?", "Hey! How may I help you?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen in unserem Tempel.", "Großartiger Morgen, nicht wahr?", "Hey! Wie kann ich euch helfen?"
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Welcome to our temple.", "Great morning isnt it?", "Hey! How may I help you?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Welcome to our temple.", "Great morning isnt it?", "Hey! How may I help you?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Willkommen in unserem Tempel.", "Großartiger Morgen, nicht wahr?", "Hey! Wie kann ich euch helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Have a good day.", "If you ever need something I will be here.", "I will see you later, ok."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Schönen Tag noch.", "Wenn du wieder etwas brauchst, ich werde hier sein.", "Bis bald."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Have a good day.", "If you ever need something I will be here.", "I will see you later, ok."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a good day.", "If you ever need something I will be here.", "I will see you later, ok."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Schönen Tag noch.", "Wenn du wieder etwas brauchst, ich werde hier sein.", "Bis bald."
 "How are you", "How feel", "How do you do" -> "Even in my old age. I can feel energy all around me. I feel Great.", "I truly am happy.", "Very bored at the moment."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Selbst in meinem hohen Alter kann ich die Energie um mich herum spüren.", "Ich bin wahrlich glücklich.", "Recht gelangweilt derzeit."
@@ -86,7 +86,7 @@ itemShoes = 53
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am one of the seven Warsages.", "I am a Warsage and part time adventurer, yes even now."
 "beruf" -> "Ich bin einer der sieben Kampfmagier.", "Ich bin Kampfmagier und Teilzeitabenteurer, ja selbst gerade eben."
-"job", english -> "I am one of the seven Warsages.", "I am a Warsage and part time adventurer, yes even now.", "I am the Aquasage, A Warsage that uses aqua magic and the tagik fighting style, a most explosive combination if I do say so myself."
+english, "job" -> "I am one of the seven Warsages.", "I am a Warsage and part time adventurer, yes even now.", "I am the Aquasage, A Warsage that uses aqua magic and the tagik fighting style, a most explosive combination if I do say so myself."
 "job" -> "Ich bin einer der sieben Kampfmagier.", "Ich bin Kampfmagier und Teilzeitabenteurer, ja selbst gerade eben."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
@@ -106,13 +106,13 @@ itemShoes = 53
 "Gott", "Götter" -> "Magie wurde von den Göttern erschaffen."
 
 -- Optional: Gobaith
-"Gobaith", "Gobiath", english -> "If only that island had a hero.", "I wish we could have saved it."
+english, "Gobaith", "Gobiath" -> "If only that island had a hero.", "I wish we could have saved it."
 "Gobaith", "Gobiath" -> "Wenn diese Insel nur einen Helden gehabt hätte.", "Ich wünschte wir hätten es retten können."
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Chal Pal"
 "mein Name" -> "Chal Pal"
-"Chal", "Pal", english -> "Yes, Here I am, Do you need me?"
+english, "Chal", "Pal" -> "Yes, Here I am, Do you need me?"
 "Chal", "Pal" -> "Ja, da bin ich, brauchst du mich?"
 
 ------------------------------------------------------------------------------AC

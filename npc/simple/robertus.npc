@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 28, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Robertus"
@@ -40,6 +40,19 @@ itemHands = 48
 itemTrousers = 2112
 itemShoes = 53
 
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 24, 26, 23, 737, 734, 736, 2588, 733, 735, 1266
+buyPrimaryItems = 24, 26
+buySecondaryItems = 23, 737, 734, 736, 2588, 733, 735, 1266
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
@@ -58,16 +71,8 @@ itemShoes = 53
 -- 5% Bricks: 736, 2588
 -- 5% Stones: 733, 735, 1266
 -- 10% Clay: 26
-
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I trade with building materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.", "Bricks, stone blocks, marble... Iall the workers need.", "I can sell you the tools you need to serve the queen. On, on!"
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.", "Ziegelsteine, Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.", "Ich kann euch die Werkzeuge verkaufen, die ihr braucht, um Königin Rosaline zu dienen. Los, los!"
-sellItems =  24, 26, 23, 737, 734, 736, 2588, 733, 735, 1266
-buyPrimaryItems = 24, 26
-buySecondaryItems = 23, 737, 734, 736, 2588, 733, 735, 1266
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I trade with building materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.", "Bricks, stone blocks, marble... Iall the workers need.", "I can sell you the tools you need to serve the queen. On, on!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.", "Ziegelsteine, Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.", "Ich kann euch die Werkzeuge verkaufen, die ihr braucht, um Königin Rosaline zu dienen. Los, los!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the royal builder Robertus. Keywords: buy, sell, trade, Hello, builder.")
@@ -88,15 +93,15 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell.", "Good bye.", "Until next t
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Robertus.", "Mein Name ist Robertus, ich bin der königliche Baumeister. Ich diene der Königin mit jeder Faser meines Körpers.", "Man nennt mich Robertus. Ich bin der königliche Baumeister Cadomyrs, stets der Königin ergeben."
 
 -- Quest 108: A message from Hector Valerion
-queststatus(108) = 3, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."), queststatus(108) = 4, "Oh, her majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!"
-queststatus(108) = 3, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."), queststatus(108) = 4, "Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!"
-queststatus(108) = 3, english, "Hector", "Valerion" -> inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."), queststatus(108) = 4, "Oh, my majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!"
-queststatus(108) = 3, "Hector", "Valerion" -> inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."), queststatus(108) = 4, "Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!"
+queststatus(108) = 3, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."), "Oh, her majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!", queststatus(108) = 4
+queststatus(108) = 3, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."), "Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!", queststatus(108) = 4
+queststatus(108) = 3, english, "Hector", "Valerion" -> inform("[Quest status] Delayed Mail II: You deliver the message from Hector Valerion to Robertus."), "Oh, my majesty has drawn a sketch how she'd like her grave to be. What a marvellous plan! A cube in the desert!", queststatus(108) = 4
+queststatus(108) = 3, "Hector", "Valerion" -> inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."), "Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!", queststatus(108) = 4
 
 -- Catching quest triggers
-english, "quest", "mission" -> trade, "So, you want to help, building the grave of her highness? I'll alwaysbuilding material with you, but there is nothing specific you can do for me."
+english, "quest", "mission" -> "So, you want to help, building the grave of her highness? I'll alwaysbuilding material with you, but there is nothing specific you can do for me.", trade
 "quest", "mission" -> "Nun, ihr wollt also dabei helfen, das Grabmal ihrer Hoheit zu bauen? Ich werde stets Baumaterial mit euch handeln, aber konkret könnt ihr mir gerade nicht weiterhelfen."
-"task", "adventure", "order" -> trade, "So, you want to help, building the grave of her highness? I'll alwaysbuilding material with you, but there is nothing specific you can do for me."
+"task", "adventure", "order" -> "So, you want to help, building the grave of her highness? I'll alwaysbuilding material with you, but there is nothing specific you can do for me.", trade
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun, ihr wollt also dabei helfen, das Grabmal ihrer Hoheit zu bauen? Ich werde stets Baumaterial mit euch handeln, aber konkret könnt ihr mir gerade nicht weiterhelfen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!

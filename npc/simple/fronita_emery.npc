@@ -8,7 +8,7 @@
 -- Authors:  Faladron                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Fronita Emery"
@@ -47,6 +47,18 @@ itemHands = 48
 itemTrousers = 0
 itemShoes = 369
 
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 311, 312, 75, 164, 292, 315, 1317, 1908, 2055, 2457, 2498, 41, 314, 316, 726, 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+buySecondaryItems = 311, 312, 75, 164, 292, 315, 1317, 1908, 2055, 2457, 2498, 41, 314, 316, 726, 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
@@ -63,15 +75,8 @@ itemShoes = 369
 -- 5% Stuff: 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
 
 -- Quest triggers currently blank, to be added at a later date
-
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Ah, so you are interested in my wares.", "Take your time to look around."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um."
-sellItems = 311, 312, 75, 164, 292, 315, 1317, 1908, 2055, 2457, 2498, 41, 314, 316, 726, 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
-buySecondaryItems = 311, 312, 75, 164, 292, 315, 1317, 1908, 2055, 2457, 2498, 41, 314, 316, 726, 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Fronita Emery the merchant. Keywords: buy, sell, trade, glas, wares, Runewick.")
@@ -92,10 +97,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fair winds and clear sight 
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin die Fronita. Ich bin Glasbläserin und verkaufe meine Waren hier.", "Mein Name? Fronita Emery, ich handle mit Glaswaren."
 
 -- Quest 107: A message from Groktan Flintsplit
-queststatus(107) = 9, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), queststatus(107) = 10, "#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands."
-queststatus(107) = 9, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), queststatus(107) = 10, "#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle."
-queststatus(107) = 9, english, "Groktan", "Flintsplit" -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), queststatus(107) = 10, "#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands."
-queststatus(107) = 9, "Groktan", "Flintsplit" -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), queststatus(107) = 10, "#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle."
+queststatus(107) = 9, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), "#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.", queststatus(107) = 10
+queststatus(107) = 9, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), "#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.", queststatus(107) = 10
+queststatus(107) = 9, english, "Groktan", "Flintsplit" -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), "#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.", queststatus(107) = 10
+queststatus(107) = 9, "Groktan", "Flintsplit" -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), "#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.", queststatus(107) = 10
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "I do not issue any quests, sorry."
@@ -131,9 +136,9 @@ english, "Gobaith", "Gobiath" -> "I'm just a humble crafter. Ask a scholar about
 
 -- Faction stuff
 "archmage" -> "It's a great comfort to have such a smart man rule over Runewick.", "I have given him wine glasses as a present. Enough for many guests, eventhough he never has guests."
-"Erzmagier" -> end, "Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt."
+"Erzmagier" -> "Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt.", end
 english, "Elvaine", "Morgan" -> "It's a great comfort to have such a smart man rule over Runewick.", "I have given him wine glasses as a present. Enough for many guests, eventhough he never has guests."
-"Elvaine", "Morgan" -> end, "Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt."
+"Elvaine", "Morgan" -> "Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt.", end
 english, "Runewick" -> "What a wonderful town! You take some steps away from the furnace and the cool sea air refreshes you.", "We have the greenest meadows, the tastiest food and the best beer here in Rnewick!"
 "Runewick" -> "Eine wunderbare Stadt! Man tritt einige Schritte weg vom Schmelzofen und die kühle Seeluft erfrischt einen.", "Wir haben die grünsten Wiesen, das leckerste Essen und das beste Bier hier in Runewick!"
 english, "Valerio", "Guilianni", "Don" -> "Imagine a little goblin with the beard of a dwarf. That's him.", "Even if I admire archmage Morgan, I don't understand why he doesn't do anything against this fiend!"

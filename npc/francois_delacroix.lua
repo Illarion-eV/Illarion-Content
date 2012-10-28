@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Regallo                                                          --
 --                                                                            --
--- Last parsing: October 10, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -44,10 +44,6 @@ talkEntry:addResponse("Let's trade!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
-tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
-tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was dir gefällt?", "Don't you like my wares?");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -558,10 +554,6 @@ talkEntry:addTrigger("Nein");
 talkEntry:addResponse("Bitte seid etwas genauer in Euer Wortwahl.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
-tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
-tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was dir gefällt?", "Don't you like my wares?");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("Braucht Ihr Werkzeuge? Ich, Francois Delacoix, verkaufe sowohl Werkzeuge für den Ackerbau als auch für die Fischerrei.", "Are you a farmer and need tools? I, Francois Delacroix carries both farming and fishing tools.");
 talkingNPC:addCycleText("Ihr sucht wunderschöne Felle um dem Winter zu trotzen oder Leder um einem Schwerthieb stand zu halten? Besucht mich, Francois Delacoix!", "Want beautiful furs to last the winter or maybe leather to survive a sword strike? Please visit I, Francois Delacroix.");
 talkingNPC:addCycleText("Habt Ihr Hunger? Leidet ihr an Skorbut? Ich, Francois Delacoix, habe ein gesundes Angebot an Früchten und Gemüse! Kommt vorbei!", "Are you hungry, maybe dying from scurvy? I, Francois Delacroix carry healthy fruits and vegetables. Please visit.");
@@ -672,10 +664,6 @@ mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 2295);
 mainNPC:setEquipment(9, 823);
 mainNPC:setEquipment(10, 53);
-tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
-tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
-tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was dir gefällt?", "Don't you like my wares?");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

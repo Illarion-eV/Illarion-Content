@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                                            --
--- Last parsing: September 30, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -27,10 +27,6 @@ function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
-tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
-tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -318,10 +314,6 @@ talkEntry:addTrigger("Gobiath");
 talkEntry:addResponse("Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
-tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("#me betrachtet eine Goldmünze.", "#me looks at a gold coin.");
 talkingNPC:addCycleText("#me's Augen funklen gierig.", "#me's eyes sprakle greedily.");
 talkingNPC:addCycleText("#me murmelt verärgert:'Wenn dir meine Preise nicht passen, dann geh doch woanders hin.'", "#me mumbles angrily:'If you don't like my prices, then just go elsethere.'");
@@ -346,10 +338,6 @@ mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 461);
 mainNPC:setEquipment(10, 53);
-tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
-tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Pipillo                                                  Galmair --
+-- NPC Name: Pipillo                                                     None --
 -- NPC Job:  portalbook merchant                                              --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  412, 291, 0                --
+-- NPC Race: halfling                   NPC Position:  412, 291, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Pipillo"
@@ -43,6 +43,20 @@ itemHands = 48
 itemTrousers = 824
 itemShoes = 53
 
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItem = id(1061), de("Portalbuch nach Cadomyr"), en("portal book to Cadomyr"), price(2000), stack(1), quality(333), data("destinationCoordsY" = "647", "destinationCoordsX" = "127", "destinationCoordsZ" = "0")
+sellItem = id(1061), de("Portalbuch nach Galmair"), en("portal book to Galmair"), price(2000), stack(1), quality(333), data("destinationCoordsY" = "245", "destinationCoordsX" = "424", "destinationCoordsZ" = "0")
+sellItem = id(1061), de("Portalbuch nach Runewick"), en("portal book to Runewick"), price(2000), stack(1), quality(333), data("destinationCoordsY" = "826", "destinationCoordsX" = "788", "destinationCoordsZ" = "0")
+sellItem = id(1061), de("Portalbuch zum Hemp Necktie Inn"), en("portal book to the Hemp Necktie Inn"), price(2000), stack(1), quality(333), data("destinationCoordsY" = "308", "destinationCoordsX" = "648", "destinationCoordsZ" = "0")
+tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
+tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
+tradeFinishedWithoutTradingMsg "Nichts gefunden was euch gefällt?", "Don't you like my wares?"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Template Version 1.03 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
@@ -55,17 +69,8 @@ itemShoes = 53
 -- This NPC will sell portal books back to the three major towns and the Wilderland tavern.
 -- S/he and the others of their family will be sprawled across the map, also selling portal books to the location they are at.
 -- Intention of this sort of NPC is to act as a Safepoint to be discovered by players to allow quick travel to certain places in the wilderness (for a heavy price!).
-
-"handel","verkauf","portal" -> "Hiho, lass und handeln!", trade
-"trade","sell","portal" -> "Hiho, let's trade!", trade
-sellItem = id(1061), de("Portalbuch nach Cadomyr"), en("portal book to Cadomyr"), price (2000), stack(1), quality(333), data("destinationCoordsX"="127","destinationCoordsY"="647","destinationCoordsZ"="0")
-sellItem = id(1061), de("Portalbuch nach Galmair"), en("portal book to Galmair"), price (2000), stack(1), quality(333), data("destinationCoordsX"="424","destinationCoordsY"="245","destinationCoordsZ"="0")
-sellItem = id(1061), de("Portalbuch nach Runewick"), en("portal book to Runewick"), price (2000), stack(1), quality(333), data("destinationCoordsX"="788","destinationCoordsY"="826","destinationCoordsZ"="0")
-sellItem = id(1061), de("Portalbuch zum Hemp Necktie Inn"), en("portal book to the Hemp Necktie Inn"), price (2000), stack(1), quality(333), data("destinationCoordsX"="648","destinationCoordsY"="308","destinationCoordsZ"="0")
-tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
-tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
-tradeFinishedWithoutTradingMsg "Nichts gefunden was euch gefällt?", "Don't you like my wares?"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+"handel", "verkauf", "portal" -> "Hiho, lass und handeln!", trade
+"trade", "sell", "portal" -> "Hiho, let's trade!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the portal merchant Pipillo. Keywords: Hello, portal, trade.")
@@ -74,11 +79,11 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Today is a fine day to travel."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Heute ist ein schöner Tag für eine Reise."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho! Today is a fine day to travel."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Today is a fine day to travel."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Heute ist ein schöner Tag für eine Reise."
 "Farewell", "Bye", "Fare well", "See you" -> "Always keep moving!", "Toodles!", "Farewell."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Immer in Bewegung bleiben!", "Tschüssi!", "Auf wiedersehen."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Always keep moving!", "Toodles!", "Farewell."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Always keep moving!", "Toodles!", "Farewell."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Immer in Bewegung bleiben!", "Tschüssi!", "Auf wiedersehen."
 "How are you", "How feel", "How do you do" -> "I feel excited, thinking about all the places to travel to.", "I'm itching to make another journey."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin so aufgeregt, wenn ich nur an all die Orte denke an die man Reisen kann.", "Es juckt mich in den Füßen, eine Reise zu machen."
@@ -86,7 +91,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Pipillo, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Pipillo", "Pipillo mein Name, ich handle mit Portalbüchern"
 
 -- Catching quest triggers
-"quest", "mission", english -> "I do not issue any quests. But I can sell you books to go to other places."
+english, "quest", "mission" -> "I do not issue any quests. But I can sell you books to go to other places."
 "quest", "mission" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
 "task", "adventure", "order" -> "I do not issue any quests. But I can sell you books to go to other places."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
@@ -96,9 +101,9 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a merchant of portalbooks."
 "beruf" -> "Ich handle mit Portalbüchern."
-"job", english -> "I am a merchant of portalbooks."
+english, "job" -> "I am a merchant of portalbooks."
 "job" -> "Ich handle mit Portalbüchern."
-"Gobaith", "Gobiath", english -> "With a little luck I can get a book to take you there! Nah, not really just kidding."
+english, "Gobaith", "Gobiath" -> "With a little luck I can get a book to take you there! Nah, not really just kidding."
 "Gobaith", "Gobiath" -> "Mit etwas Glück kann ich dir ein Buch besorgen, das dich dorthin bringt! Nö, nicht wirklich nur'n Scherz."
 "my name" -> "Nice to meet you. If you want to 'book' a travel just ask me, hihi.", "A nice name, indeed."
 "mein Name" -> "Schön dich kennenzulernen. Wenn du eine Reise 'buch'-en willst, frag mich einfach, hihi.", "Ein netter Name."
@@ -110,27 +115,27 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Faction stuff
 "archmage" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
 "Erzmagier" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
-"Elvaine", "Morgan", english -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
+english, "Elvaine", "Morgan" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
 "Elvaine", "Morgan" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
-"Runewick", english -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
+english, "Runewick" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
 "Runewick" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
-"Valerio", "Guilianni", "Don", english -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
+english, "Valerio", "Guilianni", "Don" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
 "Valerio", "Guilianni", "Don" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
-"Galmair", english -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
+english, "Galmair" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
 "Galmair" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
 "Queen" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
 "Königin" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
-"rosaline", "edwards", english -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
+english, "rosaline", "edwards" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
 "rosaline", "edwards" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
-"Cadomyr", english -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
+english, "Cadomyr" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
 "Cadomyr" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
 
 -- Main land factions
-"albar", english -> "Oh, Albar, I've seen much of it on earlier journeys."
+english, "albar" -> "Oh, Albar, I've seen much of it on earlier journeys."
 "albar" -> "Oh, Albar, davon hab ich viel gesehen auf früheren Reisen."
-"gynk", "gync", english -> "You have to see it for yourself to believe it..."
+english, "gynk", "gync" -> "You have to see it for yourself to believe it..."
 "gync", "gynk" -> "Man muss selbst nach Gynk reisen um es zu glauben..."
-"salkama", english -> "Nice place. They got some very tasty food there too."
+english, "salkama" -> "Nice place. They got some very tasty food there too."
 "salkama" -> "Netter Ort. Die haben dort auch ziemlich wohlschmeckendes Essen."
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god

@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Martin Karing                                                    --
 --                                                                            --
--- Last parsing: September 30, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -29,10 +29,6 @@ function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
-tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
-tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -685,10 +681,6 @@ talkEntry:addResponse("It does not!");
 talkEntry:addResponse("My fish is tasty!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
-tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("Mein Fisch stinkt nicht!", "My fish does not stink!");
 talkingNPC:addCycleText("Frischer Fisch!", "Fresh Fish!");
 talkingNPC:addCycleText("Fisch, Kräuter, alles, was ihr braucht für das Festmahl!", "Fish, herbs, all you need for dinner!");
@@ -815,10 +807,6 @@ mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 2295);
 mainNPC:setEquipment(9, 183);
 mainNPC:setEquipment(10, 369);
-tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
-tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

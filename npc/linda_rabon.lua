@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -184,6 +184,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -202,8 +203,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Noble Celebration I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 1));
 talkEntry:addResponse("Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -212,8 +213,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine edle Feier I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 1));
 talkEntry:addResponse("Oh, ihr wollt mirhelfen? Edelleute wollen eine Feier im Einhörnigen Löwen abhalten und es ist nichts vorbereitet! Uns fehlen fünf Gedecke Besteck, könntet ihr die bitte besorgen?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -223,8 +224,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Noble Celebration I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 1));
 talkEntry:addResponse("Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -235,8 +236,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine edle Feier I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 1));
 talkEntry:addResponse("Oj, ihr wollt mirhelfen? Edelleute wollen eine Feier im Einhörnigen Löwen abhalten und es ist nichts vorbereitet! Uns fehlen fünf Gedecke Besteck, könntet ihr die bitte besorgen?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -247,11 +248,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded two hundred copper coins. You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addResponse("Cutlery, great! I mean, shall noble men dine with their hands? Thank you! We don't have much, but take these coins as compensation.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2647, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
-talkEntry:addResponse("Cutlery, great! I mean, shall noble men dine with their hands? Thank you! We don't have much, but take these coins as compensation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -261,11 +262,11 @@ talkEntry:addCondition(npc.base.condition.item.item(2647, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zweihundert Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("Bestecke, wunderbar! Ich meine, sollen Edelleute etwa mit der Hand essen? Danke! Wir haben nicht viel, aber nehmt diese Münzen als Bezahlung.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2647, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
-talkEntry:addResponse("Bestecke, wunderbar! Ich meine, sollen Edelleute etwa mit der Hand essen? Danke! Wir haben nicht viel, aber nehmt diese Münzen als Bezahlung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -275,10 +276,10 @@ talkEntry:addCondition(npc.base.condition.item.item(2647, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded two hundred copper coins."));
+talkEntry:addResponse("Cutlery, great! I mean, shall noble men dine with their hands? Thank you! We don't have much, but take these coins as compensation.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2647, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 2));
-talkEntry:addResponse("Cutlery, great! I mean, shall noble men dine with their hands? Thank you! We don't have much, but take these coins as compensation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -287,10 +288,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2647, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zweihundert Kupferstücke."));
+talkEntry:addResponse("Bestecke, wunderbar! Ich meine, sollen Edelleute etwa mit der Hand essen? Danke! Wir haben nicht viel, aber nehmt diese Münzen als Bezahlung.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2647, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 2));
-talkEntry:addResponse("Bestecke, wunderbar! Ich meine, sollen Edelleute etwa mit der Hand essen? Danke! Wir haben nicht viel, aber nehmt diese Münzen als Bezahlung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -337,8 +338,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Noble Celebration II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 3));
 talkEntry:addResponse("We still don't have all the things we need for the noblemen's celebration. We want to serve best wine from Albar, but we lack suitable wine glasses? Will you bring me five of them?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -347,8 +348,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine edle Feier II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 3));
 talkEntry:addResponse("Wir haben noch immer nicht alles für die Feier der Edelleute beisammen. Wir wollen besten Wein aus Albar ausschenken, aber wir haben keine Weingläser. Bringt doch bitte fünf davon.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -358,8 +359,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Noble Celebration II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 3));
 talkEntry:addResponse("We still don't have all the things we need for the noblemen's celebration. We want to serve best wine from Albar, but we lack suitable wine glasses? Will you bring me five of them?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -370,8 +371,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine edle Feier II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 3));
 talkEntry:addResponse("Wir haben noch immer nicht alles für die Feier der Edelleute beisammen. Wir wollen besten Wein aus Albar ausschenken, aber wir haben keine Weingläser. Bringt doch bitte fünf davon.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -382,11 +383,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded two hundred coppercoins. You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addResponse("Noblemen don't drink from buckets! You are my hero. Just one thing is missing for the celebration, perhaps you can help me with that order as well.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
-talkEntry:addResponse("Noblemen don't drink from buckets! You are my hero. Just one thing is missing for the celebration, perhaps you can help me with that order as well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -396,11 +397,11 @@ talkEntry:addCondition(npc.base.condition.item.item(2457, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zweihundert Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("Edelleute trinken nunmal nicht aus Kübeln! Ihr seid mein Held. Jetzt fehlt nur noch eine Sache für die Feier. Vielleicht könnt ihr mir bei diesem Auftrag auch helfen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
-talkEntry:addResponse("Edelleute trinken nunmal nicht aus Kübeln! Ihr seid mein Held. Jetzt fehlt nur noch eine Sache für die Feier. Vielleicht könnt ihr mir bei diesem Auftrag auch helfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -410,10 +411,10 @@ talkEntry:addCondition(npc.base.condition.item.item(2457, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded two hundred coppercoins."));
+talkEntry:addResponse("Noblemen don't drink from buckets! You are my hero. Just one thing is missing for the celebration, perhaps you can help me with that order as well.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 4));
-talkEntry:addResponse("Noblemen don't drink from buckets! You are my hero. Just one thing is missing for the celebration, perhaps you can help me with that order as well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -422,10 +423,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2457, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zweihundert Kupferstücke."));
+talkEntry:addResponse("Edelleute trinken nunmal nicht aus Kübeln! Ihr seid mein Held. Jetzt fehlt nur noch eine Sache für die Feier. Vielleicht könnt ihr mir bei diesem Auftrag auch helfen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 4));
-talkEntry:addResponse("Edelleute trinken nunmal nicht aus Kübeln! Ihr seid mein Held. Jetzt fehlt nur noch eine Sache für die Feier. Vielleicht könnt ihr mir bei diesem Auftrag auch helfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -471,8 +472,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Noble Celebration III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 5));
 talkEntry:addResponse("The last thing that is missing is the most important one for dining: wooden plates. We need, again, five wooden plates and something tells me you will bring them to us.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -481,8 +482,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 4));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine edle Feier III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 5));
 talkEntry:addResponse("Das Letzte, was uns noch fehlt, ist das Wichtigste für ein Gelage: Holzteller. Wir brauchen erneut fünf davon und irgendwas sagt mir, dass ihr sie uns bringen werdet.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,8 +493,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Noble Celebration III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 5));
 talkEntry:addResponse("The last thing that is missing is the most important one for dining: wooden plates. We need, again, five wooden plates and something tells me you will bring them to us.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -504,8 +505,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine edle Feier III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 5));
 talkEntry:addResponse("Das Letzte, was uns noch fehlt, ist das Wichtigste für ein Gelage: Holzteller. Wir brauchen erneut fünf davon und irgendwas sagt mir, dass ihr sie uns bringen werdet.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -516,11 +517,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a ruby amulet. You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addResponse("I am so relieved, now we have plates for the noblemen. Let's get the celebration started! I give you one of the few items my mother gave to me before... a trinket. Keep it safe, will you?");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 677, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
-talkEntry:addResponse("I am so relieved, now we have plates for the noblemen. Let's get the celebration started! I give you one of the few items my mother gave to me before... a trinket. Keep it safe, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -530,11 +531,11 @@ talkEntry:addCondition(npc.base.condition.item.item(2952, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Rubinamulet. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("Ich bin ja so erleichtert, jetzt haben wir endlich Teller für die Edelleute. Die Feier kann beginnen! Ich gebe euch eines der wenigen Dingen, die mir meine Mutter hinterließ als sie... Ein Schmuckstück. Passt darauf auf, bitte.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 677, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
-talkEntry:addResponse("Ich bin ja so erleichtert, jetzt haben wir endlich Teller für die Edelleute. Die Feier kann beginnen! Ich gebe euch eines der wenigen Dingen, die mir meine Mutter hinterließ als sie... Ein Schmuckstück. Passt darauf auf, bitte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -544,10 +545,10 @@ talkEntry:addCondition(npc.base.condition.item.item(2952, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a ruby amulet."));
+talkEntry:addResponse("I am so relieved, now we have plates for the noblemen. Let's get the celebration started! I give you one of the few items my mother gave to me before... a trinket. Keep it safe, will you?");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 677, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 6));
-talkEntry:addResponse("I am so relieved, now we have plates for the noblemen. Let's get the celebration started! I give you one of the few items my mother gave to me before... a trinket. Keep it safe, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -556,10 +557,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2952, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Rubinamulet."));
+talkEntry:addResponse("Ich bin ja so erleichtert, jetzt haben wir endlich Teller für die Edelleute. Die Feier kann beginnen! Ich gebe euch eines der wenigen Dingen, die mir meine Mutter hinterließ als sie... Ein Schmuckstück. Passt darauf auf, bitte.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 677, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 6));
-talkEntry:addResponse("Ich bin ja so erleichtert, jetzt haben wir endlich Teller für die Edelleute. Die Feier kann beginnen! Ich gebe euch eines der wenigen Dingen, die mir meine Mutter hinterließ als sie... Ein Schmuckstück. Passt darauf auf, bitte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

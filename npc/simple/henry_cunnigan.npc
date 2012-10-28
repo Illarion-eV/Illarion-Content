@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Henry Cunnigan"
@@ -55,7 +55,7 @@ itemShoes = 53
 -- 5: The player did all lessons
 
 -- Debugging
-"reset" -> queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0, queststatus(314) = 0, warp(31, 22, 100), "Noobia reset!"
+"reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0, queststatus(314) = 0, warp(31, 22, 100)
 
 -- Help
 "Help" -> inform("[Tutorial] This NPC is the tutor Henry Cunnigan. Keywords: Hello, Help, Skip tutorial.")
@@ -66,28 +66,28 @@ itemShoes = 53
 "überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im Süden trittst."), warp(35, 95, 100)
 
 -- Learn how to shout
-queststatus(309) < 2, english, ".*" -> inform("[Tutorial] To shout, please hit the return key to activate the chatbox. Do THIS AND THAT, type the words you wish to say and then hit return again to make your character shout them."), queststatus(309) = 2, "Welcome to the tutorial, %CHARNAME. Henry Cunnigan, harbourmaster, at your service. I will teach you how to communicate with other characters. Since you clearly already know how to talk, I will show you how to shout. Please shout out something for me to hear. Perhaps your name, for example!"
-queststatus(309) < 2, ".*" -> inform("[Tutorial] Um zu schreien, aktiviere bitte durch das Drücken der Enter Taste die Chatbox. Mache DIES UND DAS, schreibe die Worte, die du sagen möchstest und drücke erneut die Enter Taste, um deinen Charakter schreien zu lassen."), queststatus(309) = 2, "Willkommen zu diesem Tutorial, %CHARNAME. Henry Cunnigan, Hafenmeister, zu Diensten. Ich werde Dir beibringen, mit anderen Charakteren zu kommunizieren. Da du offensichtlich schon herausgefunden hast, wie man spricht, werde ich dir nun zeigen, wie man schreit. Bitte schreie etwas für mich. Vielleicht deinen Namen."
+queststatus(309) < 2, english, ".*" -> inform("[Tutorial] To shout, please hit the return key to activate the chatbox. Do THIS AND THAT, type the words you wish to say and then hit return again to make your character shout them."), "Welcome to the tutorial, %CHARNAME. Henry Cunnigan, harbourmaster, at your service. I will teach you how to communicate with other characters. Since you clearly already know how to talk, I will show you how to shout. Please shout out something for me to hear. Perhaps your name, for example!", queststatus(309) = 2
+queststatus(309) < 2, ".*" -> inform("[Tutorial] Um zu schreien, aktiviere bitte durch das Drücken der Enter Taste die Chatbox. Mache DIES UND DAS, schreibe die Worte, die du sagen möchstest und drücke erneut die Enter Taste, um deinen Charakter schreien zu lassen."), "Willkommen zu diesem Tutorial, %CHARNAME. Henry Cunnigan, Hafenmeister, zu Diensten. Ich werde Dir beibringen, mit anderen Charakteren zu kommunizieren. Da du offensichtlich schon herausgefunden hast, wie man spricht, werde ich dir nun zeigen, wie man schreit. Bitte schreie etwas für mich. Vielleicht deinen Namen.", queststatus(309) = 2
 
 -- Learn how to whisper
-queststatus(309) = 2, english, "#s" -> inform("[Tutorial] Whispering works a lot like shouting. Activate your chatbox again and DO THIS AND THAT."), queststatus(309) = 3, "My, but you have a powerful voice! Shouting can be heard over quite some distance and is useful for communicating with large crowds or people that are far away. Sometimes, however, you don't want people eavesdropping into your private conversations. Please whisper some secret words for my ears only."
-queststatus(309) = 2, "#s" -> inform("[Tutorial] Flüstern funktioniert fast wie Schreien. Aktiviere erneut deine Chatbox and MACH DIES UND DAS."), queststatus(309) = 3, "Ui, Du hast aber eine kraftvolle Stimme! Schreien kann auch in einiger Entfernung noch hören und es ist nützlich zur Kommunikation mit großen Gruppen oder Personen, die weit weg sind. Manchmal will man allerdings nicht von anderen bei einer privaten Unterhaltung belauscht werden. Bitte flüster mir ein paar geheime Worte zu, die nur für meine Ohren bestimmt sind."
+queststatus(309) = 2, english, "#s" -> inform("[Tutorial] Whispering works a lot like shouting. Activate your chatbox again and DO THIS AND THAT."), "My, but you have a powerful voice! Shouting can be heard over quite some distance and is useful for communicating with large crowds or people that are far away. Sometimes, however, you don't want people eavesdropping into your private conversations. Please whisper some secret words for my ears only.", queststatus(309) = 3
+queststatus(309) = 2, "#s" -> inform("[Tutorial] Flüstern funktioniert fast wie Schreien. Aktiviere erneut deine Chatbox and MACH DIES UND DAS."), "Ui, Du hast aber eine kraftvolle Stimme! Schreien kann auch in einiger Entfernung noch hören und es ist nützlich zur Kommunikation mit großen Gruppen oder Personen, die weit weg sind. Manchmal will man allerdings nicht von anderen bei einer privaten Unterhaltung belauscht werden. Bitte flüster mir ein paar geheime Worte zu, die nur für meine Ohren bestimmt sind.", queststatus(309) = 3
 
 -- Player seems to have a problem with shouting
 queststatus(309) = 2, english, ".*" -> inform("[Tutorial] To shout, please hit the return key to activate the chatbox. Do THIS AND THAT, type the words you wish to say and then hit return again to make your character shout them."), "You already know how to talk, but shouting can help you to find your lost friends in lonely woods or dark dungeons. Please shout some words at will. Let your voice be heard! I shan't take offence, honest!"
 queststatus(309) = 2, ".*" -> inform("[Tutorial] Um zu schreien, aktiviere bitte durch das Drücken der Enter Taste die Chatbox. Mache DIES UND DAS, schreibe die Worte, die du sagen möchstest und drücke erneut die Enter Taste, um deinen Charakter schreien zu lassen."), "Du weißt bereits wie man spricht, aber Schreien kann Dir helfen deine Freunde in einsamen Wäldern oder dunklen Verliesen wiederzufinden. Bitte schrei irgendetwas. Lass uns deine Stimme hören! Ich werd auch beleidigt sein, versprochen!"
 
 -- Learn how to emote
-queststatus(309) = 3, english, "#w" -> inform("[Tutorial] Emoting is done by doing THIS AND THAT."), queststatus(309) = 4, "Sometimes, silence is golden. Use whispers to communicate with those immediately around you. But there will be times when you do not wish to speak at all. To perform actions as your character you can use emotes. Emotes cannot affect the game world or other characters but are a good way to add some flavour to your roleplaying. Please emote an action!"
-queststatus(309) = 3, "#w" -> inform("[Tutorial] Zum Emoten muss man einfach DIES UND DAS machen."), queststatus(309) = 4, "Manchmal ist Schweigen Gold. Flüstere, um mit denen, die dich direkt umgeben zu kommunizieren. Aber es wird Zeiten geben, wenn du nicht reden willst. Mit Hilfe von Emotes kannst Du Handlungen als dein Charakter auszuführen. Emotes haben keinen Einfluss auf die Spielwelt oder andere Charaktere, aber sie sind ein guter Weg um etwas Spannung in dein Rollenspiel zu bringen. Bitte emote eine Handlung!"
+queststatus(309) = 3, english, "#w" -> inform("[Tutorial] Emoting is done by doing THIS AND THAT."), "Sometimes, silence is golden. Use whispers to communicate with those immediately around you. But there will be times when you do not wish to speak at all. To perform actions as your character you can use emotes. Emotes cannot affect the game world or other characters but are a good way to add some flavour to your roleplaying. Please emote an action!", queststatus(309) = 4
+queststatus(309) = 3, "#w" -> inform("[Tutorial] Zum Emoten muss man einfach DIES UND DAS machen."), "Manchmal ist Schweigen Gold. Flüstere, um mit denen, die dich direkt umgeben zu kommunizieren. Aber es wird Zeiten geben, wenn du nicht reden willst. Mit Hilfe von Emotes kannst Du Handlungen als dein Charakter auszuführen. Emotes haben keinen Einfluss auf die Spielwelt oder andere Charaktere, aber sie sind ein guter Weg um etwas Spannung in dein Rollenspiel zu bringen. Bitte emote eine Handlung!", queststatus(309) = 4
 
 -- Player seems to have a problem with whispering
 queststatus(309) = 3, english, ".*" -> inform("[Tutorial] Whispering works a lot like shouting. Activate your chatbox again and DO THIS AND THAT."), "Not every member of the town guard should hear about your twisted plans. Nor should the local thugs hear you talking about your bank balance. Please try to whisper once more."
 queststatus(309) = 3, ".*" -> inform("[Tutorial] Flüstern funktioniert fast wie Schreien. Aktiviere erneut deine Chatbox and MACH DIES UND DAS."), "Nicht jedes Mitglied der Stadtwache sollte deine krummen Pläne hören. Auch sollte der ortansässige Strolch dich nicht über deinen Kontostand reden hören. Bitte versuch nochmals zu flüstern."
 
 -- Player emotes
-queststatus(309) = 4, english, "#me" -> queststatus(309) = 5, "Very good! I had my doubts, but you are no fool! You have learned all of the things that I can teach you. Have fun with the rest of the tutorial, %CHARNAME. Now, follow the road to the next lesson on items."
-queststatus(309) = 4, "#me" -> queststatus(309) = 5, "Sehr gut! Ich hatte Zweifel, aber du bist doch kein Dummkopf! Du hast nun alles gelernt, was ich Dir beibringen kann. Viel Spaß bei dem Rest des Tutorials, %CHARNAME. Nun folge der Straße zur nächsten Lektion über Gegenstände."
+queststatus(309) = 4, english, "#me" -> "Very good! I had my doubts, but you are no fool! You have learned all of the things that I can teach you. Have fun with the rest of the tutorial, %CHARNAME. Now, follow the road to the next lesson on items.", queststatus(309) = 5
+queststatus(309) = 4, "#me" -> "Sehr gut! Ich hatte Zweifel, aber du bist doch kein Dummkopf! Du hast nun alles gelernt, was ich Dir beibringen kann. Viel Spaß bei dem Rest des Tutorials, %CHARNAME. Nun folge der Straße zur nächsten Lektion über Gegenstände.", queststatus(309) = 5
 
 -- Player seems to have a problem with emoting
 queststatus(309) = 4, english, ".*" -> inform("[Tutorial] Emoting is done by doing THIS AND THAT."), "Emoting is very important - it is the only way to show other players your character's actions that cannot be represented graphically. Please try to emote once more."

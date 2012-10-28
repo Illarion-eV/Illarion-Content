@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: October 01, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -53,10 +53,6 @@ talkEntry:addResponse("Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can not afford that!");
-tradingNPC:addDialogClosedMsg("Danke, komm bald wieder!", "Thanks, come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -749,10 +745,6 @@ talkEntry:addResponse("Winzige kleine Made.");
 talkEntry:addResponse("Uh-h?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can not afford that!");
-tradingNPC:addDialogClosedMsg("Danke, komm bald wieder!", "Thanks, come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("#me leckt sich kurz über die Lippen. Dann streckt sie die Zunge heraus und berührt damit ihr hübsches Näschen.", "#me licks her lips. Then she sticks out her tongue and taps her cute nose.");
 talkingNPC:addCycleText("Hack'n Sack! Hier Kannst du alles kaufen. Was 'ner wie du braucht für ne gutte Plünderei!", "Hack'n sack! here you buy all stuff for good plundering.");
 talkingNPC:addCycleText("Uh, ich bin so stolz auf meine kleine Ol'hja und meine kleine Er'hja!", "Uh, mes be so proud ob mes littl Ol'hja and mes littl Er'hja!");
@@ -1015,10 +1007,6 @@ mainNPC:setEquipment(3, 362);
 mainNPC:setEquipment(5, 23);
 mainNPC:setEquipment(9, 366);
 mainNPC:setEquipment(10, 53);
-tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can not afford that!");
-tradingNPC:addDialogClosedMsg("Danke, komm bald wieder!", "Thanks, come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

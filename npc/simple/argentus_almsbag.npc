@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Argentus Almsbag"
@@ -50,6 +50,12 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
+sellItems = 61, 3076, 3077
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Template Version 1.06, 08/29/2012 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
@@ -64,12 +70,6 @@ itemShoes = 53
 
 -- TRADING
 -- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
-
-sellItems = 61, 3076, 3077
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- MANDATORY TRIGGERS
 
@@ -86,7 +86,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, hello!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl.", "Auf Bald!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
-"How are you", "How feel", "How do you do" -> trade, "I'm always happy when I can."
+"How are you", "How feel", "How do you do" -> "I'm always happy when I can.", trade
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es immer gut, wenn ich mit jemandem handeln kann."
 "your name", "who are you", "who art thou" -> "I am Argentus Almsbag. Don't you know me?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Argentus Almsbag. Kennt Ihr mich etwa nicht?"
@@ -94,27 +94,27 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Ah, A costumer, be welcomned."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ah, werte Kundschaft, seid willkommen."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, A costumer, be welcomned.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, werte Kundschaft, seid willkommen.", trade
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I like money. But I don't like my job."
 "beruf" -> "Ich mag Geld, aber ich mag meinen Beruf nicht."
 english, "job" -> "I like money. But I don't like my job."
 "job" -> "Ich mag Geld, aber ich mag meinen Beruf nicht."
-"tell something" -> trade, "Do you want toor do you want to keep me from working by chattering?"
+"tell something" -> "Do you want toor do you want to keep me from working by chattering?", trade
 "erzähl was", "erzähl etwas" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> trade, "Do you want toor do you want to keep me from working by chattering?"
+"god" -> "Do you want toor do you want to keep me from working by chattering?", trade
 "Gott", "Götter" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Faction stuff
-english, "Runewick" -> trade, "Runewick is such a nice place. You can make lots of money here.", "Do you want toor do you want to keep me from working by chattering?"
+english, "Runewick" -> "Runewick is such a nice place. You can make lots of money here.", "Do you want toor do you want to keep me from working by chattering?", trade
 "Runewick" -> "Runwick ist ein sehr schöner ort, man kann hier viel Geld machen.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
-english, "Galmair" -> trade, "Galmair is full of corruption and dirt.", "Do you want toor do you want to keep me from working by chattering?"
+english, "Galmair" -> "Galmair is full of corruption and dirt.", "Do you want toor do you want to keep me from working by chattering?", trade
 "Galmair" -> "Galmair ist voll von Korruption und Dreck.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
-english, "Cadomyr" -> trade, "Cadomyr is Cadomyr.", "Do you want toor do you want to keep me from working by chattering?"
+english, "Cadomyr" -> "Cadomyr is Cadomyr.", "Do you want toor do you want to keep me from working by chattering?", trade
 "Cadomyr" -> "Cadomyr ist Cadomyr.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Main land factions
@@ -122,7 +122,7 @@ english, "salkama" -> "Salkamar was my home. But I never liked it there."
 "salkama" -> "Salkamar war meine Heimat. Aber dort hat es mir nicht gefallen."
 
 -- Optional: Gobaith
-english, "Gobaith", "Gobiath" -> trade, "Do you want toor do you want to keep me from working by chattering?"
+english, "Gobaith", "Gobiath" -> "Do you want toor do you want to keep me from working by chattering?", trade
 "Gobaith", "Gobiath" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 ------------------------------------------------------------------------------AC

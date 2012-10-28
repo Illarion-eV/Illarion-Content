@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           & Someone                                                        --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Borgate Northoff"
@@ -47,14 +47,19 @@ itemHands = 0
 itemTrousers = 2113
 itemShoes = 53
 
--- Stock: big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
 
-sellItems = 164, 191, 224, 353, 453, 454, 517, 518, 783, 784, 785, 786, 787, 788, 789, 790, 791, 1315, 1316, 1317, 1318, 1319, 1840, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1858, 1859, 1860, 1861, 1908, 1909, 2055, 2056, 2057, 2058, 2059, 2185, 2186, 2187, 2188, 2189, 2276, 2278, 2456, 2496, 2497, 2498, 2499, 2500, 2501, 2922, 2923, 2935, 2952,
-"verkauf", "handel" -> "Lass uns handeln!", trade
-"sell", "trade" -> "Let's trade!", trade
+sellItems = 164, 191, 224, 353, 453, 454, 517, 518, 783, 784, 785, 786, 787, 788, 789, 790, 791, 1315, 1316, 1317, 1318, 1319, 1840, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1858, 1859, 1860, 1861, 1908, 1909, 2055, 2056, 2057, 2058, 2059, 2185, 2186, 2187, 2188, 2189, 2276, 2278, 2456, 2496, 2497, 2498, 2499, 2500, 2501, 2922, 2923, 2935, 2952
 tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
 tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
 tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
+
+-- Stock: big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
+"verkauf", "handel" -> "Lass uns handeln!", trade
+"sell", "trade" -> "Let's trade!", trade
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   not set                                                          --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -33,10 +33,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
+talkEntry:addResponse("#me swings his fist into your stomach.'Do you have cheese beetween your ears? I don't want to see you again here!'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 5000));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
-talkEntry:addResponse("#me swings his fist into your stomach.'Do you have cheese beetween your ears? I don't want to see you again here!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -44,10 +44,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
+talkEntry:addResponse("#me schlägt dir seine Faust in den Magen. 'Hast du Käse zwischen den Ohren? Ich will dich hier nicht mehr sehn!'");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 5000));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
-talkEntry:addResponse("#me schlägt dir seine Faust in den Magen. 'Hast du Käse zwischen den Ohren? Ich will dich hier nicht mehr sehn!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -55,10 +55,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "=", 1));
-talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
 talkEntry:addResponse("#me's face becomes red like a tomato and he gives you a proper beating.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "=", 1));
+talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -66,10 +66,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
+talkEntry:addResponse("#me läuft Rot an wie eine Tomate und verprügelt dich, wie's im Lehrbuch steht.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "=", 1));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
-talkEntry:addResponse("#me läuft Rot an wie eine Tomate und verprügelt dich, wie's im Lehrbuch steht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -84,8 +84,8 @@ talkEntry:addTrigger("Tabak");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -96,8 +96,8 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -108,8 +108,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -126,8 +126,8 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -142,8 +142,8 @@ talkEntry:addTrigger("Tabak");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -154,8 +154,8 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -166,8 +166,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -184,8 +184,8 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -200,8 +200,8 @@ talkEntry:addTrigger("Tabak");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -212,8 +212,8 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -224,8 +224,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -242,8 +242,8 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -258,8 +258,8 @@ talkEntry:addTrigger("Tabak");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -270,8 +270,8 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -282,8 +282,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -300,8 +300,8 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,8 +316,8 @@ talkEntry:addTrigger("Tabak");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,8 +328,8 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -340,8 +340,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -358,8 +358,8 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Aye, You may pass matee!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -373,8 +373,8 @@ talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht."));
-talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkEntry:addResponse("Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel Trommel auf deinem Gesicht.");
+talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -384,8 +384,8 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht."));
-talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkEntry:addResponse("Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel Trommel auf deinem Gesicht.");
+talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -395,8 +395,8 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Such a rude person. Be careful!"));
-talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkEntry:addResponse("No entrance for people like you. Get out or I will use your face as a drum.");
+talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -412,8 +412,8 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Such a rude person. Be careful!"));
-talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkEntry:addResponse("No entrance for people like you. Get out or I will use your face as a drum.");
+talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -604,38 +604,38 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("hilfe");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Helfen? Ich werd dir nich helfen. Verschwinde Leichtmatrose!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("helfen");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Helfen? ich werd dir nich helfen. Verschwinde Leichtmatrose!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("help");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Help? I won't help you. Get out, Jack!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("murgo");
-talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkEntry:addResponse("Not even Murgo's here to save you land lubber! Get out!");
+talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("murgo");
-talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkEntry:addResponse("Nich mal Murgo könnt dir hier helfen. Verschwinde!");
+talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -644,8 +644,8 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkEntry:addResponse("Are you bull headed or what? I told you to leave!");
+talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -654,22 +654,22 @@ talkEntry:addTrigger("was verkauf");
 talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
-talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkEntry:addResponse("Biste ein Esel oder wie? Ich hab gesagt du sollt verschwinden!");
+talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkEntry:addResponse("My fist... and your face will be friends soon, fool.");
+talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
-talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkEntry:addResponse("Meine Faust und dein Gesicht, werden bald dicke Freunde, du Scherzbold.");
+talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -702,34 +702,34 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
-talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkEntry:addResponse("Better not annoy me...seadog.");
+talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("Gobaith");
-talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkEntry:addResponse("Besser ist's du gehst mir nich auf die Nerven.");
+talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkEntry:addResponse("Listen... I won't talk to you. Get out of here, or I will shove my boot up your butt. Got it?");
 talkEntry:addResponse("I won't tell you again. GET OUT!");
+talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkEntry:addResponse("Hör zu... ich will nicht mit dir sprechen. Verschwinde hier, oder ich bohr dir meine Stiefel ins Hinterteil.");
 talkEntry:addResponse("Ich sags nicht nochmal. VERSCHWINDE!");
+talkEntry:addConsequence(npc.base.consequence.state.state("+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Aye. Wassimma.", "Aye. Whatevva.");

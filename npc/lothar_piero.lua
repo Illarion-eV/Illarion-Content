@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: October 27, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -55,10 +55,6 @@ talkEntry:addResponse("Schaut Euch ruhig in Ruhe um.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
-tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -630,10 +626,6 @@ talkEntry:addResponse("Elaras Weisheit sei mit Euch.");
 talkEntry:addResponse("Hiho, das gefällt mir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
-tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("#me greift sich mit beiden Händen in die wuscheligen braunen Haare und lächelt.", "#me combs his tousled hairs with his hands, smiling.");
 talkingNPC:addCycleText("#me poliert mit einem öligen Laken einen gefinkelt verzierten Gehstock.", "#me polishes a decorated walking cane with an oiled rag.");
 talkingNPC:addCycleText("#me klimpert mit seinen Fingern auf einer zierlichen Laute.", "#me jingles with his fingers on a petite lute.");
@@ -824,10 +816,6 @@ mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 459);
 mainNPC:setEquipment(10, 53);
-tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
-tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

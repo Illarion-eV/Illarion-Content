@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -167,6 +167,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -181,8 +182,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A spark to a flame I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 1));
 talkEntry:addResponse("Very well. To prove that you are a truly devout servant of the Five, I want you to pay hommage to them. Visit each of the shrines of the Five in the temple and honour them.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -191,8 +192,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Feuer und Flamme I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 1));
 talkEntry:addResponse("Sehr gut. Um zu beweisen, dass ihr ein frommer Diener der Fünf seid, möchte ich, dass ihr ihnen huldigt. Besucht jeden der Schreine der Fünf und ehret sie.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -201,8 +202,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A spark to a flame I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 1));
 talkEntry:addResponse("Very well. To prove that you are a truly devout servant of the Five, I want you to pay hommage to them. Visit each of the shrines of the Five in the temple and honour them.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -212,8 +213,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Feuer und Flamme I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 1));
 talkEntry:addResponse("Sehr gut. Um zu beweisen, dass ihr ein frommer Diener der Fünf seid, möchte ich, dass ihr ihnen huldigt. Besucht jeden der Schreine der Fünf und ehret sie.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -222,9 +223,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five candles."));
+talkEntry:addResponse("Praise the Five, hail Brágon! Here, take these candles, for they will guide you through the darkest nights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(43, 5, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 3));
-talkEntry:addResponse("Praise the Five, hail Brágon! Here, take these candles, for they will guide you through the darkest nights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -232,9 +233,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünf Kerzen."));
+talkEntry:addResponse("Lobet die Fünf, gepriesen sei Brágon! Hier, nehmt diese Kerzen, sie werden euch ein Licht in der Dunkelheit sein.");
 talkEntry:addConsequence(npc.base.consequence.item.item(43, 5, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 3));
-talkEntry:addResponse("Lobet die Fünf, gepriesen sei Brágon! Hier, nehmt diese Kerzen, sie werden euch ein Licht in der Dunkelheit sein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -278,8 +279,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A spark to a flame II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 4));
 talkEntry:addResponse("I appreciate your devotion. Rituals in honour of Brágon all have one thing in common: Something has to be burnt! As a believer, will you please go out and fetch me ten logs of naldor wood?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -288,8 +289,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Feuer und Flamme II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 4));
 talkEntry:addResponse("Ich würdige eure Hingabe. Rituale in Ehren an Brágon haben alle eines gemeinsam: Etwas muss verbrannt werden! Als Gläubiger, würdet ihr bitte losziehen und mir zehn Scheite Naldorholz besorgen?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -298,8 +299,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A spark to a flame II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 4));
 talkEntry:addResponse("I appreciate your devotion. Rituals in honour of Brágon all have one thing in common: Something has to be burnt! As a believer, will you please go out and fetch me ten logs of naldor wood?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -309,8 +310,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Feuer und Flamme II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 4));
 talkEntry:addResponse("Ich würdige eure Hingabe. Rituale in Ehren an Brágon haben alle eines gemeinsam: Etwas muss verbrannt werden! Als Gläubiger, würdet ihr bitte losziehen und mir zehn Scheite Naldorholz besorgen?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -320,10 +321,10 @@ talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a ruby ring."));
+talkEntry:addResponse("Ah, the next ritual to honour Brágon can take place thanks to you. Take this ring as a sign of your faith.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(544, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(68, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 5));
-talkEntry:addResponse("Ah, the next ritual to honour Brágon can take place thanks to you. Take this ring as a sign of your faith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -332,10 +333,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 4));
 talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Rubinring."));
+talkEntry:addResponse("Ah, das nächste Ritual zu Ehren Brágons kann dank euch stattfinden. Nehmt diesen Ring als Zeichen eures Glaubens.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(544, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(68, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 5));
-talkEntry:addResponse("Ah, das nächste Ritual zu Ehren Brágons kann dank euch stattfinden. Nehmt diesen Ring als Zeichen eures Glaubens.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -379,8 +380,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A spark to a flame III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 6));
 talkEntry:addResponse("I see you are really serious in your faith in Brágon. I think you are worthy to become a devotee of Brágon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -389,8 +390,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 5));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Feuer und Flamme III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 6));
 talkEntry:addResponse("Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Brágon. Ich denke, ihr seid würdig, einer seiner Anhänger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zurück, um meinen Segen zu empfangen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -399,8 +400,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 5));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A spark to a flame III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 6));
 talkEntry:addResponse("I see you are really serious in your faith in Brágon. I think you are worthy to become a devotee of Brágon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -410,8 +411,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Feuer und Flamme III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 6));
 talkEntry:addResponse("Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Brágon. Ich denke, ihr seid würdig, einer seiner Anhänger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zurück, um meinen Segen zu empfangen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -421,9 +422,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(401, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a red priest robe."));
+talkEntry:addResponse("#me raises his hands and chants: 'Be blessed in the name of Brágon! Go forth and accomplish deeds in his name.'");
 talkEntry:addConsequence(npc.base.consequence.item.item(2419, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 7));
-talkEntry:addResponse("#me raises his hands and chants: 'Be blessed in the name of Brágon! Go forth and accomplish deeds in his name.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -432,9 +433,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 6));
 talkEntry:addCondition(npc.base.condition.quest.quest(401, "=", 2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine rote Priesterrobe."));
+talkEntry:addResponse("#me hebt seine Hände und singt: 'Seid gesegnet in Brágons Namen! Gehet hin und vollbringt Taten in seinem Namen.'");
 talkEntry:addConsequence(npc.base.consequence.item.item(2419, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 7));
-talkEntry:addResponse("#me hebt seine Hände und singt: 'Seid gesegnet in Brágons Namen! Gehet hin und vollbringt Taten in seinem Namen.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

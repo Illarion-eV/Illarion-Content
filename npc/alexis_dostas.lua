@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -162,6 +162,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -176,8 +177,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Royal Stables I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 1));
 talkEntry:addResponse("As you might know, Cadomyr is not blessed with much fertile farmland. Hence, the stables always lack hay. Could you please bring ten bundles of grain? My gratitude is guaranteed.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -186,8 +187,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die königlichen Stallungen I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 1));
 talkEntry:addResponse("Wie euch bekannt sein dürfte, ist Cadomyr nicht gerade mit fruchtbarem Ackerland gesegnet. Somit fehlt es in den Stallungen immer an Heu. Bringt ihr mir bitte zehn Bündel Getreide? Mein Dank ist euch gewiss.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -197,8 +198,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Royal Stables I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 1));
 talkEntry:addResponse("As you might know, Cadomyr is not blessed with much fertile farmland. Hence, the stables always lack hay. Could you please bring ten bundles of grain? My gratitude is guaranteed.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -209,8 +210,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die königlichen Stallungen I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 1));
 talkEntry:addResponse("Wie euch bekannt sein dürfte, ist Cadomyr nicht gerade mit fruchtbarem Ackerland gesegnet. Somit fehlt es in den Stallungen immer an Heu. Bringt ihr mir bitte zehn Bündel Getreide? Mein Dank ist euch gewiss.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -221,11 +222,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a gold nugget. You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addResponse("Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but long ago, a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
-talkEntry:addResponse("Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but long ago, a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -235,11 +236,11 @@ talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Goldnugget. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("Ah, das Heu, vielen lieben Dank. Bette und die anderen Reittiere wird es freuen. Ich kann euch nicht viel geben, aber ein verrückter Zwerg hat vor langer Zeit ein Goldnugget im Stall vergessen. Irgendwie werde ich das Gefühl nicht los, dass er etwas mit unserem Heumangel zu tun hat...");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
-talkEntry:addResponse("Ah, das Heu, vielen lieben Dank. Bette und die anderen Reittiere wird es freuen. Ich kann euch nicht viel geben, aber ein verrückter Zwerg hat vor langer Zeit ein Goldnugget im Stall vergessen. Irgendwie werde ich das Gefühl nicht los, dass er etwas mit unserem Heumangel zu tun hat...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -249,10 +250,10 @@ talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a gold nugget."));
+talkEntry:addResponse("Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but long ago, a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 2));
-talkEntry:addResponse("Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but long ago, a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -261,10 +262,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Goldnugget."));
+talkEntry:addResponse("Ah, das Heu, vielen lieben Dank. Bette und die anderen Reittiere wird es freuen. Ich kann euch nicht viel geben, aber ein verrückter Zwerg hat vor langer Zeit ein Goldnugget im Stall vergessen. Irgendwie werde ich das Gefühl nicht los, dass er etwas mit unserem Heumangel zu tun hat...");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 2));
-talkEntry:addResponse("Ah, das Heu, vielen lieben Dank. Bette und die anderen Reittiere wird es freuen. Ich kann euch nicht viel geben, aber ein verrückter Zwerg hat vor langer Zeit ein Goldnugget im Stall vergessen. Irgendwie werde ich das Gefühl nicht los, dass er etwas mit unserem Heumangel zu tun hat...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -311,8 +312,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Royal Stables II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 3));
 talkEntry:addResponse("Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,8 +322,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die königlichen Stallungen II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 3));
 talkEntry:addResponse("Wußtet ihr, was unsere Reittiere am liebsten haben? Karotten! Und nur zufriedene Reittiere galoppieren stolz über die Ebenen. Würdet ihr bitte zehn Karotten für sie besorgen?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -332,8 +333,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Royal Stables II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 3));
 talkEntry:addResponse("Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -344,8 +345,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die königlichen Stallungen II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 3));
 talkEntry:addResponse("Wußtet ihr, was unsere Reittiere am liebsten haben? Karotten! Und nur zufriedene Reittiere galoppieren stolz über die Ebenen. Würdet ihr bitte zehn Karotten für sie besorgen?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -356,11 +357,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded fourty coppercoins. You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addResponse("You really brought some carrots for Bette and the other mounts. I thank you very, very much. Here, have my salary, you made the mounts happy, so you deserve it much more than I do.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
-talkEntry:addResponse("You really brought some carrots for Bette and the other mounts. I thank you very, very much. Here, have my salary, you made the mounts happy, so you deserve it much more than I do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -370,11 +371,11 @@ talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst vierzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("Ihr habt wirklich Karotten für Bette und die anderen Reittiere gebracht. Ich danke euch vielmals dafür. Hier, nehmt meinen Lohn, ihr habt die Reittiere glücklich gemacht und verdient ihn mehr als ich.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
-talkEntry:addResponse("Ihr habt wirklich Karotten für Bette und die anderen Reittiere gebracht. Ich danke euch vielmals dafür. Hier, nehmt meinen Lohn, ihr habt die Reittiere glücklich gemacht und verdient ihn mehr als ich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -384,10 +385,10 @@ talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded fourty coppercoins."));
+talkEntry:addResponse("You really brought some carrots for Bette and the other mounts. I thank you very, very much. Here, have my salary, you made the mounts happy, so you deserve it much more than I do.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 4));
-talkEntry:addResponse("You really brought some carrots for Bette and the other mounts. I thank you very, very much. Here, have my salary, you made the mounts happy, so you deserve it much more than I do.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -396,10 +397,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst vierzig Kupferstücke."));
+talkEntry:addResponse("Ihr habt wirklich Karotten für Bette und die anderen Reittiere gebracht. Ich danke euch vielmals dafür. Hier, nehmt meinen Lohn, ihr habt die Reittiere glücklich gemacht und verdient ihn mehr als ich.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 4));
-talkEntry:addResponse("Ihr habt wirklich Karotten für Bette und die anderen Reittiere gebracht. Ich danke euch vielmals dafür. Hier, nehmt meinen Lohn, ihr habt die Reittiere glücklich gemacht und verdient ihn mehr als ich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

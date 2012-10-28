@@ -8,7 +8,7 @@
 -- Authors:  kormkormsen                                                      --
 --           Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Hagar Wernson"
@@ -41,16 +41,21 @@ colorSkin = 217, 154, 123
 itemTrousers = 823
 itemShoes = 369
 
--- Stock: big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
 
-sellItems = 164, 191, 224, 353, 453, 454, 517, 518, 783, 784, 785, 786, 787, 788, 789, 790, 791, 1315, 1316, 1317, 1318, 1319, 1840, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1858, 1859, 1860, 1861, 1908, 1909, 2055, 2056, 2057, 2058, 2059, 2185, 2186, 2187, 2188, 2189, 2276, 2278, 2456, 2496, 2497, 2498, 2499, 2500, 2501, 2922, 2923, 2935, 2952,
-"verkauf", "handel" -> "Lass uns handeln!", trade
-"sell", "trade" -> "Let's trade!", trade
+sellItems = 164, 191, 224, 353, 453, 454, 517, 518, 783, 784, 785, 786, 787, 788, 789, 790, 791, 1315, 1316, 1317, 1318, 1319, 1840, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1858, 1859, 1860, 1861, 1908, 1909, 2055, 2056, 2057, 2058, 2059, 2185, 2186, 2187, 2188, 2189, 2276, 2278, 2456, 2496, 2497, 2498, 2499, 2500, 2501, 2922, 2923, 2935, 2952
 buyPrimaryItems = 80, 151, 199, 784, 785, 789, 1319, 1909, 1908, 2501
 buySecondaryItems = 290, 291, 783, 786, 787, 788, 791, 1318
 tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
 tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
 tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
+
+-- Stock: big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
+"verkauf", "handel" -> "Lass uns handeln!", trade
+"sell", "trade" -> "Let's trade!", trade
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 -- tavern keeper at Galmair 'The Winged Sow', 'Taverne zur geflügelten Sau'
@@ -101,8 +106,8 @@ english, "Gobaith", "Gobiath" -> "Aye, s' horrible waht happened there. I will m
 "Gobaith", "Gobiath" -> "Aye, das war schrecklich was dort passiert ist. Die Nordmark werd ich immer vermissen."
 queststatus(306) = 5, "my name" -> "No need for tell me again. I'm really good with names. I never forgot one. - What may I serve you?"
 queststatus(306) = 5, "mein Name" -> "Brauchste mir nicht nochmal zu sagen. Mit Namen bin ich ausgesprochen gut. hab noch nie einen vergessen. - Was darfs heute sein?"
-"my name" -> inform("The Innkeeper gifts you a beer for free. Cheers!"), item(1909, 1, 333), queststatus(306) = 5, "You are new here, aren't you? Here you go! The first beer's free. Welcome at the Winged Sow tavern!"
-"mein Name" -> inform("Der Wirt gibt dir ein Bier aus. Prost!"), item(1909, 1, 333), queststatus(306) = 5, "Du bist neu hier, was? Hier! Das erste Bier geht immer auf's Haus. Willkommen in der Taverne zur geflügelten Sau!"
+"my name" -> inform("The Innkeeper gifts you a beer for free. Cheers!"), "You are new here, aren't you? Here you go! The first beer's free. Welcome at the Winged Sow tavern!", item(1909, 1, 333), queststatus(306) = 5
+"mein Name" -> inform("Der Wirt gibt dir ein Bier aus. Prost!"), "Du bist neu hier, was? Hier! Das erste Bier geht immer auf's Haus. Willkommen in der Taverne zur geflügelten Sau!", item(1909, 1, 333), queststatus(306) = 5
 
 -- More small talk; add at least five triggers
 "dragon" -> "Dragon's Pond. My old tavern. Sadly I had to leave it behind."

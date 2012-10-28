@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Lothar Piero"
@@ -47,6 +47,18 @@ itemHands = 48
 itemTrousers = 459
 itemShoes = 53
 
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 9, 74, 2709, 2715, 2752, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 2193, 2194, 2935, 2952, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 3, 56, 543, 544, 2560, 2786, 39, 40, 57, 76, 207, 208, 209, 90, 332, 333, 335, 323, 2782, 2783, 2784, 2785
+buyPrimaryItems = 9, 74, 2709, 2715, 2752, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 2193, 2194, 2935, 2952, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 3, 56, 543, 544, 2560, 2786, 39, 40, 57, 76, 207, 208, 209, 90, 332, 333, 335, 323, 2782, 2783, 2784, 2785
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
@@ -71,15 +83,8 @@ itemShoes = 53
 -- 10% Staffs: 39, 40, 57, 76, 207, 208, 209
 -- 10% Instruments: 90, 332, 333, 335
 -- 10% Wands: 323, 2782, 2783, 2784, 2785
-
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Ah, so you are interested in my wares.", "Take your time to look around."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um."
-sellItems = 9, 74, 2709, 2715, 2752, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 2193, 2194, 2935, 2952, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 3, 56, 543, 544, 2560, 2786, 39, 40, 57, 76, 207, 208, 209, 90, 332, 333, 335, 323, 2782, 2783, 2784, 2785
-buyPrimaryItems = 9, 74, 2709, 2715, 2752, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 2193, 2194, 2935, 2952, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 3, 56, 543, 544, 2560, 2786, 39, 40, 57, 76, 207, 208, 209, 90, 332, 333, 335, 323, 2782, 2783, 2784, 2785
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Lothar Piero the timber merchant. Keywords: buy, sell, trade, Hello, profession, poetry, Pennymill, Archmage Morgan.")
@@ -106,10 +111,10 @@ english, "quest", "mission" -> "Sorry, I have no job for you."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es tut mir Leid, ich habe keine Arbeit für Euch."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> trade, trade, "Wood is good.", "I am a merchant and thus, I trade wood. My wood makes me proud, hihi."
+"profession" -> "Wood is good.", "I am a merchant and thus, I trade wood. My wood makes me proud, hihi.", trade, trade
 "beruf" -> "Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!"
 english, "job" -> "Wood is good.", "I am a merchant and thus, I trade wood. My wood makes me proud, hihi."
-"job" -> trade, trade, "Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!"
+"job" -> "Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!", trade, trade
 english, "Gobaith", "Gobiath" -> "Gobaith, isn't that a tiny a island in the ocean?", "Gobaith isn't important enough to attract Runewick's attention."
 "Gobaith", "Gobiath" -> "Gobaith, ist das nicht eine dieser winzigen Inseln im Splittermeer?", "Gobaith ist viel zu unwichtig, um die Aufmerksamkeit Runewicks Wert zu sein."
 "my name" -> "I am delighted. A pleasure to meet you.", "Well, I should remember that.", "Be greeted and be told: I won't betray you with my wood."
@@ -121,7 +126,7 @@ english, "Gobaith", "Gobiath" -> "Gobaith, isn't that a tiny a island in the oce
 "Pfennigmühle" -> "In Pfennigmühle, ich will es Euch erzählen - kontrolliert die Miliz alle Tavernen und Gasthäuser des Hafenviertels. So braucht sich ein Halbling niemals vor Unruhestiftern und Grobianen fürchten.", "Die Straßen in Pfennigmühle werden stehts mit dicken Ölkerzen beleuchtet. Wenn man abends nach Hause geht, gibt es kein schattiges Plätzchen, wo sich Unholde verkreichen könnten.", "Nachts sind die Tore von Pfennigmühle geschlossen. Man kann sich so nur innerhalb der verschiedenen Viertel bewegen. So ist alles viel sicherer und kontrollierbar.", "Ich möchte nicht prahlen, doch in Pfennigmühle gibt es die saftigsten und riesigsten Melonen, Kürbisse und Tomaten Illarions!"
 "poetry" -> "Poetry, poetry. The carpenter's poetry's masterpiece is a harp. If you behold a true master carving the harp, you can almost hear the melody."
 "Poesie" -> "Poesie, Poesie. Das Schönste was ein Schreiner zu schaffen vermag, ist zweifelsfrei eine Harfe. Sehe ich einem Meister beim Schnitzen zu, glaube ich oft eine Melodie zu hören."
-"trader", "merchant", "collegue", "vendor", "market" -> trade, trade, "We merchants of Runewick always try to offer as many goods and wares as possible.", "The archmage himself asked us to import as few items as possible and rely on domestic goods.", "Hiho! We merchants of Runewick stand united and the archmage backs us up."
+"trader", "merchant", "collegue", "vendor", "market" -> "We merchants of Runewick always try to offer as many goods and wares as possible.", "The archmage himself asked us to import as few items as possible and rely on domestic goods.", "Hiho! We merchants of Runewick stand united and the archmage backs us up.", trade, trade
 "händler", "kollege", "höker", "markt" -> "Wir Händler Runewicks geben uns Mühe, ein möglichst großes Angebot an Waren und Güter für die Stadt bereitzustellen.", "Der Erzmagier persönlich hat uns Händlern aufgetragen, ausschließlich die nötigsten Güter zu importieren. Alles andere sind Güter aus Runewick.", "Hiho! Die Händler Runewicks stehen zusammen. Und der Erzmagier hinter uns."
 
 -- Faction stuff
@@ -133,7 +138,7 @@ english, "Runewick" -> "May Elara bless Runewick. The four towers are built to h
 "Runewick" -> "Elara möge Runewick bewahren. Die vier Türme sollen den Göttern schmeicheln und benachbarten Städten unsere Macht demonstrieren."
 english, "Valerio", "Guilianni", "Don" -> "He is stubborn I was told. All he cares for is gold. It is only a matter time until another thug overtakes Galmair."
 "Valerio", "Guilianni", "Don" -> "Ein wahrer Dickkopf, habe ich mir sagen lassen. Ihm ist nur daran gelegen Gold zu häufen. Es ist nur eine Frage der Zeit bis einer seiner Konkurenten das Ruder Galmairs aus seinen Händen reißt."
-english, "Galmair" -> trade, "Usr have a proverb: Do not trust Galmair, gold opens the door of the stupid. But if you want to walk into the house of wisdom, you have to open a book instead."
+english, "Galmair" -> "Usr have a proverb: Do not trust Galmair, gold opens the door of the stupid. But if you want to walk into the house of wisdom, you have to open a book instead.", trade
 "Galmair" -> "Wir Händler haben ein Sprichwort: Traue Galmair nicht, dort schätzt man nur das Gold, von Gewicht. Doch willst du Weisheit tragen, sollt Ihr die Bücher befragen."
 "Queen" -> "Queen Rosaline rules on behalf of the gods Malachín and Zhambra. They do not care about wisdom, but is it wise to rule a town by sword and battle?"
 "Königin" -> "Königin Rosaline herrscht aufgrund der Götter Gnade. Malachín und Zhambra, doch sie schenken der Weisheit keinen Wert. Ist es weise eine Stadt mit Schwert und Schlachtenehre zu regieren?"

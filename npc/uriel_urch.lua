@@ -8,7 +8,7 @@
 -- Authors:  Ryan Williams/Alexander Knight                                   --
 --           supervising by Rincewind                                         --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -186,6 +186,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -202,8 +203,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Tales and Swords started. - Fetch a mug filled with beer for Uriel."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 1));
 talkEntry:addResponse("I tell you what, go fetch me a beer and I will tell you my story, but don't you dare spill any.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -214,8 +215,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("beer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Tales and Swords started. - Fetch a mug filled with beer for Uriel."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 1));
 talkEntry:addResponse("I tell you what, go fetch me a beer and I will tell you my story, but don't you dare spill any.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -224,8 +225,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Geschichten und Schwerter gestartet. - Besorge einen Krug, gefüllt mit Bier für Uriel."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 1));
 talkEntry:addResponse("Wisst Ihr was? Bringt mir einen Krug mit Bier und ich erzähl Euch meine Geschichte. - Aber gebt Acht dass Ihr nicht's verschüttet!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -238,8 +239,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("bier");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Geschichten und Schwerter gestartet. - Besorge einen Krug, gefüllt mit Bier für Uriel."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 1));
 talkEntry:addResponse("Wisst Ihr was? Bringt mir einen Krug mit Bier und ich erzähl Euch meine Geschichte. - Aber gebt Acht dass Ihr nicht's verschüttet!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -249,9 +250,9 @@ talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addResponse("#me takes the mug. 'Thank you. Right where to start... Ah! Well I was born in Salkamar city.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 2));
-talkEntry:addResponse("#me takes the mug. 'Thank you. Right where to start... Ah! Well I was born in Salkamar city.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -261,9 +262,9 @@ talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("beer");
+talkEntry:addResponse("#me takes the mug. 'Thank you. Right where to start... Ah! Well I was born in Salkamar city.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 2));
-talkEntry:addResponse("#me takes the mug. 'Thank you. Right where to start... Ah! Well I was born in Salkamar city.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -272,9 +273,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addResponse("#me nimmt den Krug von dir entgegen. 'Habt Dank. Also wo soll ich beginnen? ... Ah! Nun ich ich wurde in der Stadt Salkamar geboren.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 2));
-talkEntry:addResponse("#me nimmt den Krug von dir entgegen. 'Habt Dank. Also wo soll ich beginnen? ... Ah! Nun ich ich wurde in der Stadt Salkamar geboren.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -285,9 +286,9 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("bier");
+talkEntry:addResponse("#me nimmt den Krug von dir entgegen. 'Habt Dank. Also wo soll ich beginnen? ... Ah! Nun ich ich wurde in der Stadt Salkamar geboren.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 2));
-talkEntry:addResponse("#me nimmt den Krug von dir entgegen. 'Habt Dank. Also wo soll ich beginnen? ... Ah! Nun ich ich wurde in der Stadt Salkamar geboren.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -336,8 +337,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Tales and Swords - Fetch a second beermug for Uriel."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 3));
 talkEntry:addResponse("... At the age of twenty I joined the troops, my gods did I see the truth behind the rise of man. *He slowly shakes his head.* Those days I lost too many good friends. - Hrm, do you know what? I am in need of another beer.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -345,8 +346,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 2));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Geschichten und Schwerter - Besorge Uriel ein zweites Bier."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 3));
 talkEntry:addResponse("... mit etwa zwanzig Wintern auf dem Buckel bin ich zur Legion. Bei den Göttern! Am Schlachtfeld sah ich woraus Männer gemacht sind. Noch heute habe ich den Gestank des Gedärms und Unrats in Erinnerung. - Hrm, wisst Ihr was? Ich werde lieber noch ein Bier trinken. ");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -356,9 +357,9 @@ talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addResponse("Thank you. Now let me carry on the story. I fought the dirty Albarians for years, until we returned back to one of the nearby villages...");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 4));
-talkEntry:addResponse("Thank you. Now let me carry on the story. I fought the dirty Albarians for years, until we returned back to one of the nearby villages...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -368,9 +369,9 @@ talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("beer");
+talkEntry:addResponse("Thank you. Now let me carry on the story. I fought the dirty Albarians for years, until we returned back to one of the nearby villages...");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 4));
-talkEntry:addResponse("Thank you. Now let me carry on the story. I fought the dirty Albarians for years, until we returned back to one of the nearby villages...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -379,9 +380,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addResponse("#me nimmt das Bier entgegen. 'Euch sei's gedankt, Fremder. Lasst mich nun fortfahren. Meine Kohorte kämpfte mehrere jahre gegen die dreckigen Albarianer, bis wir eines Tages zu einem Dorf an der Grenze kamen...'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 4));
-talkEntry:addResponse("#me nimmt das Bier entgegen. 'Euch sei's gedankt, Fremder. Lasst mich nun fortfahren. Meine Kohorte kämpfte mehrere jahre gegen die dreckigen Albarianer, bis wir eines Tages zu einem Dorf an der Grenze kamen...'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -392,9 +393,9 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("bier");
+talkEntry:addResponse("#me nimmt das Bier entgegen. 'Euch sei's gedankt, Fremder. Lasst mich nun fortfahren. Meine Kohorte kämpfte mehrere jahre gegen die dreckigen Albarianer, bis wir eines Tages zu einem Dorf an der Grenze kamen...'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 4));
-talkEntry:addResponse("#me nimmt das Bier entgegen. 'Euch sei's gedankt, Fremder. Lasst mich nun fortfahren. Meine Kohorte kämpfte mehrere jahre gegen die dreckigen Albarianer, bis wir eines Tages zu einem Dorf an der Grenze kamen...'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -443,8 +444,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Tales and Swords - Fetch one more beermug for Uriel."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 5));
 talkEntry:addResponse("My gods it was a masacre. Children dead, their mothers taken to be burnt *sob* Beer?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -452,8 +453,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 4));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Geschichten und Schwerter - Bringe Uriel noch ein Bier!"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 5));
 talkEntry:addResponse("Bei Maláchin! Das ganze Dorf wurde abgeschlachtet. Kinder - erdolcht und ihre Mütter bei lebendigen Leibe verbrannt! Ihre Schreie! Ich kann sie nicht vergessen. *er seufzt tief und blickt dich fragend an* Bier?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -464,10 +465,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Tales and Swords solved. - Uriel reaches for his belt and takes his sword. Then he puts it into your hands."));
+talkEntry:addResponse("#me drinks the beer, and seems much better after it. 'From then on I have not used my sword again. *pauses* I tell you what, since you have been so good as to hear me out. Take it with you. I won't need it anymore.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2701, 1, 655, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 7));
-talkEntry:addResponse("#me drinks the beer, and seems much better after it. 'From then on I have not used my sword again. *pauses* I tell you what, since you have been so good as to hear me out. Take it with you. I won't need it anymore.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -478,10 +479,10 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("beer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Tales and Swords solved. - Uriel reaches for his belt and takes his sword. Then he puts it into your hands."));
+talkEntry:addResponse("#me drinks the beer, and seems much better after it. 'From then on I have not used my sword again.' He pauses. 'I tell you what, since you have been so good as to hear me out. Take it with you. I won't need it anymore.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2701, 1, 655, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 7));
-talkEntry:addResponse("#me drinks the beer, and seems much better after it. 'From then on I have not used my sword again.' He pauses. 'I tell you what, since you have been so good as to hear me out. Take it with you. I won't need it anymore.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -489,9 +490,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "=>", 1, nil));
 talkEntry:addTrigger(".*");
+talkEntry:addResponse("#me leert das Bier in einem Zug. 'Seit damals... habe ich mein Schwert niemals mehr gezogen.' Er hält einen Moment inne...");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 6));
-talkEntry:addResponse("#me leert das Bier in einem Zug. 'Seit damals... habe ich mein Schwert niemals mehr gezogen.' Er hält einen Moment inne...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -500,9 +501,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(307, "=", 6));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Geschichten und Schwerter abgeschlossen. - Uriel greift nach dem Schwert in seinem Gürtel. Er legt es in deine Hände."));
+talkEntry:addResponse("Hier - nehmt mein Schwert. Ihr habt meiner Geschichte gelauscht und ich konnte ausprechen was mich belastet. Ich danke Euch. - brauchen kann ich es onehin nicht mehr.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2701, 1, 655, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 7));
-talkEntry:addResponse("Hier - nehmt mein Schwert. Ihr habt meiner Geschichte gelauscht und ich konnte ausprechen was mich belastet. Ich danke Euch. - brauchen kann ich es onehin nicht mehr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -513,9 +514,9 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("bier");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Geschichten und Schwerter abgeschlossen. - Uriel greift nach dem Schwert in seinem Gürtel. Er legt es in deine Hände."));
+talkEntry:addResponse("Hier - nehmt mein Schwert. Ihr habt meiner Geschichte gelauscht und ich konnte ausprechen was mich belastet. Ich danke Euch. - brauchen kann ich es onehin nicht mehr.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2701, 1, 655, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(307, "=", 7));
-talkEntry:addResponse("Hier - nehmt mein Schwert. Ihr habt meiner Geschichte gelauscht und ich konnte ausprechen was mich belastet. Ich danke Euch. - brauchen kann ich es onehin nicht mehr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -893,9 +894,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ahh! The god of smithing. Most Dwarves pray to him. Some merchants... and eaven a few warriors do too.");
-talkEntry:addResponse("Irmorom is the God ofand craftsmanship.  Honorable, good natured... He likes law and rarely refuses a good beer.");
+talkEntry:addResponse("Irmorom is the God ofand craftsmanship.  Honourable, good natured... He likes law and rarely refuses a good beer.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

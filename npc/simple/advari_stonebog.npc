@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Advari Stonebog"
@@ -41,6 +41,18 @@ itemHands = 48
 itemTrousers = 2116
 itemShoes = 326
 
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 51, 126, 258, 271, 69, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 330, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934
+buySecondaryItems = 51, 126, 258, 271, 69, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 330, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- Trader Stock
 -- Tools (Farmer): 51, 126, 258, 271
@@ -50,15 +62,8 @@ itemShoes = 326
 -- Milk: 330
 -- Seeds: 259, 291, 534, 728, 773, 779, 2494, 2917
 -- Raw meat: 307, 552, 553, 2934
-
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Ah, so you are interested in my wares.", "Take your time to look around."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um."
-sellItems = 51, 126, 258, 271, 69, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 330, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934
-buySecondaryItems = 51, 126, 258, 271, 69, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 330, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Advari Stonebog the trader. buy, sell, trade, Dwarf, Beer, Orcs, Name.")
@@ -85,9 +90,9 @@ english, "quest", "mission" -> "I don't got any tasks for you. Better ask the Do
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich hab keine Arbeit für dich, frag lieber den Don. Aye?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> trade, "Iwith seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there."
+"profession" -> "Iwith seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there.", trade
 "beruf" -> "Ich handle mit Saatgut. Wenn du ein Bauer bist, bist du bei mir richtig. Ich verkauf dir alles was du brauchst. Aye. Und außerdem pass ich auf, dass die Grünschnauzen dort drüben keinen Unsinn treiben."
-english, "job" -> trade, "Iwith seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there."
+english, "job" -> "Iwith seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there.", trade
 "job" -> "Ich handle mit Saatgut. Wenn du ein Bauer bist, bist du bei mir richtig. Ich verkauf dir alles was du brauchst. Aye. Und außerdem pass ich auf, dass die Grünschnauzen dort drüben keinen Unsinn treiben."
 english, "Gobaith", "Gobiath" -> "Gobaith? Drhg'hgin! Nobody's allowed to speak that way about my granny! Get rid!"
 "Gobaith", "Gobiath" -> "Gobaith? Drhg'hgin! So spricht niemand über meine Großmutter! Verzieh dich!"

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                                            --
--- Last parsing: October 18, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -27,26 +27,6 @@ function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sell");
@@ -71,10 +51,6 @@ talkEntry:addResponse("I handle mit hölzernen Waren. Bitte, sieh dir ruhig um me
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -300,18 +276,6 @@ tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren n
 tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
 tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
 tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(9,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(74,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2709,"sell"));
@@ -480,32 +444,12 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(209,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(293,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(294,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2645,"buySecondary"));
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(3);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Laramir Silverwood der Schreiner.", "This NPC is Laramir Silverwood the carpenter.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me lächelt und zuckt mit den Schultern.", "#me smilies and shrougs his shoulders.");
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 364);
 mainNPC:setEquipment(11, 196);
@@ -514,18 +458,6 @@ mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 183);
 mainNPC:setEquipment(10, 369);
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
-tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
-tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

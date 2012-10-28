@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Mesha                                                            --
 --                                                                            --
--- Last parsing: September 30, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -54,10 +54,6 @@ talkEntry:addResponse("Schaut Euch ruhig in Ruhe um.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
-tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -643,10 +639,6 @@ talkEntry:addResponse("Nein zu was?");
 talkEntry:addResponse("Nein? Ihr mögt meine Roben nicht?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
-tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("Die feinsten Roben, Westen und Hemden! Niemals mehr wie ein Landstreicher herumlaufen!", "The finest robes, vests, shirts! Do not ever walk around like a bum again.");
 talkingNPC:addCycleText("#me streicht seine blaue Satinrobe glatt. Orangene Stickereien zieren die Ärmel.", "#me straightens his blue satin robes. They are adorned with orange filigree on the sleeves.");
 talkingNPC:addCycleText("#me schaut sich kurz um und wendet sich dann wieder einem Buch zu.", "#me looks around for a moment before returning to his book.");
@@ -933,10 +925,6 @@ mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 2295);
 mainNPC:setEquipment(9, 367);
 mainNPC:setEquipment(10, 369);
-tradingNPC:addNotEnoughMoneyMsg("Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that.");
-tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

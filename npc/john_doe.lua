@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Insert your name here                                            --
 --                                                                            --
--- Last parsing: October 18, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL

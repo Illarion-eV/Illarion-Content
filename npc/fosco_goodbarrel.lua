@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -189,6 +189,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -205,8 +206,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest update] Aurora's Staff: Part II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkEntry:addResponse("Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He's in <town name>.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -215,8 +216,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 6));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkEntry:addResponse("Ahh, der Stab! Nun, weil ich dich mag, gebe ich es dir für fünf Goldstücke. Ich sag' dir was: Ich habe ein Auge auf den goldenen Dolch des Echsenmenschen Kai'itza geworfen. Bring ihn mir, den Stab. ");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -226,8 +227,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("staff");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest update] Aurora's Staff: Part II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkEntry:addResponse("Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He's in <town name>.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -238,8 +239,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("german");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkEntry:addResponse("Ahh, der Stab! Nun, weil ich dich mag, gebe ich es dir für fünf Goldstücke. Ich sag' dir was: Ich habe ein Auge auf den goldenen Dolch des Echsenmenschen Kai'itza geworfen. Bring ihn mir, den Stab.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -285,10 +286,10 @@ talkEntry:addCondition(npc.base.condition.item.item(190, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest updated] Aurora's Staff: Part II."));
+talkEntry:addResponse("That's the one! I didn't think you had it in ya. Well, I'm a halfling of his word today. Here's the staff. I hope you enjoy your piece of wood.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(190, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(209, 1, 499, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(13372, "=", 11));
-talkEntry:addResponse("That's the one! I didn't think you had it in ya. Well, I'm a halfling of his word today. Here's the staff. I hope you enjoy your piece of wood.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -297,10 +298,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 10));
 talkEntry:addCondition(npc.base.condition.item.item(190, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 80 Kupferstücke."));
+talkEntry:addResponse("Das ist er! I hätte ja nicht gedacht, dass du das schaffst. Nun, ich bin ein Halbling der zu seinen worten steht. Hier hast du den Stab. Viel Spaß mit dem Stück Holz.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(190, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(209, 1, 499, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(13372, "=", 11));
-talkEntry:addResponse("Das ist er! I hätte ja nicht gedacht, dass du das schaffst. Nun, ich bin ein Halbling der zu seinen worten steht. Hier hast du den Stab. Viel Spaß mit dem Stück Holz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -310,8 +311,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Mischievous Halfling"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 1));
 talkEntry:addResponse("Well, since you asked, I am in need of a costume for my next...'play.' I shall be playing the part of a foreign halfling dignitary, upon whom the government bestow lavish gifts. I need one black coat and one amulet.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -320,8 +321,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 1));
 talkEntry:addResponse("Nun, da du fragst, ich bräuchte ein Kostüm für mein nächstes ...'Stück'. Ich werde die Rolle eines außländischen Halblingswürdenträgers spielen, den die Regierung großzügoig mit Geschenken überhäufen wird. Ich brauche einen schwarzen Mantel und ein Amulett.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -330,8 +331,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(336, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Mischievous Halfling"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 1));
 talkEntry:addResponse("Well, since you asked, I am in need of a costume for my next...'play.' I shall be playing the part of a foreign halfling dignitary, upon whom the government bestow lavish gifts. I need one black coat and one amulet..");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -341,8 +342,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 1));
 talkEntry:addResponse("Nun, da du fragst, ich bräuchte ein Kostüm für mein nächstes ...'Stück'. Ich werde die Rolle eines außländischen Halblingswürdenträgers spielen, den die Regierung großzügoig mit Geschenken überhäufen wird. Ich brauche einen schwarzen Mantel und ein Amulett.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -429,12 +430,12 @@ talkEntry:addCondition(npc.base.condition.item.item(222, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 120 copper coins and a strawberry cake."));
+talkEntry:addResponse("Perfect! I shall certainly fool the...audience with this disgui...erm...costume. Oh, righto. Take your money. Here, you must try one of these, too! Just divine!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 120));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2384, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(222, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(354, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 2));
-talkEntry:addResponse("Perfect! I shall certainly fool the...audience with this disgui...erm...costume. Oh, righto. Take your money. Here, you must try one of these, too! Just divine!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -444,12 +445,12 @@ talkEntry:addCondition(npc.base.condition.item.item(2384, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.item.item(222, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 120 Kupferstücke und einen Erbbeerkuchen."));
+talkEntry:addResponse("Großartig! I werde die... Zuschauer sicherlich hereinlegen mit dieser Tarnung...ähm...mit diesem Kostüm. Ah, ja richelig. Nimm dein Geld! Und hier, davon musst du einen probieren! Schmeckt ganz wunderbar!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 120));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2384, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(222, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(354, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(336, "=", 2));
-talkEntry:addResponse("Großartig! I werde die... Zuschauer sicherlich hereinlegen mit dieser Tarnung...ähm...mit diesem Kostüm. Ah, ja richelig. Nimm dein Geld! Und hier, davon musst du einen probieren! Schmeckt ganz wunderbar!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

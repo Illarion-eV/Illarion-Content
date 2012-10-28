@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Iradona Goldschein"
@@ -90,8 +90,8 @@ english, "inform" -> inform("[Keywords] building, locations, event, people, hist
 "Gebäude" -> inform("[Schlüsselwörter] Markt, Tempel, Teleport, Eselstall, Bibliothek, Quelle der Träume, Villa Goldader, Werkstatt, Wachstube, Dunkle Gasse, Galmairs Krone, Schlackengrube"), "Argh, etwas genauer! Markt, Tempel, Teleport, Eselstall, Bibliothek, Quelle der Träume, Villa Goldader, Werkstatt, Wachstube, Dunkle Gasse, Galmairs Krone oder die Schlackengrube?"
 "location" -> inform("[Keywords] Hinterland, Lotta Medborgar"), "I suggest you look for Lotta Medborgar if you want to know more than the Hinterlands. She is hunter and has explored several locations. Better to ask her. You can find her down at the Winged Sow Tavern."
 "Ort" -> inform("[Schlüsselwörter] Hinterland, Lotta Medborgar"), "Ich empfehle du suchst nach Lotta Medborgar, wenn du mehr als die Hinterlande kennen lernen möchtest. Sie ist Jägerin und hat etliche Orte erkundet. Frag sie daher besser. Du kannst sie unten in der Taverne zur Geflügelten Sau."
-queststatus(630) < 1, english, "Lotta", "Medborgar" -> inform("[New Quest] Try to find Lotta Medborgar and get your reward."), queststatus(630) = 1, "Is a hunter that has explored several locations. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek, Tir Draganfod and many others. You can find her down at the Winged Sow Tavern."
-queststatus(630) < 1, "Lotta", "Medborgar" -> inform("[Neues Quest] Finde Lotta Medborgar und erhalte deine Belohnung."), queststatus(630) = 1, "Ist ne Jägerin und hat etliche Orte erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Tir Draganfod, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau."
+queststatus(630) < 1, english, "Lotta", "Medborgar" -> inform("[New Quest] Try to find Lotta Medborgar and get your reward."), "Is a hunter that has explored several locations. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek, Tir Draganfod and many others. You can find her down at the Winged Sow Tavern.", queststatus(630) = 1
+queststatus(630) < 1, "Lotta", "Medborgar" -> inform("[Neues Quest] Finde Lotta Medborgar und erhalte deine Belohnung."), "Ist ne Jägerin und hat etliche Orte erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Tir Draganfod, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau.", queststatus(630) = 1
 english, "Lotta", "Medborgar" -> "Is a hunter that has explored several locations. Among those are the Swamp, Northern Woods, Nagrun's Plain, Hemp Necktie Inn, Bounding Stream, Malachite creek, Tir Draganfod and many others. You can find her down at the Winged Sow Tavern."
 "Lotta", "Medborgar" -> "Ist ne Jägerin und hat etliche Orte erkundet. Unteranderem den Sumpf, Nördliche Wälder, Nagrun Ebene, Gasthof zur Hanfschlinge, Grenzstrom, Tir Draganfod, Malachit Bach und so weiter. Du kannst sie unten in der Taverne zur Geflügelten Sau."
 "people" -> "Argh, there were only dwarves here in the past. But nowadays we have all kind of folks here. Even orcs, which you can find in the Flicker Swale... Or do you like to meet Lotta? *grins*"
@@ -239,7 +239,7 @@ english, "Eldan" -> "One of the elder gods, but we do not care about this god he
 "Eldan" -> "Einer der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
 english, "Findari" -> "One of the elder gods, but we do not care about this god here. So, better do not waste your time with this god."
 "Findari" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
-english, "Irmorom" -> trade, "Most dwarves, businessmen and crafters, i.e. blacksmiths, pray to Irmorom. They believe that in life, they will be rewarded for their doings with wealth, and they pray for enchantment of crafted things, for a goodriches, and things like this."
+english, "Irmorom" -> "Most dwarves, businessmen and crafters, i.e. blacksmiths, pray to Irmorom. They believe that in life, they will be rewarded for their doings with wealth, and they pray for enchantment of crafted things, for a goodriches, and things like this.", trade
 "Irmorom" -> "Die meisten seiner Anhänger sind Zwerge, Händler, Handwerker und Schmiede. Sie glauben, wenn sie Irmoron anbeten, gelangen sie zu Wohlstand und Reichtum. Angeblich gewährt er auch Kräfte, um Waffen und Gegenstände zu verzaubern."
 english, "Malachin", "Malachín" -> "One of the weak younger gods. You can find fellows in Cadomyr."
 "Malachin", "Malachín" -> "Einer der schwachen, jüngeren Götter. Du kann Anhänger in Cadomyr finden."

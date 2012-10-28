@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Morri"
@@ -40,16 +40,21 @@ itemChest = 101
 itemTrousers = 2111
 itemShoes = 53
 
--- Template Version 1.03, 01/05/2011 by Estralis Seborian
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
 
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I am selling different meals, just have a look!"
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ich verkaufe verschiedenstes Essen schau dich nur um!"
 sellItems = 51, 118, 121, 227, 2495, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051, 2, 5, 2529, 49, 191, 303, 353, 354, 453, 454
 buySecondaryItems = 51, 118, 121, 227, 2495, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051, 2, 5, 2529, 49, 191, 303, 353, 354, 453, 454
 tradeNotEnoughMoneyMsg "Du kannst dir das nicht leisten!", "You can not afford that!"
 tradeFinishedMsg "Danke, komm bald wieder!", "Thanks, come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am selling different meals, just have a look!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich verkaufe verschiedenstes Essen schau dich nur um!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Morri the cook. Keywords: buy, sell, trade, Profession.")

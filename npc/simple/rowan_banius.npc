@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Rowan Banius"
@@ -96,10 +96,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care.", "Aye, so long.
 -- 1st quest: Bring 10 HAM
 
 -- Give out quest 1
-queststatus(322) = 0, english, "quest", "mission" -> inform("[New quest] The Farmer's Wife: Part I"), queststatus(322) = 1, "You will help? Oh, you are most kind. I am truly grateful. We are running low on food, and this season's crops and due for a few weeks. If you can bring me ten cooked hams, then I will be able to prepare enough meals until then."
-queststatus(322) = 0, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche I"), queststatus(322) = 1, "Ihr werde uns helfen? Oh, Ihr seid zu gütig. Ich bin wirklich dankbar. Wir haben nur noch wenig Vorräte im Haus und bald ist Erntezeit. Wenn Ihr mir 10 gekochte Schinken bringen könhntet, so werde ich bis zur Ernte genug Essen auf den Tisch bringen können."
-queststatus(322) = 0, "task", "adventure" -> inform("[New quest] The Farmer's Wife: Part I"), queststatus(322) = 1, "You will help? Oh, you are most kind. I am truly grateful. We are running low on food, and this season's crops and due for a few weeks. If you can bring me ten cooked hams, then I will be able to prepare enough meals until then."
-queststatus(322) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche I"), queststatus(322) = 1, "Ihr werde uns helfen? Oh, Ihr seid zu gütig. Ich bin wirklich dankbar. Wir haben nur noch wenig Vorräte im Haus und bald ist Erntezeit. Wenn Ihr mir 10 gekochte Schinken bringen könhntet, so werde ich bis zur Ernte genug Essen auf den Tisch bringen können."
+queststatus(322) = 0, english, "quest", "mission" -> inform("[New quest] The Farmer's Wife: Part I"), "You will help? Oh, you are most kind. I am truly grateful. We are running low on food, and this season's crops and due for a few weeks. If you can bring me ten cooked hams, then I will be able to prepare enough meals until then.", queststatus(322) = 1
+queststatus(322) = 0, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche I"), "Ihr werde uns helfen? Oh, Ihr seid zu gütig. Ich bin wirklich dankbar. Wir haben nur noch wenig Vorräte im Haus und bald ist Erntezeit. Wenn Ihr mir 10 gekochte Schinken bringen könhntet, so werde ich bis zur Ernte genug Essen auf den Tisch bringen können.", queststatus(322) = 1
+queststatus(322) = 0, "task", "adventure" -> inform("[New quest] The Farmer's Wife: Part I"), "You will help? Oh, you are most kind. I am truly grateful. We are running low on food, and this season's crops and due for a few weeks. If you can bring me ten cooked hams, then I will be able to prepare enough meals until then.", queststatus(322) = 1
+queststatus(322) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche I"), "Ihr werde uns helfen? Oh, Ihr seid zu gütig. Ich bin wirklich dankbar. Wir haben nur noch wenig Vorräte im Haus und bald ist Erntezeit. Wenn Ihr mir 10 gekochte Schinken bringen könhntet, so werde ich bis zur Ernte genug Essen auf den Tisch bringen können.", queststatus(322) = 1
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(322) = 1, item(306, all) < 10, english, "quest", "mission" -> "I am in urgent need of those ten hams. My poor wife is looking awfully pale, and would do well with a proper meal."
@@ -108,16 +108,16 @@ queststatus(322) = 1, item(306, all) < 10, "task", "adventure" -> "I am in urgen
 queststatus(322) = 1, item(306, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich benötige dringesnst besagte 10 Schinken.Meine Frau ist schon ganz bleich, ein anständiges Mahl wird ihr gut tun!"
 
 -- Quest 1 solved, reward: 40cp, meat dish
-queststatus(322) = 1, item(306, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 40 copper coins and a meat dish."), money + 40, deleteItem(306, 10), item(557, 1, 599), queststatus(322) = 2, "Oh! Thank you, thank you. My wife shall be able to enjoy a decent meal thanks to you. This is sure to raise her spirits."
-queststatus(322) = 1, item(306, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 40 Kupferstücke und eimn Fleischgericht."), money + 40, deleteItem(306, 10), item(557, 1, 599), queststatus(322) = 2, "Oh! Habt dank, habt Dank! Meine Frau wird dank euch eine anstängige Mahlzeit genießen können. Dies wird ihr sicher wieder auf die Beine helfen."
+queststatus(322) = 1, item(306, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 40 copper coins and a meat dish."), "Oh! Thank you, thank you. My wife shall be able to enjoy a decent meal thanks to you. This is sure to raise her spirits.", money + 40, deleteItem(306, 10), item(557, 1, 599), queststatus(322) = 2
+queststatus(322) = 1, item(306, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 40 Kupferstücke und eimn Fleischgericht."), "Oh! Habt dank, habt Dank! Meine Frau wird dank euch eine anstängige Mahlzeit genießen können. Dies wird ihr sicher wieder auf die Beine helfen.", money + 40, deleteItem(306, 10), item(557, 1, 599), queststatus(322) = 2
 
 -- 2nd quest: Bring 1 blue coat
 
 -- Give out quest 2
-queststatus(322) = 2, english, "quest", "mission" -> inform("[New quest] The Farmer's Wife: Part II"), queststatus(322) = 3, "Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face."
-queststatus(322) = 2, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(322) = 3, "Ja, ich könnte mit Sicherheit Eure Hilfe gebrauchen. Meine liebe Frau friert so sehr. Wenn Ihr mir einen blauen Mantel bringen könntet, wäre ich Euch ausgesprochen bankbar.Baul ist ihre Lieblingsfarbe, Ihr versteht, dass der Mantel sie nicht nur warm halten, sonder ihr auch ein Lächeln entlocken."
-queststatus(322) = 2, "task", "adventure" -> inform("[New quest] The Farmer's Wife: Part II"), queststatus(322) = 3, "Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face."
-queststatus(322) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(322) = 3, "Ja, ich könnte mit Sicherheit Eure Hilfe gebrauchen. Meine liebe Frau friert so sehr. Wenn Ihr mir einen blauen Mantel bringen könntet, wäre ich Euch ausgesprochen bankbar.Baul ist ihre Lieblingsfarbe, Ihr versteht, dass der Mantel sie nicht nur warm halten, sonder ihr auch ein Lächeln entlocken.."
+queststatus(322) = 2, english, "quest", "mission" -> inform("[New quest] The Farmer's Wife: Part II"), "Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face.", queststatus(322) = 3
+queststatus(322) = 2, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche II"), "Ja, ich könnte mit Sicherheit Eure Hilfe gebrauchen. Meine liebe Frau friert so sehr. Wenn Ihr mir einen blauen Mantel bringen könntet, wäre ich Euch ausgesprochen bankbar.Baul ist ihre Lieblingsfarbe, Ihr versteht, dass der Mantel sie nicht nur warm halten, sonder ihr auch ein Lächeln entlocken.", queststatus(322) = 3
+queststatus(322) = 2, "task", "adventure" -> inform("[New quest] The Farmer's Wife: Part II"), "Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face.", queststatus(322) = 3
+queststatus(322) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche II"), "Ja, ich könnte mit Sicherheit Eure Hilfe gebrauchen. Meine liebe Frau friert so sehr. Wenn Ihr mir einen blauen Mantel bringen könntet, wäre ich Euch ausgesprochen bankbar.Baul ist ihre Lieblingsfarbe, Ihr versteht, dass der Mantel sie nicht nur warm halten, sonder ihr auch ein Lächeln entlocken..", queststatus(322) = 3
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(322) = 3, item(2380, all) = 0, english, "quest", "mission" -> "My poor wife has had a good meal, but she shivers night and day. The sooner you can get that blue coat to me, the better."
@@ -126,16 +126,16 @@ queststatus(322) = 3, item(2380, all) = 0, "task", "adventure" -> "My poor wife 
 queststatus(322) = 3, item(2380, all) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> "Meine arme Frau hatte etwas gutes Essen, aber sie zittert tag und nacht. Je eher Ihr den blauen Mantel besoregen könnt, um so besser.."
 
 -- Quest 2 solved, reward: 60cp, SCYTHE
-queststatus(322) = 3, item(2380, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded 60 copper coins and a SCYTHE."), money + 60, deleteItem(2380, 1), item(271, 1, 599), queststatus(322) = 4, "Ah, this is perfect. Thank you, my friend. I hope this money shall be sufficient compensation. Hmm...here, take my old scythe, also."
-queststatus(322) = 3, item(2380, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 60 Kupferstücke und ein eine Sense."), money + 60, deleteItem(2380, 1), item(271, 1, 599), queststatus(322) = 4, "Ah, das ist ausgezeichnet. Ich danke euch, mein Freund. Ich hoffe dies ist eine angemessene Entschädigung.Hmm...hier, nehmt auch meine alte Sense."
+queststatus(322) = 3, item(2380, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded 60 copper coins and a SCYTHE."), "Ah, this is perfect. Thank you, my friend. I hope this money shall be sufficient compensation. Hmm...here, take my old scythe, also.", money + 60, deleteItem(2380, 1), item(271, 1, 599), queststatus(322) = 4
+queststatus(322) = 3, item(2380, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 60 Kupferstücke und ein eine Sense."), "Ah, das ist ausgezeichnet. Ich danke euch, mein Freund. Ich hoffe dies ist eine angemessene Entschädigung.Hmm...hier, nehmt auch meine alte Sense.", money + 60, deleteItem(2380, 1), item(271, 1, 599), queststatus(322) = 4
 
 -- 3rd quest: Obtain and deliver Natiana's medicine
 
 -- Give out quest 3
-queststatus(322) = 4, english, "quest", "mission" -> inform("[New quest] The Farmer's Wife: Part III"), queststatus(322) = 5, "Though my wife's condition continues to worsen, we finally have some good news. I wrote to a healer and she believes that she may have found a cure to my wife's illness. Please, go to Druidhouse and seek out the druid, Aurora Snow, for me."
-queststatus(322) = 4, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche III"), queststatus(322) = 5, "Obwohl es meiner Frau immer schlechter geht, haben wir dennoch gute Neuigkeiten. Ich schrieb einem Heiler und sie meinte, sie könne meiner Frau helfen. Bitte, geht zum Druidenhaus und sucht die Heilerin Aurora Snow für mich auf."
-queststatus(322) = 4, "task", "adventure" -> inform("[New quest] The Farmer's Wife: Part III"), queststatus(322) = 5, "Though my wife's condition continues to worsen, we finally have some good news. I wrote to a healer and she believes that she may have found a cure to my wife's illness. Please, go to the Druidhouse and seek out the druid, Aurora Snow, for me."
-queststatus(322) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche III"), queststatus(322) = 5, "Obwohl es meiner Frau immer schlechter geht, haben wir dennoch gute Neuigkeiten. Ich schrieb einem Heiler und sie meinte, sie könne meiner Frau helfen. Bitte, geht zum Druidenhaus und sucht die Heilerin Aurora Snow für mich auf."
+queststatus(322) = 4, english, "quest", "mission" -> inform("[New quest] The Farmer's Wife: Part III"), "Though my wife's condition continues to worsen, we finally have some good news. I wrote to a healer and she believes that she may have found a cure to my wife's illness. Please, go to Druidhouse and seek out the druid, Aurora Snow, for me.", queststatus(322) = 5
+queststatus(322) = 4, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche III"), "Obwohl es meiner Frau immer schlechter geht, haben wir dennoch gute Neuigkeiten. Ich schrieb einem Heiler und sie meinte, sie könne meiner Frau helfen. Bitte, geht zum Druidenhaus und sucht die Heilerin Aurora Snow für mich auf.", queststatus(322) = 5
+queststatus(322) = 4, "task", "adventure" -> inform("[New quest] The Farmer's Wife: Part III"), "Though my wife's condition continues to worsen, we finally have some good news. I wrote to a healer and she believes that she may have found a cure to my wife's illness. Please, go to the Druidhouse and seek out the druid, Aurora Snow, for me.", queststatus(322) = 5
+queststatus(322) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche III"), "Obwohl es meiner Frau immer schlechter geht, haben wir dennoch gute Neuigkeiten. Ich schrieb einem Heiler und sie meinte, sie könne meiner Frau helfen. Bitte, geht zum Druidenhaus und sucht die Heilerin Aurora Snow für mich auf.", queststatus(322) = 5
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(322) = 5, english, "quest", "mission" -> "Have you spoken with the druid yet? Aurora Snow is awaiting your arrival at the Druidhouse. Please, hurry. My poor wife has not improved."
@@ -144,8 +144,8 @@ queststatus(322) = 5, "task", "adventure" -> "Have you spoken with the druid yet
 queststatus(322) = 5, "Auftrag", "Aufgabe", "Abenteuer" -> "Habt Ihr mit der Druidin gesprochen? Aurora Snow erwartet euch am Druidenhaus.Bitte beeilt euch. Meiner armen Frau geht es noch immer nicht besser."
 
 -- Quest 3 solved, reward: treasure map, +10 rankpoints (specify faction)
-queststatus(322) = 10, item(391, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a treasure map and 10 rankpoints."), queststatus(322) = 11, rankpoints(Runewick) + 10, treasure(6), "Oh! I am so glad to see you! The medicine! Thank you! I do not think my wife would have lasted another two nights. I shall forever be in your debt, my friend. Please, take this."
-queststatus(322) = 10, ".+" -> inform("[Quest gelöst] Du erhältst eine Schatzkarze und 10 Rangpunkte."), queststatus(322) = 11, rankpoints(Runewick) + 10, treasure(6), "Oh! Ich bin so froh euch zu sehen! Die Medizin! Vielen Dank! Ich hatte schon Sorge meine Frau würde die nächsten zwei Nächte nicht überleben Ich stehe auf Ewig in euer Schuld, mein Freund. Bitte, nehmt dies."
+queststatus(322) = 10, item(391, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a treasure map and 10 rankpoints."), "Oh! I am so glad to see you! The medicine! Thank you! I do not think my wife would have lasted another two nights. I shall forever be in your debt, my friend. Please, take this.", queststatus(322) = 11, rankpoints(Runewick) + 10, treasure(6)
+queststatus(322) = 10, ".+" -> inform("[Quest gelöst] Du erhältst eine Schatzkarze und 10 Rangpunkte."), "Oh! Ich bin so froh euch zu sehen! Die Medizin! Vielen Dank! Ich hatte schon Sorge meine Frau würde die nächsten zwei Nächte nicht überleben Ich stehe auf Ewig in euer Schuld, mein Freund. Bitte, nehmt dies.", queststatus(322) = 11, rankpoints(Runewick) + 10, treasure(6)
 
 -- No more quests, just nice words of gratitude
 queststatus(322) = 11, english, "quest", "mission" -> "My wife is doing well, thanks to you. It shall be a while before she is back out on the farm, but she is alive, and we can ask no more."
@@ -238,7 +238,7 @@ english, "Zhambra" -> "I would welcome the aid of any of the Gods at this point.
 "Zhambra" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
 
 -- Catching typical NPC phrases
-queststatus(1337) < 11, "what sell", "what buy", "list wares", "price of" -> trade, trade, "My apologies, but I am in no mood toright now.", "I am sorry, but I cannotwith you at the moment. I must be caring for my wife.", "I fear that I am too busy dealing with my wife at the moment."
+queststatus(1337) < 11, "what sell", "what buy", "list wares", "price of" -> "My apologies, but I am in no mood toright now.", "I am sorry, but I cannotwith you at the moment. I must be caring for my wife.", "I fear that I am too busy dealing with my wife at the moment.", trade, trade
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Entschuldigt, aber ich bin nicht in der Stimmung zu Handeln.", "Es tut mir leid, aber ich kann gerade keinen Handel mit euch Abschließen, icg muss nicht um meine Frau kümmern.", "Ich fürchte ich bin zu beschäftigt mich um meine Frau zu kümmern, als dass ich mit Euch handeln könnte."
 "tell something" -> "I am sorry, but I do not feel much like talking at the moment.", "I apologise, but my wife requires my help.", "I am sorry, but I am too upset to properly engage in conversation at the moment."
 "erzähl was", "erzähl etwas" -> "Es tut mir leid, aber ich bin nicht in der Stimmung etwas zu erzählen.", "Bitte entschuldigt, aber meine Frau bracht meine Hilfe.", "Es tut mir leid, ich bin zu besorgt, als dass ich jetzt ein gutes Gespräch führen könnte."

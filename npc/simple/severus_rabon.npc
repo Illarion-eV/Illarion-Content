@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Severus Rabon"
@@ -47,17 +47,22 @@ itemTrousers = 367
 itemShoes = 369
 
 ------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
 
--- Stock: big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
-
-sellItems = 164, 191, 224, 353, 453, 454, 517, 518, 783, 784, 785, 786, 787, 788, 789, 790, 791, 1315, 1316, 1317, 1318, 1319, 1840, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1858, 1859, 1860, 1861, 1908, 1909, 2055, 2056, 2057, 2058, 2059, 2185, 2186, 2187, 2188, 2189, 2276, 2278, 2456, 2496, 2497, 2498, 2499, 2500, 2501, 2922, 2923, 2935, 2952,
-"verkauf", "handel" -> "Lass uns handeln!", trade
-"sell", "trade" -> "Let's trade!", trade
+sellItems = 164, 191, 224, 353, 453, 454, 517, 518, 783, 784, 785, 786, 787, 788, 789, 790, 791, 1315, 1316, 1317, 1318, 1319, 1840, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1858, 1859, 1860, 1861, 1908, 1909, 2055, 2056, 2057, 2058, 2059, 2185, 2186, 2187, 2188, 2189, 2276, 2278, 2456, 2496, 2497, 2498, 2499, 2500, 2501, 2922, 2923, 2935, 2952
 buyPrimaryItems = 81, 151, 224, 290, 783, 786, 788, 789, 791, 1315
 buySecondaryItems = 80, 199, 784, 785, 787, 1318, 1316, 1319
 tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
 tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
 tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
+
+-- ----------------------------------------------------------------------------AC
+
+-- Stock: big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
+"verkauf", "handel" -> "Lass uns handeln!", trade
+"sell", "trade" -> "Let's trade!", trade
 
 -- Waiter: Severus Rabon
 -- Occupation: waiter
@@ -91,8 +96,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Thank you please come again
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Severus Rabon, Vater und Tavernenbesitzer.", "Ich bin Severus Rabon, Vater von Cadomyrs berühmtester Köchin, Linda Rabon.", "Ich bin Severus. Dies hier ist meine Tavern, der Einhörnige Löwe. Ich und meine Frau haben sie aus dem Nichts aufgebaut, sie ist unsere Heimat. Setzt euch, esst was und werdet Teil der Familie."
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Your order, please?", "What can I serve you today?", "Yes?"
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ihre Bestellung, bitte.", "Was kann ich ihnen bringen?", "Jawohl?"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Your order, please?", "What can I serve you today?", "Yes?", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ihre Bestellung, bitte.", "Was kann ich ihnen bringen?", "Jawohl?", trade
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I own this place here. So what would I call myself? Bartender, waiter? I don't know, just call me Severus.", "Right now I am the waiter and I used to be the cook, but my beautiful and talented daughter has been given a gift from the gods. She is now the cook."

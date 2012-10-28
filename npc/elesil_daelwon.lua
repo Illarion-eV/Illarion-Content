@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -150,6 +150,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -247,8 +248,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Numila");
 talkEntry:addTrigger("Irunnleh");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Numila Irunnleh and get your reward."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
 talkEntry:addResponse("She is geographer and can be found in the Library of Earth. She will tell you information about locations outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Tir Draganfod, Shadowland and other places you like to know.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -257,8 +258,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(620, "<", 1));
 talkEntry:addTrigger("Numila");
 talkEntry:addTrigger("Irunnleh");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Numila Irunnleh und erhalte deine Belohnung."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
 talkEntry:addResponse("Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Orte wie Eibental, Bärenhöhle, Schlangekopfbucht, Tir Draganfod, Schattenland und andere Orte die du gerne wissen möchtest.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1209,17 +1210,17 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
+talkEntry:addResponse("#me narrows her eyes and takes a blade which she swings immediately without a single word against her opposite.");
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 6666));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
-talkEntry:addResponse("#me narrows her eyes and takes a blade which she swings immediately without a single word against her opposite.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
+talkEntry:addResponse("#me verengt ihre Augen, zieht ein Schwert und schlägt sogleich ohne ein einzelnes Wort damit herum.");
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 6666));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
-talkEntry:addResponse("#me verengt ihre Augen, zieht ein Schwert und schlägt sogleich ohne ein einzelnes Wort damit herum.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

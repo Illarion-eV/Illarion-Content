@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Graznok"
@@ -94,10 +94,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go wid dat Moshi. And when 
 -- 1st quest: Provide a torch.
 
 -- Give out quest 1
-queststatus(3) = 0, english, "quest", "mission" -> inform("[New quest] The Craven Orc I"), queststatus(3) = 1, "Yoos gottur help mes. Mes want explore dat cave over dere, but nub hab torch fer light. Gimme torch so mes can find place fer clan fer dwellin'."
-queststatus(3) = 0, "quest", "mission" -> inform("[Neues Quest] Der feige Ork I"), queststatus(3) = 1, "Du mirr hilfst. Mirr wolle erkunden Höhle drüben dort. Aber nix hab Fackl für Licht. Gibst mirr Fackl. Mir findet Platz fürr Klan. Beißn Knochn."
-queststatus(3) = 0, "task", "adventure" -> inform("[New quest] The Craven Orc I"), queststatus(3) = 1, "Yoos gottur help mes. Mes want explore dat cave over dere, but nub hab torch fer light. Gimme torch so mes can find place fer clan fer dwellin'."
-queststatus(3) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der feige Ork I"), queststatus(3) = 1, "Du mirr hilfst. Mirr wolle erkunden Höhle drüben dort. Aber nix hab Fackl für Licht. Gibst mirr Fackl. Mir findet Platz fürr Klan. Beißn Knochn."
+queststatus(3) = 0, english, "quest", "mission" -> inform("[New quest] The Craven Orc I"), "Yoos gottur help mes. Mes want explore dat cave over dere, but nub hab torch fer light. Gimme torch so mes can find place fer clan fer dwellin'.", queststatus(3) = 1
+queststatus(3) = 0, "quest", "mission" -> inform("[Neues Quest] Der feige Ork I"), "Du mirr hilfst. Mirr wolle erkunden Höhle drüben dort. Aber nix hab Fackl für Licht. Gibst mirr Fackl. Mir findet Platz fürr Klan. Beißn Knochn.", queststatus(3) = 1
+queststatus(3) = 0, "task", "adventure" -> inform("[New quest] The Craven Orc I"), "Yoos gottur help mes. Mes want explore dat cave over dere, but nub hab torch fer light. Gimme torch so mes can find place fer clan fer dwellin'.", queststatus(3) = 1
+queststatus(3) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der feige Ork I"), "Du mirr hilfst. Mirr wolle erkunden Höhle drüben dort. Aber nix hab Fackl für Licht. Gibst mirr Fackl. Mir findet Platz fürr Klan. Beißn Knochn.", queststatus(3) = 1
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(3) = 1, item(391, all) < 1, item(392, all) < 1, english, "quest", "mission" -> "Shuddup and bring mes torch! Hurr!"
@@ -106,18 +106,18 @@ queststatus(3) = 1, item(391, all) < 1, item(392, all) < 1, "task", "adventure" 
 queststatus(3) = 1, item(391, all) < 1, item(392, all) < 1, "Auftrag", "Aufgabe", "Abenteuer" -> "Maul halt und gibst mir Fackl! Hurr!"
 
 -- Quest 1 solved, reward: pork
-queststatus(3) = 1, item(391, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a piece of pork. Tasty..."), deleteItem(391, 1), item(307, 1, 333), queststatus(3) = 2, "Hurr! Danks fer dat torch. Now mes can go explorin' again. Hab dat pork, dat be tasty."
-queststatus(3) = 1, item(391, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst ein Stück Schweinefleich. Lecker..."), deleteItem(391, 1), item(307, 1, 333), queststatus(3) = 2, "Hurr! Dancke für d' Fackl. Jetz mirr kann gehn, Erkundung. Du nimmst Fleisch, das lecker!"
-queststatus(3) = 1, item(392, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a piece of pork. Tasty..."), deleteItem(392, 1), item(307, 1, 333), queststatus(3) = 2, "Hurr! Danks fer dat burnin' torch. Now mes can go explorin' again. Hab dat pork, dat be tasty."
-queststatus(3) = 1, item(392, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst ein Stück Schweinefleich. Lecker..."), deleteItem(392, 1), item(307, 1, 333), queststatus(3) = 2, "Hurr! Dancke für d' Fackl. Jetz mirr kann gehn, Erkundung. Du nimmst Fleisch, das lecker!"
+queststatus(3) = 1, item(391, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a piece of pork. Tasty..."), "Hurr! Danks fer dat torch. Now mes can go explorin' again. Hab dat pork, dat be tasty.", deleteItem(391, 1), item(307, 1, 333), queststatus(3) = 2
+queststatus(3) = 1, item(391, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst ein Stück Schweinefleich. Lecker..."), "Hurr! Dancke für d' Fackl. Jetz mirr kann gehn, Erkundung. Du nimmst Fleisch, das lecker!", deleteItem(391, 1), item(307, 1, 333), queststatus(3) = 2
+queststatus(3) = 1, item(392, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a piece of pork. Tasty..."), "Hurr! Danks fer dat burnin' torch. Now mes can go explorin' again. Hab dat pork, dat be tasty.", deleteItem(392, 1), item(307, 1, 333), queststatus(3) = 2
+queststatus(3) = 1, item(392, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst ein Stück Schweinefleich. Lecker..."), "Hurr! Dancke für d' Fackl. Jetz mirr kann gehn, Erkundung. Du nimmst Fleisch, das lecker!", deleteItem(392, 1), item(307, 1, 333), queststatus(3) = 2
 
 -- 2nd quest: Kill 5 mummies
 
 -- Give out quest 2
-queststatus(3) = 2, english, "quest", "mission" -> inform("[New quest] The Craven Orc II"), queststatus(3) = 3, "Hurr! Last time mes hab been explorin' cave, dere be lotsa ragmen. Mes nub like dem ragmen, dey like be spook. Smash dem!"
-queststatus(3) = 2, "quest", "mission" -> inform("[Neues Quest] Der feige Ork II"), queststatus(3) = 3, "Hurr. Letzte mal mir erkundet Höhle dort gewesen Lumpenmanns. Mirr nix mag, sie wie Spuk. Du zermatschn! Verjagn Lumpenmanns!"
-queststatus(3) = 2, "task", "adventure" -> inform("[New quest] The Craven Orc II"), queststatus(3) = 3, "Hurr! Last time mes hab been explorin' cave, dere be lotsa ragmen. Mes nub like dem ragmen, dey like be spook. Smash dem!"
-queststatus(3) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der feige Ork II"), queststatus(3) = 3, "Hurr. Letzte mal mir erkundet Höhle dort gewesen Lumpenmanns. Mirr nix mag, sie wie Spuk. Du zermatschn! Verjagn Lumpenmanns!"
+queststatus(3) = 2, english, "quest", "mission" -> inform("[New quest] The Craven Orc II"), "Hurr! Last time mes hab been explorin' cave, dere be lotsa ragmen. Mes nub like dem ragmen, dey like be spook. Smash dem!", queststatus(3) = 3
+queststatus(3) = 2, "quest", "mission" -> inform("[Neues Quest] Der feige Ork II"), "Hurr. Letzte mal mir erkundet Höhle dort gewesen Lumpenmanns. Mirr nix mag, sie wie Spuk. Du zermatschn! Verjagn Lumpenmanns!", queststatus(3) = 3
+queststatus(3) = 2, "task", "adventure" -> inform("[New quest] The Craven Orc II"), "Hurr! Last time mes hab been explorin' cave, dere be lotsa ragmen. Mes nub like dem ragmen, dey like be spook. Smash dem!", queststatus(3) = 3
+queststatus(3) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der feige Ork II"), "Hurr. Letzte mal mir erkundet Höhle dort gewesen Lumpenmanns. Mirr nix mag, sie wie Spuk. Du zermatschn! Verjagn Lumpenmanns!", queststatus(3) = 3
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(3) > 2, queststatus(3) < 8, english, "quest", "mission" -> "Smash more op dem ragmen. Smash one fer each op mes finger on mes rite hand, den cave be save mes be dinkin'."
@@ -126,16 +126,16 @@ queststatus(3) > 2, queststatus(3) < 8, "task", "adventure" -> "Smash more op de
 queststatus(3) > 2, queststatus(3) < 8, "Auftrag", "Aufgabe", "Abenteuer" -> "Du zerhaust mehr Lumpenmanns! Zerhaust einen für jede Finger auf mein rechte hand. Dann Höhle sicher ist mirr denkens."
 
 -- Quest 2 solved, reward: steak, leather, horn
-queststatus(3) = 8, english, ".+" -> inform("[Quest solved] You are awarded a steak, a piece of leather and a horn. How useful..."), item(2547, 1, 333), item(2940, 1, 333), item(333, 1, 533), queststatus(3) = 9, "Yoos hab smash dem ragmen? Gud! Mes gib yoos stuff mes hab hunt in dat meantime, tasty and gud stuff."
-queststatus(3) = 8, ".+" -> inform("[Quest gelöst] Du erhältst ein Steak, ein Stück Leder und ein Horn. Wie praktisch..."), item(2547, 1, 333), item(2940, 1, 333), item(333, 1, 533), queststatus(3) = 9, "Du zermatscht hast die Lumpenmanns? Gutt! Mir gibt dir Zeug, mir erbeutet hat. Lecker und gutt Zeug."
+queststatus(3) = 8, english, ".+" -> inform("[Quest solved] You are awarded a steak, a piece of leather and a horn. How useful..."), "Yoos hab smash dem ragmen? Gud! Mes gib yoos stuff mes hab hunt in dat meantime, tasty and gud stuff.", item(2547, 1, 333), item(2940, 1, 333), item(333, 1, 533), queststatus(3) = 9
+queststatus(3) = 8, ".+" -> inform("[Quest gelöst] Du erhältst ein Steak, ein Stück Leder und ein Horn. Wie praktisch..."), "Du zermatscht hast die Lumpenmanns? Gutt! Mir gibt dir Zeug, mir erbeutet hat. Lecker und gutt Zeug.", item(2547, 1, 333), item(2940, 1, 333), item(333, 1, 533), queststatus(3) = 9
 
 -- 3rd quest: Kill 10 skeletons
 
 -- Give out quest 3
-queststatus(3) = 9, english, "quest", "mission" -> inform("[New quest] The Craven Orc III"), queststatus(3) = 10, "Cave be much more cozy widout ragmen. But dere sum bonemen, deep in cave. Nub want dwell in same cave as bonemen. Smash as many as yoos can count wid yoos hands!"
-queststatus(3) = 9, "quest", "mission" -> inform("[Neues Quest] Der feige Ork III"), queststatus(3) = 10, "Höhle viel mehr gemütlich, ohne Lumpenmanns. Aber dort Knochenmanns sind. Tief in Höhle. Mir nix nagn Knochen in selbe Höhle wie Knochnman. Du zerhaust Knochenmans, so viel zu abzählst auf dein Hände."
-queststatus(3) = 9, "task", "adventure" -> inform("[New quest] The Craven Orc III"), queststatus(3) = 10, "Cave be much more cozy widout ragmen. But dere sum bonemen, deep in cave. Nub want dwell in same cave as bonemen. Smash as many as yoos can count wid yoos hands!"
-queststatus(3) = 9, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der feige Ork III"), queststatus(3) = 10, "Höhle viel mehr gemütlich, ohne Lumpenmanns. Aber dort Knochenmanns sind. Tief in Höhle. Mir nix nagn Knochen in selbe Höhle wie Knochnman. Du zerhaust Knochenmans, so viel zu abzählst auf dein Hände."
+queststatus(3) = 9, english, "quest", "mission" -> inform("[New quest] The Craven Orc III"), "Cave be much more cozy widout ragmen. But dere sum bonemen, deep in cave. Nub want dwell in same cave as bonemen. Smash as many as yoos can count wid yoos hands!", queststatus(3) = 10
+queststatus(3) = 9, "quest", "mission" -> inform("[Neues Quest] Der feige Ork III"), "Höhle viel mehr gemütlich, ohne Lumpenmanns. Aber dort Knochenmanns sind. Tief in Höhle. Mir nix nagn Knochen in selbe Höhle wie Knochnman. Du zerhaust Knochenmans, so viel zu abzählst auf dein Hände.", queststatus(3) = 10
+queststatus(3) = 9, "task", "adventure" -> inform("[New quest] The Craven Orc III"), "Cave be much more cozy widout ragmen. But dere sum bonemen, deep in cave. Nub want dwell in same cave as bonemen. Smash as many as yoos can count wid yoos hands!", queststatus(3) = 10
+queststatus(3) = 9, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der feige Ork III"), "Höhle viel mehr gemütlich, ohne Lumpenmanns. Aber dort Knochenmanns sind. Tief in Höhle. Mir nix nagn Knochen in selbe Höhle wie Knochnman. Du zerhaust Knochenmans, so viel zu abzählst auf dein Hände.", queststatus(3) = 10
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(3) > 9, queststatus(3) < 20, english, "quest", "mission" -> "Smash dem bones, split dem skulls. One fer each finga op yoos hands. Den clan can move to dat cave, yubba!"
@@ -144,8 +144,8 @@ queststatus(3) > 9, queststatus(3) < 20, "task", "adventure" -> "Smash dem bones
 queststatus(3) > 9, queststatus(3) < 20, "Auftrag", "Aufgabe", "Abenteuer" -> "Zerschlagn da Knochns! Brechn sein Schädls. Eina für jeda Finger auf dein beide Hände. Dann Klan zieht in d' Höhle, yubba!"
 
 -- Quest 3 solved, reward:
-queststatus(3) = 20, english, ".+" -> inform("[Quest solved] You are awarded a warhammer, an orc helmet and a full leather armour. Nice..."), item(226, 1, 644), item(16, 1, 644), item(362, 1, 644), queststatus(3) = 21, "Hurr! Victor-dingy! Clan be save now, yoos hab smash dem bonemen. In dat name op dat chief op dem bonegnawers, mes be makin' yoos friend op clan. Hab dat weapon and armour op clan, yoos deserve dat."
-queststatus(3) = 20, ".+" -> inform("[Quest gelöst] Du erhältst einen Kriegshammer, einen Orkhelm und eine volle Lederrüstung. Nett..."), item(226, 1, 644), item(16, 1, 644), item(362, 1, 644), queststatus(3) = 21, "Hurr! Sieg-ding! Klan sicher jetzt ist, du zerschlagn d' Knochenmanns. In Name von Häuptling von Knochenbeißer, mirr machen dich zu Freund. Von ganze Klan. Nimmst Waffe und Rüsta von Klan, du verdienen es."
+queststatus(3) = 20, english, ".+" -> inform("[Quest solved] You are awarded a warhammer, an orc helmet and a full leather armour. Nice..."), "Hurr! Victor-dingy! Clan be save now, yoos hab smash dem bonemen. In dat name op dat chief op dem bonegnawers, mes be makin' yoos friend op clan. Hab dat weapon and armour op clan, yoos deserve dat.", item(226, 1, 644), item(16, 1, 644), item(362, 1, 644), queststatus(3) = 21
+queststatus(3) = 20, ".+" -> inform("[Quest gelöst] Du erhältst einen Kriegshammer, einen Orkhelm und eine volle Lederrüstung. Nett..."), "Hurr! Sieg-ding! Klan sicher jetzt ist, du zerschlagn d' Knochenmanns. In Name von Häuptling von Knochenbeißer, mirr machen dich zu Freund. Von ganze Klan. Nimmst Waffe und Rüsta von Klan, du verdienen es.", item(226, 1, 644), item(16, 1, 644), item(362, 1, 644), queststatus(3) = 21
 
 -- No more quests, just nice words of gratitude
 queststatus(3) = 21, english, "quest", "mission" -> "Nub can help mes, yoos. Hab done enuff. Mes gonna bring clan to cave, danks."

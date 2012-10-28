@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -183,6 +183,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -257,14 +258,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 0));
 talkEntry:addCondition(npc.base.condition.money.money(">", 99));
 talkEntry:addTrigger("bet");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(21, "+", 1));
 talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the left one.");
 talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the right one.");
 talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the one in the middle.");
 talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You have no clue where the ball is now.");
 talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. The ball might be anywhere, his hands were too fast for you.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(21, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -285,11 +286,11 @@ talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
 talkEntry:addTrigger("right");
 talkEntry:addTrigger("left");
 talkEntry:addTrigger("middle");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addResponse("#me lifts the nut. You see... a ball! You won twice your bet.");
 talkEntry:addResponse("We have a winner! Here, the ball was under your nut. Take your won money.");
 talkEntry:addResponse("#me curses as he lifts the nut and a ball can be seen. You win twice your bet!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -298,11 +299,11 @@ talkEntry:addCondition(npc.base.condition.state.state("~=", 0));
 talkEntry:addTrigger("right");
 talkEntry:addTrigger("left");
 talkEntry:addTrigger("middle");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("#me lifts the nut. There is no ball, so you lost your bet.");
 talkEntry:addResponse("Bad luck today, chap. No ball under your nut, sorry. Your bet is mine.");
 talkEntry:addResponse("#me lifts the nut with a grin. No ball is under it, so you've lost your bet.");
 talkEntry:addResponse("Oh, how sad, no ball under this nut. But maybe you'll have more luck next time?");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -335,14 +336,14 @@ talkEntry:addCondition(npc.base.condition.money.money(">", 99));
 talkEntry:addTrigger("setze");
 talkEntry:addTrigger("wette");
 talkEntry:addTrigger("setz");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(21, "+", 1));
 talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du bist ziemlich sicher, dass die Kugel unter der linken Nuß ist.");
 talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du bist ziemlich sicher, dass die Kugel unter der rechten Nuß ist.");
 talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du bist ziemlich sicher, dass die Kugel unter der mittleren Nuß ist.");
 talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du hast keine Ahnung, wo die Kugel nun ist.");
 talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Die Kugel könnte überall sein, so schnell waren seine Hände.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(21, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -363,11 +364,11 @@ talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
 talkEntry:addTrigger("rechts");
 talkEntry:addTrigger("links");
 talkEntry:addTrigger("mitte");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addResponse("#me hebt die Nuß. Du siehst... eine Kugel! Du hast deinen Einsatz verdoppelt.");
 talkEntry:addResponse("Wir haben einen Gewinner! Hier, die Kugel war unter deiner Nuß. Nimm dein gewonnenes Geld.");
 talkEntry:addResponse("#me flucht als er die Nuß anhebt und eine Kugel zum Vorschein kommt. Du gewinnst deinen doppelten Einsatz.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -376,11 +377,11 @@ talkEntry:addCondition(npc.base.condition.state.state("~=", 0));
 talkEntry:addTrigger("rechts");
 talkEntry:addTrigger("links");
 talkEntry:addTrigger("mitte");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("#me hebt die Nuß. Es ist keine Kugel drunter, also hast du deinen Einsatz verloren.");
 talkEntry:addResponse("Kein Glück heute, was? Keine Kugel unter dieser Nuß, dein Einsatz ist mein.");
 talkEntry:addResponse("#me hebt die Kugel mit einem Grinsen. Keine Kugel ist drunter, also hast du deinen Einsatz verloren.");
 talkEntry:addResponse("Oh, wie schade, keine Kugel unter dieser Nuß. Vielleicht hast du beim nächsten mal mehr Glück?");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -876,10 +877,10 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Do I look like ar!?");
 talkEntry:addResponse("Oh, I forgot my vendor's tray at home. Want to play a game instead?");
 talkEntry:addResponse("You must be kidding me. I am not a huckster!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

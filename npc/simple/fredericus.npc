@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Martin Karing                                                    --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Fredericus"
@@ -94,12 +94,12 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Good trip.", "Until next ti
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gute Fahrt.", "Bis zum nächesten Mal, denkt daran, ein Fisch am Tag hält den Medizinmann fern.", "Auf wiedersehen."
 "How are you", "How feel", "How do you do" -> "I feel good, not a wonder, I had fish today.", "I'd feel much better if you buy some fish.", "Fine, thank you."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut, ist auch kein Wunder, ich habe heute Fisch gegessen.", "Mir würde es weit besser gehen, wenn ihr Fisch kaufen würdet.", "Gut, danke der Nachfrage."
-"your name", "who are you", "who art thou" -> trade, "Fredericus. That's me.", "I am the fisherman Fredericus.", "Fredericus is my name, Ifish."
+"your name", "who are you", "who art thou" -> "Fredericus. That's me.", "I am the fisherman Fredericus.", "Fredericus is my name, Ifish.", trade
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Fredericus. Das bin ich.", "Ich bin der Fischer Fredericus.", "Fredericus ist mein Name, ich handel mit Fischen."
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, trade, trade, trade, trade, "Fish, fish, fish. Ifish. And also herbs, if you need any to spice up your dishes.", "Ifish, do you need any?", "Iwhat you need to catch fish and I even buy the fish you caught.", "Ya want to? Aye, have a look!"
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.", "Ich handel Fische, braucht ihr welche?", "Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.", "Du willst handeln? Da schau her was ich hab!"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Fish, fish, fish. Ifish. And also herbs, if you need any to spice up your dishes.", "Ifish, do you need any?", "Iwhat you need to catch fish and I even buy the fish you caught.", "Ya want to? Aye, have a look!", trade, trade, trade, trade, trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.", "Ich handel Fische, braucht ihr welche?", "Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.", "Du willst handeln? Da schau her was ich hab!", trade
 
 -- Catching quest triggers
 english, "quest", "mission" -> "I do not issue any quests. But you can bring me fish and I'll pay you for your work."
@@ -123,13 +123,13 @@ english, "Gobaith", "Gobiath" -> "I once sailed to Gobaith, the natives tossed o
 -- More small talk; add at least five triggers
 english, "Zerarisa" -> "I think Zerarisa is one of the lizards, living at Cape Farewell."
 "Zerarisa" -> "Ich meine, Zerarisa ist eine der Echsen, die am Kap des Abschiedes wohnen."
-"Cape", "Farewell" -> end, "Cape Farewell is to the south and west, land'sone could say."
+"Cape", "Farewell" -> "Cape Farewell is to the south and west, land'sone could say.", end
 "Kap", "Abschied" -> "Das Kap des Abschiedes ist im Südwesten, am Ende der Welt könnte man sagen."
 "boat", "ship", "vessle" -> "No, I will not lend you my boat. Take a fishing rod and go to the shore."
 "Boot", "Schiff" -> "Ich kann euch mein Boot nicht leihen. Nehmt eine Angelrute und geht zur Küste."
 "Fischer" -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
 "fisherman" -> "I'm a fisherman. A hard job, but a honest and honourable job."
-"trader", "merchant", "collegue", "vendor", "market" -> trade, "Here, at the marketplace, there are manyrs. You can buy many goods here in Cadomyr."
+"trader", "merchant", "collegue", "vendor", "market" -> "Here, at the marketplace, there are manyrs. You can buy many goods here in Cadomyr.", trade
 "händler", "kollege", "höker", "markt" -> "Hier auf dem Marktplatz gibt es einige Händler. Man kann viele Waren hier in Cadomyr kaufen."
 
 -- Faction stuff

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -39,12 +39,12 @@ talkEntry:addCondition(npc.base.condition.item.item(314, "all", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.item.item(3051, "all", "=>", 1, nil));
 talkEntry:addTrigger("seek advice");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("The old orc takes the items from you, now he seems ready to answer you any question."));
+talkEntry:addResponse("Hurr. Giv me the stuff... and now ask your question to tha ancestors.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(314, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3051, 1, nil));
-talkEntry:addResponse("Hurr. Giv me the stuff... and now ask your question to tha ancestors.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -53,7 +53,6 @@ talkEntry:addCondition(npc.base.condition.state.state("=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("He grabs the entrails and tears them apart. He starts to shiver in a very weird way. Then he speaks to you, with a very strange voice..."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("The ancestors prophesy! The one with fire in head will need your help.");
 talkEntry:addResponse("Don't trust tha bearer of fur! Your ancintors advice...");
 talkEntry:addResponse("They shout! Tha forefathers yell... 'Don't open! Never...'");
@@ -72,7 +71,7 @@ talkEntry:addResponse("Shiny armory! Youbba be in the middle! Carefull now.");
 talkEntry:addResponse("Deep drums in the deep. Mes hearing drums!");
 talkEntry:addResponse("Don't get stabbed by those horns...!!");
 talkEntry:addResponse("Follow youbba nose! Is good.");
-talkEntry:addResponse("There one will be! Leading this Tribe! Glorious day come! Honorable Battle! ...maybes you...maybee.");
+talkEntry:addResponse("There one will be! Leading this Tribe! Glorious day come! Honourable Battle! ...maybes you...maybee.");
 talkEntry:addResponse("Olokwa saw youbba die!... be brave and it 'll be heroic. Yes!");
 talkEntry:addResponse("Blood! ebbrywere Blood. it's yopurs! A true friend shall save you.");
 talkEntry:addResponse("Beware tha giant club!");
@@ -100,6 +99,7 @@ talkEntry:addResponse("Tha migthy horn ob battle sounds over the mountain!");
 talkEntry:addResponse("Ib youbba wanna be successful, put youbba shoes down.");
 talkEntry:addResponse("Don't care about the Oomie's words.");
 talkEntry:addResponse("In general an' whole in whole... tha answer for all your questions is fourtytwo!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -116,12 +116,12 @@ talkEntry:addCondition(npc.base.condition.item.item(314, "all", "=>", 1, nil));
 talkEntry:addCondition(npc.base.condition.item.item(3051, "all", "=>", 1, nil));
 talkEntry:addTrigger("suche rat");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Der alte Ork nimmt die Gegenstände von dir und scheint nun bereit dir eine beliebige Frage zu beantworten."));
+talkEntry:addResponse("Hurr. Gibb mir das Zeug... und stellen jetzt deine Frage an Vorfahren.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(314, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3051, 1, nil));
-talkEntry:addResponse("Hurr. Gibb mir das Zeug... und stellen jetzt deine Frage an Vorfahren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -129,7 +129,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 3));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Er grabscht die Gedärme und reißt sie auseinander. Sofort beginnt er seltsam zu zittern, dann spricht er mit einer fremdartigen Stimme zu dir..."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Die Ahnen Prophezeien... 'Jener mit Feuer am Haupte, wird deine Hilfe brauchen!'");
 talkEntry:addResponse("Nicht Vertraue, dem Träger von Fellen. Die Vorfahren raten es dir...");
 talkEntry:addResponse("Sie schreien! Die Vorfahren rufen... 'Nicht öffnen! Niemals...'");
@@ -173,6 +172,7 @@ talkEntry:addResponse("Mächtiges Horn von Schlacht dröhnt über Berg!");
 talkEntry:addResponse("Wenn du Erfolg willst, du ausziehst dein Schuhe aus.");
 talkEntry:addResponse("Du nicht hörst auf die Worte von Oomie.");
 talkEntry:addResponse("Im Allgemein und überhaupt... alles in alle die Antwort auf alle dein Frage ist Zweiundvierzig!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -185,31 +185,31 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Olokwa the Seer. Keywords: ancestor, seek advice, blindfold, Bragg-Thu, Kroch'Gurak, Norbuk Plateau."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Ask Olokwa for tale about 'ancestor', or 'seek advice'.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Olokwa der Seher. Schlüsselwörter: Ahnen, suche Rat, Augenbinde, Bragg-Thu, Kroch'Gurak, Norbuk Plateau."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Frage Olokwa nach Geschichte von 'Ahnen' oder 'suche Rat'.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("stop");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Hrm, mes should tell anoter tale?");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("stop");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Hrm, mirr soll erzählen etwas anderes?");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -252,32 +252,32 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("veralion");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'continue' to progress the tale or 'stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 4));
 talkEntry:addResponse("Chief Veralion was one of the first chiefs and founding fathers of the original clan. Under his reign, the clan saw it's most prosperous and productive years...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 4));
 talkEntry:addTrigger("continue");
+talkEntry:addResponse("...His efforts helped keep the clan together in times both thick and thin. In life, he was honourable, well respected by fellow clansmen, and revered as a great savior of our kin. Rest in peace, old friend.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addResponse("...His efforts helped keep the clan together in times both thick and thin. In life, he was honorable, well respected by fellow clansmen, and revered as a great savior of our kin. Rest in peace, old friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("veralion");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 4));
 talkEntry:addResponse("Chief  Veralion einer der Ersten war. Gründervater von erste Klan, Stamm von Orks.  Unter  seiner Herrschaft, Stamm erlebt gedeihende und großartige Jahre...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 4));
 talkEntry:addTrigger("weiter");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("...Er hielt Brüder und Schwester zusammen, stehen gemeinsam durch dick und dünn Dunkelste Zeit über Gobaith kam, doch Veralion gegangen gloreichste Pfade. Sein Leben ehernhaftest war, doch nun er schon lange ruht in Land der Ahnen.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -286,24 +286,24 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Kaja");
 talkEntry:addTrigger("Wolfagen");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'continue' to progress the tale or 'stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 5));
 talkEntry:addResponse("Kaja Wolfagen was one of the greatest Shamans to ever live on the island of Gobaith. His teachings of our father installed great knowledge...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 5));
 talkEntry:addTrigger("continue");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
 talkEntry:addResponse("...into the clansmen of the time. Many looked up to this orc with great respect. He had seen much in his days of life, which clearly showed in his ragged old form...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 6));
 talkEntry:addTrigger("continue");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("...During the Northerot wars, his magics helped create a lasting impression of power and glory for the clan.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -311,16 +311,16 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kaja");
 talkEntry:addTrigger("Wolfagen");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 7));
 talkEntry:addResponse("Kaja Wolfagen einer von größte Schamanen war, welcher je gelebt auf Insel Gobaith. Er gelehrt sein Brüder und Schwestern großes Wissen über unser aller Vater...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 7));
 talkEntry:addTrigger("weiter");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("...Ungezählte sahen auf zu diesem mächtigen Ork, mit größtem Respekt. Im  Northerot-Krieg, seine überlegenen Zauber kreieren einen bleibenden Abdruck von Kraft und Ruhm unseres Stammes.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -344,16 +344,16 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Kurga");
 talkEntry:addTrigger("Wolfbane");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'continue' to progress the tale or 'stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 8));
 talkEntry:addResponse("Warrior Queen Kurga Wolfbane, murdered by a clanman known as Zub. She was betraid and ambushed by Zub and several humans and elves...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 8));
 talkEntry:addTrigger("continue");
+talkEntry:addResponse("...Under her short term leadership, the Orc Cave was expanded and Orcs recruited. May she rest well with the greatest honour an orc can recieve.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addResponse("...Under her short term leadership, the Orc Cave was expanded and Orcs recruited. May she rest well with the greatest honor an orc can recieve.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -361,16 +361,16 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kurga");
 talkEntry:addTrigger("Wolfbane");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 8));
 talkEntry:addResponse("Kriegerkönigin Kurga Wolfbane, ermordet wurde von Klanbruder 'Zub'. Er verraten hat Kurga, and Menschen und Elfen, in Hinterhalt...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 8));
 talkEntry:addTrigger("weiter");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("...Auch wenn Herrschaft nur kurz, sie gegraben neue Kammern in Höhle und aufgenommen viele junge Orks. Ihre Knochen sollen erfahren größte Ehre, einem Ork möglich ist.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -379,24 +379,24 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Warlord");
 talkEntry:addTrigger("Retlak");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'continue' to progress the tale or 'stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 9));
 talkEntry:addResponse("Warlord Retlak! His name stood for the strength and superiority of the Orcs. His name was mentioned with respect by Orcs and spoken with fear by others...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 9));
 talkEntry:addTrigger("continue");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 10));
 talkEntry:addResponse("...All beings of the human town as well as the desert town hold their breath when the Warlord entered the gates. The warlord lived for many, many years on the island...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 10));
 talkEntry:addTrigger("continue");
+talkEntry:addResponse("...He fought side on side with Gabon Corad and Gort called 'Crunk'. Even today many people will remember the warlord's name, even many years after his death. The Orcs honour Retlak during his live.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addResponse("...He fought side on side with Gabon Corad and Gort called 'Crunk'. Even today many people will remember the warlord's name, even many years after his death. The Orcs honor Retlak during his live.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -404,32 +404,32 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Warlord");
 talkEntry:addTrigger("Retlak");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 9));
 talkEntry:addResponse("Kriegsherr Retlak! Dieser Name steht für Stärke und Überlegenheit von Orks. Dieser Name ausgesprochen in Respekt von Orks und in Angst von anderen...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 9));
 talkEntry:addTrigger("weiter");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 10));
 talkEntry:addResponse("...Jeder, in Menzchen-Stadt und Wüsten-Stadt angehalten Atem, wenn Retlak treten durch Tore. Viele Jahre er gelebt auf Insel Gobaith...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 10));
 talkEntry:addTrigger("weiter");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 11));
 talkEntry:addResponse("...Kämpfen Seite an Seite mit Gabon Corad, und Gort - genannt 'Crunk'. Auch zu Tage heutig noch, viele Leute erinnern an Name von dem Kriegsherren...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 11));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 11));
 talkEntry:addTrigger("weiter");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("...Auch wenn viel Zeit vergangen seit sein Tod. Alle Orks ehren sollen Retlak für sein Leben.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -438,24 +438,24 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("General");
 talkEntry:addTrigger("Grivijak");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'continue' to progress the tale or 'stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 12));
 talkEntry:addResponse("General Grivijak! Compared to the warlord Retlak, General Grivijak lived on Gobaith for a quite short time only. However, in his given time...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 12));
 talkEntry:addTrigger("continue");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 13));
 talkEntry:addResponse("...he became the strongest warrior of the whole island. He used his strength and wisdom to unite the Orcs with help of Gabon Corad. There are rumors about his disappearnce...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 13));
 talkEntry:addTrigger("continue");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("...Some say he just left the island. Others say a horde of mighty demon beasts were able to strike him down with help of magic.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -463,24 +463,24 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("General");
 talkEntry:addTrigger("Grivijak");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 12));
 talkEntry:addResponse("General Grivijak! Verglichen mit Kriegsherr Retlak, Grivijak gelebt für kruze Zeit auf Gobaith. Falls-jeden er war...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 12));
 talkEntry:addTrigger("weiter");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 13));
 talkEntry:addResponse("...stärkster Krieger auf ganze Insel. Mit sein Stärke und Klugheit er geeint und gesammelt den Stamm der Orks, gemeinsam mit Gabon Corad. Über sein verschwinden Gerüchte wild...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 13));
 talkEntry:addTrigger("weiter");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("...Einer sagt er gereist auf großer Kontinent. Anderer sagt, mächtige dämonische Bestien ihn umgebracht mit magische Hilfe.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -488,48 +488,48 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Borgrud");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'continue' to progress the tale or 'stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 14));
 talkEntry:addResponse("Borgrud, called Bor, was a loyal warrior of great strength, who was surrounded and attacked by the cowardly humans of Trollsbane...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 14));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 14));
 talkEntry:addTrigger("continue");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 15));
 talkEntry:addResponse("...They bound him with ropes, but he broke free, and shouting his last word 'FREE!' charged into them. He was killed that day, infront of his own daughter Krebla's eyes...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 15));
 talkEntry:addTrigger("continue");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("...His example shows that the orcs cannot be held down, and after the horde spilled the blood of his murderers on the city streets we gained the respect and fear that the orcs deserve.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Borgrud");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 14));
 talkEntry:addResponse("Borgrud, genannt Bor, loyaler mächtiger Krieger war. Er eingekreist von feige Menzchen von Trollsbane, versklaven sie wollten ihn...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 14));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 14));
 talkEntry:addTrigger("weiter");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 15));
 talkEntry:addResponse("...Sie fesselten ihn mit Seilen, doch er zerriß sie! Er brüllt 'Freiheit!', und dann ermordet wird vor Augen seine Tochter Krebla. Sein Heldenmut zeigen daß Orks dienen niemand...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 15));
 talkEntry:addTrigger("weiter");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("...besonders nach dem der Klan das Blut seiner Mörder über die Straßen der Stadt verteilt getan hat. Hurr!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -538,32 +538,32 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Rugh'toh");
 talkEntry:addTrigger("Rugh");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'continue' to progress the tale or 'stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 16));
 talkEntry:addResponse("Chief Rugh'toh is a true Orcen Hero. Warrior, Lokh'um and brother...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 16));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 16));
 talkEntry:addTrigger("continue");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 17));
 talkEntry:addResponse("...In failure and Victory, he was a true Orc. He fought against the Grey Refuge and spent a year in jail due to human betrayal...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 17));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 17));
 talkEntry:addTrigger("continue");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 18));
 talkEntry:addResponse("...He reformed the Orc Clan up from the ashes of the bloodskulls and created the largest clan known, the Dark'rest Clan. He expanded the cave defenses with the building of the Gates...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 18));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 18));
 talkEntry:addTrigger("continue");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("...And the Hall of Ancestors was built under his reign as well as the Jail. Then the Klan was able to fought a stunning victory against the dwarves of Silverbrandt after a year long war, under his leadership.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -571,32 +571,32 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Rugh'toh");
 talkEntry:addTrigger("Rugh");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 16));
 talkEntry:addResponse("Chief Rugh'toh ein wahrer Held ist. Krieger, Lokh'um und Bruder...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 16));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 16));
 talkEntry:addTrigger("weiter");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 17));
 talkEntry:addResponse("...Im Fehl und Sieg, er wahrer Ork war. Er kämpfte Graue Brug, verbracht ein Jahr in Gefangenschaft. Dann  er erneuern Klan aus Asche der Bloodskulls...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 17));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 17));
 talkEntry:addTrigger("weiter");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 18));
 talkEntry:addResponse("...Es der größte Klan war, man weiß von! Der Klan vom Berg Dark'rest. Rugh gebaut mächtige Tore von Orkhöhle, Halle der Ahnen und Kerker!");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 18));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 18));
 talkEntry:addTrigger("weiter");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("...Dann der Klan errungen glorreicher Sieg über Zwerge von Silberbrandt, nach Jahre langen Krieg unter seinem Befehl.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -604,24 +604,24 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ice witch");
 talkEntry:addTrigger("icy witch");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'continue' to progress the tale or 'stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("Cherga, the icy witch! Escorts the dead through the nothing, the eternal rift between the worlds, into the land of the ancestors. If an orc has defeated many enemies in battle and was strong in his lifetime...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addTrigger("continue");
+talkEntry:addResponse("...his reputation there will be vast, and his ancestors will honour him. He will have many servants and slaves, and the woman will love him....");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
-talkEntry:addResponse("...his reputation there will be vast, and his ancestors will honor him. He will have many servants and slaves, and the woman will love him....");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
 talkEntry:addTrigger("continue");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("...If he was weak and cowardly, he will spend his time there as a servant, perhaps even as a servant of a human, halfling, or dwarf.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,8 +629,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'continue' to progress the tale or 'stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("Cherga, the icy witch! Escorts the dead through the nothing, the eternal rift between the worlds, into the land of the ancestors. If an orc has defeated many enemies in battle and was strong in his lifetime...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -639,32 +639,32 @@ talkEntry:addTrigger("eis Hex");
 talkEntry:addTrigger("eisige Hexe");
 talkEntry:addTrigger("eishex");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("Cherga, die eisige Hexe! Führt die Toten durch das Nichts, die ewige Kluft zwischen den Welten, in das Land der Ahnen. Wenn ein Ork viele Gegner im Kampf besiegt hat und in seinem Leben stark war...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("Cherga, die eisige Hexe! Führt die Toten durch das Nichts, die ewige Kluft zwischen den Welten, in das Land der Ahnen. Wenn ein Ork viele Gegner im Kampf besiegt hat und in seinem Leben stark war...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addTrigger("weiter");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
 talkEntry:addResponse("...ist sein Ansehen dort groß, und seine Ahnen werden ihn ehren. Er bekommt viele Diener und Sklaven, und die Weiber werden ihn lieben...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
 talkEntry:addTrigger("weiter");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("...War er schwach und feige, so wird er dort ein Dasein als Diener fristen müssen, wohlmöglich gar als Diener eines Menschen, Halblings oder Zwergen.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -797,6 +797,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -927,7 +928,7 @@ talkEntry:addResponse("Broddha Jag? Hurr... Meh get dah Day ob Green Growl in mi
 talkEntry:addResponse("#me holds his head: 'Avoid to feel Jag's maces at yoor head!'");
 talkEntry:addResponse("Jag hub berreh nice collection, hurr!");
 talkEntry:addResponse("Look for meat and bring dhat Jag! Jag beh alwaehs hungreh.");
-talkEntry:addResponse("Jag beh proud and honorfull redskull, hurr!");
+talkEntry:addResponse("Jag beh proud and honourfull redskull, hurr!");
 talkEntry:addResponse("Jag beh fast and strong warrior for dah Fadha and dha Clan!");
 talkEntry:addResponse("Jag? Hurr! Mee thinks Jag beh looking for nuw Longears!");
 talkEntry:addResponse("Jag? Hurr! Nub speak bad about dah Lok'uhm Murgo in front ob Jag. Jag smash yoor fais odhawise!");
@@ -979,7 +980,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("murgo");
-talkEntry:addResponse("Yes, Murgo. He is honorfull warrior. Important for Orcs. Lot of great doings. Lot of.");
+talkEntry:addResponse("Yes, Murgo. He is honourfull warrior. Important for Orcs. Lot of great doings. Lot of.");
 talkEntry:addResponse("Hurr, Murgo hired mes. Like most ob tha othas 'ere. All way from Kroch'gurak!");
 talkEntry:addResponse("Murgo, hurr hurr! 'eh honrorables Orc is. Was first played drum. Yubba.");
 talkEntry:addResponse(" Murgo 's damn ace is! Ebbry orc wanna like he be.");
@@ -1042,7 +1043,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("ali[czs]");
 talkEntry:addResponse("Alize, Gnarh. This bis thus weepy girl at forge. She be Krudash slave is. She hav to smelt you ore.");
-talkEntry:addResponse("Nub be weak with those weepy slave. She hab to learn, be strong! Bring tha owner honor! Yubba.");
+talkEntry:addResponse("Nub be weak with those weepy slave. She hab to learn, be strong! Bring tha owner honour! Yubba.");
 talkEntry:addResponse("Har! Krudash sacked her 'n sum harbour. Now she be her slave is. But weak weepy one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1085,7 +1086,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("morurt");
 talkEntry:addResponse("Mo'rurt. Hurr he be best archer of Clan be. He allway out ob cave huntin!");
 talkEntry:addResponse("Mo'rurt shoot 'is arrow fast like wind. Strong like Sea.");
-talkEntry:addResponse("Mo'rurt be owner ob Stout. Stout be honorable slave is. Yubba. Got crossbow and joins Mo'rurt on hunting.");
+talkEntry:addResponse("Mo'rurt be owner ob Stout. Stout be honourable slave is. Yubba. Got crossbow and joins Mo'rurt on hunting.");
 talkEntry:addResponse("Har-ar. Mo'rurt is mulish. But 'e say he's just right. But all'nall he fair master is.");
 talkEntry:addResponse("Mo'rurt come frome sum lonly lands. Nub much lived there. Was picked up by Murgo, wehn he walked to Kroch'gurak for winta.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1126,9 +1127,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("stout");
 talkEntry:addTrigger("Jack");
-talkEntry:addResponse("Stout be slave ob Mo'rurt. He good slave. Make tha owner much honor.");
+talkEntry:addResponse("Stout be slave ob Mo'rurt. He good slave. Make tha owner much honour.");
 talkEntry:addResponse("Altough he Oomie is, he be allrighty. Stout brave slave. Mo'rurt be proud ob 'hm.");
-talkEntry:addResponse("Hurr, Stout strong slave. Nub like thus weepy girl 'nd tha dastardly halfer. Stout 'll earn great honor. Tha otha both earn punsihment.");
+talkEntry:addResponse("Hurr, Stout strong slave. Nub like thus weepy girl 'nd tha dastardly halfer. Stout 'll earn great honour. Tha otha both earn punsihment.");
 talkEntry:addResponse("Stout arrived togetha with Mo'rurt. Me guess Stout be slave since long time.");
 talkEntry:addResponse("Me sur Mo'rurt be more to Stout than Masta. Sure both be weird kind ob friend.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1456,7 +1457,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Orks honor their Ancestors and the gods of his tribe. You go over there and talk to Grumlug! He's Schamane and knows everything about our gods. Tagtha.");
+talkEntry:addResponse("Orks honour their Ancestors and the gods of his tribe. You go over there and talk to Grumlug! He's Schamane and knows everything about our gods. Tagtha.");
 talkEntry:addResponse("Mes seer, so Cherga, the icy witch speaks... and mes listening.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

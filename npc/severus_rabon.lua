@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 29, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -45,9 +45,6 @@ talkEntry:addResponse("Let's trade!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
-tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
-tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was dir gefällt?", "Don't you like my wares?");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -486,9 +483,6 @@ talkEntry:addResponse("Redet doch über Aufgaben oder Abenteuer. Die Leute reden 
 talkEntry:addResponse("Ich kaufe keine Hühner.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
-tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
-tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was dir gefällt?", "Don't you like my wares?");
 talkingNPC:addCycleText("Eintopf ist genau das richtige nach einem Ritt durch die Wüste. Er macht satt und betäubt erfreut auch den Gaumen.", "Stew is the perfect way to fill a stomach emptied from a trek across the desert. It is both fulfilling and tantalizing to the tongue.");
 talkingNPC:addCycleText("Was darf es denn heute sein? Ich empfehle etwas kaltes zu trinken und etwas warmes zu essen.", "What will you be having today? I suggest a cool drink followed by a hot meal.");
 talkingNPC:addCycleText("Balance ist alles im Leben! Insbesondere, wenn es um das Servieren geht.", "Balance is the key to dining as it is in any other aspect of life.");
@@ -597,9 +591,6 @@ mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 0);
 mainNPC:setEquipment(9, 367);
 mainNPC:setEquipment(10, 369);
-tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
-tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
-tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was dir gefällt?", "Don't you like my wares?");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

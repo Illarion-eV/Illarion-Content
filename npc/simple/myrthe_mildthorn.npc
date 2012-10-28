@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Myrthe Mildthorn"
@@ -93,16 +93,16 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell! If your clothes get dirty, j
 -- 1st quest: Kill 10 wolves, player receives torch.
 
 -- Give out quest 1 and a torch
-queststatus(79) = 0, english, "quest", "mission" -> inform("[New quest] A Cave in the Woods I"), item(391, 1, 399), queststatus(79) = 1, "Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good?"
-queststatus(79) = 0, "quest", "mission" -> inform("[Neues Quest] Eine Höhle im Wald I"), item(391, 1, 399), queststatus(79) = 1, "Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen?"
-queststatus(79) = 0, "task", "adventure" -> inform("[New quest] A Cave in the Woods I"), item(391, 1, 399), queststatus(79) = 1, "Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good?"
-queststatus(79) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Eine Höhle im Wald I"), item(391, 1, 399), queststatus(79) = 1, "Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen?"
+queststatus(79) = 0, english, "quest", "mission" -> inform("[New quest] A Cave in the Woods I"), "Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good?", item(391, 1, 399), queststatus(79) = 1
+queststatus(79) = 0, "quest", "mission" -> inform("[Neues Quest] Eine Höhle im Wald I"), "Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen?", item(391, 1, 399), queststatus(79) = 1
+queststatus(79) = 0, "task", "adventure" -> inform("[New quest] A Cave in the Woods I"), "Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good?", item(391, 1, 399), queststatus(79) = 1
+queststatus(79) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Eine Höhle im Wald I"), "Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen?", item(391, 1, 399), queststatus(79) = 1
 
 -- Quest 1 solved, reward: 100cp, +5 rankpoints
-queststatus(79) = 11, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Archmage Elvaine Morgan's favour."), money + 100, queststatus(79) = 12, rankpoints(Runewick) + 5, "Oh, how great! Now I can sleep without the wolves scaring me. Take mm loan of this week, do not refuse it, please. Another adventure awaits you."
-queststatus(79) = 11, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), money + 100, queststatus(79) = 12, "Oh, how great! Now I can sleep without the wolves scaring me. Take my loan of this week, do not refuse it, please. Another adventure awaits you."
-queststatus(79) = 11, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 100, queststatus(79) = 12, rankpoints(Runewick) + 5, "Oh, wie fein! Jetzt kann ich die Nacht ohne Angst vor den Wölfen durchschlafen. Hier, nehmt meinen Wochenlohn, lehnt ihn bitte nicht ab. Ein weiteres Abenteuer wartet auf euch."
-queststatus(79) = 11, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), money + 100, queststatus(79) = 12, "Oh, wie fein! Jetzt kann ich die Nacht ohne Angst vor den Wölfen durchschlafen. Hier, nehmt meinen Wochenlohn, lehnt ihn bitte nicht ab. Ein weiteres Abenteuer wartet auf euch."
+queststatus(79) = 11, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Archmage Elvaine Morgan's favour."), "Oh, how great! Now I can sleep without the wolves scaring me. Take mm loan of this week, do not refuse it, please. Another adventure awaits you.", money + 100, queststatus(79) = 12, rankpoints(Runewick) + 5
+queststatus(79) = 11, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), "Oh, how great! Now I can sleep without the wolves scaring me. Take my loan of this week, do not refuse it, please. Another adventure awaits you.", money + 100, queststatus(79) = 12
+queststatus(79) = 11, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Oh, wie fein! Jetzt kann ich die Nacht ohne Angst vor den Wölfen durchschlafen. Hier, nehmt meinen Wochenlohn, lehnt ihn bitte nicht ab. Ein weiteres Abenteuer wartet auf euch.", money + 100, queststatus(79) = 12, rankpoints(Runewick) + 5
+queststatus(79) = 11, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Oh, wie fein! Jetzt kann ich die Nacht ohne Angst vor den Wölfen durchschlafen. Hier, nehmt meinen Wochenlohn, lehnt ihn bitte nicht ab. Ein weiteres Abenteuer wartet auf euch.", money + 100, queststatus(79) = 12
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(79) > 0, queststatus(79) < 11, english, "quest", "mission" -> "There is still a pack of wolves in the north. Can't you hear them howling?"
@@ -113,16 +113,16 @@ queststatus(79) > 0, queststatus(79) < 11, "Auftrag", "Aufgabe", "Abenteuer" -> 
 -- 2nd quest: Kill 5 panthers
 
 -- Give out quest 2
-queststatus(79) = 12, english, "quest", "mission" -> inform("[New quest] A Cave in the Woods II"), queststatus(79) = 13, "You are a true hero. The panthers are hunting everything, even halflings. Please, will you... tame them, too?"
-queststatus(79) = 12, "quest", "mission" -> inform("[Neues Quest] Eine Höhle im Wald II"), queststatus(79) = 13, "Ihr seid wahrhaftig ein Held. Die Panther jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?"
-queststatus(79) = 12, "task", "adventure" -> inform("[New quest] A Cave in the Woods II"), queststatus(79) = 13, "You are a true hero. The panthers are hunting everything, even halflings. Please, will you... tame them, too?"
-queststatus(79) = 12, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Eine Höhle im Wald II"), queststatus(79) = 13, "Ihr seid wahrhaftig ein Held. Die Panther jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?"
+queststatus(79) = 12, english, "quest", "mission" -> inform("[New quest] A Cave in the Woods II"), "You are a true hero. The panthers are hunting everything, even halflings. Please, will you... tame them, too?", queststatus(79) = 13
+queststatus(79) = 12, "quest", "mission" -> inform("[Neues Quest] Eine Höhle im Wald II"), "Ihr seid wahrhaftig ein Held. Die Panther jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?", queststatus(79) = 13
+queststatus(79) = 12, "task", "adventure" -> inform("[New quest] A Cave in the Woods II"), "You are a true hero. The panthers are hunting everything, even halflings. Please, will you... tame them, too?", queststatus(79) = 13
+queststatus(79) = 12, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Eine Höhle im Wald II"), "Ihr seid wahrhaftig ein Held. Die Panther jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?", queststatus(79) = 13
 
 -- Quest 2 solved, reward: 100cp, yellow robe (195), +10 rankpoints
-queststatus(79) = 18, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a yellow robe. You advance in Archmage Elvaine Morgan's favour."), money + 100, item(195, 1, 599), queststatus(79) = 19, rankpoints(Runewick) + 10, "Wonder, wonderful! The panthers were so mean. Here, a customer forgot to pick up a robe, it is yours now."
-queststatus(79) = 18, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a yellow robe."), money + 100, item(195, 1, 599), queststatus(79) = 19, "Wonder, wonderful! The panthers were so mean. Here, a customer forgot to pick up a robe, it is yours now."
-queststatus(79) = 18, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), money + 100, item(195, 1, 599), queststatus(79) = 19, rankpoints(Runewick) + 10, "Wunder, wunderbar! Die Panther waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure."
-queststatus(79) = 18, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe."), money + 100, item(195, 1, 599), queststatus(79) = 19, "Wunder, wunderbar! Die Panther waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure."
+queststatus(79) = 18, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a yellow robe. You advance in Archmage Elvaine Morgan's favour."), "Wonder, wonderful! The panthers were so mean. Here, a customer forgot to pick up a robe, it is yours now.", money + 100, item(195, 1, 599), queststatus(79) = 19, rankpoints(Runewick) + 10
+queststatus(79) = 18, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a yellow robe."), "Wonder, wonderful! The panthers were so mean. Here, a customer forgot to pick up a robe, it is yours now.", money + 100, item(195, 1, 599), queststatus(79) = 19
+queststatus(79) = 18, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Wunder, wunderbar! Die Panther waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.", money + 100, item(195, 1, 599), queststatus(79) = 19, rankpoints(Runewick) + 10
+queststatus(79) = 18, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe."), "Wunder, wunderbar! Die Panther waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.", money + 100, item(195, 1, 599), queststatus(79) = 19
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(79) > 12, queststatus(79) < 18, english, "quest", "mission" -> "I saw a black shadow again! Are there still mean panthers around?"
@@ -133,16 +133,16 @@ queststatus(79) > 12, queststatus(79) < 18, "Auftrag", "Aufgabe", "Abenteuer" ->
 -- 3rd quest: Kill 1 spider
 
 -- Give out quest 3
-queststatus(79) = 19, english, "quest", "mission" -> inform("[New quest] A Cave in the Woods III"), queststatus(79) = 20, "Did you see that web? That giant web in the woods? It has to belong to a giant spider! Just imagine such a beast would come here. Can you... prevent this?"
-queststatus(79) = 19, "quest", "mission" -> inform("[Neues Quest] Eine Höhle im Wald III"), queststatus(79) = 20, "Habt ihr dieses Netz gesehen? Dieses riesen Netz im Wald? Es muss einer riesigen Spinne gehören. Stellt euch nur vor, so ein Biest würde hierher kommen! Könnt ihr das... verhindern?"
-queststatus(79) = 19, "task", "adventure" -> inform("[New quest] A Cave in the Woods III"), queststatus(79) = 20, "Did you see that web? That giant web in the woods? It has to belong to a giant spider! Just imagine such a beast would come here. Can you... prevent this?"
-queststatus(79) = 19, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Eine Höhle im Wald III"), queststatus(79) = 20, "Habt ihr dieses Netz gesehen? Dieses riesen Netz im Wald? Es muss einer riesigen Spinne gehören. Stellt euch nur vor, so ein Biest würde hierher kommen! Könnt ihr das... verhindern?"
+queststatus(79) = 19, english, "quest", "mission" -> inform("[New quest] A Cave in the Woods III"), "Did you see that web? That giant web in the woods? It has to belong to a giant spider! Just imagine such a beast would come here. Can you... prevent this?", queststatus(79) = 20
+queststatus(79) = 19, "quest", "mission" -> inform("[Neues Quest] Eine Höhle im Wald III"), "Habt ihr dieses Netz gesehen? Dieses riesen Netz im Wald? Es muss einer riesigen Spinne gehören. Stellt euch nur vor, so ein Biest würde hierher kommen! Könnt ihr das... verhindern?", queststatus(79) = 20
+queststatus(79) = 19, "task", "adventure" -> inform("[New quest] A Cave in the Woods III"), "Did you see that web? That giant web in the woods? It has to belong to a giant spider! Just imagine such a beast would come here. Can you... prevent this?", queststatus(79) = 20
+queststatus(79) = 19, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Eine Höhle im Wald III"), "Habt ihr dieses Netz gesehen? Dieses riesen Netz im Wald? Es muss einer riesigen Spinne gehören. Stellt euch nur vor, so ein Biest würde hierher kommen! Könnt ihr das... verhindern?", queststatus(79) = 20
 
 -- Quest 3 solved, reward: novice robe, +20 rankpoints
-queststatus(79) = 21, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a novice robe. You advance in Archmage Elvaine Morgan's favour."), item(547, 1, 799), queststatus(79) = 22, rankpoints(Runewick) + 20, "Hooray! Now the woods are peaceful again and I can continue washing the laundry in peace. An apprentice of Runewick left her robe with me; I think her name was Zaida. Have it!"
-queststatus(79) = 21, english, ".+" -> inform("[Quest solved] You are awarded a novice robe."), item(547, 1, 799), queststatus(79) = 22, "Hooray! Now the woods are peaceful again and I can continue washing the laundry in peace. An apprentice of Runewick left her robe with me; I think her name was Zaida. Have it!"
-queststatus(79) = 21, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst eine Novizenrobe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), item(547, 1, 799), queststatus(79) = 22, rankpoints(Runewick) + 20, "Hurra! Nun, da der Wald wieder friedlich ist, kann ich ungestört meine Wäsche waschen. Eine Novizin aus Runewick hat ihre Robe hier bei mir vergessen; ich glaube, ihr Name war Zaida. Hier!"
-queststatus(79) = 21, ".+" -> inform("[Quest gelöst] Du erhältst eine Novizenrobe."), item(547, 1, 799), queststatus(79) = 22, "Hurra! Nun, da der Wald wieder friedlich ist, kann ich ungestört meine Wäsche waschen. Eine Novizin aus Runewick hat ihre Robe hier bei mir vergessen; ich glaube, ihr Name war Zaida. Hier!"
+queststatus(79) = 21, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a novice robe. You advance in Archmage Elvaine Morgan's favour."), "Hooray! Now the woods are peaceful again and I can continue washing the laundry in peace. An apprentice of Runewick left her robe with me; I think her name was Zaida. Have it!", item(547, 1, 799), queststatus(79) = 22, rankpoints(Runewick) + 20
+queststatus(79) = 21, english, ".+" -> inform("[Quest solved] You are awarded a novice robe."), "Hooray! Now the woods are peaceful again and I can continue washing the laundry in peace. An apprentice of Runewick left her robe with me; I think her name was Zaida. Have it!", item(547, 1, 799), queststatus(79) = 22
+queststatus(79) = 21, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst eine Novizenrobe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Hurra! Nun, da der Wald wieder friedlich ist, kann ich ungestört meine Wäsche waschen. Eine Novizin aus Runewick hat ihre Robe hier bei mir vergessen; ich glaube, ihr Name war Zaida. Hier!", item(547, 1, 799), queststatus(79) = 22, rankpoints(Runewick) + 20
+queststatus(79) = 21, ".+" -> inform("[Quest gelöst] Du erhältst eine Novizenrobe."), "Hurra! Nun, da der Wald wieder friedlich ist, kann ich ungestört meine Wäsche waschen. Eine Novizin aus Runewick hat ihre Robe hier bei mir vergessen; ich glaube, ihr Name war Zaida. Hier!", item(547, 1, 799), queststatus(79) = 22
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(79) > 19, queststatus(79) < 21, english, "quest", "mission" -> "A giant spider built a giant web in the woods! I fear for my life!"
@@ -198,7 +198,7 @@ english, "Runewick" -> "Runewick is that magnificient town to the east. I wash t
 "Runewick" -> "Runewick ist diese großartige Stadt im Osten. Ich wasche die Wäsche der Bürger! Ist das nicht toll?"
 english, "Valerio", "Guilianni", "Don" -> "Oh, isn't that a cook from the north who cooks noodles of semolina?"
 "Valerio", "Guilianni", "Don" -> "Oh, ist das nicht ein Koch aus dem Norden, der Nudeln aus Hartweizengrieß kocht?"
-english, "Galmair" -> end, "Once, a dwarf from Galmair called Miggs came to me. He demanded money from me, but then my old frithe bear came and the dwarf ran!"
+english, "Galmair" -> "Once, a dwarf from Galmair called Miggs came to me. He demanded money from me, but then my old frithe bear came and the dwarf ran!", end
 "Galmair" -> "Einst kam ein Zwerg namens Miggs aus Galmair zu mir. Er verlangte Geld, doch dann kam mein alter Freund der Bär und der Zwerg rannte davon!"
 "Queen" -> "Ui, the queen of Cadomyr? I wish I'd be a queen, too."
 "Königin" -> "Ui, die Königin von Cadomyr? Ich wünschte, ich wäre auch eine Königin."
@@ -222,7 +222,7 @@ english, "Tanora", "Zelphia" -> "I pray to Tanora every morning for leaving the 
 "Tanora", "Zelphia" -> "Ich bete jeden Morgen zu Tanora, auf dass das Wasser der Anthils immer so klar bleibt wie jetzt."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> trade, "I can wash your laundry, but I do notwith goods."
+"what sell", "what buy", "list wares", "price of" -> "I can wash your laundry, but I do notwith goods.", trade
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kann eure Schmutzwäsche waschen, aber ich handele nicht mit Waren."
 "tell something" -> "First, you have to soak the laundry. Wait an hour, but not more. Then, wash it! And do not forget to rinse it twice."
 "erzähl was", "erzähl etwas" -> "Zunächst müßt ihr die Wäsche einweichen. Wartet eine Stunde, aber nicht mehr. Dann wascht sie! Vergesst nicht, sie hinterher zweimal zu spülen."

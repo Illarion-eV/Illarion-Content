@@ -8,7 +8,7 @@
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Cormac"
@@ -71,26 +71,26 @@ queststatus(74) > 2, ".*" -> "Error! Something went wrong, please inform a devel
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmuggler Cormac. Um mehr über ihn zu erfahren, grüße ihn zunächst.")
 
 -- General speech
-queststatus(74) = 0, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> inform("[New quest] Galmair's Gossiper"), queststatus(74) = 1, "#me flashes you a sparse-toothed grin. 'Eh! If ye want to sit down with me, ye better bring me a mug of beer. Then I'll answer yer questions.'"
+queststatus(74) = 0, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> inform("[New quest] Galmair's Gossiper"), "#me flashes you a sparse-toothed grin. 'Eh! If ye want to sit down with me, ye better bring me a mug of beer. Then I'll answer yer questions.'", queststatus(74) = 1
 queststatus(74) = 1, item(1909, all) < 1, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty."
 queststatus(74) = 2, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "If that isn't mah good ol' buddy! Come, sit down and drink with meh!"
-queststatus(74) = 0, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> inform("[Neues Quest] Der Schwätzer von Galmair"), queststatus(74) = 1, "#me zeigt ein zahnloses Grinsen. 'Eh! Wenn du dich hier hinsetzen willst, bring mir besser ein Bier. Dann beantworte ich deine Fragen.'"
+queststatus(74) = 0, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> inform("[Neues Quest] Der Schwätzer von Galmair"), "#me zeigt ein zahnloses Grinsen. 'Eh! Wenn du dich hier hinsetzen willst, bring mir besser ein Bier. Dann beantworte ich deine Fragen.'", queststatus(74) = 1
 queststatus(74) = 1, item(1909, all) < 1, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
 queststatus(74) = 2, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Wenn das nicht mein guter Kumpel ist! Komm, setz dich und trink mit mir!"
-queststatus(74) = 0, english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[New quest] Galmair's Gossiper"), queststatus(74) = 1, "#me strokes his beard and grins: 'Arr, Greetings! If ye want to talk, then ye better quench my thirst first!'"
+queststatus(74) = 0, english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[New quest] Galmair's Gossiper"), "#me strokes his beard and grins: 'Arr, Greetings! If ye want to talk, then ye better quench my thirst first!'", queststatus(74) = 1
 queststatus(74) = 1, item(1909, all) < 1, english, "Hiho", "Hallo", "Hey", "Greeb" -> "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty."
 queststatus(74) = 2, english, "Hiho", "Hallo", "Hey", "Greeb" -> "What! Haven't seen ya since last time."
-queststatus(74) = 0, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Neues Quest] Der Schwätzer von Galmair"), queststatus(74) = 1, "#me streicht seinen Bart zurecht: 'Arr, grüß dich. Wenn du mit mir reden willst, dann lösch erstmal meinen Durst mit einem Bier."
+queststatus(74) = 0, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Neues Quest] Der Schwätzer von Galmair"), "#me streicht seinen Bart zurecht: 'Arr, grüß dich. Wenn du mit mir reden willst, dann lösch erstmal meinen Durst mit einem Bier.", queststatus(74) = 1
 queststatus(74) = 1, item(1909, all) < 1, "Hiho", "Hallo", "Hey", "Greeb" -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
 queststatus(74) = 2, "Hiho", "Hallo", "Hey", "Greeb" -> "Was! Dich hab ich ja seit dem letzten mal nicht mehr gesehen!"
 "Farewell", "Bye", "Fare well", "See you" -> "Until next time, traveller!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Bis zum nächsten mal, Reisender."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See ye around, traveller! Stay safe."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Man sieht sich, Fremder. Gib auf dich acht."
-queststatus(74) = 0, "How are you", "How feel", "How do you do" -> inform("[New quest] Galmair's Gossiper"), queststatus(74) = 1, "Arr! My throat is dry as tha desert! When ye want tha talk, ye need to bring me a beer first."
+queststatus(74) = 0, "How are you", "How feel", "How do you do" -> inform("[New quest] Galmair's Gossiper"), "Arr! My throat is dry as tha desert! When ye want tha talk, ye need to bring me a beer first.", queststatus(74) = 1
 queststatus(74) = 1, item(1909, all) < 1, "How are you", "How feel", "How do you do" -> "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty."
 queststatus(74) = 2, "How are you", "How feel", "How do you do" -> "A beer in the morning drives away the sorrows. And I have none anymore."
-queststatus(74) = 0, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> inform("[Neues Quest] Der Schwätzer von Galmair"), queststatus(74) = 1, "Arr! Meine Kehle ist so trocken wie die Wüste. Wenn du reden willst, bring mir erstmal ein Bier."
+queststatus(74) = 0, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> inform("[Neues Quest] Der Schwätzer von Galmair"), "Arr! Meine Kehle ist so trocken wie die Wüste. Wenn du reden willst, bring mir erstmal ein Bier.", queststatus(74) = 1
 queststatus(74) = 1, item(1909, all) < 1, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
 queststatus(74) = 2, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ein Bier am Morgen vertreibt Kummer und Sorgen. Und ich hab keine mehr."
 "your name", "who are you", "who art thou" -> "Cormac, the... river transportation entrepreneur."
@@ -98,24 +98,24 @@ queststatus(74) = 2, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ein Bi
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- First part, the gossiper is thirsty--
-queststatus(74) = 0, english, "quest", "mission" -> inform("[New quest] Galmair's Gossiper"), queststatus(74) = 1, "A task? Bring mah meh beer, ye bum!"
+queststatus(74) = 0, english, "quest", "mission" -> inform("[New quest] Galmair's Gossiper"), "A task? Bring mah meh beer, ye bum!", queststatus(74) = 1
 queststatus(74) = 1, item(1909, all) < 1, english, "quest", "mission" -> "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty."
 queststatus(74) = 2, english, "quest", "mission" -> "What is it ya want to know? I know the latest gossip. The Don, Galmair and its neighbours, everything!"
-queststatus(74) = 0, "quest", "mission" -> inform("[Neues Quest] Der Schwätzer von Galmair"), queststatus(74) = 1, "Hol' mir mal 'ne Flasche Bier sonst streik ich hier!"
+queststatus(74) = 0, "quest", "mission" -> inform("[Neues Quest] Der Schwätzer von Galmair"), "Hol' mir mal 'ne Flasche Bier sonst streik ich hier!", queststatus(74) = 1
 queststatus(74) = 1, item(1909, all) < 1, "quest", "mission" -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
 queststatus(74) = 2, "quest", "mission" -> "Was willst du wissen? Ich kenne alle Gerüchte. Der Don, Galmair und seine Nachbarn, alles!"
-queststatus(74) = 0, "task", "adventure", "question" -> inform("[New quest] Galmair's Gossiper"), queststatus(74) = 1, "A task? Bring mah meh beer, ye bum!"
+queststatus(74) = 0, "task", "adventure", "question" -> inform("[New quest] Galmair's Gossiper"), "A task? Bring mah meh beer, ye bum!", queststatus(74) = 1
 queststatus(74) = 1, item(1909, all) < 1, "task", "adventure", "question" -> "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty."
 queststatus(74) = 2, "task", "adventure", "question" -> "What is it ya want to know? I know the latest gossip. The Don, Galmair and its neighbours, everything!"
-queststatus(74) = 0, "Aufgabe", "Abenteuer", "Frage" -> inform("[Neues Quest] Der Schwätzer von Galmair"), queststatus(74) = 1, "Hol' mir mal 'ne Flasche Bier sonst streik ich hier!"
+queststatus(74) = 0, "Aufgabe", "Abenteuer", "Frage" -> inform("[Neues Quest] Der Schwätzer von Galmair"), "Hol' mir mal 'ne Flasche Bier sonst streik ich hier!", queststatus(74) = 1
 queststatus(74) = 1, item(1909, all) < 1, "Aufgabe", "Abenteuer", "Frage" -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
 queststatus(74) = 2, "Aufgabe", "Abenteuer", "Frage" -> "Was willst du wissen? Ich kenne alle Gerüchte. Der Don, Galmair und seine Nachbarn, alles!"
 
 -- bringing the beer--
-queststatus(74) = 1, item(1909, all) > 0, english, town = Galmair, ".+" -> inform("[Quest solved] Cormac will now answer your questions. You advance in Don Valerio Guilianni's favour."), deleteItem(1909, 1), queststatus(74) = 2, rankpoints(Galmair) + 20, "#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'"
-queststatus(74) = 1, item(1909, all) > 0, english, ".+" -> inform("[Quest solved] Cormac will now answer your questions."), deleteItem(1909, 1), queststatus(74) = 2, "#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'"
-queststatus(74) = 1, item(1909, all) > 0, town = Galmair, ".+" -> inform("[Quest gelöst] Cormac wird nun deine Fragen beantworten. Dein Ansehen bei Don Valerio Guilianni steigt."), deleteItem(1909, 1), queststatus(74) = 2, rankpoints(Galmair) + 20, "#me nimmt den Krug und grinst: 'Arr! Du bist gar nicht so schlecht, wie du aussiehst. Ich bin schon überall gewesen, du kannst mich alles über die Stadt, den Don, Galmair oder sogar unsere dummen Nachbarn fragen.'"
-queststatus(74) = 1, item(1909, all) > 0, ".+" -> inform("[Quest gelöst] Cormac wird nun deine Fragen beantworten."), deleteItem(1909, 1), queststatus(74) = 2, "#me nimmt den Krug und grinst: 'Arr! Du bist gar nicht so schlecht, wie du aussiehst. Ich bin schon überall gewesen, du kannst mich alles über die Stadt, den Don, Galmair oder sogar unsere dummen Nachbarn fragen.'"
+queststatus(74) = 1, item(1909, all) > 0, english, town = Galmair, ".+" -> inform("[Quest solved] Cormac will now answer your questions. You advance in Don Valerio Guilianni's favour."), "#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'", deleteItem(1909, 1), queststatus(74) = 2, rankpoints(Galmair) + 20
+queststatus(74) = 1, item(1909, all) > 0, english, ".+" -> inform("[Quest solved] Cormac will now answer your questions."), "#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'", deleteItem(1909, 1), queststatus(74) = 2
+queststatus(74) = 1, item(1909, all) > 0, town = Galmair, ".+" -> inform("[Quest gelöst] Cormac wird nun deine Fragen beantworten. Dein Ansehen bei Don Valerio Guilianni steigt."), "#me nimmt den Krug und grinst: 'Arr! Du bist gar nicht so schlecht, wie du aussiehst. Ich bin schon überall gewesen, du kannst mich alles über die Stadt, den Don, Galmair oder sogar unsere dummen Nachbarn fragen.'", deleteItem(1909, 1), queststatus(74) = 2, rankpoints(Galmair) + 20
+queststatus(74) = 1, item(1909, all) > 0, ".+" -> inform("[Quest gelöst] Cormac wird nun deine Fragen beantworten."), "#me nimmt den Krug und grinst: 'Arr! Du bist gar nicht so schlecht, wie du aussiehst. Ich bin schon überall gewesen, du kannst mich alles über die Stadt, den Don, Galmair oder sogar unsere dummen Nachbarn fragen.'", deleteItem(1909, 1), queststatus(74) = 2
 queststatus(74) = 1, item(1909, all) < 1, english, ".+" -> "Beer here, now! A real sip.", "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty.", "Beer here now!"
 queststatus(74) = 1, item(1909, all) < 1, ".+" -> "Bier her! So einen richtigen Schluck.", "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig.", "Bier her, jetzt!"
 

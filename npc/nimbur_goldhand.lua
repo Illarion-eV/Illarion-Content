@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -33,6 +33,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("reset");
+talkEntry:addResponse("Noobia reset!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 0));
@@ -40,7 +41,6 @@ talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(314, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(31, 22, 100));
-talkEntry:addResponse("Noobia reset!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -78,10 +78,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(313, "<", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Blacksmithing requires you to stand in front of an anvil and use a hammer, which must be held in your hands. Then, choose the desired product from the menu to start working on it."));
+talkEntry:addResponse("Arr... right. Listen up! I tell ye everything about blacksmithing ye need to know. Here, take this hammer and these ingots. Step inside and don't dare come out without three sets of pins in yer bag!");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2535, 10, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 2));
-talkEntry:addResponse("Arr... right. Listen up! I tell ye everything about blacksmithing ye need to know. Here, take this hammer and these ingots. Step inside and don't dare come out without three sets of pins in yer bag!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -89,10 +89,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "<", 2));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Um zu schmieden, stell dich vor einen Amboss und benutze den in der Hand gehaltenen Hammer. Wähle dann ein Produkt aus dem Menü aus, um anzufangen es zu fertigen."));
+talkEntry:addResponse("Arr, richtig. Hör zu! Ich werd' dir alles, was ich weiß, über's schmieden beibringen. Hier, nimm diesen Hammer und diesen Barren und geh rein und komm nicht eher raus, bis du drei Sätze Nägel in deiner Tasche hast! ");
 talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2535, 10, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 2));
-talkEntry:addResponse("Arr, richtig. Hör zu! Ich werd' dir alles, was ich weiß, über's schmieden beibringen. Hier, nimm diesen Hammer und diesen Barren und geh rein und komm nicht eher raus, bis du drei Sätze Nägel in deiner Tasche hast! ");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -102,10 +102,10 @@ talkEntry:addCondition(npc.base.condition.item.item(2738, "all", ">", 2, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are awarded an iron goblet."));
+talkEntry:addResponse("Aye! Ye did it! I'll give ye this cup as example of my work, and of what ye might be able to achieve one day. Don't hesitate to show it off to everyone on the main land... ye might land me some more customers. Harr! Viola Baywillow, down the road, will help ye to choose a proper home and send ye on yer way.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 3, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(223, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 3));
-talkEntry:addResponse("Aye! Ye did it! I'll give ye this cup as example of my work, and of what ye might be able to achieve one day. Don't hesitate to show it off to everyone on the main land... ye might land me some more customers. Harr! Viola Baywillow, down the road, will help ye to choose a proper home and send ye on yer way.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -114,10 +114,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2738, "all", ">", 2, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du erhältst einen Eisenkelch."));
+talkEntry:addResponse("Aye! Du hast es geschafft! Nimm diesen Kelch als Beispiel für meine Arbeit und als Zeichen, was du vielleicht mal erreichen kannst. Zögere nicht, ihn auch auf dem Festland rumzuzeigen, vielleicht verschaffste mir ja ein paar Kunden. Harr! Viola Bayillow, die die Straße runter wohnt, wird dir helfen, 'ne vernünftige Heimat auszusuchen und dich auf deinen Weg schicken.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2738, 3, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(223, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 3));
-talkEntry:addResponse("Aye! Du hast es geschafft! Nimm diesen Kelch als Beispiel für meine Arbeit und als Zeichen, was du vielleicht mal erreichen kannst. Zögere nicht, ihn auch auf dem Festland rumzuzeigen, vielleicht verschaffste mir ja ein paar Kunden. Harr! Viola Bayillow, die die Straße runter wohnt, wird dir helfen, 'ne vernünftige Heimat auszusuchen und dich auf deinen Weg schicken.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -126,8 +126,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(23, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 599, nil));
 talkEntry:addResponse("Bah! Without a hammer, ye are not able to forge. Losing your hammer is the first step towards ending up on the rocks. Luckily for ye, I have another one.");
+talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 599, nil));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -135,8 +135,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(23, "all", "=", 0, nil));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 599, nil));
 talkEntry:addResponse("Bah! Ohne 'nen Hammer kannste nicht schmieden. Deinen Hammer zu verlieren, ist der erste Schritt im Staub zu landen. Zum Glück hab' ich noch einen für dich.");
+talkEntry:addConsequence(npc.base.consequence.item.item(23, 1, 599, nil));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -145,8 +145,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.item.item(2535, 1, 599, nil));
 talkEntry:addResponse("I see ye used up all the iron ingots I gave ye - quite a bad haul then, aye? I give ye one more ingot but ye have to promise me that ye will forge those three sets of pins right now. Get on with it!");
+talkEntry:addConsequence(npc.base.consequence.item.item(2535, 1, 599, nil));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -154,8 +154,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(313, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2535, "all", "=", 0, nil));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.item.item(2535, 1, 599, nil));
 talkEntry:addResponse("Ich sehe, du hast die ganzen Barren aufgebraucht, die ich dir gegeben habe - keine gute Quote, aye? Hier haste noch einen Barren, aber du musst mir versprechen, dass du jetzt drei Sätze Nägel schmiedest. Geh und fang an!");
+talkEntry:addConsequence(npc.base.consequence.item.item(2535, 1, 599, nil));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Zak                                                              --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -56,10 +56,10 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkEntry:addResponse("Greetings, frisorry that I won't stand up but I planted trees all day long, now I feel a little tired.");
 talkEntry:addResponse("Welcome in Elstree forest, watch out for the deers, they are easily frightened today.");
 talkEntry:addResponse("Hello, I hope you weren't send to me in order to buy wood like my last visitor.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -86,10 +86,10 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkEntry:addResponse("Greetings, frisorry that I won't stand up but I planted trees all day long, now I feel a little tired.");
 talkEntry:addResponse("Welcome in the Elstree forest, watch out for the deers, they are easily frightened today.");
 talkEntry:addResponse("Hello, I hope you weren't send to me in order to buy wood like my last visitor.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -174,6 +174,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -190,9 +191,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Forest I"));
+talkEntry:addResponse("Ah, fine, so you want to help me, caring for the trees. Bark beetles are a real plague these days. Take this hatchet and search for ill naldor trees. Bring me ten logs, will you?");
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 1));
-talkEntry:addResponse("Ah, fine, so you want to help me, caring for the trees. Bark beetles are a real plague these days. Take this hatchet and search for ill naldor trees. Bring me ten logs, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -201,9 +202,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Elsbaumwald I"));
+talkEntry:addResponse("Ah, fein, ihr möchtet mir dabei helfen, die Bäume zu pflegen. Borkenkäfer sind zu einer echten Plage geworden. Nehmt dieses Beil und sucht nach kranken Naldorbäumen. Bringt mir zehn Scheite, ja?");
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 1));
-talkEntry:addResponse("Ah, fein, ihr möchtet mir dabei helfen, die Bäume zu pflegen. Borkenkäfer sind zu einer echten Plage geworden. Nehmt dieses Beil und sucht nach kranken Naldorbäumen. Bringt mir zehn Scheite, ja?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -213,9 +214,9 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Forest I"));
+talkEntry:addResponse("Ah, fine, so you want to help me, caring for the trees. Bark beetles are a real plague these days. Take this hatchet and search for ill naldor trees. Bring me ten logs, will you?");
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 1));
-talkEntry:addResponse("Ah, fine, so you want to help me, caring for the trees. Bark beetles are a real plague these days. Take this hatchet and search for ill naldor trees. Bring me ten logs, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -226,24 +227,24 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Elsbaumwald I"));
+talkEntry:addResponse("Ah, fein, ihr möchtet mir dabei helfen, die Bäume zu pflegen. Borkenkäfer sind zu einer echten Plage geworden. Nehmt dieses Beil und sucht nach kranken Naldorbäumen. Bringt mir zehn Scheite, ja?");
 talkEntry:addConsequence(npc.base.consequence.item.item(74, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 1));
-talkEntry:addResponse("Ah, fein, ihr möchtet mir dabei helfen, die Bäume zu pflegen. Borkenkäfer sind zu einer echten Plage geworden. Nehmt dieses Beil und sucht nach kranken Naldorbäumen. Bringt mir zehn Scheite, ja?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.woodcutting, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and your lumberjacking skill increases."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "lumberjacking", "+", 1));
+talkEntry:addResponse("Oh, thank you. Here, take this reward for your efforts.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.woodcutting, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2560, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 2));
-talkEntry:addResponse("Oh, thank you. Here, take this reward for your efforts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -253,24 +254,24 @@ talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins."));
+talkEntry:addResponse("Oh, thank you. Here, take this reward for your efforts.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2560, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 2));
-talkEntry:addResponse("Oh, thank you. Here, take this reward for your efforts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.woodcutting, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Holzfällerfertigkeit steigt."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "lumberjacking", "+", 1));
+talkEntry:addResponse("Oh, vielen Dank. Hier, eine kleine Entschädigung für eure Mühen.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.woodcutting, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2560, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 2));
-talkEntry:addResponse("Oh, vielen Dank. Hier, eine kleine Entschädigung für eure Mühen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -279,10 +280,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(544, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke."));
+talkEntry:addResponse("Oh, vielen Dank. Hier, eine kleine Entschädigung für eure Mühen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2560, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 2));
-talkEntry:addResponse("Oh, vielen Dank. Hier, eine kleine Entschädigung für eure Mühen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -332,8 +333,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Forest II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 3));
 talkEntry:addResponse("Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben kein Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -342,8 +343,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Elsbaumwald II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 3));
 talkEntry:addResponse("Oh dear, scale lice infested some of the cherry trees. We have no other choice, cut the ill trees and bring me twenty logs, please.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -353,8 +354,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Forest II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 3));
 talkEntry:addResponse("Oh dear, scale lice infested some of the cherry trees. We have no other choice, cut the ill trees and bring me twenty logs, please.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -365,23 +366,23 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Elsbaumwald II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 3));
 talkEntry:addResponse("Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben kein Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.woodcutting, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(543, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your lumberjacking skill increases."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "lumberjacking", "+", 1));
+talkEntry:addResponse("Ha, now the archers can train again for any possible emergency, thank you. Take this as a reward.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.woodcutting, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(543, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 4));
-talkEntry:addResponse("Ha, now the archers can train again for any possible emergency, thank you. Take this as a reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -391,24 +392,24 @@ talkEntry:addCondition(npc.base.condition.item.item(543, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
+talkEntry:addResponse("Ha, now the archers can train again for any possible emergency, thank you. Take this as a reward.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(543, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 4));
-talkEntry:addResponse("Ha, now the archers can train again for any possible emergency, thank you. Take this as a reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.woodcutting, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(543, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Holzfällerfertigkeit steigt."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "lumberjacking", "+", 1));
+talkEntry:addResponse("Ha, ihr habt es den Schildläusen gezeigt, danke euch. Nehmt dies als Belohnung.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.woodcutting, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(543, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 4));
-talkEntry:addResponse("Ha, ihr habt es den Schildläusen gezeigt, danke euch. Nehmt dies als Belohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -417,10 +418,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(543, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
+talkEntry:addResponse("Ha, ihr habt es den Schildläusen gezeigt, danke euch. Nehmt dies als Belohnung.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(543, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 4));
-talkEntry:addResponse("Ha, ihr habt es den Schildläusen gezeigt, danke euch. Nehmt dies als Belohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -470,8 +471,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Forest III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 5));
 talkEntry:addResponse("We always used to pin some twigs to the ceiling because of the delicious scent they spread. But now the branches we have have lost their scent. Do you think you can get us five new ones? The most intensive scented twigs can be found in the northern woods");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -480,8 +481,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 4));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Elsbaumwald III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 5));
 talkEntry:addResponse("Wir brachten immer einige Zweige an der Decke an, des köstlichen Duftes wegen, den sie verbreiten. Doch nun haben die jetzigen Zweige ihren Duft verloren. Meint ihr, ihr könntet uns fünf neue besorgen? Die aus dem Nordwald riechen am intensivsten.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -491,8 +492,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Forest III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 5));
 talkEntry:addResponse("We always used to pin some twigs to the ceiling because of the delicious scent they spread. But now the branches we have have lost their scent. Do you think you can get us five new ones? The most intensive scented twigs can be found in the northern woods.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -503,23 +504,23 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Elsbaumwald III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 5));
 talkEntry:addResponse("Wir brachten immer einige Zweige an der Decke an, des köstlichen Duftes wegen, den sie verbreiten. Doch nun haben die jetzigen Zweige ihren Duft verloren. Meint ihr, ihr könntet uns fünf neue besorgen? Die aus dem Nordwald riechen am intensivsten.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.woodcutting, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2786, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your lumberjacking skill increases."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "lumberjacking", "+", 1));
+talkEntry:addResponse("Mmh... do you smell that? The calming scent of the woods, thank you very much. Finally my wife and I can go to sleep completely relaxed again.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.woodcutting, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2786, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 6));
-talkEntry:addResponse("Mmh... do you smell that? The calming scent of the woods, thank you very much. Finally my wife and I can go to sleep completely relaxed again.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -529,24 +530,24 @@ talkEntry:addCondition(npc.base.condition.item.item(2786, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
+talkEntry:addResponse("Mmh... do you smell that? The calming scent of the woods, thank you very much. Finally my wife and I can go to sleep completely relaxed again.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2786, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 6));
-talkEntry:addResponse("Mmh... do you smell that? The calming scent of the woods, thank you very much. Finally my wife and I can go to sleep completely relaxed again.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.woodcutting, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2786, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Holzfällerfertigkeit steigt."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "lumberjacking", "+", 1));
+talkEntry:addResponse("Mmh... riecht ihr das? Der beruhigende Duft des Waldes, vielen vielen Dank. Meine Frau und ich können nun endlich wieder entspannt einschlafen.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.woodcutting, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2786, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 6));
-talkEntry:addResponse("Mmh... riecht ihr das? Der beruhigende Duft des Waldes, vielen vielen Dank. Meine Frau und ich können nun endlich wieder entspannt einschlafen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -555,10 +556,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2786, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
+talkEntry:addResponse("Mmh... riecht ihr das? Der beruhigende Duft des Waldes, vielen vielen Dank. Meine Frau und ich können nun endlich wieder entspannt einschlafen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2786, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 6));
-talkEntry:addResponse("Mmh... riecht ihr das? Der beruhigende Duft des Waldes, vielen vielen Dank. Meine Frau und ich können nun endlich wieder entspannt einschlafen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -608,8 +609,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Forest IV"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 7));
 talkEntry:addResponse("In addition to my tasks as forester, I care for the cows. Can you bring me ten bundles of grain to feed them? Nana Winterbutter in Yewdale might help you.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -618,8 +619,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 6));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Elsbaumwald IV"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 7));
 talkEntry:addResponse("Zusätzlich zu meinen Aufgaben als Förster kümmere ich mich um die Kühe. Könnt ihr mir zehn Bündel Getreide bringen, um sie zu füttern? Nana Winterbutter in Eibenthal könnte dir dabei helfen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,8 +630,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Forest IV"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 7));
 talkEntry:addResponse("In addition to my tasks as forester, I care for the cows. Can you bring me ten bundles of grain to feed them? Nana Winterbutter in Yewdale might help you.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -641,23 +642,23 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Elsbaumwald IV"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 7));
 talkEntry:addResponse("Zusätzlich zu meinen Aufgaben als Förster kümmere ich mich um die Kühe. Könnt ihr mir zehn Bündel Getreide bringen, um sie zu füttern? Nana Winterbutter im Eibenthal könnte dir dabei helfen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.woodcutting, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Holzfällerfertigkeit steigt."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "lumberjacking", "+", 1));
+talkEntry:addResponse("Vielen, vielen Dank. Nun kann ich die Kühe füttern und mich ihrer Dankbarkeit erfreuen.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.woodcutting, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 8));
-talkEntry:addResponse("Vielen, vielen Dank. Nun kann ich die Kühe füttern und mich ihrer Dankbarkeit erfreuen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -667,24 +668,24 @@ talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke."));
+talkEntry:addResponse("Vielen, vielen Dank. Nun kann ich die Kühe füttern und mich ihrer Dankbarkeit erfreuen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 8));
-talkEntry:addResponse("Vielen, vielen Dank. Nun kann ich die Kühe füttern und mich ihrer Dankbarkeit erfreuen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "lumberjacking", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.woodcutting, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins and your lumberjacking skill increases."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "lumberjacking", "+", 1));
+talkEntry:addResponse("Thank you so much. Now I can feed the cows and enjoy their gratefullness.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.woodcutting, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 8));
-talkEntry:addResponse("Thank you so much. Now I can feed the cows and enjoy their gratefullness.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -693,10 +694,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(69, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins."));
+talkEntry:addResponse("Thank you so much. Now I can feed the cows and enjoy their gratefullness.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 8));
-talkEntry:addResponse("Thank you so much. Now I can feed the cows and enjoy their gratefullness.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1147,10 +1148,10 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Sorry, I do not. All I know is how to prune trees without harming them more than necessary.");
 talkEntry:addResponse("The narrow-minded act of trading does not suit me, thus you cannot purchase anything from me.");
 talkEntry:addResponse("I do not sell anything, in special no wood of slaughtered trees.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

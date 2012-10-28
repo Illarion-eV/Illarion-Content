@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Fosco Goodbarrel"
@@ -95,10 +95,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ta-ta!", "Don't forget me!"
 -- 1st quest: Bring Fosco's flute
 
 -- Give out quest 1
-queststatus(333) = 6, english, "quest", "mission" -> inform("[Quest update] Aurora's Staff: Part II"), queststatus(333) = 7, "Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He's in <town name>."
-queststatus(333) = 6, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche I"), queststatus(333) = 7, "Ahh, der Stab! Nun, weil ich dich mag, gebe ich es dir für fünf Goldstücke. Ich sag' dir was: Ich habe ein Auge auf den goldenen Dolch des Echsenmenschen Kai'itza geworfen. Bring ihn mir, den Stab. "
-queststatus(333) = 6, "task", "adventure", "staff" -> inform("[Quest update] Aurora's Staff: Part II"), queststatus(333) = 7, "Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He's in <town name>."
-queststatus(333) = 6, "Auftrag", "Aufgabe", "Abenteuer", "german" -> inform("[Neues Quest] Die Geistereiche I"), queststatus(333) = 7, "Ahh, der Stab! Nun, weil ich dich mag, gebe ich es dir für fünf Goldstücke. Ich sag' dir was: Ich habe ein Auge auf den goldenen Dolch des Echsenmenschen Kai'itza geworfen. Bring ihn mir, den Stab."
+queststatus(333) = 6, english, "quest", "mission" -> inform("[Quest update] Aurora's Staff: Part II"), "Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He's in <town name>.", queststatus(333) = 7
+queststatus(333) = 6, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche I"), "Ahh, der Stab! Nun, weil ich dich mag, gebe ich es dir für fünf Goldstücke. Ich sag' dir was: Ich habe ein Auge auf den goldenen Dolch des Echsenmenschen Kai'itza geworfen. Bring ihn mir, den Stab. ", queststatus(333) = 7
+queststatus(333) = 6, "task", "adventure", "staff" -> inform("[Quest update] Aurora's Staff: Part II"), "Ahh, the staff! Well, since I like you, I'm willing to part with it for five gold coins. Tell you what: I've had my eye on a certain ornate dagger used by the lizard, Kai'itza. Bring it to me, the staff is yours. He's in <town name>.", queststatus(333) = 7
+queststatus(333) = 6, "Auftrag", "Aufgabe", "Abenteuer", "german" -> inform("[Neues Quest] Die Geistereiche I"), "Ahh, der Stab! Nun, weil ich dich mag, gebe ich es dir für fünf Goldstücke. Ich sag' dir was: Ich habe ein Auge auf den goldenen Dolch des Echsenmenschen Kai'itza geworfen. Bring ihn mir, den Stab.", queststatus(333) = 7
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(333) = 7, english, "quest", "mission" -> "You want your staff, you bring me my ornate dagger. And it had better be Kai'itza's. I'll be able to spot a fake. You'll find the lizard in <town name>. She stole my flute."
@@ -107,16 +107,16 @@ queststatus(333) = 7, "task", "adventure", "staff" -> "You want your staff, you 
 queststatus(333) = 7, "Auftrag", "Aufgabe", "Abenteuer", "german" -> "Du möchtest den Stab, dann bringt mir meinem verzierten Dolch. Dabei hanldelt es sich um den Kai'tza. Ich bin in der Lage einen Betrug zubemerken. Du findest den Echsenmensch in <Stadtname>. Sie hat meine Flöte gestohlen."
 
 -- Quest 1 solved, ornate dagger deleted, battle staff added
-queststatus(333) = 10, item(190, all) > 0, english, ".+" -> inform("[Quest updated] Aurora's Staff: Part II."), deleteItem(190, 1), item(209, 1, 499), queststatus(13372) = 11, "That's the one! I didn't think you had it in ya. Well, I'm a halfling of his word today. Here's the staff. I hope you enjoy your piece of wood."
-queststatus(333) = 10, item(190, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 80 Kupferstücke."), deleteItem(190, 1), item(209, 1, 499), queststatus(13372) = 11, "Das ist er! I hätte ja nicht gedacht, dass du das schaffst. Nun, ich bin ein Halbling der zu seinen worten steht. Hier hast du den Stab. Viel Spaß mit dem Stück Holz."
+queststatus(333) = 10, item(190, all) > 0, english, ".+" -> inform("[Quest updated] Aurora's Staff: Part II."), "That's the one! I didn't think you had it in ya. Well, I'm a halfling of his word today. Here's the staff. I hope you enjoy your piece of wood.", deleteItem(190, 1), item(209, 1, 499), queststatus(13372) = 11
+queststatus(333) = 10, item(190, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 80 Kupferstücke."), "Das ist er! I hätte ja nicht gedacht, dass du das schaffst. Nun, ich bin ein Halbling der zu seinen worten steht. Hier hast du den Stab. Viel Spaß mit dem Stück Holz.", deleteItem(190, 1), item(209, 1, 499), queststatus(13372) = 11
 
 -- 2nd quest: Bring 1 black coat and 1 amulet
 
 -- Give out quest 2
-queststatus(336) = 0, english, "quest", "mission" -> inform("[New quest] The Mischievous Halfling"), queststatus(336) = 1, "Well, since you asked, I am in need of a costume for my next...'play.' I shall be playing the part of a foreign halfling dignitary, upon whom the government bestow lavish gifts. I need one black coat and one amulet."
-queststatus(336) = 0, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(336) = 1, "Nun, da du fragst, ich bräuchte ein Kostüm für mein nächstes ...'Stück'. Ich werde die Rolle eines außländischen Halblingswürdenträgers spielen, den die Regierung großzügoig mit Geschenken überhäufen wird. Ich brauche einen schwarzen Mantel und ein Amulett."
-queststatus(336) = 0, "task", "adventure" -> inform("[New quest] The Mischievous Halfling"), queststatus(336) = 1, "Well, since you asked, I am in need of a costume for my next...'play.' I shall be playing the part of a foreign halfling dignitary, upon whom the government bestow lavish gifts. I need one black coat and one amulet.."
-queststatus(336) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(336) = 1, "Nun, da du fragst, ich bräuchte ein Kostüm für mein nächstes ...'Stück'. Ich werde die Rolle eines außländischen Halblingswürdenträgers spielen, den die Regierung großzügoig mit Geschenken überhäufen wird. Ich brauche einen schwarzen Mantel und ein Amulett."
+queststatus(336) = 0, english, "quest", "mission" -> inform("[New quest] The Mischievous Halfling"), "Well, since you asked, I am in need of a costume for my next...'play.' I shall be playing the part of a foreign halfling dignitary, upon whom the government bestow lavish gifts. I need one black coat and one amulet.", queststatus(336) = 1
+queststatus(336) = 0, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche II"), "Nun, da du fragst, ich bräuchte ein Kostüm für mein nächstes ...'Stück'. Ich werde die Rolle eines außländischen Halblingswürdenträgers spielen, den die Regierung großzügoig mit Geschenken überhäufen wird. Ich brauche einen schwarzen Mantel und ein Amulett.", queststatus(336) = 1
+queststatus(336) = 0, "task", "adventure" -> inform("[New quest] The Mischievous Halfling"), "Well, since you asked, I am in need of a costume for my next...'play.' I shall be playing the part of a foreign halfling dignitary, upon whom the government bestow lavish gifts. I need one black coat and one amulet..", queststatus(336) = 1
+queststatus(336) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche II"), "Nun, da du fragst, ich bräuchte ein Kostüm für mein nächstes ...'Stück'. Ich werde die Rolle eines außländischen Halblingswürdenträgers spielen, den die Regierung großzügoig mit Geschenken überhäufen wird. Ich brauche einen schwarzen Mantel und ein Amulett.", queststatus(336) = 1
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(336) = 1, item(2384, all) < 1, english, "quest", "mission" -> "I need you to find me one black coat. Don't worry, I'll see to it that you are compensated."
@@ -129,8 +129,8 @@ queststatus(336) = 1, item(222, all) < 1, "task", "adventure" -> "You've got one
 queststatus(336) = 1, item(222, all) < 1, "Auftrag", "Aufgabe", "Abenteuer" -> "Du hast mir den schwarzen Mantel gebracht, aber ich bräuchte da noch ein Amulett. Keine Sorge, ich werde dafür sorgen, dass du entschädigt wirst."
 
 -- Quest 2 solved, reward: 120cp, strawberry cake
-queststatus(336) = 1, item(2384, all) > 0, item(222, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded 120 copper coins and a strawberry cake."), money + 120, deleteItem(2384, 1), deleteItem(222, 1), item(354, 1, 599), queststatus(336) = 2, "Perfect! I shall certainly fool the...audience with this disgui...erm...costume. Oh, righto. Take your money. Here, you must try one of these, too! Just divine!"
-queststatus(336) = 1, item(2384, all) > 0, item(222, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und einen Erbbeerkuchen."), money + 120, deleteItem(2384, 1), deleteItem(222, 1), item(354, 1, 599), queststatus(336) = 2, "Großartig! I werde die... Zuschauer sicherlich hereinlegen mit dieser Tarnung...ähm...mit diesem Kostüm. Ah, ja richelig. Nimm dein Geld! Und hier, davon musst du einen probieren! Schmeckt ganz wunderbar!"
+queststatus(336) = 1, item(2384, all) > 0, item(222, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded 120 copper coins and a strawberry cake."), "Perfect! I shall certainly fool the...audience with this disgui...erm...costume. Oh, righto. Take your money. Here, you must try one of these, too! Just divine!", money + 120, deleteItem(2384, 1), deleteItem(222, 1), item(354, 1, 599), queststatus(336) = 2
+queststatus(336) = 1, item(2384, all) > 0, item(222, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und einen Erbbeerkuchen."), "Großartig! I werde die... Zuschauer sicherlich hereinlegen mit dieser Tarnung...ähm...mit diesem Kostüm. Ah, ja richelig. Nimm dein Geld! Und hier, davon musst du einen probieren! Schmeckt ganz wunderbar!", money + 120, deleteItem(2384, 1), deleteItem(222, 1), item(354, 1, 599), queststatus(336) = 2
 
 -- No more quests, just nice words of gratitude
 queststatus(336) = 2, english, "quest", "mission" -> "I've got to get busy studying for my new character. Take care, now!"

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Thomas Dalenus"
@@ -45,6 +45,18 @@ itemHands = 2295
 itemTrousers = 823
 itemShoes = 53
 
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 6, 47, 51, 58, 2659, 2746, 2781, 34, 183, 459, 460, 461, 821, 822, 823, 824, 825, 826, 827, 814, 815, 816, 817, 818, 819, 820, 384, 2295, 54, 174, 175, 176, 177, 178, 179, 807, 808, 809, 810, 811, 812, 813, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 845, 846, 847, 848, 849, 850, 851, 852, 2678, 2679, 2680, 2681, 2682, 2683, 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421, 839, 840, 841, 842, 843, 180, 181, 182, 457, 458, 50, 63, 168, 170, 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114, 357, 358, 370, 371, 828, 829, 830, 831, 832
+buySecondaryItems = 6, 47, 51, 58, 2659, 2746, 2781, 34, 183, 459, 460, 461, 821, 822, 823, 824, 825, 826, 827, 814, 815, 816, 817, 818, 819, 820, 384, 2295, 54, 174, 175, 176, 177, 178, 179, 807, 808, 809, 810, 811, 812, 813, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 845, 846, 847, 848, 849, 850, 851, 852, 2678, 2679, 2680, 2681, 2682, 2683, 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421, 839, 840, 841, 842, 843, 180, 181, 182, 457, 458, 50, 63, 168, 170, 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114, 357, 358, 370, 371, 828, 829, 830, 831, 832
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
@@ -71,15 +83,8 @@ itemShoes = 53
 -- 5% Tailor's resources: 50, 63, 168, 170,
 -- 5% Leather goods: 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114
 -- 5% Hats: 357, 358, 370, 371, 828, 829, 830, 831, 832
-
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Robes, dresses, capes, shirts, trousers... what do you need, I have everything."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Roben, Kleider, Umhänge, Hemden, Hosen,... was braucht ihr, ich habe alles."
-sellItems = 6, 47, 51, 58, 2659, 2746, 2781, 34, 183, 459, 460, 461, 821, 822, 823, 824, 825, 826, 827, 814, 815, 816, 817, 818, 819, 820, 384, 2295, 54, 174, 175, 176, 177, 178, 179, 807, 808, 809, 810, 811, 812, 813, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 845, 846, 847, 848, 849, 850, 851, 852, 2678, 2679, 2680, 2681, 2682, 2683, 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421, 839, 840, 841, 842, 843, 180, 181, 182, 457, 458, 50, 63, 168, 170, 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114, 357, 358, 370, 371, 828, 829, 830, 831, 832
-buySecondaryItems = 6, 47, 51, 58, 2659, 2746, 2781, 34, 183, 459, 460, 461, 821, 822, 823, 824, 825, 826, 827, 814, 815, 816, 817, 818, 819, 820, 384, 2295, 54, 174, 175, 176, 177, 178, 179, 807, 808, 809, 810, 811, 812, 813, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 845, 846, 847, 848, 849, 850, 851, 852, 2678, 2679, 2680, 2681, 2682, 2683, 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421, 839, 840, 841, 842, 843, 180, 181, 182, 457, 458, 50, 63, 168, 170, 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114, 357, 358, 370, 371, 828, 829, 830, 831, 832
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Robes, dresses, capes, shirts, trousers... what do you need, I have everything.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Roben, Kleider, Umhänge, Hemden, Hosen,... was braucht ihr, ich habe alles.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the tailor Thomas Dalenus. Keywords: buy, sell, trade, Hello, tailor, Cadomyr, needle, dye.")
@@ -118,7 +123,7 @@ english, "Gobaith", "Gobiath" -> "Let's not talk about sad things, please."
 -- More small talk; add at least five triggers
 "tailor" -> "When I made the dress of queen Rosaline, I worked all day and night. It was such a honour! Is there anything I can tailor for you?"
 "Schneider" -> "Als ich das Kleid der Königin Rosaline gefertigt habe, hab ich den ganzen Tag und die ganze Nacht gearbeitet. Es war so eine Ehre! Gibt es etwas, was ich für dich schneidern kann?"
-"trader", "merchant", "collegue", "vendor", "market" -> trade, trade, "The amount of goods,d on this marketplace, is magnificient. We're not a people ofrs, but everyone needs something sometimes."
+"trader", "merchant", "collegue", "vendor", "market" -> "The amount of goods,d on this marketplace, is magnificient. We're not a people ofrs, but everyone needs something sometimes.", trade, trade
 "händler", "kollege", "höker", "markt" -> "Die Menge an Waren, die auf diesem Markt gehandelt werden, sind schon beeindruckend. Wir sind zwar kein Volk von Händlern, aber jeder braucht mal etwas."
 "dye" -> "To dye clothes is tricky. You need various ingredients like herbs. Better buy dyed clothes from me instead of wasting your time."
 "färbe", "farbe" -> "Stoffe zu Färben ist aufwändig. Man braucht eine Reihe von Wirkstoffen, so wie Kräuter. Kauft besser gefärbte Stoffe direkt bei mir."
@@ -136,7 +141,7 @@ english, "Runewick" -> "I was told they prefer silk in Runewick.", "Runewick, we
 "Runewick" -> "Mir wurde erzählt, dass man in Runewick Seide bevorzugt.", "Runewick, nun, ein Handel mit Runewick dauert immer so lange, immer dieses Gelaber."
 english, "Valerio", "Guilianni", "Don" -> "The Don once ordered trousers for his ruffians from me. I refused, of course."
 "Valerio", "Guilianni", "Don" -> "Der Don hat einst Hosen für seine Schlägertrupps bei mir bestellt. Ich hab abgelehnt, wie sich von selbst versteht."
-english, "Galmair" -> trade, "I am honest; I do not like Galmair. I prefer towith honourable men."
+english, "Galmair" -> "I am honest; I do not like Galmair. I prefer towith honourable men.", trade
 "Galmair" -> "Ich bin ganz ehrlich; ich mag Galmair nicht. Ich ziehe es vor, mit ehrbahren Leuten zu handeln."
 "Queen" -> "Did you notice the blue dress the queen wears from time to mine? My work!"
 "Königin" -> "Habt ihr das blaue Kleid bemerkt, welches die Königin manchmal trägt? Mein Meisterwerk!"
@@ -148,7 +153,7 @@ english, "Cadomyr" -> "I tailor for the queen, I tailor for every noble man of C
 -- Main land factions
 english, "albar" -> "Once, the lords of Albar ordered a shipment of clothes. But somehow, they never payed me. I suspect Galmairian thugs are behind this!"
 "albar" -> "Einst bestellten die Herren von Albar eine Ladung Stoffe. Aber irgendwie wurde ich nie entlohnt. Ich vermute, dass Halunken aus Galmair dahinterstecken."
-english, "gynk", "gync" -> trade, "I will neverwith anyone from Gynk. They never fulfill a contract."
+english, "gynk", "gync" -> "I will neverwith anyone from Gynk. They never fulfill a contract.", trade
 "gync", "gynk" -> "Ich werde niemals mit jemanden aus Gynk handeln. Die halten sich nicht an geschlossene Verträge."
 english, "salkama" -> "The women of Salkamar are too thin, I was told. Who can tailor a dress for a dash?"
 "salkama" -> "Die Damen aus Salkamar sind alle zu dünn, sagt man. Wie soll man für einen Strich in der Landschaft ein Kleid schneidern?"
@@ -162,7 +167,7 @@ english, "Malachin", "Malachín" -> "Malachin is the god of battles and hunting.
 "Malachin", "Malachín" -> "Malachin ist der Gott der Schlachten und der Jagd. Ich würde auch gerne Kämpfen und Jagen, aber ich bin besser in der Schneiderei."
 
 -- Catching typical NPC phrases
-"tell something" -> trade, "Never trade with Galmair. Just saying."
+"tell something" -> "Never trade with Galmair. Just saying.", trade
 "erzähl was", "erzähl etwas" -> "Handelt niemals mit Galmair, sage ich."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here

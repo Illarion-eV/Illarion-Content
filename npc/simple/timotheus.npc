@@ -8,7 +8,7 @@
 -- Authors:  Estralis Seborian                                                --
 --           Mesha                                                            --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Timotheus"
@@ -47,6 +47,18 @@ itemHands = 2295
 itemTrousers = 367
 itemShoes = 369
 
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 6, 47, 51, 58, 2659, 2746, 2781, 384, 2295, 54, 174, 175, 176, 177, 178, 179, 807, 808, 809, 810, 811, 812, 813, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 845, 846, 847, 848, 849, 850, 851, 852, 2678, 2679, 2680, 2681, 2682, 2683, 180, 181, 182, 457, 458, 839, 840, 841, 842, 843, 50, 63, 168, 170, 34, 183, 459, 460, 461, 821, 822, 823, 824, 825, 826, 827, 814, 815, 816, 817, 818, 819, 820, 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421, 357, 358, 370, 371, 828, 829, 830, 831, 832, 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114
+buyPrimaryItems = 6, 47, 51, 58, 2659, 2746, 2781, 384, 2295, 54, 174, 175, 176, 177, 178, 179, 807, 808, 809, 810, 811, 812, 813, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 845, 846, 847, 848, 849, 850, 851, 852, 2678, 2679, 2680, 2681, 2682, 2683, 180, 181, 182, 457, 458, 839, 840, 841, 842, 843, 50, 63, 168, 170, 34, 183, 459, 460, 461, 821, 822, 823, 824, 825, 826, 827, 814, 815, 816, 817, 818, 819, 820, 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421, 357, 358, 370, 371, 828, 829, 830, 831, 832, 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
@@ -74,15 +86,8 @@ itemShoes = 369
 -- 10% Robes: 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421
 -- 10% Hats: 357, 358, 370, 371, 828, 829, 830, 831, 832
 -- 10% Leather goods: 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114
-
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Ah, so you are interested in my wares.", "Take your time to look around."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um."
-sellItems = 6, 47, 51, 58, 2659, 2746, 2781, 384, 2295, 54, 174, 175, 176, 177, 178, 179, 807, 808, 809, 810, 811, 812, 813, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 845, 846, 847, 848, 849, 850, 851, 852, 2678, 2679, 2680, 2681, 2682, 2683, 180, 181, 182, 457, 458, 839, 840, 841, 842, 843, 50, 63, 168, 170, 34, 183, 459, 460, 461, 821, 822, 823, 824, 825, 826, 827, 814, 815, 816, 817, 818, 819, 820, 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421, 357, 358, 370, 371, 828, 829, 830, 831, 832, 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114
-buyPrimaryItems = 6, 47, 51, 58, 2659, 2746, 2781, 384, 2295, 54, 174, 175, 176, 177, 178, 179, 807, 808, 809, 810, 811, 812, 813, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 845, 846, 847, 848, 849, 850, 851, 852, 2678, 2679, 2680, 2681, 2682, 2683, 180, 181, 182, 457, 458, 839, 840, 841, 842, 843, 50, 63, 168, 170, 34, 183, 459, 460, 461, 821, 822, 823, 824, 825, 826, 827, 814, 815, 816, 817, 818, 819, 820, 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421, 357, 358, 370, 371, 828, 829, 830, 831, 832, 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the tailor Timotheus. Keywords: sell, buy, trade, Hello, tailor.")

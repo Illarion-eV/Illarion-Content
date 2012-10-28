@@ -8,7 +8,7 @@
 -- Authors:  Nanuk                                                            --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: October 24, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -212,7 +212,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", ">", 89));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, ">", 89));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -229,7 +229,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", ">", 89));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, ">", 89));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addTrigger("Problem");
@@ -245,7 +245,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", ">", 89));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, ">", 89));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addTrigger("carrot");
@@ -263,7 +263,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", ">", 89));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, ">", 89));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addTrigger("Möhre");
@@ -284,7 +284,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", ">", 70));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, ">", 70));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -293,14 +293,14 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
 talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", ">", 70));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, ">", 70));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addTrigger("Problem");
@@ -308,14 +308,14 @@ talkEntry:addTrigger("Mission");
 talkEntry:addTrigger("Quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
 talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Geheimnisse der Kräuterkunde zeigen!");
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", ">", 70));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, ">", 70));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addTrigger("carrot");
@@ -325,14 +325,14 @@ talkEntry:addTrigger("order");
 talkEntry:addTrigger("ox");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
 talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", ">", 70));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, ">", 70));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addTrigger("Möhre");
@@ -345,14 +345,14 @@ talkEntry:addTrigger("befehl");
 talkEntry:addTrigger("Ochse");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
 talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch ein paar Geheimnisse der Kräuterkunde zeigen!");
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 2));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", ">", 30));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, ">", 30));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -361,14 +361,14 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
 talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", ">", 30));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, ">", 30));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addTrigger("Problem");
@@ -376,14 +376,14 @@ talkEntry:addTrigger("Mission");
 talkEntry:addTrigger("Quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
 talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", ">", 30));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, ">", 30));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addTrigger("carrot");
@@ -393,14 +393,14 @@ talkEntry:addTrigger("order");
 talkEntry:addTrigger("ox");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
 talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", ">", 30));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, ">", 30));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addTrigger("Möhre");
@@ -413,14 +413,14 @@ talkEntry:addTrigger("befehl");
 talkEntry:addTrigger("Ochse");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
 talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 5));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", "<", 31));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, "<", 31));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
@@ -429,14 +429,14 @@ talkEntry:addTrigger("mission");
 talkEntry:addTrigger("quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
 talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 10));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", "<", 31));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, "<", 31));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addTrigger("Problem");
@@ -444,14 +444,14 @@ talkEntry:addTrigger("Mission");
 talkEntry:addTrigger("Quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
 talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 10));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", "<", 31));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, "<", 31));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addTrigger("carrot");
@@ -461,14 +461,14 @@ talkEntry:addTrigger("order");
 talkEntry:addTrigger("ox");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Your skill in herb lore increased."));
 talkEntry:addResponse("Thanks a lot for bringing me those carrots. Now I will have no problems returning home with this lazy bastard. Let me show you a few things about herbs!");
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 10));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", "<", 31));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, "<", 31));
 talkEntry:addCondition(npc.base.condition.quest.quest(106, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2493, "all", "=>", 10, nil));
 talkEntry:addTrigger("Möhre");
@@ -481,7 +481,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addTrigger("Ochse");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Deine Fertigkeit in Kräuterkunde wurde gesteigert."));
 talkEntry:addResponse("Ich danke euch vielmals für die Karotten. Nun werde ich kein Problem mehr haben, mit diesem faulen Bastard heim zu kehren. Kommt, lasst mich euch paar Geheimnisse der Kräuterkunde zeigen!");
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 10));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(106, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);

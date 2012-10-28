@@ -1,14 +1,13 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Rose Deepdelver                                         Runewick --
--- NPC Job:  Barkeeper                                                           --
+-- NPC Job:  Barkeeper                                                        --
 --                                                                            --
--- NPC Race: halfling                      NPC Position:  950, 834, 0            --
--- NPC Sex:  female                       NPC Direction: east                  --
+-- NPC Race: halfling                   NPC Position:  950, 834, 0            --
+-- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
--- Authors:  Zot                                                          --
---                                                         --
+-- Author:   Zot                                                              --
 --                                                                            --
--- Last parsing: September 29, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Rose Deepdelver"
@@ -46,18 +45,23 @@ itemTrousers = 842
 itemShoes = 369
 
 ------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
 
--- Stock: big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
-
-sellItems = 164, 191, 224, 353, 453, 454, 517, 518, 783, 784, 785, 786, 787, 788, 789, 790, 791, 1315, 1316, 1317, 1318, 1319, 1840, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1858, 1859, 1860, 1861, 1908, 1909, 2055, 2056, 2057, 2058, 2059, 2185, 2186, 2187, 2188, 2189, 2276, 2278, 2456, 2496, 2497, 2498, 2499, 2500, 2501, 2922, 2923, 2935, 2952,
-"verkauf", "handel" -> "Lass uns handeln!", trade
-"sell", "trade" -> "Let's trade!", trade
-buyPrimaryItems = 80, 199, 784, 785, 1315, 1318, 1319, 1908, 1909, 2501,
+sellItems = 164, 191, 224, 353, 453, 454, 517, 518, 783, 784, 785, 786, 787, 788, 789, 790, 791, 1315, 1316, 1317, 1318, 1319, 1840, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1858, 1859, 1860, 1861, 1908, 1909, 2055, 2056, 2057, 2058, 2059, 2185, 2186, 2187, 2188, 2189, 2276, 2278, 2456, 2496, 2497, 2498, 2499, 2500, 2501, 2922, 2923, 2935, 2952
+buyPrimaryItems = 80, 199, 784, 785, 1315, 1318, 1319, 1908, 1909, 2501
 buySecondaryItems = 81, 151, 290, 783, 786, 787, 788, 789, 791, 1316, 2500
 tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
 tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
 tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
+-- ----------------------------------------------------------------------------AC
+
+-- Stock: big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
+"verkauf", "handel" -> "Lass uns handeln!", trade
+"sell", "trade" -> "Let's trade!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Rose Deepdelver the owner of the tavern. Keywords: Greetings, family, trade.")
@@ -66,11 +70,11 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Ich verkauf die besten Getränke weit und breit."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Ich hab die besten Getränke weit und breit."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Hiho! Nice day, isn't it?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Nice day, isn't it?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Schöner Tag heute, nicht?"
 "Farewell", "Bye", "Fare well", "See you" -> "See you!", "Toodles!", "Farewell."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mach's gut!", "Tschüssi!", "Auf wiedersehen."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "See you!", "Toodles!", "Farewell."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See you!", "Toodles!", "Farewell."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Mach's gut!", "Tschüssi!", "Auf wiedersehen."
 "How are you", "How feel", "How do you do" -> "I'm fine, what about you?", "I'm fine, but you look like you could need something to drink, hihi."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir gehts ganz gut und dir?", "Gut., aber du siehst aus als würdest du was zu trinken gebrauchen, hihi."
@@ -80,7 +84,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the owner and also the barkeeper of this tavern."
 "beruf" -> "Ich bin die Besiterin und auch die Bedienung dieser Taverne."
-"job", english -> "I am the owner and also the barkeeper of this tavern."
+english, "job" -> "I am the owner and also the barkeeper of this tavern."
 "job" -> "Ich bin die Besiterin und auch die Bedienung dieser Taverne."
 "my name" -> "Nice to meet you. If you want something to drink or eat just ask me, hihi.", "A nice name, indeed."
 "mein Name" -> "Schön dich kennenzulernen. Wenn du etwas trinken oder essen willst, frag mich einfach, hihi.", "Ein netter Name."
@@ -88,7 +92,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Gods - use the triggers of the god the NPC worships or fights
 "gods" -> "The gods created this world for us."
 "Götter", "Gott" -> "Die Götter haben diese Welt für uns erschaffen."
-"Adron", english -> "Hihi, that one I'd really like to meet!"
+english, "Adron" -> "Hihi, that one I'd really like to meet!"
 "Adron" -> "Hihi, den würde ich gerne mal treffen!"
 
 -- NPCs background: family
@@ -100,9 +104,9 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Kind" -> "Ich habe eine kleine Tochter von drei Jahren, sie ist einfach wundervoll!"
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
-"my name", english -> "My Name is Rose Deepdelver. If you are hungry or thirsty, then come to me!"
+english, "my name" -> "My Name is Rose Deepdelver. If you are hungry or thirsty, then come to me!"
 "mein name" -> "Mein Name ist Rose Deepdelver. Wenn du hungrig oder durstig bist, dann komm zu mir!"
-"Rose", "Deepdelver", english -> "Yes, this is my name. If you need something to drink, just ask me!"
+english, "Rose", "Deepdelver" -> "Yes, this is my name. If you need something to drink, just ask me!"
 "Rose", "Deepdelver" -> "Ja, so heiße ich. Falls ihr etwas trinken wollt, fragt nur mich!"
 "Yes" -> "Pardon?", "Could you rephrase that?", "Good to hear that.", "Sure?"
 "Ja" -> "Pardon?", "Könntet ihr das anders ausdrücken?", "Gut zu hören!", "Sicher?"
@@ -111,6 +115,8 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
 
 cycletext "#me wischt über die Theke.", "#me wipes the counter."
 cycletext "#me schaut sich nach Kunden um.", "#me looks around for customers."

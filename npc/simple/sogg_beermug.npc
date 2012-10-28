@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Sogg Beermug"
@@ -40,14 +40,11 @@ itemChest = 811
 itemTrousers = 821
 itemShoes = 369
 
--- Template Version 1.03, 01/05/2011 by Estralis Seborian
--- Tradersstuff--
--- Tools (Alchemist): 58, 164, 1008
--- Tools (Brewer): 51, 227
--- Beer: 1909, 1908
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
 
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Me sell all bottles and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hurr hurr."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe."
 sellItems = 58, 164, 1008, 51, 227, 1909, 1908
 buyPrimaryItems = 58, 164, 1008, 51, 227, 1909, 1908
 tradeNotEnoughMoneyMsg "Du kannst dir das nicht leisten!", "You can't afford that!"
@@ -55,9 +52,17 @@ tradeFinishedMsg "Vielen Dank, komm bald wieder!", "Thank you, come again!"
 tradeFinishedWithoutTradingMsg "Farebaaaa...!", "Farebaaaa...!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
+-- Tradersstuff--
+-- Tools (Alchemist): 58, 164, 1008
+-- Tools (Brewer): 51, 227
+-- Beer: 1909, 1908
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Me sell all bottles and Barrels. Uh... wait. - Nubba you can't buy a barrel. But all things needed to brew! Hurr hurr.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Isch verkauf Flaschn und Fässa. Uh...wart mal. - Nubba die Fässa kann man nischt kaufen. Aber alles Zeug zum Braun! Hehe.", trade
+
 -- Help
-"Help" -> inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keywords: buy, sell, trade, Occupation, Runewick, Galmair, Cadomyr"), state = 0, "Help? All ob us need help!...'hic'"
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Sogg Beermug der Alchimist. Schlüsselwörter: kaufe, verkaufe, Handel, Beruf, Runewick, Galmair, Cadomyr"), state = 0, "Hilfe brauschn wir alle!...'hick'"
+"Help" -> inform("[Game Help] This NPC is Sogg Beermug the Alchemist. Keywords: buy, sell, trade, Occupation, Runewick, Galmair, Cadomyr"), "Help? All ob us need help!...'hic'", state = 0
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Sogg Beermug der Alchimist. Schlüsselwörter: kaufe, verkaufe, Handel, Beruf, Runewick, Galmair, Cadomyr"), "Hilfe brauschn wir alle!...'hick'", state = 0
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas!", "Hurr! Greetings.", "#me grunts and waves a mug of beer.", "Skoal! Come over 'ere and drink with Sogg!"

@@ -1,13 +1,13 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Antonius Copperhand                                              --
--- NPC Job:  Goldmith                                                            --
+-- NPC Name: Antonius Copperhand                                      Galmair --
+-- NPC Job:  Goldsmith NPC                                                    --
 --                                                                            --
--- NPC Race: dwarf                    NPC Position:  353, 255, 0              --
--- NPC Sex:  male                     NPC Direction: east                    --
+-- NPC Race: dwarf                      NPC Position:  353, 255, 0            --
+-- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
--- Author:   Ardian                                                           --
+-- Author:   Miriam                                                           --
 --                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Antonius Copperhand"
@@ -45,6 +45,18 @@ itemHands = 48
 itemTrousers = 45
 itemShoes = 53
 
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 122, 2747, 2140, 92, 393, 397, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 225, 336, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282
+buySecondaryItems = 122, 2747, 2140, 92, 393, 397, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 225, 336, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Valid races: human, elf, dwarf, lizardman, orc, halfling
@@ -61,15 +73,8 @@ itemShoes = 53
 -- 5% Gems: 45, 46, 197, 198, 283, 284, 285
 -- 5% Jewellery: 62, 67, 71, 79, 82, 83, 222
 -- 5% Rings: 68, 235, 277, 278, 279, 280, 281, 282
-
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Ah, so you are interested in my wares.", "Take your time to look around."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um."
-sellItems = 122, 2747, 2140, 92, 393, 397, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 225, 336, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282
-buySecondaryItems = 122, 2747, 2140, 92, 393, 397, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 225, 336, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Antonius Copperhand the smith. Keywords: buy, sell, trade, job,your name.")
@@ -78,11 +83,11 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted in Irmoroms name.", "Greetings.", "Good day."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Zum Gruße.", "Seid gegrüßt in Namen Irmoroms.", "Guten Tach."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Be greeted.", "Greetings.", "Good day."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Greetings.", "Good day."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tach."
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Goodbye.", "May Irmorom be with you."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf bald.", "Bis bald.", "Möge Irmorom über Euch wachen."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Farewell.", "Goodbye."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Goodbye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf bald.", "Bis bald."
 "How are you", "How feel", "How do you do" -> "I'm fine, thanks. And how are ya?", "Good, good."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir jeht ett wunderbar und wie jeht et Euch?", "Jut, jut. "
@@ -90,7 +95,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ick? Ick bin der Goldchmied von Galmair, der fleißge Antonius."
 
 -- Catching quest triggers. Modify if the NPC does quests.
-"quest", "mission", english -> "At the moment I have nothing to do for ya. Sorry."
+english, "quest", "mission" -> "At the moment I have nothing to do for ya. Sorry."
 "quest", "mission" -> "Zur Zeit gibbet für dich nix zu tun. T'schuldigung."
 "task", "adventure" -> "At the moment I have nothing to do for ya. Sorry."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Zur Zeit gibbet für dich nix zu tun. T'schuldigung."
@@ -98,9 +103,9 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a smith. Can't ya tell?"
 "beruf" -> "Ich bin 'nen Schmied. Siehste datt nich'?"
-"job", english ->  "I am a smith. Can't ya tell?"
+english, "job" -> "I am a smith. Can't ya tell?"
 "job" -> "Ich bin 'nen Schmied. Siehste datt nich'?"
-"Gobaith", "Gobiath", english -> "Never heard of that place..."
+english, "Gobaith", "Gobiath" -> "Never heard of that place..."
 "Gobaith", "Gobiath" -> "Kenn' ich nich'..."
 
 ------------------------------------------------------------------------------AC

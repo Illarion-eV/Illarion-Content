@@ -8,7 +8,7 @@
 -- Authors:  Estralis & Ardian                                                --
 --           Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -57,8 +57,8 @@ talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hunger");
-talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
 talkEntry:addResponse("Here, have some moldy bread. Back to work!");
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -85,8 +85,8 @@ talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hunger");
-talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
 talkEntry:addResponse("Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!");
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -113,8 +113,8 @@ talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addTrigger("hungry");
 talkEntry:addTrigger("food");
-talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
 talkEntry:addResponse("Here, have some moldy bread. Back to work!");
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -141,8 +141,8 @@ talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "=", 0, nil));
 talkEntry:addTrigger("hungrig");
 talkEntry:addTrigger("essen");
-talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
 talkEntry:addResponse("Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!");
+talkEntry:addConsequence(npc.base.consequence.item.item(49, 1, 333, nil));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -160,8 +160,8 @@ talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addTrigger("pick axe");
 talkEntry:addTrigger("rock pick");
 talkEntry:addTrigger("pick");
-talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
 talkEntry:addResponse("So, you broke my pick? You lost it? Here, have this one, but pay more attention to it or I'll whip you.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -186,8 +186,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addTrigger("spitzhacke");
 talkEntry:addTrigger("hacke");
-talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
 talkEntry:addResponse("So, du hast also meine Spitzhacke kaputt gemacht? Du hast sie verloren? Hier, nimm diese, aber pass besser auf sie auf oder ich peitsche dich aus.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 333, nil));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -368,6 +368,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -938,10 +939,10 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("What buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I could sell you some lashes from my whip. Interested!?");
 talkEntry:addResponse("Ipain.");
 talkEntry:addResponse("Stop bartering and get to work before I lose my patience.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

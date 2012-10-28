@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -45,18 +45,18 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(650, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
+talkEntry:addResponse("#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have a silvercoin for that you found me.");
 talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(650, "=", 2));
-talkEntry:addResponse("#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have a silvercoin for that you found me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(650, "=", 1));
 talkEntry:addTrigger(".*");
+talkEntry:addResponse("Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdiente Münze.");
 talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(650, "=", 2));
-talkEntry:addResponse("Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdiente Münze.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -169,6 +169,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");

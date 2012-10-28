@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -182,6 +182,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -198,9 +199,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Sir Reginald's Tomb I"));
+talkEntry:addResponse("So, nub can dance but want help mes? Reginald oomie nub can rest in peace. Scary mummies haunt tomb, dey moan all day long. Hab dis torch and smash as many as mes hab fingers!");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 1));
-talkEntry:addResponse("So, nub can dance but want help mes? Reginald oomie nub can rest in peace. Scary mummies haunt tomb, dey moan all day long. Hab dis torch and smash as many as mes hab fingers!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -209,9 +210,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Sir Reginalds Gruft I"));
+talkEntry:addResponse("So, du kannst nix tanzen willst mir aber helfen? Oomie Reginald liegt nicht in Friede. Schreckliche Mumien spuken in seiner Gruft, den ganzen Tag lange. Nehme diese Fackel und zerhau sie zu stücke. Für jeden meiner Finger eine!");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 1));
-talkEntry:addResponse("So, du kannst nix tanzen willst mir aber helfen? Oomie Reginald liegt nicht in Friede. Schreckliche Mumien spuken in seiner Gruft, den ganzen Tag lange. Nehme diese Fackel und zerhau sie zu stücke. Für jeden meiner Finger eine!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -220,9 +221,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Sir Reginald's Tomb I"));
+talkEntry:addResponse("So, nub can dance but want help mes? Reginald oomie nub can rest in peace. Scary mummies haunt tomb, dey moan all day long. Hab dis torch and smash as many as mes hab fingers!");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 1));
-talkEntry:addResponse("So, nub can dance but want help mes? Reginald oomie nub can rest in peace. Scary mummies haunt tomb, dey moan all day long. Hab dis torch and smash as many as mes hab fingers!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -232,9 +233,9 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Sir Reginalds Gruft I"));
+talkEntry:addResponse("So, du kannst nix tanzen willst mir aber helfen? Oomie Reginald liegt nicht in Friede. Schreckliche Mumien spuken in seiner Gruft, den ganzen Tag lange. Nehme diese Fackel und zerhau sie zu stücke. Für jeden meiner Finger eine!");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 1));
-talkEntry:addResponse("So, du kannst nix tanzen willst mir aber helfen? Oomie Reginald liegt nicht in Friede. Schreckliche Mumien spuken in seiner Gruft, den ganzen Tag lange. Nehme diese Fackel und zerhau sie zu stücke. Für jeden meiner Finger eine!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -244,10 +245,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins. You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addResponse("Gud! Yoos hab smash hauntin' mummies. Here, hab sum shinies - but mission to let Reginald oomie rest in peace nub completed...");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
-talkEntry:addResponse("Gud! Yoos hab smash hauntin' mummies. Here, hab sum shinies - but mission to let Reginald oomie rest in peace nub completed...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -256,9 +257,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 11));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
+talkEntry:addResponse("Gud! Yoos hab smash hauntin' mummies. Here, hab sum shinies - but mission to let Reginald oomie rest in peace nub completed...");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 12));
-talkEntry:addResponse("Gud! Yoos hab smash hauntin' mummies. Here, hab sum shinies - but mission to let Reginald oomie rest in peace nub completed...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -267,10 +268,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 11));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("Guut! Du hast die Mumien verjageht. Hier, nimmst du dieses Glitza - aber die Mission ist trotz allem noch nicht zu Ende gebracht, nein...");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
-talkEntry:addResponse("Guut! Du hast die Mumien verjageht. Hier, nimmst du dieses Glitza - aber die Mission ist trotz allem noch nicht zu Ende gebracht, nein...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -278,9 +279,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 11));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
+talkEntry:addResponse("Guut! Du hast die Mumien verjageht. Hier, nimmst du dieses Glitza - aber die Mission ist trotz allem noch nicht zu Ende gebracht, nein...");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 12));
-talkEntry:addResponse("Guut! Du hast die Mumien verjageht. Hier, nimmst du dieses Glitza - aber die Mission ist trotz allem noch nicht zu Ende gebracht, nein...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,8 +329,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Sir Reginald's Tomb II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 13));
 talkEntry:addResponse("Hab seen dem floating skulls in dat tomb? Dey be evil ghosts dat desecrate grave ob honourable chiefy. Crush one hand ob finger ob dem!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -338,8 +339,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 12));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Sir Reginalds Gruft II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 13));
 talkEntry:addResponse("Sahst du die schwebenden Schädel in der Gruft? Dies sinned böße geister, entheiligen das Grab des ehrenvollen alten Oomie Häuptlings. Brich die Schädel! Eine Hand voll Fingern.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -348,8 +349,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 12));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Sir Reginald's Tomb II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 13));
 talkEntry:addResponse("Hab seen dem floating skulls in dat tomb? Dey be evil ghosts dat desecrate grave ob honourable chiefy. Crush one hand ob finger ob dem!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -359,8 +360,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Sir Reginalds Gruft II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 13));
 talkEntry:addResponse("Sahst du die schwebenden Schädel in der Gruft? Dies sinned böse geister, entheiligen das Grab des ehrenvollen alten Oomie Häuptlings. Brich die Schädel! Eine Hand voll Fingern.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -370,11 +371,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and a skull staff. You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addResponse("Great! Yoos hab split evil skulls, dem nub gonna haunt anymore. Here, hab dis staff fer more skull smashin'!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(39, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 19));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
-talkEntry:addResponse("Great! Yoos hab split evil skulls, dem nub gonna haunt anymore. Here, hab dis staff fer more skull smashin'!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -383,10 +384,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 18));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and a skull staff."));
+talkEntry:addResponse("Great! Yoos hab split evil skulls, dem nub gonna haunt anymore. Here, hab dis staff fer more skull smashin'!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(39, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 19));
-talkEntry:addResponse("Great! Yoos hab split evil skulls, dem nub gonna haunt anymore. Here, hab dis staff fer more skull smashin'!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -395,11 +396,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 18));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen Schädelstab. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("Großartig! Die Splitter der bößen Schädel übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(39, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 19));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
-talkEntry:addResponse("Großartig! Die Splitter der bößen Schädel übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -407,10 +408,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 18));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen Schädelstab."));
+talkEntry:addResponse("Großartig! Die Splitter der bösen Schädel übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(39, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 19));
-talkEntry:addResponse("Großartig! Die Splitter der bösen Schädel übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -458,8 +459,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Sir Reginald's Tomb III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 20));
 talkEntry:addResponse("Cherga hab shown mes origin of all spook while dancin'. Dere be restless ghost ob foe ob Reginald oomie, hauntin' in tomb, want take revenge or sumding. Banish dat and Reginald hab peace.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -468,8 +469,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 19));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Sir Reginalds Gruft III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 20));
 talkEntry:addResponse("Cherga ließ mich den Ursprung allen Spukes sehen, während des Tanzes. Yubba. Dort ist ein rastloses Gespenst. Ein alter Feind, des verstorbenen Häuptlings, er nun sucht seine Rache oder sowie. Vertreibe das Ding und Reginald hat Friede.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -478,8 +479,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 19));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Sir Reginald's Tomb III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 20));
 talkEntry:addResponse("Cherga hab shown mes origin of all spook while dancin'. Dere be restless ghost ob foe ob Reginald oomie, hauntin' in tomb, want take revenge or sumding. Banish dat and Reginald hab peace.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -489,8 +490,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Sir Reginalds Gruft III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 20));
 talkEntry:addResponse("Cherga ließ mich den Ursprung allen Spukes sehen, während des Tanzes. Yubba. Dort ist ein rastloses Gespenst. Ein alter Feind, des verstorbenen Häuptlings, er nun sucht seine Rache oder sowie. Vertreibe das Ding und Reginald hat Friede.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -500,10 +501,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a brown priest robe. You advance in Queen Rosaline Edwards' favour."));
+talkEntry:addResponse("Hurr! Yoos hab done dat! Now old oomie chief Reginald can rest in peace... fer a time. Mes hab reward fer yoos, robe ob ghost buster.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2416, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 22));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
-talkEntry:addResponse("Hurr! Yoos hab done dat! Now old oomie chief Reginald can rest in peace... fer a time. Mes hab reward fer yoos, robe ob ghost buster.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -512,9 +513,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 21));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a brown priest robe."));
+talkEntry:addResponse("Awesome, yoos hab do dat! Now old oomie chief Reginald can rest in peace... fer a time. Mes hab reward fer yoos, robe ob ghost buster.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2416, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 22));
-talkEntry:addResponse("Awesome, yoos hab do dat! Now old oomie chief Reginald can rest in peace... fer a time. Mes hab reward fer yoos, robe ob ghost buster.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -523,10 +524,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 21));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine braune Priesterrobe. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addResponse("Ausgezeichigt, du hast es geschafft! Nun der alte Häuptling der Oomies Reginals wird in Frieden Liegen... für eine Weile. Dies issigt dein Lohn, die Robe eine Geisterjägers!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2416, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 22));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
-talkEntry:addResponse("Ausgezeichigt, du hast es geschafft! Nun der alte Häuptling der Oomies Reginals wird in Frieden Liegen... für eine Weile. Dies issigt dein Lohn, die Robe eine Geisterjägers!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -534,9 +535,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 21));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine braune Priesterrobe."));
+talkEntry:addResponse("Ausgezeichigt, du hast es geschafft! Nun der alte Häuptling der Oomies Reginals wird in Frieden liegen... für eine Weile. Dies issigt dein Lohn, die Robe eine Geisterjägers!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2416, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 22));
-talkEntry:addResponse("Ausgezeichigt, du hast es geschafft! Nun der alte Häuptling der Oomies Reginals wird in Frieden liegen... für eine Weile. Dies issigt dein Lohn, die Robe eine Geisterjägers!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1022,8 +1023,8 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Whub! Mes nubmes dance and pray. Mes be shaman, nub hawker.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

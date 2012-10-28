@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 26, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Simeon Ureses"
@@ -98,7 +98,7 @@ english, "Hastings", "Baron" -> "Hush! Not in public."
 "Hastings", "Baron" -> "Still! Doch nicht in der Öffentlichkeit!"
 
 -- Optional: Catching typical NPC phrases
-"what sell", "what buy", "list wares" -> trade, "I am not ar but I can repair your items."
+"what sell", "what buy", "list wares" -> "I am not ar but I can repair your items.", trade
 "was verkauf", "was kauf", "warenliste" -> "Ich bin kein Händler aber ich kann eure Gegenstände reparieren."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights

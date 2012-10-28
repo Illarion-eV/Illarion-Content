@@ -1,14 +1,14 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Salamina                                                Runewick --
--- NPC Job:  Dirtsage                                                         --
+-- NPC Job:  Earthsage                                                        --
 --                                                                            --
--- NPC Race: human                      NPC Position:  786, 818, 0                --
+-- NPC Race: human                      NPC Position:  786, 818, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Regallo                                                          --
 --           ...with a little help of Estralis Seborian                       --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Salamina"
@@ -47,47 +47,47 @@ itemHands = 48
 itemTrousers = 34
 itemShoes = 53
 
---Name: Salamina Zi
---Position: Dirtsage
---Age: 30
---Race human
---Sex: Female
---Weight: Skinny
---Height: Short
---Hair: Black Long
---Eyes: Black
---Skin: Yellow
---Extra: Horizontal scar across her eyes
+-- Name: Salamina Zi
+-- Position: Dirtsage
+-- Age: 30
+-- Race human
+-- Sex: Female
+-- Weight: Skinny
+-- Height: Short
+-- Hair: Black Long
+-- Eyes: Black
+-- Skin: Yellow
+-- Extra: Horizontal scar across her eyes
 
---Personality:
---Buck, wild, ready to fight, explosive, antagonistic, stubborn, strong, focus.
+-- Personality:
+-- Buck, wild, ready to fight, explosive, antagonistic, stubborn, strong, focus.
 
---Background:
+-- Background:
 
---Salamina does not go looking for fights, but she has never been one to turn one down,
---and sadly for her fights often come to her. As a babe she had to deal with an abusive father
---and mother, whom led to the scar across her face. As a small child, she had to beg for her own
---food, and learn whatever food she brought home her parents would eat and not share, so she
---learned to get her fill before bringing the rest of the food or beggar money home.
+-- Salamina does not go looking for fights, but she has never been one to turn one down,
+-- and sadly for her fights often come to her. As a babe she had to deal with an abusive father
+-- and mother, whom led to the scar across her face. As a small child, she had to beg for her own
+-- food, and learn whatever food she brought home her parents would eat and not share, so she
+-- learned to get her fill before bringing the rest of the food or beggar money home.
 
---One day when she was about seven Salamina saw an earth magic user use his magic to defend
---himself against a bunch of bullies. At the end of the ordeal all four bullies were on the ground
---reeling in pain and the earth user was walking away.
+-- One day when she was about seven Salamina saw an earth magic user use his magic to defend
+-- himself against a bunch of bullies. At the end of the ordeal all four bullies were on the ground
+-- reeling in pain and the earth user was walking away.
 
---Salamina ran in front of the teen and prostrated herself in front of him, begging that he teach
---her. The guy laughed and said no.  Salamina pleaded with him. The guy started to walk away saying
---he does not know enough to teach her. She wrapped her arms around his legs as he walked. He
---slipped his legs out. She tried again. He ran out of the alley. Salimina waited for him the next
---day. She punched him saying she will make him teach her.
+-- Salamina ran in front of the teen and prostrated herself in front of him, begging that he teach
+-- her. The guy laughed and said no.  Salamina pleaded with him. The guy started to walk away saying
+-- he does not know enough to teach her. She wrapped her arms around his legs as he walked. He
+-- slipped his legs out. She tried again. He ran out of the alley. Salimina waited for him the next
+-- day. She punched him saying she will make him teach her.
 
---The boy said he would not hit a girl. Salamina did not stop. She kept punching and kicking
---the boy was forced to defend himself. This daily activity happened for a whole year before the teen
---decided to teach her. It was another three years before Salamina transcended the boy in earth magic
---ability.
+-- The boy said he would not hit a girl. Salamina did not stop. She kept punching and kicking
+-- the boy was forced to defend himself. This daily activity happened for a whole year before the teen
+-- decided to teach her. It was another three years before Salamina transcended the boy in earth magic
+-- ability.
 
---In her later teen years Salamina traveled the world learning about different places and improving her magic, fighting when necessary. She eventually became one of the strongest earth mages in existence and because of her physical ability to fight she made the perfect candidate to be the Dirtsage.
+-- In her later teen years Salamina traveled the world learning about different places and improving her magic, fighting when necessary. She eventually became one of the strongest earth mages in existence and because of her physical ability to fight she made the perfect candidate to be the Dirtsage.
 
---Note: Sezin was the young earth mage’s name
+-- Note: Sezin was the young earth mage’s name
 
 -- Template Version 1.04, 07/12/2011 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -106,11 +106,11 @@ itemShoes = 53
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "What do you want?", "Why are you bothering me?", "Please, what is it? Your interrupting my day."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "What do you want?", "Why are you bothering me?", "Please, what is it? Your interrupting my day."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "What do you want?", "Why are you bothering me?", "Please, what is it? Your interrupting my day."
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "Farewell", "Bye", "Fare well", "See you" -> "Get out of here.", "Just leave, I have no desire to talk to you.", "Bye."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Get out of here.", "Just leave, I have no desire to talk to you.", "Bye."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Get out of here.", "Just leave, I have no desire to talk to you.", "Bye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "How are you", "How feel", "How do you do" -> "I feel like bashing some heads.", "I feel like I'd rather be out fighting.", "I'm so bored inside."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -128,7 +128,7 @@ itemShoes = 53
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Dirtsage of the Runewick Seven Warsages", "As Mashital always says I am a dog of the Archmage.", "I am a straight killer."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "Dirtsage of the Runewick Seven Warsages", "As Mashital always says I am a dog of the Archmage.", "I am a straight killer."
+english, "job" -> "Dirtsage of the Runewick Seven Warsages", "As Mashital always says I am a dog of the Archmage.", "I am a straight killer."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
@@ -148,7 +148,7 @@ itemShoes = 53
 "Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Gobaith
-"Gobaith", "Gobiath", english -> "Earth that has fallen below the sea becomes a lot harder to move."
+english, "Gobaith", "Gobiath" -> "Earth that has fallen below the sea becomes a lot harder to move."
 "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC

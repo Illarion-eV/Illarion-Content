@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Brute Booze"
@@ -152,7 +152,7 @@ english, "Angur" -> "Lor-Angur is filled with elves that think themselves very c
 "Erzmagier" -> "Iche hab mir sagen lassen der Erzmagier Runewicks, Elvaine Morgan, iset ein Elf aus Lor-Angur."
 english, "Elvaine", "Morgan" -> "I heard the Archmage of Runewick, Elvaine Morgan, is an elf from Lor-Angur."
 "Elvaine", "Morgan" -> "Iche hab mir sagen lassen der Erzmagier Runewicks, Elvaine Morgan, iset ein Elf aus Lor-Angur."
-english, "Runewick" -> end, "There's nothing keeping me in Runewick. It makes my hair stend onwhen sorcery is near."
+english, "Runewick" -> "There's nothing keeping me in Runewick. It makes my hair stend onwhen sorcery is near.", end
 "Runewick" -> "In Runewick hält mich nichts. Meine Nackenhaare sträubigen sich wenn Zauberei in der Nähe iset."
 english, "Valerio", "Guilianni", "Don" -> "A dwarf from Gynk. Don Valerio Guilianni. A ruthless merchant, in general."
 "Valerio", "Guilianni", "Don" -> "Ein Zwerg aus Gynk. Don Valerio Guilianni. Ein Skrupeloser Händler, alles im alligen."

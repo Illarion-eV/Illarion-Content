@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -144,6 +144,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -159,8 +160,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Farmer's Wife: Part IV"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 6));
 talkEntry:addResponse("Natiana appears to have the symptoms of corrupted blood. The illness is highly infectious and has been the cause of at least one known pandemic. Fortunately, I am aware of a potion to cure it. Will you help me gather the ingredients?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -168,8 +169,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 5));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 6));
 talkEntry:addResponse("Natiana zeigt Symtome von schlechtem Blut. Die Krankheit ist hochansteckend und war die Ursache für mindestens eine  uns bekannte Pandemie. Glücklicherweise, kenne ich einen Trank um sie zu heilen. Werdet Ihr mir helfen die Zutaten zu sammeln?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -177,16 +178,16 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 7));
 talkEntry:addResponse("Well, if you wish to help Miss Banius, then I shall need you to bring me the entrails of five wild animals and ten black thistles. I shall get to work preparing the potion.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 6));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 7));
 talkEntry:addResponse("Nun, da Ihr wünscht Frau Banius zu helfen, bitte ich Euch mir Eingeweide wilder Tiere zu bringen, ebenso wie 10 schwarze Disteln. Ich werde  mich an die Arbeit begeben und den Trank zubereiten");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -277,11 +278,11 @@ talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
+talkEntry:addResponse("Yes, these shall suffice. Well done. Hmm...perhaps you shall find more use for these coins than I am able.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(141, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 8));
-talkEntry:addResponse("Yes, these shall suffice. Well done. Hmm...perhaps you shall find more use for these coins than I am able.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -291,11 +292,11 @@ talkEntry:addCondition(npc.base.condition.item.item(141, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
+talkEntry:addResponse("Ja, dies sollte reichen. Gut gemacht. Hmm... vielleicht habt Ihr für diese Münzen eine bessere Verwendung als ich.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(141, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 8));
-talkEntry:addResponse("Ja, dies sollte reichen. Gut gemacht. Hmm... vielleicht habt Ihr für diese Münzen eine bessere Verwendung als ich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -305,8 +306,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Farmer's Wife: Part V"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 9));
 talkEntry:addResponse("#me gasps lightly as she fumbles with a glass bottle. Time almost seems to slow as it falls from her grip, shattering against the solid floor, 'Oh, dear. That was my last bottle. I shall need one small empty bottle so that you can transport the potion.'");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -315,8 +316,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 8));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 9));
 talkEntry:addResponse("#me atmet auf, während sie mit einer Glasflasche hantiert. Die Zeit scheint still zu stehen, als ihr die Flasche aus den Händen fällt und auf dem Fußboden zerbirst. 'Oh jeh. Das was meine letzte Flasche. Ich benötige eine kleine leere Flasche, damit Ihr den Trank transportieren könnt.'");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -325,8 +326,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 8));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Farmer's Wife: Part V"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 9));
 talkEntry:addResponse("#me gasps lightly as she fumbles with a glass bottle. Time almost seems to slow as it falls from her grip, shattering against the solid floor, 'Oh, dear. That was my last bottle. I shall need one small empty bottle so that you can transport the potion.'");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -336,8 +337,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 9));
 talkEntry:addResponse("#me atmet auf, während sie mit einer Glasflasche hantiert. Die Zeit scheint still zu stehen, als ihr die Flasche aus den Händen fällt und auf dem Fußboden zerschellt/zerbirst. 'Oh jeh. Das was meine letzte Flasche. Ich benötige eine kleine leere Flasche, damit Ihr den Trank transportieren könnt.'");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -385,11 +386,11 @@ talkEntry:addCondition(npc.base.condition.item.item(1317, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You have received Natiana's medicine and 20 coppers."));
+talkEntry:addResponse("Wonderful. Now just let me mix that a little...fill that up for you...and there we are. Hand this to Mister Banius. You must hurry though, Natiana cannot have much longer.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1317, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2499, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 10));
-talkEntry:addResponse("Wonderful. Now just let me mix that a little...fill that up for you...and there we are. Hand this to Mister Banius. You must hurry though, Natiana cannot have much longer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -398,11 +399,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 9));
 talkEntry:addCondition(npc.base.condition.item.item(1317, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Kupferstücke und Natianas Medizin."));
+talkEntry:addResponse("Wunderbar. Jetzt lasst mich das ein wenig mischen, ? nun  einwenig davon abfüllen ?. und da hätten wir es! Gebt das Herrn Banius. Ihr musst euch jedoch beeilen, Natiana hat nicht mehr viel Zeit.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1317, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2499, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 10));
-talkEntry:addResponse("Wunderbar. Jetzt lasst mich das ein wenig mischen, ? nun  einwenig davon abfüllen ?. und da hätten wir es! Gebt das Herrn Banius. Ihr musst euch jedoch beeilen, Natiana hat nicht mehr viel Zeit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -413,8 +414,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Aurora's Staff: Part I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 2));
 talkEntry:addResponse("Natiana is slowly recovering, thanks to your efforts. I could use your help again, actually. I've left my staff in the possession of my apprentice, Madeline Clarbelis. If you could go to Runewick, collect and return it, I would be most grateful.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -424,8 +425,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 2));
 talkEntry:addResponse("Natiana ist dank Euch auf dem Wege der Besserung. Ich könnte jedoch erneut Eure Hilfe gebrauchen. Ich habe meinen Stab unter der Obhut meiner Schülerin Madeline Clarbelis gelassen. Wenn Ihr nach Runewick gehen und mir meinen Stab bringen könntet, wäre ich Euch ausgesprochen dankbar.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -435,8 +436,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Aurora's Staff: Part I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 2));
 talkEntry:addResponse("Natiana is slowly recovering, thanks to your efforts. I could use your help again, actually. I've left my staff in the possession of my apprentice, Madeline Clarbelis. If you could go to Runewick, collect and return it, I would be most grateful.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -447,8 +448,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 2));
 talkEntry:addResponse("Natiana ist dank Euch auf dem Wege der Besserung. Ich könnte jedoch erneut Eure Hilfe gebrauchen.Ich habe meinen Stab unter der Obhut meiner Schülerin Madeline Clarbelis gelassen.Wenn Ihr nach Runewick gehen könntet und mir meinen Stab bringen könntet, wäre ich Euch ausgesprochen dankbar.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -504,9 +505,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest completed] You have received 50 coppers."));
+talkEntry:addResponse("Ahh, thank y...wait. This is not my staff. I look forward to hearing the explanation behind this one. That apprentice of mine is nothing but trouble. Well, I do not have my staff, but take this for your troubles.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 4));
-talkEntry:addResponse("Ahh, thank y...wait. This is not my staff. I look forward to hearing the explanation behind this one. That apprentice of mine is nothing but trouble. Well, I do not have my staff, but take this for your troubles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -514,9 +515,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke"));
+talkEntry:addResponse("Ahh, ich Danke Eu... Moment. Dies ist nicht mein Stab. Ich bin da aber mal auf die Erklärung gespannt, was hinter dieser Sache steckt. Meine Schülerin macht nichts als Ärger. Nun, Ich habe zwar meinen Stab nicht wieder, aber nehmt dies als Entschädigung für eure Mühe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 4));
-talkEntry:addResponse("Ahh, ich Danke Eu... Moment. Dies ist nicht mein Stab. Ich bin da aber mal auf die Erklärung gespannt, was hinter dieser Sache steckt. Meine Schülerin macht nichts als Ärger. Nun, Ich habe zwar meinen Stab nicht wieder, aber nehmt dies als Entschädigung für eure Mühe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -527,8 +528,8 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("staff");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Aurora's Staff: Part II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 5));
 talkEntry:addResponse("If you are looking for a job, I still require someone to recover my staff. Seek to my apprentice again, and return with my staff. My actual staff.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -537,8 +538,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 4));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 5));
 talkEntry:addResponse("Wenn Ihr einen Auftrag wünscht, Ich bräuchte noch immer jemanden, der mir meinen Stab wiederbringt. Sucht erneut meine Schülerin auf und kehrt mit meinem Stab zurück. Meinem richtigen Stab.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -547,8 +548,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 4));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Aurora's Staff: Part II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 5));
 talkEntry:addResponse("If you are looking for a job, I still require someone to recover my staff. Seek to my apprentice again, and return with my staff. My actual staff.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -558,8 +559,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 5));
 talkEntry:addResponse("Wenn Ihr einen Auftrag wünscht, Ich bräuchte noch immer jemanden, der mir meinen Stab wiederbringt. Sucht erneut meine Schülerin auf und kehrt mit meinem Stab zurück. Meinem richtigen Stab.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -569,9 +570,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest update] Aurora's Staff: Part II"));
+talkEntry:addResponse("How is the recovery of my staff going? You desire my ring? Hmm...I do not see why not. It is of little value to me. Here, take it.");
 talkEntry:addConsequence(npc.base.consequence.item.item(281, 1, 499, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 9));
-talkEntry:addResponse("How is the recovery of my staff going? You desire my ring? Hmm...I do not see why not. It is of little value to me. Here, take it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -580,9 +581,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 8));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
+talkEntry:addResponse("Wie sieht es mit der Wiederbeschaffung meines Stabes aus? Ihr benötigt meinen Ring. Hmm... Ich sehe keinen Grund ihn Euch nicht zu geben. Hier, nehmt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(281, 1, 499, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 9));
-talkEntry:addResponse("Wie sieht es mit der Wiederbeschaffung meines Stabes aus? Ihr benötigt meinen Ring. Hmm... Ich sehe keinen Grund ihn Euch nicht zu geben. Hier, nehmt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -594,9 +595,9 @@ talkEntry:addTrigger("staff");
 talkEntry:addTrigger("dagger");
 talkEntry:addTrigger("ring");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest update] Aurora's Staff: Part II"));
+talkEntry:addResponse("How is the recovery of my staff going? You desire my ring? Hmm...I do not see why not. It is of little value to me. Here, take it.");
 talkEntry:addConsequence(npc.base.consequence.item.item(281, 1, 499, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 9));
-talkEntry:addResponse("How is the recovery of my staff going? You desire my ring? Hmm...I do not see why not. It is of little value to me. Here, take it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -609,9 +610,9 @@ talkEntry:addTrigger("Dolch");
 talkEntry:addTrigger("Ring");
 talkEntry:addTrigger("Stabh");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
+talkEntry:addResponse("Wie sieht es mit der Wiederbeschaffung meines Stabes aus? Ihr benötigt meinen Ring. Hmm... Ich sehe keinen Grund ihn Euch nicht zu geben. Hier, nehmt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(281, 1, 499, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 9));
-talkEntry:addResponse("Wie sieht es mit der Wiederbeschaffung meines Stabes aus? Ihr benötigt meinen Ring. Hmm... Ich sehe keinen Grund ihn Euch nicht zu geben. Hier, nehmt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -659,11 +660,11 @@ talkEntry:addCondition(npc.base.condition.item.item(209, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You have received a magical serinjah-sword and 200 coppers."));
+talkEntry:addResponse("Ahh... my staff! Thank you, my friend. I'll save you the effort of explaining to me what sort of trouble my apprentice got into. Here is the reward, as promised.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(209, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2693, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 12));
-talkEntry:addResponse("Ahh... my staff! Thank you, my friend. I'll save you the effort of explaining to me what sort of trouble my apprentice got into. Here is the reward, as promised.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -672,11 +673,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 11));
 talkEntry:addCondition(npc.base.condition.item.item(209, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Kupferstücke und ein magisches Serinjah-Schwert."));
+talkEntry:addResponse("Ahh...mein Stab! Ich danke euch, mein Freund. Ich erlasse Euch die Mühe mir zu erklären in welche Schwierigkeiten sind meine Schülerin gebracht hat.Hier ist Eure Belohnung, wie versprochen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(209, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2693, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 12));
-talkEntry:addResponse("Ahh...mein Stab! Ich danke euch, mein Freund. Ich erlasse Euch die Mühe mir zu erklären in welche Schwierigkeiten sind meine Schülerin gebracht hat.Hier ist Eure Belohnung, wie versprochen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1293,10 +1294,10 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I have no need for material possessions.");
 talkEntry:addResponse("Your money is worthless to me.");
 talkEntry:addResponse("I do not desire to.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

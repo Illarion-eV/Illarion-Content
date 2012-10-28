@@ -2,12 +2,12 @@
 -- NPC Name: Alysa Lorthelia                                         Runewick --
 -- NPC Job:  Baker                                                            --
 --                                                                            --
--- NPC Race: dwarf?                     NPC Position:  907, 794, 1            --
+-- NPC Race: dwarf                      NPC Position:  907, 794, 1            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Regallo                                                          --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Alysa Lorthelia"
@@ -44,6 +44,19 @@ itemSecondHand = 0
 itemHands = 48
 itemTrousers = 34
 itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 51, 118, 121, 227, 2495, 49, 191, 303, 353, 353, 453, 454, 2, 5, 2529, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051, 1909
+buyPrimaryItems = 118, 121, 2495, 49, 191, 303, 353, 353, 453, 454, 2, 5, 2529, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051
+buySecondaryItems = 51, 227, 1909
+tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
+tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
+tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -83,16 +96,8 @@ itemShoes = 53
 -- 10% Baker's resources: 2, 5, 2529
 -- 5% Beer: 1909
 -- 10% Dishes: 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051
-
 "kauf", "handel" -> "Lass uns handeln!", trade
-"buy,","sell", "trade" -> "Let's trade!", trade
-sellItems = 51, 118, 121, 227, 2495, 49, 191, 303, 353, 353, 453, 454, 2, 5, 2529, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051, 1909
-buyPrimaryItems = 118, 121, 2495, 49, 191, 303, 353, 353, 453, 454, 2, 5, 2529, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051
-buySecondaryItems = 51, 227, 1909
-tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
-tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
-tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+"buy,", "sell", "trade" -> "Let's trade!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Alysa Lorthelia the baker. Keywords: buy, sell, trade.")
@@ -107,7 +112,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, would you like some somethin
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Werde ich Euch wiedersehen?", "Vielen, vielen, vielen Dank, dass Ihr mit mir gesprochen habt.", "Ich wünsche Euch einen schönen Tag. Bitte kommt mal wieder vorbei."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Will I ever see you again? ", "Thank you so, so, so much for talking to me.", "Please have a good day. Can you visit again please?"
 "Farewell", "Bye", "Fare well", "See you" -> "Will I ever see you again? ", "Thank you so, so, so much for talking to me.", "Please have a good day. Can you visit again please?"
-"Ciao", "Adieu", "Au revoir", "Farebba" ->  "Werde ich Euch wiedersehen?", "Vielen, vielen, vielen Dank, dass Ihr mit mir gesprochen habt.", "Ich wünsche Euch einen schönen Tag. Bitte kommt mal wieder vorbei."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Werde ich Euch wiedersehen?", "Vielen, vielen, vielen Dank, dass Ihr mit mir gesprochen habt.", "Ich wünsche Euch einen schönen Tag. Bitte kommt mal wieder vorbei."
 "How are you", "How feel", "How do you do" -> "I don't feel so good today. My stomach hurts. But it's not because of my food! Please don't think my food is bad!", "My head is dizzy.", "I think I ate too much. I shouldn't eat for another two days."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich fühle mich heute nicht gut. Ich habe Magenschmerzen. Aber das liegt nicht an meinem Essen. Bitte denkt nicht, es läge an meinem Essen!", "Mir ist schwindelig.", "Ich habe zuviel gegessen. Ich sollte die nächsten zwei Tage nichts Essen."
 "your name", "who are you", "who art thou" -> "I am the daughter of the sword crafter Asha Lorthelia.", "I am the oldest Lorthelia daughter, but no I cannot craft ornate weapons like my mother. Instead I bake.", "I am Alysa Lorthelia, the baker, at least for now."
@@ -129,15 +134,15 @@ english, "Gobaith", "Gobiath" -> "There were fairies somewhere in that world.", 
 "Boob", "Breast", "Tit" -> "I can see you staring at my boobs, but I don't mind. When you stare at them it makes me feel pretty. Just don't stare at my stomach."
 "Busen", "Brust", "Titten" -> "Ich sehe, dass Ihr meinen Busen anstarrt, aber das stört mich nicht. Ich fühle mich hübsch, wenn Ihr starrt. Aber wagt es nicht meinen Bauch anzustarren."
 "Fat", "Weight", "Heavy" -> "I met Ce, the cook there. She's so cute and talented. We're going to have a bake off soon."
-"Fett","Gewicht","Schwer" -> "Ich traft Ce, die Köchin hier. sie ist so hübsch und talentiert. Wir machen bald einen Kochwettbewerb."
+"Fett", "Gewicht", "Schwer" -> "Ich traft Ce, die Köchin hier. sie ist so hübsch und talentiert. Wir machen bald einen Kochwettbewerb."
 "Glass Spiegel", "Ce" -> "I met Ce, the cook there. She's so cute and talented. We're going to have a bake off soon."
-"Glass Spiegel","Ce"->"Ich traft Ce, die Köchin hier. sie ist so hübsch und talentiert. Wir machen bald einen Kochwettbewerb."
+"Glass Spiegel", "Ce" -> "Ich traft Ce, die Köchin hier. sie ist so hübsch und talentiert. Wir machen bald einen Kochwettbewerb."
 "John Sights" -> "He's an old man. He's nice and he gave me this job. He looks at my boobs sometimes."
 "John Sights" -> "Er ist ein alter Mann. Er ist nett und gab mir den Job hier. Manchmal starrt er auf meinen Busen."
 "Mother", "Mom", "Aysha" -> "Mom is never not working. I don't think I even see her sleep."
-"Mutter", "Mama","Aysha" -> "Mutti arbeiter immer. Immer. Ich glaube ich habe sie noch nie schlafend gesehen."
+"Mutter", "Mama", "Aysha" -> "Mutti arbeiter immer. Immer. Ich glaube ich habe sie noch nie schlafend gesehen."
 "Father", "Dad" -> "Dad only works several hours a week, but he is always out of the house and home is always messy."
-"Vater","Papa" -> "Vater arbeitet nur ein paar Stunden in der Woche, aber er ist ständig unterwegs und zu Hause herrscht Unordnung."
+"Vater", "Papa" -> "Vater arbeitet nur ein paar Stunden in der Woche, aber er ist ständig unterwegs und zu Hause herrscht Unordnung."
 "Sister" -> "I'm glad I don't have to watch her. She's annoying."
 "Schwester" -> "Ich bin froh, dass ich nicht auf sie aufpassen muss. Diese Nervensäge."
 
@@ -151,6 +156,7 @@ english, "Runewick" -> "I live here. I don't think anything else about it."
 english, "Valerio", "Guilianni", "Don" -> "My mother does not care for him. I don't know why."
 "Valerio", "Guilianni", "Don" -> "Meine Mutter sagt, er sei ihr egal. Ich verstehe das nicht."
 english, "Galmair" -> "I've been several times with my mother and father. It's a dirty place and that's a lot coming from a dwarf."
+
 -- a dwarf?! Isn't she an elfess?
 "Galmair" -> "Ich war da mehere Male mit meiner Mutte und meinem Vater. Es ist ein dreckiger Ort, und wenn das ein Zerg sagt, will das was heißen!"
 "Queen" -> "She's too pretty. The gods were a lot more fare to her than to me."
@@ -170,7 +176,8 @@ english, "salkama" -> "My father says that only the stupid care about faction re
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "The gods cursed me with this body. The only god I will serve is one who will make me pretty."
-"Götter" ->" die Götter strafrten mich mit diesem Körper. Der einzige Gott zu dem ich beten werde, ist der, der mir Schönheit gibt."
+"Götter" -> " die Götter strafrten mich mit diesem Körper. Der einzige Gott zu dem ich beten werde, ist der, der mir Schönheit gibt."
+
 -- Catching typical NPC phrases
 "tell something" -> "I wish I were a fairy"
 "erzähl was", "erzähl etwas" -> "Ich wäre so gerne eine Fee."

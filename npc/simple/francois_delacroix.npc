@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Regallo                                                          --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Francois Delacroix"
@@ -40,6 +40,19 @@ itemSecondHand = 0
 itemHands = 2295
 itemTrousers = 823
 itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 51, 126, 258, 271, 59, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 259, 291, 534, 728, 773, 779, 2494, 2917, 330, 307, 552, 553, 2934, 15, 80, 81, 147, 151, 199, 302, 388, 72, 73, 355, 455
+buyPrimaryItems = 51, 126, 258, 271, 59, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 259, 291, 534, 728, 773, 779, 2494, 2917, 330, 307, 552, 553, 2934, 15, 80, 81, 147, 151, 199, 302, 388
+buySecondaryItems = 72, 73, 355, 455
+tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
+tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
+tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
@@ -80,16 +93,8 @@ itemShoes = 53
 -- As a he Francois felt a never before felt wave of confidence. When Francois arrived in Runewick he let it known that he known that he was a skilled merchant. Once his knowledge was demonstrated he had no problem starting a debt to purchase goods.
 -- Money wise Francois is doing good, but his youth is growing thin. He yearns for a mate and passively lingers the thought if she wants to be with a guy or a girl.
 -- Personality: Gentle, sweet, talented sales person, charismatic, outgoing on the outside, but lonely and self-conscious on the inside.
-
 "kauf", "handel" -> "Lass uns handeln!", trade
-"buy,","sell", "trade" -> "Let's trade!", trade
-sellItems = 51, 126, 258, 271, 59, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 259, 291, 534, 728, 773, 779, 2494, 2917, 330, 307, 552, 553, 2934, 15, 80, 81, 147, 151, 199, 302, 388, 72, 73, 355, 455
-buyPrimaryItems = 51, 126, 258, 271, 59, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 259, 291, 534, 728, 773, 779, 2494, 2917, 330, 307, 552, 553, 2934, 15, 80, 81, 147, 151, 199, 302, 388
-buySecondaryItems = 72, 73, 355, 455
-tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
-tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
-tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+"buy,", "sell", "trade" -> "Let's trade!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Francois Delacroix the Trader. Keywords: Hello, Markets, Buy, Sell, Agriculture, Trade.")
@@ -97,7 +102,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day.", "How be you?", "It seems to be your lucky day, why? You have found me as your agriculturalr of choice."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag.", "Wie geht es Euch?","Heute scheint Euer Glückstag zu sein, warum? Ihr habt beschlossen bei mir einzukaufen."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag.", "Wie geht es Euch?", "Heute scheint Euer Glückstag zu sein, warum? Ihr habt beschlossen bei mir einzukaufen."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day sir, madam.", "How be you?", "It seems to be your lucky day, why? You have found me as your agriculturalr of choice."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tagder Herr, die Dame.", "Wie geht es Euch?", "Heute scheint Euer Glückstag zu sein, warum? Ihr habt beschlossen bei mir einzukaufen."
 "Farewell", "Bye", "Fare well", "See you" -> "Have a good day today. You are beautiful.", "Smile, see you later.", "Remember to tell your friends to come to Francois Delacroix for all their agricultural needs."
@@ -110,9 +115,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a good day today. You 
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Francois Delacroix, Produke aus der Landwirtschaft.", "My Name ist Francois. Es ist mir eine Freude Eure Bekanntschaft zu machen", "Francois Delacroix. Es klingt noch immer jedes Mal seltsam es zu sagen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> trade, "I sell goods such as milk and farmer tools", "I sell that which you need.", "I'm a self made agricultural goodsr."
+"profession" -> "I sell goods such as milk and farmer tools", "I sell that which you need.", "I'm a self made agricultural goodsr.", trade
 "beruf" -> "Ich verkaufe Güter wie Milch und Werkzeug für Bauern.", "Ich verkaufe was immer Ihr braucht.", "Ich verkaufe selbstgemachte Landwirtschaftswaren."
-english, "job" -> trade, "I sell goods such as milk and farmer tools.", "I sell that which you need.", "I'm a self made agricultural goodsr."
+english, "job" -> "I sell goods such as milk and farmer tools.", "I sell that which you need.", "I'm a self made agricultural goodsr.", trade
 "job" -> "Ich verkaufe Güter wie Milch und Werkzeug für Bauern.", "Ich verkaufe was immer Ihr braucht.", "Ich verkaufe selbstgemachte Landwirtschaftswaren."
 english, "Gobaith", "Gobiath" -> "That's like asking what is the sky. Honestly I don't think I could answer it."
 "Gobaith", "Gobiath" -> "Das ist als ob man fragt, was der Himmel sei. Ehrlich gesagt, ich habe keine Ahnung davon."
@@ -123,16 +128,17 @@ english, "Gobaith", "Gobiath" -> "That's like asking what is the sky. Honestly I
 "Business", "Markets", "Pepper" -> "Recently pepper has been selling at triple its gross estimated volume. It's exciting to see how long this will last before I reap great profits when the price falls again."
 "Geschäft", "Märkte", "Pfeffer" -> ""
 "Agriculture", "Farming", "crops" -> "Harvesting crops and cattle is something that has always been and always will be. It's the most stable of markets."
-"Landwirtschaft","",""-> "Der Anbau von Feldfürchten und Viehhaltung ist etwas das es schon immer gegeben hat und das es immer geben wird. Das ist der beständigste Markt von allen."
+"Landwirtschaft", "", "" -> "Der Anbau von Feldfürchten und Viehhaltung ist etwas das es schon immer gegeben hat und das es immer geben wird. Das ist der beständigste Markt von allen."
 "Family" -> "I don't want to talk about them.", "Family is not a fond word in everyone's mind."
 "Familie" -> "Ich möchte darüber nicht sprechen", "Diese Wort erfreut nich jeden von uns."
 "Wife" -> "Hahaha, maybe someday.", "Settle down, me? Hahaha, maybe after I'm done making money."
 "Ehefrau" -> "Hahaha, vielleicht eines Tages.", "Ich? Mich niederlassen? Hahaha, vielleicht wenn ich genug Geld gemacht habe."
+
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "I don't know much of the man, but I can't help appreciate him for keeping this city safe for all of us who live here."
 "Erzmagier" -> "Ich weiß nicht viel über ihn, aber ich komme nicht umhin diesen Mann zu bewundern, der dafür sorgt das unsere Stadt sicher ist."
 english, "Elvaine", "Morgan" -> "I don't know much of the man, but I can't help appreciate him for keeping this city safe for all of us who live here."
-"Elvaine", "Morgan" ->  "Ich weiß nicht viel über ihn, aber ich komme nicht umhin diesen Mann zu bewundern, der dafür sorgt das unsere Stadt sicher ist."
+"Elvaine", "Morgan" -> "Ich weiß nicht viel über ihn, aber ich komme nicht umhin diesen Mann zu bewundern, der dafür sorgt das unsere Stadt sicher ist."
 english, "Runewick" -> "When I was a kid I never thought I would be a city person, but the women here really are prettier."
 "Runewick" -> "As ich kein Kind war, hätte ich nie gedacht einmal in der Stadt zu leben. Die Frauen hier sind wirklich schöner."
 english, "Valerio", "Guilianni", "Don" -> "Of course I heard the name, but I know nothing of Galmair or its people."

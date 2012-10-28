@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Grokk                                                            --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Aurora Snow"
@@ -80,12 +80,12 @@ english, sex = female, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May the Five 
 -- 1st quest: Bring 5 entrails and 10 black thistles (The Farmer's Wife 4th quest)
 
 -- Give out quest 1
-queststatus(322) = 5, english, ".+" -> inform("[New quest] The Farmer's Wife: Part IV"), queststatus(322) = 6, "Natiana appears to have the symptoms of corrupted blood. The illness is highly infectious and has been the cause of at least one known pandemic. Fortunately, I am aware of a potion to cure it. Will you help me gather the ingredients?"
-queststatus(322) = 5, ".+" -> inform("[Neues Quest] Die Geistereiche I"), queststatus(322) = 6, "Natiana zeigt Symtome von schlechtem Blut. Die Krankheit ist hochansteckend und war die Ursache für mindestens eine  uns bekannte Pandemie. Glücklicherweise, kenne ich einen Trank um sie zu heilen. Werdet Ihr mir helfen die Zutaten zu sammeln?"
+queststatus(322) = 5, english, ".+" -> inform("[New quest] The Farmer's Wife: Part IV"), "Natiana appears to have the symptoms of corrupted blood. The illness is highly infectious and has been the cause of at least one known pandemic. Fortunately, I am aware of a potion to cure it. Will you help me gather the ingredients?", queststatus(322) = 6
+queststatus(322) = 5, ".+" -> inform("[Neues Quest] Die Geistereiche I"), "Natiana zeigt Symtome von schlechtem Blut. Die Krankheit ist hochansteckend und war die Ursache für mindestens eine  uns bekannte Pandemie. Glücklicherweise, kenne ich einen Trank um sie zu heilen. Werdet Ihr mir helfen die Zutaten zu sammeln?", queststatus(322) = 6
 
 -- Quest 1 taken, information
-queststatus(322) = 6, english, ".+" -> queststatus(1337) = 7, "Well, if you wish to help Miss Banius, then I shall need you to bring me the entrails of five wild animals and ten black thistles. I shall get to work preparing the potion."
-queststatus(322) = 6, ".+" -> queststatus(1337) = 7, "Nun, da Ihr wünscht Frau Banius zu helfen, bitte ich Euch mir Eingeweide wilder Tiere zu bringen, ebenso wie 10 schwarze Disteln. Ich werde  mich an die Arbeit begeben und den Trank zubereiten"
+queststatus(322) = 6, english, ".+" -> "Well, if you wish to help Miss Banius, then I shall need you to bring me the entrails of five wild animals and ten black thistles. I shall get to work preparing the potion.", queststatus(1337) = 7
+queststatus(322) = 6, ".+" -> "Nun, da Ihr wünscht Frau Banius zu helfen, bitte ich Euch mir Eingeweide wilder Tiere zu bringen, ebenso wie 10 schwarze Disteln. Ich werde  mich an die Arbeit begeben und den Trank zubereiten", queststatus(1337) = 7
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(322) = 7, item(141, all) < 10, english, "quest", "mission" -> "You must find those ten black thistles, Miss Banius may not have much time left."
@@ -98,16 +98,16 @@ queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5, "task", "adventure"
 queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5, "Auftrag", "Aufgabe", "Abenteuer" -> "Ihr habt 10 schwarze Disteln, aber wir benötigen noch fünf Eingeweide. Um Frau Willen, so beeilt euch!"
 
 -- Quest 1 solved, reward: 80cp
-queststatus(322) = 7, item(141, all) > 9, item(63, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), money + 100, deleteItem(141, 10), deleteItem(63, 5), queststatus(322) = 8, "Yes, these shall suffice. Well done. Hmm...perhaps you shall find more use for these coins than I am able."
-queststatus(322) = 7, item(141, all) > 9, item(63, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), money + 100, deleteItem(141, 10), deleteItem(63, 5), queststatus(322) = 8, "Ja, dies sollte reichen. Gut gemacht. Hmm... vielleicht habt Ihr für diese Münzen eine bessere Verwendung als ich."
+queststatus(322) = 7, item(141, all) > 9, item(63, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), "Yes, these shall suffice. Well done. Hmm...perhaps you shall find more use for these coins than I am able.", money + 100, deleteItem(141, 10), deleteItem(63, 5), queststatus(322) = 8
+queststatus(322) = 7, item(141, all) > 9, item(63, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Ja, dies sollte reichen. Gut gemacht. Hmm... vielleicht habt Ihr für diese Münzen eine bessere Verwendung als ich.", money + 100, deleteItem(141, 10), deleteItem(63, 5), queststatus(322) = 8
 
 -- 2nd quest: Bring 10 RESOURCES
 
 -- Give out quest 2
-queststatus(322) = 8, english, "quest", "mission" -> inform("[New quest] The Farmer's Wife: Part V"), queststatus(322) = 9, "#me gasps lightly as she fumbles with a glass bottle. Time almost seems to slow as it falls from her grip, shattering against the solid floor, 'Oh, dear. That was my last bottle. I shall need one small empty bottle so that you can transport the potion.'"
-queststatus(322) = 8, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(322) = 9, "#me atmet auf, während sie mit einer Glasflasche hantiert. Die Zeit scheint still zu stehen, als ihr die Flasche aus den Händen fällt und auf dem Fußboden zerbirst. 'Oh jeh. Das was meine letzte Flasche. Ich benötige eine kleine leere Flasche, damit Ihr den Trank transportieren könnt.'"
-queststatus(322) = 8, "task", "adventure" -> inform("[New quest] The Farmer's Wife: Part V"), queststatus(322) = 9, "#me gasps lightly as she fumbles with a glass bottle. Time almost seems to slow as it falls from her grip, shattering against the solid floor, 'Oh, dear. That was my last bottle. I shall need one small empty bottle so that you can transport the potion.'"
-queststatus(322) = 8, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche II"), queststatus(322) = 9, "#me atmet auf, während sie mit einer Glasflasche hantiert. Die Zeit scheint still zu stehen, als ihr die Flasche aus den Händen fällt und auf dem Fußboden zerschellt/zerbirst. 'Oh jeh. Das was meine letzte Flasche. Ich benötige eine kleine leere Flasche, damit Ihr den Trank transportieren könnt.'"
+queststatus(322) = 8, english, "quest", "mission" -> inform("[New quest] The Farmer's Wife: Part V"), "#me gasps lightly as she fumbles with a glass bottle. Time almost seems to slow as it falls from her grip, shattering against the solid floor, 'Oh, dear. That was my last bottle. I shall need one small empty bottle so that you can transport the potion.'", queststatus(322) = 9
+queststatus(322) = 8, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche II"), "#me atmet auf, während sie mit einer Glasflasche hantiert. Die Zeit scheint still zu stehen, als ihr die Flasche aus den Händen fällt und auf dem Fußboden zerbirst. 'Oh jeh. Das was meine letzte Flasche. Ich benötige eine kleine leere Flasche, damit Ihr den Trank transportieren könnt.'", queststatus(322) = 9
+queststatus(322) = 8, "task", "adventure" -> inform("[New quest] The Farmer's Wife: Part V"), "#me gasps lightly as she fumbles with a glass bottle. Time almost seems to slow as it falls from her grip, shattering against the solid floor, 'Oh, dear. That was my last bottle. I shall need one small empty bottle so that you can transport the potion.'", queststatus(322) = 9
+queststatus(322) = 8, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche II"), "#me atmet auf, während sie mit einer Glasflasche hantiert. Die Zeit scheint still zu stehen, als ihr die Flasche aus den Händen fällt und auf dem Fußboden zerschellt/zerbirst. 'Oh jeh. Das was meine letzte Flasche. Ich benötige eine kleine leere Flasche, damit Ihr den Trank transportieren könnt.'", queststatus(322) = 9
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(322) = 9, item(1317, all) = 0, english, "quest", "mission" -> "I need that small empty bottle urgently. Natiana's life depends upon it."
@@ -116,16 +116,16 @@ queststatus(322) = 9, item(1317, all) = 0, "task", "adventure" -> "I need that e
 queststatus(322) = 9, item(1317, all) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich brauche unbedingt eine kleine leere Flasche. Natianas Leben hängt davon ab."
 
 -- Quest 2 solved, reward: 20cp, small healing potion
-queststatus(322) = 9, item(1317, all) > 0, english, ".+" -> inform("[Quest solved] You have received Natiana's medicine and 20 coppers."), money + 20, deleteItem(1317, 1), item(2499, 1, 599), queststatus(322) = 10, "Wonderful. Now just let me mix that a little...fill that up for you...and there we are. Hand this to Mister Banius. You must hurry though, Natiana cannot have much longer."
-queststatus(322) = 9, item(1317, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 20 Kupferstücke und Natianas Medizin."), money + 20, deleteItem(1317, 1), item(2499, 1, 599), queststatus(322) = 10, "Wunderbar. Jetzt lasst mich das ein wenig mischen, … nun  einwenig davon abfüllen …. und da hätten wir es! Gebt das Herrn Banius. Ihr musst euch jedoch beeilen, Natiana hat nicht mehr viel Zeit."
+queststatus(322) = 9, item(1317, all) > 0, english, ".+" -> inform("[Quest solved] You have received Natiana's medicine and 20 coppers."), "Wonderful. Now just let me mix that a little...fill that up for you...and there we are. Hand this to Mister Banius. You must hurry though, Natiana cannot have much longer.", money + 20, deleteItem(1317, 1), item(2499, 1, 599), queststatus(322) = 10
+queststatus(322) = 9, item(1317, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 20 Kupferstücke und Natianas Medizin."), "Wunderbar. Jetzt lasst mich das ein wenig mischen, … nun  einwenig davon abfüllen …. und da hätten wir es! Gebt das Herrn Banius. Ihr musst euch jedoch beeilen, Natiana hat nicht mehr viel Zeit.", money + 20, deleteItem(1317, 1), item(2499, 1, 599), queststatus(322) = 10
 
 -- 3rd quest: Aurora's Staff
 
 -- Give out quest 3
-queststatus(322) = 11, queststatus(333) = 0, english, "quest", "mission" -> inform("[New quest] Aurora's Staff: Part I"), queststatus(333) = 2, "Natiana is slowly recovering, thanks to your efforts. I could use your help again, actually. I've left my staff in the possession of my apprentice, Madeline Clarbelis. If you could go to Runewick, collect and return it, I would be most grateful."
-queststatus(322) = 11, queststatus(333) = 0, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche III"), queststatus(333) = 2, "Natiana ist dank Euch auf dem Wege der Besserung. Ich könnte jedoch erneut Eure Hilfe gebrauchen. Ich habe meinen Stab unter der Obhut meiner Schülerin Madeline Clarbelis gelassen. Wenn Ihr nach Runewick gehen und mir meinen Stab bringen könntet, wäre ich Euch ausgesprochen dankbar."
-queststatus(322) = 11, queststatus(333) = 0, "task", "adventure" -> inform("[New quest] Aurora's Staff: Part I"), queststatus(333) = 2, "Natiana is slowly recovering, thanks to your efforts. I could use your help again, actually. I've left my staff in the possession of my apprentice, Madeline Clarbelis. If you could go to Runewick, collect and return it, I would be most grateful."
-queststatus(322) = 11, queststatus(333) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche III"), queststatus(333) = 2, "Natiana ist dank Euch auf dem Wege der Besserung. Ich könnte jedoch erneut Eure Hilfe gebrauchen.Ich habe meinen Stab unter der Obhut meiner Schülerin Madeline Clarbelis gelassen.Wenn Ihr nach Runewick gehen könntet und mir meinen Stab bringen könntet, wäre ich Euch ausgesprochen dankbar."
+queststatus(322) = 11, queststatus(333) = 0, english, "quest", "mission" -> inform("[New quest] Aurora's Staff: Part I"), "Natiana is slowly recovering, thanks to your efforts. I could use your help again, actually. I've left my staff in the possession of my apprentice, Madeline Clarbelis. If you could go to Runewick, collect and return it, I would be most grateful.", queststatus(333) = 2
+queststatus(322) = 11, queststatus(333) = 0, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche III"), "Natiana ist dank Euch auf dem Wege der Besserung. Ich könnte jedoch erneut Eure Hilfe gebrauchen. Ich habe meinen Stab unter der Obhut meiner Schülerin Madeline Clarbelis gelassen. Wenn Ihr nach Runewick gehen und mir meinen Stab bringen könntet, wäre ich Euch ausgesprochen dankbar.", queststatus(333) = 2
+queststatus(322) = 11, queststatus(333) = 0, "task", "adventure" -> inform("[New quest] Aurora's Staff: Part I"), "Natiana is slowly recovering, thanks to your efforts. I could use your help again, actually. I've left my staff in the possession of my apprentice, Madeline Clarbelis. If you could go to Runewick, collect and return it, I would be most grateful.", queststatus(333) = 2
+queststatus(322) = 11, queststatus(333) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche III"), "Natiana ist dank Euch auf dem Wege der Besserung. Ich könnte jedoch erneut Eure Hilfe gebrauchen.Ich habe meinen Stab unter der Obhut meiner Schülerin Madeline Clarbelis gelassen.Wenn Ihr nach Runewick gehen könntet und mir meinen Stab bringen könntet, wäre ich Euch ausgesprochen dankbar.", queststatus(333) = 2
 english, "staff" -> "My staff is of little monetary worth, though it holds a great deal of spiritual and sentimental value to me."
 "Stab" -> "Mein Stab ist von wenig finanziellem Wert, dennoch bedeutet er mir eine Menge. Er beherbergt viele meiner Erinnerungen und Kräfte."
 
@@ -136,20 +136,20 @@ queststatus(333) = 2, "task", "adventure" -> "If you are able to retrieve my sta
 queststatus(333) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> "Wenn es Euch gelingt meinen Stab von meiner Schülerin Madeline Clarbelis in Runewick zurück zu erhalten, so will ich dafür Sorge tragen, dass Ihr angemessen belohnt werdet."
 
 -- Quest 3 updated
-queststatus(333) = 3, english, ".+" -> inform("[Quest completed] You have received 50 coppers."), money + 50, queststatus(333) = 4, "Ahh, thank y...wait. This is not my staff. I look forward to hearing the explanation behind this one. That apprentice of mine is nothing but trouble. Well, I do not have my staff, but take this for your troubles."
-queststatus(333) = 3, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke"), money + 50, queststatus(333) = 4, "Ahh, ich Danke Eu... Moment. Dies ist nicht mein Stab. Ich bin da aber mal auf die Erklärung gespannt, was hinter dieser Sache steckt. Meine Schülerin macht nichts als Ärger. Nun, Ich habe zwar meinen Stab nicht wieder, aber nehmt dies als Entschädigung für eure Mühe."
+queststatus(333) = 3, english, ".+" -> inform("[Quest completed] You have received 50 coppers."), "Ahh, thank y...wait. This is not my staff. I look forward to hearing the explanation behind this one. That apprentice of mine is nothing but trouble. Well, I do not have my staff, but take this for your troubles.", money + 50, queststatus(333) = 4
+queststatus(333) = 3, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke"), "Ahh, ich Danke Eu... Moment. Dies ist nicht mein Stab. Ich bin da aber mal auf die Erklärung gespannt, was hinter dieser Sache steckt. Meine Schülerin macht nichts als Ärger. Nun, Ich habe zwar meinen Stab nicht wieder, aber nehmt dies als Entschädigung für eure Mühe.", money + 50, queststatus(333) = 4
 
 -- Give out quest 4
-queststatus(333) = 4, english, "quest", "mission", "staff" -> inform("[New Quest] Aurora's Staff: Part II"), queststatus(333) = 5, "If you are looking for a job, I still require someone to recover my staff. Seek to my apprentice again, and return with my staff. My actual staff."
-queststatus(333) = 4, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche III"), queststatus(333) = 5, "Wenn Ihr einen Auftrag wünscht, Ich bräuchte noch immer jemanden, der mir meinen Stab wiederbringt. Sucht erneut meine Schülerin auf und kehrt mit meinem Stab zurück. Meinem richtigen Stab."
-queststatus(333) = 4, "task", "adventure" -> inform("[New Quest] Aurora's Staff: Part II"), queststatus(333) = 5, "If you are looking for a job, I still require someone to recover my staff. Seek to my apprentice again, and return with my staff. My actual staff."
-queststatus(333) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche III"), queststatus(333) = 5, "Wenn Ihr einen Auftrag wünscht, Ich bräuchte noch immer jemanden, der mir meinen Stab wiederbringt. Sucht erneut meine Schülerin auf und kehrt mit meinem Stab zurück. Meinem richtigen Stab."
+queststatus(333) = 4, english, "quest", "mission", "staff" -> inform("[New Quest] Aurora's Staff: Part II"), "If you are looking for a job, I still require someone to recover my staff. Seek to my apprentice again, and return with my staff. My actual staff.", queststatus(333) = 5
+queststatus(333) = 4, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche III"), "Wenn Ihr einen Auftrag wünscht, Ich bräuchte noch immer jemanden, der mir meinen Stab wiederbringt. Sucht erneut meine Schülerin auf und kehrt mit meinem Stab zurück. Meinem richtigen Stab.", queststatus(333) = 5
+queststatus(333) = 4, "task", "adventure" -> inform("[New Quest] Aurora's Staff: Part II"), "If you are looking for a job, I still require someone to recover my staff. Seek to my apprentice again, and return with my staff. My actual staff.", queststatus(333) = 5
+queststatus(333) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche III"), "Wenn Ihr einen Auftrag wünscht, Ich bräuchte noch immer jemanden, der mir meinen Stab wiederbringt. Sucht erneut meine Schülerin auf und kehrt mit meinem Stab zurück. Meinem richtigen Stab.", queststatus(333) = 5
 
 -- Update quest 4
-queststatus(333) = 8, english, "quest", "mission" -> inform("[Quest update] Aurora's Staff: Part II"), item(281, 1, 499), queststatus(333) = 9, "How is the recovery of my staff going? You desire my ring? Hmm...I do not see why not. It is of little value to me. Here, take it."
-queststatus(333) = 8, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche III"), item(281, 1, 499), queststatus(333) = 9, "Wie sieht es mit der Wiederbeschaffung meines Stabes aus? Ihr benötigt meinen Ring. Hmm... Ich sehe keinen Grund ihn Euch nicht zu geben. Hier, nehmt."
-queststatus(13372) = 8, "task", "adventure", "staff", "dagger", "ring" -> inform("[Quest update] Aurora's Staff: Part II"), item(281, 1, 499), queststatus(333) = 9, "How is the recovery of my staff going? You desire my ring? Hmm...I do not see why not. It is of little value to me. Here, take it."
-queststatus(13372) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Dolch", "Ring", "Stabh" -> inform("[Neues Quest] Die Geistereiche III"), item(281, 1, 499), queststatus(333) = 9, "Wie sieht es mit der Wiederbeschaffung meines Stabes aus? Ihr benötigt meinen Ring. Hmm... Ich sehe keinen Grund ihn Euch nicht zu geben. Hier, nehmt."
+queststatus(333) = 8, english, "quest", "mission" -> inform("[Quest update] Aurora's Staff: Part II"), "How is the recovery of my staff going? You desire my ring? Hmm...I do not see why not. It is of little value to me. Here, take it.", item(281, 1, 499), queststatus(333) = 9
+queststatus(333) = 8, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche III"), "Wie sieht es mit der Wiederbeschaffung meines Stabes aus? Ihr benötigt meinen Ring. Hmm... Ich sehe keinen Grund ihn Euch nicht zu geben. Hier, nehmt.", item(281, 1, 499), queststatus(333) = 9
+queststatus(13372) = 8, "task", "adventure", "staff", "dagger", "ring" -> inform("[Quest update] Aurora's Staff: Part II"), "How is the recovery of my staff going? You desire my ring? Hmm...I do not see why not. It is of little value to me. Here, take it.", item(281, 1, 499), queststatus(333) = 9
+queststatus(13372) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Dolch", "Ring", "Stabh" -> inform("[Neues Quest] Die Geistereiche III"), "Wie sieht es mit der Wiederbeschaffung meines Stabes aus? Ihr benötigt meinen Ring. Hmm... Ich sehe keinen Grund ihn Euch nicht zu geben. Hier, nehmt.", item(281, 1, 499), queststatus(333) = 9
 
 -- Quest 4 taken but not solved, repeat the instructions
 queststatus(333) > 3, queststatus(333) < 11, english, "quest", "mission" -> "Find out what happened to my staff, and bring it back to me. My apprentice, Madeline Clarbelis, is in Runewick. She should know what happened to it."
@@ -158,8 +158,8 @@ queststatus(333) > 3, queststatus(333) < 11, "task", "adventure" -> "Find out wh
 queststatus(333) > 3, queststatus(333) < 11, "Auftrag", "Aufgabe", "Abenteuer" -> "Finde heraus was mit meinem Stab passiert, und bring ihn mir zurück. Meine Schülerin Madeline Clarbelis, ist in Runewick. Sie sollte wissen was mit meinem Stab geschehen ist."
 
 -- Quest 4 solved, reward: 500cp, magical serinjah-sword
-queststatus(333) = 11, item(209, all) > 0, english, ".+" -> inform("[Quest solved] You have received a magical serinjah-sword and 200 coppers."), money + 200, deleteItem(209, 1), item(2693, 1, 599), queststatus(333) = 12, "Ahh... my staff! Thank you, my friend. I'll save you the effort of explaining to me what sort of trouble my apprentice got into. Here is the reward, as promised."
-queststatus(333) = 11, item(209, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 20 Kupferstücke und ein magisches Serinjah-Schwert."), money + 200, deleteItem(209, 1), item(2693, 1, 599), queststatus(333) = 12, "Ahh...mein Stab! Ich danke euch, mein Freund. Ich erlasse Euch die Mühe mir zu erklären in welche Schwierigkeiten sind meine Schülerin gebracht hat.Hier ist Eure Belohnung, wie versprochen."
+queststatus(333) = 11, item(209, all) > 0, english, ".+" -> inform("[Quest solved] You have received a magical serinjah-sword and 200 coppers."), "Ahh... my staff! Thank you, my friend. I'll save you the effort of explaining to me what sort of trouble my apprentice got into. Here is the reward, as promised.", money + 200, deleteItem(209, 1), item(2693, 1, 599), queststatus(333) = 12
+queststatus(333) = 11, item(209, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 20 Kupferstücke und ein magisches Serinjah-Schwert."), "Ahh...mein Stab! Ich danke euch, mein Freund. Ich erlasse Euch die Mühe mir zu erklären in welche Schwierigkeiten sind meine Schülerin gebracht hat.Hier ist Eure Belohnung, wie versprochen.", money + 200, deleteItem(209, 1), item(2693, 1, 599), queststatus(333) = 12
 
 -- No more quests, just nice words of gratitude
 queststatus(333) = 12, english, "quest", "mission" -> "Thank you for all of your help, my friend. You have truly earned my respect."
@@ -242,7 +242,7 @@ english, "Zhambra" -> "Ah, yes. One of the Holy Ancestors.", "We wander the path
 "Zhambra" -> "Ah ja. Einer der heiligen Vorfahren..", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> trade, "I have no need for material possessions.", "Your money is worthless to me.", "I do not desire to."
+"what sell", "what buy", "list wares", "price of" -> "I have no need for material possessions.", "Your money is worthless to me.", "I do not desire to.", trade
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich habe kein Interesse an weltlichem Besitz.", "Euer Geld ist für mich wertlos.", "Ich bin nicht daran interessiert zu handeln."
 "tell something" -> "#me closes her eyes and places a hand upon your shoulder.", "Hmm...I sense that you already know what I shall say.", "I shall do so. But I shall not reply upon mere words."
 "erzähl was", "erzähl etwas" -> "#me schließt ihre Augen und legt eine Hand auf deine Schulter.", "Hmm... I spüre, das Ihr bereits wisst, was I sagen werde.", "Das werde ich tun. Doch werde ich nicht auf bloße Worte antworten."

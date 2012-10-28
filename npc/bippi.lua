@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Ardian/Faladron/Rincewind                                        --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -222,17 +222,18 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I'm Bippi and my cows have the tastiest milk for miles.");
 talkEntry:addResponse("Call me Bippi, peasant byI tend to this dairy farm you see.");
 talkEntry:addResponse("My name ya say? Try tah speak up, I'm no spring chicken, but most call me Bippi, and everyone from here to Cadomyr knows I have the best milk! *Coughs*");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
-talkEntry:addTrigger("wer seid Ihr");
+talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Ich bin der alte Bippi und meine Kühe geben die beste Milch weit und breit.");
 talkEntry:addResponse("Nennt mich Bippi, ich bin Bauer und kümmere mich hier um meine Kühe.");
@@ -246,10 +247,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'I help you' if you want to help him."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("If you can help me tend to these cows I'll share some of my milk from my personal stock.");
 talkEntry:addResponse("Well I could use some sturdy hands, if ya got the strength, will ya help me?");
 talkEntry:addResponse("Could ya help me? I can't pay much but it'd mean a lot to me. The cows are all I got, and I can't tend to them like I used to.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -258,10 +259,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sag 'Ich helfe Euch' wenn du ihm helfen möchtest."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("Wenn Ihr Euch um meine Kühe kümmert, könnt Ihr auch etwas Milch haben. Helft Ihr mir?");
 talkEntry:addResponse("Nun, ich könnte Hände die zupacken können gebrauchen. Wollt Ihr mir helfen?");
 talkEntry:addResponse("Könntet Ihr mir helfen? Ich kann Euch nicht viel dafür geben aber es würde mir viel bedeuten und mir einige Sorgen abnehmen.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -270,10 +271,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'I help you' if you want to help him."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("If you can help me tend to these cows I'll share some of my milk from my personal stock.");
 talkEntry:addResponse("Well I could use some sturdy hands, if ya got the strength, will ya help me?");
 talkEntry:addResponse("Could ya help me? I can't pay much but it'd mean a lot to me. The cows are all I got, and I can't tend to them like I used to.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -283,19 +284,19 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sag 'Ich helfe Euch' wenn du ihm helfen möchtest."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("Wenn Ihr Euch um meine Kühe kümmert, könnt Ihr auch etwas Milch haben. Helft Ihr mir?");
 talkEntry:addResponse("Nun, ich könnte Hände die zupacken können gebrauchen. Wollt Ihr mir helfen?");
 talkEntry:addResponse("Könntet Ihr mir helfen? Ich kann Euch nicht viel dafür geben aber es würde mir viel bedeuten und mir einige Sorgen abnehmen.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I raise dairy cattle in order to sell their milk.");
 talkEntry:addResponse("I'm a peasant byand specialize in tending to dairy cows.");
 talkEntry:addResponse("I live and work on this farm breeding the best dairy cattle from here to Cadoymr. I sell their milk with great pride!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -310,10 +311,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I raise dairy cattle in order to sell their milk.");
 talkEntry:addResponse("I'm a peasant byand specialize in tending to dairy cows.");
 talkEntry:addResponse("I live and work here breeding the best dairy cattle from here to Cadoymr. I sell their milk with great pride!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -390,10 +391,10 @@ talkEntry:addTrigger("work");
 talkEntry:addTrigger("stablehand");
 talkEntry:addTrigger("farmhand");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'I help you' if you want to help him."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("Once you tend to my cows, I'll give you some delicious milk. Will you help me?");
 talkEntry:addResponse("Well, I could use some sturdy hands. Will you help me?");
 talkEntry:addResponse("Could you help me? I can't pay you much but it'd mean a lot to me and ease me of some worries.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -427,10 +428,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(28, "=", 0));
 talkEntry:addTrigger("Arbeit");
 talkEntry:addTrigger("helfer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sag 'Ich helfe Euch' wenn du ihm helfen möchtest."));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("Wenn Ihr Euch um meine Kühe kümmert, könnt Ihr auch etwas Milch haben. Helft Ihr mir?");
 talkEntry:addResponse("Nun, ich könnte Hände die zupacken können gebrauchen. Wollt Ihr mir helfen?");
 talkEntry:addResponse("Könntet Ihr mir helfen? Ich kann Euch nicht viel dafür geben aber es würde mir viel bedeuten und mir einige Sorgen abnehmen.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

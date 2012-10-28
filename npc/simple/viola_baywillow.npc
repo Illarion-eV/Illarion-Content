@@ -9,7 +9,7 @@
 --           Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Viola Baywillow"
@@ -52,7 +52,7 @@ itemShoes = 369
 -- Template Version 1.03 Estralis Seborian
 
 -- Debugging
-"reset" -> queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0, queststatus(314) = 0, warp(31, 22, 100), "Noobia reset!"
+"reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0, queststatus(314) = 0, warp(31, 22, 100)
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Viola Baywillow. She can give you information about the game world. Keywords: Help, Realms, Gods, Races, Crafts, Motives, Landscapes, Leaders, Laws."), "Hiho, if you'd like to know something about the realms of Cadomyr, Galmair or Runewick, just ask me!", "Hiho, have we met before? There are so many new faces around, my apologies if we have. Let me tell about the realms of Cadomyr, Galmair and Runewick!", "Good day, if you'd like to know something about the realms Cadomyr, Galmair and Runewick, let me know!"
@@ -123,27 +123,27 @@ english, "motiv", "motif", "theme" -> "The central theme of Runewick is wisdom, 
 -- Faction craft
 english, "Alchem", "Druid" -> "Alchemists and druids alike can be found readily available in Runewick, from the freshest novice to the wisest grandmaster. Galmair won't have nearly the selection, though I have seen a druid or two there before. Cadomyr, on the other hand, doesn't have a single druid or alchemist as far as I remember."
 "Alchem", "Druid" -> "Alchemisten können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
-"Candle" -> trade, "Candle makers are mainly found in Runewick, I guess because so many scholars read deep into the night. Cadomyr certainly has a few too. Galmair lacks the equipment and resources for sustaining a candle maker so mostly they have tofor such wares."
+"Candle" -> "Candle makers are mainly found in Runewick, I guess because so many scholars read deep into the night. Cadomyr certainly has a few too. Galmair lacks the equipment and resources for sustaining a candle maker so mostly they have tofor such wares.", trade
 "Kerzen" -> "Kerzenmacher können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
-"Carpent" -> trade, "Carpenters are mainly found in Runewick since there is a forest nearby. However, Galmair has a few wealthy carpenters if memory serves me right. Cadomyr, from what I know, mainlys for the wares of a carpenter."
+"Carpent" -> "Carpenters are mainly found in Runewick since there is a forest nearby. However, Galmair has a few wealthy carpenters if memory serves me right. Cadomyr, from what I know, mainlys for the wares of a carpenter.", trade
 "Schreiner" -> "Schreiner können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
-"Lumberjack" -> trade, "Most lumberjacks I know live near Runewick since the largest forest is nearby. Galmair does have a few as well, as there is less competition there. Cadomyr's trees are not strong enough so they must rely on."
+"Lumberjack" -> "Most lumberjacks I know live near Runewick since the largest forest is nearby. Galmair does have a few as well, as there is less competition there. Cadomyr's trees are not strong enough so they must rely on.", trade
 "Holz" -> "Holzfäller können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
-"Cook" -> trade, "Cooks are abundant in Runewick and many travel far and wide to taste their delights. Including me! Although Galmair is not as renowned for its cooks, I've seen several set up shop within its grand halls. Cadomyr has very few cooks and relies heavily on."
+"Cook" -> "Cooks are abundant in Runewick and many travel far and wide to taste their delights. Including me! Although Galmair is not as renowned for its cooks, I've seen several set up shop within its grand halls. Cadomyr has very few cooks and relies heavily on.", trade
 "Koch" -> "Köche können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
 "Baker" -> "Runewick without question has the finest bakers in all of the land. Galmair bakers could certainly learn a lesson or two, but if you find yourself in need there are worst places to stop. As far as Cadomyr goes, I think only the wealthiest could afford baked bread."
 "Bäcker", "back" -> "Bäcker können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
 "Farmer", "peasant" -> "Farmers rely on Runewick's fair climate to grow and harvest their crops, and without question have the most peasants working the land. Galmair doesn't get nearly the same amount of rain as Runewick, but the land is cheap and I know a skilled farmer or two that call Galmair home. Cadomyr, ha, you'd be better off digging for buried treasure as a profession."
 "Bauer" -> "Bauern können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
-"Herb" -> trade, "Herb gatherers usually stay close to Runewick so they can sell their fresh herbs to the alchemists and druids. Cadomyr has a few well-maintained herb gathers as well, if memory serves me right. Without supply or demand, Galmair relies strictly onfor any herbal needs."
+"Herb" -> "Herb gatherers usually stay close to Runewick so they can sell their fresh herbs to the alchemists and druids. Cadomyr has a few well-maintained herb gathers as well, if memory serves me right. Without supply or demand, Galmair relies strictly onfor any herbal needs.", trade
 "Kräuter", "sammler", "Kraut" -> "Kräutersammler können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
-"Tailor" -> trade, "The finest tailors in the land can be found in Runewick. Cadomyr also has a fair amount of tailors, too. As for Galmair, I am quite sure that most of their tailored wares arrive through."
+"Tailor" -> "The finest tailors in the land can be found in Runewick. Cadomyr also has a fair amount of tailors, too. As for Galmair, I am quite sure that most of their tailored wares arrive through.", trade
 "Schneider" -> "Schneider können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
-"Tanner" -> trade, "Runewick depends heavily on its tanners to supply raw material for its tailors. Cadomyr doesn't have as many but they are around if you know where to look. Galmair as far as I know has tofor such wares."
+"Tanner" -> "Runewick depends heavily on its tanners to supply raw material for its tailors. Cadomyr doesn't have as many but they are around if you know where to look. Galmair as far as I know has tofor such wares.", trade
 "Gerber" -> "Gerber können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
-"Dyer" -> trade, trade, "Dyers, like tanners, stay close to Runewick totheir wares with the tailors. I've also seen a number of dyers in Cadomyr too. Galmair, as far as I know, has tofor dyes if they're needed."
+"Dyer" -> "Dyers, like tanners, stay close to Runewick totheir wares with the tailors. I've also seen a number of dyers in Cadomyr too. Galmair, as far as I know, has tofor dyes if they're needed.", trade, trade
 "Färber", "Farbe" -> "Färber können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
-"Fish" -> trade, "Fishermen stay close to Cadomyr for obvious reasons. The same goes for Runewick as well. As for Galmair, be prepared for salted fish because the only way they get fish is through."
+"Fish" -> "Fishermen stay close to Cadomyr for obvious reasons. The same goes for Runewick as well. As for Galmair, be prepared for salted fish because the only way they get fish is through.", trade
 "Fisch" -> "Fischer können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Runewick gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
 "Glass", "blow" -> "Cadomyr has always been known for their glassblowers, if you are searching for a mentor. However, if you're looking for less competition perhaps you should make your way to Runewick. Now, as for Galmair, you won't find many glassblowers if my memory serves me right."
 "Glasbläser", "Glasblas" -> "Glasbläser können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Runewick gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
@@ -151,17 +151,17 @@ english, "Alchem", "Druid" -> "Alchemists and druids alike can be found readily 
 "Gräber" -> "Gräber können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
 "Finesmith" -> "Finesmiths are mainly found in Cadomyr, but you could also search in Galmair as well. Runewick, not so much, they import such wares."
 "Goldschmied" -> "Goldschmiede können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
-"Gem", "grinder" -> trade, "The most precise gem grinders in the land are found in Cadomyr, but I have met a fair number in Galmair too. Don't expect much in Runewick though, they mainly depend onfor gems."
+"Gem", "grinder" -> "The most precise gem grinders in the land are found in Cadomyr, but I have met a fair number in Galmair too. Don't expect much in Runewick though, they mainly depend onfor gems.", trade
 "Edelstein", "schleifer" -> "Edelsteinschleifer können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
-"Blacksmith" -> trade, "Galmair is by far the best place to look for a good blacksmith, but if you find yourself near Cadomyr you should be able to locate one there as well. You'll have no such luck in Runewick though, because they mustfor such wares."
+"Blacksmith" -> "Galmair is by far the best place to look for a good blacksmith, but if you find yourself near Cadomyr you should be able to locate one there as well. You'll have no such luck in Runewick though, because they mustfor such wares.", trade
 "Schmied" -> "Schmiede können vor allem in Galmair gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
 "Brick" -> "Ah, if looking for a brick maker you'd best start in Galmair. If you can't find one there, Cadomyr might have one or two as well. As for Runewick it won't be the best place to find bricks, I assure you."
 "Ziegel" -> "Ziegelmacher können vor allem in Galmair gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
-"Mason" -> trade, "Galmair for sure, but you might be able to find a mason in Cadomyr too. Runewick not so much, although you might be able to organise a."
+"Mason" -> "Galmair for sure, but you might be able to find a mason in Cadomyr too. Runewick not so much, although you might be able to organise a.", trade
 "Metz" -> "Steinmetze können vor allem in Galmair gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
-"Miner" -> trade, "You'll find a slew of miners in Galmair. Otherwise, head toward Cadomyr if you're looking for less competition. As for Runewick, never seen a miner there, but you might be able to make a."
+"Miner" -> "You'll find a slew of miners in Galmair. Otherwise, head toward Cadomyr if you're looking for less competition. As for Runewick, never seen a miner there, but you might be able to make a.", trade
 "Schürf" -> "Schürfer können vor allem in Galmair gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Cadomyr gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
-"Brewer" -> trade, "Galmair without question, they have the finest brewers near and wide, but if Galmair isn't the place for you the next best place is Runewick. Not aware of a brewer in Cadomyr, I think they mayfor their mead."
+"Brewer" -> "Galmair without question, they have the finest brewers near and wide, but if Galmair isn't the place for you the next best place is Runewick. Not aware of a brewer in Cadomyr, I think they mayfor their mead.", trade
 "Brauer" -> "Brauer können vor allem in Galmair gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Runewick gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt."
 
 -- Faction race
@@ -225,7 +225,7 @@ english, "Eldan" -> "He is one of the elder gods. Don't bother to worship him. O
 "Eldan" -> "Er ist einer der alten Götter. Er wird dir nicht helfen und es macht keinen Sinn ihm zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, er ist bekannt als der Gott des Geistes."
 english, "Findari" -> "She is one of the elder gods. There is no point in knowing about her. Alright, alright if you must know she is the goddess of air."
 "Findari" -> "Sie ist eine der alten Götter. Sie wird dir nicht helfen und es macht keinen Sinn ihr zu dienen. Nur nostalgische und verwirrte Elfen tun das noch. Wie dem auch sei, sie ist bekannt als der Gott der Luft."
-english, "Irmorom" -> trade, "He is the god ofand craftsmanship. Most of his followers can be found in Galmair. So if you believe in him, as the dwarves do, then you will find like-minded people there."
+english, "Irmorom" -> "He is the god ofand craftsmanship. Most of his followers can be found in Galmair. So if you believe in him, as the dwarves do, then you will find like-minded people there.", trade
 "Irmorom" -> "Er ist des Handels und des Handwerks und einige Anhänger können in Galmair gefunden werden. Wenn du an ihm glaubst, dann wirst du dort Gleichgesinnte finden."
 english, "Malachin", "Malachín" -> "He is the god of battle and hunting. So if you are seeking the thrill of the hunt or glory in battle you best be on your way to Cadomyr, and I will pray that you live past a week!"
 "Malachin", "Malachín" -> "Er ist der Gott der Jagd und der Schlachten und einige Anhänger können in Cadomyr gefunden werden. Wenn du an ihm glaubst, dann wirst du dort Gleichgesinnte finden."

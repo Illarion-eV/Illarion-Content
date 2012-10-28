@@ -8,7 +8,7 @@
 -- Authors:  Estralis & Ardian                                                --
 --           Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Percy Dryless"
@@ -55,21 +55,21 @@ itemShoes = 53
 
 -- Prison stuff
 attrib(foodlevel) > 14999, english, "hunger" -> "You don't look hungry to me. Work some more!", "No food for lazy scum like you!"
-attrib(foodlevel) < 15000, item(49, all) = 0, english, "hunger" -> item(49, 1, 333), "Here, have some moldy bread. Back to work!"
+attrib(foodlevel) < 15000, item(49, all) = 0, english, "hunger" -> "Here, have some moldy bread. Back to work!", item(49, 1, 333)
 attrib(foodlevel) < 15000, item(49, all) ~= 0, english, "hunger" -> "You think I'm giving bread away for nothing, eh? Get back to work or feel my whip."
 attrib(foodlevel) > 14999, german, "hunger" -> "Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!", "Kein Futter für faulen Abschaum wie dich!"
-attrib(foodlevel) < 15000, item(49, all) = 0, english, "hunger" -> item(49, 1, 333), "Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!"
+attrib(foodlevel) < 15000, item(49, all) = 0, english, "hunger" -> "Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!", item(49, 1, 333)
 attrib(foodlevel) < 15000, item(49, all) ~= 0, english, "hunger" -> "Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche."
 attrib(foodlevel) > 14999, "hungry", "food" -> "You don't look hungry to me. Work some more!", "No food for lazy scum like you!"
-attrib(foodlevel) < 15000, item(49, all) = 0, "hungry", "food" -> item(49, 1, 333), "Here, have some moldy bread. Back to work!"
+attrib(foodlevel) < 15000, item(49, all) = 0, "hungry", "food" -> "Here, have some moldy bread. Back to work!", item(49, 1, 333)
 attrib(foodlevel) < 15000, item(49, all) ~= 0, "hungry", "food" -> "You think I'm giving bread away for nothing, eh? Get back to work or feel my whip."
 attrib(foodlevel) > 14999, "hungrig", "essen" -> "Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!", "Kein Futter für faulen Abschaum wie dich!"
-attrib(foodlevel) < 15000, item(49, all) = 0, "hungrig", "essen" -> item(49, 1, 333), "Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!"
+attrib(foodlevel) < 15000, item(49, all) = 0, "hungrig", "essen" -> "Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!", item(49, 1, 333)
 attrib(foodlevel) < 15000, item(49, all) ~= 0, "hungrig", "essen" -> "Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche."
-item(2763, all) = 0, "pick axe", "rock pick", "pick" -> item(2763, 1, 333), "So, you broke my pick? You lost it? Here, have this one, but pay more attention to it or I'll whip you."
+item(2763, all) = 0, "pick axe", "rock pick", "pick" -> "So, you broke my pick? You lost it? Here, have this one, but pay more attention to it or I'll whip you.", item(2763, 1, 333)
 item(2763, all) ~= 0, "pick axe", "rock pick", "pick" -> "What do you want with two picks? Two fisted stone hitting?"
 item(2763, all) ~= 0, "spitzhacke", "hacke" -> "Was willst du mit zwei Spitzhacken? BeidhÃ¤ndig auf die Steine eindreschen?"
-item(2763, all) = 0, "spitzhacke", "hacke" -> item(2763, 1, 333), "So, du hast also meine Spitzhacke kaputt gemacht? Du hast sie verloren? Hier, nimm diese, aber pass besser auf sie auf oder ich peitsche dich aus."
+item(2763, all) = 0, "spitzhacke", "hacke" -> "So, du hast also meine Spitzhacke kaputt gemacht? Du hast sie verloren? Hier, nimm diese, aber pass besser auf sie auf oder ich peitsche dich aus.", item(2763, 1, 333)
 
 -- "release",queststatus(25)>0 ->"No way.","You'd like that, wouldn't you?","Sure I'll release you. In a hundred years!","Shut up!","Hahahahaha!","Release you? Sure! What next, shall I wipe your boots?","No way. Work!","Wait, let me laugh first.","You want me to release you? You?","What kind of joker are you?"
 -- "release",queststatus(25)<1->"Until next time. They all come back!",deleteitem(2763,0),deleteitem(49,0),deleteitem(234,0),deleteitem(2536,0),deleteitem(22,0),deleteitem(21,0),state=-1
@@ -207,7 +207,7 @@ english, "Zhambra" -> "I don't care about your gods. All I care about is that yo
 "Zhambra" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
 
 -- Catching typical NPC phrases
-"what sell", "What buy", "list wares", "price of" -> trade, "I could sell you some lashes from my whip. Interested!?", "Ipain.", "Stop bartering and get to work before I lose my patience."
+"what sell", "What buy", "list wares", "price of" -> "I could sell you some lashes from my whip. Interested!?", "Ipain.", "Stop bartering and get to work before I lose my patience.", trade
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kann dir ein paar Peitschenhiebe anbieten. Interesse?!", "Ich handel mit Schmerzen.", "Hör auf, rumzufeilschen und arbeite oder ich vergesse mich!"
 "tell something" -> "Shut up and work!", "No talking!", "Shut up and swing the pick, you punk!"
 "erzähl was", "erzähl etwas" -> "Halt deinen Mund und arbeite!", "Hier wird nicht geplaudert!", "Klappe halten, Hacke schwingen, du Gauner!"

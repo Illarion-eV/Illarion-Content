@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -149,6 +149,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -251,8 +252,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(640, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ruzusss");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Ruzusss and get your reward."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
 talkEntry:addResponse("You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the North.*");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -260,8 +261,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(640, "<", 1));
 talkEntry:addTrigger("Ruzusss");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Ruzusss und erhalte deine Belohnung."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
 talkEntry:addResponse("Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt auf das Stadttor im Norden.*");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -978,7 +979,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("The followers of Zhambra are righteous and loyal ones who believe in honor and law. They often try to rescue others, and fight against the evil. Zhambra is worshipped by nobles and knights, paladins, and many soldiers.");
+talkEntry:addResponse("The followers of Zhambra are righteous and loyal ones who believe in honour and law. They often try to rescue others, and fight against the evil. Zhambra is worshipped by nobles and knights, paladins, and many soldiers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Bathelor"
@@ -72,14 +72,14 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with Brágonspeed.", "An
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Bathelor, Hohepriester Brágons. Lobet Brágon!"
 
 -- 1st quest: Visit the shrines of the five
-queststatus(113) = 0, english, "quest", "mission" -> inform("[New quest] A spark to a flame I"), queststatus(113) = 1, "Very well. To prove that you are a truly devout servant of the Five, I want you to pay hommage to them. Visit each of the shrines of the Five in the temple and honour them."
-queststatus(113) = 0, "quest", "mission" -> inform("[Neues Quest] Feuer und Flamme I"), queststatus(113) = 1, "Sehr gut. Um zu beweisen, dass ihr ein frommer Diener der Fünf seid, möchte ich, dass ihr ihnen huldigt. Besucht jeden der Schreine der Fünf und ehret sie."
-queststatus(113) = 0, "task", "adventure" -> inform("[New quest] A spark to a flame I"), queststatus(113) = 1, "Very well. To prove that you are a truly devout servant of the Five, I want you to pay hommage to them. Visit each of the shrines of the Five in the temple and honour them."
-queststatus(113) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme I"), queststatus(113) = 1, "Sehr gut. Um zu beweisen, dass ihr ein frommer Diener der Fünf seid, möchte ich, dass ihr ihnen huldigt. Besucht jeden der Schreine der Fünf und ehret sie."
+queststatus(113) = 0, english, "quest", "mission" -> inform("[New quest] A spark to a flame I"), "Very well. To prove that you are a truly devout servant of the Five, I want you to pay hommage to them. Visit each of the shrines of the Five in the temple and honour them.", queststatus(113) = 1
+queststatus(113) = 0, "quest", "mission" -> inform("[Neues Quest] Feuer und Flamme I"), "Sehr gut. Um zu beweisen, dass ihr ein frommer Diener der Fünf seid, möchte ich, dass ihr ihnen huldigt. Besucht jeden der Schreine der Fünf und ehret sie.", queststatus(113) = 1
+queststatus(113) = 0, "task", "adventure" -> inform("[New quest] A spark to a flame I"), "Very well. To prove that you are a truly devout servant of the Five, I want you to pay hommage to them. Visit each of the shrines of the Five in the temple and honour them.", queststatus(113) = 1
+queststatus(113) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme I"), "Sehr gut. Um zu beweisen, dass ihr ein frommer Diener der Fünf seid, möchte ich, dass ihr ihnen huldigt. Besucht jeden der Schreine der Fünf und ehret sie.", queststatus(113) = 1
 
 -- 1st quest solved, reward: 2 candles (43)
-queststatus(113) = 2, english, ".+" -> inform("[Quest solved] You are awarded five candles."), item(43, 5, 333), queststatus(113) = 3, "Praise the Five, hail Brágon! Here, take these candles, for they will guide you through the darkest nights."
-queststatus(113) = 2, ".+" -> inform("[Quest gelöst] Du erhältst fünf Kerzen."), item(43, 5, 333), queststatus(113) = 3, "Lobet die Fünf, gepriesen sei Brágon! Hier, nehmt diese Kerzen, sie werden euch ein Licht in der Dunkelheit sein."
+queststatus(113) = 2, english, ".+" -> inform("[Quest solved] You are awarded five candles."), "Praise the Five, hail Brágon! Here, take these candles, for they will guide you through the darkest nights.", item(43, 5, 333), queststatus(113) = 3
+queststatus(113) = 2, ".+" -> inform("[Quest gelöst] Du erhältst fünf Kerzen."), "Lobet die Fünf, gepriesen sei Brágon! Hier, nehmt diese Kerzen, sie werden euch ein Licht in der Dunkelheit sein.", item(43, 5, 333), queststatus(113) = 3
 
 -- 1st quest taken but not solved, repeat the instructions
 queststatus(113) = 1, english, "quest", "mission" -> "I told you to honour the five at their shrines. Move!"
@@ -88,14 +88,14 @@ queststatus(113) = 1, "task", "adventure" -> "I told you to honour the five at t
 queststatus(113) = 1, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich habe gesagt, ihr sollt den Fünf die Ehre an ihren Schreinen erweisen. Los!"
 
 -- 2nd quest: Bring naldor wood (544) for a ritual
-queststatus(113) = 3, english, "quest", "mission" -> inform("[New quest] A spark to a flame II"), queststatus(113) = 4, "I appreciate your devotion. Rituals in honour of Brágon all have one thing in common: Something has to be burnt! As a believer, will you please go out and fetch me ten logs of naldor wood?"
-queststatus(113) = 3, "quest", "mission" -> inform("[Neues Quest] Feuer und Flamme II"), queststatus(113) = 4, "Ich würdige eure Hingabe. Rituale in Ehren an Brágon haben alle eines gemeinsam: Etwas muss verbrannt werden! Als Gläubiger, würdet ihr bitte losziehen und mir zehn Scheite Naldorholz besorgen?"
-queststatus(113) = 3, "task", "adventure" -> inform("[New quest] A spark to a flame II"), queststatus(113) = 4, "I appreciate your devotion. Rituals in honour of Brágon all have one thing in common: Something has to be burnt! As a believer, will you please go out and fetch me ten logs of naldor wood?"
-queststatus(113) = 3, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme II"), queststatus(113) = 4, "Ich würdige eure Hingabe. Rituale in Ehren an Brágon haben alle eines gemeinsam: Etwas muss verbrannt werden! Als Gläubiger, würdet ihr bitte losziehen und mir zehn Scheite Naldorholz besorgen?"
+queststatus(113) = 3, english, "quest", "mission" -> inform("[New quest] A spark to a flame II"), "I appreciate your devotion. Rituals in honour of Brágon all have one thing in common: Something has to be burnt! As a believer, will you please go out and fetch me ten logs of naldor wood?", queststatus(113) = 4
+queststatus(113) = 3, "quest", "mission" -> inform("[Neues Quest] Feuer und Flamme II"), "Ich würdige eure Hingabe. Rituale in Ehren an Brágon haben alle eines gemeinsam: Etwas muss verbrannt werden! Als Gläubiger, würdet ihr bitte losziehen und mir zehn Scheite Naldorholz besorgen?", queststatus(113) = 4
+queststatus(113) = 3, "task", "adventure" -> inform("[New quest] A spark to a flame II"), "I appreciate your devotion. Rituals in honour of Brágon all have one thing in common: Something has to be burnt! As a believer, will you please go out and fetch me ten logs of naldor wood?", queststatus(113) = 4
+queststatus(113) = 3, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme II"), "Ich würdige eure Hingabe. Rituale in Ehren an Brágon haben alle eines gemeinsam: Etwas muss verbrannt werden! Als Gläubiger, würdet ihr bitte losziehen und mir zehn Scheite Naldorholz besorgen?", queststatus(113) = 4
 
 -- 2nd quest solved, reward: ruby ring (68)
-queststatus(113) = 4, item(544, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded a ruby ring."), deleteItem(544, 10), item(68, 1, 599), queststatus(113) = 5, "Ah, the next ritual to honour Brágon can take place thanks to you. Take this ring as a sign of your faith."
-queststatus(113) = 4, item(544, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst einen Rubinring."), deleteItem(544, 10), item(68, 1, 599), queststatus(113) = 5, "Ah, das nächste Ritual zu Ehren Brágons kann dank euch stattfinden. Nehmt diesen Ring als Zeichen eures Glaubens."
+queststatus(113) = 4, item(544, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded a ruby ring."), "Ah, the next ritual to honour Brágon can take place thanks to you. Take this ring as a sign of your faith.", deleteItem(544, 10), item(68, 1, 599), queststatus(113) = 5
+queststatus(113) = 4, item(544, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst einen Rubinring."), "Ah, das nächste Ritual zu Ehren Brágons kann dank euch stattfinden. Nehmt diesen Ring als Zeichen eures Glaubens.", deleteItem(544, 10), item(68, 1, 599), queststatus(113) = 5
 
 -- 2nd quest taken but not solved, repeat the instructions
 queststatus(113) = 4, english, "quest", "mission" -> "Naldor wood burns best and a Brágon ritual needs a lot of it to be burnt. Brágon will reward you for your dedication."
@@ -104,14 +104,14 @@ queststatus(113) = 4, "task", "adventure" -> "Naldor wood burns best and a Brág
 queststatus(113) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> "Naldorholz brennt am besten und bei einem Brágonritual wird zumeist eine Menge verbrannt. Brágon wird euch für eure Hingabe entlohnen."
 
 -- 3rd quest: Become a Brágon devotee (queststatus(401) = 2)
-queststatus(113) = 5, english, "quest", "mission" -> inform("[New quest] A spark to a flame III"), queststatus(113) = 6, "I see you are really serious in your faith in Brágon. I think you are worthy to become a devotee of Brágon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings."
-queststatus(113) = 5, "quest", "mission" -> inform("[Neues Quest] Feuer und Flamme III"), queststatus(113) = 6, "Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Brágon. Ich denke, ihr seid würdig, einer seiner Anhänger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zurück, um meinen Segen zu empfangen."
-queststatus(113) = 5, "task", "adventure" -> inform("[New quest] A spark to a flame III"), queststatus(113) = 6, "I see you are really serious in your faith in Brágon. I think you are worthy to become a devotee of Brágon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings."
-queststatus(113) = 5, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme III"), queststatus(113) = 6, "Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Brágon. Ich denke, ihr seid würdig, einer seiner Anhänger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zurück, um meinen Segen zu empfangen."
+queststatus(113) = 5, english, "quest", "mission" -> inform("[New quest] A spark to a flame III"), "I see you are really serious in your faith in Brágon. I think you are worthy to become a devotee of Brágon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings.", queststatus(113) = 6
+queststatus(113) = 5, "quest", "mission" -> inform("[Neues Quest] Feuer und Flamme III"), "Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Brágon. Ich denke, ihr seid würdig, einer seiner Anhänger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zurück, um meinen Segen zu empfangen.", queststatus(113) = 6
+queststatus(113) = 5, "task", "adventure" -> inform("[New quest] A spark to a flame III"), "I see you are really serious in your faith in Brágon. I think you are worthy to become a devotee of Brágon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings.", queststatus(113) = 6
+queststatus(113) = 5, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Feuer und Flamme III"), "Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Brágon. Ich denke, ihr seid würdig, einer seiner Anhänger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zurück, um meinen Segen zu empfangen.", queststatus(113) = 6
 
 -- 3rd quest solved, reward: red priest robe (2419)
-queststatus(113) = 6, queststatus(401) = 2, english, ".+" -> inform("[Quest solved] You are awarded a red priest robe."), item(2419, 1, 799), queststatus(113) = 7, "#me raises his hands and chants: 'Be blessed in the name of Brágon! Go forth and accomplish deeds in his name.'"
-queststatus(113) = 6, queststatus(401) = 2, ".+" -> inform("[Quest gelöst] Du erhältst eine rote Priesterrobe."), item(2419, 1, 799), queststatus(113) = 7, "#me hebt seine Hände und singt: 'Seid gesegnet in Brágons Namen! Gehet hin und vollbringt Taten in seinem Namen.'"
+queststatus(113) = 6, queststatus(401) = 2, english, ".+" -> inform("[Quest solved] You are awarded a red priest robe."), "#me raises his hands and chants: 'Be blessed in the name of Brágon! Go forth and accomplish deeds in his name.'", item(2419, 1, 799), queststatus(113) = 7
+queststatus(113) = 6, queststatus(401) = 2, ".+" -> inform("[Quest gelöst] Du erhältst eine rote Priesterrobe."), "#me hebt seine Hände und singt: 'Seid gesegnet in Brágons Namen! Gehet hin und vollbringt Taten in seinem Namen.'", item(2419, 1, 799), queststatus(113) = 7
 
 -- 3rd quest taken but not solved, repeat the instructions
 queststatus(113) = 6, english, "quest", "mission" -> "You hesitate to sacrifice your mudane wealth Brágon? It will go up in flames one day anyway, trust me!"

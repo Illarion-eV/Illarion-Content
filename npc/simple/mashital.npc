@@ -2,13 +2,13 @@
 -- NPC Name: Mashital                                                Runewick --
 -- NPC Job:  Windsage                                                         --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  794, 820, 0                --
+-- NPC Race: elf                        NPC Position:  794, 820, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Regallo                                                          --
 --           ...with a little help of Estralis Seborian                       --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Mashital"
@@ -68,42 +68,37 @@ itemShoes = 53
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Why are you here?", "Move out of my way.", "What business do you have with me?"
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Why are you here?", "Move out of my way.", "What business do you have with me?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Why are you here?", "Move out of my way.", "What business do you have with me?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "Farewell", "Bye", "Fare well", "See you" -> "Please only come back if you have actual business.", "I don't have time to talk to you, goodbye.", "#Mashital waves you away."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
-"Ciao", "Adieu", "Au revoir", "Farebba", english -> "Please only come back if you have actual business.", "I don't have time to talk to you, goodbye.", "#Mashital waves you away."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Please only come back if you have actual business.", "I don't have time to talk to you, goodbye.", "#Mashital waves you away."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "How are you", "How feel", "How do you do" -> "Why do you want to know?", "Please stop pretending that you actually care.", "Obviously I'm not in a good mood so please stop talking to me."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 "your name", "who are you", "who art thou" -> "Mashital Besual Telk Me", "The Lightningsage, Mashital Besual Telk Me.", "I am a person just like you."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
---"quest", "mission", english -> "to be determined.", "To be determined.", "To be determined."
---"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
---"task", "adventure", "order" -> "to be determined.", "To be determined.", "To be determined."
---"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "quest", "mission", english -> "to be determined.", "To be determined.", "To be determined."
+-- "quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "task", "adventure", "order" -> "to be determined.", "To be determined.", "To be determined."
+-- "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "The standing Lightningsage.", "I am a killer for Runewick; it is what I truly am.", "Even before I chose to be a Warsage I was disgustingly labeled a Noble."
 "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"job", english -> "The standing Lightningsage.", "I am a killer for Runewick; it is what I truly am.", "Even before I chose to be a Warsage I was disgustingly labeled a Noble."
+english, "job" -> "The standing Lightningsage.", "I am a killer for Runewick; it is what I truly am.", "Even before I chose to be a Warsage I was disgustingly labeled a Noble."
 "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "Warsage" -> "We are the best magic useing fighters in the land.", "We answer only to Archmage Morgan.", "If you wish to join talk to Lerghanis ."
-"Noble" -> "Disgusting pariahs of man and elf.", "We eat the food that you fish, we smoke the reeds that you grow and then we pass laws that make this all legal.","The enimies of equality."
-"Equality" ->"There should not be a rich or poor, Orc or Elf. We are all the same. It is only through the manipulation of the some that we are seperated into hierarchie."
+"Noble" -> "Disgusting pariahs of man and elf.", "We eat the food that you fish, we smoke the reeds that you grow and then we pass laws that make this all legal.", "The enimies of equality."
+"Equality" -> "There should not be a rich or poor, Orc or Elf. We are all the same. It is only through the manipulation of the some that we are seperated into hierarchie."
 "Lightning" -> "The most direct of all the magics. It suits me.", "Beautiful, quick, deadly.", "In my hands lightning is a blade from heaven to strike down those that strike down others."
-"Naginata" ->"Its kind of like a spear with a curved blade.","None of the other seven use it. Lerghanis  jokes about having lost his. I don't think it a joke.", "A beautiful weapon for killing things at a safe distance."
+"Naginata" -> "Its kind of like a spear with a curved blade.", "None of the other seven use it. Lerghanis  jokes about having lost his. I don't think it a joke.", "A beautiful weapon for killing things at a safe distance."
 "DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 "DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
@@ -115,14 +110,14 @@ itemShoes = 53
 "Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Gobaith
---"Gobaith", "Gobiath", english ->"write after knows what happened to globaith."
+-- "Gobaith", "Gobiath", english ->"write after knows what happened to globaith."
 
---"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
 "my name" -> "Mashital Besual Telk Me "
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"<Fo>", "<Duh Rah>", english -> "That is me, please state your business."
+english, "<Fo>", "<Duh Rah>" -> "That is me, please state your business."
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC

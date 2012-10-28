@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
 --                                                                            --
--- Last parsing: October 18, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -45,10 +45,6 @@ talkEntry:addResponse("Hiho, let's trade!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
-tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
-tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was euch gefällt?", "Don't you like my wares?");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -492,10 +488,6 @@ talkEntry:addTrigger("erzähl etwas");
 talkEntry:addResponse("Ich und meine Familie wandern und entdecken gern. Ich bin mir sicher du kannst meine anderen Geschwister an anderen Orten finden wenn du nur genau guckst!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
-tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
-tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was euch gefällt?", "Don't you like my wares?");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("Ich kann euch an interessante Orte bringen.", "I can take you to interesting places.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Cadomyr","portal book to Cadomyr",2000,1,333,{["destinationCoordsY"] = "647", ["destinationCoordsX"] = "127", ["destinationCoordsZ"] = "0"}));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Galmair","portal book to Galmair",2000,1,333,{["destinationCoordsY"] = "245", ["destinationCoordsX"] = "424", ["destinationCoordsZ"] = "0"}));
@@ -518,10 +510,6 @@ mainNPC:setEquipment(5, 1061);
 mainNPC:setEquipment(4, 48);
 mainNPC:setEquipment(9, 824);
 mainNPC:setEquipment(10, 53);
-tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
-tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
-tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was euch gefällt?", "Don't you like my wares?");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

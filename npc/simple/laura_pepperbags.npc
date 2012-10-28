@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Laura Pepperbags"
@@ -50,6 +50,12 @@ itemShoes = 369
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
+sellItems = 61, 3076, 3077
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
 -- Template Version 1.06, 08/29/2012 by Estralis Seborian
 -- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
 -- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
@@ -64,12 +70,6 @@ itemShoes = 369
 
 -- TRADING
 -- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
-
-sellItems = 61, 3076, 3077
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
-tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- MANDATORY TRIGGERS
 
@@ -94,8 +94,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Save Paths.", "Fare well."
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I'm a money changer. Want to change?", "You can change your money here."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ich bin Geldwechsler. Mögt Ihr wechseln?", "Ihr könnt hier Münzen eintauschen."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I'm a money changer. Want to change?", "You can change your money here.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich bin Geldwechsler. Mögt Ihr wechseln?", "Ihr könnt hier Münzen eintauschen.", trade
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I like my job. I like money."

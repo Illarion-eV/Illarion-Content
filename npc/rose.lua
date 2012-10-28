@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -38,30 +38,30 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Rose the Companion. Keywords: race, gods, company, adventure."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 0));
 talkEntry:addResponse("Ask me about 'company','profession' or 'adventure', answering with 'yes' or 'no'.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Rose die Gesellschafterin. Schlüsselwörter: Völker, Götter, Gesellschaft, Beruf, Abenteuer."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 0));
 talkEntry:addResponse("Frage bei mir nach 'Gesellaschft','Beruf' oder 'Abenteuer', antworte eventuell mir mit 'ja' oder 'nein'.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gesellschaft");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 3));
 talkEntry:addResponse("Du möchtest das ich dir Gesellschaft leiste?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("compan");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 3));
 talkEntry:addResponse("Do you want me to keep you company?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -72,8 +72,8 @@ talkEntry:addTrigger("eure aufgabe");
 talkEntry:addTrigger("t[äae]+tigkeit");
 talkEntry:addTrigger("was tust du");
 talkEntry:addTrigger("was tut ihr");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 3));
 talkEntry:addResponse("Ich bin Näherin. Hast du Löcher in deinen Socken die ich stopfen soll?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -81,8 +81,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addTrigger("what you do");
 talkEntry:addTrigger("occupation");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 3));
 talkEntry:addResponse("I'm a seamstress. Do you have holes in your socks which I can help with?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -103,48 +103,48 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 3));
 talkEntry:addTrigger("ja");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 4));
 talkEntry:addResponse("Fein, ich will aber 250 Kupfermünzen dafür haben. In Ordnung?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 3));
-talkEntry:addTrigger("yes");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 3));
+talkEntry:addTrigger("yes");
 talkEntry:addResponse("Great, But you have to give me 250 coppercoins?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 3));
 talkEntry:addTrigger("nein");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("Gut, komm wieder falls du doch noch möchtest.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 3));
 talkEntry:addTrigger("no");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("Allright, come again if you change your mind.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 4));
 talkEntry:addTrigger("nein");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("Nein? Was soll das heißen? Du kommst dir wohl zu fein für meine Gesellschaft vor!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 4));
 talkEntry:addTrigger("no");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("No? What are you trying to say? I'm not good enough for you?!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -152,9 +152,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.money.money("=>", 250));
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 4));
 talkEntry:addTrigger("ja");
+talkEntry:addResponse("Fantastisch, komm wir suchen uns ein ruhiges Plätzchen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 250));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
-talkEntry:addResponse("Fantastisch, komm wir suchen uns ein ruhiges Plätzchen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -162,25 +162,25 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.money.money("=>", 250));
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 4));
 talkEntry:addTrigger("yes");
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 250));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("Awesome, come on, lets go somewhere more... quiet.");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 250));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 4));
 talkEntry:addTrigger("ja");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("Schätzchen, du hast ja gar nicht geügend Münzen. Geh schnell welche hohlen, ich warte auf dich!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 4));
 talkEntry:addTrigger("yes");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("Sorry sweetheart, you havn't enough coins. Go fetch them, I'll wait for you!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -188,8 +188,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 3));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, ">", 7));
 talkEntry:addTrigger("ja");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 5));
 talkEntry:addResponse("Fein und weil ich dich gern hab will ich nur 200 Kupfermünzen dafür haben. In Ordnung?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -197,8 +197,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 3));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, ">", 7));
 talkEntry:addTrigger("yes");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 5));
 talkEntry:addResponse("Great, its just 200 coppercoins. A special price for my honey!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -206,9 +206,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.money.money("=>", 200));
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 5));
 talkEntry:addTrigger("ja");
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("Fantastisch, komm wir suchen uns ein ruhiges Plätzchen.");
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -216,41 +216,41 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.money.money("=>", 200));
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 5));
 talkEntry:addTrigger("yes");
+talkEntry:addResponse("Awesome, lets go somewhere more quiet.");
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 200));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
-talkEntry:addResponse("Awesome, lets go somewhere more quiet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 5));
 talkEntry:addTrigger("ja");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("Schätzchen, du hast ja gar nicht geügend Münzen. Geh schnell welche hohlen, ich warte auf dich!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 5));
 talkEntry:addTrigger("yes");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("Sweetie, you havn't enough coins. Go get them, I'll wait for you!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 5));
 talkEntry:addTrigger("nein");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("Nein? Was soll das heißen? Du kommst dir wohl zu fein für meine Gesellschaft vor!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 5));
 talkEntry:addTrigger("no");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("No? What are you trying to say? Do you think I'm not good enough for you?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -269,8 +269,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(316, "<", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=>", 8));
 talkEntry:addTrigger("sell");
 talkEntry:addTrigger("what buy");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("#w you have to find a professional 'r' to sell your 'goods'.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -278,8 +278,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 6));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 1));
 talkEntry:addTrigger("yes");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 7));
 talkEntry:addResponse("#w Do you think, you have the ability to 'find' an item which is already in someone else's possession?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -287,8 +287,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 6));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 1));
 talkEntry:addTrigger("ja");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 7));
 talkEntry:addResponse("#w Denkst du, du kannst nach einem Gegenstand suchen der im Momment einer anderen Person gehört?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -296,8 +296,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 6));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 1));
 talkEntry:addTrigger("no");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("Don't worry, I'll find someone else");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -305,8 +305,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 6));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 1));
 talkEntry:addTrigger("nein");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("In Ordnung, dann muss ich mir jemand anderen dafür suchen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -314,8 +314,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 7));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 1));
 talkEntry:addTrigger("yes");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 2));
 talkEntry:addResponse("#w Allright, listen to me. I'm searching a special necklace. It's a heirloom of my family. My stupid brother sold it to a merchant. You should bring it back to me. Ask me for 'information' if you need me to repeat it for you.  Search the mearchant in Varshikar. His name is Gilbert. Do not listen to him, he will just lie to you. Well, good luck, I am waiting for you.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -323,8 +323,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 7));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 1));
 talkEntry:addTrigger("ja");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 2));
 talkEntry:addResponse("#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Frage mich wenn nach 'Informationen' wenn ich die Details wiederholen soll.   Suche den Händler in Varshikar, sein Name ist Gilbert. Am Besten hörst du ihm gar nicht zu was er sagt, er würde dich nur belügen. Viel Glück! Ich warte hier auf dich.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -332,8 +332,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 7));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 1));
 talkEntry:addTrigger("no");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("I'll ask someone else");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -341,8 +341,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 7));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 1));
 talkEntry:addTrigger("nein");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("In Ordnung, dann muss ich mir jemand anderen dafür suchen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -392,10 +392,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("She pays you 100 coppercoins. It feels good, doesn't it?"));
+talkEntry:addResponse("Oh, that's amazing! You really found it! This to compensate you for your effort.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(79, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 4));
-talkEntry:addResponse("Oh, that's amazing! You really found it! This to compensate you for your effort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -406,10 +406,10 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder?"));
+talkEntry:addResponse("Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(79, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 4));
-talkEntry:addResponse("Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -440,10 +440,10 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("She pays you 100 coppercoins. It feels good, right?"));
+talkEntry:addResponse("Oh, that's amazing! You really found it! This to compensate you for your effort.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(79, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 4));
-talkEntry:addResponse("Oh, that's amazing! You really found it! This to compensate you for your effort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -455,10 +455,10 @@ talkEntry:addTrigger("amulett");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder?"));
+talkEntry:addResponse("Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(79, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 4));
-talkEntry:addResponse("Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -532,8 +532,8 @@ talkEntry:addTrigger("kollier");
 talkEntry:addTrigger("amulett");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 9));
 talkEntry:addResponse("#w Oh ja, jetzt müssen wir dafür sorgen, dass Gilbert nicht auf falsche Ideen kommt. Kannst du diese Fälschung in seine Tasche stecken, ohne dass er es bemerkt?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -542,8 +542,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("quest");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 9));
 talkEntry:addResponse("#w Oh ja, jetzt müssen wir dafür sorgen, dass Gilbert nicht auf falsche Ideen kommt. Kannst du diese Fälschung in seine Tasche stecken, ohne dass er es bemerkt?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -554,8 +554,8 @@ talkEntry:addTrigger("necklace");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 9));
 talkEntry:addResponse("#w Hmm, now we have to take care, that Gilbert doesn't get false ideas. Could you place this fake into his bag without getting caught?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -564,8 +564,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("quest");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 9));
 talkEntry:addResponse("#w Hmm, now we have to care, taht Gilbert don't get false ideas. Could you place this fake into his bag without getting caught?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -574,9 +574,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 9));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 4));
 talkEntry:addTrigger("Ja");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sie legt dir ein Bündel gerollten Stoff in die Hände. Darinn findest du ein Kollier."));
+talkEntry:addResponse("#w Großartig, nimm dieses gefälschte Kollier und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken. Frage mich wenn nach 'Infromationen' wenn ich die Details wiederholen soll.");
 talkEntry:addConsequence(npc.base.consequence.item.item(222, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 5));
-talkEntry:addResponse("#w Großartig, nimm dieses gefälschte Kollier und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken. Frage mich wenn nach 'Infromationen' wenn ich die Details wiederholen soll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -584,8 +584,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 9));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 4));
 talkEntry:addTrigger("Nein");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("In Ordnung, dann muss ich mir jemand anderen dafür suchen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -594,9 +594,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 9));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 4));
 talkEntry:addTrigger("Yes");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("She places a bundle of cloth in your hands. Inside you are able to feel a necklace."));
+talkEntry:addResponse("#w Awesome, take this fake necklace and put it unnoticed into Gilbert's bag. He shouldn't notice any difference. Ask me for 'information' if I should repeat the details.");
 talkEntry:addConsequence(npc.base.consequence.item.item(222, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 5));
-talkEntry:addResponse("#w Awesome, take this fake necklace and put it unnoticed into Gilbert's bag. He shouldn't notice any difference. Ask me for 'information' if I should repeat the details.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -604,8 +604,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(316, "=", 9));
 talkEntry:addCondition(npc.base.condition.quest.quest(303, "=", 4));
 talkEntry:addTrigger("No");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkEntry:addResponse("Allrigth, so I have to ask another one.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -654,9 +654,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("She pays you again 100 coppercoins. It feels also feels good, right?"));
+talkEntry:addResponse("Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 8));
-talkEntry:addResponse("Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -668,9 +668,9 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("She pays you again 100 coppercoins. It feels also feels good, right?"));
+talkEntry:addResponse("Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 8));
-talkEntry:addResponse("Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -680,9 +680,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("quest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("She pays you again 100 coppercoins. It feels again good, agree?"));
+talkEntry:addResponse("Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 8));
-talkEntry:addResponse("Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -693,9 +693,9 @@ talkEntry:addTrigger("amulett");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sie bezahlt dir abermals 100 Kupferlinge. Das fühlt sich abermals gut an, oder?"));
+talkEntry:addResponse("Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 8));
-talkEntry:addResponse("Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -750,8 +750,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(303, "=<", 1));
 talkEntry:addTrigger("sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Maybe you should ask more 'Rose' more about the quest."));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("#w you have to find a professional 'r' to sell your 'goods'. But I could offer you a quest if you are in need of money?");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -772,9 +772,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(303, "=<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
+talkEntry:addResponse("#w Möchtest du etwas Geld verdienen?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 1));
-talkEntry:addResponse("#w Möchtest du etwas Geld verdienen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -784,9 +784,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(303, "=<", 1));
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
+talkEntry:addResponse("#w Möchtest du etwas Geld verdienen?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 1));
-talkEntry:addResponse("#w Möchtest du etwas Geld verdienen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -796,9 +796,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(303, "=<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
+talkEntry:addResponse("#w Do you want to earn some money?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 1));
-talkEntry:addResponse("#w Do you want to earn some money?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -810,9 +810,9 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
+talkEntry:addResponse("#w Do you want to earn some money?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(316, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(303, "=", 1));
-talkEntry:addResponse("#w Do you want to earn some money?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -971,6 +971,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -48,18 +48,18 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(620, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
+talkEntry:addResponse("Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers a silvercoin and turns back to her book*");
 talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 2));
-talkEntry:addResponse("Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers a silvercoin and turns back to her book*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(620, "=", 1));
 talkEntry:addTrigger(".*");
+talkEntry:addResponse("Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht eine Silbermünze und wendet sich wieder ihrem Buch zu*");
 talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 2));
-talkEntry:addResponse("Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht eine Silbermünze und wendet sich wieder ihrem Buch zu*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -172,6 +172,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -414,9 +415,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(650, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Wulfgorda");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Wulfgorda and bring her the sibanac leafs to get your reward."));
+talkEntry:addResponse("Wulfgorda is a hunter who knows almost each place in the northeast. You can find her infront of the Hemp Necktie Inn. Furthermore, you should bring her these leafs here. *hands some sibanac leafs*");
 talkEntry:addConsequence(npc.base.consequence.item.item(155, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(650, "=", 1));
-talkEntry:addResponse("Wulfgorda is a hunter who knows almost each place in the northeast. You can find her infront of the Hemp Necktie Inn. Furthermore, you should bring her these leafs here. *hands some sibanac leafs*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -424,9 +425,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(650, "<", 1));
 talkEntry:addTrigger("Wulfgorda");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Wulfgorda und bringe ihr die Sibanacblätter um deine Belohnung zur erhalten."));
+talkEntry:addResponse("Wulfgorda ist eine Jägerin, welche beinahe jeden Platz im Nordosten kennt. Du findest sie vor dem Gasthaus zur Hanfschlinge. Des weiteren kannst du ihr auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*");
 talkEntry:addConsequence(npc.base.consequence.item.item(155, 10, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(650, "=", 1));
-talkEntry:addResponse("Wulfgorda ist eine Jägerin, welche beinahe jeden Platz im Nordosten kennt. Du findest sie vor dem Gasthaus zur Hanfschlinge. Des weiteren kannst du ihr auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1140,33 +1141,33 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
+talkEntry:addResponse("#me draws a dagger and mumbles: 'I warned you, but you did not listen. Face the consequences now!'");
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 9999));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
-talkEntry:addResponse("#me draws a dagger and mumbles: 'I warned you, but you did not listen. Face the consequences now!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addTrigger("Moshran");
+talkEntry:addResponse("#me zieht einen Dolch und murmelt: 'Wer nicht hören will muss fühlen!'");
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 9999));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
-talkEntry:addResponse("#me zieht einen Dolch und murmelt: 'Wer nicht hören will muss fühlen!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("One more word about him and you will have to visit the cross! *narrows her eyes*");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addResponse("Ein weiteres Wort über ihn und ihr werdet das Kreuz aufsuchen müssen! *verengt ihre Augen*");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

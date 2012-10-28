@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -148,7 +148,7 @@ talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addResponse("I always feel pacified when surrounded by plants and trees.");
-talkEntry:addResponse("I'd feel much better if everyone honors the woods. Aren't those trees lovely?");
+talkEntry:addResponse("I'd feel much better if everyone honours the woods. Aren't those trees lovely?");
 talkEntry:addResponse("I cannot complain. My trees grow and this little fellow over there just turned ten years. I remember planting him like it was yesterday.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -174,6 +174,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -190,9 +191,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Raban's Grove I"));
+talkEntry:addResponse("So, you want to help me and the forest? Here, take this sickle and bring me ten fir tree seedling from the trees around.");
 talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 1));
-talkEntry:addResponse("So, you want to help me and the forest? Here, take this sickle and bring me ten fir tree seedling from the trees around.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -201,9 +202,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Rabans Hain I"));
+talkEntry:addResponse("So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehnSetzlinge von den Fichten des Hains.");
 talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 1));
-talkEntry:addResponse("So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehnSetzlinge von den Fichten des Hains.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -213,9 +214,9 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Raban's Grove I"));
+talkEntry:addResponse("So, you want to help me and the forest? Here, take this sickle and bring me ten fir tree seedling from the trees around.");
 talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 1));
-talkEntry:addResponse("So, you want to help me and the forest? Here, take this sickle and bring me ten fir tree seedling from the trees around.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -226,24 +227,24 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Rabans Hain I"));
+talkEntry:addResponse("So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehn Setzlinge von den Fichten des Hains.");
 talkEntry:addConsequence(npc.base.consequence.item.item(126, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 1));
-talkEntry:addResponse("So, so, du willst mir und dem Wald also helfen? Nimm doch diese Sichel und bringe mir zehn Setzlinge von den Fichten des Hains.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(149, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and your herb lore skill increases."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
+talkEntry:addResponse("Thank you very much for the fir tree seedlings. Here, have those shiny disks, I have no use for them.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(149, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 2));
-talkEntry:addResponse("Thank you very much for the fir tree seedlings. Here, have those shiny disks, I have no use for them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -253,24 +254,24 @@ talkEntry:addCondition(npc.base.condition.item.item(149, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins."));
+talkEntry:addResponse("Thank you very much for the fir tree seedlings. Here, have those shiny disks, I have no use for them.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(149, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 2));
-talkEntry:addResponse("Thank you very much for the fir tree seedlings. Here, have those shiny disks, I have no use for them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(149, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Kräuterkundefertigkeit steigt."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
+talkEntry:addResponse("Habt besten Dank für die Fichtensetzlinge. Nehmt diese glänzenden Scheiben, ich habe keinen Bedarf an ihnen.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(149, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 2));
-talkEntry:addResponse("Habt besten Dank für die Fichtensetzlinge. Nehmt diese glänzenden Scheiben, ich habe keinen Bedarf an ihnen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -279,10 +280,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(149, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke."));
+talkEntry:addResponse("Habt besten Dank für die Fichtensetzlinge. Nehmt diese glänzenden Scheiben, ich habe keinen Bedarf an ihnen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(149, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 2));
-talkEntry:addResponse("Habt besten Dank für die Fichtensetzlinge. Nehmt diese glänzenden Scheiben, ich habe keinen Bedarf an ihnen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,8 +329,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Raban's Grove II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 3));
 talkEntry:addResponse("How kind of you that you want to assist me one more time. Could you gather twenty black berries, sweet gifts of Oldra?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -338,8 +339,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Rabans Hain II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 3));
 talkEntry:addResponse("Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. Könntet ihr so nett sein und zwanzig Brombeeren sammeln, süße Geschenke der Oldra?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -349,8 +350,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Raban's Grove II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 3));
 talkEntry:addResponse("How kind of you that you want to assist me one more time. Could you gather twenty black berries, sweet gifts of Oldra?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -361,23 +362,23 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Rabans Hain II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 3));
 talkEntry:addResponse("Wie aufmerksam, dass ihr mir ein weiteres mal helfen wollt. Könntet ihr so nett sein und zwanzig Brombeeren sammeln, süße Geschenke der Oldra?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(147, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your herb lore skill increases."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
+talkEntry:addResponse("I am grateful for the twenty black berries you brought me. Have this small reward.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(147, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 4));
-talkEntry:addResponse("I am grateful for the twenty black berries you brought me. Have this small reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -387,24 +388,24 @@ talkEntry:addCondition(npc.base.condition.item.item(147, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
+talkEntry:addResponse("I am grateful for the twenty black berries you brought me. Have this small reward.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(147, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 4));
-talkEntry:addResponse("I am grateful for the twenty black berries you brought me. Have this small reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(147, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Kräuterkundefertigkeit steigt."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
+talkEntry:addResponse("Ich bin dankbar für die zwanzig Brombeeren, die ihr dargebracht habt. Nehmt diese kleine Belohnung.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(147, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 4));
-talkEntry:addResponse("Ich bin dankbar für die zwanzig Brombeeren, die ihr dargebracht habt. Nehmt diese kleine Belohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -413,10 +414,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(147, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
+talkEntry:addResponse("Ich bin dankbar für die zwanzig Brombeeren, die ihr dargebracht habt. Nehmt diese kleine Belohnung.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(147, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 4));
-talkEntry:addResponse("Ich bin dankbar für die zwanzig Brombeeren, die ihr dargebracht habt. Nehmt diese kleine Belohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,8 +463,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Raban's Grove III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 5));
 talkEntry:addResponse("It is honourable that you help me and the godess. For now, I desire five birth mushrooms to spread life on the soil.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -472,8 +473,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 4));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Rabans Hain III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 5));
 talkEntry:addResponse("Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Geburtspilze, um Leben auf dem Erdboden zu sähen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -483,8 +484,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Raban's Grove III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 5));
 talkEntry:addResponse("It is honourable that you help me and the godess. For now, I desire five birth mushrooms to spread life on the soil.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -495,23 +496,23 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Rabans Hain III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 5));
 talkEntry:addResponse("Es ehrt euch, dass ihr mir und der Göttin erneut helfen wollt. Nun benötige ich fünf Geburtspilze, um Leben auf dem Erdboden zu sähen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(162, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and your herb lore skill increases."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
+talkEntry:addResponse("Ah, you brought the five birth mushrooms. Long did I store this reward, now it is yours.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(162, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 6));
-talkEntry:addResponse("Ah, you brought the five birth mushrooms. Long did I store this reward, now it is yours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -521,24 +522,24 @@ talkEntry:addCondition(npc.base.condition.item.item(162, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
+talkEntry:addResponse("Ah, you brought the five birth mushrooms. Long did I store this reward, now it is yours.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(162, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 6));
-talkEntry:addResponse("Ah, you brought the five birth mushrooms. Long did I store this reward, now it is yours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(162, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Kräuterkundefertigkeit steigt."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
+talkEntry:addResponse("Ah, ihr habt die fünf Geburtspilze mitgebracht. Lange habe ich diese Belohnung aufbewahrt, nun ist sie euer.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(162, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 6));
-talkEntry:addResponse("Ah, ihr habt die fünf Geburtspilze mitgebracht. Lange habe ich diese Belohnung aufbewahrt, nun ist sie euer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -547,10 +548,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(162, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
+talkEntry:addResponse("Ah, ihr habt die fünf Geburtspilze mitgebracht. Lange habe ich diese Belohnung aufbewahrt, nun ist sie euer.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(162, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 6));
-talkEntry:addResponse("Ah, ihr habt die fünf Geburtspilze mitgebracht. Lange habe ich diese Belohnung aufbewahrt, nun ist sie euer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -596,8 +597,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Raban's Grove IV"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 7));
 talkEntry:addResponse("Now I need something special. The soil here is too wet for some plants to grow. I need ten shovel of coarse sand. Please go to my old friend Rutrus at the Oasis of Stars and fetch some, will you?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -606,8 +607,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 6));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Rabans Hain IV"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 7));
 talkEntry:addResponse("Nun benötige ich etwas besonderes. Der Mutterboden hier ist ein wenig zu feucht, damit gewisse Pflanzen hier wachsen können. Ich benötige zehn Schaufeln voll groben Sand. Bitte geht zu meinem alten Freund Rutrus zur Sternenoase und holt mir welchen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -617,8 +618,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Raban's Grove IV"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 7));
 talkEntry:addResponse("Now I need something special. The soil here is too wet for some plants to grow. I need ten shovel of coarse sand. Please go to my old friend Rutrus at the Oasis of Stars and fetch some, will you?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,23 +630,23 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Rabans Hain IV"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 7));
 talkEntry:addResponse("Nun benötige ich etwas besonderes. Der Mutterboden hier ist ein wenig zu feucht, damit gewisse Pflanzen hier wachsen können. Ich benötige zehn Schaufeln voll groben Sand. Bitte geht zu meinem alten Freund Rutrus zur Sternenoase und holt mir welchen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(726, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins and your herb lore skill increases."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
+talkEntry:addResponse("I thank you so much for venturing to the Oasis. I hope my friend Rutrus is well? Here, have this reward in exchange for the coarse sand.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(726, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 8));
-talkEntry:addResponse("I thank you so much for venturing to the Oasis. I hope my friend Rutrus is well? Here, have this reward in exchange for the coarse sand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -655,24 +656,24 @@ talkEntry:addCondition(npc.base.condition.item.item(726, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins."));
+talkEntry:addResponse("I thank you so much for venturing to the Oasis. I hope my friend Rutrus is well? Here, have this reward in exchange for the coarse sand.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(726, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 8));
-talkEntry:addResponse("I thank you so much for venturing to the Oasis. I hope my friend Rutrus is well? Here, have this reward in exchange for the coarse sand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.skill.skill(2, "herb lore", "<", 90));
+talkEntry:addCondition(npc.base.condition.skill.skill(Character.herblore, "<", 90));
 talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(726, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Kräuterkundefertigkeit steigt."));
-talkEntry:addConsequence(npc.base.consequence.skill.skill(2, "herb lore", "+", 1));
+talkEntry:addResponse("Ich danke euch vielmals für die Reise zur Oase. Ich hoffe, meinem Freund Rutrus geht es gut? Hier, nehmt diese Belohnung für den groben Sand.");
+talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.herblore, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(726, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 8));
-talkEntry:addResponse("Ich danke euch vielmals für die Reise zur Oase. Ich hoffe, meinem Freund Rutrus geht es gut? Hier, nehmt diese Belohnung für den groben Sand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -681,10 +682,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(66, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(726, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke."));
+talkEntry:addResponse("Ich danke euch vielmals für die Reise zur Oase. Ich hoffe, meinem Freund Rutrus geht es gut? Hier, nehmt diese Belohnung für den groben Sand.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(726, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(66, "=", 8));
-talkEntry:addResponse("Ich danke euch vielmals für die Reise zur Oase. Ich hoffe, meinem Freund Rutrus geht es gut? Hier, nehmt diese Belohnung für den groben Sand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1166,11 +1167,11 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Is money all that matters for you? I abstain from it since decades and never missed it a single day.");
 talkEntry:addResponse("I have no use for money. So I do not.");
 talkEntry:addResponse("I am not ar. Maybe you want to help me in a quest?");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1188,7 +1189,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation.");
-talkEntry:addResponse("I did not make this place, nature did. But few honor the wonders of Ushara and Oldra.");
+talkEntry:addResponse("I did not make this place, nature did. But few honour the wonders of Ushara and Oldra.");
 talkEntry:addResponse("Tales of old I never witnessed. Seldom, travellers come here to tell me about foreign lands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

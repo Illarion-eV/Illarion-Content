@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 19, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Aldania Elthewan"
@@ -55,7 +55,7 @@ itemShoes = 369
 -- More dialogs are in the pick-axe script and the torch script! They also set the queststatus to higher values!
 
 -- Debugging
-"reset" -> queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0, queststatus(314) = 0, warp(31, 22, 100), "Noobia reset!"
+"reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0, queststatus(314) = 0, warp(31, 22, 100)
 
 -- Help
 "Help" -> inform("[Tutorial] This NPC is the tutor Aldania Elthewan. Keywords: Hello, Help, Skip tutorial.")
@@ -66,28 +66,28 @@ itemShoes = 369
 "überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im Süden trittst."), warp(35, 95, 100)
 
 -- Learn how to equip
-queststatus(310) < 2, english, ".*" -> inform("[Tutorial] Please make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Drag the pick-axe to an empty hand slot in your inventory by holding the left mouse button."), item(2763, 1, 333), queststatus(310) = 2, "Be greeted, %CHARNAME. My name is Aldania Elthewan and I am here to teach you how to equip, examine and use items. Let us start with the basics, equipping. I have just given you a pick-axe, hold it in your hands, please."
-queststatus(310) < 2, ".*" -> inform("[Tutorial] Bitte überprüfe, ob deine Chatbox deaktiviert ist und drücke anschließend 'I', um dein Inventar zu öffnen. Öffne deinen Rucksack mit einem Doppelklick. Ziehe die Spitzhacke mit gedrückter linker Maustaste in ein leeres Handfeld in deinem Inventar."), item(2763, 1, 333), queststatus(310) = 2, "Seid gegrüßt, %CHARNAME. Mein Name ist Aldania Elthewan und ich bin hier, um Euch beizubringen, wie man sich mit Gegenständen ausrüstet, sie untersucht und benutzt. Lasst uns mit dem wichtigsten anfangen: dem Ausrüsten. Ich habe Euch soeben eine Spitzhacke gegeben, bitte nehmt sie in die Hand."
+queststatus(310) < 2, english, ".*" -> inform("[Tutorial] Please make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Drag the pick-axe to an empty hand slot in your inventory by holding the left mouse button."), "Be greeted, %CHARNAME. My name is Aldania Elthewan and I am here to teach you how to equip, examine and use items. Let us start with the basics, equipping. I have just given you a pick-axe, hold it in your hands, please.", item(2763, 1, 333), queststatus(310) = 2
+queststatus(310) < 2, ".*" -> inform("[Tutorial] Bitte überprüfe, ob deine Chatbox deaktiviert ist und drücke anschließend 'I', um dein Inventar zu öffnen. Öffne deinen Rucksack mit einem Doppelklick. Ziehe die Spitzhacke mit gedrückter linker Maustaste in ein leeres Handfeld in deinem Inventar."), "Seid gegrüßt, %CHARNAME. Mein Name ist Aldania Elthewan und ich bin hier, um Euch beizubringen, wie man sich mit Gegenständen ausrüstet, sie untersucht und benutzt. Lasst uns mit dem wichtigsten anfangen: dem Ausrüsten. Ich habe Euch soeben eine Spitzhacke gegeben, bitte nehmt sie in die Hand.", item(2763, 1, 333), queststatus(310) = 2
 
 -- Player lost his pick-axe. We will remove farmed pick axes at the end of the tutorial.
-queststatus(310) = 2, item(2763, all) = 0, english, ".*" -> item(2763, 1, 333), "Alas, it looks like you lost the pick-axe I gave you. Do not be so careless with your belongings! Here, have another. Take it into your hands, please."
-queststatus(310) = 2, item(2763, all) = 0, ".*" -> item(2763, 1, 333), "Ach herrje, es schaut aus, als hättet Ihr die Spitzhacke verloren, die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Nehmt sie bitte in die Hand."
+queststatus(310) = 2, item(2763, all) = 0, english, ".*" -> "Alas, it looks like you lost the pick-axe I gave you. Do not be so careless with your belongings! Here, have another. Take it into your hands, please.", item(2763, 1, 333)
+queststatus(310) = 2, item(2763, all) = 0, ".*" -> "Ach herrje, es schaut aus, als hättet Ihr die Spitzhacke verloren, die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Nehmt sie bitte in die Hand.", item(2763, 1, 333)
 
 -- Player seems to have a problem with equipping
 queststatus(310) = 2, english, ".*" -> inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Drag the pick-axe to an empty hand slot in your inventory by holding the left mouse button."), "Please place the pick-axe into your hands. Learning how to equip items is important, just imagine if you should face a dragon and could not even draw your sword!"
 queststatus(310) = 2, ".*" -> inform("[Tutorial] Bitte überprüfe, ob deine Chatbox deaktiviert ist und drücke anschließend 'I', um dein Inventar zu öffnen. Öffne deinen Rucksack mit einem Doppelklick. Ziehe die Spitzhacke mit gedrückter linker Maustaste in ein leeres Handfeld in deinem Inventar."), "Bitte nehmt die Spitzhacke in die Hand. Zu lernen wie man Gegenstände ausrüstet ist wichtig. Stellt Euch nur vor, Ihr würdet auf einen Drachen stoßen und könntet nichtmal Euer Schwert ziehen!"
 
 -- Player lost his pick-axe. Again. We will remove farmed pick axes at the end of the tutorial.
-queststatus(310) = 3, item(2763, all) = 0, english, ".*" -> item(2763, 1, 333), "Alas, it looks like you lost the pick-axe I gave you. Don't be so careless with your belongings! Here, have another one. Examine it, please."
-queststatus(310) = 3, item(2763, all) = 0, ".*" -> item(2763, 1, 333), "Ach herrje, es schaut aus als hättet Ihr die Spitzhacke verloren die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Untersucht sie einmal."
+queststatus(310) = 3, item(2763, all) = 0, english, ".*" -> "Alas, it looks like you lost the pick-axe I gave you. Don't be so careless with your belongings! Here, have another one. Examine it, please.", item(2763, 1, 333)
+queststatus(310) = 3, item(2763, all) = 0, ".*" -> "Ach herrje, es schaut aus als hättet Ihr die Spitzhacke verloren die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Untersucht sie einmal.", item(2763, 1, 333)
 
 -- Player seems to have a problem with examining
 queststatus(310) = 3, english, ".*" -> inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. Move the mouse cursor over the pick-axe in order to examine it."), "In order to examine an item, you simply have to move your mouse cursor over it. Learning about your belongings is as vital as acquiring them."
 queststatus(310) = 3, ".*" -> inform("[Tutorial] Bitte überprüfe, ob deine Chatbox deaktiviert ist und drücke anschließend 'I', um dein Inventar zu öffnen. Öffne deinen Rucksack mit einem Doppelklick. Bewege den Mauszeiger über die Spitzhacke um sie zu untersuchen."), "Um einen Gegenstand zu untersuchen, müsst Ihr einfach nur den Mauszeiger über ihn platzieren. Etwas über sein Hab und Gut zu lernen, ist mindestens so wichtig, wie es zu erlangen."
 
 -- Player lost his torch. We will remove farmed torches at the end of the tutorial.
-queststatus(310) = 4, item(391, all) = 0, english, ".*" -> item(391, 1, 333), "Without a light source, the darkness will engulf you sooner or later. I have given you another torch, be more careful with this one."
-queststatus(310) = 4, item(391, all) = 0, ".*" -> item(391, 1, 333), "Ohne eine Lichtquelle wird Euch die Dunkelheit früher oder später einhüllen. Ich habe Euch eine neue Fackel gegeben, bite seid vorsichtiger mit dieser."
+queststatus(310) = 4, item(391, all) = 0, english, ".*" -> "Without a light source, the darkness will engulf you sooner or later. I have given you another torch, be more careful with this one.", item(391, 1, 333)
+queststatus(310) = 4, item(391, all) = 0, ".*" -> "Ohne eine Lichtquelle wird Euch die Dunkelheit früher oder später einhüllen. Ich habe Euch eine neue Fackel gegeben, bite seid vorsichtiger mit dieser.", item(391, 1, 333)
 
 -- Player seems to have a problem with using items
 queststatus(310) = 4, english, ".*" -> inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. You can perform a double click on an item to use it. Double click the torch to ignite it."), "What is the purpose of owning an item if you cannot use it properly? Ignite the torch I gave you with a double click. Light sources are quite important when travelling by night."

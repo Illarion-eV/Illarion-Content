@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -188,6 +188,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -866,8 +867,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] QUESTTITLE I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
 talkEntry:addResponse("ENGLISH.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -876,8 +877,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] QUESTTITEL I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
 talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -887,8 +888,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] QUESTTITLE I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
 talkEntry:addResponse("ENGLISH.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -900,8 +901,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] QUESTTITEL I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
 talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -953,11 +954,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins. You advance in TITLE THISFACTION LEADER's favour."));
+talkEntry:addResponse("ENGLISH.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
-talkEntry:addResponse("ENGLISH.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -967,10 +968,10 @@ talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins."));
+talkEntry:addResponse("ENGLISH.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 2));
-talkEntry:addResponse("ENGLISH.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -980,11 +981,11 @@ talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."));
+talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
-talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -993,10 +994,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke."));
+talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 2));
-talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1006,8 +1007,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] QUESTTITLE II: You received a message for NPC."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
 talkEntry:addResponse("ENGLISH.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1016,8 +1017,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] QUESTTITEL II: Du hast eine Nachricht für NPC erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
 talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1027,8 +1028,8 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] QUESTTITLE II: You received a message for NPC."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
 talkEntry:addResponse("ENGLISH.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1040,8 +1041,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] QUESTTITEL II: Du hast eine Nachricht für NPC erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
 talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1088,11 +1089,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and A ITEM. You advance in TITLE THISFACTION LEADER's favour."));
+talkEntry:addResponse("ENGLISH.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 5));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
-talkEntry:addResponse("ENGLISH.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1101,10 +1102,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and A ITEM."));
+talkEntry:addResponse("ENGLISH.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 5));
-talkEntry:addResponse("ENGLISH.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1113,11 +1114,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 4));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und EIN ITEM. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."));
+talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 5));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
-talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1125,10 +1126,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 4));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und EIN ITEM."));
+talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 5));
-talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1138,8 +1139,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] QUESTTITLE III: You received a message for NPC."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 6));
 talkEntry:addResponse("ENGLISH.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1148,8 +1149,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 5));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] QUESTTITEL III: Du hast eine Nachricht für NPC erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 6));
 talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1159,8 +1160,8 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] QUESTTITLE III: You received a message for NPC."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 6));
 talkEntry:addResponse("ENGLISH.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1172,8 +1173,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] QUESTTITEL III: Du hast eine Nachricht für NPC erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 6));
 talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1220,10 +1221,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded A NICE ITEM. You advance in TITLE THISFACTION LEADER's favour."));
+talkEntry:addResponse("ENGLISH.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
-talkEntry:addResponse("ENGLISH.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1232,9 +1233,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded A NICE ITEM."));
+talkEntry:addResponse("ENGLISH.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 8));
-talkEntry:addResponse("ENGLISH.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1243,10 +1244,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 7));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst EIN NICE ITEM. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."));
+talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
-talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1254,9 +1255,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 7));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst EIN NICE ITEM."));
+talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 8));
-talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1266,8 +1267,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] QUESTTITLE IV_ You received a message for NPC."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 9));
 talkEntry:addResponse("ENGLISH.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1276,8 +1277,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 8));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] QUESTTITEL IV: Du hast eine Nachricht für NPC erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 9));
 talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1287,8 +1288,8 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] QUESTTITLE IV: You received a message for NPC."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 9));
 talkEntry:addResponse("ENGLISH.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1300,8 +1301,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] QUESTTITEL IV: Du hast eine Nachricht für NPC erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 9));
 talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1348,10 +1349,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 400 copper coins. You advance in TITLE THISFACTION LEADER's favour."));
+talkEntry:addResponse("ENGLISH.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
-talkEntry:addResponse("ENGLISH.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1360,9 +1361,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 400 copper coins."));
+talkEntry:addResponse("ENGLISH.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 11));
-talkEntry:addResponse("ENGLISH.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1371,10 +1372,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 10));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 400 Kupferstücke. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."));
+talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
-talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1382,9 +1383,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 10));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 400 Kupferstücke."));
+talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 11));
-talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1394,8 +1395,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] QUESTTITLE V: You received a message for NPC."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 12));
 talkEntry:addResponse("ENGLISH.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1404,8 +1405,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 11));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] QUESTTITEL V: Du hast eine Nachricht für NPC erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 12));
 talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1415,8 +1416,8 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] QUESTTITLE V: You received a message for NPC."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 12));
 talkEntry:addResponse("ENGLISH.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1428,8 +1429,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] QUESTTITEL V: Du hast eine Nachricht für NPC erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 12));
 talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1476,10 +1477,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded AN UBER ITEM. You advance in TITLE THISFACTION LEADER's favour."));
+talkEntry:addResponse("ENGLISH.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 14));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
-talkEntry:addResponse("ENGLISH.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1488,9 +1489,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 13));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded AN UBER ITEM."));
+talkEntry:addResponse("ENGLISH.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 14));
-talkEntry:addResponse("ENGLISH.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1499,10 +1500,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 13));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst EIN UBER ITEM. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."));
+talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 14));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
-talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1510,9 +1511,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(1337, "=", 13));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst EIN UBER ITEM."));
+talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 14));
-talkEntry:addResponse("GERMAN.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

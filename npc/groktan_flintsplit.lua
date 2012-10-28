@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -184,6 +184,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ihr name");
 talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
@@ -200,8 +201,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 1));
 talkEntry:addResponse("Aye, ye can help meh. We need five ropes. You know for what, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you...");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -210,8 +211,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Erinnerung I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 1));
 talkEntry:addResponse("Japp, ich hätte einen Handlangerdienst. Bring' mir fünf Seile, du weist, wofür. Frag nicht! Bring sie ran und alles ist gut, bring sie nicht und ich werde dich an sie... 'erinnern'.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -221,8 +222,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 1));
 talkEntry:addResponse("Aye, ye can help meh. We need five ropes. You know for what, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you...");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -234,8 +235,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Erinnerung I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 1));
 talkEntry:addResponse("Japp, ich hätte einen Handlangerdienst. Bring' mir fünf Seile, du weist, wofür. Frag nicht! Bring sie ran und alles ist gut, bring sie nicht und ich werde dich an sie... 'erinnern'.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -287,11 +288,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addResponse("Ah, yes, five strong ropes. They'll do the job. You know which job. If you are loyal to the Don, you can do another mission for me.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2760, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 5));
-talkEntry:addResponse("Ah, yes, five strong ropes. They'll do the job. You know which job. If you are loyal to the Don, you can do another mission for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -301,10 +302,10 @@ talkEntry:addCondition(npc.base.condition.item.item(2760, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 200 copper coins."));
+talkEntry:addResponse("Ah, yes, five strong ropes. They'll do the job. You know which job. If you are loyal, you can do another mission for me.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2760, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 2));
-talkEntry:addResponse("Ah, yes, five strong ropes. They'll do the job. You know which job. If you are loyal, you can do another mission for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -314,11 +315,11 @@ talkEntry:addCondition(npc.base.condition.item.item(2760, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addResponse("Ah, ja, fünf feste Seile. Sie werden's tun, du weißt schon, was. Wenn du dem Don loyal bist, kannst du eine weitere Mission für mich übernehmen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2760, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 5));
-talkEntry:addResponse("Ah, ja, fünf feste Seile. Sie werden's tun, du weißt schon, was. Wenn du dem Don loyal bist, kannst du eine weitere Mission für mich übernehmen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -327,10 +328,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2760, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke."));
+talkEntry:addResponse("Ah, ja, fünf feste Seile. Sie werden's tun, du weißt schon, was. Wenn du dem Don loyal bist, kannst du eine weitere Mission für mich übernehmen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2760, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 2));
-talkEntry:addResponse("Ah, ja, fünf feste Seile. Sie werden's tun, du weißt schon, was. Wenn du dem Don loyal bist, kannst du eine weitere Mission für mich übernehmen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -340,8 +341,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder II: You received a message for Miggs."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 3));
 talkEntry:addResponse("Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it. Just names, don't ask! Bring the list to Miggs and you won't read your name on it.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -350,8 +351,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Erinnerung II: Du hast eine Nachricht für Miggs erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 3));
 talkEntry:addResponse("Aye, du könntest mir noch einen Gefallen tun. Ich habe hier eine Nachricht für Miggs, eine Namensliste. Nur Namen, frag nicht! Bring sie zu Miggs und dein Name wird nicht drauf stehen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -361,8 +362,8 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder II: You received a message for Miggs."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 3));
 talkEntry:addResponse("Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it. Just names, don't ask! Bring the list to Miggs and you won't read your name on it.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -374,8 +375,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Erinnerung II: Du hast eine Nachricht für Miggs erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 3));
 talkEntry:addResponse("Aye, du könntest mir noch einen Gefallen tun. Ich habe hier eine Nachricht für Miggs, eine Namensliste. Nur Namen, frag nicht! Bring sie zu Miggs und dein Name wird nicht drauf stehen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -422,11 +423,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins and a red wizard hat. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addResponse("Good, Miggs got the list who needs a special treatment. I have a little something for you; one of the witches you brought the ropes for won't need her hat anymore. Here, a free hat!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.item.item(358, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 5));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
-talkEntry:addResponse("Good, Miggs got the list who needs a special treatment. I have a little something for you; one of the witches you brought the ropes for won't need her hat anymore. Here, a free hat!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -435,10 +436,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 copper coins a red wizard hat."));
+talkEntry:addResponse("Good, Miggs got the list who needs a special treatment. I have a little something for you; one of the witches you brought the ropes for won't need her hat anymore. Here, a free hat!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.item.item(358, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 5));
-talkEntry:addResponse("Good, Miggs got the list who needs a special treatment. I have a little something for you; one of the witches you brought the ropes for won't need her hat anymore. Here, a free hat!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -447,11 +448,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 4));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und einen roten Zauberhut. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addResponse("Gut, Miggs weiß jetzt, wer eine Spezialbehandlung braucht. Ich hab da was für dich; eine der Hexen, für die du ein Seil gebracht hast, wird jetzt ihren Hut nicht mehr brauchen. Hier, ein freigewordener Hut!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.item.item(358, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 5));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
-talkEntry:addResponse("Gut, Miggs weiß jetzt, wer eine Spezialbehandlung braucht. Ich hab da was für dich; eine der Hexen, für die du ein Seil gebracht hast, wird jetzt ihren Hut nicht mehr brauchen. Hier, ein freigewordener Hut!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -459,10 +460,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 4));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und einen roten Zauberhut."));
+talkEntry:addResponse("Gut, Miggs weiß jetzt, wer eine Spezialbehandlung braucht. Ich hab da was für dich; eine der Hexen, für die du ein Seil gebracht hast, wird jetzt ihren Hut nicht mehr brauchen. Hier, ein freigewordener Hut!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.item.item(358, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 5));
-talkEntry:addResponse("Gut, Miggs weiß jetzt, wer eine Spezialbehandlung braucht. Ich hab da was für dich; eine der Hexen, für die du ein Seil gebracht hast, wird jetzt ihren Hut nicht mehr brauchen. Hier, ein freigewordener Hut!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -472,8 +473,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder III: You received a message for Bruno Blackhole."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 6));
 talkEntry:addResponse("Arr! Bruno Blackhole, that filthy bastard, owes the Don quite a sum. You have to problem bringing him this special message from me? Good! Off!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -482,8 +483,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 5));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Erinnerung III: Du hast eine Nachricht für Bruno Blackhole erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 6));
 talkEntry:addResponse("Arr! Bruno Blackhole, der dreckige Lump, schuldet dem Don eine ziemliche Summe. Du hast kein Problem damit, ihm diese spezielle Nachricht von mir zu überbringen? Gut! Los!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -493,8 +494,8 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder III: You received a message for Bruno Blackhole."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 6));
 talkEntry:addResponse("Arr! Bruno Blackhole, that filthy bastard, owes the Don quite a sum. You have to problem bringing him this special message from me? Good! Off!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -506,8 +507,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Erinnerung III: Du hast eine Nachricht für Bruno Blackhole erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 6));
 talkEntry:addResponse("Arr! Bruno Blackhole, der dreckige Lump, schuldet dem Don eine ziemliche Summe. Du hast kein Problem damit, ihm diese spezielle Nachricht von mir zu überbringen? Gut! Los!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -554,10 +555,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a warhammer. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addResponse("Now Bruno will pay, the one or the other way. Anyway, here, for your good services, have my friend. His name is skull splitter!");
 talkEntry:addConsequence(npc.base.consequence.item.item(226, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
-talkEntry:addResponse("Now Bruno will pay, the one or the other way. Anyway, here, for your good services, have my friend. His name is skull splitter!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -566,9 +567,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a warhammer."));
+talkEntry:addResponse("Now Bruno will pay, the one or the other way. Anyway, here, for your good services, have my friend. His name is skull splitter!");
 talkEntry:addConsequence(npc.base.consequence.item.item(226, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 8));
-talkEntry:addResponse("Now Bruno will pay, the one or the other way. Anyway, here, for your good services, have my friend. His name is skull splitter!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -577,10 +578,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 7));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Kriegshammer. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addResponse("Jetzt wird Bruno zahlen, auf die eine oder andere Weise. Nun, für deine guten Dienste gebe ich dir meinen Freund. Sein Name ist Schädelspalter.");
 talkEntry:addConsequence(npc.base.consequence.item.item(226, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
-talkEntry:addResponse("Jetzt wird Bruno zahlen, auf die eine oder andere Weise. Nun, für deine guten Dienste gebe ich dir meinen Freund. Sein Name ist Schädelspalter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -588,9 +589,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 7));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Kriegshammer."));
+talkEntry:addResponse("Jetzt wird Bruno zahlen, auf die eine oder andere Weise. Nun, für deine guten Dienste gebe ich dir meinen Freund. Sein Name ist Schädelspalter.");
 talkEntry:addConsequence(npc.base.consequence.item.item(226, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 8));
-talkEntry:addResponse("Jetzt wird Bruno zahlen, auf die eine oder andere Weise. Nun, für deine guten Dienste gebe ich dir meinen Freund. Sein Name ist Schädelspalter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -600,8 +601,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder IV: You received a message for Fronita Emery."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 9));
 talkEntry:addResponse("She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Bring her this payment reminder!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -610,8 +611,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 8));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Erinnerung IV: Du hast eine Nachricht für Fronita Emery erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 9));
 talkEntry:addResponse("Sie denkt, sie ist schlau! Fronita Emery, eine Handwerkerin Runewicks, denkt sie kann sich in der Turmstadt verstecken und ihre Schulden nicht bezahlen. Bring ihr diese letzte Mahnung!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -621,8 +622,8 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder IV: You received a message for Fronita Emery."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 9));
 talkEntry:addResponse("She thinks she's smart! Fronita Emery, an artisan of Runewick thinks she can hide in that wicked tower town and avoid paying back her dues. Bring her this payment reminder!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -634,8 +635,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Erinnerung IV: Du hast eine Nachricht für Fronita Emery erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 9));
 talkEntry:addResponse("Sie denkt, sie ist schlau! Fronita Emery, eine Handwerkerin Runewicks, denkt sie kann sich in der Turmstadt verstecken und ihre Schulden nicht bezahlen. Bring ihr diese letzte Mahnung!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 9));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -682,10 +683,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 400 copper coins. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addResponse("Bad business for Fronita! I'll give you some of the interest she'll pay back now. The Don appreciates loyal minions.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 15));
-talkEntry:addResponse("Bad business for Fronita! I'll give you some of the interest she'll pay back now. The Don appreciates loyal minions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,9 +695,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 400 copper coins."));
+talkEntry:addResponse("Bad business for Fronita! I'll give you some of the interest she'll pay back now. The Don appreciates loyal minions.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 11));
-talkEntry:addResponse("Bad business for Fronita! I'll give you some of the interest she'll pay back now. The Don appreciates loyal minions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -705,10 +706,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 10));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 400 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addResponse("Schlechtes Geschäft für Fronita! Ich gebe dir ein wenig von den Zinsen, die sie dem Don nun zurückzahlen wird. Der Don belohnt loyale Handlanger.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 15));
-talkEntry:addResponse("Schlechtes Geschäft für Fronita! Ich gebe dir ein wenig von den Zinsen, die sie dem Don nun zurückzahlen wird. Der Don belohnt loyale Handlanger.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -716,9 +717,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 10));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 400 Kupferstücke."));
+talkEntry:addResponse("Schlechtes Geschäft für Fronita! Ich gebe dir ein wenig von den Zinsen, die sie dem Don nun zurückzahlen wird. Der Don belohnt loyale Handlanger.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 11));
-talkEntry:addResponse("Schlechtes Geschäft für Fronita! Ich gebe dir ein wenig von den Zinsen, die sie dem Don nun zurückzahlen wird. Der Don belohnt loyale Handlanger.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -728,8 +729,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder V: You received a message for Queen Rosaline Edwards."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 12));
 talkEntry:addResponse("The Don trusts me and I trust you. This time, you have to deliver a very... special message. Bring this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -738,8 +739,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 11));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Erinnerung V: Du hast eine Nachricht für Königin Rosaline Edwards erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 12));
 talkEntry:addResponse("Der Don vertraut mir und ich traue dir. Diesmal musst du eine 'besondere' Nachricht überbringen. Bring diesen 'Brief der Wertschätzung' zur Königin von Cadomyr. Kein Wort zu niemanden! Los!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -749,8 +750,8 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Reminder V: You received a message for Queen Rosaline Edwards."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 12));
 talkEntry:addResponse("I trust you. The Don trusts you. This time, you have to deliver a very... special message. Bring this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -762,8 +763,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Erinnerung V: Du hast eine Nachricht für Königin Rosaline Edwards erhalten."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 12));
 talkEntry:addResponse("Der Don vertraut mir und ich traue dir. Diesmal musst du eine 'besondere' Nachricht überbringen. Bring diesen 'Brief der Wertschätzung' zur Königin von Cadomyr. Kein Wort zu niemanden! Los!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -810,10 +811,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a charm of the icebird. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addResponse("I already heard the Queen of Cadomyr wasn't so fond of the message you brought her. The Don won't like to hear the news. My next mission would have been that you bring her this necklace; keep it and keep silent about all this!");
 talkEntry:addConsequence(npc.base.consequence.item.item(334, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 14));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
-talkEntry:addResponse("I already heard the Queen of Cadomyr wasn't so fond of the message you brought her. The Don won't like to hear the news. My next mission would have been that you bring her this necklace; keep it and keep silent about all this!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -822,9 +823,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 13));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a charm of the icebird."));
+talkEntry:addResponse("I already heard the Queen of Cadomyr wasn't so fond of the 'message' you brought her. The Don won't like to hear the news. My next mission would have been that you bring her this necklace; keep it and keep silent about all this!");
 talkEntry:addConsequence(npc.base.consequence.item.item(334, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 14));
-talkEntry:addResponse("I already heard the Queen of Cadomyr wasn't so fond of the 'message' you brought her. The Don won't like to hear the news. My next mission would have been that you bring her this necklace; keep it and keep silent about all this!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -833,10 +834,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 13));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Eisvogelamulett. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addResponse("Ich habe schon davon gehört, dass die Königin von Cadomyr nicht so begeistert über die 'Nachricht' war, die du ihr gebracht hast. Den Don wird das nicht freuen. Meine nächste Mission wäre gewesen, dass du ihr diesen Halsschmuck bringst. Behalte ihn und die ganze Angelegenheit für dich!");
 talkEntry:addConsequence(npc.base.consequence.item.item(334, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 14));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
-talkEntry:addResponse("Ich habe schon davon gehört, dass die Königin von Cadomyr nicht so begeistert über die 'Nachricht' war, die du ihr gebracht hast. Den Don wird das nicht freuen. Meine nächste Mission wäre gewesen, dass du ihr diesen Halsschmuck bringst. Behalte ihn und die ganze Angelegenheit für dich!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -844,9 +845,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(107, "=", 13));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Eisvogelamulett."));
+talkEntry:addResponse("Ich habe schon davon gehört, dass die Königin von Cadomyr nicht so begeistert über die 'Nachricht' war, die du ihr gebracht hast. Den Don wird das nicht freuen. Meine nächste Mission wäre gewesen, dass du ihr diesen Halsschmuck bringst. Behalte ihn und die ganze Angelegenheit für dich!");
 talkEntry:addConsequence(npc.base.consequence.item.item(334, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 14));
-talkEntry:addResponse("Ich habe schon davon gehört, dass die Königin von Cadomyr nicht so begeistert über die 'Nachricht' war, die du ihr gebracht hast. Den Don wird das nicht freuen. Meine nächste Mission wäre gewesen, dass du ihr diesen Halsschmuck bringst. Behalte ihn und die ganze Angelegenheit für dich!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1489,10 +1490,10 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Come to me if you owe the Don money. Then, you give it to me. If you don't, I give something to you. Right in your face!");
 talkEntry:addResponse("I'm not ar. The difference is: I just take money and give nothing in return. You just get something from me if you don't pay. Pain!");
 talkEntry:addResponse("Get lost if you want to barter.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

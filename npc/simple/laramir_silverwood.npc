@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                                            --
--- Last parsing: October 18, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Laramir Silverwood"
@@ -32,22 +32,10 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me lächelt und zuckt mit den Schultern."
 wrongLangUS = "#me smilies and shrougs his shoulders."
 radius = 0
-tradeNotEnoughMoneyMsg "Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins."
-tradeFinishedMsg "Komm wieder, mein Freund.", "Please come again, my friend."
-tradeFinishedWithoutTradingMsg "Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!"
-tradeWrongItemMsg "Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?"
 hairID = 2
 beardID = 0
-tradeNotEnoughMoneyMsg "Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins."
-tradeFinishedMsg "Komm wieder, mein Freund.", "Please come again, my friend."
-tradeFinishedWithoutTradingMsg "Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!"
-tradeWrongItemMsg "Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?"
 colorHair = 200, 221, 243
 colorSkin = 245, 217, 200
-tradeNotEnoughMoneyMsg "Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins."
-tradeFinishedMsg "Komm wieder, mein Freund.", "Please come again, my friend."
-tradeFinishedWithoutTradingMsg "Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!"
-tradeWrongItemMsg "Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?"
 itemHead = 0
 itemChest = 364
 itemCoat = 196
@@ -56,22 +44,18 @@ itemSecondHand = 0
 itemHands = 48
 itemTrousers = 183
 itemShoes = 369
-tradeNotEnoughMoneyMsg "Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins."
-tradeFinishedMsg "Komm wieder, mein Freund.", "Please come again, my friend."
-tradeFinishedWithoutTradingMsg "Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!"
-tradeWrongItemMsg "Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?"
 
 ------------------------------------------------------------------------------AC
 -- Trading
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 323, 2782, 2783, 2784, 2785, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 90, 332, 333, 335, 3, 56, 543, 544, 2560, 2786, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 39, 40, 57, 76, 207, 208, 209, 293, 294, 2645
-buySecondaryItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 323, 2782, 2783, 2784, 2785, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 90, 332, 333, 335, 3, 56, 543, 544, 2560, 2786, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 39, 40, 57, 76, 207, 208, 209, 293, 294, 2645
 tradeNotEnoughMoneyMsg "Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins."
 tradeFinishedMsg "Komm wieder, mein Freund.", "Please come again, my friend."
 tradeFinishedWithoutTradingMsg "Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!"
 tradeWrongItemMsg "Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?"
+sellItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 323, 2782, 2783, 2784, 2785, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 90, 332, 333, 335, 3, 56, 543, 544, 2560, 2786, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 39, 40, 57, 76, 207, 208, 209, 293, 294, 2645
+buySecondaryItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 323, 2782, 2783, 2784, 2785, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 90, 332, 333, 335, 3, 56, 543, 544, 2560, 2786, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 39, 40, 57, 76, 207, 208, 209, 293, 294, 2645
 
 -- Cycle Texts are missing!
 
@@ -105,10 +89,6 @@ tradeWrongItemMsg "Mein Freund, was soll ich mit diesem Gegenstand?", "My friend
 -- 5% Throwing weapons: 293, 294, 2645
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I trade with wooden goods. Feel free to take a look my friend.", trade
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "I handle mit hölzernen Waren. Bitte, sieh dir ruhig um mein Freund!", trade
-tradeNotEnoughMoneyMsg "Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins."
-tradeFinishedMsg "Komm wieder, mein Freund.", "Please come again, my friend."
-tradeFinishedWithoutTradingMsg "Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!"
-tradeWrongItemMsg "Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?"
 
 -- MANDATORY TRIGGERS
 
