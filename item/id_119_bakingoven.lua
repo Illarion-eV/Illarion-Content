@@ -1,133 +1,123 @@
--- Backofen
+-- 5x flour (2) + bucket of water (52) --> 5x dough (5)
 
--- Mehl(2) und Wasser(52) zu Teig(5)
-
--- Arbeitscyclus: 2s - 8s
--- Zusätzliches Werkzeug: Nudelholz ( 118 )
+-- additional tool: rolling pin ( 118 )
 
 -- UPDATE common SET com_script='item.id_119_backingoven' WHERE com_itemid IN (119,120);
 
 require("base.common")
 
-module("item.id_119_backingoven", package.seeall);
+module("item.id_119_bakingoven", package.seeall);
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    base.common.ResetInterruption( User, ltstate );
-    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
-        base.common.InformNLS( User,
-        "Deine Rüstung behindert beim Arbeiten.",
-        "Your armor disturbs while working." );
-        return
-    end
-    
-    if not base.common.CheckItem( User, SourceItem ) then -- Sicherheitscheck
-        return
-    end
-    
-    if not base.common.IsLookingAt( User, SourceItem.pos ) then -- Blickrichtung
-        base.common.TurnTo( User, SourceItem.pos ); -- Drehen wenn nötig
-    end
-    
-    if not base.common.FitForWork( User ) then -- Kein Hunger
-        return
-    end
-    
-    if (User:countItemAt("body",118)==0) then -- kleine Zange
-        base.common.InformNLS( User,
-        "Du benötigst ein Nudelholz um hier zu arbeiten.",
-        "You need a rolling pin to work here." );
-        return
-    end
-    
-    local Tool = User:getItemAt(Character.left_tool); -- Item in Linker Hand auslesen
-    if ((Tool == nil) or (Tool.id ~= 118)) then -- Wenn das Item nicht die Zange ist
-        Tool = User:getItemAt(Character.right_tool); -- In anderer Hand nachsehen
-    end
-    
-    if base.common.ToolBreaks( User, Tool, true) then -- Zange beschädigen
-        base.common.InformNLS( User, 
-        "Dein Nudelholz zerbricht.",
-        "Your pin roll breaks." );
-        return
-    end
-    
-    if ( ltstate == Action.abort ) then -- Arbeit unterbrochen
-        if (User:increaseAttrib("sex",0) == 0) then
-            gText = "seine";
-            eText = "his";
-        else
-            gText = "ihre";
-            eText = "her";
-        end
-        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-        return
-    end
-    
-    if (User:countItemAt("belt",2) == 0) then -- Mehl gefunden
-        base.common.InformNLS( User, 
-        "Du brauchst Mehl um hier Teig zu machen.", 
-        "You need flour to make dough" );
-        return
-    end
-    
-    if (User:countItemAt("belt",52) == 0) then -- Mehl gefunden
-        base.common.InformNLS( User, 
-        "Du brauchst einen Eimer Wasser um hier Teig zu machen.", 
-        "You need a bucket of water to make dough" );
-        return
-    end
-    
-    if ( ltstate == Action.none ) then -- Arbeit nicht gestartet -> Starten
-        User:startAction( GenWorkTime(User), 0, 0, 0, 0 );
-        User:talkLanguage( Character.say, Player.german, "#me beginnt Teig zu kneten.");
-        User:talkLanguage( Character.say, Player.english, "#me starts to make dough.");
-        return              
-    end
-    
-    if base.common.IsInterrupted( User ) then
-        base.common.InformNLS(User,
-        "Du schüttest dir aus Versehen eine Ladung Wasser an die Kleidung.",
-        "You accidentally pour some water on your clothes.");
-        return
-    end
-    
-    local handleAtOnce = math.min(5,User:countItemAt("belt",2));
-    
-    User:eraseItem(2,handleAtOnce);
-    User:eraseItem(52,1);
-    local notCreated = User:createItem(51,1,333,0);
-    local startagain = true;
-    if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char überladen
-        world:createItemFromId( 51, notCreated, User.pos, true, 333 ,0);
-        base.common.InformNLS(User,
-        "Du kannst nichts mehr halten.",
-        "You can't carry any more.");
-        startagain = false;
-    end
-    
-    notCreated = User:createItem(5,handleAtOnce,333,0);
-    if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char überladen
-        world:createItemFromId( 5, notCreated, User.pos, true, 333 ,0);
-        base.common.InformNLS(User,
-        "Du kannst nichts mehr halten.",
-        "You can't carry any more.");
-        startagain = false;
-    end
-    
-    if startagain then
-        User:startAction( GenWorkTime(User), 0, 0, 0, 0 );
-    end
-    
-    --User:learn(Character.baking, 2, 20, User:increaseAttrib("dexterity", 0));
-	--Replace with new learn function, see learn.lua 
-    base.common.GetHungry( User, 200 );
-end
-    
-    
-function GenWorkTime(User)
-    local Attrib = User:increaseAttrib("dexterity",0); -- Geschicklichkeit: 0 - 20
-    local Skill  = User:getSkill(Character.cooking);     -- Backen: 0 - 100
-    
-    return math.floor(-0.5 * (Attrib + Skill) + 80);
+function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	content.gathering.InitGathering();
+	local doughproducing = content.gathering.doughproducing;
+
+	base.common.ResetInterruption( User, ltstate );
+	if ( ltstate == Action.abort ) then -- work interrupted
+		if (User:increaseAttrib("sex",0) == 0) then
+			gText = "seine";
+			eText = "his";
+		else
+			gText = "ihre";
+			eText = "her";
+		end
+		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		return
+	end
+
+	if not base.common.CheckItem( User, SourceItem ) then -- security check
+		return
+	end
+	
+	-- additional tool item is needed
+	if (User:countItemAt("all",118)==0) then
+		base.common.InformNLS( User,
+		"Du brauchst ein Nudelholz um Teig herzustellen.", 
+		"You need a rolling pin for producing dough." );
+		return
+	end
+	local toolItem = User:getItemAt(5);
+	if ( toolItem.id ~= 118 ) then
+		toolItem = User:getItemAt(6);
+		if ( toolItem.id ~= 118 ) then
+			base.common.InformNLS( User,
+			"Du musst das Nudelholz in der Hand haben!",
+			"You have to hold the rolling pin in your hand!" );
+			return
+		end
+	end
+
+	if base.common.Encumbrence(User) then
+		base.common.InformNLS( User,
+		"Deine Rüstung behindert Dich bei der Teigherstellung.",
+		"Your armour disturbs you while producing dough." );
+		return
+	end
+
+	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
+
+	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
+		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+	end
+	
+	-- any other checks?
+
+	if (User:countItemAt("all",2)==0 or User:countItemAt("all",52)==0) then -- check for items to work on
+		base.common.InformNLS( User, 
+		"Du brauchst Mehl und einen Eimer mit Wasser um Teig herzustellen.", 
+		"You need flour and a bucket of water for producing dough." );
+		return;
+	elseif (User:countItemAt("all",2)<5) then
+		base.common.InformNLS( User, 
+		"Du hast nicht genug Mehl um Teig herzustellen.", 
+		"You dont't have enough flour for producing dough." );
+		return;
+	end
+	
+	if ( ltstate == Action.none ) then -- currently not working -> let's go
+		doughproducing.SavedWorkTime[User.id] = doughproducing:GenWorkTime(User,toolItem);
+		User:startAction( doughproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		User:talkLanguage( Character.say, Player.german, "#me beginnt Teig herzustellen.");
+		User:talkLanguage( Character.say, Player.english, "#me starts to produce dough."); 
+		return
+	end
+
+	-- since we're here, we're working
+
+	if doughproducing:FindRandomItem(User) then
+		return
+	end
+
+	User:learn( doughproducing.LeadSkill, doughproducing.LeadSkillGroup, doughproducing.SavedWorkTime[User.id], 100, User:increaseAttrib(doughproducing.LeadAttribute,0) );
+	User:eraseItem( 2, 5 ); -- erase the item we're working on
+	User:eraseItem( 52, 1 ); -- erase the item we're working on
+	local bucketNotCreated = User:createItem( 51, 1, 333, nil ); -- create an empty bucket
+	local amount = 5; -- set the amount of items that are produced
+	local notCreated = User:createItem( 5, amount, 333, nil ); -- create the new produced items
+	if ( notCreated > 0 or bucketNotCreated > 0) then -- too many items -> character can't carry anymore
+		world:createItemFromId( 5, notCreated, User.pos, true, 333, nil );
+		world:createItemFromId( 51, bucketNotCreated, User.pos, true, 333, nil );
+		base.common.InformNLS(User,
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
+	else -- character can still carry something
+		if (User:countItemAt("all",2)>=5 and User:countItemAt("all",2)>0) then  -- there are still items we can work on
+			doughproducing.SavedWorkTime[User.id] = doughproducing:GenWorkTime(User,toolItem);
+			User:startAction( doughproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		else -- no items left
+			base.common.InformNLS(User,
+			"Du hast nicht mehr genug Mehl und Eimer mit Wasser.",
+			"You don't have enough flour and buckets of water anymore.");
+		end
+	end
+
+	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+		base.common.InformNLS(User,
+		"Dein altes Nudelholz zerbricht.",
+		"Your old rolling pin breaks.");
+		return
+	end
 end

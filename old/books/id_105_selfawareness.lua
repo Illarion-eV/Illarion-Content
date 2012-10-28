@@ -40,7 +40,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Schneiderns",6,"tailoring");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Schreinerns",9,"carpentry");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Bergbaus",2763,"mining");
-            AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Kochens",227,"baking");
+            AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Kochens",227,"cookingAndBaking");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Anbauens",271,"peasantry");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Holzfällens",74,"lumberjacking");
             AddGermanBookText("\n Es scheint als seid ihr ~level~ in der Kunst des Edelstein schleifens",270,"gemcutting");
@@ -90,7 +90,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             AddEnglishBookText("\n It seems you are ~level~ in the Art of tailoring",6,"tailoring");
             AddEnglishBookText("\n It seems you are ~level~ in the Art of carpentry",9,"carpentry");
             AddEnglishBookText("\n It seems you are ~level~ in the Art of mining",2763,"mining");
-            AddEnglishBookText("\n It seems you are ~level~ in the Art of baking",227,"baking");
+            AddEnglishBookText("\n It seems you are ~level~ in the Art of baking",227,"cookingAndBaking");
             AddEnglishBookText("\n It seems you are ~level~ in the Art of peasantry",271,"peasantry");
             AddEnglishBookText("\n It seems you are ~level~ in the Art of lumberjacking",74,"lumberjacking");
             AddEnglishBookText("\n It seems you are ~level~ in the Art of gemcutting",270,"gemcutting");

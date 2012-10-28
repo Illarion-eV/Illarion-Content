@@ -118,7 +118,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         User:startAction( GenWorkTime(User), 0, 0, 0, 0);
     end
     base.common.GetHungry( User, 200 );
-    --User:learn( 2, "baking", 2, 10 );
+    --User:learn( 2, "cookingAndBaking", 2, 10 );
 	--Replace with new learn function, see learn.lua 
 end -- function UseItem()
 
