@@ -772,6 +772,23 @@ talkEntry:addTrigger("cadomyr beitreten");
 talkEntry:addConsequence(npc.base.consequence.town.town("=",1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("status");
+talkEntry:addTrigger("rankpoints");
+talkEntry:addTrigger("rank");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addConsequence(npc.base.consequence.town.town("?",nil));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("status");
+talkEntry:addTrigger("rangpunkte");
+talkEntry:addTrigger("rang");
+talkEntry:addConsequence(npc.base.consequence.town.town("?",nil));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
 talkingNPC:addCycleText("#me blättert duch einen Stapel Pergamente.", "#me skims throug a pile of parchments.");
 talkingNPC:addCycleText("#me betrachtet die Schreibfeder in ihrer Hand.", "#me looks at the quill, she's holding in her hand.");
 talkingNPC:addCycleText("#me liest einen Brief.", "#me reads a letter.");
