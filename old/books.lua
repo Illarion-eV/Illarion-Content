@@ -135,7 +135,7 @@ function ModifyText(User,Text,Difficult,CharLangSkillName)
         vocals={65,69,73,79,85};
     end
     local retText="";
-    local Skill=User:getSkill("library research");
+    local Skill=0; --TODO: User:getSkill("library research");
     local CharLangSkill = User:getSkill(CharLangSkillName);
     local Char="";
     local DoChange = false;

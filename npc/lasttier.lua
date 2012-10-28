@@ -321,10 +321,10 @@ function MoveX(XOff,forced)
     else
         thisNPC:move(2,true);
     end
-    if equapos(old_pos,thisNPC.pos) then
+    if (old_pos == thisNPC.pos) then
         if forced and (XOff == 0) then
             thisNPC:move(6,true);
-            if not equapos(old_pos,thisNPC.pos) then
+            if not (old_pos == thisNPC.pos) then
                 return true;
             end
         end
@@ -355,10 +355,10 @@ function MoveY(YOff,forced)
     else
         thisNPC:move(4,true);
     end
-    if equapos(old_pos,thisNPC.pos) then
+    if (old_pos == thisNPC.pos) then
         if forced and (YOff == 0) then
             thisNPC:move(0,true);
-            if not equapos(old_pos,thisNPC.pos) then
+            if not (old_pos == thisNPC.pos) then
                 return true;
             end
         end

@@ -9,25 +9,25 @@ function InitGathering()
 		local prob_occasionally = 0.05;
 		local prob_rarely = 0.01;
 		local prob_extremely_rarely = 0.005;
-		woodchopping = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "lumberjacking", LeadSkillGroup = 2}; -- id_74_axe
-		honeygathering = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- id_1005_beehive
-		farming = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2, FastActionFactor = 0.5}; -- seeds, id_126_sickle
-		fruitgathering = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- harvest
-		mining = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_2763_pickaxe
-		sanddigging = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_24_shovel
-		claydigging = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_24_shovel
-		herbgathering = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "perception", LeadSkill = "herb lore", LeadSkillGroup = 2}; -- id_126_sickle
-		fishing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "perception", LeadSkill = "fishing", LeadSkillGroup = 2}; -- id_72_fishingrod
-		woolcutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- id_6_scissors
-		potashproducing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "lumberjacking", LeadSkillGroup = 2}; -- item.id_12_campfire
+		woodchopping = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = Character.woodcutting}; -- id_74_axe
+		honeygathering = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = Character.farming}; -- id_1005_beehive
+		farming = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = Character.farming, FastActionFactor = 0.5}; -- seeds, id_126_sickle
+		fruitgathering = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = Character.farming}; -- harvest
+		mining = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = Character.mining}; -- id_2763_pickaxe
+		sanddigging = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = Character.mining}; -- id_24_shovel
+		claydigging = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = Character.mining}; -- id_24_shovel
+		herbgathering = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "perception", LeadSkill = Character.herblore}; -- id_126_sickle
+		fishing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "perception", LeadSkill = Character.fishing}; -- id_72_fishingrod
+		woolcutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = Character.farming}; -- id_6_scissors
+		potashproducing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = Character.woodcutting}; -- item.id_12_campfire
         
-		entrailscutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "tailoring", LeadSkillGroup = 2}; -- id_6_scissors
-		stonecutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_737_chisel
-		sieving = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "mining", LeadSkillGroup = 2}; -- id_727_sieve
-		flailing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2, FastActionFactor = 0.5}; -- id_258_flail
-		grainharvesting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = "peasantry", LeadSkillGroup = 2, FastActionFactor = 0.5}; -- id_271_scythe
-		threadproducing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "tailoring", LeadSkillGroup = 2}; -- id_171_spinningwheel
-		oilsqueezing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = "peasantry", LeadSkillGroup = 2}; -- id_44_squeezer
+		entrailscutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = Character.tailoring}; -- id_6_scissors
+		stonecutting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = Character.mining}; -- id_737_chisel
+		sieving = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = Character.mining}; -- id_727_sieve
+		flailing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = Character.farming, FastActionFactor = 0.5}; -- id_258_flail
+		grainharvesting = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "constitution", LeadSkill = Character.farming, FastActionFactor = 0.5}; -- id_271_scythe
+		threadproducing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = Character.tailoring}; -- id_171_spinningwheel
+		oilsqueezing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "strength", LeadSkill = Character.farming}; -- id_44_squeezer
 		doughproducing = base.gatheringcraft.GatheringCraft:new{LeadAttrib = "dexterity", LeadSkill = "baking", LeadSkillGroup = 2}; -- id_119_bakingoven
 		
 		-- TODO

@@ -23,7 +23,7 @@ function DrinkPotion(User,SourceItem)
 	elseif (potionEffectId <= 8) then -- language potion
             
 		ListPotionEffectId={1,2,3,4,5,6,7,8}
-		ListLanguages={"common language","human language","dwarf language","elf language","lizard language","orc language","halfling language","ancient language"}
+		ListLanguages={Character.commonLanguage,Character.humanLanguage,Character.dwarfLanguage,Character.elfLanguage,Character.lizardLanguage,Character.orcLanguage,Character.halflingLanguage,Character.ancientLanguage}
 		
         find, myEffect = User.effects:find(330)
 		if find then --  there is already an effect, we remove it, only one language at a time
@@ -32,7 +32,7 @@ function DrinkPotion(User,SourceItem)
 			skillName = ListLanguages[languageId]
 			find,oldSkill = myEffect:findValue( "oldSkill")
 			find,newSkill = myEffect:findValue( "newSkill")
-			User:increaseSkill(1,skillName,(-(newSkill-oldSkill))) -- old skill level restored
+			User:increaseSkill(skillName,(-(newSkill-oldSkill))) -- old skill level restored
 		    effectRemoved = User.effects:removeEffect(329)
 			if not effectRemove then
 				base.common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. white bottle script", "Error: inform dev. Lte not removed. white bottle script.")
@@ -53,7 +53,7 @@ function DrinkPotion(User,SourceItem)
         duration = 10 -- replace with formula
         myEffect:addValue("counterWhite",10)
 	  
-	    User:increaseSkill(1,ListLanguages[potionEffectId],newSkill)
+	    User:increaseSkill(ListLanguages[potionEffectId],newSkill)
  		User.effects:addEffect(myEffect);
     end
   end

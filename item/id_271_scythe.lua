@@ -97,7 +97,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( grainharvesting.LeadSkill, grainharvesting.LeadSkillGroup, grainharvesting.SavedWorkTime[User.id], 100, User:increaseAttrib(grainharvesting.LeadAttribute,0) );
+	User:learn( grainharvesting.LeadSkill, grainharvesting.SavedWorkTime[User.id], 100, User:increaseAttrib(grainharvesting.LeadAttribute,0) );
 	local amount = TargetItem:getData("amount");
 	if ( amount == "" ) then
 		-- this should never happen...

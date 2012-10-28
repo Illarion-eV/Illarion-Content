@@ -8,7 +8,7 @@
 -- Authors:  Regallo                                                          --
 --           ...with a little help of Estralis Seborian                       --
 --                                                                            --
--- Last parsing: October 25, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 27, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -28,13 +28,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is <Fondura> the <Flamesage>. Keyphrases: Waresage, Fire, Lerghanis , Gods."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Fondura the Flamesage. Keyphrases: Waresage, Fire, Apple, Gods."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Fondura die Feuermagierin. Schlüsselwörter: Kampfmagier, Feuer, Apfel, Götter."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -59,9 +59,9 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Wie kann ich euch helfen?");
+talkEntry:addResponse("Ja?");
+talkEntry:addResponse("Was?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -82,9 +82,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Wie kann ich euch helfen?");
+talkEntry:addResponse("Ja?");
+talkEntry:addResponse("Was?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -93,9 +93,9 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Please Leave in haste.");
+talkEntry:addResponse("Please leave in haste.");
 talkEntry:addResponse("Goodbye.");
-talkEntry:addResponse("#Fo Stares at you.");
+talkEntry:addResponse("Fondura stares at you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -104,9 +104,9 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Sputet euch!");
+talkEntry:addResponse("Auf bald.");
+talkEntry:addResponse("Fondura beobachtet euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -116,9 +116,9 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Please Leave in haste.");
+talkEntry:addResponse("Please leave in haste.");
 talkEntry:addResponse("Goodbye.");
-talkEntry:addResponse("#Fo Stares at you.");
+talkEntry:addResponse("Fondura stares at you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -127,9 +127,9 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Sputet euch!");
+talkEntry:addResponse("Auf bald.");
+talkEntry:addResponse("Fondura beobachtet euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -138,8 +138,8 @@ talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addResponse("I am me.");
-talkEntry:addResponse("I am feeling in balance.");
-talkEntry:addResponse("I don't feel like answering you.");
+talkEntry:addResponse("I am well.");
+talkEntry:addResponse("That's none of your business.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -148,9 +148,9 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin ich.");
+talkEntry:addResponse("Mir geht es gut");
+talkEntry:addResponse("Das geht euch nichts an.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -158,7 +158,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Fo Duh Rah.");
+talkEntry:addResponse("Fondura.");
 talkEntry:addResponse("The Sage of Flame.");
 talkEntry:addResponse("I am one of the seven Warsages.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -169,9 +169,9 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Fondura.");
+talkEntry:addResponse("Der Magier der Flamme");
+talkEntry:addResponse("Ich bin einer der sieben Kampfmagier");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -179,15 +179,15 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("Warsage, that is what I am.");
 talkEntry:addResponse("I work for Runewick.");
-talkEntry:addResponse("I live in the service of Archmage Elvaine by the grace of Lerghanis  the Lifesage.");
+talkEntry:addResponse("I live in the service of Archmage Elvaine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Kampfmagier, das ist mein Beruf.");
+talkEntry:addResponse("Ich arbeite für Runewick.");
+talkEntry:addResponse("Ich stehe im Dienste von Erzmagier Elvaine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -196,15 +196,15 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
 talkEntry:addResponse("Warsage, that is what I am.");
 talkEntry:addResponse("I work for Runewick.");
-talkEntry:addResponse("I live in the service of Archmage Elvaine by the grace of Lerghanis  the Lifesage.");
+talkEntry:addResponse("I live in the service of Archmage Elvaine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Kampfmagier, das ist mein Beruf.");
+talkEntry:addResponse("Ich arbeite für Runewick.");
+talkEntry:addResponse("Ich stehe im Dienste von Erzmagier Elvaine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -220,7 +220,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fire");
 talkEntry:addTrigger("Flame");
 talkEntry:addResponse("In my belly is an oil that can make a very hot flame.");
-talkEntry:addResponse("Fire is lituraly inside of me.");
+talkEntry:addResponse("Fire is litereally inside of me.");
 talkEntry:addResponse("Fire and Naginata are my form of self defence.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -230,7 +230,6 @@ talkEntry:addTrigger("Elf");
 talkEntry:addTrigger("Elves");
 talkEntry:addResponse("The world was better when I was in my little village and did not know what an elf was.");
 talkEntry:addResponse("They are so damn arrogant.");
-talkEntry:addResponse("Us Opcs of Duh Rah have only ever known about thirty others in our lifetime, so we do not know how to talk so much, unlike the elves.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -239,118 +238,111 @@ talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addTrigger("Archmage");
 talkEntry:addResponse("He is the wise rular of this land.");
-talkEntry:addResponse("His magical ability is not easily matched. Only the seven are a match for him.");
 talkEntry:addResponse("He is stronger than I.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Lerghanis .");
-talkEntry:addResponse("He saved me from a life of servatude.");
+talkEntry:addTrigger("Apple");
+talkEntry:addResponse("He saved me from a life of servitude.");
 talkEntry:addResponse("He rescued me from the circus.");
-talkEntry:addResponse("Sir Lerghanis  saw that I was pristine in my use of flame. He spent years working with me until my physical ability to defend myself was up to par.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER1");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Kampfmagier");
+talkEntry:addResponse("Wir sind die Notbrigade von Runewick, allerdings ist diese Stadt so gut geschützt, dass wir kaum benötigt werden.");
+talkEntry:addResponse("Wir nutzen beides, sowohl unsere magisches als auch unser kämpferisches Können um geeignete Krieger auszubilden.");
+talkEntry:addResponse("Wenn ihr mehr über uns wissen wollt, dann lest ein Buch, dort findet ihr mehr Informationen als ich euch geben kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER2");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Feuer");
+talkEntry:addTrigger("Flamme");
+talkEntry:addResponse("In meinem Bauch befindet sich ein Öl, welches eine sehr heiße Flamme erzeugen kann.");
+talkEntry:addResponse("Feuer ist wortwörtlich in mir.");
+talkEntry:addResponse("Ich nutze das Feuer und mein Naginata zur Selbsverteidigung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER3");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Elf");
+talkEntry:addTrigger("Elfen");
+talkEntry:addResponse("Die Welt war besser als ich in meinem kleinen Dorft lebte und noch nicht wusste was ein Elf ist.");
+talkEntry:addResponse("Sie sind so verdammt arrogant.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER4");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Er ist der weise Anführer dieses Landes.");
+talkEntry:addResponse("Er ist stärker als ich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER5");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Apfel");
+talkEntry:addResponse("Er hat mich aus einem Leben in Knechtschaft gerettet.");
+talkEntry:addResponse("Er hat mich aus dem Zirkus befreit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Magic was created by the Gods to communicate with the hand of man.");
+talkEntry:addTrigger("gods");
+talkEntry:addResponse("Magic was created by the Gods.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Magie wurde von den Göttern erschaffen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Fo Duh Rah.");
+talkEntry:addResponse("Fondura Duh Rah.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Fondura Duh Rah.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("<Fo>");
-talkEntry:addTrigger("<Duh Rah>");
+talkEntry:addTrigger("Fondura");
+talkEntry:addTrigger("Duh Rah");
 talkEntry:addResponse("That is me, please state your business.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Fondura");
+talkEntry:addTrigger("Duh Rah");
+talkEntry:addResponse("Das bin ich, wie kann ich euch helfen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("GERMAN.", "Runewick is too warm of a place.");
-talkingNPC:addCycleText("GERMAN.", "I wish those dirty elves would leave me alone.");
-talkingNPC:addCycleText("GERMAN.", "The Windsage is missing again.");
-talkingNPC:addCycleText("GERMAN.", "Magic was created by the Gods to communicate with the hand of man.");
-talkingNPC:addCycleText("GERMAN.", "Please keep this place quiet.");
-talkingNPC:addCycleText("GERMAN.", "Yes I can breath fire and no I will not do it for your entertainment.");
-talkingNPC:addCycleText("GERMAN.", "Please leave this place when you are done with your business.");
-talkingNPC:addCycleText("GERMAN.", "I do not wish to take on a student at this time. Please leave.");
-talkingNPC:addCycleText("GERMAN.", "What do you want?");
-talkingNPC:addCycleText("GERMAN.", "I do not have time to speak long.");
+talkingNPC:addCycleText("Runewick ist ein recht warmer Ort.", "Runewick is too warm of a place.");
+talkingNPC:addCycleText("Ich wünschte diese dreckigen Elfen würden mich in ruhe lassen.", "I wish those dirty elves would leave me alone.");
+talkingNPC:addCycleText("Der Windmagier wird wiedermal vermisst.", "The Windsage is missing again.");
+talkingNPC:addCycleText("Bitte seid ruhig an diesem Ort.", "Please keep this place quiet.");
+talkingNPC:addCycleText("Ja ich kann Feuer spucken und nein, ich werde dies nicht zur eurer Unterhaltung tun.", "Yes I can breath fire and no I will not do it for your entertainment.");
+talkingNPC:addCycleText("Bitte verlasst diesen Ort, solltet ihr hier fertig sein.", "Please leave this place when you are done with your business.");
+talkingNPC:addCycleText("Ich habe nicht vor einen Studenten derzeit aufzunehmen. Bitte lasst mich in Frieden.", "I do not wish to take on a student at this time. Please leave.");
+talkingNPC:addCycleText("Was wollt ihr?", "What do you want?");
+talkingNPC:addCycleText("Ich hab keine Zeit mich lange mit euch zu unterhalten.", "I do not have time to speak long.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is <Name> the <profession/function>.");
+mainNPC:setLookat("Dieser NPC ist Fondura die Feuermagierin.", "This NPC is Fondura the firesage.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);

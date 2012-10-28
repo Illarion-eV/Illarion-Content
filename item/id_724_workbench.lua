@@ -134,7 +134,7 @@ end
 -- Arbeitszeit generieren
 function GenWorkTime(User)
     local Attrib = User:increaseAttrib("dexterity",0); -- Geschicklichkeit: 0 - 20
-    local Skill  = User:getSkill("carpentry");     -- Edelstein schleifen: 0 - 100
+    local Skill  = User:getSkill(Character.carpentry);     -- Edelstein schleifen: 0 - 100
     
     return math.floor(-0.3 * (Attrib + Skill) + 50);
 end

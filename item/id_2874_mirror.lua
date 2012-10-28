@@ -23,7 +23,7 @@ function LookAtItem( User, Item )
         first=1;
     end
     lang=User:getPlayerLanguage();
-    if ( equapos(Item.pos, mpos) and (User:getFaceTo() == 2) and equapos(User.pos, position(-29,193,-8)) ) then
+    if ( (Item.pos == mpos) and (User:getFaceTo() == 2) and (User.pos == position(-29,193,-8)) ) then
         if lang==0 then
             world:itemInform(User, Item, "Hinter deinem Rücken erkennst du deutlich eine Leiter im Spiegel.");
         else

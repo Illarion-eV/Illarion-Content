@@ -132,7 +132,7 @@ end
 -- Erfolgsprüfung
 function CheckSuccess(User,Difficulty) -- Erfolgsprüfung
     local Attrib = User:increaseAttrib("dexterity",0); -- Geschicklichkeit: 0 - 20
-    local Skill  = User:getSkill("gemcutting");     -- Edelstein schleifen: 0 - 100
+    local Skill  = User:getSkill(Character.gemcutting);     -- Edelstein schleifen: 0 - 100
     
     local Try = 0.5 * (Attrib + Skill - Difficulty) + 20;
     
@@ -146,7 +146,7 @@ end
 -- Arbeitszeit generieren
 function GenWorkTime(User,Difficulty)
     local Attrib = User:increaseAttrib("dexterity",0); -- Geschicklichkeit: 0 - 20
-    local Skill  = User:getSkill("gemcutting");     -- Edelstein schleifen: 0 - 100
+    local Skill  = User:getSkill(Character.gemcutting);     -- Edelstein schleifen: 0 - 100
     
     return math.floor(-0.3 * (Attrib + Skill - Difficulty) + 50);
 end

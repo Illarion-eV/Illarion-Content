@@ -17,89 +17,76 @@ module("alchemy.item.id_331_green_bottle", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     
-	if SourceItem:getData("stockData") == "" then -- no stock, something else
+	if SourceItem:getData("bottleFilledWith") ~= "stock" then -- no stock, something else
 	    return
-	end	
 	
-	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
-	    cauldron = base.common.GetFrontItem(User)
+	else
+        -- infront of a cauldron?
+		local cauldron = GetCauldronInfront(User)
+        if cauldron then
+	        
+			-- is the char an alchemist?
+	        local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+		    if not anAlchemist then
+		        return
+	        end
 		
-		-- is the char an alchemist?
-	    if User:getMagicType() ~= 3 then
-		  base.common.InformNLS( User,
-				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
-				"Only those who have been introduced to the art of alchemy are able to work here.")
-		  return;
-	    end
+			if ( ltstate == Action.abort ) then
+				base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+			   return
+			end
 		
-		if ( ltstate == Action.abort ) then
-	        base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
-	       return
-		end
-		
-		if ( ltstate == Action.none ) then
-            if (cauldron:getData("essenceBrew") =="true") then
-		        actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
-            else
-                actionDuration = 20
-            end				
-			User:startAction( actionDuration, 21, 5, 10, 45)
-			return
-		end	  
+			if ( ltstate == Action.none ) then
+				User:startAction( 40, 21, 5, 10, 45)
+				return
+			end	  
 
-		-- water, stock or potion is in the cauldron; leads to a failure
-		if cauldron:getData("cauldronFilledWith") == "water" then
-			world:gfx(1,cauldron.pos)
-		    base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
-		                                "The substance in the cauldron blows out, as you fill the water in.")
-		
-		elseif cauldron:getData("stockData") ~= "" then
-			druid.base.alchemy.CauldronExplosion(User,cauldron,{4,5})
-			
-		elseif cauldron:getData("potionEffectId") ~= "" then
-			if cauldron:getData("potionId") == "331" then -- support potion
-			    druid.item.id_165_blue_bottle.SupportStock(User,support,stock)
-			else
-			    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,36})
-		    end
-			
-		elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
-			druid.base.alchemy.CombineStockEssence( User, SourceItem, cauldron, Counter, Param, ltstate )
-		
-		else -- nothing in the cauldron, we just fill in the stock
-            cauldron:setData("stockData",SourceItem:getData("stockData"))
-		end
-		
-		world:changeItem(cauldron)
-		SourceItem:setData("stockData","")
-		SourceItem.id = 164
-		SourceItem.quality = 333
-	    if math.random(1,20) == 1 then
-		    world:erase(SourceItem,1)	 -- bottle breaks
-		    Uase.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
-        else	
-		    world:changeItem(SourceItem)
-        end
-	
-	else -- no cauldron, drink 
-	    if User.attackmode then
-		   base.common.InformNLS(User, "Du kannst nichts trinken, während Du kämpfst.", "You cannot drink while fighting.", Player.lowPriority)
+			FillStockIn(User,cauldron,SourceItem)
+			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
 		else
-		    User:talkLanguage(Character.say, Player.german, "#me trinkt eine grüne Flüssigkeit.");
-			User:talkLanguage(Character.say, Player.english, "#me drinks a green liquid.");
-			base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", "You don't have the feeling that something happens.")
-			SourceItem.id = 164
-		    SourceItem.quality = 333
-	        if math.random(1,20) == 1 then
-		       User:eraseItem(SourceItem,1) -- bottle breaks
-		       base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
-            else	
-		        world:changeItem(SourceItem)
-            end
-	        User.movepoints=User.movepoints - 20
+		    DrinkIt(User, SourceItem)
 		end
 	end
 end
+
+function DrinkIt(User, SourceItem)
+    if User.attackmode then
+		base.common.InformNLS(User, "Du kannst nichts trinken, während Du kämpfst.", "You cannot drink while fighting.", Player.lowPriority)
+	else
+		User:talkLanguage(Character.say, Player.german, "#me trinkt eine grüne Flüssigkeit.")
+		User:talkLanguage(Character.say, Player.english, "#me drinks a green liquid.")
+		base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", "You don't have the feeling that something happens.")
+		User.movepoints=User.movepoints - 20
+		alchemy.base.alchemy.EmptyBottle(User,SourceItem)
+    end
+end
+
+function FillStockIn(User,cauldron,SourceItem)
+    -- water, stock or potion is in the cauldron; leads to a failure
+	if cauldron:getData("cauldronFilledWith") == "water" then
+		alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
+
+	elseif cauldron:getData("cauldronFilledWith") ~= "stock" then
+		alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)
+	
+	elseif cauldron:getData("cauldronFilledWith") == "potion" then
+		if cauldron.id == 1011 then -- support potion
+			 alchemy.item.id_165_blue_bottle.SupportStock(User,cauldron,SourceItem)
+		else
+			alchemy.base.alchemy.CauldronExplosion(User,cauldron,2)
+		end
+	
+	elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
+		alchemy.base.alchemy.CombineStockEssence( User, SourceItem, cauldron)
+
+	elseif cauldron.id == 1008 then -- nothing in the cauldron, we just fill in the stock
+		alchemy.base.alchemy.StockFromTo(SourceItem,cauldron)
+		cauldron:setData("cauldronFilledWith","stock")
+		cauldron.id = 1012
+		world:changeItem(cauldron)
+	end
+end
+
 function LookAtItem(User,Item)
     world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
-end   
+end 

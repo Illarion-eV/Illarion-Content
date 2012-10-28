@@ -71,7 +71,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( flailing.LeadSkill, flailing.LeadSkillGroup, flailing.SavedWorkTime[User.id], 100, User:increaseAttrib(flailing.LeadAttribute,0) );
+	User:learn( flailing.LeadSkill, flailing.SavedWorkTime[User.id], 100, User:increaseAttrib(flailing.LeadAttribute,0) );
 	User:eraseItem( 249, 1 ); -- erase the item we're working on
 	local amount = math.random(1,4); -- set the amount of items that are produced
 	local notCreated = User:createItem( 259, amount, 333, nil ); -- create the new produced items

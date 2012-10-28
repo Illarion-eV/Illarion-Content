@@ -8,7 +8,7 @@
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: September 30, 2012                      easyNPC Parser v1.21 --
+-- Last parsing: October 27, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -80,7 +80,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("May Oldra bless you. Do you need... wood?");
+talkEntry:addResponse("May Oldra bless you. Do you need wooden goods?");
 talkEntry:addResponse("#me nods slowly: 'Wisdom and patience. How can I help you?'");
 talkEntry:addResponse("Hiho! How can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -199,7 +199,6 @@ talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("My name is Lothar Piero. Welcome to the market of Runewick.");
 talkEntry:addResponse("I am Lothar Piero and I... wood.");
 talkEntry:addResponse("Boards, shields, bows, what do you desire? I am Lothar Piero and I got wood!");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -250,7 +249,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("Wood is good.");
-talkEntry:addResponse("I am ar and thus, Iwood. My wood makes me proud, hihi.");
+talkEntry:addResponse("I am a merchant and thus, I trade wood. My wood makes me proud, hihi.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -265,14 +264,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!");
+talkEntry:addResponse("Wood is good.");
+talkEntry:addResponse("I am a merchant and thus, I trade wood. My wood makes me proud, hihi.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Wood is good.");
-talkEntry:addResponse("I am ar and thus, Iwood. My wood makes me proud, hihi.");
+talkEntry:addResponse("Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -307,7 +306,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
 talkEntry:addResponse("Sehr erfreut - sehr erfreut. Schön Euch kennen zu lernen.");
 talkEntry:addResponse("So, so? Das werde ich mir gut merken.");
-talkEntry:addResponse("Seid gegrüßt, und lasst Euch sagen, Lothar hat noch keinen Kunden übers Ohr geschlagen.");
+talkEntry:addResponse("Seid gegrüßt, und lasst Euch sagen, Lothar hat noch keinen Kunden übers Ohr gehauen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -347,9 +346,9 @@ talkEntry:addTrigger("merchant");
 talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
-talkEntry:addResponse("Usrs of Runewick always try to offer as many goods and wares as possible.");
-talkEntry:addResponse("The archmage asked us to import as few items as possible and rely on domestic goods.");
-talkEntry:addResponse("Hiho! Thers of Runewick stand united and the archmage backs us up.");
+talkEntry:addResponse("We merchants of Runewick always try to offer as many goods and wares as possible.");
+talkEntry:addResponse("The archmage himself asked us to import as few items as possible and rely on domestic goods.");
+talkEntry:addResponse("Hiho! We merchants of Runewick stand united and the archmage backs us up.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -566,45 +565,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("what sell");
-talkEntry:addTrigger("what buy");
-talkEntry:addTrigger("list wares");
-talkEntry:addTrigger("price of");
-talkEntry:addResponse("Staffs, pipes, bolts, Lothar has it all.");
-talkEntry:addResponse("Are you a carpenter? Then you came to the right place.");
-talkEntry:addResponse("Tall elves, small halflings, everyone buys his wood at Lothar's.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("was verkauf");
-talkEntry:addTrigger("was kauf");
-talkEntry:addTrigger("warenliste");
-talkEntry:addTrigger("preis von");
-talkEntry:addResponse("Stäbe, Pfeifen, Bolzen, bei Lothar werdet's ihr finden, solang es ist aus Holzen.");
-talkEntry:addResponse("Seid ihr Schreiner? Lasst Euch sagen, bei mir hat es Euch an den rechten Ort verschlagen.");
-talkEntry:addResponse("Ob großer Elf, ob Halbling ganz klein, bei Lothar kauft jeder sein Hölzchen ein.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I love poetry. I really enjoy it, perhaps you feel likewise?");
-talkEntry:addResponse("My home is Pennymill, maybe you heard about it.");
-talkEntry:addResponse("I really adore sharing Runewick with the fair folk. Everywhere, you can feel this sparkling magic, I'd miss it elsewhere.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("erzähl was");
-talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Ich liebe die Poesie. All zu gern lass ich mich davon betören. Liebt ihr die schönen Künste so sehr wie ich?");
-talkEntry:addResponse("Meine Heimat liegt in Pfennigmühle. Vielleicht kennt Ihr meine Heimat.");
-talkEntry:addResponse("Ich finde es im Allgemeinen sehr annehmlich, zusammen mit dem schönen Volk Runewick zu bewohnen. Immerzu ungiebt uns alle eine betörende und fantastische Magie, die ich nicht missen mag.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Lothar");
 talkEntry:addTrigger("Piero");
@@ -676,14 +636,14 @@ tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
 tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 talkingNPC:addCycleText("#me greift sich mit beiden Händen in die wuscheligen braunen Haare und lächelt.", "#me combs his tousled hairs with his hands, smiling.");
 talkingNPC:addCycleText("#me poliert mit einem öligen Laken einen gefinkelt verzierten Gehstock.", "#me polishes a decorated walking cane with an oiled rag.");
-talkingNPC:addCycleText("#me klimpert mit seinen spröden Fingern auf einer zierlichen Laute.", "ENGLISH.");
+talkingNPC:addCycleText("#me klimpert mit seinen Fingern auf einer zierlichen Laute.", "#me jingles with his fingers on a petite lute.");
 talkingNPC:addCycleText("#me hohlt tief Luft und seufzt leise: 'H-hm! Tannenholz!'", "#me breathes deeply and sighs: 'Ahh, fir wood!'.");
-talkingNPC:addCycleText("#me lächelt sanft und sein faltiges Gesicht wirkt dabei wie eine große Rosine.", "ENGLISH.");
-talkingNPC:addCycleText("#me streicht mit der Hand über verschiedene hölzerne Dinge welche ihn umgeben.", "ENGLISH.");
-talkingNPC:addCycleText("Rosen sind Rot, Veilchen sind Blau, ich mag den Himmel, und meine Frau. - Hab mein Holz, was braucht ein Halbling mehr? Darauf bin ich stolz.", "ENGLISH.");
+talkingNPC:addCycleText("#me lächelt sanft und sein faltiges Gesicht wirkt dabei wie eine große Rosine.", "#me smiles softly while his wrinkled face appears like a big raisin.");
+talkingNPC:addCycleText("#me streicht mit der Hand über verschiedene hölzerne Dinge welche ihn umgeben.", "#me runs with a hand over a few different wooden things which surround him.");
+talkingNPC:addCycleText("Rosen sind Rot, Veilchen sind Blau, ich mag den Himmel, und meine Frau. - Hab mein Holz, was braucht ein Halbling mehr? Darauf bin ich stolz.", "Roses are red, violets are blue, i like the sky and my wife too. - I got my wood, what else does a halfling need? I'm proud of it.");
 talkingNPC:addCycleText("#me verängt mit einem Lächeln die Augen und mustert seine Umgebung.", "#me blinks with one eye and inspects his surrounding.");
 talkingNPC:addCycleText("#me lehnt sich zufrieden lächelnd zurück.", "#me leans back, smiling contently.");
-talkingNPC:addCycleText("#me steckt seine Hand in die Tasche neben dem Stuhl und zieht ein Brötchen heraus. Dann beginnt er daran zu knabbern.", "ENGLISH.");
+talkingNPC:addCycleText("#me steckt seine Hand in die Tasche neben dem Stuhl und zieht ein Brötchen heraus. Dann beginnt er daran zu knabbern.", "#me puts his hand into the bag near the chair, pulling out a bread roll and starts nibbling on it.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(9,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(74,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2709,"sell"));

@@ -142,7 +142,7 @@ function HitChar(Posi,Hitpoints,CenterPos)
         local Character = world:getCharacterOnField(Posi);
         if (Character:getType()==1) then
             if (Character:getMonsterType() == 401) then
-                if not equapos(Posi,CenterPos) then
+                if not (Posi == CenterPos) then
                     return
                 end
             elseif (Character:getMonsterType() == 278) then
@@ -151,7 +151,7 @@ function HitChar(Posi,Hitpoints,CenterPos)
             end
         end
                 
-        if equapos(Posi,CenterPos) then
+        if (Posi == CenterPos) then
             Character:warp(position(Character.pos.x+math.random(-9,9),Character.pos.y+math.random(-9,9),Character.pos.z));
         else
             local Distance = Character:distanceMetricToPosition(CenterPos);
@@ -174,7 +174,7 @@ function HitChar(Posi,Hitpoints,CenterPos)
 end;
 
 function SetNextTrap(Posi,CenterPos)
-    if equapos(Posi,CenterPos) then
+    if (Posi == CenterPos) then
         return false
     end
     

@@ -313,7 +313,7 @@ function TeleportationFunction(thisNPC)
 	    end
 	    
 	    if ((self.count[thisNPC.id] > 7) and (self.count[thisNPC.id] <= 10)) then
-	        if equapos(self.TeleportCharacter[thisNPC.id].pos,self.targetPosition[self.HomePosition[thisNPC.id]]) then
+	        if (self.TeleportCharacter[thisNPC.id].pos == self.targetPosition[self.HomePosition[thisNPC.id]]) then
 	            self.TeleportCharacter[thisNPC.id]:warp(self.targetPosition[self.desiredDestination[thisNPC.id]]);
 	            world:gfx(41,self.targetPosition[self.desiredDestination[thisNPC.id]]);
 	            self.count[thisNPC.id] = 11;

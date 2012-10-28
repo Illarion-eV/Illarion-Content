@@ -89,13 +89,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         
         -- Die Qualität des Sudes richtet sich nach dem Alchemie Skill (0 Skill = Qualität 1)
 		if bottleInHand.id == 331 then
-		   if math.random(1,100) <= math.floor(120/(User:getSkill("alchemy")+User:increaseAttrib("perception",0))) then
+		   if math.random(1,100) <= math.floor(120/(User:getSkill(Character.alchemy)+User:increaseAttrib("perception",0))) then
 		      quali = bottleInHand.quality - 100;
           else 
 		      quali = bottleInHand.quality;
 		   end		
 		elseif bottleInHand.id == 164 then
-		       quali = math.floor(User:getSkill("alchemy")+User:increaseAttrib("perception",0)*8);
+		       quali = math.floor(User:getSkill(Character.alchemy)+User:increaseAttrib("perception",0)*8);
 		end
 		
 		bottleInHand.id = 331;

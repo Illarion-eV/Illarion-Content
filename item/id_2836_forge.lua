@@ -242,7 +242,7 @@ end -- function
 -- Arbeitszeit generieren
 function GenWorkTime(User)
     local Attrib = User:increaseAttrib("dexterity",0); -- Geschicklichkeit: 0 - 20
-    local Skill  = math.min(100,User:getSkill("smithing")*10);    -- Schmieden: 0 - 100
+    local Skill  = math.min(100,User:getSkill(Character.smithing)*10);    -- Schmieden: 0 - 100
     
     return math.floor(-0.5 * (Attrib + Skill) + 70);
 end

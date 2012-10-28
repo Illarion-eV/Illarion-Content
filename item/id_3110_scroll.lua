@@ -215,7 +215,7 @@ function selfTeleportUseItem( Caster, Item )
     
     world:erase( Item, 1 );
     
-    if not equapos(Caster.pos,TelePos) then
+    if not (Caster.pos == TelePos) then
         world:sendMonitoringMessage("Possible Bug abuse by "..Caster.name..". Player tried to teleport from pos("..oldpos.x..","..oldpos.y..","..oldpos.z..") to pos("..TelePos.x..","..TelePos.y..","..TelePos.z..") but got placed at pos("..Caster.pos.x..","..Caster.pos.y..","..Caster.pos.z..")");
     end                        
 end

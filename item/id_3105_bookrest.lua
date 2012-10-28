@@ -38,7 +38,7 @@ end
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
 	if (SourceItem.data == 666) then
-		if (User:getSkill("ancient language") > 59) then
+		if (User:getSkill(Character.ancientLanguage) > 59) then
 		    if (SourceItem.pos.z == -6) then
 		        if (User:getPlayerLanguage()==0) then
 					User:inform("In deinen Händen, Suchender, hälst du die erste Weisheit. Fest und beständig wie die Erde ist auch die Weisheit. Alles Leben entspringt ihr und alles Leben kehrt zu ihr zurück.");

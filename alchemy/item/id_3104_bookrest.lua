@@ -283,6 +283,7 @@ function init()
 end
 
 function skilllost(User)
+	-- TODO: WTF is this!?
 	if ft == nil then
 		ft = 1
 		skL = {}

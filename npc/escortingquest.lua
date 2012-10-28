@@ -299,7 +299,7 @@ function moveFunction(itemlist,player)
 	local nextCycle = function ()
 		if self.moving then
 			searchTarget();
-			if not equapos(self.target,thisNPC.pos) then
+			if not (self.target == thisNPC.pos) then
 
 				if _waitVar==nil then _waitVar=0 end
 				if wait(self.timerID,self.TimeBetweenSteps) then

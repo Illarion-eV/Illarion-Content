@@ -106,7 +106,7 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 		return
 	end
 
-	User:learn( woolcutting.LeadSkill, woolcutting.LeadSkillGroup, woolcutting.SavedWorkTime[User.id], 100, User:increaseAttrib(woolcutting.LeadAttribute,0) );
+	User:learn( woolcutting.LeadSkill, woolcutting.SavedWorkTime[User.id], 100, User:increaseAttrib(woolcutting.LeadAttribute,0) );
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 170, amount, 333, nil); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -192,7 +192,7 @@ function UseItemEntrailsCutting( User, SourceItem, TargetItem, Counter, Param, l
 		return
 	end
 
-	User:learn( entrailscutting.LeadSkill, entrailscutting.LeadSkillGroup, entrailscutting.SavedWorkTime[User.id], 100, User:increaseAttrib(entrailscutting.LeadAttribute,0) );
+	User:learn( entrailscutting.LeadSkill, entrailscutting.SavedWorkTime[User.id], 100, User:increaseAttrib(entrailscutting.LeadAttribute,0) );
 	User:eraseItem( 63, 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 50, amount, 333, nil ); -- create the new produced items

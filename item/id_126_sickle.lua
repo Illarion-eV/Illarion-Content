@@ -229,7 +229,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 	-- since we're here, everything should be alright
-	User:learn( theCraft.LeadSkill, theCraft.LeadSkillGroup, theCraft.SavedWorkTime[User.id], 100, User:increaseAttrib(theCraft.LeadAttribute,0) );
+	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], 100, User:increaseAttrib(theCraft.LeadAttribute,0) );
 	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( harvestProduct.productId, notCreated, User.pos, true, 333, nil );

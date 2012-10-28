@@ -21,9 +21,9 @@ function InvisibleCross()
                         player:increaseAttrib("foodlevel",-(player:increaseAttrib("foodlevel",0)-10000))
                     end
                     player:setPoisonValue(0);
-                    langSkill = player:getSkill("common language");
+                    langSkill = player:getSkill(Character.commonLanguage);
                     if ((langSkill > 0) and (langSkill < 100 )) then
-                        player:increaseSkill(1,"common language",100-langSkill);
+                        player:increaseSkill(1,Character.commonLanguage,100-langSkill);
                     end
                     SkillName = LangSkillName(player:getRace());
                     langSkill = player:getSkill(SkillName);
@@ -85,14 +85,11 @@ function CreateCircle(GFXid,CenterPos,Radius)
 end  
 
 function LangSkillName(Race)
-    if (Race == 0) then return "human language"
-    elseif (Race == 1) then return "dwarf language"
-    elseif (Race == 2) then return "halfling language"
-    elseif (Race == 3) then return "elf language"
-    elseif (Race == 4) then return "orc language"
-    elseif (Race == 5) then return "lizard language"
-    elseif (Race == 6) then return "gnome language"
-    elseif (Race == 7) then return "fairy language"
-    elseif (Race == 8) then return "goblin language"
+    if (Race == 0) then return Character.humanLanguage;
+    elseif (Race == 1) then return Character.dwarfLanguage
+    elseif (Race == 2) then return Character.halflingLanguage
+    elseif (Race == 3) then return Character.elfLanguage
+    elseif (Race == 4) then return Character.orcLanguage
+    elseif (Race == 5) then return Character.lizardLanguage
     end
 end

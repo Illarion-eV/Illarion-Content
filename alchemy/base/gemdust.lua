@@ -8,18 +8,15 @@ module("alchemy.base.gemdust", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
-   -- infront of a cauldron?
-   local cauldron = base.common.GetFrontItem(User)
-   if cauldron == 1008 then
+    -- infront of a cauldron?
+    local cauldron = GetCauldronInfront(User)
+    if cauldron then
 	  
         -- is the char an alchemist?
-	    if User:getMagicType() ~= 3 then
-		  base.common.InformNLS( User,
-				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
-				"Only those who have been introduced to the art of alchemy are able to work here."
-				)
-		  return;
-	    end
+		local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+		if not anAlchemist then
+			return
+		end
 
         if ( ltstate == Action.abort ) then
 		    base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
@@ -42,22 +39,22 @@ function GetPotionId(gemDust)
 
     local potionId
     if gemDust.id == 446 then --bluestone
-	   IdPotion = 165 -- id of the matching potion
+	   cauldronId = 1011 -- id of the matching potion
 	elseif gemDust.id == 447 then  -- ruby
-		   IdPotion = 59
+		   cauldronId = 1016
 	elseif gemDust.id == 448 then  -- emerald
-		   IdPotion = 327
-	elseif gemDust.id ==	449 then  -- blackstone
-		   IdPotion = 329
+		   cauldronId = 1013
+	elseif gemDust.id == 449 then  -- blackstone
+		   cauldronId = 1009
 	elseif gemDust.id == 450 then -- amethyst
-		   IdPotion = 166
+		   cauldronId = 1015
 	elseif gemDust.id == 451 then -- topaz
-		   IdPotion = 328
+		   cauldronId = 1014
 	elseif gemDust.id == 452 then -- diamond
-		   IdPotion = 330
+		   cauldronId = 1017
 	end 
 
-    return potionId
+    return cauldronId
 end
 
 function GemDustInStock(User,cauldron,gemDust)
@@ -76,8 +73,8 @@ function GemDustInStock(User,cauldron,gemDust)
 	else 
 		potionEffectId = 0
     end
-    local potionId = GetPotionId(gemDust)
-	cauldron:setData("potionId",""..potionId)
+    local cauldronId = GetCauldronId(gemDust)
+	cauldron.id = cauldronId
 	cauldron:setData("potionEffectId",""..potionEffectId)	
     getQuality = alchemy.base.alchemy.GetQuality(User)
 	cauldron:setData("potionQuality",""..getQuality)
@@ -90,7 +87,8 @@ end
 function GemDustInWater(User,cauldron,gemDust)
 
     cauldron:setData("cauldronFilledWith","essenceBrew")
-	cauldron:setData("potionId",""..IdPotion)
+	local cauldronId = GetCauldronId(gemDust)
+	cauldron.id = cauldronId
 	world:changeItem(cauldron)
 	world:makeSound(13,cauldron.pos)
 	world:gfx(52,cauldron.pos)
