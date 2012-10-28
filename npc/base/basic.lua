@@ -399,7 +399,7 @@ end;
 --  @param npcChar the NPC character
 function baseNPC:initLanguages(npcChar)
     table.foreach(self._npcLanguages, function(key, value)
-        npcChar:increaseSkill(1, langCodeToSkillName(value), 100);
+        npcChar:increaseSkill(langCodeToSkillName(value), 100);
     end);
     self["initLanguages"] = nil;
 end;
@@ -409,23 +409,23 @@ end;
 --- so the NPC is able to talk in the needed language perfectly.
 --
 --  @param langCode the language code
---  @return the skillname fitting to the language code
-function langCodeToSkillName(langCode)
+--  @return the skill fitting to the language code
+function langCodeToSkill(langCode)
     if (langCode == 0) then
-        return "common language";
+        return Character.commonLanguage;
     elseif (langCode == 1) then
-        return "human language";
+        return Character.humanLanguage;
     elseif (langCode == 2) then
-        return "dwarf language";
+        return Character.dwarfLanguage;
     elseif (langCode == 3) then
-        return "elf language";
+        return Character.elfLanguage;
     elseif (langCode == 4) then
-        return "lizard language";
+        return Character.lizardLanguage;
     elseif (langCode == 5) then
-        return "orc language";
+        return Character.orcLanguage;
     elseif (langCode == 10) then
-        return "ancient language";
+        return Character.ancientLanguage;
     else
-        return "common language";
+        return Character.commonLanguage;
     end;
 end;
