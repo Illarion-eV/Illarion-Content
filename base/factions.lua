@@ -102,7 +102,7 @@ if not InitFaction then
 	InitFaction = true;
     citizenRank = 1;
     outcastRank = 0;
-    leaderRank = 9;
+    leaderRank = 11;
 
 --==================================ADD NEW TOWNS AND GUILDS HERE===============
 --AddTown(TownID,TownName), IDs from 1-9
@@ -237,7 +237,7 @@ function setRankpoints(originator, rankpoints)
 	local Faction = getFactionInformations(originator);
 	local rank = Faction.rankTown; 	
 	
-	Faction.rankTown = checkForRankChange(Faction.rankpoints,rank);
+	Faction.rankTown = checkForRankChange(Faction.rankpoints+rankpoints,rank);
 		
 	local townName = getTownNameByID(Faction.tid)
 	local rankName = townRanks[Faction.tid][Faction.rankTown]
@@ -251,7 +251,7 @@ function setRankpoints(originator, rankpoints)
 
 	------save changes----------------
 	setFaction(originator,Faction);
-	originator:setQuestProgress(202,rankpoints);
+	originator:setQuestProgress(202,Faction.rankpoints+rankpoints);
 end
 --[[
     put_
@@ -290,7 +290,7 @@ function makeCharMemberOfTown(originator,fv,theRank,theTown)
 		fv = setFaction(originator,fv);
 		return;
 
-	elseif theRank==citizenRank then --make char to citizen
+	elseif theRank~=leaderRank then --make char to citizen
 		if (fv.tid == theTown) then --already citizen
 		 	gText="Ihr seid bereits Bürger dieser Stadt!";
 			eText="You're already citizen of this town!";
