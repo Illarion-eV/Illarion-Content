@@ -13,7 +13,7 @@ function InitCraftingTool( )
         InitStartedOnce = true;
         
         baking = item.base.crafts.Craft:new{ LeadAttrib = "dexterity",
-                             LeadSkill = "baking",
+                             LeadSkill = "cookingAndBaking",
                              LeadSkillGroup = 2,
                              DefaultFoodConsumption = 100,
                              DefaultRepair = false

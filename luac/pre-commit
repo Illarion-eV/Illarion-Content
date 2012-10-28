@@ -19,14 +19,17 @@ function syntaxCheckFile
 {
 	# get the filenmame from the parameter & add it to the script path
 	local file="${scriptPath}$1"
-	# redirect error to output & write to temporary file
-	"$luacPath" -p "$file" > "$tmpFile" 2>&1
-	# check the return value
-	if [ $? -eq 1 ]
+	if [ -e "$file" ]
 	then
-		# there was an error, tell it to the user & count up
-		echo $(cat "$tmpFile")
-		let errors=$errors+1
+		# redirect error to output & write to temporary file
+		"$luacPath" -p "$file" > "$tmpFile" 2>&1
+		# check the return value
+		if [ $? -eq 1 ]
+		then
+			# there was an error, tell it to the user & count up
+			echo $(cat "$tmpFile")
+			let errors=$errors+1
+		fi
 	fi
 }
 

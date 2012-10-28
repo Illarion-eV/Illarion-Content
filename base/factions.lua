@@ -26,17 +26,49 @@ function InitFactionLists()
 	TownJailKey={};
 
 	--A list with the Ranks, Rank 8 and Rank 9 can not be reached with faction points(e.g. npc quests), only with GM help, don't give any normal player rank 9!
-	TownRankList = { {gRank = "Leibeigener", eRank = "serf"},        --rank 1
-					 {gRank = "Bauer", eRank = "peasant"},           --rank 2
-					 {gRank = "Arbeiter", eRank = "worker"},         --rank 3
-					 {gRank = "Plebejer", eRank = "plebeian"},       --rank 4
-					 {gRank = "Bürger", eRank = "citizen"},          --rank 5
-					 {gRank = "Edelmann", eRank = "knight"},         --rank 6
-					 {gRank = "Patrizier", eRank = "patrician"},     --rank 7
-					 {gRank = "Adliger", eRank = "noble"},           --rank 8
-					 {gRank = "Herrscher", eRank = "sovereign"}};    --rank 9
+	CadomyrRankList = { {gRank = "Rekrut", eRank = "Recruit"},        	--rank 1
+					 {gRank = "Knappe", eRank = "Squire"},           	--rank 2
+					 {gRank = "Korporal", eRank = "Corporal"},         	--rank 3
+					 {gRank = "Wachmeister", eRank = "Sergeant"},       --rank 4
+					 {gRank = "Berittener", eRank = "Trooper"},         --rank 5
+					 {gRank = "Lancier", eRank = "Lancer"},        		--rank 6
+					 {gRank = "Ritter", eRank = "Knight"},     			--rank 7
+					 {gRank = "Adliger", eRank = "Noble"},           	--rank 8
+					 {gRank = "Baron", eRank = "Baron"},				--rank 9
+					 {gRank = "Herzog", eRank = "Duke"},				--rank 10
+					 {gRank = "Queen", eRank = "Königin"}};				--rank leader
 					 
-	TownRankList[0] = {gRank="Geächteter", eRank="outcast"};         --rank 0
+	CadomyrRankList[0] = {gRank="Geächteter", eRank="outcast"};         --rank 0
+	
+	RunewickRankList = { {gRank = "Neuling", eRank = "Novice"},    		--rank 1
+					 {gRank = "Anwärter", eRank = "Apprentice"},       	--rank 2
+					 {gRank = "Student", eRank = "Student"},         	--rank 3
+					 {gRank = "Gelehrter", eRank = "Scholar"},       	--rank 4
+					 {gRank = "Magister", eRank = "Master"},          	--rank 5
+					 {gRank = "Doktor", eRank = "Doctor"},         		--rank 6
+					 {gRank = "Dozent", eRank = "Docent"},     			--rank 7
+					 {gRank = "Professor", eRank = "Professor"},        --rank 8
+					 {gRank = "Dekan", eRank = "Dean"},    				--rank 9
+					 {gRank = "Rektor", eRank = "Rector"},    			--rank 10
+					 {gRank = "Erzmagier", eRank = "Archmage"}};		--rank leader
+					 
+	RunewickRankList[0] = {gRank="Geächteter", eRank="outcast"};        --rank 0
+	
+	GalmairRankList = { {gRank = "Rumtreiber", eRank = "Tramp"},      	--rank 1
+					 {gRank = "Gehilfe", eRank = "Assistand"},          --rank 2
+					 {gRank = "Hausierer", eRank = "Pedlar"},         	--rank 3
+					 {gRank = "Krämer", eRank = "Grocer"},       		--rank 4
+					 {gRank = "Kaufmann", eRank = "Merchant"},          --rank 5
+					 {gRank = "Finanzier", eRank = "Financier"},        --rank 6
+					 {gRank = "Patrizier", eRank = "Patrician"},     	--rank 7
+					 {gRank = "Mogul", eRank = "Mogul"},           		--rank 8
+					 {gRank = "Magnat", eRank = "Magnate"},    			--rank 9
+					 {gRank = "Tycoon", eRank = "Tycoon"},				--rank 10
+					 {gRank = "Don", eRank = "Don"}};					--rank leader
+					 
+	GalmairRankList[0] = {gRank="Geächteter", eRank="outcast"};         --rank 0
+	
+	townRanks = {CadomyrRankList, RunewickRankList, GalmairRankList}
 end
 
 --[[
@@ -70,7 +102,7 @@ if not InitFaction then
 	InitFaction = true;
     citizenRank = 1;
     outcastRank = 0;
-    leaderRank = 9;
+    leaderRank = 11;
 
 --==================================ADD NEW TOWNS AND GUILDS HERE===============
 --AddTown(TownID,TownName), IDs from 1-9
@@ -110,14 +142,14 @@ function getMemberShipByName(player)
 end
 
 --[[
-    get_Faction
+    getFaction
 	Looks up to which Faction a Character belongs and checks also his rank
     @param originator -- the CharacterStruct
 
     @return Array - 1. a counter how often a Char changed the town, 2.the Town he belongs to ,
 					3-5 the Ranks/Reputation in the Towns Cadomyr, Runewick and Galmair
 ]]
-function get_Faction(originator)
+function getFaction(originator)
 
 	local rankTown = originator:getQuestProgress(200);
 	local factionMembership = originator:getQuestProgress(199);
@@ -134,13 +166,13 @@ function get_Faction(originator)
 end
 
 --[[
-    get_Rankpoints
+    getRankpoints
 	Looks up how much Rankpoints a Character has
     @param originator -- the CharacterStruct
 
     @return qpg - rankpoints in realm
 ]]
-function get_Rankpoints(originator)
+function getRankpoints(originator)
 
 	local qpg = originator:getQuestProgress(202); -- digit 1&2 = rankpoints
 	if qpg==nil or qpg == 0 then
@@ -159,76 +191,66 @@ end
 ]]--
 function getFactionInformations(originator)
 
-	local Faction = get_Faction(originator);
-	local Rankpoints = get_Rankpoints(originator);
+	local Faction = getFaction(originator);
+	local Rankpoints = getRankpoints(originator);
 
 	return {towncnt = Faction.towncnt, tid = Faction.tid, rankTown = Faction.rankTown,
 			rankpoints = Rankpoints};
 end
 
 --[[
-    put_Faction//Guild
-	Saves the Factionchanges of the Char//Guildchanges of the Char
+    setFaction
+	Saves the Factionchanges of the Char
     @param CharacterStruct - The character who gets the new Questprogress
-    @param Faction//Guild - the Array which includes the values to be changed
+    @param Faction - the Array which includes the values to be changed
 
 ]]
-function put_Faction(originator,Faction)
+function setFaction(originator,Faction)
 
 	--------don't allow unknown ranks-----
-	if Faction.rankTown>9 then Faction.rankTown = 9 elseif Faction.rankTown<0 then Faction.rankTown = 0; end
+	if Faction.rankTown>11 then Faction.rankTown = 11 elseif Faction.rankTown<0 then Faction.rankTown = 0; end
 	-------------write changes------------
 	originator:setQuestProgress(199,tonumber(tid));
 	originator:setQuestProgress(200,tonumber(rankTown));
 	originator:setQuestProgress(201,tonumber(Faction.towncnt));
 end
 
-function IncreaseRank(rankpoints,rank)
-	local overflow = 99;
-	if (rankpoints-overflow) > 89 then rankpoints = overflow; else rankpoints = 10 + (rankpoints-99); end --max. number of rankpoints to add is 89!
-	if rank<7 and rank>0 then
-		rank = rank + 1;     --raise the Rank
+function checkForRankChange(rankpoints,rank)
+	local newRank = math.floor(rankpoints/100)
+	if newRank > rank and newRank <= 10 then
+		return newRank;
+	elseif newRank < rank and newRank >= 1 then
+		return newRank;
+	else
+		return rank;
 	end
-	return rankpoints,rank;
 end
 
-function DecreaseRank(rankpoints,rank)
-	local underflow = 10;
-	if (underflow - rankpoints>89) then rankpoints = underflow; else rankpoints = (99 + rankpoints) -10; end
-	if rank<=8 and rank>0 then
-		rank = rank - 1;     --sink the Rank
-	end
-	return rankpoints,rank;
-
-end
 --[[
-    put_Rankpoints
+    setRankpoints
 	Saves the Factionchanges of the Char//Guildchanges of the Char
     @param CharacterStruct - The character who gets the new Questprogress
     @param Rankpoints - the value Rankpoints
 
 ]]
-function put_Rankpoints(originator, rankpoints)
+function setRankpoints(originator, rankpoints)
 	local Faction = getFactionInformations(originator);
-	 ---increase rank ----
-	if (Faction.rankpoints >99) then
-		local rank = Faction.rankTown; 
-		Faction.rankpoints, Faction.rankTown = IncreaseRank(Faction.rankpoints,Faction.rankTown);
-		if Faction.rankTown>rank then  
-			base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in "..getTownNameByID(Faction.tid).." erreicht.", 
-				"You reached a new town rank in "..getTownNameByID(Faction.tid) ) end
-	end
-	----lower rank----------
-	if (Faction.rankpoints <10) then
-		local rank = Faction.rankTown; 
-		Faction.rankpoints,Faction.rankTown = DecreaseRank(Faction.rankpoints,Faction.rankTown);
-		if Faction.rankTown<rank then  
-			base.common.InformNLS( originator, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in "..getTownNameByID(Faction.tid).." um eine Stufe gesunken.", 
-				"Because of your permanent conflicts with the law your rank sinks for a degree in "..getTownNameByID(Faction.tid) ) end
+	local rank = Faction.rankTown; 	
+	
+	Faction.rankTown = checkForRankChange(rankpoints,rank);
+		
+	local townName = getTownNameByID(Faction.tid)
+	local rankName = townRanks[Faction.tid][Faction.rankTown]
+	if Faction.rankTown>rank then  
+		base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in "..townName.." erreicht. Du bist nun "..rankName.gRank..".", 
+			"You reached a new town rank in "..townName..". You are now "..rankName.eRank..".")
+	elseif Faction.rankTown<rank then  
+		base.common.InformNLS( originator, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in "..townName.." um eine Stufe gesunken. Du bist nun "..rankName.gRank..".", 
+			"Because of your permanent conflicts with the law your rank sinks for a degree in "..townName..". You are now "..rankName.eRank.."." ) 
 	end
 
 	------save changes----------------
-	put_Faction(originator,Faction);
+	setFaction(originator,Faction);
 	originator:setQuestProgress(202,rankpoints);
 end
 --[[
@@ -240,9 +262,9 @@ end
 ]]
 function setFactionInformations(originator,Factionvalues)
 	--town
-    put_Faction(originator,Factionvalues);
+    setFaction(originator,Factionvalues);
 	--rankpoints town
-	put_Rankpoints(originator,Factionvalues);
+	setRankpoints(originator,Factionvalues);
 end
 
 --[[
@@ -265,10 +287,10 @@ function makeCharMemberOfTown(originator,fv,theRank,theTown)
 	if theRank==leaderRank then --make char to leader of this town
 		fv.tid = theTown; --make him member of this town
 		fv.rankTown = leaderRank; --give him the leader rank
-		fv = put_Faction(originator,fv);
+		fv = setFaction(originator,fv);
 		return;
 
-	elseif theRank==citizenRank then --make char to citizen
+	elseif theRank~=leaderRank then --make char to citizen
 		if (fv.tid == theTown) then --already citizen
 		 	gText="Ihr seid bereits Bürger dieser Stadt!";
 			eText="You're already citizen of this town!";
@@ -291,7 +313,7 @@ function makeCharMemberOfTown(originator,fv,theRank,theTown)
 		fv.tid = theTown; --set new Town ID
 				
 		if (fv.towncnt<99) then fv.towncnt = fv.towncnt+1; end; -- raise the town counter
-		put_Faction(originator,fv); --write fv in Questprogress
+		setFaction(originator,fv); --write fv in Questprogress
 		base.money.TakeMoneyFromChar(originator,amountToPay); --take money
 
 		gText="Ihr seid nun als Bürger dieser Stadt eingetragen.";

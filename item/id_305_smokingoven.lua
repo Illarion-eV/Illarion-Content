@@ -137,7 +137,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
 
     base.common.GetHungry( User, 100 );
-    --User:learn( 2, "baking", 2, 10 );
+    --User:learn( 2, "cookingAndBaking", 2, 10 );
 	--Replace with new learn function, see learn.lua 
     
 end -- function
