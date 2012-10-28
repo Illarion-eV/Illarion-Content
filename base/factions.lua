@@ -176,6 +176,7 @@ function getFaction(originator)
 	local rankTown = originator:getQuestProgress(200);
 	local factionMembership = originator:getQuestProgress(199);
 	local towncnt = originator:getQuestProgress(201);
+	local rankpoints = originator:getQuestProgress(202);
 	if rankTown==nil then
 		originator:setQuestProgress(200,0);
 	elseif factionMembership == nil then
@@ -184,7 +185,7 @@ function getFaction(originator)
 		originator:setQuestProgress(201,0);
 	end
 
-	return { towncnt = towncnt, tid = factionMembership, rankTown = rankTown};
+	return { towncnt = towncnt, tid = factionMembership, rankTown = rankTown, rankpoints = rankpoints};
 end
 
 --[[
@@ -232,9 +233,10 @@ function setFaction(originator,Faction)
 	--------don't allow unknown ranks-----
 	if Faction.rankTown>11 then Faction.rankTown = 11 elseif Faction.rankTown<0 then Faction.rankTown = 0; end
 	-------------write changes------------
-	originator:setQuestProgress(199,tonumber(tid));
-	originator:setQuestProgress(200,tonumber(rankTown));
+	originator:setQuestProgress(199,tonumber(Faction.tid));
+	originator:setQuestProgress(200,tonumber(Faction.rankTown));
 	originator:setQuestProgress(201,tonumber(Faction.towncnt));
+	originator:setQuestProgress(202,tonumber(Faction.rankpoints));
 end
 
 function checkForRankChange(rankpoints,rank)
