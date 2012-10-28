@@ -237,7 +237,7 @@ function setRankpoints(originator, rankpoints)
 	local Faction = getFactionInformations(originator);
 	local rank = Faction.rankTown; 	
 	
-	Faction.rankTown = checkForRankChange(Faction.rankpoints+rankpoints,rank);
+	Faction.rankTown = checkForRankChange(rankpoints,rank);
 		
 	local townName = getTownNameByID(Faction.tid)
 	local rankName = townRanks[Faction.tid][Faction.rankTown]
@@ -251,7 +251,7 @@ function setRankpoints(originator, rankpoints)
 
 	------save changes----------------
 	setFaction(originator,Faction);
-	originator:setQuestProgress(202,Faction.rankpoints+rankpoints);
+	originator:setQuestProgress(202,rankpoints);
 end
 --[[
     put_
