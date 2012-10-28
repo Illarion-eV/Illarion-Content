@@ -399,7 +399,7 @@ end;
 --  @param npcChar the NPC character
 function baseNPC:initLanguages(npcChar)
     table.foreach(self._npcLanguages, function(key, value)
-        npcChar:increaseSkill(langCodeToSkillName(value), 100);
+        npcChar:increaseSkill(langCodeToSkill(value), 100);
     end);
     self["initLanguages"] = nil;
 end;
