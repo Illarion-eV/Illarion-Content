@@ -14,7 +14,7 @@ module("server.reload", package.seeall)
 
 function onReload()
     local testSkills = Character.commonLanguage
-    world:getPlayersOnline[1]:inform("Skill Test: "..testSkills)
+    world:getPlayersOnline()[1]:inform("Skill Test: "..testSkills)
     -- logToFile("start onReload");
     initDoors();
     initDepots();
