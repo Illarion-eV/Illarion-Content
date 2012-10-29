@@ -146,13 +146,14 @@ function informPlayerAboutStatus(player)
 	end
 
 	local Faction = getFaction(player)
-	local townMember = getMemberShipByName(player)
-	local rankName = townRanks[Faction.tid][Faction.rankTown]
-	local rankpoints = Faction.rankpoints
-	local missingPoints = (math.floor(tonumber(rankpoints)/100)+1)*100-tonumber(rankpoints) --calculates the missing points to advance a rank
 	local gText, eText;
 	
 	if Faction.tid ~= 0 then
+		local townMember = getMemberShipByName(player)
+		local rankName = townRanks[Faction.tid][Faction.rankTown]
+		local rankpoints = Faction.rankpoints
+		local missingPoints = (math.floor(tonumber(rankpoints)/100)+1)*100-tonumber(rankpoints) --calculates the missing points to advance a rank
+		
 		if Faction.rankTown < highestRank then
 			gText = "Ihr seid Mitglied des Reiches "..townMember..". Dort habt ihr den Rang "..rankName.gRank.." und besitzt "..rankpoints.." Rangpunkte. Ihr benötigt noch "..missingPoints.." Rangpunkte um einen Rang aufzusteigen."
 			eText = "You are member of the realm "..townMember..". You have the rank "..rankName.eRank.." and possess "..rankpoints.." rankpoints. You still need "..missingPoints.." rankpoints to advance a rank."
