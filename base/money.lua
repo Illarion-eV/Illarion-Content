@@ -125,7 +125,7 @@ end;
 --  @return boolean - true in case all items were created properly
 function GiveCoinsToChar(char, gCoins, sCoins, cCoins)
     if (gCoins > 0) then
-	    local notCreated = char:createItem(GoldCoinsID, gCoins, 333, 0);
+	    local notCreated = char:createItem(GoldCoinsID, gCoins, 333, nil);
 	    if (notCreated > 0) then
 	        char:eraseItem(GoldCoinsID, gCoins - notCreated);
 	        return false;
@@ -133,7 +133,7 @@ function GiveCoinsToChar(char, gCoins, sCoins, cCoins)
 	end;
     
     if (sCoins > 0) then
-        local notCreated = char:createItem(SilverCoinsID, sCoins, 333, 0);
+        local notCreated = char:createItem(SilverCoinsID, sCoins, 333, nil);
         if (notCreated > 0) then
             char:eraseItem(SilverCoinsID, sCoins - notCreated);
             if (gCoins > 0) then
@@ -144,7 +144,7 @@ function GiveCoinsToChar(char, gCoins, sCoins, cCoins)
     end;
     
     if (cCoins > 0) then
-        notCreated = char:createItem(CopperCoinsID, cCoins, 333, 0);
+        notCreated = char:createItem(CopperCoinsID, cCoins, 333, nil);
         if (notCreated > 0) then
             char:eraseItem(CopperCoinsID, cCoins - notCreated);
             if (sCoins > 0) then
@@ -187,22 +187,22 @@ end;
 --  @param cCoins - number - the amount of copper coins to be created at pos
 function GiveCoinsToPosition(pos, gCoins, sCoins, cCoins)
     while (cCoins > 255) do
-        world:createItemFromId(CopperCoinsID, 255, pos, true, 333, 0);
+        world:createItemFromId(CopperCoinsID, 255, pos, true, 333, nil);
         cCoins = cCoins - 255;
     end;
-    world:createItemFromId(CopperCoinsID, cCoins, pos, true, 333, 0);
+    world:createItemFromId(CopperCoinsID, cCoins, pos, true, 333, nil);
     
     while (sCoins > 255) do
-        world:createItemFromId(SilverCoinsID, 255, pos, true, 333, 0);
+        world:createItemFromId(SilverCoinsID, 255, pos, true, 333, nil);
         sCoins = sCoins - 255;
     end;
-    world:createItemFromId(SilverCoinsID, sCoins, pos, true, 333, 0);
+    world:createItemFromId(SilverCoinsID, sCoins, pos, true, 333, nil);
     
     while (gCoins > 255) do
-        world:createItemFromId(GoldCoinsID, 255, pos, true, 333, 0);
+        world:createItemFromId(GoldCoinsID, 255, pos, true, 333, nil);
         gCoins = gCoins - 255;
     end;
-    world:createItemFromId(GoldCoinsID, gCoins, pos, true, 333, 0);
+    world:createItemFromId(GoldCoinsID, gCoins, pos, true, 333, nil);
 end;
 
 --- Give a amount of money to a specified position. This will create the money
