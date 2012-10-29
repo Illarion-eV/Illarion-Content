@@ -13,8 +13,6 @@ require("content.areas")
 module("server.reload", package.seeall)
 
 function onReload()
-    local testSkills = Character.commonLanguage
-    world:getPlayersOnline()[0]:inform("Skill Test: "..testSkills)
     -- logToFile("start onReload");
     initDoors();
     initDepots();
