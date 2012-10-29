@@ -244,7 +244,7 @@ function setFaction(originator,Faction)
 end
 
 function checkForRankChange(rankpoints,rank)
-	local newRank = math.floor(rankpoints/100)
+	local newRank = math.floor(rankpoints/100)-1
 	if newRank > rank and newRank <= 10 then
 		return newRank;
 	elseif newRank < rank and newRank >= 1 then
