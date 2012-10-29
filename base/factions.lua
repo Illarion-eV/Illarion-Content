@@ -63,7 +63,6 @@ function InitFactionLists()
 					 {gRank = "Don", eRank = "Don"}};					--rank leader
 	
 	townRanks = {CadomyrRankList, RunewickRankList, GalmairRankList}
-	townRanks[0][0] = {gRank="Geächteter", eRank="outcast"};         --rank 0
 end
 
 --[[
@@ -77,7 +76,7 @@ function AddTown(TownID, TownName)
 end
 
 --[[
-    AddTownMainKey/ AddTownJailKey / AddGuildMainKey / AddGuildJailKey
+    AddTownMainKey/ AddTownJailKey
 	Add the Main Key/Jail Key of the town of a faction with the Faction ID (TownMID)
     @param TownMID                  - the ID of the town the key shall be added
     @param KeyID,KeyQuality,KeyData - the ID,Quality and Data of the Key
@@ -96,7 +95,6 @@ if not InitFaction then
 	InitFactionLists();
 	InitFaction = true;
     citizenRank = 1;
-    outcastRank = 0;
 	highestRank = 10;
     leaderRank = 11;
 
@@ -150,18 +148,22 @@ function informPlayerAboutStatus(player)
 	local Faction = getFaction(player)
 	local townMember = getMemberShipByName(player)
 	local rankName = townRanks[Faction.tid][Faction.rankTown]
-	local rankpoints = getRankpoints(player)
+	local rankpoints = Faction.rankpoints
 	local missingPoints = (math.floor(tonumber(rankpoints)/100)+1)*100-tonumber(rankpoints) --calculates the missing points to advance a rank
 	local gText, eText;
-
-	if Faction.rankTown < highestRank then
-		gText = "Ihr seid Mitglied des Reiches "..townMember..". Dort habt ihr den Rang "..rankName.gRank.." und besitzt "..rankpoints.." Rangpunkte. Ihr benötigt noch "..missingPoints.." Rangpunkte um einen Rang aufzusteigen."
-		eText = "You are member of the realm "..townMember..". You have the rank "..rankName.eRank.." and possess "..rankpoints.." rankpoints. You still need "..missingPoints.." rankpoints to advance a rank."
-	else
-		gText = "Ihr seid Mitglied des Reiches "..townMember..". Dort habt ihr den Rang "..rankName.gRank.." und besitzt "..rankpoints.." Rangpunkte. Ihr habt den höchsten Rang erreicht."
-		eText = "You are member of the realm "..townMember..". You have the rank "..rankName.eRank.." and possess "..rankpoints.." rankpoints. You reached the highest rank."
-	end	
 	
+	if Faction.tid ~= 0 then
+		if Faction.rankTown < highestRank then
+			gText = "Ihr seid Mitglied des Reiches "..townMember..". Dort habt ihr den Rang "..rankName.gRank.." und besitzt "..rankpoints.." Rangpunkte. Ihr benötigt noch "..missingPoints.." Rangpunkte um einen Rang aufzusteigen."
+			eText = "You are member of the realm "..townMember..". You have the rank "..rankName.eRank.." and possess "..rankpoints.." rankpoints. You still need "..missingPoints.." rankpoints to advance a rank."
+		else
+			gText = "Ihr seid Mitglied des Reiches "..townMember..". Dort habt ihr den Rang "..rankName.gRank.." und besitzt "..rankpoints.." Rangpunkte. Ihr habt den höchsten Rang erreicht."
+			eText = "You are member of the realm "..townMember..". You have the rank "..rankName.eRank.." and possess "..rankpoints.." rankpoints. You reached the highest rank."
+		end	
+	else
+		gText = "Ihr gehört keinem Reich an."
+		eText = "You don't belong to any realm."
+	end
 	outText=base.common.GetNLS(player,gText,eText);
     thisNPC:talk(Character.say, outText);
 end
@@ -179,7 +181,7 @@ function getFaction(originator)
 	local rankTown = originator:getQuestProgress(200);
 	local factionMembership = originator:getQuestProgress(199);
 	local towncnt = originator:getQuestProgress(201);
-	local rankpoints = originator:getQuestProgress(202);
+	local rankpoints = getRankpoints(originator);
 	if rankTown==nil then
 		originator:setQuestProgress(200,0);
 		rankTown = 0;
