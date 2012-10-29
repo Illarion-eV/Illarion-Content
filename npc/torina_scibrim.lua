@@ -20,6 +20,7 @@ require("npc.base.condition.language")
 require("npc.base.condition.town")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.town")
+require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
 module("npc.torina_scibrim", package.seeall)
 
@@ -787,6 +788,18 @@ talkEntry:addTrigger("status");
 talkEntry:addTrigger("rangpunkte");
 talkEntry:addTrigger("rang");
 talkEntry:addConsequence(npc.base.consequence.town.town("?",nil));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("plus");
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints(nil,"+",50));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("minus");
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints(nil,"-",50));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me blättert duch einen Stapel Pergamente.", "#me skims throug a pile of parchments.");
