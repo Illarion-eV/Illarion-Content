@@ -142,7 +142,7 @@ function getMemberShipByName(player)
 end
 
 function informPlayerAboutStatus(player)
-	NPCList = world:getNPCSInRangeOf(originator.pos, 3);
+	NPCList = world:getNPCSInRangeOf(player.pos, 3);
 	for i = 1, #(NPCList) do
 		for j=1, #(notaryNames) do
 			if NPCList[i].name == notaryNames[j] then
@@ -159,7 +159,7 @@ function informPlayerAboutStatus(player)
 
 	local gText = "Ihr seid Mitglied des Reiches "..townMember..". Dort habt ihr den Rang "..rankName.gRank.." und besitzt "..rankpoints.." Rangpunkte. Ihr benötigt noch "..missingPoints.." Rangpunkte um einen Rang aufzusteigen."
 	local eText = "You are member of the realm "..townMember..". You have the rank "..rankName.eRank.." and possess "..rankpoints.." rankpoints. You still need "..missingPoints.." rankpoints to advance a rank."
-	outText=base.common.GetNLS(originator,gText,eText);
+	outText=base.common.GetNLS(player,gText,eText);
     thisNPC:talk(Character.say, outText);
 end
 
