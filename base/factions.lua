@@ -102,6 +102,7 @@ if not InitFaction then
 	InitFaction = true;
     citizenRank = 1;
     outcastRank = 0;
+	highestRank = 10;
     leaderRank = 11;
 
 --==================================ADD NEW TOWNS AND GUILDS HERE===============
@@ -158,7 +159,7 @@ function informPlayerAboutStatus(player)
 	local missingPoints = (math.floor(tonumber(rankpoints)/100)+1)*100-tonumber(rankpoints) --calculates the missing points to advance a rank
 	local gText, eText;
 
-	if Faction.rankTown < 10 then
+	if Faction.rankTown < highestRank then
 		gText = "Ihr seid Mitglied des Reiches "..townMember..". Dort habt ihr den Rang "..rankName.gRank.." und besitzt "..rankpoints.." Rangpunkte. Ihr benötigt noch "..missingPoints.." Rangpunkte um einen Rang aufzusteigen."
 		eText = "You are member of the realm "..townMember..". You have the rank "..rankName.eRank.." and possess "..rankpoints.." rankpoints. You still need "..missingPoints.." rankpoints to advance a rank."
 	else
@@ -252,9 +253,9 @@ end
 
 function checkForRankChange(rankpoints,rank)
 	local newRank = math.floor(rankpoints/100)+1
-	if newRank > rank and newRank <= 10 then
+	if newRank > rank and newRank <= highestRank then
 		return newRank;
-	elseif newRank < rank and newRank >= 1 then
+	elseif newRank < rank and newRank >= citizenRank then
 		return newRank;
 	else
 		return rank;
@@ -274,8 +275,8 @@ function setRankpoints(originator, rankpoints)
 	
 	if rankpoints < 0 then
 		rankpoints = 0;
-	elseif rankpoints > 1000 then
-		rankpoints = 1000;
+	elseif rankpoints > (highestRank-1)*100 then
+		rankpoints = (highestRank-1)*100;
 	end
 	
 	Faction.rankTown = checkForRankChange(rankpoints,rank);
