@@ -157,8 +157,12 @@ function informPlayerAboutStatus(player)
 	local rankpoints = getRankpoints(player)
 	local missingPoints = (math.floor(tonumber(rankpoints)/100)+1)*100-tonumber(rankpoints) --calculates the missing points to advance a rank
 
-	local gText = "Ihr seid Mitglied des Reiches "..townMember..". Dort habt ihr den Rang "..rankName.gRank.." und besitzt "..rankpoints.." Rangpunkte. Ihr benötigt noch "..missingPoints.." Rangpunkte um einen Rang aufzusteigen."
-	local eText = "You are member of the realm "..townMember..". You have the rank "..rankName.eRank.." and possess "..rankpoints.." rankpoints. You still need "..missingPoints.." rankpoints to advance a rank."
+	if Faction.rankTown < 10 then
+		local gText = "Ihr seid Mitglied des Reiches "..townMember..". Dort habt ihr den Rang "..rankName.gRank.." und besitzt "..rankpoints.." Rangpunkte. Ihr benötigt noch "..missingPoints.." Rangpunkte um einen Rang aufzusteigen."
+		local eText = "You are member of the realm "..townMember..". You have the rank "..rankName.eRank.." and possess "..rankpoints.." rankpoints. You still need "..missingPoints.." rankpoints to advance a rank."
+	else
+		local gText = "Ihr seid Mitglied des Reiches "..townMember..". Dort habt ihr den Rang "..rankName.gRank.." und besitzt "..rankpoints.." Rangpunkte. Ihr habt den höchsten Rang erreicht."
+		local eText = "You are member of the realm "..townMember..". You have the rank "..rankName.eRank.." and possess "..rankpoints.." rankpoints. You reached the highest rank."
 	outText=base.common.GetNLS(player,gText,eText);
     thisNPC:talk(Character.say, outText);
 end
@@ -266,7 +270,9 @@ function setRankpoints(originator, rankpoints)
 	local rank = Faction.rankTown; 	
 	
 	if rankpoints < 0 then
-		rankpoints = 0
+		rankpoints = 0;
+	elseif rankpoints > 1000 then
+		rankpoints = 1000;
 	end
 	
 	Faction.rankTown = checkForRankChange(rankpoints,rank);
