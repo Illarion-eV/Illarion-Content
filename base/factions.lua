@@ -163,6 +163,7 @@ function informPlayerAboutStatus(player)
 	else
 		local gText = "Ihr seid Mitglied des Reiches "..townMember..". Dort habt ihr den Rang "..rankName.gRank.." und besitzt "..rankpoints.." Rangpunkte. Ihr habt den höchsten Rang erreicht."
 		local eText = "You are member of the realm "..townMember..". You have the rank "..rankName.eRank.." and possess "..rankpoints.." rankpoints. You reached the highest rank."
+	end	
 	outText=base.common.GetNLS(player,gText,eText);
     thisNPC:talk(Character.say, outText);
 end
