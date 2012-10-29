@@ -37,8 +37,6 @@ function InitFactionLists()
 					 {gRank = "Baron", eRank = "Baron"},				--rank 9
 					 {gRank = "Herzog", eRank = "Duke"},				--rank 10
 					 {gRank = "Queen", eRank = "Königin"}};				--rank leader
-					 
-	CadomyrRankList[0] = {gRank="Geächteter", eRank="outcast"};         --rank 0
 	
 	RunewickRankList = { {gRank = "Neuling", eRank = "Novice"},    		--rank 1
 					 {gRank = "Anwärter", eRank = "Apprentice"},       	--rank 2
@@ -51,8 +49,6 @@ function InitFactionLists()
 					 {gRank = "Dekan", eRank = "Dean"},    				--rank 9
 					 {gRank = "Rektor", eRank = "Rector"},    			--rank 10
 					 {gRank = "Erzmagier", eRank = "Archmage"}};		--rank leader
-					 
-	RunewickRankList[0] = {gRank="Geächteter", eRank="outcast"};        --rank 0
 	
 	GalmairRankList = { {gRank = "Rumtreiber", eRank = "Tramp"},      	--rank 1
 					 {gRank = "Gehilfe", eRank = "Assistand"},          --rank 2
@@ -65,10 +61,9 @@ function InitFactionLists()
 					 {gRank = "Magnat", eRank = "Magnate"},    			--rank 9
 					 {gRank = "Tycoon", eRank = "Tycoon"},				--rank 10
 					 {gRank = "Don", eRank = "Don"}};					--rank leader
-					 
-	GalmairRankList[0] = {gRank="Geächteter", eRank="outcast"};         --rank 0
 	
 	townRanks = {CadomyrRankList, RunewickRankList, GalmairRankList}
+	townRanks[0][0] = {gRank="Geächteter", eRank="outcast"};         --rank 0
 end
 
 --[[
