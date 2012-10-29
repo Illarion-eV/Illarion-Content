@@ -29,14 +29,15 @@ end;
 
 function _rankpoints_helper_add(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    local rankpoints = base.factions.get_Rankpoints(player);
+    local rankpoints = base.factions.getRankpoints(player);
     rankpoints = rankpoints + value;
     base.factions.setRankpoints(player,rankpoints);
 end;
 
 function _rankpoints_helper_sub(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
-    local rankpoints = base.factions.get_Rankpoints(player);
+    local rankpoints = base.factions.getRankpoints(player);
     rankpoints = rankpoints - value;
     base.factions.setRankpoints(player,rankpoints);
 end;
+	
