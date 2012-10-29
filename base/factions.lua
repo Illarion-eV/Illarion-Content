@@ -179,10 +179,13 @@ function getFaction(originator)
 	local rankpoints = originator:getQuestProgress(202);
 	if rankTown==nil then
 		originator:setQuestProgress(200,0);
+		rankTown = 0;
 	elseif factionMembership == nil then
 		originator:setQuestProgress(199,0);
+		factionMembership = 0;
 	elseif towncnt == nil then
 		originator:setQuestProgress(201,0);
+		towncnt = 0;
 	end
 
 	return { towncnt = towncnt, tid = factionMembership, rankTown = rankTown, rankpoints = rankpoints};
@@ -197,12 +200,13 @@ end
 ]]
 function getRankpoints(originator)
 
-	local qpg = originator:getQuestProgress(202); -- digit 1&2 = rankpoints
+	local qpg = originator:getQuestProgress(202); -- rankpoints
 	if qpg==nil or qpg == 0 then
 		originator:setQuestProgress(202,20); --set the qpg to "zero"
+		qpg = 20;
 	end
 
-	return gpg;
+	return qpg;
 end
 
 --[[
