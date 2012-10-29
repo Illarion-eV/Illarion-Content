@@ -201,9 +201,9 @@ end
 function getRankpoints(originator)
 
 	local qpg = originator:getQuestProgress(202); -- rankpoints
-	if qpg==nil or qpg == 0 then
-		originator:setQuestProgress(202,20); --set the qpg to "zero"
-		qpg = 20;
+	if qpg==nil then
+		originator:setQuestProgress(202,0); --set the qpg to "zero"
+		qpg = 0;
 	end
 
 	return qpg;
