@@ -265,6 +265,10 @@ function setRankpoints(originator, rankpoints)
 	local Faction = getFactionInformations(originator);
 	local rank = Faction.rankTown; 	
 	
+	if rankpoints < 0 then
+		rankpoints = 0
+	end
+	
 	Faction.rankTown = checkForRankChange(rankpoints,rank);
 		
 	local townName = getTownNameByID(Faction.tid)
@@ -339,6 +343,7 @@ function makeCharMemberOfTown(originator,fv,theRank,theTown)
 		
 		fv.rankpoints = 20 -- set default value for rankpoints
 		fv.tid = theTown; --set new Town ID
+		fv.rankTown = theRank -- set the rank of the town
 				
 		if (fv.towncnt<99) then fv.towncnt = fv.towncnt+1; end; -- raise the town counter
 		setFaction(originator,fv); --write fv in Questprogress
