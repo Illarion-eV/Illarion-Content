@@ -273,6 +273,10 @@ function setRankpoints(originator, rankpoints)
 	local Faction = getFactionInformations(originator);
 	local rank = Faction.rankTown; 	
 	
+	if Faction.tid == 0 then --outlaw
+		return;
+	end
+	
 	if rankpoints < 0 then
 		rankpoints = 0;
 	elseif rankpoints > (highestRank-1)*100 then
@@ -331,7 +335,8 @@ function makeCharMemberOfTown(originator,fv,theRank,theTown)
 		fv.rankTown = leaderRank; --give him the leader rank
 		fv = setFaction(originator,fv);
 		return;
-
+	elseif theRank == 0 or theTown == 0 then --becoming an outlaw
+		leaveFaction(originator, fv, thisNPC)
 	elseif theRank~=leaderRank then --make char to citizen
 		if (fv.tid == theTown) then --already citizen
 		 	gText="Ihr seid bereits Bürger dieser Stadt!";
@@ -365,4 +370,18 @@ function makeCharMemberOfTown(originator,fv,theRank,theTown)
         thisNPC:talk(Character.say, outText);
 	end
 	return;
+end
+
+--function to leave a faction and become an outlaw.
+function leaveFaction(originator, Faction, thisNPC)
+	Faction.rankpoints = 0;
+	Faction.rankTown = 0;
+	Faction.tid = 0;
+	
+	setFaction(originator,Faction); --write fv in Questprogress
+	
+	gText="Ihr gehört nun keinem Reich mehr an. Das bedeutet das ihr frei, aber auf Euch selbst gestellt seid. Viel Glück.";
+	eText="You're now not belonging to any realm. This means you're free but also on your own. Good luck.";
+	outText=base.common.GetNLS(originator,gText,eText);
+    thisNPC:talk(Character.say, outText);
 end

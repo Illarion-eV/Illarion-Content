@@ -775,6 +775,12 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("austreten");
+talkEntry:addConsequence(npc.base.consequence.town.town("=",0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("status");
 talkEntry:addTrigger("rankpoints");
 talkEntry:addTrigger("rank");
