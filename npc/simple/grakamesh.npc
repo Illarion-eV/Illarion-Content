@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 30, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Grakamesh"
@@ -81,7 +81,7 @@ queststatus(78) > 22, ".+" -> inform("[Error] Something went wrong, please infor
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas. Honour dem dead!", "Hurr! Yoos look like yoos can help mes - mes dance fer salvation.", "Greebs. Nub hab much time fer yoos, need to dance and sing more to scare away evil spook."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas. Ehre die Ahnen!", "Hurr! Du sehst aus als kannst helfen mir - mirr tanzt ür Heil von Seele.", "Greebs. Grakamesh hat wenig Zeit für dich. Mirr muss tanzen und singt, zu vertreiben bösen Spuk."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas. Ehre die Ahnen!", "Hurr! Du sehst aus als kannst helfen mir - mirr tanzt für Heil von Seele.", "Greebs. Grakamesh hat wenig Zeit für dich. Mirr muss tanzen und singt, zu vertreiben bösen Spuk."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Honour dem dead!", "Hurr! Yoos look like yoos can help mes - mes dance fer salvation.", "Greebs. Nub hab much time fer yoos, need to dance and sing more to scare away evil spook."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Ehre die Ahnen!", "Hurr! Du sehst aus als kannst helfen mir - mirr tanzt für Heil von Seele.", "Greebs. Grakamesh hat wenig Zeit für dich. Mirr muss tanzen und singt, zu vertreiben bösen Spuk."
 "Farewell", "Bye", "Fare well", "See you" -> "Farebbas! Pray fer old oomie chief, Reginald, will yoos?", "Gud hunt!", "Can yoos bring me sum banana when come back? Danks in advance."
@@ -89,23 +89,23 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas. Honour dem dead!", "Hurr! 
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebbas! Pray fer old oomie chief, Reginald, will yoos?", "Gud hunt!", "Can yoos bring me sum banana when come back? Danks in advance."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebbas! Du betest für alten Häuptling der Oomies, yubba?", "Gute Jagd!", "Kannst du mir bringen mit... Bananen? Gedankt sei dir schon jetzig."
 "How are you", "How feel", "How do you do" -> "Dem gods, dey will hear mes singin'. Mes gottur dance and sing to scare away spook from old oomie chief tomb.", "Mes feel like dancin'.", "Danks, but mes feel much better if all spook be smashed and Reginald oomie can rest in peace."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Die Götta, werden hören meine Gesang! Grakamesh wird singen und tanzen, alle böser Spuk.", "Mirr fühlt den Rhytmus!", "Danks, aber mirr fühlen besser vieles, wenn alle böser Spuk zerschlagen und zerhauen ist. Dann Reginald-Oomie wir druhen in Ruhe."
-"your name", "who are you", "who art thou" -> "Me dat shaman Grakamesh. Mes know lots about spook and stuff .", "Grakamesh, dat shaman, at yoos service... after mes hab dance.", "Hurr, Grakamesh mes be!"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich binne der Schamane Grakamesh. Er weiß vieles über Sachen und Spuk.", "Grakamesh, der Schamane zu deiner Dienste...wenn mir getanzt fertig.", "Hurr, Ich binne Grakamesh!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Die Götta werden hören meine Gesang! Grakamesh wird singen und tanzen, alle böser Spuk.", "Mirr fühlt den Rhytmus!", "Danks, aber mirr fühlen besser vieles, wenn alle böser Spuk zerschlagen und zerhauen ist. Dann Reginald-Oomie wir druhen in Ruhe."
+"your name", "who are you", "who art thou" -> "Me dat shaman Grakamesh. Mes know lots about spook and stuff.", "Grakamesh, dat shaman, at yoos service... after mes hab dance.", "Hurr, Grakamesh mes be!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich binne der Schamane Grakamesh. Weiß vieles über Sachen und Spuk.", "Grakamesh, der Schamane zu deiner Dienste... wenn mir getanzt fertig.", "Hurr, ich binne Grakamesh!"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Kill 10 mummies, player receives torch.
 
 -- Give out quest 1 and a torch
 queststatus(78) = 0, english, "quest", "mission" -> inform("[New quest] Sir Reginald's Tomb I"), "So, nub can dance but want help mes? Reginald oomie nub can rest in peace. Scary mummies haunt tomb, dey moan all day long. Hab dis torch and smash as many as mes hab fingers!", item(391, 1, 399), queststatus(78) = 1
-queststatus(78) = 0, "quest", "mission" -> inform("[Neues Quest] Sir Reginalds Gruft I"), "So, du kannst nix tanzen willst mir aber helfen? Oomie Reginald liegt nicht in Friede. Schreckliche Mumien spuken in seiner Gruft, den ganzen Tag lange. Nehme diese Fackel und zerhau sie zu stücke. Für jeden meiner Finger eine!", item(391, 1, 399), queststatus(78) = 1
+queststatus(78) = 0, "quest", "mission" -> inform("[Neues Quest] Sir Reginalds Gruft I"), "So, du kannst nix tanzen willst mir aber helfen? Oomie Reginald liegt nicht in Friede. Schreckliche Mumien spuken in seiner Gruft, den ganzen Tag lange. Nehme diese Fackel und zerhau sie zu Stücke. Für jeden meiner Finger eine!", item(391, 1, 399), queststatus(78) = 1
 queststatus(78) = 0, "task", "adventure" -> inform("[New quest] Sir Reginald's Tomb I"), "So, nub can dance but want help mes? Reginald oomie nub can rest in peace. Scary mummies haunt tomb, dey moan all day long. Hab dis torch and smash as many as mes hab fingers!", item(391, 1, 399), queststatus(78) = 1
-queststatus(78) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Sir Reginalds Gruft I"), "So, du kannst nix tanzen willst mir aber helfen? Oomie Reginald liegt nicht in Friede. Schreckliche Mumien spuken in seiner Gruft, den ganzen Tag lange. Nehme diese Fackel und zerhau sie zu stücke. Für jeden meiner Finger eine!", item(391, 1, 399), queststatus(78) = 1
+queststatus(78) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Sir Reginalds Gruft I"), "So, du kannst nix tanzen willst mir aber helfen? Oomie Reginald liegt nicht in Friede. Schreckliche Mumien spuken in seiner Gruft, den ganzen Tag lange. Nehme diese Fackel und zerhau sie zu Stücke. Für jeden meiner Finger eine!", item(391, 1, 399), queststatus(78) = 1
 
 -- Quest 1 solved, reward: 100cp, +5 rankpoints
 queststatus(78) = 11, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Queen Rosaline Edwards' favour."), "Gud! Yoos hab smash hauntin' mummies. Here, hab sum shinies - but mission to let Reginald oomie rest in peace nub completed...", money + 100, queststatus(78) = 12, rankpoints(Cadomyr) + 5
 queststatus(78) = 11, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), "Gud! Yoos hab smash hauntin' mummies. Here, hab sum shinies - but mission to let Reginald oomie rest in peace nub completed...", money + 100, queststatus(78) = 12
-queststatus(78) = 11, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Guut! Du hast die Mumien verjageht. Hier, nimmst du dieses Glitza - aber die Mission ist trotz allem noch nicht zu Ende gebracht, nein...", money + 100, queststatus(78) = 12, rankpoints(Cadomyr) + 5
+queststatus(78) = 11, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Guut! Du hast die Mumien verjaget. Hier, nimmst du dieses Glitza - aber die Mission ist trotz allem noch nicht zu Ende gebracht, nein...", money + 100, queststatus(78) = 12, rankpoints(Cadomyr) + 5
 queststatus(78) = 11, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Guut! Du hast die Mumien verjageht. Hier, nimmst du dieses Glitza - aber die Mission ist trotz allem noch nicht zu Ende gebracht, nein...", money + 100, queststatus(78) = 12
 
 -- Quest 1 taken but not solved, repeat the instructions
@@ -117,22 +117,22 @@ queststatus(78) > 0, queststatus(78) < 11, "Auftrag", "Aufgabe", "Abenteuer" -> 
 -- 2nd quest: Kill 5 skulls
 
 -- Give out quest 2
-queststatus(78) = 12, english, "quest", "mission" -> inform("[New quest] Sir Reginald's Tomb II"), "Hab seen dem floating skulls in dat tomb? Dey be evil ghosts dat desecrate grave ob honourable chiefy. Crush one hand ob finger ob dem!", queststatus(78) = 13
-queststatus(78) = 12, "quest", "mission" -> inform("[Neues Quest] Sir Reginalds Gruft II"), "Sahst du die schwebenden Schädel in der Gruft? Dies sinned böße geister, entheiligen das Grab des ehrenvollen alten Oomie Häuptlings. Brich die Schädel! Eine Hand voll Fingern.", queststatus(78) = 13
-queststatus(78) = 12, "task", "adventure" -> inform("[New quest] Sir Reginald's Tomb II"), "Hab seen dem floating skulls in dat tomb? Dey be evil ghosts dat desecrate grave ob honourable chiefy. Crush one hand ob finger ob dem!", queststatus(78) = 13
-queststatus(78) = 12, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Sir Reginalds Gruft II"), "Sahst du die schwebenden Schädel in der Gruft? Dies sinned böse geister, entheiligen das Grab des ehrenvollen alten Oomie Häuptlings. Brich die Schädel! Eine Hand voll Fingern.", queststatus(78) = 13
+queststatus(78) = 12, english, "quest", "mission" -> inform("[New quest] Sir Reginald's Tomb II"), "Hab seen dem skeletons in dat tomb? Dey be evil ghosts dat desecrate grave ob honourable chiefy. Crush one hand ob finger ob dem!", queststatus(78) = 13
+queststatus(78) = 12, "quest", "mission" -> inform("[Neues Quest] Sir Reginalds Gruft II"), "Sahst du die Skelette in der Gruft? Dies sinned böße geister, entheiligen das Grab des ehrenvollen alten Oomie Häuptlings. Brich die Knochen! Eine Hand voll Fingern.", queststatus(78) = 13
+queststatus(78) = 12, "task", "adventure" -> inform("[New quest] Sir Reginald's Tomb II"), "Hab seen dem skeletons in dat tomb? Dey be evil ghosts dat desecrate grave ob honourable chiefy. Crush one hand ob finger ob dem!", queststatus(78) = 13
+queststatus(78) = 12, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Sir Reginalds Gruft II"), "Sahst du die Skelette in der Gruft? Dies sinned böse geister, entheiligen das Grab des ehrenvollen alten Oomie Häuptlings. Brich die Knochen! Eine Hand voll Fingern.", queststatus(78) = 13
 
 -- Quest 2 solved, reward: 100cp, skull staff, +10 rankpoints
-queststatus(78) = 18, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a skull staff. You advance in Queen Rosaline Edwards' favour."), "Great! Yoos hab split evil skulls, dem nub gonna haunt anymore. Here, hab dis staff fer more skull smashin'!", money + 100, item(39, 1, 599), queststatus(78) = 19, rankpoints(Cadomyr) + 10
-queststatus(78) = 18, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a skull staff."), "Great! Yoos hab split evil skulls, dem nub gonna haunt anymore. Here, hab dis staff fer more skull smashin'!", money + 100, item(39, 1, 599), queststatus(78) = 19
-queststatus(78) = 18, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen Schädelstab. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Großartig! Die Splitter der bößen Schädel übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.", money + 100, item(39, 1, 599), queststatus(78) = 19, rankpoints(Cadomyr) + 10
-queststatus(78) = 18, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen Schädelstab."), "Großartig! Die Splitter der bösen Schädel übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.", money + 100, item(39, 1, 599), queststatus(78) = 19
+queststatus(78) = 18, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a skull staff. You advance in Queen Rosaline Edwards' favour."), "Great! Yoos hab split evil bones, dem nub gonna haunt anymore. Here, hab dis staff fer more bone smashin'!", money + 100, item(39, 1, 599), queststatus(78) = 19, rankpoints(Cadomyr) + 10
+queststatus(78) = 18, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a skull staff."), "Great! Yoos hab split evil bones, dem nub gonna haunt anymore. Here, hab dis staff fer more bone smashin'!", money + 100, item(39, 1, 599), queststatus(78) = 19
+queststatus(78) = 18, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen Schädelstab. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Großartig! Die Splitter der bößen Knochen übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.", money + 100, item(39, 1, 599), queststatus(78) = 19, rankpoints(Cadomyr) + 10
+queststatus(78) = 18, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen Schädelstab."), "Großartig! Die Splitter der bösen Knochen übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.", money + 100, item(39, 1, 599), queststatus(78) = 19
 
 -- Quest 2 taken but not solved, repeat the instructions
-queststatus(78) > 12, queststatus(78) < 18, english, "quest", "mission" -> "Dem ebil skulls still haunt dat tomb ob old oomie chief. Dat be... blasphemy! Bring peace to tomb, smash 'em."
-queststatus(78) > 12, queststatus(78) < 18, "quest", "mission" -> "Die bösen Schädel spuken weiternoch. Das ist... Ketzerei! Befriede die Gruft, zerhau sie!"
-queststatus(78) > 12, queststatus(78) < 18, "task", "adventure" -> "Dem evil skulls still haunt dat tomb op old oomie chief. Dat be... blasphemy! Bring peace to tomb, smash 'em."
-queststatus(78) > 12, queststatus(78) < 18, "Auftrag", "Aufgabe", "Abenteuer" -> "Die bösen Schädel spuken weiternoch. Das ist... Ketzerei! Befriede die Gruft, zerhau sie!"
+queststatus(78) > 12, queststatus(78) < 18, english, "quest", "mission" -> "Dem ebil skeletons still haunt dat tomb ob old oomie chief. Dat be... blasphemy! Bring peace to tomb, smash 'em."
+queststatus(78) > 12, queststatus(78) < 18, "quest", "mission" -> "Die bösen Skelette spuken weiternoch. Das ist... Ketzerei! Befriede die Gruft, zerhau sie!"
+queststatus(78) > 12, queststatus(78) < 18, "task", "adventure" -> "Dem evil skeletons still haunt dat tomb op old oomie chief. Dat be... blasphemy! Bring peace to tomb, smash 'em."
+queststatus(78) > 12, queststatus(78) < 18, "Auftrag", "Aufgabe", "Abenteuer" -> "Die bösen Skelette spuken weiternoch. Das ist... Ketzerei! Befriede die Gruft, zerhau sie!"
 
 -- 3rd quest: Kill 1 wraith
 
@@ -145,8 +145,8 @@ queststatus(78) = 19, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest]
 -- Quest 3 solved, reward: brown priest robe, +20 rankpoints
 queststatus(78) = 21, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded a brown priest robe. You advance in Queen Rosaline Edwards' favour."), "Hurr! Yoos hab done dat! Now old oomie chief Reginald can rest in peace... fer a time. Mes hab reward fer yoos, robe ob ghost buster.", item(2416, 1, 799), queststatus(78) = 22, rankpoints(Cadomyr) + 20
 queststatus(78) = 21, english, ".+" -> inform("[Quest solved] You are awarded a brown priest robe."), "Awesome, yoos hab do dat! Now old oomie chief Reginald can rest in peace... fer a time. Mes hab reward fer yoos, robe ob ghost buster.", item(2416, 1, 799), queststatus(78) = 22
-queststatus(78) = 21, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst eine braune Priesterrobe. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ausgezeichigt, du hast es geschafft! Nun der alte Häuptling der Oomies Reginals wird in Frieden Liegen... für eine Weile. Dies issigt dein Lohn, die Robe eine Geisterjägers!", item(2416, 1, 799), queststatus(78) = 22, rankpoints(Cadomyr) + 20
-queststatus(78) = 21, ".+" -> inform("[Quest gelöst] Du erhältst eine braune Priesterrobe."), "Ausgezeichigt, du hast es geschafft! Nun der alte Häuptling der Oomies Reginals wird in Frieden liegen... für eine Weile. Dies issigt dein Lohn, die Robe eine Geisterjägers!", item(2416, 1, 799), queststatus(78) = 22
+queststatus(78) = 21, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst eine braune Priesterrobe. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ausgezeichigt, du hast es geschafft! Nun der alte Häuptling der Oomies Reginals wird in Frieden Liegen... für eine Weile. Dies issigt dein Lohn, die Robe eines Geisterjägers!", item(2416, 1, 799), queststatus(78) = 22, rankpoints(Cadomyr) + 20
+queststatus(78) = 21, ".+" -> inform("[Quest gelöst] Du erhältst eine braune Priesterrobe."), "Ausgezeichigt, du hast es geschafft! Nun der alte Häuptling der Oomies Reginals wird in Frieden liegen... für eine Weile. Dies issigt dein Lohn, die Robe eines Geisterjägers!", item(2416, 1, 799), queststatus(78) = 22
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(78) > 19, queststatus(78) < 21, english, "quest", "mission" -> "Meh still feel evil presence ob ghost ob foe ob old chief ob Cadomyr. Expel dat from plane ob mortals!"
@@ -231,9 +231,9 @@ english, "Moshran" -> "Yoos dink bruddahs all pray to Moshran? Yoos hab lotsa le
 "Moshran" -> "Denkst du, alle Orks folgen Moshran? Viel zu lernen du hast, hast du wirklich..."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Whub! Mes nubmes dance and pray. Mes be shaman, nub hawker.", trade
+"what sell", "what buy", "list wares", "price of" -> "Whub! Mes nub trade, mes dance and pray. Mes be shaman, nub hawker."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Wars? Mirr nix handelt, mir tanzt und betet! Mirr ist Schamane, nicht Höker."
-"tell something" -> "Hab hear dat legend ob Reginald oomie? Dat be old chief ob Cadomyr. Honourable oomie. Died and now daughter be queen - nub usual, eh?"
+"tell something" -> "Hab hear dat legend ob Reginald oomie? Dat be old chief op Cadomyr. Honourable oomie. Died and now daughter be queen - nub usual, eh?"
 "erzähl was", "erzähl etwas" -> "Du gehört hast Legende von Oomie Reginald? Den alte Häuptling von Cadomyr. Ehrenhafter Oomie. Er gestorben, nun Tochter ist Häuptling - witzig, eh?"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here.
@@ -260,4 +260,4 @@ cycletext "Ich will tanzen, tanzen, solange nichts zu mir fällt, was besser wä
 cycletext "Ich bin dein Tänzer! Ein Tänzer der Götter, das ist es was sie von mir verlangigen.", "Mes be your faithful dancer, a dancer fer gods, do whub yoos want me to do."
 cycletext "Dort ist böser Spuk in der Gruft! Tanzt mit mir und es wird vergehen!", "Dere be spook in tomb! Come, dance wid mes to banish dat!"
 cycletext "#me atmet laut aus.", "#me exhales loudly."
-cycletext "#me tanzt, unverständlich singend, einen wilden unkoordinierten Tanz.", "#me dances a wild, uncoordinated dance, singing unintelligibly."
+cycletext "#me tanzt einen wilden, unkoordinierten Tanz und singt unverständlich.", "#me dances a wild, uncoordinated dance, singing unintelligibly."
