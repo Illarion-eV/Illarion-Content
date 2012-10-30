@@ -8,7 +8,7 @@
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 30, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Madoquar"
@@ -103,7 +103,7 @@ itemShoes = 369
 -- 8: Quest 3 solved, reward: elven wine
 -- 9: Quest 4 taken - kill 1 Bone Ghost, player gets a silver battle axe (229)
 -- 10: Killing 1 Bone Ghost
--- 11: Quest 4 solved, reward: magical amethyst ring (277)
+-- 11: Quest 4 solved, reward: amethyst ring (277), magical amethyst (197)
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Madoquar the millenian. Keywords: Hello, quest, harbour, humans, lizardmen, halflings.")
@@ -191,9 +191,9 @@ queststatus(112) = 9, "quest", "mission" -> "Treibt diesen Geist aus! Jetzt, bit
 queststatus(112) = 9, "task", "adventure" -> "Banish that wraith now! Now, please!"
 queststatus(112) = 9, "Auftrag", "Aufgabe", "Abenteuer" -> "Treibt diesen Geist aus! Jetzt, bitte!"
 
--- Quest 4 solved, reward: Magical amethyst ring
-queststatus(112) = 10, english, ".+" -> inform("[Quest solved] You are awarded an amethyst ring."), "I'll give you a ring and a secret. I killed that wraith while it was alive. Don't tell a soul, but my real name is Quantisha and that wraith was once the real Madoquar. Don't look at me with such condescending eyes, this happened 400 years ago and I have already learned my lesson.", item(277, 1, 799), queststatus(112) = 11
-queststatus(112) = 10, ".+" -> inform("[Quest gelöst] Du erhältst einen Amethystring."), "Ich gebe euch diesen Ring und ein Geheimnis. Ich tötete einst diesen Geist, als sie noch unter den Lebenden war. Sagt es niemanden, aber mein echter Name ist Quantisha und dieser Geist war einst die echte Madoquar. Schaut mich nicht so vorwurfsvoll an, all dies geschah vor vierhundert Jahren und ich habe bereits genug gebüßt.", item(277, 1, 799), queststatus(112) = 11
+-- Quest 4 solved, reward: Magical amethyst, amethyst ring
+queststatus(112) = 10, english, ".+" -> inform("[Quest solved] You are awarded an amethyst ring and a magical amethyst."), "I'll give you a ring and a secret. I killed that wraith while it was alive. Don't tell a soul, but my real name is Quantisha and that wraith was once the real Madoquar. Don't look at me with such condescending eyes, this happened 400 years ago and I have already learned my lesson.", item(277, 1, 799), item(197, 1, 333, "magicalAmethyst" = "1"), queststatus(112) = 11
+queststatus(112) = 10, ".+" -> inform("[Quest gelöst] Du erhältst einen Amethystring und einen magischen Amethysten."), "Ich gebe euch diesen Ring und ein Geheimnis. Ich tötete einst diesen Geist, als sie noch unter den Lebenden war. Sagt es niemanden, aber mein echter Name ist Quantisha und dieser Geist war einst die echte Madoquar. Schaut mich nicht so vorwurfsvoll an, all dies geschah vor vierhundert Jahren und ich habe bereits genug gebüßt.", item(277, 1, 799), queststatus(112) = 11
 
 -- No more quests, just nice words of gratitude
 queststatus(112) = 11, english, "quest", "mission" -> "It's a nice day today, isn't it? It's thanks to you that I can enjoy these days for hundreds if not thousands of more years as Madoquar."

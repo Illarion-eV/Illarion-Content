@@ -8,7 +8,7 @@
 -- Authors:  Kawan Baxter                                                     --
 --           Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: October 30, 2012                        easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -579,9 +579,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded an amethyst ring."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded an amethyst ring and a magical amethyst."));
 talkEntry:addResponse("I'll give you a ring and a secret. I killed that wraith while it was alive. Don't tell a soul, but my real name is Quantisha and that wraith was once the real Madoquar. Don't look at me with such condescending eyes, this happened 400 years ago and I have already learned my lesson.");
 talkEntry:addConsequence(npc.base.consequence.item.item(277, 1, 799, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(197, 1, 333, {["magicalAmethyst"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 11));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -589,7 +590,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(112, "=", 10));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Amethystring."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Amethystring und einen magischen Amethysten."));
 talkEntry:addResponse("Ich gebe euch diesen Ring und ein Geheimnis. Ich tötete einst diesen Geist, als sie noch unter den Lebenden war. Sagt es niemanden, aber mein echter Name ist Quantisha und dieser Geist war einst die echte Madoquar. Schaut mich nicht so vorwurfsvoll an, all dies geschah vor vierhundert Jahren und ich habe bereits genug gebüßt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(277, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(112, "=", 11));
