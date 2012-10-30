@@ -263,7 +263,7 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
                 User:inform("Selection aborted!")
             end
         end
-        local dialog = SelectionDialog("Selection 0",  callback)
+        local dialog = SelectionDialog("Selection 0", "Select some stuff...", callback)
         for i=1,#items do
             dialog:addOption(items[i], names[i])
         end
