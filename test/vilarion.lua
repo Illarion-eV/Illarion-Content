@@ -207,6 +207,8 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
                 local item = dialog:getCraftableIndex()
                 local amount = dialog:getCraftableAmount()
                 User:inform("Craft " .. amount .. " of item index " .. item)
+                local startCrafting = true
+                return startCrafting
             else
                 if result == CraftingDialog.playerLooksAtItem then
                     local item = dialog:getCraftableIndex()
