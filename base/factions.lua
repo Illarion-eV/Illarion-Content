@@ -62,7 +62,11 @@ function InitFactionLists()
 					 {gRank = "Tycoon", eRank = "Tycoon"},				--rank 10
 					 {gRank = "Don", eRank = "Don"}};					--rank leader
 	
+	NoneRankList ={};
+	NoneRankList[0] = {gRank = "Geächteter", eRank = "outcast"};
+	
 	townRanks = {CadomyrRankList, RunewickRankList, GalmairRankList}
+	townRanks[0] = NoneRankList;
 end
 
 --[[
