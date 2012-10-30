@@ -219,7 +219,15 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
                         User:inform("Look at ingredient " .. ingredient .. " of item index " .. item)
                         return getTestLookAt()
                     else
-                        User:inform("Crafting aborted!")
+                        if result == CraftingDialog.playerCraftingComplete then
+                            User:inform("Crafting complete!")
+                        else
+                            if result == CraftingDialog.playerCraftingAborted then
+                                User:inform("Crafting aborted!")
+                            else
+                                User:inform("Dialog closed!")
+                            end
+                        end
                     end
                 end
             end
