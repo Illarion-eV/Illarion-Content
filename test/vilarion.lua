@@ -238,7 +238,7 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
         dialog:addGroup("Group 1")
         dialog:addGroup("Group 2")
         dialog:addGroup("Group 3")
-        dialog:addCraftable(0, 1, "Krasses Schwert", 20)
+        dialog:addCraftable(0, 1, "Krasses Schwert", 100)
         dialog:addCraftableIngredient(104, 13);
         dialog:addCraftable(1, 2, "Weizenmehl", 10, 10)
         dialog:addCraftableIngredient(2)
