@@ -124,6 +124,46 @@ function GenerateLookAt(user, item, material)
 	return lookAt;
 end;
 
+function GenerateItemLookAtFromId(user, itemId, data)
+	local lookAt = ItemLookAt();
+	local isGerman = (user:getPlayerLanguage() == Player.german);
+	data = data or {};
+	
+	local usedName;
+	if (isGerman) then
+		usedName = data["nameDe"];
+	else
+		usedName = data["nameEn"];
+	end;
+	if base.common.IsNilOrEmpty(usedName) then
+		usedName = world:getItemName(itemId, user:getPlayerLanguage());
+	end;
+	lookAt.name = usedName;
+	
+	local rarenessData = data["rareness"];
+	if (rarenessData == nil) then
+		lookAt.rareness = ItemLookAt.commonItem;
+	else
+		local value = tonumber(rarenessData);
+		if (value ~= nil) then
+			lookAt.rareness = value;
+	    end;
+	end;
+	
+	local usedDescription;
+	if (isGerman) then
+		usedDescription = data["descriptionDe"];
+	else
+		usedDescription = data["descriptionEn"];
+	end;
+	
+	if not base.common.IsNilOrEmpty(usedDescription) then
+		lookAt.description = usedDescription;
+	end;
+	
+	return lookAt;
+end;
+
 function GetGemLevel(item, dataEntry)
 	local dataEntry = item:getData(dataEntry);
 	if (dataEntry == nil) then
