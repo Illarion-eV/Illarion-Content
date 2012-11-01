@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: November 01, 2012                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Myrthe Mildthorn"
@@ -66,14 +66,14 @@ itemShoes = 53
 -- 2-11: Killing 10 wolves
 -- 12: Quest 1 solved, reward: 100cp, +5 rankpoints
 -- 13: Quest 2 taken - kill 5 panthers
--- 14-18: Killing 5 panthers
+-- 14-18: Killing 5 dogs
 -- 19: Quest 2 solved, reward: 100cp, yellow robe, +10 rankpoints
 -- 20: Quest 3 taken - kill 1 spider
 -- 21: Killing 1 spider
--- 22: Quest 3 solved, reward: ITEM2, +20 rankpoints
+-- 22: Quest 3 solved, reward: novice robe, +20 rankpoints
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the washer-woman Myrthe Mildthorn. Keywords: Hello, laundry, cave, quest.")
+"Help" -> inform("[Game Help] This NPC is the washer woman Myrthe Mildthorn. Keywords: Hello, laundry, cave, quest.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist das Waschweib Myrthe Mildthorn. Schlüsselwörter: Hallo, Wäsche, Höhle, Quest.")
 
 -- General speech
@@ -87,16 +87,16 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell! If your clothes get dirty, j
 "Ciao", "Adieu", "Au revoir" -> "Gehabt euch wohl! Wenn eure Kleidung dreckig wird, kommt einfach zu mir zurück, ja?", "Oh, ihr müßt gehen? Ich fühl mich gar nicht wohl, so ganz alleine.", "Ah, ich freu mich schon darauf, euch wiederzusehen."
 "How are you", "How feel", "How do you do" -> "I feel... clean!", "Oh, I am so worried, maybe you can help me.", "Afraid!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es... sauber!", "Oh, ich bin so besorgt, vielleicht könnt ihr mir ja helfen.", "Ich hab Angst!"
-"your name", "who are you", "who art thou" -> "I am Myrthe. Hello!", "Myrthe Mildthorn, at your service.", "Wasch-woman Myrthe Mildthorn reports for duty!"
+"your name", "who are you", "who art thou" -> "I am Myrthe. Hello!", "Myrthe Mildthorn, at your service.", "Washer woman Myrthe Mildthorn reports for duty!"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin die Myrthe. Hallo!", "Myrthe Mildthorn, stets zu Diensten.", "Waschweib Myrthe Mildthorn meldet sich zur Stelle!"
 
 -- 1st quest: Kill 10 wolves, player receives torch.
 
 -- Give out quest 1 and a torch
-queststatus(79) = 0, english, "quest", "mission" -> inform("[New quest] A Cave in the Woods I"), "Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good?", item(391, 1, 399), queststatus(79) = 1
-queststatus(79) = 0, "quest", "mission" -> inform("[Neues Quest] Eine Höhle im Wald I"), "Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen?", item(391, 1, 399), queststatus(79) = 1
-queststatus(79) = 0, "task", "adventure" -> inform("[New quest] A Cave in the Woods I"), "Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good?", item(391, 1, 399), queststatus(79) = 1
-queststatus(79) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Eine Höhle im Wald I"), "Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen?", item(391, 1, 399), queststatus(79) = 1
+queststatus(79) = 0, english, "quest", "mission" -> inform("[New quest] A Cave in the Woods I"), "Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good? Have this torch, it is pretty dark inside.", item(391, 1, 399), queststatus(79) = 1
+queststatus(79) = 0, "quest", "mission" -> inform("[Neues Quest] Eine Höhle im Wald I"), "Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen? Nehmt diese Fackel, es ist dunkel da drinnen.", item(391, 1, 399), queststatus(79) = 1
+queststatus(79) = 0, "task", "adventure" -> inform("[New quest] A Cave in the Woods I"), "Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good? Have this torch, it is pretty dark inside.", item(391, 1, 399), queststatus(79) = 1
+queststatus(79) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Eine Höhle im Wald I"), "Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen? Nehmt diese Fackel, es ist dunkel da drinnen.", item(391, 1, 399), queststatus(79) = 1
 
 -- Quest 1 solved, reward: 100cp, +5 rankpoints
 queststatus(79) = 11, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Archmage Elvaine Morgan's favour."), "Oh, how great! Now I can sleep without the wolves scaring me. Take mm loan of this week, do not refuse it, please. Another adventure awaits you.", money + 100, queststatus(79) = 12, rankpoints(Runewick) + 5
@@ -110,28 +110,26 @@ queststatus(79) > 0, queststatus(79) < 11, "quest", "mission" -> "Immernoch trei
 queststatus(79) > 0, queststatus(79) < 11, "task", "adventure" -> "There is still a pack of wolves in the north. Can't you hear them howling?"
 queststatus(79) > 0, queststatus(79) < 11, "Auftrag", "Aufgabe", "Abenteuer" -> "Immernoch treibt ein Rudel Wölfe sein Unwesen im Norden. Hört ihr nicht ihr Gejaule?"
 
--- 2nd quest: Kill 5 panthers
-
+-- 2nd quest: Kill 5 dogs
 -- Give out quest 2
-queststatus(79) = 12, english, "quest", "mission" -> inform("[New quest] A Cave in the Woods II"), "You are a true hero. The panthers are hunting everything, even halflings. Please, will you... tame them, too?", queststatus(79) = 13
-queststatus(79) = 12, "quest", "mission" -> inform("[Neues Quest] Eine Höhle im Wald II"), "Ihr seid wahrhaftig ein Held. Die Panther jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?", queststatus(79) = 13
-queststatus(79) = 12, "task", "adventure" -> inform("[New quest] A Cave in the Woods II"), "You are a true hero. The panthers are hunting everything, even halflings. Please, will you... tame them, too?", queststatus(79) = 13
-queststatus(79) = 12, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Eine Höhle im Wald II"), "Ihr seid wahrhaftig ein Held. Die Panther jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?", queststatus(79) = 13
+queststatus(79) = 12, english, "quest", "mission" -> inform("[New quest] A Cave in the Woods II"), "You are a true hero. Wild dogs are hunting everything, even halflings. Please, will you... tame them, too?", queststatus(79) = 13
+queststatus(79) = 12, "quest", "mission" -> inform("[Neues Quest] Eine Höhle im Wald II"), "Ihr seid wahrhaftig ein Held. Wilde Hunde jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?", queststatus(79) = 13
+queststatus(79) = 12, "task", "adventure" -> inform("[New quest] A Cave in the Woods II"), "You are a true hero. Wild dogs are hunting everything, even halflings. Please, will you... tame them, too?", queststatus(79) = 13
+queststatus(79) = 12, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Eine Höhle im Wald II"), "Ihr seid wahrhaftig ein Held. Wilde Hunde jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?", queststatus(79) = 13
 
 -- Quest 2 solved, reward: 100cp, yellow robe (195), +10 rankpoints
-queststatus(79) = 18, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a yellow robe. You advance in Archmage Elvaine Morgan's favour."), "Wonder, wonderful! The panthers were so mean. Here, a customer forgot to pick up a robe, it is yours now.", money + 100, item(195, 1, 599), queststatus(79) = 19, rankpoints(Runewick) + 10
-queststatus(79) = 18, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a yellow robe."), "Wonder, wonderful! The panthers were so mean. Here, a customer forgot to pick up a robe, it is yours now.", money + 100, item(195, 1, 599), queststatus(79) = 19
-queststatus(79) = 18, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Wunder, wunderbar! Die Panther waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.", money + 100, item(195, 1, 599), queststatus(79) = 19, rankpoints(Runewick) + 10
-queststatus(79) = 18, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe."), "Wunder, wunderbar! Die Panther waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.", money + 100, item(195, 1, 599), queststatus(79) = 19
+queststatus(79) = 18, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a yellow robe. You advance in Archmage Elvaine Morgan's favour."), "Wonder, wonderful! The dogs were so mean. Here, a customer forgot to pick up a robe, it is yours now.", money + 100, item(195, 1, 599), queststatus(79) = 19, rankpoints(Runewick) + 10
+queststatus(79) = 18, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a yellow robe."), "Wonder, wonderful! The dogs were so mean. Here, a customer forgot to pick up a robe, it is yours now.", money + 100, item(195, 1, 599), queststatus(79) = 19
+queststatus(79) = 18, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Wunder, wunderbar! Die Hunde waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.", money + 100, item(195, 1, 599), queststatus(79) = 19, rankpoints(Runewick) + 10
+queststatus(79) = 18, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe."), "Wunder, wunderbar! Die Hunde waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.", money + 100, item(195, 1, 599), queststatus(79) = 19
 
 -- Quest 2 taken but not solved, repeat the instructions
-queststatus(79) > 12, queststatus(79) < 18, english, "quest", "mission" -> "I saw a black shadow again! Are there still mean panthers around?"
-queststatus(79) > 12, queststatus(79) < 18, "quest", "mission" -> "Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch Panther in der Gegend?"
-queststatus(79) > 12, queststatus(79) < 18, "task", "adventure" -> "I saw a black shadow again! Are there still mean panthers around?"
-queststatus(79) > 12, queststatus(79) < 18, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch Panther in der Gegend?"
+queststatus(79) > 12, queststatus(79) < 18, english, "quest", "mission" -> "I saw a black shadow again! Are there still mean dogs around?"
+queststatus(79) > 12, queststatus(79) < 18, "quest", "mission" -> "Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch wilde Hunde in der Gegend?"
+queststatus(79) > 12, queststatus(79) < 18, "task", "adventure" -> "I saw a black shadow again! Are there still mean dogs around?"
+queststatus(79) > 12, queststatus(79) < 18, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch wilde Hunde in der Gegend?"
 
 -- 3rd quest: Kill 1 spider
-
 -- Give out quest 3
 queststatus(79) = 19, english, "quest", "mission" -> inform("[New quest] A Cave in the Woods III"), "Did you see that web? That giant web in the woods? It has to belong to a giant spider! Just imagine such a beast would come here. Can you... prevent this?", queststatus(79) = 20
 queststatus(79) = 19, "quest", "mission" -> inform("[Neues Quest] Eine Höhle im Wald III"), "Habt ihr dieses Netz gesehen? Dieses riesen Netz im Wald? Es muss einer riesigen Spinne gehören. Stellt euch nur vor, so ein Biest würde hierher kommen! Könnt ihr das... verhindern?", queststatus(79) = 20
@@ -157,9 +155,9 @@ queststatus(79) = 22, "task", "adventure" -> "Oh, you did so much for me, the wo
 queststatus(79) = 22, "Auftrag", "Aufgabe", "Abenteuer" -> "Oh, ihr habt schon so viel für mich, den Wald und die Wäsche getan. Ihr könnt mir eure Schmutzwäsche jederzeit bringen, ich wasche sie kostenlos."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I'm a washer-woman. I earn my money with honest labour and I feel proud of it."
+"profession" -> "I'm a washer woman. I earn my money with honest labour and I feel proud of it."
 "beruf" -> "Ich bin ein Waschweib. Ich verdiene mein Geld mit ehrlicher Arbeit, worauf ich stolz bin."
-english, "job" -> "I'm a washer-woman. I earn my money with honest labour and I feel proud of it."
+english, "job" -> "I'm a washer woman. I earn my money with honest labour and I feel proud of it."
 "job" -> "Ich bin ein Waschweib. Ich verdiene mein Geld mit ehrlicher Arbeit, worauf ich stolz bin."
 english, "Gobaith", "Gobiath" -> "Huh?", "Pardon?", "What is that?"
 "Gobaith", "Gobiath" -> "Huh?", "Pardon?", "Was ist das?"
@@ -173,19 +171,19 @@ english, "Gobaith", "Gobiath" -> "Huh?", "Pardon?", "What is that?"
 english, "Nana", "Winterbutter" -> "Nana... she lives in Yewdale, am I not right? She cooks the finest soups, indeed."
 english, "wolf" -> "In the night, I hear them howling! They even attacked Yewdale once!"
 "wolves" -> "In the night, I hear them howling! They even attacked Yewdale once!"
-english, "panther" -> "Panthers are mean... predators! I don't want them to hunt me, I just want to wash my laundry in peace!"
+english, "dog" -> "Dogs are mean... predators! I don't want them to hunt me, I just want to wash my laundry in peace!"
 "Spider" -> "Eeek! I once saw the web of a giant spider between two trees in the north. That was so scary!"
 "cave" -> "To the north, there is an abandoned bear cave. Now wolves, panthers and even terrible spiders dwell there."
-"bear" -> "A bear used to protect us from all the beast; he guarded his cave and no wolf nor panther dared to come close to the Anthil brook."
+"bear" -> "A bear used to protect us from all the beast; he guarded his cave and no wolf nor dog dared to come close to the Anthil brook."
 english, "Anthil" -> "Anthil's water is perfect for doing laundry. It could be a bit warmer, though."
 "brook", "river" -> "This brook here is the called the Anthil, didn't you know? The water is pure and clean, just as my laundry."
 "Eibenthal" -> "Oh, Eibenthal ist nicht weit von hier. Geht einfach die Straße entlang, ihr könnte es nicht verfehlen."
 "Nana", "Winterbutter" -> "Nana... Sie lebt in Eibenthal, nicht wahr? Sie kocht die besten Suppen, ohja."
 "Wolf", "Wölfe" -> "In der Nacht höre ich ihr Gejaule. Und sie haben sogar schon Yewdale heimgesucht!"
-"Panther" -> "Panthers sind ganz gemeine Raubtiere. Ich will nicht, dass sie nach mir jagen, ich will doch nur meine Wäsche in Frieden waschen."
+"Hund" -> "Hunde sind ganz gemeine Tiere. Ich will nicht, dass sie nach mir jagen, ich will doch nur meine Wäsche in Frieden waschen."
 "Spinne" -> "Eeek! Ich habe letztens ein riesiges Spinnennetz zwischen zwei Bäumen im Norden gesehen. Das war so schrecklich!"
 "Höhle" -> "Im Norden gibt es eine alte Bärenhöhle. Jetzt hausen dort Wölfe, Panther und schreckliche Spinnen!"
-"Bär" -> "Ein Bär hat uns früher vor den wilden Tieren beschützt; er bewachte seine Höhle und kein Wolf oder Panther wagte es, hier zum Anthil zu kommen."
+"Bär" -> "Ein Bär hat uns früher vor den wilden Tieren beschützt; er bewachte seine Höhle und kein Wolf oder Hund wagte es, hier zum Anthil zu kommen."
 "Anthil" -> "Das Wasser des Anthils ist perfekt, um Wäsche darin zu waschen. Es könnte nur ein wenig wärmer sein."
 "Bach", "Fluss", "Fluß" -> "Dieser Bach hier ist der Anthil, wußtet ihr das nicht? Das Wasser ist sauber und klar, genauso wie meine Wäsche."
 
@@ -208,7 +206,7 @@ english, "Cadomyr" -> "#me points to the west: 'There is Cadomyr! I've never bee
 "Cadomyr" -> "#me deutet nach Westen: 'Dort liegt Cadomyr. Ich war noch nie dort, aber ich habe gehört, es ist ein staubtrockener Ort."
 
 -- Main land factions
-english, "albar" -> "Albar... I am a simple washer-woman. How should I know about such things?"
+english, "albar" -> "Albar... I am a simple washer woman. How should I know about such things?"
 "albar" -> "Albar... ich bin nur ein einfaches Waschweib. Warum sollte ich mich mit solchen Dingen auskennen?"
 english, "gynk", "gync" -> "Gynk, that sounds funny, what is that?"
 "gync", "gynk" -> "Gynk, das klingt witzig, was ist denn das?"
@@ -222,7 +220,7 @@ english, "Tanora", "Zelphia" -> "I pray to Tanora every morning for leaving the 
 "Tanora", "Zelphia" -> "Ich bete jeden Morgen zu Tanora, auf dass das Wasser der Anthils immer so klar bleibt wie jetzt."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I can wash your laundry, but I do notwith goods.", trade
+"what sell", "what buy", "list wares", "price of" -> "I can wash your laundry, but I do not trade with goods."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kann eure Schmutzwäsche waschen, aber ich handele nicht mit Waren."
 "tell something" -> "First, you have to soak the laundry. Wait an hour, but not more. Then, wash it! And do not forget to rinse it twice."
 "erzähl was", "erzähl etwas" -> "Zunächst müßt ihr die Wäsche einweichen. Wartet eine Stunde, aber nicht mehr. Dann wascht sie! Vergesst nicht, sie hinterher zweimal zu spülen."
@@ -230,8 +228,8 @@ english, "Tanora", "Zelphia" -> "I pray to Tanora every morning for leaving the 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
 "moan" -> "I do not moan! I just... notice things."
 "maulen" -> "Ich maule nicht... Ich mache nur Anmerkungen."
-english, "Ariel", "Sunil", "Persil", "Tandil" -> "I prefer soap."
-"Ariel", "Sunil", "Persil", "Tandil" -> "Ich nehme lieber Seife."
+english, "Ariel", "Sunil", "Persil", "Tandil", "Unamat" -> "I prefer soap."
+"Ariel", "Sunil", "Persil", "Tandil", "Unamat" -> "Ich nehme lieber Seife."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here.
 english, "Myrthe", "Mildthorn" -> "Yes, I am Myrthe. My last name is Mildthorn. Because my parents' name was also Mildthorn."

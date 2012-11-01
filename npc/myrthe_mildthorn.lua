@@ -7,7 +7,7 @@
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
 --                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+-- Last parsing: November 01, 2012                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -25,7 +25,6 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.talkstate")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.myrthe_mildthorn", package.seeall)
 
@@ -35,7 +34,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the washer-woman Myrthe Mildthorn. Keywords: Hello, laundry, cave, quest."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the washer woman Myrthe Mildthorn. Keywords: Hello, laundry, cave, quest."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -168,7 +167,7 @@ talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("I am Myrthe. Hello!");
 talkEntry:addResponse("Myrthe Mildthorn, at your service.");
-talkEntry:addResponse("Wasch-woman Myrthe Mildthorn reports for duty!");
+talkEntry:addResponse("Washer woman Myrthe Mildthorn reports for duty!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -190,7 +189,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods I"));
-talkEntry:addResponse("Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good?");
+talkEntry:addResponse("Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good? Have this torch, it is pretty dark inside.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -201,7 +200,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald I"));
-talkEntry:addResponse("Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen?");
+talkEntry:addResponse("Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen? Nehmt diese Fackel, es ist dunkel da drinnen.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -212,7 +211,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods I"));
-talkEntry:addResponse("Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good?");
+talkEntry:addResponse("Since my old friend the bear is no more, wolves scare me every night. Could you go north to their cave and... tame them... for good? Have this torch, it is pretty dark inside.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -224,7 +223,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald I"));
-talkEntry:addResponse("Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen?");
+talkEntry:addResponse("Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen? Nehmt diese Fackel, es ist dunkel da drinnen.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -320,7 +319,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods II"));
-talkEntry:addResponse("You are a true hero. The panthers are hunting everything, even halflings. Please, will you... tame them, too?");
+talkEntry:addResponse("You are a true hero. Wild dogs are hunting everything, even halflings. Please, will you... tame them, too?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -330,7 +329,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 12));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald II"));
-talkEntry:addResponse("Ihr seid wahrhaftig ein Held. Die Panther jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?");
+talkEntry:addResponse("Ihr seid wahrhaftig ein Held. Wilde Hunde jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -340,7 +339,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 12));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Cave in the Woods II"));
-talkEntry:addResponse("You are a true hero. The panthers are hunting everything, even halflings. Please, will you... tame them, too?");
+talkEntry:addResponse("You are a true hero. Wild dogs are hunting everything, even halflings. Please, will you... tame them, too?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -351,7 +350,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Höhle im Wald II"));
-talkEntry:addResponse("Ihr seid wahrhaftig ein Held. Die Panther jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?");
+talkEntry:addResponse("Ihr seid wahrhaftig ein Held. Wilde Hunde jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -362,7 +361,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and a yellow robe. You advance in Archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Wonder, wonderful! The panthers were so mean. Here, a customer forgot to pick up a robe, it is yours now.");
+talkEntry:addResponse("Wonder, wonderful! The dogs were so mean. Here, a customer forgot to pick up a robe, it is yours now.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(195, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 19));
@@ -375,7 +374,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 18));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins and a yellow robe."));
-talkEntry:addResponse("Wonder, wonderful! The panthers were so mean. Here, a customer forgot to pick up a robe, it is yours now.");
+talkEntry:addResponse("Wonder, wonderful! The dogs were so mean. Here, a customer forgot to pick up a robe, it is yours now.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(195, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 19));
@@ -387,7 +386,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 18));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Wunder, wunderbar! Die Panther waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.");
+talkEntry:addResponse("Wunder, wunderbar! Die Hunde waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(195, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 19));
@@ -399,7 +398,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(79, "=", 18));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe."));
-talkEntry:addResponse("Wunder, wunderbar! Die Panther waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.");
+talkEntry:addResponse("Wunder, wunderbar! Die Hunde waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.item.item(195, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(79, "=", 19));
@@ -412,7 +411,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I saw a black shadow again! Are there still mean panthers around?");
+talkEntry:addResponse("I saw a black shadow again! Are there still mean dogs around?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -421,7 +420,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 12));
 talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch Panther in der Gegend?");
+talkEntry:addResponse("Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch wilde Hunde in der Gegend?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -430,7 +429,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, ">", 12));
 talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("I saw a black shadow again! Are there still mean panthers around?");
+talkEntry:addResponse("I saw a black shadow again! Are there still mean dogs around?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -440,7 +439,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(79, "<", 18));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch Panther in der Gegend?");
+talkEntry:addResponse("Ich habe erneut einen schwarzen Schatten gesehen! Sind etwa noch wilde Hunde in der Gegend?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -606,7 +605,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I'm a washer-woman. I earn my money with honest labour and I feel proud of it.");
+talkEntry:addResponse("I'm a washer woman. I earn my money with honest labour and I feel proud of it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -619,7 +618,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I'm a washer-woman. I earn my money with honest labour and I feel proud of it.");
+talkEntry:addResponse("I'm a washer woman. I earn my money with honest labour and I feel proud of it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -707,8 +706,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("panther");
-talkEntry:addResponse("Panthers are mean... predators! I don't want them to hunt me, I just want to wash my laundry in peace!");
+talkEntry:addTrigger("dog");
+talkEntry:addResponse("Dogs are mean... predators! I don't want them to hunt me, I just want to wash my laundry in peace!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -726,7 +725,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("bear");
-talkEntry:addResponse("A bear used to protect us from all the beast; he guarded his cave and no wolf nor panther dared to come close to the Anthil brook.");
+talkEntry:addResponse("A bear used to protect us from all the beast; he guarded his cave and no wolf nor dog dared to come close to the Anthil brook.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -765,8 +764,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Panther");
-talkEntry:addResponse("Panthers sind ganz gemeine Raubtiere. Ich will nicht, dass sie nach mir jagen, ich will doch nur meine Wäsche in Frieden waschen.");
+talkEntry:addTrigger("Hund");
+talkEntry:addResponse("Hunde sind ganz gemeine Tiere. Ich will nicht, dass sie nach mir jagen, ich will doch nur meine Wäsche in Frieden waschen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -784,7 +783,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bär");
-talkEntry:addResponse("Ein Bär hat uns früher vor den wilden Tieren beschützt; er bewachte seine Höhle und kein Wolf oder Panther wagte es, hier zum Anthil zu kommen.");
+talkEntry:addResponse("Ein Bär hat uns früher vor den wilden Tieren beschützt; er bewachte seine Höhle und kein Wolf oder Hund wagte es, hier zum Anthil zu kommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -916,7 +915,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Albar... I am a simple washer-woman. How should I know about such things?");
+talkEntry:addResponse("Albar... I am a simple washer woman. How should I know about such things?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -987,8 +986,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I can wash your laundry, but I do notwith goods.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I can wash your laundry, but I do not trade with goods.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1032,6 +1030,7 @@ talkEntry:addTrigger("Ariel");
 talkEntry:addTrigger("Sunil");
 talkEntry:addTrigger("Persil");
 talkEntry:addTrigger("Tandil");
+talkEntry:addTrigger("Unamat");
 talkEntry:addResponse("I prefer soap.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1041,6 +1040,7 @@ talkEntry:addTrigger("Ariel");
 talkEntry:addTrigger("Sunil");
 talkEntry:addTrigger("Persil");
 talkEntry:addTrigger("Tandil");
+talkEntry:addTrigger("Unamat");
 talkEntry:addResponse("Ich nehme lieber Seife.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
