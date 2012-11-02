@@ -35,6 +35,9 @@ do
 	end;
 
 	do
+		-- Player name processor
+		-- This processor replaces %CHARNAME with the name of the character
+		-- that is talking with the NPC.
 		local playerNameProcessor = base.class.class(processor,
 		function(self, value)
 			processor:init(self);
@@ -51,6 +54,8 @@ do
 	end;
 
 	do
+		-- NPC name processor
+		-- This processor replaces %NPCNAME with the name of the NPC.
 		local npcNameProcessor = base.class.class(processor,
 		function(self, value)
 			processor:init(self);
