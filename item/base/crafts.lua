@@ -133,7 +133,7 @@ function Craft:showDialog(user)
             return startCrafting
         elseif result == CraftingDialog.playerLooksAtItem then
             local productId = dialog:getCraftableIndex() + 1
-            return getProductLookAt(user, productId)
+            return self:getProductLookAt(user, productId)
         elseif result == CraftingDialog.playerLooksAtIngredient then
             local productId = dialog:getCraftableIndex() + 1
             local ingredientId = dialog:getIngredientIndex() + 1
