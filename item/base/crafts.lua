@@ -202,7 +202,7 @@ function Craft:loadDialog(dialog, user)
         local productRequirement = product.difficulty
         
         if productRequirement <= skill then
-            dialog:addCraftable(product.category - 1, product.item, product.getName(user), product.time, product.quantity)
+            dialog:addCraftable(product.category - 1, product.item, product:getName(user), product.time, product.quantity)
 
             for j = 1, #product.ingredients do
                 local ingredient = product.ingredients[j]
