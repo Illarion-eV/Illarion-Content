@@ -1,174 +1,233 @@
 -- basic function for craft handling
 -- Nitram
 -- added object orientation by vilarion
+-- changed for VBU by vilarion
+
 require("base.common")
+require("base.lookat")
 
 module("item.base.crafts", package.seeall)
 
--- ## NOTE: replaced os.time() with 123456789
-
-
-notRepairable = { 1 };
---notRepairable = {1858, 1840, 92, 224, 1001, 399, 2647, 393, 2031};
-
 Product = {
-            Quantity = 1,
-            ProductionSteps = { },
-            Difficulty = 0,
-            LeftOvers = { },
-            FailLeftOvers = { },
-            UseDataToWork = { };
-    };
+            quantity = 1,
+            ingredients = {},
+            difficulty = 0,
+            remnants = {},
+}
 
-
-function Product:new( p )       -- new: constructor
-    p = p or {};                -- if p=nil then create an empty list
-    setmetatable( p, self );    -- metatable: holds functions of a class. loads product-stuff into this new product p.
-    self.__index = self;        -- ??
-    math.randomseed( 123456789 );
-    return p;
+function Product:new(p)       -- new: constructor
+    p = p or {}               -- if p=nil then create an empty list
+    setmetatable(p, self)     -- metatable: holds functions of a class. loads product-stuff into this new product p.
+    self.__index = self       -- ??
+    return p
 end
 
 
-Craft   = {
-            Products = { },
-            CategoryContent = { },
-            Category = { },
-            --GfxEffect = { },
-            --SfxEffect = { },
-            Skillname = "",
+Craft = {
+    products = {},
+    categories = {},
+    skill = nil,
 
-            SecretArt = false,
+    defaultRaceBonus = {0, 0, 0, 0, 0, 0},
 
-            DefaultRaceBonus = { 0, 0, 0, 0, 0, 0 },
+    tool = {},
+    activeTool = {},
+    toolLink = {},
 
-            Tool = {  },
-            ActiveTool = {  },
-            ToolLink = {  },
-
-            DefaultRepair = false,
-
-            DefaultFoodConsumption = 500,
-
-            DefaultTimePerStep = { 0, 0 },
-
-            DefaultGfx = { 0, 0 },
-            DefaultSfx = { 0, 0 },
-
-            Interrupt_Messages = {  },
-
-          };
+    defaultFoodConsumption = 500,
+}
 
 
 
 -- constructor
 
 --[[
-Usage: myCraft = Craft:new{ LeadAttrib = "LEADATTRIB",
-                            LeadSkill = "SKILL",
-                            LeadSkillGroup = "GROUP",
-                            [DefaultFoodConsumption = FOOD,]
-                            [SecretArt = true,]
-                            [DefaultTimePerStep = { TIME1, TIME2 },]
-                            [DefaultRepair = true,]
-                            [DefaultGfx = { GFXID, TIME },]
-                            [DefaultSfx = { SFXID, TIME },]
-                          };
+Usage: myCraft = Craft:new{ craftEN = "CRAFT_EN",
+                            craftDE = "CRAFT_DE",
+                            leadSkill = SKILL,
+                            [defaultFoodConsumption = FOOD,]
+                          }
 --]]
 
-function Craft:new( c )
-    c = c or {};
-    setmetatable( c, self );
-    self.__index = self;
-    c.Products = { };
-    c.CategoryContent = { };
-    c.Category = { };
-    c.Tool = {  };
-    c.ActiveTool = {  };
-    c.ToolLink = {  };
-    c.Interrupt_Messages = {  };
-    c.DefaultProduct = Product:new{
-        TimePerStep = c.DefaultTimePerStep,
-        FoodConsumption = c.DefaultFoodConsumption,
-        Repairable = c.DefaultRepair,
-        GfxEffect = c.DefaultGfx,
-        SfxEffect = c.DefaultSfx
-    };
-    math.randomseed( 123456789 );
-    return c;
+function Craft:new(c)
+    c = c or {}
+    setmetatable(c, self)
+    self.__index = self
+    c.products = {}
+    c.categories = {}
+    c.tool = {}
+    c.activeTool = {}
+    c.toolLink = {}
+    c.defaultProduct = Product:new{
+        foodConsumption = c.defaultFoodConsumption,
+    }
+    return c
 end
 
-
-function Craft:AddTool( ItemID )
-    self.Tool[ItemID] = true;
+function Craft:addTool(itemId)
+    self.tool[itemId] = true
 end
 
-
-function Craft:AddActiveTool( InactiveItemID, ItemID )
-    self.ActiveTool[ItemID] = true;
-    self.ToolLink[ItemID]=InactiveItemID;
-    self.ToolLink[InactiveItemID]=ItemID;
+function Craft:addActiveTool(inactiveItemId, itemId)
+    self.activeTool[itemId] = true;
+    self.toolLink[itemId] = inactiveItemId
+    self.toolLink[inactiveItemId] = itemId
 end
 
-function Craft:AddCategory( ItemID )
-    local CatID = table.getn(self.Category) + 1;
-    self.Category[ CatID ] = { ["ItemID"] = ItemID, ["minSkill"] = 0 };
-    return CatID;
+function Craft:addCategory(categoryNameEN, categoryNameDE)
+    table.insert(self.categories, {nameEN = categoryNameEN, nameDE = categoryNameDE, minSkill = nil})
+    return #self.categories
 end
 
-
-function Product:AddProductionSteps( ItemList, Amount, LeftOvers, FailLeftOvers, UseDataToWork )
-    local offset = table.getn(self["ProductionSteps"]);
-    for i=1,Amount do
-        self["ProductionSteps"][offset+i] = ItemList;
-        self["LeftOvers"][offset+i] = LeftOvers;
-        self["FailLeftOvers"][offset+i] = FailLeftOvers;
-        self["UseDataToWork"][offset+i] = UseDataToWork;
-    end;
-    self["QualPerStep"] = 100 / table.getn(self["ProductionSteps"]);
+function Product:addIngredient(item, quantity, data)
+    quantity = quantity or 1
+    data = data or {}
+    table.insert(self["ingredients"], {["item"]=item, ["quantity"]=quantity, ["data"]=data})
 end
 
-function Product:AddDummySteps( Amount )
-    self:AddProductionSteps( {0, 0, "belt"}, Amount, nil, nil, false );
+function Product:addRemnant(item, quantity, data)
+    quantity = quantity or 1
+    data = data or {}
+    table.insert(self["remnants"], {["item"]=item, ["quantity"]=quantity, ["data"]=data})
 end
 
-function Craft:AddProduct( CatID, ItemID, Difficulty, Quantity, TimePerStep, Repairable )
-    if (self.Products[ ItemID ] == nil) then
-        self.Products[ ItemID ] = self.DefaultProduct:new{
-            ["LeftOvers"] = { },
-            ["FailLeftOvers"] = { },
-            ["ProductionSteps"] = { },
-            ["UseDataToWork"] = { },
-            ["Difficulty"] = Difficulty,
-            ["Quantity"] = Quantity,
-            ["TimePerStep"] = TimePerStep,
-        };
-        if( Repairable ~= nil ) then
-            self.Products[ ItemID ]["Repairable"] = Repairable;
-        end;
-    end;
-    if (CatID ~= 0) then
-        if (self.CategoryContent[ self.Category[ CatID ].ItemID ] == nil) then
-            self.CategoryContent[ self.Category[ CatID ].ItemID ] = { };
-        end
-        table.insert(self.CategoryContent[ self.Category[ CatID ].ItemID ],ItemID);
-        if (table.getn(self.CategoryContent[ self.Category[ CatID ].ItemID ]) == 1) then
-            self.Category[ CatID ].minSkill = Difficulty[1];
+function Craft:addProduct(categoryId, itemId, difficulty, learnLimit, deciseconds, quantity, data)
+    difficulty = math.min(difficulty, 100)
+    learnLimit = math.min(learnLimit, 100)
+    quantity = quantity or 1
+    data = data or {}
+    
+    if categoryId > 0 and categoryId <= #self.categories then
+        table.insert(self.products, self.DefaultProduct:new{
+            ["category"] = categoryId,
+            ["item"] = itemId,
+            ["difficulty"] = difficulty,
+            ["learnLimit"] = learnLimit,
+            ["time"] = deciseconds,
+            ["quantity"] = quantity,
+            ["data"] = data,
+            ["ingredients"] = {},
+            ["remnants"] = {},
+        })
+
+        if self.categories[categoryId].minSkill then
+            self.categories[categoryId].minSkill = math.min(self.categories[categoryId].minSkill, difficulty)
         else
-            self.Category[ CatID ].minSkill = math.min(self.Category[ CatID ].minSkill,Difficulty[1]);
+            self.categories[categoryId].minSkill = difficulty
+        end
+
+        return self.products[#self.products]
+    end
+
+    return nil
+end
+
+function Craft:showDialog(user)
+    local callback = function(dialog)
+        local result = dialog:getResult()
+        if result == CraftingDialog.playerCrafts then
+            local item = dialog:getCraftableIndex()
+            local amount = dialog:getCraftableAmount()
+            user:inform("Craft " .. amount .. " of item index " .. item)
+            local startCrafting = true
+            return startCrafting
+        elseif result == CraftingDialog.playerLooksAtItem then
+            local productId = dialog:getCraftableIndex() + 1
+            return getProductLookAt(user, productId)
+        elseif result == CraftingDialog.playerLooksAtIngredient then
+            local productId = dialog:getCraftableIndex() + 1
+            local ingredientId = dialog:getIngredientIndex() + 1
+            return self:getIngredientLookAt(user, productId, ingredientId)
+        elseif result == CraftingDialog.playerCraftingComplete then
+            user:inform("Crafting complete!")
+        elseif result == CraftingDialog.playerCraftingAborted then
+            user:inform("Crafting aborted!")
+        else
+            user:inform("Dialog closed!")
         end
     end
-    return self.Products[ ItemID ];
+    local dialog = CraftingDialog(self:getName(user), callback)
+    self:loadDialog(dialog, user)
+    user:requestCraftingDialog(dialog)
 end
-
-function Craft:AddInterruptMessage(gText,eText)
-    table.insert(self.Interrupt_Messages,{["german"] = gText,["english"] = eText});
-end
-
-
-
 
 --------------------------------------------------------------------------------
+
+function Craft:getProductLookAt(user, productId)
+    local product = self.products[productId]
+    local item = product.item;
+    local data = product.data;
+    return base.lookat.GenerateItemLookAtFromId(user, item, data)
+end
+
+function Craft:getIngredientLookAt(user, productId, ingredientId)
+    local ingredient = self.products[productId].ingredients[ingredientId]
+    local item = ingredient.item;
+    local data = ingredient.data;
+    return base.lookat.GenerateItemLookAtFromId(user, item, data)
+end
+
+function Craft:getName(user)
+    local isGerman = (user:getPlayerLanguage() == Player.german)
+    local craft
+
+    if isGerman then
+        craft = self.craftDE
+    else
+        craft = self.craftEN
+    end
+
+    craft = craft or "unknown craft"
+
+    return craft
+end
+
+function Craft:loadDialog(dialog, user)
+    local skill = self:getSkill(user)
+    
+    for i = 1,#self.categories do
+        local category = self.categories[i]
+        local categoryRequirement = category.minSkill
+        if categoryRequirement and categoryRequirement <= skill then
+            if user:getPlayerLanguage() == Player.german then
+                dialog:addGroup(category.nameDE)
+            else
+                dialog:addGroup(category.nameEN)
+            end
+        end
+    end
+
+    for i = 1,#self.products do
+        local product = self.products[i]
+        local productRequirement = product.difficulty
+        
+        if productRequirement <= skill then
+            dialog:addCraftable(product.category - 1, product.item, product.getName(user), product.time, product.quantity)
+
+            for j = 1, #product.ingredients do
+                local ingredient = product.ingredients[j]
+                dialog:addCraftableIngredient(ingredient.id, ingredient.quantity)
+            end
+        end
+    end
+end
+
+function Product:getName(user)
+    local isGerman = (user:getPlayerLanguage() == Player.german)
+    local usedName
+
+    if isGerman then
+        usedName = self.data.nameDe
+    else
+        usedName = self.data.nameEn
+    end
+    
+    if base.common.IsNilOrEmpty(usedName) then
+        usedName = world:getItemName(self.item, user:getPlayerLanguage())
+    end
+
+    return usedName
+end
 
 function Craft:SwapToActiveItem( User )
     local frontItem = base.common.GetFrontItem( User );
@@ -213,20 +272,8 @@ function Craft:checkRequiredFood( User, NeededFood, Difficulty )
     end
 end
 
-function Craft:ModifySkill( User,toolItem )
-    local Skill = User:getSkill(self.LeadSkill);
-    local Attrib = User:increaseAttrib(self.LeadAttrib,0);
-    stone1, str1, stone2, str2=base.common.GetBonusFromTool(toolItem);
-    local step=0;
-    if stone1==3 then       -- ruby raises skill
-        step=str1;
-    end
-    if stone2==3 then
-        step=step+str2;
-    end
-    Skill=Skill+step;
-    --User:inform("ModifySkill: "..Skill * base.common.Scale(0.5,1.5,Attrib*5));
-    return math.min(100,math.max(0,Skill * base.common.Scale(0.5,1.5,Attrib*5)));
+function Craft:getSkill(user)
+    return user:getSkill(self.leadSkill);
 end
 
 function Craft:CheckMaterial( User, ItemID, Step )
@@ -257,16 +304,6 @@ function Craft:CheckMaterial( User, ItemID, Step )
     return true
 end
 
-function Craft:checkSuccess( User, ItemID,toolItem )
-    local Chance = base.common.Scale(60,96,(self:ModifySkill(User,toolItem)-self.Products[ItemID].Difficulty[1])/(self.Products[ItemID].Difficulty[2]-self.Products[ItemID].Difficulty[1])*100);
-    --User:inform("Erfolgschance: "..Chance);
-    if (math.random()*100 > Chance) then
-        return false;
-    else
-        return true;
-    end
-end
-
 function Craft:GenerateQuality( User, ItemID, toolItem )
     local Qual = base.common.Scale(5,8,(self:ModifySkill(User,toolItem)-self.Products[ItemID].Difficulty[1])/(math.min(100,self.Products[ItemID].Difficulty[2])-self.Products[ItemID].Difficulty[1])*100);
     stone1, str1, stone2, str2=base.common.GetBonusFromTool(toolItem);
@@ -290,67 +327,8 @@ function Craft:GenerateQuality( User, ItemID, toolItem )
     Qual = math.floor(Qual);
     Qual = math.max(1,math.min(9,Qual));
     local Dura = base.common.Scale(66,88,(self:ModifySkill(User,toolItem)-self.Products[ItemID].Difficulty[1])/(math.min(100,self.Products[ItemID].Difficulty[2])-self.Products[ItemID].Difficulty[1])*100);
-   --[[ step=0;
-    if stone1==2 then       -- smaragd raises durability of product
-        step=0.05*str1;
-    end
-    if stone2==2 then
-        step=step+0.05*str2;
-    end
-    Dura = Dura * (((math.random()+step)*0.2)+0.9);
-    Dura = Dura * (((math.random()+step)*0.2)+0.9);
-    Dura = Dura * base.common.Scale(4,11,math.floor(qual_tool*11))/10;
-    Dura = math.floor(Dura);
-    Dura = math.max(01,math.min(99,Dura)); ]]--
 	Dura = 99; -- all produced items will have maximum durability
     return math.min(999,math.max(101,Qual*100+Dura));
-end
-
-function Craft:GenerateRepairEffekt( User, ItemID,toolItem )
-    local Qual = base.common.Scale(5,22,(self:ModifySkill(User,toolItem)-self.Products[ItemID].Difficulty[1])/(math.min(100,self.Products[ItemID].Difficulty[2])-self.Products[ItemID].Difficulty[1])*100);
-    stone1, str1, stone2, str2=base.common.GetBonusFromTool(toolItem);
-    local step=0;
-    if stone1==4 then       -- blackstone raises reparation stuff
-        step=0,05*str1;
-    end
-    if stone2==4 then
-        step=step+0,05*str2;
-    end
-    Qual = Qual * (((math.random()+step)*0.2)+0.9);
-    Qual = Qual * (((math.random()+step)*0.2)+0.9);
-    Qual = Qual * (((math.random()+step)*0.2)+0.9);
-    return math.min(99,math.max(0,Qual));
-end
-
--- Arbeitszeit generieren
-function Craft:GenWorkTime(User, ItemID, toolItem)
-    local Attrib = User:increaseAttrib(self.LeadAttrib,0);
-    local Skill  = math.min(100,User:getSkill(self.LeadSkill)*10);
-
-    gem1, str1, gem2, str2=base.common.GetBonusFromTool(toolItem);
-    step=0;
-    if gem1==3 then     -- ruby modifies skill!
-        step=str1;
-    end
-    if gem2==3 then
-        step=step+str2;
-    end
-    Skill=Skill+step;
-    step=0;
-    if gem1==6 then     -- amethyst modifies time needed
-        step=str1;
-    end
-    if gem2==6 then
-        step=step+str2;
-    end
-    step=step*1.75;
-    time1=math.floor((self.Products[ ItemID ].TimePerStep[1])*(100-step)/100);
-    time2=math.floor((self.Products[ ItemID ].TimePerStep[2])*(100-step)/100);
-    return math.floor(base.common.Scale(time1,time2,(Attrib+Skill-self.Products[ ItemID ].Difficulty[1])/(100 - self.Products[ ItemID ].Difficulty[2])*100));
-end
-
-function Craft:GetNextStep( User, Item )
-    return math.ceil(Item.quality / self.Products[ Item.id ].QualPerStep)+1;
 end
 
 function Craft:LocationFine( User, ltstate, mode )
@@ -420,19 +398,6 @@ function Craft:LocationFine( User, ltstate, mode )
     else
         return 0,"";
     end
-end
-
-function Craft:CheckInterrupt(User)
-    if (table.getn(self.Interrupt_Messages) > 0) then
-        if base.common.IsInterrupted( User ) then
-            local message = math.random(1,table.getn(self.Interrupt_Messages));
-            base.common.InformNLS(User,
-            self.Interrupt_Messages[message].german,
-            self.Interrupt_Messages[message].english);
-            return false;
-        end
-    end
-    return true;
 end
 
 function Craft:GenerateMenu( User, toolItem )
@@ -509,28 +474,9 @@ function Craft:ToolCreateItem( User, Param, WorkOnItem, ltstate, toolItem )
     end
     local didSomething = false;
     if newItem then
-        if self:CheckMaterial( User, ItemID, 1 ) and self:CheckInterrupt( User ) then
+        if self:CheckMaterial( User, ItemID, 1 ) then
             self:CraftNewItem( User, ItemID, nil, 1, ltstate , toolItem);
             didSomething = true;
-        end
-    else
-        if (WorkOnItem.quality >= 100) then
-            for i,checkId in pairs(notRepairable) do
-                if ItemID == checkId then
-                    repair = false;
-                    break;
-                end
-            end
-
-            if ProduceItem.Repairable and repair then
-                self:RepairItem( User, WorkOnItem, ltstate, toolItem );
-                didSomething = true;
-            end
-        else
-            if self:CheckMaterial( User, ItemID, self:GetNextStep( User, WorkOnItem ) ) and self:CheckInterrupt( User ) then
-                self:CraftNewItem( User, ItemID, WorkOnItem, self:GetNextStep( User, WorkOnItem ), ltstate, toolItem );
-                didSomething = true;
-            end
         end
     end
     if didSomething and (ltstate == Action.success) then
@@ -539,35 +485,6 @@ function Craft:ToolCreateItem( User, Param, WorkOnItem, ltstate, toolItem )
         --User:learn(self.LeadSkillGroup,self.LeadSkill,2,math.min(100,ProduceItem.Difficulty[2]));
 		--Replace with new learn function, see learn.lua 
     end
-end
-
-function Craft:RepairItem( User, Item, ltstate ,toolItem)
-    if (ltstate == Action.none) then
-        User:startAction( self:GenWorkTime( User, Item.id, toolItem ), self.Products[ Item.id ].GfxEffect[1], self.Products[ Item.id ].GfxEffect[2], self.Products[ Item.id ].SfxEffect[1], self.Products[ Item.id ].SfxEffect[2]);
-        User:talkLanguage(Character.say, Player.german, "#me beginnt mit der Reparatur.");
-        User:talkLanguage(Character.say, Player.english, "#me starts to repair.");
-        self:SwapToActiveItem( User );
-        return
-    end
-
-    if (Item.quality < 200) then
-        base.common.InformNLS(User,
-        "Der Gegenstand zerbricht, bei dem Versuch ihn zu reparieren.",
-        "The Item breaks, while trying to repair it.");
-        world:erase(Item,1);
-        self:SwapToInactiveItem( User );
-        return
-    end
-
-    if self:checkSuccess(User, Item.id,toolItem) then
-        local Qual = math.floor(Item.quality/100);
-        local Dura = Item.quality - (Qual*100);
-        Dura = Dura + self:GenerateRepairEffekt( User, Item.id ,toolItem);
-        Item.quality = Qual*100 + math.min(99,Dura);
-    end
-    Item.quality = Item.quality - 100;
-    world:changeItem( Item );
-    self:SwapToInactiveItem( User );
 end
 
 function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
@@ -603,125 +520,63 @@ function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
     dropLeftOver = true;
     local StepInfos = self.Products[ ItemID ].ProductionSteps[Step];
     if (StepInfos[1] ~= 0) then
-        if ( not self.Products[ ItemID ].UseDataToWork[Step]) then
-            User:eraseItem(StepInfos[1],StepInfos[2]);
-        else
-            local foundTestItem = false;
-			for i=12,17 do
-                local TestItem = User:getItemAt(i);
-                if (TestItem.id == StepInfos[1]) then
-                    foundTestItem = true;
-					if (TestItem.data < 2) then
-                        User:eraseItem(StepInfos[1],1);
-                    else
-                        TestItem.data = TestItem.data - 1;
-                        world:changeItem(TestItem);
-                        dropLeftOver = false;
-                    end
-                    break;
-                end
-            end
-			if not foundTestItem then
-				local bag = User:getBackPack();
-				if bag then
-					local cnt = 0;
-					while bag:viewItemNr(cnt) and not foundTestItem do
-						local _,TestItem = bag:viewItemNr(cnt);
-						if TestItem.id==StepInfos[1] then
-							foundTestItem = true;
-							if TestItem.data<2 then
-								User:eraseItem(StepInfos[1],1);
-							else
-								TestItem.data = TestItem.data - 1;
-								User:inform("before changeItem");
-								world:changeItem(TestItem);
-								User:inform("after changeItem");
-								dropLeftOver = false;
-							end
-						end
-						cnt = cnt+1;
-					end
-				end
-			end
-        end
+        User:eraseItem(StepInfos[1],StepInfos[2]);
     end
-    if self:checkSuccess(User, ItemID,toolItem) then
-        local ItemQual = 0;
-        local ItemCount = 1;
-        if (Step == table.getn(self.Products[ ItemID ].ProductionSteps)) then -- Item fertig -> Finale Qualität
-            ItemQual = self:GenerateQuality( User, ItemID, toolItem );
-            ItemCount = self.Products[ ItemID ].Quantity;
-			base.common.InformNLS(User,
-				"Du beendest die Arbeit.",
-				"You finish the work.");
+        
+    local ItemQual = 0;
+    local ItemCount = 1;
+    if (Step == table.getn(self.Products[ ItemID ].ProductionSteps)) then -- Item fertig -> Finale Qualität
+        ItemQual = self:GenerateQuality( User, ItemID, toolItem );
+        ItemCount = self.Products[ ItemID ].Quantity;
+        base.common.InformNLS(User,
+            "Du beendest die Arbeit.",
+            "You finish the work.");
+    else
+        ItemQual = math.floor(self.Products[ ItemID ].QualPerStep * Step);
+    end
+    if (WorkOnItem == nil) then
+        local notcreated = User:createItem(ItemID,ItemCount,ItemQual,0);
+        if (notcreated ~= 0) then
+            world:createItemFromId(ItemID,notcreated,User.pos,true,ItemQual,0);
+            base.common.InformNLS(User,
+            "Du kannst nichts mehr halten.",
+            "You cannot carry anything else.");
         else
-            ItemQual = math.floor(self.Products[ ItemID ].QualPerStep * Step);
-        end
-        if (WorkOnItem == nil) then
-			local notcreated = User:createItem(ItemID,ItemCount,ItemQual,0);
-            if (notcreated ~= 0) then
-                world:createItemFromId(ItemID,notcreated,User.pos,true,ItemQual,0);
-                base.common.InformNLS(User,
-                "Du kannst nichts mehr halten.",
-                "You cannot carry anything else.");
-            else
-                if self:CheckMaterial( User, ItemID, (Step + 1) ) then
-                    foundMadeItem = false;
-                    for bodypos=12,17 do
-                        CheckItem = User:getItemAt(bodypos);
-                        if ((CheckItem.id == ItemID) and (CheckItem.number == ItemCount) and (CheckItem.quality == ItemQual) and (CheckItem.data == 0)) then
-                            User:changeTarget(CheckItem);
-                            foundMadeItem = true;
-                            break;
-                        end
+            if self:CheckMaterial( User, ItemID, (Step + 1) ) then
+                foundMadeItem = false;
+                for bodypos=12,17 do
+                    CheckItem = User:getItemAt(bodypos);
+                    if ((CheckItem.id == ItemID) and (CheckItem.number == ItemCount) and (CheckItem.quality == ItemQual) and (CheckItem.data == 0)) then
+                        User:changeTarget(CheckItem);
+                        foundMadeItem = true;
+                        break;
                     end
-                    if foundMadeItem then
-                        User:startAction( self:GenWorkTime( User, ItemID, toolItem ), self.Products[ ItemID ].GfxEffect[1], self.Products[ ItemID ].GfxEffect[2], self.Products[ ItemID ].SfxEffect[1], self.Products[ ItemID ].SfxEffect[2]);
-                        base.common.InformNLS(User,
-							"Du setzt die Arbeit fort.",
-							"You continue the work.");
-                    else
-                        self:SwapToInactiveItem( User );
-                    end
+                end
+                if foundMadeItem then
+                    User:startAction( self:GenWorkTime( User, ItemID, toolItem ), self.Products[ ItemID ].GfxEffect[1], self.Products[ ItemID ].GfxEffect[2], self.Products[ ItemID ].SfxEffect[1], self.Products[ ItemID ].SfxEffect[2]);
+                    base.common.InformNLS(User,
+                        "Du setzt die Arbeit fort.",
+                        "You continue the work.");
                 else
                     self:SwapToInactiveItem( User );
                 end
-            end
-        else
-            -- Edit by abcfantasy: Wine brewing contest
-            if ( ( ItemID == 2500 ) and ( ItemQual >= 100 ) ) then
-                WorkOnItem.data = GetWineQuality( User );
-            end;
-            -- end edit
-            WorkOnItem.quality = ItemQual;
-            WorkOnItem.number = ItemCount;
-            world:changeItem(WorkOnItem);
-            if self:CheckMaterial( User, ItemID, (Step + 1) ) then
-                User:startAction( self:GenWorkTime( User, ItemID, toolItem ), self.Products[ ItemID ].GfxEffect[1], self.Products[ ItemID ].GfxEffect[2], self.Products[ ItemID ].SfxEffect[1], self.Products[ ItemID ].SfxEffect[2]);
-                base.common.InformNLS(User,
-					"Du setzt die Arbeit fort.",
-					"You continue the work.");
-                User:changeTarget(User:getItemAt(WorkOnItem.itempos));
             else
                 self:SwapToInactiveItem( User );
             end
         end
     else
-        base.common.InformNLS(User,
-        "Deine Arbeit misslingt.",
-        "Your work fails.");
-        if (self.Products[ ItemID ].FailLeftOvers[Step] ~= nil) then
-            if ((self.Products[ ItemID ].FailLeftOvers[Step][3] == nil) or (math.random(100) <= self.Products[ ItemID ].FailLeftOvers[Step][3])) then
-                local notcreated = User:createItem(self.Products[ ItemID ].FailLeftOvers[Step][1],self.Products[ ItemID ].FailLeftOvers[Step][2],333,0);
-                if (notcreated ~= 0) then
-                    world:createItemFromId(self.Products[ ItemID ].FailLeftOvers[Step][1],notcreated,User.pos,true,333,0);
-                    base.common.InformNLS(User,
-                    "Du kannst nichts mehr halten.",
-                    "You cannot carry anything else.");
-                end
-            end
+        WorkOnItem.quality = ItemQual;
+        WorkOnItem.number = ItemCount;
+        world:changeItem(WorkOnItem);
+        if self:CheckMaterial( User, ItemID, (Step + 1) ) then
+            User:startAction( self:GenWorkTime( User, ItemID, toolItem ), self.Products[ ItemID ].GfxEffect[1], self.Products[ ItemID ].GfxEffect[2], self.Products[ ItemID ].SfxEffect[1], self.Products[ ItemID ].SfxEffect[2]);
+            base.common.InformNLS(User,
+                "Du setzt die Arbeit fort.",
+                "You continue the work.");
+            User:changeTarget(User:getItemAt(WorkOnItem.itempos));
+        else
+            self:SwapToInactiveItem( User );
         end
-        self:SwapToInactiveItem( User );
     end
     if ((self.Products[ ItemID ].LeftOvers[Step] ~= nil) and (dropLeftOver)) then
         local notcreated = User:createItem(self.Products[ ItemID ].LeftOvers[Step][1],self.Products[ ItemID ].LeftOvers[Step][2],333,0);
@@ -732,14 +587,4 @@ function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
             "You cannot carry anything else.");
         end
     end
-end
-
--- Added by abcfantasy for wine contest
-function GetWineQuality( User )
-        local skill = User:getSkill(Character.cooking);
-        local attr = User:increaseAttrib( "dexterity", 0 );
-
-        local randValue = math.random( -23, 23 );
-
-        return ( skill + attr + randValue );
 end

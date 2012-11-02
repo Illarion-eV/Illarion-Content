@@ -5,70 +5,61 @@
 require("item.general.metal")
 require("item.base.crafts")
 
-module("item.id_311_glassblowpipe", package.seeall, package.seeall(item.general.metal))
+module("item.id_311_glassblowpipe", package.seeall)
 
 function InitCraftingTool( )
     if not InitStartedOnce then
         InitStartedOnce = true;
 
-        glassblowing = item.base.crafts.Craft:new{ LeadAttrib = "dexterity",
-                                  LeadSkill = "glass blowing",
-                                  LeadSkillGroup = 2,
+        glassblowing = item.base.crafts.Craft:new{
+                                  craftEN = "glass blowing",
+                                  craftDE = "Glasblasen",
+                                  leadSkill = Character.glassBlowing,
                                   DefaultFoodConsumption = 300,
-                                  DefaultRepair = false
                                 };
         
         glassblowing:AddTool( 313 ); -- Glasschmelzofen
 
-        glassblowing:AddInterruptMessage(
-        "Du wischst dir den Schweiß von der Stirn.",
-        "You wipe sweat off your forehead.");
-        
-        glassblowing:AddInterruptMessage(
-        "Du verlierst einen Moment das Gleichgewicht und das Glas nimmt eine bedenklich krumme Form an. Nach kurzem Drehen und Balancieren gelingt es dir, das Werkstück zu retten.",
-        "You lose your balance and the glowing glass bends worringly. By twisting and balancing, you manage to save the product.");
-        
-        glassblowing:AddInterruptMessage(
-        "Du stößt ein bereits fertiges Stück an und es droht zu Boden zu fallen. Im letzten Moment gelingt es dir, das Stück mit der Hand zu greifen.",
-        "You touch a finished good and it almost drops to the floor. With luck, you manage to grap it with your hands, preventing the loss.");
-        
-        glassblowing:AddInterruptMessage(
-        "Du hältst einen Moment inne und überlegst eine Gravur anzubringen, entscheidest dich aber dagegen.",
-        "You interrupt to apply a gravure, but you reconsider.");
-        
+local catId = glassblowing:addCategory("bottles", "Flaschen")
+local product
+
+-- glassblowing:addProduct(category, item, difficulty, learnLimit, time, quantity=1, data={})
+
 --Small Empty Bottle
-product = glassblowing:AddProduct( 0, 1317, { 0, 40}, 1, { 5, 10 } );
-product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
+product = glassblowing:addProduct(catId, 1317, 0, 40, 10)
+product:addIngredient(41) -- Glass Ingot: 1x1
 
 --Empty Bottle
-product = glassblowing:AddProduct( 0, 164, { 10, 50}, 1, { 7, 14 } );
-product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
+product = glassblowing:addProduct(catId, 164, 10, 50, 14)
+product:addIngredient(41) -- Glass Ingot: 1x1
 
 --Empty Bottle (790) (Smoothies :p)
-product = glassblowing:AddProduct( 0, 790, { 15, 50}, 1, { 7, 14 } );
-product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
+product = glassblowing:addProduct(catId, 790, 15, 50, 14)
+product:addIngredient(41) -- Glass Ingot: 1x1
 
 --Empty Bottle(518) (Rum)
-product = glassblowing:AddProduct( 0, 518, { 20, 50}, 1, { 7, 14 } );
-product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
+product = glassblowing:addProduct(catId, 518, 20, 50, 14)
+product:addIngredient(41) -- Glass Ingot: 1x1
 
 --Large Empty Bottle
-product = glassblowing:AddProduct( 0, 2498, { 30, 70}, 1, { 12, 24 } );
-product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
+product = glassblowing:addProduct(catId, 2498, 30, 70, 24)
+product:addIngredient(41) -- Glass Ingot: 1x1
 
 --Glass
-product = glassblowing:AddProduct( 0, 2055, { 50, 90}, 1, { 17, 34 } );
-product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
+product = glassblowing:addProduct(catId, 2055, 50, 90, 34)
+product:addIngredient(41) -- Glass Ingot: 1x1
 
 --Glass Mug
-product = glassblowing:AddProduct( 0, 1908, { 60, 100}, 1, { 20, 40 } );
-product:AddProductionSteps( { 41, 1, "all" }, 1 ); -- Glass Ingot: 1x1
+product = glassblowing:addProduct(catId, 1908, 60, 100, 40)
+product:addIngredient(41) -- Glass Ingot: 1x1
+
+catId = glassblowing:addCategory("decoration", "Dekoration")
 
 --Vase
-product = glassblowing:AddProduct( 0, 315, { 90, 110}, 1, { 27, 54 } );
-product:AddProductionSteps( { 41, 1, "all" }, 3 ); -- Glass Ingot: 3x1
-product:AddProductionSteps( { 197, 1, "all" }, 1 ); -- Amethyst: 1x1
-product:AddProductionSteps( { 46, 1, "all" }, 1 ); -- Ruby: 1x1 
+product = glassblowing:addProduct(catId, 315, 90, 110, 54)
+product:addIngredient(41, 3) -- Glass Ingot: 3x1
+product:addIngredient(197) -- Amethyst: 1x1
+product:addIngredient(46) -- Ruby: 1x1 
         
         InitDone = true;
     end
@@ -77,7 +68,10 @@ end --function
 
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DONT EDIT THIS LINE!
-    Glassblowing = InitCraftingTool( );
+    Glassblowing = InitCraftingTool()
+    Glassblowing:showDialog(User)
+
+--[[    
     base.common.ResetInterruption( User, ltstate )
     if ( ltstate == Action.abort ) then
         if (User:increaseAttrib("sex",0) == 0) then
@@ -140,4 +134,5 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     else
         Glassblowing:ToolCreateItem( User, Param, nil, ltstate, SourceItem );
     end
+--]]
 end --function
