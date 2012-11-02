@@ -8,6 +8,7 @@ require("base.common")
 require("base.messages")
 require("base.class")
 require("npc.base.basic")
+require("npc.base.responses")
 
 module("npc.base.talk", package.seeall)
 
@@ -81,6 +82,7 @@ talkNPCEntry = base.class.class(function(self)
     self["_conditions"] = {};
     
     self["_responses"] = {};
+	self["_responseProcessors"] = {};
     self["_responsesCount"] = 0;
     self["_consequences"] = {};
 	self["_parent"] = nil;
@@ -122,6 +124,18 @@ function talkNPCEntry:addResponse(text)
         return;
     end;
     table.insert(self._responses, text);
+	
+	local processorFkt = function(_, processor)
+		if processor:check(text) then
+			if (self._responseProcessors[self._responsesCount] == nil) then
+				self._responseProcessors[self._responsesCount] = {};
+			end;
+			table.insert(self._responseProcessors[self._responsesCount], processor)
+		end;
+	end;
+	
+	table.foreach(npc.base.responses.processorList, processorFkt);
+	
     self._responsesCount = self._responsesCount + 1;
 end;
 
@@ -159,11 +173,17 @@ end;
 function talkNPCEntry:execute(npcChar, player)
     if (self._responsesCount > 0) then
         local selectedResponse = math.random(1, self._responsesCount);
-
-    	self._responses[selectedResponse] = string.gsub(self._responses[selectedResponse],"%%CHARNAME",player.name);
-    	self._responses[selectedResponse] = string.gsub(self._responses[selectedResponse],"%%NPCNAME",npcChar.name);
+		
+		local responseText = self._responses[selectedResponse];
+		local responseProcessors = self._responseProcessors[selectedResponse];
+		
+		if (responseProcessors ~= nil) then
+			for _, processor in pairs(responseProcessors) do
+				responseText = processor:process(player, self._parent, npcChar, responseText);
+			end;
+		end;
     	
-		npcChar:talk(Character.say, self._responses[selectedResponse]);
+		npcChar:talk(Character.say, responseText);
     end;
     
 	table.foreach(self._consequences, function(_, consequence)
