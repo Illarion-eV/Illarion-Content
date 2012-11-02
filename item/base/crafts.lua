@@ -98,7 +98,7 @@ function Craft:addProduct(categoryId, itemId, difficulty, learnLimit, decisecond
     data = data or {}
     
     if categoryId > 0 and categoryId <= #self.categories then
-        table.insert(self.products, self.DefaultProduct:new{
+        table.insert(self.products, self.defaultProduct:new{
             ["category"] = categoryId,
             ["item"] = itemId,
             ["difficulty"] = difficulty,
