@@ -18,7 +18,7 @@ function InitCraftingTool( )
                                   DefaultFoodConsumption = 300,
                                 };
         
-        glassblowing:AddTool( 313 ); -- Glasschmelzofen
+        glassblowing:addTool( 313 ); -- Glasschmelzofen
 
 local catId = glassblowing:addCategory("bottles", "Flaschen")
 local product
