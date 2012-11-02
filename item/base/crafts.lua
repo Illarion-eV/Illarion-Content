@@ -206,7 +206,7 @@ function Craft:loadDialog(dialog, user)
 
             for j = 1, #product.ingredients do
                 local ingredient = product.ingredients[j]
-                dialog:addCraftableIngredient(ingredient.id, ingredient.quantity)
+                dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
             end
         end
     end
