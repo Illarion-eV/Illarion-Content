@@ -209,29 +209,21 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
                 User:inform("Craft " .. amount .. " of item index " .. item)
                 local startCrafting = true
                 return startCrafting
+            elseif result == CraftingDialog.playerLooksAtItem then
+                local item = dialog:getCraftableIndex()
+                User:inform("Look at item index " .. item)
+                return getTestLookAt()
+            elseif result == CraftingDialog.playerLooksAtIngredient then
+                local item = dialog:getCraftableIndex()
+                local ingredient = dialog:getIngredientIndex()
+                User:inform("Look at ingredient " .. ingredient .. " of item index " .. item)
+                return getTestLookAt()
+            elseif result == CraftingDialog.playerCraftingComplete then
+                User:inform("Crafting complete!")
+            elseif result == CraftingDialog.playerCraftingAborted then
+                User:inform("Crafting aborted!")
             else
-                if result == CraftingDialog.playerLooksAtItem then
-                    local item = dialog:getCraftableIndex()
-                    User:inform("Look at item index " .. item)
-                    return getTestLookAt()
-                else
-                    if result == CraftingDialog.playerLooksAtIngredient then
-                        local item = dialog:getCraftableIndex()
-                        local ingredient = dialog:getIngredientIndex()
-                        User:inform("Look at ingredient " .. ingredient .. " of item index " .. item)
-                        return getTestLookAt()
-                    else
-                        if result == CraftingDialog.playerCraftingComplete then
-                            User:inform("Crafting complete!")
-                        else
-                            if result == CraftingDialog.playerCraftingAborted then
-                                User:inform("Crafting aborted!")
-                            else
-                                User:inform("Dialog closed!")
-                            end
-                        end
-                    end
-                end
+                User:inform("Dialog closed!")
             end
         end
         local dialog = CraftingDialog("Craft 0", callback)
