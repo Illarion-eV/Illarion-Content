@@ -7,8 +7,7 @@
 --                                                                            --
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -252,7 +251,7 @@ talkEntry:addResponse("Cutlery, great! I mean, shall noble men dine with their h
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2647, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,7 +265,7 @@ talkEntry:addResponse("Bestecke, wunderbar! Ich meine, sollen Edelleute etwa mit
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2647, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -387,7 +386,7 @@ talkEntry:addResponse("Noblemen don't drink from buckets! You are my hero. Just 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -401,7 +400,7 @@ talkEntry:addResponse("Edelleute trinken nunmal nicht aus Kübeln! Ihr seid mein 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -521,7 +520,7 @@ talkEntry:addResponse("I am so relieved, now we have plates for the noblemen. Le
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 677, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -535,7 +534,7 @@ talkEntry:addResponse("Ich bin ja so erleichtert, jetzt haben wir endlich Teller
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 677, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

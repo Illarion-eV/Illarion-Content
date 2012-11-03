@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Ardian/Faladron/Rincewind                                        --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL

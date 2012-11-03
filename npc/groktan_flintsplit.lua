@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -292,7 +291,7 @@ talkEntry:addResponse("Ah, yes, five strong ropes. They'll do the job. You know 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2760, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -319,7 +318,7 @@ talkEntry:addResponse("Ah, ja, fünf feste Seile. Sie werden's tun, du weißt scho
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2760, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -427,7 +426,7 @@ talkEntry:addResponse("Good, Miggs got the list who needs a special treatment. I
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.item.item(358, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 5));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -452,7 +451,7 @@ talkEntry:addResponse("Gut, Miggs weiß jetzt, wer eine Spezialbehandlung braucht
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.item.item(358, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 5));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -558,7 +557,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Now Bruno will pay, the one or the other way. Anyway, here, for your good services, have my friend. His name is skull splitter!");
 talkEntry:addConsequence(npc.base.consequence.item.item(226, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -581,7 +580,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Jetzt wird Bruno zahlen, auf die eine oder andere Weise. Nun, für deine guten Dienste gebe ich dir meinen Freund. Sein Name ist Schädelspalter.");
 talkEntry:addConsequence(npc.base.consequence.item.item(226, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -686,7 +685,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Bad business for Fronita! I'll give you some of the interest she'll pay back now. The Don appreciates loyal minions.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 11));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -709,7 +708,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Schlechtes Geschäft für Fronita! Ich gebe dir ein wenig von den Zinsen, die sie dem Don nun zurückzahlen wird. Der Don belohnt loyale Handlanger.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 11));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -814,7 +813,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("I already heard the Queen of Cadomyr wasn't so fond of the message you brought her. The Don won't like to hear the news. My next mission would have been that you bring her this necklace; keep it and keep silent about all this!");
 talkEntry:addConsequence(npc.base.consequence.item.item(334, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 14));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -837,7 +836,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Ich habe schon davon gehört, dass die Königin von Cadomyr nicht so begeistert über die 'Nachricht' war, die du ihr gebracht hast. Den Don wird das nicht freuen. Meine nächste Mission wäre gewesen, dass du ihr diesen Halsschmuck bringst. Behalte ihn und die ganze Angelegenheit für dich!");
 talkEntry:addConsequence(npc.base.consequence.item.item(334, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 14));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

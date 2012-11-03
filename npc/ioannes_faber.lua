@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian/Ardian                                         --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -301,7 +300,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You advance in Queen Rosaline Edwards' favour."));
 talkEntry:addResponse("I see you understood the way how you can donate your wealth to the treasury. Next time, donate more! I will mention your name when talking to the queen next time.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -312,7 +311,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("Nun, ihr habt verstanden, wie man etwas an die Schatzkammer spendet. Das nächste Mal spendet ihr aber gefälligst mehr! Ich werde euren Namen in meinem nächsten Gespräch mit der Königin erwähnen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

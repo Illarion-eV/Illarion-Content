@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk & Estralis Seborian                                        --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Brassius Meres"
@@ -67,8 +66,8 @@ itemShoes = 697
 queststatus(109) > 6, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Runewick New Player Quest
-queststatus(34) = 1, english, ".+" -> inform("Congratulations! You have just earned your first rank points! Rank points are a measure of your personal standing within a faction. You will often be rewarded with rank points for completing quests for members of a particular faction."), "Ah...Elegor sent you, did he? Very good. I am Brassius Meres, town guard of Runewick. It is a true honour to be able to welcome you into our beloved town. I can already tell that you shall be a valuable member of our society. Return to Elegor, now, and he will help you along.", queststatus(34) = 2, rankpoints(Runewick) + 5
-queststatus(34) = 1, ".+" -> inform("GERMAN"), "GERMAN", queststatus(34) = 2, rankpoints(Runewick) + 5
+queststatus(34) = 1, english, ".+" -> inform("Congratulations! You have just earned your first rank points! Rank points are a measure of your personal standing within a faction. You will often be rewarded with rank points for completing quests for members of a particular faction."), "Ah...Elegor sent you, did he? Very good. I am Brassius Meres, town guard of Runewick. It is a true honour to be able to welcome you into our beloved town. I can already tell that you shall be a valuable member of our society. Return to Elegor, now, and he will help you along.", queststatus(34) = 2, rankpoints + 5
+queststatus(34) = 1, ".+" -> inform("GERMAN"), "GERMAN", queststatus(34) = 2, rankpoints + 5
 queststatus(34) = 2, english, ".+" -> "Go speak with Elegor Ningwil once again. He is waiting for you beside the teleporter, remember?"
 queststatus(34) = 2, ".+" -> "GERMAN"
 
@@ -142,8 +141,8 @@ queststatus(109) = 5, item(2586, all) < 10, "task", "adventure" -> "I receive ne
 queststatus(109) = 5, item(2586, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "Nahezu täglich hört man von Tierangriffen. Ihr müßt die Bürger von Eibenthal beschützen, indem ihr die Tiere erschlagt. Wenn ihr mir zehn Felle bringt, werde ich sicherstellen, dass man an höchster Stelle von euren Anstrengungen hört."
 
 -- Quest 3 solved, reward: legionaire's tower shield (2448), (10 rank points)
-queststatus(109) = 5, item(2586, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a legionaire's tower shield. You advance in Archmage Elvaine Morgan's favour."), "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took.", deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, rankpoints(Runewick) + 10
-queststatus(109) = 5, item(2586, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst einen Legionärsschild. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt.", deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, rankpoints(Runewick) + 10
+queststatus(109) = 5, item(2586, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a legionaire's tower shield. You advance in Archmage Elvaine Morgan's favour."), "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took.", deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, rankpoints + 10
+queststatus(109) = 5, item(2586, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst einen Legionärsschild. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt.", deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6, rankpoints + 10
 queststatus(109) = 5, item(2586, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded a legionaire's tower shield."), "#me bows his head respectfully: 'You have done very well, thank you. Yewdale and its citizens are safe once more. Please, take this shield as thanks for the risk you took.", deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6
 queststatus(109) = 5, item(2586, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst einen Legionärsschild."), "#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht. Eibenthal und seine Bürger sind jetzt wieder sicher. Bitte nehmt diesen Schild als Dank für das Risiko, welches ihr in Kauf nahmt.", deleteItem(2586, 10), item(2448, 1, 799), queststatus(109) = 6
 

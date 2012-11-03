@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -196,9 +195,9 @@ talkEntry:addResponse("Aye myn Peg Leg! Here it is, ch! You made me a happy ghos
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 17));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -216,9 +215,9 @@ talkEntry:addResponse("Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh d
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 17));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -234,9 +233,9 @@ talkEntry:addResponse("Aye myn Peg Leg! Here it is, ch! You made me a happy ghos
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 17));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -252,9 +251,9 @@ talkEntry:addResponse("Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh d
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 17));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

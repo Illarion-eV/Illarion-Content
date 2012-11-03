@@ -6,8 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -237,7 +236,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...");
 talkEntry:addConsequence(npc.base.consequence.item.item(25, 1, 345, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 3));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -249,7 +248,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] Du h
 talkEntry:addResponse("Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...");
 talkEntry:addConsequence(npc.base.consequence.item.item(25, 1, 345, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 3));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -261,7 +260,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...");
 talkEntry:addConsequence(npc.base.consequence.item.item(25, 1, 345, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 3));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -272,7 +271,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] Du h
 talkEntry:addResponse("Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...");
 talkEntry:addConsequence(npc.base.consequence.item.item(25, 1, 345, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 3));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

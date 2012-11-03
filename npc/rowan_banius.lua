@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -494,7 +493,7 @@ talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a treasure map and 10 rankpoints."));
 talkEntry:addResponse("Oh! I am so glad to see you! The medicine! Thank you! I do not think my wife would have lasted another two nights. I shall forever be in your debt, my friend. Please, take this.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 11));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -505,7 +504,7 @@ talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Schatzkarze und 10 Rangpunkte."));
 talkEntry:addResponse("Oh! Ich bin so froh euch zu sehen! Die Medizin! Vielen Dank! Ich hatte schon Sorge meine Frau würde die nächsten zwei Nächte nicht überleben Ich stehe auf Ewig in euer Schuld, mein Freund. Bitte, nehmt dies.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 11));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;

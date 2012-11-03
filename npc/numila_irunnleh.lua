@@ -6,8 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL

@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -250,7 +249,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.cookingAndBa
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(307, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -265,7 +264,7 @@ talkEntry:addResponse("Ah, great. I'll take the pork and you get your money. Tel
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(307, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -281,7 +280,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.cookingAndBa
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(307, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -295,7 +294,7 @@ talkEntry:addResponse("Ah, wunderbar. Ich nehme das Fleisch und du bekommst dein
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(307, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -446,7 +445,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.cookingAndBa
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(69, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -461,7 +460,7 @@ talkEntry:addResponse("Very good pieces of leather. Here is your money and tell 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(69, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -477,7 +476,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.cookingAndBa
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(69, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -491,7 +490,7 @@ talkEntry:addResponse("Das sind doch mal ein paar ordentlichen Häute! Hier dein 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(69, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -642,7 +641,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.cookingAndBa
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(552, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -657,7 +656,7 @@ talkEntry:addResponse("That's meat with a great quality. Here are your coins for
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(552, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -673,7 +672,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.cookingAndBa
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(552, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -687,7 +686,7 @@ talkEntry:addResponse("Was für ein hervorragendes Fleisch. Dafür bekommst du dei
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(552, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -838,7 +837,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.cookingAndBa
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -853,7 +852,7 @@ talkEntry:addResponse("Hmmm, good coal. You really deserve the coins.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -869,7 +868,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.cookingAndBa
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -883,7 +882,7 @@ talkEntry:addResponse("Das ist wirklich gute Kohle. Da hast du dir diese Münzen 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -6,8 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -312,7 +311,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.fishing, "+"
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -327,7 +326,7 @@ talkEntry:addResponse("Zerarisa thankss you for the troutss, here, take ssome co
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -343,7 +342,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.fishing, "+"
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -357,7 +356,7 @@ talkEntry:addResponse("Zerarisa dankenss für Forellen, nehmenss Kupfersss.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -516,7 +515,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.fishing, "+"
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -531,7 +530,7 @@ talkEntry:addResponse("Thankss for ssalmonss, Zerarisa hass coinss for you.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -547,7 +546,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.fishing, "+"
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -561,7 +560,7 @@ talkEntry:addResponse("Dankss für Lachsss, Zerarisa habenss Münzssen für dich.")
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -721,7 +720,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.fishing, "+"
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(455, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -736,7 +735,7 @@ talkEntry:addResponse("Zerarisa thanksss you for the troutss, here...");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(455, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -752,7 +751,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.fishing, "+"
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(455, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -766,7 +765,7 @@ talkEntry:addResponse("Zerarisa dankenss für Forellenss, nehmenss...");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(455, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -922,7 +921,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.fishing, "+"
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2547, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -937,7 +936,7 @@ talkEntry:addResponse("Zerarisa thanksss you, here'ss money for your troubless."
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2547, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -953,7 +952,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.fishing, "+"
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2547, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -967,7 +966,7 @@ talkEntry:addResponse("Zerarisa dankenss dir, hier sindsss Geld für Ärgerss.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2547, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(71, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

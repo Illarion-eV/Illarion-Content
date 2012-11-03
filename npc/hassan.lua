@@ -7,8 +7,7 @@
 --                                                                            --
 -- Authors:  Cromwell                                                         --
 --           Estralis Seborian                                                --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -445,7 +444,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Hass
 talkEntry:addResponse("#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -470,7 +469,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Hass
 talkEntry:addResponse("#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

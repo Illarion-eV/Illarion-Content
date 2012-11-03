@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk & Estralis Seborian                                        --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -49,7 +48,7 @@ talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Congratulations! You have just earned your first rank points! Rank points are a measure of your personal standing within a faction. You will often be rewarded with rank points for completing quests for members of a particular faction."));
 talkEntry:addResponse("Ah...Elegor sent you, did he? Very good. I am Brassius Meres, town guard of Runewick. It is a true honour to be able to welcome you into our beloved town. I can already tell that you shall be a valuable member of our society. Return to Elegor, now, and he will help you along.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(34, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -59,7 +58,7 @@ talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("GERMAN"));
 talkEntry:addResponse("GERMAN");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(34, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -533,7 +532,7 @@ talkEntry:addResponse("#me bows his head respectfully: 'You have done very well,
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2586, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2448, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -547,7 +546,7 @@ talkEntry:addResponse("#me verbeugt sich respektvoll: 'Das habt ihr gut gemacht.
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2586, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2448, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -226,7 +225,7 @@ talkEntry:addResponse("Ah, the hay, thank you very much. Bette and the other mou
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -240,7 +239,7 @@ talkEntry:addResponse("Ah, das Heu, vielen lieben Dank. Bette und die anderen Re
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(234, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -361,7 +360,7 @@ talkEntry:addResponse("You really brought some carrots for Bette and the other m
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -375,7 +374,7 @@ talkEntry:addResponse("Ihr habt wirklich Karotten für Bette und die anderen Reit
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Rowan Banius"
@@ -144,8 +143,8 @@ queststatus(322) = 5, "task", "adventure" -> "Have you spoken with the druid yet
 queststatus(322) = 5, "Auftrag", "Aufgabe", "Abenteuer" -> "Habt Ihr mit der Druidin gesprochen? Aurora Snow erwartet euch am Druidenhaus.Bitte beeilt euch. Meiner armen Frau geht es noch immer nicht besser."
 
 -- Quest 3 solved, reward: treasure map, +10 rankpoints (specify faction)
-queststatus(322) = 10, item(391, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a treasure map and 10 rankpoints."), "Oh! I am so glad to see you! The medicine! Thank you! I do not think my wife would have lasted another two nights. I shall forever be in your debt, my friend. Please, take this.", queststatus(322) = 11, rankpoints(Runewick) + 10, treasure(6)
-queststatus(322) = 10, ".+" -> inform("[Quest gelöst] Du erhältst eine Schatzkarze und 10 Rangpunkte."), "Oh! Ich bin so froh euch zu sehen! Die Medizin! Vielen Dank! Ich hatte schon Sorge meine Frau würde die nächsten zwei Nächte nicht überleben Ich stehe auf Ewig in euer Schuld, mein Freund. Bitte, nehmt dies.", queststatus(322) = 11, rankpoints(Runewick) + 10, treasure(6)
+queststatus(322) = 10, item(391, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a treasure map and 10 rankpoints."), "Oh! I am so glad to see you! The medicine! Thank you! I do not think my wife would have lasted another two nights. I shall forever be in your debt, my friend. Please, take this.", queststatus(322) = 11, rankpoints + 10, treasure(6)
+queststatus(322) = 10, ".+" -> inform("[Quest gelöst] Du erhältst eine Schatzkarze und 10 Rangpunkte."), "Oh! Ich bin so froh euch zu sehen! Die Medizin! Vielen Dank! Ich hatte schon Sorge meine Frau würde die nächsten zwei Nächte nicht überleben Ich stehe auf Ewig in euer Schuld, mein Freund. Bitte, nehmt dies.", queststatus(322) = 11, rankpoints + 10, treasure(6)
 
 -- No more quests, just nice words of gratitude
 queststatus(322) = 11, english, "quest", "mission" -> "My wife is doing well, thanks to you. It shall be a while before she is back out on the farm, but she is alive, and we can ask no more."

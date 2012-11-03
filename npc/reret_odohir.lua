@@ -6,8 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   ?? + Miriam                                                      --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -294,7 +293,7 @@ talkEntry:addResponse("Oh, you found the desert sky capsules? Thank you, that is
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 433, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 7));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -307,7 +306,7 @@ talkEntry:addResponse("Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, da
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 433, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 7));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

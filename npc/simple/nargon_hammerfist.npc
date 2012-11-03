@@ -7,8 +7,7 @@
 --                                                                            --
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Nargon Hammerfist"

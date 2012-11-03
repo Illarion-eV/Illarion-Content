@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -245,7 +244,7 @@ talkEntry:addResponse("How marvellous! Now I can plant new friends for me. You k
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(1844, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -259,7 +258,7 @@ talkEntry:addResponse("Wie wunderbar! Jetzt kann ich mir neue Freunde pflanzen. 
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(1844, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -382,7 +381,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+"
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -397,7 +396,7 @@ talkEntry:addResponse("Tasty, tasty, tasty! You make me smile, really! I haven't
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -413,7 +412,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+"
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -427,7 +426,7 @@ talkEntry:addResponse("Lecker, lecker, lecker! Ihr macht mich froh, wirklich! So
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(388, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(118, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

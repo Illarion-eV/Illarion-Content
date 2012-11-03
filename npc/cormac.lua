@@ -7,8 +7,7 @@
 --                                                                            --
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -443,7 +442,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Corm
 talkEntry:addResponse("#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -468,7 +467,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Corm
 talkEntry:addResponse("#me nimmt den Krug und grinst: 'Arr! Du bist gar nicht so schlecht, wie du aussiehst. Ich bin schon überall gewesen, du kannst mich alles über die Stadt, den Don, Galmair oder sogar unsere dummen Nachbarn fragen.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

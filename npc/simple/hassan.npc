@@ -7,8 +7,7 @@
 --                                                                            --
 -- Authors:  Cromwell                                                         --
 --           Estralis Seborian                                                --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Hassan"
@@ -111,9 +110,9 @@ queststatus(75) = 1, item(2057, all) < 1, "Aufgabe", "Abenteuer", "Frage" -> "We
 queststatus(75) = 2, "Aufgabe", "Abenteuer", "Frage" -> "Fragt einfach, wonach auch immer und ich werde mein Wissen über den Palast mit euch teilen."
 
 -- bringing the wine--
-queststatus(75) = 1, item(2057, all) > 0, english, town = Cadomyr, ".+" -> inform("[Quest solved] Hassan will now answer your questions. You advance in Queen Rosaline Edward's favour."), "#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'", deleteItem(2057, 1), queststatus(75) = 2, rankpoints(Cadomyr) + 20
+queststatus(75) = 1, item(2057, all) > 0, english, town = Cadomyr, ".+" -> inform("[Quest solved] Hassan will now answer your questions. You advance in Queen Rosaline Edward's favour."), "#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'", deleteItem(2057, 1), queststatus(75) = 2, rankpoints + 20
 queststatus(75) = 1, item(2057, all) > 0, english, ".+" -> inform("[Quest solved] Hassan will now answer your questions."), "#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'", deleteItem(2057, 1), queststatus(75) = 2
-queststatus(75) = 1, item(2057, all) > 0, town = Cadomyr, ".+" -> inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten. Dein Ansehen bei Königin Rosaline Edwards steigt."), "#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'", deleteItem(2057, 1), queststatus(75) = 2, rankpoints(Cadomyr) + 20
+queststatus(75) = 1, item(2057, all) > 0, town = Cadomyr, ".+" -> inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten. Dein Ansehen bei Königin Rosaline Edwards steigt."), "#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'", deleteItem(2057, 1), queststatus(75) = 2, rankpoints + 20
 queststatus(75) = 1, item(2057, all) > 0, ".+" -> inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten."), "#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'", deleteItem(2057, 1), queststatus(75) = 2
 queststatus(75) = 1, item(2057, all) < 1, english, ".+" -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
 queststatus(75) = 1, item(2057, all) < 1, ".+" -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."

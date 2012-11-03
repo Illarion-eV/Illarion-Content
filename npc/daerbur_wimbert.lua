@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -352,7 +351,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+",
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -367,7 +366,7 @@ talkEntry:addResponse("Perfect. Why have rocks no legs so we could stop carrying
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -383,7 +382,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+",
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -397,7 +396,7 @@ talkEntry:addResponse("Perfekt. Warum wachsen den Steinen eigentlich keine Beine
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -552,7 +551,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+",
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -567,7 +566,7 @@ talkEntry:addResponse("How marvelous! Away is the coal, now we can get things do
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -583,7 +582,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+",
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -597,7 +596,7 @@ talkEntry:addResponse("Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingema
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -752,7 +751,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+",
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -767,7 +766,7 @@ talkEntry:addResponse("Thank you for the gems. You wonder what I want to do with
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -783,7 +782,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+",
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -797,7 +796,7 @@ talkEntry:addResponse("Danke für die Edelsteine. Du fragst dich, was ich mit ihn
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -952,7 +951,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+",
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -967,7 +966,7 @@ talkEntry:addResponse("Oh, fine, wood. Not only won't the sky fall on my head do
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -983,7 +982,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+",
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -997,7 +996,7 @@ talkEntry:addResponse("Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der H
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Galmair", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

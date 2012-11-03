@@ -6,8 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -240,7 +239,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.tailoring, "
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(170, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -255,7 +254,7 @@ talkEntry:addResponse("Why thank you! I don't have a real reward for you, but yo
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(170, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -271,7 +270,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.tailoring, "
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(170, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -285,7 +284,7 @@ talkEntry:addResponse("Oh, danke! Ich habe keine Belohnung für dich, aber du kan
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(170, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(47, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -436,7 +435,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.tailoring, "
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(385, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -451,7 +450,7 @@ talkEntry:addResponse("Ah, thank you so much! I appreciate this greatly, I hope 
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(385, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -467,7 +466,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.tailoring, "
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(385, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -481,7 +480,7 @@ talkEntry:addResponse("Ah, vielen lieben Dank. Ich weiß das zu schätzen und hoff
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(50, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(385, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 4));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -632,7 +631,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.tailoring, "
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(558, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -647,7 +646,7 @@ talkEntry:addResponse("Thank you, that is exactly what I needed! Now I can finis
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(558, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -663,7 +662,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.tailoring, "
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(558, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -677,7 +676,7 @@ talkEntry:addResponse("Danke, genau, was ich gebraucht habe! Nun kann ich die Ro
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(174, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(558, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(73, "=", 6));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

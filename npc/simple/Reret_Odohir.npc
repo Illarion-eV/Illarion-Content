@@ -6,8 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   ?? + Miriam                                                      --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Reret Odohir"
@@ -120,7 +119,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare well!", "#me smiles at
 -- "Diese Eintragung wird "..PriceListForTownChange[Factionvalues.towncnt].." Silberstücke kosten, wenn Ihr nach eurem Beitritt zu einer anderen Stadt wechseln wollt verdoppeln sich die Kosten dafür. Seid Ihr sicher, dass Ihr dieser Stadt beitreten wollt?"
 -- "Adding you to the citizenlist will cost "..PriceListForTownChange[Factionvalues.towncnt].." silver coins. If you decide to become a citizen of another town after joining the fee will double. Do you really wish to join this town?"
 -- --
--- "join cadomyr" -> "OK!", rankpoints(Cadomyr)=0, rank(Cadomyr)=1, town=cadomyr
+-- "join cadomyr" -> "OK!", rankpoints=0, rank(Cadomyr)=1, town=cadomyr
 -- "join cadomyr", town != Cadomyr -> "OK!", rankpoints=0, rank=1, town=cadomyr
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
@@ -136,8 +135,8 @@ queststatus(150) = 0, town = Cadomyr, "task", "adventure", "order" -> inform("[N
 queststatus(150) = 0, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Geschenk aus Cadomyr"), "Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüsenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?", queststatus(150) = 1
 
 -- 1st quest solved, Reward:(dagger 27)
-queststatus(0) = 1, item(146, all) > 16, english, ".+" -> inform("[Quest solved]Reret smiles as she sees the flowers you brought."), "Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it s shall be your rewand for your troubles.", deleteItem(146, 15), item(27, 1, 433), queststatus(0) = 2, rankpoints(Cadomyr) + 7
-queststatus(0) = 1, item(146, all) > 16, ".+" -> inform("[Quest gelößt] Reret lächelt, als sie die Blumen sieht, die du ihr bringst."), "Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen.", deleteItem(146, 15), item(27, 1, 433), queststatus(0) = 2, rankpoints(Cadomyr) + 7
+queststatus(0) = 1, item(146, all) > 16, english, ".+" -> inform("[Quest solved]Reret smiles as she sees the flowers you brought."), "Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it s shall be your rewand for your troubles.", deleteItem(146, 15), item(27, 1, 433), queststatus(0) = 2, rankpoints + 7
+queststatus(0) = 1, item(146, all) > 16, ".+" -> inform("[Quest gelößt] Reret lächelt, als sie die Blumen sieht, die du ihr bringst."), "Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen.", deleteItem(146, 15), item(27, 1, 433), queststatus(0) = 2, rankpoints + 7
 
 -- 1st quest not solved, repeat the instructions
 queststatus(150) = 1, english, "quest", "mission" -> "I'm still busy working, so could I ask you to go and find fifteen desert sky capsule for me, please?"

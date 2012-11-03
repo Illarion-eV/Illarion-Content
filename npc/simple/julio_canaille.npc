@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Julio Canaille"
@@ -55,7 +54,7 @@ itemShoes = 0
 -- queststatus=2 Prandlin and peg leg dedected
 -- queststatus=3 ordered to get a fake to change it against the staff/pegleg. (ornate mage's staff 208)
 -- queststatus=4 the staff/pegleg is stolen
--- queststatus=5 quest end. Jack got his leg. (reward: Rapier with Blackstone lv. 3 ),rankpoints(hometown)+17
+-- queststatus=5 quest end. Jack got his leg. (reward: Rapier with Blackstone lv. 3 ),rankpoints+17
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Julio Canaille the ghost. Keywords: Peg Leg, Quest, Gods, Tell something."), "Ask me for my 'peg leg'! If you need other things, its better to search a settlement and ask there. Lubber!", state = 0
@@ -76,10 +75,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Arr! Don't get bit by seado
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Julio Canaille. Aye! Aber alle nenn'n mich Holzfuß-Jack! Und du Landratte, gefälligst Käpt`n! Klar?"
 
 -- Catching quest triggers. Modify if the NPC does quests.
-queststatus(304) = 4, item(208, all) => 1, "peg leg", "task", "adventure", "mission", "money", "earn" -> inform("Meanwhile speaking this words, a rapier rises from the tomb, when raeching for it, it starts to glow gentle. Then the shine disappears."), "Aye myn Peg Leg! Here it is, ch! You made me a happy ghost, today. Thank you - thousand times, aye may the wind blow your sail.", deleteItem(208, 1), item(2675, 1, 999), queststatus(304) = 5, rankpoints(Galmair) + 17, rankpoints(Runewick) + 10, rankpoints(Cadomyr) + 17
-queststatus(304) = 4, item(208, all) => 1, "Holz", "Holzbein", "bein", "verdienen", "aufgabe", "abenteuer" -> inform("Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht."), "Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blasen!", deleteItem(208, 1), item(2675, 1, 999), queststatus(304) = 5, rankpoints(Galmair) + 17, rankpoints(Runewick) + 10, rankpoints(Cadomyr) + 17
-queststatus(304) = 4, item(208, all) => 1, english, "quest", "job", "problem" -> inform("Meanwhile speaking this words, a rapier rises from the tomb, when raeching for it, it starts to glow gentle. Then the shine disappears."), "Aye myn Peg Leg! Here it is, ch! You made me a happy ghost, today. Thank you - thousand times, aye may the wind blow your sail.", deleteItem(208, 1), item(2675, 1, 999), queststatus(304) = 5, rankpoints(Galmair) + 17, rankpoints(Runewick) + 10, rankpoints(Cadomyr) + 17
-queststatus(304) = 4, item(208, all) => 1, german, "quest", "job", "problem" -> inform("Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht."), "Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!", deleteItem(208, 1), item(2675, 1, 999), queststatus(304) = 5, rankpoints(Galmair) + 17, rankpoints(Runewick) + 10, rankpoints(Cadomyr) + 17
+queststatus(304) = 4, item(208, all) => 1, "peg leg", "task", "adventure", "mission", "money", "earn" -> inform("Meanwhile speaking this words, a rapier rises from the tomb, when raeching for it, it starts to glow gentle. Then the shine disappears."), "Aye myn Peg Leg! Here it is, ch! You made me a happy ghost, today. Thank you - thousand times, aye may the wind blow your sail.", deleteItem(208, 1), item(2675, 1, 999), queststatus(304) = 5, rankpoints + 17, rankpoints + 10, rankpoints + 17
+queststatus(304) = 4, item(208, all) => 1, "Holz", "Holzbein", "bein", "verdienen", "aufgabe", "abenteuer" -> inform("Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht."), "Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blasen!", deleteItem(208, 1), item(2675, 1, 999), queststatus(304) = 5, rankpoints + 17, rankpoints + 10, rankpoints + 17
+queststatus(304) = 4, item(208, all) => 1, english, "quest", "job", "problem" -> inform("Meanwhile speaking this words, a rapier rises from the tomb, when raeching for it, it starts to glow gentle. Then the shine disappears."), "Aye myn Peg Leg! Here it is, ch! You made me a happy ghost, today. Thank you - thousand times, aye may the wind blow your sail.", deleteItem(208, 1), item(2675, 1, 999), queststatus(304) = 5, rankpoints + 17, rankpoints + 10, rankpoints + 17
+queststatus(304) = 4, item(208, all) => 1, german, "quest", "job", "problem" -> inform("Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht."), "Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!", deleteItem(208, 1), item(2675, 1, 999), queststatus(304) = 5, rankpoints + 17, rankpoints + 10, rankpoints + 17
 queststatus(304) = 4, "peg leg", "task", "adventure", "mission", "money", "earn" -> "Ch... I feel my Peg Leg - it's close. But you don't put it in your belt! Where you got it? Expect richly reard, should you bring it! Aye."
 queststatus(304) = 4, "Holz", "Holzbein", "bein", "verdienen", "aufgabe", "abenteuer" -> "Ch... Ich fühl mein Holzbein ist hier irgendwo... aber du has'ts nicht in deinem Gürtel! Wo hast du es? Eh!? Du sollst reich belohnt werden, wenn du es mir bringst! Aye."
 queststatus(304) = 4, english, "quest", "job", "problem" -> "Ch... I feel my Peg Leg - it's close. But you don't put it in your belt! Where you got it? Expect richly reard, should you bring it! Aye."

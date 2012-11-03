@@ -7,8 +7,7 @@
 --                                                                            --
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -435,7 +434,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Zaid
 talkEntry:addResponse("#me takes the glass and smiles: 'Thank you very much. Now that you have given me the wine, I can answer your questions... be they about the town, our archmage, Runewick or our neighbours - whom the gods should bless with pox.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -460,7 +459,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Zaid
 talkEntry:addResponse("#me nimmt das Glas und lächelt: 'Vielen, vielen Dank. Nun da ihr mir Wein gebracht habt, kann ich eure Fragen beantworten, sei es über die Stadt, den Erzmagier, Runewick oder unsere Nachbarn - denen die Götter die Pest schicken mögen.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(76, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

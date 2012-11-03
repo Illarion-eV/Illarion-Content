@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -958,7 +957,7 @@ talkEntry:addResponse("ENGLISH.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -985,7 +984,7 @@ talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1093,7 +1092,7 @@ talkEntry:addResponse("ENGLISH.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 5));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1118,7 +1117,7 @@ talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 5));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1224,7 +1223,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("ENGLISH.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1247,7 +1246,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 8));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 10));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1352,7 +1351,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("ENGLISH.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 11));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1375,7 +1374,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 11));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 15));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1480,7 +1479,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("ENGLISH.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 14));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1503,7 +1502,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("GERMAN.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1337, "=", 14));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 20));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

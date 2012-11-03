@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -255,7 +254,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Ah, you lit the lights of honour. Here, take these twenty copper coins for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -268,7 +267,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese zwanzig Kupfermünzen für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -305,7 +304,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this lamp oil for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -318,7 +317,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Lampenöl für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -355,7 +354,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this piece of wax for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(431, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -368,7 +367,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Stück Wachs für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(431, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -405,7 +404,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this candlefor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(43, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -418,7 +417,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Kerze für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(43, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -455,7 +454,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this torchfor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -468,7 +467,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Fackel für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -505,7 +504,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this cookiefor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(453, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -518,7 +517,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diesen Keks für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(453, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -555,7 +554,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this parchmentfor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2745, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -568,7 +567,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Pergament für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2745, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -604,7 +603,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this golden ringfor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 577, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -616,7 +615,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diesen Goldring für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 577, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Runewick", "+", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

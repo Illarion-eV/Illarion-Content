@@ -7,8 +7,7 @@
 --                                                                            --
 -- Authors:  Cromwell                                                         --
 --           Estralis                                                         --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Cormac"
@@ -112,9 +111,9 @@ queststatus(74) = 1, item(1909, all) < 1, "Aufgabe", "Abenteuer", "Frage" -> "Ha
 queststatus(74) = 2, "Aufgabe", "Abenteuer", "Frage" -> "Was willst du wissen? Ich kenne alle Gerüchte. Der Don, Galmair und seine Nachbarn, alles!"
 
 -- bringing the beer--
-queststatus(74) = 1, item(1909, all) > 0, english, town = Galmair, ".+" -> inform("[Quest solved] Cormac will now answer your questions. You advance in Don Valerio Guilianni's favour."), "#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'", deleteItem(1909, 1), queststatus(74) = 2, rankpoints(Galmair) + 20
+queststatus(74) = 1, item(1909, all) > 0, english, town = Galmair, ".+" -> inform("[Quest solved] Cormac will now answer your questions. You advance in Don Valerio Guilianni's favour."), "#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'", deleteItem(1909, 1), queststatus(74) = 2, rankpoints + 20
 queststatus(74) = 1, item(1909, all) > 0, english, ".+" -> inform("[Quest solved] Cormac will now answer your questions."), "#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'", deleteItem(1909, 1), queststatus(74) = 2
-queststatus(74) = 1, item(1909, all) > 0, town = Galmair, ".+" -> inform("[Quest gelöst] Cormac wird nun deine Fragen beantworten. Dein Ansehen bei Don Valerio Guilianni steigt."), "#me nimmt den Krug und grinst: 'Arr! Du bist gar nicht so schlecht, wie du aussiehst. Ich bin schon überall gewesen, du kannst mich alles über die Stadt, den Don, Galmair oder sogar unsere dummen Nachbarn fragen.'", deleteItem(1909, 1), queststatus(74) = 2, rankpoints(Galmair) + 20
+queststatus(74) = 1, item(1909, all) > 0, town = Galmair, ".+" -> inform("[Quest gelöst] Cormac wird nun deine Fragen beantworten. Dein Ansehen bei Don Valerio Guilianni steigt."), "#me nimmt den Krug und grinst: 'Arr! Du bist gar nicht so schlecht, wie du aussiehst. Ich bin schon überall gewesen, du kannst mich alles über die Stadt, den Don, Galmair oder sogar unsere dummen Nachbarn fragen.'", deleteItem(1909, 1), queststatus(74) = 2, rankpoints + 20
 queststatus(74) = 1, item(1909, all) > 0, ".+" -> inform("[Quest gelöst] Cormac wird nun deine Fragen beantworten."), "#me nimmt den Krug und grinst: 'Arr! Du bist gar nicht so schlecht, wie du aussiehst. Ich bin schon überall gewesen, du kannst mich alles über die Stadt, den Don, Galmair oder sogar unsere dummen Nachbarn fragen.'", deleteItem(1909, 1), queststatus(74) = 2
 queststatus(74) = 1, item(1909, all) < 1, english, ".+" -> "Beer here, now! A real sip.", "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty.", "Beer here now!"
 queststatus(74) = 1, item(1909, all) < 1, ".+" -> "Bier her! So einen richtigen Schluck.", "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig.", "Bier her, jetzt!"

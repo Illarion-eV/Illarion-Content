@@ -6,8 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Zassaria Riverbank"
@@ -102,10 +101,10 @@ queststatus(701) = 0, "task", "adventure", "order" -> inform("[New quest] Frag f
 queststatus(701) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich I"), "Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.", queststatus(701) = 1
 
 -- 1st quest solved, reward sabre(25)
-queststatus(701) = 2, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the ground of the sea."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints(Runewick) + 3
-queststatus(701) = 2, town = Runewick, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat."), "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints(Runewick) + 3
-queststatus(701) = 2, english, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the ground of the sea."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints(Runewick) + 3
-queststatus(701) = 2, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat."), "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints(Runewick) + 3
+queststatus(701) = 2, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the ground of the sea."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
+queststatus(701) = 2, town = Runewick, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat."), "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
+queststatus(701) = 2, english, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the ground of the sea."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
+queststatus(701) = 2, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat."), "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
 
 -- 1st quest not solved, repeat the instructions
 queststatus(701) = 3, english, "quest", "mission" -> "Sss... Jonathan Idler assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"

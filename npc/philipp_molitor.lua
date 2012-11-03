@@ -6,8 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                                            --
--- Last parsing: October 28, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -376,7 +375,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -392,7 +391,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -510,7 +509,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 40, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -526,7 +525,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 40, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -644,7 +643,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 60, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -660,7 +659,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 60, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -778,7 +777,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 20, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -794,7 +793,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 20, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -912,7 +911,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 40, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -928,7 +927,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 40, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1046,7 +1045,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 60, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1062,7 +1061,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(22, 60, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1180,7 +1179,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(26, 20, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1196,7 +1195,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(26, 20, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1314,7 +1313,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(26, 40, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1330,7 +1329,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(26, 40, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1448,7 +1447,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(26, 60, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1464,7 +1463,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(26, 60, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1582,7 +1581,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 20, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1598,7 +1597,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 20, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1716,7 +1715,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 40, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1732,7 +1731,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 40, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1850,7 +1849,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 60, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1866,7 +1865,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 60, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1984,7 +1983,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(314, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2000,7 +1999,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(314, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2118,7 +2117,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(314, 40, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2134,7 +2133,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(314, 40, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2252,7 +2251,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(314, 60, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2268,7 +2267,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(314, 60, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2386,7 +2385,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2402,7 +2401,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2520,7 +2519,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 40, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2536,7 +2535,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 40, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2654,7 +2653,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 60, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2670,7 +2669,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 60, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2788,7 +2787,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(726, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2804,7 +2803,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(726, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2922,7 +2921,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(726, 40, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2938,7 +2937,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(726, 40, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3056,7 +3055,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(726, 60, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3072,7 +3071,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(726, 60, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3190,7 +3189,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3206,7 +3205,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3324,7 +3323,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 40, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3340,7 +3339,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 40, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3458,7 +3457,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 60, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3474,7 +3473,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2536, 60, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3592,7 +3591,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(41, 15, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3608,7 +3607,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(41, 15, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3726,7 +3725,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(41, 30, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3742,7 +3741,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(41, 30, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3860,7 +3859,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(41, 50, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3876,7 +3875,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(41, 50, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3994,7 +3993,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4010,7 +4009,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4128,7 +4127,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 30, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4144,7 +4143,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 30, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4262,7 +4261,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 50, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4278,7 +4277,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 50, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4396,7 +4395,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(455, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4412,7 +4411,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(455, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4530,7 +4529,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(455, 30, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4546,7 +4545,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(455, 30, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4664,7 +4663,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(455, 50, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4680,7 +4679,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(455, 50, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4798,7 +4797,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2534, 15, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4814,7 +4813,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2534, 15, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4932,7 +4931,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2534, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4948,7 +4947,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2534, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -5066,7 +5065,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2534, 50, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -5082,7 +5081,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2534, 50, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -5200,7 +5199,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -5216,7 +5215,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -5334,7 +5333,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -5350,7 +5349,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -5468,7 +5467,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, 30, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -5484,7 +5483,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, 30, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -5602,7 +5601,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(46, 10, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -5618,7 +5617,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(46, 10, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -5736,7 +5735,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(46, 20, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -5752,7 +5751,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(46, 20, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -5870,7 +5869,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(46, 30, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -5886,7 +5885,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(46, 30, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6004,7 +6003,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(164, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6020,7 +6019,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(164, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6138,7 +6137,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(164, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6154,7 +6153,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(164, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6272,7 +6271,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(164, 30, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6288,7 +6287,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(164, 30, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6406,7 +6405,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(197, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6422,7 +6421,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(197, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6540,7 +6539,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(197, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6556,7 +6555,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(197, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6674,7 +6673,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(197, 30, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6690,7 +6689,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(197, 30, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6808,7 +6807,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1001, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6824,7 +6823,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1001, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6942,7 +6941,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1001, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -6958,7 +6957,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1001, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -7076,7 +7075,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1001, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -7092,7 +7091,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1001, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -7210,7 +7209,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1317, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -7226,7 +7225,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1317, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -7344,7 +7343,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1317, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -7360,7 +7359,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1317, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -7478,7 +7477,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1317, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -7494,7 +7493,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1317, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -7612,7 +7611,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1908, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -7628,7 +7627,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1908, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -7746,7 +7745,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1908, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -7762,7 +7761,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1908, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -7880,7 +7879,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1908, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -7896,7 +7895,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1908, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8014,7 +8013,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2031, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8030,7 +8029,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2031, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8148,7 +8147,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2031, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8164,7 +8163,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2031, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8282,7 +8281,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2031, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8298,7 +8297,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2031, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8416,7 +8415,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2055, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8432,7 +8431,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2055, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8550,7 +8549,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2055, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8566,7 +8565,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2055, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8684,7 +8683,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2055, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8700,7 +8699,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2055, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8818,7 +8817,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8834,7 +8833,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8952,7 +8951,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -8968,7 +8967,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -9086,7 +9085,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -9102,7 +9101,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -9220,7 +9219,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2498, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -9236,7 +9235,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2498, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -9354,7 +9353,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2498, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -9370,7 +9369,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2498, 20, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -9488,7 +9487,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2498, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -9504,7 +9503,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2498, 30, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -9622,7 +9621,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(399, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -9638,7 +9637,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(399, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -9756,7 +9755,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(399, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -9772,7 +9771,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(399, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -9890,7 +9889,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(399, 30, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -9906,7 +9905,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(399, 30, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10024,7 +10023,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(235, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10040,7 +10039,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(235, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10158,7 +10157,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(235, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10174,7 +10173,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(235, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10292,7 +10291,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(235, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10308,7 +10307,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(235, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10426,7 +10425,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(283, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10442,7 +10441,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(283, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10560,7 +10559,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(283, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10576,7 +10575,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(283, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10694,7 +10693,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(283, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10710,7 +10709,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(283, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10828,7 +10827,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(284, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10844,7 +10843,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(284, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10962,7 +10961,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(284, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -10978,7 +10977,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(284, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -11096,7 +11095,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(284, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -11112,7 +11111,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(284, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -11230,7 +11229,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1840, 5, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -11246,7 +11245,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1840, 5, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -11364,7 +11363,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1840, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -11380,7 +11379,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1840, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -11498,7 +11497,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1840, 15, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -11514,7 +11513,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1840, 15, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -11632,7 +11631,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(92, 10, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -11648,7 +11647,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(92, 10, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -11766,7 +11765,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(92, 20, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -11782,7 +11781,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(92, 20, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -11900,7 +11899,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(92, 30, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -11916,7 +11915,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(92, 30, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12034,7 +12033,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(45, 5, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12050,7 +12049,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(45, 5, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12168,7 +12167,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(45, 10, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12184,7 +12183,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(45, 10, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12302,7 +12301,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(45, 15, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12318,7 +12317,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(45, 15, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12436,7 +12435,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(198, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12452,7 +12451,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(198, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12570,7 +12569,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(198, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12586,7 +12585,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(198, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12704,7 +12703,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(198, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12720,7 +12719,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(198, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12838,7 +12837,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(447, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12854,7 +12853,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(447, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12972,7 +12971,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(447, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -12988,7 +12987,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(447, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -13106,7 +13105,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(447, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -13122,7 +13121,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(447, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -13240,7 +13239,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(450, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -13256,7 +13255,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(450, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -13374,7 +13373,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(450, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -13390,7 +13389,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(450, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -13508,7 +13507,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(450, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -13524,7 +13523,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(450, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -13642,7 +13641,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(24, 5, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -13658,7 +13657,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(24, 5, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -13776,7 +13775,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(24, 10, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -13792,7 +13791,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(24, 10, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -13910,7 +13909,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(24, 15, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -13926,7 +13925,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(24, 15, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14044,7 +14043,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(72, 5, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14060,7 +14059,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(72, 5, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14178,7 +14177,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(72, 10, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14194,7 +14193,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(72, 10, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14312,7 +14311,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(72, 15, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14328,7 +14327,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(72, 15, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14446,7 +14445,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(122, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14462,7 +14461,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(122, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14580,7 +14579,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(122, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14596,7 +14595,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(122, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14714,7 +14713,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(122, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14730,7 +14729,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(122, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14848,7 +14847,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(224, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14864,7 +14863,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(224, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14982,7 +14981,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(224, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -14998,7 +14997,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(224, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -15116,7 +15115,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(224, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -15132,7 +15131,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(224, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -15250,7 +15249,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(285, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -15266,7 +15265,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(285, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -15384,7 +15383,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(285, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -15400,7 +15399,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(285, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -15518,7 +15517,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(285, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -15534,7 +15533,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(285, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -15652,7 +15651,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(311, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -15668,7 +15667,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(311, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -15786,7 +15785,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(311, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -15802,7 +15801,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(311, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -15920,7 +15919,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(311, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -15936,7 +15935,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(311, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -16054,7 +16053,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(312, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -16070,7 +16069,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(312, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -16188,7 +16187,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(312, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -16204,7 +16203,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(312, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -16322,7 +16321,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(312, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -16338,7 +16337,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(312, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -16456,7 +16455,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(393, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -16472,7 +16471,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(393, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -16590,7 +16589,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(393, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -16606,7 +16605,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(393, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -16724,7 +16723,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(393, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -16740,7 +16739,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(393, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -16858,7 +16857,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(397, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -16874,7 +16873,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(397, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -16992,7 +16991,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(397, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -17008,7 +17007,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(397, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -17126,7 +17125,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(397, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -17142,7 +17141,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(397, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -17260,7 +17259,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2747, 5, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -17276,7 +17275,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2747, 5, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -17394,7 +17393,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2747, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -17410,7 +17409,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2747, 10, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -17528,7 +17527,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2747, 15, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -17544,7 +17543,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2747, 15, ni
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -17662,7 +17661,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(277, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -17678,7 +17677,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(277, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -17796,7 +17795,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(277, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -17812,7 +17811,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(277, 20, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -17930,7 +17929,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(277, 30, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -17946,7 +17945,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(277, 30, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -18064,7 +18063,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(446, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -18080,7 +18079,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(446, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -18198,7 +18197,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(446, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -18214,7 +18213,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(446, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -18332,7 +18331,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(446, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -18348,7 +18347,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(446, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -18466,7 +18465,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(449, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -18482,7 +18481,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(449, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -18600,7 +18599,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(449, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -18616,7 +18615,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(449, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -18734,7 +18733,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(449, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -18750,7 +18749,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(449, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -18868,7 +18867,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(222, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -18884,7 +18883,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(222, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19002,7 +19001,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(222, 8, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19018,7 +19017,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(222, 8, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19136,7 +19135,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(222, 12, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19152,7 +19151,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(222, 12, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19270,7 +19269,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(448, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19286,7 +19285,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(448, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19404,7 +19403,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(448, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19420,7 +19419,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(448, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19538,7 +19537,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(448, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19554,7 +19553,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(448, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19672,7 +19671,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(451, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19688,7 +19687,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(451, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19806,7 +19805,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(451, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19822,7 +19821,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(451, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19940,7 +19939,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(451, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -19956,7 +19955,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(451, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -20074,7 +20073,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(452, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -20090,7 +20089,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(452, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -20208,7 +20207,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(452, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -20224,7 +20223,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(452, 10, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -20342,7 +20341,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(452, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -20358,7 +20357,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(452, 15, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -20476,7 +20475,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(68, 4, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -20492,7 +20491,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(68, 4, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -20610,7 +20609,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(68, 8, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -20626,7 +20625,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(68, 8, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -20744,7 +20743,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(68, 12, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -20760,7 +20759,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(68, 12, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -20878,7 +20877,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(79, 3, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -20894,7 +20893,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(79, 3, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21012,7 +21011,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(79, 5, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21028,7 +21027,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(79, 5, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21146,7 +21145,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(79, 7, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21162,7 +21161,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(79, 7, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21280,7 +21279,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(278, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21296,7 +21295,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(278, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21414,7 +21413,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(278, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21430,7 +21429,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(278, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21548,7 +21547,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(278, 7, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21564,7 +21563,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(278, 7, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21682,7 +21681,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(315, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21698,7 +21697,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(315, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21816,7 +21815,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(315, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21832,7 +21831,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(315, 5, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21950,7 +21949,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(315, 7, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -21966,7 +21965,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(315, 7, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -22084,7 +22083,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(67, 4, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -22100,7 +22099,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(67, 4, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -22218,7 +22217,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(67, 8, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -22234,7 +22233,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(67, 8, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -22352,7 +22351,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(67, 12, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -22368,7 +22367,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(67, 12, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -22486,7 +22485,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(279, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -22502,7 +22501,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(279, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -22620,7 +22619,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(279, 8, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -22636,7 +22635,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(279, 8, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -22754,7 +22753,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(279, 12, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -22770,7 +22769,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(279, 12, nil
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -22888,7 +22887,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(82, 2, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -22904,7 +22903,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(82, 2, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23022,7 +23021,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(82, 3, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23038,7 +23037,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(82, 3, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23156,7 +23155,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(82, 4, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23172,7 +23171,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(82, 4, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23290,7 +23289,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(465, 2, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23306,7 +23305,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(465, 2, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23424,7 +23423,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(465, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23440,7 +23439,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(465, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23558,7 +23557,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(465, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23574,7 +23573,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(465, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23692,7 +23691,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(281, 2, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23708,7 +23707,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(281, 2, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23826,7 +23825,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(281, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23842,7 +23841,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(281, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23960,7 +23959,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(281, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -23976,7 +23975,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(281, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -24094,7 +24093,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(71, 2, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -24110,7 +24109,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(71, 2, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -24228,7 +24227,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(71, 3, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -24244,7 +24243,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(71, 3, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -24362,7 +24361,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(71, 4, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -24378,7 +24377,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(71, 4, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -24496,7 +24495,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(282, 2, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -24512,7 +24511,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(282, 2, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -24630,7 +24629,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(282, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -24646,7 +24645,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(282, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -24764,7 +24763,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(282, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -24780,7 +24779,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(282, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -24898,7 +24897,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(62, 2, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -24914,7 +24913,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(62, 2, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25032,7 +25031,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(62, 3, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25048,7 +25047,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(62, 3, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25166,7 +25165,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(62, 4, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25182,7 +25181,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(62, 4, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25300,7 +25299,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(225, 2, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25316,7 +25315,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(225, 2, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25434,7 +25433,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(225, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25450,7 +25449,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(225, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25568,7 +25567,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(225, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25584,7 +25583,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(225, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25702,7 +25701,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(280, 2, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25718,7 +25717,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(280, 2, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25836,7 +25835,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(280, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25852,7 +25851,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(280, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25970,7 +25969,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(280, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -25986,7 +25985,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(280, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -26104,7 +26103,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(83, 2, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -26120,7 +26119,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(83, 2, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -26238,7 +26237,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(83, 3, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -26254,7 +26253,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(83, 3, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -26372,7 +26371,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(83, 4, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -26388,7 +26387,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(83, 4, nil))
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -26506,7 +26505,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(336, 2, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -26522,7 +26521,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(336, 2, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -26640,7 +26639,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(336, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -26656,7 +26655,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(336, 3, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -26774,7 +26773,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(336, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -26790,7 +26789,7 @@ talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(336, 4, nil)
 talkEntry:addConsequence(npc.base.consequence.quest.quest(127, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(128, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(129, "=", 48));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("Cadomyr", "+", 5));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
