@@ -677,6 +677,19 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("status");
+talkEntry:addResponse("You are a member of the realm %TOWN with the rank %RANK. So you can call yourself %RANK of %TOWN.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("status");
+talkEntry:addResponse("Du Mitglied des Reiches %TOWN mit dem Rang %RANK. Ihr könnt euch also %RANK von %TOWN nennen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
