@@ -7,6 +7,7 @@
 -- Author: Martin Karing
 
 require("base.class")
+require("base.factions")
 
 module("npc.base.responses", package.seeall)
 
@@ -70,4 +71,42 @@ do
 		end;
 		table.insert(processorList, npcNameProcessor());
 	end;
+	
+	do
+		-- town processor
+		-- This processor replaces %TOWN with the name of the town a character belongs to.
+		local townNameProcessor = base.class.class(processor,
+		function(self, value)
+			processor:init(self);
+		end);
+
+		function townNameProcessor:check(response)
+			return (string.find(response, "%TOWN", 0, true) ~= nil);
+		end;
+
+		function townNameProcessor:process(playerChar, npc, npcChar, response)
+			local townName = base.factions.getMemberShipByName(playerChar)
+			return string.gsub(response, "%%TOWN", townName);
+		end;
+		table.insert(processorList, townNameProcessor());
+	end;
+	
+	do
+		-- rank processor
+		-- This processor replaces %RANK with the rank of a character.
+		local rankProcessor = base.class.class(processor,
+		function(self, value)
+			processor:init(self);
+		end);
+
+		function rankProcessor:check(response)
+			return (string.find(response, "%RANK", 0, true) ~= nil);
+		end;
+
+		function rankProcessor:process(playerChar, npc, npcChar, response)
+			local rank = base.factions.getRank(playerChar)
+			return string.gsub(response, "%%RANK", rank);
+		end;
+		table.insert(processorList, rankProcessor());
+	end;	
 end;
