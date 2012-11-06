@@ -121,7 +121,7 @@ if (MonID==901) then --Shadow Wimp, Level: 4, Armourtype: heavy, Weapontype: dis
         if not done then done=monster.base.drop.AddDropItem(398,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --coppered dagger
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(3,9),100,773,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(30,90),100,773,0,4); --copper coins
 
 
     elseif (MonID==902) then --Shadow Imp, Level: 5, Armourtype: light, Weapontype: concussion
@@ -151,7 +151,7 @@ if (MonID==901) then --Shadow Wimp, Level: 4, Armourtype: heavy, Weapontype: dis
         if not done then done=monster.base.drop.AddDropItem(2671,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --magic dagger
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,773,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,773,0,4); --copper coins
 
 
     elseif (MonID==903) then --Shadow Dancer, Level: 6, Armourtype: medium, Weapontype: slashing
@@ -181,7 +181,7 @@ if (MonID==901) then --Shadow Wimp, Level: 4, Armourtype: heavy, Weapontype: dis
         if not done then done=monster.base.drop.AddDropItem(2742,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --fire dagger
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,773,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,773,0,4); --silver coins
 
     end
     monster.base.drop.Dropping(Monster);

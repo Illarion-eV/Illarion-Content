@@ -130,7 +130,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(282,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --topaz ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
 
     elseif (MonID==192) then --Pitservant, Level: 5, Armourtype: light, Weapontype: concussion
@@ -160,7 +160,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(68,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --ruby ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
 
     elseif (MonID==193) then --Tarantula, Level: 6, Armourtype: heavy, Weapontype: puncture
@@ -190,7 +190,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(280,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --diamond ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
 
     elseif (MonID==195) then --Spider Queen, Level: 7, Armourtype: heavy, Weapontype: slashing
@@ -220,7 +220,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --bluestone ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(10,30),100,333,0,4); --silver coins
 		
 		
 		elseif (MonID==196) then --Small Spider Level: 2, Armourtype: cloth, Weapontype: wrestling
@@ -250,7 +250,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(68,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --ruby ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(1,3),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(10,30),100,333,0,4); --copper coins
 
     elseif (MonID==194) then
         -- Drops

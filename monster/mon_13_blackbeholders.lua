@@ -139,7 +139,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(282,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --topaz ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(10,30),100,333,0,4); --silver coins
 
 
     elseif (MonID==132) then --Eye of Darkness, Level: 8, Armourtype: medium, Weapontype: slashing
@@ -169,7 +169,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(68,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --ruby ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(3,9),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(30,90),100,333,0,4); --silver coins
         
         -- Drops
     elseif (MonID==133) then

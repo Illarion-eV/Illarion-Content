@@ -127,7 +127,7 @@ if (MonID==151) then --Rotten Mummy, Level: 2, Armourtype: light, Weapontype: wr
         if not done then done=monster.base.drop.AddDropItem(190,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --ornate dagger
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(1,3),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(10,30),100,333,0,4); --copper coins
 
 
     elseif (MonID==152) then --Smelly Mummy, Level: 3, Armourtype: heavy, Weapontype: puncture
@@ -157,7 +157,7 @@ if (MonID==151) then --Rotten Mummy, Level: 2, Armourtype: light, Weapontype: wr
         if not done then done=monster.base.drop.AddDropItem(40,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --cleric's staff
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(2,6),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(20,60),100,333,0,4); --copper coins
 
     end
     monster.base.drop.Dropping(Monster);

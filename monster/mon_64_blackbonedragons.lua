@@ -180,7 +180,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --bluestone ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(9,27),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(90,250),100,333,0,4); --silver coins
 
     end
     monster.base.drop.Dropping(Monster);

@@ -111,7 +111,7 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
         if not done then done=monster.base.drop.AddDropItem(826,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --grey trousers
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,773,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,773,0,4); --copper coins
 
 
     elseif (MonID==532) then --Limping Zombie, Level: 5, Armourtype: midium, Weapontype: concussion
@@ -141,7 +141,7 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
         if not done then done=monster.base.drop.AddDropItem(826,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --black trousers
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,773,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,773,0,4); --copper coins
 
 
     elseif (MonID==533) then --Zombie, Level: 6, Armourtype: light, Weapontype: slashing
@@ -171,7 +171,7 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
         if not done then done=monster.base.drop.AddDropItem(68,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --ruby ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,773,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,773,0,4); --silver coins
 		
 		elseif (MonID==534) then --Zombiegiant, Level: 7, Armourtype: medium, Weapontype: concussion
 
@@ -200,7 +200,7 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
         if not done then done=monster.base.drop.AddDropItem(77,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --hardwood greaves
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(1,3),100,773,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(10,30),100,773,0,4); --silver coins
 
     end
     monster.base.drop.Dropping(Monster);

@@ -130,7 +130,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(1,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --serinjah sword
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
 
     elseif (MonID==742) then --Bone Schemes, Level: 6, Armourtype: medium, Weapontype: conussion
@@ -160,7 +160,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(226,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --warhammer
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
 
     elseif (MonID==743) then --Bone Ghost, Level: 7, Armourtype: heavy, Weapontype: puncture
@@ -190,7 +190,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(282,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --topas ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(10,30),100,333,0,4); --silver coins
 
 
     elseif (MonID==744) then --Phantom Archer, Level: 6, Armourtype: medium, Weapontype: distance
@@ -220,7 +220,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(2714,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --hunting bow
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
     end
     monster.base.drop.Dropping(Monster);

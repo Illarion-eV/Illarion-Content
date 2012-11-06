@@ -130,7 +130,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(444,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --merinium plated dagger
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
 
     elseif (MonID==752) then --Mystic Graveguard, Level: 3, Armourtype: light, Weapontype: slashing
@@ -160,7 +160,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --topaz
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(2,6),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(20,60),100,333,0,4); --copper coins
 
 
     elseif (MonID==753) then --Graveguard Archer, Level: 3, Armourtype: heavy, Weapontype: distance
@@ -190,7 +190,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(89,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --sling
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(2,6),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(20,60),100,333,0,4); --copper coins
 
 
     elseif (MonID==754) then --Ancient Graveguard, Level: 4, Armourtype: light, Weapontype: concussion
@@ -220,7 +220,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(226,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --warhammer
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(3,9),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(30,90),100,333,0,4); --copper coins
 
     end
     monster.base.drop.Dropping(Monster);

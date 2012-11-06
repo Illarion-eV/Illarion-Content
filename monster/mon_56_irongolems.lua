@@ -111,7 +111,7 @@ if (MonID==561) then -- Iron Golem, Level: 6, Armourtype: medium, Weapontype: co
         if not done then done=monster.base.drop.AddDropItem(22,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --iron ore
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,773,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,773,0,4); --silver coins
 
 
     elseif (MonID==562) then --Steelgolem, Level: 7, Armourtype: medium, Weapontype: slashing
@@ -141,7 +141,7 @@ if (MonID==561) then -- Iron Golem, Level: 6, Armourtype: medium, Weapontype: co
         if not done then done=monster.base.drop.AddDropItem(1266,20,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --stone
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(1,3),100,773,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(10,30),100,773,0,4); --silver coins
 
     end
     monster.base.drop.Dropping(Monster);

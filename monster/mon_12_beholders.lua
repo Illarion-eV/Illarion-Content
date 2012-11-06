@@ -133,7 +133,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(282,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --topaz ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
 
     elseif (MonID==122) then --Googly, Level: 6, Armourtype: light, Weapontype: puncture
@@ -163,7 +163,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(280,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --diamond ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
 
     elseif (MonID==123) then --Eye of Horror, Level: 7, Armourtype: heavy, Weapontype: wrestling
@@ -193,7 +193,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(281,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --emerald ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(10,30),100,333,0,4); --silver coins
 
 
     elseif (MonID==124) then --Deadly Eye, Level: 7, Armourtype: medium, Weapontype: slashing
@@ -223,7 +223,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(282,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --topaz ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(10,30),100,333,0,4); --silver coins
 
 
     elseif (MonID==125) then --Terror Eye, Level: 8, Armourtype: heavy, Weapontype: dagger
@@ -253,7 +253,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(280,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --diamond ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(3,9),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(30,90),100,333,0,4); --silver coins
 
     elseif (MonID==126) then
         -- Drops

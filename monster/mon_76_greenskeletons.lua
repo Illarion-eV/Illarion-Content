@@ -130,7 +130,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(2714,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --hunting bow
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(3,9),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(30,90),100,333,0,4); --copper coins
 
 
     elseif (MonID==762) then --Crippled Swamphorror, Level: 2, Armourtype: light, Weapontype: slashing
@@ -160,7 +160,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(2642,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --orc axe
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(1,3),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(10,30),100,333,0,4); --copper coins
 
 
     elseif (MonID==763) then --Scruffy Swamphorror, Level: 3, Armourtype: light, Weapontype: distance
@@ -190,7 +190,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(2668,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --poisoned simple dagger
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(2,6),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(20,60),100,333,0,4); --copper coins
 
 
     elseif (MonID==764) then --Mystic Swamphorror, Level: 4, Armourtype: medium, Weapontype: concussion
@@ -220,7 +220,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(230,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --mace
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(3,9),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(30,90),100,333,0,4); --copper coins
 
     end
     monster.base.drop.Dropping(Monster);

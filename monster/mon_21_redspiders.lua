@@ -130,7 +130,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(68,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --ruby ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(3,9),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(30,90),100,333,0,4); --copper coins
 
 
     elseif (MonID==211) then

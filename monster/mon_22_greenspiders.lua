@@ -130,7 +130,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(280,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --diamond ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
 
     elseif (MonID==221) then

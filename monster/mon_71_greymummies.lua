@@ -127,7 +127,7 @@ if (MonID==711) then --Palace Guard, Level: 5, Armourtype: light, Weapontype: sl
         if not done then done=monster.base.drop.AddDropItem(383,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --waraxe
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
     end
     monster.base.drop.Dropping(Monster);

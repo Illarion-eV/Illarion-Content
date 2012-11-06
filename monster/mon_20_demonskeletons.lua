@@ -169,7 +169,7 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
         if not done then done=monster.base.drop.AddDropItem(1,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --serinjah sword
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
 
     elseif (MonID==202) then --Mystic Demon Skeleton, Level: 6, Armourtype: light, Weapontype: concussion (wrestling)
@@ -199,7 +199,7 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
         if not done then done=monster.base.drop.AddDropItem(39,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --skull staff
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
 
     elseif (MonID==203) then --Unholy Akolyth, Level: 7, Armourtype: heavy, Weapontype: concussion
@@ -229,7 +229,7 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
         if not done then done=monster.base.drop.AddDropItem(205,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --double axe
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(10,30),100,333,0,4); --silver coins
 
 
     elseif (MonID==204) then --Unholy Archmage, Level: 7, Armourtype: heavy, Weapontype: slashing
@@ -259,7 +259,7 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
         if not done then done=monster.base.drop.AddDropItem(230,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --mace
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(10,30),100,333,0,4); --silver coins
 
 
     elseif (MonID==205) then --Lich, Level: 8, Armourtype: heavy, Weapontype: puncture
@@ -289,7 +289,7 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
         if not done then done=monster.base.drop.AddDropItem(2783,1,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --wand of fire
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(3,9),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(30,90),100,333,0,4); --silver coins
 
     elseif (MonID==206) then
         -- Drops

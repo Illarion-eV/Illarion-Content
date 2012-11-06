@@ -132,7 +132,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(282,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --topaz ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(3,9),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(30,90),100,333,0,4); --copper coins
 
 
     elseif (MonID==142) then --Unholy Ghost Eye', Level: 5, Armourtype: light, Weapontype: puncture
@@ -162,7 +162,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(68,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --ruby ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
         
         
         elseif (MonID==143) then --Horrible Ghost Eye, Level: 6, Armourtype: heavy, Weapontype: slashing
@@ -192,7 +192,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(277,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --amethyst ring
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
         
         -- Drops
     elseif (MonID==144) then

@@ -129,7 +129,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(293,10,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --throwing spear
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
 
     elseif (MonID==812) then --Keeperoffire, Level: 7, Armourtype: heavy, Weapontype: slashing
@@ -159,7 +159,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(293,10,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --throwing spear
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(1,3),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(10,30),100,333,0,4); --silver coins
 
     end
     monster.base.drop.Dropping(Monster);

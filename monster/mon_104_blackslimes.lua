@@ -111,7 +111,7 @@ if (MonID==1041) then --Wandering Garbage, Level: 2, Armourtype: light, Weaponty
         if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --ruby
 
         --Category 4: Perma Loot
-		monster.base.drop.AddDropItem(3076,math.random(1,3),100,773,0,4); --copper coins
+		monster.base.drop.AddDropItem(3076,math.random(10,30),100,773,0,4); --copper coins
 		
 		elseif (MonID==1042) then --Wandering Sewage, Level: 3, Armourtype: light, Weapontype: puncture
 		
@@ -140,7 +140,7 @@ if (MonID==1041) then --Wandering Garbage, Level: 2, Armourtype: light, Weaponty
         if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --topaz
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(2,6),100,773,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(20,60),100,773,0,4); --copper coins
 
     elseif (MonID==1043) then --Corpsebile, Level: 4, Armourtype: light, Weapontype: slashing
 
@@ -169,7 +169,7 @@ if (MonID==1041) then --Wandering Garbage, Level: 2, Armourtype: light, Weaponty
         if not done then done=monster.base.drop.AddDropItem(56,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --bough
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(3,9),100,773,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(30,90),100,773,0,4); --copper coins
 	
     end
     monster.base.drop.Dropping(Monster);

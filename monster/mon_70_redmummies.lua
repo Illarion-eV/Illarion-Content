@@ -127,7 +127,7 @@ if (MonID==701) then --Chergas Servant, Level: 4, Armourtype: heavy, Weapontype:
         if not done then done=monster.base.drop.AddDropItem(2672,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --poisoned dagger
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(3,9),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(30,90),100,333,0,4); --copper coins
 
     end
     monster.base.drop.Dropping(Monster);

@@ -158,7 +158,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(2775,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --elven rainbowsword
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
 
     elseif (MonID==62) then --Drow Warrior, Level: 6, Armourtype: medium, Weapontype: slashing
@@ -188,7 +188,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(2778,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --elven sword
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
 
     elseif (MonID==63) then --Drow Mage, Level: 6, Armourtype: cloth, Weapontype: concussion
@@ -218,7 +218,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(39,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --skull staff
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
 
     elseif (MonID==64) then --Drow Priest, Level: 6, Armourtype: cloth, Weapontype: concussion
@@ -248,7 +248,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(230,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --mace
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
 
     elseif (MonID==65) then --Drow-leader, Level: 6, Armourtype: heavy, Weapontype: slashing
@@ -278,7 +278,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(188,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --large waraxe
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
     elseif (MonID==66) then
         -- Drops

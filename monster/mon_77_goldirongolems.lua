@@ -111,7 +111,7 @@ if (MonID==912) then -- Gold Golem, Level: 8, Armourtype: medium, Weapontype: co
         if not done then done=monster.base.drop.AddDropItem(1266,20,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --stone
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(3,9),100,773,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(30,90),100,773,0,4); --silver coins
 		
     end
     monster.base.drop.Dropping(Monster);

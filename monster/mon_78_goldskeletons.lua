@@ -130,7 +130,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(230,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --mace
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
 
     elseif (MonID==783) then --Golden Magus, Level: 5, Armourtype: light, Weapontype: concussion
@@ -160,7 +160,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(208,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --ornate mage's staff
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
 
     elseif (MonID==784) then --Golden Archer, Level: 5, Armourtype: heavy, Weapontype: distance
@@ -190,7 +190,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(2714,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --hunting bow
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
     end
     monster.base.drop.Dropping(Monster);

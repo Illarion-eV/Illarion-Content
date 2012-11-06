@@ -128,7 +128,7 @@ if (MonID==101) then --Mummy, Level: 2, Armourtype: -, Weapontype: slashing
         if not done then done=monster.base.drop.AddDropItem(25,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --sabre
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(1,3),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(10,30),100,333,0,4); --copper coins
 
 
     elseif (MonID==102) then --Enbalmed Slave, Level: 3, Armourtype: -, Weapontype: concussion
@@ -158,7 +158,7 @@ if (MonID==101) then --Mummy, Level: 2, Armourtype: -, Weapontype: slashing
         if not done then done=monster.base.drop.AddDropItem(40,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --cleric's staff
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(2,6),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(20,60),100,333,0,4); --copper coins
 
 
     elseif (MonID==103) then --Enbalmed Servant, Level: 2, Armourtype: -, Weapontype: concussion
@@ -188,7 +188,7 @@ if (MonID==101) then --Mummy, Level: 2, Armourtype: -, Weapontype: slashing
         if not done then done=monster.base.drop.AddDropItem(39,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --skull staff
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(1,3),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(10,30),100,333,0,4); --copper coins
 
 
     elseif (MonID==104) then --Poisonous Mummy, Level: 2, Armourtype: -, Weapontype: puncture
@@ -218,7 +218,7 @@ if (MonID==101) then --Mummy, Level: 2, Armourtype: -, Weapontype: slashing
         if not done then done=monster.base.drop.AddDropItem(190,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --ornate dagger
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(1,3),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(10,30),100,333,0,4); --copper coins
 
 
     elseif (MonID==107) then --Mummy of Madness, Level: 2, Armourtype: -, Weapontype: slashing
@@ -248,7 +248,7 @@ if (MonID==101) then --Mummy, Level: 2, Armourtype: -, Weapontype: slashing
         if not done then done=monster.base.drop.AddDropItem(1,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --serinjah sword
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(1,3),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(10,30),100,333,0,4); --copper coins
 
     end
     monster.base.drop.Dropping(Monster);

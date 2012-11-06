@@ -126,7 +126,7 @@ if (MonID==331) then --Silvergolem, Level: 6, Armourtype: medium, Weapontype: pu
         if not done then done=monster.base.drop.AddDropItem(2552,10,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --pure earth
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
     end
     monster.base.drop.Dropping(Monster);

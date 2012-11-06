@@ -126,7 +126,7 @@ if (MonID==321) then --Lavagolem, Level: 5, Armourtype: heavy, Weapontype: slash
         if not done then done=monster.base.drop.AddDropItem(1266,10,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --stone
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
     end
     monster.base.drop.Dropping(Monster);

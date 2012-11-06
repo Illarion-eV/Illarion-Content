@@ -118,7 +118,7 @@ if (MonID==941) then --Crazy Rat Alchemist, Level: 2, Armourtype: cloth, Weapont
         if not done then done=monster.base.drop.AddDropItem(2728,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --dull mace
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(1,3),100,773,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(10,30),100,773,0,4); --copper coins
 
 
     elseif (MonID==942) then --Ratpriest, Level: 3, Armourtype: light, Weapontype: concussion
@@ -148,7 +148,7 @@ if (MonID==941) then --Crazy Rat Alchemist, Level: 2, Armourtype: cloth, Weapont
         if not done then done=monster.base.drop.AddDropItem(230,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --mace
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(2,6),100,773,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(20,60),100,773,0,4); --copper coins
 
     end
     monster.base.drop.Dropping(Monster);

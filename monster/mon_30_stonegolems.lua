@@ -157,7 +157,7 @@ if (MonID==301) then --Stone Golem, Level: 4, Armourtype: light, Weapontype: con
         if not done then done=monster.base.drop.AddDropItem(1266,10,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --stone
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(3,9),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(30,90),100,333,0,4); --copper coins
 
 
     elseif (MonID==302) then --Son of the Mountains, Level: 9, Armourtype: medium, Weapontype: slashing
@@ -187,7 +187,7 @@ if (MonID==301) then --Stone Golem, Level: 4, Armourtype: light, Weapontype: con
         if not done then done=monster.base.drop.AddDropItem(733,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --stone block
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3077,math.random(9,27),100,333,0,4); --silver coins
+        monster.base.drop.AddDropItem(3077,math.random(90,250),100,333,0,4); --silver coins
 
     end
     monster.base.drop.Dropping(Monster);

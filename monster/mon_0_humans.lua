@@ -136,7 +136,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(78,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --short sword
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
 
     elseif (MonID==2) then --Human Warrior, Level: 6, Armourtype: heavy, Weapontype: slashing
@@ -166,7 +166,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(1,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --serinjah sword
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
 
     elseif (MonID==3) then --Human Mage, Level: 5, Armourtype: cloth, Weapontype: concussion
@@ -196,7 +196,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(39,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --skull staff
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
 
     elseif (MonID==4) then --Human Necromancer, Level: 5, Armourtype: cloth, Weapontype: concussion
@@ -226,7 +226,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(76,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --mage's staff
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
 
     elseif (MonID==5) then --Human Thief, Level: 4, Armourtype: light, Weapontype: puncture
@@ -256,7 +256,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(398,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --coppered dagger
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(3,9),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(30,90),100,333,0,4); --copper coins
 
     end
     monster.base.drop.Dropping(Monster);

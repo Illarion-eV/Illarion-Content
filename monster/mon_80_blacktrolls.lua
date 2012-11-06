@@ -115,7 +115,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(2737,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --morning star
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
 
     elseif (MonID==802) then --Mountain Troll Archer, Level: 6, Armourtype: light, Weapontype: distance
@@ -145,7 +145,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(2708,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --long bow
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
     end
     monster.base.drop.Dropping(Monster);

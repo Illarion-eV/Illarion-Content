@@ -126,7 +126,7 @@ if (MonID==311) then --Clay Golem, Level: 3, Armourtype: medium, Weapontype: con
         if not done then done=monster.base.drop.AddDropItem(735,10,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --raw stone
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(2,6),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(20,60),100,333,0,4); --copper coins
 
     end
     monster.base.drop.Dropping(Monster);

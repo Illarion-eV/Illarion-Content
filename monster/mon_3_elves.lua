@@ -137,7 +137,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(2708,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --long bow
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
 
     elseif (MonID==32) then --Elven Warrior, Level: 6, Armourtype: light, Weapontype: slashing
@@ -167,7 +167,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(2701,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --longsword
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(18,54),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3077,math.random(2,5),100,333,0,4); --silver coins
 
 
     elseif (MonID==33) then --Elven Priest, Level: 5, Armourtype: cloth, Weapontype: concussion
@@ -197,7 +197,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(57,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --simple mage's staff
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
 
     elseif (MonID==34) then --Elven Mage, Level: 5, Armourtype: cloth, Weapontype: concussion
@@ -227,7 +227,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(76,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --mage's staff
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
 
     elseif (MonID==35) then --Elven Hunter, Level: 5, Armourtype: light, Weapontype: distance
@@ -257,7 +257,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(2718,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --elven composite bow
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(3076,math.random(6,18),100,333,0,4); --copper coins
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
     elseif (MonID==36) then
         -- Drops
