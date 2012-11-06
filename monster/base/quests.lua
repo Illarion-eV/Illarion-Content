@@ -465,9 +465,12 @@ function iniQuests()
     englishTitle[id]="The Poacher I";
     NPCName[id]="Eugene Burton"; 
     statusId[id]=4;
-    germanRace[id]="Hasen"; 
-    englishRace[id]="rabbits";
-    --table.insert(questList[295],id); 
+    germanRace[id]="Wildschweine"; 
+    englishRace[id]="boars";
+	table.insert(questList[241],id); --Pig
+	table.insert(questList[251],id); --Boar
+	table.insert(questList[252],id); --Young Boar
+	table.insert(questList[253],id); --Hog
     minimumQueststatus[id]=1; 
     maximumQueststatus[id]=7; 
     questLocation[id]=position(775,475,0); 
@@ -480,9 +483,11 @@ function iniQuests()
     englishTitle[id]="The Poacher II";
     NPCName[id]="Eugene Burton"; 
     statusId[id]=4;
-    germanRace[id]="Dammhirsche"; 
-    englishRace[id]="fallow deer";
-    --table.insert(questList[294],id); 
+    germanRace[id]="Rinder"; 
+    englishRace[id]="bulls";
+    table.insert(questList[371],id); --Cow
+	table.insert(questList[381],id); --Bull
+	table.insert(questList[382],id); --Young Bull
     minimumQueststatus[id]=9; 
     maximumQueststatus[id]=21; 
     questLocation[id]=position(775,475,0); 
@@ -497,11 +502,10 @@ function iniQuests()
     statusId[id]=4;
     germanRace[id]="Wölfe"; 
     englishRace[id]="wolves";
-    --table.insert(questList[81],id); 
-    --table.insert(questList[82],id); 
-    --table.insert(questList[83],id); 
-    --table.insert(questList[84],id); 
-    --table.insert(questList[85],id); 
+    table.insert(questList[391],id); 
+    table.insert(questList[392],id); 
+    table.insert(questList[393],id); 
+    table.insert(questList[394],id); 
     minimumQueststatus[id]=23; 
     maximumQueststatus[id]=29; 
     questLocation[id]=position(775,475,0); 
