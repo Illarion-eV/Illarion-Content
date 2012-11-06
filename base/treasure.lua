@@ -187,7 +187,12 @@ module("base.treasure", package.seeall)
         for i, itemData in pairs(itemList) do
             world:createItemFromId( itemData[1], itemData[2], posi, true, GetQuality( level ), itemData[3] );
         end
-        world:createItemFromId(3077,math.random(math.ceil(0.5*level*level),math.ceil(1.5*level*level)),posi,true,333,0);
+		
+		if level < 5 then -- silver coins
+            world:createItemFromId(3077,math.random(math.ceil(5*level*level),math.ceil(15*level*level)),posi,true,333,0);
+		else -- gold coins
+		    world:createItemFromId(61,math.random(math.ceil(0.05*level*level),math.ceil(0.15*level*level)),posi,true,333,0);
+		end
     end
 
     function getDistance( User, Item )
