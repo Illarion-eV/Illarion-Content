@@ -239,20 +239,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		questId = 352
 	end         
 	
-	local difficulty = User:getQuestProgress(questId) - 3
-	local question; local questionList
-	local answer; local answerList
-	local rnd = math.random(10)
-	local title
-	if User:getPlayerLanguage() == 0 then
-	    User:inform(""..rnd)
-		User:inform(""..difficulty)
-		questionList = questionDE[difficulty][rnd]
-	    User:inform(""..questionList[1])
-	  --  return	
-	end
-    
-	
 	local qstPrg = User:getQuestProgress(questId)
 	if qstPrg == 0 then
 	    qstPrg = 1
@@ -312,17 +298,17 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
 	elseif qstPrg >= 4 and qstPrg <= 6 then
 	    
-		local questionsEN; local questionsDE
+		local questionsTriggerEN; local questionsTriggerDE
 		if qstPrg == 4 then
-		    questionEN = "three questions"; questionDE = "drei Fragen"
+		    questionTriggerEN = "three questions"; questionTriggerDE = "drei Fragen"
 		elseif qstPrg == 5 then
-		    questionEN = "two questions"; questionDE = "zwei Fragen"
+		    questionTriggerEN = "two questions"; questionTriggerDE = "zwei Fragen"
 		else
-		    questionEN = "one question"; questionDE = "eine Frage"
+		    questionTriggerEN = "one question"; questionTriggerDE = "eine Frage"
 	    end
 	    SendMessage(User, 
-			            "Once again you hear the voice you already have heard often before: \"You still have to answer "..questionEN..", then you will leran the secret of alchemy.\"",
-						"Erneut erklingt die dir mittlerweile bekannte Stimme: \"Du hast mir noch "..questionDE.." zu beantworten, dann wirst du das Geheimnis der Alchemie erfahren.\"",
+			            "Once again you hear the voice you already have heard often before: \"You still have to answer "..questionTriggerEN..", then you will leran the secret of alchemy.\"",
+						"Erneut erklingt die dir mittlerweile bekannte Stimme: \"Du hast mir noch "..questionTriggerDE.." zu beantworten, dann wirst du das Geheimnis der Alchemie erfahren.\"",
 						teacherEN,
 						true
 						);
