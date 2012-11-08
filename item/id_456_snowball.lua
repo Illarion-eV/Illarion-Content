@@ -221,12 +221,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		return
 	end	
 	
-	User:inform("debug1")
 	local teacherEN; local teacherDE
 	local questId
 	if SourceItem.pos == position(1,1,0) or SourceItem.id == 456 then
-	    User:inform("debug2")
-		teacherEN = "Knowing Tree"
+	    teacherEN = "Knowing Tree"
 		teacherDE = "der Wissende Baum"
 		questId = 350
 	elseif SourceItem.pos == postion(2,1,0) then
@@ -358,6 +356,7 @@ function AskQuestion(User,teacherEN)
 		success = dialog:getSuccess()
 		if success then
 			selectedAnswer = (dialog:getSelectedIndex())+1
+			User:inform("debug 4")
 			if answerList[selectedAnswer] == answer then
 			    User:inform("richtige antwort. text einfügen. zum alchemisten machen.")
 			else
