@@ -579,7 +579,6 @@ function iniQuests()
     table.insert(questList[102],id); 
     table.insert(questList[103],id); 
     table.insert(questList[104],id); 
-    --table.insert(questList[105],id); 
     table.insert(questList[106],id);    
     table.insert(questList[107],id);
     minimumQueststatus[id]=3; 
@@ -630,7 +629,7 @@ function iniQuests()
     statusId[id]=104;
     englishRace[id]="demon skeleton warrior"; 
     germanRace[id]="Dämonenskelettkrieger";
-    table.insert(questList[173],id); 
+    table.insert(questList[201],id); 
     minimumQueststatus[id]=30; 
     maximumQueststatus[id]=31; 
     questLocation[id]=position(705,410,-3); 
@@ -643,9 +642,9 @@ function iniQuests()
     englishTitle[id]="Der fehlgeleitete Kreuzzug VI";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
-    englishRace[id]="ancient fire dragons"; 
-    germanRace[id]="uralter Feuerdrachen";
-    --table.insert(questList[264],id); 
+    englishRace[id]="undead fire dragons"; 
+    germanRace[id]="untote Feuerdrachen";
+    table.insert(questList[651],id); 
     minimumQueststatus[id]=33; 
     maximumQueststatus[id]=34; 
     questLocation[id]=position(705,410,-3); 
