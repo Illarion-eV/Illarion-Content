@@ -380,7 +380,7 @@ function AskQuestion(User,teacherEN)
 	--[[for i=1,#answerList do
 		dialog:addOption(0, answerList[i])
 	end]]
-	if (User.lastSpokenText == "apfel")
+	if (User.lastSpokenText == "apfel") then
 		dialog:addOption(15, answerList[1])
 		dialog:addOption(15, answerList[2])
 		dialog:addOption(15, answerList[3])
