@@ -374,13 +374,11 @@ function AskQuestion(User,teacherEN)
 						true)
 		end
 	end
-	local dialog = SelectionDialog(title,  callback)
+	local dialog = SelectionDialog(title, question, callback)
 	for i=1,#answerList do
 		dialog:addOption(0, answerList[i])
 	end
 	User:requestSelectionDialog(dialog)
-	User:inform(question)
-
 end
 		
 function SendMessage(User, textEN, textDE, teacherEN, questionTrigger)
