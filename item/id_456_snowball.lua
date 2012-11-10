@@ -357,6 +357,8 @@ function AskQuestion(User,teacherEN)
 		if success then
 			selectedAnswer = (dialog:getSelectedIndex())+1
 			User:inform("debug 4")
+			User:inform("true answer: "..answer)
+			User:inform("selectedAnswer: "..answerList[selectedAnswer])
 			if answerList[selectedAnswer] == answer then
 			    User:inform("richtige antwort. text einfügen. zum alchemisten machen.")
 			else
@@ -371,7 +373,7 @@ function AskQuestion(User,teacherEN)
 						"\"Come back to finish the questions whenever you want.\"", 
 						"Das war die falsche Antwort. Versuchen wir es mit einer anderen.", 
 						teacherEN, 
-						true)
+						false)
 		end
 	end
 	local dialog = SelectionDialog(title, question, callback)
