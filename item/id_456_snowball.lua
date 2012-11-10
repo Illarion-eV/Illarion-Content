@@ -377,9 +377,12 @@ function AskQuestion(User,teacherEN)
 		end
 	end
 	local dialog = SelectionDialog(title, question, callback)
-	for i=1,#answerList do
+	--[[for i=1,#answerList do
 		dialog:addOption(0, answerList[i])
-	end
+	end]]
+	dialog:addOption(0, answerList[1])
+	dialog:addOption(0, answerList[2])
+	dialog:addOption(0, answerList[3])
 	User:requestSelectionDialog(dialog)
 end
 		
