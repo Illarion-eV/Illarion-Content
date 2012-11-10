@@ -380,10 +380,15 @@ function AskQuestion(User,teacherEN)
 	--[[for i=1,#answerList do
 		dialog:addOption(0, answerList[i])
 	end]]
-	dialog:addOption(15, answerList[1])
-	dialog:addOption(15, answerList[2])
-	dialog:addOption(15, answerList[3])
-	User:inform("add list2: "..answerList[3])
+	if (User.lastSpokenText == "apfel")
+		dialog:addOption(15, answerList[1])
+		dialog:addOption(15, answerList[2])
+		dialog:addOption(15, answerList[3])
+	else
+        dialog:addOption(0, answerList[1])
+		dialog:addOption(0, answerList[2])
+		dialog:addOption(0, answerList[3])	
+	end
 	User:requestSelectionDialog(dialog)
 end
 		
