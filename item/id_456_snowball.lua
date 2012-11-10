@@ -383,6 +383,7 @@ function AskQuestion(User,teacherEN)
 	dialog:addOption(0, answerList[1])
 	dialog:addOption(0, answerList[2])
 	dialog:addOption(0, answerList[3])
+	User:inform("add list2: "..answerList[3])
 	User:requestSelectionDialog(dialog)
 end
 		
