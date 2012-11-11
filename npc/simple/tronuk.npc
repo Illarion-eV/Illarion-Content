@@ -56,8 +56,8 @@ itemShoes = 53
 -- QuestID=601
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is an old orc Tronruk. Keywords: Hello, story, orc, gods.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der alte Ork Tronruk. Schlüsselwörter: Hallo, Geschichte, ork, Götter.")
+"Help" -> inform("[Game Help] This NPC is an old orc Tronruk. Keywords: Hello, story, orc, gods, quest.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der alte Ork Tronruk. Schlüsselwörter: Hallo, Geschichte, Ork, Götter, Quest.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me nods slightly and closes his eyes again.", "Hurr? Yubbah, Yubbah.", "Greebas."
@@ -76,18 +76,31 @@ english, "Tronruk" -> "Yubba, dat meh name! *hits his chest and grunts*"
 "Tronruk" -> "Yubba, das mein Name! *schlägt sich auf die Brust*"
 
 -- Catching quest triggers. Modify if the NPC does quests.
-english, "quest", "mission" -> "Nubba quest, but storeh meh tell."
-"quest", "mission" -> "Nix Mission, aber Geschicht mich erzähl."
-"task", "adventure", "order" -> "Nubba task, but storeh meh tell."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nix Aufgab, aber Geschicht mich erzähl."
+english, "quest", "mission", queststatus(602) = 0 -> "A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!", queststatus(602) = 1
+"quest", "mission", queststatus(602) = 0 -> "Eine Mission du haben wollen. Hurr, nur kleine Aufgabe. Bringe Tronruk Flasche Bier. Bier sein immer gut. Aber nix warmes Stumpie Bier!", queststatus(602) = 1
+"task", "adventure", "order", queststatus(602) = 0 -> "A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!", queststatus(602) = 1
+"Auftrag", "Aufgabe", queststatus(602) = 0 -> "Eine Mission du haben wollen. Hurr, nur kleine Aufgabe. Bringe Tronruk Flasche Bier. Bier sein immer gut. Aber nix warmes Stumpie Bier!", queststatus(602) = 1
+
+--Player brings beer and gets reward
+english, ".*", queststatus(602) = 1 -> "Hurr, you hub beer! Great! For dhat you shall hub some coins. Hundred beh enub, yubba.", money + 100, queststatus(602) = 2
+".*", queststatus(602) = 1 -> "Hurr, du haben Bier! Gut! Für das du sollen haben einige Münzen. Hundert sind genug, yubba.", money + 100, queststatus(602) = 2
+--Player asks again
+english, "quest", "mission", queststatus(602) = 2, chance(80.0) -> "Yoo got task and Tronruk hub enub beer now. Ask later maybeh."
+"quest", "mission", queststatus(602) = 2, chance(80.0) -> "Du hattest Auftrag und Tronruk haben Bier genug nun. Frage später vielleicht."
+"task", "adventure", "order", queststatus(602) = 2, chance(80.0) -> "Yoo got task and Tronruk hub enub beer now. Ask later maybeh."
+"Auftrag", "Aufgabe", queststatus(602) = 2 -> "Du hattest Auftrag und Tronruk haben Bier genug nun. Frage später vielleicht."
+english, "quest", "mission", queststatus(602) = 2 -> "Anodha bottle beer might beh guud. Yubba! Get more beer!", queststatus(602) = 1
+"quest", "mission", queststatus(602) = 2 -> "Andere Flasche Bier sein gut. Yubba! Bring mehr Bier!", queststatus(602) = 1
+"task", "adventure", "order", queststatus(602) = 2 -> "Anodha bottle beer might beh guud. Yubba! Get more beer!", queststatus(602) = 1
+"Auftrag", "Aufgabe", queststatus(602) = 2 -> "Andere Flasche Bier sein gut. Yubba! Bring mehr Bier!", queststatus(602) = 1
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Meh nub work annehmore.", "Sitting and telling old storehs", "#me burps."
 "beruf" -> "Ich nix mehr arbeiten.", "Sitzen und alte Geschichtn erzähla", "#me pfurzt."
 english, "job" -> "Meh nub work annehmore.", "Sitting and telling old storehs", "#me burps."
 "job" -> "Ich nix mehr arbeiten.", "Sitzen und alte Geschichtn erzähla", "#me pfurzt."
-english, "Gobaith", "Gobiath" -> "Hurr, hurr, Meh remember, yubba. *closes his eyes again*", "A clan beh dere. Berreh mighteh it beh!", "Dat place beh ruled by bruddahs and sistahs."
-"Gobaith", "Gobiath" -> "Hurr, hurr, mich erinnern, yubba.*schließt seien Augen wieder*", "Da war Klan. Sehr mächtig war der!", "Das Platz war beherrscht von Brudda and Schwesta."
+english, "Gobaith", "Gobiath" -> "Hurr, hurr, Meh remember, yubba. *closes his eyes again*", "A clan hub beh dere beh. Berreh mighteh it hub beh! But nub anhmore.", "Dat place beh ruled by bruddahs and sistahs. But it beh gone."
+"Gobaith", "Gobiath" -> "Hurr, hurr, mich erinnern, yubba.*schließt seien Augen wieder*", "Da war Klan. Sehr mächtig war der! Jetzt aber nicht mehr.", "Das Platz war beherrscht von Brudda and Schwesta. Jetzt nicht mehr geben."
 "my name" -> "Hurr, hurr!", "Good to know."
 "mein Name" -> "Hurr, hurr!", "Gut zu wissen."
 
@@ -440,50 +453,52 @@ queststatus(601) = 44, english, "Nay", "Nubba", "Nope", "Stop" -> "Nub more stor
 queststatus(601) = 44, "Nay", "Nubba", "Nope", "Stop" -> "Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.", queststatus(601) = 0
 
 -- additonal story info
-"Chief" -> "Meh remember dat beh dah best leader ebba! But meh nub know whub happened to him!"
-"Häuptling", "Hauptling" -> "Mich erinnern das sein bester Anfuhrer jemals! Aber mich nix wissen was ihm passierte."
-english, "Rugh" -> "Hurr, daht beh smart and proud Chief from Clan ob Northern Mountains. Meh nub know if he beh around now."
-"Rugh" -> "Hurr, das sein schlau und stolz Chief von Klan von Nordgebierge. Mich nix wissen ob er nun umeinander sein."
-"Warlord" -> "Meh remember dat beh dah strongest orc ebba! Betta run if him beh on other side!"
-"Kriegsherr" -> "Mich erinnern das sein stärkster Ork! Besser lauf wenn du sehen ihn auf anderer Seite stehen."
-english, "Rogruk", "Bregoguk" -> "Hurr, dat beh strong Warlord from Clan ob Northern Mountains. Meh nub know if he beh around now."
-"Rogruk", "Bregoguk" -> "Hurr, das sein stark Kriegsherr von Klan von Nordgebierge. Mich nix wissen ob er nun umeinander sein."
-english, "Murgo", "Lokh" -> "He, he... Bruddah Murgo be also known as dah Flying Lokh'um, but dah broddah will explain dat to yoo if yoo meet him. *smirks and covers his head*", "Hurr, dat be strong Orc from Clan ob Northern Mountains. Meh nub know if he be around now."
-"Murgo", "lokh" -> "He, he... Bruder Murgo sein bekannt auch als Fliegend Lokh'um, aber das sollen Brudder selber erklären wenn du treffen ihn. *kichert und hält sich seinen Kopf*", "Hurr, das sein stark Ork von Klan von Nordgebierge. Mich nix wissen ob er nun umeinander sein."
-english, "Jag" -> "Hurr! Dun get hit by Red Skull Jag's maces...*howls*", "Hurr, dat be strong Orc from Clan ob Northern Mountains. Meh nub know if he be around now."
-"Jag" -> "Hurr! Vermeid treffen werden von Red Skull Jag' Streitkolben...*heult*", "Hurr, das sein stark Ork von Klan von Nordgebierge. Mich nix wissen ob er nun umeinander sein."
-english, "Gerron", "Lavence", "Murdok" -> "Dat be berreh strong oomie wif wood stick. Be careful if ebba see dat oomie.", "Meh know dat oomie also wif dah name Murdok."
-"Gerron", "Lavence", "Murdok" -> "Das sein sehr stark Ommie mit Holzstab sein. Sei vorsichtig wenn du sehen das Ommie.", "Mich kennen das Ommie auch mit Name Murdok"
+"Chief" -> "Meh remember dat hub beh dah best leader ebba! But meh nub know whub happened to him!"
+"Häuptling", "Hauptling" -> "Mich erinnern das war bester Anfuhrer jemals! Aber mich nix wissen was ihm passierte."
+english, "Rugh" -> "Hurr, daht hub beh smart and proud Chief from Clan ob Northern Mountains. Meh nub know if he beh around now."
+"Rugh" -> "Hurr, das war schlau und stolz Chief von Klan von Nordgebierge. Mich nix wissen ob er nun umeinander sein."
+"Warlord" -> "Meh remember dat hub beh dah strongest orc ebba! Betta run if him beh on other side!"
+"Kriegsherr" -> "Mich erinnern das war stärkster Ork! Besser lauf wenn du sehen ihn auf anderer Seite stehen."
+english, "Rogruk", "Bregoguk" -> "Hurr, dat hub beh strong Warlord from Clan ob Northern Mountains. Meh nub know if he beh around now."
+"Rogruk", "Bregoguk" -> "Hurr, das war stark Kriegsherr von Klan von Nordgebierge. Mich nix wissen ob er nun umeinander sein."
+english, "Murgo", "Lokh" -> "He, he... Bruddah Murgo be also known as dah Flying Lokh'um, but dah broddah will explain dat to yoo if yoo meet him. *smirks and covers his head*", "Hurr, dat hub beh strong Orc and last Chief aftar Chief Rugh'toh from Clan ob Northern Mountains. He got burned whib broddha Jag togedha."
+"Murgo", "lokh" -> "He, he... Bruder Murgo sein bekannt auch als Fliegend Lokh'um, aber das sollen Brudder selber erklären wenn du treffen ihn. *kichert und hält sich seinen Kopf*", "Hurr, das war stark Ork und letza Häuptling nach Häuptling Rugh'to von Klan von Nordgebierge. Er verbrannt mit Brudda Jag zusammen."
+english, "Jag" -> "Hurr! Dun get hit by Red Skull Jag's maces...*howls*", "Hurr, dat hub be strong Orc from Clan ob Northern Mountains. Broddha became Black Skull before it got burned."
+"Jag" -> "Hurr! Vermeid treffen werden von Red Skull Jag' Streitkolben...*heult*", "Hurr, das war stark Ork von Klan von Nordgebierge. Brudda wurde Black Skull bevor er verbrannt."
+english, "Gerron", "Lavence", "Murdok" -> "Dat be berreh strong oomie wif wood stick. Be careful if ebba see dat oomie.", "Meh know dat oomie also wif dah name Murdok. Meh nub know if he beh around now."
+"Gerron", "Lavence", "Murdok" -> "Das sein sehr stark Ommie mit Holzstab sein. Sei vorsichtig wenn du sehen das Ommie.", "Mich kennen das Ommie auch mit Name Murdok. Mich nix wissen ob er nun umeinander sein."
 english, "Murdok" -> "Dat be berreh strong oomie wif wood stick. Be careful if ebba see dat oomie."
 "Murdok" -> "Das sein sehr stark Ommie mit Holzstab sein. Sei vorsichtig wenn du sehen das Ommie."
 english, "Jefferson" -> "Dat be berreh chaotic oomie. He be berreh good and fast wif daggers. Beh careful if ebba see dat oomie."
 "Jefferson" -> "Das sein sehr chaotisch Ommie, dass beherschen gut und schnell Dolche. Sei vorsichtig wenn du sehen das Ommie."
-english, "Kry", "Rack" -> "Dat be sistah ob Orcs ob dah Northern Mountains. Meh nub know whub she doing now!"
+english, "Kry", "Rack" -> "Dat hub be sistah ob Orcs ob dah Northern Mountains. Meh nub know whub she doing now!"
 "Kry", "Rack" -> "Das Schwester von Orks von Nordgebierge war. Mich nix wissen was sie nun machen!"
-english, "Slug" -> "Dat bruddah be good warrior and smith for Orcs ob dah Northern Mountains. Meh nub know whub he doing now!"
-"Slug" -> "Das Bruder sein gut Kreiger und Schmied für Orks von Nordgebierge war. Mich nix wissen was er nun machen!"
+english, "Slug" -> "Dat bruddah hub be good warrior and smith for Orcs ob dah Northern Mountains. Meh nub know whub he doing now!"
+"Slug" -> "Das Bruder war gut Kreiger und Schmied für Orks von Nordgebierge war. Mich nix wissen was er nun machen!"
 english, "silver skull" -> "Dat be high rank ob dah Orcs ob dah Northern Mountains."
 "silver skull" -> "Das sein hoher Rang bei den Orks des Nordgebierge war."
 english, "red skull" -> "Dat be berreh high rank ob dah Orcs ob dah Northern Mountains."
 "red skull" -> "Das sein sehr hoher Rang bei den Orks des Nordgebierge war."
+english, "black skull" -> "Dat be berreh berreh high rank ob dah Orcs ob dah Northern Mountains. Nub manneh hub beh black skull, but broddha Jag hub beh."
+"black skull" -> "Das sein sehr sehr hoher Rang bei den Orks des Nordgebierge war. Nicht viele sein Black Skull, aber Brudda Jag war."
 "Gynk fire" -> "Yoo nub know dat fire in bottle? Yoo hab to open and throw it! BOOM! *smirks*"
 "Gynk Feuer" -> "Du nix wissen das Feuer in Flasche? Du müssen offnen und werfen es! BAMM! *kichert*"
-"temple" -> "Dat be collection ob lower races dat whub worship dah Faddah also, but be heresy. Smash dem!"
-"Tempel" -> "Das sein Sammlung niedriger Rassen welche preisen Vater auch, aber sein Häresie. Verhau die!"
-"holy land" -> "Hurr, dah holy land in north in Gobaith. Land be ob orcs ob Northern Mountains"
-"heilig land" -> "Hurr, das heilig Land von Norden in Gobaith. Land der Ork von Nordgebierge."
-"Orc North", "Clan North" -> "Hurr! Orc of the Northern Mountains be mighty Clan in Gobaith wif strong Chief, Warlord, Red Skulls, Silver Skulls an other bruddahs and sistahs."
-"Ork Nord", "Klan Nord", "Clan Nord" -> "Hurr! Ork von Nordgebierge war mächtig Klan in Gobaith mit stark Hauptling, Kriegsherr, Red Skulls, Silver Skulls und ander Bruddha und Sistha!"
-"dwarven army", "dwarf army", "army dwarf", "stumpie army" -> "Dhat be stumpie army from Silverbrand, me remember right."
+"temple" -> "Dat hub be collection ob lower races dat whub worship dah Faddah also, but be heresy. Smash dem!"
+"Tempel" -> "Das war Sammlung niedriger Rassen welche preisen Vater auch, aber sein Häresie. Verhau die!"
+"holy land" -> "Hurr, dah holy land hub beh in north in Gobaith. Land be ob orcs ob Northern Mountains. Nub beh annehmore."
+"heilig land" -> "Hurr, das war heilig Land von Norden in Gobaith. Land der Ork von Nordgebierge. Nun nicht mehr geben."
+"Orc North", "Clan North" -> "Hurr! Orc of the Northern Mountains hub be mighty Clan in Gobaith wif strong Chief, Warlord, Black Skull, Red Skulls, Silver Skulls an other bruddahs and sistahs."
+"Ork Nord", "Klan Nord", "Clan Nord" -> "Hurr! Ork von Nordgebierge war mächtig Klan in Gobaith mit stark Hauptling, Kriegsherr, Black Skull, Red Skulls, Silver Skulls und ander Bruddha und Sistha!"
+"dwarven army", "dwarf army", "army dwarf", "stumpie army" -> "Dhat hub be stumpie army from Silverbrand, me remember right."
 "Zwergenarmee" -> "Das Zwergenarme waren von Silberbrand, mich richtig erinnern."
-english, "Troll", "Bane" -> "Dat be old oomie town in Gobaith. Long time ago."
-"Troll", "Bane" -> "Das sein alte Ommie Stadt in Gobaith. Lang Zeit vorbei."
+english, "Troll", "Bane" -> "Dat hub be old oomie town in Gobaith. Long time ago."
+"Troll", "Bane" -> "Das war alte Ommie Stadt in Gobaith. Lang Zeit vorbei."
 "queen dwarf", "dwarven queen", "stumpie queen" -> "Stumpie queen Friedwulfa become famous as Flying stumpie. Ask dat Stumpie if yoo meet her! *smirks*"
 "königin zwerg", "zwerg königin", "zwergenkönigin", "stumpiekönigin" -> "Stumpiekönigin Friedwulfa berühmt sein als Fliegende Stumpie. Frag das Stumpie wenn du treffen es! *grinst frech*"
 english, "friedl", "Friedwulfa", "Silberklinge" -> "Stumpie queen Friedwulfa become famous as Flying stumpie. Ask dat Stumpie if yoo meet her! *smirks*"
 "friedl", "Friedwulfa", "Silberklinge" -> "Stumpiekönigin Friedwulfa berühmt sein als Fliegende Stumpie. Frag das Stumpie wenn du treffen es! *grinst frech*"
-"silverbrand" -> "Dat be Stumpie town in Gobaith wif Stumpie queen whub tink she be able smashing Warlord. *smirks*"
-"silberbrand" -> "Das sein Stumpiestadt in Gobaih mit Zwergenkönigin die glaubte Warlord besiegen können. *grinst frech*"
+"silverbrand" -> "Dat hub be Stumpie town in Gobaith wif Stumpie queen whub tink she be able smashing Warlord. *smirks*"
+"silberbrand" -> "Das war Stumpiestadt in Gobaih mit Zwergenkönigin die glaubte Warlord besiegen können. *grinst frech*"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Tronruk" -> "Yubba, dat mah name! *hits his chest and grunts*"
