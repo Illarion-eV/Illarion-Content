@@ -384,6 +384,12 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("test");
+talkEntry:addResponse("In this event, we need a gm who plays Cherga or at least Chergas voice. Cherga will explain that these souls can only be liberated by excrements of several animals. It, therefore, is required to lock different animals of Gobaith into the Eldar temple. From each race one: pig, cow, rabbit, insect, deer, wolfs?, panthers?, bees?, scorpions?, spiders? They players have one RL-week to collect them. Otherwise the whole island will be punished. If it actually happens then, I don't know.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("why are you sitting");
 talkEntry:addResponse("Dere beh nubbing to do.");
 talkEntry:addResponse("Whub nub?");
