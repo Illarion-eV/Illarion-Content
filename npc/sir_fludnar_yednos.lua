@@ -1916,9 +1916,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "<", 1, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", ">", 1, nil));
 talkEntry:addTrigger("testtest");
 talkEntry:addResponse("Ups, I did it again");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2419, 1, nil));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("testlala");
+talkEntry:addResponse("Hoi");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2419, 1, nil));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
