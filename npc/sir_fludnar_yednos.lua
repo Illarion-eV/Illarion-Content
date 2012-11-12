@@ -1924,6 +1924,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("lalala");
+talkEntry:addResponse("Quest status set to 30");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 30));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addTrigger("work");
 talkEntry:addResponse("I'm a scholar, or what have you thought?");

@@ -256,6 +256,7 @@ itemShoes = 369
 
 "testtest", item(2553, all) = 0 -> "Merung hat von nichts ne Ahnung", deleteItem(2419, 1)
 "testtest", item(2553, all) < 1 -> "Ups, I did it again", deleteItem(2419, 1)
+"lalala" -> "Quest status set to 30", queststatus(600) = 30
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession", "work" -> "I'm a scholar, or what have you thought?", "I am researching on Orcs.", "I'm a researcher and my interest is in the race of orcs."
