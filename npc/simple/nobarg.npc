@@ -54,7 +54,7 @@ itemShoes = 53
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- queststatus(600) Overview
--- QuestID=600
+-- QuestID=600; 603
 -- 0: Sir Fludnar Yedno - No Quest taken
 
 -- 11-20: Sir Fludnar Yedno - Quest taken - gather information about Bragon and orks
@@ -67,34 +67,6 @@ itemShoes = 53
 -- 21-20: Nobarg - Quest answer is imparted to player
 
 -- 40: Sir Fludnar Yedno - Quest done and Player rewarded
-
--- Debugging
-"set 0" -> "Quest status set to 0", state = 0, queststatus(600) = 0
-"set 5" -> "Quest status set to 5", queststatus(600) = 5
-"set 6" -> "Quest status set to 6", queststatus(600) = 6
-"set 7" -> "Quest status set to 7", queststatus(600) = 7
-"set 8" -> "Quest status set to 8", queststatus(600) = 8
-"set 11" -> "Quest status set to 11", state = 1, queststatus(600) = 11
-"set 12" -> "Quest status set to 12", state = 1, queststatus(600) = 12
-"set 13" -> "Quest status set to 13", state = 1, queststatus(600) = 13
-"set 14" -> "Quest status set to 14", state = 1, queststatus(600) = 14
-"set 15" -> "Quest status set to 15", state = 1, queststatus(600) = 15
-"set 16" -> "Quest status set to 16", state = 1, queststatus(600) = 16
-"set 17" -> "Quest status set to 17", state = 1, queststatus(600) = 17
-"set 18" -> "Quest status set to 18", state = 1, queststatus(600) = 18
-"set 19" -> "Quest status set to 19", state = 1, queststatus(600) = 19
-"set 20" -> "Quest status set to 20", state = 1, queststatus(600) = 20
-"set 21" -> "Quest status set to 21", state = 1, queststatus(600) = 21
-"set 22" -> "Quest status set to 22", state = 1, queststatus(600) = 22
-"set 23" -> "Quest status set to 23", state = 1, queststatus(600) = 23
-"set 24" -> "Quest status set to 24", state = 1, queststatus(600) = 24
-"set 25" -> "Quest status set to 25", state = 1, queststatus(600) = 25
-"set 26" -> "Quest status set to 26", state = 1, queststatus(600) = 26
-"set 27" -> "Quest status set to 27", state = 1, queststatus(600) = 27
-"set 28" -> "Quest status set to 28", state = 1, queststatus(600) = 28
-"set 29" -> "Quest status set to 29", state = 1, queststatus(600) = 29
-"set 30" -> "Quest status set to 30", state = 1, queststatus(600) = 30
-"set 40" -> "Quest status set to 40", state = 0, queststatus(600) = 40
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the priest Nobarg. Keywords: Hello, quest, Bragon, god, information.")
