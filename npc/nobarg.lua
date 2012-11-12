@@ -1163,6 +1163,12 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("test");
+talkEntry:addResponse("test");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("pure fire");
 talkEntry:addResponse("I really don't know where you can find pure fire. Ask in Runewick, there are people there that know many things.");
 talkingNPC:addTalkingEntry(talkEntry);

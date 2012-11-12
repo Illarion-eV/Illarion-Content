@@ -197,6 +197,8 @@ queststatus(603) = 6, item(2419, all) = 0, "Auftrag", "Aufgabe", "Abenteuer", "w
 queststatus(603) = 6, item(2419, all) = 0, english, "quest", "mission", "info", "robe" -> "Please, do not interrupt me again unless you have that red priest robe."
 queststatus(603) = 6, item(2419, all) = 0, "quest", "mission", "info", "Robe" -> "Bitte stört mich nicht bis ihr die rote Priesterrobe habt!"
 
+"test" -> "test"
+
 -- Last catch: Think about keywords the player might say and that are not caught until here
 "pure fire" -> "I really don't know where you can find pure fire. Ask in Runewick, there are people there that know many things."
 "reines feuer" -> "Ich habe wirklich keine Ahnung wo man reines Feuer findet. Fragt in Runewick. Die Leute dort wissen viele Dinge."
