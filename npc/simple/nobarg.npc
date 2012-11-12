@@ -115,54 +115,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Good bye.", "B
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Nobarg", "Nobarg, Priester von Bragon"
 
 -- 1st quest: Bring 1 pure fire.
-queststatus(600) < 5, "task", "adventure", "know", "question" -> "I don't have to do anything for you."
-queststatus(600) < 5, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage" -> "Ich habe für euch nichts zu tun."
-queststatus(600) < 5, english, "quest", "mission", "info" -> "I don't have to do anything for you."
-queststatus(600) < 5, "quest", "mission", "info" -> "Ich habe für euch nichts zu tun."
-queststatus(600) > 10, queststatus(600) < 21, "task", "adventure", "know", "question" -> inform("Ask your question from Sir Fludnar Yednos"), "Hmm, you are seeking knowledge traveler? Well, what is your question?"
-queststatus(600) > 10, queststatus(600) < 21, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage" -> inform("Stelle deine Frage von Sir Fludnar Yednos"), "Hmm, ihr möchtet etwas von mir wissen? Nun, was ist eure Frage?"
-queststatus(600) > 10, queststatus(600) < 21, english, "quest", "mission", "info" -> inform("Ask your question from Sir Fludnar Yednos"), "Hmm, you are seeking knowledge traveler? Well, what is your question?"
-queststatus(600) > 10, queststatus(600) < 21, "quest", "mission", "info" -> inform("Stelle deine Frage von Sir Fludnar Yednos"), "Hmm, ihr möchtet etwas von mir wissen? Nun, was ist eure Frage?"
-queststatus(600) = 11, "age" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Well, I know the answer but you have to bring me three things first. Start by bringing me a pure element of fire. Brágon with you!", queststatus(603) = 5
-queststatus(600) = 11, "Zeitalter" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
-queststatus(600) = 12, "support" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "The answer is within reach traveler but Brágon demands charity. Start by bringing me a pure element of fire. Brágon guide you!", queststatus(603) = 5
-queststatus(600) = 12, "Unterstützung" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
-queststatus(600) = 13, "Purge" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Well, I know the answer but only one worthy may acquire such knowledge. Start by bringing me a pure element of fire. Brágon will guide you!", queststatus(603) = 5
-queststatus(600) = 13, "Vernichter" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
-queststatus(600) = 14, "realized", "realised" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Answers will come once charity is given traveler. Start by bringing me a pure element of fire. Brágon with you!", queststatus(603) = 5
-queststatus(600) = 14, "bemerkt hat", "erkannt hat" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
-queststatus(600) = 15, "Sun" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Well, I know the answer you seek, but are you worthy? Bring me a pure element of fire to prove that worth. Brágon keep you!", queststatus(603) = 5
-queststatus(600) = 15, "Sonne" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
-queststatus(600) = 16, "remedy" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "If you seek answers start by bringing me a pure element of fire. Brágon with you!", queststatus(603) = 5
-queststatus(600) = 16, "Wiedergutmachung" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
-queststatus(600) = 17, "relationship", "relate" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Bring me a pure element of fire and you shall have your answers traveler. Brágon with you!", queststatus(603) = 5
-queststatus(600) = 17, "verbindet", "verbindung" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
-queststatus(600) = 18, "Summer" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Well, I know the answer you seek, but I will need test your worth. Start by bringing me a pure element of fire. Brágon with you!", queststatus(603) = 5
-queststatus(600) = 18, "Sommer" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
-queststatus(600) = 19, "pray", "praying" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "So many questions, but only a few have the answers. Bring me a  pure element of fire and I will give you the answers you seek. Brágon with you!", queststatus(603) = 5
-queststatus(600) = 19, "beten", "gebet" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
-queststatus(600) = 20, "Eternity" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Alright traveler but first  bring me a pure element of fire. Brágon with you!", queststatus(603) = 5
-queststatus(600) = 20, "Ewigkeit" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
-queststatus(600) = 20, english, "Tribunal" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Ah, in search of answers traveler? To get them you will need to bring me a pure element of fire though. Brágon show you the path to righteousness!", queststatus(603) = 5
-queststatus(600) = 20, "Tribunal" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
 
--- 2st quest: Bring 1 red priest robe.
-queststatus(603) = 5, item(2553, all) > 0, english, ".*" -> inform("[Quest 'pure fire' solved, Quest 'red priest robe' solved] Bring him a red priest robe"), "Well done, you are ready for the next task. My red priest robes are in poor condition. Please bring me a new one.", deleteItem(2553, 1), queststatus(603) = 6
-queststatus(603) = 5, item(2553, all) > 0, ".*" -> inform("[Quest 'reines Feuer' gelöst, Quest 'rote Priesterrobe' gestartet] Bringe ihm eine rote Priesterrobe"), "Gut gemacht, du bist bereit für die nächste Aufgabe. Nun, schaut auf meine rote Priester Robe... Sie ist schon alt. Bitte bringt mir eine neue.", deleteItem(2553, 1), queststatus(603) = 6
-queststatus(603) = 5, item(2553, all) = 0, "task", "adventure", "know", "question", "fire", "thing" -> "Please, do not interrupt me until you've gotten the pure fire!"
-queststatus(603) = 5, item(2553, all) = 0, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Feuer", "Ding" -> "Bitte stört mich nicht bis ihr das reine Feuer habt!"
-queststatus(603) = 5, item(2553, all) = 0, english, "quest", "mission", "info" -> "Please, do not interrupt me until you've gotten the pure fire!"
-queststatus(603) = 5, item(2553, all) = 0, "quest", "mission", "info" -> "Bitte stört mich nicht bis ihr das reine Feuer habt!"
-
--- 3st quest: Bring 1 gold goblet.
-queststatus(603) = 6, item(2419, all) > 0, english, ".*" -> inform("[Quest 'red priest robe' solved, Quest 'golden goblet' started] Bring him a golden goblet"), "Very good! Well, I am also preparing a ritual for Brágon and I need a golden goblet. Please bring me one.", deleteItem(2419, 1), queststatus(603) = 7
-queststatus(603) = 6, item(2419, all) > 0, "quest", "mission", "info", "Robe" -> inform("[Quest 'rote Priesterrobe' gelöst, Quest 'goldener Kelch' gestartet] Bringe ihm einen goldenen Kelch"), "Sehr gut! Ich bin am vorbereiten eines Rituals für Bragon and brauche einen Goldkelch hierfür. Bitte bringt mir einen.", deleteItem(2419, 1), queststatus(603) = 7
-queststatus(603) = 6, item(2419, all) = 0, "task", "adventure", "know", "question", "thing" -> "Please, do not interrupt me again unless you have that red priest robe."
-queststatus(603) = 6, item(2419, all) = 0, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Ding" -> "Bitte stört mich nicht bis ihr die rote Priesterrobe habt!"
-queststatus(603) = 6, item(2419, all) = 0, english, "quest", "mission", "info", "robe" -> "Please, do not interrupt me again unless you have that red priest robe."
-queststatus(603) = 6, item(2419, all) = 0, "quest", "mission", "info", "Robe" -> "Bitte stört mich nicht bis ihr die rote Priesterrobe habt!"
-
--- 4st quest: Question.
+-- 4st quest: final Question.
 queststatus(603) = 7, item(224, all) > 0, english, ".*" -> inform("[Quest 'golden goblet' solved] Ask him your question from Sir Fludnar Yednos"), "You have done everything I've asked of you. Tell me what you seek?", deleteItem(224, 1), queststatus(603) = 8
 queststatus(603) = 7, item(224, all) > 0, ".*" -> inform("[Quest 'goldener Kelch' gelöst] Frage ihn nun deine Frage von Sir Fludnar Yednos"), "Ihr habt alles getan, was ich haben wollte. Was ist eure Frage nun?", deleteItem(224, 1), queststatus(603) = 8
 queststatus(603) = 7, item(224, all) = 0, "task", "adventure", "know", "question", "goblet", "thing" -> "Please, do not interrupt me until there is a golden goblet in your possession!"
@@ -195,6 +149,53 @@ queststatus(600) > 20, "task", "adventure", "know", "question" -> "There is noth
 queststatus(600) > 20, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage" -> "Ich habe für euch nichts mehr zu tun."
 queststatus(600) > 20, english, "quest", "mission", "info" -> "There is nothing more to do."
 queststatus(600) > 20, "quest", "mission", "info" -> "Ich habe für euch nichts mehr zu tun."
+
+queststatus(600) < 5, "task", "adventure", "know", "question" -> "I don't have to do anything for you."
+queststatus(600) < 5, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage" -> "Ich habe für euch nichts zu tun."
+queststatus(600) < 5, english, "quest", "mission", "info" -> "I don't have to do anything for you."
+queststatus(600) < 5, "quest", "mission", "info" -> "Ich habe für euch nichts zu tun."
+queststatus(600) > 10, queststatus(600) < 21, "task", "adventure", "know", "question" -> inform("Ask your question from Sir Fludnar Yednos"), "Hmm, you are seeking knowledge traveler? Well, what is your question?"
+queststatus(600) > 10, queststatus(600) < 21, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage" -> inform("Stelle deine Frage von Sir Fludnar Yednos"), "Hmm, ihr möchtet etwas von mir wissen? Nun, was ist eure Frage?"
+queststatus(600) > 10, queststatus(600) < 21, english, "quest", "mission", "info" -> inform("Ask your question from Sir Fludnar Yednos"), "Hmm, you are seeking knowledge traveler? Well, what is your question?"
+queststatus(600) > 10, queststatus(600) < 21, "quest", "mission", "info" -> inform("Stelle deine Frage von Sir Fludnar Yednos"), "Hmm, ihr möchtet etwas von mir wissen? Nun, was ist eure Frage?"
+queststatus(600) = 11, "age" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Well, I know the answer but you have to bring me three things first. Start by bringing me a pure element of fire. Brágon with you!", queststatus(603) = 5
+queststatus(600) = 11, "Zeitalter" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
+queststatus(600) = 12, "support" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "The answer is within reach traveler but Brágon demands charity. Start by bringing me a pure element of fire. Brágon guide you!", queststatus(603) = 5
+queststatus(600) = 12, "Unterstützung" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
+queststatus(600) = 13, "Purge" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Well, I know the answer but only one worthy may acquire such knowledge. Start by bringing me a pure element of fire. Brágon will guide you!", queststatus(603) = 5
+queststatus(600) = 13, "Vernichter" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
+queststatus(600) = 14, "realized", "realised" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Answers will come once charity is given traveler. Start by bringing me a pure element of fire. Brágon with you!", queststatus(603) = 5
+queststatus(600) = 14, "bemerkt hat", "erkannt hat" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
+queststatus(600) = 15, "Sun" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Well, I know the answer you seek, but are you worthy? Bring me a pure element of fire to prove that worth. Brágon keep you!", queststatus(603) = 5
+queststatus(600) = 15, "Sonne" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
+queststatus(600) = 16, "remedy" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "If you seek answers start by bringing me a pure element of fire. Brágon with you!", queststatus(603) = 5
+queststatus(600) = 16, "Wiedergutmachung" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
+queststatus(600) = 17, "relationship", "relate" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Bring me a pure element of fire and you shall have your answers traveler. Brágon with you!", queststatus(603) = 5
+queststatus(600) = 17, "verbindet", "verbindung" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
+queststatus(600) = 18, "Summer" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Well, I know the answer you seek, but I will need test your worth. Start by bringing me a pure element of fire. Brágon with you!", queststatus(603) = 5
+queststatus(600) = 18, "Sommer" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
+queststatus(600) = 19, "pray", "praying" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "So many questions, but only a few have the answers. Bring me a  pure element of fire and I will give you the answers you seek. Brágon with you!", queststatus(603) = 5
+queststatus(600) = 19, "beten", "gebet" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
+queststatus(600) = 20, "Eternity" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Alright traveler but first  bring me a pure element of fire. Brágon with you!", queststatus(603) = 5
+queststatus(600) = 20, "Ewigkeit" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
+queststatus(600) = 20, english, "Tribunal" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Ah, in search of answers traveler? To get them you will need to bring me a pure element of fire though. Brágon show you the path to righteousness!", queststatus(603) = 5
+queststatus(600) = 20, "Tribunal" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
+
+-- 2st quest: Bring 1 red priest robe.
+queststatus(603) = 5, item(2553, all) > 0, english, ".*" -> inform("[Quest 'pure fire' solved, Quest 'red priest robe' started] Bring him a red priest robe"), "Well done, you are ready for the next task. My red priest robes are in poor condition. Please bring me a new one.", deleteItem(2553, 1), queststatus(603) = 6
+queststatus(603) = 5, item(2553, all) > 0, ".*" -> inform("[Quest 'reines Feuer' gelöst, Quest 'rote Priesterrobe' gestartet] Bringe ihm eine rote Priesterrobe"), "Gut gemacht, du bist bereit für die nächste Aufgabe. Nun, schaut auf meine rote Priester Robe... Sie ist schon alt. Bitte bringt mir eine neue.", deleteItem(2553, 1), queststatus(603) = 6
+queststatus(603) = 5, item(2553, all) = 0, "task", "adventure", "know", "question", "fire", "thing" -> "Please, do not interrupt me until you've gotten the pure fire!"
+queststatus(603) = 5, item(2553, all) = 0, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Feuer", "Ding" -> "Bitte stört mich nicht bis ihr das reine Feuer habt!"
+queststatus(603) = 5, item(2553, all) = 0, english, "quest", "mission", "info" -> "Please, do not interrupt me until you've gotten the pure fire!"
+queststatus(603) = 5, item(2553, all) = 0, "quest", "mission", "info" -> "Bitte stört mich nicht bis ihr das reine Feuer habt!"
+
+-- 3st quest: Bring 1 gold goblet.
+queststatus(603) = 6, item(2419, all) > 0, english, ".*" -> inform("[Quest 'red priest robe' solved, Quest 'golden goblet' started] Bring him a golden goblet"), "Very good! Well, I am also preparing a ritual for Brágon and I need a golden goblet. Please bring me one.", deleteItem(2419, 1), queststatus(603) = 7
+queststatus(603) = 6, item(2419, all) > 0, "quest", "mission", "info", "Robe" -> inform("[Quest 'rote Priesterrobe' gelöst, Quest 'goldener Kelch' gestartet] Bringe ihm einen goldenen Kelch"), "Sehr gut! Ich bin am vorbereiten eines Rituals für Bragon and brauche einen Goldkelch hierfür. Bitte bringt mir einen.", deleteItem(2419, 1), queststatus(603) = 7
+queststatus(603) = 6, item(2419, all) = 0, "task", "adventure", "know", "question", "thing" -> "Please, do not interrupt me again unless you have that red priest robe."
+queststatus(603) = 6, item(2419, all) = 0, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Ding" -> "Bitte stört mich nicht bis ihr die rote Priesterrobe habt!"
+queststatus(603) = 6, item(2419, all) = 0, english, "quest", "mission", "info", "robe" -> "Please, do not interrupt me again unless you have that red priest robe."
+queststatus(603) = 6, item(2419, all) = 0, "quest", "mission", "info", "Robe" -> "Bitte stört mich nicht bis ihr die rote Priesterrobe habt!"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 "pure fire" -> "I really don't know where you can find pure fire. Ask in Runewick, there are people there that know many things."
