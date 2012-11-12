@@ -254,6 +254,9 @@ itemShoes = 369
 "quest", "mission", queststatus(600) = 40, english -> "Hmm... You already had your task. There nothing to do for you here. Better ask someone else! Farewell."
 "quest", "mission", queststatus(600) = 40 -> "Hmm... Du hattest bereits deine Aufgabe. Hier ist nichts mehr zu tun für dich. Besser du fragst jemand anderen. Leb wohl."
 
+"testtest", item(2553, all) = 0 -> "Merung hat von nichts ne Ahnung", deleteItem(2419, 1)
+"testtest", item(2553, all) < 1 -> "Ups, I did it again", deleteItem(2419, 1)
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession", "work" -> "I'm a scholar, or what have you thought?", "I am researching on Orcs.", "I'm a researcher and my interest is in the race of orcs."
 "beruf", "arbeit" -> "Ich bin ein Gelehrter, oder was habt ihr gedacht?", "Ich forsche an Orks.", "Ich bin Forscher und interessiert an der Rasse der Orks."

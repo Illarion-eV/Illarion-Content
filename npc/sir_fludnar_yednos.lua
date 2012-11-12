@@ -16,9 +16,11 @@ VALUES (0, 896, 757, 1, 4, 'Sir Fludnar Yednos', 'npc.sir_fludnar_yednos', 0, 2,
 
 require("npc.base.basic")
 require("npc.base.condition.chance")
+require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.condition.state")
+require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
@@ -1902,6 +1904,22 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 40));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Hmm... Du hattest bereits deine Aufgabe. Hier ist nichts mehr zu tun für dich. Besser du fragst jemand anderen. Leb wohl.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, nil));
+talkEntry:addTrigger("testtest");
+talkEntry:addResponse("Merung hat von nichts ne Ahnung");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2419, 1, nil));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "<", 1, nil));
+talkEntry:addTrigger("testtest");
+talkEntry:addResponse("Ups, I did it again");
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2419, 1, nil));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
