@@ -94,9 +94,9 @@ if (MonID==911) then -- Merinium Golem, Level: 9, Armourtype: medium, Weapontype
 
         local done=monster.base.drop.AddDropItem(285,5,20,(100*math.random(8,9)+math.random(88,99)),0,2); --diamond
         if not done then done=monster.base.drop.AddDropItem(283,5,10,(100*math.random(8,9)+math.random(88,99)),0,2); end --blackstone
-        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(8,9)+math.random(88,99)),1,2); end --magic ruby
-        if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(8,9)+math.random(88,99)),1,2); end --magic amethyst
-        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(8,9)+math.random(88,99)),1,2); end --magic bluestone
+        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalRuby="1"},2); end --magic ruby
+        if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalAmethyst="1"},2); end --magic amethyst
+        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalBluestone="1"},2); end --magic bluestone
 
         --Category 3: Special Loot
 
