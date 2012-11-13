@@ -89,7 +89,7 @@ function getLeadAttrib(Char, Skill)
         leadAtt[Character.slashingWeapons]="strength"
         --leadAtt[Character.magicResistance]="essence"
         leadAtt[Character.carpentry]="dexterity"
-        leadAtt[Character.cooking]="dexterity"
+        leadAtt[Character.cookingAndBaking]="dexterity"
         leadAtt[Character.goldsmithing]="dexterity"
         leadAtt[Character.concussionWeapons]="strength"
         leadAtt[Character.flute]="dexterity"
