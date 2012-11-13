@@ -3,7 +3,6 @@
 
 require("base.common")
 require("base.lookat")
-require("quest.aquest28")    
 require("lte.tying_capturer") 
 module("item.id_2760_rope", package.seeall)      
 -- UPDATE common SET com_script='I_2760_seil.lua' WHERE com_itemid=2760;
@@ -46,20 +45,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 	if TargetItem == nil or ( TargetItem.id ~= 2207 ) then
 		return;
     end
-    local dummy_1, task = quest.aquest28.split_questdata(User);
     
-	--if TargetItem.pos == position(-73,-108,0)) then
-      --  User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
-        --User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
-        --User:warp(position(-73,-108,-3));
-   -- elseif (TargetItem.pos == position(-131,-123,0)) then
-   --     User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
-   --     User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
-   --     User:warp(position(-131,-123,-3));
-	--elseif (TargetItem.pos == position(787,801,0)) then
-    --    User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
-    --    User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
-    --    User:warp(position(797,791,-3));
 	if (TargetItem.pos == position(528, 555, 0)) then
         User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
@@ -68,13 +54,9 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
         User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
         User:warp(position(292, 377, -6));
-    elseif ( (TargetItem.pos == position(787,801,0)) and (task == 4 or true)) then
+    elseif (TargetItem.pos == position(787,801,0)) then
         User:talkLanguage( Character.say, Player.german, "#me klettert an einem Seil den Brunnen hinunter.");
         User:talkLanguage( Character.say, Player.english, "#me climbs down into the well on a rope.");
-        local monster_list = world:getMonstersInRangeOf(position(799,794,-3),10); --check if already a monster spawned there
-		if (monster_list[1]==nil) then
-        	world:createMonster(111,position(801,795,-3), 14);--create a monster here
-		end
 		User:warp(position(797,791,-3));
 	else
     	base.common.InformNLS( User,
