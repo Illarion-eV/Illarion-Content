@@ -16,8 +16,10 @@ VALUES (4, 164, 621, 0, 4, 'Tronruk', 'npc.tronruk', 0, 2, 5, 108, 86, 72, 57, 1
 
 require("npc.base.basic")
 require("npc.base.condition.chance")
+require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
@@ -244,20 +246,39 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2501, "all", ">", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Hurr, you hub beer! Great! For dhat you shall hub some coins. Hundred beh enub, yubba.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2501, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2501, "all", ">", 1, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Hurr, du haben Bier! Gut! Für das du sollen haben einige Münzen. Hundert sind genug, yubba.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2501, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("Hurr, you should get beer first! Yubba!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 1));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("Hurr, du sollen bringen Bier erst! Yubba!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
