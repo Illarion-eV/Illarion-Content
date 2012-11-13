@@ -16,8 +16,10 @@ VALUES (4, 164, 621, 0, 4, 'Tronruk', 'npc.tronruk', 0, 2, 5, 108, 86, 72, 57, 1
 
 require("npc.base.basic")
 require("npc.base.condition.chance")
+require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
@@ -209,6 +211,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 started] Bring Tronuk a full bottle beer."));
 talkEntry:addResponse("A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -218,6 +221,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."));
 talkEntry:addResponse("Eine Mission du haben wollen. Hurr, nur kleine Aufgabe. Bringe Tronruk Flasche Bier. Bier sein immer gut. Aber nix warmes Stumpie Bier!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -228,6 +232,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 started] Bring Tronuk a full bottle beer."));
 talkEntry:addResponse("A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -237,6 +242,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."));
 talkEntry:addResponse("Eine Mission du haben wollen. Hurr, nur kleine Aufgabe. Bringe Tronruk Flasche Bier. Bier sein immer gut. Aber nix warmes Stumpie Bier!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -244,20 +250,45 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2501, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest end 602] You gained some coins."));
 talkEntry:addResponse("Hurr, you hub beer! Great! For dhat you shall hub some coins. Hundred beh enub, yubba.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2501, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(2501, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 602] Du hast ein paar Münzen erhalten."));
 talkEntry:addResponse("Hurr, du haben Bier! Gut! Für das du sollen haben einige Münzen. Hundert sind genug, yubba.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2501, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Bring Tronuk a full bottle beer."));
+talkEntry:addResponse("Hurr, you should get beer first! Yubba!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Bringe Tronuk eine volle Flasche Bier."));
+talkEntry:addResponse("Hurr, du sollen bringen Bier erst! Yubba!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -273,6 +304,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(80.0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -282,6 +314,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(80.0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -292,6 +325,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(80.0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addResponse("Du hattest Auftrag und Tronruk haben Bier genug nun. Frage später vielleicht.");
@@ -303,6 +338,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 started] Bring Tronuk a full bottle beer."));
 talkEntry:addResponse("Anodha bottle beer might beh guud. Yubba! Get more beer!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -312,6 +348,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."));
 talkEntry:addResponse("Andere Flasche Bier sein gut. Yubba! Bring mehr Bier!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -322,6 +359,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 started] Bring Tronuk a full bottle beer."));
 talkEntry:addResponse("Anodha bottle beer might beh guud. Yubba! Get more beer!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -331,6 +369,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."));
 talkEntry:addResponse("Andere Flasche Bier sein gut. Yubba! Bring mehr Bier!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
