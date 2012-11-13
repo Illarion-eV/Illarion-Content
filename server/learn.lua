@@ -5,19 +5,19 @@ module("server.learn", package.seeall)
 -- called by the server when user:learn(...) is issued by a script
 
 --[[
-Call: Character:learn(skill, movePoints, opponent);
+Call: Character:learn(skill, movePoints, learnLimit);
 
 skill: Name of the skill as skill key, e.g. Character.mining
 movePoints: The amount of movePoints or time (1/10s), required by the action, as integer. Do NOT fill in 0, every action relevant for skillgain HAS TO take some time.
-opponent: In case the action requires a minimum skill, fill it in here as integer. If the action should only yield skillgain up to a certain level, fill in this level-20. Otherwise, fill in 100.
+learnLimit: Maximum skill level the user can reach with the triggering action.
 
 ]]
 
-function learn(user, skill, actionPoints, opponent)
+function learn(user, skill, actionPoints, learnLimit)
 
 	leadAttrib = getLeadAttrib(user,skill);
 	
-	user:inform("learn called: skill: "..skill.." AP: "..actionPoints.." opponent: "..opponent);
+	user:inform("learn called: skill: "..skill.." AP: "..actionPoints.." learnLimit: "..learnLimit);
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
 	scalingFactor=1000; --Here, you can mod the learning speed. Higher value=faster ;-)
 	
@@ -32,7 +32,7 @@ function learn(user, skill, actionPoints, opponent)
 	minorSkill=user:getMinorSkill(skill); --reading the minor skill points; 10000=1 skill point
 	MCvalue=math.max(lowerBorder,user:getMentalCapacity()); --below 0.5% of time spent online, no additional bonus is granted
 
-    if skillValue<opponent+20 and skillValue<100 then --you only learn when your skill is lower than the skill of the opponent +20 and your skill is <100
+    if skillValue<learnLimit and skillValue<100 then --you only learn when your skill is lower than the skill of the learnLimit and your skill is <100
 
         chanceForSkillGain=(100-skillValue);
 	
