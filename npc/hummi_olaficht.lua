@@ -2,8 +2,8 @@
 -- NPC Name: Hummi Olaficht                                              None --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  48, 970, 0             --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: halfling                   NPC Position:  681, 318, 0            --
+-- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 48, 970, 0, 4, 'Hummi Olaficht', 'npc.hummi_olaficht', 0, 2, 5, 254, 14, 1, 245, 180, 137);
+VALUES (2, 681, 318, 0, 0, 'Hummi Olaficht', 'npc.hummi_olaficht', 0, 2, 5, 254, 14, 1, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -28,22 +28,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keywords: faction, gods, race, craft, motive, landscape, leader, law, chest, explorer, empire, stones of power, quest. You will find more of these keywords during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keywords: faction, gods, race, craft, motive, landscape, leader, law, explorer, empire, stones of power, quest. You will find more of these keywords during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Truhe, Erkunder, Reiche, Steine der Macht, Quest. Du wirst dieser Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)"));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("test");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("test works"));
-talkEntry:addResponse("A");
-talkEntry:addResponse("B");
-talkEntry:addResponse("C");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Erkunder, Reiche, Steine der Macht, Quest. Du wirst dieser Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -231,27 +222,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elesil");
 talkEntry:addTrigger("Daelwon");
-talkEntry:addResponse("You can find her at the teleporter in Runewick.");
+talkEntry:addResponse("You can find her at the teleporter in Runewick. She knows any place in Runewick and has plenty of tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elesil");
 talkEntry:addTrigger("Daelwon");
-talkEntry:addResponse("Du findest sie beim Teleporter in Runewick.");
+talkEntry:addResponse("Du findest sie beim Teleporter in Runewick. Sie kennt jeden Platz in Runewick und hat etliche Aufgaben für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Frizza");
-talkEntry:addResponse("You can find her at the teleporter in Cadomyr.");
+talkEntry:addResponse("You can find her at the teleporter in Cadomyr. She knows any place in Cadomyr and has plenty of tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Frizza");
-talkEntry:addResponse("Du findest sie beim Teleporter in Cadomyr.");
+talkEntry:addResponse("Du findest sie beim Teleporter in Cadomyr. Sie kennt jeden Platz in Cadomyr und hat etliche Aufgaben für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -259,14 +250,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Iradona");
 talkEntry:addTrigger("Goldschein");
-talkEntry:addResponse("You can find her at the teleporter in Galmair.");
+talkEntry:addResponse("You can find her at the teleporter in Galmair. She knows any place in Galmair and has plenty of tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Iradona");
 talkEntry:addTrigger("Goldschein");
-talkEntry:addResponse("Du findest sie beim Teleporter in Galmair.");
+talkEntry:addResponse("Du findest sie beim Teleporter in Galmair. Sie kennt jeden Platz in Galmair und hat etliche Aufgaben für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -479,34 +470,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Khenserra");
 talkEntry:addResponse("Berge von Khenserra? Irgendwo im Süden müssten die sein.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("chest");
-talkEntry:addResponse("In these chests over there you find your belongings probably.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("kist");
-talkEntry:addTrigger("truhe");
-talkEntry:addResponse("In diesen Truhen dort drüben kannst du womöglich dein Hab und Gut finden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("box");
-talkEntry:addTrigger("depot");
-talkEntry:addResponse("In these chests over there you find your belongings probably.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("box");
-talkEntry:addTrigger("depot");
-talkEntry:addResponse("In diesen Truhen dort drüben kannst du womöglich dein Hab und Gut finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1577,7 +1540,6 @@ talkEntry:addTrigger(".*");
 talkEntry:addResponse("Duddli, duddla, frag mich nach Hilfe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Schaut in den Truhen dort drüben nach, vielleicht findert ihr dort eure Sachen!", "Look at the chests over there, you find your belongings probably!");
 talkingNPC:addCycleText("Frag mich nach 'Hilfe', wenn du 'Hilfe' brauchst.", "Ask me for 'help', if you need help.");
 talkingNPC:addCycleText("Frag mich wenn du was über Fraktionen wissen möchtest.", "Ask me if you'd like to know something about factions.");
 talkingNPC:addCycleText("Runewick, Galmair, Cadomyr...ich weiß alles...fast alles. *kichert*", "Runewick, Galmair, Cadomyr... I know everything...almost. *Giggles*");
