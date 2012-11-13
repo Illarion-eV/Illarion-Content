@@ -250,7 +250,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2501, "all", ">", 1, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2501, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest end 602] You gained some coins."));
@@ -263,7 +263,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(2501, "all", ">", 1, nil));
+talkEntry:addCondition(npc.base.condition.item.item(2501, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 602] Du hast ein paar Münzen erhalten."));
