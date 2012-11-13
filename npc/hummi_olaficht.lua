@@ -17,7 +17,10 @@ VALUES (2, 681, 318, 0, 0, 'Hummi Olaficht', 'npc.hummi_olaficht', 0, 2, 5, 254,
 require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.money")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.hummi_olaficht", package.seeall)
@@ -35,6 +38,107 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Erkunder, Reiche, Steine der Macht, Quest. Du wirst dieser Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest end 604] You gained some coins. Have you already asked for and visited the two other npc that Hummi mentions?"));
+talkEntry:addResponse("So, that was easy, right? Here your reward. A lot of other tasks wait for you at this place. Just ask around.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 2));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 604] Du hast einige Münzen erhalten."));
+talkEntry:addResponse("Das war einfach, oder? Hier dein Lohn. Viele andere Aufgaben warten auf dich hier. Frage einfach herum.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(605, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest end 605] You gained some coins. Have you already asked for and visited the two other npc that Hummi mentions?"));
+talkEntry:addResponse("So, that was easy, right? Here your reward. A lot of other tasks wait for you at this place. Just ask around.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(605, "=", 2));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 605] Du hast einige Münzen erhalten."));
+talkEntry:addResponse("Das war einfach, oder? Hier dein Lohn. Viele andere Aufgaben warten auf dich hier. Frage einfach herum.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(606, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest end 606] You gained some coins. Have you already asked for and visited the two other npc that Hummi mentions?"));
+talkEntry:addResponse("So, that was easy, right? Here your reward. A lot of other tasks wait for you at this place. Just ask around.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(606, "=", 2));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 606] Du hast einige Münzen erhalten."));
+talkEntry:addResponse("Das war einfach, oder? Hier dein Lohn. Viele andere Aufgaben warten auf dich hier. Frage einfach herum.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 3));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(607, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("Do you know the name of winner? So, tell me the name now.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(607, "=", 3));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("Weißt du den Namen des Gwinner nun? So sage mir ihn nun.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(607, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Jag");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest end 607] You gained some coins. Hummi does not have any other quest for you. Just more information. But look for other quests at other npcs."));
+talkEntry:addResponse("Here another reward for you. With this money you should be able to buy some nice things.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(607, "=", 4));
+talkEntry:addTrigger("Jag");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 607] Du hast einige Münzen erhalten. Hummi hat keine anderen Aufgaben für dich. Lediglich mehr Informationen. Aber suche nach anderen Aufgaben bei andern NPCs."));
+talkEntry:addResponse("Hier noch ein Lohn für dich. Mit dem Geld solltest du in der Lage sein dir ein paar schöne Sachen zu kaufen.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 10000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -183,6 +287,106 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(605, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(606, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(607, "<", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 607 started] Find Tronuk and ask him about 'story' in order to get the name of the winner. Hint: He can be found close to Cadomyr."));
+talkEntry:addResponse("I have something more challenging for you now. Find the orc Tronuk. He can befind in fron of a mine but I do not tell you which one. He tells you two stories. One is about a tournament. Come back if you know the winner and tell me his name.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(605, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(606, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(607, "<", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 607 beginnt] Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."));
+talkEntry:addResponse("Ich habe etwas schwierigeres nun. Finde den Ork Tronuk. Er kann vor einer Mine gefunden werden. Ich sage dir aber nicht welcher. Er erzählt zwei Geschichten. Eine handelt von einem Turnier. Komm zurück wenn du weißt wer der Gewinner ist und nenne mir seinen Namen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(605, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(606, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(607, "<", 1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 607 started] Find Tronuk and ask him about 'story' in order to get the name of the winner. Hint: He can be found close to Cadomyr."));
+talkEntry:addResponse("I have something more challenging for you now. Find the orc Tronuk. He can befind in fron of a mine but I do not tell you which one. He tells you two stories. One is about a tournament. Come back if you know the winner and tell me his name.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(605, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(606, "=", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(607, "<", 1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 607 beginnt] Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."));
+talkEntry:addResponse("Ich habe etwas schwierigeres nun. Finde den Ork Tronuk. Er kann vor einer Mine gefunden werden. Ich sage dir aber nicht welcher. Er erzählt zwei Geschichten. Eine handelt von einem Turnier. Komm zurück wenn du weißt wer der Gewinner ist und nenne mir seinen Namen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(607, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(607, "<", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Find Tronuk and ask him about 'story' in order to get the name of the winner. Hint: He can be found close to Cadomyr."));
+talkEntry:addResponse("As I said, find the orc Tronuk. He can befind in fron of a mine but I do not tell you which one. He tells you two stories. One is about a tournament. Come back if you know the winner and tell me his name.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(607, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(607, "<", 4));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."));
+talkEntry:addResponse("Wie ich sagte, finde den Ork Tronuk. Er kann vor einer Mine gefunden werden. Ich sage dir aber nicht welcher. Er erzählt zwei Geschichten. Eine handelt von einem Turnier. Komm zurück wenn du weißt wer der Gewinner ist und nenne mir seinen Namen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(607, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(607, "<", 4));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Find Tronuk and ask him about 'story' in order to get the name of the winner. Hint: He can be found close to Cadomyr."));
+talkEntry:addResponse("As I said, find the orc Tronuk. He can befind in fron of a mine but I do not tell you which one. He tells you two stories. One is about a tournament. Come back if you know the winner and tell me his name.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(607, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(607, "<", 4));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."));
+talkEntry:addResponse("Wie ich sagte, finde den Ork Tronuk. Er kann vor einer Mine gefunden werden. Ich sage dir aber nicht welcher. Er erzählt zwei Geschichten. Eine handelt von einem Turnier. Komm zurück wenn du weißt wer der Gewinner ist und nenne mir seinen Namen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -219,45 +423,112 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elesil");
 talkEntry:addTrigger("Daelwon");
-talkEntry:addResponse("You can find her at the teleporter in Runewick. She knows any place in Runewick and has plenty of tasks for you.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 604 started] Find Elesil at the teleporter in Runewick and talk to her."));
+talkEntry:addResponse("You can find her at the teleporter in Runewick. She knows any place in Runewick and has plenty of tasks for you. When you have found her, come back and collect your reward!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, "<", 1));
 talkEntry:addTrigger("Elesil");
 talkEntry:addTrigger("Daelwon");
-talkEntry:addResponse("Du findest sie beim Teleporter in Runewick. Sie kennt jeden Platz in Runewick und hat etliche Aufgaben für dich.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 604 beginnt] Finde Elesil beim Teleporter in Runewick and sprich mit ihr."));
+talkEntry:addResponse("Du findest sie beim Teleporter in Runewick. Sie kennt jeden Platz in Runewick und hat etliche Aufgaben für dich. Wenn du sie gefunden hast, komm zurück und holle dir deine Belohnung!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(605, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Frizza");
-talkEntry:addResponse("You can find her at the teleporter in Cadomyr. She knows any place in Cadomyr and has plenty of tasks for you.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 605 started] Find Frizza at the teleporter in Cadomyr and talk to her."));
+talkEntry:addResponse("You can find her at the teleporter in Cadomyr. She knows any place in Cadomyr and has plenty of tasks for you. When you have found her, come back and collect your reward!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(605, "<", 1));
 talkEntry:addTrigger("Frizza");
-talkEntry:addResponse("Du findest sie beim Teleporter in Cadomyr. Sie kennt jeden Platz in Cadomyr und hat etliche Aufgaben für dich.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 605 beginnt] Finde Frizza beim Teleporter in Cadomyr and sprich mit ihr."));
+talkEntry:addResponse("Du findest sie beim Teleporter in Cadomyr. Sie kennt jeden Platz in Cadomyr und hat etliche Aufgaben für dich. Wenn du sie gefunden hast, komm zurück und holle dir deine Belohnung!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(606, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Iradona");
 talkEntry:addTrigger("Goldschein");
-talkEntry:addResponse("You can find her at the teleporter in Galmair. She knows any place in Galmair and has plenty of tasks for you.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 606 started] Find Iradona at the teleporter in Galmair and talk to her."));
+talkEntry:addResponse("You can find her at the teleporter in Galmair. She knows any place in Galmair and has plenty of tasks for you. When you have found her, come back and collect your reward!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(606, "<", 1));
 talkEntry:addTrigger("Iradona");
 talkEntry:addTrigger("Goldschein");
-talkEntry:addResponse("Du findest sie beim Teleporter in Galmair. Sie kennt jeden Platz in Galmair und hat etliche Aufgaben für dich.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 606 beginnt] Finde Iradona beim Teleporter in Galmair and sprich mit ihr."));
+talkEntry:addResponse("Du findest sie beim Teleporter in Galmair. Sie kennt jeden Platz in Galmair und hat etliche Aufgaben für dich. Wenn du sie gefunden hast, komm zurück und holle dir deine Belohnung!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, ">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Elesil");
+talkEntry:addTrigger("Daelwon");
+talkEntry:addResponse("You can find her at the teleporter in Runewick. She knows any place in Runewick and has plenty of tasks for you as you already know.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(604, ">", 0));
+talkEntry:addTrigger("Elesil");
+talkEntry:addTrigger("Daelwon");
+talkEntry:addResponse("Du findest sie beim Teleporter in Runewick. Sie kennt jeden Platz in Runewick und hat etliche Aufgaben für dich, wie du bereits weißt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(605, ">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Frizza");
+talkEntry:addResponse("You can find her at the teleporter in Cadomyr. She knows any place in Cadomyr and has plenty of tasks for you as you already know.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(605, ">", 0));
+talkEntry:addTrigger("Frizza");
+talkEntry:addResponse("Du findest sie beim Teleporter in Cadomyr. Sie kennt jeden Platz in Cadomyr und hat etliche Aufgaben für dich, wie du bereits weißt.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(606, ">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Iradona");
+talkEntry:addTrigger("Goldschein");
+talkEntry:addResponse("You can find her at the teleporter in Galmair. She knows any place in Galmair and has plenty of tasks for you as you already know.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(606, ">", 0));
+talkEntry:addTrigger("Iradona");
+talkEntry:addTrigger("Goldschein");
+talkEntry:addResponse("Du findest sie beim Teleporter in Galmair. Sie kennt jeden Platz in Galmair und hat etliche Aufgaben für dich, wie du bereits weißt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
