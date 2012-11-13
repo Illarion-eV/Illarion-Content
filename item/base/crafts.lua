@@ -1,7 +1,7 @@
 -- basic function for craft handling
 -- Nitram
 -- added object orientation by vilarion
--- changed for VBU by vilarion
+-- rewritten for VBU by vilarion
 
 require("base.common")
 require("base.lookat")
@@ -69,7 +69,7 @@ function Craft:addTool(itemId)
 end
 
 function Craft:addActiveTool(inactiveItemId, itemId)
-    self.activeTool[itemId] = true;
+    self.activeTool[itemId] = true
     self.toolLink[itemId] = inactiveItemId
     self.toolLink[inactiveItemId] = itemId
 end
@@ -91,7 +91,7 @@ function Product:addRemnant(item, quantity, data)
     table.insert(self["remnants"], {["item"]=item, ["quantity"]=quantity, ["data"]=data})
 end
 
-function Craft:addProduct(categoryId, itemId, difficulty, learnLimit, deciseconds, quantity, data)
+function Craft:addProduct(categoryId, itemId, difficulty, learnLimit, minTime, maxTime, quantity, data)
     difficulty = math.min(difficulty, 100)
     learnLimit = math.min(learnLimit, 100)
     quantity = quantity or 1
@@ -103,7 +103,8 @@ function Craft:addProduct(categoryId, itemId, difficulty, learnLimit, decisecond
             ["item"] = itemId,
             ["difficulty"] = difficulty,
             ["learnLimit"] = learnLimit,
-            ["time"] = deciseconds,
+            ["minTime"] = minTime,
+            ["maxTime"] = maxTime,
             ["quantity"] = quantity,
             ["data"] = data,
             ["ingredients"] = {},
@@ -122,15 +123,12 @@ function Craft:addProduct(categoryId, itemId, difficulty, learnLimit, decisecond
     return nil
 end
 
-function Craft:showDialog(user)
+function Craft:showDialog(user, source)
     local callback = function(dialog)
         local result = dialog:getResult()
         if result == CraftingDialog.playerCrafts then
-            local item = dialog:getCraftableIndex()
-            local amount = dialog:getCraftableAmount()
-            user:inform("Craft " .. amount .. " of item index " .. item)
-            local startCrafting = true
-            return startCrafting
+            local item = dialog:getCraftableIndex() + 1
+            return self:allowCrafting(user, source, item)
         elseif result == CraftingDialog.playerLooksAtItem then
             local productId = dialog:getCraftableIndex() + 1
             return self:getProductLookAt(user, productId)
@@ -139,7 +137,8 @@ function Craft:showDialog(user)
             local ingredientId = dialog:getIngredientIndex() + 1
             return self:getIngredientLookAt(user, productId, ingredientId)
         elseif result == CraftingDialog.playerCraftingComplete then
-            user:inform("Crafting complete!")
+            local productId = dialog:getCraftableIndex() + 1
+            self:craftItem(user, productId, source)
         elseif result == CraftingDialog.playerCraftingAborted then
             user:inform("Crafting aborted!")
         else
@@ -153,17 +152,45 @@ end
 
 --------------------------------------------------------------------------------
 
+function Craft:allowCrafting(user, source, item)
+    if not self:locationFine(user) then
+        return false
+    end
+
+    if not base.common.CheckItem(user, source) then
+        self:swapToInactiveItem(user)
+        return false
+    end
+
+    if source:getType() ~= 4 then
+        base.common.InformNLS(user,
+        "Du musst das Werkzeug in die Hand nehmen um damit zu arbeiten.",
+        "To work with that tool you have to hold it in your hand.")
+        return false
+    end
+
+    if base.common.Encumbrence(user) then
+        base.common.InformNLS(user,
+        "Deine Râstung hindert dich am arbeiten.",
+        "Your armour hinders you from working.")
+        self:swapToInactiveItem(user)
+        return false
+    end
+
+    return self:checkMaterial(user, item)
+end
+
 function Craft:getProductLookAt(user, productId)
     local product = self.products[productId]
-    local item = product.item;
-    local data = product.data;
+    local item = product.item
+    local data = product.data
     return base.lookat.GenerateItemLookAtFromId(user, item, data)
 end
 
 function Craft:getIngredientLookAt(user, productId, ingredientId)
     local ingredient = self.products[productId].ingredients[ingredientId]
-    local item = ingredient.item;
-    local data = ingredient.data;
+    local item = ingredient.item
+    local data = ingredient.data
     return base.lookat.GenerateItemLookAtFromId(user, item, data)
 end
 
@@ -202,7 +229,7 @@ function Craft:loadDialog(dialog, user)
         local productRequirement = product.difficulty
         
         if productRequirement <= skill then
-            dialog:addCraftable(product.category - 1, product.item, product:getName(user), product.time, product.quantity)
+            dialog:addCraftable(product.category - 1, product.item, product:getName(user), product:getCraftingTime(skill), product.quantity)
 
             for j = 1, #product.ingredients do
                 local ingredient = product.ingredients[j]
@@ -212,379 +239,217 @@ function Craft:loadDialog(dialog, user)
     end
 end
 
+function Product:getCraftingTime(skill)
+    local requirement = self.difficulty
+    local learnProgress = (skill - requirement) / (self.learnLimit - requirement) * 100
+    local craftingTime = base.common.Scale(self.minTime, self.maxTime, learnProgress)
+    craftingTime = math.ceil(craftingTime)
+    return craftingTime
+end
+
 function Product:getName(user)
+    return getItemName(user, self.item, self.data)
+end
+
+function getItemName(user, item, data)
     local isGerman = (user:getPlayerLanguage() == Player.german)
     local usedName
 
     if isGerman then
-        usedName = self.data.nameDe
+        usedName = data.nameDe
     else
-        usedName = self.data.nameEn
+        usedName = data.nameEn
     end
     
     if base.common.IsNilOrEmpty(usedName) then
-        usedName = world:getItemName(self.item, user:getPlayerLanguage())
+        usedName = world:getItemName(item, user:getPlayerLanguage())
     end
 
     return usedName
 end
 
-function Craft:SwapToActiveItem( User )
-    local frontItem = base.common.GetFrontItem( User );
-    if not self.ToolLink[frontItem.id] then
+function Craft:swapToActiveItem(user)
+    local frontItem = base.common.GetFrontItem(user)
+    if not self.toolLink[frontItem.id] then
         return
     end
-    if not self.Tool[frontItem.id] then
+    if not self.tool[frontItem.id] then
         return
     end
-    if self.ActiveTool[frontItem.id] then
+    if self.activeTool[frontItem.id] then
         return
     end
-    frontItem.id = self.ToolLink[frontItem.id];
-    frontItem.wear = 2;
-    world:changeItem(frontItem);
+    frontItem.id = self.toolLink[frontItem.id]
+    frontItem.wear = 3
+    world:changeItem(frontItem)
 end
 
-function Craft:SwapToInactiveItem( User )
-    local frontItem = base.common.GetFrontItem( User );
-    if not self.ToolLink[frontItem.id] then
+function Craft:swapToInactiveItem(user)
+    local frontItem = base.common.GetFrontItem(user)
+    if not self.toolLink[frontItem.id] then
         return
     end
-    if self.Tool[frontItem.id] then
+    if self.tool[frontItem.id] then
         return
     end
-    if not self.ActiveTool[frontItem.id] then
+    if not self.activeTool[frontItem.id] then
         return
     end
-    if (frontItem.id ~= self.ToolLink[frontItem.id]) then
-        frontItem.id = self.ToolLink[frontItem.id];
-        frontItem.wear = 255;
-        world:changeItem(frontItem);
+    if frontItem.id ~= self.toolLink[frontItem.id] then
+        frontItem.id = self.toolLink[frontItem.id]
+        frontItem.wear = 255
+        world:changeItem(frontItem)
     end
 end
 
-function Craft:checkRequiredFood( User, NeededFood, Difficulty )
-    local requiredFood = NeededFood*( 0.02*Difficulty+1 );
-    if base.common.FitForHardWork( User, ( NeededFood*2 )+requiredFood ) then
-        return true,requiredFood;
+function Craft:checkRequiredFood(user, neededFood, difficulty)
+    local requiredFood = neededFood * (0.02*difficulty + 1)
+    if base.common.FitForHardWork(user, neededFood*2 + requiredFood) then
+        return true, requiredFood
     else
-        return false,0;
+        return false, 0
     end
 end
 
 function Craft:getSkill(user)
-    return user:getSkill(self.leadSkill);
+    return user:getSkill(self.leadSkill)
 end
 
-function Craft:CheckMaterial( User, ItemID, Step )
-    local StepInfos = self.Products[ ItemID ].ProductionSteps[Step];
-    if (StepInfos == nil) then
+function Craft:checkMaterial(user, productId)
+    local product = self.products[productId]
+
+    if product == nil then
         return false
     end
-    if (StepInfos[1] == 0) then
-        return true
-    end
-    local available = User:countItemAt( StepInfos[3], StepInfos[1] );
-    if (available < StepInfos[2]) then
-        if (self.SecretArt) then
-            base.common.InformNLS( User,
-            "Dir fehlt ein notwendiges Material.",
-            "You do not have a required material ready." );
-        elseif (available == 0) then
-            base.common.InformNLS( User,
-            "Dir fehlt "..world:getItemName( StepInfos[1], Player.german )..".",
-            "You lack "..world:getItemName( StepInfos[1], Player.english ).."." );
-        else
-            base.common.InformNLS( User,
-            "Das Material reicht nicht. Du brauchst mehr "..world:getItemName( StepInfos[1], Player.german ),
-            "The materials are insufficient. You lack of "..world:getItemName( StepInfos[1], Player.english ) );
+
+    local materialsAvailable = true
+    
+    for i = 1, #product.ingredients do
+        local ingredient = product.ingredients[i]
+        local available = user:countItemAt("all", ingredient.item, ingredient.data)
+        
+        if available < ingredient.quantity then
+            materialsAvailable = false
+            local ingredientName = getItemName(user, ingredient.item, ingredient.data)
+
+            if available == 0 then
+                base.common.InformNLS( user,
+                "Dir fehlt "..ingredientName..".",
+                "You lack "..ingredientName..".")
+            else
+                base.common.InformNLS( user,
+                "Das Material reicht nicht. Du brauchst mehr "..ingredientName..".",
+                "The materials are insufficient. You lack "..ingredientName..".")
+            end
         end
-        return false;
     end
+    
+    return materialsAvailable
+end
+
+function Craft:generateQuality(user, productId, toolItem)
+    local product = self.products[productId]
+    local scalar = (self:getSkill(user) - product.difficulty) / (math.min(100, product.learnLimit) - product.difficulty) * 100
+     
+    local quality = base.common.Scale(5, 8, scalar)
+    local toolQuality = math.floor(toolItem.quality/100)
+    
+    quality = quality * (math.random() * 0.2 + 0.9)
+    quality = quality * (math.random() * 0.2 + 0.9)
+    
+    quality = quality * base.common.Scale(4, 11, math.floor(toolQuality*11)) / 10 -- Changing lower bounds will make tools matter less
+    
+    quality = math.floor(quality)
+	quality = base.common.Limit(quality, 5, 9)
+    
+    local durability = 99
+    return quality * 100 + durability
+end
+
+function Craft:locationFine(user)
+    if table.getn(self.tool) > 0 then
+        local staticTool = base.common.GetFrontItemID(user)
+        if self.toolLink[staticTool] ~= staticTool and table.getn(self.activeTool) ~= 0 then
+            if self.activeTool[staticTool] then
+                base.common.InformNLS(user,
+                "Hier arbeitet schon jemand.",
+                "Someone is working here already.")
+                return false
+            elseif not self.tool[staticTool] then
+                base.common.InformNLS(user,
+                "Hier kannst du nicht arbeiten.",
+                "You cannot work here.")
+                return false
+            end
+        elseif not self.activeTool[staticTool] and not self.tool[staticTool] then
+            base.common.InformNLS(user,
+            "Hier kannst du nicht arbeiten.",
+            "You cannot work here.")
+            return false
+		elseif base.common.GetFrontItem(user).id == 359 and base.common.GetFrontItem(user).quality == 100 then
+            base.common.InformNLS(user,
+            "Aus irgendeinem Grund liefert die Flamme nicht die benoetigte Hitze.",
+            "For some reason the flame does not provide the required heat.")
+            return false
+        end
+    end
+    
     return true
 end
 
-function Craft:GenerateQuality( User, ItemID, toolItem )
-    local Qual = base.common.Scale(5,8,(self:ModifySkill(User,toolItem)-self.Products[ItemID].Difficulty[1])/(math.min(100,self.Products[ItemID].Difficulty[2])-self.Products[ItemID].Difficulty[1])*100);
-    stone1, str1, stone2, str2=base.common.GetBonusFromTool(toolItem);
-    local step=0;
-    local qual_tool=math.floor(toolItem.quality/100);
-    if stone1==7 then       -- topas raises quality of product
-        step=0.05*str1;
-    end
-    if stone2==7 then
-        step=step+0.05*str2;
-    end
-    if stone1==5 then       -- bluestone raises tool quality
-        qual_tool=qual_tool+0.2*str1;
-    end
-    if stone2==5 then
-        qual_tool=qual_tool+0.2*str2;
-    end
-    Qual = Qual * (((math.random()+step)*0.2)+0.9);     -- add bonus from bluestone to random result!
-    Qual = Qual * (((math.random()+step)*0.2)+0.9);
-    Qual = Qual * base.common.Scale(4,11,math.floor(qual_tool*11))/10; --Changing lower bounds will make tools matter less
-    Qual = math.floor(Qual);
-    Qual = math.max(1,math.min(9,Qual));
-    local Dura = base.common.Scale(66,88,(self:ModifySkill(User,toolItem)-self.Products[ItemID].Difficulty[1])/(math.min(100,self.Products[ItemID].Difficulty[2])-self.Products[ItemID].Difficulty[1])*100);
-	Dura = 99; -- all produced items will have maximum durability
-    return math.min(999,math.max(101,Qual*100+Dura));
-end
-
-function Craft:LocationFine( User, ltstate, mode )
-    if (self.Tool ~= 0) then
-        local StaticTool = base.common.GetFrontItemID( User );
-        if ((ltstate ~= Action.success) and (self.ToolLink[StaticTool] ~= StaticTool) and (table.getn(self.ActiveTool) ~= 0)) then
-            if self.ActiveTool[StaticTool] then
-                if not mode then
-                    base.common.InformNLS(User,
-                    "Hier arbeitet schon jemand.",
-                    "Someone is working here already.");
-                    return false
-                else
-                    return 2,base.common.GetNLS(User,
-                    "Hier arbeitet schon jemand.",
-                    "Someone is working here already.");
-                end
-            elseif not self.Tool[StaticTool] then
-                if not mode then
-                    base.common.InformNLS(User,
-                    "Hier kannst du nicht arbeiten.",
-                    "You cannot work here.");
-                    return false
-                else
-                    return 1,base.common.GetNLS(User,
-                    "Hier kannst du nicht arbeiten.",
-                    "You cannot work here.");
-                end
-            end
-        elseif not self.ActiveTool[StaticTool] and not self.Tool[StaticTool] then
-            if not mode then
-                base.common.InformNLS(User,
-                "Hier kannst du nicht arbeiten.",
-                "You cannot work here.");
-                return false
-            else
-                return 1,base.common.GetNLS(User,
-                "Hier kannst du nicht arbeiten.",
-                "You cannot work here.");
-            end
-        elseif base.common.GetFrontItem( User ).quality < 100 then
-            if not mode then
-                base.common.InformNLS(User,
-                "Das Werkzeug ist kaputt.",
-                "The tool is broken.");
-                return false
-            else
-                return 1,base.common.GetNLS(User,
-                "Das Werkzeug ist kaputt.",
-                "The tool is broken.");
-            end
-		elseif base.common.GetFrontItem( User ).id==359 and base.common.GetFrontItem( User ).quality==100 then
-			if not mode then
-                base.common.InformNLS(User,
-                "Die Flamme ist nur eine Illusion.",
-                "The flame is just an illusion.");
-                return false
-            else
-                return 1,base.common.GetNLS(User,
-                "Die Flamme ist nur eine Illusion.",
-                "The flame is just an illusion.");
-            end
-        end
-    end
-    if not mode then
-        return true;
-    else
-        return 0,"";
-    end
-end
-
-function Craft:GenerateMenu( User, toolItem )
-	if (table.getn(self.Category) == 0) then
-        return false;
-    end
-    local StaticTool = base.common.GetFrontItemID( User );
-    local Skill = self:ModifySkill(User,toolItem);
-    local subCat=MenuStruct(  );
-    for i, Cat in pairs(self.Category) do
-        if (Cat.minSkill <= Skill) then
-            subCat:addItem( Cat.ItemID );      -- ueberkategorien
-        end
-    end
-    User:sendMenu( subCat );
-    return true;
-end
-
-function Craft:GenerateItemList( User, Param, toolItem )
-    local StaticTool = base.common.GetFrontItemID( User );
-    local Skill = self:ModifySkill(User,toolItem);
-    local ItemMenu=MenuStruct(  );
-    if (table.getn(self.Category) == 0) then
-        for i, Item in pairs(self.Products) do
-            if (Item.Difficulty[1] <= Skill) then
-                ItemMenu:addItem( i );
-            end
-        end
-        User:sendMenu( ItemMenu );
-    else
-        if ( self.CategoryContent[ Param ] ~= nil ) then
-            for i, ItemID in pairs(self.CategoryContent[ Param ]) do
-                if (self.Products[ ItemID ].Difficulty[1] <= Skill) then
-                    ItemMenu:addItem( ItemID );
-                end
-            end
-            User:sendMenu( ItemMenu );
-        end
-    end
-end
-
-function Craft:IsProduct( ItemId )
-	return (self.Products[ ItemId ] ~= nil);
-end
-
-function Craft:ToolCreateItem( User, Param, WorkOnItem, ltstate, toolItem )
-    local ProduceItem = nil;
-    local ItemID;
-    local repair = true;
-
-    if (WorkOnItem ~= nil) then
-        ItemID = WorkOnItem.id;
-        ProduceItem = self.Products[ ItemID ];
-    end
-
-    local newItem = false;
-    if (ProduceItem == nil) then
-        ItemID = Param;
-        ProduceItem = self.Products[ ItemID ];
-        newItem = true;
-    end
-    if (ProduceItem == nil) then
-        return;
-    end
-    if (ProduceItem.Difficulty[1] > self:ModifySkill(User,toolItem)) then
+function Craft:craftItem(user, productId, toolItem)
+    local product = self.products[productId]
+    local skill = self:getSkill(user)
+    
+    if product.difficulty > skill then
         base.common.InformNLS(User,
         "Du bist nicht fähig genug um das zu tun.",
-        "You are not skilled enough to do this.");
+        "You are not skilled enough to do this.")
         return
     end
-    local foodOK,neededFood = self:checkRequiredFood( User, ProduceItem.FoodConsumption, ProduceItem.Difficulty[1] );
+    
+    local foodOK, neededFood = self:checkRequiredFood(user, product.foodConsumption, product.difficulty)
     if not foodOK then
-        return;
+        return
     end
-    local didSomething = false;
-    if newItem then
-        if self:CheckMaterial( User, ItemID, 1 ) then
-            self:CraftNewItem( User, ItemID, nil, 1, ltstate , toolItem);
-            didSomething = true;
-        end
-    end
-    if didSomething and (ltstate == Action.success) then
-        base.common.ToolBreaks( User, toolItem, true );
-        base.common.GetHungry( User, neededFood );
-        --User:learn(self.LeadSkillGroup,self.LeadSkill,2,math.min(100,ProduceItem.Difficulty[2]));
-		--Replace with new learn function, see learn.lua 
+
+    if self:checkMaterial(user, productId) then
+        self:createItem(user, productId, toolItem)
+        base.common.ToolBreaks(user, toolItem, true)
+        base.common.GetHungry(user, neededFood)
+        user:learn(self.leadSkill, product:getCraftingTime(skill), product.learnLimit)
     end
 end
 
-function Craft:CraftNewItem( User, ItemID, WorkOnItem, Step, ltstate, toolItem )
-    if (ltstate == Action.none) then
-        -- check for free slot in belt
-		local foundSlot = false;
-		if Step == 1 then
-			for i=12,17 do
-				if (User:getItemAt(i).id==0) then
-					foundSlot = true;
-					break;
-				end
-			end
-			if not foundSlot then
-				base.common.InformNLS(User,
-					"Du hast keinen Platz mehr in deinem Gürtel.",
-					"You have no room left in your belt.");
-				return;
-			end
-		end
-		User:startAction( self:GenWorkTime( User, ItemID,toolItem ), self.Products[ ItemID ].GfxEffect[1], self.Products[ ItemID ].GfxEffect[2], self.Products[ ItemID ].SfxEffect[1], self.Products[ ItemID ].SfxEffect[2]);
-        if (Step == 1) then
-            User:talkLanguage(Character.say, Player.german, "#me beginnt zu arbeiten.");
-            User:talkLanguage(Character.say, Player.english, "#me starts to work.");
-        else
-            base.common.InformNLS(User,
-				"Du setzt die Arbeit fort.",
-				"You continue the work.");
-        end
-        self:SwapToActiveItem( User );
-        return
+function Craft:createItem(user, productId, toolItem)
+    local product = self.products[productId]
+
+    for i = 1, #product.ingredients do
+        local ingredient = product.ingredients[i]
+        user:eraseItem(ingredient.item, ingredient.quantity, ingredient.data)
     end
-    dropLeftOver = true;
-    local StepInfos = self.Products[ ItemID ].ProductionSteps[Step];
-    if (StepInfos[1] ~= 0) then
-        User:eraseItem(StepInfos[1],StepInfos[2]);
+
+    local quality = self:generateQuality(user, productId, toolItem)
+    local notCreatedAmount = user:createitem(product.item, product.quantity, quality, product.data)
+    local createdEverything = true
+
+    if (notCreatedAmount > 0) then
+        createdEverything = false
+        world:createItemFromId(product.item, notCreatedAmount, User.pos, true, quality, product.data)
     end
-        
-    local ItemQual = 0;
-    local ItemCount = 1;
-    if (Step == table.getn(self.Products[ ItemID ].ProductionSteps)) then -- Item fertig -> Finale Qualität
-        ItemQual = self:GenerateQuality( User, ItemID, toolItem );
-        ItemCount = self.Products[ ItemID ].Quantity;
-        base.common.InformNLS(User,
-            "Du beendest die Arbeit.",
-            "You finish the work.");
-    else
-        ItemQual = math.floor(self.Products[ ItemID ].QualPerStep * Step);
-    end
-    if (WorkOnItem == nil) then
-        local notcreated = User:createItem(ItemID,ItemCount,ItemQual,0);
-        if (notcreated ~= 0) then
-            world:createItemFromId(ItemID,notcreated,User.pos,true,ItemQual,0);
-            base.common.InformNLS(User,
-            "Du kannst nichts mehr halten.",
-            "You cannot carry anything else.");
-        else
-            if self:CheckMaterial( User, ItemID, (Step + 1) ) then
-                foundMadeItem = false;
-                for bodypos=12,17 do
-                    CheckItem = User:getItemAt(bodypos);
-                    if ((CheckItem.id == ItemID) and (CheckItem.number == ItemCount) and (CheckItem.quality == ItemQual) and (CheckItem.data == 0)) then
-                        User:changeTarget(CheckItem);
-                        foundMadeItem = true;
-                        break;
-                    end
-                end
-                if foundMadeItem then
-                    User:startAction( self:GenWorkTime( User, ItemID, toolItem ), self.Products[ ItemID ].GfxEffect[1], self.Products[ ItemID ].GfxEffect[2], self.Products[ ItemID ].SfxEffect[1], self.Products[ ItemID ].SfxEffect[2]);
-                    base.common.InformNLS(User,
-                        "Du setzt die Arbeit fort.",
-                        "You continue the work.");
-                else
-                    self:SwapToInactiveItem( User );
-                end
-            else
-                self:SwapToInactiveItem( User );
-            end
-        end
-    else
-        WorkOnItem.quality = ItemQual;
-        WorkOnItem.number = ItemCount;
-        world:changeItem(WorkOnItem);
-        if self:CheckMaterial( User, ItemID, (Step + 1) ) then
-            User:startAction( self:GenWorkTime( User, ItemID, toolItem ), self.Products[ ItemID ].GfxEffect[1], self.Products[ ItemID ].GfxEffect[2], self.Products[ ItemID ].SfxEffect[1], self.Products[ ItemID ].SfxEffect[2]);
-            base.common.InformNLS(User,
-                "Du setzt die Arbeit fort.",
-                "You continue the work.");
-            User:changeTarget(User:getItemAt(WorkOnItem.itempos));
-        else
-            self:SwapToInactiveItem( User );
+
+    for i=1, #product.remnants do
+        local remnant = product.remnants[i]
+        notCreatedAmount = User:createItem(remnant.item, remnant.quantity, 333, remnant.data)
+        if (notCreatedAmount > 0) then
+            createdEverything = false
+            world:createItemFromId(remnant.item, notCreatedAmount, User.pos, true, 333, remnant.data)
         end
     end
-    if ((self.Products[ ItemID ].LeftOvers[Step] ~= nil) and (dropLeftOver)) then
-        local notcreated = User:createItem(self.Products[ ItemID ].LeftOvers[Step][1],self.Products[ ItemID ].LeftOvers[Step][2],333,0);
-        if (notcreated ~= 0) then
-            world:createItemFromId(self.Products[ ItemID ].LeftOvers[Step][1],notcreated,User.pos,true,333,0);
-            base.common.InformNLS(User,
-            "Du kannst nichts mehr halten.",
-            "You cannot carry anything else.");
-        end
+
+    if not createdEverything then
+        base.common.InformNLS(user,
+        "Du kannst nichts mehr halten.",
+        "You cannot carry anything else.")
     end
 end
