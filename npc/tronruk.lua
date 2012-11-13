@@ -259,6 +259,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2501, "all", ">", 1, nil));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Hurr, du haben Bier! Gut! Für das du sollen haben einige Münzen. Hundert sind genug, yubba.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
@@ -277,6 +278,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Hurr, du sollen bringen Bier erst! Yubba!");
 talkingNPC:addTalkingEntry(talkEntry);

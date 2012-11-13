@@ -85,9 +85,10 @@ english, "quest", "mission", queststatus(602) = 0 -> "A mission you wish. Hurr, 
 
 --Player brings beer and gets reward
 english, ".*", queststatus(602) = 1, item(2501 ,all)>1 -> "Hurr, you hub beer! Great! For dhat you shall hub some coins. Hundred beh enub, yubba.", money + 1000, queststatus(602) = 2, deleteitem(2501,1)
-".*", queststatus(602) = 1, item(2501 ,all)>1 -> "Hurr, du haben Bier! Gut! Für das du sollen haben einige Münzen. Hundert sind genug, yubba.", money + 1000, queststatus(602) = 2, deleteitem(2501,1)
+german, ".*", queststatus(602) = 1, item(2501 ,all)>1 -> "Hurr, du haben Bier! Gut! Für das du sollen haben einige Münzen. Hundert sind genug, yubba.", money + 1000, queststatus(602) = 2, deleteitem(2501,1)
 english, ".*", queststatus(602) = 1 -> "Hurr, you should get beer first! Yubba!"
-".*", queststatus(602) = 1 -> "Hurr, du sollen bringen Bier erst! Yubba!"
+german, ".*", queststatus(602) = 1 -> "Hurr, du sollen bringen Bier erst! Yubba!"
+
 --Player asks again
 english, "quest", "mission", queststatus(602) = 2, chance(80.0) -> "Yoo got task and Tronruk hub enub beer now. Ask later maybeh."
 "quest", "mission", queststatus(602) = 2, chance(80.0) -> "Du hattest Auftrag und Tronruk haben Bier genug nun. Frage später vielleicht."
