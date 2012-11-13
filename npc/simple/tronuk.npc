@@ -78,26 +78,26 @@ english, "Tronruk" -> "Yubba, dat meh name! *hits his chest and grunts*"
 "Tronruk" -> "Yubba, das mein Name! *schlägt sich auf die Brust*"
 
 -- Catching quest triggers. Modify if the NPC does quests.
-english, "quest", "mission", queststatus(602) = 0 -> "A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!", queststatus(602) = 1
-"quest", "mission", queststatus(602) = 0 -> "Eine Mission du haben wollen. Hurr, nur kleine Aufgabe. Bringe Tronruk Flasche Bier. Bier sein immer gut. Aber nix warmes Stumpie Bier!", queststatus(602) = 1
-"task", "adventure", "order", queststatus(602) = 0 -> "A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!", queststatus(602) = 1
-"Auftrag", "Aufgabe", queststatus(602) = 0 -> "Eine Mission du haben wollen. Hurr, nur kleine Aufgabe. Bringe Tronruk Flasche Bier. Bier sein immer gut. Aber nix warmes Stumpie Bier!", queststatus(602) = 1
+english, "quest", "mission", queststatus(602) = 0 -> inform("[Quest 602 started] Bring Tronuk a full bottle beer."), "A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!", queststatus(602) = 1
+"quest", "mission", queststatus(602) = 0 -> inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."), "Eine Mission du haben wollen. Hurr, nur kleine Aufgabe. Bringe Tronruk Flasche Bier. Bier sein immer gut. Aber nix warmes Stumpie Bier!", queststatus(602) = 1
+"task", "adventure", "order", queststatus(602) = 0 -> inform("[Quest 602 started] Bring Tronuk a full bottle beer."), "A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!", queststatus(602) = 1
+"Auftrag", "Aufgabe", queststatus(602) = 0 -> inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."), "Eine Mission du haben wollen. Hurr, nur kleine Aufgabe. Bringe Tronruk Flasche Bier. Bier sein immer gut. Aber nix warmes Stumpie Bier!", queststatus(602) = 1
 
 --Player brings beer and gets reward
-english, ".*", queststatus(602) = 1, item(2501 ,all)>1 -> "Hurr, you hub beer! Great! For dhat you shall hub some coins. Hundred beh enub, yubba.", money + 1000, queststatus(602) = 2, deleteitem(2501,1)
-german, ".*", queststatus(602) = 1, item(2501 ,all)>1 -> "Hurr, du haben Bier! Gut! Für das du sollen haben einige Münzen. Hundert sind genug, yubba.", money + 1000, queststatus(602) = 2, deleteitem(2501,1)
-english, ".*", queststatus(602) = 1 -> "Hurr, you should get beer first! Yubba!"
-german, ".*", queststatus(602) = 1 -> "Hurr, du sollen bringen Bier erst! Yubba!"
+english, ".*", queststatus(602) = 1, item(2501,all)>1 -> inform("[Quest end 602] You gained some coins.")"Hurr, you hub beer! Great! For dhat you shall hub some coins. Hundred beh enub, yubba.", money + 1000, queststatus(602) = 2, deleteitem(2501,1)
+german, ".*", queststatus(602) = 1, item(2501,all)>1 -> inform("[Quest Ende 602] Du hast ein paar Münzen erhalten.")"Hurr, du haben Bier! Gut! Für das du sollen haben einige Münzen. Hundert sind genug, yubba.", money + 1000, queststatus(602) = 2, deleteitem(2501,1)
+english, ".*", queststatus(602) = 1 -> inform("Bring Tronuk a full bottle beer.")"Hurr, you should get beer first! Yubba!"
+german, ".*", queststatus(602) = 1 -> inform("Bringe Tronuk eine volle Flasche Bier.")"Hurr, du sollen bringen Bier erst! Yubba!"
 
 --Player asks again
 english, "quest", "mission", queststatus(602) = 2, chance(80.0) -> "Yoo got task and Tronruk hub enub beer now. Ask later maybeh."
-"quest", "mission", queststatus(602) = 2, chance(80.0) -> "Du hattest Auftrag und Tronruk haben Bier genug nun. Frage später vielleicht."
-"task", "adventure", "order", queststatus(602) = 2, chance(80.0) -> "Yoo got task and Tronruk hub enub beer now. Ask later maybeh."
-"Auftrag", "Aufgabe", queststatus(602) = 2 -> "Du hattest Auftrag und Tronruk haben Bier genug nun. Frage später vielleicht."
-english, "quest", "mission", queststatus(602) = 2 -> "Anodha bottle beer might beh guud. Yubba! Get more beer!", queststatus(602) = 1
-"quest", "mission", queststatus(602) = 2 -> "Andere Flasche Bier sein gut. Yubba! Bring mehr Bier!", queststatus(602) = 1
-"task", "adventure", "order", queststatus(602) = 2 -> "Anodha bottle beer might beh guud. Yubba! Get more beer!", queststatus(602) = 1
-"Auftrag", "Aufgabe", queststatus(602) = 2 -> "Andere Flasche Bier sein gut. Yubba! Bring mehr Bier!", queststatus(602) = 1
+german, "quest", "mission", queststatus(602) = 2, chance(80.0) -> "Du hattest Auftrag und Tronruk haben Bier genug nun. Frage später vielleicht."
+english, "task", "adventure", "order", queststatus(602) = 2, chance(80.0) -> "Yoo got task and Tronruk hub enub beer now. Ask later maybeh."
+german, "Auftrag", "Aufgabe", queststatus(602) = 2, chance(80.0) -> "Du hattest Auftrag und Tronruk haben Bier genug nun. Frage später vielleicht."
+english, "quest", "mission", queststatus(602) = 2 -> inform("[Quest 602 started] Bring Tronuk a full bottle beer."), "Anodha bottle beer might beh guud. Yubba! Get more beer!", queststatus(602) = 1
+"quest", "mission", queststatus(602) = 2 -> inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."), "Andere Flasche Bier sein gut. Yubba! Bring mehr Bier!", queststatus(602) = 1
+"task", "adventure", "order", queststatus(602) = 2 -> inform("[Quest 602 started] Bring Tronuk a full bottle beer."), "Anodha bottle beer might beh guud. Yubba! Get more beer!", queststatus(602) = 1
+"Auftrag", "Aufgabe", queststatus(602) = 2 -> inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."), "Andere Flasche Bier sein gut. Yubba! Bring mehr Bier!", queststatus(602) = 1
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Meh nub work annehmore.", "Sitting and telling old storehs", "#me burps."
