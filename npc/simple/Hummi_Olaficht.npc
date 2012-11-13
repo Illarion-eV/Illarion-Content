@@ -2,8 +2,8 @@
 -- NPC Name: Hummi Olaficht                                              None --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  48, 970, 0             --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: halfling                   NPC Position:  681, 318, 0            --
+-- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                       easyNPC Parser v1.21 --
@@ -12,8 +12,8 @@
 name = "Hummi Olaficht"
 race = halfling
 sex = male
-position = 48, 970, 0
-direction = south
+position = 681,318,0
+direction = north
 affiliation = "None"
 job = "none"
 
@@ -56,9 +56,8 @@ itemShoes = 53
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keywords: faction, gods, race, craft, motive, landscape, leader, law, chest, explorer, empire, stones of power, quest. You will find more of these keywords during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Truhe, Erkunder, Reiche, Steine der Macht, Quest. Du wirst dieser Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)")
-"test" -> inform("test works"), "A", "B", "C"
+"Help" -> inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keywords: faction, gods, race, craft, motive, landscape, leader, law, explorer, empire, stones of power, quest. You will find more of these keywords during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Erkunder, Reiche, Steine der Macht, Quest. Du wirst dieser Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> inform("Ask the NPC for 'factions' if you want to know more. You can also ask for 'help' to get other hints for questions."), "Hiho, if you'd like to know something about the factions here, just ask me!", "Hiya, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the factions!", "Good day, if you'd like to know something about the factions here, let me know!"
@@ -79,12 +78,12 @@ english, "quest", "mission" -> inform("Ask the NPC for 'Elesil', 'Frizza', 'Irad
 "quest", "mission" -> inform("Frage den NPC nach 'Elesil', 'Frizza', 'Iradona' oder 'Erkunder' wenn du mehr wissen möchtest."), "Hoi, ein anderer taferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Fraktionen immer nach Abenteuerer und Arbeitern suchen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen."
 "task", "adventure", "order" -> inform("Ask the NPC for 'Elesil', 'Frizza', 'Iradona' or 'Explorer' if you want to know more."), "Ahh, gotta case of idle hands I see. Be assured traveler if you're willing to seek there are folk out there that could use a hand or two. Best start with one of the factions! For example Elesil Daelwon in Runewick, Frizza in Cadomyr and Iradona Goldschein in Galmair. Another option would be the Explorer-guild. Just look for them."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("Frage den NPC nach 'Elesil', 'Frizza', 'Iradona' oder 'Erkunder' wenn du mehr wissen möchtest."), "Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startet bei einer der Fraktionen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen."
-english, "Elesil", "Daelwon" -> "You can find her at the teleporter in Runewick."
-"Elesil", "Daelwon" -> "Du findest sie beim Teleporter in Runewick."
-english, "Frizza" -> "You can find her at the teleporter in Cadomyr."
-"Frizza" -> "Du findest sie beim Teleporter in Cadomyr."
-english, "Iradona", "Goldschein" -> "You can find her at the teleporter in Galmair."
-"Iradona", "Goldschein" -> "Du findest sie beim Teleporter in Galmair."
+english, "Elesil", "Daelwon" -> "You can find her at the teleporter in Runewick. She knows any place in Runewick and has plenty of tasks for you."
+"Elesil", "Daelwon" -> "Du findest sie beim Teleporter in Runewick. Sie kennt jeden Platz in Runewick und hat etliche Aufgaben für dich."
+english, "Frizza" -> "You can find her at the teleporter in Cadomyr. She knows any place in Cadomyr and has plenty of tasks for you."
+"Frizza" -> "Du findest sie beim Teleporter in Cadomyr. Sie kennt jeden Platz in Cadomyr und hat etliche Aufgaben für dich."
+english, "Iradona", "Goldschein" -> "You can find her at the teleporter in Galmair. She knows any place in Galmair and has plenty of tasks for you."
+"Iradona", "Goldschein" -> "Du findest sie beim Teleporter in Galmair. Sie kennt jeden Platz in Galmair und hat etliche Aufgaben für dich."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I don't have a specific profession.", "I only pass along information, but I don't have profession, per say."
@@ -119,10 +118,6 @@ english, "Khenserra" -> "Mountains of Khenserra? They are somewhere to the south
 "siebenhügel" -> inform("Hier sind zwei zusätzliche Hinweise untergebracht. Du wist im weiteren Spiel immer wieder auf solche stoßen. Halte deine Augen offen. ;)"), "Das ist südlich von den 'Sinkenden Berge', nördlich der 'Berge von Khenserra' und westlich von uns hier. *kichert*"
 "sinken" -> "Sinkende Berge? Irgendwo im Norden müssten die sein."
 "Khenserra" -> "Berge von Khenserra? Irgendwo im Süden müssten die sein."
-"chest" -> "In these chests over there you find your belongings probably."
-"kist", "truhe" -> "In diesen Truhen dort drüben kannst du womöglich dein Hab und Gut finden."
-english, "box", "depot" -> "In these chests over there you find your belongings probably."
-"box", "depot" -> "In diesen Truhen dort drüben kannst du womöglich dein Hab und Gut finden."
 
 -- Faction motive
 "wisdom" -> "Wisdom is the highest premise in Runewick. Therefore, most follow the path of Elara, but other followers are permitted. It is well known that people seek the council of Archmage Elvaine Morgan, whose sageness is widely renowned."
@@ -307,7 +302,6 @@ german, chance(100.0), ".*" -> "Duddli, duddla, frag mich nach Hilfe."
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Schaut in den Truhen dort drüben nach, vielleicht findert ihr dort eure Sachen!", "Look at the chests over there, you find your belongings probably!"
 cycletext "Frag mich nach 'Hilfe', wenn du 'Hilfe' brauchst.", "Ask me for 'help', if you need help."
 cycletext "Frag mich wenn du was über Fraktionen wissen möchtest.", "Ask me if you'd like to know something about factions."
 cycletext "Runewick, Galmair, Cadomyr...ich weiß alles...fast alles. *kichert*", "Runewick, Galmair, Cadomyr... I know everything...almost. *Giggles*"
