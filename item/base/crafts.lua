@@ -372,39 +372,36 @@ function Craft:generateQuality(user, productId, toolItem)
 end
 
 function Craft:locationFine(user)
-    debug("locFine 1")
-    if table.getn(self.tool) > 0 then
-        debug("locFine 2")
-        local staticTool = base.common.GetFrontItemID(user)
-        if staticTool == nil then
-            debug("staticTool is nil")
-        else
-            debug("staticTool is " .. staticTool)
-        end
-        if self.toolLink[staticTool] ~= staticTool and table.getn(self.activeTool) ~= 0 then
-            debug("locFine 3")
-            if self.activeTool[staticTool] then
-                base.common.InformNLS(user,
-                "Hier arbeitet schon jemand.",
-                "Someone is working here already.")
-                return false
-            elseif not self.tool[staticTool] then
-                base.common.InformNLS(user,
-                "Hier kannst du nicht arbeiten.",
-                "You cannot work here.")
-                return false
-            end
-        elseif not self.activeTool[staticTool] and not self.tool[staticTool] then
+    debug("locFine 2")
+    local staticTool = base.common.GetFrontItemID(user)
+    if staticTool == nil then
+        debug("staticTool is nil")
+    else
+        debug("staticTool is " .. staticTool)
+    end
+    if self.toolLink[staticTool] ~= staticTool and table.getn(self.activeTool) ~= 0 then
+        debug("locFine 3")
+        if self.activeTool[staticTool] then
+            base.common.InformNLS(user,
+            "Hier arbeitet schon jemand.",
+            "Someone is working here already.")
+            return false
+        elseif not self.tool[staticTool] then
             base.common.InformNLS(user,
             "Hier kannst du nicht arbeiten.",
             "You cannot work here.")
             return false
-		elseif base.common.GetFrontItem(user).id == 359 and base.common.GetFrontItem(user).quality == 100 then
-            base.common.InformNLS(user,
-            "Aus irgendeinem Grund liefert die Flamme nicht die benoetigte Hitze.",
-            "For some reason the flame does not provide the required heat.")
-            return false
         end
+    elseif not self.activeTool[staticTool] and not self.tool[staticTool] then
+        base.common.InformNLS(user,
+        "Hier kannst du nicht arbeiten.",
+        "You cannot work here.")
+        return false
+    elseif base.common.GetFrontItem(user).id == 359 and base.common.GetFrontItem(user).quality == 100 then
+        base.common.InformNLS(user,
+        "Aus irgendeinem Grund liefert die Flamme nicht die benoetigte Hitze.",
+        "For some reason the flame does not provide the required heat.")
+        return false
     end
     
     return true
