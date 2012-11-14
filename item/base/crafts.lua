@@ -374,7 +374,13 @@ end
 function Craft:locationFine(user)
     if table.getn(self.tool) > 0 then
         local staticTool = base.common.GetFrontItemID(user)
+        if staticTool == nil then
+            debug("staticTool is nil")
+        else
+            debug("staticTool is " .. staticTool)
+        end
         if self.toolLink[staticTool] ~= staticTool and table.getn(self.activeTool) ~= 0 then
+            debug("locFine 1")
             if self.activeTool[staticTool] then
                 base.common.InformNLS(user,
                 "Hier arbeitet schon jemand.",
