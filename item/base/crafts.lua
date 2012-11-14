@@ -372,7 +372,9 @@ function Craft:generateQuality(user, productId, toolItem)
 end
 
 function Craft:locationFine(user)
+    debug("locFine 1")
     if table.getn(self.tool) > 0 then
+        debug("locFine 2")
         local staticTool = base.common.GetFrontItemID(user)
         if staticTool == nil then
             debug("staticTool is nil")
@@ -380,7 +382,7 @@ function Craft:locationFine(user)
             debug("staticTool is " .. staticTool)
         end
         if self.toolLink[staticTool] ~= staticTool and table.getn(self.activeTool) ~= 0 then
-            debug("locFine 1")
+            debug("locFine 3")
             if self.activeTool[staticTool] then
                 base.common.InformNLS(user,
                 "Hier arbeitet schon jemand.",
