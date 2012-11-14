@@ -124,11 +124,16 @@ function Craft:addProduct(categoryId, itemId, difficulty, learnLimit, minTime, m
 end
 
 function Craft:showDialog(user, source)
+    if not self:allowCrafting(user, source) then
+        return
+    end
+
     local callback = function(dialog)
         local result = dialog:getResult()
         if result == CraftingDialog.playerCrafts then
             local item = dialog:getCraftableIndex() + 1
-            return self:allowCrafting(user, source, item)
+            local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, item)
+            return canWork
         elseif result == CraftingDialog.playerLooksAtItem then
             local productId = dialog:getCraftableIndex() + 1
             return self:getProductLookAt(user, productId)
@@ -152,7 +157,7 @@ end
 
 --------------------------------------------------------------------------------
 
-function Craft:allowCrafting(user, source, item)
+function Craft:allowCrafting(user, source)
     if not self:locationFine(user) then
         return false
     end
@@ -177,7 +182,7 @@ function Craft:allowCrafting(user, source, item)
         return false
     end
 
-    return self:checkMaterial(user, item)
+    return true
 end
 
 function Craft:getProductLookAt(user, productId)
