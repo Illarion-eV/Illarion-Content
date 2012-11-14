@@ -435,7 +435,7 @@ function Craft:createItem(user, productId, toolItem)
     end
 
     local quality = self:generateQuality(user, productId, toolItem)
-    local notCreatedAmount = user:createitem(product.item, product.quantity, quality, product.data)
+    local notCreatedAmount = user:createItem(product.item, product.quantity, quality, product.data)
     local createdEverything = true
 
     if (notCreatedAmount > 0) then
