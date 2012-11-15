@@ -61,6 +61,7 @@ function Craft:new(c)
     c.defaultProduct = Product:new{
         foodConsumption = c.defaultFoodConsumption,
     }
+    c.listIdToProductId = {}
     return c
 end
 
@@ -135,14 +136,20 @@ function Craft:showDialog(user, source)
             local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, item)
             return canWork
         elseif result == CraftingDialog.playerLooksAtItem then
-            local productId = dialog:getCraftableIndex() + 1
+            local listId = dialog:getCraftableIndex() + 1
+            local listIdToProductId = self.listIdToProductId[user.id]
+            local productId = listIdToProductId[listId]
             return self:getProductLookAt(user, productId)
         elseif result == CraftingDialog.playerLooksAtIngredient then
-            local productId = dialog:getCraftableIndex() + 1
+            local listId = dialog:getCraftableIndex() + 1
+            local listIdToProductId = self.listIdToProductId[user.id]
+            local productId = listIdToProductId[listId]
             local ingredientId = dialog:getIngredientIndex() + 1
             return self:getIngredientLookAt(user, productId, ingredientId)
         elseif result == CraftingDialog.playerCraftingComplete then
-            local productId = dialog:getCraftableIndex() + 1
+            local listId = dialog:getCraftableIndex() + 1
+            local listIdToProductId = self.listIdToProductId[user.id]
+            local productId = listIdToProductId[listId]
             self:craftItem(user, productId, source)
         elseif result == CraftingDialog.playerCraftingAborted then
             user:inform("Crafting aborted!")
@@ -160,7 +167,7 @@ end
 function Craft:allowCrafting(user, source)
     if not self:locationFine(user) then
         return false
-    end
+    enD
 
     if not base.common.CheckItem(user, source) then
         self:swapToInactiveItem(user)
@@ -216,6 +223,8 @@ end
 
 function Craft:loadDialog(dialog, user)
     local skill = self:getSkill(user)
+    self.listIdToProductId[user.id] = {}
+    local listIdToProductId = self.listIdToProductId[user.id]
     
     for i = 1,#self.categories do
         local category = self.categories[i]
@@ -240,6 +249,8 @@ function Craft:loadDialog(dialog, user)
                 local ingredient = product.ingredients[j]
                 dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
             end
+
+            table.insert(listIdToProductId, i)
         end
     end
 end
