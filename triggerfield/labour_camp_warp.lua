@@ -49,7 +49,7 @@ function MoveToField(User)
 			User:eraseItem( ItemListe[i], amount);
 		end --items deleted;
 
-		local Faction = base.factions.get(User); -- lookup to which faction the Character belongs to
+		local Faction = base.factions.getFaction(User); -- lookup to which faction the Character belongs to
 		local dest
 		if     Faction.tid == 1 then 
 		       dest = position(140,630,0) --cadomyr
