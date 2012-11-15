@@ -247,7 +247,7 @@ end
 function Product:getCraftingTime(skill)
     local requirement = self.difficulty
     local learnProgress = (skill - requirement) / (self.learnLimit - requirement) * 100
-    local craftingTime = base.common.Scale(self.minTime, self.maxTime, learnProgress)
+    local craftingTime = base.common.Scale(self.maxTime, self.minTime, learnProgress)
     craftingTime = math.ceil(craftingTime)
     return craftingTime
 end
