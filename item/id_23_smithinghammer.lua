@@ -14,8 +14,8 @@ function InitCraftingTool( )
         smithing = item.base.crafts.Craft:new{
                               craftEN = "blacksmithing",
                               craftDE = "Schmieden",
-                              LeadSkill = Character.smithing,
-                              DefaultFoodConsumption = 300,
+                              leadSkill = Character.smithing,
+                              defaultFoodConsumption = 300,
                             }
 
         smithing:addTool(172); -- anvil
