@@ -398,7 +398,7 @@ function Craft:craftItem(user, productId, toolItem)
     local skill = self:getSkill(user)
     
     if product.difficulty > skill then
-        base.common.InformNLS(User,
+        base.common.InformNLS(user,
         "Du bist nicht fähig genug um das zu tun.",
         "You are not skilled enough to do this.")
         return
@@ -431,15 +431,15 @@ function Craft:createItem(user, productId, toolItem)
 
     if (notCreatedAmount > 0) then
         createdEverything = false
-        world:createItemFromId(product.item, notCreatedAmount, User.pos, true, quality, product.data)
+        world:createItemFromId(product.item, notCreatedAmount, user.pos, true, quality, product.data)
     end
 
     for i=1, #product.remnants do
         local remnant = product.remnants[i]
-        notCreatedAmount = User:createItem(remnant.item, remnant.quantity, 333, remnant.data)
+        notCreatedAmount = user:createItem(remnant.item, remnant.quantity, 333, remnant.data)
         if (notCreatedAmount > 0) then
             createdEverything = false
-            world:createItemFromId(remnant.item, notCreatedAmount, User.pos, true, 333, remnant.data)
+            world:createItemFromId(remnant.item, notCreatedAmount, user.pos, true, 333, remnant.data)
         end
     end
 
