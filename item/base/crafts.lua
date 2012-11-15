@@ -225,6 +225,8 @@ function Craft:loadDialog(dialog, user)
     local skill = self:getSkill(user)
     self.listIdToProductId[user.id] = {}
     local listIdToProductId = self.listIdToProductId[user.id]
+    local categoryListId = {}
+    local listId = 0
     
     for i = 1,#self.categories do
         local category = self.categories[i]
@@ -235,6 +237,9 @@ function Craft:loadDialog(dialog, user)
             else
                 dialog:addGroup(category.nameEN)
             end
+
+            categoryListId[i] = listId
+            listId = listId + 1
         end
     end
 
@@ -243,12 +248,11 @@ function Craft:loadDialog(dialog, user)
         local productRequirement = product.difficulty
         
         if productRequirement <= skill then
-            dialog:addCraftable(product.category - 1, product.item, product:getName(user), product:getCraftingTime(skill), product.quantity)
+            dialog:addCraftable(categoryListId[product.category], product.item, product:getName(user), product:getCraftingTime(skill), product.quantity)
 
             for j = 1, #product.ingredients do
                 local ingredient = product.ingredients[j]
                 dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
-                debug("productId: " .. i .. ", ingredientId: " .. j .. ", product: " .. product.item .. ", ingredient: " .. ingredient.item)
             end
 
             table.insert(listIdToProductId, i)
