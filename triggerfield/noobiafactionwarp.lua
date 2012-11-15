@@ -56,7 +56,7 @@ function MoveToField(Character)
     world:makeSound(13,destination);
     world:gfx(41,Character.pos);
 	
-	FactionCheck = base.factions.get_Faction(Character);
+	FactionCheck = base.factions.getFaction(Character);
 	
 	if not Character:isAdmin() and not (FactionCheck.tid~=0) then -- admins and chars who are already members of a faction are unaffected and just warped 
 	
