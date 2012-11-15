@@ -167,7 +167,7 @@ end
 function Craft:allowCrafting(user, source)
     if not self:locationFine(user) then
         return false
-    enD
+    end
 
     if not base.common.CheckItem(user, source) then
         self:swapToInactiveItem(user)
