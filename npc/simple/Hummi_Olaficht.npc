@@ -2,8 +2,8 @@
 -- NPC Name: Hummi Olaficht                                              None --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  48, 970, 0             --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: halfling                   NPC Position:  681, 318, 0            --
+-- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   envi                                                             --
 --                                                       easyNPC Parser v1.21 --
@@ -12,8 +12,8 @@
 name = "Hummi Olaficht"
 race = halfling
 sex = male
-position = 48, 970, 0
-direction = south
+position = 681,318,0
+direction = north
 affiliation = "None"
 job = "none"
 
@@ -56,11 +56,21 @@ itemShoes = 53
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keywords: faction, gods, race, craft, motive, landscape, leader, law, chest, explorer, empire, stones of power, quest. You will find more of these keywords during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Truhe, Erkunder, Reiche, Steine der Macht, Quest. Du wirst dieser Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)")
-"test" -> inform("test works"), "A", "B", "C"
+"Help" -> inform("[Game Help] This NPC is Hummi Olaficht. He can give you some information about what you can find here. Keywords: faction, gods, race, craft, motive, landscape, leader, law, explorer, empire, stones of power, quest. You will find more of these keywords during the game. Sometimes they are mentioned, sometimes the author was to lazy. ;)")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hummi Olaficht. Er kann dir einige Informationen geben über Dinge die du hier finden kanns. Schlüsselwörter: Fraktion, Götter, Rassen, Handwerk, Motive, Landschaft, Anführer, Gesetz, Erkunder, Reiche, Steine der Macht, Quest. Du wirst dieser Schlüsselwörter im Spiel finden. Manchmal sind sie hervorgehoben, manchmal war der Autor zu faul. ;)")
 
 -- General speech
+queststatus(604) = 2, english, ".*" -> inform("[Quest end 604] You gained some coins. Have you already asked for and visited the two other npc that Hummi mentions?"), "So, that was easy, right? Here your reward. A lot of other tasks wait for you at this place. Just ask around.", queststatus(604)=3, money + 3000
+queststatus(604) = 2, ".*" -> inform("[Quest Ende 604] Du hast einige Münzen erhalten."), "Das war einfach, oder? Hier dein Lohn. Viele andere Aufgaben warten auf dich hier. Frage einfach herum.", queststatus(604)=3, money + 3000
+queststatus(605) = 2, english, ".*" -> inform("[Quest end 605] You gained some coins. Have you already asked for and visited the two other npc that Hummi mentions?"), "So, that was easy, right? Here your reward. A lot of other tasks wait for you at this place. Just ask around.", queststatus(605)=3, money + 3000
+queststatus(605) = 2, ".*" -> inform("[Quest Ende 605] Du hast einige Münzen erhalten."), "Das war einfach, oder? Hier dein Lohn. Viele andere Aufgaben warten auf dich hier. Frage einfach herum.", queststatus(605)=3, money + 3000
+queststatus(606) = 2, english, ".*" -> inform("[Quest end 606] You gained some coins. Have you already asked for and visited the two other npc that Hummi mentions?"), "So, that was easy, right? Here your reward. A lot of other tasks wait for you at this place. Just ask around.", queststatus(606)=3, money + 3000
+queststatus(606) = 2, ".*" -> inform("[Quest Ende 606] Du hast einige Münzen erhalten."), "Das war einfach, oder? Hier dein Lohn. Viele andere Aufgaben warten auf dich hier. Frage einfach herum.", queststatus(606)=3, money + 3000
+queststatus(607) = 3, english, ".*" -> "Do you know the name of winner? So, tell me the name now.", queststatus(607)=4
+queststatus(607) = 3, ".*" -> "Weißt du den Namen des Gwinner nun? So sage mir ihn nun.", queststatus(607)=4
+queststatus(607) = 4, english, "Jag" -> inform("[Quest end 607] You gained some coins. Hummi does not have any other quest for you. Just more information. But look for other quests at other npcs."), "Here another reward for you. With this money you should be able to buy some nice things.", queststatus(606)=5, money + 10000
+queststatus(607) = 4, "Jag" -> inform("[Quest Ende 607] Du hast einige Münzen erhalten. Hummi hat keine anderen Aufgaben für dich. Lediglich mehr Informationen. Aber suche nach anderen Aufgaben bei andern NPCs."), "Hier noch ein Lohn für dich. Mit dem Geld solltest du in der Lage sein dir ein paar schöne Sachen zu kaufen.", queststatus(606)=5, money + 10000
+
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> inform("Ask the NPC for 'factions' if you want to know more. You can also ask for 'help' to get other hints for questions."), "Hiho, if you'd like to know something about the factions here, just ask me!", "Hiya, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the factions!", "Good day, if you'd like to know something about the factions here, let me know!"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> inform("Frage den NPC nach 'Fraktionen' wenn du mehr wissen möchtest. Du kannst aber auch nach 'Hilfe fragen um weitere Hinweise für Fragen zu bekommen."), "Hiho, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Hallo, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach.", "Guten Tag, wenn du etwas über die Fraktionen hier wissen möchtest, frag mich einfach danach."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("Ask the NPC for 'factions' if you want to know more. You can also ask for 'help' to get other hints for questions."), "Hiho to you, if you'd like to know something about the factions here, just ask me.", "Hiya, have we met before? There are so many new faces, my apologies if we have, otherwise let me tell about the factions!", "Good day, if you'd like to know something about the factions here, let me know!"
@@ -75,16 +85,32 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare thee well.", "Tata!", 
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Hummi und weiß alle wichtigen Dinge über diesen Platz hier. So, frag mich was!", "Ich bin Hummi und du? Möchtest du etwas wissen?"
 
 -- Catching quest triggers. Modify if the NPC does quests.
+queststatus(604) = 3, queststatus(605) = 3, queststatus(606) = 3, queststatus(607) < 1, english, "quest", "mission" -> inform("[Quest 607 started] Find Tronuk and ask him about 'story' in order to get the name of the winner. Hint: He can be found close to Cadomyr."), "I have something more challenging for you now. Find the orc Tronuk. He can befind in fron of a mine but I do not tell you which one. He tells you two stories. One is about a tournament. Come back if you know the winner and tell me his name.", queststatus(607) = 1
+queststatus(604) = 3, queststatus(605) = 3, queststatus(606) = 3, queststatus(607) < 1, "quest", "mission" -> inform("[Quest 607 beginnt] Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."), "Ich habe etwas schwierigeres nun. Finde den Ork Tronuk. Er kann vor einer Mine gefunden werden. Ich sage dir aber nicht welcher. Er erzählt zwei Geschichten. Eine handelt von einem Turnier. Komm zurück wenn du weißt wer der Gewinner ist und nenne mir seinen Namen.", queststatus(607) = 1
+queststatus(604) = 3, queststatus(605) = 3, queststatus(606) = 3, queststatus(607) < 1, "task", "adventure", "order" -> inform("[Quest 607 started] Find Tronuk and ask him about 'story' in order to get the name of the winner. Hint: He can be found close to Cadomyr."), "I have something more challenging for you now. Find the orc Tronuk. He can befind in fron of a mine but I do not tell you which one. He tells you two stories. One is about a tournament. Come back if you know the winner and tell me his name.", queststatus(607) = 1
+queststatus(604) = 3, queststatus(605) = 3, queststatus(606) = 3, queststatus(607) < 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Quest 607 beginnt] Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."), "Ich habe etwas schwierigeres nun. Finde den Ork Tronuk. Er kann vor einer Mine gefunden werden. Ich sage dir aber nicht welcher. Er erzählt zwei Geschichten. Eine handelt von einem Turnier. Komm zurück wenn du weißt wer der Gewinner ist und nenne mir seinen Namen.", queststatus(607) = 1
+queststatus(607) > 0, queststatus(607) < 4, english, "quest", "mission" -> inform("Find Tronuk and ask him about 'story' in order to get the name of the winner. Hint: He can be found close to Cadomyr."), "As I said, find the orc Tronuk. He can befind in fron of a mine but I do not tell you which one. He tells you two stories. One is about a tournament. Come back if you know the winner and tell me his name."
+queststatus(607) > 0, queststatus(607) < 4, "quest", "mission" -> inform("Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."), "Wie ich sagte, finde den Ork Tronuk. Er kann vor einer Mine gefunden werden. Ich sage dir aber nicht welcher. Er erzählt zwei Geschichten. Eine handelt von einem Turnier. Komm zurück wenn du weißt wer der Gewinner ist und nenne mir seinen Namen."
+queststatus(607) > 0, queststatus(607) < 4, "task", "adventure", "order" -> inform("Find Tronuk and ask him about 'story' in order to get the name of the winner. Hint: He can be found close to Cadomyr."), "As I said, find the orc Tronuk. He can befind in fron of a mine but I do not tell you which one. He tells you two stories. One is about a tournament. Come back if you know the winner and tell me his name."
+queststatus(607) > 0, queststatus(607) < 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."), "Wie ich sagte, finde den Ork Tronuk. Er kann vor einer Mine gefunden werden. Ich sage dir aber nicht welcher. Er erzählt zwei Geschichten. Eine handelt von einem Turnier. Komm zurück wenn du weißt wer der Gewinner ist und nenne mir seinen Namen."
+
 english, "quest", "mission" -> inform("Ask the NPC for 'Elesil', 'Frizza', 'Iradona' or 'Explorer' if you want to know more."), "Alas, another bold traveler! Unfortunately, I haven't much work, but don't let me discourage ya. The factions are always on the look out for adventurers and workers alike! For example Elesil Daelwon in Runewick, Frizza in Cadomyr and Iradona Goldschein in Galmair. Another option would be the Explorer-guild. Just look for them."
 "quest", "mission" -> inform("Frage den NPC nach 'Elesil', 'Frizza', 'Iradona' oder 'Erkunder' wenn du mehr wissen möchtest."), "Hoi, ein anderer taferer Reisender! Leider habe ich keine Arbeit für euch. Dass soll euch nicht entmutigen, da die Fraktionen immer nach Abenteuerer und Arbeitern suchen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen."
 "task", "adventure", "order" -> inform("Ask the NPC for 'Elesil', 'Frizza', 'Iradona' or 'Explorer' if you want to know more."), "Ahh, gotta case of idle hands I see. Be assured traveler if you're willing to seek there are folk out there that could use a hand or two. Best start with one of the factions! For example Elesil Daelwon in Runewick, Frizza in Cadomyr and Iradona Goldschein in Galmair. Another option would be the Explorer-guild. Just look for them."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("Frage den NPC nach 'Elesil', 'Frizza', 'Iradona' oder 'Erkunder' wenn du mehr wissen möchtest."), "Ahh, ein unbeschäftigtes Wesen. Aber keine Angst, es gibt hier und da genug Leute die Unterstützung suchen. Am besten startet bei einer der Fraktionen! Zum Beispiel Elesil Daelwon in Runewick, Frizza in Cadomyr und Iradona Goldschein in Galmair. Eine weitere Möglichkeite wäre die Erkunder-Gilde. Du brauchst sie nur zu suchen."
-english, "Elesil", "Daelwon" -> "You can find her at the teleporter in Runewick."
-"Elesil", "Daelwon" -> "Du findest sie beim Teleporter in Runewick."
-english, "Frizza" -> "You can find her at the teleporter in Cadomyr."
-"Frizza" -> "Du findest sie beim Teleporter in Cadomyr."
-english, "Iradona", "Goldschein" -> "You can find her at the teleporter in Galmair."
-"Iradona", "Goldschein" -> "Du findest sie beim Teleporter in Galmair."
+queststatus(604) < 1, english, "Elesil", "Daelwon" -> inform("[Quest 604 started] Find Elesil at the teleporter in Runewick and talk to her."), "You can find her at the teleporter in Runewick. She knows any place in Runewick and has plenty of tasks for you. When you have found her, come back and collect your reward!", queststatus(604) = 1
+queststatus(604) < 1, "Elesil", "Daelwon" -> inform("[Quest 604 beginnt] Finde Elesil beim Teleporter in Runewick and sprich mit ihr."), "Du findest sie beim Teleporter in Runewick. Sie kennt jeden Platz in Runewick und hat etliche Aufgaben für dich. Wenn du sie gefunden hast, komm zurück und holle dir deine Belohnung!", queststatus(604) = 1
+queststatus(605) < 1, english, "Frizza" -> inform("[Quest 605 started] Find Frizza at the teleporter in Cadomyr and talk to her."), "You can find her at the teleporter in Cadomyr. She knows any place in Cadomyr and has plenty of tasks for you. When you have found her, come back and collect your reward!", queststatus(605) = 1
+queststatus(605) < 1, "Frizza" -> inform("[Quest 605 beginnt] Finde Frizza beim Teleporter in Cadomyr and sprich mit ihr."), "Du findest sie beim Teleporter in Cadomyr. Sie kennt jeden Platz in Cadomyr und hat etliche Aufgaben für dich. Wenn du sie gefunden hast, komm zurück und holle dir deine Belohnung!", queststatus(605) = 1
+queststatus(606) < 1, english, "Iradona", "Goldschein" -> inform("[Quest 606 started] Find Iradona at the teleporter in Galmair and talk to her."), "You can find her at the teleporter in Galmair. She knows any place in Galmair and has plenty of tasks for you. When you have found her, come back and collect your reward!", queststatus(606) = 1
+queststatus(606) < 1, "Iradona", "Goldschein" -> inform("[Quest 606 beginnt] Finde Iradona beim Teleporter in Galmair and sprich mit ihr."), "Du findest sie beim Teleporter in Galmair. Sie kennt jeden Platz in Galmair und hat etliche Aufgaben für dich. Wenn du sie gefunden hast, komm zurück und holle dir deine Belohnung!", queststatus(606) = 1
+
+queststatus(604) > 0, english, "Elesil", "Daelwon" -> "You can find her at the teleporter in Runewick. She knows any place in Runewick and has plenty of tasks for you as you already know."
+queststatus(604) > 0, "Elesil", "Daelwon" -> "Du findest sie beim Teleporter in Runewick. Sie kennt jeden Platz in Runewick und hat etliche Aufgaben für dich, wie du bereits weißt."
+queststatus(605) > 0, english, "Frizza" -> "You can find her at the teleporter in Cadomyr. She knows any place in Cadomyr and has plenty of tasks for you as you already know."
+queststatus(605) > 0, "Frizza" -> "Du findest sie beim Teleporter in Cadomyr. Sie kennt jeden Platz in Cadomyr und hat etliche Aufgaben für dich, wie du bereits weißt."
+queststatus(606) > 0, english, "Iradona", "Goldschein" -> "You can find her at the teleporter in Galmair. She knows any place in Galmair and has plenty of tasks for you as you already know."
+queststatus(606) > 0, "Iradona", "Goldschein" -> "Du findest sie beim Teleporter in Galmair. Sie kennt jeden Platz in Galmair und hat etliche Aufgaben für dich, wie du bereits weißt."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I don't have a specific profession.", "I only pass along information, but I don't have profession, per say."
@@ -119,10 +145,6 @@ english, "Khenserra" -> "Mountains of Khenserra? They are somewhere to the south
 "siebenhügel" -> inform("Hier sind zwei zusätzliche Hinweise untergebracht. Du wist im weiteren Spiel immer wieder auf solche stoßen. Halte deine Augen offen. ;)"), "Das ist südlich von den 'Sinkenden Berge', nördlich der 'Berge von Khenserra' und westlich von uns hier. *kichert*"
 "sinken" -> "Sinkende Berge? Irgendwo im Norden müssten die sein."
 "Khenserra" -> "Berge von Khenserra? Irgendwo im Süden müssten die sein."
-"chest" -> "In these chests over there you find your belongings probably."
-"kist", "truhe" -> "In diesen Truhen dort drüben kannst du womöglich dein Hab und Gut finden."
-english, "box", "depot" -> "In these chests over there you find your belongings probably."
-"box", "depot" -> "In diesen Truhen dort drüben kannst du womöglich dein Hab und Gut finden."
 
 -- Faction motive
 "wisdom" -> "Wisdom is the highest premise in Runewick. Therefore, most follow the path of Elara, but other followers are permitted. It is well known that people seek the council of Archmage Elvaine Morgan, whose sageness is widely renowned."
@@ -307,7 +329,6 @@ german, chance(100.0), ".*" -> "Duddli, duddla, frag mich nach Hilfe."
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Schaut in den Truhen dort drüben nach, vielleicht findert ihr dort eure Sachen!", "Look at the chests over there, you find your belongings probably!"
 cycletext "Frag mich nach 'Hilfe', wenn du 'Hilfe' brauchst.", "Ask me for 'help', if you need help."
 cycletext "Frag mich wenn du was über Fraktionen wissen möchtest.", "Ask me if you'd like to know something about factions."
 cycletext "Runewick, Galmair, Cadomyr...ich weiß alles...fast alles. *kichert*", "Runewick, Galmair, Cadomyr... I know everything...almost. *Giggles*"

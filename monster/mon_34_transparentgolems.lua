@@ -76,10 +76,6 @@ end
 
 function onDeath(Monster)
 
-	local NoDrop=Monster:getSkill("no drop pls")
-	if NoDrop >= 10 then
-	return;
-	end
 	
     if killer and killer[Monster.id] ~= nil then
 
@@ -120,7 +116,7 @@ if (MonID==341) then --Diamondgolem, Level: 7, Armourtype: heavy, Weapontype: co
         if not done then done=monster.base.drop.AddDropItem(735,1,10,(100*math.random(6,7)+math.random(66,77)),0,3); end --raw stone
         if not done then done=monster.base.drop.AddDropItem(234,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --gold nugget
         if not done then done=monster.base.drop.AddDropItem(2534,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --merinium ore
-        if not done then done=monster.base.drop.AddDropItem(285,10,1,(100*math.random(6,7)+math.random(66,77)),1,3); end --magic diamond
+        if not done then done=monster.base.drop.AddDropItem(285,10,1,(100*math.random(6,7)+math.random(66,77)),{magicalDiamond="1"},3); end --magic diamond
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3077,math.random(10,30),100,333,0,4); --silver coins

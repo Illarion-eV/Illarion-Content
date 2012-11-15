@@ -9,9 +9,6 @@ function AddStageInfo(stage, german, english)
     StatusInfo[stage][1] = english;
 end
 
-
-
-
 -------------------GLOBAL VARIABLES USED IN THIS MODULE------------------------
 if not GlobalsInitialized then
 	GlobalsInitialized = true;
@@ -195,8 +192,6 @@ function CreateMonster(stage)
 	
 	for i = 1, table.maxn(monsterlist[stage]) do
     	local noDrop = world:createMonster(monsterlist[stage][i] , CenterPositionOfPortalRoom ,20); --create monster
-		noDrop:increaseSkill(2,"no drop pls",60)
-		
 	end
 end
 

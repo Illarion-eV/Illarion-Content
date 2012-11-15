@@ -83,10 +83,6 @@ end
 
 function onDeath(Monster)
 
-	local NoDrop=Monster:getSkill("no drop pls")
-	if NoDrop >= 10 then
-	return;
-	end
 	
     if killer and killer[Monster.id] ~= nil then
 
@@ -207,9 +203,9 @@ function onDeath(Monster)
 
         local done=monster.base.drop.AddDropItem(285,1,20,(100*math.random(6,7)+math.random(66,77)),0,2); --diamond
         if not done then done=monster.base.drop.AddDropItem(197,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --amethyst
-        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(6,7)+math.random(66,77)),1,2); end --magic ruby
-        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(6,7)+math.random(66,77)),1,2); end --magic blackstone
-        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(6,7)+math.random(66,77)),1,2); end --magic bluestone
+        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(6,7)+math.random(66,77)),{magicalRuby="1"},2); end --magic ruby
+        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(6,7)+math.random(66,77)),{magicalBlackstone="1"},2); end --magic blackstone
+        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(6,7)+math.random(66,77)),{magicalBluestone="1"},2); end --magic bluestone
 
         --Category 3: Rings
 

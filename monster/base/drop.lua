@@ -40,9 +40,12 @@ function Dropping(Char)
     if first then
         if (table.getn(SelItemValue)>0) then
             for i,values in pairs(SelItemValue) do
-                if ( values[1] ~= nil ) and ( values[2] ~= nil ) and ( values[3] ~= nil ) and ( values[4] ~= nil ) then
-                    Item=world:createItemFromId(values[1],values[2],Char.pos,true,values[3], nil) -- Do not create items with old data like in values[4]
-					-- values[1]==3076 etc., values[2]=anzahl
+                if ( values[1] ~= nil ) and ( values[2] ~= nil ) and ( values[3] ~= nil ) then
+				    if values[4] == 0 then
+					    values[4] = nil; --catching "old" data values
+					end
+                    Item=world:createItemFromId(values[1],values[2],Char.pos,true,values[3], values[4]) -- Do not create items with old data
+					-- values[1]=ID, values[2]=amount, values[3]=quality, values[4]=data
                 end
             end
         end

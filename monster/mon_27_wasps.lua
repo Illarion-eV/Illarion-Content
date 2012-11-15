@@ -85,10 +85,6 @@ end
 
 function onDeath(Monster)
 
-	local NoDrop=Monster:getSkill("no drop pls")
-	if NoDrop >= 10 then
-	return;
-	end
     monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
     monster.base.drop.AddDropItem(2529,1,100,333,0,1); --honeycombs

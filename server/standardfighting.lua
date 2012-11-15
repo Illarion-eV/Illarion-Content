@@ -586,7 +586,7 @@ function DropBlood(Posi)
             return;
         end;
     end;
-    Blood = world:createItemFromId(3101, 1, Posi, true, 333, 0);
+    Blood = world:createItemFromId(3101, 1, Posi, true, 333, nil);
     Blood.wear = 2;
     world:changeItem(Blood);
 end;
