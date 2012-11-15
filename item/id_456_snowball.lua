@@ -17,7 +17,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 	end
 end
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+--[[function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
     local teacherEN; local teacherDE
 	local questId
@@ -212,4 +212,4 @@ function SendMessage(User, textEN, textDE, teacherEN, questionTrigger)
       	dialog = MessageDialog(titleEN, textEN, callback)
 	end
     User:requestMessageDialog(dialog)
-end	
+end	]]

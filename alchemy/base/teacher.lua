@@ -1,6 +1,6 @@
 require("base.common");
 module("alchemy.base.teacher", package.seeall)
-
+--[[
 -- This script turns a character into an alchemist. 
 -- Three 'beings' can does to: Knowing Tree, Thinking Stone, Recognizing Spring
 -- Three tasks have to be fullfilled: Bring 5*3 normal herbs; bring 1*2 rar herbs; answer three questions
@@ -252,22 +252,4 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
 
 
-end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+end]]
