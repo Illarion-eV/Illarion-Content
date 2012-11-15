@@ -16,212 +16,10 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 		Round=nil;
 	end
 end
--- script to make a char to an alchemist
--- knowing tree
--- thinking stone
--- recognizing spring
 
-HerbsTaskOneId = {}
-HerbsTaskOneNameEN = {}
-HerbsTaskOneNameDE = {}
+--[[function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
-HerbsTaskOneId["Knowing Tree"] =   {133  ,  81, 140}
-HerbsTaskOneNameEN["Knowing Tree"] = {"sonnenkraut","beeren","donfblatt"}
-HerbsTaskOneNameDE["Knowing Tree"] = {"1","2","3"}
-
-HerbsTaskOneId["Thinking Stone"] =   {7,5,6}
-HerbsTaskOneNameEN["Thinking Stone"] = {"4","5","6"}
-HerbsTaskOneNameDE["Thinking Stone"] = {"4","5","6"}
-
-HerbsTaskOneId["Recognizing Spring"] = {7,8,9}
-HerbsTaskOneNameEN["Recognizing Spring"] = {"7","8","9"}
-HerbsTaskOneNameDE["Recognizing Spring"] = {"7","8","9"}
-
-HerbsTaskTwoId = {}
-HerbsTaskTwoNameEN = {}
-HerbsTaskTwoNameDE = {}
-
-HerbsTaskTwoId["Knowing Tree"] =   {756,755}
-HerbsTaskTwoNameEN["Knowing Tree"] = {"frommbeere","feuerwurz"}
-HerbsTaskTwoNameDE["Knowing Tree"] = {"1","2"}
-
-HerbsTaskTwoId["Thinking Stone"] =   {4,5}
-HerbsTaskTwoNameEN["Thinking Stone"] = {"4","5"}
-HerbsTaskTwoNameDE["Thinking Stone"] = {"4","5"}
-
-HerbsTaskTwoId["Recognizing Spring"] = {7,8}
-HerbsTaskTwoNameEN["Recognizing Spring"] = {"7","8"}
-HerbsTaskTwoNameDE["Recognizing Spring"] = {"7","8"}
-
-HerbsDeleteTextDE = {}
-HerbsDeleteTextEN = {}
-
-HerbsDeleteTextDE["Knowing Tree"] = {"Eine Windböe erfasst die Kräuter und trägt sie in die Krone des Baumes."}
-HerbsDeleteTextDE["Thinking Stone"] = {"Wie von selbst fallen die Kräuter aus deiner Hand und verschwinden in einem Strudel von Sand."}
-HerbsDeleteTextDE["Recognizing Spring"] = {"Ein Schwall von Wasser erhebt sich aus der Quelle und spült die Kräuter aus deiner Hand, welche im Wasse verschwinden." }
-
-HerbsDeleteTextEN["Knowing Tree"] = {"A gust of wind gets hold of the herbs and carries them into the treetop."}
-HerbsDeleteTextEN["Thinking Stone"] = {"As if they had an own will, the herbs fall out of your hand and disappear in a small sand vortex."}
-HerbsDeleteTextEN["Recognizing Spring"] = {"A wave raises from the spring and flushes the herbs from your hand, which disappear in the water."}
-
-questionDE ={}
-questionDE[1] = {}
-questionDE[2] = {}
-questionDE[3] = {}
-answerDE = {}
-answerDE[1] = {}
-answerDE[2] = {}
-answerDE[3] = {}
-
-questionDE[1][1]={"Frage1",nil ,nil}
-answerDE[1][1]=  {"a1"    ,"a2","a3"}
-questionDE[1][2]={"Frage1",nil ,nil}
-answerDE[1][2]=  {"a1"    ,"a2","a3"}
-questionDE[1][3]={"Frage1",nil ,nil}
-answerDE[1][3]=  {"a1"    ,"a2","a3"}
-questionDE[1][4]={"Frage1",nil ,nil}
-answerDE[1][4]=  {"a1"    ,"a2","a3"}
-questionDE[1][5]={"Frage1",nil ,nil}
-answerDE[1][5]=  {"a1"    ,"a2","a3"}
-questionDE[1][6]={"Frage1",nil ,nil}
-answerDE[1][6]=  {"a1"    ,"a2","a3"}
-questionDE[1][7]={"Frage1",nil ,nil}
-answerDE[1][7]=  {"a1"    ,"a2","a3"}
-questionDE[1][8]={"Frage1",nil ,nil}
-answerDE[1][8]=  {"a1"    ,"a2","a3"}
-questionDE[1][9]={"Frage1",nil ,nil}
-answerDE[1][9]=  {"a1"    ,"a2","a3"}
-questionDE[1][10]={"Frage1",nil ,nil}
-answerDE[1][10]=  {"a1"    ,"a2","a3"}
-
-questionDE[2][1]={"Frage1",nil ,nil}
-answerDE[2][1]=  {"a1"    ,"a2","a3"}
-questionDE[2][2]={"Frage1",nil ,nil}
-answerDE[2][2]=  {"a1"    ,"a2","a3"}
-questionDE[2][3]={"Frage1",nil ,nil}
-answerDE[2][3]=  {"a1"    ,"a2","a3"}
-questionDE[2][4]={"Frage1",nil ,nil}
-answerDE[2][4]=  {"a1"    ,"a2","a3"}
-questionDE[2][5]={"Frage1",nil ,nil}
-answerDE[2][5]=  {"a1"    ,"a2","a3"}
-questionDE[2][6]={"Frage1",nil ,nil}
-answerDE[2][6]=  {"a1"    ,"a2","a3"}
-questionDE[2][7]={"Frage1",nil ,nil}
-answerDE[2][7]=  {"a1"    ,"a2","a3"}
-questionDE[2][8]={"Frage1",nil ,nil}
-answerDE[2][8]=  {"a1"    ,"a2","a3"}
-questionDE[2][9]={"Frage1",nil ,nil}
-answerDE[2][9]=  {"a1"    ,"a2","a3"}
-questionDE[2][10]={"Frage1",nil ,nil}
-answerDE[2][10]=  {"a1"    ,"a2","a3"}
-
-questionDE[3][1]={"Frage1",nil ,nil}
-answerDE[3][1]=  {"a1"    ,"a2","a3"}
-questionDE[3][2]={"Frage1",nil ,nil}
-answerDE[3][2]=  {"a1"    ,"a2","a3"}
-questionDE[3][3]={"Frage1",nil ,nil}
-answerDE[3][3]=  {"a1"    ,"a2","a3"}
-questionDE[3][4]={"Frage1",nil ,nil}
-answerDE[3][4]=  {"a1"    ,"a2","a3"}
-questionDE[3][5]={"Frage1",nil ,nil}
-answerDE[3][5]=  {"a1"    ,"a2","a3"}
-questionDE[3][6]={"Frage1",nil ,nil}
-answerDE[3][6]=  {"a1"    ,"a2","a3"}
-questionDE[3][7]={"Frage1",nil ,nil}
-answerDE[3][7]=  {"a1"    ,"a2","a3"}
-questionDE[3][8]={"Frage1",nil ,nil}
-answerDE[3][8]=  {"a1"    ,"a2","a3"}
-questionDE[3][9]={"Frage1",nil ,nil}
-answerDE[3][9]=  {"a1"    ,"a2","a3"}
-questionDE[3][10]={"Frage1",nil ,nil}
-answerDE[3][10]=  {"a1"    ,"a2","a3"}
-
-questionEN ={}
-questionEN[1] = {}
-questionEN[2] = {}
-questionEN[3] = {}
-answerEN = {}
-answerEN[1] = {}
-answerEN[2] = {}
-answerEN[3] = {}
-
-questionEN[1][1]={"Frage1",nil ,nil}
-answerEN[1][1]=  {"a1"    ,"a2","a3"}
-questionEN[1][2]={"Frage1",nil ,nil}
-answerEN[1][2]=  {"a1"    ,"a2","a3"}
-questionEN[1][3]={"Frage1",nil ,nil}
-answerEN[1][3]=  {"a1"    ,"a2","a3"}
-questionEN[1][4]={"Frage1",nil ,nil}
-answerEN[1][4]=  {"a1"    ,"a2","a3"}
-questionEN[1][5]={"Frage1",nil ,nil}
-answerEN[1][5]=  {"a1"    ,"a2","a3"}
-questionEN[1][6]={"Frage1",nil ,nil}
-answerEN[1][6]=  {"a1"    ,"a2","a3"}
-questionEN[1][7]={"Frage1",nil ,nil}
-answerEN[1][7]=  {"a1"    ,"a2","a3"}
-questionEN[1][8]={"Frage1",nil ,nil}
-answerEN[1][8]=  {"a1"    ,"a2","a3"}
-questionEN[1][9]={"Frage1",nil ,nil}
-answerEN[1][9]=  {"a1"    ,"a2","a3"}
-questionEN[1][10]={"Frage1",nil ,nil}
-answerEN[1][10]=  {"a1"    ,"a2","a3"}
-
-questionEN[2][1]={"Frage1",nil ,nil}
-answerEN[2][1]=  {"a1"    ,"a2","a3"}
-questionEN[2][2]={"Frage1",nil ,nil}
-answerEN[2][2]=  {"a1"    ,"a2","a3"}
-questionEN[2][3]={"Frage1",nil ,nil}
-answerEN[2][3]=  {"a1"    ,"a2","a3"}
-questionEN[2][4]={"Frage1",nil ,nil}
-answerEN[2][4]=  {"a1"    ,"a2","a3"}
-questionEN[2][5]={"Frage1",nil ,nil}
-answerEN[2][5]=  {"a1"    ,"a2","a3"}
-questionEN[2][6]={"Frage1",nil ,nil}
-answerEN[2][6]=  {"a1"    ,"a2","a3"}
-questionEN[2][7]={"Frage1",nil ,nil}
-answerEN[2][7]=  {"a1"    ,"a2","a3"}
-questionEN[2][8]={"Frage1",nil ,nil}
-answerEN[2][8]=  {"a1"    ,"a2","a3"}
-questionEN[2][9]={"Frage1",nil ,nil}
-answerEN[2][9]=  {"a1"    ,"a2","a3"}
-questionEN[2][10]={"Frage1",nil ,nil}
-answerEN[2][10]=  {"a1"    ,"a2","a3"}
-
-questionEN[3][1]={"Frage1",nil ,nil}
-answerEN[3][1]=  {"a1"    ,"a2","a3"}
-questionEN[3][2]={"Frage1",nil ,nil}
-answerEN[3][2]=  {"a1"    ,"a2","a3"}
-questionEN[3][3]={"Frage1",nil ,nil}
-answerEN[3][3]=  {"a1"    ,"a2","a3"}
-questionEN[3][4]={"Frage1",nil ,nil}
-answerEN[3][4]=  {"a1"    ,"a2","a3"}
-questionEN[3][5]={"Frage1",nil ,nil}
-answerEN[3][5]=  {"a1"    ,"a2","a3"}
-questionEN[3][6]={"Frage1",nil ,nil}
-answerEN[3][6]=  {"a1"    ,"a2","a3"}
-questionEN[3][7]={"Frage1",nil ,nil}
-answerEN[3][7]=  {"a1"    ,"a2","a3"}
-questionEN[3][8]={"Frage1",nil ,nil}
-answerEN[3][8]=  {"a1"    ,"a2","a3"}
-questionEN[3][9]={"Frage1",nil ,nil}
-answerEN[3][9]=  {"a1"    ,"a2","a3"}
-questionEN[3][10]={"Frage1",nil ,nil}
-answerEN[3][10]=  {"a1"    ,"a2","a3"}
-
-
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-
-    if (string.find(User.lastSpokenText,"set")~=nil) then
-	    local a,b,new = string.find(User.lastSpokenText,"(%d+)")
-		new = tonumber(new)
-		User:setQuestProgress(350,new)
-		User:setQuestProgress(351,new)
-		User:setQuestProgress(352,new)
-	    User:inform("set questprogress to "..new)
-		return
-	end	
-	
-	local teacherEN; local teacherDE
+    local teacherEN; local teacherDE
 	local questId
 	if SourceItem.pos == position(1,1,0) or SourceItem.id == 456 then
 	    teacherEN = "Knowing Tree"
@@ -336,7 +134,7 @@ function AskQuestion(User,teacherEN)
 	local rnd = math.random(10)
 	local title
 	if User:getPlayerLanguage() == 0 then
-	    questionList = item.id_456_snowball.questionDE[difficulty][rnd]
+	    questionList = questionDE[difficulty][rnd]
 	    User:inform(""..questionList[1])
 		answerList = answerDE[difficulty][rnd]
 	    title = titleDE
@@ -356,14 +154,15 @@ function AskQuestion(User,teacherEN)
 		success = dialog:getSuccess()
 		if success then
 			selectedAnswer = (dialog:getSelectedIndex())+1
-			User:inform("debug 4")
-			User:inform("true answer: "..answer)
-			User:inform("selectedAnswer: "..answerList[selectedAnswer])
 			if answerList[selectedAnswer] == answer then
-			    User:inform("richtige antwort. text einfügen. zum alchemisten machen.")
+			    User:setQuestProgress(questId, (User:getQuestProgress(questId) +1) )
+				if difficulty == 3 then
+				    TurnIntoAlchemist(User,teacherEN)
+				else
+                    User:inform("richtige antwort. text einfügen. zum alchemisten machen.")
 			else
                 SendMessage(User, 
-				            "\"That was the wrong answer. Let's try us an other one.\"", 
+				            "\"That was the wrong answer. Let's try an other one.\"", 
 							"\"Das war die falsche Antwort. Versuchen wir es mit einer anderen.\"", 
 							teacherEN, 
 							true)
@@ -377,17 +176,8 @@ function AskQuestion(User,teacherEN)
 		end
 	end
 	local dialog = SelectionDialog(title, question, callback)
-	--[[for i=1,#answerList do
-		dialog:addOption(0, answerList[i])
-	end]]
-	if (User.lastSpokenText == "apfel") then
-		dialog:addOption(15, answerList[1])
-		dialog:addOption(15, answerList[2])
-		dialog:addOption(15, answerList[3])
-	else
-        dialog:addOption(0, answerList[1])
-		dialog:addOption(0, answerList[2])
-		dialog:addOption(0, answerList[3])	
+	for i=1,#answerList do
+		dialog:addOption(15, answerList[i])
 	end
 	User:requestSelectionDialog(dialog)
 end
@@ -422,47 +212,4 @@ function SendMessage(User, textEN, textDE, teacherEN, questionTrigger)
       	dialog = MessageDialog(titleEN, textEN, callback)
 	end
     User:requestMessageDialog(dialog)
-end	
---[[
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-	-- merung's test land -- 
-	if (string.find(User.lastSpokenText,"teacher")~=nil) then
-	    alchemy.base.teacher.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-	end	
-	
-	if (string.find(User.lastSpokenText,"reset")~=nil) then
-	    User:setQuestprogress(350,0)
-		User:setQuestprogress(351,0)
-		User:setQuestprogress(352,0)
-	end	
-	
-	local myValue
-	local myValue1
-	local myValue2
-	local myInform = ""
-	local myCounter
-	local erwart
-	local std; local a; local b
-	local counterList = {}
-	for i=1,9 do
-	    counterList[i] = {}
-	end	
-	if (string.find(User.lastSpokenText,"vert")~=nil) then
-		a,b,erwart,std = string.find(User.lastSpokenText,"(%d+) (%d+)")
-		std = tonumber(std)
-		erwart = tonumber(erwart)
-		for i=1,100 do
-		    myValue = 10
-			repeat 
-				myValue =Random.normal(erwart,std)
-				myValue = math.floor((myValue + 0.5))
-			until myValue > 0 and myValue < 10
-			myInform = myInform.." "..myValue
-		    
-			table.insert (counterList[myValue],myValue)
-		end	
-		for i=1,9 do
-		    User:inform("["..i.."] = "..#counterList[i])
-		end	
-	end
-end]]
+end	]]
