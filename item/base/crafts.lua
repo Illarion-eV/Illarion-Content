@@ -398,7 +398,7 @@ function Craft:craftItem(user, productId, toolItem)
     local skill = self:getSkill(user)
     
     if product.difficulty > skill then
-        debug("difficulty: " .. product.difficulty .. ", skill: " .. skill)
+        debug("product: " .. productId .. ", item: " .. product.item .. ", difficulty: " .. product.difficulty .. ", skill: " .. skill)
         base.common.InformNLS(user,
         "Du bist nicht fähig genug um das zu tun.",
         "You are not skilled enough to do this.")
