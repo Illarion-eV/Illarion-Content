@@ -152,9 +152,9 @@ function Craft:showDialog(user, source)
             local productId = listIdToProductId[listId]
             self:craftItem(user, productId, source)
         elseif result == CraftingDialog.playerCraftingAborted then
-            user:inform("Crafting aborted!")
+            self:swapToInactiveItem(user)
         else
-            user:inform("Dialog closed!")
+            -- user:inform("Dialog closed!")
         end
     end
     local dialog = CraftingDialog(self:getName(user), callback)
@@ -189,6 +189,7 @@ function Craft:allowCrafting(user, source)
         return false
     end
 
+    self:swapToActiveItem(user)
     return true
 end
 
@@ -417,11 +418,13 @@ function Craft:craftItem(user, productId, toolItem)
         base.common.InformNLS(user,
         "Du bist nicht fähig genug um das zu tun.",
         "You are not skilled enough to do this.")
+        self:swapToInactiveItem(user)
         return
     end
     
     local foodOK, neededFood = self:checkRequiredFood(user, product.foodConsumption, product.difficulty)
     if not foodOK then
+        self:swapToInactiveItem(user)
         return
     end
 
@@ -431,6 +434,8 @@ function Craft:craftItem(user, productId, toolItem)
         base.common.GetHungry(user, neededFood)
         user:learn(self.leadSkill, product:getCraftingTime(skill), product.learnLimit)
     end
+
+    self:swapToInactiveItem(user)
 end
 
 function Craft:createItem(user, productId, toolItem)
