@@ -194,7 +194,7 @@ product = carpentery:addProduct(catId, 293, 30, 50, 12, 24, 10)
 product:addIngredient(56, 2) -- Bough: 2x1
 
 --Arrow
-product = carpentery:addProduct(catId, 64, 10, 30, 7, 14, 20)
+product = carpentery:addProduct(catId, 64, 10, 30, 7, 14, 10)
 product:addIngredient(56) -- Bough: 1x1
 
 --Bolt
@@ -202,7 +202,7 @@ product = carpentery:addProduct(catId, 237, 30, 50, 12, 24, 10)
 product:addIngredient(56) -- Bough: 1x1
 
 --Wind Arrows
-product = carpentery:addProduct(catId, 322, 90, 110, 27, 54, 100)
+product = carpentery:addProduct(catId, 322, 90, 110, 27, 54, 10)
 product:addIngredient(56) -- Bough: 1x1
 product:addIngredient(2551) -- Pure Air: 1x1
 
