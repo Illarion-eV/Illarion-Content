@@ -13,6 +13,8 @@ function InitCraftingTool( )
         InitStartedOnce = true;
 
         carpentery = item.base.crafts.Craft:new{
+                              craftEN = "carpentry",
+                              craftDE = "Schreinern",
                               leadSkill = Character.carpentry,
                               defaultFoodConsumption = 200,
                               sfx = 14,
