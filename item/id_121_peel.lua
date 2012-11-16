@@ -5,7 +5,7 @@
 require("item.general.wood")
 require("item.base.crafts")
 
-module("item.id_121_peel", package.seeall, package.seeall(item.general.wood))
+module("item.id_121_peel", package.seeall)
 
 -- Backprodukte Initieren
 function InitCraftingTool( )
