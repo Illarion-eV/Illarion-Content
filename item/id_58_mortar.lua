@@ -53,7 +53,7 @@ product:addIngredient(52) -- Water bucket: 1x1
 end --function
 
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DONT EDIT THIS LINE!
+function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)  -- DONT EDIT THIS LINE!
     -- for the alchemy system
 	if (base.common.GetFrontItemID(User) == 550) or (base.common.GetFrontItemID(User) == 551) then
 	    CreateHerbalGemDust(User, SourceItem)
@@ -62,7 +62,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
 	-- end
 	
 	local Mortar = InitCraftingTool()
-    Mortar:showDialog(User, Sourceitem)
+    Mortar:showDialog(User, SourceItem)
 end 
 
 function CreateHerbalGemDust(User, SourceItem)
