@@ -24,7 +24,7 @@ function InitCraftingTool( )
         carpentry:addTool(725) -- workbench
         
         --------------------------------------------------------------------------------------------
-        local catId = carpentry:AddCategory( 2715 ) -- Tools and Other Items
+        local catId = carpentry:addCategory("tools", "Werkzeuge") -- Tools and Other Items
     
      --Slicer
 local product = carpentry:addProduct(catId, 2715, 0, 20, 5, 10)
@@ -72,7 +72,7 @@ product:addIngredient(2716, 3) -- Apple Wooden Boards: 3x1
 product = carpentry:addProduct(catId, 121, 21, 41, 10, 20)
 product:addIngredient(2716, 2) -- Apple Wooden Boards: 2x1
 
-catId = carpentry:AddCategory( 2646 ) --bows
+catId = carpentry:addCategory("bows", "Bögen") --bows
 
 --Shortbow
 product = carpentry:addProduct(catId, 65, 20, 40, 10, 20)
@@ -117,7 +117,7 @@ product:addIngredient(50, 2) -- Thread: 2x1
 product:addIngredient(2551) -- Pure Air: 1x1
 product:addIngredient(284, 2) -- Bluestone: 2x1
 
-catId = carpentry:AddCategory( 90 ) --instruments
+catId = carpentry:addCategory("instruments", "Instrumente") --instruments
 
 --Horn
 product = carpentry:addProduct(catId, 333, 10, 20, 7, 14)
@@ -146,7 +146,7 @@ product = carpentry:addProduct(catId, 332, 60, 70, 17, 34)
 product:addIngredient(545, 5) -- Cherry Wooden Boards: 5x1
 product:addIngredient(51, 3) -- Thread: 3x1
 
-catId = carpentry:AddCategory( 18 ) --shields
+catId = carpentry:addCategory("shields", "Schilde") --shields
 
 --Small wooden Shield
 product = carpentry:addProduct(catId, 2445, 10, 30, 7, 14)
@@ -229,7 +229,7 @@ product:addIngredient(2547, 3) -- Leather: 3x1
 product:addIngredient(2551) -- Pure Air: 1x1
 product:addIngredient(284, 5) -- Bluestone: 5x1
 
-catId = carpentry:AddCategory( 2194 ) -- leggings
+catId = carpentry:addCategory("greaves", "Beinschienen")
 
 --Short Hardwood Greaves
 product = carpentry:addProduct(catId, 2194, 30, 50, 12, 24)
