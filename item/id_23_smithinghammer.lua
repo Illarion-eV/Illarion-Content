@@ -16,6 +16,8 @@ function InitCraftingTool( )
                               craftDE = "Schmieden",
                               leadSkill = Character.smithing,
                               defaultFoodConsumption = 300,
+                              sfx = 8,
+                              sfxDuration = 15,
                             }
 
         smithing:addTool(172); -- anvil

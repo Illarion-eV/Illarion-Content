@@ -35,6 +35,8 @@ Craft = {
     toolLink = {},
 
     defaultFoodConsumption = 500,
+    sfx = 0,
+    sfxDuration = 0,
 }
 
 
@@ -46,6 +48,7 @@ Usage: myCraft = Craft:new{ craftEN = "CRAFT_EN",
                             craftDE = "CRAFT_DE",
                             leadSkill = SKILL,
                             [defaultFoodConsumption = FOOD,]
+                            [sfx = SFX, sfxDuration = DURATION,]
                           }
 --]]
 
@@ -160,7 +163,7 @@ function Craft:showDialog(user, source)
             -- user:inform("Dialog closed!")
         end
     end
-    local dialog = CraftingDialog(self:getName(user), callback)
+    local dialog = CraftingDialog(self:getName(user), self.sfx, self.sfxDuration, callback)
     self:loadDialog(dialog, user)
     user:requestCraftingDialog(dialog)
 end
