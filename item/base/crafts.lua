@@ -37,6 +37,8 @@ Craft = {
     defaultFoodConsumption = 500,
     sfx = 0,
     sfxDuration = 0,
+
+    fallbackCraft = nil,
 }
 
 
@@ -49,6 +51,7 @@ Usage: myCraft = Craft:new{ craftEN = "CRAFT_EN",
                             leadSkill = SKILL,
                             [defaultFoodConsumption = FOOD,]
                             [sfx = SFX, sfxDuration = DURATION,]
+                            [fallbackCraft = CRAFTWITHSAMEHANDTOOL,]
                           }
 --]]
 
@@ -129,6 +132,10 @@ end
 
 function Craft:showDialog(user, source)
     if not self:allowCrafting(user, source) then
+        if self.fallbackCraft then
+            self.fallbackCraft:showDialog(user, source)
+        end
+
         return
     end
 
@@ -396,19 +403,25 @@ end
 function Craft:locationFine(user)
     local staticTool = base.common.GetFrontItemID(user)
     if self.activeTool[staticTool] then
-        base.common.InformNLS(user,
-        "Hier arbeitet schon jemand.",
-        "Someone is working here already.")
+        if not self.fallbackCraft then
+            base.common.InformNLS(user,
+            "Hier arbeitet schon jemand.",
+            "Someone is working here already.")
+        end
         return false
     elseif not self.tool[staticTool] then
-        base.common.InformNLS(user,
-        "Hier kannst du nicht arbeiten.",
-        "You cannot work here.")
+        if not self.fallbackCraft then
+            base.common.InformNLS(user,
+            "Hier kannst du nicht arbeiten.",
+            "You cannot work here.")
+        end
         return false
     elseif base.common.GetFrontItem(user).id == 359 and base.common.GetFrontItem(user).quality == 100 then
-        base.common.InformNLS(user,
-        "Aus irgendeinem Grund liefert die Flamme nicht die benoetigte Hitze.",
-        "For some reason the flame does not provide the required heat.")
+        if not self.fallbackCraft then
+            base.common.InformNLS(user,
+            "Aus irgendeinem Grund liefert die Flamme nicht die benoetigte Hitze.",
+            "For some reason the flame does not provide the required heat.")
+        end
         return false
     end
     
