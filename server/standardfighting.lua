@@ -136,7 +136,7 @@ function onAttack(Attacker, Defender)
     ShowEffects(Attacker, Defender, Globals);
     
     -- Teach the attacker the skill he earned for his success
-    LearnSucess(Attacker, Defender, APreduction)
+    LearnSuccess(Attacker, Defender, APreduction)
 end;
 
 --------------------------------------------------------------------------------
@@ -710,22 +710,12 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnDodge(Attacker, Defender, AP)
-    --leadAttribName=getLeadAttrib("dodge");
-    if (Attacker.skill >= Defender.dodge - 10) then
-            --Defender.Char:learn(5, "dodge", 2,base.common.Limit(Attacker.skill + 10, 0, 100 ));
-        server.learn.learn(Defender.Char,"dodge", 5, AP, base.common.Limit(Attacker.skill + 10, 0, 100 ) );
-    end;
-    
-    --leadAttribName=getLeadAttrib()
-    
-    if (Defender.dodge >= Attacker.skill - 10) then
-            --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
-        server.learn.learn(Attacker.Char,Attacker.Skillname, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
-    end;
+    -- Devide AP by four, since you can learn four skills with one AP reduction while fighting
+    Defender.Char:learn(Character.dodge, AP/4, Attacker.skill + 10)
+    Attacker.Char:learn(Attacker.Skillname, AP/4, Defender.dodge + 10)
     
     if base.common.Chance(0.25) then
-            --Attacker.Char:learn(5, "tactics", 1, 100);
-        server.learn.learn(Attacker.Char,"tactics", 5, AP, 100);
+        Attacker.Char:learn(Character.tactics, AP/4, 100);
     end;
 end;
 
@@ -734,15 +724,11 @@ end;
 -- attack skill as well as the tactics skill.
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
-function LearnSucess(Attacker, Defender, AP)
-    if (math.max(Defender.dodge, Defender.parry) >= Attacker.skill - 10) then
-            --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
-        server.learn.learn(Attacker.Char, Attacker.Skillname, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
-    end;
+function LearnSuccess(Attacker, Defender, AP)
+    Attacker.Char:learn(Attacker.Skillname, AP/4, math.max(Defender.dodge, Defender.parry) + 10)
     
     if base.common.Chance(0.33) then
-            --Attacker.Char:learn(5, "tactics", 1, 100);
-        server.learn.learn(Attacker.Char,"tactics", 5, AP, 100);
+        Attacker.Char:learn(Character.tactics, AP/4, 100)
     end;
 end;
 
@@ -752,19 +738,11 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnParry(Attacker, Defender, AP)
-    if (Attacker.skill >= Defender.parry - 10) then
-            --Defender.Char:learn(5, "parry", 2,base.common.Limit(Attacker.skill + 10, 0, 100 ));
-        server.learn.learn(Defender.Char,Character.parry, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
-    end;
-        
-    if (Defender.parry >= Attacker.skill - 10) then
-            --Attacker.Char:learn(5, Attacker.Skillname, 2,base.common.Limit(Defender.dodge + 10, 0, 100 ));
-        server.learn.learn(Attacker.Char,Attacker.Skillname, AP, base.common.Limit(Defender.dodge + 10, 0, 100 ));
-    end;
+    Defender.Char:learn(Character.parry, AP/4, Attacker.skill + 10)
+    Attacker.Char:learn(Attacker.Skillname, AP/4, Defender.parry + 10)
         
     if base.common.Chance(0.25) then
-            --Attacker.Char:learn(5, "tactics", 1, 100);
-        server.learn.learn(Attacker.Char,"tactics", 5, AP, 100);
+        Attacker.Char:learn(Character.tactics, AP/4, 100)
     end;
 end;
 
