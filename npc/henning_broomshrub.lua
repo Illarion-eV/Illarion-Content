@@ -33,7 +33,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is a thimblerig. You can see him shuffling three nuts over and over again. Say 'I bet.' to play for a silver coin. Then, say 'right', 'left' or 'middle' to choose a nut."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is a thimblerig. You can see him shuffling three nuts over and over again. Say 'I bet.' to play for ten silver coins. Then, say 'right', 'left' or 'middle' to choose a nut."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -236,7 +236,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("~=", 0));
 talkEntry:addTrigger("bet");
-talkEntry:addResponse("You already betted, choose a nut: Left, middle or right?");
+talkEntry:addResponse("You already bet, choose a nut: Left, middle or right?");
 talkEntry:addResponse("You still have to choose a nut. Left, middle or maybe right?");
 talkEntry:addResponse("I await your decision. Under which nut might the ball be hidden?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -244,10 +244,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 0));
-talkEntry:addCondition(npc.base.condition.money.money("<", 100));
+talkEntry:addCondition(npc.base.condition.money.money("<", 1000));
 talkEntry:addTrigger("bet");
-talkEntry:addResponse("You don't even have a silver coin.");
-talkEntry:addResponse("You should not bet more than you have. One silver coin, c'mon!");
+talkEntry:addResponse("You don't even have ten silver coins.");
+talkEntry:addResponse("You should not bet more than you have. Ten silver coins, c'mon!");
 talkEntry:addResponse("Are you kiddin' me? Count your money!");
 talkEntry:addResponse("Nice try, chap. Get your money before we play, right?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -255,7 +255,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 0));
-talkEntry:addCondition(npc.base.condition.money.money(">", 99));
+talkEntry:addCondition(npc.base.condition.money.money(">", 999));
 talkEntry:addTrigger("bet");
 talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the left one.");
 talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the right one.");
@@ -263,7 +263,7 @@ talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He 
 talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You have no clue where the ball is now.");
 talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. The ball might be anywhere, his hands were too fast for you.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(21, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -289,7 +289,7 @@ talkEntry:addResponse("#me lifts the nut. You see... a ball! You won twice your 
 talkEntry:addResponse("We have a winner! Here, the ball was under your nut. Take your won money.");
 talkEntry:addResponse("#me curses as he lifts the nut and a ball can be seen. You win twice your bet!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -318,7 +318,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 0));
-talkEntry:addCondition(npc.base.condition.money.money("<", 100));
+talkEntry:addCondition(npc.base.condition.money.money("<", 1000));
 talkEntry:addTrigger("setze");
 talkEntry:addTrigger("wette");
 talkEntry:addTrigger("setz");
@@ -331,7 +331,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 0));
-talkEntry:addCondition(npc.base.condition.money.money(">", 99));
+talkEntry:addCondition(npc.base.condition.money.money(">", 999));
 talkEntry:addTrigger("setze");
 talkEntry:addTrigger("wette");
 talkEntry:addTrigger("setz");
@@ -341,7 +341,7 @@ talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nu
 talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du hast keine Ahnung, wo die Kugel nun ist.");
 talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Die Kugel könnte überall sein, so schnell waren seine Hände.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(21, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -367,7 +367,7 @@ talkEntry:addResponse("#me hebt die Nuß. Du siehst... eine Kugel! Du hast deinen
 talkEntry:addResponse("Wir haben einen Gewinner! Hier, die Kugel war unter deiner Nuß. Nimm dein gewonnenes Geld.");
 talkEntry:addResponse("#me flucht als er die Nuß anhebt und eine Kugel zum Vorschein kommt. Du gewinnst deinen doppelten Einsatz.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -427,7 +427,7 @@ talkEntry:addTrigger("betting");
 talkEntry:addTrigger("gambling");
 talkEntry:addTrigger("game");
 talkEntry:addTrigger("nuts");
-talkEntry:addResponse("Thimblerig is simple. You bet a silver coin and I place a ball under one of three nuts. I shuffle the nuts and you choose the right one. You get twice the money you bet in case you can follow my hands!");
+talkEntry:addResponse("Thimblerig is simple. You bet ten silver coins and I place a ball under one of three nuts. I shuffle the nuts and you choose the right one. You get twice the money you bet in case you can follow my hands!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

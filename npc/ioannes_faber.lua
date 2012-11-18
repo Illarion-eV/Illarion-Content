@@ -298,7 +298,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("I see you understood the way how you can donate your wealth to the treasury. Next time, donate more! I will mention your name when talking to the queen next time.");
+talkEntry:addResponse("I see that you have learned how you can donate your wealth to the treasury. Next time, donate more! I will mention your name when talking to the queen next time.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
