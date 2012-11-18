@@ -16,8 +16,9 @@ learnLimit: Maximum skill level the user can reach with the triggering action.
 function learn(user, skill, actionPoints, learnLimit)
 
 	leadAttrib = getLeadAttrib(user,skill);
+    local skillName = user:getSkillName(skill)
 	
-	user:inform("learn called: skill: "..skill.." AP: "..actionPoints.." learnLimit: "..learnLimit);
+    user:inform("learn called: skill: "..skillName.." AP: "..actionPoints.." learnLimit: "..learnLimit);
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
 	scalingFactor=1000; --Here, you can mod the learning speed. Higher value=faster ;-)
 	
@@ -47,8 +48,8 @@ function learn(user, skill, actionPoints, learnLimit)
                 user:increaseMinorSkill(skill,minorIncrease); --minimum of 10 actions of 50AP for a swirlie at 5% activity
             else
      			user:increaseMinorSkill(skill,minorIncrease);
-				base.common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit '"..skill.."' steigt von "..skillValue.." auf "..(skillValue+1).."!",
-					"[Level up] Your skill '"..skill.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
+				base.common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit '"..skillName.."' steigt von "..skillValue.." auf "..(skillValue+1).."!",
+					"[Level up] Your skill '"..skillName.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
 				world:gfx(13,user.pos); --swirly!           
 		    end
 
