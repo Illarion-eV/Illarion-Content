@@ -140,7 +140,6 @@ function Craft:showDialog(user, source)
     end
 
     local callback = function(dialog)
-        local world = world
         local result = dialog:getResult()
         if result == CraftingDialog.playerCrafts then
             local listId = dialog:getCraftableIndex() + 1
