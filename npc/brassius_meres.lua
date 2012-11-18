@@ -26,7 +26,6 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.brassius_meres", package.seeall)
 
@@ -38,42 +37,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(109, ">", 6));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Error] Something went wrong, please inform a developer."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(34, "=", 1));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Congratulations! You have just earned your first rank points! Rank points are a measure of your personal standing within a faction. You will often be rewarded with rank points for completing quests for members of a particular faction."));
-talkEntry:addResponse("Ah...Elegor sent you, did he? Very good. I am Brassius Meres, town guard of Runewick. It is a true honour to be able to welcome you into our beloved town. I can already tell that you shall be a valuable member of our society. Return to Elegor, now, and he will help you along.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(34, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(34, "=", 1));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("GERMAN"));
-talkEntry:addResponse("GERMAN");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(34, "=", 2));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(34, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger(".+");
-talkEntry:addResponse("Go speak with Elegor Ningwil once again. He is waiting for you beside the teleporter, remember?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(34, "=", 2));
-talkEntry:addTrigger(".+");
-talkEntry:addResponse("GERMAN");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,9 +279,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 30 copper coins."));
-talkEntry:addResponse("#me quickly grabs the fruit, handing over a small purse of coins: 'Thank you kindly!'. He takes a large bite and stuffs the apples into his bag as he chews.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 30));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded three silver coins."));
+talkEntry:addResponse("#me quickly grabs the fruit, handing over a small purse of coins: 'Thank you kindly!'. He takes a large bite and stuffs the other apples into his bag as he chews.");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 300));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -330,7 +293,7 @@ talkEntry:addCondition(npc.base.condition.item.item(15, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 30 Kupferstücke."));
 talkEntry:addResponse("#me reißt die Äpfel an sich und übergibt beiläufig eine Geldbeutel: 'Vielen Dank!'. Er beißt genüßlich ab und verstaut die Äpfel kauend in einem Beutel.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 30));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 300));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(15, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -421,9 +384,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(109, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(64, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 100 copper coins."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins."));
 talkEntry:addResponse("#me slides the arrows into his quiver, nodding in thanks, 'These shall do perfectly, thank you. I hope that this shall suffice as compensation.'");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(64, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -435,7 +398,7 @@ talkEntry:addCondition(npc.base.condition.item.item(64, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
 talkEntry:addResponse("#me steckt die Pfeile in seinen Köcher, dankbar nickend: 'Das sollte erstmal genug sein, habt dank. Ich hoffe, dies reicht euch als Entlohnung.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 100));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(64, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(109, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1270,11 +1233,9 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("My apologies, but I am on duty. I cannotwith you at the moment.");
-talkEntry:addResponse("I do not wish towith you.");
+talkEntry:addResponse("My apologies, but I am on duty. I cannot trade with you at the moment.");
+talkEntry:addResponse("I do not wish to trade with you.");
 talkEntry:addResponse("#me holds his hand up, shaking his head: 'Not while I'm on duty, thank you.'");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

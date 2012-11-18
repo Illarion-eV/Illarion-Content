@@ -519,7 +519,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Francois");
 talkEntry:addTrigger("Delacroix");
-talkEntry:addResponse("Do you need something? Chances are I selling it.");
+talkEntry:addResponse("Do you need something? Chances are I sell it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
