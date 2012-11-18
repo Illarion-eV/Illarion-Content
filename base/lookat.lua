@@ -162,7 +162,11 @@ function GenerateItemLookAtFromId(user, itemId, data)
 	if not base.common.IsNilOrEmpty(usedDescription) then
 		lookAt.description = usedDescription;
 	end;
-	
+
+    local itemCommon = world:getItemStatsFromId(item.id)
+	lookAt.weight = itemCommon.Weight
+    lookAt.worth = itemCommon.Worth
+
 	return lookAt;
 end;
 
