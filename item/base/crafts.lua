@@ -467,6 +467,14 @@ function Craft:createItem(user, productId, toolItem)
     end
 
     local quality = self:generateQuality(user, productId, toolItem)
+
+    local itemStats = world:getItemStatsFromId(product.item)
+    if itemStats.isStackable then
+        product.data.craftedBy = nil
+    else
+        product.data.craftedBy = user.name
+    end
+
     local notCreatedAmount = user:createItem(product.item, product.quantity, quality, product.data)
     local createdEverything = true
 
