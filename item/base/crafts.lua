@@ -210,15 +210,17 @@ end
 function Craft:getProductLookAt(user, productId)
     local product = self.products[productId]
     local item = product.item
+    local quantity = product.quantity
     local data = product.data
-    return base.lookat.GenerateItemLookAtFromId(user, item, data)
+    return base.lookat.GenerateItemLookAtFromId(user, item, quantity, data)
 end
 
 function Craft:getIngredientLookAt(user, productId, ingredientId)
     local ingredient = self.products[productId].ingredients[ingredientId]
     local item = ingredient.item
+    local quantity = ingredient.quantity
     local data = ingredient.data
-    return base.lookat.GenerateItemLookAtFromId(user, item, data)
+    return base.lookat.GenerateItemLookAtFromId(user, item, quantity, data)
 end
 
 function Craft:getName(user)

@@ -89,7 +89,7 @@ function GenerateLookAt(user, item, material)
 		end;
 		
 		lookAt.weight = itemCommon.Weight;
-		lookAt.worth = itemCommon.Worth;
+		lookAt.worth = item.number * itemCommon.Worth;
 		
         if material > NONE then
             local itemDura = math.mod(item.quality, 100);
@@ -126,7 +126,7 @@ function GenerateLookAt(user, item, material)
 	return lookAt;
 end;
 
-function GenerateItemLookAtFromId(user, itemId, data)
+function GenerateItemLookAtFromId(user, itemId, stackSize, data)
 	local lookAt = ItemLookAt();
 	local isGerman = (user:getPlayerLanguage() == Player.german);
 	data = data or {};
@@ -165,7 +165,7 @@ function GenerateItemLookAtFromId(user, itemId, data)
 
     local itemCommon = world:getItemStatsFromId(itemId)
 	lookAt.weight = itemCommon.Weight
-    lookAt.worth = itemCommon.Worth
+    lookAt.worth = stackSize * itemCommon.Worth
 
 	return lookAt;
 end;
