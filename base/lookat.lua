@@ -88,7 +88,7 @@ function GenerateLookAt(user, item, material)
 			lookAt.craftedBy = craftedByData;
 		end;
 		
-		lookAt.weight = itemCommon.Weight;
+		lookAt.weight = item.number * itemCommon.Weight;
 		lookAt.worth = item.number * itemCommon.Worth;
 		
         if material > NONE then
@@ -164,7 +164,7 @@ function GenerateItemLookAtFromId(user, itemId, stackSize, data)
 	end;
 
     local itemCommon = world:getItemStatsFromId(itemId)
-	lookAt.weight = itemCommon.Weight
+	lookAt.weight = stackSize * itemCommon.Weight
     lookAt.worth = stackSize * itemCommon.Worth
 
 	return lookAt;
