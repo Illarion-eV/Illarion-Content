@@ -20,7 +20,7 @@ GenericDuraEn[2]={"brand new","new"     ,"almost new","used","slightly scratched
 GenericDuraEn[3]={"brand new","new"     ,"almost new","used","slightly torn"     ,"torn"     ,"highly torn"     ,"old","threadbare","torn"          };
 GenericDuraEn[4]={"sparkling","shiny"    ,"glittery","used","slightly scraped","scraped"  ,"highly scraped"  ,"old","tarnished" ,"fragile"};
 
-GenericDuraLm={90,80,70,60,50,40,30,15,0};
+GenericDuraLm={99,89,79,69,59,49,39,29,19,9};
 
 NONE = 0;
 METAL = 1;
@@ -102,12 +102,14 @@ function GenerateLookAt(user, item, material)
                     break;
                 end
             end
+
+            local qualIndex = 10 - itemQual
             
             if (isGerman) then
-                lookAt.qualityText = GenericQualDe[itemQual];
+                lookAt.qualityText = GenericQualDe[qualIndex];
                 lookAt.durabilityText = GenericDuraDe[material][duraIndex];
             else
-                lookAt.qualityText = GenericQualEn[itemQual];
+                lookAt.qualityText = GenericQualEn[qualIndex];
                 lookAt.durabilityText = GenericDuraEn[material][duraIndex];
             end;
             lookAt.durabilityValue = itemDura + 1;
