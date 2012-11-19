@@ -60,9 +60,11 @@ function init()
 	ki1:bind(1, handler.settile.setTile(position(49,604,0), 6));
 	
 	ki2 = base.lever.Lever(position(54,604,0),false);
-	ki2:bind(0, handler.sendmessagetoplayer.sendMessageToPlayer(Char, "TestGerman","TestEnglish"));
-	ki2:bind(1, handler.sendmessage.sendMessage(position(54,604,0), "TesinGerman","TesinEnglish", 10));
+	--No test-debug-try-shit, please! Please replace with proper messages ~Estralis
+	--ki2:bind(0, handler.sendmessagetoplayer.sendMessageToPlayer(Char, "TestGerman","TestEnglish"));
+	--ki2:bind(1, handler.sendmessage.sendMessage(position(54,604,0), "TesinGerman","TesinEnglish", 10));
 	
+	--Please, please use commentaries! I have no idea why this lever creates money and whether it should be affected by the x10 price change ~Estralis
 	ki3 = base.lever.Lever(position(54,605,0),false);
 	ki3:bind(0, handler.eraseplayeritem.erasePlayerItem(Char, 3076,1));
 	ki3:bind(1, handler.createplayeritem.createPlayerItem(Char, 3076,1));
@@ -88,8 +90,6 @@ function init()
 	openDoor1:bind(1, handler.lockdoor.base.keys.LockDoor(position(558,556,-6)));
 	openDoor1:bind(1, handler.sendmessage.sendMessage(position(538,557,-3), "Ich sperre die Türe zu!","I lock the door!", 10));
 	-- Doors in Halfling Dungeon end -----
-	
-	
 	
 	AddToLevers(elevator1);
 	AddToLevers(elevator2);
