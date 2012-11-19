@@ -165,7 +165,11 @@ function Craft:showDialog(user, source)
             local listId = dialog:getCraftableIndex() + 1
             local listIdToProductId = self.listIdToProductId[user.id]
             local productId = listIdToProductId[listId]
-            self:craftItem(user, productId, source)
+            local skillGain = self:craftItem(user, productId, source)
+            if skillGain then
+                self:refreshDialog(dialog, user)
+            end
+            return skillGain
         elseif result == CraftingDialog.playerCraftingAborted then
             self:swapToInactiveItem(user)
         else
@@ -275,6 +279,11 @@ function Craft:loadDialog(dialog, user)
             table.insert(listIdToProductId, i)
         end
     end
+end
+
+function Craft:refreshDialog(dialog, user)
+    dialog:clearGroupsAndProducts()
+    self:loadDialog(dialog, user)
 end
 
 function Product:getCraftingTime(skill)
@@ -435,6 +444,7 @@ end
 function Craft:craftItem(user, productId, toolItem)
     local product = self.products[productId]
     local skill = self:getSkill(user)
+    local skillGain = false
     
     if product.difficulty > skill then
         base.common.InformNLS(user,
@@ -452,12 +462,18 @@ function Craft:craftItem(user, productId, toolItem)
 
     if self:checkMaterial(user, productId) then
         self:createItem(user, productId, toolItem)
+        
         base.common.ToolBreaks(user, toolItem, true)
         base.common.GetHungry(user, neededFood)
+        
         user:learn(self.leadSkill, product:getCraftingTime(skill), product.learnLimit)
+        local newSkill = self:getSkill(user)
+        skillGain = (newSkill > skill)
     end
 
     self:swapToInactiveItem(user)
+
+    return skillGain
 end
 
 function Craft:createItem(user, productId, toolItem)
