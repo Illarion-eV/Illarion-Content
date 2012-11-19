@@ -250,3 +250,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)  -- DON'
     local carpentry = InitCraftingTool()
     carpentry:showDialog(User, SourceItem)
 end
+
+function LookAtItem(User, Item)
+    world:itemInform(User, Item, base.lookat.GetItemDescription(User, Item, base.lookat.WOOD))
+end
+

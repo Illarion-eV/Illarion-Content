@@ -200,3 +200,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)  -- DONT
     local Smithing = InitCraftingTool()
     Smithing:showDialog(User, SourceItem)
 end
+
+function LookAtItem(User, Item)
+    world:itemInform(User, Item, base.lookat.GetItemDescription(User, Item, base.lookat.METAL))
+end
+

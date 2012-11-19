@@ -71,3 +71,8 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)  -- DONT
     Glassblowing = InitCraftingTool()
     Glassblowing:showDialog(User, SourceItem)
 end
+
+function LookAtItem(User, Item)
+    world:itemInform(User, Item, base.lookat.GetItemDescription(User, Item, base.lookat.JEWELLERY))
+end
+
