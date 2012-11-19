@@ -163,7 +163,7 @@ function GenerateItemLookAtFromId(user, itemId, data)
 		lookAt.description = usedDescription;
 	end;
 
-    local itemCommon = world:getItemStatsFromId(item.id)
+    local itemCommon = world:getItemStatsFromId(itemId)
 	lookAt.weight = itemCommon.Weight
     lookAt.worth = itemCommon.Worth
 
