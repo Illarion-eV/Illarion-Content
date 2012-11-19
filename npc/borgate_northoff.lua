@@ -306,7 +306,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sil[vb]erbran[dt]");
 talkEntry:addResponse("Silverbrand got many kings, but I think King Tiladin is the most important");
-talkEntry:addResponse("Ailverbrand - The dwarven town under the throne of Irmorom, in the middle of the coppermountains. Let us hold up the keepsake.");
+talkEntry:addResponse("Silverbrand - The dwarven town under the throne of Irmorom, in the middle of the coppermountains. Let us hold up the keepsake.");
 talkEntry:addResponse("Silverbrand took each dwarf as citizen those days. Even at night the sound of smithing hammers was hearable they say.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

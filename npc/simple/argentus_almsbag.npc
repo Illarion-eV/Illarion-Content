@@ -101,19 +101,19 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
 "beruf" -> "Ich mag Geld, aber ich mag meinen Beruf nicht."
 english, "job" -> "I like money. But I don't like my job."
 "job" -> "Ich mag Geld, aber ich mag meinen Beruf nicht."
-"tell something" -> "Do you want toor do you want to keep me from working by chattering?", trade
+"tell something" -> "Do you want to change your coin or do you want to keep me from working by gossiping?", trade
 "erzähl was", "erzähl etwas" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Do you want toor do you want to keep me from working by chattering?", trade
+"god" -> "Do you want to change your coin or do you want to keep me from working by gossiping?", trade
 "Gott", "Götter" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Faction stuff
-english, "Runewick" -> "Runewick is such a nice place. You can make lots of money here.", "Do you want toor do you want to keep me from working by chattering?", trade
+english, "Runewick" -> "Runewick is such a nice place. You can make lots of money here.", "Do you want to change your coin or do you want to keep me from working by gossiping?", trade
 "Runewick" -> "Runwick ist ein sehr schöner ort, man kann hier viel Geld machen.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
-english, "Galmair" -> "Galmair is full of corruption and dirt.", "Do you want toor do you want to keep me from working by chattering?", trade
+english, "Galmair" -> "Galmair is full of corruption and dirt.", "Do you want to change your coin or do you want to keep me from working by gossiping?", trade
 "Galmair" -> "Galmair ist voll von Korruption und Dreck.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
-english, "Cadomyr" -> "Cadomyr is Cadomyr.", "Do you want toor do you want to keep me from working by chattering?", trade
+english, "Cadomyr" -> "Cadomyr is Cadomyr.", "Do you want to change your coin or do you want to keep me from working by gossiping?", trade
 "Cadomyr" -> "Cadomyr ist Cadomyr.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Main land factions
@@ -121,7 +121,7 @@ english, "salkama" -> "Salkamar was my home. But I never liked it there."
 "salkama" -> "Salkamar war meine Heimat. Aber dort hat es mir nicht gefallen."
 
 -- Optional: Gobaith
-english, "Gobaith", "Gobiath" -> "Do you want toor do you want to keep me from working by chattering?", trade
+english, "Gobaith", "Gobiath" -> "Do you want to change your coin or do you want to keep me from working by gossiping?", trade
 "Gobaith", "Gobiath" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 ------------------------------------------------------------------------------AC

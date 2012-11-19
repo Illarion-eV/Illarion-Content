@@ -35,6 +35,10 @@ Craft = {
     toolLink = {},
 
     defaultFoodConsumption = 500,
+    sfx = 0,
+    sfxDuration = 0,
+
+    fallbackCraft = nil,
 }
 
 
@@ -46,6 +50,8 @@ Usage: myCraft = Craft:new{ craftEN = "CRAFT_EN",
                             craftDE = "CRAFT_DE",
                             leadSkill = SKILL,
                             [defaultFoodConsumption = FOOD,]
+                            [sfx = SFX, sfxDuration = DURATION,]
+                            [fallbackCraft = CRAFTWITHSAMEHANDTOOL,]
                           }
 --]]
 
@@ -126,14 +132,20 @@ end
 
 function Craft:showDialog(user, source)
     if not self:allowCrafting(user, source) then
+        if self.fallbackCraft then
+            self.fallbackCraft:showDialog(user, source)
+        end
+
         return
     end
 
     local callback = function(dialog)
         local result = dialog:getResult()
         if result == CraftingDialog.playerCrafts then
-            local item = dialog:getCraftableIndex() + 1
-            local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, item)
+            local listId = dialog:getCraftableIndex() + 1
+            local listIdToProductId = self.listIdToProductId[user.id]
+            local productId = listIdToProductId[listId]
+            local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId)
             if canWork then
                 self:swapToActiveItem(user)
             end
@@ -160,7 +172,7 @@ function Craft:showDialog(user, source)
             -- user:inform("Dialog closed!")
         end
     end
-    local dialog = CraftingDialog(self:getName(user), callback)
+    local dialog = CraftingDialog(self:getName(user), self.sfx, self.sfxDuration, callback)
     self:loadDialog(dialog, user)
     user:requestCraftingDialog(dialog)
 end
@@ -198,15 +210,17 @@ end
 function Craft:getProductLookAt(user, productId)
     local product = self.products[productId]
     local item = product.item
+    local quantity = product.quantity
     local data = product.data
-    return base.lookat.GenerateItemLookAtFromId(user, item, data)
+    return base.lookat.GenerateItemLookAtFromId(user, item, quantity, data)
 end
 
 function Craft:getIngredientLookAt(user, productId, ingredientId)
     local ingredient = self.products[productId].ingredients[ingredientId]
     local item = ingredient.item
+    local quantity = ingredient.quantity
     local data = ingredient.data
-    return base.lookat.GenerateItemLookAtFromId(user, item, data)
+    return base.lookat.GenerateItemLookAtFromId(user, item, quantity, data)
 end
 
 function Craft:getName(user)
@@ -393,19 +407,25 @@ end
 function Craft:locationFine(user)
     local staticTool = base.common.GetFrontItemID(user)
     if self.activeTool[staticTool] then
-        base.common.InformNLS(user,
-        "Hier arbeitet schon jemand.",
-        "Someone is working here already.")
+        if not self.fallbackCraft then
+            base.common.InformNLS(user,
+            "Hier arbeitet schon jemand.",
+            "Someone is working here already.")
+        end
         return false
     elseif not self.tool[staticTool] then
-        base.common.InformNLS(user,
-        "Hier kannst du nicht arbeiten.",
-        "You cannot work here.")
+        if not self.fallbackCraft then
+            base.common.InformNLS(user,
+            "Hier kannst du nicht arbeiten.",
+            "You cannot work here.")
+        end
         return false
     elseif base.common.GetFrontItem(user).id == 359 and base.common.GetFrontItem(user).quality == 100 then
-        base.common.InformNLS(user,
-        "Aus irgendeinem Grund liefert die Flamme nicht die benoetigte Hitze.",
-        "For some reason the flame does not provide the required heat.")
+        if not self.fallbackCraft then
+            base.common.InformNLS(user,
+            "Aus irgendeinem Grund liefert die Flamme nicht die benoetigte Hitze.",
+            "For some reason the flame does not provide the required heat.")
+        end
         return false
     end
     
@@ -449,6 +469,14 @@ function Craft:createItem(user, productId, toolItem)
     end
 
     local quality = self:generateQuality(user, productId, toolItem)
+
+    local itemStats = world:getItemStatsFromId(product.item)
+    if itemStats.MaxStack == 1 then
+        product.data.craftedBy = user.name
+    else
+        product.data.craftedBy = nil
+    end
+
     local notCreatedAmount = user:createItem(product.item, product.quantity, quality, product.data)
     local createdEverything = true
 

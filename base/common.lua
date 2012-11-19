@@ -457,75 +457,52 @@ function GetBonusFromTool(toolItem)
     return 0, 0, 0, 0;
 end;
 
---- Damage a item upon a random try involving the dexterity and the strength of
--- the owner of the item
--- @param User The character who has the item
--- @param theItem The item that might gets damaged
--- @param fast True in case the breaking speed should be faster then usually
--- @return True of the item breaks, false if not
-function ToolBreaks(User, theItem, fast)
-    if not User or not theItem then
+--- Damage an item
+-- @param user The character who has the item
+-- @param item The item that gets damaged
+-- @return true if the item breaks, false if not
+function ToolBreaks(user, item)
+    if not user or not item then
         return false;
     end;
-    local factor;
-    if fast then
-        factor = 0.05;
+
+    local durability = math.mod(item.quality, 100)
+    local quality = (item.quality - durability) / 100
+
+    if durability == 0 then
+        world:erase(item, 1)
+
+        if math.random(1, 100) == 1 then
+            if math.random(1, 2) == 1 then
+                InformNLS(user,
+                    "Das Werkzeug zerbricht. Du bist am Boden zerstört und wirst es sehr vermissen.",
+                    "The tool breaks. You are devastated and will miss it very much.")
+            else
+                InformNLS(user,
+                    "Das Werkzeug zerbricht. Du hast mehr Drama erwartet, aber es ist einfach kaputt.",
+                    "The tool breaks. You expected more drama, but it is just broken.")
+            end
+        else
+            InformNLS(user,
+                "Das Werkzeug zerbricht.",
+                "The tool breaks.")
+        end
+
+        return true
     else
-        factor = 0.093;
-    end;
+        durability = durability - 1
+        item.quality = quality * 100 + durability
+        world:changeItem(item)
+        
+        if durability == 10 then 
+            InformNLS(user,
+                "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+                "The tool looks like it could break soon. You should try to get a new one.")
+        end
+    end
 
-    local      dura = math.mod( theItem.quality, 100 ); -- Dura-Wert zwischen 1 und 99
-    local      qual = (theItem.quality - dura) / 100;   -- Qual-Wert zwischen 1 und 9
-    local durabrake = 0.5 * (100 - dura);               -- Bremse des Duraverlusts bei niedriger Dura
-    local qualbrake = 0.5 * (10  - qual);               -- Bremse beim Senken von Qual, wenn Qual schon niedrig
-
-    --Zerstörung des Werkzeugs bei Minimum an Quality oder niedriger Haltbarkeit
-    if (theItem.quality <= 101) or (dura <=1) then
-        world:erase( theItem, 1 );
-        return true;
-
-        --theItem.quality wird um 1 gesenken (Dura)
-
-    elseif (math.random(95) > (theItem.quality * factor + durabrake)) then
-        gem1, str1, gem2, str2 = GetBonusFromTool(theItem);
-        step = 0;
-        if (gem1 == 1) then         -- diamond increases durability of item
-            step = str1;          -- 1-10
-        end;
-        if (gem2 == 1) then
-            step = step + str2;
-        end;
-        if math.random(1,20) > step then      -- for step 20, it becomes indestructable!
-            dura = dura - 1;
-            theItem.quality = qual * 100 + dura;
-            world:changeItem( theItem );
-
-            if (dura == 20) then
-                InformNLS(User,
-                "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem besseren umschauen.",
-                "The tool looks like it could break soon. You should buy a better one.");
-
-            end;
-        end;
-
-        --the Item.quality wird um 90 gesenkt (Qual-Wechsel mit minimalem Dura-Anstieg auf max 29),
-        --wenn dura < 20. Wird nur bei jeder 10. Aktion abgefragt
-    elseif (math.random(30) > 27) then
-        if ((1 > dura) or (dura < 20)) and (math.random(10) > qual + qualbrake) then
-            if (qual == 1) then
-                world:erase(theItem, 1);
-                return true;
-            end;
-            theItem.quality = qual * 100 + dura - 90;
-            world:changeItem(theItem);
-            InformNLS(User,
-            "Das Werkzeugs erleidet durch dauernde Beanspruchung einen Qualitätsverlust.",
-            "The quality of the tool is lowered by overuse.");
-        end;
-    end;
-
-    return false;
-end;
+    return false
+end
 
 -- Check if a cooldown for an item is expired (e.g. if using it)
 -- Set a new cooldown if the old one is expired (or none set yet)

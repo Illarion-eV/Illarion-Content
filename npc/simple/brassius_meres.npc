@@ -65,12 +65,6 @@ itemShoes = 697
 -- Debugging
 queststatus(109) > 6, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
 
--- Runewick New Player Quest
-queststatus(34) = 1, english, ".+" -> inform("Congratulations! You have just earned your first rank points! Rank points are a measure of your personal standing within a faction. You will often be rewarded with rank points for completing quests for members of a particular faction."), "Ah...Elegor sent you, did he? Very good. I am Brassius Meres, town guard of Runewick. It is a true honour to be able to welcome you into our beloved town. I can already tell that you shall be a valuable member of our society. Return to Elegor, now, and he will help you along.", queststatus(34) = 2, rankpoints + 5
-queststatus(34) = 1, ".+" -> inform("GERMAN"), "GERMAN", queststatus(34) = 2, rankpoints + 5
-queststatus(34) = 2, english, ".+" -> "Go speak with Elegor Ningwil once again. He is waiting for you beside the teleporter, remember?"
-queststatus(34) = 2, ".+" -> "GERMAN"
-
 -- Help
 "Help" -> inform("[Game Help] This NPC is Brassius Meres the Guard. Keywords: hello, quest, profession, Runewick, law, bridge, gods.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Brassius Meres der Wächter. Schlüsselwörter: Hallo, Auftrag, Berufung, Runewick, Brücke, Gesetze, Götter.")
@@ -105,8 +99,8 @@ queststatus(109) = 1, item(15, all) < 5, "task", "adventure" -> "#me's stomach r
 queststatus(109) = 1, item(15, all) < 5, "Auftrag", "Aufgabe", "Abenteuer" -> "#me' Magen knurrt: 'Mit fünf Äpfeln im Magen würde es mir weit besser gehen, wenn ihr einen Moment Zeit dafür habt.'"
 
 -- Quest 1 solved, reward: 30cp
-queststatus(109) = 1, item(15, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 30 copper coins."), "#me quickly grabs the fruit, handing over a small purse of coins: 'Thank you kindly!'. He takes a large bite and stuffs the apples into his bag as he chews.", money + 30, deleteItem(15, 5), queststatus(109) = 2
-queststatus(109) = 1, item(15, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 30 Kupferstücke."), "#me reißt die Äpfel an sich und übergibt beiläufig eine Geldbeutel: 'Vielen Dank!'. Er beißt genüßlich ab und verstaut die Äpfel kauend in einem Beutel.", money + 30, deleteItem(15, 5), queststatus(109) = 2
+queststatus(109) = 1, item(15, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded three silver coins."), "#me quickly grabs the fruit, handing over a small purse of coins: 'Thank you kindly!'. He takes a large bite and stuffs the other apples into his bag as he chews.", money + 300, deleteItem(15, 5), queststatus(109) = 2
+queststatus(109) = 1, item(15, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 30 Kupferstücke."), "#me reißt die Äpfel an sich und übergibt beiläufig eine Geldbeutel: 'Vielen Dank!'. Er beißt genüßlich ab und verstaut die Äpfel kauend in einem Beutel.", money + 300, deleteItem(15, 5), queststatus(109) = 2
 
 -- 2nd quest: Bring 10 ARROWS (64)
 
@@ -123,8 +117,8 @@ queststatus(109) = 3, item(64, all) < 10, "task", "adventure" -> "#me glances at
 queststatus(109) = 3, item(64, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "#me starrt naserümpfend auf seinen leeren Köcher: 'Ich brauche dringend zehn Pfeile, wenn es euch nichts ausmacht."
 
 -- Quest 2 solved, reward: 100cp
-queststatus(109) = 3, item(64, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), "#me slides the arrows into his quiver, nodding in thanks, 'These shall do perfectly, thank you. I hope that this shall suffice as compensation.'", money + 100, deleteItem(64, 10), queststatus(109) = 4
-queststatus(109) = 3, item(64, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "#me steckt die Pfeile in seinen Köcher, dankbar nickend: 'Das sollte erstmal genug sein, habt dank. Ich hoffe, dies reicht euch als Entlohnung.", money + 100, deleteItem(64, 10), queststatus(109) = 4
+queststatus(109) = 3, item(64, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), "#me slides the arrows into his quiver, nodding in thanks, 'These shall do perfectly, thank you. I hope that this shall suffice as compensation.'", money + 500, deleteItem(64, 10), queststatus(109) = 4
+queststatus(109) = 3, item(64, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "#me steckt die Pfeile in seinen Köcher, dankbar nickend: 'Das sollte erstmal genug sein, habt dank. Ich hoffe, dies reicht euch als Entlohnung.", money + 500, deleteItem(64, 10), queststatus(109) = 4
 
 -- 3rd quest: Bring 10 FUR (2586)
 
@@ -241,7 +235,7 @@ english, "Zhambra" -> "The God of Friendship and Loyalty is one of my patron dei
 "Zhambra" -> "Der Gott der Freundschaft und Loyalität ist einer meiner Schutzgötter. Er hält seine schützende Hand über mich, solange ich fromm bleibe.", "Ich verehre Zhambra und kann es kaum erwarten, dass er mich eines Tages in die Ewigkeit geleiten wird.", "Loyalität ist unerläßlich für einen Mann in meiner Position. Und der Herr Zhambra leitet meine Hand."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "My apologies, but I am on duty. I cannotwith you at the moment.", "I do not wish towith you.", "#me holds his hand up, shaking his head: 'Not while I'm on duty, thank you.'", trade, trade
+"what sell", "what buy", "list wares", "price of" -> "My apologies, but I am on duty. I cannot trade with you at the moment.", "I do not wish to trade with you.", "#me holds his hand up, shaking his head: 'Not while I'm on duty, thank you.'"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Entschuldigt, ich bin im Dienst, ich kann nicht mit euch handeln.", "Ich möchte nicht mit euch handeln.", "#me hebt die Hand und schüttelt mit dem Kopf: 'Nicht solange ich im Dienst bin.'"
 "tell something" -> "Hm. You look like you could wield a weapon. Perhaps the  Archmage would be interested in your services.", "Have you read the town's laws? It shouldn't be too hard finding a copy.", "I find the tower shield from Salkamar, my homeland, to be the most effective. Not too many weapons can find their way around or through one of them, I tell you."
 "erzähl was", "erzähl etwas" -> "Hm. Ihr seht aus, als wenn ihr eine Waffe tragen könntet. Vielleicht hat der Erzmagier ja Interesse an euren Diensten.", "Habt ihr schon die Gesetze der Stadt gelesen? Es sollte nicht sonderlich schwer sein, eine Ausgabe zu finden.", "Ich finde das die Turmschilde aus Salkamar, meiner Heimat, sehr effektiv sind. Um sie kommt kaum eine Waffe herum, geschweige denn hindurch."

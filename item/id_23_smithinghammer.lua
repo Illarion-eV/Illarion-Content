@@ -16,6 +16,8 @@ function InitCraftingTool( )
                               craftDE = "Schmieden",
                               leadSkill = Character.smithing,
                               defaultFoodConsumption = 300,
+                              sfx = 8,
+                              sfxDuration = 15,
                             }
 
         smithing:addTool(172); -- anvil
@@ -718,3 +720,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     Smithing = InitCraftingTool()
     Smithing:showDialog(User, SourceItem)
 end
+
+function LookAtItem(User, Item)
+    world:itemInform(User, Item, base.lookat.GetItemDescription(User, Item, base.lookat.METAL))
+end
+

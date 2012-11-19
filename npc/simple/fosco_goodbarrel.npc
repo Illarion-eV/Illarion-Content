@@ -128,13 +128,13 @@ queststatus(336) = 1, item(222, all) < 1, "task", "adventure" -> "You've got one
 queststatus(336) = 1, item(222, all) < 1, "Auftrag", "Aufgabe", "Abenteuer" -> "Du hast mir den schwarzen Mantel gebracht, aber ich bräuchte da noch ein Amulett. Keine Sorge, ich werde dafür sorgen, dass du entschädigt wirst."
 
 -- Quest 2 solved, reward: 120cp, strawberry cake
-queststatus(336) = 1, item(2384, all) > 0, item(222, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded 120 copper coins and a strawberry cake."), "Perfect! I shall certainly fool the...audience with this disgui...erm...costume. Oh, righto. Take your money. Here, you must try one of these, too! Just divine!", money + 120, deleteItem(2384, 1), deleteItem(222, 1), item(354, 1, 599), queststatus(336) = 2
-queststatus(336) = 1, item(2384, all) > 0, item(222, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und einen Erbbeerkuchen."), "Großartig! I werde die... Zuschauer sicherlich hereinlegen mit dieser Tarnung...ähm...mit diesem Kostüm. Ah, ja richelig. Nimm dein Geld! Und hier, davon musst du einen probieren! Schmeckt ganz wunderbar!", money + 120, deleteItem(2384, 1), deleteItem(222, 1), item(354, 1, 599), queststatus(336) = 2
+queststatus(336) = 1, item(2384, all) > 0, item(222, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded twelve silver coins and a strawberry cake."), "Perfect! I shall certainly fool the...audience with this disgui...erm...costume. Oh, righto. Take your money. Here, you must try one of these, too! Just divine!", money + 1200, deleteItem(2384, 1), deleteItem(222, 1), item(354, 1, 599), queststatus(336) = 2
+queststatus(336) = 1, item(2384, all) > 0, item(222, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und einen Erbbeerkuchen."), "Großartig! I werde die... Zuschauer sicherlich hereinlegen mit dieser Tarnung...ähm...mit diesem Kostüm. Ah, ja richelig. Nimm dein Geld! Und hier, davon musst du einen probieren! Schmeckt ganz wunderbar!", money + 1200, deleteItem(2384, 1), deleteItem(222, 1), item(354, 1, 599), queststatus(336) = 2
 
 -- No more quests, just nice words of gratitude
-queststatus(336) = 2, english, "quest", "mission" -> "I've got to get busy studying for my new character. Take care, now!"
+queststatus(336) = 2, english, "quest", "mission" -> "I've got to get busy studying for my new role. Take care, now!"
 queststatus(336) = 2, "quest", "mission" -> "Ich muss meine neue Rolle lernen. Lebt wohl!"
-queststatus(336) = 2, "task", "adventure" -> "I've got to get busy studying for my new character. Take care, now!"
+queststatus(336) = 2, "task", "adventure" -> "I've got to get busy studying for my new role. Take care, now!"
 queststatus(336) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich muss mich ranhalten und meine neue Rolle lernen. Lebt wohl!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!

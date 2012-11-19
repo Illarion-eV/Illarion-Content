@@ -20,7 +20,7 @@ GenericDuraEn[2]={"brand new","new"     ,"almost new","used","slightly scratched
 GenericDuraEn[3]={"brand new","new"     ,"almost new","used","slightly torn"     ,"torn"     ,"highly torn"     ,"old","threadbare","torn"          };
 GenericDuraEn[4]={"sparkling","shiny"    ,"glittery","used","slightly scraped","scraped"  ,"highly scraped"  ,"old","tarnished" ,"fragile"};
 
-GenericDuraLm={90,80,70,60,50,40,30,15,0};
+GenericDuraLm={90,80,70,60,50,40,30,20,10,0};
 
 NONE = 0;
 METAL = 1;
@@ -82,35 +82,39 @@ function GenerateLookAt(user, item, material)
 		lookAt.description = usedDescription;
 	end;
 	
-	if ((itemCommon.AgeingSpeed < 255) and (material > NONE)) then
+	if itemCommon.AgeingSpeed < 255 then
 		local craftedByData = item:getData("craftedBy");
-		if base.common.IsNilOrEmpty(craftedByData) then
+		if not base.common.IsNilOrEmpty(craftedByData) then
 			lookAt.craftedBy = craftedByData;
 		end;
 		
-		lookAt.weight = itemCommon.Weight;
-		lookAt.worth = itemCommon.Worth;
+		lookAt.weight = item.number * itemCommon.Weight;
+		lookAt.worth = item.number * itemCommon.Worth;
 		
-		local itemDura = math.mod(item.quality, 100);
-		local itemQual = (item.quality - itemDura) / 100;
-		
-		local duraIndex;
-		for i, duraLimit in pairs(GenericDuraLm) do
-	        if (itemDura >= duraLimit) then
-	            duraIndex = i;
-				break;
-	        end
-	    end
-		
-		if (isGerman) then
-			lookAt.qualityText = GenericQualDe[itemQual];
-			lookAt.durabilityText = GenericDuraDe[material][duraIndex];
-		else
-			lookAt.qualityText = GenericQualEn[itemQual];
-			lookAt.durabilityText = GenericDuraEn[material][duraIndex];
-		end;
-		lookAt.durabilityValue = itemDura + 1;
-		
+        if material > NONE then
+            local itemDura = math.mod(item.quality, 100);
+            local itemQual = (item.quality - itemDura) / 100;
+            
+            local duraIndex;
+            for i, duraLimit in pairs(GenericDuraLm) do
+                if (itemDura >= duraLimit) then
+                    duraIndex = i;
+                    break;
+                end
+            end
+
+            local qualIndex = 10 - itemQual
+            
+            if (isGerman) then
+                lookAt.qualityText = GenericQualDe[qualIndex];
+                lookAt.durabilityText = GenericDuraDe[material][duraIndex];
+            else
+                lookAt.qualityText = GenericQualEn[qualIndex];
+                lookAt.durabilityText = GenericDuraEn[material][duraIndex];
+            end;
+            lookAt.durabilityValue = itemDura + 1;
+		end
+
 		lookAt.diamondLevel = GetGemLevel(item, "magicalDiamond");
 		lookAt.emeraldLevel = GetGemLevel(item, "magicalEmerald");
 		lookAt.rubyLevel = GetGemLevel(item, "magicalRuby");
@@ -124,7 +128,7 @@ function GenerateLookAt(user, item, material)
 	return lookAt;
 end;
 
-function GenerateItemLookAtFromId(user, itemId, data)
+function GenerateItemLookAtFromId(user, itemId, stackSize, data)
 	local lookAt = ItemLookAt();
 	local isGerman = (user:getPlayerLanguage() == Player.german);
 	data = data or {};
@@ -160,7 +164,11 @@ function GenerateItemLookAtFromId(user, itemId, data)
 	if not base.common.IsNilOrEmpty(usedDescription) then
 		lookAt.description = usedDescription;
 	end;
-	
+
+    local itemCommon = world:getItemStatsFromId(itemId)
+	lookAt.weight = stackSize * itemCommon.Weight
+    lookAt.worth = stackSize * itemCommon.Worth
+
 	return lookAt;
 end;
 
