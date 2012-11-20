@@ -197,7 +197,7 @@ mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist dein Tutor Nimbur Goldhand der Schmied.", "This is your tutorial guide Nimbur Goldhand the blacksmith.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
-mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST.", "Please switch the language of your character to the common tongue by DOING THIS AND THAT.");
+mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache mit dem Befehl '!l common'.", "Please switch the language of your character to the common tongue with the command '!l common'.");
 mainNPC:setEquipment(1, 356);
 mainNPC:setEquipment(3, 365);
 mainNPC:setEquipment(11, 196);
