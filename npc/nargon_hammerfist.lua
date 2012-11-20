@@ -200,7 +200,7 @@ mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist dein Tutor Nargon Hammerfist der Bergarbeiter.", "This is your tutorial guide Nargon Hammerfist the miner.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
-mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST.", "Please switch the language of your character to the common tongue by DOING THIS AND THAT.");
+mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache mit dem Befehl '!l common'.", "Please switch the language of your character to the common tongue with the command '!l common'.");
 mainNPC:setEquipment(1, 7);
 mainNPC:setEquipment(3, 2390);
 mainNPC:setEquipment(11, 2419);
