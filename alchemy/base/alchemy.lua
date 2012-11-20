@@ -349,7 +349,7 @@ function CauldronDestruction(User,cauldron,effectId)
 	if effectId == 1 then
 	    world:gfx(1,cauldron.pos)
 		world:makeSound(5,cauldron.pos)
-	    User:inform(Der Inhalt des Kessels verpufft, als du das Kraut hinzu tust.",
+	    User:inform("Der Inhalt des Kessels verpufft, als du das Kraut hinzu tust.",
 		            "The substance in the cauldron blows out, as you put the herb in."
 					)
 	elseif effectId == 2 then
