@@ -438,7 +438,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 						User:inform("#b|0|1008|"..metaEN)
 
 					end
-					base.common.InformNLS(User,"Vorsicht, der Gebrauch dieser Pergamente ist nicht kostenlos. Du bezahlst Dein geheimes Wissen mit dem Verlust anderer Fähigkeiten","Be careful! The usage of these parchments is not for free. You pay for that secret knowledge with the loss of other abilities!")
+					base.common.InformNLS(User,"Vorsicht, der Gebrauch dieser Pergamente ist nicht kostenlos. Du bezahlst dein geheimes Wissen mit dem Verlust anderer Fähigkeiten","Be careful! The usage of these parchments is not for free. You pay for that secret knowledge with the loss of other abilities!")
 				else
 					if User:getPlayerLanguage() == 0 then
 						User:inform("#b|0|1008|Dies Geheimnis bleibe Dir verborgen");

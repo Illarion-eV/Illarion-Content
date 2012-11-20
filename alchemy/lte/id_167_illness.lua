@@ -65,12 +65,12 @@ function Effect_1(Effect,User)
             
 			if not (persistence == 0) and (illnes_status == 3) then -- this inform is only given if you become sick and only once; not while getting better
                base.common.InformNLS( User,
-               "Dir scheint als fühlst Du etwas Pelziges auf Deiner Zunge. Plötzlich spürst Du einen kurzen Stich in Deiner Brust, der schnell wieder nachlässt.",
+               "Dir scheint als fühlst Du etwas Pelziges auf deiner Zunge. Plötzlich spürst Du einen kurzen Stich in deiner Brust, der schnell wieder nachlässt.",
                "It seems to you as if you feel something furry on your tongue. Suddenly, you feel briefly a stitch in your chest, which fades away, fastly.");
 	        end
 	        if (persistence == 0) and (illnes_status == 7) then -- this inform is if you are sick, but you become better! Only one time.
 	            base.common.InformNLS( User,
-               "Der Husten scheint gänzlich abgeklungen zu sein. Nur das penetrante Gefühl von etwas Pelzigem ruht noch auf Deiner Zunge.",
+               "Der Husten scheint gänzlich abgeklungen zu sein. Nur das penetrante Gefühl von etwas Pelzigem ruht noch auf deiner Zunge.",
                "The coughs has faded away finally, it seems. Only the penetrative feeling of something flurry stays on your tongue.");
 	        end
 	
@@ -80,13 +80,13 @@ function Effect_1(Effect,User)
 		    
 			if not (persistence == 0) and (illnes_status == 10) then -- this inform is only given if you become sick and only once; not while getting better
                base.common.InformNLS( User,
-               "Das pelzige Gefühl auf Deiner Zunge nimmt zu und irgendwas fühlt sich in Deinem Körper komisch an. Nach einem Kratzen im Hals musst Du husten und ein Teil Deines Manas verlässt Dich.",
+               "Das pelzige Gefühl auf deiner Zunge nimmt zu und irgendwas fühlt sich in deinem Körper komisch an. Nach einem Kratzen im Hals musst Du husten und ein Teil deines Manas verlässt Dich.",
                "The furry feeling on yout tongue intensiefies and something feels strange in your body. After a having a short sore throat you have to cough and some of your mana leavse you.");
 	           ManaIllnessEffects(User, 100, 0, 0, 0)
 			end
 	        if (persistence == 0) and (illnes_status == 19) then -- this inform is if you are sick, but you become better! Only one time.
 	            base.common.InformNLS( User,
-               "Der Husten wird schwächer und auch Deinem Hals geht es langsam besser, obwohl er noch etwas kratzt. Außerdem scheint Dein Körper wieder die gewohnte Menge an Mana aufnehmen zu können.",
+               "Der Husten wird schwächer und auch deinem Hals geht es langsam besser, obwohl er noch etwas kratzt. Außerdem scheint dein Körper wieder die gewohnte Menge an Mana aufnehmen zu können.",
                "The coughs is getting weaker and also your throat feels better, even if it is still a bit sore. Also, your body seems to be able to hold the usual amount of mana.");
 	        end
 	        
@@ -106,13 +106,13 @@ function Effect_1(Effect,User)
 			
 			if not (persistence == 0) and (illnes_status == 20) then -- this inform is only given if you become sick and only once; not while getting better
                base.common.InformNLS( User,
-               "Der Husten wird stärker. Das Kratzen im Hals ist nun dauerhaft da und Deine Brust schmerzt. Dein Körper scheint nicht mehr in der Lage, die gewohnte Menge an Mana dauerhaft halten zukönnen.",
+               "Der Husten wird stärker. Das Kratzen im Hals ist nun dauerhaft da und deine Brust schmerzt. dein Körper scheint nicht mehr in der Lage, die gewohnte Menge an Mana dauerhaft halten zukönnen.",
                "The cough is getting stronger. Your throat is now permanently sore and your chest hurts. Your body seems no longer to able to hold lastingly the usualy amount of mana.");
 	           ManaIllnessEffects(User, 0, 100, 0, 0)
 			end
 	        if (persistence == 0) and (illnes_status == 29) then -- this inform is if you are sick, but you become better! Only one time.
 	            base.common.InformNLS( User,
-               "Schnupfen und Niesen scheinen verschwunden. Brust und Hals schmerzen noch immer, doch Dein Körper scheint wieder etwas mehr - wenn auch immer noch weniger als gewöhnlich - Mana aufnehmen zu können.",
+               "Schnupfen und Niesen scheinen verschwunden. Brust und Hals schmerzen noch immer, doch dein Körper scheint wieder etwas mehr - wenn auch immer noch weniger als gewöhnlich - Mana aufnehmen zu können.",
                "Snuffle and sneezing seem to be gone. Chest and thorat still ache, but your body seems to be able to hold more - even if still not the usual amount - mana.");
 	        end
 	        
@@ -132,7 +132,7 @@ function Effect_1(Effect,User)
 			
 			if not (persistence == 0) and (illnes_status == 30) then -- this inform is only given if you become sick and only once; not while getting better
                base.common.InformNLS( User,
-               "Schnupfen und Niesen gesellen sich zu Deinem Husten. Die maixmale Manakonzentration in Deinem Körper sinkt nunmehr auf die Hälfte.",
+               "Schnupfen und Niesen gesellen sich zu deinem Husten. Die maixmale Manakonzentration in deinem Körper sinkt nunmehr auf die Hälfte.",
                "Snuffels and sneezing join the coughing. The maximal mana concentration of your body falls henceforth to the half.");
 	           ManaIllnessEffects(User, 0, 0, 100, 0)
 			end
@@ -294,7 +294,7 @@ function getEffect_2(Character,Runde)
    if Runde -(math.floor(Runde/25)*25) == 0 then
 
 --    Enstprechender RP-Text
-      base.common.InformNLS(Character,"Dir wird urplötzlich schlecht, Dein Magen rebelliert und Du musst Dich übergeben.",
+      base.common.InformNLS(Character,"Dir wird urplötzlich schlecht, dein Magen rebelliert und Du musst Dich übergeben.",
                            "You feel sick, your stomache strikes back and you need to puke")
 
 --    Spieler dreht sich ab
@@ -514,7 +514,7 @@ function getEffect_7(Character,Runde)
       Character.movepoints = Character.movepoints -50
 	  if Runde-(math.floor(Runde/30)*30) == 0 then
 		base.common.InformNLS(Character,
-			"Du fühlst Dich fiebrig, dein Puls ist flach, auf Deiner Stirn glänzt kalter Schweiß.",
+			"Du fühlst Dich fiebrig, dein Puls ist flach, auf deiner Stirn glänzt kalter Schweiß.",
 			"You feel febrile, your pulse is low, at your frown cold sweat is shining.");
 	  end
    end
