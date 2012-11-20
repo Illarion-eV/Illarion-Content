@@ -103,7 +103,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 2));
 talkEntry:addTrigger("#s");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Flüstern funktioniert fast wie Schreien. Aktiviere erneut deine Chatbox und schreibe '#w' vor die zu flüsternden Worte."));
-talkEntry:addResponse("Ui, Du hast aber eine kraftvolle Stimme! Schreien kann auch in einiger Entfernung noch hören und es ist nützlich zur Kommunikation mit großen Gruppen oder Personen, die weit weg sind. Manchmal will man allerdings nicht von anderen bei einer privaten Unterhaltung belauscht werden. Bitte flüster mir ein paar geheime Worte zu, die nur für meine Ohren bestimmt sind.");
+talkEntry:addResponse("Ui, du hast aber eine kraftvolle Stimme! Schreien kann auch in einiger Entfernung noch hören und es ist nützlich zur Kommunikation mit großen Gruppen oder Personen, die weit weg sind. Manchmal will man allerdings nicht von anderen bei einer privaten Unterhaltung belauscht werden. Bitte flüster mir ein paar geheime Worte zu, die nur für meine Ohren bestimmt sind.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
