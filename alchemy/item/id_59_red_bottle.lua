@@ -140,7 +140,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			-- water, essence brew or potion is in the cauldron; leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
 			    world:gfx(1,cauldron.pos)
-		        base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Gebräu hinzu tust.", 
+		        base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als Du das Gebräu hinzu tust.", 
 		                                    "The substance in the cauldron blows out, as you fill the mixture in.")
 			    cauldron:setData("cauldronFilledWith","")
 			
@@ -171,7 +171,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
 			    world:gfx(1,cauldron.pos)
-		        base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+		        base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
 		                            "The substance in the cauldron blows out, as you fill the water in.")
 			    cauldron:setData("cauldronFilledWith","")
 			
