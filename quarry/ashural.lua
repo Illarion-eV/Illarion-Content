@@ -416,7 +416,7 @@ npc.base.autonpcfunctions.AddCycleText( "", "#me whispers something inaudible wh
     npc.base.autonpcfunctions.AddTraderTrigger("who might you be","My name is %NPCNAME. And you might be?");
     npc.base.autonpcfunctions.AddTraderTrigger("your name","My name is %NPCNAME. What is your name?");
 -- HELP
-    npc.base.autonpcfunctions.AddTraderTrigger("help","[Game Help]: ((This is a NPC, you can talk to them just like other player characters. NPCs will react to keywords like 'Hello', so listen closely to what they say.))");
+    npc.base.autonpcfunctions.AddTraderTrigger("help","[Game Help]: ((This is an NPC, you can talk to them just like other player characters. NPCs will react to keywords like 'Hello', so listen closely to what they say.))");
     npc.base.autonpcfunctions.AddTraderTrigger("hilfe","[Game Help]: ((Das ist ein NPC, du kannst mit ihnen sprechen wie mit anderen Spielercharakteren. NPCs werden auf Schlüsselwörter wie 'Hallo' reagieren, also achte gut auf das was sie dir sagen.))");
 -- GENERAL
     npc.base.autonpcfunctions.AddTraderTrigger("I[ a']+m new","Nice to meet you, then. I am %NPCNAME, what is your name?");

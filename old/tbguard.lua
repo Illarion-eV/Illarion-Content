@@ -38,7 +38,7 @@ function initializeNpc()
     npc.base.autonpcfunctions.AddCycleText("#me gähnt leicht und hält die Hand vor den Mund.","#me yawns slightly and puts his hand in front of his mouth.");
     npc.base.autonpcfunctions.AddCycleText("#me wischt über seine Rüstung bis diese wieder glänzt.","#me wipes over his armor until it looks shiny again.");
     npc.base.autonpcfunctions.AddCycleText("#me hustet kurz.","#me coughs once.");
-    npc.base.autonpcfunctions.AddTraderTrigger("Help","(( [Help] This is a NPC with the name %NPCNAME. He reacts on: Hello, Who are you, What do you do, Troll's Bane");
+    npc.base.autonpcfunctions.AddTraderTrigger("Help","(( [Help] This is an NPC with the name %NPCNAME. He reacts on: Hello, Who are you, What do you do, Troll's Bane");
     npc.base.autonpcfunctions.AddAdditionalTrigger("Hilfe");
     npc.base.autonpcfunctions.AddCondition("lang","english");
     npc.base.autonpcfunctions.AddTraderTrigger("Help","(( [Hilfe] Das ist ein NPC mit Namen %NPCNAME. Er reagiert auf: Hallo, Wer bist du, Was machst du, Troll's Bane");

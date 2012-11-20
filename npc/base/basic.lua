@@ -144,7 +144,7 @@ function baseNPC:addRecvText(receiver)
     table.insert(self._receiveTextFunctions, receiver);
 end;
 
---- This method has to be called during each next cycle call of a NPC. It
+--- This method has to be called during each next cycle call of an NPC. It
 --- manages and calls the functions registered this NPC. This function will be
 --- removed during its first call. Instead the function originally named
 --- baseNPC:nextCycle2() will take its place and serve its actual purpose.
@@ -172,7 +172,7 @@ function baseNPC:nextCycle(npcChar)
     self.nextCycle2 = nil;
 end;
 
---- This method has to be called during each next cycle call of a NPC. It
+--- This method has to be called during each next cycle call of an NPC. It
 --- manages and calls the functions registered this NPC. This function will be
 --- copied to baseNPC:nextCycle() once the initialization is done.
 --
@@ -360,7 +360,7 @@ function baseNPC:use(npcChar, char)
     end;
 end;
 
---- This equipment sets the equipment a NPC gets at first start. This is needed
+--- This equipment sets the equipment an NPC gets at first start. This is needed
 --- so the NPC looks good with paperdolling.
 --
 --  @param slot the slot the item is to be placed in

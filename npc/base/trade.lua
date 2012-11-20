@@ -1,6 +1,6 @@
 --- Base NPC script for trader NPCs
 --
--- This script offers the functions that are required to turn a NPC into a trader
+-- This script offers the functions that are required to turn an NPC into a trader
 --
 -- Author: Martin Karing
 
