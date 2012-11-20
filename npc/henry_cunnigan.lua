@@ -120,7 +120,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 2));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Um zu schreien, aktiviere bitte durch das Drücken der Enter-Taste die Chatbox. Schreibe '#s' vor die Worte, die du rufen möchtest und drücke erneut die Enter Taste, um deinen Charakter schreien zu lassen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Um zu schreien, aktiviere bitte durch das Drücken der Enter-Taste die Chatbox. Schreibe '#s' vor die Worte, die du rufen möchtest und drücke erneut die Enter-Taste, um deinen Charakter schreien zu lassen."));
 talkEntry:addResponse("Du weißt bereits wie man spricht, aber Schreien kann dir helfen deine Freunde in einsamen Wäldern oder dunklen Verliesen wiederzufinden. Bitte ruf etwas. Lass uns deine Stimme hören! Ich werd auch nicht beleidigt sein, versprochen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
