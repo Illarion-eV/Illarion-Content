@@ -112,7 +112,7 @@ function BrewingGemDust(User,gemDust,cauldron)
 		User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
 	
 	else -- nothing in the cauldron
-	    base.common.InformNLS(User, "Der Edelsteinstaub verflüchtigt sich, als Du ihn in den leeren Kessel schüttest.", 
+	    base.common.InformNLS(User, "Der Edelsteinstaub verflüchtigt sich, als du ihn in den leeren Kessel schüttest.", 
 		                            "The gem dust dissipates, as you fill it into the empty cauldron.")
 	end	
     world:erase(gemDust,1)	

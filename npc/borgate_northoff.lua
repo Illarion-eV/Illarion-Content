@@ -668,7 +668,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Borgate");
 talkEntry:addTrigger("wirt");
 talkEntry:addTrigger("Northoff");
-talkEntry:addResponse("Genau, ich bin hier der Wirt. Was willst Du trinken?");
+talkEntry:addResponse("Genau, ich bin hier der Wirt. Was willst du trinken?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

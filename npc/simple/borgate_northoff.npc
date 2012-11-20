@@ -154,7 +154,7 @@ english, "Ronagan" -> "I don't know much about Ronagan, only that I'll become in
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 "Borgate", "bar", "Northoff" -> "Indeed, I'm the bartender here. What's your order?"
-"Borgate", "wirt", "Northoff" -> "Genau, ich bin hier der Wirt. Was willst Du trinken?"
+"Borgate", "wirt", "Northoff" -> "Genau, ich bin hier der Wirt. Was willst du trinken?"
 "Yes" -> "Arr-h!", "That's the way it's supposed to be!", "Well then!"
 "Ja" -> "Arr-h!", "So soll's sein!", "Aye, das hab ich gern.", "Wenn's unbedingt notwenig ist."
 "No" -> "Arr-h?", "Nevermind.", "Anything else?"

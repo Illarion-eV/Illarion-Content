@@ -124,16 +124,16 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddEnglishBookText("Cooking goes well with farming. You can make some money, selling your food, if you grow your own vegetables and hunt for yourself.",0,0,3);
 
 			base.books.AddGermanBookText("Einfï¿½hrung\nEin paar Worte der Warnung: Kochen macht Spaï¿½, aber es dauert, eh' man ein guter Koch wird.",0,0,3);
-			base.books.AddGermanBookText("Kochen und Feldarbeit passen gut zusammen. Wenn Du dein eigenes Gemï¿½se anbaust und selbst jagst, kannst Du gut zu Geld kommen.",0,0,3);
+			base.books.AddGermanBookText("Kochen und Feldarbeit passen gut zusammen. Wenn du dein eigenes Gemï¿½se anbaust und selbst jagst, kannst du gut zu Geld kommen.",0,0,3);
 
 			base.books.AddEnglishBookText("Many people will be willing to bring you ingredients if you cook for them. A good way to become an appreciated member of your community.",0,0,3);
 			base.books.AddEnglishBookText("A word to the wise. Never undersell your dishes. It's hard enough to get to make them. Do not accept big orders, as you will sweat while the others have fun, adventuring and earning the easy silvers!",0,0,3);
 			base.books.AddEnglishBookText("Here are some of my favourite recipes. Price in coppers are only suggestions.",0,0,3);
 
 
-			base.books.AddGermanBookText("Viele Leute werden dir bereitwillig Zutaten heranschaffen, wenn Du für sie kochst. Ein guter Weg, um ein angesehenes Mitglied in Deiner Gemeinschaft zu werden.",0,0,3);
+			base.books.AddGermanBookText("Viele Leute werden dir bereitwillig Zutaten heranschaffen, wenn du für sie kochst. Ein guter Weg, um ein angesehenes Mitglied in Deiner Gemeinschaft zu werden.",0,0,3);
 			base.books.AddGermanBookText("Ein Wort der Weisheit: Verkaufe deine Gerichte nie unter Preis. Es ist schwer genug sie anzurichten.",0,0,3);
-			base.books.AddGermanBookText("Nimm auch keine Großbestellungen an, da Du sonst schuften muï¿½t, während die anderen Spaï¿½ haben, auf Abenteuer gehen und leicht verdiente Silberlinge einstecken.",0,0,3);
+			base.books.AddGermanBookText("Nimm auch keine Großbestellungen an, da du sonst schuften muï¿½t, während die anderen Spaï¿½ haben, auf Abenteuer gehen und leicht verdiente Silberlinge einstecken.",0,0,3);
 			base.books.AddGermanBookText("Im Folgenden nun einige meiner Lieblingsgerichte. Die angegebenen Preise in Kupfer sind nur ein Vorschlag.",0,0,3);
 
 
@@ -220,7 +220,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddEnglishBookText("I hope you will enjoy these recipes. Just try them for yourselves. Be creative!",0,0,3);
 			base.books.AddEnglishBookText("Also see the volumes about Making Hearty Soups and The Compleat Baker, by the same author",0,0,3);
 
-			base.books.AddGermanBookText("Ich hoffe, dass Du an den Gerichten freude haben wirst. Versuch sie einfach selbst nachzukochen und sei kreativ!",0,0,3);
+			base.books.AddGermanBookText("Ich hoffe, dass du an den Gerichten freude haben wirst. Versuch sie einfach selbst nachzukochen und sei kreativ!",0,0,3);
 			base.books.AddGermanBookText("Weiterfï¿½hrende Bï¿½nde der selben Autorin liegen unter den Titeln: 'Kochen herzhafter Suppen' und 'Der Compleat Bï¿½cker' vor.",0,0,3);
 			
 			
