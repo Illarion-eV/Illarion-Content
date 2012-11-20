@@ -197,7 +197,6 @@ function CheckAttrRow(User,dataZList)
 end
 -- -------------------------------------------------------------------------------
 function ImpactRow1(User,dataZList)
-   --User:inform("debug 12")
 
   for i=1,8 do
 
