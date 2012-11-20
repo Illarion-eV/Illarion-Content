@@ -121,7 +121,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 2));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Um zu schreien, aktiviere bitte durch das Drücken der Enter-Taste die Chatbox. Schreibe '#s' vor die Worte, die du rufen möchtest und drücke erneut die Enter Taste, um deinen Charakter schreien zu lassen."));
-talkEntry:addResponse("Du weißt bereits wie man spricht, aber Schreien kann Dir helfen deine Freunde in einsamen Wäldern oder dunklen Verliesen wiederzufinden. Bitte ruf etwas. Lass uns deine Stimme hören! Ich werd auch nicht beleidigt sein, versprochen!");
+talkEntry:addResponse("Du weißt bereits wie man spricht, aber Schreien kann dir helfen deine Freunde in einsamen Wäldern oder dunklen Verliesen wiederzufinden. Bitte ruf etwas. Lass uns deine Stimme hören! Ich werd auch nicht beleidigt sein, versprochen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -173,7 +173,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 4));
 talkEntry:addTrigger("#me");
-talkEntry:addResponse("Sehr gut! Du hast nun alles gelernt, was ich Dir beibringen kann. Viel Spaß bei dem Rest des Tutorials, %CHARNAME. Nun folge der Straße zur nächsten Lektion über Gegenstände.");
+talkEntry:addResponse("Sehr gut! Du hast nun alles gelernt, was ich dir beibringen kann. Viel Spaß bei dem Rest des Tutorials, %CHARNAME. Nun folge der Straße zur nächsten Lektion über Gegenstände.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -206,7 +206,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 5));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Du hast alles gelernt, was ich Dir beibringen kann. Viel Spaß bei dem Rest des Tutorials, %CHARNAME. Nun folge der Straße zur nächsten Lektion über Gegenstände.");
+talkEntry:addResponse("Du hast alles gelernt, was ich dir beibringen kann. Viel Spaß bei dem Rest des Tutorials, %CHARNAME. Nun folge der Straße zur nächsten Lektion über Gegenstände.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Kommt näher und sagt doch 'Hallo'.", "Come a little closer and say 'hello'.");

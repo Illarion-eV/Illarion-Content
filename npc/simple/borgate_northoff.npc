@@ -68,9 +68,9 @@ tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you l
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?", "Hello. What do I have to make you?", "G'day, wanna beer?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?", "Guten Tag. Was soll ich Dir machen?", "Tach, was darf's sein?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?", "Guten Tag. Was soll ich dir machen?", "Tach, was darf's sein?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?", "Hello. What do I have to make you?", "G'day, wanna beer?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?", "Guten Tag. Was soll ich Dir machen?", "Tach, was darf's sein?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?", "Guten Tag. Was soll ich dir machen?", "Tach, was darf's sein?"
 "Farewell", "Bye", "Fare well", "See you" -> "Have a nice day.", "Aye. Come back whenever you are thirsty.", "Good day!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Schönen Tag noch.", "Bis bald.", "Aye. Komm wieder, wann immer du durstig bist."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a nice day.", "Aye. Come back whenever you are thirsty.", "Good day!"

@@ -197,7 +197,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddGermanBookText("Fang'n wa mal kleen an. Dat Wichtiste fï¿½r'n Kriejer iss watt'n Kriejer anhat. Weil wenn'n Kriejer 'n schwere Rüstung trï¿½gt, dann wirder langsam und kann`n Schlï¿½gen vonne Jegner nich' ausweichen, klar?",2617,0,2); 
             base.books.AddGermanBookText("Wenne Kriejer Lederpanzer trï¿½gt, dann isser viel beweglicher, abba Achtung: so'ne Sauhaut hï¿½lt 'ner Klinge nicht lange Stand!",2617,0,2); 
             base.books.AddGermanBookText("Also, gute Krieger untersuchen ihre Rüstung uff Schwachstellen und Vorzï¿½ge! Macht viele Tests mit schwachen Ungeheuern und findet heraus, welche Rüstung zu euch passt. Hilft, am Leben zu bleiben.",2617,0,2); 
-            base.books.AddGermanBookText("Die \"Mercantile Elite\" ist ziemlich unhandlich! Iss natürlich gut, wenn der Feind mit'm Morgenstern auf Dir rumkloppt! Abba so'n simples Schwert kann durch die Zwischenrï¿½ume dringen und aus dem Kï¿½mpfer 'n Fleischspieï¿½ machen.",2617,0,2); 
+            base.books.AddGermanBookText("Die \"Mercantile Elite\" ist ziemlich unhandlich! Iss natürlich gut, wenn der Feind mit'm Morgenstern auf dir rumkloppt! Abba so'n simples Schwert kann durch die Zwischenrï¿½ume dringen und aus dem Kï¿½mpfer 'n Fleischspieï¿½ machen.",2617,0,2); 
             base.books.AddGermanBookText("Was'n guten Kriejer vonner toten Nulpe unterscheidet, iss nich nur watta anhat, sondern vor allem wie er kï¿½mpft. Sich mitta ganzen Horde von Gegnern anzulegen, das iss vielleicht nich' der beste Weg zu langem Leben. ",2617,0,2); 
             base.books.AddGermanBookText("Als Erstes: Passt auf Euern Arsch auf! Wenn der Verreckling dir erstmal im Nacken sitzt, dann isses schnell aus mit der Herrlichkeit und du hï¿½rst die Götter singen.",2617,0,2); 
             base.books.AddGermanBookText("Wennde dir das ins Hirn meiselst, wird es dir auch leichter fallen, dich an wen anzuschleichen und dem Gegner in den Rï¿½cken zu fallen. Wird ï¿½brigens auch gerne als Gruppentaktik angewandt.",2617,0,2); 
@@ -392,11 +392,11 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddGermanBookText("Glorification to\n\nIrmorom",0,15,6);
 			base.books.AddGermanBookText("geschrieben von\nThorgrimm, Hohepriester Irmoroms\nï¿½bersetzt von\nAshayen Cromwell",0,15,6);
 			base.books.AddGermanBookText("1.\nFeierabend senkt sie nieder,\nfreundlich ï¿½ber Land und Berg,\nwebt den Ton der Feierlieder\ndurch das Herz von jedem Zwerg.",0,15,6);
-			base.books.AddGermanBookText("2.\nBald erstirbt dass Schmiedefeuer,\nHey, macht schnell das Bierfass auf,\nSaufen werden wir, singen Lieder,\nSo isses des Zwergen Brauch.\nHail DIR! Hail Dir Irmorom,\nSo isses des Zwergen Brauch!",0,15,6);
+			base.books.AddGermanBookText("2.\nBald erstirbt dass Schmiedefeuer,\nHey, macht schnell das Bierfass auf,\nSaufen werden wir, singen Lieder,\nSo isses des Zwergen Brauch.\nHail DIR! Hail dir Irmorom,\nSo isses des Zwergen Brauch!",0,15,6);
 			base.books.AddGermanBookText("3.\nUnsre Lasten, unsre Sorgen\nIrmorom kennt sie ganz genau.\nDoch er wird für Freude sorgen,\nSchlagt auf das Bier holt rein die Sau!",0,15,6);
-			base.books.AddGermanBookText("\n\nHail DIR! Hail Dir Irmorom,\nSchlagt auf das Bier holt rein die Sau!",0,15,6);
+			base.books.AddGermanBookText("\n\nHail DIR! Hail dir Irmorom,\nSchlagt auf das Bier holt rein die Sau!",0,15,6);
 			base.books.AddGermanBookText("4.\nDrum lasst uns feiern, lasst uns singen,\nHoch die Krï¿½ge, rein das Fleisch.\nLaut und weit sollen unsre Lieder klingen,\nWeit ï¿½ber das Zwergenreich.",0,15,6);
-			base.books.AddGermanBookText("\n\nHail DIR! Hail Dir Irmorom,\nWeit ï¿½ber das Zwergenreich!",0,15,6);
+			base.books.AddGermanBookText("\n\nHail DIR! Hail dir Irmorom,\nWeit ï¿½ber das Zwergenreich!",0,15,6);
         end
     end
     base.books.SendBookPage(User,SourceItem.data,Counter);

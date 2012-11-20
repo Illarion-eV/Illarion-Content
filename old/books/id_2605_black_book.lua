@@ -131,7 +131,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddEnglishBookText("Here are some of my favourite recipes. Price in coppers are only suggestions.",0,0,3);
 
 
-			base.books.AddGermanBookText("Viele Leute werden Dir bereitwillig Zutaten heranschaffen, wenn Du für sie kochst. Ein guter Weg, um ein angesehenes Mitglied in Deiner Gemeinschaft zu werden.",0,0,3);
+			base.books.AddGermanBookText("Viele Leute werden dir bereitwillig Zutaten heranschaffen, wenn Du für sie kochst. Ein guter Weg, um ein angesehenes Mitglied in Deiner Gemeinschaft zu werden.",0,0,3);
 			base.books.AddGermanBookText("Ein Wort der Weisheit: Verkaufe deine Gerichte nie unter Preis. Es ist schwer genug sie anzurichten.",0,0,3);
 			base.books.AddGermanBookText("Nimm auch keine Großbestellungen an, da Du sonst schuften muï¿½t, während die anderen Spaï¿½ haben, auf Abenteuer gehen und leicht verdiente Silberlinge einstecken.",0,0,3);
 			base.books.AddGermanBookText("Im Folgenden nun einige meiner Lieblingsgerichte. Die angegebenen Preise in Kupfer sind nur ein Vorschlag.",0,0,3);

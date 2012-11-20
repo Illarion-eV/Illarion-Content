@@ -441,9 +441,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 					base.common.InformNLS(User,"Vorsicht, der Gebrauch dieser Pergamente ist nicht kostenlos. Du bezahlst dein geheimes Wissen mit dem Verlust anderer Fähigkeiten","Be careful! The usage of these parchments is not for free. You pay for that secret knowledge with the loss of other abilities!")
 				else
 					if User:getPlayerLanguage() == 0 then
-						User:inform("#b|0|1008|Dies Geheimnis bleibe Dir verborgen");
+						User:inform("#b|0|1008|Dies Geheimnis bleibe dir verborgen");
 					else
-						User:inform("#b|0|1008|This Riddle Was Not Made For You!");
+						User:inform("#b|0|1008|This Riddle Was Not Made For You!"); --Wasn das fürn Scheiß!? ~Estralis
 					end
 				end
 			end	--rezepte auf pergamentrollen

@@ -74,7 +74,7 @@ queststatus(309) = 2, "#s" -> inform("[Tutorial] Flüstern funktioniert fast wie
 
 -- Player seems to have a problem with shouting
 queststatus(309) = 2, english, ".*" -> inform("[Tutorial] To shout, please hit the return key to activate the chatbox. Type '#s' in front of the words you wish to say and then hit return again to make your character shout them."), "You already know how to talk, but shouting can help you to find your lost friends in lonely woods or dark dungeons. Please shout some words at will. Let your voice be heard! I shan't take offence, honest!"
-queststatus(309) = 2, ".*" -> inform("[Tutorial] Um zu schreien, aktiviere bitte durch das Drücken der Enter-Taste die Chatbox. Schreibe '#s' vor die Worte, die du rufen möchtest und drücke erneut die Enter Taste, um deinen Charakter schreien zu lassen."), "Du weißt bereits wie man spricht, aber Schreien kann Dir helfen deine Freunde in einsamen Wäldern oder dunklen Verliesen wiederzufinden. Bitte ruf etwas. Lass uns deine Stimme hören! Ich werd auch nicht beleidigt sein, versprochen!"
+queststatus(309) = 2, ".*" -> inform("[Tutorial] Um zu schreien, aktiviere bitte durch das Drücken der Enter-Taste die Chatbox. Schreibe '#s' vor die Worte, die du rufen möchtest und drücke erneut die Enter Taste, um deinen Charakter schreien zu lassen."), "Du weißt bereits wie man spricht, aber Schreien kann dir helfen deine Freunde in einsamen Wäldern oder dunklen Verliesen wiederzufinden. Bitte ruf etwas. Lass uns deine Stimme hören! Ich werd auch nicht beleidigt sein, versprochen!"
 
 -- Learn how to emote
 queststatus(309) = 3, english, "#w" -> inform("[Tutorial] Emoting is done by placing a '#me' in front of your action."), "Sometimes, silence is golden. Use whispers to communicate with those immediately around you. But there will be times when you do not wish to speak at all. To perform actions as your character you can use emotes. Emotes cannot affect the game world or other characters but are a good way to add some flavour to your roleplaying. Please emote an action!", queststatus(309) = 4
@@ -86,7 +86,7 @@ queststatus(309) = 3, ".*" -> inform("[Tutorial] Flüstern funktioniert fast wie
 
 -- Player emotes
 queststatus(309) = 4, english, "#me" -> "Very good! You have learned all of the things that I can teach you. Have fun with the rest of the tutorial, %CHARNAME. Now, follow the road to the next lesson on items.", queststatus(309) = 5
-queststatus(309) = 4, "#me" -> "Sehr gut! Du hast nun alles gelernt, was ich Dir beibringen kann. Viel Spaß bei dem Rest des Tutorials, %CHARNAME. Nun folge der Straße zur nächsten Lektion über Gegenstände.", queststatus(309) = 5
+queststatus(309) = 4, "#me" -> "Sehr gut! Du hast nun alles gelernt, was ich dir beibringen kann. Viel Spaß bei dem Rest des Tutorials, %CHARNAME. Nun folge der Straße zur nächsten Lektion über Gegenstände.", queststatus(309) = 5
 
 -- Player seems to have a problem with emoting
 queststatus(309) = 4, english, ".*" -> inform("[Tutorial] Emoting is done by placing a '#me' in front of your action."), "Emoting is very important - it is the only way to show other players your character's actions that cannot be represented graphically. Please try to emote once more."
@@ -94,7 +94,7 @@ queststatus(309) = 4, ".*" -> inform("[Tutorial] Zum Emoten muss man einfach '#m
 
 -- Player did all the lessons
 queststatus(309) = 5, english, ".*" -> "You have learned everything that I can teach you. Have fun with the rest of the tutorial, %CHARNAME. Now, follow the road to the next lesson on items."
-queststatus(309) = 5, ".*" -> "Du hast alles gelernt, was ich Dir beibringen kann. Viel Spaß bei dem Rest des Tutorials, %CHARNAME. Nun folge der Straße zur nächsten Lektion über Gegenstände."
+queststatus(309) = 5, ".*" -> "Du hast alles gelernt, was ich dir beibringen kann. Viel Spaß bei dem Rest des Tutorials, %CHARNAME. Nun folge der Straße zur nächsten Lektion über Gegenstände."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -41,7 +41,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
       base.books.AddGermanBookText("Erst wer durch solchen Trunk die Weihen des Druiden erhalten hat, die im Übrigen völlig unspektakulär verlaufen, ist in der Lage, die geheimen Rezepte zu lesen, die dieser Schrein noch bereithält.",0,0,0);
       base.books.AddGermanBookText("Doch Vorsicht: Auf jedem dieser uralten Pergamente lastet auch ein unauslöschlicher Fluch, der bei alzu eifrigem Studium schon manchen Druiden wenn auch nicht um den Verstand, so doch um die Früchte manch harter Arbeit betrogen hat.",0,0,0);
       base.books.AddGermanBookText("Manchmal bin ich geneigt zu sagen: Auch wenn der Weg ungleich länger und entbehrungsreicher ist, am Ende zahlen sich eigene Forschungsergebnisse aus. Wer den schnellen Erfolg und die Lösungen um manchen Zaubertrank in den Pergamenten sucht, der mag am Ende arg enttäuscht von dannen ziehen.",0,0,0);
-      base.books.AddGermanBookText("Lass Dir meine Worte Warnung sein, teuer haben wir Ungläubigen für unsere Ungeduld gezahlt.",0,0,0);
+      base.books.AddGermanBookText("Lass dir meine Worte Warnung sein, teuer haben wir Ungläubigen für unsere Ungeduld gezahlt.",0,0,0);
       ---
 	base.books.AddEnglishBookText("Druid-Almanac\n\nBook 1\n\nIntroduction to Druidism ",0,0,0);
 	base.books.AddEnglishBookText("Forword\n\n For most of my long life, I have devoted myself to researching the mysteries of the druid. I have spent countless nights upon ancient formulae, experimented with known and unknown substances and searched for the techniques and rules governing the fundamentals of Life and Work, which \'Divine Nature\' created. ",0,0,0);

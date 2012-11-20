@@ -62,7 +62,7 @@ function initializeNpc()
 
     --npc.base.functions.AddTraderTrigger("[Gg]rü[ßs]+e","Willkommen in der Fluffy Sheep Taverne, was willst Du trinken?");
     --npc.base.functions.AddAdditionalTrigger("[Hh]allo");
-    --npc.base.functions.AddAdditionalText("Guten Tag. Was soll ich Dir machen?");
+    --npc.base.functions.AddAdditionalText("Guten Tag. Was soll ich dir machen?");
     --npc.base.functions.AddTraderTrigger("[IiDd][hu][r ].*[Ww]irt","Genau, ich bin hier der Wirt. Was willst Du trinken?");
     --npc.base.functions.AddTraderTrigger("[Ww]as.+verkauf","Ich verkaufe alles, was das Herz begehrt: Met, Wein, Bier, und so weiter. Willst du was?");
     --npc.base.functions.AddTraderTrigger("[Ww]as.+[Gg]etränke","Das hier ist 'ne Kneipe, was glaubst du, was wir hier verkaufen?");
