@@ -26,7 +26,7 @@ function InitCraftingTool( )
 local catId = smithing:addCategory("tools", "Werkzeuge")
 		
 --Pins
-local product = smithing:addProduct(catId, 2738, 0, 20, 5, 10, 5)
+local product = smithing:addProduct(catId, 2738, 0, 20, 50, 100, 5) -- testing crafting times
 product:addIngredient(2535) -- Iron Ingot: 1x1
 
 --Hammer
