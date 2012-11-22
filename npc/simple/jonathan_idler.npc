@@ -82,13 +82,13 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Elara be with you.", "M
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I'm a mage, not a merchant.Both words beginn with the letter M, did you know that?", "Sorry, but I'm busy reading...", "Ah! Now i cfan see things clear."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I'm a mage, not a merchant. Both words beginn with the letter M, did you know that?", "Sorry, but I'm busy reading...", "Ah! Now I can see things clearly."
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich bin ein Magier, kein Kaufmann.", "Entschuldigt, ich lese gerade, ...", "Ah. Das erklärt einiges!"
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 
 -- Quest given by Zarissa Riverbank (Talk to Jonathan), if not solved, thoses instruction will be repeated
-queststatus(701) = 1, english, "Zarissa", "Lizzard", "oil lamp" -> "Ah, the lizzard lady Zassaria send you? I'm very buys with my studies right now, but i'll see her later. Can you tell her, please?", queststatus(701) = 2
+queststatus(701) = 1, english, "Zarissa", "Lizzard", "oil lamp" -> "Ah, the lizard lady Zassaria send you? I'm very busy with my studies right now, but I'll see her later. Can you tell her, please?", queststatus(701) = 2
 queststatus(701) = 1, "Zarissa", "Lizzard", "oil lamp" -> "Ah, die Echsendame Zassaria schickt Euch? Ich bin zur Zeit sehr mit meinen Studien beschäftigt, bitte richtet ihr aus, dass ich sie später aufsuchen werde.", queststatus(701) = 2
 
 -- Quest given by Zarissa Riverbank (Talk to Jonathan) solves, Jonathann remaks he has the oil lamp now.

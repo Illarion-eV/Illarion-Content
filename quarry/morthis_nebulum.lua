@@ -692,7 +692,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Geh nach Galmair, wenn Du was über Irmorom hören willst. Ich könnte mich nicht noch weniger interessieren.");
+talkEntry:addResponse("Geh nach Galmair, wenn du was über Irmorom hören willst. Ich könnte mich nicht noch weniger interessieren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

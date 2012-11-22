@@ -106,9 +106,9 @@ function SentenceCharacter(User,SourceItem)
 				    
 					local callbackLabour = function(dialogLabour) end
 		            if thePrisoner:getPlayerLanguage() == 0 then		
-			            dialogLabour = MessageDialog("Arbeitslager","Du wurdest verurteilt "..workLoad.." Rohstoffe aus der Mine abzubauen. Erfülle deine Strafe und du darfst wieder gehen. Spitzhacke und Essen bekommst Du beim Aufseher.", callbackLabour)
+			            dialogLabour = MessageDialog("Arbeitslager","Du wurdest verurteilt "..workLoad.." Rohstoffe aus der Mine abzubauen. Erfülle deine Strafe und du darfst wieder gehen. Spitzhacke und Essen bekommst du beim Aufseher.", callbackLabour)
 		            else		
-			            dialogLabour = MessageDialog("Labour camp" ,"You have been sentenced to collect "..workLoad.." resources in the mine. If you have served your sentence, you are free to go. You can get a pickaxe and food from the guard.", callbackLabour)
+			            dialogLabour = MessageDialog("Labour camp" ,"You have been sentenced to collect "..workLoad.." resources in the mine. If you have served your sentence, you are free to go. You can get a pick-axe and food from the guard.", callbackLabour)
 		            end	
 		            thePrisoner:requestMessageDialog(dialogLabour)
 				    User:createItem(2763,1,777,nil)

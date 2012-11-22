@@ -65,7 +65,7 @@ function Effect_1(Effect,User)
             
 			if not (persistence == 0) and (illnes_status == 3) then -- this inform is only given if you become sick and only once; not while getting better
                base.common.InformNLS( User,
-               "Dir scheint als fühlst Du etwas Pelziges auf deiner Zunge. Plötzlich spürst Du einen kurzen Stich in deiner Brust, der schnell wieder nachlässt.",
+               "Dir scheint als fühlst du etwas Pelziges auf deiner Zunge. Plötzlich spürst du einen kurzen Stich in deiner Brust, der schnell wieder nachlässt.",
                "It seems to you as if you feel something furry on your tongue. Suddenly, you feel briefly a stitch in your chest, which fades away, fastly.");
 	        end
 	        if (persistence == 0) and (illnes_status == 7) then -- this inform is if you are sick, but you become better! Only one time.
@@ -80,7 +80,7 @@ function Effect_1(Effect,User)
 		    
 			if not (persistence == 0) and (illnes_status == 10) then -- this inform is only given if you become sick and only once; not while getting better
                base.common.InformNLS( User,
-               "Das pelzige Gefühl auf deiner Zunge nimmt zu und irgendwas fühlt sich in deinem Körper komisch an. Nach einem Kratzen im Hals musst Du husten und ein Teil deines Manas verlässt Dich.",
+               "Das pelzige Gefühl auf deiner Zunge nimmt zu und irgendwas fühlt sich in deinem Körper komisch an. Nach einem Kratzen im Hals musst du husten und ein Teil deines Manas verlässt Dich.",
                "The furry feeling on yout tongue intensiefies and something feels strange in your body. After a having a short sore throat you have to cough and some of your mana leavse you.");
 	           ManaIllnessEffects(User, 100, 0, 0, 0)
 			end
@@ -161,7 +161,7 @@ function Effect_1(Effect,User)
 	
         if (persistence == 0) and (illness_status = 0) then -- no persistence left and last round of the healign phase; inform!
             base.common.InformNLS( User,
-               "Das seltsame Gefühl von etwas Pelzigem auf deiner Zunge ist nun auch verschwunden. Du fühlst Dich wieder vollkommen gesund.",
+               "Das seltsame Gefühl von etwas Pelzigem auf deiner Zunge ist nun auch verschwunden. du fühlst Dich wieder vollkommen gesund.",
                "The strange feeling of haveing something furry on your tnogue is also gone now. You feel completely healed.");
 	    end
 	
@@ -277,7 +277,7 @@ function getEffect_1(Character,Runde)
 		end
 		if curItem.id > 0 then
 			base.common.InformNLS(Character,
-				"Du fühlst eine unangenehme Hitze in dir aufsteigen und Du hast den Zwang, Dir die Kleider vom Leib zu reißen",
+				"Du fühlst eine unangenehme Hitze in dir aufsteigen und du hast den Zwang, Dir die Kleider vom Leib zu reißen",
 				"You feel a painful heat emerging and you have to put off some clothes");
 			world:createItemFromItem(curItem,Character.pos,true);
 			world:erase(curItem,1);
@@ -294,7 +294,7 @@ function getEffect_2(Character,Runde)
    if Runde -(math.floor(Runde/25)*25) == 0 then
 
 --    Enstprechender RP-Text
-      base.common.InformNLS(Character,"Dir wird urplötzlich schlecht, dein Magen rebelliert und Du musst Dich übergeben.",
+      base.common.InformNLS(Character,"Dir wird urplötzlich schlecht, dein Magen rebelliert und du musst Dich übergeben.",
                            "You feel sick, your stomache strikes back and you need to puke")
 
 --    Spieler dreht sich ab

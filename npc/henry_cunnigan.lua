@@ -120,7 +120,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 2));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Um zu schreien, aktiviere bitte durch das Drücken der Enter-Taste die Chatbox. Schreibe '#s' vor die Worte, die du rufen möchtest und drücke erneut die Enter Taste, um deinen Charakter schreien zu lassen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Um zu schreien, aktiviere bitte durch das Drücken der Enter-Taste die Chatbox. Schreibe '#s' vor die Worte, die du rufen möchtest und drücke erneut die Enter-Taste, um deinen Charakter schreien zu lassen."));
 talkEntry:addResponse("Du weißt bereits wie man spricht, aber Schreien kann dir helfen deine Freunde in einsamen Wäldern oder dunklen Verliesen wiederzufinden. Bitte ruf etwas. Lass uns deine Stimme hören! Ich werd auch nicht beleidigt sein, versprochen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -139,7 +139,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 3));
 talkEntry:addTrigger("#w");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Zum Emoten muss man einfach '#me' vor die Handlung schreibt."));
-talkEntry:addResponse("Manchmal ist Schweigen Gold. Flüstere, um mit denen, die dich direkt umgeben zu kommunizieren. Aber es wird Zeiten geben, wenn du nicht reden willst. Mit Hilfe von Emotes kannst Du Handlungen als dein Charakter auszuführen. Emotes haben keinen Einfluss auf die Spielwelt oder andere Charaktere, aber sie sind ein guter Weg um etwas Spannung in dein Rollenspiel zu bringen. Bitte emote eine Handlung!");
+talkEntry:addResponse("Manchmal ist Schweigen Gold. Flüstere, um mit denen, die dich direkt umgeben zu kommunizieren. Aber es wird Zeiten geben, wenn du nicht reden willst. Mit Hilfe von Emotes kannst du Handlungen als dein Charakter auszuführen. Emotes haben keinen Einfluss auf die Spielwelt oder andere Charaktere, aber sie sind ein guter Weg um etwas Spannung in dein Rollenspiel zu bringen. Bitte emote eine Handlung!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -210,7 +210,7 @@ talkEntry:addResponse("Du hast alles gelernt, was ich dir beibringen kann. Viel 
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Kommt näher und sagt doch 'Hallo'.", "Come a little closer and say 'hello'.");
-talkingNPC:addCycleText("Hast Du vergessen, wie man sich bewegt? Benutz die rechte Maustaste, die Pfeiltasten, den Ziffernblock oder WASD.", "Forgot how to move? Use the right mouse button, the arrow keys, the num pad or WASD.");
+talkingNPC:addCycleText("Hast du vergessen, wie man sich bewegt? Benutz die rechte Maustaste, die Pfeiltasten, den Ziffernblock oder WASD.", "Forgot how to move? Use the right mouse button, the arrow keys, the num pad or WASD.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
