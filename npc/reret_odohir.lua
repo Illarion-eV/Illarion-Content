@@ -2,8 +2,8 @@
 -- NPC Name: Reret Odohir                                                None --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  898, 760, 1            --
--- NPC Sex:  female                     NPC Direction: north                  --
+-- NPC Race: human                      NPC Position:  111, 599, 0            --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   ?? + Miriam                                                      --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 898, 760, 1, 0, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 5, 68, 63, 58, 255, 210, 204);
+VALUES (0, 111, 599, 0, 4, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 5, 68, 63, 58, 255, 210, 204);
 ---]]
 
 require("npc.base.basic")

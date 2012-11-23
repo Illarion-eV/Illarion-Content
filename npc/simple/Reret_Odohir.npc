@@ -12,8 +12,8 @@
 name = "Reret Odohir"
 race = human
 sex = female
-position = 898, 760, 1
-direction = north
+position = 111,599,0
+direction = south
 affiliation = "None"
 job = "Notary"
 
