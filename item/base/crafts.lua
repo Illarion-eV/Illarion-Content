@@ -67,8 +67,8 @@ function Craft:new(c)
     c.defaultProduct = Product:new{
         foodConsumption = c.defaultFoodConsumption,
     }
-    c.userCraft = leadSkill ~= nil
-    c.npcCraft = not leadSkill and questStatus ~= nil
+    c.userCraft = c.leadSkill ~= nil
+    c.npcCraft = not c.leadSkill and c.questStatus ~= nil
     return c
 end
 
