@@ -1,5 +1,5 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Torina Scibrim                                           Cadomyr --
+-- NPC Name: Torina Scibrim                                      Runewick! --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  106, 553, 0            --
@@ -12,9 +12,9 @@
 name = "Torina Scibrim"
 race = human
 sex = female
-position = 106, 553, 0
+position = 898,760,1
 direction = south
-affiliation = "Cadomyr"
+affiliation = "Runewick"
 job = "Notary"
 
 language = common
@@ -66,71 +66,71 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Greetings.", "Good d
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin with you.", "Farewell.", "Goodbye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin mit Euch.", "Auf bald.", "Bis bald."
 "How are you", "How feel", "How do you do" -> "I'm fine, thank you for your concern.", "I can't complain, even if some more action wouldn't be that bad.", "Very good, and you?"
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage.", "Ich kann nicht klagen, auch wenn ein bisschen mehr Abenteuer mal wieder nicht schlecht wäre.", "Ganz gut, und euch?"
-"your name", "who are you", "who art thou" -> "My name is Torina Scibrim, I take care of the new arrivals of this place.", "I'm Torina Scibrim, I am the notary of Cadomyr.", "You can call me Torina Scibrim, as notary of this town I could put you on the citizen list of this beautiful place."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Torina Scibrim, ich kümmere mich um die Neuankömmlinge dieses Ortes.", "Mein Name ist Torina Scibrim, ich bin die Notarin Cadomyrs.", "Man nennt mich Torina Scibrim, als Notarin kann Ich euch zum Bürger unseres schönen Ortes eintragen."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage.", "Ich kann nicht klagen, auch wenn ein bisschen mehr Abenteuer mal wieder nicht schlecht wäre.", "Ganz gut, und Euch?"
+"your name", "who are you", "who art thou" -> "My name is Torina Scibrim, I take care of the new arrivals of this place.", "I'm Torina Scibrim, I am the notary of Runewick.", "You can call me Torina Scibrim, as notary of this town I could put you on the citizen list of this beautiful place."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Torina Scibrim, ich kümmere mich um die Neuankömmlinge dieses Ortes.", "Mein Name ist Torina Scibrim, ich bin die Notarin Runewicks.", "Man nennt mich Torina Scibrim, als Notarin kann Ich Euch zum Bürger unseres schönen Ortes eintragen."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."
-"quest", "mission" -> "Derzeit habe ich alles, aber danke für eure Sorge.", "Vielleicht ein anderes mal, derzeit habe ich alles was ich brauche."
+"quest", "mission" -> "Derzeit habe ich alles, aber danke für Eure Sorge.", "Vielleicht ein anderes mal, derzeit habe ich alles was ich brauche."
 "task", "adventure", "order" -> "I have no tasks for you right now, maybe another time."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe derzeit keine Aufgaben für euch, vielleicht aber wann anders."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe derzeit keine Aufgaben für Euch, vielleicht aber wann anders."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I am the notary of Cadomyr and do all the stuff a notary does.", "I take care of the new arrivals in Cadomyr, I am the notary here."
-"beruf" -> "Ich bin die Notarin Cadomyrs und tu all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Cadomyr, ich bin hier die Notarin."
-english, "job" -> "I am the notary of Cadomyr and do all the stuff a notary does.", "I take care of the new arrivals in Cadomyr, I am the notary here."
-"job" -> "Ich bin die Notarin Cadomyrs und tu all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Cadomyr, ich bin hier die Notarin."
+"profession" -> "I am the notary of Runewick and do all the stuff a notary does.", "I take care of the new arrivals in Runewick, I am the notary here."
+"beruf" -> "Ich bin die Notarin Runewick und tu all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Runewick, ich bin hier die Notarin."
+english, "job" -> "I am the notary of Runewick and do all the stuff a notary does.", "I take care of the new arrivals in Cadomyr, I am the notary here."
+"job" -> "Ich bin die Notarin Runewick und tu all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Runewick, ich bin hier die Notarin."
 english, "Gobaith", "Gobiath" -> "Never heard of that. Is it something to eat?"
 "Gobaith", "Gobiath" -> "Nie davon gehört. Ist es etwas zu Essen?"
 "my name" -> "I'm pleasured to meet you."
-"mein Name" -> "Ich freu mich Euch kennenzulernen."
+"mein Name" -> "Ich freue mich Euch kennenzulernen."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "He's the best mage in rune wick, they say.", "I head he likes drinking tea."
-"Erzmagier" -> "Er soll der beste Magier in Runewick sein, so erzählt man sich.", "Ich hörte sagen, dass er gern Tee trinkt."
-english, "Elvaine", "Morgan" -> "Er soll der beste Magier in Runewick sein, so erzählt man sich.", "Ich hörte sagen, dass er gern Tee trinkt."
-"Elvaine", "Morgan" -> "Er soll der beste Magier in Runewick sein, so erzählt man sich.", "Ich hörte sagen, dass er gern Tee trinkt."
-english, "Runewick" -> "The people in Runewick think of wisdom as more important than honour. I'll tell you thoses are strange people!", "That's there the achmage lives."
-"Runewick" -> "Die Leute von Runewick halten Wissen für wertvoller als Ehre.Ich sag Euch, dass sich seltsame Leute!", "Das ist der Ort wo der Erzmagier lebt"
+"archmage" -> "He's the best mage in Runewick.", "I head he likes drinking tea."
+"Erzmagier" -> "Er ist der beste Magier in Runewick.", "Ich hörte sagen, dass er gern Tee trinkt."
+english, "Elvaine", "Morgan" -> "He's the best mage in Runewick.", "I head he likes drinking tea."
+"Elvaine", "Morgan" -> "Er ist der beste Magier in Runewick.", "Ich hörte sagen, dass er gern Tee trinkt."
+english, "Runewick" -> "We people of Runewick think of wisdom as more important than honour.", "That's there the Achmage lives, of couse!"
+"Runewick" -> "Wir Leute von Runewick halten Wissen für wertvoller als Ehre.", "Selbstverständlich ist dies der Ort wo der Erzmagier lebt."
 english, "Valerio", "Guilianni", "Don" -> "Go to Galmair, if you want to see him!", "He's the greedy Lord of Galmair."
 "Valerio", "Guilianni", "Don" -> "Geht nach Galmair, wenn Ihr den sehen wollt!", "Das ist der gierige Herrscher von Galmair."
 english, "Galmair" -> "In Galmair only wealth and money is important.", "There is also a notary in Galmair, just like in every city."
-"Galmair" -> "in Galmair zähnt nur Reichtum und Geld.", "Es gibt auch in Galmair einen Notar, so wie in jeder Stadt."
-"Queen" -> "Honour to the queen!", "May the gods protecht the queen!"
-"Königin" -> "Ehre der Königin!", "Mögen die Götter die Königin schützen!"
-english, "rosaline", "edwards" -> "This is the name of our fair and noble queen.", "Honour to the queen!", "May the gods protecht the queen!"
-"rosaline", "edwards" -> "Dies ist der Name unsere gerechten und edlen Königin.", "Ehre der Königin!", "Mögen die Götter die Königin schützen!"
-english, "Cadomyr" -> "We are lucky to live in a place where everyone knows his place, this way chaos can not spread.", "Every Place should be as nice as Cadomyr."
-"Cadomyr" -> "We haben Glück an einem Ort zu leben, wo jeder seinen Platz kennt, so kann keine Unordnung aufkommen.", "Jeder Ort sollte so schön sein, wie Cadomyr."
+"Galmair" -> "In Galmair zählt nur Reichtum und Geld.", "Es gibt auch in Galmair einen Notar, so wie in jeder Stadt."
+"Queen" -> "You want to see a real queen? Go to Cadomyr!"
+"Königin" -> "Ihr wollt eine echte Königin sehen? Geht nach Cadomyr!"
+english, "rosaline", "edwards" -> "Does she live in Runewick? I think I've head that name before."
+"rosaline", "edwards" -> "Lebt die in Runewick? I denke, ich habe den Namen schon mal gehört."
+english, "Cadomyr" -> "Cadomyr is quite a hot place. Especially if you like knights."
+"Cadomyr" -> "Cadomyr ist schon sehenswert, besonders wenn Ihr Ritter mögt."
 
 -- Main land factions
-english, "albar" -> "Albar is a nice country. Oder is important there."
-"albar" -> "Albar ist ein schönes Land. Dort herrscht Ordnung."
+english, "albar" -> "Albar is a nice country. But oder is important there."
+"albar" -> "Albar ist ein schönes Land. Aber dort herrscht Ordnung."
 english, "gynk", "gync" -> "Gync isn't the best place to grow up. It's a dirty place, just like Galmair.", "I've never been to Gync, I don't think I'd like it there."
-"gync", "gynk" -> "Gynk ist nicht der beste Ort wo man aufzuwachsen kann.Es ist ein dreckiger Ort, genau wie Galmair.", "Ich war noch nie in Gynk, I denke dort würde es mir nicht gefallen."
+"gync", "gynk" -> "Gynk ist nicht der beste Ort wo man aufzuwachsen kann. Es ist ein dreckiger Ort, genau wie Galmair.", "Ich war noch nie in Gynk, I denke dort würde es mir nicht gefallen."
 english, "salkama" -> "Salkamar is a nice place. It's sunny there.", "I've never been to Salkmar, I think this place lies near the sea."
-"salkama" -> "Salkamar ist ein schöner Ort. Dort ist es recht sonnig.", "Ich war noch nie in Salkamar, I glaube dieser Ort liegt am Meer."
+"salkama" -> "Salkamar ist ein schöner Ort. Dort ist es recht sonnig.", "Ich war noch nie in Salkamar, ich glaube dieser Ort liegt am Meer."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "The month were named after the 16 Gods, we should name one month after the queen!", "I pray to Zhambra. To wich God do you pray?"
-"Gott", "Götter" -> "Nach den 16 Göttern wurden die Monate des Jahres benannt. Wir sollten einem Monat nach der Königin benennen!", "I bete zu Zhambar. zu welchem Gott betet Ihr?"
-english, "Adron" -> "Some people in Cadomyr pray to Adron.", "I don't worship this god."
-"Adron" -> "Einige Leute in Cadomyr beten zu Adron.", "I don't worship this god."
+"god" -> "The month were named after the 16 Gods, we should name one month after the arch mage!", "I pray to Zhambra. To which god do you pray?"
+"Gott", "Götter" -> "Nach den 16 Göttern wurden die Monate des Jahres benannt. Wir sollten einem Monat nach dem Erzmagier benennen!", "Ich bete zu Zhambar. Zu welchem Gott betet Ihr?"
+english, "Adron" -> "I don't worship this god."
+"Adron" -> "I don't worship this god."
 english, "Bragon", "Brágon" -> "I don't worship this god."
 "Bragon", "Brágon" -> "Ich verehre diesen Gott nicht."
 english, "Cherga" -> "I don't worship this god."
 "Cherga" -> "Ich verehre diesen Gott nicht."
-english, "Elara" -> "I don't worship this god."
-"Elara" -> "Ich verehre diesen Gott nicht."
-english, "Eldan" -> "I don't worship this god."
-"Eldan" -> "Ich verehre diesen Gott nicht."
+english, "Elara" -> "I don't worship this god.", "Some people pay to her."
+"Elara" -> "Ich verehre diesen Gott nicht.", "Einige Leute beten zu ihm."
+english, "Eldan" -> "I don't worship this god.", "Some people pay to him."
+"Eldan" -> "Ich verehre diesen Gott nicht.", "Einige Leute beten zu ihm."
 english, "Findari" -> "I don't worship this god."
 "Findari" -> "Ich verehre diesen Gott nicht."
 english, "Irmorom" -> "I don't worship this god."
 "Irmorom" -> "Ich verehre diesen Gott nicht."
 english, "Malachin", "Malachín" -> "Many noble knights pray to Malachín."
-"Malachin", "Malachín" -> "Viele dle Ritter beten zu Malachín."
+"Malachin", "Malachín" -> "Viele edle Ritter beten zu Malachín."
 english, "Moshran" -> "I don't worship this god. He's evil!"
 "Moshran" -> "Ich verehre diesen Gott nicht. Er ist böse!"
 english, "Nargun", "Nargún", "Nargùn" -> "I don't worship this god."
@@ -145,21 +145,21 @@ english, "Tanora", "Zelphia" -> "I don't worship this god."
 "Tanora", "Zelphia" -> "Ich verehre diesen Gott nicht."
 english, "Ushara" -> "I don't worship this god."
 "Ushara" -> "Ich verehre diesen Gott nicht."
-english, "Zhambra" -> "Pray to Zhambar, so he'll protect your friend during battle."
+english, "Zhambra" -> "Pray to Zhambar, so he'll protect your friends during battle."
 "Zhambra" -> "Betet zu Zhambar damit er eure Freunde im Kampf schützt."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I'm a notary.", "I do not sell aything."
+"what sell", "what buy", "list wares", "price of" -> "I'm a notary.", "I do not sell anything."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin eine Notarin.", "Ich verkaufe nichts."
 "tell something" -> "I'm busy working, sorry. You should talk to someone else if you're in search of a nice conversation."
-"erzähl was", "erzähl etwas" -> "Es tut mir leid, ich bin gerade beschäftigt.Ihr sollte mit jemand anderem reden, wenn euch der Sinn nach einer netten Plauerdei steht."
+"erzähl was", "erzähl etwas" -> "Es tut mir leid, ich bin gerade beschäftigt.Ihr sollte mit jemand anderem reden, wenn Euch der Sinn nach einer netten Plauerdei steht."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Torina", "Scibrim" -> "Did I hear someone call my name? How can I help you?", "Yes? That's me!"
 "Torina", "Scibrim" -> "Habe ich jemanden nach mir rufen hören? Was kann ich für Euch tun?", "Ja? Das bin ich!"
 "Yes" -> "I see, we agree on that."
 "Ja" -> "I sehe, wir sind uns einig."
-"No" -> "So you don't think that way?", "Well...I wouln't say it that way."
+"No" -> "So you don't think that way?", "Well...I wouldn't say it that way."
 "Nein" -> "Ihr seht dies also anders?", "Nun ja... so würde ich das nicht sagen."
 
 ------------------------------------------------------------------------------AC
@@ -167,8 +167,8 @@ english, "Torina", "Scibrim" -> "Did I hear someone call my name? How can I help
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me blättert duch einen Stapel Pergamente.", "#me skims throug a pile of parchments."
+cycletext "#me blättert durch einen Stapel Pergamente.", "#me skims through a pile of parchments."
 cycletext "#me betrachtet die Schreibfeder in ihrer Hand.", "#me looks at the quill, she's holding in her hand."
 cycletext "#me liest einen Brief.", "#me reads a letter."
-cycletext "#me summt leise eine Melodie.", "#me humms a little melodie silently."
+cycletext "#me summt leise eine Melodie.", "#me hums a little melodie silently."
 cycletext "#me bringt ein Siegel unter einem Brief an.", "#me affixes a seal under a letter."
