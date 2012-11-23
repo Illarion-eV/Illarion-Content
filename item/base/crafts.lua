@@ -489,8 +489,10 @@ function Craft:craftItem(user, productId, toolItem)
         return
     end
     
+    local neededFood = 0
     if self.userCraft then
-        local foodOK, neededFood = self:checkRequiredFood(user, product.foodConsumption, product.difficulty)
+        local foodOK = false
+        foodOK, neededFood = self:checkRequiredFood(user, product.foodConsumption, product.difficulty)
         if not foodOK then
             self:swapToInactiveItem(user)
             return
