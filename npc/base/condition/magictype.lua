@@ -45,5 +45,5 @@ function _test_magictype(player, magicType)
         return false;
     end;
 	
-	return player:getMagicFlags(magicType) >= 0;
+	return player:getMagicFlags(magicType) > 0;
 end;
