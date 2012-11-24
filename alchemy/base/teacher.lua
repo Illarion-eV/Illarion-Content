@@ -502,7 +502,7 @@ function ThirdTask(User, SourceItem)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
- 
+ --[[
     -- already an alchemist?
     local alchemistCheck = AlchemistCheck(User)
 	if alchemistCheck then
@@ -520,7 +520,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 					"You feel observed, but nothing else seems to happen."
 					)
 	return
-	end	
+	end	]]
 
 	-- teacher and quest infos 
 	local questInfos = GetTeacherQuestInfos(User, SourceItem)
