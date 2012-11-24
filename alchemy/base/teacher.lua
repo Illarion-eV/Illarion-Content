@@ -417,6 +417,8 @@ function AskQuestion(User,SourceItem)
 						false)
 		end
 	end
+	User:inform(""..title)
+	User:inform(""..theQuestion)
 	local dialog = SelectionDialog(title, theQuestion, callback)
 	for i=1,#answerList do
 		dialog:addOption(15, answerList[i])
