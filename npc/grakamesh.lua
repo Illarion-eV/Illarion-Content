@@ -614,8 +614,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(1000, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Meh need to think about table manners. Hurr Hurr. Yoos go and tell Mirarie?");
-talkEntry:addResponse("");
+talkEntry:addTrigger(".");
+talkEntry:addResponse("Meh need to think about table manners. Hurr Hurr. Yoos go and tell Mirarie?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(1000, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;

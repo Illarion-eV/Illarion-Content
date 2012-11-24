@@ -16,7 +16,9 @@ VALUES (0, 113, 611, 0, 0, 'Thomas Dalenus', 'npc.thomas_dalenus', 0, 3, 0, 242,
 
 require("npc.base.basic")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
@@ -223,6 +225,23 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(1000, "=", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".");
+talkEntry:addResponse("I'm sorry, I don't have time. I still needed to finish that dress. Please tell Lady Bragolin that I'll notify her soon.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1000, "=", 6));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(1000, "=", 5));
+talkEntry:addTrigger(".");
+talkEntry:addResponse("Tut mei leid. Ich habe grade keine Zeit, ich muss noch ein Kleid fertig nähen. Sagst doch bitte Fräulein Bragolin, dass ich mich bei ihr melden werde.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(1000, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
