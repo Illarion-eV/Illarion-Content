@@ -360,14 +360,13 @@ function GetQuestionAndAnswers(User,SourceItem)
         userLanguage = "english"	
     end
     local difficulty = questInfos.questPrg - 3
-	User:inform("diff: "..difficulty)
 	local lastQuestion
 	if difficulty == 3 then
 	    lastQuestion = true
 	end	
 	local rnd = math.random(1,10)
-	local myQuestion = questionAnswerList[userLanguage]["question"][difficuly][rnd]
-	local sourceAnswerList = questionAnswerList[userLanguage]["answer"][difficuly][rnd]
+	local myQuestion = questionAnswerList[userLanguage]["question"][difficulty][rnd]
+	local sourceAnswerList = questionAnswerList[userLanguage]["answer"][difficulty][rnd]
 	local myAnswer = sourceAnswerList[1]
 	local newAnswerList = {}
 	for i=1,#sourceAnswerList do
