@@ -516,7 +516,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end	
 
 	-- teacher and quest infos 
-	local questInfos = GetTeacherQuestInfos(SourceItem, User)
+	local questInfos = GetTeacherQuestInfos(User, SourceItem)
 	local qstPrg = questInfos.questPrg
 
 	if qstPrg == 1 then
