@@ -382,6 +382,7 @@ end
 function AskQuestion(User,SourceItem)
     -- quest infos
 	local questInfos = GetTeacherQuestInfos(User,SourceItem)
+	local questInfos.questId
 	local title
 	if User:getPlayerLanguage() == 0 then
 	    title = questInfos.teacherDE1
