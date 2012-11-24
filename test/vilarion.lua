@@ -261,6 +261,32 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
         end
         User:requestSelectionDialog(dialog)
     end
+
+	-- test added by merung to show selection dialog bug
+	if (User.lastSpokenText == "appleNo") or (User.lastSpokenText == "appleYes") then
+        local myList = {"option1","option2","option3"}
+		local callback = function(dialog)
+            success = dialog:getSuccess()
+            if success then
+                selected = dialog:getSelectedIndex()
+                User:inform("you selected: "..myList[selected+1])
+            else
+                User:inform("Selection aborted!")
+            end
+        end
+        local dialog = SelectionDialog("Selection 0", "Select some stuff...", callback)
+        local myID
+		if (User.lastSpokenText == "appleYes") then
+		    myID = 15
+		else
+            myID = 0
+        end			
+		for i=1,#myList do
+            dialog:addOption(myID, myList[i])
+        end
+        User:requestSelectionDialog(dialog)
+    end
+
 end
 
 function useNPC(User,counter,param)
