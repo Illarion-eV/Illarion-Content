@@ -282,7 +282,7 @@ function TurnIntoAlchemist(User,SourceItem)
 		world:gfx(31,User.pos)
 	end
 	if User:getPlayerLanguage() == 0 then
-	    dialog = MessageDialog(questInfos.teacherDE1, , callback)
+	    dialog = MessageDialog(questInfos.teacherDE1, textDE , callback)
 	else
       	dialog = MessageDialog(questInfos.teacherEN1, textEN, callback)
 	end
