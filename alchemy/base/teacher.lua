@@ -394,7 +394,7 @@ function AskQuestion(User,SourceItem)
 		success = dialog:getSuccess()
 		if success then
 			selectedAnswer = (dialog:getSelectedIndex())+1
-			if answerList[selectedAnswer] == answer then
+			if answersList[selectedAnswer] == answer then
 			    if lastQuestion then
 				    User:setQuestProgress(questId, (User:getQuestProgress(questId) +1) )
 					IsCharSure(User,SourceItem) -- ask if the char really wants to become an alchemist
@@ -418,8 +418,8 @@ function AskQuestion(User,SourceItem)
 		end
 	end
 	local dialog = SelectionDialog(title, theQuestion, callback)
-	for i=1,#answerList do
-		dialog:addOption(15, answerList[i])
+	for i=1,#answersList do
+		dialog:addOption(15, answersList[i])
 	end
 	User:requestSelectionDialog(dialog)
 	
