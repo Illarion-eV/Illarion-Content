@@ -418,14 +418,14 @@ function SecondTask(User, SourceItem)
     -- first, we check if the char has fullfilled the first task
     if (User:countItem(HerbsTaskOneId[teacherEN][1]) < 5) or (User:countItem(HerbsTaskOneId[teacherEN][2]) < 5) or (User:countItem(HerbsTaskOneId[teacherEN][3]) < 5) then
 		-- he has not finished the first task: inform him
-		SendMessage(User, SourceItem
+		SendMessage(User, SourceItem,
 			        "Once again you hear the voice which actual source is still unknown to you: \"Oh, you are back! You don't have all the herbs I asked you for, though. I asked for five "..HerbsTaskOneNameEN[questInfos.teacherEN2][1]..", five "..HerbsTaskOneNameEN[questInfos.teacherEN2][2].." and five "..HerbsTaskOneNameEN[questInfos.teacherEN2][3]..". Go and bring them to me if you want to learn the great alchemical secret!\"", 
 					"Wieder vernimmst du die Stimme, deren Ursprung dir nicht klar ist: \"Oh, du bist zurück! Du hast aber nicht all die Kräuter, um die ich dich bat. Es waren fünf "..HerbsTaskOneNameDE[questInfos.teacherEN2][1]..", fünf "..HerbsTaskOneNameDE[questInfos.teacherEN2][2].." und fünf "..HerbsTaskOneNameDE[questInfos.teacherEN2][3]..". Geh und bring sie mir, wenn du das alchemistische Geheminis erfahren willst!\""
 					);
 		return
 	else
 	    -- he has finished the first task; delete herbs; tell him his second task
-		SendMessage(User, SourceItem
+		SendMessage(User, SourceItem,
 			        HerbsDeleteTextEN[questInfos.teacherEN2][1].." For a short amount fo time it seems as if someone would smack their lips, then the voice says: \"Good, very good. But there is an other task for you left. Now bring me two rar herbs - "..HerbsTaskTwoNameEN[questInfos.teacherEN2][1].." and "..HerbsTaskTwoNameEN[questInfos.teacherEN2][2]..". Be successfull and you are a step closer to your goal.", 
 					HerbsDeleteTextDE[questInfos.teacherEN2][1].." Für einen Moment glaubst du etwas wie ein Schmatzen zu hören, bevor die Stimme erklingt: \"Sehr gut, sehr gut. Aber es erwartet dich noch eine Aufgabe. Nun sollst du mir zwei seltene Kräuter bringen und zwar "..HerbsTaskTwoNameDE[questInfos.teacherEN2][1].." und "..HerbsTaskTwoNameDE[questInfos.teacherEN2][2]..". Sei erfolgreich und du bist deinem Ziel ein Stück näher."
 					);
