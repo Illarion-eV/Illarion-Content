@@ -1634,3 +1634,42 @@ function CheckIfOnline(playername)
 	end
 	return nil
 end
+
+--- Looks up the name of the defined lead attribute of a given skill name.
+-- @param Skill  The name of the skill.
+-- @return String  The name of the corresponding lead attribute.
+--                 NOTE: in case there is no lead attribute, nil will be returned.
+function GetLeadAttributeName(Skill)
+  if leadAttribTable==nil then
+    leadAttribTable={};
+    leadAttribTable[Character.tailoring]="dexterity"
+    leadAttribTable[Character.alchemy]="perception"
+    leadAttribTable[Character.tactics]="perception"
+    leadAttribTable[Character.farming]="constitution"
+    leadAttribTable[Character.poisoning]="perception"
+    leadAttribTable[Character.harp]="dexterity"
+    leadAttribTable[Character.woodcutting]="constitution"
+    leadAttribTable[Character.smithing]="dexterity"
+    leadAttribTable[Character.punctureWeapons]="agility"
+    leadAttribTable[Character.horn]="dexterity"
+    leadAttribTable[Character.distanceWeapons]="perception"
+    leadAttribTable[Character.gemcutting]="dexterity"
+    leadAttribTable[Character.slashingWeapons]="strength"
+    --leadAttribTable[Character.magicResistance]="essence"
+    leadAttribTable[Character.carpentry]="dexterity"
+    leadAttribTable[Character.cookingAndBaking]="dexterity"
+    leadAttribTable[Character.goldsmithing]="dexterity"
+    leadAttribTable[Character.concussionWeapons]="strength"
+    leadAttribTable[Character.flute]="dexterity"
+    leadAttribTable[Character.parry]="agility"
+    leadAttribTable[Character.lute]="dexterity"
+    leadAttribTable[Character.dodge]="agility"
+    leadAttribTable[Character.herblore]="constitution"
+    leadAttribTable[Character.mining]="constitution"
+    leadAttribTable[Character.smithing]="dexterity"
+    leadAttribTable[Character.glassBlowing]="dexterity"
+    leadAttribTable[Character.fishing]="constitution"
+    leadAttribTable[Character.wrestling]="strength"
+  end
+  return leadAttribTable[Skill]
+end
