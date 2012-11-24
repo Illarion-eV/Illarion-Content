@@ -395,9 +395,9 @@ function AskQuestion(User,SourceItem)
 		if success then
 			selectedAnswer = (dialog:getSelectedIndex())+1
 			if answersList[selectedAnswer] == theAnswer then
-			    if lastQuestion then
-				    User:setQuestProgress(questId, (User:getQuestProgress(questId) +1) )
-					IsCharSure(User,SourceItem) -- ask if the char really wants to become an alchemist
+			    User:setQuestProgress(questId, (User:getQuestProgress(questId) +1) )
+				if lastQuestion then
+				    IsCharSure(User,SourceItem) -- ask if the char really wants to become an alchemist
 				else
                     SendMessage(User, SourceItem,
 					"\"That was the right answer! Let's try the next one.\"", 
