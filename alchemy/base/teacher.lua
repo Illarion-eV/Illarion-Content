@@ -382,6 +382,12 @@ end
 function AskQuestion(User,SourceItem)
     -- quest infos
 	local questInfos = GetTeacherQuestInfos(User,SourceItem)
+	local title
+	if User:getPlayerLanguage() == 0 then
+	    title = questInfos.teacherDE1
+	else
+      	title = questInfos.teacherEN1
+	end
 	-- get question, answers and check if it is the last question 
 	local theQuestion, theAnswer, answersList, lastQuestion = GetQuestionAndAnswers(User,SourceItem)
 	local callback = function(dialog)
@@ -411,7 +417,7 @@ function AskQuestion(User,SourceItem)
 						false)
 		end
 	end
-	local dialog = SelectionDialog(title, question, callback)
+	local dialog = SelectionDialog(title, theQuestion, callback)
 	for i=1,#answerList do
 		dialog:addOption(15, answerList[i])
 	end
