@@ -263,7 +263,7 @@ function GetTeacherQuestInfos(User,SourceItem)
 end
 
 function AlchemistCheck(User)
-	if (User:getMagicType() == 3) and (User:getMagicFlags(magicType) > 0) then
+	if (User:getMagicType() == 3) and (User:getMagicFlags(3) > 0) then
 	    return true
 	end	
 end
@@ -516,7 +516,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end	
 
 	-- teacher and quest infos 
-	local questInfos = GetTeacherQuestInfos(SourceItem, User)
+	local questInfos = GetTeacherQuestInfos(User, SourceItem)
 	local qstPrg = questInfos.questPrg
 
 	if qstPrg == 1 then
