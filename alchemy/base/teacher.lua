@@ -365,7 +365,7 @@ function GetQuestionAndAnswers(User,SourceItem)
 	    lastQuestion = true
 	end	
 	local rnd = math.random(1,10)
-	local myQuestion = questionAnswerList[userLanguage]["question"][difficulty][rnd]
+	local myQuestion = questionAnswerList[userLanguage]["question"][difficulty][rnd][1]
 	local sourceAnswerList = questionAnswerList[userLanguage]["answer"][difficulty][rnd]
 	local myAnswer = sourceAnswerList[1]
 	local newAnswerList = {}
@@ -417,8 +417,6 @@ function AskQuestion(User,SourceItem)
 						false)
 		end
 	end
-	User:inform(""..title)
-	User:inform(""..theQuestion)
 	local dialog = SelectionDialog(title, theQuestion, callback)
 	for i=1,#answerList do
 		dialog:addOption(15, answerList[i])
