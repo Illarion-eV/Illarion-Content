@@ -17,14 +17,12 @@ GatheringCraft = {
 	RandomItems = { },
 	InterruptMsg = { },
 	Monsters = { },
-	LeadAttribute = "",
 	LeadSkill = 0,
-	LeadSkillGroup = 2,
 	SavedWorkTime = { },
 	Treasure = 0,
 	TreasureMsg = { },
 	FoodLevel = 100,
-    FastActionFactor = 1
+  FastActionFactor = 1
 };
 
 Monster = {
