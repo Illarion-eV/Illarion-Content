@@ -100,7 +100,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	-- any other checks?
 
-	if (User:countItemAt("all",coalItem.id)==0) then -- check for items to work on
+	if (User:countItemAt("all",coalItem.id)<coalItem.amount) then -- check for items to work on
 		base.common.InformNLS( User, 
 		"Du brauchst Kohle um an der Esse zu arbeiten.", 
 		"You need coal for working at the forge." );
@@ -152,6 +152,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	User:learn( oremelting.LeadSkill, oremelting.SavedWorkTime[User.id], 100);
 	User:eraseItem( oreItem.ore.id, oreItem.ore.amount ); -- erase the item we're working on
+  User:eraseItem( coalItem.id, coalItem.amount ); 
   if (oreItem.ore.id == 2534) then
     -- merinium, erase pure fire too.
     User:eraseItem(2553, 1);
@@ -164,21 +165,27 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		if (User:countItemAt("all",oreItem.ore.id)>=oreItem.ore.amount) then  -- there are still items we can work on
-      if (oreItem.ore.id == 2534 and User:countItemAt("all",2553) == 0) then
-      -- merinium requires pure fire
-        base.common.InformNLS( User, 
-        "Du brauchst reines Feuer um Meriniumerz zu schmelzen.", 
-        "You need pure fire for melting merinium ore." );
-      else
-        oremelting.SavedWorkTime[User.id] = oremelting:GenWorkTime(User,toolItem);
-        User:startAction( oremelting.SavedWorkTime[User.id], 0, 0, 0, 0);
+    if (User:countItemAt("all",coalItem.id)>=coalItem.amount) then  -- there are still items we can work on
+      if (User:countItemAt("all",oreItem.ore.id)>=oreItem.ore.amount) then
+        if (oreItem.ore.id == 2534 and User:countItemAt("all",2553) == 0) then
+        -- merinium requires pure fire
+          base.common.InformNLS( User, 
+          "Du brauchst reines Feuer um Meriniumerz zu schmelzen.", 
+          "You need pure fire for melting merinium ore." );
+        else
+          oremelting.SavedWorkTime[User.id] = oremelting:GenWorkTime(User,toolItem);
+          User:startAction( oremelting.SavedWorkTime[User.id], 0, 0, 0, 0);
+        end
+      else -- no ore
+        base.common.InformNLS(User,
+        "Du brauchst Eisenerz, Kupfererz, Goldnuggets oder Meriniumerz um es zu schmelzen.", 
+        "You need iron ore, copper ore, gold nuggets or merinium ore for melting it." );
       end
-		else -- no items left
-			base.common.InformNLS(User,
-			"Du brauchst Eisenerz, Kupfererz, Goldnuggets oder Meriniumerz um es zu schmelzen.", 
-      "You need iron ore, copper ore, gold nuggets or merinium ore for melting it." );
-		end
+    else -- no coal
+      base.common.InformNLS(User,
+      "Du hast nicht mehr genug Kohle.", 
+      "You don't have enough coal anymore." );
+    end
 	end
 
 	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
