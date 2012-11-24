@@ -91,7 +91,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( doughproducing.LeadSkill, doughproducing.LeadSkillGroup, doughproducing.SavedWorkTime[User.id], 100, User:increaseAttrib(doughproducing.LeadAttribute,0) );
+	User:learn( doughproducing.LeadSkill, doughproducing.SavedWorkTime[User.id], 100);
 	User:eraseItem( 2, 5 ); -- erase the item we're working on
 	User:eraseItem( 52, 1 ); -- erase the item we're working on
 	local bucketNotCreated = User:createItem( 51, 1, 333, nil ); -- create an empty bucket
