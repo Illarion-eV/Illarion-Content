@@ -263,11 +263,15 @@ function GetTeacherQuestInfos(User,SourceItem)
 end
 
 function AlchemistCheck(SourceItem, User)
-	
+	if (User:getMagicType() == 3) and (User:getMagicFlags(magicType) > 0) then
+	    return true
+	end	
 end
 
 function NoMagicCheck(SourceIten, User)
-    
+    if User:getMagicFlags(User:getMagicType()) == 0 then
+	    return true
+	end	
 end
 
 function TurnIntoAlchemist(User,SourceItem)
