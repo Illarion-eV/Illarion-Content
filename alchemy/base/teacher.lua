@@ -461,7 +461,7 @@ end
 
 function ThirdTask(User, SourceItem)
     -- third task: three question
-    local questInfos = GetTeacherQuestInfos(User)
+    local questInfos = GetTeacherQuestInfos(User, SourceItem)
 	local qstPrg = questInfos.questPrg
 	
 	if qstPrg == 3 then
