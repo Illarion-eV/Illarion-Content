@@ -118,6 +118,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
           base.common.InformNLS( User, 
           "Du brauchst reines Feuer um Meriniumerz zu schmelzen.", 
           "You need pure fire for melting merinium ore." );
+          return;
         else
           oreItem = i;
           break;
