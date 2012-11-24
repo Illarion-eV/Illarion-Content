@@ -48,7 +48,7 @@ Craft = {
 --[[
 Usage: myCraft = Craft:new{ craftEN = "CRAFT_EN",
                             craftDE = "CRAFT_DE",
-                            leadSkill = SKILL,
+                            [leadSkill = SKILL | questStatus = QUEST],
                             [defaultFoodConsumption = FOOD,]
                             [sfx = SFX, sfxDuration = DURATION,]
                             [fallbackCraft = CRAFTWITHSAMEHANDTOOL,]
@@ -67,7 +67,8 @@ function Craft:new(c)
     c.defaultProduct = Product:new{
         foodConsumption = c.defaultFoodConsumption,
     }
-    c.listIdToProductId = {}
+    c.userCraft = c.leadSkill ~= nil
+    c.npcCraft = not c.leadSkill and c.questStatus ~= nil
     return c
 end
 
@@ -142,29 +143,21 @@ function Craft:showDialog(user, source)
     local callback = function(dialog)
         local result = dialog:getResult()
         if result == CraftingDialog.playerCrafts then
-            local listId = dialog:getCraftableIndex() + 1
-            local listIdToProductId = self.listIdToProductId[user.id]
-            local productId = listIdToProductId[listId]
+            local productId = dialog:getCraftableId()
             local canWork = self:allowCrafting(user, source) and self:checkMaterial(user, productId)
             if canWork then
                 self:swapToActiveItem(user)
             end
             return canWork
         elseif result == CraftingDialog.playerLooksAtItem then
-            local listId = dialog:getCraftableIndex() + 1
-            local listIdToProductId = self.listIdToProductId[user.id]
-            local productId = listIdToProductId[listId]
+            local productId = dialog:getCraftableId()
             return self:getProductLookAt(user, productId)
         elseif result == CraftingDialog.playerLooksAtIngredient then
-            local listId = dialog:getCraftableIndex() + 1
-            local listIdToProductId = self.listIdToProductId[user.id]
-            local productId = listIdToProductId[listId]
+            local productId = dialog:getCraftableId()
             local ingredientId = dialog:getIngredientIndex() + 1
             return self:getIngredientLookAt(user, productId, ingredientId)
         elseif result == CraftingDialog.playerCraftingComplete then
-            local listId = dialog:getCraftableIndex() + 1
-            local listIdToProductId = self.listIdToProductId[user.id]
-            local productId = listIdToProductId[listId]
+            local productId = dialog:getCraftableId()
             local skillGain = self:craftItem(user, productId, source)
             if skillGain then
                 self:refreshDialog(dialog, user)
@@ -184,6 +177,16 @@ end
 --------------------------------------------------------------------------------
 
 function Craft:allowCrafting(user, source)
+    if self.userCraft then
+        return self:allowUserCrafting(user, source)
+    elseif self.npcCraft then
+        return self:allowNpcCrafting(user, source)
+    end
+
+    return false
+end
+
+function Craft:allowUserCrafting(user, source)
     if not self:locationFine(user) then
         return false
     end
@@ -209,6 +212,10 @@ function Craft:allowCrafting(user, source)
     end
 
     return true
+end
+
+function Craft:allowNpcCrafting(user, source)
+    return user:isInRange(source, 2)
 end
 
 function Craft:getProductLookAt(user, productId)
@@ -244,8 +251,6 @@ end
 
 function Craft:loadDialog(dialog, user)
     local skill = self:getSkill(user)
-    self.listIdToProductId[user.id] = {}
-    local listIdToProductId = self.listIdToProductId[user.id]
     local categoryListId = {}
     local listId = 0
     
@@ -269,14 +274,12 @@ function Craft:loadDialog(dialog, user)
         local productRequirement = product.difficulty
         
         if productRequirement <= skill then
-            dialog:addCraftable(categoryListId[product.category], product.item, product:getName(user), product:getCraftingTime(skill), product.quantity)
+            dialog:addCraftable(i, categoryListId[product.category], product.item, product:getName(user), self:getCraftingTime(product, skill), product.quantity)
 
             for j = 1, #product.ingredients do
                 local ingredient = product.ingredients[j]
                 dialog:addCraftableIngredient(ingredient.item, ingredient.quantity)
             end
-
-            table.insert(listIdToProductId, i)
         end
     end
 end
@@ -284,6 +287,14 @@ end
 function Craft:refreshDialog(dialog, user)
     dialog:clearGroupsAndProducts()
     self:loadDialog(dialog, user)
+end
+
+function Craft:getCraftingTime(product, skill)
+    if self.userCraft then
+        return product:getCraftingTime(skill)
+    else
+        return product.minTime
+    end
 end
 
 function Product:getCraftingTime(skill)
@@ -316,32 +327,48 @@ function getItemName(user, item, data)
 end
 
 function Craft:swapToActiveItem(user)
+    if self.npcCraft then
+        return
+    end
+
     local frontItem = base.common.GetFrontItem(user)
+    
     if not self.toolLink[frontItem.id] then
         return
     end
+    
     if not self.tool[frontItem.id] then
         return
     end
+    
     if self.activeTool[frontItem.id] then
         return
     end
+
     frontItem.id = self.toolLink[frontItem.id]
     frontItem.wear = 3
     world:changeItem(frontItem)
 end
 
 function Craft:swapToInactiveItem(user)
+    if self.npcCraft then
+        return
+    end
+
     local frontItem = base.common.GetFrontItem(user)
+    
     if not self.toolLink[frontItem.id] then
         return
     end
+    
     if self.tool[frontItem.id] then
         return
     end
+    
     if not self.activeTool[frontItem.id] then
         return
     end
+    
     if frontItem.id ~= self.toolLink[frontItem.id] then
         frontItem.id = self.toolLink[frontItem.id]
         frontItem.wear = 255
@@ -359,7 +386,11 @@ function Craft:checkRequiredFood(user, neededFood, difficulty)
 end
 
 function Craft:getSkill(user)
-    return user:getSkill(self.leadSkill)
+    if self.userCraft then
+        return user:getSkill(self.leadSkill)
+    else
+        return user:getQuestProgress(self.questStatus)
+    end
 end
 
 function Craft:checkMaterial(user, productId)
@@ -395,6 +426,10 @@ function Craft:checkMaterial(user, productId)
 end
 
 function Craft:generateQuality(user, productId, toolItem)
+    if self.npcCraft then
+        return 999
+    end
+    
     local product = self.products[productId]
     local scalar = (self:getSkill(user) - product.difficulty) / (math.min(100, product.learnLimit) - product.difficulty) * 100
      
@@ -454,21 +489,27 @@ function Craft:craftItem(user, productId, toolItem)
         return
     end
     
-    local foodOK, neededFood = self:checkRequiredFood(user, product.foodConsumption, product.difficulty)
-    if not foodOK then
-        self:swapToInactiveItem(user)
-        return
+    local neededFood = 0
+    if self.userCraft then
+        local foodOK = false
+        foodOK, neededFood = self:checkRequiredFood(user, product.foodConsumption, product.difficulty)
+        if not foodOK then
+            self:swapToInactiveItem(user)
+            return
+        end
     end
 
     if self:checkMaterial(user, productId) then
         self:createItem(user, productId, toolItem)
-        
-        base.common.ToolBreaks(user, toolItem, true)
-        base.common.GetHungry(user, neededFood)
-        
-        user:learn(self.leadSkill, product:getCraftingTime(skill), product.learnLimit)
-        local newSkill = self:getSkill(user)
-        skillGain = (newSkill > skill)
+       
+        if self.userCraft then 
+            base.common.ToolBreaks(user, toolItem, true)
+            base.common.GetHungry(user, neededFood)
+            
+            user:learn(self.leadSkill, product:getCraftingTime(skill), product.learnLimit)
+            local newSkill = self:getSkill(user)
+            skillGain = (newSkill > skill)
+        end
     end
 
     self:swapToInactiveItem(user)

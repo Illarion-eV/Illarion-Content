@@ -43,13 +43,13 @@ potionsList = {};
 -- on reload, this function is called
 -- setPotion(effect id, stock data, gemdust ,Herb1, Herb2, Herb3, Herb4, Herb5, Herb6, Herb7, Herb8)
 -- every effect id is only used once!
+-- gemdust is the id of the gemdust used. indirectly, the potion kind
 -- stock data is the concentration of the active substances put together in the following order: Adrazin, Illidrium, Caprazin, Hyperborelium, Echolon, Dracolin, Orcanol, Fenolin 
--- gemdust is the id of the gemdust used
--- Herb1...Herb8 are optional. If you use only x Herbs and x < 8 just leave the others out
--- Example: setPotion(15, 95554553, 133, 15, 81)
+-- Herb1...Herb8 are optional. If you use only x Herbs and x < 8 just write false for the rest
+-- Example: setPotion(15, 459, 95554553, 133, 15, 81, false, false, false, false, false)
 -- document properly, please
 function InitPotions()
-    setPotion(45, 55555555, 450, 775, 3443, 33);
+    setPotion(45, 450, 55555555, 775, 3443, 33, false, false, false, false, false);
 end;
 
 --- Set the effect of a potion
@@ -324,8 +324,7 @@ function RemoveAll(Item)
 	RemoveStock(Item)
 	Item:setData("potionEffectId","")
 	Item:setData("potionQuality","")
-	Item:setData("cauldronFilledWith","")
-	Item:setData("bottleFilledWith","")
+	Item:setData("filledWith","")
 end
 
 function EmptyBottle(User,Bottle)
@@ -369,8 +368,9 @@ function CauldronDestruction(User,cauldron,effectId)
 	world:changeItem(cauldron)
 end
 
-function GetQuality(User)
-return 999
+function SetQuality(User,Item)
+    quali = 999 -- replace with formula
+	Item:setData("potionQuality",quali)
 end
 
 gemDustList  = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
@@ -378,7 +378,8 @@ cauldronList = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017}
 bottleList   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
 
 function GemDustBottleCauldron(gemdust, cauldron, bottle)
-
+    -- this function returns matching gemdust id, cauldron id and bottle id
+    -- only one parameter is needed; if there are more than one, only the first one will be taken into account
     local myList
 	local myValue
     if gemDust then
@@ -410,14 +411,41 @@ function CombineStockEssence( User, stock, essenceBrew)
    
     local cauldron = GetCauldronInfront(User)
     if cauldron then
-        local parameters = {}
+        
+		-- we get the gem dust used as an ingredient; and the new cauldron id we need later
+		local ingredientGemdust; local newCauldron
+		if cauldron:getData("filledWith") == "essenceBrew" then
+		    ingredientGemdust, newCauldron = GemDustBottleCauldron(nil, essenceBrew, nil)
+		else
+		    ingredientGemdust, newCauldron = GemDustBottleCauldron(nil, nil, essenceBrew)
+		end
+		
+		-- create our ingredients list
+		local myIngredients = {}
+		-- firstly, the gem dust which has been used (indirectly, that is the potion kind)
+		myIngredients[1] = ingredientGemdust
+		-- secondly, the stock
 		local stockConc = ""
 		for i=1,8 do 
 		    stockConc = stockConc..stock:getData(wirkstoff[1].."Concentration")
 		end
-        parameters[1] = stockConc
-		
+        myIngredients[2] = tonumber(stockConc)
+		-- thirdly, the (at maximum) eight herbs of the essenceBrew
+		for i=1,8 do
+		    if essenceBrew:getData("essenceHerb"..i) ~= "" then
+			    myIngredients[i+2] = tonumber(essenceBrew:getData("essenceHerb"..i))
+		    else
+			    myIngredients[i+2] = false
+			end	
+	    end
+	    -- get the potion effect id
+		local effectID = getPotion(myIngredients[1],myIngredients[2],myIngredients[3],myIngredients[4],myIngredients[5],myIngredients[6],myIngredients[7],myIngredients[8])
+		-- delte old cauldron datas
+		RemoveAll(cauldron)
+		SetQuality(User,cauldron)
+		cauldron.id = newCauldron
+		world:changeItem(cauldron)
+		world:makeSound(13,cauldron.pos)
+		world:gfx(52,cauldron.pos)
 	end
-   
-   
 end
