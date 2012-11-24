@@ -41,7 +41,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
         base.common.InformNLS( User,
-        "Deine Rüstung behindert dich beim räuchern",
+        "Deine Rüstung behindert dich beim Räuchern",
         "Your armor disturbs you roasting ham or fish" );
         if (SourceItem.id ~= 304) then
             world:swap(SourceItem,304,0);

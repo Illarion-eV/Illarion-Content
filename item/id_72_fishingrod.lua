@@ -1,6 +1,3 @@
--- Angeln mit neuem Collecting-System
--- Blay09
-
 -- UPDATE common SET com_script='item.id_72_fishingrod' WHERE com_itemid=72;
 
 require("item.general.wood")
@@ -82,7 +79,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if fishing:FindRandomItem(User) then
 		return
 	end
-	User:learn( fishing.LeadSkill, fishing.SavedWorkTime[User.id], 100, User:increaseAttrib(fishing.LeadAttribute,0) );
+	User:learn( fishing.LeadSkill, fishing.SavedWorkTime[User.id], 100);
 	local amount = 1; -- set the amount of items that are produced
 	local fishID = 0; 
 	local chance = math.random(1,10);

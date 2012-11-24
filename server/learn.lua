@@ -71,43 +71,9 @@ function reduceMC( user )
 end
 
 function getLeadAttrib(Char, Skill)
-
-
-    if iniLed==nil then
-        leadAtt={};
-        leadAtt[Character.tailoring]="dexterity"
-        leadAtt[Character.alchemy]="perception"
-        leadAtt[Character.tactics]="perception"
-        leadAtt[Character.farming]="constitution"
-        leadAtt[Character.poisoning]="perception"
-        leadAtt[Character.harp]="dexterity"
-        leadAtt[Character.woodcutting]="constitution"
-        leadAtt[Character.smithing]="dexterity"
-        leadAtt[Character.punctureWeapons]="agility"
-        leadAtt[Character.horn]="dexterity"
-        leadAtt[Character.distanceWeapons]="perception"
-        leadAtt[Character.gemcutting]="dexterity"
-        leadAtt[Character.slashingWeapons]="strength"
-        --leadAtt[Character.magicResistance]="essence"
-        leadAtt[Character.carpentry]="dexterity"
-        leadAtt[Character.cookingAndBaking]="dexterity"
-        leadAtt[Character.goldsmithing]="dexterity"
-        leadAtt[Character.concussionWeapons]="strength"
-        leadAtt[Character.flute]="dexterity"
-        leadAtt[Character.parry]="agility"
-        leadAtt[Character.lute]="dexterity"
-        leadAtt[Character.dodge]="agility"
-        leadAtt[Character.herblore]="constitution"
-        leadAtt[Character.mining]="constitution"
-        leadAtt[Character.smithing]="dexterity"
-        leadAtt[Character.glassBlowing]="dexterity"
-        leadAtt[Character.fishing]="constitution"
-        leadAtt[Character.wrestling]="strength"
-        iniLed=1;
-    end
-
-    if lAttrib~=nil then
-        return Char:increaseAttrib(lAttrib,0);
-    end
-    return 5;
+  local leadAttribName = base.common.GetLeadAttributeName(Skill);
+  if leadAttribName~=nil then
+    return Char:increaseAttrib(leadAttribName,0);
+  end
+  return 5;
 end

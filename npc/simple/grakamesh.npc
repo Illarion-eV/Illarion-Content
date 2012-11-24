@@ -159,6 +159,10 @@ queststatus(78) = 22, "quest", "mission" -> "Sei gedankt, für alle deine Taten.
 queststatus(78) = 22, "task", "adventure" -> "Danks fer everyding yoos hab do. Reginald oomie can now rest in peace. Until Hastings oomie does next mischief!"
 queststatus(78) = 22, "Auftrag", "Aufgabe", "Abenteuer" -> "Sei gedankt, für alle deine Taten. Reginald wird liegen in Friede, solange bis Oomie Hastings tut nächste Misstat!"
 
+-- Quest by NPC mirarie Bragolin (Writing history III)
+queststatus(1000) = 5, english, "Meh need to think about table manners. Hurr Hurr. Yoos go and tell Mirarie?" -> "", queststatus(1000) =6
+queststatus(1000) = 5, "."-> "Ich musse nachdenken übers die Tischsitten. Hurr Hurr. Geh und sagst Mirarie, ja?", queststatus(1000) = 6
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Me be Grakamesh, da shaman ob Cadomyr. Mes dance fer fallen ones."
 "beruf" -> "Ich binne Grakamesh, der Schamane von Cadomyr. Ich tanze für die Gestorbenen."

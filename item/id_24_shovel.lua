@@ -1,7 +1,3 @@
--- mining mit Schaufel
-
--- Arbeitscyclus: 1s - 4s
-
 -- UPDATE common SET com_script='item.id_24_shovel' WHERE com_itemid=24;
 
 require("base.common")
@@ -148,7 +144,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], 100, User:increaseAttrib(theCraft.LeadAttribute,0) );
+	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], 100);
 	local amount = math.random(1,4); -- set the amount of items that are produced
 	local notCreated = User:createItem( digForID, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore

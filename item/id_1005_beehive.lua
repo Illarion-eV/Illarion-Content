@@ -1,6 +1,3 @@
--- Honig Sammeln mit neuem Collecting-System
--- Blay09
-
 -- UPDATE common SET com_script='item.id_1005_beehive' WHERE com_itemid=1005;
 
 require("base.common")
@@ -59,7 +56,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( honeygathering.LeadSkill, honeygathering.SavedWorkTime[User.id], 100, User:increaseAttrib(honeygathering.LeadAttribute,0) );
+	User:learn( honeygathering.LeadSkill, honeygathering.SavedWorkTime[User.id], 100);
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 2529, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
