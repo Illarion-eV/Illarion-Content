@@ -26,6 +26,20 @@ autointroduce = on
 
 author = "Estralis Seborian + Miriam"
 
+radius = 0
+hairID = 2
+beardID = 5
+colorHair = 166, 58, 21
+colorSkin = 198, 153, 82
+itemHead = 357
+itemChest = 180
+itemCoat = 558
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 34
+itemShoes = 53
+
 lookatDE = "Das ist ein NPC ist Mirarie Bragolin, die Zwergin."
 lookatUS = "This NPC  is Mirarie Bragolin, the dwarfess."
 useMsgDE = "Fass mich nicht an!"
