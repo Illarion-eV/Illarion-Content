@@ -111,7 +111,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   -- => the ore that we found at the beginning is the same as in the end.
   local oreItem = nil;
   for _,i in pairs(oreList) do
-    if (User:countItemAt("all",i.id)>=i.amount) then
+    if (User:countItemAt("all",i.ore.id)>=i.ore.amount) then
       if (i.ore.id == 2534) then
         -- that's merinium (should be the last in the list), we need pure fire
         if (User:countItemAt("all",2553) == 0) then
@@ -164,7 +164,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		if (User:countItemAt("all",oreItem.ore.id)>oreItem.ore.amount) then  -- there are still items we can work on
+		if (User:countItemAt("all",oreItem.ore.id)>=oreItem.ore.amount) then  -- there are still items we can work on
       if (User:countItemAt("all",2553) == 0) then
       -- merinium requires pure fire
         base.common.InformNLS( User, 
