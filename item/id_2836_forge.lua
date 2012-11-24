@@ -165,7 +165,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
 		if (User:countItemAt("all",oreItem.ore.id)>=oreItem.ore.amount) then  -- there are still items we can work on
-      if (User:countItemAt("all",2553) == 0) then
+      if (oreItem.ore.id == 2534 and User:countItemAt("all",2553) == 0) then
       -- merinium requires pure fire
         base.common.InformNLS( User, 
         "Du brauchst reines Feuer um Meriniumerz zu schmelzen.", 
