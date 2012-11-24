@@ -510,7 +510,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if not noMagicCheck then
 	    SendMessage(User, SourceItem,
 			        "Du fühlst dich beobachtet, jedoch scheint nichts weiter zu passieren.", 
-					"You feel observed, but nothing else seems to happen.",
+					"You feel observed, but nothing else seems to happen."
 					)
 	return
 	end	
