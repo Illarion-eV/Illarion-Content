@@ -31,6 +31,7 @@ function InitGathering()
 		doughproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.cookingAndBaking}; -- id_119_bakingoven
     weaving = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_169_loom
     oremelting = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.smithing}; -- id_2836_forge
+    leatherproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_2052_stretcher
 		
 		-- TODO
         -- id_52_filledbucket ("peasantry")
