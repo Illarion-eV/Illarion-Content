@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 128, 609, 0, 4, 'Mirarie Bragolin', 'npc.mirarie_bragolin', 1, 0, 0, 255, 255, 255, 255, 255, 255);
+VALUES (1, 128, 609, 0, 4, 'Mirarie Bragolin', 'npc.mirarie_bragolin', 1, 2, 5, 166, 58, 21, 198, 153, 82);
 ---]]
 
 require("npc.base.basic")
@@ -1091,6 +1091,14 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist ein NPC ist Mirarie Bragolin, die Zwergin.", "This NPC  is Mirarie Bragolin, the dwarfess.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
+mainNPC:setEquipment(1, 357);
+mainNPC:setEquipment(3, 180);
+mainNPC:setEquipment(11, 558);
+mainNPC:setEquipment(5, 0);
+mainNPC:setEquipment(6, 0);
+mainNPC:setEquipment(4, 0);
+mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();
