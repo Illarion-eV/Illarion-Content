@@ -394,7 +394,7 @@ function AskQuestion(User,SourceItem)
 		success = dialog:getSuccess()
 		if success then
 			selectedAnswer = (dialog:getSelectedIndex())+1
-			if answersList[selectedAnswer] == answer then
+			if answersList[selectedAnswer] == theAnswer then
 			    if lastQuestion then
 				    User:setQuestProgress(questId, (User:getQuestProgress(questId) +1) )
 					IsCharSure(User,SourceItem) -- ask if the char really wants to become an alchemist
@@ -413,7 +413,7 @@ function AskQuestion(User,SourceItem)
 		else
 			SendMessage(User, SourceItem,
 						"\"Come back to finish the questions whenever you want.\"", 
-						"Das war die falsche Antwort. Versuchen wir es mit einer anderen.", 
+						"\"Komm wieder, wann immer du dich den Fragen stellen willst.\"", 
 						false)
 		end
 	end
