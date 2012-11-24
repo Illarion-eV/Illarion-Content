@@ -487,7 +487,7 @@ function ThirdTask(User, SourceItem)
 		questionAmountListEN = {"three questions", "two questions", "one question"}
 		questionAmountListDE = {"drei Fragen", "zwei Fragen", "eine Frage"}
 		SendMessage(User, SourceItem, 
-			        "Once again you hear the voice you already have heard often before: \"You still have to answer "..questionAmountListEN[qstPrg-3]..", then you will leran the secret of alchemy.\"",
+			        "Once again you hear the voice you already have heard often before: \"You still have to answer "..questionAmountListEN[qstPrg-3]..", then you will learn the secret of alchemy.\"",
 					"Erneut erklingt die dir mittlerweile bekannte Stimme: \"Du hast mir noch "..questionAmountListDE[qstPrg-3].." zu beantworten, dann wirst du das Geheimnis der Alchemie erfahren.\"",
 					true
 					);
