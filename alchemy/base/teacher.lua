@@ -269,7 +269,9 @@ function AlchemistCheck(SourceItem, User)
 end
 
 function NoMagicCheck(SourceIten, User)
-    
+    if User:getMagicFlags(User:getMagicType()) == 0 then
+	    return true
+	end	
 end
 
 function TurnIntoAlchemist(User,SourceItem)
