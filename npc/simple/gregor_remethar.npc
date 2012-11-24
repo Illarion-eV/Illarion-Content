@@ -97,10 +97,10 @@ queststatus(105) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun, habt 
 -- Quest 1 solved, reward: random, 2 rankpoints if Runewick. Remind the player that the quest can solved over and over again
 
 -- 20cp 30%
-queststatus(105) = 2, english, chance(30.0), town = Runewick, ".+" -> inform("[Quest solved] You are awarded 20 copper coins. Your reputation with Archmage Elvaine Morgan rises."), "Ah, you lit the lights of honour. Here, take these twenty copper coins for your efforts. Come again to me if you ever rekindle the lights.", money + 20, queststatus(105) = 1, rankpoints + 2
-queststatus(105) = 2, chance(30.0), town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 20 Kupfermünzen. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese zwanzig Kupfermünzen für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.", money + 20, queststatus(105) = 1, rankpoints + 2
-queststatus(105) = 2, english, chance(30.0), ".+" -> inform("[Quest solved] You are awarded 20 copper coins."), "Ah, you lit the lights of honour. Here, take these twenty copper coins for your efforts. Come again to me if you ever rekindle the lights.", money + 20, queststatus(105) = 1
-queststatus(105) = 2, chance(30.0), ".+" -> inform("[Quest gelöst] Du erhältst 20 Kupfermünzen."), "Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese zwanzig Kupfermünzen für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.", money + 20, queststatus(105) = 1
+queststatus(105) = 2, english, chance(30.0), town = Runewick, ".+" -> inform("[Quest solved] You are awarded two silver coins. Your reputation with Archmage Elvaine Morgan rises."), "Ah, you lit the lights of honour. Here, take these two silver coins for your efforts. Come again to me if you ever rekindle the lights.", money + 200, queststatus(105) = 1, rankpoints + 2
+queststatus(105) = 2, chance(30.0), town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 20 Kupfermünzen. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese zwanzig Kupfermünzen für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.", money + 200, queststatus(105) = 1, rankpoints + 2
+queststatus(105) = 2, english, chance(30.0), ".+" -> inform("[Quest solved] You are awarded two silver coins."), "Ah, you lit the lights of honour. Here, take these two silver coins for your efforts. Come again to me if you ever rekindle the lights.", money + 200, queststatus(105) = 1
+queststatus(105) = 2, chance(30.0), ".+" -> inform("[Quest gelöst] Du erhältst 20 Kupfermünzen."), "Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese zwanzig Kupfermünzen für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.", money + 200, queststatus(105) = 1
 
 -- Item 1: More lampoil (390) 10%
 queststatus(105) = 2, english, chance(14.0), town = Runewick, ".+" -> inform("[Quest solved] You are awarded a bottle of lamp oil. Your reputation with Archmage Elvaine Morgan rises."), "Ah, you lit the lights of honour. Here, take this lamp oil for your efforts. Come again to me if you ever rekindle the lights.", item(390, 1, 333), queststatus(105) = 1, rankpoints + 2
@@ -177,7 +177,7 @@ english, "method", "urn" -> "Those whose lives had a high value will be cremated
 "Light" -> "In the Chamber of Light the wise mages of Runewick are buried, after having their body cremated, as has always been the custom."
 
 -- Easter egg
-english, "Calaway" -> "I am not the undertaker! I prefer the term mortician."
+english, "Calaway" -> "I am not the Undertaker! I prefer the term mortician."
 "Calaway" -> "Ich bin nicht der Totengräber! Ich ziehe die Bezeichnung Leichenbestatter vor."
 
 -- Faction stuff

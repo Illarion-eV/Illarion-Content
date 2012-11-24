@@ -68,9 +68,9 @@ tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you l
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?", "Hello. What do I have to make you?", "G'day, wanna beer?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?", "Guten Tag. Was soll ich Dir machen?", "Tach, was darf's sein?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?", "Guten Tag. Was soll ich dir machen?", "Tach, was darf's sein?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Aahr! Be greeted in 'The Hemp Necktie Inn'. What do you want to drink?", "Hello. What do I have to make you?", "G'day, wanna beer?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?", "Guten Tag. Was soll ich Dir machen?", "Tach, was darf's sein?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Willkommen im Gasthof zur Hanfschlinge, willst du etwas zu trinken?", "Guten Tag. Was soll ich dir machen?", "Tach, was darf's sein?"
 "Farewell", "Bye", "Fare well", "See you" -> "Have a nice day.", "Aye. Come back whenever you are thirsty.", "Good day!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Schönen Tag noch.", "Bis bald.", "Aye. Komm wieder, wann immer du durstig bist."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a nice day.", "Aye. Come back whenever you are thirsty.", "Good day!"
@@ -98,7 +98,7 @@ english, "Gobaith", "Gobiath" -> "A dwarf shouldn't live in the past. - I allway
 
 -- More small talk; add at least five triggers
 english, "Fluffy", "Sheep" -> "Fluffy Sheep was the name of an Inn. I worked there long time ago for the king of Silverbrand.", "The Fluffy Sheep Tavern was named after a sheep named Fluffy. And one day, they just ate it."
-english, "Sil[vb]erbran[dt]" -> "Silverbrand got many kings, but I think King Tiladin is the most important", "Ailverbrand - The dwarven town under the throne of Irmorom, in the middle of the coppermountains. Let us hold up the keepsake.", "Silverbrand took each dwarf as citizen those days. Even at night the sound of smithing hammers was hearable they say."
+english, "Sil[vb]erbran[dt]" -> "Silverbrand got many kings, but I think King Tiladin is the most important", "Silverbrand - The dwarven town under the throne of Irmorom, in the middle of the coppermountains. Let us hold up the keepsake.", "Silverbrand took each dwarf as citizen those days. Even at night the sound of smithing hammers was hearable they say."
 english, "Gowan", "Sam", "brute", "Booze", "hook" -> "When I came here, they didn't ask me a single question. So I did.", "Actually I know everything... but I don't tell."
 english, "half-hung", "bryan" -> "Bryan is the owner of the Hemp Necktie Inn. So it's his law we live with. You do better ask him about the law, eh?", "Actually I know everything... but I don't tell."
 "Fluffy", "Sheep", "schaf", "flausch", "flauschige" -> "Das Fluffy Sheep war eine Taverne. Dort habe ich früher, für den König Silberbrands gearbeitet. Aber das ist schon lange her...", "Als ich noch ein Zwerg im besten Alter war, arbeitete ich in der Fluffy Sheep Taverne. Aye?", "Die Fluffy Sheep Taverne hat man nach einem Schaf benannt das sie Fluffy nannten. Und irgendwann - dann haben sie's einfach gegessen."
@@ -154,7 +154,7 @@ english, "Ronagan" -> "I don't know much about Ronagan, only that I'll become in
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 "Borgate", "bar", "Northoff" -> "Indeed, I'm the bartender here. What's your order?"
-"Borgate", "wirt", "Northoff" -> "Genau, ich bin hier der Wirt. Was willst Du trinken?"
+"Borgate", "wirt", "Northoff" -> "Genau, ich bin hier der Wirt. Was willst du trinken?"
 "Yes" -> "Arr-h!", "That's the way it's supposed to be!", "Well then!"
 "Ja" -> "Arr-h!", "So soll's sein!", "Aye, das hab ich gern.", "Wenn's unbedingt notwenig ist."
 "No" -> "Arr-h?", "Nevermind.", "Anything else?"

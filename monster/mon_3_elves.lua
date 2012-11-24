@@ -210,7 +210,7 @@ function onDeath(Monster)
         --Category 2: Special loot
 
         local done=monster.base.drop.AddDropItem(63,1,20,(100*math.random(4,5)+math.random(44,55)),0,2); --entrails
-        if not done then done=monster.base.drop.AddDropItem(2764,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --razor blade
+        if not done then done=monster.base.drop.AddDropItem(2746,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --razor blade
         if not done then done=monster.base.drop.AddDropItem(224,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --golden goblet
         if not done then done=monster.base.drop.AddDropItem(1840,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --copper goblet
         if not done then done=monster.base.drop.AddDropItem(2683,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --grey dye

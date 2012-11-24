@@ -26,7 +26,7 @@ autointroduce = on
 author = "not set"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatUS = "This is an NPC who's developer was too lazy to type in a description."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -86,9 +86,9 @@ itemShoes = 53
 
 -- Catching quest triggers
 "quest", "mission", queststatus(999) = 0, english -> inform("[Quest started] An usurper to the throne"), "So, you want to help me eh? Seek out my servant Victor Tolenor in Cadomyr and inquire about his 'aunt Hastine'", queststatus(999) = 1
-"quest", "mission", queststatus(999) = 0, german -> inform("[Quest started] An usurper to the throne"), "So, Du willst mir also helfen, eh? Suche nach meinem Diener Victor Tolenor in Cadomyr und begrafe ihn nach seiner 'Tante Hastine'", queststatus(999) = 1
+"quest", "mission", queststatus(999) = 0, german -> inform("[Quest started] An usurper to the throne"), "So, du willst mir also helfen, eh? Suche nach meinem Diener Victor Tolenor in Cadomyr und befrage ihn nach seiner 'Tante Hastine'", queststatus(999) = 1
 "task", "adventure", queststatus(999) = 0 -> inform("[Quest started] Ein Usurpator greift nach dem Thron"), "So, you want to help me eh? Seek out my servant Victor Tolenor in Cadomyr and inquire about his 'aunt Hastine'", queststatus(999) = 1
-"Auftrag", "Aufgabe", "Abenteuer", queststatus(999) = 0 -> inform("[Quest started] Ein Usurpator greift nach dem Thron"), "So, Du willst mir also helfen, eh? Suche nach meinem Diener Victor Tolenor in Cadomyr und begrafe ihn nach seiner 'Tante Hastine'", queststatus(999) = 1
+"Auftrag", "Aufgabe", "Abenteuer", queststatus(999) = 0 -> inform("[Quest started] Ein Usurpator greift nach dem Thron"), "So, du willst mir also helfen, eh? Suche nach meinem Diener Victor Tolenor in Cadomyr und befrage ihn nach seiner 'Tante Hastine'", queststatus(999) = 1
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "What? Do you take me for some peddler? An outrage!"

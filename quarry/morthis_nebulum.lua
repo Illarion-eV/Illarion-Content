@@ -255,7 +255,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Etwas sagt dir, Du solltest diesen Informationen nicht zu sehr trauen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Etwas sagt dir, du solltest diesen Informationen nicht zu sehr trauen."));
 talkEntry:addResponse("Ich hörte, Elvaine Morgan ist immun gegen Wunden verursacht durch Schwerter. Vielleicht solltet Ihr das überprüfen.");
 talkEntry:addResponse("Elvaine Morgan trägt immer 50 Goldstücke mit sich herum und er ist auch nicht sehr gut darin, sich zu verteidigen.");
 talkEntry:addResponse("Ich hörte, Elvain Morgan erfreut sich am Geschmack von Gift. Er gibt Leuten, die ihm ein gutes Mahl zubereiten eine große Belohnung.");
@@ -692,7 +692,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Geh nach Galmair, wenn Du was über Irmorom hören willst. Ich könnte mich nicht noch weniger interessieren.");
+talkEntry:addResponse("Geh nach Galmair, wenn du was über Irmorom hören willst. Ich könnte mich nicht noch weniger interessieren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

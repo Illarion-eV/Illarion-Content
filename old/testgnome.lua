@@ -104,7 +104,7 @@ function doGamble(user)         -- does all the gambling actions
         user:talkLanguage(Character.say,Player.german,"#me zieht einen Stein mit der Nummer "..drawnStone);
         user:talkLanguage(Character.say,Player.english,"#me draws a stone with the number "..drawnStone);
         --user:inform("1");
-        talkString=npc.base.functions.GetNLS(user,"Damit hast Du jetzt "..stoneSum[user.id]..". ","So you have "..stoneSum[user.id].." now. ");
+        talkString=npc.base.functions.GetNLS(user,"Damit hast du jetzt "..stoneSum[user.id]..". ","So you have "..stoneSum[user.id].." now. ");
         --user:inform("2");
         if (stoneSum[user.id]>11) then
             talkString=talkString.. npc.base.functions.GetNLS(user,"Du hast mehr als 11 gezogen! Haha, du hast verloren!","You've drawn more than 11! Haha, you lost!");

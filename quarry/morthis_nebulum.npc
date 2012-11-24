@@ -106,7 +106,7 @@ itemShoes = 53
 "what sell", "what buy", "list wares", "price of" -> "You think this is the right place to look for a Salesman?", "Do I look like a trader to you? Here's a hint. No I don't.", "The only thing I'm interested in buying with you around is poison."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ihr denkt, dies sei der richtige Ort, um einen händler zu finden?", "Sehe ich wie ein Händler aus? Hier ist ein Hinweis: Nein, tue ich nicht.", "Das einzige, was ich mit dir um mir kaufen würde, ist Gift."
 "tell something" -> inform("Something tells you you shouldn't trust that information too much"), "I hear Elvaine Morgan is immune to sword wounds. Maybe you should check.", "Elvaine Morgan always carries round 50 gold coins on his person. Not very good at defending himself either.", "I hear Elvaine Morgan enjoys the taste of venom. He gives big rewards to people who make him a good tasting meal."
-"erzähl was", "erzähl etwas" -> inform("Etwas sagt dir, Du solltest diesen Informationen nicht zu sehr trauen."), "Ich hörte, Elvaine Morgan ist immun gegen Wunden verursacht durch Schwerter. Vielleicht solltet Ihr das überprüfen.", "Elvaine Morgan trägt immer 50 Goldstücke mit sich herum und er ist auch nicht sehr gut darin, sich zu verteidigen.", "Ich hörte, Elvain Morgan erfreut sich am Geschmack von Gift. Er gibt Leuten, die ihm ein gutes Mahl zubereiten eine große Belohnung."
+"erzähl was", "erzähl etwas" -> inform("Etwas sagt dir, du solltest diesen Informationen nicht zu sehr trauen."), "Ich hörte, Elvaine Morgan ist immun gegen Wunden verursacht durch Schwerter. Vielleicht solltet Ihr das überprüfen.", "Elvaine Morgan trägt immer 50 Goldstücke mit sich herum und er ist auch nicht sehr gut darin, sich zu verteidigen.", "Ich hörte, Elvain Morgan erfreut sich am Geschmack von Gift. Er gibt Leuten, die ihm ein gutes Mahl zubereiten eine große Belohnung."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a protector of the pure schools of magic.", "I am a mage in the.. darker fields, you might say.", "I am a practitioner of the true forms of magic."
@@ -168,7 +168,7 @@ itemShoes = 53
 "Findari", english -> "As far as women go, she's one of the better ones."
 "Findari" -> "Soweit wie es für Frauen geht, ist sie eine der besseren."
 "Irmorom", english -> "Go to Galmair if you want to hear about Irmorom. I couldn't care less."
-"Irmorom" -> "Geh nach Galmair, wenn Du was über Irmorom hören willst. Ich könnte mich nicht noch weniger interessieren."
+"Irmorom" -> "Geh nach Galmair, wenn du was über Irmorom hören willst. Ich könnte mich nicht noch weniger interessieren."
 "Malachin", "Malachín", english -> "The patron of warriors, the most pathetic of all people."
 "Malachin", "Malachín" -> "Der Patron der Krieger, der erbärmlichsten Sorte von Menschen."
 "Moshran", english -> "Through his might we can practice Blood Magic.", "Moshran followers are generally outcasts of society. Maybe I should worship him."

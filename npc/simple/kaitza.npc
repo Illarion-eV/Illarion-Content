@@ -123,8 +123,8 @@ queststatus(335) = 1, item(73, all) < 10, "task", "adventure" -> "Zss. Sstill hu
 queststatus(335) = 1, item(73, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "Zss. Sso Hungrig. Bring mir zzzehn Forellen. Kaitza zzzahl dafür. Zss."
 
 -- Quest 2 solved, reward: 80cp
-queststatus(335) = 1, item(73, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 80 copper coins."), "Yess...zis isss good. Very good. Zss. Here isss your money.", money + 80, deleteItem(73, 10), queststatus(335) = 2
-queststatus(335) = 1, item(73, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein ITEM."), "Ja... dass ist gut.Sssehr gut. Zss. Hier issst Euer Geld.", money + 80, deleteItem(73, 10), queststatus(335) = 2
+queststatus(335) = 1, item(73, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded three silver coins."), "Yess...zis isss good. Very good. Zss. Here isss your money.", money + 300, deleteItem(73, 10), queststatus(335) = 2
+queststatus(335) = 1, item(73, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 300 Kupferstücke."), "Ja... dass ist gut.Sssehr gut. Zss. Hier issst Euer Geld.", money + 300, deleteItem(73, 10), queststatus(335) = 2
 
 -- 3rd quest: Bring 5 salmon
 
@@ -141,8 +141,8 @@ queststatus(335) = 3, item(355, all) < 5, "task", "adventure" -> "Pleassse, you 
 queststatus(335) = 3, item(355, all) < 5, "Auftrag", "Aufgabe", "Abenteuer" -> "Bitte findet für Kaitza fünf ssschamckhafte Lachssse. Kocht sssie nicht. Sssie müsssen roh sssein."
 
 -- Quest 3 solved, reward: quality snake sword, 40cp
-queststatus(335) = 3, item(355, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded a snake sword and 40 copper coins."), "Zese sssalmon look mossst good. Take zis, as payment. Zss. Now leave Kaitza alone to eat hisss fishiesss.", money + 40, deleteItem(355, 5), item(2788, 1, 799), queststatus(335) = 4
-queststatus(335) = 3, item(355, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst ein Schlangenschwert und 40 Kupferstücke."), "Der Lachsss sssieht gut uisss. Nemt diesss, alsss Bezzzahlung. Zss. Jetzzzt lasst mich in Ruhe essssen. Zss.", money + 40, deleteItem(355, 5), item(2788, 1, 799), queststatus(355) = 4
+queststatus(335) = 3, item(355, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded a snake sword and four silver coins."), "Zese sssalmon look mossst good. Take zis, as payment. Zss. Now leave Kaitza alone to eat hisss fishiesss.", money + 400, deleteItem(355, 5), item(2788, 1, 799), queststatus(335) = 4
+queststatus(335) = 3, item(355, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst ein Schlangenschwert und 40 Kupferstücke."), "Der Lachsss sssieht gut uisss. Nemt diesss, alsss Bezzzahlung. Zss. Jetzzzt lasst mich in Ruhe essssen. Zss.", money + 400, deleteItem(355, 5), item(2788, 1, 799), queststatus(355) = 4
 
 -- No more quests, just nice words of gratitude
 queststatus(335) = 4, english, "quest", "mission" -> "Zss. Be gone. Leave Kaitza to enjoy hisss fishiesss in peace."

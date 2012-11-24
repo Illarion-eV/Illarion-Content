@@ -1681,7 +1681,7 @@ function initJoke()
 	jokelist_de[9]="Womit kann man nen Langohr über Jahre beschäftigen? - Mit nem Pergament bei dem auf beiden Seiten \"Bitte Wenden!\" steht.";
 	jokelist_de[10]="Kommt ein"..hicks().."Elb"..hicks().."in eine Taverne, trägt Mist in seinen"..hicks().."Händen und ruft: \"Hey Leute, seht doch mal wo ich beinahe hineingetreten wäre!\"";
 	jokelist_de[11]="Was ist der Unterschied zwischen"..hicks().."einem Baum und einem"..hicks().."Elben? Wenn du einem Baum einen Tritt verpasst labert er"..hicks().."dich nicht eine Stunde lang voll."
-	jokelist_de[12]="Meint ein Elf zu Manron \"Ich bräuchte eine neue Harfe und weiß nicht woher ich das Geld nehmen soll.\" \"So ein Glück\", seufzt Manron, \"Ich dachte schon, Du wolltest"..hicks().."mich anpumpen.\"";
+	jokelist_de[12]="Meint ein Elf zu Manron \"Ich bräuchte eine neue Harfe und weiß nicht woher ich das Geld nehmen soll.\" \"So ein Glück\", seufzt Manron, \"Ich dachte schon, du wolltest"..hicks().."mich anpumpen.\"";
 	jokelist_de[13]="Wieviele Elfen braucht man um Mittagessen zu machen? Fünfundzwanzig. Vierundzwanzig halten die Kuh fest und einer fängt an zu grasen!";
 	jokelist_de[14]="Was ist dümmer als ein Elf? - zwei Elfen!";
 

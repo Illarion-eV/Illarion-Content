@@ -17,13 +17,15 @@ module("druid.item.id_1008_cauldron", package.seeall)
 
 -- UPDATE common SET com_script='druid.item.id_1008_cauldron' WHERE com_itemid = 1008;
 
+-- PLEASE WRITE YOUR COMMENTARIES IN THE PROJECT LANGUAGE: ENGLISH! ~Estralis
+
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-  --User:inform("debug ds_pflanzensud.lua") 
+
   -- prüfe ob der User eine Planze in der Hand hat
     local plantInHand = druid.base.alchemy.CheckIfPlantInHand(User);  
     -- prüfe ob eine Flasche in der Hand ist
     local bottleInHand = druid.base.alchemy.CheckIfBottleInHand(User);  
-		-- check auf mehrere Flaschen(Stapelbug)
+		-- check auf mehrere Flaschen (Stapelbug)
 		if User:countItemAt("body",164)>1 or User:countItemAt("body",331)>1 then
 			return
 		end	
@@ -85,9 +87,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         world:makeSound(10,User.pos);
 		User:increaseAtPos(plantInHand.itempos,-1);
         
-        -- Das Flascheitem wird entsprechend aller Daten modifiziert
+        -- Das Flaschenitem wird entsprechend aller Daten modifiziert
         
-        -- Die Qualität des Sudes richtet sich nach dem Alchemie Skill (0 Skill = Qualität 1)
+        -- Die Qualität des Sudes richtet sich nach dem Alchemie-Skill (0 Skill = Qualität 1)
 		if bottleInHand.id == 331 then
 		   if math.random(1,100) <= math.floor(120/(User:getSkill(Character.alchemy)+User:increaseAttrib("perception",0))) then
 		      quali = bottleInHand.quality - 100;
@@ -160,7 +162,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     
     
- 
+ -- WUT!?!
     base.common.InformNLS( User,
         "Du musst eine Sud-Pflanze in die Hand nehmen.",
         "You need to carry a broth plant in your hands."

@@ -17,7 +17,7 @@ function cookie(User)
         germText="Jetzt ist die Zeit gekommen den Verstand zu benutzen.";
         englText="Find beauty in ordinary things, and blessed you will be.";
     elseif (luck==5) then
-        germText="Strebe nicht an, was Du meinst erreichen zu können, sondern was Du wirklich willst!";
+        germText="Strebe nicht an, was du meinst erreichen zu können, sondern was du wirklich willst!";
         englText="Anything worth doing can be done.";
     elseif (luck==6) then
         germText="Erfolg hat nur, wer etwas tut, während er auf den Erfolg wartet.";
@@ -50,7 +50,7 @@ function cookie(User)
         germText="Worüber du im Zweifel bist, das tue nicht.";
         englText="Be ashamed to die until you have achieved some victory for humanity.";
     elseif (luck==16) then
-        germText="Sage niemals nie, denn Du weißt nie was auf Dich zukommt.";
+        germText="Sage niemals nie, denn du weißt nie was auf Dich zukommt.";
         englText="Paradise is a belief not a place.";
     elseif (luck==17) then
         germText="Der glücklichste Mensch ist der, der Träume verwirklichen kann.";
@@ -59,7 +59,7 @@ function cookie(User)
         germText="Wer einen Fehler gemacht hat und ihn nicht korrigiert, begeht einen zweiten.";
         englText="Answers without evidence are useless.";
     elseif (luck==19) then
-        germText="Bist Du heute der, der Du einmal sein wolltest, als Du noch jung warst?";
+        germText="Bist du heute der, der du einmal sein wolltest, als du noch jung warst?";
         englText="Follow the dreams you had as a child.";
     elseif (luck==21) then
         germText="Sie können herausholen, was in Ihnen steckt.";
@@ -68,7 +68,7 @@ function cookie(User)
         germText="Tu' nichts, woran deine Seele Schaden erleiden könnte, auch wenn du die Welt gewinnen könntest.";
         englText="If you don't care where you are, then you ain't lost.";
     elseif (luck==23) then
-        germText="Wenn Du die Nacht erwartest, wird auch ein nächster morgen kommen.";
+        germText="Wenn du die Nacht erwartest, wird auch ein nächster morgen kommen.";
         englText="You cannot achieve the impossible without attempting the absurd.";
     elseif (luck==24) then
         germText="Eindeutige Zweideutigkeit ist nicht immer zweideutig gemeint, sondern oft nur eindeutig.";
@@ -104,7 +104,7 @@ function cookie(User)
        germText="Die Liebe allein versteht das Geheimnis, andere zu beschenken und dabei selbst reich zu werden.";
         englText="You are only young once. After that you have to think up some other excuse.";
     elseif (luck==35) then
-       germText="Solange Du selber nicht im Reinen bist, darfst du niemanden verurteilen.";
+       germText="Solange du selber nicht im Reinen bist, darfst du niemanden verurteilen.";
         englText="Don't take life too seriously.";
     elseif (luck==36) then
        germText="Den Tüchtigen belohnt das Glück.";

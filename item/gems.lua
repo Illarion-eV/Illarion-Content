@@ -5,6 +5,48 @@ require("base.common")
 
 module("item.gems", package.seeall)
 
+DIAMOND  = 1
+EMERALD  = 2
+RUBY     = 3
+OBSIDIAN = 4
+SAPPHIRE = 5
+AMETHYST = 6
+TOPAZ    = 7
+
+gemItem = {}
+gemItem[DIAMOND] = 285
+gemItem[EMERALD] = 45
+gemItem[RUBY] = 46
+gemItem[OBSIDIAN] = 283
+gemItem[SAPPHIRE] = 284
+gemItem[AMETHYST] = 197
+gemItem[TOPAZ] = 198
+
+gemPrefixDE = {"latent", "bedingt", "leicht", "m‰ﬂig", "durchschnittlich", "bemerkenswert", "stark", "sehr stark", "unglaublich", "einzigartig"}
+gemPrefixEN = {"latent", "limited", "slight", "moderate", "average", "notable", "strong", "very strong", "unbelievable", "unique"}
+
+gemLevelRareness = {}
+gemLevelRareness[1] = ItemLookAt.uncommonItem
+gemLevelRareness[2] = ItemLookAt.uncommonItem
+gemLevelRareness[3] = ItemLookAt.uncommonItem
+gemLevelRareness[4] = ItemLookAt.rareItem
+gemLevelRareness[5] = ItemLookAt.rareItem
+gemLevelRareness[6] = ItemLookAt.rareItem
+gemLevelRareness[7] = ItemLookAt.epicItem
+gemLevelRareness[8] = ItemLookAt.epicItem
+gemLevelRareness[9] = ItemLookAt.epicItem
+gemLevelRareness[10] = ItemLookAt.epicItem
+
+function createMagicGem(user, gem, quantity, level)
+    local quantity = quantity or 1
+    local level = level or 1
+    local item = gemItem[gem]
+    local data = {}
+    data.gemLevel = level
+    
+    local notCreated = user:createItem(item, quantity, 999, data)
+end
+
 function initStones()
     stoneNumber={};
     stoneNumber[285]=1;     -- diamant      285 -> 1
@@ -53,34 +95,22 @@ function generateData(gemItem,TargetItem,itemCl,dummy)
     return newData;    
 end
 
-function LookAtItem(User,Item)
-    -- Data 1           -> latent
-    -- Data 2           -> bedingt
-    -- Data 3           -> leicht
-    -- Data 4           -> maessig
-    -- Data 5           -> normal
-    -- Data 6           -> bemerkenswert
-    -- Data 7           -> stark
-    -- Data 8           -> sehr stark
-    -- Data 9           -> unglaublich
-    -- Data 10          -> einzigartig
+function LookAtItem(user, item)
+    local lookAt = base.lookat.GenerateLookAt(user, item)
 
-    ItemName=world:getItemName( Item.id, User:getPlayerLanguage() );
-
-    GEM_DATA_DE= { "latent ", "bedingt ", "leicht ", "m‰ﬂig ", "", "bemerkenswert ", "stark ", "sehr stark ", "unglaublich ", "einzigartig " }
-    GEM_DATA_EN= { "latent ", "limited ", "slight ", "moderate ", "", "notable ", "strong ", "very strong ", "unbelievable ", "unique " }
+    local gemLevel = tonumber(item:getData("gemLevel"))
     
-    magLevel=tonumber(Item:getData("magLevel"));
-    
-    if magLevel~=nil then
-        if User:getPlayerLanguage() == 0 then
-            world:itemInform(User,Item,GEM_DATA_DE[magLevel].."magischer "..ItemName);
+    if gemLevel then
+        if user:getPlayerLanguage() == 0 then
+            lookAt.name = gemPrefixDE[gemLevel] .. " magischer " .. lookAt.name
         else
-            world:itemInform(User,Item,GEM_DATA_EN[magLevel].."magical "..ItemName);
-        end;
-    else
-        world:itemInform(User,Item,ItemName);
-    end 
+            lookAt.name = gemPrefixEN[gemLevel] .. " magical " .. lookAt.name
+        end
+
+        lookAt.rareness = gemLevelRareness[gemLevel]
+    end
+
+    world:itemInform(user, item, lookAt)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)

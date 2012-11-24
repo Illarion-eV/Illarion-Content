@@ -55,13 +55,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Antonius Copperhand the smith. Keywords: buy, sell, trade, job,your name."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Antonius Copperhand the smith. Keywords: buy, sell, trade, job, your name."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Antonius Copperhand der Schmied. Schlüsselwörter: kaufe, verkaufe, Handel, job, your name."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Antonius Copperhand der Schmied. Schlüsselwörter: kaufe, verkaufe, Handel, Beruf, dein Name."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -173,7 +173,7 @@ talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
 talkEntry:addResponse("Mir jeht ett wunderbar und wie jeht et Euch?");
-talkEntry:addResponse("Jut, jut. ");
+talkEntry:addResponse("Jut, jut.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -267,7 +267,7 @@ talkingNPC:addCycleText("#me pfeift eine Melodie.", "#me whistles a melodie.");
 talkingNPC:addCycleText("#me wischt sich den Schweiß von der Stirn.", "#me whipes the sweat off his forhead.");
 talkingNPC:addCycleText("#me betrachtet zufrieden seine geschmiedeten Werke.", "#me looks at his smithes works with a conten face..");
 talkingNPC:addCycleText("#me hält ein Amulett gegen das Licht, um es besser zu betrachten.", "#me holds an Amulett against the light, to have a better look at it.");
-talkingNPC:addCycleText("Schmiedewaren! Schöner Schmuck! Kaufste woanders, dann bereustes!", "Smithes goods! Fine Juwelry! Ya buy elsewhere, and ya will reget it!");
+talkingNPC:addCycleText("Schmiedewaren! Schöner Schmuck! Kaufste woanders, dann bereustes!", "Smithes goods! Fine Juwelry! Ya buy elsewhere, and ya will regret it!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(122,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2747,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2140,"sell"));

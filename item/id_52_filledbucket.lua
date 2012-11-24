@@ -203,7 +203,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		
 	elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
 		world:gfx(1,cauldron.pos)
-		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+		base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.", 
 		                            "The substance in the cauldron blows out, as you fill the water in.")
 		cauldron:setData("essenceHerbs","")
 		cauldron:setData("cauldronFilledWith","")
@@ -214,7 +214,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		    world:makeSound(10,cauldron.pos)
 		    cauldron:setData("cauldronFilledWith","water")
 		else
-			base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+			base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.", 
 										"The substance in the cauldron blows out, as you fill the water in.")
 		end
 		world:gfx(1,cauldron.pos)
@@ -224,7 +224,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		
 	elseif cauldron:getData("stockData") ~= "" then
 		world:gfx(1,cauldron.pos)
-		base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+		base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.", 
 		                            "The substance in the cauldron blows out, as you fill the water in.")
 	    cauldron:setData("stockData","")
 	    

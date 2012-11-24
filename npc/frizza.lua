@@ -43,8 +43,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(605, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("You can talk with Frizza now. Ask for 'help' if you do not know what to ask! You can also go back to Hummi to collect your reward and come back later."));
-talkEntry:addResponse("How can I help you? Do you like to have any information? Or do you like to have a task?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("You can speak with Frizza now. Ask for 'help' if you do not know what to say! You can also go back to Hummi to collect your reward and come back later."));
+talkEntry:addResponse("How can I help you? Are you looking for any information? Or would you like to be given a task?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -109,7 +109,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Sssee you again if you need more information.");
+talkEntry:addResponse("Sssee you again, when you need more information.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -128,7 +128,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Sssee you again if you need more information.");
+talkEntry:addResponse("Sssee you again, when you need more information.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

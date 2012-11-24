@@ -49,7 +49,7 @@ sex=female
     npc.base.autonpcfunctions.AddAdditionalTrigger("Wer bist du");
     npc.base.autonpcfunctions.AddAdditionalTrigger("wer seid ihr");
     -- Argwohn gegenüber Orks
-    npc.base.autonpcfunctions.AddTraderTrigger(" ","So einer wie Du hat hier nichts zu suchen. Hau ab oder ich ruf die Wachen!");
+    npc.base.autonpcfunctions.AddTraderTrigger(" ","So einer wie du hat hier nichts zu suchen. Hau ab oder ich ruf die Wachen!");
     npc.base.autonpcfunctions.AddCondition("race", Character.orc);
     npc.base.autonpcfunctions.AddCondition("lang","german");
     

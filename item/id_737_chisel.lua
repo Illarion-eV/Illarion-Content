@@ -28,7 +28,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		
 		Stones[733] = {};
 		Stones[733].productId = 1266;
-		Stones[733].amount = 25;
+		Stones[733].amount = 10;
 		Stones[733].nameDE = "Steinquader";
 		Stones[733].nameEN = "stone blocks";
 	end

@@ -33,7 +33,7 @@ function DrinkPotion(User,SourceItem)
 		foundEffect, myEffect = User.effects:find(59);
 		if foundEffect then
 			effectRemoved = User.effects:removeEffect(59)
-		    base.common.InformNLS(User, "Du spürst das der alte Stärkungstrank seine Wirkung verliert und wie der neue zu wirken einsetzt.", 
+		    base.common.InformNLS(User, "Du spürst, dass der alte Stärkungstrank seine Wirkung verliert und wie der neue zu wirken einsetzt.", 
 		    "You feel that the strengthening potion looses its effect and how the new one takes effect.")
 		end
 		local myEffectDuration = SourceItem.quality*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
@@ -140,7 +140,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			-- water, essence brew or potion is in the cauldron; leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
 			    world:gfx(1,cauldron.pos)
-		        base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Gebräu hinzu tust.", 
+		        base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Gebräu hinzu tust.", 
 		                                    "The substance in the cauldron blows out, as you fill the mixture in.")
 			    cauldron:setData("cauldronFilledWith","")
 			
@@ -171,7 +171,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
 			    world:gfx(1,cauldron.pos)
-		        base.common.InformNLS(User, "Du Inhalt des Kessels verpufft, als Du das Wasser hinzu tust.", 
+		        base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.", 
 		                            "The substance in the cauldron blows out, as you fill the water in.")
 			    cauldron:setData("cauldronFilledWith","")
 			
@@ -210,7 +210,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			
     else -- not infront of a cauldron, therefore drink!
         if User.attackmode then
-		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während Du kämpfst.", "You cannot use the potion while fighting.")
+		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
 		else
 			User:talkLanguage(Character.say, Player.german, "#me trinkt eine rote Flüssigkeit.");
 			User:talkLanguage(Character.say, Player.english, "#me drinks a red liquid.");

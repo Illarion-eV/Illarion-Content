@@ -15,13 +15,13 @@ function MoveToField(User) -- char dares to step on the sacrificial bowl
 	end   
 	world:gfx(44,User.pos)
 	world:makeSound(5,User.pos)
-	base.common.HighInformNLS(User,"Deine Füße brennen schmerzhaft.","Your feet brun painfully.")
+	base.common.HighInformNLS(User,"Deine Füße brennen schmerzhaft.","Your feet burn painfully.")
 end
 
 function PutItemOnField(Item,User)
 
     if (Item.id ~= 61) and (Item.id ~= 3076) and (Item.id ~= 3077) then -- no money, refuse of the sacrifice
-        base.common.InformNLS(User,"Dein Opfer springt wie von selbst aus der Schüssel heraus. Dir ist, als hörst Du das Klimpern von Münzen. Vielleicht ein Hinweis."
+        base.common.InformNLS(User,"Dein Opfer springt wie von selbst aus der Schüssel heraus. Dir ist, als hörst du das Klimpern von Münzen. Vielleicht ein Hinweis."
 		                          ,"On its own, your sacrifice jumps out of the bowl. You think to hear jingling of coins. Maybe a hint. ")
         world:createItemFromItem(Item,position(891,389,0)) -- next to the bowl, we create the new item
 		world:eraseItem(Item,Item.number) -- and delete the old one
@@ -37,12 +37,14 @@ function PutItemOnField(Item,User)
             moneySacr = Item.number
         end
 		
+		--The code below is hard to understand. Please add commentaries. ~Estralis
 		local quPrg
 		quPrg = User:getQuestProgress(666)
 		if quPrg == 0 then
 			quPrg = 10000 -- first digit doesn't play any role; second digit = how often the char died; third to sixth digit = money counter
 		end
 
+		--Especially here: 10000, 1000, where do these constants come from? ~Estralis
 		local deathCounter = math.floor((quPrg-10000)/1000)
 		local oldMoney = quPrg - 10000 - deathCounter*1000
 		
@@ -60,7 +62,7 @@ function PutItemOnField(Item,User)
 		
             else 
 			    local deathReducer = math.floor(newMoney/500)
-				local moneyKept = newMoney - (deathReducer*500) -- rest of money, below 500 copper coins; we keep it for fruther payments
+				local moneyKept = newMoney - (deathReducer*500) -- rest of money, below 500 copper coins; we keep it for further payments
 				local newDeathCounter = 1000*(base.common.Limit(deathCounter-deathReducer, 0, 5))
 			    User:setQuestProgress(666,10000+newDeathCounter+moneyKept)
 			end	

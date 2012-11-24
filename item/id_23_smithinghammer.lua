@@ -16,6 +16,8 @@ function InitCraftingTool( )
                               craftDE = "Schmieden",
                               leadSkill = Character.smithing,
                               defaultFoodConsumption = 300,
+                              sfx = 8,
+                              sfxDuration = 15,
                             }
 
         smithing:addTool(172); -- anvil
@@ -24,7 +26,7 @@ function InitCraftingTool( )
 local catId = smithing:addCategory("tools", "Werkzeuge")
 		
 --Pins
-local product = smithing:addProduct(catId, 2738, 0, 20, 5, 10, 5)
+local product = smithing:addProduct(catId, 2738, 0, 20, 50, 100, 5) -- testing crafting times
 product:addIngredient(2535) -- Iron Ingot: 1x1
 
 --Hammer
@@ -718,3 +720,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
     Smithing = InitCraftingTool()
     Smithing:showDialog(User, SourceItem)
 end
+
+function LookAtItem(User, Item)
+    world:itemInform(User, Item, base.lookat.GetItemDescription(User, Item, base.lookat.METAL))
+end
+

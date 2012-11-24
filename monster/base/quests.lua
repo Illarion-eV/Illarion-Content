@@ -17,7 +17,7 @@ module("monster.base.quests", package.seeall)
 --questLocation[id]=position(X,Y,Z); --a position around which the monsters have to be slain, e.g. centre of a dungeon or forest
 --radius[id]=RADIUS; --in this radius around the questlocation, kills are counted valid
 
---Comment: If you want a NPC to give out multiple quests, you can do it like this:
+--Comment: If you want an NPC to give out multiple quests, you can do it like this:
 
 --Quest 1: To accept quest 1, set queststatus to 1 with the NPC. Use queststatus 1->11 to count 10 monsters. If the quest is finished, set queststatus to 12 with the NPC.
 --Quest 2: To accept quest 2, set queststatus to 13 with the NPC. Use queststatus 13->18 to count 5 monsters. If the quest is finished, set queststatus to 19 with the NPC.

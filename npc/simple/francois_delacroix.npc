@@ -170,7 +170,7 @@ english, "Irmorom" -> "He keeps me at the top of my craft, which makes me money,
 "erzähl was", "erzähl etwas" -> "Was hätte ich zu erzählen? Ich bin die Nummer Eins unter den hübschen Jungen in Runewick, wenn es um Landwirtschaftserzeugnisse geht."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-english, "Francois", "Delacroix" -> "Do you need something? Chances are I selling it."
+english, "Francois", "Delacroix" -> "Do you need something? Chances are I sell it."
 "Francois", "Delacroix" -> "Bracht Ihr etwas? Ich Chancen stehen gurt, dass ich es verkaufe."
 "Yes" -> "Please be more specific. "
 "Ja" -> "Bitte seid etwas genauer in Euer Wortwahl."

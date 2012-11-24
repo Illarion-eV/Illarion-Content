@@ -13,8 +13,17 @@ function onLogin( player )
 
 	--General welcome message
     players=world:getPlayersOnline(); --Reading all players online so we can count them
-	base.common.InformNLS(player,"[Login] Willkomme auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
-
+	
+	if table.getn(players) > 1 then
+	
+	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es sind "..table.getn(players).." Spieler online.","[Login] Welcome to Illarion! There are "..table.getn(players).." players online."); --sending a message
+    
+	else --player is alone
+	
+	    base.common.InformNLS(player,"[Login] Willkommen auf Illarion! Es ist ein Spieler online.","[Login] Welcome to Illarion! There is one player online."); --sending a message
+	
+	end
+	
 	-- So let there be taxes!
 	payTaxes(player);
 
@@ -41,9 +50,9 @@ function onLogin( player )
 		    local callbackNewbie = function(dialogNewbie) end; --empty callback
 
 		    if player:getPlayerLanguage() == 0 then
-			    dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Eine lange Reise nähert sich ihrem Ende. Du bist von Bord des Schiffes gegangen, welches dich zu den letzten sicheren Bastionen der Menscheit Illarions gebracht hat. Das edle Cadomyr, das weise Runewick oder das reiche Galmair - welchen Weg wirst du einschlagen? Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen indem du 'Tutorial überspringen' zu einem NPC sagst.", callbackNewbie);
+			    dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Eine lange Reise nähert sich ihrem Ende. Du gehst von Bord des Schiffes und hast endlich wieder festen Boden unter den Füßen. In diesem Land wirst du vor eine Entscheidung gestellt, die wohl die wichtigste deines Lebens sein wird. Das edle Cadomyr, das weise Runewick oder das reiche Galmair - welchen Weg wirst du einschlagen? Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen indem du 'Tutorial überspringen' zu einem NPC sagst.", callbackNewbie);
 		    else
-			    dialogNewbie = MessageDialog("Welcome to Illarion!", "A long journey comes to an end. You disembarked the ship that brought you to Illarion's last save strongholds of mankind. Noble Cadomyr, wise Runewick or wealthy Galmair - which way will you chose? Welcome to Illarion, the free online roleplaying game. This tutorial will guide you through your first steps and teach you the controls of the game. You may skip the tutorial at any time by saying 'skip tutorial' to a NPC.", callbackNewbie);
+			    dialogNewbie = MessageDialog("Welcome to Illarion!", "A long, tiresome journey finally comes to an end. You disembark the ship and feel solid ground beneath your feet. In these lands, you will soon be faced with a choice, perhaps the most important of your entire life. Noble Cadomyr, wise Runewick, or wealthy Galmair - whose side shall you join? Welcome to Illarion, the free online roleplaying game. This tutorial will guide you through your first steps and teach you the controls of the game. You may skip the tutorial at any time by saying 'skip tutorial' to an NPC.", callbackNewbie);
 		    end
 
 		    player:requestMessageDialog(dialogNewbie); --showing the welcome text
@@ -118,10 +127,10 @@ function onLogin( player )
 		messageG[59]="[Tipp] Der Vollbildmodus kann im Optionsmenü des Clients aktiviert werden.";
 		messageG[60]="[Tipp] Wenn ein neuer Spieler deinem Reich beitritt erhältst du eine kurze Mitteilung. Heiße ihn doch gleich willkommen!";
 		messageG[61]="[Tipp] Um der Staatskasse deines Reiches etwas zu spenden, lege es einfach auf das Spendenfeld in der Nähe deines Anführers."
-		messageG[62]="[Tipp] Um die Sprache deines Charakters umzustellen, MACHE DIES UND DAS."
+		messageG[62]="[Tipp] Um die Sprache deines Charakters umzustellen, schreibe '!l' gefolgt von der gewünschten Sprache."
 		messageG[63]="[Tipp] Laufen ist schneller als Gehen - halte die linke Maustaste gedrückt um zu laufen."
 		messageG[64]="[Tipp] Die meisten NPCs reagieren auf 'Hilfe' mit der Ausgabe einer Liste ihrer wichtigsten Schlüsselwörter."
-		messageG[65]="[Tipp] Die Fertigkeiten deines Charakters kannst du aufrufen, indem du DIES UND DAS MACHST."
+		messageG[65]="[Tipp] Die Fertigkeiten deines Charakters kannst du aufrufen, indem du 'C' drückst."
 
 		--English
 		messageE={};
@@ -181,15 +190,15 @@ function onLogin( player )
 		messageE[54]="[Hint] There are many ways to move your character around in Illarion. The right mouse button, arrow keys, num pad, and WASD will all work.";
 		messageE[55]="[Hint] Asking an NPC whether they have a 'quest' for you to carry out can be a good way to earn a quick coin or two.";
 		messageE[56]="[Hint] Don't be afraid to ask the other players around you for help if you encounter difficulties. But make sure to remain respectful and to use OOC chat (#o), where appropriate.";
-		messageE[57]="[Hint] Using the '!i' command will introduce your character to any people around them. The other players will then be able to see your character's name.";
+		messageE[57]="[Hint] Using the '#i' command will introduce your character to any people around them. The other players will then be able to see your character's name.";
 		messageE[58]="[Hint] The Illarion chat is linked on the homepage. It is useful for technical assistance and for simply getting to know your fellow players.";
 		messageE[59]="[Hint] Fullscreen mode can be activated from the settings menu when the client is started.";
 		messageE[60]="[Hint] You will receive a notification when a new player chooses to join your realm. Give them a friendly welcome!";
         messageE[61]="[Hint] In order to donate something to your realm's treasury, just place the item on the donation square close to your leader.";
-        messageE[62]="[Hint] To switch the language of your character, DO THIS AND THAT.";
+        messageE[62]="[Hint] To switch the language of your character, type '!l' followed by the desired language.";
         messageE[63]="[Hint] Running is faster than walking - hold down the left mouse button to run.";
         messageE[64]="[Hint] Most NPCs react on 'help' with a list of their most important keywords.";
-        messageE[65]="[Hint] You can review the skills of your character by DOING THIS AND THAT.";
+        messageE[65]="[Hint] You can review the skills of your character by hitting 'C'.";
 
 	    dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	    base.common.InformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
@@ -201,9 +210,11 @@ function onLogin( player )
 
 	--TEMPORARY SOLUTION TO CATCH NEW PLAYERS
 	if player:getMentalCapacity() < 1999 or player:getQuestProgress(122) == 0 then --Mental Capacity CANNOT drop below 1999 -> New player or cheater. However, new players should start with a higher value
-	    player:increaseMentalCapacity(2000000); --Maybe reduce to 200000 for brand new players. This is for existing players.
+
+        player:increaseMentalCapacity(2000000); --Maybe reduce to 200000 for brand new players. This is for existing players.
 		--base.common.InformNLS(player,"[Skillsystem] Mental Capacity zwangsangepasst!","[Skill system] Adjustment of mental capacity enforced."); --Debuggin'
 		player:setQuestProgress(122,1); --Saving the information that the player went throuh this process
+	
 	end
 	--TEMPORARY SOLUTION END
 
@@ -320,10 +331,12 @@ end
 
 
 function payNow(User)
---cadomyr = 101
---runewick = 102
---galmair = 103
---gasthof = 104 (der ist aber unwichtig, da das keine stadt ist)
+--Cadomyr = 101
+--Runewick = 102
+--Galmair = 103
+--Hemp Necktie Inn = 104 (not a faction!)
+
+-- Use ENGLISH!!! ~Estralis
 
     taxHeight=0.05;  -- 5% taxes for testing purposes
     -- *** DEPOT-LIST HAS TO BE CHANGED ACCORDING TO FACTION MEMBERSHIP! ***

@@ -220,7 +220,7 @@ mainNPC:addLanguage(3);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist deine Tutorin Aldania Elthewan.", "This is your tutorial guide Aldania Elthewan.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
-mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache, indem du DAS UND DAS TUST.", "Please switch the language of your character to the common tongue by DOING THIS AND THAT.");
+mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache mit dem Befehl '!l common'.", "Please switch the language of your character to the common tongue with the command '!l common'.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 800);
 mainNPC:setEquipment(11, 0);

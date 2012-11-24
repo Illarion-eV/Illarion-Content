@@ -26,7 +26,7 @@ autointroduce = on
 author = "not set"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatUS = "This is an NPC who's developer was too lazy to type in a description."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -191,7 +191,7 @@ itemShoes = 53
 "your name", state = 0 -> "My name is %NPCNAME. What is your name?"
 
 -- HELP
-"help" -> "[Game Help]: ((This is a NPC, you can talk to them just like other player characters. NPCs will react to keywords like 'Hello', so listen closely to what they say.))"
+"help" -> "[Game Help]: ((This is an NPC, you can talk to them just like other player characters. NPCs will react to keywords like 'Hello', so listen closely to what they say.))"
 "hilfe" -> "[Game Help]: ((Das ist ein NPC, du kannst mit ihnen sprechen wie mit anderen Spielercharakteren. NPCs werden auf Schlüsselwörter wie 'Hallo' reagieren, also achte gut auf das was sie dir sagen.))"
 
 -- GENERAL

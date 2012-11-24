@@ -76,8 +76,8 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Antonius Copperhand the smith. Keywords: buy, sell, trade, job,your name.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Antonius Copperhand der Schmied. Schlüsselwörter: kaufe, verkaufe, Handel, job, your name.")
+"Help" -> inform("[Game Help] This NPC is Antonius Copperhand the smith. Keywords: buy, sell, trade, job, your name.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Antonius Copperhand der Schmied. Schlüsselwörter: kaufe, verkaufe, Handel, Beruf, dein Name.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted in Irmoroms name.", "Greetings.", "Good day."
@@ -89,7 +89,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Greetings.", "Good d
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Goodbye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf bald.", "Bis bald."
 "How are you", "How feel", "How do you do" -> "I'm fine, thanks. And how are ya?", "Good, good."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir jeht ett wunderbar und wie jeht et Euch?", "Jut, jut. "
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir jeht ett wunderbar und wie jeht et Euch?", "Jut, jut."
 "your name", "who are you", "who art thou" -> "Me? I'm the goldsmith of Galmair, the hard working Antonius."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ick? Ick bin der Goldchmied von Galmair, der fleißge Antonius."
 
@@ -116,4 +116,4 @@ cycletext "#me pfeift eine Melodie.", "#me whistles a melodie."
 cycletext "#me wischt sich den Schweiß von der Stirn.", "#me whipes the sweat off his forhead."
 cycletext "#me betrachtet zufrieden seine geschmiedeten Werke.", "#me looks at his smithes works with a conten face.."
 cycletext "#me hält ein Amulett gegen das Licht, um es besser zu betrachten.", "#me holds an Amulett against the light, to have a better look at it."
-cycletext "Schmiedewaren! Schöner Schmuck! Kaufste woanders, dann bereustes!", "Smithes goods! Fine Juwelry! Ya buy elsewhere, and ya will reget it!"
+cycletext "Schmiedewaren! Schöner Schmuck! Kaufste woanders, dann bereustes!", "Smithes goods! Fine Juwelry! Ya buy elsewhere, and ya will regret it!"

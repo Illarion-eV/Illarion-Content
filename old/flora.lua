@@ -532,7 +532,7 @@ function initializeNpc()
     npc.base.autonpcfunctions.AddCondition("state","=",0);
 
 -- HELP
-    npc.base.autonpcfunctions.AddTraderTrigger("help","[Game Help]: ((This is a NPC, you can talk to them just like other player characters. NPCs will react to keywords like 'Hello', so listen closely to what they say.))");
+    npc.base.autonpcfunctions.AddTraderTrigger("help","[Game Help]: ((This is an NPC, you can talk to them just like other player characters. NPCs will react to keywords like 'Hello', so listen closely to what they say.))");
     npc.base.autonpcfunctions.AddTraderTrigger("hilfe","[Game Help]: ((Das ist ein NPC, du kannst mit ihnen sprechen wie mit anderen Spielercharakteren. NPCs werden auf Schlüsselwörter wie 'Hallo' reagieren, also achte gut auf das was sie dir sagen.))");
 
 -- GENERAL

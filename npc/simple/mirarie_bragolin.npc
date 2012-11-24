@@ -25,7 +25,7 @@ autointroduce = on
 author = "Estralis Seborian"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is a NPC who's developer was too lazy to type in a description."
+lookatUS = "This is an NPC who's developer was too lazy to type in a description."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -47,10 +47,10 @@ radius = 0
 -- 3: Quest 2: Bring a message to a nearby NPC. Needs edit of the NPC script!
 -- 4: Message delivered
 -- 5: Quest 2 solved, reward: 50cp, item B (common, yet not typical for the faction), (10 rankpoints)
--- 6: Quest 3: Bring a message to a NPC somewhere inside the faction home land. Needs edit of the NPC script!
+-- 6: Quest 3: Bring a message to an NPC somewhere inside the faction home land. Needs edit of the NPC script!
 -- 7: Message delivered
 -- 8: Quest 3 solved, reward: item C (something nice like good sword, helmet, robe), (10 rankpoints)
--- 9: Quest 4: Bring a message to a NPC of another faction. Needs edit of the NPC script!
+-- 9: Quest 4: Bring a message to an NPC of another faction. Needs edit of the NPC script!
 -- 10: Message delivered
 -- 11: Quest 4 solved, reward: 400cp, (15 rankpoints)
 -- 12: Quest 5: Bring a message to another faction's leader. Needs edit of the NPC script!
@@ -204,7 +204,7 @@ queststatus(1337) = 4, english, ".+" -> inform("[Quest solved] You are awarded 5
 queststatus(1337) = 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und EIN ITEM. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."), "GERMAN.", money + 50, item(391, 1, 599), queststatus(1337) = 5, rankpoints + 10
 queststatus(1337) = 4, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und EIN ITEM."), "GERMAN.", money + 50, item(391, 1, 599), queststatus(1337) = 5
 
--- 3rd quest: Bring a message to a NPC somewhere inside the faction home land.
+-- 3rd quest: Bring a message to an NPC somewhere inside the faction home land.
 
 -- Give out quest 3
 queststatus(1337) = 5, english, "quest", "mission" -> inform("[New quest] QUESTTITLE III: You received a message for NPC."), "ENGLISH.", queststatus(1337) = 6
@@ -224,7 +224,7 @@ queststatus(1337) = 7, english, ".+" -> inform("[Quest solved] You are awarded A
 queststatus(1337) = 7, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst EIN NICE ITEM. Dein Ansehen bei TITEL THISFACTIONLEADER steigt."), "GERMAN.", item(391, 1, 699), queststatus(1337) = 8, rankpoints + 10
 queststatus(1337) = 7, ".+" -> inform("[Quest gelöst] Du erhältst EIN NICE ITEM."), "GERMAN.", item(391, 1, 699), queststatus(1337) = 8
 
--- 4th quest: Bring a message to a NPC of another faction.
+-- 4th quest: Bring a message to an NPC of another faction.
 
 -- Give out quest 4
 queststatus(1337) = 8, english, "quest", "mission" -> inform("[New quest] QUESTTITLE IV_ You received a message for NPC."), "ENGLISH.", queststatus(1337) = 9

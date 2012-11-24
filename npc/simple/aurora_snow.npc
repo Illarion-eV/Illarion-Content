@@ -88,7 +88,7 @@ queststatus(322) = 6, ".+" -> "Nun, da Ihr wünscht Frau Banius zu helfen, bitte
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(322) = 7, item(141, all) < 10, english, "quest", "mission" -> "You must find those ten black thistles, Miss Banius may not have much time left."
-queststatus(322) = 7, item(141, all) < 10, "quest", "mission" -> "GERMAN."
+queststatus(322) = 7, item(141, all) < 10, "quest", "mission" -> "Ihr müsst mir die besagten 10 schwarzen Disteln finden, Frau Banius scheint nicht mehr all zu viel Zeit zu bleiben."
 queststatus(322) = 7, item(141, all) < 10, "task", "adventure" -> "You must bring me those ten black thistles, Miss Banius may not have much time left."
 queststatus(322) = 7, item(141, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "Ihr müsst mir die besagten 10 schwarzen Disteln finden, Frau Banius scheint nicht mehr all zu viel Zeit zu bleiben."
 queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5, english, "quest", "mission" -> "You have ten black thistles, but we still need five entrails also. Hurry, Miss Banius may not have much time left."
@@ -97,8 +97,8 @@ queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5, "task", "adventure"
 queststatus(322) = 7, item(141, all) > 9, item(63, all) < 5, "Auftrag", "Aufgabe", "Abenteuer" -> "Ihr habt 10 schwarze Disteln, aber wir benötigen noch fünf Eingeweide. Um Frau Willen, so beeilt euch!"
 
 -- Quest 1 solved, reward: 80cp
-queststatus(322) = 7, item(141, all) > 9, item(63, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), "Yes, these shall suffice. Well done. Hmm...perhaps you shall find more use for these coins than I am able.", money + 100, deleteItem(141, 10), deleteItem(63, 5), queststatus(322) = 8
-queststatus(322) = 7, item(141, all) > 9, item(63, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Ja, dies sollte reichen. Gut gemacht. Hmm... vielleicht habt Ihr für diese Münzen eine bessere Verwendung als ich.", money + 100, deleteItem(141, 10), deleteItem(63, 5), queststatus(322) = 8
+queststatus(322) = 7, item(141, all) > 9, item(63, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), "Yes, these shall suffice. Well done. Hmm...perhaps you shall find more use for these coins than I am able.", money + 1000, deleteItem(141, 10), deleteItem(63, 5), queststatus(322) = 8
+queststatus(322) = 7, item(141, all) > 9, item(63, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Ja, dies sollte reichen. Gut gemacht. Hmm... vielleicht habt Ihr für diese Münzen eine bessere Verwendung als ich.", money + 1000, deleteItem(141, 10), deleteItem(63, 5), queststatus(322) = 8
 
 -- 2nd quest: Bring 10 RESOURCES
 
@@ -115,8 +115,8 @@ queststatus(322) = 9, item(1317, all) = 0, "task", "adventure" -> "I need that e
 queststatus(322) = 9, item(1317, all) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich brauche unbedingt eine kleine leere Flasche. Natianas Leben hängt davon ab."
 
 -- Quest 2 solved, reward: 20cp, small healing potion
-queststatus(322) = 9, item(1317, all) > 0, english, ".+" -> inform("[Quest solved] You have received Natiana's medicine and 20 coppers."), "Wonderful. Now just let me mix that a little...fill that up for you...and there we are. Hand this to Mister Banius. You must hurry though, Natiana cannot have much longer.", money + 20, deleteItem(1317, 1), item(2499, 1, 599), queststatus(322) = 10
-queststatus(322) = 9, item(1317, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 20 Kupferstücke und Natianas Medizin."), "Wunderbar. Jetzt lasst mich das ein wenig mischen, … nun  einwenig davon abfüllen …. und da hätten wir es! Gebt das Herrn Banius. Ihr musst euch jedoch beeilen, Natiana hat nicht mehr viel Zeit.", money + 20, deleteItem(1317, 1), item(2499, 1, 599), queststatus(322) = 10
+queststatus(322) = 9, item(1317, all) > 0, english, ".+" -> inform("[Quest solved] You have received Natiana's medicine and are awarded two silver coins."), "Wonderful. Now just let me mix that a little...fill that up for you...and there we are. Hand this to Mister Banius. You must hurry though, Natiana cannot have much longer.", money + 200, deleteItem(1317, 1), item(2499, 1, 599), queststatus(322) = 10
+queststatus(322) = 9, item(1317, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 20 Kupferstücke und Natianas Medizin."), "Wunderbar. Jetzt lasst mich das ein wenig mischen, … nun  einwenig davon abfüllen …. und da hätten wir es! Gebt das Herrn Banius. Ihr musst euch jedoch beeilen, Natiana hat nicht mehr viel Zeit.", money + 200, deleteItem(1317, 1), item(2499, 1, 599), queststatus(322) = 10
 
 -- 3rd quest: Aurora's Staff
 
@@ -135,13 +135,13 @@ queststatus(333) = 2, "task", "adventure" -> "If you are able to retrieve my sta
 queststatus(333) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> "Wenn es Euch gelingt meinen Stab von meiner Schülerin Madeline Clarbelis in Runewick zurück zu erhalten, so will ich dafür Sorge tragen, dass Ihr angemessen belohnt werdet."
 
 -- Quest 3 updated
-queststatus(333) = 3, english, ".+" -> inform("[Quest completed] You have received 50 coppers."), "Ahh, thank y...wait. This is not my staff. I look forward to hearing the explanation behind this one. That apprentice of mine is nothing but trouble. Well, I do not have my staff, but take this for your troubles.", money + 50, queststatus(333) = 4
-queststatus(333) = 3, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke"), "Ahh, ich Danke Eu... Moment. Dies ist nicht mein Stab. Ich bin da aber mal auf die Erklärung gespannt, was hinter dieser Sache steckt. Meine Schülerin macht nichts als Ärger. Nun, Ich habe zwar meinen Stab nicht wieder, aber nehmt dies als Entschädigung für eure Mühe.", money + 50, queststatus(333) = 4
+queststatus(333) = 3, english, ".+" -> inform("[Quest completed] You have received five silver coins."), "Ahh, thank y...wait. This is not my staff. I look forward to hearing the explanation behind this one. That apprentice of mine is nothing but trouble. Well, I do not have my staff, but take this for your troubles.", money + 500, queststatus(333) = 4
+queststatus(333) = 3, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke"), "Ahh, ich Danke Eu... Moment. Dies ist nicht mein Stab. Ich bin da aber mal auf die Erklärung gespannt, was hinter dieser Sache steckt. Meine Schülerin macht nichts als Ärger. Nun, Ich habe zwar meinen Stab nicht wieder, aber nehmt dies als Entschädigung für eure Mühe.", money + 500, queststatus(333) = 4
 
 -- Give out quest 4
-queststatus(333) = 4, english, "quest", "mission", "staff" -> inform("[New Quest] Aurora's Staff: Part II"), "If you are looking for a job, I still require someone to recover my staff. Seek to my apprentice again, and return with my staff. My actual staff.", queststatus(333) = 5
+queststatus(333) = 4, english, "quest", "mission", "staff" -> inform("[New Quest] Aurora's Staff: Part II"), "If you are looking for a job, I still require someone to recover my staff. Seek out my apprentice again, and return with my staff. My actual staff.", queststatus(333) = 5
 queststatus(333) = 4, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche III"), "Wenn Ihr einen Auftrag wünscht, Ich bräuchte noch immer jemanden, der mir meinen Stab wiederbringt. Sucht erneut meine Schülerin auf und kehrt mit meinem Stab zurück. Meinem richtigen Stab.", queststatus(333) = 5
-queststatus(333) = 4, "task", "adventure" -> inform("[New Quest] Aurora's Staff: Part II"), "If you are looking for a job, I still require someone to recover my staff. Seek to my apprentice again, and return with my staff. My actual staff.", queststatus(333) = 5
+queststatus(333) = 4, "task", "adventure" -> inform("[New Quest] Aurora's Staff: Part II"), "If you are looking for a job, I still require someone to recover my staff. Seek out my apprentice again, and return with my staff. My actual staff.", queststatus(333) = 5
 queststatus(333) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche III"), "Wenn Ihr einen Auftrag wünscht, Ich bräuchte noch immer jemanden, der mir meinen Stab wiederbringt. Sucht erneut meine Schülerin auf und kehrt mit meinem Stab zurück. Meinem richtigen Stab.", queststatus(333) = 5
 
 -- Update quest 4
@@ -157,8 +157,8 @@ queststatus(333) > 3, queststatus(333) < 11, "task", "adventure" -> "Find out wh
 queststatus(333) > 3, queststatus(333) < 11, "Auftrag", "Aufgabe", "Abenteuer" -> "Finde heraus was mit meinem Stab passiert, und bring ihn mir zurück. Meine Schülerin Madeline Clarbelis, ist in Runewick. Sie sollte wissen was mit meinem Stab geschehen ist."
 
 -- Quest 4 solved, reward: 500cp, magical serinjah-sword
-queststatus(333) = 11, item(209, all) > 0, english, ".+" -> inform("[Quest solved] You have received a magical serinjah-sword and 200 coppers."), "Ahh... my staff! Thank you, my friend. I'll save you the effort of explaining to me what sort of trouble my apprentice got into. Here is the reward, as promised.", money + 200, deleteItem(209, 1), item(2693, 1, 599), queststatus(333) = 12
-queststatus(333) = 11, item(209, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 20 Kupferstücke und ein magisches Serinjah-Schwert."), "Ahh...mein Stab! Ich danke euch, mein Freund. Ich erlasse Euch die Mühe mir zu erklären in welche Schwierigkeiten sind meine Schülerin gebracht hat.Hier ist Eure Belohnung, wie versprochen.", money + 200, deleteItem(209, 1), item(2693, 1, 599), queststatus(333) = 12
+queststatus(333) = 11, item(209, all) > 0, english, ".+" -> inform("[Quest solved] You have received a magical serinjah-sword and forty silver coins."), "Ahh... my staff! Thank you, my friend. I'll save you the effort of explaining to me what sort of trouble my apprentice got into. Here is the reward, as promised.", money + 4000, deleteItem(209, 1), item(2693, 1, 599), queststatus(333) = 12
+queststatus(333) = 11, item(209, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 20 Kupferstücke und ein magisches Serinjah-Schwert."), "Ahh...mein Stab! Ich danke euch, mein Freund. Ich erlasse Euch die Mühe mir zu erklären in welche Schwierigkeiten sind meine Schülerin gebracht hat.Hier ist Eure Belohnung, wie versprochen.", money + 4000, deleteItem(209, 1), item(2693, 1, 599), queststatus(333) = 12
 
 -- No more quests, just nice words of gratitude
 queststatus(333) = 12, english, "quest", "mission" -> "Thank you for all of your help, my friend. You have truly earned my respect."
