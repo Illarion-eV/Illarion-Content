@@ -233,7 +233,7 @@ function GetTeacherQuestInfos(User,SourceItem)
     -- depending on the position of the sourceitem (= the teacher), we get particular infos
 	
 	local questId; local questPrg; local teacherEN1; local teacherEN2; local teacherDE1; local teacherDE2
-	if SourceItem.pos == position(1,1,0) then
+	if SourceItem.pos == position(1,1,0) or SourceItem.id == 456 then
 	    questId = 350
 		teacherEN1 = "The Knowing Tree"
         teacherEN2 = "Knowing Tree"
@@ -262,13 +262,13 @@ function GetTeacherQuestInfos(User,SourceItem)
 	
 end
 
-function AlchemistCheck(SourceItem, User)
+function AlchemistCheck(User)
 	if (User:getMagicType() == 3) and (User:getMagicFlags(magicType) > 0) then
 	    return true
 	end	
 end
 
-function NoMagicCheck(SourceIten, User)
+function NoMagicCheck(User)
     if User:getMagicFlags(User:getMagicType()) == 0 then
 	    return true
 	end	
@@ -497,7 +497,7 @@ end
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
  
     -- already an alchemist?
-    local alchemistCheck = AlchemistCheck(SourceItem, User)
+    local alchemistCheck = AlchemistCheck(User)
 	if alchemistCheck then
 	    SendMessage(User, SourceItem,
 		            "You hear a voice you are unable to localise: \"You already know the great secret of alchemy. I am not allowed to help you further. Go away!\"",
@@ -506,7 +506,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	return
 	end				
 	-- check if the char belongs to any other mage class
-	local noMagicCheck = NoMagicCheck(SourceItem, User)
+	local noMagicCheck = NoMagicCheck(User)
 	if not noMagicCheck then
 	    SendMessage(User, SourceItem,
 			        "Du fühlst dich beobachtet, jedoch scheint nichts weiter zu passieren.", 
