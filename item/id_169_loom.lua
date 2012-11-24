@@ -4,6 +4,10 @@
 
 -- UPDATE common SET com_script='item.id_169_loom' WHERE com_itemid IN (169);
 
+require("base.common")
+
+module("item.id_169_loom", package.seeall)
+
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
 	local weaving = content.gathering.weaving;
