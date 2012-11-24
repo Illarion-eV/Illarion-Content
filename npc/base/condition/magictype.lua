@@ -24,53 +24,26 @@ function _magictype_helper_none(self, npcChar, player)
 end;
 
 function _magictype_helper_mage(self, npcChar, player)
-    local magicType = player:getMagicType();
-    if (magicType == 0) then
-        return true;
-    end;
-    
-    if (player:getMagicFlags(magicType) == 0) then
-        return true;
-    end;
-    
-    return false;
+    return _test_magictype(player, 0)
 end;
 
 function _magictype_helper_priest(self, npcChar, player)
-    local magicType = player:getMagicType();
-    if (magicType == 1) then
-        return true;
-    end;
-    
-    if (player:getMagicFlags(magicType) == 0) then
-        return true;
-    end;
-    
-    return false;
+    return _test_magictype(player, 1)
 end;
 
 function _magictype_helper_bard(self, npcChar, player)
-    local magicType = player:getMagicType();
-    if (magicType == 2) then
-        return true;
-    end;
-    
-    if (player:getMagicFlags(magicType) == 0) then
-        return true;
-    end;
-    
-    return false;
+    return _test_magictype(player, 2)
 end;
 
 function _magictype_helper_druid(self, npcChar, player)
-    local magicType = player:getMagicType();
-    if (magicType == 3) then
-        return true;
+    return _test_magictype(player, 3)
+end;
+
+function _test_magictype(player, magicType)
+    local playerMagicType = player:getMagicType();
+    if (playerMagicType ~= magicType) then
+        return false;
     end;
-    
-    if (player:getMagicFlags(magicType) == 0) then
-        return true;
-    end;
-    
-    return false;
+	
+	return player:getMagicFlags(magicType) >= 0;
 end;
