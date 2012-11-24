@@ -164,7 +164,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		if (User:countItemAt("all",oreItem.ore.id)>oreItem.ore.amount) then  -- there are still items we can work on
+		if (User:countItemAt("all",oreItem.ore.id)>=oreItem.ore.amount) then  -- there are still items we can work on
       if (User:countItemAt("all",2553) == 0) then
       -- merinium requires pure fire
         base.common.InformNLS( User, 
