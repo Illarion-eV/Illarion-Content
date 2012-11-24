@@ -360,6 +360,7 @@ function GetQuestionAndAnswers(User,SourceItem)
         userLanguage = "english"	
     end
     local difficulty = questInfos.questPrg - 3
+	User:inform("diff: "..difficulty)
 	local lastQuestion
 	if difficulty == 3 then
 	    lastQuestion = true
