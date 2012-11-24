@@ -3,8 +3,6 @@
 -- raw stones (735)  --> stone blocks
 -- stone blocks (733) --> small stones (1266)
 
--- Arbeitscyclus: 4s - 5s
-
 -- UPDATE common SET com_script='item.id_737_chisel' WHERE com_itemid IN (737);
 
 require("item.general.metal")
@@ -105,7 +103,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( stonecutting.LeadSkill, stonecutting.SavedWorkTime[User.id], 100, User:increaseAttrib(stonecutting.LeadAttribute,0) );
+	User:learn( stonecutting.LeadSkill, stonecutting.SavedWorkTime[User.id], 100);
 	User:eraseItem( WorkOnStone[User.id], 1 ); -- erase the item we're working on
 	local notCreated = User:createItem( Stones[WorkOnStone[User.id]].productId, Stones[WorkOnStone[User.id]].amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore

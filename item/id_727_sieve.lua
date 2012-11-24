@@ -88,7 +88,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( sieving.LeadSkill, sieving.SavedWorkTime[User.id], 100, User:increaseAttrib(sieving.LeadAttribute,0) );
+	User:learn( sieving.LeadSkill, sieving.SavedWorkTime[User.id], 100);
 	User:eraseItem( 726, 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 316, amount, 333, nil ); -- create the new produced items
