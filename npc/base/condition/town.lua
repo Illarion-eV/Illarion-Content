@@ -16,9 +16,9 @@ function(self, comp ,value)
 end);
 
 function _town_helper_equal(self, npcChar, player)
-    return (base.factions.get_Faction(player).tid == self.value);
+    return (base.factions.getFaction(player).tid == self.value);
 end;
 
 function _town_helper_notequal(self, npcChar, player)
-    return (base.factions.get_Faction(player).tid ~= self.value);
+    return (base.factions.getFaction(player).tid ~= self.value);
 end;
