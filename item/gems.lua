@@ -59,7 +59,7 @@ for gem=1,7 do
     if catId then
         for level=2,10 do
             local requirement = (level - 2) * 10
-            local duration = level
+            local duration = level * 10
             local product = gemCraft:addProduct(catId, gemItem[gem], requirement, requirement+10, duration, duration*2, 1, {gemLevel = level})
             product:addIngredient(gemItem[gem], 3, {gemLevel = level-1})
         end
