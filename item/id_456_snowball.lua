@@ -25,7 +25,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		return
 	end
 	
-	if (User.lastSpokenText,"teacher") then
+	if (User.lastSpokenText == "teacher") then
 	alchemy.base.teacher.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
 end
