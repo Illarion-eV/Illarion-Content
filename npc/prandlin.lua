@@ -1,13 +1,12 @@
 --------------------------------------------------------------------------------
--- NPC Name: Prandlin                                                    None --
--- NPC Job:  none                                                             --
+-- NPC Name: Prandlin                                                Runewick --
+-- NPC Job:  Snorring                                                         --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  789, 790, 0            --
 -- NPC Sex:  male                       NPC Direction: northeast              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -31,9 +30,9 @@ mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'Dort! Prandlins Gehstock... er sieht aus als wäre er früher ein Holzbein gewesen! Das muss das Holzbein von Holzbein-Jack sein! Aber wie kann ich es nehmen ohne, dass der alte Halbling aufwacht?'"));
 talkEntry:addResponse("#me umklammert seinen Gehstock und zieht die Wolldecke hoch, ohne zu erwachen. Es ist ein kurzer schön verzierter Stab wie ihn Magier verwenden.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 2));
@@ -41,9 +40,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'Look! Prandlins walking stick... it looks like it was once a peg leg. This must be the peg leg of Peg-Leg-Jack! How to steel it, without wake the old halflin up?'"));
 talkEntry:addResponse("#me's grabs the walking stick tight and pulls the blanket to his chin, still asleep. It's a short beautiful ornated staff, like a mage would use.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 2));
@@ -51,9 +50,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"));
 talkEntry:addResponse("#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke. ");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 3));
@@ -61,9 +60,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'If I provide a ornate mage's staff, it may be possible to replace it with old Prandlins walking stick, without wake him up."));
 talkEntry:addResponse("#me smiles happy and babbles and drools on his woollen blanket.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 3));
@@ -71,52 +70,52 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hilfe");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 3));
+talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Es wird ein Emote benötigt um das Holzbein mit dem verzierten Magierstab auszutauschen, welcher ebenso mitgebracht werden muss."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Help");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 3));
+talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] A emote is needed to replace the peg leg with the ornate mage's staff, which need to be brought as well."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", 1, nil));
 talkEntry:addTrigger("#me (.+) stab");
 talkEntry:addTrigger("#me (.+) bein");
 talkEntry:addTrigger("#me (.+) Holzbein");
 talkEntry:addTrigger("#me (.+) Magierstab");
 talkEntry:addTrigger("#me (.+) stäbe");
-talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", 1, 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Großartig! Es hat geklappt. Nun besitze ich den Gehstock von Prandlin, der eigentlich Jack's Holzbein ist. Ich sollte es schnell zu ihm bringen."));
 talkEntry:addResponse("#me bemerkt nicht wie der verzierte Stab gegen seinen Gehstock ausgetauscht wird und schläft selig weiter.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1));
-talkEntry:addConsequence(npc.base.consequence.item.item(208, 1, 944, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(208, 1, 944, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 3));
+talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", 1, nil));
 talkEntry:addTrigger("#me (.+) staff");
 talkEntry:addTrigger("#me (.+) leg");
-talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 3));
-talkEntry:addCondition(npc.base.condition.item.item(208, "all", "=>", 1, 0));
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Awesome! It's done. Now I hold Prandlin's walking stick, which is in fact Jack's Peg Leg. Let's bring the Peg leg into the Pirate Bay."));
 talkEntry:addResponse("#me took no notice when his walking stick got replaced and sleeps along.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1));
-talkEntry:addConsequence(npc.base.consequence.item.item(208, 1, 944, 0));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(208, 1, 944, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"));
 talkEntry:addResponse("#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 3));
@@ -124,9 +123,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.quest.quest(304, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("'If I provide a ornate mage's staff, it may be possible to replace it with old Prandlins walking stick, without wake him up."));
 talkEntry:addResponse("#me smiles happy and babbles and drools on his woollen blanket.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -147,8 +146,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("#me murmelt im Schlaf: 'Eh-n. Gnh.'");
 talkEntry:addResponse("#me murmelt im Schlaf: 'Piraten werd... gehängt.'");
 talkEntry:addResponse("#me murmelt im Schlaf: 'Wie sie mein-n...'");
@@ -165,8 +164,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger(".*");
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("#me mumbles while sleeping: 'Eh-n. Gnh.'");
 talkEntry:addResponse("#me mumbles while sleeping: 'Pirates'll... dangle.'");
 talkEntry:addResponse("#me mumbles while sleeping: 'Indee' agreed...'");
