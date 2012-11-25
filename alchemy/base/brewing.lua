@@ -8,6 +8,8 @@ require("alchemy.base.alchemy")
 require("alchemy.base.herbs")
 require("alchemy.base.gemdust")
 
+module("alchemy.base.brewing", package.seeall)
+
 
 module("alchemy.base.brewing_plants_gemdust", package.seeall)
 
