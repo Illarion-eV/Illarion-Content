@@ -4,7 +4,7 @@ require("base.common");
 module("alchemy.base.alchemy", package.seeall)
 
 function InitAlchemy()
-    InitPlants()
+    InitPlantSubstance()
 	InitPotions()
 end
 
