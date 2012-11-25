@@ -12,8 +12,8 @@ end
 plantSubstanceList = {};
 
 function InitPlantSubstance()
-    setPlant(133, "Adrazin", "Orcanol") -- sunherb / Sonnenkraut
-    setPlant(758, "Adrzain", "") -- heart blood / Herzblut
+    setPlantSubstance(133, "Adrazin", "Orcanol") -- sunherb / Sonnenkraut
+    setPlantSubstance(758, "Adrzain", "") -- heart blood / Herzblut
 end;
 
 function setPlantSubstance(id, plusSubstance, minusSubstance)
