@@ -863,7 +863,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
-talkEntry:addResponse("Bitte geh nach Runewick und frag' NPC über das Klima.");
+talkEntry:addResponse("Bitte geh nach Runewick und frag' William Daloire über das Klima.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

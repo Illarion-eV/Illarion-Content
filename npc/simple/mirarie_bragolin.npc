@@ -195,7 +195,7 @@ queststatus(1000) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachrich
 queststatus(1000) = 9, english, "quest", "mission" -> "Please go to Runewick and ask William Daloire about the climate there."
 queststatus(1000) = 9, "quest", "mission" -> "Bitte geh nach Runewick und frag' William Daloire über das Klima."
 queststatus(1000) = 9, "Task", "Adventure", "Message" -> "Please go to Runewick and ask William Daloire about the climate there."
-queststatus(1000) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Bitte geh nach Runewick und frag' NPC über das Klima."
+queststatus(1000) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Bitte geh nach Runewick und frag' William Daloire über das Klima."
 
 -- Quest 4 solved, reward: 400cp, +15 rankpoints
 queststatus(1000) = 10, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 400 copper coins. You advance in Queen Rosaline's favour."), money + 400, queststatus(1000) = 11, rankpoints + 15, "That's just what I needed to kown. Thank you so much! I'll give you this in return for your help. And I shall mention you in my book once more."
