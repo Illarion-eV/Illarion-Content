@@ -74,7 +74,7 @@ function PlantInStock(User,cauldron,plant)
                 alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)
 			    return
 			else
-                cauldron:setData(plusSubstance..Concentration,newConcentration)
+                cauldron:setData(plusSubstance.."Concentration",newConcentration)
                 cauldron.id = 1012
 			end				
 	    end
