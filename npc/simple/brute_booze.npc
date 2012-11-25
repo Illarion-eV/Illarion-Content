@@ -173,8 +173,12 @@ english, "salkama" -> "City of the sun. The biggest temple of the known world is
 "salkama" -> "Salkamar - Die Stadt der Sonne. Dort steht der größte Tempel der bekannten Welt, der Tempel des Rades und Bücher hortet man wie Schätze in großen Hallen."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "My ancestors always accompany me on my journey."
-"Gott", "Götter" -> "Meine Vorahnen si-hind auf meinen Reisen immer beihe mir."
+"god" -> "My ancestors always accompany me on my journey. And before battle, I pray for Zhambras and Malachíns blessings!"
+"Gott", "Götter" -> "Meine Vorahnen si-hind auf meinen Reisen immer beihe mir. Und vorm Kampfe bittige ich um Zhambras und Malachíns Segen!"
+english, "Zhambra" -> "Zhambra, the brother god. Who spills blood together, needs backing!", "In battle, you will find yourself next to the shoulder of your companions. Zhambra unites my axe with those of my brothers."
+"Zhambra" -> "Zhambra, issigt der Brudergott. Wer gemeinsam Blut vergießt braucht Rückendeckigung!", "Im Kampf stehigen wir oft rücklings an den Schultern unserer Waffenbrüder. Zhambra stärkt mich und meine Brüder und unsere Äxte werden Eine."
+english, "Malachin", "Malachín" -> "Malachín, the aureate hunter! The impregnable warrior! In his name my axe shall taste the blood of many beasts!"
+"Malachin", "Malachín" -> "Malachín, der großartige Jäger! Der unbezwingbare Krieger! In seinem Namen sollige meine Axt das Blut von Bestien trinken."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I'm afraid, I don't have anything for sale and I've got no interest in any of your things."
@@ -183,6 +187,8 @@ english, "salkama" -> "City of the sun. The biggest temple of the known world is
 "erzähl was", "erzähl etwas" -> "Als iche noch ein Orkling war, fragte mich Einer was iche getan haben wollte, sei iche erst tot. Und iche sagte, iche wollte in jeder Stadt Illarions ein Bier getrunken haben. Tags darauf war iche scho-hon aufgebrochen.", "Seit iche damals das Norbug Plateau verließ, binne iche in viele der bekannten Länder gereist. Wenn Ihr also etwas zu Wissen versucht, fragt mich ruhig aus. Iche erzähle gernig von allersamt fremder Länder."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
+english, "Brute", "Booze" -> "Hurr hurr. That's beeing me!", "#me scratches his chin. 'How are you?'"
+"Brute", "Booze" -> "Hurr hurr. Der binnige ich!", "#me reckt sein Kinn in die Höhe. 'Wonnach verlangts Euch?'"
 "Yes" -> "Truly of greatness!", "I am honoured.", "It is a pleasure."
 "Ja" -> "Wahrlich, von Größe!", "Iche binne geehrt.", "Es iset mir ein Vergnü-higen."
 "No" -> " Is that so?", "Really?", "Mh-hm."
