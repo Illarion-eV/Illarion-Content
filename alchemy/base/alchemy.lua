@@ -12,12 +12,18 @@ end
 plantSubstanceList = {};
 
 function InitPlantSubstance()
-    setPlantSubstance(133, "Adrazin", "Orcanol") -- sunherb / Sonnenkraut
+    if plantSubstanceList == nil then
+	    plantSubstanceList = {}
+	end	
+	setPlantSubstance(133, "Adrazin", "Orcanol") -- sunherb / Sonnenkraut
     setPlantSubstance(758, "Adrzain", "") -- heart blood / Herzblut
-end;
+end
 
 function setPlantSubstance(id, plusSubstance, minusSubstance)
-    plantList[id] = {plusSubstance, minusStubstance}
+    if plantList == nil then
+	    plantList = {}
+	end	
+	plantList[id] = {plusSubstance, minusStubstance}
 end
 
 function getPlantSubstance(id)
