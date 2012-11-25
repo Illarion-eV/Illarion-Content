@@ -66,8 +66,8 @@ function PlantInStock(User,cauldron,plant)
 	else
 	    if plusSubstance ~= "" then
 		    local oldConcentration = tonumber(cauldron:getData(plusSubstance.."Concentration"))
-			if concentration == nil then
-			    concentration = 5 
+			if oldConcentration == nil then
+			    oldConcentration = 5 
 			end
             local newConcentration = oldConcentration + 1
             if newConcentration > 9 then
@@ -80,8 +80,8 @@ function PlantInStock(User,cauldron,plant)
 	    end
 		if minusSubstance ~= "" then
 		    local oldConcentration = tonumber(cauldron:getData(minusSubstance.."Concentration"))
-			if concentration == nil then
-			    concentration = 5 
+			if oldConcentration == nil then
+			    oldConcentration = 5 
 			end
 
             local newConcentration = oldConcentration - 1
