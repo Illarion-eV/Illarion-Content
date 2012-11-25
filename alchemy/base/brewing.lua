@@ -14,7 +14,7 @@ module("alchemy.base.brewing", package.seeall)
 module("alchemy.base.brewing_plants_gemdust", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-    local isPlant = alchemy.base.alchemy.getPlant(SourceItem.id)
+    local isPlant = alchemy.base.alchemy.getPlantSubstance(SourceItem.id)
 	local isGemDust = alchemy.base.alchemy.CheckIfGemDust(SourceItem)
 	if isPlant  or SourceItem.id == 157 then
 	    alchemy.base.herbs.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
