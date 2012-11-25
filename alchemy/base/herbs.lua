@@ -29,7 +29,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		   return
 	    end
 		
-		local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(SourceItem.id)
+		local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(SourceItem.id, User)
 	    if isPlant then
 	        BrewingPlant(User,SourceItem,cauldron)
 	    elseif SourceItem.id == 157 then
