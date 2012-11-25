@@ -37,6 +37,33 @@ gemLevelRareness[8] = ItemLookAt.epicItem
 gemLevelRareness[9] = ItemLookAt.epicItem
 gemLevelRareness[10] = ItemLookAt.epicItem
 
+gemCraft = item.base.crafts.Craft:new{
+    craftEN = "Magic Blacksmith",
+    craftDE = "Magieschmied",
+    questStatus = 0,
+}
+
+local categoryId = {}
+categoryId[EMERALD] = gemCraft:addCategory("emerald", "Smaragd")
+categoryId[RUBY] = gemCraft:addCategory("ruby", "Rubin")
+categoryId[OBSIDIAN] = gemCraft:addCategory("obsidian", "Obsidian")
+categoryId[SAPPHIRE] = gemCraft:addCategory("sapphire", "Saphir")
+categoryId[AMETHYST] = gemCraft:addCategory("amethyst", "Amethyst")
+categoryId[TOPAZ] = gemCraft:addCategory("topaz", "Topas")
+
+local gem, level
+for gem=1,7 do
+    local catId = categoryId[gem]
+    if catId then
+        for level=2,10 do
+            local requirement = (level - 2) * 10
+            local duration = level
+            local product = gemCraft:addProduct(catId, gemItem[gem], requirement, requirement+10, duration, duration*2, 1, {gemLevel = level})
+            product:addIngredient(gemItem[gem], 3, {gemLevel = level-1})
+        end
+    end
+end
+
 function createMagicGem(user, gem, quantity, level)
     local quantity = quantity or 1
     local level = level or 1
