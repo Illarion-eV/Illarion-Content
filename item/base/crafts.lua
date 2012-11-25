@@ -387,9 +387,9 @@ end
 function Craft:getSkill(user)
     local skillType = type(self.leadSkill)
 
-    if skillType = "number" then
+    if skillType == "number" then
         return user:getSkill(self.leadSkill)
-    elseif skillType = "function" then
+    elseif skillType == "function" then
         return self.leadSkill(user)
     else
         return 0
