@@ -10,9 +10,6 @@ require("alchemy.base.gemdust")
 
 module("alchemy.base.brewing", package.seeall)
 
-
-module("alchemy.base.brewing_plants_gemdust", package.seeall)
-
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     User:inform("debug 0.5")
 	local isPlant = alchemy.base.alchemy.getPlantSubstance(SourceItem.id)
