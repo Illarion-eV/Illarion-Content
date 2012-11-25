@@ -1,5 +1,6 @@
 require("content.lookat.unique")
 require("base.common")
+require("base.factions")
 
 -- UPDATE common SET com_script='item.gems' WHERE com_itemid IN (45, 46, 197, 198, 283, 284, 285);
 
@@ -40,7 +41,8 @@ gemLevelRareness[10] = ItemLookAt.epicItem
 gemCraft = item.base.crafts.Craft:new{
     craftEN = "Magic Blacksmith",
     craftDE = "Magieschmied",
-    questStatus = 0,
+    leadSkill = base.factions.getRankpoints,
+    npcCraft = true,
 }
 
 local categoryId = {}
