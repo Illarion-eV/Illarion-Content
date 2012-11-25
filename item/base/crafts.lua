@@ -508,7 +508,9 @@ function Craft:craftItem(user, productId, toolItem)
         if not self.npcCraft then 
             base.common.ToolBreaks(user, toolItem, true)
             base.common.GetHungry(user, neededFood)
-            
+        end
+
+        if type(self.leadSkill) == "number" then    
             user:learn(self.leadSkill, product:getCraftingTime(skill), product.learnLimit)
             local newSkill = self:getSkill(user)
             skillGain = (newSkill > skill)
