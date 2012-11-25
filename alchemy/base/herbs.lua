@@ -29,7 +29,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		   return
 	    end
 		
-		local isPlant = alchemy.base.alchemy.getPlant(SourceItem.id)
+		local isPlant = alchemy.base.alchemy.getPlantSubstance(SourceItem.id)
 	    if isPlant then
 	        BrewingPlant(User,SourceItem,cauldron)
 	    elseif SourceItem.id == 157 then
@@ -98,14 +98,14 @@ function PlantInStock(User,cauldron,plant)
 end
 
 function BrewingPlant(User,plant,cauldron)
-    if cauldron:getData("cauldronFilledWith") == "potion" then -- potion in cauldron, failure
+    if cauldron:getData("filledWith") == "potion" then -- potion in cauldron, failure
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
 		
-	elseif cauldron:getData("cauldronFilledWith")== "essenceBrew" then -- essence brew
+	elseif cauldron:getData("filledWith")== "essenceBrew" then -- essence brew
 		PlantInEssenceBrew(User,cauldron,plant)
 		User:learn(Character.alchemy,20,100,User:increaseAttrib("essence",0))
 		
-	elseif (cauldron:getData("cauldronFilledWith") == "stock") or (cauldron:getData("cauldronFilledWith") == "water") then -- water or a stock we put the herb in
+	elseif (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "water") then -- water or a stock we put the herb in
 	    PlantInStock(User,cauldron,plant)
 		User:learn(Character.alchemy,20,100,User:increaseAttrib("essence",0))
 		
@@ -139,16 +139,16 @@ function FilterStock(User,cauldron,plant)
 end
 
 function BrewingFilter(User,plant,cauldron)
-    if cauldron:getData("cauldronFilledWith") == "potion" then -- potion in cauldron, failure
+    if cauldron:getData("filledWith") == "potion" then -- potion in cauldron, failure
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
     
-	elseif cauldron:getData("cauldronFilledWith")=="essenceBrew" then -- essence brew in cauldron, failure
+	elseif cauldron:getData("filledWith")=="essenceBrew" then -- essence brew in cauldron, failure
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
 		
-	elseif cauldron:getData("cauldronFilledWith")=="water" then
+	elseif cauldron:getData("filledWith")=="water" then
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
     
-	elseif cauldron:getData("stockData")~="" then -- stock, let's filter
+	elseif cauldron:getData("filledWith")=="stock" then -- stock, let's filter
 	    FilterStock(User,cauldron,plant)
 		User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
         

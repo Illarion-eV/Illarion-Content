@@ -3,7 +3,7 @@
 -- UPDATE common SET com_script='item.id_51_emptybucket' WHERE com_itemid IN (51);
 
 require("base.common")
-
+require("alchemy.base.alchemy")
 
 module("item.id_51_emptybucket", package.seeall)
 
@@ -23,8 +23,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		FillBucket(User, SourceItem);
 	elseif (boden == 6) then -- Am Wasser fuellen
 		FillBucket(User, SourceItem);
-	--[[elseif(IdfrontItem == 1008) and (frontItem:getData("cauldronFilledWith") == "water") then -- cauldron with water
-	    FillFromCauldron(User,SourceItem,frontItem,Counter,Param,ltstate)]]
+	elseif(IdfrontItem == 1010) and (frontItem:getData("filledWith") == "water") then -- cauldron with water
+	    FillFromCauldron(User,SourceItem,frontItem,Counter,Param,ltstate)
 	else
 		base.common.InformNLS(User, "Du musst am Brunnen stehen, um Wasser zu schöpfen.", "You need to stand in front of the well to scoop water.");
 	end
@@ -57,12 +57,10 @@ function FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 		
 	-- is the char an alchemist?
-	if User:getMagicType() ~= 3 then
-	  base.common.InformNLS( User,
-			"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
-			"Only those who have been introduced to the art of alchemy are able to work here.")
-	  return
-	end
+	    local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+		if not anAlchemist then
+		    return
+	    end
 		
 	if ( ltstate == Action.none ) then
 		User:startAction( 20, 21, 5, 0, 0)
@@ -70,7 +68,8 @@ function FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 
 	world:makeSound(10,TargetItem.pos)
-	TargetItem:setData("cauldronFilledWith","")
+	TargetItem.id = 1008
+	TargetItem:setData("filledWith","")
 	world:changeItem(TargetItem)
     SourceItem.id = 52
 	SourceItem.quality = 333

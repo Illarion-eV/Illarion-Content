@@ -24,7 +24,7 @@ function getPlantSubstance(id)
     if not plantList[id] then
 	    return false
 	end	
-	local plus; local minus
+	local plus, minus
 	if plantList[id][1] == nil then
 	    plus = ""
 	elseif plantList[id][2] == nil then
@@ -292,7 +292,7 @@ function GetCauldronInfront(User)
 end
 
 function CheckIfAlchemist(User,textDE,textEN)
-    if User:getMagicType() ~= 3 then
+    if (User:getMagicType() ~= 3) or (User:getMagicFlags(3) <= 0) then
 	    User:inform(textDE,textEN)
 		return false
 	else
@@ -427,7 +427,11 @@ function CombineStockEssence( User, stock, essenceBrew)
 		-- secondly, the stock
 		local stockConc = ""
 		for i=1,8 do 
-		    stockConc = stockConc..stock:getData(wirkstoff[1].."Concentration")
+		    local currentSubs = stock:getData(wirkstoff[1].."Concentration")
+			if currentSubs == "" then
+			    currentSubs = 5
+			end	
+			stockConc = stockConc..currentSubs
 		end
         myIngredients[2] = tonumber(stockConc)
 		-- thirdly, the (at maximum) eight herbs of the essenceBrew

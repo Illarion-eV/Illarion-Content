@@ -1,6 +1,7 @@
 -- UPDATE common SET com_script='item.id_456_snowball' WHERE com_itemid IN (456);
 require("base.common")
 require("alchemy.base.teacher")
+require("alchemy.base.alchemy")
 
 module("item.id_456_snowball", package.seeall)
 
@@ -18,15 +19,38 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    local a, b, quest
-    a,b,quest = string.find(User.lastSpokenText,"getquest (%d+)")
-	if a ~= nil then
-		quest = tonumber(quest)
-		User:inform("Quest "..quest.." has queststatus"..User:getQuestProgress(quest))
-		return
-	end
+    
 	
-	if (User.lastSpokenText == "teacher") then
+	if (User.lastSpokenText == "inform datas") then
+	    TargetItem = base.common.GetFrontItem(User)
+		local wirkstoff = alchemy.base.alchemy.wirkstoff
+		local stockConc = ""
+		for i=1,8 do 
+		    local currentSubs = TargetItem:getData(wirkstoff[1].."Concentration")
+			if currentSubs == "" then
+			    currentSubs = 5
+			end	
+			stockConc = stockConc..currentSubs
+		end
+		local essenceHerbs = ""
+	    if TargetItem.id == 331 or TargetItem.id == 1012 then
+			for i=1,8 do
+				local currentHerb = TargetItem:getData("essenceHerb"..i)
+				if currentHerb ~= "" then
+					essenceHerbs = essenceHerbs.." "..currentHerb
+				end
+			end
+        end			
+		local filledWith = TargetItem:getData("filledWith")
+		local potionEffectId = TargetItem:getData("potionEffectId")
+		local potionQuality = TargetItem:getData("potionQuality")
+		
+		local callback = function(dialog) end
+		local dataText = "stockConc: "..stockConc.."\nessenceHerbs: "..essenceHerbs.."\nfilledWith: "..filledWith.."\neffectId: "..potionEffectId.."\npotionQuality: "..potionQuality
+		dialog = MessageDialog("datas", dataText, callback)
+		User:requestMessageDialog(dialog)
+	else
 	alchemy.base.teacher.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
+	
 end

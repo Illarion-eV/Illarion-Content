@@ -91,6 +91,14 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         User:inform("Quest " .. quest .. " has been reset!")
         return
     end
+	-- added by merung: check queststatus
+	local a, b, quest
+    a,b,quest = string.find(User.lastSpokenText,"getquest (%d+)")
+	if a ~= nil then
+		quest = tonumber(quest)
+		User:inform("Quest "..quest.." has queststatus "..User:getQuestProgress(quest))
+		return
+	end
 
     if (User.lastSpokenText == "GM") then
         User:pageGM("test ticket")
@@ -258,31 +266,6 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
         local dialog = SelectionDialog("Selection 0", "Select some stuff...", callback)
         for i=1,#items do
             dialog:addOption(items[i], names[i])
-        end
-        User:requestSelectionDialog(dialog)
-    end
-
-	-- test added by merung to show selection dialog bug
-	if (User.lastSpokenText == "appleNo") or (User.lastSpokenText == "appleYes") then
-        local myList = {"option1","option2","option3"}
-		local callback = function(dialog)
-            success = dialog:getSuccess()
-            if success then
-                selected = dialog:getSelectedIndex()
-                User:inform("you selected: "..myList[selected+1])
-            else
-                User:inform("Selection aborted!")
-            end
-        end
-        local dialog = SelectionDialog("Selection 0", "Select some stuff...", callback)
-        local myID
-		if (User.lastSpokenText == "appleYes") then
-		    myID = 15
-		else
-            myID = 0
-        end			
-		for i=1,#myList do
-            dialog:addOption(myID, myList[i])
         end
         User:requestSelectionDialog(dialog)
     end
