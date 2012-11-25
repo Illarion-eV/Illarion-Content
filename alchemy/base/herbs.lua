@@ -10,7 +10,7 @@ module("alchemy.base.herbs", package.seeall)
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
     -- infront of a cauldron?
-	local cauldron = GetCauldronInfront(User)
+	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
     if cauldron then
 	  
         -- is the char an alchemist?
