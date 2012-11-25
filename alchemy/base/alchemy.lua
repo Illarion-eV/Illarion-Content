@@ -35,11 +35,13 @@ function getPlantSubstance(id, User)
 	local plus, minus
 	if plantList[id][1] == nil then
 	    plus = ""
-	elseif plantList[id][2] == nil then
+	else
+	    plus = plantList[id][1]
+	end	
+	if plantList[id][2] == nil then
 	    minus = ""
 	else
-        plus = plantList[id][1]
-		minus = plantList[id][2]
+        minus = plantList[id][2]
     end     	
 	return plus, minus    
 end
