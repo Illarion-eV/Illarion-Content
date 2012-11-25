@@ -1,15 +1,3 @@
-------------------------------------------------------------------------------AC
--- NPC Name: Borgate Northoff                                            None --
--- NPC Job:  Barkeeper                                                        --
---                                                                            --
--- NPC Race: dwarf                      NPC Position:  710, 313, 0            --
--- NPC Sex:  male                       NPC Direction: west                   --
---                                                                            --
--- Authors:  Rincewind                                                        --
---           & Someone                                                        --
---                                                       easyNPC Parser v1.21 --
---------------------------------------------------------------------------------
-
 name = "Borgate Northoff"
 race = dwarf
 sex = male
@@ -33,8 +21,8 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
-hairID = 1
-beardID = 1
+hairID = 2
+beardID = 3
 colorHair = 126, 75, 30
 colorSkin = 217, 154, 123
 itemHead = 0
