@@ -800,14 +800,44 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("My ancestors always accompany me on my journey.");
+talkEntry:addResponse("My ancestors always accompany me on my journey. And before battle, I pray for Zhambras and Malachíns blessings!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("Meine Vorahnen si-hind auf meinen Reisen immer beihe mir.");
+talkEntry:addResponse("Meine Vorahnen si-hind auf meinen Reisen immer beihe mir. Und vorm Kampfe bittige ich um Zhambras und Malachíns Segen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Zhambra");
+talkEntry:addResponse("Zhambra, the brother god. Who spills blood together, needs backing!");
+talkEntry:addResponse("In battle, you will find yourself next to the shoulder of your companions. Zhambra unites my axe with those of my brothers.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zhambra");
+talkEntry:addResponse("Zhambra, issigt der Brudergott. Wer gemeinsam Blut vergießt braucht Rückendeckigung!");
+talkEntry:addResponse("Im Kampf stehigen wir oft rücklings an den Schultern unserer Waffenbrüder. Zhambra stärkt mich und meine Brüder und unsere Äxte werden Eine.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
+talkEntry:addResponse("Malachín, the aureate hunter! The impregnable warrior! In his name my axe shall taste the blood of many beasts!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
+talkEntry:addResponse("Malachín, der großartige Jäger! Der unbezwingbare Krieger! In seinem Namen sollige meine Axt das Blut von Bestien trinken.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -841,6 +871,23 @@ talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
 talkEntry:addResponse("Als iche noch ein Orkling war, fragte mich Einer was iche getan haben wollte, sei iche erst tot. Und iche sagte, iche wollte in jeder Stadt Illarions ein Bier getrunken haben. Tags darauf war iche scho-hon aufgebrochen.");
 talkEntry:addResponse("Seit iche damals das Norbug Plateau verließ, binne iche in viele der bekannten Länder gereist. Wenn Ihr also etwas zu Wissen versucht, fragt mich ruhig aus. Iche erzähle gernig von allersamt fremder Länder.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Brute");
+talkEntry:addTrigger("Booze");
+talkEntry:addResponse("Hurr hurr. That's beeing me!");
+talkEntry:addResponse("#me scratches his chin. 'How are you?'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Brute");
+talkEntry:addTrigger("Booze");
+talkEntry:addResponse("Hurr hurr. Der binnige ich!");
+talkEntry:addResponse("#me reckt sein Kinn in die Höhe. 'Wonnach verlangts Euch?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
