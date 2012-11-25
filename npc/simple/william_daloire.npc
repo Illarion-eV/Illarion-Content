@@ -107,6 +107,10 @@ english, "quest", "mission" -> "I don't sell that... Ehm, i wanted to say, I do 
 "task", "adventure", "order" -> "I don't sell that... Ehm, i wanted to say, I do not have any quest for you."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Soetwas verkaufe ich nicht. Ähm...Ich wollte sagen, ich biete soetwas nicht an."
 
+-- Quest by NPC mirarie Bragolin (Writing history IV)
+queststatus(1000) = 9, english, "." -> "Oh? ... A letter for me? ... Ah, I see. Please tell Miss Bragolin I'll send her a letter to answer her questions.", queststatus(1000) = 10
+queststatus(1000) = 9, "."-> "Oh?... ein Brief für mich? ... Ah, ich verstehe. Bitte sagt Fräulein Bragolin ich werde ihr einen Brief schreiben um ihre Fragen zu beantworten.", queststatus(1000) = 10
+
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a herbaslist, that means I sell herbs. Want to take a look?", "I do not only sell herbs but also some very usefull tooles. Want to take a look?", "I sell herbs ans some tools aswell, want to take a look?"
 "beruf" -> "Ich bin ein Kräuterhändler, das heißt ich handle mit Kräutern. Möchtet Ihr das Angebot sehen?", "I verkaufe nicht nur Kräuter, sondern auch sehr nützliche Werkzeuge. Möchtet Ihr das Angebot sehen?", "Ich verkaufe Kräuter und einige Werkzeuge. Möchtet Ihr das Angebot sehen?"
