@@ -27,7 +27,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		local stockConc = ""
 		if TargetItem.id == 331 or TargetItem.id == 1012 then	
 			for i=1,8 do 
-				local currentSubs = TargetItem:getData(wirkstoff[1].."Concentration")
+				local currentSubs = TargetItem:getData(wirkstoff[i].."Concentration")
 				if currentSubs == "" then
 					currentSubs = 5
 				end	

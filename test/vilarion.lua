@@ -1,5 +1,6 @@
 require("handler.sendmessage")
 require("base.common")
+require("item.gems")
 
 -- UPDATE common SET com_script = 'test.vilarion' WHERE com_itemid = 9;
 
@@ -34,7 +35,11 @@ function LookAtItem(player, item)
     return true    
 end
 
-function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
+function UseItem(User, SourceItem, TargetItem, counter, Param, ltstate)
+    if (User.lastSpokenText == "gem") then
+        item.gems.gemCraft:showDialog(User, User)
+    end
+    
     if (User.lastSpokenText == "scriptvar") then
         ScriptVars:set("var_test", 42)
         ScriptVars:save()
