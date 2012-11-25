@@ -17,7 +17,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     local isPlant = alchemy.base.alchemy.getPlantSubstance(SourceItem.id)
 	local isGemDust = alchemy.base.alchemy.CheckIfGemDust(SourceItem)
 	if isPlant  or SourceItem.id == 157 then
-	    alchemy.base.herbs.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+	    User:inform("debug1")
+		alchemy.base.herbs.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	elseif gemDust then
 	    alchemy.base.gemdust.UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
