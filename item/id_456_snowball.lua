@@ -22,6 +22,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	if (User.lastSpokenText == "inform datas") then
 	    TargetItem = base.common.GetFrontItem(User)
+		local wirkstoff = base.alchemy.base.wirkstoff
 		local stockConc = ""
 		for i=1,8 do 
 		    local currentSubs = TargetItem:getData(wirkstoff[1].."Concentration")
