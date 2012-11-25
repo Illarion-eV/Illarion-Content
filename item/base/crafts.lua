@@ -48,10 +48,11 @@ Craft = {
 --[[
 Usage: myCraft = Craft:new{ craftEN = "CRAFT_EN",
                             craftDE = "CRAFT_DE",
-                            [leadSkill = SKILL | questStatus = QUEST],
+                            [leadSkill = SKILL | leadSkill = function(user)],
                             [defaultFoodConsumption = FOOD,]
                             [sfx = SFX, sfxDuration = DURATION,]
                             [fallbackCraft = CRAFTWITHSAMEHANDTOOL,]
+                            [npcCraft = true,]
                           }
 --]]
 
@@ -67,8 +68,6 @@ function Craft:new(c)
     c.defaultProduct = Product:new{
         foodConsumption = c.defaultFoodConsumption,
     }
-    c.userCraft = c.leadSkill ~= nil
-    c.npcCraft = not c.leadSkill and c.questStatus ~= nil
     return c
 end
 
@@ -177,9 +176,9 @@ end
 --------------------------------------------------------------------------------
 
 function Craft:allowCrafting(user, source)
-    if self.userCraft then
+    if not self.npcCraft then
         return self:allowUserCrafting(user, source)
-    elseif self.npcCraft then
+    else
         return self:allowNpcCrafting(user, source)
     end
 
@@ -290,7 +289,7 @@ function Craft:refreshDialog(dialog, user)
 end
 
 function Craft:getCraftingTime(product, skill)
-    if self.userCraft then
+    if not self.npcCraft then
         return product:getCraftingTime(skill)
     else
         return product.minTime
@@ -386,10 +385,14 @@ function Craft:checkRequiredFood(user, neededFood, difficulty)
 end
 
 function Craft:getSkill(user)
-    if self.userCraft then
+    local skillType = type(self.leadSkill)
+
+    if skillType == "number" then
         return user:getSkill(self.leadSkill)
+    elseif skillType == "function" then
+        return self.leadSkill(user)
     else
-        return user:getQuestProgress(self.questStatus)
+        return 0
     end
 end
 
@@ -490,7 +493,7 @@ function Craft:craftItem(user, productId, toolItem)
     end
     
     local neededFood = 0
-    if self.userCraft then
+    if not self.npcCraft then
         local foodOK = false
         foodOK, neededFood = self:checkRequiredFood(user, product.foodConsumption, product.difficulty)
         if not foodOK then
@@ -502,7 +505,7 @@ function Craft:craftItem(user, productId, toolItem)
     if self:checkMaterial(user, productId) then
         self:createItem(user, productId, toolItem)
        
-        if self.userCraft then 
+        if not self.npcCraft then 
             base.common.ToolBreaks(user, toolItem, true)
             base.common.GetHungry(user, neededFood)
             

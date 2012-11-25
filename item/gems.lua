@@ -1,5 +1,6 @@
 require("content.lookat.unique")
 require("base.common")
+require("base.factions")
 
 -- UPDATE common SET com_script='item.gems' WHERE com_itemid IN (45, 46, 197, 198, 283, 284, 285);
 
@@ -36,6 +37,34 @@ gemLevelRareness[7] = ItemLookAt.epicItem
 gemLevelRareness[8] = ItemLookAt.epicItem
 gemLevelRareness[9] = ItemLookAt.epicItem
 gemLevelRareness[10] = ItemLookAt.epicItem
+
+gemCraft = item.base.crafts.Craft:new{
+    craftEN = "Magic Blacksmith",
+    craftDE = "Magieschmied",
+    leadSkill = base.factions.getRankpoints,
+    npcCraft = true,
+}
+
+local categoryId = {}
+categoryId[EMERALD] = gemCraft:addCategory("emerald", "Smaragd")
+categoryId[RUBY] = gemCraft:addCategory("ruby", "Rubin")
+categoryId[OBSIDIAN] = gemCraft:addCategory("obsidian", "Obsidian")
+categoryId[SAPPHIRE] = gemCraft:addCategory("sapphire", "Saphir")
+categoryId[AMETHYST] = gemCraft:addCategory("amethyst", "Amethyst")
+categoryId[TOPAZ] = gemCraft:addCategory("topaz", "Topas")
+
+local gem, level
+for gem=1,7 do
+    local catId = categoryId[gem]
+    if catId then
+        for level=2,10 do
+            local requirement = (level - 2) * 10
+            local duration = level
+            local product = gemCraft:addProduct(catId, gemItem[gem], requirement, requirement+10, duration, duration*2, 1, {gemLevel = level})
+            product:addIngredient(gemItem[gem], 3, {gemLevel = level-1})
+        end
+    end
+end
 
 function createMagicGem(user, gem, quantity, level)
     local quantity = quantity or 1
