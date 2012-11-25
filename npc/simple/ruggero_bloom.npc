@@ -2,17 +2,17 @@
 -- NPC Name: Ruggero Bloom                                               None --
 -- NPC Job:  pirate                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  5, 557, 0              --
+-- NPC Race: human                      NPC Position:  6, 558, 0              --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Rincewind                                                        --
 --                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Ruggero Bloom"
 race = human
 sex = male
-position = 5, 557, 0
+position = 6, 558, 0
 direction = north
 affiliation = "None"
 job = "pirate"
@@ -22,7 +22,7 @@ language = human
 defaultLanguage = common
 autointroduce = on
 
-author = "not set"
+author = "Rincewind"
 
 lookatDE = "Arr, das ist ein hässlicher wilder Pirat! Nimm dich in Acht!"
 lookatUS = "Arr, this seems like a ugly wild pirate! Be careful!"
@@ -81,67 +81,27 @@ state = 5, german, ".*" -> "#me schlägt dir seine Faust in den Magen. 'Hast du 
 state = 6, english, ".*" -> "#me's face becomes red like a tomato and he gives you a proper beating.", state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1
 state = 6, german, ".*" -> "#me läuft Rot an wie eine Tomate und verprügelt dich, wie's im Lehrbuch steht.", state = 0, attrib(hitpoints) = 1, attrib(hitpoints) + 1
 
--- shirtcheck +++ warpsprung hinter den NPC +++place a waptile behind him.
-item(356, body) => 1, item(182, body) => 1, "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> "Aye, du darfst vorbei, Kumpel!", state = 0
-
--- Warp
-item(356, body) => 1, item(182, body) => 1, german, "quest", "job", "problem" -> "Aye, du darfst vorbei, Kumpel!", state = 0
-
--- Warp
-item(356, body) => 1, item(182, body) => 1, english, "quest", "job", "problem" -> "Aye, You may pass matee!", state = 0
-
--- Warp
-item(356, body) => 1, item(182, body) => 1, "open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn" -> "Aye, You may pass matee!", state = 0
-
--- Warp
-item(356, body) => 1, item(181, body) => 1, "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> "Aye, du darfst vorbei, Kumpel!", state = 0
-
--- Warp
-item(356, body) => 1, item(181, body) => 1, german, "quest", "job", "problem" -> "Aye, du darfst vorbei, Kumpel!", state = 0
-
--- Warp
-item(356, body) => 1, item(181, body) => 1, english, "quest", "job", "problem" -> "Aye, You may pass matee!", state = 0
-
--- Warp
-item(356, body) => 1, item(181, body) => 1, "open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn" -> "Aye, You may pass matee!", state = 0
-
--- Warp
-item(356, body) => 1, item(457, body) => 1, "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> "Aye, du darfst vorbei, Kumpel!", state = 0
-
--- Warp
-item(356, body) => 1, item(457, body) => 1, german, "quest", "job", "problem" -> "Aye, du darfst vorbei, Kumpel!", state = 0
-
--- Warp
-item(356, body) => 1, item(457, body) => 1, english, "quest", "job", "problem" -> "Aye, You may pass matee!", state = 0
-
--- Warp
-item(356, body) => 1, item(457, body) => 1, "open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn" -> "Aye, You may pass matee!", state = 0
-
--- Warp
-item(356, body) => 1, item(180, body) => 1, "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> "Aye, du darfst vorbei, Kumpel!", state = 0
-
--- Warp
-item(356, body) => 1, item(180, body) => 1, german, "quest", "job", "problem" -> "Aye, du darfst vorbei, Kumpel!", state = 0
-
--- Warp
-item(356, body) => 1, item(180, body) => 1, english, "quest", "job", "problem" -> "Aye, You may pass matee!", state = 0
-
--- Warp
-item(356, body) => 1, item(180, body) => 1, "open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn" -> "Aye, You may pass matee!", state = 0
-
--- Warp
-item(356, body) => 1, item(195, body) => 1, "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> "Aye, du darfst vorbei, Kumpel!", state = 0
-
--- Warp
-item(356, body) => 1, item(195, body) => 1, german, "quest", "job", "problem" -> "Aye, du darfst vorbei, Kumpel!", state = 0
-
--- Warp
-item(356, body) => 1, item(195, body) => 1, english, "quest", "job", "problem" -> "Aye, You may pass matee!", state = 0
-
--- Warp
-item(356, body) => 1, item(195, body) => 1, "open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn" -> "Aye, You may pass matee!", state = 0
-
--- Warp
+-- shirtcheck +++ jump behind NPC
+item(356, body) => 1, item(182, body) => 1, "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> "Aye, du darfst vorbei, Kumpel!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(182, body) => 1, german, "quest", "job", "problem" -> "Aye, du darfst vorbei, Kumpel!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(182, body) => 1, english, "quest", "job", "problem" -> "Aye, You may pass matee!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(182, body) => 1, "open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn" -> "Aye, You may pass matee!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(181, body) => 1, "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> "Aye, du darfst vorbei, Kumpel!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(181, body) => 1, german, "quest", "job", "problem" -> "Aye, du darfst vorbei, Kumpel!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(181, body) => 1, english, "quest", "job", "problem" -> "Aye, You may pass matee!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(181, body) => 1, "open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn" -> "Aye, You may pass matee!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(457, body) => 1, "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> "Aye, du darfst vorbei, Kumpel!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(457, body) => 1, german, "quest", "job", "problem" -> "Aye, du darfst vorbei, Kumpel!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(457, body) => 1, english, "quest", "job", "problem" -> "Aye, You may pass matee!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(457, body) => 1, "open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn" -> "Aye, You may pass matee!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(180, body) => 1, "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> "Aye, du darfst vorbei, Kumpel!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(180, body) => 1, german, "quest", "job", "problem" -> "Aye, du darfst vorbei, Kumpel!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(180, body) => 1, english, "quest", "job", "problem" -> "Aye, You may pass matee!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(180, body) => 1, "open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn" -> "Aye, You may pass matee!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(195, body) => 1, "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> "Aye, du darfst vorbei, Kumpel!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(195, body) => 1, german, "quest", "job", "problem" -> "Aye, du darfst vorbei, Kumpel!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(195, body) => 1, english, "quest", "job", "problem" -> "Aye, You may pass matee!", state = 0, warp(6, 560, 0)
+item(356, body) => 1, item(195, body) => 1, "open", "way", "entrance", "pass", "tobacco", "task", "adventure", "mission", "money", "earn" -> "Aye, You may pass matee!", state = 0, warp(6, 560, 0)
 "zutritt", "pasire", "weg", "[oeö]fne", "Tabak", "verdienen", "aufgabe", "abenteuer" -> inform("Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht."), "Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel Trommel auf deinem Gesicht.", state + 1
 german, "quest", "job", "problem" -> inform("Welch ein ungemütlicher Geselle. Besser du nimmt dich in Acht."), "Kein Zutritt, für Leute wie dich. Verschwinde oder ich spiel Trommel auf deinem Gesicht.", state + 1
 english, "quest", "job", "problem" -> inform("Such a rude person. Be careful!"), "No entrance for people like you. Get out or I will use your face as a drum.", state + 1
