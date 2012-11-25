@@ -203,32 +203,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("sell");
-talkEntry:addTrigger("buy");
-talkEntry:addTrigger("wares");
-talkEntry:addTrigger("price");
-talkEntry:addTrigger("trade");
-talkEntry:addTrigger("purchase");
-talkEntry:addResponse("Ah, so you are interested in my wares.");
-talkEntry:addResponse("Take your time to look around.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("kauf");
-talkEntry:addTrigger("waren");
-talkEntry:addTrigger("preis");
-talkEntry:addTrigger("Handel");
-talkEntry:addTrigger("veräußer");
-talkEntry:addTrigger("erwerb");
-talkEntry:addResponse("Ah, dann interessiert Ihr Euch also für meine Waren.");
-talkEntry:addResponse("Schaut Euch ruhig in Ruhe um.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -742,7 +716,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("Es ist eine Freude Eure Bekanntschaft zu machen, %CHARNAME.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

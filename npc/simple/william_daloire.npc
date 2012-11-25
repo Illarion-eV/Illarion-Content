@@ -95,11 +95,6 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adé!", "A bientôt!", "May
 "your name", "who are you", "who art thou" -> "I'm a merchant, I sell fresh herbs. I am called William Deloire.", "I'm William Deloire, at you service."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin ein Händler der frische Kräuter verkauft. Ich werde William Deloire genannt.", "Ich heiße William Deloire, was kann ich für Euch tun?"
 
--- OPTIONAL TRIGGERS
-
--- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "I don't sell that... Ehm, i wanted to say, I do not have any quest for you."
@@ -187,7 +182,7 @@ english, "Gobaith", "Gobiath" -> "Goba...Gobi-what?...What kind of herb is that?
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "A plesure to meet you,%CHARNAME."
-"mein Name" -> "GERMAN1.", "Es ist eine Freude Eure Bekanntschaft zu machen, %CHARNAME."
+"mein Name" -> "Es ist eine Freude Eure Bekanntschaft zu machen, %CHARNAME."
 english, "William", "Deloire" -> "Yes,that's me. I am William Deloire, at you service."
 "William", "Deloire" -> "Ja, das bin ich. William Deloire, was kann ich für Euch tun?"
 "Yes" -> "That's how I'd say it.", "Well..."
