@@ -25,22 +25,22 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    TargetItem = base.common.GetFrontItem(User)
 		local wirkstoff = alchemy.base.alchemy.wirkstoff
 		local stockConc = ""
-		for i=1,8 do 
-		    local currentSubs = TargetItem:getData(wirkstoff[1].."Concentration")
-			if currentSubs == "" then
-			    currentSubs = 5
-			end	
-			stockConc = stockConc..currentSubs
-		end
-		local essenceHerbs = ""
-	    if TargetItem.id == 331 or TargetItem.id == 1012 then
-			for i=1,8 do
-				local currentHerb = TargetItem:getData("essenceHerb"..i)
-				if currentHerb ~= "" then
-					essenceHerbs = essenceHerbs.." "..currentHerb
-				end
+		if TargetItem.id == 331 or TargetItem.id == 1012 then	
+			for i=1,8 do 
+				local currentSubs = TargetItem:getData(wirkstoff[1].."Concentration")
+				if currentSubs == "" then
+					currentSubs = 5
+				end	
+				stockConc = stockConc..currentSubs
 			end
-        end			
+		end	
+		local essenceHerbs = ""
+	    for i=1,8 do
+			local currentHerb = TargetItem:getData("essenceHerb"..i)
+			if currentHerb ~= "" then
+				essenceHerbs = essenceHerbs.." "..currentHerb
+			end
+		end			
 		local filledWith = TargetItem:getData("filledWith")
 		local potionEffectId = TargetItem:getData("potionEffectId")
 		local potionQuality = TargetItem:getData("potionQuality")
