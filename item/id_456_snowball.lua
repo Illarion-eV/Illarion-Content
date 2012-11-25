@@ -18,7 +18,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    local a, b, quest, status
+    local a, b, quest
     a,b,quest = string.find(User.lastSpokenText,"getquest (%d+)")
 	if a ~= nil then
 		User:inform("Quest "..quest.." has queststatus"..User:getQuestProgress(quest))
