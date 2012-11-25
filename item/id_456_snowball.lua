@@ -33,10 +33,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			stockConc = stockConc..currentSubs
 		end
 		local essenceHerbs = ""
-		for i=1,8 do
-		    local currentHerb = TargetItem:getData("essenceHerb"..i)
-			if currentHerb ~= "" then
-			    essenceHerbs = essenceHerbs.." "..currentHerb
+	    if TargetItem.id == 331 or TargetItem.id == 1012 then
+			for i=1,8 do
+				local currentHerb = TargetItem:getData("essenceHerb"..i)
+				if currentHerb ~= "" then
+					essenceHerbs = essenceHerbs.." "..currentHerb
+				end
 			end
         end			
 		local filledWith = TargetItem:getData("filledWith")
