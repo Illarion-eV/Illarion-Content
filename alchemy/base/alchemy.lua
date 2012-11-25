@@ -26,9 +26,11 @@ function setPlantSubstance(id, plusSubstance, minusSubstance)
 	plantList[id] = {plusSubstance, minusStubstance}
 end
 
-function getPlantSubstance(id)
-    if not plantList[id] then
-	    return false
+function getPlantSubstance(id, User)
+    User:inform("debug al 0.5")
+	if not plantList[id] then
+	    User:inform("debug al 1")
+		return false
 	end	
 	local plus, minus
 	if plantList[id][1] == nil then
