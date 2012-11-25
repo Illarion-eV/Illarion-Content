@@ -273,7 +273,7 @@ talkEntry:addTrigger("town");
 talkEntry:addTrigger("village");
 talkEntry:addTrigger("city");
 talkEntry:addTrigger("cities");
-talkEntry:addResponse("RINCE WRITE SOMETHING HERE!!!");
+talkEntry:addResponse("Many lands I saw and even more tales I heard. Orcish towns like Kroch'Gurak, Fireshine, Judgement's Flame and Light of Khaari! Brute Booze drunk almost everywhere. In Firnismill, Pennymill but never in Oldwillows. The strongholds of the dwarvlings! Sevenhill, Storm's Keep and Arn-Gharrach. The stormy town Kjelt! The icy Karras, the old Ann-Korr and fameous Kang-Arr! Myr-Tobar the town made of jade. Oldford, Fennsworth, Falmarha, Nubris, Mitsobar and Koldamar - all towns of the human folk. And last Lor-Angur realm of magics.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -282,7 +282,7 @@ talkEntry:addTrigger("Stadt");
 talkEntry:addTrigger("Städte");
 talkEntry:addTrigger("Dorf");
 talkEntry:addTrigger("Dörfer");
-talkEntry:addResponse("UND HIER AUCH!!!");
+talkEntry:addResponse("Schon viele Länder habe ich geseh-higt und von noch mehr kennige ich Geschichten! Orkstädte wie Kroch'Gurak, Fireshine, Judgement's Flame, Licht von Khaari! Überall habige ich schon gesoffen. Im grünigen Firnismühle und in Pfennigmühle war ich auch. Aber niemals in Altweiden. Und die Festungen der Zwerglinge! Siebenberg, Storm's Keep und Arn-Gharrach. Die stürmige Stadt Kjelt! Das frostigige Karras. Das alte Ann-Korr und das berühmte Kang-Arr! Myr-Tobar die Stadt aus Jade und Khenserra. Altfurten, Fennsworth, Falmarha, Nubris, Mitsobar und Koldamar. Alles Städte der Menschen. Und zuletzigt Lor-Angur, das Magierreich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -299,6 +299,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Heldentat");
+talkEntry:addTrigger("Taten");
 talkEntry:addResponse("Vor drei Wintern, erschlug Brute Booze die Schlangenbestie, Myr Tobars! Ihr Leib wahr-higte so dick wie der einer Eiche und ungezähligte Mann lang. Zum dank gab der Hochpriester, Brute Booze seine Tochter zum Weib!");
 talkEntry:addResponse("Sieben Winter iset es her, da erlegte iche den Fluch Kang-Arr's. Ein Bär groß für drei Norodaj-Krieger, übersähet mit armlangen Stacheln. An jenem Tag ernannte mich Fürst Aramar Ingelfsen von Kathun zum fahrigenden Ritter seines Hofes.");
 talkEntry:addResponse("Einst, als ich im eisigen Karras war, bedrohhigte ein dämonischer Wyrm das Land. Viele Krieger mussten sterben, doch endlich spießte man das Untier mit geeinigter Kraft auf. Seit da an genoß iche Ansehen und Ehre unter Karras' Norodaj.");
@@ -358,7 +359,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Khaari");
-talkEntry:addResponse("Iche will Euch sagen, das Licht von Khaaei iset eine Stadt der Flammenorks. Und über der Stadt thront der Tempel der Flamme dessen Drachenfeuer so hell leuchtet, das die Stadt niemals im Dunkeln liegt. Selbst in der Nacht nicht.");
+talkEntry:addResponse("Iche will Euch sagen, das Licht von Khaari iset eine Stadt der Flammenorks. Und über der Stadt thront der Tempel der Flamme dessen Drachenfeuer so hell leuchtet, das die Stadt niemals im Dunkeln liegt. Selbst in der Nacht nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -894,12 +895,12 @@ talkEntry:addResponse("Ja-ha. Das ist gleich wie damalsig. Als iche den Stachelb
 talkEntry:addResponse("Hurr - wenn iche das hörige muss ich an meine Heldentaten denkigen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me grunzt vergnügt und nimmt einen Schluck aus seinem Tonkrug.", "#me grunts cheerfully and takes a swig from his jug");
+talkingNPC:addCycleText("#me grunzt vergnügt und nimmt einen Schluck aus seinem Tonkrug.", "#me grunts cheerfully and takes a swig from his jug.");
 talkingNPC:addCycleText("#me nickt sich selbst zu und wirft einen Blick in seine Tasche. Dann holt er eine halbe Wurst hervor und beißt davon ab.", "#me nods to himself and takes a look inside his bag. Then he takes out half a sausage and takes a bite from it.");
 talkingNPC:addCycleText("#me kratzt sich an der Nase.", "#me scratches his nose.");
 talkingNPC:addCycleText("#me streckt seine Zunge heraus und grinst.", "#me stretches out his tounge and grins.");
 talkingNPC:addCycleText("#me spannt seine muskulösen Arme an und streckt sich demonstrativ.", "#me flexes his muscular arms and stretches demonstratively. ");
-talkingNPC:addCycleText("#me lächelt und lässt dabei abwechselnd seinene Brustmuskeln hüfen.", "#me smiles and twitches his chest muscles alternately.");
+talkingNPC:addCycleText("#me lächelt und lässt dabei abwechselnd seinene Brustmuskeln hüpfen.", "#me smiles and twitches his chest muscles alternately.");
 talkingNPC:addCycleText("#me nimmt seinen Trinkschlauch vom Gürtel und nimmt einen Schluck daraus.", "#me takes a waterskin from his belt and takes a sip from it.");
 talkingNPC:addCycleText("#me fährt sich mit der Hand über seinen kahlen Kopf und zeigt dabei, gewinnend lächelnd, seine blendend weißen Zähne.", "#me strokes a hand over his bald head, smiling engagingly and showing his dazzlingly white teeth.");
 talkingNPC:addCycleText("#me zupft mit seinen gepflegten Händen am Spitzbart.", "#me plucks on his pointed beard with his sleek hands.");
