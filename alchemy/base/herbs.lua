@@ -76,6 +76,7 @@ function PlantInStock(User,cauldron,plant)
 			else
                 cauldron:setData(plusSubstance.."Concentration",newConcentration)
                 cauldron.id = 1012
+				cauldron:setData("filledWith","stock")
 			end				
 	    end
 		if minusSubstance ~= "" then
@@ -91,6 +92,7 @@ function PlantInStock(User,cauldron,plant)
 			else
                 cauldron:setData(minusSubstance.."Concentration",newConcentration)
                 cauldron.id = 1012
+				cauldron:setData("filledWith","stock")
 			end				
 	    end
 	    world:changeItem(cauldron)
@@ -98,7 +100,8 @@ function PlantInStock(User,cauldron,plant)
 end
 
 function BrewingPlant(User,plant,cauldron)
-    if cauldron:getData("filledWith") == "potion" then -- potion in cauldron, failure
+    world:makeSound(10,cauldron.pos) 
+	if cauldron:getData("filledWith") == "potion" then -- potion in cauldron, failure
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
 		
 	elseif cauldron:getData("filledWith")== "essenceBrew" then -- essence brew
@@ -139,7 +142,8 @@ function FilterStock(User,cauldron,plant)
 end
 
 function BrewingFilter(User,plant,cauldron)
-    if cauldron:getData("filledWith") == "potion" then -- potion in cauldron, failure
+    world:makeSound(10,cauldron.pos)
+	if cauldron:getData("filledWith") == "potion" then -- potion in cauldron, failure
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
     
 	elseif cauldron:getData("filledWith")=="essenceBrew" then -- essence brew in cauldron, failure
