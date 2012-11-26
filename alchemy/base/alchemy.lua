@@ -411,7 +411,8 @@ function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
 	local reGemdust; local reCauldron; local reBottle
 	for i=1,#myList do
 	    if myList[i] == myValue then
-		    reGemdust = gemDustList[i]
+		    User:inform("i am here")
+			reGemdust = gemDustList[i]
 	        reCauldron = cauldronList[i]
 			reBottle = bottleList[i]
 	        break
