@@ -127,7 +127,8 @@ function FilterStock(User,plant,cauldron)
 	for i=1,8 do 
 	    local oldConcentration = tonumber(cauldron:getData(mySubstance[1].."Concentration"))
 		if not oldConcentration == nil then
-		    if oldConcentration > 5 then
+		    User:inform("filterstock 1.5 "..oldConcentration)
+			if oldConcentration > 5 then
 			    User:inform("filterstock 2")
 				cauldron:setData(mySubstance.."Concentration",oldConcentration-1)
 				success = true
