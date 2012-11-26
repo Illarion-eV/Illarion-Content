@@ -114,9 +114,12 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 
     local dialog = SelectionDialog("Socketing", "Please select a weapon to insert the gem into:", callback)
     local weaponTable = getWeaponTable(User)
-    
+    local language = User:getPlayerLanguage()
+   
     for i=1,#weaponTable do
-        dialog:addOption(weaponTable[i].id, weaponTable[i].name)
+        local item = weaponTable[i].id
+        local name = world:getItemName(item, language)
+        dialog:addOption(item, name)
     end
 
     User:requestSelectionDialog(dialog)
