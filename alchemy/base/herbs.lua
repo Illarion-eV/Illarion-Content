@@ -129,10 +129,10 @@ function FilterStock(User,plant,cauldron)
 		local oldConcentration = tonumber(cauldron:getData(mySubstance[i].."Concentration"))
 		if oldConcentration ~= nil then
 		    if oldConcentration > 5 then
-			    cauldron:setData(mySubstance.."Concentration",oldConcentration-1)
+			    cauldron:setData(mySubstance[i].."Concentration",oldConcentration-1)
 				success = true
 			elseif oldConcentration < 5 then
-			    cauldron:setData(mySubstance.."Concentration",oldConcentration+1)
+			    cauldron:setData(mySubstance[i].."Concentration",oldConcentration+1)
 				success = true
             end    			
         end
