@@ -283,7 +283,7 @@ function Craft:loadDialog(dialog, user)
         local productRequirement = product.difficulty
         
         if productRequirement <= skill then
-            dialog:addCraftable(i, categoryListId[product.category], product.item, product:getName(user), self:getCraftingTime(product, skill), product.quantity)
+            dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, self:getCraftingTime(product, skill), product.quantity)
 
             for j = 1, #product.ingredients do
                 local ingredient = product.ingredients[j]
@@ -312,27 +312,6 @@ function Product:getCraftingTime(skill)
     local craftingTime = base.common.Scale(self.maxTime, self.minTime, learnProgress)
     craftingTime = math.ceil(craftingTime)
     return craftingTime
-end
-
-function Product:getName(user)
-    return getItemName(user, self.item, self.data)
-end
-
-function getItemName(user, item, data)
-    local isGerman = (user:getPlayerLanguage() == Player.german)
-    local usedName
-
-    if isGerman then
-        usedName = data.nameDe
-    else
-        usedName = data.nameEn
-    end
-    
-    if base.common.IsNilOrEmpty(usedName) then
-        usedName = world:getItemName(item, user:getPlayerLanguage())
-    end
-
-    return usedName
 end
 
 function Craft:swapToActiveItem(user)
@@ -421,7 +400,7 @@ function Craft:checkMaterial(user, productId)
         
         if available < ingredient.quantity then
             materialsAvailable = false
-            local ingredientName = getItemName(user, ingredient.item, ingredient.data)
+            local ingredientName = self:getLookAt(user, ingredient).name
 
             if available == 0 then
                 base.common.InformNLS( user,
