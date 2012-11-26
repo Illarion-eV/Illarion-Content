@@ -401,7 +401,8 @@ function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
 	    myList = gemdustList
 		myValue = gemdust
 	elseif cauldron then
-	    myList = cauldronList
+	    User:inform("debug gbc2")
+		myList = cauldronList
 		myValue = cauldron
     elseif bottle then
         myList = bottleList	
@@ -412,7 +413,7 @@ function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
 	local reGemdust; local reCauldron; local reBottle
 	for i=1,#myList do
 	    if myList[i] == myValue then
-		    User:inform("i am here")
+		    User:inform("debug gbc3")
 			reGemdust = gemDustList[i]
 	        reCauldron = cauldronList[i]
 			reBottle = bottleList[i]
