@@ -26,7 +26,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 	
     -- infront of a cauldron
-	if (TargetItem.id == 1008) then
+	if (TargetItem.id >= 1008) or (TargetItem.id <= 1018) then
 	    WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		return
 	end
@@ -174,7 +174,7 @@ end
 
 function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
     local cauldron = TargetItem
-	User:inform(""..cauldron.id)
+	
 	if ( ltstate == Action.abort ) then
 	   base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	   return
