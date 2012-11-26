@@ -38,7 +38,7 @@ gemLevelRareness[8] = ItemLookAt.epicItem
 gemLevelRareness[9] = ItemLookAt.epicItem
 gemLevelRareness[10] = ItemLookAt.epicItem
 
-function lookAtFilter(lookAt, data)
+function lookAtFilter(user, lookAt, data)
     local gemLevel = data.gemLevel
     
     if gemLevel then
