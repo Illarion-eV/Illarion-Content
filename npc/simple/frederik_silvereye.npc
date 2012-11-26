@@ -2,7 +2,7 @@
 -- NPC Name: Frederik Silvereye                                       Galmair --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  385,241,0            --
+-- NPC Race: human                      NPC Position:  404, 263, 1            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Ardian                                                           --
@@ -12,7 +12,7 @@
 name = "Frederik Silvereye"
 race = human
 sex = male
-position = 385, 241, 0
+position = 404, 263, 1
 direction = south
 affiliation = "Galmair"
 job = "Notary"
