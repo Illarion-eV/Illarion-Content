@@ -121,18 +121,14 @@ function BrewingPlant(User,plant,cauldron)
 end
 
 function FilterStock(User,plant,cauldron)
-    User:inform("filterstock 1")
-	local success = false
+    local success = false
 	local mySubstance = alchemy.base.alchemy.wirkstoff
 	for i=1,8 do 
-	    User:inform(""..cauldron:getData("AdrazinConcentration"))
+	    User:inform(""..mySubstance[i])
 		local oldConcentration = tonumber(cauldron:getData(mySubstance[i].."Concentration"))
-		User:inform(""..oldConcentration)
 		if not oldConcentration == nil then
-		    User:inform("filterstock 1.5 "..oldConcentration)
-			if oldConcentration > 5 then
-			    User:inform("filterstock 2")
-				cauldron:setData(mySubstance.."Concentration",oldConcentration-1)
+		    if oldConcentration > 5 then
+			    cauldron:setData(mySubstance.."Concentration",oldConcentration-1)
 				success = true
 			elseif oldConcentration < 5 then
 			    cauldron:setData(mySubstance.."Concentration",oldConcentration+1)
@@ -142,8 +138,7 @@ function FilterStock(User,plant,cauldron)
 	end
 	world:changeItem(cauldron)
     if success == false then
-        User:inform("filterstock 3")
-		alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)	
+        alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)	
 	end	
 end
 
