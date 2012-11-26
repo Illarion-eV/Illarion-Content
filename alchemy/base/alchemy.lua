@@ -17,35 +17,29 @@ function InitPlantSubstance()
 	end	
 	setPlantSubstance(133, "Adrazin", "Orcanol") -- sunherb / Sonnenkraut
     setPlantSubstance(758, "Adrzain", "") -- heart blood / Herzblut
+	setPlantSubstance(15 , ""       , "") -- apple / Apfel
 end
 
 function setPlantSubstance(id, plusSubstance, minusSubstance)
     if plantList == nil then
 	    plantList = {}
 	end	
-	plantList[id] = {plusSubstance, minusStubstance}
+	plantList[id] = {plusSubstance, minusSubstance}
 end
 
 function getPlantSubstance(id, User)
-    User:inform("debug al 0.5")
-	if not plantList[id] then
-	    User:inform("debug al 1")
-		return false
+    if not plantList[id] then
+	    return false
 	end	
 	local plus, minus
-	if plantList[id][1] == nil then
-	    plus = ""
-	else
+	if plantList[id][1] ~= nil then
 	    plus = plantList[id][1]
 	end	
-	if plantList[id][2] == nil then
-	    minus = ""
-	else
-        minus = plantList[id][2]
-    end     	
+	if plantList[id][2] ~= nil then
+	    minus = plantList[id][2]
+	end     	
 	return plus, minus    
 end
-
 
 -- the list of possible potions effects
 potionsList = {};
