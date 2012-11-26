@@ -147,7 +147,7 @@ function LookAtItem(user, item)
     local data = {}
     data.gemLevel = tonumber(item:getData("gemLevel"))
 
-    lookAt = lookAtFilter(lookAt, data)    
+    lookAt = lookAtFilter(user, lookAt, data)    
 
     world:itemInform(user, item, lookAt)
 end
