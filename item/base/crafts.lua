@@ -53,6 +53,7 @@ Usage: myCraft = Craft:new{ craftEN = "CRAFT_EN",
                             [sfx = SFX, sfxDuration = DURATION,]
                             [fallbackCraft = CRAFTWITHSAMEHANDTOOL,]
                             [npcCraft = true,]
+                            [lookAtFilter = (lookAt function(lookAt, data)),]
                           }
 --]]
 
@@ -219,18 +220,27 @@ end
 
 function Craft:getProductLookAt(user, productId)
     local product = self.products[productId]
-    local item = product.item
-    local quantity = product.quantity
-    local data = product.data
-    return base.lookat.GenerateItemLookAtFromId(user, item, quantity, data)
+    local lookAt = self.getLookAt(user, product)
+    return lookAt
 end
 
 function Craft:getIngredientLookAt(user, productId, ingredientId)
     local ingredient = self.products[productId].ingredients[ingredientId]
-    local item = ingredient.item
-    local quantity = ingredient.quantity
-    local data = ingredient.data
-    return base.lookat.GenerateItemLookAtFromId(user, item, quantity, data)
+    local lookAt = self.getLookAt(user, ingredient)
+    return lookAt
+end
+
+function Craft:getLookAt(user, object)
+    local item = object.item
+    local quantity = object.quantity
+    local data = object.data
+    local lookAt = base.lookat.GenerateItemLookAtFromId(user, item, quantity, data)
+    
+    if self.lookAtFilter then
+        lookAt = self.lookAtFilter(lookAt, data)
+    end
+
+    return lookAt
 end
 
 function Craft:getName(user)
