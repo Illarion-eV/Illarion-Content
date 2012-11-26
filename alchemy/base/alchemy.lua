@@ -35,6 +35,7 @@ function getPlantSubstance(id, User)
 	    plus = ""
 	else
 	    plus = plantList[id][1]
+		User:inform("plus is not nil")
 	end	
 	if plantList[id][2] == nil then
 	    User:inform("minus is nil")
