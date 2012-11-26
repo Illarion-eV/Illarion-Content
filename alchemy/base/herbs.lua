@@ -160,5 +160,5 @@ function BrewingFilter(User,plant,cauldron)
         base.common.InformNLS(User, "Die Pflanze vertrockent auf dem Boden des heiﬂen Kessels und zerf‰llt zu Asche", 
 		                            "The plant dries up on the hot bottom of the cauldron and falls to ashes.")	
 	end
-    world:erase(SourceItem,1)	
+    world:erase(plant,1)	
 end
