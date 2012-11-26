@@ -45,12 +45,12 @@ function InitCraftingTool()
         
         --------------- BLAUSTEIN - 284 ----------------
         product = gemcutting:addProduct(catGems, 284, 20, 60, 20, 40)
-        product:addIngredient(253) -- Schritt 1: Roher Blaustein(253) 1x
+        product:addIngredient(253) -- Schritt 1: Roher Saphir(253) 1x
         ------------- BLAUSTEIN - FERTIG ---------------
 		
         --------------- BLAUSTEINSTAUB - 446 ----------------
         product = gemcutting:addProduct(catDust, 446, 20, 50, 20, 40)
-        product:addIngredient(284, 4) -- Schritt 1: Blaustein(284) 4x
+        product:addIngredient(284, 4) -- Schritt 1: Saphir(284) 4x
         ------------- BLAUSTEINSTAUB - FERTIG ---------------
         
         ------------- SCHWARZSTEIN - 283 ---------------

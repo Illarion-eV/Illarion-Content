@@ -26,7 +26,7 @@ function LookAtItem(User,Item)
 	        end
 		elseif (Item.pos.z == 0) then
 	        if (User:getPlayerLanguage()==0) then
-	            world:itemInform(User,Item,"Mit arkanen Symbolen verzierter Steinsockel, auf dem eine steinernde Schriftrolle liegt, in der blausteinfarbene Schrift eingelassen wurde");
+	            world:itemInform(User,Item,"Mit arkanen Symbolen verzierter Steinsockel, auf dem eine steinernde Schriftrolle liegt, in der saphirfarbene Schrift eingelassen wurde");
 	        else
 	            world:itemInform(User,Item,"stone socket decorated with arcane symbols, on which you can see a stony scroll with sapphire colored letters");
 	        end

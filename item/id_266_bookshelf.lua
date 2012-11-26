@@ -253,7 +253,7 @@ function InitLibraries()
       {116, 1};              -- Magic Stones (general)
       {107, 1};             -- Rubine
       {2622,5};             -- Diamanten
-      {2607,3};             -- Blaustein
+      {2607,3};             -- Saphir
       {115, 1};             -- Smaragd
       {2619,3};             -- Obsidian
       {108, 1};             -- Amethyst

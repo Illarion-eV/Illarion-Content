@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 26
 
 local NPC_TRIGGER_DE = "[Ee]rde"
 local NPC_TRIGGER_EN = "[Ee]arth"
-local NPC_REPLY_DE = "Geht doch! Nächste Frage, und wieder ein paar Münzen: Welcher von diesen drei magischen Steinen gehört zu uns: Smaragd, Topas oder Blaustein?"
+local NPC_REPLY_DE = "Geht doch! Nächste Frage, und wieder ein paar Münzen: Welcher von diesen drei magischen Steinen gehört zu uns: Smaragd, Topas oder Saphir?"
 local NPC_REPLY_EN = "Fine! Next question, and again some coins: Which of these three magical stones does belong to us: Emerald, Topaz or Sapphire?"
 
 function receiveText(npc, type, text, PLAYER)

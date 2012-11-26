@@ -399,7 +399,7 @@ function gemBonis( Char )
 	        GemBonis.Skill = GemBonis.Skill + stone[i].effect * 3;
 	    elseif stone[i].type==4 and ((Skill.name=="transformo") or (Skill.name=="transfreto") or (Skill.name=="desicio")) then -- Obsidian
 	        GemBonis.Skill = GemBonis.Skill + stone[i].effect;
-	    elseif stone[i].type==5 and Skill.name=="pervestigatio" then -- Blaustein
+	    elseif stone[i].type==5 and Skill.name=="pervestigatio" then -- Saphir
 	        GemBonis.Skill = GemBonis.Skill + stone[i].effect * 3;
 	    elseif stone[i].type == 6 then -- Amethyst
 	        GemBonis.Time = GemBonis.Time - math.ceil((TimeEffects.delay/100)*stone[i].effect*9);

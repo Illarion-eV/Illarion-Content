@@ -1194,7 +1194,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Er ist der Herrscher von Galamair und Nachfolger von seinem Vater. Er ist ein sehr starker Zwerg und ist auch sehr reich. Es ist besser ihn nicht zu verärgern, da er sonst speziell für dich Kopfgeldjäger anheuern wird. *kichert*. Und wenn du schlau genug bist, dann zeigt er dir vielleicht Galmairs Steine der Macht. Einen Blaustein und einen Obsidian.");
+talkEntry:addResponse("Er ist der Herrscher von Galamair und Nachfolger von seinem Vater. Er ist ein sehr starker Zwerg und ist auch sehr reich. Es ist besser ihn nicht zu verärgern, da er sonst speziell für dich Kopfgeldjäger anheuern wird. *kichert*. Und wenn du schlau genug bist, dann zeigt er dir vielleicht Galmairs Steine der Macht. Einen Saphir und einen Obsidian.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1269,8 +1269,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Steine");
 talkEntry:addTrigger("Macht");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach Smaragd, Rubin, Topas, Amethyst, Blaustein, Obsidian oder Diamant wenn du mehr wissen möchtest."));
-talkEntry:addResponse("Die Steine der Macht verleihen ihren Besitzern enorme Macht. Der Zauberer Mordak al Kharud besaß einst drei von ihnen und konnte deshalb beinahe ganz Illarion erobern. Aber das ist einge Jahrzehnte her. Nun besitzen die Herrscher der Fraktionen diese. Dadurch dass jeder zwei besitzt ist das Gleichgewicht zwischen ihnen garantiert. Wie dem auch sei, es gibt sieben Steine. Diese sind Smaragd, Rubin, Topas, Amethyst, Blaustein, Obsidian und Diamant.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach Smaragd, Rubin, Topas, Amethyst, Saphir, Obsidian oder Diamant wenn du mehr wissen möchtest."));
+talkEntry:addResponse("Die Steine der Macht verleihen ihren Besitzern enorme Macht. Der Zauberer Mordak al Kharud besaß einst drei von ihnen und konnte deshalb beinahe ganz Illarion erobern. Aber das ist einge Jahrzehnte her. Nun besitzen die Herrscher der Fraktionen diese. Dadurch dass jeder zwei besitzt ist das Gleichgewicht zwischen ihnen garantiert. Wie dem auch sei, es gibt sieben Steine. Diese sind Smaragd, Rubin, Topas, Amethyst, Saphir, Obsidian und Diamant.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1330,8 +1330,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Blaustein");
-talkEntry:addResponse("Der Blaustein gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Fraktion.");
+talkEntry:addTrigger("Saphir");
+talkEntry:addResponse("Der Saphir gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Fraktion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

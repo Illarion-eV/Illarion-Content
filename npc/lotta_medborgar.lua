@@ -941,7 +941,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Der Don besitzt zwei Steine der Macht. Einen Blaustein und einen Obsidian. Die beschützen uns vor Runewick und Cadomyr.");
+talkEntry:addResponse("Der Don besitzt zwei Steine der Macht. Einen Saphir und einen Obsidian. Die beschützen uns vor Runewick und Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

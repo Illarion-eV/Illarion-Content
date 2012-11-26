@@ -835,7 +835,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 31));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 500 Kupferstücke, einen magischen Blaustein und einen Stahlturmschild. Dein Ansehen bei Königin Rosaline Edwards steigt."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 500 Kupferstücke, einen magischen Saphir und einen Stahlturmschild. Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("Großartig! Ich liebe es, wenn das Böse daniederliegt. Ich gebe euch meinen Schild, tragt ihn mit Würde. Aber ich gebe ihn euch nicht grundlos, sondern um meine Mission zu vollenden.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.item.item(96, 1, 888, nil));
@@ -861,7 +861,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 31));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 500 Kupferstücke, einen magischen Blaustein und einen Stahlturmschild."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 500 Kupferstücke, einen magischen Saphir und einen Stahlturmschild."));
 talkEntry:addResponse("Großartig! Ich liebe es, wenn das Böse daniederliegt. Ich gebe euch meinen Schild, tragt ihn mit Würde. Aber ich gebe ihn euch nicht grundlos, sondern um meine Mission zu vollenden.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.item.item(96, 1, 888, nil));

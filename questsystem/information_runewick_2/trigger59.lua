@@ -66,7 +66,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd und Blaustein nach Cadomyr und zum Gasthof Hanfschlinge und suche die restlichen Personen. ", "Go with the received emerald and blustone to Cadomyr and the Hemp Necktie Inn and look for these remaining persons there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd und Saphir nach Cadomyr und zum Gasthof Hanfschlinge und suche die restlichen Personen. ", "Go with the received emerald and blustone to Cadomyr and the Hemp Necktie Inn and look for these remaining persons there."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 284, 333, 1):execute()
 end
 

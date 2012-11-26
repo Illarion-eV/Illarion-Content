@@ -171,15 +171,15 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText("Trinkets:\n\nTrinkets that are treated with sapphire energy can provide better resistance of the bearer.",71,0,3);
             base.books.AddEnglishBookText("There is one important thing to note: One should never let the energies of a Sapphire flow into a trinket in which there is another stone embedded.",0,0,3);
 
-            base.books.AddGermanBookText("\n\n~~Blausteine~~",284,0,3);
-            base.books.AddGermanBookText("Das kï¿½hle Gelassenheit, die Blausteine für die meisten Personen ausstrahlt macht diese Steine für Krieger wie auch für Magier gleichermaï¿½en bedeutsam.",0,0,3);
-			base.books.AddGermanBookText("Es heiï¿½t, dass die magischen Energien von solchen Blausteinen die Grundlage für viele Arten von Schutzmagie sind.",0,0,3);
-            base.books.AddGermanBookText("Waffen:\n\nLï¿½sst man die magischen Energien von Blausteinen in eine Waffe einflieï¿½en, so steigert sich dadurch die Fï¿½higkeit des Trï¿½gers zur Verteidigung.",2626,0,3);
-			base.books.AddGermanBookText("Rüstungen und Schilde:\n\nIn Rüstungen und Schilden bewirken die magischen Krï¿½fte von Blausteinen einen gesteigerten Verteidigungswert.",2360,0,3);			
-			base.books.AddGermanBookText("Magierstï¿½be:\n\nIn einem Magierstab hingegen bewirken Blausteinenergien eine Steigerung in der Heilmagie, sowie bei allen Sprï¿½chen, die mit dem Erschaffen von Elementen zu tun haben.",208,0,3);
-			base.books.AddGermanBookText("Werkzeuge:\n\nLï¿½sst man die magischen Energien eines Blausteines in ein Werkzeug flieï¿½en, so steigern diese die Qualität des Werkzeuges.",72,0,3);
-			base.books.AddGermanBookText("Schmuckstï¿½cke:\n\nIn Schmuckstï¿½cken wie Ringen oder auch Amuletten bewirken die Energien der magischen Blausteine, dass der Körper des Trï¿½ger wiederstandsfï¿½higer wird.",71,0,3);
-			base.books.AddGermanBookText("Zu beachten ist hierbei, dass man niemals die Energien eines Blausteins in ein Schmuckstï¿½ck flieï¿½en lassen sollte, in welches ein andersartiger Stein eingefasst wurde.",0,0,3);
+            base.books.AddGermanBookText("\n\n~~Saphire~~",284,0,3);
+            base.books.AddGermanBookText("Das kï¿½hle Gelassenheit, die Saphire für die meisten Personen ausstrahlt macht diese Steine für Krieger wie auch für Magier gleichermaï¿½en bedeutsam.",0,0,3);
+			base.books.AddGermanBookText("Es heiï¿½t, dass die magischen Energien von solchen Saphiren die Grundlage für viele Arten von Schutzmagie sind.",0,0,3);
+            base.books.AddGermanBookText("Waffen:\n\nLï¿½sst man die magischen Energien von Saphiren in eine Waffe einflieï¿½en, so steigert sich dadurch die Fï¿½higkeit des Trï¿½gers zur Verteidigung.",2626,0,3);
+			base.books.AddGermanBookText("Rüstungen und Schilde:\n\nIn Rüstungen und Schilden bewirken die magischen Krï¿½fte von Saphiren einen gesteigerten Verteidigungswert.",2360,0,3);			
+			base.books.AddGermanBookText("Magierstï¿½be:\n\nIn einem Magierstab hingegen bewirken Saphirenergien eine Steigerung in der Heilmagie, sowie bei allen Sprï¿½chen, die mit dem Erschaffen von Elementen zu tun haben.",208,0,3);
+			base.books.AddGermanBookText("Werkzeuge:\n\nLï¿½sst man die magischen Energien eines Saphires in ein Werkzeug flieï¿½en, so steigern diese die Qualität des Werkzeuges.",72,0,3);
+			base.books.AddGermanBookText("Schmuckstï¿½cke:\n\nIn Schmuckstï¿½cken wie Ringen oder auch Amuletten bewirken die Energien der magischen Saphire, dass der Körper des Trï¿½ger wiederstandsfï¿½higer wird.",71,0,3);
+			base.books.AddGermanBookText("Zu beachten ist hierbei, dass man niemals die Energien eines Saphirs in ein Schmuckstï¿½ck flieï¿½en lassen sollte, in welches ein andersartiger Stein eingefasst wurde.",0,0,3);
 
 
           end 
@@ -199,7 +199,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
         base.books.AddGermanBookTitle( "Buch mit dem Titel \" Das Fest der Bindung \"", 2 );
 
 		base.books.AddEnglishBookTitle("Book with the title \"Sapphires\"",3);
-        base.books.AddGermanBookTitle("Buch mit dem Titel \"Blausteine\"",3);
+        base.books.AddGermanBookTitle("Buch mit dem Titel \"Saphire\"",3);
 
       end 
       base.books.GetBookItemInform(User,Item); 

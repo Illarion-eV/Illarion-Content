@@ -25,7 +25,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         GemList= { };
         GemList[251]={ 7,197}; --Amethyst
         GemList[252]={ 5,283}; --Obsidian
-        GemList[253]={10,284}; --Blaustein
+        GemList[253]={10,284}; --Saphir
         GemList[254]={60,285}; --Diamant
         GemList[255]={30, 46}; --Rubine
         GemList[256]={15, 45}; --Smaragd
