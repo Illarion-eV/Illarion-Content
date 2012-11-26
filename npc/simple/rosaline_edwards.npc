@@ -100,10 +100,10 @@ itemShoes = 369
 "Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(25.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(7)
 "Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(34.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(8)
 "Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(34.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(8)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(51.0) -> "#me nods and hands you an item silently.", item(198, 1, 999, 1), queststatus(643) = 1
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(51.0) -> "#me nickt und reicht dir leise einen Gegenstand.", item(198, 1, 999, 1), queststatus(643) = 1
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(100.0) -> "#me nods and hands you an item silently.", item(197, 1, 999, 1), queststatus(643) = 1
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(100.0) -> "#me nickt und reicht dir leise einen Gegenstand.", item(197, 1, 999, 1), queststatus(643) = 1
+"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(51.0) -> "#me nods and hands you an item silently.", item(198, 1, 999, "magicalTopaz"="1"), queststatus(643) = 1
+"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(51.0) -> "#me nickt und reicht dir leise einen Gegenstand.", item(198, 1, 999, "magicalTopaz"="1"), queststatus(643) = 1
+"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(100.0) -> "#me nods and hands you an item silently.", item(197, 1, 999, "magicalAmethyst"="1"), queststatus(643) = 1
+"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(100.0) -> "#me nickt und reicht dir leise einen Gegenstand.", item(197, 1, 999, "magicalAmethyst"="1"), queststatus(643) = 1
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Profession? Foolish traveler, I am the Queen, my profession is to rule this kingdom!"
