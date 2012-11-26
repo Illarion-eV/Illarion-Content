@@ -8,7 +8,7 @@ module("item.food", package.seeall)
 
 require("content.furtunecookies")
 require("alchemy.base.alchemy")
-require("alchemy.base.brewing")
+require("alchemy.base.herbs")
 
 --[[ create FoodList
 FoodList:add() adds an element
@@ -95,13 +95,13 @@ FoodList:add( 162,	 -300,	   0,	-30,	nil,	nil,	 600); -- birth mushroom
 FoodList:add( 158,	 -200,	   0,	-20,	nil,	nil,	 400); -- bulbsponge mushroom
 FoodList:add( 159,	 -500,	   0,	-50,	nil,	nil,	1000); -- toadstool
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	 
 	-- check if used for alchemy purpose
 	local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(SourceItem.id, User)
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
 	if cauldron and isPlant then
-	    alchemy.base.brewing.UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	    alchemy.base.herbs.UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end	
 	
