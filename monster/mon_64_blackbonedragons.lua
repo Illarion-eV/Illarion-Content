@@ -165,7 +165,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(283,1,10,(100*math.random(8,9)+math.random(88,99)),0,2); end --blackstone
         if not done then done=monster.base.drop.AddDropItem(285,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalDiamond="1"},2); end --magic diamond
         if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalTopaz="1"},2); end --magic topaz
-        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalBluestone="1"},2); end --magic bluestone
+        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalSapphire="1"},2); end --magic bluestone
 
         --Category 3: Weapon
 

@@ -825,7 +825,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Great! How much I love it when evil falls! I give you my shield; bear it with honour. But I give it to you for a reason; to complete my mission.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.item.item(96, 1, 888, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 333, {["magicalBluestone"] = "1"}));
+talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 333, {["magicalSapphire"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 32));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -839,7 +839,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Großartig! Ich liebe es, wenn das Böse daniederliegt. Ich gebe euch meinen Schild, tragt ihn mit Würde. Aber ich gebe ihn euch nicht grundlos, sondern um meine Mission zu vollenden.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.item.item(96, 1, 888, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 333, {["magicalBluestone"] = "1"}));
+talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 333, {["magicalSapphire"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 32));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -853,7 +853,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Great! How much I love it when evil falls! I give you my shield; bear it with honour. But I give it to you for a reason; to complete my mission.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.item.item(96, 1, 888, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 333, {["magicalBluestone"] = "1"}));
+talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 333, {["magicalSapphire"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 32));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -865,7 +865,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addResponse("Großartig! Ich liebe es, wenn das Böse daniederliegt. Ich gebe euch meinen Schild, tragt ihn mit Würde. Aber ich gebe ihn euch nicht grundlos, sondern um meine Mission zu vollenden.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.item.item(96, 1, 888, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 333, {["magicalBluestone"] = "1"}));
+talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 333, {["magicalSapphire"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 32));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
