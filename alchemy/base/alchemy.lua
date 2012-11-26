@@ -32,19 +32,14 @@ function getPlantSubstance(id, User)
 	    return false
 	end	
 	local plus, minus
-	if plantList[id][1] == nil then
-	    plus = ""
-	else
+	if plantList[id][1] ~= nil then
 	    plus = plantList[id][1]
 	end	
-	if plantList[id][2] == nil then
-	    minus = ""
-	else
-        minus = plantList[id][2]
+	if plantList[id][2] ~= nil then
+	    minus = plantList[id][2]
 	end     	
 	return plus, minus    
 end
-
 
 -- the list of possible potions effects
 potionsList = {};

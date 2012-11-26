@@ -7,6 +7,8 @@ module("item.food", package.seeall)
 -- UPDATE common SET com_script='item.food' WHERE com_itemid IN (15,49,73,80,81,142,143,147,151,158,159,160,161,162,163,191,199,200,201,302,303,306,307,353,354,355,388,453,454,455,552,553,554,555,556,557,559,2276,2277,2278,2456,2459,2493,2922,2923,2934,2940,3051);
 
 require("content.furtunecookies")
+require("alchemy.base.alchemy")
+require("alchemy.base.brewing")
 
 --[[ create FoodList
 FoodList:add() adds an element
@@ -95,6 +97,14 @@ FoodList:add( 159,	 -500,	   0,	-50,	nil,	nil,	1000); -- toadstool
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	 
+	-- check if used for alchemy purpose
+	local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(SourceItem.id, User)
+	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
+	if cauldron and isPlant then
+	    alchemy.base.brewing.UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+		return
+	end	
+	
 	-- Item not on map!
 	if SourceItem.wear == 255 then
 		return;
