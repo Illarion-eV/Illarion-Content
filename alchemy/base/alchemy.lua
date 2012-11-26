@@ -394,11 +394,12 @@ bottleList   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
 function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
     -- this function returns matching gemdust id, cauldron id and bottle id
     -- only one parameter is needed; if there are more than one, only the first one will be taken into account
-    local myList
+    User:inform("debug gbc1")
+	local myList
 	local myValue
     if gemDust then
-	    myList = gemDustList
-		myValue = gemDust
+	    myList = gemdustList
+		myValue = gemdust
 	elseif cauldron then
 	    myList = cauldronList
 		myValue = cauldron
