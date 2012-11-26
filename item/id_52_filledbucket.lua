@@ -26,7 +26,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 	
     -- infront of a cauldron
-	if (TargetItem.id == 1008) then
+	if (TargetItem.id >= 1008) or (TargetItem.id <= 1018) then
 	    WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		return
 	end
@@ -173,7 +173,7 @@ function BlockCheck(Posi)
 end
 
 function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    cauldron = TargetItem
+    local cauldron = TargetItem
 	
 	if ( ltstate == Action.abort ) then
 	   base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
@@ -220,7 +220,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		world:gfx(1,cauldron.pos)
 		base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.", 
 		                            "The substance in the cauldron blows out, as you fill the water in.")
-	    base.alchemy.base.RemoveAll(cauldron)
+	    alchemy.base.alchemy.RemoveAll(cauldron)
 	    
 	else -- nothing in the cauldron, we just fill in the water
 	    world:makeSound(10,cauldron.pos)

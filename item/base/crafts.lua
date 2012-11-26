@@ -53,6 +53,7 @@ Usage: myCraft = Craft:new{ craftEN = "CRAFT_EN",
                             [sfx = SFX, sfxDuration = DURATION,]
                             [fallbackCraft = CRAFTWITHSAMEHANDTOOL,]
                             [npcCraft = true,]
+                            [lookAtFilter = (lookAt function(user, lookAt, data)),]
                           }
 --]]
 
@@ -219,18 +220,27 @@ end
 
 function Craft:getProductLookAt(user, productId)
     local product = self.products[productId]
-    local item = product.item
-    local quantity = product.quantity
-    local data = product.data
-    return base.lookat.GenerateItemLookAtFromId(user, item, quantity, data)
+    local lookAt = self:getLookAt(user, product)
+    return lookAt
 end
 
 function Craft:getIngredientLookAt(user, productId, ingredientId)
     local ingredient = self.products[productId].ingredients[ingredientId]
-    local item = ingredient.item
-    local quantity = ingredient.quantity
-    local data = ingredient.data
-    return base.lookat.GenerateItemLookAtFromId(user, item, quantity, data)
+    local lookAt = self:getLookAt(user, ingredient)
+    return lookAt
+end
+
+function Craft:getLookAt(user, object)
+    local item = object.item
+    local quantity = object.quantity
+    local data = object.data
+    local lookAt = base.lookat.GenerateItemLookAtFromId(user, item, quantity, data)
+    
+    if self.lookAtFilter then
+        lookAt = self.lookAtFilter(user, lookAt, data)
+    end
+
+    return lookAt
 end
 
 function Craft:getName(user)
@@ -273,7 +283,7 @@ function Craft:loadDialog(dialog, user)
         local productRequirement = product.difficulty
         
         if productRequirement <= skill then
-            dialog:addCraftable(i, categoryListId[product.category], product.item, product:getName(user), self:getCraftingTime(product, skill), product.quantity)
+            dialog:addCraftable(i, categoryListId[product.category], product.item, self:getLookAt(user, product).name, self:getCraftingTime(product, skill), product.quantity)
 
             for j = 1, #product.ingredients do
                 local ingredient = product.ingredients[j]
@@ -302,27 +312,6 @@ function Product:getCraftingTime(skill)
     local craftingTime = base.common.Scale(self.maxTime, self.minTime, learnProgress)
     craftingTime = math.ceil(craftingTime)
     return craftingTime
-end
-
-function Product:getName(user)
-    return getItemName(user, self.item, self.data)
-end
-
-function getItemName(user, item, data)
-    local isGerman = (user:getPlayerLanguage() == Player.german)
-    local usedName
-
-    if isGerman then
-        usedName = data.nameDe
-    else
-        usedName = data.nameEn
-    end
-    
-    if base.common.IsNilOrEmpty(usedName) then
-        usedName = world:getItemName(item, user:getPlayerLanguage())
-    end
-
-    return usedName
 end
 
 function Craft:swapToActiveItem(user)
@@ -411,7 +400,7 @@ function Craft:checkMaterial(user, productId)
         
         if available < ingredient.quantity then
             materialsAvailable = false
-            local ingredientName = getItemName(user, ingredient.item, ingredient.data)
+            local ingredientName = self:getLookAt(user, ingredient).name
 
             if available == 0 then
                 base.common.InformNLS( user,

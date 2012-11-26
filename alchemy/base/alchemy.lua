@@ -17,35 +17,29 @@ function InitPlantSubstance()
 	end	
 	setPlantSubstance(133, "Adrazin", "Orcanol") -- sunherb / Sonnenkraut
     setPlantSubstance(758, "Adrzain", "") -- heart blood / Herzblut
+	setPlantSubstance(15 , ""       , "") -- apple / Apfel
 end
 
 function setPlantSubstance(id, plusSubstance, minusSubstance)
     if plantList == nil then
 	    plantList = {}
 	end	
-	plantList[id] = {plusSubstance, minusStubstance}
+	plantList[id] = {plusSubstance, minusSubstance}
 end
 
 function getPlantSubstance(id, User)
-    User:inform("debug al 0.5")
-	if not plantList[id] then
-	    User:inform("debug al 1")
-		return false
+    if not plantList[id] then
+	    return false
 	end	
 	local plus, minus
-	if plantList[id][1] == nil then
-	    plus = ""
-	else
+	if plantList[id][1] ~= nil then
 	    plus = plantList[id][1]
 	end	
-	if plantList[id][2] == nil then
-	    minus = ""
-	else
-        minus = plantList[id][2]
-    end     	
+	if plantList[id][2] ~= nil then
+	    minus = plantList[id][2]
+	end     	
 	return plus, minus    
 end
-
 
 -- the list of possible potions effects
 potionsList = {};
@@ -322,19 +316,17 @@ function RemoveStock(Item)
 	end
 end
 
-function StockFromTo(fromItem,toItem)
-    for i=1,8 do
-	    toItem:setData(wirkstoff[i].."Concentration",fromItem:getData(wirkstoff[i].."Concentration"))
-		fromItem:setData(wirkstoff[i].."Concentration","")
-	end	
-end
-
 function RemoveAll(Item)
     RemoveEssenceBrew(Item)
 	RemoveStock(Item)
 	Item:setData("potionEffectId","")
 	Item:setData("potionQuality","")
 	Item:setData("filledWith","")
+	if (Item.id >= 1008) or (Item.id <= 1018) then
+	    Item.id = 1008
+	else
+	    Item.id = 164
+	end
 end
 
 function EmptyBottle(User,Bottle)
@@ -346,6 +338,18 @@ function EmptyBottle(User,Bottle)
 	    Bottle.quality = 333
 		world:changeItem(SourceItem)
 	end
+end
+
+function CopyAllDatas(fromItem,toItem)
+-- copies all datas from fromItem to toItem
+	for i=1,8 do
+	    toItem:setData(wirkstoff[i].."Concentration",fromItem:getData(wirkstoff[i].."Concentration")) 
+		toItem:setData("essenceHerb"..i,fromItem:getData("essenceHerb"..i))
+	end	
+    toItem:setData("filledWith",fromItem:getData("filledWith")) 
+	toItem:setData("potionEffectId",fromItem:getData("potionEffectId"))
+	toItem:setData("potionQuality",fromItem:getData("potionQuality")) 
+
 end
 
 function CauldronDestruction(User,cauldron,effectId)
@@ -387,7 +391,7 @@ gemDustList  = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
 cauldronList = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017} 
 bottleList   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
 
-function GemDustBottleCauldron(gemdust, cauldron, bottle)
+function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
     -- this function returns matching gemdust id, cauldron id and bottle id
     -- only one parameter is needed; if there are more than one, only the first one will be taken into account
     local myList
@@ -407,10 +411,12 @@ function GemDustBottleCauldron(gemdust, cauldron, bottle)
 	local reGemdust; local reCauldron; local reBottle
 	for i=1,#myList do
 	    if myList[i] == myValue then
-		    reGemdust = gemDustList[i]
+		    User:inform("i am here")
+			reGemdust = gemDustList[i]
 	        reCauldron = cauldronList[i]
 			reBottle = bottleList[i]
-	    end
+	        break
+		end
 	end
 	return reGemdust, reCauldron, reBottle
 end
