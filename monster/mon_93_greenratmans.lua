@@ -93,7 +93,7 @@ if (MonID==931) then --Contaminated Ratchild, Level: 3, Armourtype: cloth, Weapo
         --Category 2: Special Loot
 
         local done=monster.base.drop.AddDropItem(46,1,20,(100*math.random(2,3)+math.random(22,33)),0,2); --ruby
-        if not done then done=monster.base.drop.AddDropItem(284,1,10,(100*math.random(2,3)+math.random(22,33)),0,2); end --bluestone
+        if not done then done=monster.base.drop.AddDropItem(284,1,10,(100*math.random(2,3)+math.random(22,33)),0,2); end --sapphire
         if not done then done=monster.base.drop.AddDropItem(2934,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --lambmeat
         if not done then done=monster.base.drop.AddDropItem(333,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --horn
         if not done then done=monster.base.drop.AddDropItem(1858,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --goblet

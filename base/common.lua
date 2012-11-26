@@ -431,7 +431,7 @@ end;
 -- gems.<br />
 -- Gem index:
 -- <ol><li>dimond</li><li>smaragd</li><li>ruby</li><li>blackstone</li>
--- <li>bluestone</li><li>amethyst</li><li>topas</li></ol>
+-- <li>sapphire</li><li>amethyst</li><li>topas</li></ol>
 -- @param toolItem The item that shall be checked
 -- @return Index value of the first gem
 -- @return Strength of the first gem

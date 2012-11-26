@@ -30,7 +30,7 @@ function initializeNpc()
     npc.base.trader_functions.AddTraderItem(200 , 236, 500 ,50 ,200 ,{3}  ,{33}   ,0   ,0       ); -- gold ingots
     npc.base.trader_functions.AddTraderItem( 60 ,  46, 500 ,6  ,100 ,{3}  ,{33}   ,0   ,0       ); -- rubin
     npc.base.trader_functions.AddTraderItem( 60 , 197, 500 ,6  ,100 ,{3}  ,{33}   ,0   ,0       ); -- amethyst
-    npc.base.trader_functions.AddTraderItem( 70 , 284, 500 ,7  ,100 ,{3}  ,{33}   ,0   ,0       ); -- bluestone
+    npc.base.trader_functions.AddTraderItem( 70 , 284, 500 ,7  ,100 ,{3}  ,{33}   ,0   ,0       ); -- sapphire
     npc.base.trader_functions.AddTraderItem( 80 , 283, 500 ,8  ,100 ,{3}  ,{33}   ,0   ,0       ); -- blackstone
     npc.base.trader_functions.AddTraderItem( 60 ,  45, 500 ,6  ,100 ,{3}  ,{33}   ,0   ,0       ); -- emerald
     npc.base.trader_functions.AddTraderItem( 80 , 198, 500 ,8  ,100 ,{3}  ,{33}   ,0   ,0       ); -- topas

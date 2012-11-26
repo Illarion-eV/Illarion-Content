@@ -211,7 +211,7 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
         --Category 2: Special loot
 
         local done=monster.base.drop.AddDropItem(281,1,20,(100*math.random(6,7)+math.random(66,77)),0,2); --emerald ring
-        if not done then done=monster.base.drop.AddDropItem(279,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --bluestone ring
+        if not done then done=monster.base.drop.AddDropItem(279,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --sapphire ring
         if not done then done=monster.base.drop.AddDropItem(2647,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --cutlery
         if not done then done=monster.base.drop.AddDropItem(1840,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --copper goblet
         if not done then done=monster.base.drop.AddDropItem(45,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --emerald
@@ -271,7 +271,7 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
         --Category 2: Special loot
 
         local done=monster.base.drop.AddDropItem(280,1,20,(100*math.random(7,8)+math.random(77,88)),0,2); --diamond ring
-        if not done then done=monster.base.drop.AddDropItem(279,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --bluestone ring
+        if not done then done=monster.base.drop.AddDropItem(279,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --sapphire ring
         if not done then done=monster.base.drop.AddDropItem(314,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --pot ash
         if not done then done=monster.base.drop.AddDropItem(224,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --golden goblet
         if not done then done=monster.base.drop.AddDropItem(285,1,1,(100*math.random(7,8)+math.random(77,88)),{magicalDiamond="1"},2); end --magic diamond

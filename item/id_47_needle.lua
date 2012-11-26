@@ -502,7 +502,7 @@ product:addIngredient(174, 3) -- Red Cloth: 3x1
 product:addIngredient(50, 6*2) -- Thread: 6x2
 product:addIngredient(177, 2) -- Yellow Cloth: 2x1
 product:addIngredient(285, 3) -- Diamond: 3x1
-product:addIngredient(284, 3) -- Bluestone: 3x1
+product:addIngredient(284, 3) -- Sapphire: 3x1
 product:addIngredient(283, 3) -- Blackstone: 3x1
 
 catId = tailoring:addCategory("leggings", "Leggings") -- leggings

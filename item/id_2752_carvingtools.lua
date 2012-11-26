@@ -236,7 +236,7 @@ product = carpentery:addProduct(catId, 2784, 80, 100, 25, 50)
 product:addIngredient(56) -- Bough: 1x1
 product:addIngredient(545, 5) -- Cherry Wooden Boards: 5x1
 product:addIngredient(2527) -- Large Ornated Staff Handle: 1x1
-product:addIngredient(284, 3) -- Bluestone: 3x1
+product:addIngredient(284, 3) -- Sapphire: 3x1
 product:addIngredient(2554) -- Pure Water: 1x1
 
 --Wand of Wind

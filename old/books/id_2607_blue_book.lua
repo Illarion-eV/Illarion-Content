@@ -161,15 +161,15 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 
             base.books.AddLanguage("common language",3);
 
-            base.books.AddEnglishBookText("\n\n~~Bluestones~~",284,0,3);
-            base.books.AddEnglishBookText("The calmness that bluestones emanate for most people makes them important for warriors and mages alike.",0,0,3);
-            base.books.AddEnglishBookText("It is told that magic energies of bluestones are the base for many kinds of protective magic.",0,0,3);
-            base.books.AddEnglishBookText("Weapons:\n\nIf one lets the magic energies of bluestones flow into a weapon, the bearer's ability of defence is raised.",2626,0,3);
-            base.books.AddEnglishBookText("Armors and Shields:\n\nThe powers of bluestone help the bearer by providing a higher defence value.",2360,0,3);
-            base.books.AddEnglishBookText("Magic wands:\n\nIn a magic wand, bluestone powers cause an empowerment of healing magic and any spells that contain the creation of elements.",208,0,3);
-            base.books.AddEnglishBookText("Tools:\n\nThe quality of a tool can be enhanced by bluestone power.",72,0,3);
-            base.books.AddEnglishBookText("Trinkets:\n\nTrinkets that are treated with bluestone energy can provide better resistance of the bearer.",71,0,3);
-            base.books.AddEnglishBookText("There is one important thing to note: One should never let the energies of a Bluestone flow into a trinket in which there is another stone embedded.",0,0,3);
+            base.books.AddEnglishBookText("\n\n~~Sapphires~~",284,0,3);
+            base.books.AddEnglishBookText("The calmness that sapphires emanate for most people makes them important for warriors and mages alike.",0,0,3);
+            base.books.AddEnglishBookText("It is told that magic energies of sapphires are the base for many kinds of protective magic.",0,0,3);
+            base.books.AddEnglishBookText("Weapons:\n\nIf one lets the magic energies of sapphires flow into a weapon, the bearer's ability of defence is raised.",2626,0,3);
+            base.books.AddEnglishBookText("Armors and Shields:\n\nThe powers of sapphire help the bearer by providing a higher defence value.",2360,0,3);
+            base.books.AddEnglishBookText("Magic wands:\n\nIn a magic wand, sapphire powers cause an empowerment of healing magic and any spells that contain the creation of elements.",208,0,3);
+            base.books.AddEnglishBookText("Tools:\n\nThe quality of a tool can be enhanced by sapphire power.",72,0,3);
+            base.books.AddEnglishBookText("Trinkets:\n\nTrinkets that are treated with sapphire energy can provide better resistance of the bearer.",71,0,3);
+            base.books.AddEnglishBookText("There is one important thing to note: One should never let the energies of a Sapphire flow into a trinket in which there is another stone embedded.",0,0,3);
 
             base.books.AddGermanBookText("\n\n~~Blausteine~~",284,0,3);
             base.books.AddGermanBookText("Das kï¿½hle Gelassenheit, die Blausteine für die meisten Personen ausstrahlt macht diese Steine für Krieger wie auch für Magier gleichermaï¿½en bedeutsam.",0,0,3);
@@ -198,7 +198,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
         base.books.AddEnglishBookTitle( "Book with the title \" The Festival Of Relationship \"", 2 );
         base.books.AddGermanBookTitle( "Buch mit dem Titel \" Das Fest der Bindung \"", 2 );
 
-		base.books.AddEnglishBookTitle("Book with the title \"Bluestones\"",3);
+		base.books.AddEnglishBookTitle("Book with the title \"Sapphires\"",3);
         base.books.AddGermanBookTitle("Buch mit dem Titel \"Blausteine\"",3);
 
       end 

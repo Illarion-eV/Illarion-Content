@@ -84,7 +84,7 @@ if (MonID==1041) then --Wandering Garbage, Level: 2, Armourtype: light, Weaponty
         --Category 1: Raw gems
 
         local done=monster.base.drop.AddDropItem(257,1,20,(100*math.random(1,2)+math.random(11,22)),0,1); --raw topaz
-        if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(1,2)+math.random(11,22)),0,1); end --raw bluestone
+        if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(1,2)+math.random(11,22)),0,1); end --raw sapphire
         if not done then done=monster.base.drop.AddDropItem(251,1,1,(100*math.random(1,2)+math.random(11,22)),0,1); end --raw amethyst
         if not done then done=monster.base.drop.AddDropItem(252,1,1,(100*math.random(1,2)+math.random(11,22)),0,1); end --raw blackstone
         if not done then done=monster.base.drop.AddDropItem(255,1,1,(100*math.random(1,2)+math.random(11,22)),0,1); end --raw ruby
@@ -92,7 +92,7 @@ if (MonID==1041) then --Wandering Garbage, Level: 2, Armourtype: light, Weaponty
         --Category 2: Raw gems + cutted gems
 
         local done=monster.base.drop.AddDropItem(257,1,20,(100*math.random(1,2)+math.random(11,22)),0,2); --raw topaz
-        if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(1,2)+math.random(11,22)),0,2); end --raw bluestone
+        if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(1,2)+math.random(11,22)),0,2); end --raw sapphire
         if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(1,2)+math.random(11,22)),0,2); end --amethyst
         if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(1,2)+math.random(11,22)),0,2); end --blackstone
         if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(1,2)+math.random(11,22)),0,2); end --ruby
@@ -100,7 +100,7 @@ if (MonID==1041) then --Wandering Garbage, Level: 2, Armourtype: light, Weaponty
         --Category 3: Special Loot
 
         local done=monster.base.drop.AddDropItem(726,1,20,(100*math.random(1,2)+math.random(11,22)),0,3); --coarse sand
-        if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(1,2)+math.random(11,22)),0,3); end --raw bluestone
+        if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(1,2)+math.random(11,22)),0,3); end --raw sapphire
         if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --amethyst
         if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --blackstone
         if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --ruby
@@ -121,7 +121,7 @@ if (MonID==1041) then --Wandering Garbage, Level: 2, Armourtype: light, Weaponty
         --Category 2: Raw gems + cutted gems
 
         local done=monster.base.drop.AddDropItem(255,1,20,(100*math.random(2,3)+math.random(22,33)),0,2); --raw ruby
-        if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(2,3)+math.random(22,33)),0,2); end --raw bluestone
+        if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(2,3)+math.random(22,33)),0,2); end --raw sapphire
         if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --ruby
         if not done then done=monster.base.drop.AddDropItem(285,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --diamond
         if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --topaz
@@ -144,7 +144,7 @@ if (MonID==1041) then --Wandering Garbage, Level: 2, Armourtype: light, Weaponty
         local done=monster.base.drop.AddDropItem(256,1,20,(100*math.random(3,4)+math.random(33,44)),0,1); --raw emerald
         if not done then done=monster.base.drop.AddDropItem(252,1,10,(100*math.random(3,4)+math.random(33,44)),0,1); end --raw blackstone
         if not done then done=monster.base.drop.AddDropItem(257,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --raw topaz
-        if not done then done=monster.base.drop.AddDropItem(253,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --raw bluestone
+        if not done then done=monster.base.drop.AddDropItem(253,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --raw sapphire
         if not done then done=monster.base.drop.AddDropItem(255,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --raw ruby
 
         --Category 2: Raw gems + cutted gems

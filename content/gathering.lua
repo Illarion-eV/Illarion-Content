@@ -145,7 +145,7 @@ function InitGathering()
 		--herbgathering
 
 		herbgathering:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labor Brágon, the God of Fire, rewards you with a treasure of Pure Fire."); --Pure fire
-		herbgathering:AddRandomItem(284,1,333,1,prob_extremely_rarely,"Tief im Gestrüpp machst du ein blaues, unheimliches Leuchten aus. Du findest einen magischen Blaustein.","Deep in the shrub you notice a blue, eerie glow. To your delight it turns out to be a magical bluestone."); --Magical bluestone
+		herbgathering:AddRandomItem(284,1,333,1,prob_extremely_rarely,"Tief im Gestrüpp machst du ein blaues, unheimliches Leuchten aus. Du findest einen magischen Blaustein.","Deep in the shrub you notice a blue, eerie glow. To your delight it turns out to be a magical sapphire."); --Magical sapphire
 		herbgathering:AddRandomItem(2183,1,333,{},prob_extremely_rarely,"Ein alter Krug liegt verlassen und einsam im Gebüsch.","An old mug lies abandoned and lonesome in the bushes."); --Mug
 		herbgathering:AddRandomItem(799,1,333,{},prob_occasionally,"Ein Weidenkorb liegt am Boden. Er scheint noch brauchbar zu sein.","A wicker basket lies on the ground. It still seems to be usable."); --Basket
 		herbgathering:AddRandomItem(2570,1,333,{},prob_frequently,"Ein Griff einer alten Sichel liegt achtlos weggeworfen zwischen Blättern und Ästen herum.","A handle of an old sickle lies between the leaves and branches, but the blade is no where in sight."); --Sickle hilt
@@ -156,7 +156,7 @@ function InitGathering()
 		--fishing
 
 		fishing:AddRandomItem(2554,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Tanora, die Göttin des Wassers, mit einem Kleinod aus Reinem Wasser.","For your hard and honest labor Tanora, the Godess of Water, rewards you with a treasure of Pure Water."); --Pure water
-		fishing:AddRandomItem(284,1,333,3,prob_extremely_rarely,"Im Wasser kaum auszumachen, erspähst du ein blaues Funkeln am Boden des Gewässers. Du findest einen magischen Blaustein.","Beneath the rhythmic ripples of the water you spot an odd blue sparkle rich in hue. Wow it's a magical bluestone!"); --Magical bluestone
+		fishing:AddRandomItem(284,1,333,3,prob_extremely_rarely,"Im Wasser kaum auszumachen, erspähst du ein blaues Funkeln am Boden des Gewässers. Du findest einen magischen Blaustein.","Beneath the rhythmic ripples of the water you spot an odd blue sparkle rich in hue. Wow it's a magical sapphire!"); --Magical sapphire
 		fishing:AddRandomItem(51,1,333,{},prob_extremely_rarely,"Ein Eimer verfängt sich in deiner Angelschnur. Den hat hier wohl jemand verloren.","As you tighten your line you feel a heavy resistance. With a careful approach you are able to pull a bucket ashore."); --Bucket
 		fishing:AddRandomItem(92,1,333,{},prob_occasionally,"Du ziehst eine glitzernde Öllampe aus dem Wasser. Wo die wohl herkommt...?","You pull a sparkling oil lamp out of the water. Where did that come from?"); --Oil lamp
 		fishing:AddRandomItem(53,1,333,{},prob_frequently,"Ein alter, durchlöcherter Lederstiefel hängt am Haken.","As you angle back and forth for fish you feel a snag. Instead of a fish, however, a pair of old perforated boots tied together hangs from your hook!"); --Leather boots

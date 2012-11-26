@@ -1186,7 +1186,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("He is the son of Don Tommaso, and since his father's death Valerio has ruled over Galmair. He is a very strong dwarf with considerable wealth. I have heard rumors that he is easily offended, and on more than one occasion has sent armored guards to settle his scores. *Shudders* And if you pay him enough, he probably shows you Galmair's two stones of power. A Bluestone and a Blackstone.");
+talkEntry:addResponse("He is the son of Don Tommaso, and since his father's death Valerio has ruled over Galmair. He is a very strong dwarf with considerable wealth. I have heard rumors that he is easily offended, and on more than one occasion has sent armored guards to settle his scores. *Shudders* And if you pay him enough, he probably shows you Galmair's two stones of power. A Sapphire and a Blackstone.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1261,8 +1261,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("stones");
 talkEntry:addTrigger("power");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for Emerald, Ruby, Topaz, Amethyst, Bluestone, Blackstone or Diamond if you want to know more."));
-talkEntry:addResponse("The stones of power offer their owns tremendous power. The sorcerer Mordak al Kharud owned once three of them and could thus conquer almost whole Illarion. But this was some decades ago. Nowadays the faction leaders own them. Since each faction leader has two of them, the balance between them is guaranteed. There, however, exist seven stones. These are Emerald, Ruby, Topaz, Amethyst, Bluestone, Blackstone and Diamond.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for Emerald, Ruby, Topaz, Amethyst, Sapphire, Blackstone or Diamond if you want to know more."));
+talkEntry:addResponse("The stones of power offer their owns tremendous power. The sorcerer Mordak al Kharud owned once three of them and could thus conquer almost whole Illarion. But this was some decades ago. Nowadays the faction leaders own them. Since each faction leader has two of them, the balance between them is guaranteed. There, however, exist seven stones. These are Emerald, Ruby, Topaz, Amethyst, Sapphire, Blackstone and Diamond.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1324,8 +1324,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bluestone");
-talkEntry:addResponse("The Bluestone belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the factions.");
+talkEntry:addTrigger("Sapphire");
+talkEntry:addResponse("The Sapphire belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the factions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

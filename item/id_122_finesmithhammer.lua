@@ -93,11 +93,11 @@ product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
 product:addIngredient(283) -- Blackstone: 1x1
 
---Bluestone Amulet
+--Sapphire Amulet
 product = smithing:addProduct(catId, 71, 60, 80, 20, 40)
 product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
-product:addIngredient(284) -- Bluestone: 1x1
+product:addIngredient(284) -- Sapphire: 1x1
 
 --Emerald Amulet
 product = smithing:addProduct(catId, 62, 70, 90, 22, 44)
@@ -123,13 +123,13 @@ catId = smithing:addCategory("crowns", "Kronen") --Crowns
 product = smithing:addProduct(catId, 465, 50, 70, 17, 34)
 product:addIngredient(2250) -- Copper Ingot: 1x1
 product:addIngredient(236, 2) -- Gold Ingot: 2x1
-product:addIngredient(284) -- Bluestone: 1x1
+product:addIngredient(284) -- Sapphire: 1x1
 
 --Crown
 product = smithing:addProduct(catId, 225, 70, 90, 22, 44)
 product:addIngredient(2250, 3) -- Copper Ingot: 3x1
 product:addIngredient(236, 3) -- Gold Ingot: 3x1
-product:addIngredient(284) -- Bluestone: 1x1
+product:addIngredient(284) -- Sapphire: 1x1
 product:addIngredient(198) -- Topas: 1x1
 product:addIngredient(285, 2) -- Diamond: 2x1
 
@@ -158,11 +158,11 @@ product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
 product:addIngredient(283) -- Blackstone: 1x1
 
---Bluestone Ring
+--Sapphire Ring
 product = smithing:addProduct(catId, 279, 45, 65, 16, 32)
 product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
-product:addIngredient(284) -- Bluestone: 1x1
+product:addIngredient(284) -- Sapphire: 1x1
 
 --Emerald Ring
 product = smithing:addProduct(catId, 281, 55, 75, 19, 38)

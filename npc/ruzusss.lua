@@ -1468,7 +1468,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("The Don ownsss two ssstonesss of power. These are a Bluestone and a Blackstone. They protect Galmair to get beaten by our forcesss.");
+talkEntry:addResponse("The Don ownsss two ssstonesss of power. These are a Sapphire and a Blackstone. They protect Galmair to get beaten by our forcesss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

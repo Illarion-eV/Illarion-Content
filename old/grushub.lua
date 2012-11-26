@@ -139,7 +139,7 @@ function initializeNpc()
     TraderItemStandard[12]=5;
     TraderItemQuality[12]={4,6};
     TraderItemDura[12]={33,66};
-    --bluestone ring
+    --sapphire ring
     TraderItemPrice[13]=1110;
     TraderItemId[13]=279;
     TraderItemNumber[13]=5;
@@ -179,7 +179,7 @@ function initializeNpc()
     TraderItemStandard[17]=5;
     TraderItemQuality[17]={4,6};
     TraderItemDura[17]={33,66};
-    --bluestone
+    --sapphire
     TraderItemPrice[18]=500;
     TraderItemId[18]=284;
     TraderItemNumber[18]=5;

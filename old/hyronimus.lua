@@ -25,7 +25,7 @@ function initializeNpc()
     thisNPC:increaseSkill(1,"common language",100);
     --------------------------------------------- *** EDIT BELOW HERE ***--------------------------------------
     --            EPr ,ID  ,Am,SPr,SA,Qual ,Dura   ,Data,Catagory
-    npc.base.trader_functions.AddTraderItem(400 ,253 ,2 ,8  ,3 ,{3}  ,{33}   ,0   ,0       ); -- raw bluestone
+    npc.base.trader_functions.AddTraderItem(400 ,253 ,2 ,8  ,3 ,{3}  ,{33}   ,0   ,0       ); -- raw sapphire
     npc.base.trader_functions.AddTraderItem(500  ,329 ,30,0 ,15 ,{3} ,{33}   ,0   ,0       ); -- ink
 
     TraderCopper=0;

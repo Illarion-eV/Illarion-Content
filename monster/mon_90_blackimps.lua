@@ -103,7 +103,7 @@ if (MonID==901) then --Shadow Wimp, Level: 4, Armourtype: heavy, Weapontype: dis
         --Category 2: Gems
 
         local done=monster.base.drop.AddDropItem(46,1,20,(100*math.random(3,4)+math.random(33,44)),0,2); --ruby
-        if not done then done=monster.base.drop.AddDropItem(284,1,10,(100*math.random(3,4)+math.random(33,44)),0,2); end --bluestone
+        if not done then done=monster.base.drop.AddDropItem(284,1,10,(100*math.random(3,4)+math.random(33,44)),0,2); end --sapphire
         if not done then done=monster.base.drop.AddDropItem(735,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --raw stone
         if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --blackstone
         if not done then done=monster.base.drop.AddDropItem(45,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --emerald
@@ -163,7 +163,7 @@ if (MonID==901) then --Shadow Wimp, Level: 4, Armourtype: heavy, Weapontype: dis
         --Category 2: Gems
 
         local done=monster.base.drop.AddDropItem(197,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --amethyst
-        if not done then done=monster.base.drop.AddDropItem(284,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --bluestone
+        if not done then done=monster.base.drop.AddDropItem(284,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --sapphire
         if not done then done=monster.base.drop.AddDropItem(735,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --raw stone
         if not done then done=monster.base.drop.AddDropItem(45,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --emerald
         if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --topaz

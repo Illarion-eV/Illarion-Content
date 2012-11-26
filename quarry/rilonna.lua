@@ -74,11 +74,11 @@ function init()
 	AddItemToPool(5,myOrderNPC, 224,2,10, 1,15);--gold goblet
     AddItemToPool(5,myOrderNPC,  67,2,10, 1, 5);--ruby amulet
 	AddItemToPool(5,myOrderNPC,  82,2,10, 1, 5);--blackstone amulet
-	AddItemToPool(5,myOrderNPC,  71,2,10, 1, 5);--bluestone amulet
+	AddItemToPool(5,myOrderNPC,  71,2,10, 1, 5);--sapphire amulet
 
     AddItemToPool(5,myOrderNPC, 465,2,10, 1, 5);--Diadem
 	AddItemToPool(5,myOrderNPC, 278,2,10, 1, 5);--blackstone ring
-	AddItemToPool(5,myOrderNPC, 279,2,10, 1, 5);--bluestone ring
+	AddItemToPool(5,myOrderNPC, 279,2,10, 1, 5);--sapphire ring
 	AddItemToPool(5,myOrderNPC, 281,2,10, 1, 5);--emerald   ring
 	myOrderNPC.orderPool:setQualityChancesForPool(5,{40,20,15,15,5,3,2,0,0,0});
 
@@ -509,20 +509,20 @@ if not InitPrices then
 	price [   251   ] =    40   ; --    raw amethysts   ,   Gem   stone
 	price [   255   ] =    40   ; --    raw rubies   ,   Gem   stone
 	price [   252   ] =    60   ; --    raw blackstone   ,   Gem   stone
-	price [   253   ] =    60   ; --    raw bluestone   ,   Gem   stone
+	price [   253   ] =    60   ; --    raw sapphire   ,   Gem   stone
 	price [   46   ] =    80   ; --    ruby   ,   Gem   stone
 	price [   197   ] =    80   ; --    amethyst   ,   Gem   stone
 	price [   256   ] =    80   ; --    raw smaragd   ,   Gem   stone
 	price [   257   ] =    80   ; --    raw topaz   ,   Gem   stone
 	price [   254   ] =    100   ; --    raw diamonds   ,   Gem   stone
 	price [   283   ] =    120   ; --    blackstone   ,   Gem   stone
-	price [   284   ] =    120   ; --    bluestone   ,   Gem   stone
+	price [   284   ] =    120   ; --    sapphire   ,   Gem   stone
 	price [   45   ] =    160   ; --    emerald   ,   Gem   stone
 	price [   198   ] =    160   ; --    topaz   ,   Gem   stone
 	price [   447   ] =    160   ; --    ruby powder   ,   Gem   stone
 	price [   450   ] =    160   ; --    amethyst powder   ,   Gem   stone
 	price [   285   ] =    200   ; --    diamond   ,   Gem   stone
-	price [   446   ] =    240   ; --    bluestone powder   ,   Gem   stone
+	price [   446   ] =    240   ; --    sapphire powder   ,   Gem   stone
 	price [   449   ] =    240   ; --    blackstone powder   ,   Gem   stone
 	price [   448   ] =    320   ; --    emerald powder   ,   Gem   stone
 	price [   451   ] =    320   ; --    topaz powder   ,   Gem   stone
@@ -550,11 +550,11 @@ if not InitPrices then
 	price [   79   ] =    560   ; --    amethyst amulet   ,   Gold   metal
 	price [   278   ] =    720   ; --    blackstone ring   ,   Gold   metal
 	price [   67   ] =    900   ; --    ruby amulet   ,   Gold   metal
-	price [   279   ] =    1100   ; --    bluestone ring   ,   Gold   metal
+	price [   279   ] =    1100   ; --    sapphire ring   ,   Gold   metal
 	price [   82   ] =    1400   ; --    blackstone amulet   ,   Gold   metal
 	price [   465   ] =    1400   ; --    diadem   ,   Gold   metal
 	price [   281   ] =    1600   ; --    smaragd ring   ,   Gold   metal
-	price [   71   ] =    1900   ; --    bluestone amulet   ,   Gold   metal
+	price [   71   ] =    1900   ; --    sapphire amulet   ,   Gold   metal
 	price [   282   ] =    2200   ; --    topaz ring   ,   Gold   metal
 	price [   62   ] =    2600   ; --    emerald amulet   ,   Gold   metal
 	price [   225   ] =    2600   ; --    crown   ,   Gold   metal

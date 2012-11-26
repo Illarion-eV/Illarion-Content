@@ -176,7 +176,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(164,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --big empty bottle
         if not done then done=monster.base.drop.AddDropItem(463,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --quill
         if not done then done=monster.base.drop.AddDropItem(278,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --blackstone ring
-        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --bluestone ring
+        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --sapphire ring
 
         --Category 3: Weapon
 

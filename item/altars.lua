@@ -100,7 +100,7 @@ function ini()
     devoteItems[1]={733,316,2588}; --Ushara: Stone block, Quartz sand, Brick
     devoteItems[2]={314,236,43}; --Brágon: Pott ash, Gold ignot, Candle
     devoteItems[3]={256,2745,155}; --Eldan: Raw diamonds, Parchment, Sibanac leaf
-    devoteItems[4]={52,253,72}; --Tanora: Bucket of water, Raw bluestone, Fishing rod
+    devoteItems[4]={52,253,72}; --Tanora: Bucket of water, Raw sapphire, Fishing rod
     devoteItems[5]={64,463,65}; --Findari: Arrow, Quill, Short Bow
     devoteItems[6]={80,356,733}; --Nargùn: Banana, Slouch hat, Stone block
     devoteItems[7]={2745,329,463}; --Elara: Parchment, Ink, Quill
@@ -120,7 +120,7 @@ function ini()
     priestItems[1]={2416,40,26,726,735}; --Ushara: Brown priest robe, Cleric's staff, Clay, Coarse sand, Raw stone
     priestItems[2]={2419,40,391,46,234}; --Brágon: Red priest robe, Cleric's staff, Torch, Ruby, Gold nugget
     priestItems[3]={2418,40,41,285,463}; --Eldan: Grey priest robe, Cleric's staff, Glass ignot, Diamond, Quill
-    priestItems[4]={193,40,2496,284,279}; --Tanora: Blue robe, Cleric's staff, Bottle of Water, Bluestone, Bluestone ring
+    priestItems[4]={193,40,2496,284,279}; --Tanora: Blue robe, Cleric's staff, Bottle of Water, Sapphire, Sapphire ring
     priestItems[5]={2421,40,2780,322,166}; --Findari: White priest robe, Cleric's staff, Longbow, Wind arrow, Big empty bottle
     priestItems[6]={2418,445,355,225,290}; --Nargùn: Grey priest robe, Wooden sword, Salmon, Crown, Cabbage
     priestItems[7]={368,76,397,3110,222}; --Elara: Yellow priest robe, Mage's staff, Oil lamp, Pell, Amulet

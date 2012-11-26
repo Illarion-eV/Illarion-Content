@@ -66,7 +66,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd, Blaustein und Diamant nach Cadomyr und suche die restliche Person.", "Go with the received emerald, bluestone and diamond to Cadomyr and look for the remaining person there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd, Blaustein und Diamant nach Cadomyr und suche die restliche Person.", "Go with the received emerald, sapphire and diamond to Cadomyr and look for the remaining person there."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 285, 333, 1):execute()
 end
 

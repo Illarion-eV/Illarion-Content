@@ -28,7 +28,7 @@ function LookAtItem(User,Item)
 	        if (User:getPlayerLanguage()==0) then
 	            world:itemInform(User,Item,"Mit arkanen Symbolen verzierter Steinsockel, auf dem eine steinernde Schriftrolle liegt, in der blausteinfarbene Schrift eingelassen wurde");
 	        else
-	            world:itemInform(User,Item,"stone socket decorated with arcane symbols, on which you can see a stony scroll with bluestone colored letters");
+	            world:itemInform(User,Item,"stone socket decorated with arcane symbols, on which you can see a stony scroll with sapphire colored letters");
 	        end
 	    else
 	        world:itemInform(User,Item,world:getItemName(Item.id,User:getPlayerLanguage()));

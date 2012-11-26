@@ -94,7 +94,7 @@ function InitCustomLookAt()
 	addDescription(	385,	2,	"seidenes, blaues Kleid mit roten Seidenbändern an den Rändern", " silken, blue dress with red silk ribbons lining the fringes", false, true, false );
 	addDescription( 457,	1,	"mit dem Wappen des Littlethorn Clans rechts auf der Brust", "with the emblem of the Littlethorn Clan on the right chest", false, false, false );
 	addDescription( 458,	1,	"mit dem Wappen des Littlethorn Clans rechts auf der Brust", "with the emblem of the Littlethorn Clan on the right chest", false, false, false );
-	addDescription(	558,	1,	"mit Blausteinen als Knöpfe und auf der linken Brust bestickt mit einer blauen Flamme, welche eine kleinere rote Flamme umschließt", "with bluestones as buttons and on the left chest embroidered with a blue flame that embraces another smaller red flame", false, false, false );
+	addDescription(	558,	1,	"mit Blausteinen als Knöpfe und auf der linken Brust bestickt mit einer blauen Flamme, welche eine kleinere rote Flamme umschließt", "with sapphires as buttons and on the left chest embroidered with a blue flame that embraces another smaller red flame", false, false, false );
 	addDescription(1840,	1,	"Pokal für den 3. Platz", "3rd place trophy", true, true, false );
 	addDescription(1858,	1,	"Pokal für den 2. Platz", "2nd place trophy", true, true, false );
 	addDescription(2284,	1,	"mit dem Siegel von Troll's Bane", "with the seal of Troll's Bane", false, false, false );

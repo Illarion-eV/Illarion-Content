@@ -234,7 +234,7 @@ product:addIngredient(176, 7) -- Grey Cloth: 7x1
 product:addIngredient(2550, 5) -- Copper Ingot: 5x1
 product:addIngredient(2547, 5) -- Leather: 5x1
 product:addIngredient(236, 3) -- Gold Ingot: 3x1
-product:addIngredient(284, 3) -- Bluestone: 3x1
+product:addIngredient(284, 3) -- Sapphire: 3x1
 product:addIngredient(198, 3) -- Topas: 3x1
 
 --Plate Armour
@@ -292,7 +292,7 @@ product:addIngredient(2535, 13) -- Iron Ingot: 13x1
 product:addIngredient(176, 5) -- Grey Cloth: 5x1
 product:addIngredient(236) -- Gold: 1x1
 product:addIngredient(2550, 5) -- Copper Ingot: 5x1
-product:addIngredient(284, 3) -- Bluestone: 3x1
+product:addIngredient(284, 3) -- Sapphire: 3x1
 
 --Magical Elven Armour
 product = smithing:addProduct(catId, 2400, 70, 90, 22, 44)
@@ -501,7 +501,7 @@ product:addIngredient(2571) -- Merinium Ingot: 1x1
 product = smithing:addProduct(catId, 2778, 82, 102, 25, 50)
 product:addIngredient(2535, 3) -- Iron Ingot: 3x1
 product:addIngredient(2584) -- Sword Handle: 1x1
-product:addIngredient(284) -- Bluestone: 1x1
+product:addIngredient(284) -- Sapphire: 1x1
 
 --Dwarven Axe
 product = smithing:addProduct(catId, 2660, 85, 105, 26, 52)
@@ -520,7 +520,7 @@ product = smithing:addProduct(catId, 2775, 89, 109, 27, 54)
 product:addIngredient(2535, 3) -- Iron Ingot: 3x1
 product:addIngredient(2584) -- Sword Handle: 1x1
 product:addIngredient(46) -- Ruby: 1x1
-product:addIngredient(284) -- Bluestone: 1x1
+product:addIngredient(284) -- Sapphire: 1x1
 
 --Fire Broadsword
 product = smithing:addProduct(catId, 2656, 92, 112, 28, 56)

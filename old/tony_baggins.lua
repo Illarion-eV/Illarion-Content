@@ -38,7 +38,7 @@ function initializeNpc()
     npc.base.trader_functions.AddTraderItem(50  ,2781 ,50,5  ,50,{5,7},{77,90},0,0       ); -- stirring rod
     ---------npc.base.trader_functions.Buying of ressources for potions and dyes
     npc.base.trader_functions.AddTraderItem(0   ,51   ,200 ,2  ,30,{5} ,{55},0   ,0       ); -- empty bucket
-    npc.base.trader_functions.AddTraderItem(0   ,253  ,200 ,10 ,50,{5} ,{55},0   ,0       ); -- raw bluestone
+    npc.base.trader_functions.AddTraderItem(0   ,253  ,200 ,10 ,50,{5} ,{55},0   ,0       ); -- raw sapphire
     npc.base.trader_functions.AddTraderItem(0   ,21   ,200 ,1  ,50,{5} ,{55},0   ,0       ); -- coal
     npc.base.trader_functions.AddTraderItem(0   ,136  ,200 ,1  ,50,{3} ,{33},0   ,0       ); -- angerberries
     npc.base.trader_functions.AddTraderItem(0   ,157  ,200 ,1  ,50,{5} ,{55},0   ,0       ); -- rotten bark

@@ -184,11 +184,11 @@ function onDeath(Monster)
 
         --Category 2: Special loot
 
-        local done=monster.base.drop.AddDropItem(71,1,20,(100*math.random(7,8)+math.random(77,88)),0,2); --bluestone amulet
-        if not done then done=monster.base.drop.AddDropItem(279,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --bluestone ring
+        local done=monster.base.drop.AddDropItem(71,1,20,(100*math.random(7,8)+math.random(77,88)),0,2); --sapphire amulet
+        if not done then done=monster.base.drop.AddDropItem(279,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --sapphire ring
         if not done then done=monster.base.drop.AddDropItem(224,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --golden goblet
         if not done then done=monster.base.drop.AddDropItem(2559,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --ring of the archmage
-        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(7,8)+math.random(77,88)),1,2); end --magic bluestone
+        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(7,8)+math.random(77,88)),1,2); end --magic sapphire
 
         --Category 3: Weapon
 

@@ -73,7 +73,7 @@ function initializeNpc()
     AddAdditionalText("Greetings. You are interested in my wares?");
     AddTraderTrigger("[Ww]hat.+sell","I trade with gems, raw and cutted ones. And with mineral dust. Jodele");
     AddTraderTrigger("[Ww]hat.+[Gg]em","Whatever you like: raw, cutted gems and gemdust");
-    AddTraderTrigger("[Ww]hat.+[Kk]ind","All kind of gems: rubies, emerald, diamond, topaz, bluestone, blackstone and amethyst. Ask for my list of wares.");
+    AddTraderTrigger("[Ww]hat.+[Kk]ind","All kind of gems: rubies, emerald, diamond, topaz, sapphire, blackstone and amethyst. Ask for my list of wares.");
     AddTraderTrigger("[Ww]hat.+[Dd]ust","All kind of gemdust: rubiydust, emerald-, diamond-, topaz-, blue- and blackstone- and amethystdust. Ask for my list of wares.");
     AddTraderTrigger("[Bb]ye","Good day. Someone may bless you. Jodele.");
     AddAdditionalTrigger("[Ff]arewell");

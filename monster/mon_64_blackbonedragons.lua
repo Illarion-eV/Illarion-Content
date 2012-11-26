@@ -165,7 +165,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(283,1,10,(100*math.random(8,9)+math.random(88,99)),0,2); end --blackstone
         if not done then done=monster.base.drop.AddDropItem(285,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalDiamond="1"},2); end --magic diamond
         if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalTopaz="1"},2); end --magic topaz
-        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalSapphire="1"},2); end --magic bluestone
+        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalSapphire="1"},2); end --magic sapphire
 
         --Category 3: Weapon
 
@@ -173,7 +173,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(278,1,10,(100*math.random(8,9)+math.random(88,99)),0,3); end --blackstone ring
         if not done then done=monster.base.drop.AddDropItem(280,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --diamond ring
         if not done then done=monster.base.drop.AddDropItem(282,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --topaz ring
-        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --bluestone ring
+        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(8,9)+math.random(88,99)),0,3); end --sapphire ring
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3077,math.random(90,250),100,333,0,4); --silver coins
