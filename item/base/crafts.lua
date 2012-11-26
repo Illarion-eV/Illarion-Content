@@ -53,7 +53,7 @@ Usage: myCraft = Craft:new{ craftEN = "CRAFT_EN",
                             [sfx = SFX, sfxDuration = DURATION,]
                             [fallbackCraft = CRAFTWITHSAMEHANDTOOL,]
                             [npcCraft = true,]
-                            [lookAtFilter = (lookAt function(lookAt, data)),]
+                            [lookAtFilter = (lookAt function(user, lookAt, data)),]
                           }
 --]]
 
@@ -237,7 +237,7 @@ function Craft:getLookAt(user, object)
     local lookAt = base.lookat.GenerateItemLookAtFromId(user, item, quantity, data)
     
     if self.lookAtFilter then
-        lookAt = self.lookAtFilter(lookAt, data)
+        lookAt = self.lookAtFilter(user, lookAt, data)
     end
 
     return lookAt
