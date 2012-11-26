@@ -511,15 +511,15 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
             base.books.AddEnglishBookText("Trinkets:\n\nThe energies of obsidians in a trinket enhance the physical power of the bearer.",82,0,3);
             base.books.AddEnglishBookText("There is one important thing to note: One should never let the energies of a Obsidian flow into a trinket in which there is another stone embedded.",0,0,3);
 
-			base.books.AddGermanBookText("\n\n~~Schwarzsteine~~",283,0,3);
-            base.books.AddGermanBookText("Ob matt oder glï¿½nzend, magische Schwarzsteine stehen seid je her für Stärke, Mut und Kampfgeist. Es ist nicht unüblich, dass bei großen Schlachten oder Kï¿½mpfen solche Art von Steinen am Körper getragen werden.",0,0,3);
-            base.books.AddGermanBookText("Aber auch Magier und Handwerker haben mittlerweile gelernt ihren, nicht geringen, Nutzen aus diesen Schwarzsteinen zu ziehen.",0,0,3);
-            base.books.AddGermanBookText("Waffen: \n\nMagische Energien von Schwarzsteinen in eine Waffe geleitet kann im Kampf verheerende Folgen haben. Die magischen Krï¿½ften scheinen die Waffe zu fï¿½hren und gezielt die Schwachstellen des Gegners auszunutzen.",91,0,3);
-            base.books.AddGermanBookText("Rüstungen und Schilde:\n\nEs liegt nicht in der Natur der Schwarzsteinmagie zu schï¿½tzen. Dennoch haben sie, in ein Rï¿½stteil geleiten, einen nicht zu unterschï¿½tzenden Nutzen indem sie, statt den Trï¿½ger zu schï¿½tzen, dem Gegner schaden.",2402,0,3);
-            base.books.AddGermanBookText("Magierstï¿½be:\n\nLï¿½sst man Schwarzsteinenergien in einen Magierstab flieï¿½en, so unterstï¿½tzen sie die magischen Krï¿½fte des Trï¿½gers in der Beschwï¿½rungs-, Bewegungsmagie, sowie bei der Heilung von Gift.",39,0,3);
-            base.books.AddGermanBookText("Werkzeuge:\n\nSchwarzsteinmagie ist nicht dazu geeignet neue Dinge zu erschaffen. Vielmehr für die Erhaltung von bestehendem. Werkzeuge, in denen Schwarzsteinenergien flieï¿½en eigenen sich daher hervorragend zum Reparieren von Gegenstï¿½nden.",172,0,3);
-            base.books.AddGermanBookText("Ringe:\n\nDie Engerien von Schwarzsteinen in einem Schmuckstï¿½ck steigern die Stärke des Trï¿½gers.",82,0,3);
-            base.books.AddGermanBookText("Zu beachten ist hierbei, dass man niemals die Energien eines Schwarzsteinen in ein Schmuckstï¿½ck flieï¿½en lassen sollte, in welches ein andersartiger Stein eingefasst wurde.",0,0,3);
+			base.books.AddGermanBookText("\n\n~~Obsidiane~~",283,0,3);
+            base.books.AddGermanBookText("Ob matt oder glï¿½nzend, magische Obsidiane stehen seid je her für Stärke, Mut und Kampfgeist. Es ist nicht unüblich, dass bei großen Schlachten oder Kï¿½mpfen solche Art von Steinen am Körper getragen werden.",0,0,3);
+            base.books.AddGermanBookText("Aber auch Magier und Handwerker haben mittlerweile gelernt ihren, nicht geringen, Nutzen aus diesen Obsidianen zu ziehen.",0,0,3);
+            base.books.AddGermanBookText("Waffen: \n\nMagische Energien von Obsidianen in eine Waffe geleitet kann im Kampf verheerende Folgen haben. Die magischen Krï¿½ften scheinen die Waffe zu fï¿½hren und gezielt die Schwachstellen des Gegners auszunutzen.",91,0,3);
+            base.books.AddGermanBookText("Rüstungen und Schilde:\n\nEs liegt nicht in der Natur der Obsidianmagie zu schï¿½tzen. Dennoch haben sie, in ein Rï¿½stteil geleiten, einen nicht zu unterschï¿½tzenden Nutzen indem sie, statt den Trï¿½ger zu schï¿½tzen, dem Gegner schaden.",2402,0,3);
+            base.books.AddGermanBookText("Magierstï¿½be:\n\nLï¿½sst man Obsidianenergien in einen Magierstab flieï¿½en, so unterstï¿½tzen sie die magischen Krï¿½fte des Trï¿½gers in der Beschwï¿½rungs-, Bewegungsmagie, sowie bei der Heilung von Gift.",39,0,3);
+            base.books.AddGermanBookText("Werkzeuge:\n\nObsidianmagie ist nicht dazu geeignet neue Dinge zu erschaffen. Vielmehr für die Erhaltung von bestehendem. Werkzeuge, in denen Obsidianenergien flieï¿½en eigenen sich daher hervorragend zum Reparieren von Gegenstï¿½nden.",172,0,3);
+            base.books.AddGermanBookText("Ringe:\n\nDie Engerien von Obsidianen in einem Schmuckstï¿½ck steigern die Stärke des Trï¿½gers.",82,0,3);
+            base.books.AddGermanBookText("Zu beachten ist hierbei, dass man niemals die Energien eines Obsidianen in ein Schmuckstï¿½ck flieï¿½en lassen sollte, in welches ein andersartiger Stein eingefasst wurde.",0,0,3);
 
             --------------------------------------
 
@@ -580,7 +580,7 @@ function LookAtItem(User,Item)
         base.books.AddGermanBookTitle("Buch mit dem Titel \"Geschichte des Zwergenvolkes Illarions\"",2);
 
         base.books.AddEnglishBookTitle("Book with the title \"Obsidians\"",3);
-        base.books.AddGermanBookTitle("Buch mit dem Titel \"Schwarzsteine\"",3);
+        base.books.AddGermanBookTitle("Buch mit dem Titel \"Obsidiane\"",3);
 
 		base.books.AddEnglishBookTitle("Book with the title \"Dragon Dreams\"",4);
 		base.books.AddGermanBookTitle("Buch mit dem Titel \"Drachentrï¿½ume\"",4);

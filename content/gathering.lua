@@ -128,7 +128,7 @@ function InitGathering()
 		--claydigging
 
 		claydigging:AddRandomItem(2554,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Tanora, die Göttin des Wassers, mit einem Kleinod aus Reinem Wasser.","For your hard and honest labor Tanora, the Godess of Water, rewards you with a treasure of Pure Water."); --Pure water
-		claydigging:AddRandomItem(283,1,333,1,prob_extremely_rarely,"Tief im Matsch stößt deine Schaufel auf etwas hartes. Du findest einen magischen Schwarzstein.","Deep in the mud your shovel hits on something hard. To your surprise it's a magical obsidian."); --Magical obsidian
+		claydigging:AddRandomItem(283,1,333,1,prob_extremely_rarely,"Tief im Matsch stößt deine Schaufel auf etwas hartes. Du findest einen magischen Obsidian.","Deep in the mud your shovel hits on something hard. To your surprise it's a magical obsidian."); --Magical obsidian
 		claydigging:AddRandomItem(2658,1,333,{},prob_extremely_rarely,"Du findest eine Knochenhand im Matsch. Sie umklammert ein altes Schwert.","You find a boney hand in the mud clutching an old sword."); --broadsword
 		claydigging:AddRandomItem(51,1,333,{},prob_occasionally,"Du ziehst einen alten Eimer aus dem Schlick.","You draw an old bucket from the silt."); --bucket
 		claydigging:AddRandomItem(2184,1,333,{},prob_frequently,"Ein Tonkrug offenbahrt sich im Matsch. Die Überreste einer alten Zivilisation oder einfach nur vom letzten Saufgelage?","A clay mug reveals itself in the mud. Perhaps the remains of an ancient civilization or just a littering traveller, who knows?"); --clay cup

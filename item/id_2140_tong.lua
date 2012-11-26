@@ -55,12 +55,12 @@ function InitCraftingTool()
         
         ------------- SCHWARZSTEIN - 283 ---------------
         product = gemcutting:addProduct(catGems, 283, 30, 70, 25, 50)
-        product:addIngredient(252) -- Schritt 1: Roher Schwarzstein(252) 1x
+        product:addIngredient(252) -- Schritt 1: Roher Obsidian(252) 1x
         ----------- SCHWARZSTEIN - FERTIG --------------
 		
         ------------- SCHWARZSTEINSTAUB - 449 ---------------
         product = gemcutting:addProduct(catDust, 449, 30, 60, 25, 50)
-        product:addIngredient(283, 4) -- Schritt 1: Schwarzstein(283) 4x
+        product:addIngredient(283, 4) -- Schritt 1: Obsidian(283) 4x
         ----------- SCHWARZSTEINSTAUB - FERTIG --------------
         
         ---------------- SMARAGD - 45 ------------------

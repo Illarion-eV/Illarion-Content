@@ -397,7 +397,7 @@ function gemBonis( Char )
 	        end
 	    elseif stone[i].type==3 and Skill.name=="commotio" then -- Rubin
 	        GemBonis.Skill = GemBonis.Skill + stone[i].effect * 3;
-	    elseif stone[i].type==4 and ((Skill.name=="transformo") or (Skill.name=="transfreto") or (Skill.name=="desicio")) then -- Schwarzstein
+	    elseif stone[i].type==4 and ((Skill.name=="transformo") or (Skill.name=="transfreto") or (Skill.name=="desicio")) then -- Obsidian
 	        GemBonis.Skill = GemBonis.Skill + stone[i].effect;
 	    elseif stone[i].type==5 and Skill.name=="pervestigatio" then -- Blaustein
 	        GemBonis.Skill = GemBonis.Skill + stone[i].effect * 3;

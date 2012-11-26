@@ -416,7 +416,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2420, "all", ">", 4));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen magischen Schwarzsteinring."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen magischen Obsidianring."));
 talkEntry:addResponse("As scheint, als wäre Ronagan Euch wohlgesonnen. Mein Auftraggeber gab mir diesen Ring als Anzahlung, er ist nun Euer.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2420, 5));
 talkEntry:addConsequence(npc.base.consequence.item.item(278, 1, 999, 42));

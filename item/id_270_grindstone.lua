@@ -24,7 +24,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if (GemList==nil) then
         GemList= { };
         GemList[251]={ 7,197}; --Amethyst
-        GemList[252]={ 5,283}; --Schwarzstein
+        GemList[252]={ 5,283}; --Obsidian
         GemList[253]={10,284}; --Blaustein
         GemList[254]={60,285}; --Diamant
         GemList[255]={30, 46}; --Rubine

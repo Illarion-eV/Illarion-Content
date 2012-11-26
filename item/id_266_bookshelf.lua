@@ -255,7 +255,7 @@ function InitLibraries()
       {2622,5};             -- Diamanten
       {2607,3};             -- Blaustein
       {115, 1};             -- Smaragd
-      {2619,3};             -- Schwarzstein
+      {2619,3};             -- Obsidian
       {108, 1};             -- Amethyst
       {2615,5};             -- Topas
     }

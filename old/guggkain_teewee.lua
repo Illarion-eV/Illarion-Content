@@ -24,7 +24,7 @@ function initSchleifer()
 		firsttime = 1
 		listGemProd = {}
 	  listGemProd[1]= {"Amethyst",251,197,450}
-	  listGemProd[2]= {"Schwarzstein",252,283,449}
+	  listGemProd[2]= {"Obsidian",252,283,449}
 	  listGemProd[3]= {"Blaustein",253,284,446}
 	  listGemProd[4]= {"Diamant",254,485,452}
 	  listGemProd[5]= {"Rubin",255,46,447}
@@ -43,7 +43,7 @@ function initializeNpc()
    
     --            EPr ,ID  ,Am,SPr, SA,Qual ,Dura   ,Data,Catagory
     AddTraderItem(110 ,450 ,25,  5, 250,{2,4},{33,66},0   ,0); -- Amethyststaub
-    AddTraderItem(110 ,449 ,25,  5, 250,{2,4},{33,66},0   ,0); -- Schwarzsteinstaub
+    AddTraderItem(110 ,449 ,25,  5, 250,{2,4},{33,66},0   ,0); -- Obsidianstaub
     AddTraderItem(110 ,447 ,25,  5, 250,{2,4},{33,66},0   ,0); -- Blausteinstaub
     AddTraderItem(130 ,452 ,25,  5, 250,{2,4},{33,66},0   ,0); -- Diamantstaub
     AddTraderItem(120 ,446 ,25,  5, 250,{2,4},{33,66},0   ,0); -- Rubinstaub
@@ -51,7 +51,7 @@ function initializeNpc()
     AddTraderItem(120 ,451 ,25,  5, 250,{2,4},{33,66},0   ,0); -- Topazstaub
       
     AddTraderItem( 60 ,197 ,250,  5, 25,{2,4},{33,66},0   ,0); -- Amethyst
-    AddTraderItem( 60 ,283 ,250,  5, 25,{2,4},{33,66},0   ,0); -- Schwarzstein
+    AddTraderItem( 60 ,283 ,250,  5, 25,{2,4},{33,66},0   ,0); -- Obsidian
     AddTraderItem( 60 ,284 ,250,  5, 25,{2,4},{33,66},0   ,0); -- Blaustein
     AddTraderItem( 80 ,285 ,250,  5, 25,{2,4},{33,66},0   ,0); -- Diamant
     AddTraderItem( 70 , 46 ,250,  5, 25,{2,4},{33,66},0   ,0); -- Rubin
@@ -59,7 +59,7 @@ function initializeNpc()
     AddTraderItem( 70 ,198 ,250,  5, 25,{2,4},{33,66},0   ,0); -- Topaz
      
     AddTraderItem( 10 ,251 ,250,  5, 25,{2,4},{33,66},0   ,0); -- Amethyst roh   
-    AddTraderItem( 10 ,252 ,250,  5, 25,{2,4},{33,66},0   ,0); -- Schwarzstein roh
+    AddTraderItem( 10 ,252 ,250,  5, 25,{2,4},{33,66},0   ,0); -- Obsidian roh
     AddTraderItem( 10 ,253 ,250,  5, 25,{2,4},{33,66},0   ,0); -- Blaustein roh
     AddTraderItem( 30 ,254 ,250,  5, 25,{2,4},{33,66},0   ,0); -- Diamant roh
     AddTraderItem( 20 ,255 ,250,  5, 25,{2,4},{33,66},0   ,0); -- Rubin roh

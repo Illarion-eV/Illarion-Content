@@ -1476,7 +1476,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Der Don besssitzt zwei Sssteine der Macht. Einen Blaustein und einen Schwarzstein. Die bessschützen Galmair vor der Übernahme durch unsere Ssstreitkräfte.");
+talkEntry:addResponse("Der Don besssitzt zwei Sssteine der Macht. Einen Blaustein und einen Obsidian. Die bessschützen Galmair vor der Übernahme durch unsere Ssstreitkräfte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

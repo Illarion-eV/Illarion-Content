@@ -14,7 +14,7 @@ function LookAtItem(User, Item) -- Used for THE LIBRARY QUEST
 
 	if Item.data ==101 then --used for THE LIBRARY quest -- obsidian bonus
 		if (User:getPlayerLanguage() ==0) then
-			User:inform("Du vermagst, eine Belohnung zur erlangen - ein magischer Schwarzstein liegt in dem Buch.")
+			User:inform("Du vermagst, eine Belohnung zur erlangen - ein magischer Obsidian liegt in dem Buch.")
 			else
 			User:inform("You may obtain one reward - a magical obsidian lies inside this book.")
 		end
