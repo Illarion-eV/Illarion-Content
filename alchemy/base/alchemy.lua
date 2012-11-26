@@ -27,10 +27,8 @@ function setPlantSubstance(id, plusSubstance, minusSubstance)
 end
 
 function getPlantSubstance(id, User)
-    User:inform("debug al 0.5")
-	if not plantList[id] then
-	    User:inform("debug al 1")
-		return false
+    if not plantList[id] then
+	    return false
 	end	
 	local plus, minus
 	if plantList[id][1] == nil then
@@ -39,9 +37,11 @@ function getPlantSubstance(id, User)
 	    plus = plantList[id][1]
 	end	
 	if plantList[id][2] == nil then
-	    minus = ""
+	    User:inform("minus is nil")
+		minus = ""
 	else
         minus = plantList[id][2]
+		User:inform("minus is not nil")
     end     	
 	return plus, minus    
 end
