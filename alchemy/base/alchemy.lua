@@ -344,7 +344,7 @@ function CopyAllDatas(fromItem,toItem)
 -- copies all datas from fromItem to toItem
 	for i=1,8 do
 	    toItem:setData(wirkstoff[i].."Concentration",fromItem:getData(wirkstoff[i].."Concentration")) 
-		toItem:setData("essenceHerb"..[i],fromItem:getData("essenceHerb"..[i]))
+		toItem:setData("essenceHerb"..i,fromItem:getData("essenceHerb"..i))
 	end	
     toItem:setData("filledWith",fromItem:getData("filledWith")) 
 	toItem:setData("potionEffectId",fromItem:getData("potionEffectId"))
