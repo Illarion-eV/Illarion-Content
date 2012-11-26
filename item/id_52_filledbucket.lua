@@ -174,7 +174,7 @@ end
 
 function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
     local cauldron = TargetItem
-	
+	User:inform(""..cauldron.id)
 	if ( ltstate == Action.abort ) then
 	   base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 	   return
