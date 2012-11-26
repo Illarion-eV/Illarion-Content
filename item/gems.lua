@@ -38,11 +38,28 @@ gemLevelRareness[8] = ItemLookAt.epicItem
 gemLevelRareness[9] = ItemLookAt.epicItem
 gemLevelRareness[10] = ItemLookAt.epicItem
 
+function lookAtFilter(lookAt, data)
+    local gemLevel = data.gemLevel
+    
+    if gemLevel then
+        if user:getPlayerLanguage() == 0 then
+            lookAt.name = gemPrefixDE[gemLevel] .. " magischer " .. lookAt.name
+        else
+            lookAt.name = gemPrefixEN[gemLevel] .. " magical " .. lookAt.name
+        end
+
+        lookAt.rareness = gemLevelRareness[gemLevel]
+    end
+
+    return lookAt
+end
+
 gemCraft = item.base.crafts.Craft:new{
     craftEN = "Magic Blacksmith",
     craftDE = "Magieschmied",
     leadSkill = base.factions.getRankpoints,
     npcCraft = true,
+    lookAtFilter = lookAtFilter,
 }
 
 local categoryId = {}
@@ -127,17 +144,10 @@ end
 function LookAtItem(user, item)
     local lookAt = base.lookat.GenerateLookAt(user, item)
 
-    local gemLevel = tonumber(item:getData("gemLevel"))
-    
-    if gemLevel then
-        if user:getPlayerLanguage() == 0 then
-            lookAt.name = gemPrefixDE[gemLevel] .. " magischer " .. lookAt.name
-        else
-            lookAt.name = gemPrefixEN[gemLevel] .. " magical " .. lookAt.name
-        end
+    local data = {}
+    data.gemLevel = tonumber(item:getData("gemLevel"))
 
-        lookAt.rareness = gemLevelRareness[gemLevel]
-    end
+    lookAt = lookAtFilter(lookAt, data)    
 
     world:itemInform(user, item, lookAt)
 end
