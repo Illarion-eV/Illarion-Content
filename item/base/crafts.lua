@@ -220,14 +220,13 @@ end
 
 function Craft:getProductLookAt(user, productId)
     local product = self.products[productId]
-    debug("Item: " .. product.item)
-    local lookAt = self.getLookAt(user, product)
+    local lookAt = self:getLookAt(user, product)
     return lookAt
 end
 
 function Craft:getIngredientLookAt(user, productId, ingredientId)
     local ingredient = self.products[productId].ingredients[ingredientId]
-    local lookAt = self.getLookAt(user, ingredient)
+    local lookAt = self:getLookAt(user, ingredient)
     return lookAt
 end
 
