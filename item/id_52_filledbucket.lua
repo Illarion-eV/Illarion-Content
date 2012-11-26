@@ -173,7 +173,7 @@ function BlockCheck(Posi)
 end
 
 function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    cauldron = TargetItem
+    local cauldron = TargetItem
 	
 	if ( ltstate == Action.abort ) then
 	   base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")

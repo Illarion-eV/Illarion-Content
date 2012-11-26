@@ -121,8 +121,7 @@ function BrewingPlant(User,plant,cauldron)
 end
 
 function FilterStock(User,plant,cauldron)
-    User:inform(""..cauldron:getData("AdrazinConcentration"))
-	local success = false
+    local success = false
 	local mySubstance = alchemy.base.alchemy.wirkstoff
 	for i=1,8 do 
 	    User:inform(""..mySubstance[i])
