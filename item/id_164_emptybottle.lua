@@ -41,7 +41,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		
 		-- stock, essence brew or potion; fill it up
 	   if (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "essenceBrew") or (cauldron:getData("filledWith") == "potion") then  
-	        local reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, cauldron, nil)
+	        local reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, cauldron, nil, User)
+			User:inform("reBottle "..reBottle)
 			SourceItem.id = reBottle
 			alchemy.base.alchemy.CopyAllDatas(cauldron,SourceItem)
 		    alchemy.base.alchemy.RemoveAll(cauldron)
