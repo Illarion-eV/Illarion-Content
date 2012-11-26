@@ -316,13 +316,6 @@ function RemoveStock(Item)
 	end
 end
 
-function StockFromTo(fromItem,toItem)
-    for i=1,8 do
-	    toItem:setData(wirkstoff[i].."Concentration",fromItem:getData(wirkstoff[i].."Concentration"))
-		fromItem:setData(wirkstoff[i].."Concentration","")
-	end	
-end
-
 function RemoveAll(Item)
     RemoveEssenceBrew(Item)
 	RemoveStock(Item)
@@ -345,6 +338,18 @@ function EmptyBottle(User,Bottle)
 	    Bottle.quality = 333
 		world:changeItem(SourceItem)
 	end
+end
+
+function CopyAllDatas(fromItem,toItem)
+-- copies all datas from fromItem to toItem
+	for i=1,8 do
+	    toItem:setData(wirkstoff[i].."Concentration",fromItem:getData(wirkstoff[i].."Concentration")) 
+		toItem:setData("essenceHerb"..i,fromItem:getData("essenceHerb"..i))
+	end	
+    toItem:setData("filledWith",fromItem:getData("filledWith")) 
+	toItem:setData("potionEffectId",fromItem:getData("potionEffectId"))
+	toItem:setData("potionQuality",fromItem:getData("potionQuality")) 
+
 end
 
 function CauldronDestruction(User,cauldron,effectId)
