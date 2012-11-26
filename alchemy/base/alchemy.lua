@@ -329,6 +329,11 @@ function RemoveAll(Item)
 	Item:setData("potionEffectId","")
 	Item:setData("potionQuality","")
 	Item:setData("filledWith","")
+	if (Item.id >= 1008) or (Item.id <= 1018) then
+	    Item.id = 1008
+	else
+	    Item.id = 164
+	end
 end
 
 function EmptyBottle(User,Bottle)
