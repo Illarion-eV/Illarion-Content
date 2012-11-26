@@ -958,7 +958,7 @@ function getGemBonus(item)
     gemStrength[3]=extractNum(item:getData("magicalTopaz"));
     gemStrength[4]=extractNum(item:getData("magicalAmethyst"));
     gemStrength[5]=extractNum(item:getData("magicalBluestone"));
-    gemStrength[6]=extractNum(item:getData("magicalBlackstone"));
+    gemStrength[6]=extractNum(item:getData("magicalObsidian"));
     
     gemSum=0;
     gemMin=1000;   -- arbitrarily high number
