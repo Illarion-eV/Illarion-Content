@@ -17,6 +17,7 @@ function InitPlantSubstance()
 	end	
 	setPlantSubstance(133, "Adrazin", "Orcanol") -- sunherb / Sonnenkraut
     setPlantSubstance(758, "Adrzain", "") -- heart blood / Herzblut
+	setPlantSubstance(15 , ""       , "") -- apple / Apfel
 end
 
 function setPlantSubstance(id, plusSubstance, minusSubstance)
