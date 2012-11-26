@@ -42,7 +42,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 end
 
-function PlantInEssenceBrew(User,cauldron,plant)
+function PlantInEssenceBrew(User,plant,cauldron)
     local success = nil
     for i=1,8 do 
 		if cauldron:getData("essenceHerb"..i) == "" then
@@ -59,7 +59,7 @@ function PlantInEssenceBrew(User,cauldron,plant)
 	end	
 end
 
-function PlantInStock(User,cauldron,plant)
+function PlantInStock(User,plant,cauldron)
     local plusSubstance, minusSubstance = alchemy.base.alchemy.getPlantSubstance(plant.id, User)
 	if plusSubstance == "" and minusSubstance == "" then
 	    alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
@@ -105,11 +105,11 @@ function BrewingPlant(User,plant,cauldron)
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
 		
 	elseif cauldron:getData("filledWith")== "essenceBrew" then -- essence brew
-		PlantInEssenceBrew(User,cauldron,plant)
+		PlantInEssenceBrew(User,plant,cauldron)
 		User:learn(Character.alchemy, 20, 100)
 		
 	elseif (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "water") then -- water or a stock we put the herb in
-	    PlantInStock(User,cauldron,plant)
+	    PlantInStock(User,plant,cauldron)
 		User:learn(Character.alchemy, 20, 100)
 		
 	else -- there is nothing in the cauldron to put the herb in, failure
@@ -120,7 +120,7 @@ function BrewingPlant(User,plant,cauldron)
 	world:erase(plant,1)	
 end
 
-function FilterStock(User,cauldron,plant)
+function FilterStock(User,plant,cauldron)
     local success = false
 	local mySubstance = alchemy.base.alchemy.wirkstoff
 	for i=1,8 do 
@@ -153,7 +153,7 @@ function BrewingFilter(User,plant,cauldron)
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
     
 	elseif cauldron:getData("filledWith")=="stock" then -- stock, let's filter
-	    FilterStock(User,cauldron,plant)
+	    FilterStock(User,plant,cauldron)
 		User:learn(Character.alchemy, 20, 100)
 		
     else -- empty cauldron
