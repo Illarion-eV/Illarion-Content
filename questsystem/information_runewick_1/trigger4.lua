@@ -10,7 +10,7 @@ local POSTCONDITION_QUESTSTATE = 29
 local NPC_TRIGGER_DE = "[Ss]maragd"
 local NPC_TRIGGER_EN = "[Ee]merald"
 local NPC_REPLY_DE = "Gut, aber wir haben noch einen zweiten. Ist der auch bekannt? Rubin, Amethyst oder Schwarzstein?"
-local NPC_REPLY_EN = "Good, but we have a second. Do you also know it? Ruby, Amethyst or Blackstone?"
+local NPC_REPLY_EN = "Good, but we have a second. Do you also know it? Ruby, Amethyst or Obsidian?"
 
 function receiveText(npc, type, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)

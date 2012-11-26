@@ -161,7 +161,7 @@ if (MonID==301) then --Stone Golem, Level: 4, Armourtype: light, Weapontype: con
         --Category 1: Raw gems
 
         local done=monster.base.drop.AddDropItem(254,1,20,(100*math.random(8,9)+math.random(88,99)),0,1); --raw diamond
-        if not done then done=monster.base.drop.AddDropItem(252,1,10,(100*math.random(8,9)+math.random(88,99)),0,1); end --raw blackstone
+        if not done then done=monster.base.drop.AddDropItem(252,1,10,(100*math.random(8,9)+math.random(88,99)),0,1); end --raw obsidian
         if not done then done=monster.base.drop.AddDropItem(255,1,1,(100*math.random(8,9)+math.random(88,99)),0,1); end --raw ruby
         if not done then done=monster.base.drop.AddDropItem(251,1,1,(100*math.random(8,9)+math.random(88,99)),0,1); end --raw amethyst
         if not done then done=monster.base.drop.AddDropItem(253,1,1,(100*math.random(8,9)+math.random(88,99)),0,1); end --raw sapphire
@@ -169,7 +169,7 @@ if (MonID==301) then --Stone Golem, Level: 4, Armourtype: light, Weapontype: con
         --Category 2: Cutted gems
 
         local done=monster.base.drop.AddDropItem(285,1,20,(100*math.random(8,9)+math.random(88,99)),0,2); --diamond
-        if not done then done=monster.base.drop.AddDropItem(283,1,10,(100*math.random(8,9)+math.random(88,99)),0,2); end --blackstone
+        if not done then done=monster.base.drop.AddDropItem(283,1,10,(100*math.random(8,9)+math.random(88,99)),0,2); end --obsidian
         if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalRuby="1"},2); end --magic ruby
         if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalAmethyst="1"},2); end --magic amethyst
         if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalSapphire="1"},2); end --magic sapphire

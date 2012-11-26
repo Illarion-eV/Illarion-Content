@@ -214,11 +214,11 @@ function onDeath(Monster)
 
         --Category 2: Special loot
 
-        local done=monster.base.drop.AddDropItem(82,1,20,(100*math.random(7,8)+math.random(77,88)),0,2); --blackstone amulet
-        if not done then done=monster.base.drop.AddDropItem(278,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --blackstone ring
+        local done=monster.base.drop.AddDropItem(82,1,20,(100*math.random(7,8)+math.random(77,88)),0,2); --obsidian amulet
+        if not done then done=monster.base.drop.AddDropItem(278,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --obsidian ring
         if not done then done=monster.base.drop.AddDropItem(235,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --golden ring
         if not done then done=monster.base.drop.AddDropItem(334,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --icebird charm
-        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(7,8)+math.random(77,88)),1,2); end --magic blackstone
+        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(7,8)+math.random(77,88)),1,2); end --magic obsidian
 
         --Category 3: Weapon
 

@@ -93,7 +93,7 @@ end;
 qListDe={"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"};
 qListEn={"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"};
 
---                stock,sapphire,ruby,emerald,blackstone,amethyst,topaz,diamant
+--                stock,sapphire,ruby,emerald,obsidian,amethyst,topaz,diamant
 gemList        = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
 cauldronPotion = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017} 
 bottlePotion   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}

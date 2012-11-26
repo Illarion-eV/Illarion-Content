@@ -87,11 +87,11 @@ product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
 product:addIngredient(46) -- Ruby: 1x1
 
---Blackstone Amulet
+--Obsidian Amulet
 product = smithing:addProduct(catId, 82, 50, 70, 17, 34)
 product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
-product:addIngredient(283) -- Blackstone: 1x1
+product:addIngredient(283) -- Obsidian: 1x1
 
 --Sapphire Amulet
 product = smithing:addProduct(catId, 71, 60, 80, 20, 40)
@@ -152,11 +152,11 @@ product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
 product:addIngredient(46) -- Ruby: 1x1
 
---Blackstone Ring
+--Obsidian Ring
 product = smithing:addProduct(catId, 278, 35, 55, 14, 28)
 product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
-product:addIngredient(283) -- Blackstone: 1x1
+product:addIngredient(283) -- Obsidian: 1x1
 
 --Sapphire Ring
 product = smithing:addProduct(catId, 279, 45, 65, 16, 32)

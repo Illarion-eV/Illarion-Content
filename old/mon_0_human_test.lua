@@ -175,7 +175,7 @@ function onDeath(Monster)
         local done=monster.base.drop.AddDropItem(2745,1,20,(100*math.random(4,5)+math.random(44,55)),0,2); --parchment
         if not done then done=monster.base.drop.AddDropItem(164,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --big empty bottle
         if not done then done=monster.base.drop.AddDropItem(463,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --quill
-        if not done then done=monster.base.drop.AddDropItem(278,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --blackstone ring
+        if not done then done=monster.base.drop.AddDropItem(278,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --obsidian ring
         if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --sapphire ring
 
         --Category 3: Weapon
@@ -204,7 +204,7 @@ function onDeath(Monster)
 
         local done=monster.base.drop.AddDropItem(63,1,20,(100*math.random(4,5)+math.random(44,55)),0,2); --insides
         if not done then done=monster.base.drop.AddDropItem(314,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --pot ash
-        if not done then done=monster.base.drop.AddDropItem(278,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --blackstone ring
+        if not done then done=monster.base.drop.AddDropItem(278,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --obsidian ring
         if not done then done=monster.base.drop.AddDropItem(2746,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --razor blade
         if not done then done=monster.base.drop.AddDropItem(223,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --goblet
 

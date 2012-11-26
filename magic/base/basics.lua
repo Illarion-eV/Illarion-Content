@@ -275,7 +275,7 @@ function InitializeHelpList()
     PraeList[13]={48   ,53  ,325   ,326  ,369  ,2295  };
     PraeLBon[13]={-5   ,-5  ,-50   ,-50  ,0    ,0     };
     -- Amulettes
-	-- {emerald amulet, rubin amulet, sapphire amulet, amethyst amulet, blackstone amulet, topas amulet, amulet, charm of the icebird }
+	-- {emerald amulet, rubin amulet, sapphire amulet, amethyst amulet, obsidian amulet, topas amulet, amulet, charm of the icebird }
     PraeList[14]={62  ,67   ,71   ,79  ,82  ,83   ,222  ,334  };
     PraeLBon[14]={20  ,20   ,30   ,20  ,20  ,30   ,0    ,50   };
     -- Hats
@@ -288,7 +288,7 @@ function InitializeHelpList()
     PraeList[16]={55  ,193  ,194  ,195  ,196  ,368  ,547  ,548  ,558  ,2377  ,2378  ,2380  ,2384  ,2416  ,2418  ,2419  ,2420  ,2421  };
     PraeLBon[16]={5   ,5    ,5    ,5    ,0    ,10   ,20   ,30   ,50   ,10    ,5     ,0     ,0     ,10    ,10    ,10    ,10    ,10    };
     -- Rings
-	-- {ruby ring, golden ring, amethyst ring, blackstone ring, sapphire ring, diamond ring, emerald ring, topas ring, ring of the archmage }
+	-- {ruby ring, golden ring, amethyst ring, obsidian ring, sapphire ring, diamond ring, emerald ring, topas ring, ring of the archmage }
     PraeList[17]={68  ,235  ,277  ,278  ,279  ,280  ,281  ,282  ,2559  };
     PraeLBon[17]={20  ,0    ,20   ,20   ,30   ,30   ,20   ,30   ,50    };
     -- Tools I

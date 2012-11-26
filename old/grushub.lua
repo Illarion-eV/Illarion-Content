@@ -131,7 +131,7 @@ function initializeNpc()
     TraderItemStandard[11]=5;
     TraderItemQuality[11]={4,6};
     TraderItemDura[11]={33,66};
-    --blackstone ring
+    --obsidian ring
     TraderItemPrice[12]=1100;
     TraderItemId[12]=278;
     TraderItemNumber[12]=5;
@@ -171,7 +171,7 @@ function initializeNpc()
     TraderItemStandard[16]=5;
     TraderItemQuality[16]={4,6};
     TraderItemDura[16]={33,66};
-    --blackstone
+    --obsidian
     TraderItemPrice[17]=500;
     TraderItemId[17]=283;
     TraderItemNumber[17]=5;

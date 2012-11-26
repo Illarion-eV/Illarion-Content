@@ -950,7 +950,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("The Don owns two stones of power. These are a Sapphire and a Blackstone. They protect Galmair to get beaten by our forces.");
+talkEntry:addResponse("The Don owns two stones of power. These are a Sapphire and a Obsidian. They protect Galmair to get beaten by our forces.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -276,7 +276,7 @@ product:addIngredient(2535, 20) -- Iron Ingot: 20x1
 product:addIngredient(176, 10) -- Grey Cloth: 10x1
 product:addIngredient(2547, 6) -- Leather: 6x1
 product:addIngredient(2550, 5) -- Copper Ingot: 5x1
-product:addIngredient(283, 5) -- Blackstone: 5x1
+product:addIngredient(283, 5) -- Obsidian: 5x1
 
 --Heavy Plate
 product = smithing:addProduct(catId, 2393, 90, 110, 27, 54)

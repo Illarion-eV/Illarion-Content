@@ -87,12 +87,12 @@ function Init()
 	
 --[[
 For coals mines:
-1245: 60% Coal + 7% Blackstone + 3% Ruby
+1245: 60% Coal + 7% Obsidian + 3% Ruby
 1246: 40% Coal + 7% Amethyst + 3% Emerald
 
 For iron mines:
 914: 60% Iron + 7% Ruby + 3% Topaz
-1273: 40% Iron + 7% Sapphire + 3% Blackstone
+1273: 40% Iron + 7% Sapphire + 3% Obsidian
 
 For copper mines:
 1276: 60% Copper + 7% Emerald + 3% Sapphire
@@ -132,7 +132,7 @@ Radius 15
     AddArea( 1, position(406,159,-3), 20 );
     AddStone( 1, 1245 );
     SetRessource( 1, 1245,  21, 60,  0); -- coal
-	SetRessource( 1, 1245,  252, 7, 0); -- blackstone
+	SetRessource( 1, 1245,  252, 7, 0); -- obsidian
     SetRessource( 1, 1245,  255, 3,  0); -- rubys
     AddStone( 1, 1246 );
     SetRessource( 1, 1246, 21,  40, 0); -- coal
@@ -153,7 +153,7 @@ Radius 15
     AddStone( 2, 1273 );
     SetRessource( 2, 1273,  22, 40,  0); -- iron ore
 	SetRessource( 2, 1273,  253, 7, 0); -- sapphire
-	SetRessource( 2, 1273,  252, 3, 0); -- blackstone
+	SetRessource( 2, 1273,  252, 3, 0); -- obsidian
     AddStone( 2, 1276 );
     SetRessource( 2, 1276,  2536, 40,  0); -- copper ore
 	SetRessource( 2, 1276,  256, 7, 0); -- emerald
@@ -163,7 +163,7 @@ Radius 15
 	AddArea( 3, position(142,686,0), 15 );
     AddStone( 3, 1245 );
     SetRessource( 3, 1245,  21, 60,  0); -- coal
-	SetRessource( 3, 1245,  252, 7, 0); -- blackstone
+	SetRessource( 3, 1245,  252, 7, 0); -- obsidian
     SetRessource( 3, 1245,  255, 3,  0); -- rubys
     AddStone( 3, 1246 );
     SetRessource( 3, 1246, 21,  40, 0); -- coal
@@ -184,7 +184,7 @@ Radius 15
     AddStone( 4, 1273 );
     SetRessource( 4, 1273,  22, 40,  0); -- iron ore
 	SetRessource( 4, 1273,  253, 7, 0); -- sapphire
-	SetRessource( 4, 1273,  252, 3, 0); -- blackstone
+	SetRessource( 4, 1273,  252, 3, 0); -- obsidian
 	AddStone( 4, 1276 );
     SetRessource( 4, 1276,  2536, 40,  0); -- copper ore
 	SetRessource( 4, 1276,  256, 7, 0); -- emerald
@@ -194,7 +194,7 @@ Radius 15
 	AddArea( 5, position(548,371,0), 15 );
     AddStone( 5, 1245 );
     SetRessource( 5, 1245,  21, 60,  0); -- coal
-	SetRessource( 5, 1245,  252, 7, 0); -- blackstone
+	SetRessource( 5, 1245,  252, 7, 0); -- obsidian
     SetRessource( 5, 1245,  255, 3,  0); -- rubys
     AddStone( 5, 1246 );
     SetRessource( 5, 1246, 21,  40, 0); -- coal
@@ -220,10 +220,10 @@ Radius 15
     AddStone( 6, 1273 );
     SetRessource( 6, 1273,  22, 40,  0); -- iron ore
 	SetRessource( 6, 1273,  253, 7, 0); -- sapphire
-	SetRessource( 6, 1273,  252, 3, 0); -- blackstone
+	SetRessource( 6, 1273,  252, 3, 0); -- obsidian
 	AddStone( 6, 1245 );
     SetRessource( 6, 1245,  21, 60,  0); -- coal
-	SetRessource( 6, 1245,  252, 7, 0); -- blackstone
+	SetRessource( 6, 1245,  252, 7, 0); -- obsidian
     SetRessource( 6, 1245,  255, 3,  0); -- rubys
     AddStone( 6, 1246 );
     SetRessource( 6, 1246, 21,  40, 0); -- coal
@@ -248,10 +248,10 @@ Radius 15
     AddStone( 7, 1273 );
     SetRessource( 7, 1273,  22, 40,  0); -- iron ore
 	SetRessource( 7, 1273,  253, 7, 0); -- sapphire
-	SetRessource( 7, 1273,  252, 3, 0); -- blackstone
+	SetRessource( 7, 1273,  252, 3, 0); -- obsidian
 	AddStone( 7, 1245 );
     SetRessource( 7, 1245,  21, 60,  0); -- coal
-	SetRessource( 7, 1245,  252, 7, 0); -- blackstone
+	SetRessource( 7, 1245,  252, 7, 0); -- obsidian
     SetRessource( 7, 1245,  255, 3,  0); -- rubys
     AddStone( 7, 1246 );
     SetRessource( 7, 1246, 21,  40, 0); -- coal

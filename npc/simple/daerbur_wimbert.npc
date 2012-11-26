@@ -128,13 +128,13 @@ skill(mining) < 90, queststatus(68) = 3, item(21, all) > 19, ".+" -> inform("[Qu
 queststatus(68) = 3, item(21, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.", money + 1000, deleteItem(21, 20), queststatus(68) = 4
 
 -- 3rd quest: Gather 5 rare raw materials for 100cp.
-queststatus(68) = 4, english, "quest", "mission" -> inform("[New quest] Dark Hole Mine III"), "Hey-ho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.", queststatus(68) = 5
+queststatus(68) = 4, english, "quest", "mission" -> inform("[New quest] Dark Hole Mine III"), "Hey-ho! Now we can dig for gems. Gather five raw obsidians for me and I will reward you generously.", queststatus(68) = 5
 queststatus(68) = 4, "quest", "mission" -> inform("[Neues Quest] Dunkellochmine III"), "Hey-ho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig.", queststatus(68) = 5
-queststatus(68) = 4, "task", "adventure", "order" -> inform("[New quest] Dark Hole Mine III"), "Heydiho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.", queststatus(68) = 5
+queststatus(68) = 4, "task", "adventure", "order" -> inform("[New quest] Dark Hole Mine III"), "Heydiho! Now we can dig for gems. Gather five raw obsidians for me and I will reward you generously.", queststatus(68) = 5
 queststatus(68) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Dunkellochmine III"), "Heydiho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig", queststatus(68) = 5
-queststatus(68) = 5, item(252, all) < 5, english, "quest", "mission" -> "Bring me five raw blackstones and you get money. I'm so excited!"
+queststatus(68) = 5, item(252, all) < 5, english, "quest", "mission" -> "Bring me five raw obsidians and you get money. I'm so excited!"
 queststatus(68) = 5, item(252, all) < 5, "quest", "mission" -> "Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
-queststatus(68) = 5, item(252, all) < 5, "task", "adventure", "order" -> "Bring me five raw blackstones and you get money. I'm so excited!"
+queststatus(68) = 5, item(252, all) < 5, "task", "adventure", "order" -> "Bring me five raw obsidians and you get money. I'm so excited!"
 queststatus(68) = 5, item(252, all) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
 skill(mining) < 90, queststatus(68) = 5, item(252, all) > 4, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!", skill(mining) + 1, money + 1000, deleteItem(252, 5), queststatus(68) = 6, rankpoints + 15
 queststatus(68) = 5, item(252, all) > 4, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded ten silver coins. You advance in Don Valerio Guilianni's favour."), "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!", money + 1000, deleteItem(252, 5), queststatus(68) = 6, rankpoints + 15

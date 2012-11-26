@@ -87,7 +87,7 @@ if (MonID==871) then --Crippled Swampbeast, Level: 3, Armourtype: light, Weapont
         local done=monster.base.drop.AddDropItem(63,1,20,(100*math.random(2,3)+math.random(22,33)),0,1); --entrails 
         if not done then done=monster.base.drop.AddDropItem(253,1,10,(100*math.random(2,3)+math.random(22,33)),0,1); end --raw sapphire
         if not done then done=monster.base.drop.AddDropItem(83,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --topas amulet
-        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --blackstone
+        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --obsidian
         if not done then done=monster.base.drop.AddDropItem(359,1,1,(100*math.random(1,1)+math.random(11,11)),0,1); end --flame 
 
         --Category 2: Special Loot
@@ -103,7 +103,7 @@ if (MonID==871) then --Crippled Swampbeast, Level: 3, Armourtype: light, Weapont
         local done=monster.base.drop.AddDropItem(284,1,20,(100*math.random(2,3)+math.random(22,33)),0,3); --sapphire
         if not done then done=monster.base.drop.AddDropItem(46,1,10,(100*math.random(2,3)+math.random(22,33)),0,3); end --ruby
         if not done then done=monster.base.drop.AddDropItem(285,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --diamond
-        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --blackstone
+        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --obsidian
         if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --topaz
 
         --Category 4: Perma Loot
@@ -155,7 +155,7 @@ if (MonID==871) then --Crippled Swampbeast, Level: 3, Armourtype: light, Weapont
         local done=monster.base.drop.AddDropItem(284,1,20,(100*math.random(4,5)+math.random(44,55)),0,2); --sapphire
         if not done then done=monster.base.drop.AddDropItem(197,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --amethyst
         if not done then done=monster.base.drop.AddDropItem(222,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --amulet
-        if not done then done=monster.base.drop.AddDropItem(82,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --blackstone amulet 
+        if not done then done=monster.base.drop.AddDropItem(82,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --obsidian amulet 
         if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --sapphire
 
         --Category 3: More Special Loot

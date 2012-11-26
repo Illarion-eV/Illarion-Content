@@ -157,7 +157,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(225,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --crown
         if not done then done=monster.base.drop.AddDropItem(738,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --dragon egg
         if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(6,7)+math.random(66,77)),nil,1); end --treasure map
-        if not done then done=monster.base.drop.AddDropItem(449,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --blackstone powder
+        if not done then done=monster.base.drop.AddDropItem(449,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --obsidian powder
 
         --Category 2: Special loot
 

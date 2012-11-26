@@ -404,7 +404,7 @@ talkEntry:addTrigger(".+");
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2420, "all", ">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a magical blackstone ring."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a magical obsidian ring."));
 talkEntry:addResponse("It seems as if Ronagan is looking on you benevolently. My customer gave me this ring in advance, it is now yours.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2420, 5));
 talkEntry:addConsequence(npc.base.consequence.item.item(278, 1, 999, 42));

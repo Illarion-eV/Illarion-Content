@@ -92,7 +92,7 @@ function onDeath(Monster)
         --Category 1: Special Loot
 
         local done=monster.base.drop.AddDropItem(451,1,20,(100*math.random(7,8)+math.random(77,88)),0,1); --topaz powder
-        if not done then done=monster.base.drop.AddDropItem(449,1,10,(100*math.random(7,8)+math.random(77,88)),0,1); end --blackstone powder
+        if not done then done=monster.base.drop.AddDropItem(449,1,10,(100*math.random(7,8)+math.random(77,88)),0,1); end --obsidian powder
         if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(7,8)+math.random(77,88)),nil,1); end --treasure map
         if not done then done=monster.base.drop.AddDropItem(446,1,1,(100*math.random(7,8)+math.random(77,88)),1,1); end --treasure map
         if not done then done=monster.base.drop.AddDropItem(738,1,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --dragon egg

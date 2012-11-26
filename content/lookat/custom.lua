@@ -33,8 +33,8 @@ function InitCustomLookAt()
 	addDescription(	 68,	1,	"Siranis Kuss", "Sirani's kiss", true, true, false ); -- for Alsaya
 	addDescription(	 68,	2,	"mit dem Zeichen von Troll's Bane", "with the mark of Troll's Bane", false, false, false );
 	addDescription(	 71,	1,	"Halskette mit einer Phiole gefüllt mit den Tränen Siranis", "necklace with a phial filled with the tears of Sirani", true, true, false ); -- for Alsaya
-	addDescription(	 82,	1,	"zerissene Schwarzsteinkette", "ripped blackstone amulet", true, true, false ); -- for Alsaya
-	addDescription(  82,	2,  "Auf dem Schwarzstein des Amulettes ist ein mysteriöses Zeichen eingraviert und um es herum die Worte 'Ab initio'.", "On the blackstone of the amulet is a mysterious sign engraved and around it the words 'Ab initio'.", true, true, false ); --for Alsaya
+	addDescription(	 82,	1,	"zerissene Schwarzsteinkette", "ripped obsidian amulet", true, true, false ); -- for Alsaya
+	addDescription(  82,	2,  "Auf dem Schwarzstein des Amulettes ist ein mysteriöses Zeichen eingraviert und um es herum die Worte 'Ab initio'.", "On the obsidian of the amulet is a mysterious sign engraved and around it the words 'Ab initio'.", true, true, false ); --for Alsaya
 	addDescription(	 83,	1,	"Firnisorden von Varshikar", "Firnis Medal of Varshikar", false, true, 0 );
 	addDescription(	 95,	1,	"verziert mit dem Wappen des geflügelten Schweines", "decorated with the emblem of the winged pig", false, false, false );
 	addDescription(	180,	1,	"mit dem Wappen des Littlethorn Clans rechts auf der Brust", "with the emblem of the Littlethorn Clan on the right chest", false, false, false );

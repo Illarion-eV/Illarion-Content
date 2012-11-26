@@ -12,11 +12,11 @@ function LookAtItem(User, Item) -- Used for THE LIBRARY QUEST
 		end
 	end
 
-	if Item.data ==101 then --used for THE LIBRARY quest -- blackstone bonus
+	if Item.data ==101 then --used for THE LIBRARY quest -- obsidian bonus
 		if (User:getPlayerLanguage() ==0) then
 			User:inform("Du vermagst, eine Belohnung zur erlangen - ein magischer Schwarzstein liegt in dem Buch.")
 			else
-			User:inform("You may obtain one reward - a magical blackstone lies inside this book.")
+			User:inform("You may obtain one reward - a magical obsidian lies inside this book.")
 		end
 	end
 	
@@ -49,7 +49,7 @@ function UseItem(User,SourceItem)
 							found = 1
 							if (SourceItem.data==100) then --l2 ruby
 							User:createItem(46,1,333,2)
-							elseif (SourceItem.data==101) then --l2 blackstone
+							elseif (SourceItem.data==101) then --l2 obsidian
 							User:createItem(283,1,333,2)
 							elseif (SourceItem.data==102) then --l2 diamond
 							User:createItem(285,1,333,2)

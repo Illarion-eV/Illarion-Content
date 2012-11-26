@@ -128,7 +128,7 @@ local SUFFIX_EN = {"","","","","","",""};
 	end
 	if Str<=4 then
         SUFFIX_DE={"verziert mit einem Diamant","verziert mit einem Smaragd","verziert mit einem Rubin","verziert mit einem Schwarzstein","verziert mit einem Blaustein","verziert mit einem Amethyst","verziert mit einem Topas"}
-        SUFFIX_EN={"adorned with a diamond","adorned with an emerald","adorned with a ruby","adorned with a blackstone","adorned with a sapphire","adorned with an amethyst","adorned with a topas"}
+        SUFFIX_EN={"adorned with a diamond","adorned with an emerald","adorned with a ruby","adorned with a obsidian","adorned with a sapphire","adorned with an amethyst","adorned with a topas"}
 	end
 
 	-- Sprachausgabe
@@ -235,7 +235,7 @@ local PRAEFIX_EN = {"","","","","","",""};
 	end
 	if Str<=4 then
         PRAEFIX_DE={"diamantenbesetzte","smaragdbesetzte","rubinbesetze","schwarzsteinbesetzte","blausteinbesetzte","amethystbesetzte","topasbesetzte"}
-        PRAEFIX_EN={"diamond ornated","emerald ornated","ruby ornated","blackstone ornated","sapphire ornated","amethyst ornated","topas ornated"}
+        PRAEFIX_EN={"diamond ornated","emerald ornated","ruby ornated","obsidian ornated","sapphire ornated","amethyst ornated","topas ornated"}
     end
 
     -- Sprachausgabe
@@ -275,7 +275,7 @@ end
 -- @return: text - Name des eingesetzten Steins
 function writeGem(User, gem)
     GEM_NAME_DE={ "Diamant", "Smaragd", "Rubin","Schwarzstein", "Blaustein", "Amethyst", "Topas" }
-    GEM_NAME_EN={ "diamond", "emerald", "ruby","blackstone", "sapphire", "amethyst", "topas" }
+    GEM_NAME_EN={ "diamond", "emerald", "ruby","obsidian", "sapphire", "amethyst", "topas" }
     if User:getPlayerLanguage() == 0 then
         gemName=GEM_NAME_DE[gem];
     else

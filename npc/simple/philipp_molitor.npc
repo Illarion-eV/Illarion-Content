@@ -1379,11 +1379,11 @@ queststatus(127) = 75, item(235, all) < 15, town = Cadomyr, "quest", "mission" -
 queststatus(127) = 75, item(235, all) < 15, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get fifteen golden rings. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 75, item(235, all) < 15, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, fünfzehn Goldringe zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
--- Order 76: Gather five blackstones (283) in four hours
--- 76: Order 76 taken, get five blackstones, reward: fifteen sp, 5 rankpoints
-queststatus(127) = 0, english, chance(0.8130081300813008), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get five blackstones."), "I have the following order for you. The next caravan has a demand for five blackstones. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be fifteen silver coins.", queststatus(127) = 76, queststatus(128) = 48
+-- Order 76: Gather five obsidians (283) in four hours
+-- 76: Order 76 taken, get five obsidians, reward: fifteen sp, 5 rankpoints
+queststatus(127) = 0, english, chance(0.8130081300813008), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get five obsidians."), "I have the following order for you. The next caravan has a demand for five obsidians. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be fifteen silver coins.", queststatus(127) = 76, queststatus(128) = 48
 queststatus(127) = 0, german, chance(0.8130081300813008), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe fünf Schwarzsteine."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt fünf Schwarzsteine. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen fünfzehn Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 76, queststatus(128) = 48
-queststatus(127) = 0, chance(0.8130081300813008), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get five blackstones."), "I have the following order for you. The next caravan has a demand for five blackstones. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be fifteen silver coins.", queststatus(127) = 76, queststatus(128) = 48
+queststatus(127) = 0, chance(0.8130081300813008), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get five obsidians."), "I have the following order for you. The next caravan has a demand for five obsidians. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be fifteen silver coins.", queststatus(127) = 76, queststatus(128) = 48
 queststatus(127) = 0, chance(0.8130081300813008), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe fünf Schwarzsteine."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt fünf Schwarzsteine. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen fünfzehn Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 76, queststatus(128) = 48
 
 -- Order 76 solved, reward: fifteen sp, 5 rankpoints, delay: 4h
@@ -1391,16 +1391,16 @@ queststatus(127) = 76, item(283, all) => 5, english, town = Cadomyr, ".*" -> inf
 queststatus(127) = 76, item(283, all) => 5, town = Cadomyr, ".*" -> inform("[Auftrag erledigt] Du erhältst fünfzehn Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Genau zur rechten Zeit. Die Karawane wird bald losziehen. Hier ist eure Belohnung.", money + 1500, deleteItem(283, 5), queststatus(127) = 0, queststatus(128) = 0, queststatus(129) = 48, rankpoints + 5
 
 -- Order 76 taken but not solved, repeat the instructions
-queststatus(127) = 76, item(283, all) < 5, english, town = Cadomyr, "quest", "mission" -> "Your order is to get five blackstones. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 76, item(283, all) < 5, english, town = Cadomyr, "quest", "mission" -> "Your order is to get five obsidians. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 76, item(283, all) < 5, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, fünf Schwarzsteine zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
-queststatus(127) = 76, item(283, all) < 5, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get five blackstones. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 76, item(283, all) < 5, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get five obsidians. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 76, item(283, all) < 5, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, fünf Schwarzsteine zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
--- Order 77: Gather ten blackstones (283) in four hours
--- 77: Order 77taken, get ten blackstones, reward: thirty sp, 5 rankpoints
-queststatus(127) = 0, english, chance(0.819672131147541), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get ten blackstones."), "I have the following order for you. The next caravan has a demand for ten blackstones. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be thirty silver coins.", queststatus(127) = 77, queststatus(128) = 48
+-- Order 77: Gather ten obsidians (283) in four hours
+-- 77: Order 77taken, get ten obsidians, reward: thirty sp, 5 rankpoints
+queststatus(127) = 0, english, chance(0.819672131147541), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get ten obsidians."), "I have the following order for you. The next caravan has a demand for ten obsidians. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be thirty silver coins.", queststatus(127) = 77, queststatus(128) = 48
 queststatus(127) = 0, german, chance(0.819672131147541), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe zehn Schwarzsteine."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt zehn Schwarzsteine. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen dreißig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 77, queststatus(128) = 48
-queststatus(127) = 0, chance(0.819672131147541), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get ten blackstones."), "I have the following order for you. The next caravan has a demand for ten blackstones. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be thirty silver coins.", queststatus(127) = 77, queststatus(128) = 48
+queststatus(127) = 0, chance(0.819672131147541), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get ten obsidians."), "I have the following order for you. The next caravan has a demand for ten obsidians. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be thirty silver coins.", queststatus(127) = 77, queststatus(128) = 48
 queststatus(127) = 0, chance(0.819672131147541), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe zehn Schwarzsteine."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt zehn Schwarzsteine. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen dreißig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 77, queststatus(128) = 48
 
 -- Order 77 solved, reward: thirty sp, 5 rankpoints, delay: 4h
@@ -1408,16 +1408,16 @@ queststatus(127) = 77, item(283, all) => 10, english, town = Cadomyr, ".*" -> in
 queststatus(127) = 77, item(283, all) => 10, town = Cadomyr, ".*" -> inform("[Auftrag erledigt] Du erhältst dreißig Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Genau zur rechten Zeit. Die Karawane wird bald losziehen. Hier ist eure Belohnung.", money + 3000, deleteItem(283, 10), queststatus(127) = 0, queststatus(128) = 0, queststatus(129) = 48, rankpoints + 5
 
 -- Order 77 taken but not solved, repeat the instructions
-queststatus(127) = 77, item(283, all) < 10, english, town = Cadomyr, "quest", "mission" -> "Your order is to get ten blackstones. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 77, item(283, all) < 10, english, town = Cadomyr, "quest", "mission" -> "Your order is to get ten obsidians. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 77, item(283, all) < 10, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, zehn Schwarzsteine zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
-queststatus(127) = 77, item(283, all) < 10, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get ten blackstones. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 77, item(283, all) < 10, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get ten obsidians. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 77, item(283, all) < 10, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, zehn Schwarzsteine zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
--- Order 78: Gather fifteen blackstones (283) in four hours
--- 78: Order 78 taken, get fifteen blackstones, reward: fourty five sp, 5 rankpoints
-queststatus(127) = 0, english, chance(0.8264462809917356), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get fifteen blackstones."), "I have the following order for you. The next caravan has a demand for fifteen blackstones. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be fourty five silver coins.", queststatus(127) = 78, queststatus(128) = 48
+-- Order 78: Gather fifteen obsidians (283) in four hours
+-- 78: Order 78 taken, get fifteen obsidians, reward: fourty five sp, 5 rankpoints
+queststatus(127) = 0, english, chance(0.8264462809917356), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get fifteen obsidians."), "I have the following order for you. The next caravan has a demand for fifteen obsidians. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be fourty five silver coins.", queststatus(127) = 78, queststatus(128) = 48
 queststatus(127) = 0, german, chance(0.8264462809917356), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe fünfzehn Schwarzsteine."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt fünfzehn Schwarzsteine. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen fünfundvierzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 78, queststatus(128) = 48
-queststatus(127) = 0, chance(0.8264462809917356), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get fifteen blackstones."), "I have the following order for you. The next caravan has a demand for fifteen blackstones. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be fourty five silver coins.", queststatus(127) = 78, queststatus(128) = 48
+queststatus(127) = 0, chance(0.8264462809917356), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get fifteen obsidians."), "I have the following order for you. The next caravan has a demand for fifteen obsidians. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be fourty five silver coins.", queststatus(127) = 78, queststatus(128) = 48
 queststatus(127) = 0, chance(0.8264462809917356), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe fünfzehn Schwarzsteine."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt fünfzehn Schwarzsteine. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen fünfundvierzigSilberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 78, queststatus(128) = 48
 
 -- Order 78 solved, reward: fourty five sp, 5 rankpoints, delay: 4h
@@ -1425,9 +1425,9 @@ queststatus(127) = 78, item(283, all) => 15, english, town = Cadomyr, ".*" -> in
 queststatus(127) = 78, item(283, all) => 15, town = Cadomyr, ".*" -> inform("[Auftrag erledigt] Du erhältst fünfundvierzig Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Genau zur rechten Zeit. Die Karawane wird bald losziehen. Hier ist eure Belohnung.", money + 4500, deleteItem(283, 15), queststatus(127) = 0, queststatus(128) = 0, queststatus(129) = 48, rankpoints + 5
 
 -- Order 78 taken but not solved, repeat the instructions
-queststatus(127) = 78, item(283, all) < 15, english, town = Cadomyr, "quest", "mission" -> "Your order is to get fifteen blackstones. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 78, item(283, all) < 15, english, town = Cadomyr, "quest", "mission" -> "Your order is to get fifteen obsidians. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 78, item(283, all) < 15, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, fünfzehn Schwarzsteine zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
-queststatus(127) = 78, item(283, all) < 15, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get fifteen blackstones. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 78, item(283, all) < 15, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get fifteen obsidians. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 78, item(283, all) < 15, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, fünfzehn Schwarzsteine zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
 -- Order 79: Gather five sapphires (284) in four hours
@@ -2399,11 +2399,11 @@ queststatus(127) = 135, item(446, all) < 15, town = Cadomyr, "quest", "mission" 
 queststatus(127) = 135, item(446, all) < 15, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get fifteen bags of sapphire powder. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 135, item(446, all) < 15, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, fünfzehn Säcke Blausteinstaub zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
--- Order 136: Gather five bags of blackstone powder (449) in four hours
--- 136: Order 136 taken, get five bags of blackstone powder, reward: thirty sp, 5 rankpoints
-queststatus(127) = 0, english, chance(1.5873015873015872), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get five bags of blackstone powder."), "I have the following order for you. The next caravan has a demand for five bags of blackstone powder. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be thirty silver coins.", queststatus(127) = 136, queststatus(128) = 48
+-- Order 136: Gather five bags of obsidian powder (449) in four hours
+-- 136: Order 136 taken, get five bags of obsidian powder, reward: thirty sp, 5 rankpoints
+queststatus(127) = 0, english, chance(1.5873015873015872), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get five bags of obsidian powder."), "I have the following order for you. The next caravan has a demand for five bags of obsidian powder. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be thirty silver coins.", queststatus(127) = 136, queststatus(128) = 48
 queststatus(127) = 0, german, chance(1.5873015873015872), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe fünf Säcke Schwarzsteinstaub."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt fünf Säcke Schwarzsteinstaub. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen dreißig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 136, queststatus(128) = 48
-queststatus(127) = 0, chance(1.5873015873015872), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get five bags of blackstone powder."), "I have the following order for you. The next caravan has a demand for five bags of blackstone powder. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be thirty silver coins.", queststatus(127) = 136, queststatus(128) = 48
+queststatus(127) = 0, chance(1.5873015873015872), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get five bags of obsidian powder."), "I have the following order for you. The next caravan has a demand for five bags of obsidian powder. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be thirty silver coins.", queststatus(127) = 136, queststatus(128) = 48
 queststatus(127) = 0, chance(1.5873015873015872), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe fünf Säcke Schwarzsteinstaub."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt fünf Säcke Schwarzsteinstaub. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen dreißig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 136, queststatus(128) = 48
 
 -- Order 136 solved, reward: thirty sp, 5 rankpoints, delay: 4h
@@ -2411,16 +2411,16 @@ queststatus(127) = 136, item(449, all) => 5, english, town = Cadomyr, ".*" -> in
 queststatus(127) = 136, item(449, all) => 5, town = Cadomyr, ".*" -> inform("[Auftrag erledigt] Du erhältst dreißig Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Genau zur rechten Zeit. Die Karawane wird bald losziehen. Hier ist eure Belohnung.", money + 3000, deleteItem(449, 5), queststatus(127) = 0, queststatus(128) = 0, queststatus(129) = 48, rankpoints + 5
 
 -- Order 136 taken but not solved, repeat the instructions
-queststatus(127) = 136, item(449, all) < 5, english, town = Cadomyr, "quest", "mission" -> "Your order is to get five bags of blackstone powder. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 136, item(449, all) < 5, english, town = Cadomyr, "quest", "mission" -> "Your order is to get five bags of obsidian powder. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 136, item(449, all) < 5, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, fünf Säcke Schwarzsteinstaub zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
-queststatus(127) = 136, item(449, all) < 5, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get five bags of blackstone powder. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 136, item(449, all) < 5, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get five bags of obsidian powder. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 136, item(449, all) < 5, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, fünf Säcke Schwarzsteinstaub zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
--- Order 137: Gather ten bags of blackstone powder (449) in four hours
--- 137: Order 137taken, get ten bags of blackstone powder, reward: sixty sp, 5 rankpoints
-queststatus(127) = 0, english, chance(1.6129032258064515), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get ten bags of blackstone powder."), "I have the following order for you. The next caravan has a demand for ten bags of blackstone powder. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be sixty silver coins.", queststatus(127) = 137, queststatus(128) = 48
+-- Order 137: Gather ten bags of obsidian powder (449) in four hours
+-- 137: Order 137taken, get ten bags of obsidian powder, reward: sixty sp, 5 rankpoints
+queststatus(127) = 0, english, chance(1.6129032258064515), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get ten bags of obsidian powder."), "I have the following order for you. The next caravan has a demand for ten bags of obsidian powder. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be sixty silver coins.", queststatus(127) = 137, queststatus(128) = 48
 queststatus(127) = 0, german, chance(1.6129032258064515), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe zehn Säcke Schwarzsteinstaub."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt zehn Säcke Schwarzsteinstaub. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen sechzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 137, queststatus(128) = 48
-queststatus(127) = 0, chance(1.6129032258064515), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get ten bags of blackstone powder."), "I have the following order for you. The next caravan has a demand for ten bags of blackstone powder. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be sixty silver coins.", queststatus(127) = 137, queststatus(128) = 48
+queststatus(127) = 0, chance(1.6129032258064515), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get ten bags of obsidian powder."), "I have the following order for you. The next caravan has a demand for ten bags of obsidian powder. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be sixty silver coins.", queststatus(127) = 137, queststatus(128) = 48
 queststatus(127) = 0, chance(1.6129032258064515), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe zehn Säcke Schwarzsteinstaub."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt zehn Säcke Schwarzsteinstaub. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen sechzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 137, queststatus(128) = 48
 
 -- Order 137 solved, reward: sixty sp, 5 rankpoints, delay: 4h
@@ -2428,16 +2428,16 @@ queststatus(127) = 137, item(449, all) => 10, english, town = Cadomyr, ".*" -> i
 queststatus(127) = 137, item(449, all) => 10, town = Cadomyr, ".*" -> inform("[Auftrag erledigt] Du erhältst sechzig Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Genau zur rechten Zeit. Die Karawane wird bald losziehen. Hier ist eure Belohnung.", money + 6000, deleteItem(449, 10), queststatus(127) = 0, queststatus(128) = 0, queststatus(129) = 48, rankpoints + 5
 
 -- Order 137 taken but not solved, repeat the instructions
-queststatus(127) = 137, item(449, all) < 10, english, town = Cadomyr, "quest", "mission" -> "Your order is to get ten bags of blackstone powder. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 137, item(449, all) < 10, english, town = Cadomyr, "quest", "mission" -> "Your order is to get ten bags of obsidian powder. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 137, item(449, all) < 10, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, zehn Säcke Schwarzsteinstaub zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
-queststatus(127) = 137, item(449, all) < 10, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get ten bags of blackstone powder. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 137, item(449, all) < 10, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get ten bags of obsidian powder. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 137, item(449, all) < 10, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, zehn Säcke Schwarzsteinstaub zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
--- Order 138: Gather fifteen bags of blackstone powder (449) in four hours
--- 138: Order 138 taken, get fifteen bags of blackstone powder, reward: ninety sp, 5 rankpoints
-queststatus(127) = 0, english, chance(1.639344262295082), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get fifteen bags of blackstone powder."), "I have the following order for you. The next caravan has a demand for fifteen bags of blackstone powder. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be ninety silver coins.", queststatus(127) = 138, queststatus(128) = 48
+-- Order 138: Gather fifteen bags of obsidian powder (449) in four hours
+-- 138: Order 138 taken, get fifteen bags of obsidian powder, reward: ninety sp, 5 rankpoints
+queststatus(127) = 0, english, chance(1.639344262295082), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get fifteen bags of obsidian powder."), "I have the following order for you. The next caravan has a demand for fifteen bags of obsidian powder. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be ninety silver coins.", queststatus(127) = 138, queststatus(128) = 48
 queststatus(127) = 0, german, chance(1.639344262295082), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe fünfzehn Säcke Schwarzsteinstaub."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt fünfzehn Säcke Schwarzsteinstaub. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen neunzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 138, queststatus(128) = 48
-queststatus(127) = 0, chance(1.639344262295082), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get fifteen bags of blackstone powder."), "I have the following order for you. The next caravan has a demand for fifteen bags of blackstone powder. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be ninety silver coins.", queststatus(127) = 138, queststatus(128) = 48
+queststatus(127) = 0, chance(1.639344262295082), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get fifteen bags of obsidian powder."), "I have the following order for you. The next caravan has a demand for fifteen bags of obsidian powder. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be ninety silver coins.", queststatus(127) = 138, queststatus(128) = 48
 queststatus(127) = 0, chance(1.639344262295082), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe fünfzehn Säcke Schwarzsteinstaub."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt fünfzehn Säcke Schwarzsteinstaub. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen neunzigSilberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 138, queststatus(128) = 48
 
 -- Order 138 solved, reward: ninety sp, 5 rankpoints, delay: 4h
@@ -2445,9 +2445,9 @@ queststatus(127) = 138, item(449, all) => 15, english, town = Cadomyr, ".*" -> i
 queststatus(127) = 138, item(449, all) => 15, town = Cadomyr, ".*" -> inform("[Auftrag erledigt] Du erhältst neunzig Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Genau zur rechten Zeit. Die Karawane wird bald losziehen. Hier ist eure Belohnung.", money + 9000, deleteItem(449, 15), queststatus(127) = 0, queststatus(128) = 0, queststatus(129) = 48, rankpoints + 5
 
 -- Order 138 taken but not solved, repeat the instructions
-queststatus(127) = 138, item(449, all) < 15, english, town = Cadomyr, "quest", "mission" -> "Your order is to get fifteen bags of blackstone powder. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 138, item(449, all) < 15, english, town = Cadomyr, "quest", "mission" -> "Your order is to get fifteen bags of obsidian powder. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 138, item(449, all) < 15, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, fünfzehn Säcke Schwarzsteinstaub zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
-queststatus(127) = 138, item(449, all) < 15, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get fifteen bags of blackstone powder. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 138, item(449, all) < 15, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get fifteen bags of obsidian powder. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 138, item(449, all) < 15, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, fünfzehn Säcke Schwarzsteinstaub zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
 -- Order 139: Gather four amulets (222) in four hours
@@ -2756,11 +2756,11 @@ queststatus(127) = 156, item(79, all) < 7, town = Cadomyr, "quest", "mission" ->
 queststatus(127) = 156, item(79, all) < 7, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get seven amethyst amulets. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 156, item(79, all) < 7, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, sieben Amethystketten zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
--- Order 157: Gather three blackstone rings (278) in four hours
--- 157: Order 157 taken, get three blackstone rings, reward: fifty four sp, 5 rankpoints
-queststatus(127) = 0, english, chance(2.380952380952381), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get three blackstone rings."), "I have the following order for you. The next caravan has a demand for three blackstone rings. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be fifty four silver coins.", queststatus(127) = 157, queststatus(128) = 48
+-- Order 157: Gather three obsidian rings (278) in four hours
+-- 157: Order 157 taken, get three obsidian rings, reward: fifty four sp, 5 rankpoints
+queststatus(127) = 0, english, chance(2.380952380952381), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get three obsidian rings."), "I have the following order for you. The next caravan has a demand for three obsidian rings. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be fifty four silver coins.", queststatus(127) = 157, queststatus(128) = 48
 queststatus(127) = 0, german, chance(2.380952380952381), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe drei Schwarzsteinringe."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt drei Schwarzsteinringe. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen vierundfünfzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 157, queststatus(128) = 48
-queststatus(127) = 0, chance(2.380952380952381), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get three blackstone rings."), "I have the following order for you. The next caravan has a demand for three blackstone rings. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be fifty four silver coins.", queststatus(127) = 157, queststatus(128) = 48
+queststatus(127) = 0, chance(2.380952380952381), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get three obsidian rings."), "I have the following order for you. The next caravan has a demand for three obsidian rings. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be fifty four silver coins.", queststatus(127) = 157, queststatus(128) = 48
 queststatus(127) = 0, chance(2.380952380952381), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe drei Schwarzsteinringe."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt drei Schwarzsteinringe. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen vierundfünfzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 157, queststatus(128) = 48
 
 -- Order 157 solved, reward: fifty four sp, 5 rankpoints, delay: 4h
@@ -2768,16 +2768,16 @@ queststatus(127) = 157, item(278, all) => 3, english, town = Cadomyr, ".*" -> in
 queststatus(127) = 157, item(278, all) => 3, town = Cadomyr, ".*" -> inform("[Auftrag erledigt] Du erhältst vierundfünfzig Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Genau zur rechten Zeit. Die Karawane wird bald losziehen. Hier ist eure Belohnung.", money + 5400, deleteItem(278, 3), queststatus(127) = 0, queststatus(128) = 0, queststatus(129) = 48, rankpoints + 5
 
 -- Order 157 taken but not solved, repeat the instructions
-queststatus(127) = 157, item(278, all) < 3, english, town = Cadomyr, "quest", "mission" -> "Your order is to get three blackstone rings. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 157, item(278, all) < 3, english, town = Cadomyr, "quest", "mission" -> "Your order is to get three obsidian rings. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 157, item(278, all) < 3, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, drei Schwarzsteinringe zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
-queststatus(127) = 157, item(278, all) < 3, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get three blackstone rings. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 157, item(278, all) < 3, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get three obsidian rings. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 157, item(278, all) < 3, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, drei Schwarzsteinringe zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
--- Order 158: Gather five blackstone rings (278) in four hours
--- 158: Order 158taken, get five blackstone rings, reward: ninety sp, 5 rankpoints
-queststatus(127) = 0, english, chance(2.4390243902439024), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get five blackstone rings."), "I have the following order for you. The next caravan has a demand for five blackstone rings. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be ninety silver coins.", queststatus(127) = 158, queststatus(128) = 48
+-- Order 158: Gather five obsidian rings (278) in four hours
+-- 158: Order 158taken, get five obsidian rings, reward: ninety sp, 5 rankpoints
+queststatus(127) = 0, english, chance(2.4390243902439024), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get five obsidian rings."), "I have the following order for you. The next caravan has a demand for five obsidian rings. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be ninety silver coins.", queststatus(127) = 158, queststatus(128) = 48
 queststatus(127) = 0, german, chance(2.4390243902439024), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe fünf Schwarzsteinringe."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt fünf Schwarzsteinringe. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen neunzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 158, queststatus(128) = 48
-queststatus(127) = 0, chance(2.4390243902439024), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get five blackstone rings."), "I have the following order for you. The next caravan has a demand for five blackstone rings. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be ninety silver coins.", queststatus(127) = 158, queststatus(128) = 48
+queststatus(127) = 0, chance(2.4390243902439024), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get five obsidian rings."), "I have the following order for you. The next caravan has a demand for five obsidian rings. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be ninety silver coins.", queststatus(127) = 158, queststatus(128) = 48
 queststatus(127) = 0, chance(2.4390243902439024), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe fünf Schwarzsteinringe."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt fünf Schwarzsteinringe. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen neunzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 158, queststatus(128) = 48
 
 -- Order 158 solved, reward: ninety sp, 5 rankpoints, delay: 4h
@@ -2785,16 +2785,16 @@ queststatus(127) = 158, item(278, all) => 5, english, town = Cadomyr, ".*" -> in
 queststatus(127) = 158, item(278, all) => 5, town = Cadomyr, ".*" -> inform("[Auftrag erledigt] Du erhältst neunzig Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Genau zur rechten Zeit. Die Karawane wird bald losziehen. Hier ist eure Belohnung.", money + 9000, deleteItem(278, 5), queststatus(127) = 0, queststatus(128) = 0, queststatus(129) = 48, rankpoints + 5
 
 -- Order 158 taken but not solved, repeat the instructions
-queststatus(127) = 158, item(278, all) < 5, english, town = Cadomyr, "quest", "mission" -> "Your order is to get five blackstone rings. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 158, item(278, all) < 5, english, town = Cadomyr, "quest", "mission" -> "Your order is to get five obsidian rings. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 158, item(278, all) < 5, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, fünf Schwarzsteinringe zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
-queststatus(127) = 158, item(278, all) < 5, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get five blackstone rings. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 158, item(278, all) < 5, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get five obsidian rings. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 158, item(278, all) < 5, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, fünf Schwarzsteinringe zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
--- Order 159: Gather seven blackstone rings (278) in four hours
--- 159: Order 159 taken, get seven blackstone rings, reward: one hundred twenty six sp, 5 rankpoints
-queststatus(127) = 0, english, chance(2.5), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get seven blackstone rings."), "I have the following order for you. The next caravan has a demand for seven blackstone rings. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be one hundred twenty six silver coins.", queststatus(127) = 159, queststatus(128) = 48
+-- Order 159: Gather seven obsidian rings (278) in four hours
+-- 159: Order 159 taken, get seven obsidian rings, reward: one hundred twenty six sp, 5 rankpoints
+queststatus(127) = 0, english, chance(2.5), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get seven obsidian rings."), "I have the following order for you. The next caravan has a demand for seven obsidian rings. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be one hundred twenty six silver coins.", queststatus(127) = 159, queststatus(128) = 48
 queststatus(127) = 0, german, chance(2.5), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe sieben Schwarzsteinringe."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt sieben Schwarzsteinringe. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen einhundertsechsundzwanzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 159, queststatus(128) = 48
-queststatus(127) = 0, chance(2.5), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get seven blackstone rings."), "I have the following order for you. The next caravan has a demand for seven blackstone rings. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be one hundred twenty six silver coins.", queststatus(127) = 159, queststatus(128) = 48
+queststatus(127) = 0, chance(2.5), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get seven obsidian rings."), "I have the following order for you. The next caravan has a demand for seven obsidian rings. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be one hundred twenty six silver coins.", queststatus(127) = 159, queststatus(128) = 48
 queststatus(127) = 0, chance(2.5), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe sieben Schwarzsteinringe."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt sieben Schwarzsteinringe. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen einhundertsechsundzwanzigSilberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 159, queststatus(128) = 48
 
 -- Order 159 solved, reward: one hundred twenty six sp, 5 rankpoints, delay: 4h
@@ -2802,9 +2802,9 @@ queststatus(127) = 159, item(278, all) => 7, english, town = Cadomyr, ".*" -> in
 queststatus(127) = 159, item(278, all) => 7, town = Cadomyr, ".*" -> inform("[Auftrag erledigt] Du erhältst einhundertsechsundzwanzig Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Genau zur rechten Zeit. Die Karawane wird bald losziehen. Hier ist eure Belohnung.", money + 12600, deleteItem(278, 7), queststatus(127) = 0, queststatus(128) = 0, queststatus(129) = 48, rankpoints + 5
 
 -- Order 159 taken but not solved, repeat the instructions
-queststatus(127) = 159, item(278, all) < 7, english, town = Cadomyr, "quest", "mission" -> "Your order is to get seven blackstone rings. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 159, item(278, all) < 7, english, town = Cadomyr, "quest", "mission" -> "Your order is to get seven obsidian rings. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 159, item(278, all) < 7, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, sieben Schwarzsteinringe zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
-queststatus(127) = 159, item(278, all) < 7, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get seven blackstone rings. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 159, item(278, all) < 7, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get seven obsidian rings. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 159, item(278, all) < 7, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, sieben Schwarzsteinringe zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
 -- Order 160: Gather three vases (315) in four hours
@@ -2960,11 +2960,11 @@ queststatus(127) = 168, item(279, all) < 12, town = Cadomyr, "quest", "mission" 
 queststatus(127) = 168, item(279, all) < 12, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get twelve sapphire rings. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 168, item(279, all) < 12, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, zwölf Blausteinringe zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
--- Order 169: Gather two blackstone amulets (82) in four hours
--- 169: Order 169 taken, get two blackstone amulets, reward: seventy sp, 5 rankpoints
-queststatus(127) = 0, english, chance(3.3333333333333335), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get two blackstone amulets."), "I have the following order for you. The next caravan has a demand for two blackstone amulets. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be seventy silver coins.", queststatus(127) = 169, queststatus(128) = 48
+-- Order 169: Gather two obsidian amulets (82) in four hours
+-- 169: Order 169 taken, get two obsidian amulets, reward: seventy sp, 5 rankpoints
+queststatus(127) = 0, english, chance(3.3333333333333335), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get two obsidian amulets."), "I have the following order for you. The next caravan has a demand for two obsidian amulets. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be seventy silver coins.", queststatus(127) = 169, queststatus(128) = 48
 queststatus(127) = 0, german, chance(3.3333333333333335), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe zwei Schwarzsteinketten."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt zwei Schwarzsteinketten. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen siebzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 169, queststatus(128) = 48
-queststatus(127) = 0, chance(3.3333333333333335), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get two blackstone amulets."), "I have the following order for you. The next caravan has a demand for two blackstone amulets. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be seventy silver coins.", queststatus(127) = 169, queststatus(128) = 48
+queststatus(127) = 0, chance(3.3333333333333335), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get two obsidian amulets."), "I have the following order for you. The next caravan has a demand for two obsidian amulets. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be seventy silver coins.", queststatus(127) = 169, queststatus(128) = 48
 queststatus(127) = 0, chance(3.3333333333333335), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe zwei Schwarzsteinketten."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt zwei Schwarzsteinketten. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen siebzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 169, queststatus(128) = 48
 
 -- Order 169 solved, reward: seventy sp, 5 rankpoints, delay: 4h
@@ -2972,16 +2972,16 @@ queststatus(127) = 169, item(82, all) => 2, english, town = Cadomyr, ".*" -> inf
 queststatus(127) = 169, item(82, all) => 2, town = Cadomyr, ".*" -> inform("[Auftrag erledigt] Du erhältst siebzig Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Genau zur rechten Zeit. Die Karawane wird bald losziehen. Hier ist eure Belohnung.", money + 7000, deleteItem(82, 2), queststatus(127) = 0, queststatus(128) = 0, queststatus(129) = 48, rankpoints + 5
 
 -- Order 169 taken but not solved, repeat the instructions
-queststatus(127) = 169, item(82, all) < 2, english, town = Cadomyr, "quest", "mission" -> "Your order is to get two blackstone amulets. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 169, item(82, all) < 2, english, town = Cadomyr, "quest", "mission" -> "Your order is to get two obsidian amulets. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 169, item(82, all) < 2, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, zwei Schwarzsteinketten zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
-queststatus(127) = 169, item(82, all) < 2, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get two blackstone amulets. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 169, item(82, all) < 2, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get two obsidian amulets. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 169, item(82, all) < 2, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, zwei Schwarzsteinketten zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
--- Order 170: Gather three blackstone amulets (82) in four hours
--- 170: Order 170taken, get three blackstone amulets, reward: one hundred five sp, 5 rankpoints
-queststatus(127) = 0, english, chance(3.4482758620689653), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get three blackstone amulets."), "I have the following order for you. The next caravan has a demand for three blackstone amulets. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be one hundred five silver coins.", queststatus(127) = 170, queststatus(128) = 48
+-- Order 170: Gather three obsidian amulets (82) in four hours
+-- 170: Order 170taken, get three obsidian amulets, reward: one hundred five sp, 5 rankpoints
+queststatus(127) = 0, english, chance(3.4482758620689653), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get three obsidian amulets."), "I have the following order for you. The next caravan has a demand for three obsidian amulets. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be one hundred five silver coins.", queststatus(127) = 170, queststatus(128) = 48
 queststatus(127) = 0, german, chance(3.4482758620689653), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe drei Schwarzsteinketten."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt drei Schwarzsteinketten. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen einhundertfünf Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 170, queststatus(128) = 48
-queststatus(127) = 0, chance(3.4482758620689653), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get three blackstone amulets."), "I have the following order for you. The next caravan has a demand for three blackstone amulets. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be one hundred five silver coins.", queststatus(127) = 170, queststatus(128) = 48
+queststatus(127) = 0, chance(3.4482758620689653), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get three obsidian amulets."), "I have the following order for you. The next caravan has a demand for three obsidian amulets. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be one hundred five silver coins.", queststatus(127) = 170, queststatus(128) = 48
 queststatus(127) = 0, chance(3.4482758620689653), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe drei Schwarzsteinketten."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt drei Schwarzsteinketten. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen einhundertfünf Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 170, queststatus(128) = 48
 
 -- Order 170 solved, reward: one hundred five sp, 5 rankpoints, delay: 4h
@@ -2989,16 +2989,16 @@ queststatus(127) = 170, item(82, all) => 3, english, town = Cadomyr, ".*" -> inf
 queststatus(127) = 170, item(82, all) => 3, town = Cadomyr, ".*" -> inform("[Auftrag erledigt] Du erhältst einhundertfünf Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Genau zur rechten Zeit. Die Karawane wird bald losziehen. Hier ist eure Belohnung.", money + 10500, deleteItem(82, 3), queststatus(127) = 0, queststatus(128) = 0, queststatus(129) = 48, rankpoints + 5
 
 -- Order 170 taken but not solved, repeat the instructions
-queststatus(127) = 170, item(82, all) < 3, english, town = Cadomyr, "quest", "mission" -> "Your order is to get three blackstone amulets. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 170, item(82, all) < 3, english, town = Cadomyr, "quest", "mission" -> "Your order is to get three obsidian amulets. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 170, item(82, all) < 3, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, drei Schwarzsteinketten zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
-queststatus(127) = 170, item(82, all) < 3, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get three blackstone amulets. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 170, item(82, all) < 3, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get three obsidian amulets. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 170, item(82, all) < 3, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, drei Schwarzsteinketten zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
--- Order 171: Gather four blackstone amulets (82) in four hours
--- 171: Order 171 taken, get four blackstone amulets, reward: one hundred fourty sp, 5 rankpoints
-queststatus(127) = 0, english, chance(3.5714285714285716), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get four blackstone amulets."), "I have the following order for you. The next caravan has a demand for four blackstone amulets. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be one hundred fourty silver coins.", queststatus(127) = 171, queststatus(128) = 48
+-- Order 171: Gather four obsidian amulets (82) in four hours
+-- 171: Order 171 taken, get four obsidian amulets, reward: one hundred fourty sp, 5 rankpoints
+queststatus(127) = 0, english, chance(3.5714285714285716), town = Cadomyr, "quest", "mission" -> inform("[New Order] Get four obsidian amulets."), "I have the following order for you. The next caravan has a demand for four obsidian amulets. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be one hundred fourty silver coins.", queststatus(127) = 171, queststatus(128) = 48
 queststatus(127) = 0, german, chance(3.5714285714285716), town = Cadomyr, "quest", "mission" -> inform("[Neuer Auftrag] Beschaffe vier Schwarzsteinketten."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt vier Schwarzsteinketten. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen einhundertvierzig Silberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 171, queststatus(128) = 48
-queststatus(127) = 0, chance(3.5714285714285716), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get four blackstone amulets."), "I have the following order for you. The next caravan has a demand for four blackstone amulets. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be one hundred fourty silver coins.", queststatus(127) = 171, queststatus(128) = 48
+queststatus(127) = 0, chance(3.5714285714285716), town = Cadomyr, "task", "adventure", "order" -> inform("[New Order] Get four obsidian amulets."), "I have the following order for you. The next caravan has a demand for four obsidian amulets. Please provide these goods as soon as possible for the glory of Cadomyr. Your reward shall be one hundred fourty silver coins.", queststatus(127) = 171, queststatus(128) = 48
 queststatus(127) = 0, chance(3.5714285714285716), town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neuer Auftrag] Beschaffe vier Schwarzsteinketten."), "Für euch liegt folgender Auftrag vor: Die nächste Karawane benötigt vier Schwarzsteinketten. Besorgt diese Waren so bald wie möglich. Euer Lohn sollen einhundertvierzigSilberstücke sein. Für die Ehre von Cadomyr!", queststatus(127) = 171, queststatus(128) = 48
 
 -- Order 171 solved, reward: one hundred fourty sp, 5 rankpoints, delay: 4h
@@ -3006,9 +3006,9 @@ queststatus(127) = 171, item(82, all) => 4, english, town = Cadomyr, ".*" -> inf
 queststatus(127) = 171, item(82, all) => 4, town = Cadomyr, ".*" -> inform("[Auftrag erledigt] Du erhältst einhundertvierzig Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Genau zur rechten Zeit. Die Karawane wird bald losziehen. Hier ist eure Belohnung.", money + 14000, deleteItem(82, 4), queststatus(127) = 0, queststatus(128) = 0, queststatus(129) = 48, rankpoints + 5
 
 -- Order 171 taken but not solved, repeat the instructions
-queststatus(127) = 171, item(82, all) < 4, english, town = Cadomyr, "quest", "mission" -> "Your order is to get four blackstone amulets. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 171, item(82, all) < 4, english, town = Cadomyr, "quest", "mission" -> "Your order is to get four obsidian amulets. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 171, item(82, all) < 4, town = Cadomyr, "quest", "mission" -> "Euer Auftrag ist es, vier Schwarzsteinketten zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
-queststatus(127) = 171, item(82, all) < 4, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get four blackstone amulets. Please hurry. The caravan cannot wait forever."
+queststatus(127) = 171, item(82, all) < 4, town = Cadomyr, "task", "adventure", "order" -> "Your order is to get four obsidian amulets. Please hurry. The caravan cannot wait forever."
 queststatus(127) = 171, item(82, all) < 4, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag ist es, vier Schwarzsteinketten zu besorgen. Beeilt euch bitte, die Karawane kann nicht ewig warten."
 
 -- Order 172: Gather two diadems (465) in four hours

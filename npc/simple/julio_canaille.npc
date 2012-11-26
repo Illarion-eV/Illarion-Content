@@ -54,7 +54,7 @@ itemShoes = 0
 -- queststatus=2 Prandlin and peg leg dedected
 -- queststatus=3 ordered to get a fake to change it against the staff/pegleg. (ornate mage's staff 208)
 -- queststatus=4 the staff/pegleg is stolen
--- queststatus=5 quest end. Jack got his leg. (reward: Rapier with Blackstone lv. 3 ),rankpoints+17
+-- queststatus=5 quest end. Jack got his leg. (reward: Rapier with Obsidian lv. 3 ),rankpoints+17
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Julio Canaille the ghost. Keywords: Peg Leg, Quest, Gods, Tell something."), "Ask me for my 'peg leg'! If you need other things, its better to search a settlement and ask there. Lubber!", state = 0
