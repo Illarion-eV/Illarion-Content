@@ -124,7 +124,7 @@ function FilterStock(User,cauldron,plant)
     local success = false
 	local mySubstance = alchemy.base.alchemy.wirkstoff
 	for i=1,8 do 
-	    local oldConcentration = tonumber(cauldron:getData(mySubstance.."Concentration"))
+	    local oldConcentration = tonumber(cauldron:getData(mySubstance[1].."Concentration"))
 		if not oldConcentration == nil then
 		    if oldConcentration > 5 then
 			    cauldron:setData(mySubstance.."Concentration",oldConcentration-1)
