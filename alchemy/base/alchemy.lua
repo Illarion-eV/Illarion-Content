@@ -23,7 +23,7 @@ function setPlantSubstance(id, plusSubstance, minusSubstance)
     if plantList == nil then
 	    plantList = {}
 	end	
-	plantList[id] = {plusSubstance, minusStubstance}
+	plantList[id] = {plusSubstance, minusSubstance}
 end
 
 function getPlantSubstance(id, User)
@@ -35,15 +35,12 @@ function getPlantSubstance(id, User)
 	    plus = ""
 	else
 	    plus = plantList[id][1]
-		User:inform("plus is not nil")
 	end	
 	if plantList[id][2] == nil then
-	    User:inform("minus is nil")
-		minus = ""
+	    minus = ""
 	else
         minus = plantList[id][2]
-		User:inform("minus is not nil")
-    end     	
+	end     	
 	return plus, minus    
 end
 
