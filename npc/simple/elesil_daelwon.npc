@@ -199,10 +199,7 @@ english, "Hinterland" -> inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutte
 "Lurnord Brücke" -> "Das ist die Brücke zwischen hier und Eibental. *zeigt in den Westen* Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welch nun gegangen ist. Sein Name war Lunord."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
--- "quest", "mission", english -> "IN PROGRESS."
--- "quest", "mission" -> "IN ARBEIT."
--- "task", "adventure", "order" -> "IN PROGRESS."
--- "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+-- quest information_runewick_1.quest belongs to this NPC
 
 -- Faction stuff
 "archmage" -> "Our leader can be found in the Hall of Elara in the Fire Tower if you want to talk with him."
