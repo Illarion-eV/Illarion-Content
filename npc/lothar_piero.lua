@@ -245,8 +245,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("Wood is good.");
 talkEntry:addResponse("I am a merchant and thus, I trade wood. My wood makes me proud, hihi.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -267,8 +265,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addResponse("Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -344,8 +340,6 @@ talkEntry:addTrigger("market");
 talkEntry:addResponse("We merchants of Runewick always try to offer as many goods and wares as possible.");
 talkEntry:addResponse("The archmage himself asked us to import as few items as possible and rely on domestic goods.");
 talkEntry:addResponse("Hiho! We merchants of Runewick stand united and the archmage backs us up.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -428,8 +422,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Usr have a proverb: Do not trust Galmair, gold opens the door of the stupid. But if you want to walk into the house of wisdom, you have to open a book instead.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Us traders have a proverb: Do not trust Galmair, gold opens the door of the stupid. But if you want to walk into the house of wisdom, you have to open a book instead.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -631,7 +624,7 @@ talkingNPC:addCycleText("#me klimpert mit seinen Fingern auf einer zierlichen La
 talkingNPC:addCycleText("#me hohlt tief Luft und seufzt leise: 'H-hm! Tannenholz!'", "#me breathes deeply and sighs: 'Ahh, fir wood!'.");
 talkingNPC:addCycleText("#me lächelt sanft und sein faltiges Gesicht wirkt dabei wie eine große Rosine.", "#me smiles softly while his wrinkled face appears like a big raisin.");
 talkingNPC:addCycleText("#me streicht mit der Hand über verschiedene hölzerne Dinge welche ihn umgeben.", "#me runs with a hand over a few different wooden things which surround him.");
-talkingNPC:addCycleText("Rosen sind Rot, Veilchen sind Blau, ich mag den Himmel, und meine Frau. - Hab mein Holz, was braucht ein Halbling mehr? Darauf bin ich stolz.", "Roses are red, violets are blue, i like the sky and my wife too. - I got my wood, what else does a halfling need? I'm proud of it.");
+talkingNPC:addCycleText("Rosen sind Rot, Veilchen sind Blau, ich mag den Himmel, und meine Frau. - Hab mein Holz, was braucht ein Halbling mehr? Darauf bin ich stolz.", "Roses are red, violets are blue, I like the sky and my wife too. - I got my wood, what else does a halfling need? I'm proud of it.");
 talkingNPC:addCycleText("#me verängt mit einem Lächeln die Augen und mustert seine Umgebung.", "#me blinks with one eye and inspects his surrounding.");
 talkingNPC:addCycleText("#me lehnt sich zufrieden lächelnd zurück.", "#me leans back, smiling contently.");
 talkingNPC:addCycleText("#me steckt seine Hand in die Tasche neben dem Stuhl und zieht ein Brötchen heraus. Dann beginnt er daran zu knabbern.", "#me puts his hand into the bag near the chair, pulling out a bread roll and starts nibbling on it.");

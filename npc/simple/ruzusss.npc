@@ -179,7 +179,7 @@ english, "Lotta", "Medborgar" -> "Die findet man in Galmair und die weiß sämtl
 "Westliche Katanbi Wüste" -> inform("[Schlüsselwörter] Berg Siba, Milchhaus, Grundstein Aufrechtigkeit, Rosaline Würfel, Würfel Lager, Faber Wachhaus, Entfernte Wohnstätte, Piraten Bucht, Kap Lebwohl, Katanbi Fluss, Freiheitsbruch, Grugmutz Höhle, Bach Siedlung."), "Welchen Platz meinst du? Berg Siba, Milchhaus, Grundstein der Aufrechtigkeit, Rosaline Würfel, Würfel Lager, Fabers Wachhaus, Entfernte Wohnstätte, Piraten Bucht, Kap Lebwohl, Katanbi Fluss, Freiheitsbruch, Grugmutzs Höhle, Bach Siedlung."
 "Mount Siba" -> "A mountain in the south of Cadomyr. It is very close to the town. It is more or less next to the Cornerstone of Candour."
 "Berg Siba" -> "Ein Berg im Süden von Cadomyr. Er ist sehr nahe an der Stadt. Er liegt mehr oder weniger neben dem Grundstein der Aufrichtigkeit."
-"Milkhouse" -> "That isss the name of a ssshop for foreignrsss. It isss in the eassst from here.", trade
+"Milkhouse" -> "That isss the name of a ssshop for foreignrsss. It isss in the eassst from here."
 "Milchhaus" -> "Dasss issst der Name einesss Laden der von fremden Händlern verwendet wird. Er kann im Osssten von hier gefunden werden."
 "Cornerstone Candour" -> "This coal mine is south of us. Just walk south, cross the street which leeds to either east or west, and you will find it."
 "Grundstein Aufrichtigkeit" -> "Diese Kohlemine ist südlich von uns. Geh einfach in den Süden, überquere die Straße welche dich entweder in den Westen oder Osten führt, und schon bist du dort."

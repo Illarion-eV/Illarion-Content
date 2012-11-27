@@ -114,9 +114,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a good day today. You 
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Francois Delacroix, Produke aus der Landwirtschaft.", "My Name ist Francois. Es ist mir eine Freude Eure Bekanntschaft zu machen", "Francois Delacroix. Es klingt noch immer jedes Mal seltsam es zu sagen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I sell goods such as milk and farmer tools", "I sell that which you need.", "I'm a self made agricultural goodsr.", trade
+"profession" -> "I sell goods such as milk and farmer tools", "I sell that which you need.", "I'm a self made agricultural goods trader."
 "beruf" -> "Ich verkaufe Güter wie Milch und Werkzeug für Bauern.", "Ich verkaufe was immer Ihr braucht.", "Ich verkaufe selbstgemachte Landwirtschaftswaren."
-english, "job" -> "I sell goods such as milk and farmer tools.", "I sell that which you need.", "I'm a self made agricultural goodsr.", trade
+english, "job" -> "I sell goods such as milk and farmer tools.", "I sell that which you need.", "I'm a self made agricultural goods trader."
 "job" -> "Ich verkaufe Güter wie Milch und Werkzeug für Bauern.", "Ich verkaufe was immer Ihr braucht.", "Ich verkaufe selbstgemachte Landwirtschaftswaren."
 english, "Gobaith", "Gobiath" -> "That's like asking what is the sky. Honestly I don't think I could answer it."
 "Gobaith", "Gobiath" -> "Das ist als ob man fragt, was der Himmel sei. Ehrlich gesagt, ich habe keine Ahnung davon."

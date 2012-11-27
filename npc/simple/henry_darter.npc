@@ -228,7 +228,7 @@ english, "Ronagan" -> "In all honesty, why should I not pray to Ronagan? He 'gui
 "Ronagan" -> "Nun mal ehrlich, warum sollte ich nicht Ronagan anbeten? Er 'führt' Reisende in meinen Sumpf, die dann Fleisch von mir kaufen."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I don't buy anything.", "I'm a butcher, not ar.", trade
+"what sell", "what buy", "list wares", "price of" -> "I don't buy anything.", "I'm a butcher, not a trader."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kaufe nichts.", "Bin Schlachter, aber kein Händler."
 "tell something" -> "If you want to butcher, make sure that you're using a sharp knife.", "You better smoke meat rather than cook it.", "Work carefully with deer meat! It is expensive."
 "erzähl was", "erzähl etwas" -> "Wenn du Schlachten willst, stelle sicher, dass du ein scharfes Messer verwendest.", "Fleisch kann besser geräuchert werden als gekocht.", "Arbeite vorsichtig mit Wildfleich. Es ist kostbar."

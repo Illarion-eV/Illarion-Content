@@ -24,27 +24,12 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.kaitza", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(335, ">", 4));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Error] Something went wrong, please inform a developer."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(333, ">", 12));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Error] Something went wrong, please inform a developer."));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
@@ -1118,12 +1103,9 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Zss. I have nozing to.");
-talkEntry:addResponse("I do not ssseek to. Zss.");
-talkEntry:addResponse("Sssorry, I do not wisssh to.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Zss. I have nozing to trade.");
+talkEntry:addResponse("I do not ssseek to trade. Zss.");
+talkEntry:addResponse("Sssorry, I do not wisssh to trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1134,7 +1116,7 @@ talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
 talkEntry:addResponse("Zss. Ich habe nichtsss zum handeln.");
 talkEntry:addResponse("Ich brache nichts zzu handeln.");
-talkEntry:addResponse("Entschuldigt, ich bin nicht am Handeln interessssiert.Zss.");
+talkEntry:addResponse("Entschuldigt, ich bin nicht am Handeln interessiert. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1167,7 +1149,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kaitza");
 talkEntry:addResponse("Zss. Kaitza mussss arbeiten.");
 talkEntry:addResponse("#me zischt leise.");
-talkEntry:addResponse("Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit.Zss.");
+talkEntry:addResponse("Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1183,7 +1165,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
 talkEntry:addResponse("Zss. Kaitza mussss arbeiten.");
 talkEntry:addResponse("#me zischt leise.");
-talkEntry:addResponse("Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit.Zss.");
+talkEntry:addResponse("Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1199,7 +1181,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
 talkEntry:addResponse("Zss. Kaitza mussss arbeiten.");
 talkEntry:addResponse("#me zischt leise.");
-talkEntry:addResponse("Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit.Zss.");
+talkEntry:addResponse("Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1219,7 +1201,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Zss. Kaitza mussss arbeiten.");
 talkEntry:addResponse("#me zischt leise.");
-talkEntry:addResponse("Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit.Zss.");
+talkEntry:addResponse("Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me fährt mit dem Finger an der Klinge seiner Waffe entlang.", "#me runs a finger along his blade.");

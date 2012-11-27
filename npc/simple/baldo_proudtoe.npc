@@ -179,7 +179,7 @@ english, "Ushara" -> "Ushara, did you know that some call her Ushi, hihi? Actual
 "Ushara" -> "Ushara, wußtet ihr, dass manche sie Ushi nennen, hihi? Aber ich respektiere die Fünf alten Götter natürlich, wobei ich gar nicht so genau weiß, ob sie das interessiert."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I am just the gardener here. If you want tothings, go to the market place of Runewick.", trade
+"what sell", "what buy", "list wares", "price of" -> "I am just the gardener here. If you want to trade things, go to the market place of Runewick."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin doch hier nur der Gärtner. Wenn ihr Waren handeln wollt, geht doch zum Marktplatz von Runewick."
 "tell something" -> "I am not a storyteller; but I enjoy our communication! It is much better than talking to the hedges, all alone, you know..."
 "erzähl was", "erzähl etwas" -> "Ich bin nicht gerade der beste Geschichtenerzähler. Aber ich schätze eure Gesellschaft. Weit besser, als hier einsam Selbstgespräche zu führen..."
