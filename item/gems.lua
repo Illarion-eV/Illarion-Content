@@ -83,14 +83,12 @@ for gem=1,7 do
     end
 end
 
-function createMagicGem(user, gem, quantity, level)
-    local quantity = quantity or 1
-    local level = level or 1
-    local item = gemItem[gem]
-    local data = {}
-    data.gemLevel = level
-    
-    local notCreated = user:createItem(item, quantity, 999, data)
+function getMagicGemId(gem, level)
+    return gemItem[gem]
+end
+
+function getMagicGemData(level)
+    return {gemLevel = level}
 end
 
 function LookAtItem(user, item)

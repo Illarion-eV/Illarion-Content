@@ -1,3 +1,4 @@
+require("item.gems")
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
@@ -95,7 +96,7 @@ if (MonID==912) then -- Gold Golem, Level: 8, Armourtype: medium, Weapontype: co
         local done=monster.base.drop.AddDropItem(198,5,20,(100*math.random(7,8)+math.random(77,88)),0,2); --topaz
         if not done then done=monster.base.drop.AddDropItem(284,5,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --sapphire
         if not done then done=monster.base.drop.AddDropItem(197,5,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --amethyst
-        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(7,8)+math.random(77,88)),{magicalObsidian="1"},2); end --magic obsidian
+        if not done then done=monster.base.drop.AddDropItem(item.gems.getMagicGemId(item.gems.OBSIDIAN),1,1,999,item.gems.getMagicGemData(1),2); end --magic obsidian
         if not done then done=monster.base.drop.AddDropItem(46,5,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --ruby
 
         --Category 3: Special Loot
