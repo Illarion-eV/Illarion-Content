@@ -18,7 +18,6 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.sam", package.seeall)
 
@@ -220,8 +219,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I a-am..eh...was ar.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I a-am... eh... was a trader.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -234,8 +232,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I a-am..eh...was ar.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I a-am... eh... was a trader.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
