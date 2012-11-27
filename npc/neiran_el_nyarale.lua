@@ -2,7 +2,7 @@
 -- NPC Name: Neiran el Nyarale                                           None --
 -- NPC Job:  Insert profession here                                           --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  385, 241, 0            --
+-- NPC Race: elf                        NPC Position:  397, 781, 2            --
 -- NPC Sex:  male                       NPC Direction: southeast              --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 385, 241, 0, 3, 'Neiran el Nyarale', 'npc.neiran_el_nyarale', 0, 2, 5, 128, 255, 255, 245, 230, 197);
+VALUES (3, 397, 781, 2, 3, 'Neiran el Nyarale', 'npc.neiran_el_nyarale', 0, 2, 5, 128, 255, 255, 245, 230, 197);
 ---]]
 
 require("npc.base.basic")
