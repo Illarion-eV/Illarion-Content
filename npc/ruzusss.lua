@@ -24,7 +24,6 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.ruzusss", package.seeall)
 
@@ -734,7 +733,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Milkhouse");
 talkEntry:addResponse("That isss the name of a ssshop for foreignrsss. It isss in the eassst from here.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
