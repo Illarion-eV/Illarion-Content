@@ -1,3 +1,4 @@
+require("item.gems")
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
@@ -165,7 +166,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(198,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --topaz
         if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --sapphire
         if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --amethyst
-        if not done then done=monster.base.drop.AddDropItem(45,1,1,(100*math.random(6,7)+math.random(66,77)),{magicalEmerald="1"},2); end --magic emerald
+        if not done then done=monster.base.drop.AddDropItem(item.gems.getMagicGemId(item.gems.EMERALD),1,1,999,item.gems.getMagicGemData(1),2); end --magic emerald
 
         --Category 3: Weapon
 

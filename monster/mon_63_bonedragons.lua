@@ -1,3 +1,4 @@
+require("item.gems")
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
@@ -104,7 +105,7 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(285,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --diamond
         if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --ruby
         if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --topaz
-        if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(7,8)+math.random(77,88)),{magicalAmethyst="1"},2); end --magic amethyst
+        if not done then done=monster.base.drop.AddDropItem(item.gems.getMagicGemId(item.gems.AMETHYST),1,1,999,item.gems.getMagicGemData(1),2); end --magic amethyst
 
         --Category 3: Weapon
 
