@@ -27,7 +27,6 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.skill")
 require("npc.base.consequence.talkstate")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.valandil_elensar", package.seeall)
 
@@ -1147,10 +1146,9 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Sorry, I do not. All I know is how to prune trees without harming them more than necessary.");
+talkEntry:addResponse("Sorry, I do not trade. All I know is how to prune trees without harming them more than necessary.");
 talkEntry:addResponse("The narrow-minded act of trading does not suit me, thus you cannot purchase anything from me.");
 talkEntry:addResponse("I do not sell anything, in special no wood of slaughtered trees.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
