@@ -25,7 +25,6 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.groktan_flintsplit", package.seeall)
 
@@ -1490,9 +1489,8 @@ talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
 talkEntry:addResponse("Come to me if you owe the Don money. Then, you give it to me. If you don't, I give something to you. Right in your face!");
-talkEntry:addResponse("I'm not ar. The difference is: I just take money and give nothing in return. You just get something from me if you don't pay. Pain!");
+talkEntry:addResponse("I'm not a trader. The difference is: I just take money and give nothing in return. You just get something from me if you don't pay. Pain!");
 talkEntry:addResponse("Get lost if you want to barter.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
