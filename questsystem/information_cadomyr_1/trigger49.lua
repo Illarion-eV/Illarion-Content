@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Nun gehe zurück zu Frizza und berichte ihr die Nummer.", "Go back to Frizza and tell her the number."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Nun gehe zurï¿½ck zu Frizza und berichte ihr die Nummer.", "Go back to Frizza and tell her the number."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 34
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Wie heißt die Örtlichkeit an der man den Herrscher findet?"
+local NPC_REPLY_DE = "Wie heiï¿½t die ï¿½rtlichkeit an der man den Herrscher findet?"
 local NPC_REPLY_EN = "What is the name of the place where you can find the ruler?"
 
 function receiveText(npc, type, text, PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis, die Halle befindet sich im Turm des Feuers.", "Answer the question to get more money and further questions. Hint: the hall can be found in the Tower of Fire."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis, eine Frage Ã¼ber 'GebÃ¤ude' mag dir helfen.", "Answer the question to get more money and further questions. Hint: A question about 'building' might be helpful."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

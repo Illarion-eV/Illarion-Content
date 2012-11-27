@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Während du im Buch liest, fällt dir eine Notiz auf: 'Gut, auch dieses hast du gefunden. Komm zurück nun. Frizza'.", "While you are reading the book you see a note: 'Good, you found that too. Come back now. Frizza'."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Wï¿½hrend du im Buch liest, fï¿½llt dir eine Notiz auf: 'Gut, auch dieses hast du gefunden. Komm zurï¿½ck nun. Frizza'.", "While you are reading the book you see a note: 'Good, you found that too. Come back now. Frizza'."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

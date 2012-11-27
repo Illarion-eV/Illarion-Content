@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 51
 
 local NPC_TRIGGER_DE = "[Gg]almair"
 local NPC_TRIGGER_EN = "[Gg]almair"
-local NPC_REPLY_DE = "Nun eine Frage zu den Lokalitäten hier. Wie heißt die Gruft von Cadomyr?"
+local NPC_REPLY_DE = "Nun eine Frage zu den Lokalitï¿½ten hier. Wie heiï¿½t die Gruft von Cadomyr?"
 local NPC_REPLY_EN = "Now, a question about locations here. What is the name of the tomb of Cadomyr?"
 
 function receiveText(npc, type, text, PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis: Frage nach dem Hinterland", "Answer the question to get more money and further question. Hint: Ask for the hinterland."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis: Frage nach 'GebÃ¤ude'.", "Answer the question to get more money and further question. Hint: Ask for 'building'."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 84
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Ab in den Garten. Dort sind vier Säulen mit Elementen. Welches ist auf der linken Säule?"
+local NPC_REPLY_DE = "Ab in den Garten. Dort sind vier Sï¿½ulen mit Elementen. Welches ist auf der linken Sï¿½ule?"
 local NPC_REPLY_EN = "Go to the garden and tell me name of the element on the left column there."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Iradona und teile ihr mit auf was der Zwerg auf dem rechten Bild dort einschlägt.", "Go to Iradona and tell her against what the dwarf swings his axe at the right painting there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurï¿½ck zu Iradona und teile ihr mit auf was der Zwerg auf dem rechten Bild dort einschlï¿½gt.", "Go to Iradona and tell her against what the dwarf swings his axe at the right painting there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

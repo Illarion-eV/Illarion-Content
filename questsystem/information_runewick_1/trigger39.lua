@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 55
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Jetzt gilt es erstmal sich dem Erzmagier vorzustellen. Komm zurück wenn du dies getan hast."
+local NPC_REPLY_DE = "Jetzt gilt es erstmal sich dem Erzmagier vorzustellen. Komm zurï¿½ck wenn du dies getan hast."
 local NPC_REPLY_EN = "Look for the Archmage to introduce yourself. Come back if you have done that."
 
 function receiveText(npc, type, text, PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde den Erzmagier, rede mit ihm und komme wieder zurück.", "Find the Archmage, speak with him and come back."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde den Erzmagier, rede mit ihm und komme wieder zurï¿½ck.", "Find the Archmage, speak with him and come back."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 113
 
 local NPC_TRIGGER_DE = "18|[Aa]chtzehn"
 local NPC_TRIGGER_EN = "18|[Ee]ighteen"
-local NPC_REPLY_DE = "Gut, 18 BS wurde Runewick gegründet. Hier ein letztes Geschenk. Für weiter Auskunft stehe ich gerne zur Verfügung. Für weitere Aufträge empfiehlt es sich herumzufragen. Zum Beispiel bei Numila."
+local NPC_REPLY_DE = "Gut, 18 BS wurde Runewick gegrï¿½ndet. Hier ein letztes Geschenk. Fï¿½r weiter Auskunft stehe ich gerne zur Verfï¿½gung. Fï¿½r weitere Auftrï¿½ge empfiehlt es sich herumzufragen. Zum Beispiel bei Numila."
 local NPC_REPLY_EN = "Good, 18 BS is the founding date of Runewick. Here your last gift. If you need more information, you can always ask me. For more tasks ask other folk. For example Numila."
 
 function receiveText(npc, type, text, PLAYER)

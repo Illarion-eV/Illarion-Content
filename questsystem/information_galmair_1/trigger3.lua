@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 26
 
 local NPC_TRIGGER_DE = "[Ff]licker|[Ss]wale"
 local NPC_TRIGGER_EN = "[Ss]chimmersenke"
-local NPC_REPLY_DE = "Geht doch! Nächste Frage, und wieder ein paar Münzen: Welcher von diesen drei magischen Steinen gehört zu uns: Smaragd, Topas oder Saphir?"
+local NPC_REPLY_DE = "Geht doch! Nï¿½chste Frage, und wieder ein paar Mï¿½nzen: Welcher von diesen drei magischen Steinen gehï¿½rt zu uns: Smaragd, Topas oder Saphir?"
 local NPC_REPLY_EN = "Fine! Next question, and again some coins: Which of these three magical stones does belong to us: Emerald, Topaz or Sapphire?"
 
 function receiveText(npc, type, text, PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten.", "Answer the question to get more money and further questions."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Die Antwort hat der NPC Hummi Olaficht bei der neutralen Taverne, die du durch den Teleporter erreichen kannst. Frage ihn nach den Steinen der Macht.", "Answer the question to get more money and further questions. The answer has the NPC Hummi Olaficht, whom you find at the neutral taverne. You can use the teleporter to get there. Ask him for the stones of power."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 169
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Die nächste Aufgabe findet ihr unter einem der Stühle am Dach des Turm der Erde."
+local NPC_REPLY_DE = "Die nï¿½chste Aufgabe findet ihr unter einem der Stï¿½hle am Dach des Turm der Erde."
 local NPC_REPLY_EN = "You can find your next task under one of the chairs on the top of the Tower of Earth."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe auf das Dach des Turm der Erde und untersuche die Stühle dort.", "You can find your next task under one of the chairs on the top of the Tower of Earth."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe auf das Dach des Turm der Erde und untersuche die Stï¿½hle dort.", "You can find your next task under one of the chairs on the top of the Tower of Earth."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
