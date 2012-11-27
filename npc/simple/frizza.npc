@@ -55,8 +55,8 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Frizza the informant. Keywords: Question, information, Cadomyr, building, game, mission.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frizza die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Cadomyr, Gebäude, Spiel, Auftrag.")
+"Help" -> inform("[Game Help] This NPC is Frizza the informant. Keywords: Question, information, Cadomyr, building, game, mission, faction.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frizza die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Cadomyr, Gebäude, Spiel, Auftrag, Fraktion.")
 
 -- Mandatory: General speech
 queststatus(605) = 1, english, ".*" -> inform("You can speak with Frizza now. Ask for 'help' if you do not know what to say! You can also go back to Hummi to collect your reward and come back later."), "How can I help you? Are you looking for any information? Or would you like to be given a task?", queststatus(605)=2
@@ -162,6 +162,8 @@ english, "Villa" -> inform("[Keywords] Villa Edward, Villa Rosaline, Villa Regin
 -- "spiel" -> "Du willssst mein Quiz-Ssspiel mit mir ssspielen? Sss, lasss mich denken...(()quest in arbeit))"
 
 -- Faction stuff
+"faction" -> "There are three factions: Our faction Cadomyr, ruled by our brave Queen Rosaline Edwards. Then the two cowardly factions of Galmair and Runewick, ruled by Don Valerio Guilianni and Archmage Elvaine Morgan."
+"Fraktion" -> "Es gibt drei Fraktionen: Unsere Fraktion Cadomyr, geführt von unserer tapferen Königin Rosaline Edwards. Dann diese zwei feigen Fraktionen Galmair und Runewick, geführt von Don Valerio Guilianni und Erzmagier Elvaine Morgan."
 "archmage" -> "Morgan? Zzzz. That isss an evil sorcerer in Runewick and rulesss there."
 "Erzmagier" -> "Morgan? Zzzz. Dasss issst ein bössser Zauberer in Runewick der auch dort herrssscht."
 english, "Elvaine", "Morgan" -> "Morgan? Zzzz. That isss an evil sorcerer in Runewick and rulesss there."

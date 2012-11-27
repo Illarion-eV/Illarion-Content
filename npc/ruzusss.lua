@@ -713,8 +713,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Westliche Katanbi Wüste");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Berg Siba, Milchhaus, Grundstein Aufrechtigkeit, Rosaline Wüfel, Würfel Lager, Faber Wachhaus, Entfernte Wohnstätte, Piraten Bucht, Kap Lebwohl, Katanbi Fluss, Freiheitsbruch, Grugmutz Höhle, Bach Siedlung."));
-talkEntry:addResponse("Welchen Platz meinst du? Berg Siba, Milchhaus, Grundstein der Aufrechtigkeit, Rosaline Wüfel, Würfel Lager, Fabers Wachhaus, Entfernte Wohnstätte, Piraten Bucht, Kap Lebwohl, Katanbi Fluss, Freiheitsbruch, Grugmutzs Höhle, Bach Siedlung.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Berg Siba, Milchhaus, Grundstein Aufrechtigkeit, Rosaline Würfel, Würfel Lager, Faber Wachhaus, Entfernte Wohnstätte, Piraten Bucht, Kap Lebwohl, Katanbi Fluss, Freiheitsbruch, Grugmutz Höhle, Bach Siedlung."));
+talkEntry:addResponse("Welchen Platz meinst du? Berg Siba, Milchhaus, Grundstein der Aufrechtigkeit, Rosaline Würfel, Würfel Lager, Fabers Wachhaus, Entfernte Wohnstätte, Piraten Bucht, Kap Lebwohl, Katanbi Fluss, Freiheitsbruch, Grugmutzs Höhle, Bach Siedlung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
