@@ -15,12 +15,12 @@ function PutItemOnField(Item,User)
 
     donated=triggerfield.donation_base.donate(Item,User,"Galmair","Valerio Guilianni","TreasureGalmair"); -- That's all folks
 
-    -- Here you can add a quest
-	
+    -- Quest 206 (NPC Job, NPC Name )
+
     if donated then
 	    -- add your quest here
 	end
-	
+
 	-- Quest end
-	
+
 end
