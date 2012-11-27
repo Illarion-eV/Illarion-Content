@@ -176,10 +176,10 @@ english, "Lotta", "Medborgar" -> "Die findet man in Galmair und die weiß sämtl
 
 -- Western Katanbi Desert
 "Western Katanbi Desert" -> inform("[Keywords] Mount Siba, Milkhouse, Cornerstone Candour, Rosaline Cube, Cube Camp, Faber Guardhouse, Remote Dwelling, Pirate cove, Cape Farewell, Katanbi River, Liberty Quarry, Grugmutz cave, Creek Settlement"), "Which place there do you mean: Mount Siba, Milkhouse, Cornerstone of Candour, Rosaline Cube, Cube Camp, Faber's Guardhouse, Remote Dwelling, Pirate cove, Cape Farewell, Katanbi River, Liberty Quarry, Grugmutz's cave, Creek Settlement."
-"Westliche Katanbi Wüste" -> inform("[Schlüsselwörter] Berg Siba, Milchhaus, Grundstein Aufrechtigkeit, Rosaline Würfel, Würfel Lager, Faber Wachhaus, Entfernte Wohnstätte, Piraten Bucht, Kap Lebwohl, Katanbi Fluss, Freiheitsbruch, Grugmutz Höhle, Bach Siedlung."), "Welchen Platz meinst du? Berg Siba, Milchhaus, Grundstein der Aufrechtigkeit, Rosaline Würfel, Würfel Lager, Fabers Wachhaus, Entfernte Wohnstätte, Piraten Bucht, Kap Lebwohl, Katanbi Fluss, Freiheitsbruch, Grugmutzs Höhle, Bach Siedlung."
+"Westliche Katanbi Wüste" -> inform("[Schlüsselwörter] Berg Siba, Milchhaus, Grundstein Aufrichtigkeit, Rosaline Würfel, Würfel Lager, Faber Wachhaus, Entfernte Wohnstätte, Piratenbucht, Kap Abschied, Katanbi Fluss, Freiheitsbruch, Grugmutz Höhle, Bach Siedlung."), "Welchen Platz meinst du? Berg Siba, Milchhaus, Grundstein der Aufrechtigkeit, Rosaline Würfel, Würfel Lager, Fabers Wachhaus, Entfernte Wohnstätte, Piratenbucht, Kap des Abschiedes, Katanbi Fluss, Freiheitsbruch, Grugmutzs Höhle, Bach Siedlung."
 "Mount Siba" -> "A mountain in the south of Cadomyr. It is very close to the town. It is more or less next to the Cornerstone of Candour."
 "Berg Siba" -> "Ein Berg im Süden von Cadomyr. Er ist sehr nahe an der Stadt. Er liegt mehr oder weniger neben dem Grundstein der Aufrichtigkeit."
-"Milkhouse" -> "That isss the name of a ssshop for foreignrsss. It isss in the eassst from here."
+"Milkhouse" -> "That isss the name of a ssshop for foreignrsss. It isss in the eassst from here.", trade
 "Milchhaus" -> "Dasss issst der Name einesss Laden der von fremden Händlern verwendet wird. Er kann im Osssten von hier gefunden werden."
 "Cornerstone Candour" -> "This coal mine is south of us. Just walk south, cross the street which leeds to either east or west, and you will find it."
 "Grundstein Aufrichtigkeit" -> "Diese Kohlemine ist südlich von uns. Geh einfach in den Süden, überquere die Straße welche dich entweder in den Westen oder Osten führt, und schon bist du dort."
@@ -192,9 +192,9 @@ english, "Lotta", "Medborgar" -> "Die findet man in Galmair und die weiß sämtl
 "Remote Dwelling" -> "This building is the last before you might enter the pirate cove in the northwest and contains some riddels to solve."
 "Entfernte Wohnstätte" -> "Dieses Gebäude ist das letzte bevor du die Piraten Bucht im nordwesten betreten wirst und beinhaltet einige Rätseln."
 "Pirate cove" -> "The Pirate cove in the northwest a place of potential threat. We have had several conflicts with them so far."
-"Piraten Bucht" -> "Die Piraten Bucht im Nordwesten ist ein Platz mit potentialer Gefahr. Wir hatten immer wieder Konflikte mit den soweit."
+"Piratenbucht" -> "Die Piratenbucht im Nordwesten ist ein Platz mit potentialer Gefahr. Wir hatten immer wieder Konflikte mit den soweit."
 "Cape Farewell" -> "The Cape Farewell can be found at the westcose close to Faber's Guardhouse."
-"Kap Abschied" -> "Das Kap des Abschieds kann an der Westküste gefunden werden nahe Faber's Guardhouse."
+"Kap Abschied" -> "Das Kap des Abschiedes kann an der Westküste gefunden werden nahe Faber's Guardhouse."
 "Katanbi River" -> "The Katanbi River in the east from here has its orgin in the Lonely Mountains, seperates Western Katanbi Desert from Katanbi Desert and finds it way to the Great Ocean at Katanbi Delta."
 "Katanbi Fluss" -> "Der Katanbi Fluss im Osten von hier hat seinen Ursprung in den Einsamen Bergen, trennt die Westliche Katanbi Wüste von der Katanbi Wüste und findet seinen Weg in den Großen Ozean am Katanbi Delta."
 "Liberty Quarry" -> "The Liberty Quarry is in the northeast on the west shore of the Katanbi River. You might find iron, gold or copper there."
