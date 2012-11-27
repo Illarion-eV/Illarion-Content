@@ -27,7 +27,6 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.skill")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.daerbur_wimbert", package.seeall)
 
@@ -1427,9 +1426,8 @@ talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
 talkEntry:addResponse("I sell nothing to you, you sell nothing to me. Everyone keeps his property, fine.");
-talkEntry:addResponse("You have enough, I have enough, so why?");
+talkEntry:addResponse("You have enough, I have enough, so why trade?");
 talkEntry:addResponse("Bartering is so stupid, don't we all want to betray each other?");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
