@@ -883,7 +883,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schwarzbrücke");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwort] Ort"));
-talkEntry:addResponse("Die Schwarzbrücke im NOrdosten von hier führt dich über den Grenzstrom zum Sumpf und den Nördlichen Wäldern, falls du zu diesen Orten gehen möchtest.");
+talkEntry:addResponse("Die Schwarzbrücke im Nordosten von hier führt dich über den Grenzstrom zum Sumpf und den Nördlichen Wäldern, falls du zu diesen Orten gehen möchtest.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
