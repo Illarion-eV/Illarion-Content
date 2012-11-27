@@ -26,7 +26,6 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.skill")
-require("npc.base.consequence.talkstate")
 require("npc.base.talk")
 module("npc.valandil_elensar", package.seeall)
 
@@ -54,10 +53,9 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("Greetings, frisorry that I won't stand up but I planted trees all day long, now I feel a little tired.");
+talkEntry:addResponse("Greetings, friend, sorry that I won't stand up but I planted trees all day long, now I feel a little tired.");
 talkEntry:addResponse("Welcome in Elstree forest, watch out for the deers, they are easily frightened today.");
-talkEntry:addResponse("Hello, I hope you weren't send to me in order to buy wood like my last visitor.");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Hello, I hope you weren't sent to me in order to buy wood like my last visitor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -84,10 +82,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Greetings, frisorry that I won't stand up but I planted trees all day long, now I feel a little tired.");
+talkEntry:addResponse("Greetings, friend, sorry that I won't stand up but I planted trees all day long, now I feel a little tired.");
 talkEntry:addResponse("Welcome in the Elstree forest, watch out for the deers, they are easily frightened today.");
 talkEntry:addResponse("Hello, I hope you weren't send to me in order to buy wood like my last visitor.");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
