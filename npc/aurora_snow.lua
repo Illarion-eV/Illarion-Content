@@ -25,7 +25,6 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.aurora_snow", package.seeall)
 
@@ -1295,8 +1294,7 @@ talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
 talkEntry:addResponse("I have no need for material possessions.");
 talkEntry:addResponse("Your money is worthless to me.");
-talkEntry:addResponse("I do not desire to.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I do not desire to trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
