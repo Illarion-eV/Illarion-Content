@@ -22,7 +22,6 @@ require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.item")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.percy_dryless", package.seeall)
 
@@ -939,9 +938,8 @@ talkEntry:addTrigger("What buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
 talkEntry:addResponse("I could sell you some lashes from my whip. Interested!?");
-talkEntry:addResponse("Ipain.");
+talkEntry:addResponse("I trade pain.");
 talkEntry:addResponse("Stop bartering and get to work before I lose my patience.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
