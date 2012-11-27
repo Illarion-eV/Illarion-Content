@@ -179,7 +179,7 @@ english, "Cadomyr" -> "Cadomyr, Cadomyr... Can't we talk about something more re
 -- Main land factions
 english, "albar" -> "#me awns: 'Albar? That backward country of ignorance? Do you want to bore me?'"
 "albar" -> "#me gähnt: 'Albar? Dieses rückständige Land der Ignoranz? Wollt ihr mich zu Tode langweilen?"
-english, "gynk", "gync" -> "Gynk is an important centre ofand goods. And corruption.", trade
+english, "gynk", "gync" -> "Gynk is an important centre of trade and goods. And corruption."
 "gync", "gynk" -> "Gynk ist ein wichtiges Zentrum des Handels und des Kommerz. Und der Korruption."
 english, "salkama" -> "I studied in Lor Angur, not Salkamar. But isn't that obvious?"
 "salkama" -> "Ich habe in Lor Angur studiert, nicht in Salkamar. Aber das ist doch klar, oder?"
