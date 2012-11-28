@@ -336,7 +336,7 @@ function EmptyBottle(User,Bottle)
 	else	
 		Bottle.id = 164
 	    Bottle.quality = 333
-		world:changeItem(SourceItem)
+		world:changeItem(Bottle)
 	end
 end
 
