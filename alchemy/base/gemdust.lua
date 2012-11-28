@@ -62,7 +62,7 @@ function GemDustInStock(User,cauldron,gemDust)
 	world:gfx(52,cauldron.pos)
 end
 
-function GemDustInWater(User,cauldron,gemDust)
+function GemDustInWater(User,cauldron,gemDust, User)
 
     cauldron:setData("filledWith","essenceBrew")
 	local reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(gemDust, nil, nil, nil, User)
@@ -83,11 +83,11 @@ function BrewingGemDust(User,gemDust,cauldron)
 		
 	elseif cauldron:getData("filledWith") == "stock" then
 	    GemDustInStock(User,cauldron,gemDust)
-		User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
+		--User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
 
     elseif cauldron:getData("filledWith")=="water" then
-		GemDustInWater(User,cauldron,gemDust)
-		User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
+		GemDustInWater(User,cauldron,gemDust, User)
+		--User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
 	
 	else -- nothing in the cauldron
 	    base.common.InformNLS(User, "Der Edelsteinstaub verflüchtigt sich, als du ihn in den leeren Kessel schüttest.", 
