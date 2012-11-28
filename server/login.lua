@@ -387,7 +387,7 @@ function payNow(User)
 
 	end
 
-	infText="You have thereby paid your monthly tribut. This month, it were"..estring..", which result from a tribute rate of "..(taxHeight*100).."%";
+	infText="You have paid your monthly tribute. This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%";
 	local dialog=MessageDialog("Tribute information",infText,closeTrib);
     --Please add the information to which town the tribute was paid ~Estralis
 	--German translation is missing
