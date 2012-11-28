@@ -81,7 +81,7 @@ function FillStockIn(User,cauldron,SourceItem)
 		alchemy.base.alchemy.CombineStockEssence( User, SourceItem, cauldron)
 
 	elseif cauldron.id == 1008 then -- nothing in the cauldron, we just fill in the stock
-		alchemy.base.alchemy.StockFromTo(SourceItem,cauldron)
+		alchemy.base.alchemy.CopyAllDatas(SourceItem,cauldron)
 		cauldron:setData("filledWith","stock")
 		cauldron.id = 1012
 		world:changeItem(cauldron)
