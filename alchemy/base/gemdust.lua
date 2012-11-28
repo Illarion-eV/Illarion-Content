@@ -9,7 +9,7 @@ module("alchemy.base.gemdust", package.seeall)
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
     -- infront of a cauldron?
-    local cauldron = GetCauldronInfront(User)
+    local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
     if cauldron then
 	  
         -- is the char an alchemist?
@@ -33,28 +33,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    -- not infront of cauldron, maybe do something else with herbs
         return
 	end
-end
-
-function GetPotionId(gemDust)
-
-    local potionId
-    if gemDust.id == 446 then --sapphire
-	   cauldronId = 1011 -- id of the matching potion
-	elseif gemDust.id == 447 then  -- ruby
-		   cauldronId = 1016
-	elseif gemDust.id == 448 then  -- emerald
-		   cauldronId = 1013
-	elseif gemDust.id == 449 then  -- obsidian
-		   cauldronId = 1009
-	elseif gemDust.id == 450 then -- amethyst
-		   cauldronId = 1015
-	elseif gemDust.id == 451 then -- topaz
-		   cauldronId = 1014
-	elseif gemDust.id == 452 then -- diamond
-		   cauldronId = 1017
-	end 
-
-    return cauldronId
 end
 
 function GemDustInStock(User,cauldron,gemDust)
@@ -86,9 +64,9 @@ end
 
 function GemDustInWater(User,cauldron,gemDust)
 
-    cauldron:setData("cauldronFilledWith","essenceBrew")
-	local cauldronId = GetCauldronId(gemDust)
-	cauldron.id = cauldronId
+    cauldron:setData("filledWith","essenceBrew")
+	local reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(gemDust, nil, nil, nil)
+	cauldron.id = reCauldron
 	world:changeItem(cauldron)
 	world:makeSound(13,cauldron.pos)
 	world:gfx(52,cauldron.pos)
