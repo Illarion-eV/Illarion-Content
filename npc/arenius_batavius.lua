@@ -825,7 +825,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addResponse("Great! How much I love it when evil falls! I give you my shield; bear it with honour. But I give it to you for a reason; to complete my mission.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.item.item(96, 1, 888, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 333, {["magicalSapphire"] = "1"}));
+talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 333, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 32));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
