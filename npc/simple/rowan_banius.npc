@@ -107,8 +107,8 @@ queststatus(322) = 1, item(306, all) < 10, "task", "adventure" -> "I am in urgen
 queststatus(322) = 1, item(306, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich benötige dringesnst besagte 10 Schinken.Meine Frau ist schon ganz bleich, ein anständiges Mahl wird ihr gut tun!"
 
 -- Quest 1 solved, reward: 40cp, meat dish
-queststatus(322) = 1, item(306, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 40 copper coins and a meat dish."), "Oh! Thank you, thank you. My wife shall be able to enjoy a decent meal thanks to you. This is sure to raise her spirits.", money + 40, deleteItem(306, 10), item(557, 1, 599), queststatus(322) = 2
-queststatus(322) = 1, item(306, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 40 Kupferstücke und eimn Fleischgericht."), "Oh! Habt dank, habt Dank! Meine Frau wird dank euch eine anstängige Mahlzeit genießen können. Dies wird ihr sicher wieder auf die Beine helfen.", money + 40, deleteItem(306, 10), item(557, 1, 599), queststatus(322) = 2
+queststatus(322) = 1, item(306, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded four silver coins and a meat dish."), "Oh! Thank you, thank you. My wife shall be able to enjoy a decent meal thanks to you. This is sure to raise her spirits.", money + 400, deleteItem(306, 10), item(557, 1, 599), queststatus(322) = 2
+queststatus(322) = 1, item(306, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 40 Kupferstücke und eimn Fleischgericht."), "Oh! Habt dank, habt Dank! Meine Frau wird dank euch eine anstängige Mahlzeit genießen können. Dies wird ihr sicher wieder auf die Beine helfen.", money + 400, deleteItem(306, 10), item(557, 1, 599), queststatus(322) = 2
 
 -- 2nd quest: Bring 1 blue coat
 
@@ -125,8 +125,8 @@ queststatus(322) = 3, item(2380, all) = 0, "task", "adventure" -> "My poor wife 
 queststatus(322) = 3, item(2380, all) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> "Meine arme Frau hatte etwas gutes Essen, aber sie zittert tag und nacht. Je eher Ihr den blauen Mantel besoregen könnt, um so besser.."
 
 -- Quest 2 solved, reward: 60cp, SCYTHE
-queststatus(322) = 3, item(2380, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded 60 copper coins and a SCYTHE."), "Ah, this is perfect. Thank you, my friend. I hope this money shall be sufficient compensation. Hmm...here, take my old scythe, also.", money + 60, deleteItem(2380, 1), item(271, 1, 599), queststatus(322) = 4
-queststatus(322) = 3, item(2380, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 60 Kupferstücke und ein eine Sense."), "Ah, das ist ausgezeichnet. Ich danke euch, mein Freund. Ich hoffe dies ist eine angemessene Entschädigung.Hmm...hier, nehmt auch meine alte Sense.", money + 60, deleteItem(2380, 1), item(271, 1, 599), queststatus(322) = 4
+queststatus(322) = 3, item(2380, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded six silver coins and a scythe."), "Ah, this is perfect. Thank you, my friend. I hope this money shall be sufficient compensation. Hmm...here, take my old scythe, also.", money + 600, deleteItem(2380, 1), item(271, 1, 599), queststatus(322) = 4
+queststatus(322) = 3, item(2380, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 60 Kupferstücke und ein eine Sense."), "Ah, das ist ausgezeichnet. Ich danke euch, mein Freund. Ich hoffe dies ist eine angemessene Entschädigung.Hmm...hier, nehmt auch meine alte Sense.", money + 600, deleteItem(2380, 1), item(271, 1, 599), queststatus(322) = 4
 
 -- 3rd quest: Obtain and deliver Natiana's medicine
 
