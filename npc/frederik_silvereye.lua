@@ -2,7 +2,7 @@
 -- NPC Name: Frederik Silvereye                                       Galmair --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  385, 241, 0            --
+-- NPC Race: human                      NPC Position:  404, 263, 1            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Ardian                                                           --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 385, 241, 0, 4, 'Frederik Silvereye', 'npc.frederik_silvereye', 0, 3, 5, 139, 0, 0, 245, 222, 179);
+VALUES (0, 404, 263, 1, 4, 'Frederik Silvereye', 'npc.frederik_silvereye', 0, 3, 5, 42, 20, 2, 245, 222, 179);
 ---]]
 
 require("npc.base.basic")
@@ -465,7 +465,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -480,7 +480,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -497,7 +497,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -505,14 +505,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -527,7 +527,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -542,7 +542,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -557,7 +557,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -572,24 +572,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -604,7 +587,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -623,7 +606,7 @@ talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -638,7 +621,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -653,7 +636,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -668,7 +651,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -685,7 +668,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -693,14 +676,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -708,14 +691,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn  Ihn mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -739,7 +722,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Everyone should become a citizen of Galmair.That way I can make lots of money!");
+talkEntry:addResponse("Everyone should become a citizen of Galmair. That way I can make lots of money!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -794,6 +777,18 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("bless you");
+talkEntry:addResponse("Thanks.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("gesundheit");
+talkEntry:addResponse("Danke.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
@@ -812,23 +807,22 @@ talkEntry:addResponse("Mhm....");
 talkEntry:addResponse("#me schaut sich um.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("#me schüttelt den Kopf während er einen Brief liest", "#me shakes his head while reading a letter.");
+talkingNPC:addCycleText("#me zählt einige Münzen.", "#me counts some coints.");
+talkingNPC:addCycleText("#me starrt vor sich hin.", "#me stares into thin air.");
+talkingNPC:addCycleText("#me schreibt einen Brief.", " #me writes a letter.");
+talkingNPC:addCycleText("#me grummelt:'Arbeit, nichts ale Arbeit!'", "#me mubles: 'Work, nothing but work.'");
+talkingNPC:addCycleText("Werdet Bürger von Galmair! Macht mich reich!...äh ich meine, werdet reich in Galmair!", "Become a citzen of Galmair! Make me rich...ehm, I mean become rich in Galmair.");
+talkingNPC:addCycleText("#me niest.", "#me snoozes.");
+talkingNPC:addCycleText("#me kratzt sich am Kopf.", "#me scratches his head.");
+talkingNPC:addCycleText("#me putzt seine Nase.", "#me blows his nose.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Frederik Silvereye der Notar.", "This NPC is Frederik Silvereye the notary.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
-mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(1, 830);
 mainNPC:setEquipment(3, 813);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);

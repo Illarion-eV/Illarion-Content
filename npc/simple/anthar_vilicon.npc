@@ -499,7 +499,7 @@ english, "Zhambra" -> "Zhambra is the god of loyality. And I am loyal to my quee
 "Zhambra" -> "Zhambra ist der Gott der Loyalität und ich bin loyal gegenüber meiner Königin und ihrer Familie, den Edwards. Ich stehe in ihren Diensten schon seit einem Dutzend Menschenleben."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Where is the sign above my head, reading 'Anthar's general store'? I am not ar!", trade
+"what sell", "what buy", "list wares", "price of" -> "Where is the sign above my head, reading 'Anthar's general store'? I am not a trader!"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Wo ist denn bitte das Schild über meinem Kopf, auf dem 'Anthars Gemischtwarenhandel' steht? Ich bin kein Händler!"
 "tell something" -> "I could tell you a lot about Cadomyr, queen Rosaline and the palace."
 "erzähl was", "erzähl etwas" -> "Ich könnte euch etwas über Cadomyr, Königin Rosaline und den Palast erzählen."

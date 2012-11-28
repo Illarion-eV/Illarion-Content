@@ -844,7 +844,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("The Don owns two stones of power. These are a Bluestone and a Blackstone. They protect Galmair against Runewick and Cadomyr.");
+talkEntry:addResponse("The Don owns two stones of power. These are a Sapphire and a Obsidian. They protect Galmair against Runewick and Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -852,7 +852,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Der Don besitzt zwei Steine der Macht. Einen Blaustein und einen Schwarzstein. Die beschützen Galmair vor Runewick und Cadomyr.");
+talkEntry:addResponse("Der Don besitzt zwei Steine der Macht. Einen Saphir und einen Obsidian. Die beschützen Galmair vor Runewick und Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -128,14 +128,14 @@ skill(mining) < 90, queststatus(68) = 3, item(21, all) > 19, ".+" -> inform("[Qu
 queststatus(68) = 3, item(21, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.", money + 1000, deleteItem(21, 20), queststatus(68) = 4
 
 -- 3rd quest: Gather 5 rare raw materials for 100cp.
-queststatus(68) = 4, english, "quest", "mission" -> inform("[New quest] Dark Hole Mine III"), "Hey-ho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.", queststatus(68) = 5
-queststatus(68) = 4, "quest", "mission" -> inform("[Neues Quest] Dunkellochmine III"), "Hey-ho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig.", queststatus(68) = 5
-queststatus(68) = 4, "task", "adventure", "order" -> inform("[New quest] Dark Hole Mine III"), "Heydiho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.", queststatus(68) = 5
-queststatus(68) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Dunkellochmine III"), "Heydiho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig", queststatus(68) = 5
-queststatus(68) = 5, item(252, all) < 5, english, "quest", "mission" -> "Bring me five raw blackstones and you get money. I'm so excited!"
-queststatus(68) = 5, item(252, all) < 5, "quest", "mission" -> "Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
-queststatus(68) = 5, item(252, all) < 5, "task", "adventure", "order" -> "Bring me five raw blackstones and you get money. I'm so excited!"
-queststatus(68) = 5, item(252, all) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!"
+queststatus(68) = 4, english, "quest", "mission" -> inform("[New quest] Dark Hole Mine III"), "Hey-ho! Now we can dig for gems. Gather five raw obsidians for me and I will reward you generously.", queststatus(68) = 5
+queststatus(68) = 4, "quest", "mission" -> inform("[Neues Quest] Dunkellochmine III"), "Hey-ho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Obsidiane und ich belohne dich großzügig.", queststatus(68) = 5
+queststatus(68) = 4, "task", "adventure", "order" -> inform("[New quest] Dark Hole Mine III"), "Heydiho! Now we can dig for gems. Gather five raw obsidians for me and I will reward you generously.", queststatus(68) = 5
+queststatus(68) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Dunkellochmine III"), "Heydiho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Obsidiane und ich belohne dich großzügig", queststatus(68) = 5
+queststatus(68) = 5, item(252, all) < 5, english, "quest", "mission" -> "Bring me five raw obsidians and you get money. I'm so excited!"
+queststatus(68) = 5, item(252, all) < 5, "quest", "mission" -> "Bring mir fünf ungeschliffene Obsidiane und du bekommst Geld. Ich bin so aufgeregt!"
+queststatus(68) = 5, item(252, all) < 5, "task", "adventure", "order" -> "Bring me five raw obsidians and you get money. I'm so excited!"
+queststatus(68) = 5, item(252, all) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bring mir fünf ungeschliffene Obsidiane und du bekommst Geld. Ich bin so aufgeregt!"
 skill(mining) < 90, queststatus(68) = 5, item(252, all) > 4, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!", skill(mining) + 1, money + 1000, deleteItem(252, 5), queststatus(68) = 6, rankpoints + 15
 queststatus(68) = 5, item(252, all) > 4, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded ten silver coins. You advance in Don Valerio Guilianni's favour."), "Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!", money + 1000, deleteItem(252, 5), queststatus(68) = 6, rankpoints + 15
 skill(mining) < 90, queststatus(68) = 5, item(252, all) > 4, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), "Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!", skill(mining) + 1, money + 1000, deleteItem(252, 5), queststatus(68) = 6, rankpoints + 15
@@ -230,7 +230,7 @@ queststatus(68) = 0, "hacke" -> "Du siehst aus wie jemand, der eine Spitzhacke s
 "hacke" -> "Brauchst 'ne Hacke, war die letzte kacke. In Galmair kriegst du eine neue."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I sell nothing to you, you sell nothing to me. Everyone keeps his property, fine.", "You have enough, I have enough, so why?", "Bartering is so stupid, don't we all want to betray each other?", trade
+"what sell", "what buy", "list wares", "price of" -> "I sell nothing to you, you sell nothing to me. Everyone keeps his property, fine.", "You have enough, I have enough, so why trade?", "Bartering is so stupid, don't we all want to betray each other?"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe dir nichts, du verkaufst mir nichts. Jeder behält, was er hat, gut, nicht?", "Du hast genug, ich hab genug, also warum handeln?", "Feilschen ist ziemlich dusselig, will doch jeder nur den anderen hehupsen."
 "tell something" -> "Once upon a time, in land far far away... I forgot the rest. But this line thrills me!", "And they all died happily ever after... I'm not a good story teller.", "What shall I tell you, fairytales? Better ask a fairy!"
 "erzähl was", "erzähl etwas" -> "Es war einmal in einem fernen Land, hinter den sieben Bergen... Den Rest hab ich vergessen, aber diese Zeile ist der Hammer.", "Und wenn sie nicht noch leben, sind sie wohl gestorben... Ich bin nicht gut darin, Geschichten zu erzählen.", "Was soll ich dir erzählen, Märchen? Frage lieber eine Fee danach."

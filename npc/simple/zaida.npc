@@ -182,7 +182,7 @@ queststatus(76) = 2, english, "Eldan" -> "Some say Eldan is Elara's father. They
 queststatus(76) = 2, "Eldan" -> "Manche sagen, Eldan sei Elaras Vater. Aber das meinen sie metaphorisch, nicht wörtlich."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I do notsorry.", trade
+"what sell", "what buy", "list wares", "price of" -> "I do not trade, sorry."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler."
 "tell something" -> "The wine is marvellous, isn't it?"
 "erzähl was", "erzähl etwas" -> "Der Wein hier ist wunderbar, nicht wahr?"

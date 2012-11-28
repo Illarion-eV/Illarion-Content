@@ -128,8 +128,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I'm always happy when I can.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I'm always happy when I can trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -212,7 +211,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("Do you want to change your coin or do you want to keep me from working by gossiping?");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -226,7 +224,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
 talkEntry:addResponse("Do you want to change your coin or do you want to keep me from working by gossiping?");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -242,7 +239,6 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("Runewick is such a nice place. You can make lots of money here.");
 talkEntry:addResponse("Do you want to change your coin or do you want to keep me from working by gossiping?");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -258,7 +254,6 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Galmair is full of corruption and dirt.");
 talkEntry:addResponse("Do you want to change your coin or do you want to keep me from working by gossiping?");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -274,7 +269,6 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("Cadomyr is Cadomyr.");
 talkEntry:addResponse("Do you want to change your coin or do you want to keep me from working by gossiping?");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -303,7 +297,6 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addResponse("Do you want to change your coin or do you want to keep me from working by gossiping?");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

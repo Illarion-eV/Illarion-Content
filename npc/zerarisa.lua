@@ -27,7 +27,6 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.skill")
-require("npc.base.consequence.talkstate")
 require("npc.base.talk")
 module("npc.zerarisa", package.seeall)
 
@@ -1410,8 +1409,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
 talkEntry:addResponse("Wass meinenss mit ja? Wollenss Aufgabe, fragenss Aufgabe.");
-talkEntry:addResponse("Seienss zssustimmaber wenn wollenss Aufgabe, fragenss Aufgabe.");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Seienss zssustimmend, aber wenn wollenss Aufgabe, fragenss Aufgabe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -4,7 +4,7 @@ require("base.common");
 module("alchemy.base.alchemy", package.seeall)
 
 function InitAlchemy()
-    InitPlants()
+    InitPlantSubstance()
 	InitPotions()
 end
 
@@ -12,30 +12,34 @@ end
 plantSubstanceList = {};
 
 function InitPlantSubstance()
-    setPlant(133, "Adrazin", "Orcanol") -- sunherb / Sonnenkraut
-    setPlant(758, "Adrzain", "") -- heart blood / Herzblut
-end;
-
-function setPlantSubstance(id, plusSubstance, minusSubstance)
-    plantList[id] = {plusSubstance, minusStubstance}
+    if plantSubstanceList == nil then
+	    plantSubstanceList = {}
+	end	
+	setPlantSubstance(133, "Adrazin", "Orcanol") -- sunherb / Sonnenkraut
+    setPlantSubstance(758, "Adrzain", "") -- heart blood / Herzblut
+	setPlantSubstance(15 , ""       , "") -- apple / Apfel
 end
 
-function getPlantSubstance(id)
+function setPlantSubstance(id, plusSubstance, minusSubstance)
+    if plantList == nil then
+	    plantList = {}
+	end	
+	plantList[id] = {plusSubstance, minusSubstance}
+end
+
+function getPlantSubstance(id, User)
     if not plantList[id] then
 	    return false
 	end	
-	local plus; local minus
-	if plantList[id][1] == nil then
-	    plus = ""
-	elseif plantList[id][2] == nil then
-	    minus = ""
-	else
-        plus = plantList[id][1]
-		minus = plantList[id][2]
-    end     	
+	local plus, minus
+	if plantList[id][1] ~= nil then
+	    plus = plantList[id][1]
+	end	
+	if plantList[id][2] ~= nil then
+	    minus = plantList[id][2]
+	end     	
 	return plus, minus    
 end
-
 
 -- the list of possible potions effects
 potionsList = {};
@@ -89,7 +93,7 @@ end;
 qListDe={"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"};
 qListEn={"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"};
 
---                stock,bluestone,ruby,emerald,blackstone,amethyst,topaz,diamant
+--                stock,sapphire,ruby,emerald,obsidian,amethyst,topaz,diamant
 gemList        = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
 cauldronPotion = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017} 
 bottlePotion   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
@@ -292,7 +296,7 @@ function GetCauldronInfront(User)
 end
 
 function CheckIfAlchemist(User,textDE,textEN)
-    if User:getMagicType() ~= 3 then
+    if (User:getMagicType() ~= 3) or (User:getMagicFlags(3) <= 0) then
 	    User:inform(textDE,textEN)
 		return false
 	else
@@ -312,19 +316,17 @@ function RemoveStock(Item)
 	end
 end
 
-function StockFromTo(fromItem,toItem)
-    for i=1,8 do
-	    toItem:setData(wirkstoff[i].."Concentration",fromItem:getData(wirkstoff[i].."Concentration"))
-		fromItem:setData(wirkstoff[i].."Concentration","")
-	end	
-end
-
 function RemoveAll(Item)
     RemoveEssenceBrew(Item)
 	RemoveStock(Item)
 	Item:setData("potionEffectId","")
 	Item:setData("potionQuality","")
 	Item:setData("filledWith","")
+	if (Item.id >= 1008) or (Item.id <= 1018) then
+	    Item.id = 1008
+	else
+	    Item.id = 164
+	end
 end
 
 function EmptyBottle(User,Bottle)
@@ -334,8 +336,20 @@ function EmptyBottle(User,Bottle)
 	else	
 		Bottle.id = 164
 	    Bottle.quality = 333
-		world:changeItem(SourceItem)
+		world:changeItem(Bottle)
 	end
+end
+
+function CopyAllDatas(fromItem,toItem)
+-- copies all datas from fromItem to toItem
+	for i=1,8 do
+	    toItem:setData(wirkstoff[i].."Concentration",fromItem:getData(wirkstoff[i].."Concentration")) 
+		toItem:setData("essenceHerb"..i,fromItem:getData("essenceHerb"..i))
+	end	
+    toItem:setData("filledWith",fromItem:getData("filledWith")) 
+	toItem:setData("potionEffectId",fromItem:getData("potionEffectId"))
+	toItem:setData("potionQuality",fromItem:getData("potionQuality")) 
+
 end
 
 function CauldronDestruction(User,cauldron,effectId)
@@ -377,30 +391,34 @@ gemDustList  = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
 cauldronList = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017} 
 bottleList   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
 
-function GemDustBottleCauldron(gemdust, cauldron, bottle)
+function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
     -- this function returns matching gemdust id, cauldron id and bottle id
     -- only one parameter is needed; if there are more than one, only the first one will be taken into account
-    local myList
+    User:inform("debug gbc1")
+	local myList
 	local myValue
     if gemDust then
-	    myList = gemDustList
-		myValue = gemDust
+	    myList = gemdustList
+		myValue = gemdust.id
 	elseif cauldron then
-	    myList = cauldronList
-		myValue = cauldron
+	    User:inform("debug gbc2")
+		myList = cauldronList
+		myValue = cauldron.id
     elseif bottle then
         myList = bottleList	
-		myValue = bottle
+		myValue = bottle.id
     else 
 	    return 
 	end	
 	local reGemdust; local reCauldron; local reBottle
 	for i=1,#myList do
 	    if myList[i] == myValue then
-		    reGemdust = gemDustList[i]
+		    User:inform("debug gbc3")
+			reGemdust = gemDustList[i]
 	        reCauldron = cauldronList[i]
 			reBottle = bottleList[i]
-	    end
+	        break
+		end
 	end
 	return reGemdust, reCauldron, reBottle
 end
@@ -427,7 +445,11 @@ function CombineStockEssence( User, stock, essenceBrew)
 		-- secondly, the stock
 		local stockConc = ""
 		for i=1,8 do 
-		    stockConc = stockConc..stock:getData(wirkstoff[1].."Concentration")
+		    local currentSubs = stock:getData(wirkstoff[1].."Concentration")
+			if currentSubs == "" then
+			    currentSubs = 5
+			end	
+			stockConc = stockConc..currentSubs
 		end
         myIngredients[2] = tonumber(stockConc)
 		-- thirdly, the (at maximum) eight herbs of the essenceBrew

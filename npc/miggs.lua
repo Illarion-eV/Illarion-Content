@@ -23,7 +23,6 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.miggs", package.seeall)
 
@@ -457,8 +456,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 18));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and itsrs, slay as many as possible.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and its traders, slay as many as possible.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -476,8 +474,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 12));
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 18));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and itsrs, slay as many as possible.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Those undead bastards in the sewers scare away customers. Help Galmair and its traders, slay as many as possible.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -648,10 +645,8 @@ talkEntry:addTrigger("merchant");
 talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
-talkEntry:addResponse("In Galmair, you maywhatever you want with whoever you want whenever you want.");
-talkEntry:addResponse("The market place is a good place to. It is outside. So... get out!");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("In Galmair, you may trade whatever you want with whoever you want whenever you want.");
+talkEntry:addResponse("The market place is a good place to trade. It is outside. So... get out!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

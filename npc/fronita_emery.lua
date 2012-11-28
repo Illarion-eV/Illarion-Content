@@ -21,7 +21,6 @@ require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
-require("npc.base.consequence.talkstate")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
@@ -462,9 +461,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.");
+talkEntry:addResponse("Ich finde es beruhigend, dass so ein schlauer Mann über Runewick bestimmt.");
 talkEntry:addResponse("Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt.");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -480,9 +478,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.");
+talkEntry:addResponse("Ich finde es beruhigend, dass so ein schlauer Mann über Runewick bestimmt.");
 talkEntry:addResponse("Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt.");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

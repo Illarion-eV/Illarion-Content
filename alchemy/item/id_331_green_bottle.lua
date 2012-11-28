@@ -9,6 +9,7 @@
 require("base.common")
 require("base.character")
 require("alchemy.item.id_165_blue_bottle")
+require("alchemy.base.alchemy")
 
 module("alchemy.item.id_331_green_bottle", package.seeall)
 
@@ -17,12 +18,12 @@ module("alchemy.item.id_331_green_bottle", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     
-	if SourceItem:getData("bottleFilledWith") ~= "stock" then -- no stock, something else
+	if SourceItem:getData("filledWith") ~= "stock" then -- no stock, something else
 	    return
 	
 	else
         -- infront of a cauldron?
-		local cauldron = GetCauldronInfront(User)
+		local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
         if cauldron then
 	        
 			-- is the char an alchemist?
@@ -63,25 +64,25 @@ end
 
 function FillStockIn(User,cauldron,SourceItem)
     -- water, stock or potion is in the cauldron; leads to a failure
-	if cauldron:getData("cauldronFilledWith") == "water" then
+	if cauldron:getData("filledWith") == "water" then
 		alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
 
-	elseif cauldron:getData("cauldronFilledWith") ~= "stock" then
+	elseif cauldron:getData("filledWith") == "stock" then
 		alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)
 	
-	elseif cauldron:getData("cauldronFilledWith") == "potion" then
+	elseif cauldron:getData("filledWith") == "potion" then
 		if cauldron.id == 1011 then -- support potion
 			 alchemy.item.id_165_blue_bottle.SupportStock(User,cauldron,SourceItem)
 		else
 			alchemy.base.alchemy.CauldronExplosion(User,cauldron,2)
 		end
 	
-	elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
+	elseif cauldron:getData("filledWith") == "essenceBrew" then 
 		alchemy.base.alchemy.CombineStockEssence( User, SourceItem, cauldron)
 
 	elseif cauldron.id == 1008 then -- nothing in the cauldron, we just fill in the stock
-		alchemy.base.alchemy.StockFromTo(SourceItem,cauldron)
-		cauldron:setData("cauldronFilledWith","stock")
+		alchemy.base.alchemy.CopyAllDatas(SourceItem,cauldron)
+		cauldron:setData("filledWith","stock")
 		cauldron.id = 1012
 		world:changeItem(cauldron)
 	end

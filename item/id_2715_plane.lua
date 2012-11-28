@@ -115,7 +115,7 @@ product = carpentry:addProduct(catId, 2685, 90, 110, 27, 54)
 product:addIngredient(546, 7) -- Naldor Wooden Boards: 7x1
 product:addIngredient(50, 2) -- Thread: 2x1
 product:addIngredient(2551) -- Pure Air: 1x1
-product:addIngredient(284, 2) -- Bluestone: 2x1
+product:addIngredient(284, 2) -- Sapphire: 2x1
 
 catId = carpentry:addCategory("instruments", "Instrumente") --instruments
 
@@ -220,14 +220,14 @@ product = carpentry:addProduct(catId, 2284, 90, 110, 27, 54)
 product:addIngredient(2543, 7) -- Conifer Wooden Boards: 7x1
 product:addIngredient(2547, 3) -- Leather: 3x1
 product:addIngredient(2551) -- Pure Air: 1x1
-product:addIngredient(284, 3) -- Bluestone: 3x1
+product:addIngredient(284, 3) -- Sapphire: 3x1
 
 --Cloud Shield
 product = carpentry:addProduct(catId, 2439, 100, 120, 30, 60)
 product:addIngredient(2543, 7) -- Conifer Wooden Boards: 7x1
 product:addIngredient(2547, 3) -- Leather: 3x1
 product:addIngredient(2551) -- Pure Air: 1x1
-product:addIngredient(284, 5) -- Bluestone: 5x1
+product:addIngredient(284, 5) -- Sapphire: 5x1
 
 catId = carpentry:addCategory("greaves", "Beinschienen")
 

@@ -275,7 +275,7 @@ function InitializeHelpList()
     PraeList[13]={48   ,53  ,325   ,326  ,369  ,2295  };
     PraeLBon[13]={-5   ,-5  ,-50   ,-50  ,0    ,0     };
     -- Amulettes
-	-- {emerald amulet, rubin amulet, bluestone amulet, amethyst amulet, blackstone amulet, topas amulet, amulet, charm of the icebird }
+	-- {emerald amulet, rubin amulet, sapphire amulet, amethyst amulet, obsidian amulet, topas amulet, amulet, charm of the icebird }
     PraeList[14]={62  ,67   ,71   ,79  ,82  ,83   ,222  ,334  };
     PraeLBon[14]={20  ,20   ,30   ,20  ,20  ,30   ,0    ,50   };
     -- Hats
@@ -288,7 +288,7 @@ function InitializeHelpList()
     PraeList[16]={55  ,193  ,194  ,195  ,196  ,368  ,547  ,548  ,558  ,2377  ,2378  ,2380  ,2384  ,2416  ,2418  ,2419  ,2420  ,2421  };
     PraeLBon[16]={5   ,5    ,5    ,5    ,0    ,10   ,20   ,30   ,50   ,10    ,5     ,0     ,0     ,10    ,10    ,10    ,10    ,10    };
     -- Rings
-	-- {ruby ring, golden ring, amethyst ring, blackstone ring, bluestone ring, diamond ring, emerald ring, topas ring, ring of the archmage }
+	-- {ruby ring, golden ring, amethyst ring, obsidian ring, sapphire ring, diamond ring, emerald ring, topas ring, ring of the archmage }
     PraeList[17]={68  ,235  ,277  ,278  ,279  ,280  ,281  ,282  ,2559  };
     PraeLBon[17]={20  ,0    ,20   ,20   ,30   ,30   ,20   ,30   ,50    };
     -- Tools I
@@ -397,9 +397,9 @@ function gemBonis( Char )
 	        end
 	    elseif stone[i].type==3 and Skill.name=="commotio" then -- Rubin
 	        GemBonis.Skill = GemBonis.Skill + stone[i].effect * 3;
-	    elseif stone[i].type==4 and ((Skill.name=="transformo") or (Skill.name=="transfreto") or (Skill.name=="desicio")) then -- Schwarzstein
+	    elseif stone[i].type==4 and ((Skill.name=="transformo") or (Skill.name=="transfreto") or (Skill.name=="desicio")) then -- Obsidian
 	        GemBonis.Skill = GemBonis.Skill + stone[i].effect;
-	    elseif stone[i].type==5 and Skill.name=="pervestigatio" then -- Blaustein
+	    elseif stone[i].type==5 and Skill.name=="pervestigatio" then -- Saphir
 	        GemBonis.Skill = GemBonis.Skill + stone[i].effect * 3;
 	    elseif stone[i].type == 6 then -- Amethyst
 	        GemBonis.Time = GemBonis.Time - math.ceil((TimeEffects.delay/100)*stone[i].effect*9);

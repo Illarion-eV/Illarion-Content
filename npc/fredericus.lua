@@ -18,7 +18,6 @@ VALUES (0, 117, 618, 0, 2, 'Fredericus', 'npc.fredericus', 0, 1, 1, 192, 107, 5,
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.talkstate")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
@@ -166,8 +165,7 @@ talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("Fredericus. That's me.");
 talkEntry:addResponse("I am the fisherman Fredericus.");
-talkEntry:addResponse("Fredericus is my name, Ifish.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Fredericus is my name, I trade fish.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -190,14 +188,10 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("Fish, fish, fish. Ifish. And also herbs, if you need any to spice up your dishes.");
-talkEntry:addResponse("Ifish, do you need any?");
-talkEntry:addResponse("Iwhat you need to catch fish and I even buy the fish you caught.");
-talkEntry:addResponse("Ya want to? Aye, have a look!");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Fish, fish, fish. I trade fish. And also herbs, if you need any to spice up your dishes.");
+talkEntry:addResponse("I trade fish, do you need any?");
+talkEntry:addResponse("I trade what you need to catch fish and I even buy the fish you caught.");
+talkEntry:addResponse("Ya want to trade? Aye, have a look!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -325,8 +319,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cape");
 talkEntry:addTrigger("Farewell");
-talkEntry:addResponse("Cape Farewell is to the south and west, land'sone could say.");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Cape Farewell is to the south and west, land's end one could say.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -370,8 +363,7 @@ talkEntry:addTrigger("merchant");
 talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
-talkEntry:addResponse("Here, at the marketplace, there are manyrs. You can buy many goods here in Cadomyr.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Here, at the marketplace, there are many traders. You can buy many goods here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

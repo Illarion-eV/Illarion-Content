@@ -38,13 +38,13 @@ end
 function GetPotionId(gemDust)
 
     local potionId
-    if gemDust.id == 446 then --bluestone
+    if gemDust.id == 446 then --sapphire
 	   cauldronId = 1011 -- id of the matching potion
 	elseif gemDust.id == 447 then  -- ruby
 		   cauldronId = 1016
 	elseif gemDust.id == 448 then  -- emerald
 		   cauldronId = 1013
-	elseif gemDust.id == 449 then  -- blackstone
+	elseif gemDust.id == 449 then  -- obsidian
 		   cauldronId = 1009
 	elseif gemDust.id == 450 then -- amethyst
 		   cauldronId = 1015

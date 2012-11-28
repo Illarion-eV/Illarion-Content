@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 109
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Gehe in den Raum der Zwielicht! Sucht nach einer Zahl an einen der Särge dort!"
+local NPC_REPLY_DE = "Gehe in den Raum der Zwielicht! Sucht nach einer Zahl an einen der Sï¿½rge dort!"
 local NPC_REPLY_EN = "Go into the Room of Twilight! Look for a number at one of the coffins there!"
 
 function receiveText(npc, type, text, PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Raum des Zwielicht und suche nach einer Nummer auf einen Sarg dort. Vergiß nicht die Lampe dort zu verwenden.", "Go to the Room of Twilight and look for a number at one of the coffins there. Don't forget to use the lamp there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Raum des Zwielicht und suche nach einer Nummer auf einen Sarg dort. Vergiï¿½ nicht die Lampe dort zu verwenden.", "Go to the Room of Twilight and look for a number at one of the coffins there. Don't forget to use the lamp there."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 92, 333, 1):execute()
 end
 

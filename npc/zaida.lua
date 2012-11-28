@@ -24,7 +24,6 @@ require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.zaida", package.seeall)
 
@@ -890,8 +889,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I do notsorry.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I do not trade, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

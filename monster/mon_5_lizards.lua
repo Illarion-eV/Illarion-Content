@@ -208,7 +208,7 @@ function onDeath(Monster)
 
         --Category 2: Special loot
 
-        local done=monster.base.drop.AddDropItem(71,1,20,(100*math.random(4,5)+math.random(44,55)),0,2); --bluestone amulet
+        local done=monster.base.drop.AddDropItem(71,1,20,(100*math.random(4,5)+math.random(44,55)),0,2); --sapphire amulet
         if not done then done=monster.base.drop.AddDropItem(43,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --candles
         if not done then done=monster.base.drop.AddDropItem(556,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --salmon dish
         if not done then done=monster.base.drop.AddDropItem(2459,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --fish filet dish
@@ -238,10 +238,10 @@ function onDeath(Monster)
 
         --Category 2: Special loot
 
-        local done=monster.base.drop.AddDropItem(284,1,20,(100*math.random(3,4)+math.random(33,44)),0,2); --bluestone
-        if not done then done=monster.base.drop.AddDropItem(71,1,10,(100*math.random(3,4)+math.random(33,44)),0,2); end --bluestone amulet
-        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --bluestone ring
-        if not done then done=monster.base.drop.AddDropItem(253,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --raw bluestone
+        local done=monster.base.drop.AddDropItem(284,1,20,(100*math.random(3,4)+math.random(33,44)),0,2); --sapphire
+        if not done then done=monster.base.drop.AddDropItem(71,1,10,(100*math.random(3,4)+math.random(33,44)),0,2); end --sapphire amulet
+        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --sapphire ring
+        if not done then done=monster.base.drop.AddDropItem(253,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --raw sapphire
         if not done then done=monster.base.drop.AddDropItem(1858,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --goblet
 
         --Category 3: Weapon

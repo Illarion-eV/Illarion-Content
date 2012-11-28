@@ -10,7 +10,7 @@ local ITEM_ID = 15
 local ITEM_AMNT = 1
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Wie ich sehe, wurde die Notiz gefunden und auch ein Apfel gebracht. Man darf ihn behalten. Nun ab in den Garten. Dort sind vier Säulen mit Elementen. Welches ist auf der linken Säule?"
+local NPC_REPLY_DE = "Wie ich sehe, wurde die Notiz gefunden und auch ein Apfel gebracht. Man darf ihn behalten. Nun ab in den Garten. Dort sind vier Sï¿½ulen mit Elementen. Welches ist auf der linken Sï¿½ule?"
 local NPC_REPLY_EN = "I see, you found the noice and got an apple. Fine, you can keep the apple. Now go to the garden and tell me name of the element on the left column there."
 local NPC_NOITEM_DE = "Die Notiz scheint gefunden worden sein, aber befolgt sollte sie auch werden."
 local NPC_NOITEM_EN = "The notice has been found, but the task has not been accomplished!"
@@ -65,7 +65,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Garten nun - nehmt das rote Portal in der Stadt. Am hinteren Ende findest du die Säulen.", "Go to the garden now - use the red portal in the town. You find the columns at the end of the garden."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Garten nun - nehmt das rote Portal in der Stadt. Am hinteren Ende findest du die Sï¿½ulen.", "Go to the garden now - use the red portal in the town. You find the columns at the end of the garden."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

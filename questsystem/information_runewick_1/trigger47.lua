@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Such nach dem Geschichtsbuch von Runewick in einem der Bücherregalen.", "Find the history book of Runewick in one of the bookshelves."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Such nach dem Geschichtsbuch von Runewick in einem der Bï¿½cherregalen.", "Find the history book of Runewick in one of the bookshelves."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

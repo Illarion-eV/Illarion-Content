@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 61
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Schön, dass ihr euren Weg nach Runewick gefunden habt. Möge euer Wissen hier gedeien und uns allen dienen."
+local NPC_REPLY_DE = "Schï¿½n, dass ihr euren Weg nach Runewick gefunden habt. Mï¿½ge euer Wissen hier gedeien und uns allen dienen."
 local NPC_REPLY_EN = "Wonderful, you found your way to Runewick. Your widsom may grow and serve each of us."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du kannst gerne weiter mit dem Archmage reden, aber auch zurück zu Elesil gehen.", "You can continue your conversation with the Archmage, or go back to Elesil."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du kannst gerne weiter mit dem Archmage reden, aber auch zurï¿½ck zu Elesil gehen.", "You can continue your conversation with the Archmage, or go back to Elesil."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -84,26 +84,26 @@ itemShoes = 369
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ah, ein loyaler Diener, wie fein. Bitte fragt einen meiner Diener, was ihr heute für mich tun könnt. Ich kann mich nicht mit Details aufhalten, ich muss ein ganzes Königreich regieren, nicht nur euch."
 
 -- Reward for quest 622
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(10.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(1)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(10.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(1)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(11.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(2)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(11.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(2)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(13.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(3)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(13.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(3)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(14.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(4)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(14.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(4)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(17.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(5)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(17.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(5)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(20.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(6)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(20.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(6)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(25.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(7)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(25.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(7)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(34.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(8)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(34.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(8)
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(51.0) -> "#me nods and hands you an item silently.", item(198, 1, 999, 1), queststatus(643) = 1
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(51.0) -> "#me nickt und reicht dir leise einen Gegenstand.", item(198, 1, 999, 1), queststatus(643) = 1
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(100.0) -> "#me nods and hands you an item silently.", item(197, 1, 999, 1), queststatus(643) = 1
-"Mordak al Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(100.0) -> "#me nickt und reicht dir leise einen Gegenstand.", item(197, 1, 999, 1), queststatus(643) = 1
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(10.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(1)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(10.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(1)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(11.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(2)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(11.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(2)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(13.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(3)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(13.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(3)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(14.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(4)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(14.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(4)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(17.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(5)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(17.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(5)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(20.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(6)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(20.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(6)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(25.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(7)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(25.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(7)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(34.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(8)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(34.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(8)
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(51.0) -> "#me nods and hands you an item silently.", item(198, 1, 999, "magicalTopaz"="1"), queststatus(643) = 1
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(51.0) -> "#me nickt und reicht dir leise einen Gegenstand.", item(198, 1, 999, "magicalTopaz"="1"), queststatus(643) = 1
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(100.0) -> "#me nods and hands you an item silently.", item(197, 1, 999, "magicalAmethyst"="1"), queststatus(643) = 1
+"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(100.0) -> "#me nickt und reicht dir leise einen Gegenstand.", item(197, 1, 999, "magicalAmethyst"="1"), queststatus(643) = 1
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Profession? Foolish traveler, I am the Queen, my profession is to rule this kingdom!"

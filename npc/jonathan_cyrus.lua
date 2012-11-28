@@ -240,10 +240,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("Iglassware.");
-talkEntry:addResponse("Icandles and glassware.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I trade glassware.");
+talkEntry:addResponse("I trade candles and glassware.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -257,10 +255,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Iglassware.");
-talkEntry:addResponse("Icandles and glassware.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I trade glassware.");
+talkEntry:addResponse("I trade candles and glassware.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

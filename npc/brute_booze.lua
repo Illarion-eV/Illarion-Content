@@ -18,7 +18,6 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.talkstate")
 require("npc.base.talk")
 module("npc.brute_booze", package.seeall)
 
@@ -273,7 +272,7 @@ talkEntry:addTrigger("town");
 talkEntry:addTrigger("village");
 talkEntry:addTrigger("city");
 talkEntry:addTrigger("cities");
-talkEntry:addResponse("RINCE WRITE SOMETHING HERE!!!");
+talkEntry:addResponse("Many lands I saw and even more tales I heard. Orcish towns like Kroch'Gurak, Fireshine, Judgement's Flame and Light of Khaari! Brute Booze drunk almost everywhere. In Firnismill, Pennymill but never in Oldwillows. The strongholds of the dwarvlings! Sevenhill, Storm's Keep and Arn-Gharrach. The stormy town Kjelt! The icy Karras, the old Ann-Korr and fameous Kang-Arr! Myr-Tobar the town made of jade. Oldford, Fennsworth, Falmarha, Nubris, Mitsobar and Koldamar - all towns of the human folk. And last Lor-Angur realm of magics.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -282,7 +281,7 @@ talkEntry:addTrigger("Stadt");
 talkEntry:addTrigger("Städte");
 talkEntry:addTrigger("Dorf");
 talkEntry:addTrigger("Dörfer");
-talkEntry:addResponse("UND HIER AUCH!!!");
+talkEntry:addResponse("Schon viele Länder habe ich geseh-higt und von noch mehr kennige ich Geschichten! Orkstädte wie Kroch'Gurak, Fireshine, Judgement's Flame, Licht von Khaari! Überall habige ich schon gesoffen. Im grünigen Firnismühle und in Pfennigmühle war ich auch. Aber niemals in Altweiden. Und die Festungen der Zwerglinge! Siebenberg, Storm's Keep und Arn-Gharrach. Die stürmige Stadt Kjelt! Das frostigige Karras. Das alte Ann-Korr und das berühmte Kang-Arr! Myr-Tobar die Stadt aus Jade und Khenserra. Altfurten, Fennsworth, Falmarha, Nubris, Mitsobar und Koldamar. Alles Städte der Menschen. Und zuletzigt Lor-Angur, das Magierreich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -299,6 +298,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Heldentat");
+talkEntry:addTrigger("Taten");
 talkEntry:addResponse("Vor drei Wintern, erschlug Brute Booze die Schlangenbestie, Myr Tobars! Ihr Leib wahr-higte so dick wie der einer Eiche und ungezähligte Mann lang. Zum dank gab der Hochpriester, Brute Booze seine Tochter zum Weib!");
 talkEntry:addResponse("Sieben Winter iset es her, da erlegte iche den Fluch Kang-Arr's. Ein Bär groß für drei Norodaj-Krieger, übersähet mit armlangen Stacheln. An jenem Tag ernannte mich Fürst Aramar Ingelfsen von Kathun zum fahrigenden Ritter seines Hofes.");
 talkEntry:addResponse("Einst, als ich im eisigen Karras war, bedrohhigte ein dämonischer Wyrm das Land. Viele Krieger mussten sterben, doch endlich spießte man das Untier mit geeinigter Kraft auf. Seit da an genoß iche Ansehen und Ehre unter Karras' Norodaj.");
@@ -358,7 +358,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Khaari");
-talkEntry:addResponse("Iche will Euch sagen, das Licht von Khaaei iset eine Stadt der Flammenorks. Und über der Stadt thront der Tempel der Flamme dessen Drachenfeuer so hell leuchtet, das die Stadt niemals im Dunkeln liegt. Selbst in der Nacht nicht.");
+talkEntry:addResponse("Iche will Euch sagen, das Licht von Khaari iset eine Stadt der Flammenorks. Und über der Stadt thront der Tempel der Flamme dessen Drachenfeuer so hell leuchtet, das die Stadt niemals im Dunkeln liegt. Selbst in der Nacht nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -675,8 +675,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("There's nothing keeping me in Runewick. It makes my hair stend onwhen sorcery is near.");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("There's nothing keeping me in Runewick. It makes my hair stend on end when sorcery is near.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -799,14 +798,44 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("My ancestors always accompany me on my journey.");
+talkEntry:addResponse("My ancestors always accompany me on my journey. And before battle, I pray for Zhambras and Malachíns blessings!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("Meine Vorahnen si-hind auf meinen Reisen immer beihe mir.");
+talkEntry:addResponse("Meine Vorahnen si-hind auf meinen Reisen immer beihe mir. Und vorm Kampfe bittige ich um Zhambras und Malachíns Segen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Zhambra");
+talkEntry:addResponse("Zhambra, the brother god. Who spills blood together, needs backing!");
+talkEntry:addResponse("In battle, you will find yourself next to the shoulder of your companions. Zhambra unites my axe with those of my brothers.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zhambra");
+talkEntry:addResponse("Zhambra, issigt der Brudergott. Wer gemeinsam Blut vergießt braucht Rückendeckigung!");
+talkEntry:addResponse("Im Kampf stehigen wir oft rücklings an den Schultern unserer Waffenbrüder. Zhambra stärkt mich und meine Brüder und unsere Äxte werden Eine.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
+talkEntry:addResponse("Malachín, the aureate hunter! The impregnable warrior! In his name my axe shall taste the blood of many beasts!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Malachin");
+talkEntry:addTrigger("Malachín");
+talkEntry:addResponse("Malachín, der großartige Jäger! Der unbezwingbare Krieger! In seinem Namen sollige meine Axt das Blut von Bestien trinken.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -840,6 +869,23 @@ talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
 talkEntry:addResponse("Als iche noch ein Orkling war, fragte mich Einer was iche getan haben wollte, sei iche erst tot. Und iche sagte, iche wollte in jeder Stadt Illarions ein Bier getrunken haben. Tags darauf war iche scho-hon aufgebrochen.");
 talkEntry:addResponse("Seit iche damals das Norbug Plateau verließ, binne iche in viele der bekannten Länder gereist. Wenn Ihr also etwas zu Wissen versucht, fragt mich ruhig aus. Iche erzähle gernig von allersamt fremder Länder.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Brute");
+talkEntry:addTrigger("Booze");
+talkEntry:addResponse("Hurr hurr. That's beeing me!");
+talkEntry:addResponse("#me scratches his chin. 'How are you?'");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Brute");
+talkEntry:addTrigger("Booze");
+talkEntry:addResponse("Hurr hurr. Der binnige ich!");
+talkEntry:addResponse("#me reckt sein Kinn in die Höhe. 'Wonnach verlangts Euch?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -894,12 +940,12 @@ talkEntry:addResponse("Ja-ha. Das ist gleich wie damalsig. Als iche den Stachelb
 talkEntry:addResponse("Hurr - wenn iche das hörige muss ich an meine Heldentaten denkigen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me grunzt vergnügt und nimmt einen Schluck aus seinem Tonkrug.", "#me grunts cheerfully and takes a swig from his jug");
+talkingNPC:addCycleText("#me grunzt vergnügt und nimmt einen Schluck aus seinem Tonkrug.", "#me grunts cheerfully and takes a swig from his jug.");
 talkingNPC:addCycleText("#me nickt sich selbst zu und wirft einen Blick in seine Tasche. Dann holt er eine halbe Wurst hervor und beißt davon ab.", "#me nods to himself and takes a look inside his bag. Then he takes out half a sausage and takes a bite from it.");
 talkingNPC:addCycleText("#me kratzt sich an der Nase.", "#me scratches his nose.");
 talkingNPC:addCycleText("#me streckt seine Zunge heraus und grinst.", "#me stretches out his tounge and grins.");
 talkingNPC:addCycleText("#me spannt seine muskulösen Arme an und streckt sich demonstrativ.", "#me flexes his muscular arms and stretches demonstratively. ");
-talkingNPC:addCycleText("#me lächelt und lässt dabei abwechselnd seinene Brustmuskeln hüfen.", "#me smiles and twitches his chest muscles alternately.");
+talkingNPC:addCycleText("#me lächelt und lässt dabei abwechselnd seinene Brustmuskeln hüpfen.", "#me smiles and twitches his chest muscles alternately.");
 talkingNPC:addCycleText("#me nimmt seinen Trinkschlauch vom Gürtel und nimmt einen Schluck daraus.", "#me takes a waterskin from his belt and takes a sip from it.");
 talkingNPC:addCycleText("#me fährt sich mit der Hand über seinen kahlen Kopf und zeigt dabei, gewinnend lächelnd, seine blendend weißen Zähne.", "#me strokes a hand over his bald head, smiling engagingly and showing his dazzlingly white teeth.");
 talkingNPC:addCycleText("#me zupft mit seinen gepflegten Händen am Spitzbart.", "#me plucks on his pointed beard with his sleek hands.");

@@ -129,7 +129,7 @@ if (MonID==941) then --Crazy Rat Alchemist, Level: 2, Armourtype: cloth, Weapont
 
         --Category 2: Special Loot
 
-        local done=monster.base.drop.AddDropItem(284,1,20,(100*math.random(2,3)+math.random(22,33)),0,2); --bluestone
+        local done=monster.base.drop.AddDropItem(284,1,20,(100*math.random(2,3)+math.random(22,33)),0,2); --sapphire
         if not done then done=monster.base.drop.AddDropItem(198,1,10,(100*math.random(2,3)+math.random(22,33)),0,2); end --topaz
         if not done then done=monster.base.drop.AddDropItem(73,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --trout
         if not done then done=monster.base.drop.AddDropItem(2952,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --plate

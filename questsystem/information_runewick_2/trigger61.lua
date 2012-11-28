@@ -66,7 +66,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd, Topas und Blaustein zum Gasthof Hanfschlinge und suche die restliche Person.", "Go with the received emerald, topaz and blustone to the Hemp Necktie Inn and look for the remaining person there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun mit den erhaltenen Smaragd, Topas und Saphir zum Gasthof Hanfschlinge und suche die restliche Person.", "Go with the received emerald, topaz and blustone to the Hemp Necktie Inn and look for the remaining person there."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 284, 333, 1):execute()
 end
 

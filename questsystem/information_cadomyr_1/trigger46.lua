@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Such nach dem Geschichtsbuch von Cadomyr in einem der Bücherregalen.", "Find the history book of Cadomyr in one of the bookshelves."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Such nach dem Geschichtsbuch von Cadomyr in einem der Bï¿½cherregalen.", "Find the history book of Cadomyr in one of the bookshelves."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

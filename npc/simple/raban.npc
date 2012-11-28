@@ -233,7 +233,7 @@ english, "Falkner" -> "What did you say?", "That's not my name... anymore."
 "Falkner" -> "Wie bitte?", "So heiße ich nicht... mehr."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Is money all that matters for you? I abstain from it since decades and never missed it a single day.", "I have no use for money. So I do not.", "I am not ar. Maybe you want to help me in a quest?", trade, trade
+"what sell", "what buy", "list wares", "price of" -> "Is money all that matters for you? I abstain from it since decades and never missed it a single day.", "I have no use for money. So I do not trade.", "I am not a trade r. Maybe you want to help me in a quest?"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ist denn Gold alles, was für euch zählt? Ich entsagte ihm schon vor langer Zeit und habe es nicht an einem einzelnen Tag vermißt.", "Ich brauche kein Gold, also handele ich auch nicht.", "Ich bin kein Händler. Aber vielleicht kannst du mir bei einem Auftrag helfen?"
 "tell something" -> "Once upon a time, when the soil suffered from thirst, the people came to this place and prayed for revelation.", "I did not make this place, nature did. But few honour the wonders of Ushara and Oldra.", "Tales of old I never witnessed. Seldom, travellers come here to tell me about foreign lands."
 "erzähl was", "erzähl etwas" -> "Einst, zu einer Zeit, als die es die Erde dürstete, kamen die Völker an diesem Ort zusammen und beteten um Erlösung.", "Ich habe diesen Ort nicht geschaffen. Die Natur tat es. Aber nur wenige ehren die Wunder von Ushara und Oldra.", "Die Legenden alter Zeiten habe ich nie erlebt. Und nur selten kommen Wanderer hierher, um aus anderen Ländern zu berichten."

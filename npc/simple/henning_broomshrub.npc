@@ -163,7 +163,7 @@ english, "Ronagan" -> "Hail Ronagan!", "My religion is called gold.", "How come 
 "Ronagan" -> "Lobet Ronagan!", "Meine Religion heißt Gold.", "Warum hat Ronagan keinen Tempel auf dieser Insel? ... Er hat ihn nicht anheben können, als er versucht hat einen zu stehlen!"
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Do I look like ar!?", "Oh, I forgot my vendor's tray at home. Want to play a game instead?", "You must be kidding me. I am not a huckster!", trade
+"what sell", "what buy", "list wares", "price of" -> "Do I look like a trader!?", "Oh, I forgot my vendor's tray at home. Want to play a game instead?", "You must be kidding me. I am not a huckster!"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Sehe ich aus wie ein Händler?", "Oh, gerade heute hab ich meinen Bauchladen zuhause vergessen. Willst du nicht viel lieber ein Spiel spielen?", "Willst du mich veräppeln? Ich bin kein Höker!"
 "tell something" -> "I don't tell no nothing, no!", "Who are you anyway, the town guard?", "I don't cheat! I would never, would I...?"
 "erzähl was", "erzähl etwas" -> "Ich erzähl hier gar nichts.", "Wer bist du, die Stadtwache?", "Ich betrüge nicht! Ich doch nicht..."

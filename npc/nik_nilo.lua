@@ -167,8 +167,7 @@ talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addResponse("I do alright, I would do better if you bought something!");
 talkEntry:addResponse("Why do you ask, you wont get a better price for small talk.");
-talkEntry:addResponse("I'm good, all the better for making awith you.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I'm good, all the better for making a trade with you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -255,10 +254,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Well I'm ar, can't you tell.");
+talkEntry:addResponse("Well I'm a trader, can't you tell.");
 talkEntry:addResponse("I buy and sell tool, building supplies and other things.");
 talkEntry:addResponse("I do a little buying, a lot of selling, why what are you after?");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -439,8 +437,7 @@ talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addResponse("Aye, he is alright as long as you stay on his good side, he runs this place.");
 talkEntry:addResponse("Some people say he killed his father to rule this place, me, I recon it's probably true.");
-talkEntry:addResponse("#me chuckles: 'He is firm but fair if you stay on his good side, he keeps this town in free order. That is just how I like it, its good for.'");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("#me chuckles: 'He is firm but fair if you stay on his good side, he keeps this town in free order. That is just how I like it, its good for trade.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -526,8 +523,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Ah, good forthat place, big harbour town is Ann-Korr and the oldest of the Albarian towns.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Ah, good for trade that place, big harbour town is Ann-Korr and the oldest of the Albarian towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

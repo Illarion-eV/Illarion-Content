@@ -20,7 +20,6 @@ require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
-require("npc.base.consequence.trade")
 require("npc.base.consequence.warp")
 require("npc.base.talk")
 module("npc.viola_baywillow", package.seeall)
@@ -467,8 +466,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Candle");
-talkEntry:addResponse("Candle makers are mainly found in Runewick, I guess because so many scholars read deep into the night. Cadomyr certainly has a few too. Galmair lacks the equipment and resources for sustaining a candle maker so mostly they have tofor such wares.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Candle makers are mainly found in Runewick, I guess because so many scholars read deep into the night. Cadomyr certainly has a few too. Galmair lacks the equipment and resources for sustaining a candle maker so mostly they have to trade for such wares.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -480,8 +478,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Carpent");
-talkEntry:addResponse("Carpenters are mainly found in Runewick since there is a forest nearby. However, Galmair has a few wealthy carpenters if memory serves me right. Cadomyr, from what I know, mainlys for the wares of a carpenter.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Carpenters are mainly found in Runewick since there is a forest nearby. However, Galmair has a few wealthy carpenters if memory serves me right. Cadomyr, from what I know, mainly trades for the wares of a carpenter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -493,8 +490,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lumberjack");
-talkEntry:addResponse("Most lumberjacks I know live near Runewick since the largest forest is nearby. Galmair does have a few as well, as there is less competition there. Cadomyr's trees are not strong enough so they must rely on.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Most lumberjacks I know live near Runewick since the largest forest is nearby. Galmair does have a few as well, as there is less competition there. Cadomyr's trees are not strong enough so they must rely on trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -506,8 +502,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cook");
-talkEntry:addResponse("Cooks are abundant in Runewick and many travel far and wide to taste their delights. Including me! Although Galmair is not as renowned for its cooks, I've seen several set up shop within its grand halls. Cadomyr has very few cooks and relies heavily on.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Cooks are abundant in Runewick and many travel far and wide to taste their delights. Including me! Although Galmair is not as renowned for its cooks, I've seen several set up shop within its grand halls. Cadomyr has very few cooks and relies heavily on trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -545,8 +540,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Herb");
-talkEntry:addResponse("Herb gatherers usually stay close to Runewick so they can sell their fresh herbs to the alchemists and druids. Cadomyr has a few well-maintained herb gathers as well, if memory serves me right. Without supply or demand, Galmair relies strictly onfor any herbal needs.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Herb gatherers usually stay close to Runewick so they can sell their fresh herbs to the alchemists and druids. Cadomyr has a few well-maintained herb gathers as well, if memory serves me right. Without supply or demand, Galmair relies strictly on trade for any herbal needs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -560,8 +554,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tailor");
-talkEntry:addResponse("The finest tailors in the land can be found in Runewick. Cadomyr also has a fair amount of tailors, too. As for Galmair, I am quite sure that most of their tailored wares arrive through.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("The finest tailors in the land can be found in Runewick. Cadomyr also has a fair amount of tailors, too. As for Galmair, I am quite sure that most of their tailored wares arrive through trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -573,8 +566,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanner");
-talkEntry:addResponse("Runewick depends heavily on its tanners to supply raw material for its tailors. Cadomyr doesn't have as many but they are around if you know where to look. Galmair as far as I know has tofor such wares.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Runewick depends heavily on its tanners to supply raw material for its tailors. Cadomyr doesn't have as many but they are around if you know where to look. Galmair as far as I know has to trade for such wares.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -586,9 +578,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Dyer");
-talkEntry:addResponse("Dyers, like tanners, stay close to Runewick totheir wares with the tailors. I've also seen a number of dyers in Cadomyr too. Galmair, as far as I know, has tofor dyes if they're needed.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Dyers, like tanners, stay close to Runewick to trade their wares with the tailors. I've also seen a number of dyers in Cadomyr too. Galmair, as far as I know, has to trade for dyes if they're needed.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -601,8 +591,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fish");
-talkEntry:addResponse("Fishermen stay close to Cadomyr for obvious reasons. The same goes for Runewick as well. As for Galmair, be prepared for salted fish because the only way they get fish is through.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Fishermen stay close to Cadomyr for obvious reasons. The same goes for Runewick as well. As for Galmair, be prepared for salted fish because the only way they get fish is through trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -653,8 +642,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gem");
 talkEntry:addTrigger("grinder");
-talkEntry:addResponse("The most precise gem grinders in the land are found in Cadomyr, but I have met a fair number in Galmair too. Don't expect much in Runewick though, they mainly depend onfor gems.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("The most precise gem grinders in the land are found in Cadomyr, but I have met a fair number in Galmair too. Don't expect much in Runewick though, they mainly depend on trade for gems.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -667,8 +655,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Blacksmith");
-talkEntry:addResponse("Galmair is by far the best place to look for a good blacksmith, but if you find yourself near Cadomyr you should be able to locate one there as well. You'll have no such luck in Runewick though, because they mustfor such wares.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Galmair is by far the best place to look for a good blacksmith, but if you find yourself near Cadomyr you should be able to locate one there as well. You'll have no such luck in Runewick though, because they must trade for such wares.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -692,8 +679,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mason");
-talkEntry:addResponse("Galmair for sure, but you might be able to find a mason in Cadomyr too. Runewick not so much, although you might be able to organise a.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Galmair for sure, but you might be able to find a mason in Cadomyr too. Runewick not so much, although you might be able to organise a trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -705,8 +691,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Miner");
-talkEntry:addResponse("You'll find a slew of miners in Galmair. Otherwise, head toward Cadomyr if you're looking for less competition. As for Runewick, never seen a miner there, but you might be able to make a.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("You'll find a slew of miners in Galmair. Otherwise, head toward Cadomyr if you're looking for less competition. As for Runewick, never seen a miner there, but you might be able to make a trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -718,8 +703,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Brewer");
-talkEntry:addResponse("Galmair without question, they have the finest brewers near and wide, but if Galmair isn't the place for you the next best place is Runewick. Not aware of a brewer in Cadomyr, I think they mayfor their mead.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Galmair without question, they have the finest brewers near and wide, but if Galmair isn't the place for you the next best place is Runewick. Not aware of a brewer in Cadomyr, I think they may trade for their mead.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1107,8 +1091,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("He is the god ofand craftsmanship. Most of his followers can be found in Galmair. So if you believe in him, as the dwarves do, then you will find like-minded people there.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("He is the god of trade and craftsmanship. Most of his followers can be found in Galmair. So if you believe in him, as the dwarves do, then you will find like-minded people there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

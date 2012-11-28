@@ -192,9 +192,8 @@ talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("#me winks with his hook hand: 'They call me Hook Gowan.'");
-talkEntry:addResponse("#me twinkles: 'I'm Hook,r of third hand equipment...'");
+talkEntry:addResponse("#me twinkles: 'I'm Hook, trader of third hand equipment...'");
 talkEntry:addResponse("Gowan. May name is Gowan - Sometimes I wish everyone would call me just Gowan.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -284,10 +283,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Allright. Do you wish tosomething?");
+talkEntry:addResponse("Allright. Do you wish to trade something?");
 talkEntry:addResponse("Well then. Listen - If you don't ask any questions I will not lie to you. Agreed?");
 talkEntry:addResponse("Superb!");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -560,8 +558,7 @@ talkEntry:addResponse("They say there is a shrine for the Shadowlord somwhere in
 talkEntry:addResponse("My Lord despises the autority of the nobility. And like Ronagan himself, its my aim to hoax them.");
 talkEntry:addResponse("Sometimes he appears as a dark haired and clothed charming man, guarding those who are in need of helping hand. He seems quite good humored to me.");
 talkEntry:addResponse("Ronagan dislikes betrayal. To betray confederates is the worst and for sure the shadowlord will calm for revange one day.");
-talkEntry:addResponse("They say thre arers who sacrifice a part of their earnings to Ronagan, so he will shelter thier goods.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("They say there are traders who sacrifice a part of their earnings to Ronagan, so he will shelter their goods.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

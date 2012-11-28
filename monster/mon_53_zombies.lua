@@ -96,13 +96,13 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
         if not done then done=monster.base.drop.AddDropItem(285,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --diamond
         if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --amethyst
         if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --ruby
-        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --blackstone
+        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --obsidian
 
         --Category 3: More Special Loot
 
         local done=monster.base.drop.AddDropItem(68,1,20,(100*math.random(4,5)+math.random(44,55)),0,3); --ruby ring
-        if not done then done=monster.base.drop.AddDropItem(278,1,10,(100*math.random(4,5)+math.random(44,55)),0,3); end --blackstone ring
-        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --bluestone ring
+        if not done then done=monster.base.drop.AddDropItem(278,1,10,(100*math.random(4,5)+math.random(44,55)),0,3); end --obsidian ring
+        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --sapphire ring
         if not done then done=monster.base.drop.AddDropItem(398,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --copperd dagger
         if not done then done=monster.base.drop.AddDropItem(826,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --grey trousers
 
@@ -122,17 +122,17 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
 
         --Category 2: Gems
 
-        local done=monster.base.drop.AddDropItem(283,1,20,(100*math.random(4,5)+math.random(44,55)),0,2); --blackstone
+        local done=monster.base.drop.AddDropItem(283,1,20,(100*math.random(4,5)+math.random(44,55)),0,2); --obsidian
         if not done then done=monster.base.drop.AddDropItem(45,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --emerald
         if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --topaz
         if not done then done=monster.base.drop.AddDropItem(285,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --diamond
-        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --bluestone
+        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --sapphire
 
         --Category 3: Mainly rings
 
         local done=monster.base.drop.AddDropItem(281,1,20,(100*math.random(4,5)+math.random(44,55)),0,3); --emerald ring
-        if not done then done=monster.base.drop.AddDropItem(279,1,10,(100*math.random(4,5)+math.random(44,55)),0,3); end --bluestone ring
-        if not done then done=monster.base.drop.AddDropItem(278,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --blackstone ring
+        if not done then done=monster.base.drop.AddDropItem(279,1,10,(100*math.random(4,5)+math.random(44,55)),0,3); end --sapphire ring
+        if not done then done=monster.base.drop.AddDropItem(278,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --obsidian ring
         if not done then done=monster.base.drop.AddDropItem(235,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --gold ring
         if not done then done=monster.base.drop.AddDropItem(826,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --black trousers
 
@@ -146,23 +146,23 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
 
         local done=monster.base.drop.AddDropItem(324,1,20,(100*math.random(5,6)+math.random(55,66)),0,1); --chain helmet
         if not done then done=monster.base.drop.AddDropItem(164,1,10,(100*math.random(5,6)+math.random(55,66)),0,1); end --big empty bottle
-        if not done then done=monster.base.drop.AddDropItem(71,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --bluestone amulet
+        if not done then done=monster.base.drop.AddDropItem(71,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --sapphire amulet
         if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(5,6)+math.random(55,66)),nil,1); end --treasure map
         if not done then done=monster.base.drop.AddDropItem(2745,1,1,(100*math.random(5,6)+math.random(55,66)),0,1); end --parchment
 
         --Category 2: Gems
 
-        local done=monster.base.drop.AddDropItem(284,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --bluestone
+        local done=monster.base.drop.AddDropItem(284,1,20,(100*math.random(5,6)+math.random(55,66)),0,2); --sapphire
         if not done then done=monster.base.drop.AddDropItem(197,1,10,(100*math.random(5,6)+math.random(55,66)),0,2); end --amethyst
         if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --ruby
-        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --blackstone 
+        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --obsidian 
         if not done then done=monster.base.drop.AddDropItem(45,1,1,(100*math.random(5,6)+math.random(55,66)),0,2); end --emerald
 		
         --Category 3: Mainly rings
 
         local done=monster.base.drop.AddDropItem(282,1,20,(100*math.random(5,6)+math.random(55,66)),0,3); --topaz ring
-        if not done then done=monster.base.drop.AddDropItem(278,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --blackstone ring
-        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --bluestone ring
+        if not done then done=monster.base.drop.AddDropItem(278,1,10,(100*math.random(5,6)+math.random(55,66)),0,3); end --obsidian ring
+        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --sapphire ring
         if not done then done=monster.base.drop.AddDropItem(1,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --serinjah sword
         if not done then done=monster.base.drop.AddDropItem(68,1,1,(100*math.random(5,6)+math.random(55,66)),0,3); end --ruby ring
 
@@ -177,7 +177,7 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
         if not done then done=monster.base.drop.AddDropItem(155,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --sibanac
         if not done then done=monster.base.drop.AddDropItem(192,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --amethyst
         if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --ruby
-        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --blackstone
+        if not done then done=monster.base.drop.AddDropItem(283,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --obsidian
 
         --Category 2: Armor
 

@@ -21,7 +21,6 @@ require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.hummi_olaficht", package.seeall)
 
@@ -45,7 +44,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest end 604] You gained some coins. Have you already asked for and visited the two other npc that Hummi mentions?"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Find Elesil'end] You gained some coins. Have you already asked for and visited the two other npc that Hummi mentions?"));
 talkEntry:addResponse("So, that was easy, right? Here your reward. A lot of other tasks wait for you at this place. Just ask around.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 3));
@@ -55,7 +54,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 2));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 604] Du hast einige Münzen erhalten."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Elesil' Ende] Du hast einige Münzen erhalten."));
 talkEntry:addResponse("Das war einfach, oder? Hier dein Lohn. Viele andere Aufgaben warten auf dich hier. Frage einfach herum.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 3));
@@ -66,7 +65,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(605, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest end 605] You gained some coins. Have you already asked for and visited the two other npc that Hummi mentions?"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Find Frizza' end] You gained some coins. Have you already asked for and visited the two other npc that Hummi mentions?"));
 talkEntry:addResponse("So, that was easy, right? Here your reward. A lot of other tasks wait for you at this place. Just ask around.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 3));
@@ -76,7 +75,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(605, "=", 2));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 605] Du hast einige Münzen erhalten."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Frizza' Ende] Du hast einige Münzen erhalten."));
 talkEntry:addResponse("Das war einfach, oder? Hier dein Lohn. Viele andere Aufgaben warten auf dich hier. Frage einfach herum.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 3));
@@ -87,7 +86,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(606, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest end 606] You gained some coins. Have you already asked for and visited the two other npc that Hummi mentions?"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Find Iradona' end] You gained some coins. Have you already asked for and visited the two other npc that Hummi mentions?"));
 talkEntry:addResponse("So, that was easy, right? Here your reward. A lot of other tasks wait for you at this place. Just ask around.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 3));
@@ -97,7 +96,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(606, "=", 2));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 606] Du hast einige Münzen erhalten."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Iradona' Ende] Du hast einige Münzen erhalten."));
 talkEntry:addResponse("Das war einfach, oder? Hier dein Lohn. Viele andere Aufgaben warten auf dich hier. Frage einfach herum.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 3));
@@ -125,7 +124,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(607, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Jag");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest end 607] You gained some coins. Hummi does not have any other quest for you. Just more information. But look for other quests at other npcs."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Winner's name' end] You gained some coins. Hummi does not have any other quest for you. Just more information. But look for other quests at other npcs."));
 talkEntry:addResponse("Here another reward for you. With this money you should be able to buy some nice things.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 10000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 5));
@@ -135,7 +134,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(607, "=", 4));
 talkEntry:addTrigger("Jag");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 607] Du hast einige Münzen erhalten. Hummi hat keine anderen Aufgaben für dich. Lediglich mehr Informationen. Aber suche nach anderen Aufgaben bei andern NPCs."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Siegername' Ende] Du hast einige Münzen erhalten. Hummi hat keine anderen Aufgaben für dich. Lediglich mehr Informationen. Aber suche nach anderen Aufgaben bei andern NPCs."));
 talkEntry:addResponse("Hier noch ein Lohn für dich. Mit dem Geld solltest du in der Lage sein dir ein paar schöne Sachen zu kaufen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 10000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 5));
@@ -294,7 +293,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(607, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 607 started] Find Tronuk and ask him about 'story' in order to get the name of the winner. Hint: He can be found close to Cadomyr."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Winner's name' started] Find Tronuk and ask him about 'story' in order to get the name of the winner. Hint: He can be found close to Cadomyr."));
 talkEntry:addResponse("I have something more challenging for you now. Find the orc Tronuk. He can befind in fron of a mine but I do not tell you which one. He tells you two stories. One is about a tournament. Come back if you know the winner and tell me his name.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -307,7 +306,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(606, "=", 3));
 talkEntry:addCondition(npc.base.condition.quest.quest(607, "<", 1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 607 beginnt] Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Siegername' beginnt] Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."));
 talkEntry:addResponse("Ich habe etwas schwierigeres nun. Finde den Ork Tronuk. Er kann vor einer Mine gefunden werden. Ich sage dir aber nicht welcher. Er erzählt zwei Geschichten. Eine handelt von einem Turnier. Komm zurück wenn du weißt wer der Gewinner ist und nenne mir seinen Namen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -321,7 +320,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(607, "<", 1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 607 started] Find Tronuk and ask him about 'story' in order to get the name of the winner. Hint: He can be found close to Cadomyr."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Winner's name' started] Find Tronuk and ask him about 'story' in order to get the name of the winner. Hint: He can be found close to Cadomyr."));
 talkEntry:addResponse("I have something more challenging for you now. Find the orc Tronuk. He can befind in fron of a mine but I do not tell you which one. He tells you two stories. One is about a tournament. Come back if you know the winner and tell me his name.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -336,7 +335,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 607 beginnt] Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Siegername' beginnt] Finde Tronuk und frage ihn nach 'Geschichte' um den Namen des Gewinner zu erfahren. Hinweis: Er kann in der Nähe von Cadomyr gefunden werden."));
 talkEntry:addResponse("Ich habe etwas schwierigeres nun. Finde den Ork Tronuk. Er kann vor einer Mine gefunden werden. Ich sage dir aber nicht welcher. Er erzählt zwei Geschichten. Eine handelt von einem Turnier. Komm zurück wenn du weißt wer der Gewinner ist und nenne mir seinen Namen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -427,7 +426,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(604, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elesil");
 talkEntry:addTrigger("Daelwon");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 604 started] Find Elesil at the teleporter in Runewick and talk to her."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Find Elesil' started] Find Elesil at the teleporter in Runewick and talk to her."));
 talkEntry:addResponse("You can find her at the teleporter in Runewick. She knows any place in Runewick and has plenty of tasks for you. When you have found her, come back and collect your reward!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -437,7 +436,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(604, "<", 1));
 talkEntry:addTrigger("Elesil");
 talkEntry:addTrigger("Daelwon");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 604 beginnt] Finde Elesil beim Teleporter in Runewick and sprich mit ihr."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Elesil' beginnt] Finde Elesil beim Teleporter in Runewick and sprich mit ihr."));
 talkEntry:addResponse("Du findest sie beim Teleporter in Runewick. Sie kennt jeden Platz in Runewick und hat etliche Aufgaben für dich. Wenn du sie gefunden hast, komm zurück und holle dir deine Belohnung!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -447,7 +446,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(605, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Frizza");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 605 started] Find Frizza at the teleporter in Cadomyr and talk to her."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Find Frizza' started] Find Frizza at the teleporter in Cadomyr and talk to her."));
 talkEntry:addResponse("You can find her at the teleporter in Cadomyr. She knows any place in Cadomyr and has plenty of tasks for you. When you have found her, come back and collect your reward!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -456,7 +455,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(605, "<", 1));
 talkEntry:addTrigger("Frizza");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 605 beginnt] Finde Frizza beim Teleporter in Cadomyr and sprich mit ihr."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Frizza' beginnt] Finde Frizza beim Teleporter in Cadomyr and sprich mit ihr."));
 talkEntry:addResponse("Du findest sie beim Teleporter in Cadomyr. Sie kennt jeden Platz in Cadomyr und hat etliche Aufgaben für dich. Wenn du sie gefunden hast, komm zurück und holle dir deine Belohnung!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(605, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -467,7 +466,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(606, "<", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Iradona");
 talkEntry:addTrigger("Goldschein");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 606 started] Find Iradona at the teleporter in Galmair and talk to her."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Find Iradona' started] Find Iradona at the teleporter in Galmair and talk to her."));
 talkEntry:addResponse("You can find her at the teleporter in Galmair. She knows any place in Galmair and has plenty of tasks for you. When you have found her, come back and collect your reward!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -477,7 +476,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(606, "<", 1));
 talkEntry:addTrigger("Iradona");
 talkEntry:addTrigger("Goldschein");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 606 beginnt] Finde Iradona beim Teleporter in Galmair and sprich mit ihr."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Finde Iradona' beginnt] Finde Iradona beim Teleporter in Galmair and sprich mit ihr."));
 talkEntry:addResponse("Du findest sie beim Teleporter in Galmair. Sie kennt jeden Platz in Galmair und hat etliche Aufgaben für dich. Wenn du sie gefunden hast, komm zurück und holle dir deine Belohnung!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(606, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -798,8 +797,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Candle");
-talkEntry:addResponse("Candle makers are mainly found in Runewick, I guess because so many scholars read deep into the night. Cadomyr certainly has a few too. Galmair lacks the equipment and resources for sustaining a candle maker so mostly they have tofor such wares.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Candle makers are mainly found in Runewick, I guess because so many scholars read deep into the night. Cadomyr certainly has a few too. Galmair lacks the equipment and resources for sustaining a candle maker so mostly they have to trade for such wares.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -811,8 +809,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Carpenter");
-talkEntry:addResponse("Carpenters are mainly found in Runewick since there is a forest nearby. However, Galmair has a few wealthy carpenters if memory serves me right. Cadomyr from what I know mainlys for the wares of a carpenter.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Carpenters are mainly found in Runewick since there is a forest nearby. However, Galmair has a few wealthy carpenters if memory serves me right. Cadomyr from what I know mainly trades for the wares of a carpenter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -824,8 +821,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lumberjack");
-talkEntry:addResponse("Most lumberjacks I know live near Runewick since the largest forest is nearby. Galmair does have a few as well since there is less competition. Cadomyr's trees are not strong enough so they must rely on.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Most lumberjacks I know live near Runewick since the largest forest is nearby. Galmair does have a few as well since there is less competition. Cadomyr's trees are not strong enough so they must rely on trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -837,8 +833,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cook");
-talkEntry:addResponse("Cooks are abundant in Runewick and many travel far and wide to taste their delights. Including me! Although Galmair is not as renowned for its cooks I've seen several set up shop within its grand halls. Cadomyr has very few cooks and relies heavily on.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Cooks are abundant in Runewick and many travel far and wide to taste their delights. Including me! Although Galmair is not as renowned for its cooks I've seen several set up shop within its grand halls. Cadomyr has very few cooks and relies heavily on trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -874,8 +869,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Herb");
-talkEntry:addResponse("Herb gatherers usually stay close to Runewick so they can sell their fresh herbs to alchemists and druids. Cadomyr has a few well-maintained herb gathers as well, if memory serves me right. Without supply and demand Galmair relies strictly onfor any herbal needs.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Herb gatherers usually stay close to Runewick so they can sell their fresh herbs to alchemists and druids. Cadomyr has a few well-maintained herb gathers as well, if memory serves me right. Without supply and demand Galmair relies strictly on trade for any herbal needs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -887,8 +881,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tailor");
-talkEntry:addResponse("The finest tailors in the land can be found in Runewick. Cadomyr also has a fair amount of tailors too. As for Galmair, I am quite sure most of their tailored wares come through.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("The finest tailors in the land can be found in Runewick. Cadomyr also has a fair amount of tailors too. As for Galmair, I am quite sure most of their tailored wares come through trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -900,8 +893,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanner");
-talkEntry:addResponse("Runewick depends heavily on its tanners to supply raw material for its tailors. Cadomyr doesn't have as many but they are around if you know where to look. Galmair as far as I know has tofor such wares.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Runewick depends heavily on its tanners to supply raw material for its tailors. Cadomyr doesn't have as many but they are around if you know where to look. Galmair as far as I know has to trade for such wares.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -913,9 +905,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Dyer");
-talkEntry:addResponse("Dyers like tanners stay close to Runewick totheir wares with tailors. I've also seen a number of dyers in Cadomyr too. Galmair as far as I know has tofor dyes if they're needed.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Dyers like tanners stay close to Runewick to trade their wares with tailors. I've also seen a number of dyers in Cadomyr too. Galmair as far as I know has to trade for dyes if they're needed.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -927,8 +917,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fisher");
-talkEntry:addResponse("Fishermen stay close to Cadomyr for obvious reasons. The same goes for Runewick as well. As for Galmair, be prepared for salted fish because the only way they get fish is through.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Fishermen stay close to Cadomyr for obvious reasons. The same goes for Runewick as well. As for Galmair, be prepared for salted fish because the only way they get fish is through trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -965,8 +954,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Finesmith");
-talkEntry:addResponse("Finesmiths are mainly found in Cadomyr, but you can also search in Galmair as well. Runewick, not so much, theyfor such wares.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Finesmiths are mainly found in Cadomyr, but you can also search in Galmair as well. Runewick, not so much, they trade for such wares.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -979,8 +967,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gem");
 talkEntry:addTrigger("grinder");
-talkEntry:addResponse("The most precise gem grinders in the land are found in Cadomyr, but I have met a fair number in Galmair too. Don't expect much in Runewick though, they mainly depend onfor gems.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("The most precise gem grinders in the land are found in Cadomyr, but I have met a fair number in Galmair too. Don't expect much in Runewick though, they mainly depend on trade for gems.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -993,8 +980,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Blacksmith");
-talkEntry:addResponse("Galmair is by far the best place to look for a good blacksmith, but if you find yourself near Cadomyr you should be able to find one there as well. You'll have no such luck in Runewick though because they mustfor such wares.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Galmair is by far the best place to look for a good blacksmith, but if you find yourself near Cadomyr you should be able to find one there as well. You'll have no such luck in Runewick though because they must trade for such wares.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1019,8 +1005,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mason");
-talkEntry:addResponse("Galmair for sure but you might be able to find a mason in Cadomyr too. Runewick not so much, although you might be able to make a.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Galmair for sure but you might be able to find a mason in Cadomyr too. Runewick not so much, although you might be able to make a trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1032,8 +1017,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Miner");
-talkEntry:addResponse("You'll find a slew of miners in Galmair. Otherwise, head toward Cadomyr if you're looking for less competition. As for Runewick, never seen a miner there, but you might be able to make a.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("You'll find a slew of miners in Galmair. Otherwise, head toward Cadomyr if you're looking for less competition. As for Runewick, never seen a miner there, but you might be able to make a trade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1045,8 +1029,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Brewer");
-talkEntry:addResponse("Galmair without question, they have the finest brewers near and wide, but if Galmair isn't the place for you the next best place is Runewick. Not aware of a brewer in Cadomyr, I think they mayfor their mead.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Galmair without question, they have the finest brewers near and wide, but if Galmair isn't the place for you the next best place is Runewick. Not aware of a brewer in Cadomyr, I think they may trade for their mead.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1186,7 +1169,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("He is the son of Don Tommaso, and since his father's death Valerio has ruled over Galmair. He is a very strong dwarf with considerable wealth. I have heard rumors that he is easily offended, and on more than one occasion has sent armored guards to settle his scores. *Shudders* And if you pay him enough, he probably shows you Galmair's two stones of power. A Bluestone and a Blackstone.");
+talkEntry:addResponse("He is the son of Don Tommaso, and since his father's death Valerio has ruled over Galmair. He is a very strong dwarf with considerable wealth. I have heard rumors that he is easily offended, and on more than one occasion has sent armored guards to settle his scores. *Shudders* And if you pay him enough, he probably shows you Galmair's two stones of power. A Sapphire and a Obsidian.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1194,7 +1177,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Er ist der Herrscher von Galamair und Nachfolger von seinem Vater. Er ist ein sehr starker Zwerg und ist auch sehr reich. Es ist besser ihn nicht zu verärgern, da er sonst speziell für dich Kopfgeldjäger anheuern wird. *kichert*. Und wenn du schlau genug bist, dann zeigt er dir vielleicht Galmairs Steine der Macht. Einen Blaustein und einen Schwarzstein.");
+talkEntry:addResponse("Er ist der Herrscher von Galamair und Nachfolger von seinem Vater. Er ist ein sehr starker Zwerg und ist auch sehr reich. Es ist besser ihn nicht zu verärgern, da er sonst speziell für dich Kopfgeldjäger anheuern wird. *kichert*. Und wenn du schlau genug bist, dann zeigt er dir vielleicht Galmairs Steine der Macht. Einen Saphir und einen Obsidian.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1223,7 +1206,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("königin");
-talkEntry:addResponse("Diese durchaus sehr schöne Frau ist die Königin von Cadomyr. Sie ist sehr stolz und nobel. Außerdem mag sie solche die tapfer agieren und ihren Mut in Schlachten zeigen. Ihre alabarische Wurzeln sind wahrscheinlich der Grund für ihre Vorliebe. Und wenn du schlau genug bist, dann zeigt sie dir vielleicht Cadomyrs Steine der Macht. Einen Topaz und einen Amethyst.");
+talkEntry:addResponse("Diese durchaus sehr schöne Frau ist die Königin von Cadomyr. Sie ist sehr stolz und nobel. Außerdem mag sie solche die tapfer agieren und ihren Mut in Schlachten zeigen. Ihre alabarische Wurzeln sind wahrscheinlich der Grund für ihre Vorliebe. Und wenn du schlau genug bist, dann zeigt sie dir vielleicht Cadomyrs Steine der Macht. Einen Topas und einen Amethyst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1237,7 +1220,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
-talkEntry:addResponse("Diese durchaus sehr schöne Frau ist die Königin von Cadomyr. Sie ist sehr stolz und nobel. Außerdem mag sie solche die tapfer agieren und ihren Mut in Schlachten zeigen. Ihre alabarische Wurzeln sind wahrscheinlich der Grund für ihre Vorliebe. Und wenn du schlau genug bist, dann zeigt sie dir vielleicht Cadomyrs Steine der Macht. Einen Topaz und einen Amethyst.");
+talkEntry:addResponse("Diese durchaus sehr schöne Frau ist die Königin von Cadomyr. Sie ist sehr stolz und nobel. Außerdem mag sie solche die tapfer agieren und ihren Mut in Schlachten zeigen. Ihre alabarische Wurzeln sind wahrscheinlich der Grund für ihre Vorliebe. Und wenn du schlau genug bist, dann zeigt sie dir vielleicht Cadomyrs Steine der Macht. Einen Topas und einen Amethyst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1261,16 +1244,16 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("stones");
 talkEntry:addTrigger("power");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for Emerald, Ruby, Topaz, Amethyst, Bluestone, Blackstone or Diamond if you want to know more."));
-talkEntry:addResponse("The stones of power offer their owns tremendous power. The sorcerer Mordak al Kharud owned once three of them and could thus conquer almost whole Illarion. But this was some decades ago. Nowadays the faction leaders own them. Since each faction leader has two of them, the balance between them is guaranteed. There, however, exist seven stones. These are Emerald, Ruby, Topaz, Amethyst, Bluestone, Blackstone and Diamond.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Ask the NPC for Emerald, Ruby, Topaz, Amethyst, Sapphire, Obsidian or Diamond if you want to know more."));
+talkEntry:addResponse("The stones of power offer their owns tremendous power. The sorcerer Mordak al Kharud owned once three of them and could thus conquer almost whole Illarion. But this was some decades ago. Nowadays the faction leaders own them. Since each faction leader has two of them, the balance between them is guaranteed. There, however, exist seven stones. These are Emerald, Ruby, Topaz, Amethyst, Sapphire, Obsidian and Diamond.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Steine");
 talkEntry:addTrigger("Macht");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach Smaragd, Rubin, Topas, Amethyst, Blaustein, Schwarzstein oder Diamant wenn du mehr wissen möchtest."));
-talkEntry:addResponse("Die Steine der Macht verleihen ihren Besitzern enorme Macht. Der Zauberer Mordak al Kharud besaß einst drei von ihnen und konnte deshalb beinahe ganz Illarion erobern. Aber das ist einge Jahrzehnte her. Nun besitzen die Herrscher der Fraktionen diese. Dadurch dass jeder zwei besitzt ist das Gleichgewicht zwischen ihnen garantiert. Wie dem auch sei, es gibt sieben Steine. Diese sind Smaragd, Rubin, Topas, Amethyst, Blaustein, Schwarzstein und Diamant.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Frage den NPC nach Smaragd, Rubin, Topas, Amethyst, Saphir, Obsidian oder Diamant wenn du mehr wissen möchtest."));
+talkEntry:addResponse("Die Steine der Macht verleihen ihren Besitzern enorme Macht. Der Zauberer Mordak al Kharud besaß einst drei von ihnen und konnte deshalb beinahe ganz Illarion erobern. Aber das ist einge Jahrzehnte her. Nun besitzen die Herrscher der Fraktionen diese. Dadurch dass jeder zwei besitzt ist das Gleichgewicht zwischen ihnen garantiert. Wie dem auch sei, es gibt sieben Steine. Diese sind Smaragd, Rubin, Topas, Amethyst, Saphir, Obsidian und Diamant.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1324,26 +1307,26 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bluestone");
-talkEntry:addResponse("The Bluestone belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the factions.");
+talkEntry:addTrigger("Sapphire");
+talkEntry:addResponse("The Sapphire belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the factions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Blaustein");
-talkEntry:addResponse("Der Blaustein gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Fraktion.");
+talkEntry:addTrigger("Saphir");
+talkEntry:addResponse("Der Saphir gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Fraktion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Blackstone");
-talkEntry:addResponse("The Blackstone belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the factions.");
+talkEntry:addTrigger("Obsidian");
+talkEntry:addResponse("The Obsidian belongs to Galmair and is part of the collection of Don Valerio Guilianni. You can find further information about it in each of the factions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Schwarzstein");
-talkEntry:addResponse("Der Schwarzstein gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Fraktion.");
+talkEntry:addTrigger("Obsidian");
+talkEntry:addResponse("Der Obsidian gehört zu Galmair und ist Teil der Sammlung von Don Valerio Guilianni. Du findest weitere Informationen über den Stein in jeder Fraktion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1578,8 +1561,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("He is the god ofand craftsmanship most of his followers can be found in Galmair. So if you believe in him as the dwarves do then you will find like-minded people there.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("He is the god of trade and craftsmanship most of his followers can be found in Galmair. So if you believe in him as the dwarves do then you will find like-minded people there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
