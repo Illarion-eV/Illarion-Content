@@ -63,7 +63,7 @@ function GemDustInStock(User,cauldron,gemDust)
 end
 
 function GemDustInWater(User,cauldron,gemDust)
-User:("blaaaah")
+User:inform("blaaaah")
     cauldron:setData("filledWith","essenceBrew")
 	local reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(gemDust, nil, nil, nil, User)
 	cauldron.id = reCauldron
