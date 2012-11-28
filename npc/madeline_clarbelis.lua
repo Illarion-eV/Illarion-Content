@@ -24,7 +24,6 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.madeline_clarbelis", package.seeall)
 
@@ -1107,11 +1106,9 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I don't want to.");
-talkEntry:addResponse("I don't wish totoday, thank you.");
+talkEntry:addResponse("I don't want to trade.");
+talkEntry:addResponse("I don't wish to trade today, thank you.");
 talkEntry:addResponse("Sorry, but Aurora tells me that I cannot be enticed by material possessions.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -6,9 +6,9 @@ local QUEST_NUMBER = 641
 local PRECONDITION_QUESTSTATE = 100
 local POSTCONDITION_QUESTSTATE = 91
 
-local NPC_TRIGGER_DE = "32|[Zw]weiundreißig"
+local NPC_TRIGGER_DE = "32|[Zw]weiundreiï¿½ig"
 local NPC_TRIGGER_EN = "32|[Tt]hirtytwo"
-local NPC_REPLY_DE = "Gut, um mehr über die Geschichte Cadomyrs zu erfahren, empfiehlt sich unser Geschichtsbuch. Und dieses soll nun auch gelesen werden."
+local NPC_REPLY_DE = "Gut, um mehr ï¿½ber die Geschichte Cadomyrs zu erfahren, empfiehlt sich unser Geschichtsbuch. Und dieses soll nun auch gelesen werden."
 local NPC_REPLY_EN = "Good, if you want to know more about the history of Cadomyr look for the histroy book. So, go and find it."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Such nach dem Geschichtsbuch von Cadomyr in einem der Bücherregalen.", "Find the history book of Cadomyr in one of the bookshelves."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Such nach dem Geschichtsbuch von Cadomyr in einem der Bï¿½cherregalen.", "Find the history book of Cadomyr in one of the bookshelves."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

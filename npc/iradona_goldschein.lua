@@ -30,13 +30,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Iradona Goldschein the informant. Keywords: Question, information, Galmair, building, game, mission."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Iradona Goldschein the informant. Keywords: Question, information, Galmair, building, game, mission, faction."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Iradona Goldschein die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Galmair, Gebäude, Spiel, Auftrag."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Iradona Goldschein die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Galmair, Gebäude, Spiel, Auftrag, Fraktion."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -883,7 +883,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schwarzbrücke");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwort] Ort"));
-talkEntry:addResponse("Die Schwarzbrücke im NOrdosten von hier führt dich über den Grenzstrom zum Sumpf und den Nördlichen Wäldern, falls du zu diesen Orten gehen möchtest.");
+talkEntry:addResponse("Die Schwarzbrücke im Nordosten von hier führt dich über den Grenzstrom zum Sumpf und den Nördlichen Wäldern, falls du zu diesen Orten gehen möchtest.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -896,6 +896,18 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schattenland");
 talkEntry:addResponse("Ein gefährlicher Ort am südlichen Ende der Malachit Mine. Geh nicht alleine dort hin. Für mehr Information frage jemanden anderen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("faction");
+talkEntry:addResponse("There are three factions: Our faction Galmair, ruled by our rich leader Don Valerio Guilianni. Then the two poor factions of Runewick and Cadomyr, ruled by Archmage Elvaine Morgan and Queen Rosaline Edwards.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Fraktion");
+talkEntry:addResponse("Es gibt drei Fraktionen: Unsere Fraktion Galmair, geführt von unserem reichen Herrscher Don Valerio Guilianni. Dann diese zwei armen Fraktionen Runewick und Cadomyr, geführt von Erzmagier Elvaine Morgan und Königin Rosaline Edwards.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

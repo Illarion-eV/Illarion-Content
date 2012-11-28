@@ -24,7 +24,6 @@ require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.uriel_urch", package.seeall)
 
@@ -893,9 +892,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Ahh! The god of smithing. Most Dwarves pray to him. Some merchants... and eaven a few warriors do too.");
-talkEntry:addResponse("Irmorom is the God ofand craftsmanship.  Honourable, good natured... He likes law and rarely refuses a good beer.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Ahh! The god of smithing. Most Dwarves pray to him. Some merchants... and even a few warriors do, too.");
+talkEntry:addResponse("Irmorom is the God of trade and craftsmanship. Honourable, good natured... He likes law and rarely refuses a good beer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -932,7 +930,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("#me zuckt erschrocken zusammen und zischt dich an. 'Sprecht diesen Namen nicht aus! Er zieht das böse an... nennt ihn den Blutgott, solltet ihr unbedingt über ihn sprechen müssen.'");
+talkEntry:addResponse("#me zuckt erschrocken zusammen und zischt dich an. 'Sprecht diesen Namen nicht aus! Er zieht das Böse an... nennt ihn den Blutgott, solltet ihr unbedingt über ihn sprechen müssen.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

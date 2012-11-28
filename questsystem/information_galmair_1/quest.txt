@@ -73,3 +73,12 @@ item,298,UseItem,trigger72
 item,2805,LookAtItem,trigger73
 item,1,UseItem,trigger74
 item,1,UseItem,trigger75
+npc,342,receiveText,trigger76
+npc,342,receiveText,trigger77
+npc,342,receiveText,trigger78
+npc,342,receiveText,trigger79
+npc,342,receiveText,trigger80
+npc,342,receiveText,trigger81
+npc,342,receiveText,trigger82
+npc,342,receiveText,trigger83
+npc,342,receiveText,trigger84

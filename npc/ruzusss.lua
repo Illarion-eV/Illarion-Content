@@ -24,7 +24,6 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.ruzusss", package.seeall)
 
@@ -714,8 +713,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Westliche Katanbi Wüste");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Berg Siba, Milchhaus, Grundstein Aufrechtigkeit, Rosaline Wüfel, Würfel Lager, Faber Wachhaus, Entfernte Wohnstätte, Piraten Bucht, Kap Lebwohl, Katanbi Fluss, Freiheitsbruch, Grugmutz Höhle, Bach Siedlung."));
-talkEntry:addResponse("Welchen Platz meinst du? Berg Siba, Milchhaus, Grundstein der Aufrechtigkeit, Rosaline Wüfel, Würfel Lager, Fabers Wachhaus, Entfernte Wohnstätte, Piraten Bucht, Kap Lebwohl, Katanbi Fluss, Freiheitsbruch, Grugmutzs Höhle, Bach Siedlung.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Berg Siba, Milchhaus, Grundstein Aufrichtigkeit, Rosaline Würfel, Würfel Lager, Faber Wachhaus, Entfernte Wohnstätte, Piratenbucht, Kap Abschied, Katanbi Fluss, Freiheitsbruch, Grugmutz Höhle, Bach Siedlung."));
+talkEntry:addResponse("Welchen Platz meinst du? Berg Siba, Milchhaus, Grundstein der Aufrechtigkeit, Rosaline Würfel, Würfel Lager, Fabers Wachhaus, Entfernte Wohnstätte, Piratenbucht, Kap des Abschiedes, Katanbi Fluss, Freiheitsbruch, Grugmutzs Höhle, Bach Siedlung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -734,7 +733,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Milkhouse");
 talkEntry:addResponse("That isss the name of a ssshop for foreignrsss. It isss in the eassst from here.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -811,8 +809,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Piraten Bucht");
-talkEntry:addResponse("Die Piraten Bucht im Nordwesten ist ein Platz mit potentialer Gefahr. Wir hatten immer wieder Konflikte mit den soweit.");
+talkEntry:addTrigger("Piratenbucht");
+talkEntry:addResponse("Die Piratenbucht im Nordwesten ist ein Platz mit potentialer Gefahr. Wir hatten immer wieder Konflikte mit den soweit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -824,7 +822,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kap Abschied");
-talkEntry:addResponse("Das Kap des Abschieds kann an der Westküste gefunden werden nahe Faber's Guardhouse.");
+talkEntry:addResponse("Das Kap des Abschiedes kann an der Westküste gefunden werden nahe Faber's Guardhouse.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

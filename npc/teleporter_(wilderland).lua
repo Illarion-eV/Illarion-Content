@@ -29,7 +29,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This is the teleporter of Wilderland. A journey costs a silver coin. Destinations: Runewick, Cadomyr, Galmair."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This is the teleporter of Wilderland. A journey costs ten silver coins. Destinations: Runewick, Cadomyr, Galmair."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -58,7 +58,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addTrigger("Galmair");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You don't have enough money for this journey. The journey costs a silver coin."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You don't have enough money for this journey. The journey costs ten silver coins."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -74,8 +74,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You make the teleporter open a portal to Runewick at a cost of one silver piece."));
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You make the teleporter open a portal to Runewick at a cost of ten silver pieces."));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(788, 826, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -83,7 +83,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Runewick zu einem Preis von einem Silberstück öffnen."));
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(788, 826, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -91,8 +91,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You make the teleporter open a portal to Cadomyr at a cost of one silver piece."));
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You make the teleporter open a portal to Cadomyr at a cost of ten silver pieces."));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(127, 647, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -100,7 +100,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Cadomyr zu einem Preis von einem Silberstück öffnen."));
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(127, 647, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -108,8 +108,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You make the teleporter open a portal to Galmair at a cost of one silver piece."));
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] You make the teleporter open a portal to Galmair at a cost of ten silver pieces."));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(424, 245, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -117,7 +117,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Galmair zu einem Preis von einem Silberstück öffnen."));
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(424, 245, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;

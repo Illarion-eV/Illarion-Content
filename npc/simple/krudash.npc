@@ -88,9 +88,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebas. Have a good sackin
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Krudash Und dars ist mein Laden. 'Hack'n Sack' - Hacken und Plündern! Verkaufe alles was du brauchst fürr guttes Hackn und plündarn."
 
 -- Catching quest triggers. Modify if the NPC does quests.
-english, "quest", "mission" -> "I... and my snagas do all the work. So there is nothing for a maggot like you to do!", trade
+english, "quest", "mission" -> "I... and my snagas do all the work. So there is nothing for a maggot like you to do!"
 "quest", "mission" -> "Ich handle... und meine Snagas machen alle Arbeit. Also gibt's nix zu tun für ne Made wie dich!"
-"task", "adventure", "order" -> "I... and my snagas do all the work. So there is nothing for a maggot like you to do!", trade
+"task", "adventure", "order" -> "I... and my snagas do all the work. So there is nothing for a maggot like you to do!"
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich handle... und meine Snagas machen alle Arbeit. Also gibt's nix zu tun für ne Made wie dich!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!

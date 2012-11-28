@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 66
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Ich hoffe ihr habt die Audienz genossen. Hier ein Ring zur Erinnerung an diese Begegnung mit ihr. Die nächste Aufgabe findet ihr unter einem der Stühle im Stadtsaal."
+local NPC_REPLY_DE = "Ich hoffe ihr habt die Audienz genossen. Hier ein Ring zur Erinnerung an diese Begegnung mit ihr. Die nï¿½chste Aufgabe findet ihr unter einem der Stï¿½hle im Stadtsaal."
 local NPC_REPLY_EN = "I hope you enjoyed the audience. Here a ring in memory of this meeting with her. You can find your next task under one of the chairs in the Civic Hall."
 
 function receiveText(npc, type, text, PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 277, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Stadtsaal und untersuche die Stühle dort.", "Go to the Civic Hall and examine the chairs there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Stadtsaal und untersuche die Stï¿½hle dort.", "Go to the Civic Hall and examine the chairs there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

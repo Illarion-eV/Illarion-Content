@@ -25,7 +25,6 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
-require("npc.base.consequence.trade")
 require("npc.base.consequence.treasure")
 require("npc.base.talk")
 module("npc.rowan_banius", package.seeall)
@@ -280,9 +279,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(306, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 40 copper coins and a meat dish."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded four silver coins and a meat dish."));
 talkEntry:addResponse("Oh! Thank you, thank you. My wife shall be able to enjoy a decent meal thanks to you. This is sure to raise her spirits.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(306, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(557, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 2));
@@ -295,7 +294,7 @@ talkEntry:addCondition(npc.base.condition.item.item(306, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 40 Kupferstücke und eimn Fleischgericht."));
 talkEntry:addResponse("Oh! Habt dank, habt Dank! Meine Frau wird dank euch eine anstängige Mahlzeit genießen können. Dies wird ihr sicher wieder auf die Beine helfen.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 40));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(306, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(557, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 2));
@@ -387,9 +386,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2380, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 60 copper coins and a SCYTHE."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded six silver coins and a scythe."));
 talkEntry:addResponse("Ah, this is perfect. Thank you, my friend. I hope this money shall be sufficient compensation. Hmm...here, take my old scythe, also.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2380, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 4));
@@ -402,7 +401,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2380, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 60 Kupferstücke und ein eine Sense."));
 talkEntry:addResponse("Ah, das ist ausgezeichnet. Ich danke euch, mein Freund. Ich hoffe dies ist eine angemessene Entschädigung.Hmm...hier, nehmt auch meine alte Sense.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2380, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(322, "=", 4));
@@ -1195,11 +1194,9 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("My apologies, but I am in no mood toright now.");
-talkEntry:addResponse("I am sorry, but I cannotwith you at the moment. I must be caring for my wife.");
+talkEntry:addResponse("My apologies, but I am in no mood to trade right now.");
+talkEntry:addResponse("I am sorry, but I cannot trade with you at the moment. I must be caring for my wife.");
 talkEntry:addResponse("I fear that I am too busy dealing with my wife at the moment.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1246,7 +1243,7 @@ talkEntry:addTrigger("Rowan");
 talkEntry:addTrigger("Banius");
 talkEntry:addResponse("Hm? Bitte, ich muss mich um meine Frau kümmern.");
 talkEntry:addResponse("Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.");
-talkEntry:addResponse("Es tut mir Leid, aber ich muss mich um meine Frau kümmern.");
+talkEntry:addResponse("Es tut mir leid, aber ich muss mich um meine Frau kümmern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1262,7 +1259,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
 talkEntry:addResponse("Hm? Bitte, ich muss mich um meine Frau kümmern.");
 talkEntry:addResponse("Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.");
-talkEntry:addResponse("Es tut mir Leid, aber ich muss mich um meine Frau kümmern.");
+talkEntry:addResponse("Es tut mir leid, aber ich muss mich um meine Frau kümmern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1298,7 +1295,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Hm? Bitte, ich muss mich um meine Frau kümmern.");
 talkEntry:addResponse("Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.");
-talkEntry:addResponse("Es tut mir Leid, aber ich muss mich um meine Frau kümmern.");
+talkEntry:addResponse("Es tut mir leid, aber ich muss mich um meine Frau kümmern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me sieht seine Frau an und lächelt schwach.", "#me glances at his wife, smiling faintly.");

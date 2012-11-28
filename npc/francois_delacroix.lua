@@ -202,8 +202,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I sell goods such as milk and farmer tools");
 talkEntry:addResponse("I sell that which you need.");
-talkEntry:addResponse("I'm a self made agricultural goodsr.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I'm a self made agricultural goods trader.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -220,8 +219,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
 talkEntry:addResponse("I sell goods such as milk and farmer tools.");
 talkEntry:addResponse("I sell that which you need.");
-talkEntry:addResponse("I'm a self made agricultural goodsr.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I'm a self made agricultural goods trader.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

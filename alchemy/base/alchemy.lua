@@ -274,7 +274,7 @@ function generateTasteMessage(Character,dataZList)
     base.common.InformNLS(Character,textDe,textEn);
 end
 
-function CheckIfGemDust(SourceItem)
+function CheckIfGemDust(SourceItem, User)
 local retVal = nil;
 for i,checkId in pairs(gemList) do
     theItem = SourceItem
@@ -336,7 +336,7 @@ function EmptyBottle(User,Bottle)
 	else	
 		Bottle.id = 164
 	    Bottle.quality = 333
-		world:changeItem(SourceItem)
+		world:changeItem(Bottle)
 	end
 end
 
@@ -394,26 +394,26 @@ bottleList   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
 function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
     -- this function returns matching gemdust id, cauldron id and bottle id
     -- only one parameter is needed; if there are more than one, only the first one will be taken into account
-    User:inform("debug gbc1")
+    User:inform("debug 0.5")
 	local myList
 	local myValue
-    if gemDust then
-	    myList = gemdustList
-		myValue = gemdust
+    if gemdust then
+	    myList = gemDustList
+		myValue = gemdust.id
 	elseif cauldron then
-	    User:inform("debug gbc2")
-		myList = cauldronList
-		myValue = cauldron
+	    myList = cauldronList
+		myValue = cauldron.id
     elseif bottle then
         myList = bottleList	
-		myValue = bottle
+		myValue = bottle.id
     else 
 	    return 
-	end	
+	end
+User:inform("debug 0.75: "..myValue)	
 	local reGemdust; local reCauldron; local reBottle
 	for i=1,#myList do
 	    if myList[i] == myValue then
-		    User:inform("debug gbc3")
+		    User:inform("al 1")
 			reGemdust = gemDustList[i]
 	        reCauldron = cauldronList[i]
 			reBottle = bottleList[i]

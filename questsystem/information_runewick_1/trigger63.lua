@@ -7,7 +7,7 @@ local POSTCONDITION_QUESTSTATE = 178
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]amechtzehn"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Ich habe keine Aufträge mehr zu vergeben. Für weitere Aufträge empfiehlt es sich herumzufragen. Aber mit Informationen kann ich immer dienen."
+local NPC_REPLY_DE = "Ich habe keine Auftrï¿½ge mehr zu vergeben. Fï¿½r weitere Auftrï¿½ge empfiehlt es sich herumzufragen. Aber mit Informationen kann ich immer dienen."
 local NPC_REPLY_EN = "I do not have any tasks for you left. For more tasks ask other folk. But if you need more information, you can always ask me."
 
 function receiveText(npc, type, text, PLAYER)

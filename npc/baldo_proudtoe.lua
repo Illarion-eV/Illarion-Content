@@ -27,7 +27,6 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.skill")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.baldo_proudtoe", package.seeall)
 
@@ -896,8 +895,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I am just the gardener here. If you want tothings, go to the market place of Runewick.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I am just the gardener here. If you want to trade things, go to the market place of Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

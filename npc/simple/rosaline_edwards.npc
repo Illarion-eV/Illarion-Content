@@ -7,8 +7,7 @@
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
---                                                                            --
--- Last parsing: August 18, 2012                          easyNPC Parser v1.2 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Rosaline Edwards"
@@ -60,11 +59,11 @@ itemShoes = 369
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Speak, but choose your words wisely for my time is short.", "Ah, a servant of mine, good, what news do you bear from my realm?", "You dare to disturb me? Fine, fortunately for you I needed a distraction."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Sagt, was wollt ihr von eurer Königin? Sprecht schnell oder ich werde euch Beine machen.", "Ah, einer meiner Untertanen. Gut, was für Kunde bringt ihr aus meinem Reich?", "Ihr wagt es, mich zu stören. Fein, ich kann etwas Abwechslung gut vertragen."
-"Hiho", "Hallo", "Hey", "Greeb", english -> "Speak, but choose your words wisely for my time is short.", "Ah, a servant of mine, good, what news do you bear from my realm?", "You dare to disturb me? Fine, fortunately for you I needed a distraction."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Speak, but choose your words wisely for my time is short.", "Ah, a servant of mine, good, what news do you bear from my realm?", "You dare to disturb me? Fine, fortunately for you I needed a distraction."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Sagt, was wollt ihr von eurer Königin? Sprecht schnell oder ich werde euch Beine machen.", "Ah, einer meiner Untertanen. Gut, was für Kunde bringt ihr aus meinem Reich?", "Ihr wagt es, mich zu stören. Fein, ich kann etwas Abwechslung gut vertragen."
 "Farewell", "Bye", "Fare well", "See you" -> "#me waves: 'Begone.'", "Go with Malachin's blessings and do deeds to honour Cadomyr's name.", "Very well, be off and serve me as I do Cadomyr.", "Fare thee well, and be sure to speak fondly of Cadomyr on your travels."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "#me winkt ab: 'Hinfort.'", "Geht mit Malachins Segen und vollbringt Taten zu Ehren Cadomyrs. Und meiner.", "Fort, fort und dient mir in jeder Minute eures Lebens so, wie ich Cadomyr diene.", "Gehabt euch wohl und verbreitet Kunde über das glorreiche Königreich Cadomyr überall auf euren Reisen."
-"Ciao", "Adieu", "Au revoir", english -> "#me waves: 'Begone.'", "Go with Malachin's blessings and do deeds to honour Cadomyr's name.", "Very well, be off and serve me as I do Cadomyr.", "Fare thee well, and be sure to speak fondly of Cadomyr on your travels."
+english, "Ciao", "Adieu", "Au revoir" -> "#me waves: 'Begone.'", "Go with Malachin's blessings and do deeds to honour Cadomyr's name.", "Very well, be off and serve me as I do Cadomyr.", "Fare thee well, and be sure to speak fondly of Cadomyr on your travels."
 "Ciao", "Adieu", "Au revoir" -> "#me winkt ab: 'Hinfort.'", "Geht mit Malachins Segen und vollbringt Taten zu Ehren Cadomyrs. Und meiner.", "Fort, fort und dient mir in jeder Minute eures Lebens so, wie ich Cadomyr diene.", "Gehabt euch wohl und verbreitet Kunde über das glorreiche Königreich Cadomyr überall auf euren Reisen."
 "How are you", "How feel", "How do you do" -> "No queen could be better, I assure you, with the service of the noblest and truest of men at her side.", "Glorious, truly Zhambra has blessed me with the most honourable servants.", "Truth be told my skin is yearning for the soothing comfort of donkey milk, but that is neither here nor there I suppose."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin die unbestrittene Monarchin eines glorreichen Reiches der edelsten Leute. Wie geht es mir wohl?", "Mir würde es weit besser gehen, wenn ihr niederknien würdet. Jetzt!", "Mir käme ein Bad in Eselsmilch gerade recht. Dieser ganze Sand schadet meiner feinen Haut."
@@ -72,76 +71,76 @@ itemShoes = 369
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Wer ich bin? Ihr habt die Kühnheit zuzugeben, dass ihr nicht wißt, wer ich bin? Aus meinen Augen!", "Wenn ihr wirklich nicht wißt, wer ich bin, dann fragt einen meiner Diener.", "Schämt ihr euch nicht, eine Königin albarischen Geblüts nach ihrem Namen zu fragen?"
 
 -- Quest 107: A message from Groktan Flintsplit
-"message", "news", "letter", "scroll", "parchment", queststatus(107) = 12 -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and crumples the letter in her firm grasp: 'Tell that filthy bastard he'll get my throne over my dead body!", queststatus(107) = 13
-"nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", queststatus(107) = 12 -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!", queststatus(107) = 13
-"Groktan", "Flintsplit", queststatus(107) = 12, english -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and crumples the letter in her firm grasp: 'Tell that filthy bastard he'll get my throne over my dead body!", queststatus(107) = 13
-"Groktan", "Flintsplit", queststatus(107) = 12 -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!", queststatus(107) = 13
+queststatus(107) = 12, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and crumples the letter in her firm grasp: 'Tell that filthy bastard he'll get my throne over my dead body!", queststatus(107) = 13
+queststatus(107) = 12, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!", queststatus(107) = 13
+queststatus(107) = 12, english, "Groktan", "Flintsplit" -> inform("[Quest status] The Reminder V: You deliver the message from Groktan Flintsplit to Queen Rosaline Edwards."), "#me shouts in fury and crumples the letter in her firm grasp: 'Tell that filthy bastard he'll get my throne over my dead body!", queststatus(107) = 13
+queststatus(107) = 12, "Groktan", "Flintsplit" -> inform("[Queststatus] Die Erinnerung V: Du überbringst Königin Rosaline Edwards die Nachricht von Groktan Flintsplit."), "#me schnaubt wutentbrannt und zerknüllt den Brief: 'Sag diesem dreckigen Bastard, dass er so nie an meinen Thron kommen wird. Nur über meine Leiche!", queststatus(107) = 13
 
 -- Catching quest triggers
-"quest", "mission", english -> "Ah, a loyal subject. Very well, ask one of my servants what you can do for me today, I cannot be bothered such details; I have to rule an entire kingdom."
+english, "quest", "mission" -> "Ah, a loyal subject. Very well, ask one of my servants what you can do for me today, I cannot be bothered such details; I have to rule an entire kingdom."
 "quest", "mission" -> "Ah, ein loyaler Diener, wie fein. Bitte fragt einen meiner Diener, was ihr heute für mich tun könnt. Ich kann mich nicht mit Details aufhalten, ich muss ein ganzes Königreich regieren, nicht nur euch."
 "task", "adventure", "order" -> "Ah, a loyal subject. Very well, ask one of my servants what you can do for me today, I cannot be bothered such details; I have to rule an entire kingdom."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ah, ein loyaler Diener, wie fein. Bitte fragt einen meiner Diener, was ihr heute für mich tun könnt. Ich kann mich nicht mit Details aufhalten, ich muss ein ganzes Königreich regieren, nicht nur euch."
 
 -- Reward for quest 622
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(10.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(1)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(10.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(1)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(11.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(2)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(11.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(2)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(13.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(3)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(13.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(3)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(14.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(4)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(14.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(4)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(17.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(5)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(17.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(5)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(20.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(6)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(20.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(6)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(25.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(7)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(25.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(7)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(34.0) -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(8)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(34.0) -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(8)
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(51.0) -> "#me nods and hands you an item silently.", item(198, 1, 999, "magicalTopaz"="1"), queststatus(643) = 1
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(51.0) -> "#me nickt und reicht dir leise einen Gegenstand.", item(198, 1, 999, "magicalTopaz"="1"), queststatus(643) = 1
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, english, chance(100.0) -> "#me nods and hands you an item silently.", item(197, 1, 999, "magicalAmethyst"="1"), queststatus(643) = 1
-"Mordak","Kharud", queststatus(642) > 0, queststatus(643) = 0, german, chance(100.0) -> "#me nickt und reicht dir leise einen Gegenstand.", item(197, 1, 999, "magicalAmethyst"="1"), queststatus(643) = 1
+queststatus(642) > 0, queststatus(643) = 0, english, chance(10.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(1)
+queststatus(642) > 0, queststatus(643) = 0, german, chance(10.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(1)
+queststatus(642) > 0, queststatus(643) = 0, english, chance(11.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(2)
+queststatus(642) > 0, queststatus(643) = 0, german, chance(11.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(2)
+queststatus(642) > 0, queststatus(643) = 0, english, chance(13.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(3)
+queststatus(642) > 0, queststatus(643) = 0, german, chance(13.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(3)
+queststatus(642) > 0, queststatus(643) = 0, english, chance(14.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(4)
+queststatus(642) > 0, queststatus(643) = 0, german, chance(14.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(4)
+queststatus(642) > 0, queststatus(643) = 0, english, chance(17.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(5)
+queststatus(642) > 0, queststatus(643) = 0, german, chance(17.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(5)
+queststatus(642) > 0, queststatus(643) = 0, english, chance(20.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(6)
+queststatus(642) > 0, queststatus(643) = 0, german, chance(20.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(6)
+queststatus(642) > 0, queststatus(643) = 0, english, chance(25.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(7)
+queststatus(642) > 0, queststatus(643) = 0, german, chance(25.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(7)
+queststatus(642) > 0, queststatus(643) = 0, english, chance(34.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(643) = 1, treasure(8)
+queststatus(642) > 0, queststatus(643) = 0, german, chance(34.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(643) = 1, treasure(8)
+queststatus(642) > 0, queststatus(643) = 0, english, chance(51.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", item(198, 1, 999, "gemLevel" = "1"), queststatus(643) = 1
+queststatus(642) > 0, queststatus(643) = 0, german, chance(51.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(198, 1, 999, "gemLevel" = "1"), queststatus(643) = 1
+queststatus(642) > 0, queststatus(643) = 0, english, chance(100.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", item(197, 1, 999, "gemLevel" = "1"), queststatus(643) = 1
+queststatus(642) > 0, queststatus(643) = 0, german, chance(100.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(197, 1, 999, "gemLevel" = "1"), queststatus(643) = 1
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Profession? Foolish traveler, I am the Queen, my profession is to rule this kingdom!"
 "beruf" -> "Lasst mich nachdenken... ich regiere hier, so weit das Auge reicht."
-"job", english -> "Job? Foolish traveler, I am the Queen, my job is to rule this kingdom!"
+english, "job" -> "Job? Foolish traveler, I am the Queen, my job is to rule this kingdom!"
 "job" -> "Lasst mich nachdenken... ich regiere hier, so weit das Auge reicht."
-"Gobaith", english -> "Don't come to me, whining about some smut in the ocean. Behold the glory of Cadomyr instead.", "Gobaith was doomed and I knew that. How did I know? I am the queen, did you forget?"
+english, "Gobaith" -> "Don't come to me, whining about some smut in the ocean. Behold the glory of Cadomyr instead.", "Gobaith was doomed and I knew that. How did I know? I am the queen, did you forget?"
 "Gobaith" -> "Ihr kommt doch nicht etwa zu mir, um über einen Schmutzfleck im Ozean zu heulen. Betrachtet stattdessen den Glanz Cadomyrs.", "Gobaith war dem Untergang geweiht. Woher ich das weiß? Ich bin die Königin, schon vergessen?"
 
 -- More small talk; add at least five triggers - english
 "bitch", "witch" -> "What? Somebody said I was a witch? To the stake!"
-"Hastings", "Baron", english -> "Never utter his name again in my court. Be gone! Do not return to me unless you carry his head upon a pike."
+english, "Hastings", "Baron" -> "Never utter his name again in my court. Be gone! Do not return to me unless you carry his head upon a pike."
 "bounty" -> "There is no bounty on Baron Hastings' head. It is a matter of honour to slay this fiend of Cadomyr."
 "Milk", "donkey" -> "A bath in donkey's milk can do wonders for your skin. You should try it yourself, if you can afford it."
-"pyramid", english -> "A pyramid as a grave monument? Who would do such a stupid thing? Discuss that with Robertus, the royal builder, but expect to receive some laughter."
+english, "pyramid" -> "A pyramid as a grave monument? Who would do such a stupid thing? Discuss that with Robertus, the royal builder, but expect to receive some laughter."
 "cube", "cubus", "grave" -> "My royal builder, Robertus, once mentioned that he wants to build a grave in the form of a cube for me. If I like it, good for me, if I don't like it, bad for him."
 "tomb" -> "The grave of my father can be found in a magnificent tomb outside the town. I suggest you visit there and pay homage to his great service."
 "enemy", "enemies", "fiend", "foe" -> "Cadomyr has no foes. There is only that bastard Baron Hastings who contests my throne, but I doubt he will survive any attempt to grasp it."
 "honor", "honour" -> "Honour is everything for a nobleman of Cadomyr. If you should lose your honour, then you shall lose your life. Whatever you do, consider your fame and reputation first."
 "Law", "Custom", "habit" -> "The law of Cadomyr lies before your very eyes. I am the law, but you may bear witness to our customs at the statue of my father in front of the palace."
 "builder" -> "Robertus is my royal builder. Currently he is working on building me the most magnificent grave known to man. My legacy will last forever!"
-"Robertus", english -> "Robertus is my royal builder. Currently he is working on building me the most magnificent grave known to man. My legacy will last forever!"
+english, "Robertus" -> "Robertus is my royal builder. Currently he is working on building me the most magnificent grave known to man. My legacy will last forever!"
 "Desert" -> "Sand, sand, sand. It is everywhere! In my shoes, in my chambers, and even in my hair! I hate the sand but thank Sirani that I have a lifetime supply of donkey's milk."
 "Economy" -> "Cadomyr's economy prospers. You can see that at every corner of town. Go forth to the market place and behold the goods of my beloved country."
 "palace" -> "My palace is the grandeur of hard working slaves and artisans. But it was not built for me alone; it was built for the honour of Cadomyr and the glory of Malachin, Zhambra, and Sirani!"
 "market" -> "Glass goods, fine jewelry, herbal remedies, and masonry are our marquee products, readily available in our market quarter. So go see for yourself!"
-"Hassan", english -> "Ah, yes, I think Hassan is the name of my royal fan waver. Where is he again? He is so lazy I should have him flogged daily for his shortcomings."
+english, "Hassan" -> "Ah, yes, I think Hassan is the name of my royal fan waver. Where is he again? He is so lazy I should have him flogged daily for his shortcomings."
 "husband", "marriage" -> "I am married to Cadomyr. I serve it like I would serve my husband.", "I am in waiting for Sirani to deliver my true love, till then she has secured my love to the fate of Cadomyr.", "The royal blood line is not meant for just anyone, but I heed you no further explination."
 "Queendom" -> "This term ceased to be funny when the first head fell down the scaffold."
 "Queen" -> "That is me, the only rightful Queen in all of Cadomyr. Now you better act accordingly.", "Commonly, my minions address me as 'Your highness' or 'Almighty Queen'.", "I bear the name Edwards with pride. You should speak it likewise."
-"Reginald", english -> "My father, Sir Reginald Edwards, was the king of Cadomyr. Now, his only child inherits the throne, me."
+english, "Reginald" -> "My father, Sir Reginald Edwards, was the king of Cadomyr. Now, his only child inherits the throne, me."
 "King", "father" -> "My father, Sir Reginald Edwards, was the king of Cadomyr. Now, his only child inherits the throne, me."
 "Cape" -> "Cape Farewell? Tis true that even the lizardmen obey my orders. If you are searching there kind, Cape Farewell is certainly the best place to start."
-"Zerarisa", english -> "Indeed, even the lizardmen obey my orders. Some of them usually dwell at Cape Farewell."
+english, "Zerarisa" -> "Indeed, even the lizardmen obey my orders. Some of them usually dwell at Cape Farewell."
 "lizard" -> "The lizardmen have proven loyal subjects. Most of them call Cape Farewell home."
 "orc" -> "You might presume that a queen of Albarian origin would dislike orcs. But he who swears loyalty to me and follows the old customs is my subject, even if green."
-"Ioannes", "Faber", english -> "Ah, you are speaking about my royal treasurer. He serves me right and just. I trust him to manage the treasury of Cadomyr."
-"Anthar", "Vilicon", english -> "My loyal chancellor; you are surprised he's an elf? He's a perfect example of loyality to the throne!"
+english, "Ioannes", "Faber" -> "Ah, you are speaking about my royal treasurer. He serves me right and just. I trust him to manage the treasury of Cadomyr."
+english, "Anthar", "Vilicon" -> "My loyal chancellor; you are surprised he's an elf? He's a perfect example of loyality to the throne!"
 
 -- More small talk; add at least five triggers - german
 "Hexe", "Schlampe" -> "Was? Jemand behauptet, ich sei eine Hexe? Auf den Scheiterhaufen mit ihm!"
@@ -173,70 +172,70 @@ itemShoes = 369
 "Anthar", "Vilicon" -> "Mein mir ergebener Kanzler; ihr wundert euch, dass er ein Elf ist? Er ist ein Musterbeispiel der Loyalität gegenüber dem Thron!"
 
 -- Faction stuff
-"Elvaine", "Morgan", english -> "A renegade mage who I have to admit, knows how to manipulate his minions into believing he is a generous leader.", "I do attest, negotiations with him are far more challenging than simply thrusting a pike into his stomach."
+english, "Elvaine", "Morgan" -> "A renegade mage who I have to admit, knows how to manipulate his minions into believing he is a generous leader.", "I do attest, negotiations with him are far more challenging than simply thrusting a pike into his stomach."
 "Elvaine", "Morgan" -> "Ein abtrünniger Magier der zugegebenerweise weiß, wie man seine Untertanen dahingehend täuscht, dass er vorgibt, ein großzügiger Anführer zu sein.", "Fürwahr, mit ihm zu verhandeln ist schwieriger als ihm einfach eine Lanze in den Bauch zu rammen."
 "archmage" -> "A renegade mage who I have to admit, knows how to manipulate his minions into believing he is a generous leader.", "I do attest, negotiations with him are far more challenging than simply thrusting a pike into his stomach."
 "Erzmagier" -> "Ein abtrünniger Magier der zugegebenerweise weiß, wie man seine Untertanen dahingehend täuscht, dass er vorgibt, ein großzügiger Anführer zu sein.", "Fürwahr, mit ihm zu verhandeln ist schwieriger als ihm einfach eine Lanze in den Bauch zu rammen."
-"Runewick", english -> "I have no problem with Runewick, as long as they stay in their place. Historically, however, they have chosen to be quite the nuisance."
+english, "Runewick" -> "I have no problem with Runewick, as long as they stay in their place. Historically, however, they have chosen to be quite the nuisance."
 "Runewick" -> "Ich habe keine Probleme mit Runewick, solange sie ihren Füße nicht auf das Land setzen. Und das geschieht mir in letzter Zeit zu häufig."
-"Valerio", "Guilianni", "Don", english -> "Do not insight my rage by mentioning his name. That illicit marriage proposal of his still agitates me greatly. Any satire or jest depicting that mockery shall result in the actor's mouth being filled with scorpions!"
+english, "Valerio", "Guilianni", "Don" -> "Do not insight my rage by mentioning his name. That illicit marriage proposal of his still agitates me greatly. Any satire or jest depicting that mockery shall result in the actor's mouth being filled with scorpions!"
 "Valerio", "Guilianni", "Don" -> "Wenn ihr es wagt, mich an den Heiratsantrag des Dons zu erinnern, dann lasse ich euren Mund mit Skorpionen füllen!"
-"Galmair", english -> "Galmair is like rose with thorns; it might look appealing, but grasping for it should be done carefully."
+english, "Galmair" -> "Galmair is like rose with thorns; it might look appealing, but grasping for it should be done carefully."
 "Galmair" -> "Galmair ist wie eine dornenbewehrte Rose; es mag begehrenswert aussehen, aber wenn man danach greift, dann sollte man jeden Schriff genau überdenken."
-"rosaline", "edwards", english -> "That is me, the only rightful Queen in all of Sevenhill. Now you better act accordingly.", "Commonly, my minions address me as 'Your highness' or 'Almighty Queen'.", "I bear the name Edwards with pride. You should speak it likewise."
+english, "rosaline", "edwards" -> "That is me, the only rightful Queen in all of Sevenhill. Now you better act accordingly.", "Commonly, my minions address me as 'Your highness' or 'Almighty Queen'.", "I bear the name Edwards with pride. You should speak it likewise."
 "rosaline", "edwards" -> "Das bin ich: Königin Rosaline Edwards von Cadomyr. Jetzt verhaltet euch entsprechend.", "Normalerweise sprechen mich meine Untertanen so an: 'Eure Hoheit' oder 'Allmächtige Königin'.", "Ich trage den Namen Edwards mit Stolz. Genauso solltet ihr ihn auch aussprechen."
 "queen" -> "That is me, the only rightful Queen in all of Sevenhill. Now you better act accordingly.", "Commonly, my minions address me as 'Your highness' or 'Almighty Queen'.", "I bear the name Edwards with pride. You should speak it likewise."
 "königin" -> "Das bin ich: Königin Rosaline Edwards von Cadomyr. Jetzt verhaltet euch entsprechend.", "Normalerweise sprechen mich meine Untertanen so an: 'Eure Hoheit' oder 'Allmächtige Königin'.", "Ich trage den Namen Edwards mit Stolz. Genauso solltet ihr ihn auch aussprechen."
-"Cadomyr", english -> "Cadomyr means everything to me; I was born to serve this land and so all else are born to serve me. Let us obey the old customs and the traditions."
+english, "Cadomyr" -> "Cadomyr means everything to me; I was born to serve this land and so all else are born to serve me. Let us obey the old customs and the traditions."
 "Cadomyr" -> "Cadomyr ist mein ein und alles. Ich wurde geboren, um Cadomyr zu dienen und so wurde ein jeder hier geboren, um mir zu dienen. Lasst uns diesen alten Gebräuchen gehorchen und die Tradition wahren."
 
 -- Main land factions
-"albar", english -> "My blood and soul is Albarian. To mention my heritage is to mention the people of Cadomyr for it shall be the shinning example of our customs for all to see.", "I am proud of my Albarian origin, even though I was told that the old customs are more and more neglected in Albar."
+english, "albar" -> "My blood and soul is Albarian. To mention my heritage is to mention the people of Cadomyr for it shall be the shinning example of our customs for all to see.", "I am proud of my Albarian origin, even though I was told that the old customs are more and more neglected in Albar."
 "albar" -> "Mein Blut is albarisch. Mein Haar ist albarisch. Das Volk von Cadomyr hat albarische Wurzeln. Cadomyr ist das bessere Albar!", "Ich bin stolz auf meine albarische Herkunft, auch wenn mir zu Ohren kam, dass man dort die alten Sitten immer häufiger missachtet."
-"gynk", "gync", english -> "Someone should plunder and pillage Gynk! Such a cesspool of sin! No honour!"
+english, "gynk", "gync" -> "Someone should plunder and pillage Gynk! Such a cesspool of sin! No honour!"
 "gync", "gynk" -> "Man sollte Gynk verwüsten und niederbrennen! Was für ein Sündenpfuhl! Zu den Waffen!"
-"salkama", english -> "The Salkamaerians have their customs, we have ours. As long as they do not interfere with Cadomyrian issues, they may do whatever they think is right."
+english, "salkama" -> "The Salkamaerians have their customs, we have ours. As long as they do not interfere with Cadomyrian issues, they may do whatever they think is right."
 "salkama" -> "Die Salkamaerier haben ihre Gebräuche, wir haben unsere. Solange sie sich nicht in cadomyrische Angelegenheiten einmischen, sollen sie machen, was sie für richtig halten."
 
 -- Gods; gods are relevant, so the faction leader has to have an opinion on ALL gods
-"Adron", english -> "Ah, the god of Festivities and Wine. His purpose is joyous but indulge too much, like those people of Runewick, and you'll risk your safety and waste your resources."
+english, "Adron" -> "Ah, the god of Festivities and Wine. His purpose is joyous but indulge too much, like those people of Runewick, and you'll risk your safety and waste your resources."
 "Adron" -> "Ah, der Gott der Festlichkeiten und des Weines. Sein Begehr ist simpel und von niederem Stand, wie diese Leute aus Runewick..."
-"Bragon", "Brágon", english -> "How can one worship the Lord of Fire? Of course, we all honour the Five, but fire has always been a city's greatest foe. It does keeps us warm, so respect it and Brágon, but do not worship it."
+english, "Bragon", "Brágon" -> "How can one worship the Lord of Fire? Of course, we all honour the Five, but fire has always been a city's greatest foe. It does keeps us warm, so respect it and Brágon, but do not worship it."
 "Bragon", "Brágon" -> "Wie kann man nur den Herren des Feuers verehren? Selbstredend ehren wir die Fünf, aber Feuer kann so viel Leid verursachen. Es spendet uns aber auch Wärme; also respektiert es und Brágon, aber verehrt es nicht."
-"Cherga", english -> "I hope the time when I face Cherga in the afterlife will not come anytime soon; Robertus has not even finished the plans for my grave yet. Furthermore, who would rule Cadomyr, if not me?"
+english, "Cherga" -> "I hope the time when I face Cherga in the afterlife will not come anytime soon; Robertus has not even finished the plans for my grave yet. Furthermore, who would rule Cadomyr, if not me?"
 "Cherga" -> "Ich hoffe, dass es noch eine Weile dauert, bis ich Cherga ins Angesicht trete. Robertus hat noch nicht einmal die Baupläne für mein Grab vollendet. Und wer sollte schon Cadomyr regieren, wenn nicht ich?"
-"Elara", english -> "Elara, hah, a commonly overestimated goddess. People think she knows it all; but how can a single god know more than dozens of generations of Albarians?"
+english, "Elara" -> "Elara, hah, a commonly overestimated goddess. People think she knows it all; but how can a single god know more than dozens of generations of Albarians?"
 "Elara" -> "Elara, hah, eine meist überschätzte Göttin. Manche denken, sie weiß alles; aber wie kann eine einzelne Gottheit mehr wissen als Generationen von Albariern?"
-"Eldan", english -> "I was taught that Eldan is the father of Elara and hence, as useless as her. But my faith in the Five has grown over the years, and nowadays, I would execute my teacher for what he taught me."
+english, "Eldan" -> "I was taught that Eldan is the father of Elara and hence, as useless as her. But my faith in the Five has grown over the years, and nowadays, I would execute my teacher for what he taught me."
 "Eldan" -> "Man lehrte mich, dass Eldan der Vater Elaras ist und somit genauso wertlos ist wie sie. Aber mein Glaube an die Fünf ist nun stark und dieser Tage würde ich meinen Lehrer für diesen Frevel hinrichten lassen."
-"Findari", english -> "Findari's gift is the wind; it drives our sailboats and brings the clouds of rain. Wind can also blow sand storms miles long! So, the Five are never friend nor foe."
+english, "Findari" -> "Findari's gift is the wind; it drives our sailboats and brings the clouds of rain. Wind can also blow sand storms miles long! So, the Five are never friend nor foe."
 "Findari" -> "Findaris Geschenk ist der Wind. Er treibt unsere Segelboote an und bringt die Regenwolken. Aber der Wind bläßt auch immer wieder diesen Sand in meinen Palast! Nun, die Fünf sind niemals ein Freund, aber auch nicht ein Feind."
-"Irmorom", english -> "The god of coins, work, and rates that is Irmorom. You won't find many followers of Irmorom in Cadomyr, better head for Galmair; there are more pigs there, too."
+english, "Irmorom" -> "The god of coins, work, and rates that is Irmorom. You won't find many followers of Irmorom in Cadomyr, better head for Galmair; there are more pigs there, too."
 "Irmorom" -> "Der Gott der Münzen, der Arbeit und der Zinsen, das ist Irmorom. Ihr werdet nicht viele seiner Anhänger hier in Cadomyr finden. Also geht besser nach Galmair, dort gibt es nebenbei auch mehr Schweine."
-"Malachin", "Malachín", english -> "You must be speaking about the god of battle. He is our savior and saint, so pray to him every day and every night. That is an order!"
+english, "Malachin", "Malachín" -> "You must be speaking about the god of battle. He is our savior and saint, so pray to him every day and every night. That is an order!"
 "Malachin", "Malachín" -> "Ihr müßt über den Gott der Schlachten reden. Er ist unser Erlöser und Schutzpatron, also betet zu ihm an jedem Tag und in jeder Nacht. Das war ein Befehl!"
-"Moshran", english -> "You must not speak this name out loud ever again in Cadomyr. Do so and my wrath will smite you. Perform your dark craft elsewhere. I'd suggest Runewick."
+english, "Moshran" -> "You must not speak this name out loud ever again in Cadomyr. Do so and my wrath will smite you. Perform your dark craft elsewhere. I'd suggest Runewick."
 "Moshran" -> "Ihr werdet diesen Namen niemals wieder laut in Cadomyr aussprechen. Tut ihr es doch, so wird mein Zorn euch zerschmettern. Geht dunklen Künsten woanderns nach, wie wäre es mit Runewick?"
-"Nargun", "Nargún", english -> "If there is one thing I hate more than Baron Hastings, it is disorder. So you can estimate how much I love Nargún, the god of chaos."
+english, "Nargun", "Nargún" -> "If there is one thing I hate more than Baron Hastings, it is disorder. So you can estimate how much I love Nargún, the god of chaos."
 "Nargun", "Nargún" -> "Wenn etwas gibt, was ich nochmehr hasse als Baron Hastings, dann ist das Unordnung. Somit könnt ihr euch selbst erklären, wie sehr ich Nargún, die Gott des Chaos, liebe."
-"Oldra", english -> "Hah! Only superstitious creatures rely on Oldra's grace to grow their crops. The educated know that irrigation makes plants grow, not prayer."
+english, "Oldra" -> "Hah! Only superstitious creatures rely on Oldra's grace to grow their crops. The educated know that irrigation makes plants grow, not prayer."
 "Oldra" -> "Hah! Ich werde Cadomyr in blühende Landschaften verwandeln, auch ohne die Hilfe der verwunschenen Oldra. Bewässerung läßt Pflanzen gedeihen, nicht ein Gebet zu dieser unbedeutenden Göttin."
-"Ronagan", english -> "You are speaking about the god of travelers, I hope. Not the god of those with chopped off hands, am I right?"
+english, "Ronagan" -> "You are speaking about the god of travelers, I hope. Not the god of those with chopped off hands, am I right?"
 "Ronagan" -> "Ihr sprecht vom Gott der Reisenden, hoffe ich; nicht vom Gott derer mit abgeschlagenen Händen, nicht wahr?"
-"Sirani", english -> "It is not common to worship Sirani in Cadomyr. If you want to worship something female, worship me!"
+english, "Sirani" -> "It is not common to worship Sirani in Cadomyr. If you want to worship something female, worship me!"
 "Sirani" -> "Es ist in Cadomyr unüblich, Sirani anzubeten. Wenn ihr etwas weibliches anbeten wollt, dann betet mich an!"
-"Tanora", "Zelphia", english -> "The goddess of fish, one could say, I hear the lizardfolk call her Zelphia. My people on the whole do not pray to her so you'd do well to travel toward Cape Farewell to find like minded lizardmen."
+english, "Tanora", "Zelphia" -> "The goddess of fish, one could say, I hear the lizardfolk call her Zelphia. My people on the whole do not pray to her so you'd do well to travel toward Cape Farewell to find like minded lizardmen."
 "Tanora", "Zelphia" -> "Die Göttin der Fische, so könnte man meinen, das ist Tanora. Aber mein Volk betet zu ihr und Cadomyr ist nicht gerade ein fischreiches Land, das steht fest."
-"Ushara", english -> "I still don't know who to blame for all the sand in the world. Most likely Ushara or Brágon. I'll honour them, either way, but not worship."
+english, "Ushara" -> "I still don't know who to blame for all the sand in the world. Most likely Ushara or Brágon. I'll honour them, either way, but not worship."
 "Ushara" -> "Ich weiß immernoch nicht so recht, wen ich für all den Sand der Welt verantwortlich machen soll; Ushara oder Brágon? Ich ehre sie beiden trotzdem, mehr aber auch nicht."
-"Zhambra", english -> "Be loyal to your queen and Zhambra will smile upon you. Be disobedient and you will see his justice in the afterlife..."
+english, "Zhambra" -> "Be loyal to your queen and Zhambra will smile upon you. Be disobedient and you will see his justice in the afterlife..."
 "Zhambra" -> "Seid loyal gegenüber eurer Königin und Zhambra wird es gutheißen. Seid ungehorsam und ihr werdet schon sehen, was Zhambra für euch bereit hält, wenn ihr ins Jenseits übergeht..."
 
 -- Easter egg
-"Cleopatra", "Kleopatra", english -> "Who is that supposed to be?"
+english, "Cleopatra", "Kleopatra" -> "Who is that supposed to be?"
 "Marc", "Anthony" -> "Once, a puny prince called Marc from a far, far away land came to my palace and proposed to me. I could not stop laughing for a whole day!"
-"Markus", "Marcus", "Anthonius", english -> "Once, a poor prince called Marc from a far, far away land came to my palace and proposed to me. I could not stop laughing for a whole day!"
-"STFU", english -> "I heard that, scum!"
+english, "Markus", "Marcus", "Anthonius" -> "Once, a poor prince called Marc from a far, far away land came to my palace and proposed to me. I could not stop laughing for a whole day!"
+english, "STFU" -> "I heard that, scum!"
 "hawt" -> "What?!"
 "I love you" -> "And I love Cadomyr."
 "Cleopatra", "Kleopatra" -> "Wer soll das denn wieder sein?"

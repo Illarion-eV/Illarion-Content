@@ -103,9 +103,9 @@ english, "quest", "mission" -> "Adventures? Now, glassblowing is truly a learnin
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Abenteuer? Nun, Glasblasen zu erlernen ist wirklich ein Abenteuer für sich."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "Iglassware.", "Icandles and glassware.", trade, trade
+"profession" -> "I trade glassware.", "I trade candles and glassware."
 "beruf" -> "Ich handel mit Glaswaren", "Ich handel mit Kerzen und Glaswaren."
-english, "job" -> "Iglassware.", "Icandles and glassware.", trade, trade
+english, "job" -> "I trade glassware.", "I trade candles and glassware."
 "job" -> "Ich handel mit Glaswaren", "Ich handel mit Kerzen und Glaswaren."
 english, "Gobaith", "Gobiath" -> "Apologies I do not know much about that island Gobaith, only that some refugees once came from there to Cadomyr."
 "Gobaith", "Gobiath" -> "Entschuldigt, aber ich weiß nicht viel über diese Insel Gobaith, lediglich, dass einige Flüchtling von dort nach Cadomyr einst kamen."

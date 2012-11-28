@@ -77,9 +77,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba", "See you" -> "'#me nods a bit.
 "erzähl was", "erzähl etwas" -> "Wo? WO? Ischt die alte Zeit hin? Gern würd isch ihr folgn. Aber jetz - ertrink isch mein Leid mit Borgates Bier... guter alter Borgate.", "Ja. Damlas hatt isch men Laden in der Burg der graun Orden. Aber wie allesch ischt dasch jetzsch vorbei...", "#me macht eine verärgerte Handbewgung. 'Ewh-h! Lascht misch einfach in Friedn trinkn! Verschwind hier! Gnrh?'"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I a-am..eh...was ar.", trade
+"profession" -> "I a-am... eh... was a trader."
 "beruf" -> "Isch b-bin... eh war n' Händler."
-english, "job" -> "I a-am..eh...was ar.", trade
+english, "job" -> "I a-am... eh... was a trader."
 "job" -> "Isch b-bin... eh war n' Händler."
 english, "Gobaith", "Gobiath" -> "Yeah! Everything was pretty nice in Gobaith. Not so complicated like here!", "Argh! Go away! Don't bother me! I don't talk with strangers...", "I'll tell you, the Grey Orders decided about Gobaith. That didn't happen... and, good old Sam was in the middle of it!"
 "Gobaith", "Gobiath" -> "Jah! In Gobaith war allesch noch schön Ordnlisch. Nich so verworrn wie hie-r!", "Ärgh! Geh weg! Lasch misch in ruh! Ich sprech nisch mit Fremdn...", "Sag isch dir, die Grauen Orden, haben über Gobaith entschiedn. Da hatsch sonscht nicht gegeben und, der gute Sam war mittn drin!"

@@ -68,10 +68,6 @@ itemShoes = 326
 -- Translation
 -- Position, direction, affiliation
 
--- Debugging
-queststatus(335) > 4, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
-queststatus(333) > 12, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
-
 -- Help
 "Help" -> inform("[Game Help] This NPC is Kaitza the temple guard. Keywords: quest, Zelphia, profession, Gobaith, gods.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Kaitza> der Tempelwächter. Schlüsselwörter: Zelphia, Beruf, Gobaith, gods.")
@@ -223,22 +219,22 @@ english, "Zhambra" -> "All ze Godsss are acknowledged. Only Zelphia iss worshipe
 "Zhambra" -> "Alle Götter werden anerkannt. Zss. Nur Zelphia wird angebetet. Zss.", "Zelphia isst die Göttin meines Volkesss. Die anderen Götter sssind für andere Völker.", "Zss. Ich verehre einzzzig die Göttin alein."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Zss. I have nozing to.", "I do not ssseek to. Zss.", "Sssorry, I do not wisssh to.", trade, trade, trade
-"was verkauf", "was kauf", "warenliste", "preis von" -> "Zss. Ich habe nichtsss zum handeln.", "Ich brache nichts zzu handeln.", "Entschuldigt, ich bin nicht am Handeln interessssiert.Zss."
+"what sell", "what buy", "list wares", "price of" -> "Zss. I have nozing to trade.", "I do not ssseek to trade. Zss.", "Sssorry, I do not wisssh to trade."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Zss. Ich habe nichtsss zum handeln.", "Ich brache nichts zzu handeln.", "Entschuldigt, ich bin nicht am Handeln interessiert. Zss."
 "tell something" -> "Zss. What do you wisssh to know?", "Perhapsss I have a tasssk for you.", "Ssservice to ze Godsss isss ze most honourable life. Zss."
 "erzähl was", "erzähl etwas" -> "Vielleicht habe ich eine Aufgabe. Zss. Eine Aufgabe für Euch.", "Der Göttin zzzu dienen issst die grösssste Aufgabe im Leben. Zss."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Kaitza" -> "Zss. Kaitza mussst be working.", "#me hisses quietly.", "Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time."
-"Kaitza" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit.Zss."
+"Kaitza" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss."
 "Yes" -> "Zss. Kaitza mussst be working.", "#me hisses quietly.", "Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time."
-"Ja" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit.Zss."
+"Ja" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss."
 "No" -> "Zss. Kaitza mussst be working.", "#me hisses quietly.", "Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time."
-"Nein" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit.Zss."
+"Nein" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "Zss. Kaitza mussst be working.", "#me hisses quietly.", "Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time."
-german, chance(20.0), ".*" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit.Zss."
+german, chance(20.0), ".*" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
