@@ -23,6 +23,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if (User.lastSpokenText == "hand") then 
 	    local myItem = User:getItemAt(6)
 		alchemy.base.brewing.UseItem( User, myItem, TargetItem, Counter, Param, ltstate )
+	    return
 	end	
 	
 	if (User.lastSpokenText == "inform datas") then
