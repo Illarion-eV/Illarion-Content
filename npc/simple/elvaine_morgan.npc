@@ -95,9 +95,9 @@ queststatus(622) > 0, queststatus(623) = 0, german, chance(25.0), "Mordak", "Kha
 queststatus(622) > 0, queststatus(623) = 0, english, chance(34.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(623) = 1, treasure(8)
 queststatus(622) > 0, queststatus(623) = 0, german, chance(34.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(623) = 1, treasure(8)
 queststatus(622) > 0, queststatus(623) = 0, english, chance(51.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", item(45, 1, 999, "gemLevel" = "1"), queststatus(623) = 1
-queststatus(622) > 0, queststatus(623) = 0, german, chance(51.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(45, 1, 999, "magicalEmerald" = "1"), queststatus(623) = 1
-queststatus(622) > 0, queststatus(623) = 0, english, chance(100.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", item(46, 1, 999, "magicalRuby" = "1"), queststatus(623) = 1
-queststatus(622) > 0, queststatus(623) = 0, german, chance(100.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(46, 1, 999, "magicalRuby" = "1"), queststatus(623) = 1
+queststatus(622) > 0, queststatus(623) = 0, german, chance(51.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(45, 1, 999, "gemLevel" = "1"), queststatus(623) = 1
+queststatus(622) > 0, queststatus(623) = 0, english, chance(100.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", item(46, 1, 999, "gemLevel" = "1"), queststatus(623) = 1
+queststatus(622) > 0, queststatus(623) = 0, german, chance(100.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(46, 1, 999, "gemLevel" = "1"), queststatus(623) = 1
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the archmage. My person bears the responsibility for the four towers of Runewick and their properties", "It's my duty to advise Runewick with my most prudent advice. - Now and again with concrete deeds.", "I'm the archmage, therefore I'm very busy. I advise you to ask a novice for details of my position."
