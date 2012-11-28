@@ -399,14 +399,14 @@ function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
 	local myValue
     if gemDust then
 	    myList = gemdustList
-		myValue = gemdust
+		myValue = gemdust.id
 	elseif cauldron then
 	    User:inform("debug gbc2")
 		myList = cauldronList
-		myValue = cauldron
+		myValue = cauldron.id
     elseif bottle then
         myList = bottleList	
-		myValue = bottle
+		myValue = bottle.id
     else 
 	    return 
 	end	
