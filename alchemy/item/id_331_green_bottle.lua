@@ -17,7 +17,7 @@ module("alchemy.item.id_331_green_bottle", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     
-	if SourceItem:getData("bottleFilledWith") ~= "stock" then -- no stock, something else
+	if SourceItem:getData("filledWith") ~= "stock" then -- no stock, something else
 	    return
 	
 	else
