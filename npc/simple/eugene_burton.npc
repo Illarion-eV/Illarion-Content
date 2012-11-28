@@ -173,8 +173,8 @@ queststatus(4) > 30, queststatus(4) < 32, "task", "adventure" -> "There are stil
 queststatus(4) > 30, queststatus(4) < 32, "Auftrag", "Aufgabe", "Abenteuer" -> "Es gibt immernoch ein Paar aufmerksamer Augen im Elsbaumwald, welches mich nicht das jagen lässt, was ich brauche. Könntet ihr bitte diese Augen... für immer schließen?"
 
 -- Quest 4 solved, reward: ruby ring, magical ruby
-queststatus(4) = 32, english, ".+" -> inform("[Quest solved] You are awarded ruby ring and a magical ruby."), "Hooray! No elven rapscallion will keep me from hunting anymore! Of course, just to feed my children... However, take this ring, I had it long enough.", item(68, 1, 888), item(46, 1, 333, "magicalRuby" = "1"), queststatus(4) = 33
-queststatus(4) = 32, ".+" -> inform("[Quest gelöst] Du erhältst einen Rubinring und einen magischen Rubin."), "Hurra! Kein elfischer Halunke wird sich mir nun noch in den Weg stellen, wenn ich jagen gehen... natürlich, um meine Kinder zu ernähren, versteht sich. Hier, nehmt diesen Ring, er hat mir lange genug gehört.", item(68, 1, 888), item(46, 1, 333, "magicalRuby" = "1"), queststatus(4) = 33
+queststatus(4) = 32, english, ".+" -> inform("[Quest solved] You are awarded ruby ring and a magical ruby."), "Hooray! No elven rapscallion will keep me from hunting anymore! Of course, just to feed my children... However, take this ring, I had it long enough.", item(68, 1, 888), item(46, 1, 333, "gemLevel" = "1"), queststatus(4) = 33
+queststatus(4) = 32, ".+" -> inform("[Quest gelöst] Du erhältst einen Rubinring und einen magischen Rubin."), "Hurra! Kein elfischer Halunke wird sich mir nun noch in den Weg stellen, wenn ich jagen gehen... natürlich, um meine Kinder zu ernähren, versteht sich. Hier, nehmt diesen Ring, er hat mir lange genug gehört.", item(68, 1, 888), item(46, 1, 333, "gemLevel" = "1"), queststatus(4) = 33
 
 -- No more quests, just nice words of gratitude
 queststatus(4) = 33, english, "quest", "mission" -> "My friend, you helped me and my family more than enough. Thank you and may Malachín bless you."
