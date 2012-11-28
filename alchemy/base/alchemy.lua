@@ -391,18 +391,16 @@ gemDustList  = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
 cauldronList = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017} 
 bottleList   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
 
-function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
+function GemDustBottleCauldron(gemdust, cauldron, bottle)
     -- this function returns matching gemdust id, cauldron id and bottle id
     -- only one parameter is needed; if there are more than one, only the first one will be taken into account
-    User:inform("debug gbc1")
-	local myList
+    local myList
 	local myValue
     if gemDust then
 	    myList = gemdustList
 		myValue = gemdust.id
 	elseif cauldron then
-	    User:inform("debug gbc2")
-		myList = cauldronList
+	    myList = cauldronList
 		myValue = cauldron.id
     elseif bottle then
         myList = bottleList	
@@ -413,8 +411,7 @@ function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
 	local reGemdust; local reCauldron; local reBottle
 	for i=1,#myList do
 	    if myList[i] == myValue then
-		    User:inform("debug gbc3")
-			reGemdust = gemDustList[i]
+		    reGemdust = gemDustList[i]
 	        reCauldron = cauldronList[i]
 			reBottle = bottleList[i]
 	        break
