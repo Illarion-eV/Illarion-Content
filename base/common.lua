@@ -1666,10 +1666,38 @@ function GetLeadAttributeName(Skill)
     leadAttribTable[Character.dodge]="agility"
     leadAttribTable[Character.herblore]="constitution"
     leadAttribTable[Character.mining]="constitution"
-    leadAttribTable[Character.smithing]="dexterity"
     leadAttribTable[Character.glassBlowing]="dexterity"
     leadAttribTable[Character.fishing]="constitution"
     leadAttribTable[Character.wrestling]="strength"
   end
   return leadAttribTable[Skill]
+end
+
+--- Searches in an area for an item id.
+-- @param CenterPos  Position struct of the center position of the area.
+-- @param ItemId  The ID of the sought item.
+-- @param Radius  Around the CenterPos, an area of +/-Radius is queried in x and y direction.
+--                Default value is 1.
+-- @return scrItem  If an item with ItemId is found, this is the first one found. Otherwise it is nil.
+-- @return bool  Writeable flag. If there are multiple items on the field, only the top one is writeable.
+--               If none is found, nil is returned.
+function GetItemInArea(CenterPos, ItemId, Radius)
+  if (not Radius) then
+    Radius = 1;
+  end
+  for x=-radius,radius do
+    for y=-radius,radius do 
+      local field = world:getField(position(CenterPos.x + x, CenterPos.y, CenterPos.z));
+      local itemCount = field:countItems();
+      if (itemCount > 0) then
+        for i=0,itemCount-1 do 
+          local item = field:getStackItem(i);
+          if (item.id == ItemId) then
+            return item, (i==0);
+          end
+        end
+      end
+    end
+  end
+  return nil, nil;
 end

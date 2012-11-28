@@ -1,104 +1,114 @@
--- zusätzliches Werkzeug 428 Kerzentisch (statisch)
--- Wachs (431) zu Kerzen (43)
--- Arbeitszeit 2s
+-- wax (431) --> candles (43)
+
+-- additional static tool: chandler table (428)
 
 -- UPDATE common SET com_script='item.id_429_candlemold' WHERE com_itemid IN (429);
 
 require("base.common")
+require("content.gathering")
 
 module("item.id_429_candlemold", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    base.common.ResetInterruption( User, ltstate );
-    math.randomseed( os.time() );
-
-
-    local TargetItem = base.common.GetFrontItem( User );
-
-	if (TargetItem.id ~= 428) then
-    	base.common.InformNLS( User,
-        "Nur an einem Kerzenziehertisch kannst du Kerzen herstellen.",
-        "You need to work in front of a chandler table." );
-        return
+function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	content.gathering.InitGathering();
+	local candleproducing = content.gathering.candleproducing;
+	
+	base.common.ResetInterruption( User, ltstate );
+	if ( ltstate == Action.abort ) then -- work interrupted
+		if (User:increaseAttrib("sex",0) == 0) then
+			gText = "seine";
+			eText = "his";
+		else
+			gText = "ihre";
+			eText = "her";
+		end
+		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		return
 	end
 
+	if not base.common.CheckItem( User, SourceItem ) then -- security check
+		return
+	end
+  
+  -- check for some static item around
+  local staticTool = base.common.GetItemInArea(User.pos, 428);
+  if (staticTool == nil) then
+    base.common.InformNLS( User,
+    "Du musst an einem Kerzenziehertisch arbeiten!",
+    "You have to work at a chandler table!" );
+    return;
+  end
+	
+	if (SourceItem:getType() ~= 4) then -- tool in hand
+		base.common.InformNLS( User,
+		"Du musst die Kerzenform in der Hand haben!",
+		"You have to hold the candle mold in your hand!" );
+		return
+	end
 
-    if ( ltstate == Action.abort ) then
-        if (User:increaseAttrib("sex",0) == 0) then
-            gText = "seine";
-            eText = "his";
-        else
-            gText = "ihre";
-            eText = "her";
-        end
-        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-        return
-    end
+	if base.common.Encumbrence(User) then
+		base.common.InformNLS( User,
+		"Deine Rüstung behindert Dich beim Kerzenziehen.",
+		"Your armour disturbs you while making candles." );
+		return
+	end
 
-    if (SourceItem:getType()~=4) then
-        base.common.InformNLS(User,
-        "Du musst die Kerzenform in der Hand halten.",
-        "You have to hold the candle mold in your hands!");
-        return
-    end
+	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
 
-    if not base.common.CheckItem( User, SourceItem ) then
-        return
-    end
+	if not base.common.IsLookingAt( User, staticTool.pos ) then -- check looking direction
+		base.common.TurnTo( User, staticTool.pos ); -- turn if necessary
+	end
+	
+	-- any other checks?
 
-    if not base.common.FitForWork( User ) then
-        return
-    end
+	if (User:countItemAt("all",431)==0) then -- check for items to work on
+		base.common.InformNLS( User, 
+		"Du brauchst Wachs um Kerzen herzustellen.", 
+		"You need wax for producing candles." );
+		return;
+	end
+	
+	if ( ltstate == Action.none ) then -- currently not working -> let's go
+		candleproducing.SavedWorkTime[User.id] = candleproducing:GenWorkTime(User,SourceItem);
+		User:startAction( candleproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		User:talkLanguage( Character.say, Player.german, "#me beginnt Kerzen zu ziehen.");
+		User:talkLanguage( Character.say, Player.english, "#me starts to make candles."); 
+		return
+	end
 
-    if ( User:countItemAt("belt",431) < 1 ) then --  Wachs ist nicht vorhanden
-        Char = base.common.GetFrontCharacter( User );
-        if (Char ~=nil) then
-            UseItemWithCharacter(User,SourceItem, Char, Counter, Param,ltstate)
-        elseif (ltstate ~= Action.success) then
-            base.common.InformNLS( User,
-            "Du brauchst Wachs um daraus Kerzen zu machen.",
-            "You neeed wax to make candles.");
-        end
-        return
-    end
+	-- since we're here, we're working
 
-    if ( ltstate == Action.none ) then
-        User:startAction( 20, 0, 0, 0, 0);
-        User:talkLanguage( Character.say, Player.german, "#me beginnt Kerzen zu ziehen.");
-        User:talkLanguage( Character.say, Player.english, "#me starts to make candles.");
-        return
-    end
+	if candleproducing:FindRandomItem(User) then
+		return
+	end
 
-    if base.common.IsInterrupted( User ) then
-        local selectMessage = math.random(1,2);
-        if ( selectMessage == 1 ) then
-            base.common.InformNLS(User,
-            "Du wischst dir den Schweiß von der Stirn.",
-            "You wipe sweat off your forehead.");
-        elseif ( selectMessage == 2 ) then
-            base.common.InformNLS(User,
-            "Die Kerzen bleiben dir in der Form hängen. Es nimmt einige Mühe in Anspruch sie endlich heraus zu bekommen.",
-            "The candle gets stuck in the mold, it takes you a few tries to force it out.");
-        end
-        return
-    end
+	User:learn( candleproducing.LeadSkill, candleproducing.SavedWorkTime[User.id], 100);
+	User:eraseItem( 431, 1 ); -- erase the item we're working on
+	local amount = 1; -- set the amount of items that are produced
+	local notCreated = User:createItem( 43, amount, 333, nil ); -- create the new produced items
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( 43, notCreated, User.pos, true, 333, nil );
+		base.common.InformNLS(User,
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
+	else -- character can still carry something
+		if (User:countItemAt("all",431)>0) then  -- there are still items we can work on
+			candleproducing.SavedWorkTime[User.id] = candleproducing:GenWorkTime(User,SourceItem);
+			User:startAction( candleproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		else -- no items left
+			base.common.InformNLS(User,
+			"Du hast kein Wachs mehr.",
+			"You have no wax anymore.");
+		end
+	end
 
-    User:eraseItem( 431, 1 );
-    User:createItem(43,1,333,0);
-
-    if base.common.ToolBreaks( User, SourceItem, true ) then
-        base.common.InformNLS(User,
-        "Die alte Kerzenform ist abgenutzt.",
-        "The old candle mold is over used.");
-    else
-        User:startAction( 20, 0, 0, 0, 0);
-    end
-
-    base.common.GetHungry( User, 100 );
-
-end
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, GetItemDescription( User, Item, 1, false, false ));
+	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+		base.common.InformNLS(User,
+		"Deine alte Kerzenform zerbricht.",
+		"Your old candle mold breaks.");
+		return
+	end
 end

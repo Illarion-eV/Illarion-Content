@@ -1,5 +1,5 @@
 -- Rohleder und Felle zu Leder
--- raw leather (69) OR fur (2586) --> leather (2547)
+-- { raw leather (69), fur (2586) } --> leather (2547)
 
 -- Arbeitscyclus: 2s - 5s
 
