@@ -96,9 +96,9 @@ queststatus(632) > 0, queststatus(633) = 0, german, chance(25.0), "Mordak", "Kha
 queststatus(632) > 0, queststatus(633) = 0, english, chance(34.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(8)
 queststatus(632) > 0, queststatus(633) = 0, german, chance(34.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(8)
 queststatus(632) > 0, queststatus(633) = 0, english, chance(51.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", item(284, 1, 999, "gemLevel" = "1"), queststatus(633) = 1
-queststatus(632) > 0, queststatus(633) = 0, german, chance(51.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(284, 1, 999, "magicalSapphire" = "1"), queststatus(633) = 1
-queststatus(632) > 0, queststatus(633) = 0, english, chance(100.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", item(283, 1, 999, "magicalObsidian" = "1"), queststatus(633) = 1
-queststatus(632) > 0, queststatus(633) = 0, german, chance(100.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(283, 1, 999, "magicalObsidian" = "1"), queststatus(633) = 1
+queststatus(632) > 0, queststatus(633) = 0, german, chance(51.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(284, 1, 999, "gemLevel" = "1"), queststatus(633) = 1
+queststatus(632) > 0, queststatus(633) = 0, english, chance(100.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", item(283, 1, 999, "gemLevel" = "1"), queststatus(633) = 1
+queststatus(632) > 0, queststatus(633) = 0, german, chance(100.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(283, 1, 999, "gemLevel" = "1"), queststatus(633) = 1
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Well, I provide for myself and my family. Ah and I rule Galmair of course."
