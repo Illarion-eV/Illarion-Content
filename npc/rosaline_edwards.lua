@@ -480,7 +480,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(51.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
 talkEntry:addResponse("#me nods and hands you an item silently.");
-talkEntry:addConsequence(npc.base.consequence.item.item(198, 1, 999, {["magicalTopaz"] = "1"}));
+talkEntry:addConsequence(npc.base.consequence.item.item(198, 1, 999, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(643, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
