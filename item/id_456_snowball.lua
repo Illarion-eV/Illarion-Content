@@ -2,6 +2,7 @@
 require("base.common")
 require("alchemy.base.teacher")
 require("alchemy.base.alchemy")
+require("alchemy.base.brewing")
 
 module("item.id_456_snowball", package.seeall)
 
@@ -19,7 +20,10 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    
+    if (User.lastSpokenText == "hand") then 
+	    local myItem = User:getItemAt(6)
+		alchemy.base.brewing.UseItem( User, myItem, TargetItem, Counter, Param, ltstate )
+	end	
 	
 	if (User.lastSpokenText == "inform datas") then
 	    TargetItem = base.common.GetFrontItem(User)
