@@ -274,7 +274,7 @@ function generateTasteMessage(Character,dataZList)
     base.common.InformNLS(Character,textDe,textEn);
 end
 
-function CheckIfGemDust(SourceItem)
+function CheckIfGemDust(SourceItem, User)
 local retVal = nil;
 for i,checkId in pairs(gemList) do
     User:inform("debug al 1")
