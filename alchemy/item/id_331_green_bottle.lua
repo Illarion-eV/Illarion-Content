@@ -9,6 +9,7 @@
 require("base.common")
 require("base.character")
 require("alchemy.item.id_165_blue_bottle")
+require("alchemy.base.alchemy")
 
 module("alchemy.item.id_331_green_bottle", package.seeall)
 
@@ -22,7 +23,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	else
         -- infront of a cauldron?
-		local cauldron = GetCauldronInfront(User)
+		local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
         if cauldron then
 	        
 			-- is the char an alchemist?
