@@ -64,25 +64,25 @@ end
 
 function FillStockIn(User,cauldron,SourceItem)
     -- water, stock or potion is in the cauldron; leads to a failure
-	if cauldron:getData("cauldronFilledWith") == "water" then
+	if cauldron:getData("filledWith") == "water" then
 		alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
 
-	elseif cauldron:getData("cauldronFilledWith") ~= "stock" then
+	elseif cauldron:getData("filledWith") == "stock" then
 		alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)
 	
-	elseif cauldron:getData("cauldronFilledWith") == "potion" then
+	elseif cauldron:getData("filledWith") == "potion" then
 		if cauldron.id == 1011 then -- support potion
 			 alchemy.item.id_165_blue_bottle.SupportStock(User,cauldron,SourceItem)
 		else
 			alchemy.base.alchemy.CauldronExplosion(User,cauldron,2)
 		end
 	
-	elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
+	elseif cauldron:getData("filledWith") == "essenceBrew" then 
 		alchemy.base.alchemy.CombineStockEssence( User, SourceItem, cauldron)
 
 	elseif cauldron.id == 1008 then -- nothing in the cauldron, we just fill in the stock
 		alchemy.base.alchemy.StockFromTo(SourceItem,cauldron)
-		cauldron:setData("cauldronFilledWith","stock")
+		cauldron:setData("filledWith","stock")
 		cauldron.id = 1012
 		world:changeItem(cauldron)
 	end
