@@ -397,7 +397,7 @@ function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
     User:inform("debug 0.5")
 	local myList
 	local myValue
-    if gemDust then
+    if gemdust then
 	    myList = gemdustList
 		myValue = gemdust.id
 	elseif cauldron then
