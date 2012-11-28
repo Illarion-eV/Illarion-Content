@@ -75,17 +75,17 @@ end
 
 function BrewingGemDust(User,gemDust,cauldron)
     
-	if cauldron:getData("cauldronFilledWith")=="potion" then -- potion in cauldron, failure
+	if cauldron:getData("filledWith")=="potion" then -- potion in cauldron, failure
 	    alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)
 	
-    elseif cauldron:getData("cauldronFilledWith")=="essenceBrew" then -- essence brew in cauldron, failure
+    elseif cauldron:getData("filledWith")=="essenceBrew" then -- essence brew in cauldron, failure
 	    alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)
 		
-	elseif cauldron:getData("cauldronFilledWith") == "stock" then
+	elseif cauldron:getData("filledWith") == "stock" then
 	    GemDustInStock(User,cauldron,gemDust)
 		User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
 
-    elseif cauldron:getData("cauldronFilledWith")=="water" then
+    elseif cauldron:getData("filledWith")=="water" then
 		GemDustInWater(User,cauldron,gemDust)
 		User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
 	
