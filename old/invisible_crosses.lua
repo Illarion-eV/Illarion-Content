@@ -50,7 +50,7 @@ end
         
         
 function CrossPositions(ListID)
-    if (ListID == 1) then     return true,position(-249,  41,-25), 9,44, 0; -- Blackstone Temple
+    if (ListID == 1) then     return true,position(-249,  41,-25), 9,44, 0; -- Obsidian Temple
     elseif (ListID == 2) then return true,position( 295,-341, -6),32,45, 0; -- Northerot
     elseif (ListID == 3) then return true,position( -26,-213, -3),46,31, 0; -- Grey Rose
     elseif (ListID == 4) then return true,position(-366,-474,  0),52,31,46; -- Northmark

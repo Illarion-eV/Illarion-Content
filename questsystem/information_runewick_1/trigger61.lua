@@ -22,7 +22,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Elsil und teile ihr mit welches Element du gefunden hast.", "Go to Elesil and tell her the kind of element you found."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurï¿½ck zu Elsil und teile ihr mit welches Element du gefunden hast.", "Go to Elesil and tell her the kind of element you found."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

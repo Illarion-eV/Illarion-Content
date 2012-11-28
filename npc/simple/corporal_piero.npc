@@ -171,11 +171,11 @@ english, "salkama" -> "This is Cadomyr's Land. Salkamar is far away and I have n
 "Gott", "Götter" -> "Gott schütze die Königin. Ich persönlich vertraue diese Aufgabe Zhambra an.", "In Cadomyr betet Mann zu Zhambra oder Malachín!"
 english, "Malachin", "Malachín" -> "Malachín! The god of knights and hunters! He's a strong fella, each honest man should praise! Do you praise him!?"
 "Malachin", "Malachín" -> "Malachín! Der Gott der Ritter und Jäger! Ein starker Gefährte, jeder ehrenhafte Mann sollte ihm Treu ergeben sein! Sprecht! Wem haltet ihr die Treue?"
-english, "Zhambra" -> "On the Battlefield I count on a sharp blade and my closest friend to watch my back! That's what Zhambra stands for! Friendship."
-"Zhambra" -> "Am Schlachtfällt verlasse ich mich auf eine scharfe Klinge und meine engsten freunde die mir den Rücken decken! Dies ist wofür Zhambra steht. Freundschaft - die bis über den Tot hinaus geht."
+english, "Zhambra" -> "On the battlefield I count on a sharp blade and my closest friend to watch my back! That's what Zhambra stands for! Friendship."
+"Zhambra" -> "Auf dem Schlachtfeld verlasse ich mich auf eine scharfe Klinge und meine engsten Freunde die mir den Rücken decken! Dies ist wofür Zhambra steht. Freundschaft - die bis über den Tot hinaus geht."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I'm a guard. Not a merchant. For sure you are able toinside of the town.", trade
+"what sell", "what buy", "list wares", "price of" -> "I'm a guard. Not a merchant. For sure you are able to trade inside of the town."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin Wächter. Kein Händler. Sicherlich könnt Ihr hinter den Toren der Stadt handeln."
 "tell something" -> "Nowhere the codes of honour are followed like here in Cadomyr. For the colours of our town! Zhambra may bless it."
 "erzähl was", "erzähl etwas" -> "Nirgendwo hat man so viel Gespür für wahre Ehre wie wir, in Cadomyr. Bei den Farben unserer Stadt! Zhambra möge sie bewaren."
@@ -188,7 +188,7 @@ english, "Zhambra" -> "On the Battlefield I count on a sharp blade and my closes
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "I'm a guard. I guard people.", "Hmh - what? Pirates. Aha.", "Yes for sure. Proceed!"
-german, chance(20.0), ".*" -> "Ich bin Wache. Ich be-Wache Leute.", "Hmh - was? Piraten. Aha.", "Ja Genau. - Weitermachen!"
+german, chance(20.0), ".*" -> "Ich bin eine Wache. Ich bewache Leute.", "Hmh - was? Piraten. Aha.", "Ja Genau. - Weitermachen!"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -199,7 +199,7 @@ cycletext "Lang lebe Königin Rosaline Edwards.", "Long live queen Rosaline Edwa
 cycletext "#me kratzt sich am Nasenrücken.", "#me has a scratch at the back of his nose."
 cycletext "#me holt ein Stück Brot aus der Tasche und steckt es sich in den Mund.", "#me takes a pice bread out of his bag and eat it."
 cycletext "#me nimmt einen kräftigen Schluck aus seinen Trinkschlauch.", "#me takes a nip out of his water bottle."
-cycletext "#me blickt zur Seite. 'Halt! Wer da?...Hm. War wohl doch nur der Wind.'", "#me turns to side. 'Stop! Someone there?...Hm. Seems the wind tricked me again.'"
+cycletext "#me blickt zur Seite. 'Halt! Wer da? War wohl doch nur der Wind.'", "#me turns to side. 'Stop! Someone there? Seems the wind tricked me again.'"
 cycletext "#me kratzt sich unauffällig am Hinterteil.", "#me has a inconspicuous short scratch at his butt."
 cycletext "#me blickt leicht verträumt in den Himmel.", "#me glances the sky in a moony way."
 cycletext "#me kaut nachdenklich an den Fingernägeln.", "#me noshes his fingernails, a thoughtful gaze in his face."

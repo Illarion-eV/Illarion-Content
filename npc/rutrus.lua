@@ -27,7 +27,6 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.skill")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.rutrus", package.seeall)
 
@@ -1384,10 +1383,9 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I'm not ar but a digger!");
+talkEntry:addResponse("I'm not a trader but a digger!");
 talkEntry:addResponse("I do not sell or buy anything, but I may have a quest for you.");
 talkEntry:addResponse("No trading! However, You could get some coins, if you do a task for me.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

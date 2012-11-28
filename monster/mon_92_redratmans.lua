@@ -123,7 +123,7 @@ if (MonID==921) then --Sewerrat, Level: 2, Armourtype: cloth, Weapontype: slashi
         --Category 2: Special Loot
 
         local done=monster.base.drop.AddDropItem(197,1,20,(100*math.random(2,3)+math.random(22,33)),0,2); --amethyst
-        if not done then done=monster.base.drop.AddDropItem(283,1,10,(100*math.random(2,3)+math.random(22,33)),0,2); end --blackstone
+        if not done then done=monster.base.drop.AddDropItem(283,1,10,(100*math.random(2,3)+math.random(22,33)),0,2); end --obsidian
         if not done then done=monster.base.drop.AddDropItem(2183,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --clay mug
         if not done then done=monster.base.drop.AddDropItem(332,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --harp
         if not done then done=monster.base.drop.AddDropItem(224,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --golden goblet

@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 61
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Schön, dass ihr euren Weg nach Cadomyr gefunden habt. Möge eure Tapferkeit hier gedeien und uns allen dienen."
+local NPC_REPLY_DE = "Schï¿½n, dass ihr euren Weg nach Cadomyr gefunden habt. Mï¿½ge eure Tapferkeit hier gedeien und uns allen dienen."
 local NPC_REPLY_EN = "Wonderful, you found your way to Cadomyr. Your bravery may grow and serve each of us."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du kannst gerne weiter mit der Könign reden, aber auch zurück zu Frizza gehen.", "You can continue your conversation with the Queen, or go back to Frizza."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du kannst gerne weiter mit der Kï¿½nign reden, aber auch zurï¿½ck zu Frizza gehen.", "You can continue your conversation with the Queen, or go back to Frizza."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

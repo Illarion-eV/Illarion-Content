@@ -1,8 +1,8 @@
 require("base.common");
 module("alchemy.base.teacher", package.seeall)
---[[
+
 -- This script turns a character into an alchemist. 
--- Three 'beings' can does to: Knowing Tree, Thinking Stone, Recognizing Spring
+-- Three 'beings' can do that: Knowing Tree (Galmair), Thinking Stone (Cadomyr), Recognizing Spring(Runewick)
 -- Three tasks have to be fullfilled: Bring 5*3 normal herbs; bring 1*2 rar herbs; answer three questions
 
 ------------------------------------------- LISTS ------------------------------------------------------
@@ -73,7 +73,7 @@ for i=1,3 do -- create the lists with difficulty level
 	questionAnswerList["english"]["answer"][i]   = {}
 end	
 
--- questions and answers; note: one question and three answers, __the first answer ins the list of answers is the correct answer__
+-- questions and answers; note: one question and three answers, !!! the first answer ins the list of answers is the correct answer !!!
 -- difficulty 1: 
 questionAnswerList["german"]["question"][1][1]  = {"f"}
 questionAnswerList["english"]["question"][1][1] = {"q"}
@@ -229,27 +229,311 @@ questionAnswerList["english"]["answer"][3][10] = {"a1","a2","a3"}
 
 -------------------------------------------------- LISTS END ------------------------------------------------------------
 
-function GetTeacherQuestInfos(SourceItem)
-    
-	local questId; local teacherEN1; local teacherEN2; local teacherDE1; local teacherDE2
-	if not SourceItem then
-	    return
-	elseif SourceItem.pos == position(1,1,0) then
+function GetTeacherQuestInfos(User,SourceItem)
+    -- depending on the position of the sourceitem (= the teacher), we get particular infos
+	
+	local questId; local questPrg; local teacherEN1; local teacherEN2; local teacherDE1; local teacherDE2
+	if SourceItem.pos == position(1,1,0) or SourceItem.id == 456 then
 	    questId = 350
-		teacherEN1 = 
-        teacherEN2 =
-		teacherDE1 =
-		teacherDE2 =
-		
+		teacherEN1 = "The Knowing Tree"
+        teacherEN2 = "Knowing Tree"
+		teacherDE1 = "Der Wissende Baum" 
+		teacherDE2 = "der Wissende Baum"
+	elseif SourceItem.pos == position(2,1,0) then 
+	    questId = 351
+		teacherEN1 = "The Thinking Stone"
+        teacherEN2 = "Thinking stone"
+		teacherDE1 = "Der Denkende Stein" 
+		teacherDE2 = "der Denkende Stein"
+	elseif SourceItem.pos == position(3,1,0) then
+        questId = 351
+		teacherEN1 = "The Thinking Stone"
+        teacherEN2 = "Thinking stone"
+		teacherDE1 = "Der Denkende Stein" 
+		teacherDE2 = "der Denkende Stein"	
+    end
+	if questId ~= nil then
+	    questPrg = User:getQuestProgress(questId)
+	    if questPrg == 0 then
+		   questPrg = 1
+		end
+	end    
+	return {questId=questId, questPrg=questPrg, teacherEN1=teacherEN1, teacherEN2=teacherEN2, teacherDE1=teacherDE1, teacherDE2=teacherDE2}
+	
+end
 
+function AlchemistCheck(User)
+	if (User:getMagicType() == 3) and (User:getMagicFlags(3) > 0) then
+	    return true
+	end	
+end
+
+function NoMagicCheck(User)
+    if User:getMagicFlags(User:getMagicType()) == 0 then
+	    return true
+	end	
+end
+
+function TurnIntoAlchemist(User,SourceItem)
+    -- tell char the secret of alchemy and turn him into an alchemist
+    local textDE = "Die ferne Stimme erklingt erneut: \"So sei es. Ich lehre dich das Geheimnis der Alchemie. Mögest du das Wissen weise nutzen.\" Für einen Moment schweigt die Stimme, dann dringt sie erneut an dein Ohr, du verstehst nicht, was sie sagt, und doch verstehst du es. Sie klingt fern und doch klingt sie nah. Sie scheint von außen zu kommen und doch scheint sie in dir zu sein. Du hörst Worte, die gesprochen werden und doch hörst du sie nicht. Du versteht alles, was dir gesagt wird und doch verstehst du nichts. Die Welt um dich herum wird zu einem. Es gibt kein Außen und kein Innen mehr, nur noch ein Ganzes, das auch du bist. Doch die Welt zerfällt in Vieles, in unendliche Teile, nichts haftet aneinander, alles ist verstreut, alles ist getrennt, es gibt nur Getrenntheit. Die Welt ist ein Ganzes und unendlich Vieles. Nichts hängt zusammen, alles hängt zusammen. Alles ergibt Sinn, nichts ergibt Sinn. Du hast das Geheimnis erkannt, du hast es nicht erkannt. - Du spürst wie sich deine Sinne und dein Geist verändert haben. Du merkst, wie sich das neue Wissen in deinen Gedanken ausbreitet und doch kannst du es nicht fassen. Du weißt es, doch es ist weder zu begreifen, noch in Worte zu fassen, eine unaussprechliche Wahrheit. Die Welt aber scheint dir nun anders."
+	local textEN = "Die ferne Stimme erklingt erneut: \"So sei es. Ich lehre dich das Geheimnis der Alchemie. Mögest du das Wissen weise nutzen.\" Für einen Moment schweigt die Stimme, dann dringt sie erneut an dein Ohr, du verstehst nicht, was sie sagt, und doch verstehst du es. Sie klingt fern und doch klingt sie nah. Sie scheint von außen zu kommen und doch scheint sie in dir zu sein. Du hörst Worte, die gesprochen werden und doch hörst du sie nicht. Du versteht alles, was dir gesagt wird und doch verstehst du nichts. Die Welt um dich herum wird zu einem. Es gibt kein Außen und kein Innen mehr, nur noch ein Ganzes, das auch du bist. Doch die Welt zerfällt in Vieles, in unendliche Teile, nichts haftet aneinander, alles ist verstreut, alles ist getrennt, es gibt nur Getrenntheit. Die Welt ist ein Ganzes und unendlich Vieles. Nichts hängt zusammen, alles hängt zusammen. Alles ergibt Sinn, nichts ergibt Sinn. Du hast das Geheimnis erkannt, du hast es nicht erkannt. - Du spürst wie sich deine Sinne und dein Geist verändert haben. Du merkst, wie sich das neue Wissen in deinen Gedanken ausbreitet und doch kannst du es nicht fassen. Du weißt es, doch es ist weder zu begreifen, noch in Worte zu fassen, eine unaussprechliche Wahrheit. Die Welt aber scheint dir nun anders."
+	local questInfos = GetTeacherQuestInfos(User, SourceItem)
+	local callback = function(dialog) 
+	    User:setMagicType(3)
+	    User:teachMagic(3,1)
+		world:makeSound(13,User.pos)
+		world:gfx(31,User.pos)
+		world:gfx(52,User.pos)
+		world:gfx(31,User.pos)
+	end
+	if User:getPlayerLanguage() == 0 then
+	    dialog = MessageDialog(questInfos.teacherDE1, textDE , callback)
+	else
+      	dialog = MessageDialog(questInfos.teacherEN1, textEN, callback)
+	end
+    User:requestMessageDialog(dialog)
+	
+end
+
+function IsCharSure(User,SourceItem)
+    -- check if the char really wants to become an alchemist
+	local questInfos = GetTeacherQuestInfos(User, SourceItem)
+	local answerYes; local answerNo; local askChar; local title; local abortTextDE; local abortTextEN
+	if User:getPlayerLanguage() == 0 then 
+	    answerYes = "Ja."
+		answerNo = "Nein."
+		askChar = "\"Du hast nun alle Aufgaben erledigt. Bist du bereit und willens in die feinstoffliche Welt zu treten und das Geheimnis der Alchemie zu erfahren? Bedenke, Blendwerke wie die Magie werden dir dann verschlossen bleiben und einmal diesen Weg gegangen, gibt es kein zurück! Bist du bereit?\""
+		title = questInfos.teacherDE1
+		abortTextDE = "\"Nun, bedauerlich. Komm zurück, sobald du bereit bist!\""
+	else
+        answerYes = "Yes."
+		answerNo = "No."
+		askChar = "\"You've done all your tasks. Are you ready and willing to enter the world of fine matter and to learn the secret of alchemy? But keep in mind that the illusions of magic an alike won't be accessible for you and once you've chosen this way, there is no turning back! Are you ready?\""
+		title = questInfos.teacherDE1
+		abortTextEN = "\"Well, that's a shame. Come back, when you are ready!\""
+    end
+	
+	local callback = function(dialog)
+		success = dialog:getSuccess()
+		if success then
+			if dialog:getSelectedIndex() == 0 then
+			    TurnIntoAlchemist(User,SourceItem)
+			else	
+			    SendMessage(User, SourceItem, abortTextEN, abortTextDE)
+			end	
+		else
+			SendMessage(User, SourceItem, abortTextEN, abortTextDE)
+		end
+	end
+	local dialog = SelectionDialog(title, askChar, callback)
+	dialog:addOption(0, answerYes)
+	dialog:addOption(0, answerNo)
+	User:requestSelectionDialog(dialog)
+end
+
+function SendMessage(User, SourceItem, textEN, textDE, questionTrigger)
+    -- function to send a message dialog
+	-- parameters questionTrigger - if it is true, the user will be asked a question after closing the message dialog
+	
+    local questInfos = GetTeacherQuestInfos(User, SourceItem)
+	local callback = function(dialog) 
+	    if questionTrigger then
+		    AskQuestion(User,SourceItem)
+	    end
+	end
+	if User:getPlayerLanguage() == 0 then
+	    dialog = MessageDialog(questInfos.teacherDE1, textDE, callback)
+	else
+      	dialog = MessageDialog(questInfos.teacherEN1, textEN, callback)
+	end
+    User:requestMessageDialog(dialog)
+	
+end
+
+function GetQuestionAndAnswers(User,SourceItem)
+    local questInfos = GetTeacherQuestInfos(User,SourceItem)
+    local userLanguage 
+	if User:getPlayerLanguage() == 0 then 
+	    userLanguage = "german"
+	else
+        userLanguage = "english"	
+    end
+    local difficulty = questInfos.questPrg - 3
+	local lastQuestion
+	if difficulty == 3 then
+	    lastQuestion = true
+	end	
+	local rnd = math.random(1,10)
+	local myQuestion = questionAnswerList[userLanguage]["question"][difficulty][rnd][1]
+	local sourceAnswerList = questionAnswerList[userLanguage]["answer"][difficulty][rnd]
+	local myAnswer = sourceAnswerList[1]
+	local newAnswerList = {}
+	for i=1,#sourceAnswerList do
+	    newAnswerList[i]=sourceAnswerList[i] -- copy the list, so that we do not destroy the original one
+	end	
+	for i=#newAnswerList,2,-1 do
+	    local j = math.random(1, i) 
+	    newAnswerList[i], newAnswerList[j] = newAnswerList[j], newAnswerList[i] -- put it back together into a random order (using Fisher–Yates shuffle)
+    end
+	return myQuestion, myAnswer, newAnswerList, lastQuestion
+end
+
+function AskQuestion(User,SourceItem)
+    -- quest infos
+	local questInfos = GetTeacherQuestInfos(User,SourceItem)
+	local questId = questInfos.questId
+	local title
+	if User:getPlayerLanguage() == 0 then
+	    title = questInfos.teacherDE1
+	else
+      	title = questInfos.teacherEN1
+	end
+	-- get question, answers and check if it is the last question 
+	local theQuestion, theAnswer, answersList, lastQuestion = GetQuestionAndAnswers(User,SourceItem)
+	local callback = function(dialog)
+		success = dialog:getSuccess()
+		if success then
+			selectedAnswer = (dialog:getSelectedIndex())+1
+			if answersList[selectedAnswer] == theAnswer then
+			    User:setQuestProgress(questId, (User:getQuestProgress(questId) +1) )
+				if lastQuestion then
+				    IsCharSure(User,SourceItem) -- ask if the char really wants to become an alchemist
+				else
+                    SendMessage(User, SourceItem,
+					"\"That was the right answer! Let's try the next one.\"", 
+					"\"Das war die richtige Antwort! Auf zur nächsten.\"", 
+					true)
+			    end
+			else
+                SendMessage(User, SourceItem,
+				            "\"That was the wrong answer. Let's try an other one.\"", 
+							"\"Das war die falsche Antwort. Versuchen wir es mit einer anderen.\"", 
+							true)
+            end				
+		else
+			SendMessage(User, SourceItem,
+						"\"Come back to finish the questions whenever you want.\"", 
+						"\"Komm wieder, wann immer du dich den Fragen stellen willst.\"", 
+						false)
+		end
+	end
+	local dialog = SelectionDialog(title, theQuestion, callback)
+	for i=1,#answersList do
+		dialog:addOption(15, answersList[i])
+	end
+	User:requestSelectionDialog(dialog)
+	
+end
+
+	
+function FirstTask(User, SourceItem)
+    -- first task: the char is supposed to bring five herbs of three different kinds
+	-- what kind of herbs depend on the teacher (they are herbs from the region he is in)
+    
+	local questInfos = GetTeacherQuestInfos(User, SourceItem)
+	SendMessage(User, SourceItem, 
+		            "You hear a voice, but you cannot tell from where it comes. Maybe it's even just in your head and it says: \"I am the "..questInfos.teacherEN2..". I help those who wish to enter the world of fine matter. If you want to learn about the great secret of alchemy, fullfill my tasks. Go and bring me five "..HerbsTaskOneNameEN[questInfos.teacherEN2][1]..", five "..HerbsTaskOneNameEN[questInfos.teacherEN2][2].." and five "..HerbsTaskOneNameEN[questInfos.teacherEN2][3]..". If you have them, touch me and you will have my attention.\"", 
+					"Du vernimmst eine Stimme, von der du nicht sagen kannst, woher sie kommt, oder ob sie vielleicht auch nur in deinem Kopf ist und sie spricht: \"Ich bin "..questInfos.teacherDE2..". Ich helfe jenen, die die Welt der Feinstofflichkeit betreten zu wollen. Willst du also das große Geheimnis der Alchmie erfahren, erfülle meine erste Prüfungen. Geh und bringe mir fünf "..HerbsTaskOneNameDE[questInfos.teacherEN2][1]..", fünf "..HerbsTaskOneNameDE[questInfos.teacherEN2][2].." und fünf "..HerbsTaskOneNameDE[questInfos.teacherEN2][3]..". Wenn du sie hast, berühre mich und du wirst meine Aufmerksamkeit haben.\""
+					);
+	User:setQuestProgress(questInfos.questId,2)
+	
+end
+
+function SecondTask(User, SourceItem)
+    -- second task: bring to rar herbs from the region
+    local questInfos = GetTeacherQuestInfos(User, SourceItem)
+	
+    -- first, we check if the char has fullfilled the first task
+    if (User:countItem(HerbsTaskOneId[questInfos.teacherEN2][1]) < 5) or (User:countItem(HerbsTaskOneId[questInfos.teacherEN2][2]) < 5) or (User:countItem(HerbsTaskOneId[questInfos.teacherEN2][3]) < 5) then
+		-- he has not finished the first task: inform him
+		SendMessage(User, SourceItem,
+			        "Once again you hear the voice which actual source is still unknown to you: \"Oh, you are back! You don't have all the herbs I asked you for, though. I asked for five "..HerbsTaskOneNameEN[questInfos.teacherEN2][1]..", five "..HerbsTaskOneNameEN[questInfos.teacherEN2][2].." and five "..HerbsTaskOneNameEN[questInfos.teacherEN2][3]..". Go and bring them to me if you want to learn the great alchemical secret!\"", 
+					"Wieder vernimmst du die Stimme, deren Ursprung dir nicht klar ist: \"Oh, du bist zurück! Du hast aber nicht all die Kräuter, um die ich dich bat. Es waren fünf "..HerbsTaskOneNameDE[questInfos.teacherEN2][1]..", fünf "..HerbsTaskOneNameDE[questInfos.teacherEN2][2].." und fünf "..HerbsTaskOneNameDE[questInfos.teacherEN2][3]..". Geh und bring sie mir, wenn du das alchemistische Geheminis erfahren willst!\""
+					);
+		return
+	else
+	    -- he has finished the first task; delete herbs; tell him his second task
+		SendMessage(User, SourceItem,
+			        HerbsDeleteTextEN[questInfos.teacherEN2][1].." For a short amount fo time it seems as if someone would smack their lips, then the voice says: \"Good, very good. But there is an other task for you left. Now bring me two rar herbs - "..HerbsTaskTwoNameEN[questInfos.teacherEN2][1].." and "..HerbsTaskTwoNameEN[questInfos.teacherEN2][2]..". Be successfull and you are a step closer to your goal.", 
+					HerbsDeleteTextDE[questInfos.teacherEN2][1].." Für einen Moment glaubst du etwas wie ein Schmatzen zu hören, bevor die Stimme erklingt: \"Sehr gut, sehr gut. Aber es erwartet dich noch eine Aufgabe. Nun sollst du mir zwei seltene Kräuter bringen und zwar "..HerbsTaskTwoNameDE[questInfos.teacherEN2][1].." und "..HerbsTaskTwoNameDE[questInfos.teacherEN2][2]..". Sei erfolgreich und du bist deinem Ziel ein Stück näher."
+					);
+		User:eraseItem(HerbsTaskOneId[questInfos.teacherEN2][1],5)
+		User:eraseItem(HerbsTaskOneId[questInfos.teacherEN2][2],5)
+		User:eraseItem(HerbsTaskOneId[questInfos.teacherEN2][3],5)
+		User:setQuestProgress(questInfos.questId,3)
+		end    
 
 end
 
+function ThirdTask(User, SourceItem)
+    -- third task: three question
+    local questInfos = GetTeacherQuestInfos(User, SourceItem)
+	local qstPrg = questInfos.questPrg
+	
+	if qstPrg == 3 then
+        -- check if he accomplished the second task	
+	    if (User:countItem(HerbsTaskTwoId[questInfos.teacherEN2][1]) < 1) then
+	        SendMessage(User, SourceItem,
+			            "\"Oh! You don't have the herbs. If you have forgotten what you are supposed to get - "..HerbsTaskTwoNameEN[questInfos.teacherEN2][1].." and "..HerbsTaskTwoNameEN[questInfos.teacherEN2][2]..".\"", 
+						"\"Sowas! Du hast die Kräuter nicht dabei. Falls du es vergessen hast - "..HerbsTaskTwoNameDE[questInfos.teacherEN2][1].." and "..HerbsTaskTwoNameDE[questInfos.teacherEN2][2]..".\""
+						);
+            return
+	    else -- he was; inform him about the questions and ask him the first one after he closed the message dialog
+		    User:setQuestProgress(questInfos.questId,4)
+			SendMessage(User, SourceItem,
+			            HerbsDeleteTextEN[questInfos.teacherEN2][1].." For a moment you believe to hear something like: \"Delicious, mh, so delicious...\" Then you hear the familiar voice: \"Yes, you solved this task. Now, he wants me to ask you some question. When you have answered three, I will tell you the secret of alchemy.\"", 
+						HerbsDeleteTextDE[questInfos.teacherEN2][1].." Einen Moment lang glaubst du ein Murmeln zu hören: \"Lecker, mh, so lecker...\" Dann erklingt die Stimme wieder auf bekannte Weise: \"Ja, du hast diese Aufgabe bestanden. Als nächstes verlangt er, dass ich dir Fragen stelle. Sobald du mir drei beantworten konntest, werde ich dir das Geheimnis verraten.\"",
+						true
+						);
+            User:eraseItem(HerbsTaskTwoId[questInfos.teacherEN2][1],1)
+			User:eraseItem(HerbsTaskTwoId[questInfos.teacherEN2][2],1)
+		end	
+	else
+	    -- ask the remaining questions
+		questionAmountListEN = {"three questions", "two questions", "one question"}
+		questionAmountListDE = {"drei Fragen", "zwei Fragen", "eine Frage"}
+		SendMessage(User, SourceItem, 
+			        "Once again you hear the voice you already have heard often before: \"You still have to answer "..questionAmountListEN[qstPrg-3]..", then you will learn the secret of alchemy.\"",
+					"Erneut erklingt die dir mittlerweile bekannte Stimme: \"Du hast mir noch "..questionAmountListDE[qstPrg-3].." zu beantworten, dann wirst du das Geheimnis der Alchemie erfahren.\"",
+					true
+					);
+	end
+end
+
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+ 
+    -- already an alchemist?
+    local alchemistCheck = AlchemistCheck(User)
+	if alchemistCheck then
+	    SendMessage(User, SourceItem,
+		            "You hear a voice you are unable to localise: \"You already know the great secret of alchemy. I am not allowed to help you further. Go away!\"",
+		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"Du kennst das große Geheimnis der Alchemie schon. Ich darf dir nicht weiter helfen. Geh weg!\""
+	                )
+	return
+	end				
+	-- check if the char belongs to any other mage class
+	local noMagicCheck = NoMagicCheck(User)
+	if not noMagicCheck then
+	    SendMessage(User, SourceItem,
+			        "Du fühlst dich beobachtet, jedoch scheint nichts weiter zu passieren.", 
+					"You feel observed, but nothing else seems to happen."
+					)
+	return
+	end	
 
-      
-	local questId, teacherEN1, teacherEN2, teacherDE1, teacherDE2 = GetTeacherQuestInfos(SourceItem)
+	-- teacher and quest infos 
+	local questInfos = GetTeacherQuestInfos(User, SourceItem)
+	local qstPrg = questInfos.questPrg
 
-
-
-end]]
+	if qstPrg == 1 then
+	    FirstTask(User, SourceItem) -- bring 15 normal herbs
+	elseif qstPrg == 2 then
+	    SecondTask(User, SourceItem) -- bring two rar herbs
+	elseif qstPrg >= 3 and qstPrg <= 6 then
+	    ThirdTask(User, SourceItem) -- answer three questions
+    elseif qstPrg == 7 then
+	    IsCharSure(User,SourceItem) -- char did all the tasks; if he wants to, he can become an alchemist
+	end	
+        	
+end

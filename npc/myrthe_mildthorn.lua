@@ -23,7 +23,6 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
-require("npc.base.consequence.talkstate")
 require("npc.base.talk")
 module("npc.myrthe_mildthorn", package.seeall)
 
@@ -860,8 +859,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Once, a dwarf from Galmair called Miggs came to me. He demanded money from me, but then my old frithe bear came and the dwarf ran!");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Once, a dwarf from Galmair called Miggs came to me. He demanded money from me, but then my old friend, the bear came and the dwarf ran!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

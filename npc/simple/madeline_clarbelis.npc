@@ -206,7 +206,7 @@ english, "Zhambra" -> "Aurora hasn't taught me much about that God yet.", "Auror
 "Zhambra" -> "Aurora hat mir noch nicht viel über diesen Gott beigebracht.", "Aurora sagt, man soll die Anhänger jeden Gottes respektieren.", "Manchmal erwähnt Aurora diese Gottheit."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I don't want to.", "I don't wish totoday, thank you.", "Sorry, but Aurora tells me that I cannot be enticed by material possessions.", trade, trade
+"what sell", "what buy", "list wares", "price of" -> "I don't want to trade.", "I don't wish to trade today, thank you.", "Sorry, but Aurora tells me that I cannot be enticed by material possessions."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich möchte nicht handeln.", "Ich wünsche heute nicht zu handeln, habt Dank.", "Entschuldigt, aber Aurora hat gesagt ich solle mich nicht von materiellen Dingen verführen lassen."
 "tell something" -> "You should go for a walk through the forest. It's quiet, and very pretty. Watch out for wild animals, though.", "Sometimes you can find herbs that have blown across the land. Aurora gets me to pick them up for her.", "If you want to become a druid, you should find someone to take you as their apprentice. I don't recommend an Elf, though."
 "erzähl was", "erzähl etwas" -> "Ihr solltet im Wald spazieren gehen. Dort ist es ruhig und sehr schön. Gebt nur Acht auf wilde Tiere.", "Manchmal findet man Kräuter die der Wind über dem Land verstreut hat. Aurora lässt mich diese Kräuter für sie sammeln", "Wenn Ihr Druide werden wollt so such jemanden, er euch als Schüler annimmt. Ich rate euch, wählt keinen Elfen als Lehrmeister."

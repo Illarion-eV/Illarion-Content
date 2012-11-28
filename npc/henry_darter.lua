@@ -27,7 +27,6 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.skill")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.henry_darter", package.seeall)
 
@@ -1384,8 +1383,7 @@ talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
 talkEntry:addResponse("I don't buy anything.");
-talkEntry:addResponse("I'm a butcher, not ar.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I'm a butcher, not a trader.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

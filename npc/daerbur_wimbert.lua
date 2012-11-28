@@ -27,7 +27,6 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.skill")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.daerbur_wimbert", package.seeall)
 
@@ -660,7 +659,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine III"));
-talkEntry:addResponse("Hey-ho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.");
+talkEntry:addResponse("Hey-ho! Now we can dig for gems. Gather five raw obsidians for me and I will reward you generously.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -670,7 +669,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 4));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine III"));
-talkEntry:addResponse("Hey-ho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig.");
+talkEntry:addResponse("Hey-ho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Obsidiane und ich belohne dich großzügig.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -681,7 +680,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine III"));
-talkEntry:addResponse("Heydiho! Now we can dig for gems. Gather five raw blackstones for me and I will reward you generously.");
+talkEntry:addResponse("Heydiho! Now we can dig for gems. Gather five raw obsidians for me and I will reward you generously.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -693,7 +692,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine III"));
-talkEntry:addResponse("Heydiho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Schwarzsteine und ich belohne dich großzügig");
+talkEntry:addResponse("Heydiho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Obsidiane und ich belohne dich großzügig");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -704,7 +703,7 @@ talkEntry:addCondition(npc.base.condition.item.item(252, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Bring me five raw blackstones and you get money. I'm so excited!");
+talkEntry:addResponse("Bring me five raw obsidians and you get money. I'm so excited!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -713,7 +712,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(252, "all", "<", 5, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!");
+talkEntry:addResponse("Bring mir fünf ungeschliffene Obsidiane und du bekommst Geld. Ich bin so aufgeregt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -723,7 +722,7 @@ talkEntry:addCondition(npc.base.condition.item.item(252, "all", "<", 5, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Bring me five raw blackstones and you get money. I'm so excited!");
+talkEntry:addResponse("Bring me five raw obsidians and you get money. I'm so excited!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -734,7 +733,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Bring mir fünf ungeschliffene Schwarzsteine und du bekommst Geld. Ich bin so aufgeregt!");
+talkEntry:addResponse("Bring mir fünf ungeschliffene Obsidiane und du bekommst Geld. Ich bin so aufgeregt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1427,9 +1426,8 @@ talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
 talkEntry:addResponse("I sell nothing to you, you sell nothing to me. Everyone keeps his property, fine.");
-talkEntry:addResponse("You have enough, I have enough, so why?");
+talkEntry:addResponse("You have enough, I have enough, so why trade?");
 talkEntry:addResponse("Bartering is so stupid, don't we all want to betray each other?");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

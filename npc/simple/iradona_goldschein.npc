@@ -55,8 +55,8 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Iradona Goldschein the informant. Keywords: Question, information, Galmair, building, game, mission.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Iradona Goldschein die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Galmair, Gebäude, Spiel, Auftrag.")
+"Help" -> inform("[Game Help] This NPC is Iradona Goldschein the informant. Keywords: Question, information, Galmair, building, game, mission, faction.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Iradona Goldschein die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Galmair, Gebäude, Spiel, Auftrag, Fraktion.")
 
 -- Mandatory: General speech
 queststatus(606) = 1, english, ".*" -> inform("You can talk with Iradona now. Ask for 'help' if you do not know what to ask! You can also go back to Hummi to collect your reward and come back later."), "How can I help you? Do you like to have any information? Or do you like to have a task?", queststatus(606)=2
@@ -191,7 +191,7 @@ english, "Hinterland" -> inform("[Keywords] Sleepy Bujhaar Inn, Census office, S
 "Copperbridge" -> inform("[Keyword] location"), "The Copperbridge in the east leads you over the Malachite creek to Nagrun's Plain fist and then to the Hemp Necktie Inn, if you like to go to this location."
 "Kupferbrücke" -> inform("[Schlüsselwort] Ort"), "Die Kupferbrücke im Osten führt dich über den Malachit Bach zur Nagrun Ebene zuerst und dann zum Gasthof zur Hanfschlinge, falls du zu diesen Ort gehen möchtest."
 "Blackbridge" -> inform("[Keyword] location"), "The Blackbridge in the northeast leads you over the Bounding Stream to the Swamp and Northern Woods, if you like to go to this location."
-"Schwarzbrücke" -> inform("[Schlüsselwort] Ort"), "Die Schwarzbrücke im NOrdosten von hier führt dich über den Grenzstrom zum Sumpf und den Nördlichen Wäldern, falls du zu diesen Orten gehen möchtest."
+"Schwarzbrücke" -> inform("[Schlüsselwort] Ort"), "Die Schwarzbrücke im Nordosten von hier führt dich über den Grenzstrom zum Sumpf und den Nördlichen Wäldern, falls du zu diesen Orten gehen möchtest."
 "Shadowland" -> "A dangerous place at the south end of the Malachite mine. Do not go alone there. For more information ask someone else."
 "Schattenland" -> "Ein gefährlicher Ort am südlichen Ende der Malachit Mine. Geh nicht alleine dort hin. Für mehr Information frage jemanden anderen."
 
@@ -202,6 +202,8 @@ english, "Hinterland" -> inform("[Keywords] Sleepy Bujhaar Inn, Census office, S
 -- "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
 
 -- Faction stuff
+"faction" -> "There are three factions: Our faction Galmair, ruled by our rich leader Don Valerio Guilianni. Then the two poor factions of Runewick and Cadomyr, ruled by Archmage Elvaine Morgan and Queen Rosaline Edwards."
+"Fraktion" -> "Es gibt drei Fraktionen: Unsere Fraktion Galmair, geführt von unserem reichen Herrscher Don Valerio Guilianni. Dann diese zwei armen Fraktionen Runewick und Cadomyr, geführt von Erzmagier Elvaine Morgan und Königin Rosaline Edwards."
 "archmage" -> "Arrgh! The ruler of Runewick and I do not care about him! Just bring his head to the Don."
 "Erzmagier" -> "Arrgh! Der Herrscher von Runewick und der interessiert mich auch nicht. Bring einfach seinen Kopf dem Don."
 english, "Elvaine", "Morgan" -> "Arrgh! The ruler of Runewick and I do not care about him! Just bring his head to the Don."

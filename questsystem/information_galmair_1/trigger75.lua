@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Während du im Buch liest, fällt dir eine Notiz auf: 'Gut, und nun finde das Buch über unsere Fraktion. Iradona'.", "While you are reading the book you see a note: 'Good, and now find the book about our faction. Iradona'."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Wï¿½hrend du im Buch liest, fï¿½llt dir eine Notiz auf: 'Gut, und nun finde das Buch ï¿½ber unsere Fraktion. Iradona'.", "While you are reading the book you see a note: 'Good, and now find the book about our faction. Iradona'."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

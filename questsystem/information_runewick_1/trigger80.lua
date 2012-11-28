@@ -3,41 +3,57 @@ require("questsystem.base")
 module("questsystem.information_runewick_1.trigger80", package.seeall)
 
 local QUEST_NUMBER = 621
-local PRECONDITION_QUESTSTATE = 95
-local POSTCONDITION_QUESTSTATE = 95
+local PRECONDITION_QUESTSTATE = 10
+local POSTCONDITION_QUESTSTATE = 10
 
-local POSITION = position(1, 1, 1)
-local RADIUS = 1
+local NPC_TRIGGER_DE = "[Gg]almair|[Cc]adomyr"
+local NPC_TRIGGER_EN = "[Gg]almair|[Cc]adomyr"
+local NPC_REPLY_DE = "Falsch! NÃ¤chster Versuch."
+local NPC_REPLY_EN = "Wrong! Try it again."
 
-function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
-  if PLAYER:isInRangeToPosition(POSITION,RADIUS)
-      and ADDITIONALCONDITIONS(PLAYER)
-      and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-    --informNLS(PLAYER, TEXT_DE, TEXT_EN)
-    
-    HANDLER(PLAYER)
-    
-    questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
-    return true
-  end
+function receiveText(npc, type, text, PLAYER)
+    if ADDITIONALCONDITIONS(PLAYER)
+    and PLAYER:getType() == Character.player
+    and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+        if PLAYER:getPlayerLanguage() == Player.german then
+            NPC_TRIGGER=string.gsub(NPC_TRIGGER_DE,'([ ]+)',' .*');
+        else
+            NPC_TRIGGER=string.gsub(NPC_TRIGGER_EN,'([ ]+)',' .*');
+        end
 
-  return false
+        foundTrig=false
+        
+        for word in string.gmatch(NPC_TRIGGER, "[^|]+") do 
+            if string.find(text,word)~=nil then
+                foundTrig=true
+            end
+        end
+
+        if foundTrig then
+      
+            npc:talk(Character.say, getNLS(PLAYER, NPC_REPLY_DE, NPC_REPLY_EN))
+            
+            HANDLER(PLAYER)
+            
+            questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
+        
+            return true
+        end
+    end
+    return false
 end
 
-function informNLS(player, textDe, textEn)
+function getNLS(player, textDe, textEn)
   if player:getPlayerLanguage() == Player.german then
-    player:inform(player, item, textDe)
+    return textDe
   else
-    player:inform(player, item, textEn)
+    return textEn
   end
 end
-
--- local TEXT_DE = TEXT -- German Use Text -- Deutscher Text beim Benutzen
--- local TEXT_EN = TEXT -- English Use Text -- Englischer Text beim Benutzen
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Während du im Buch liest, fällt dir eine Notiz auf: 'Gut, und nun finde das Buch über unsere Fraktion. Elesil'.", "While you are reading the book you see a note: 'Good, and now find the book about our faction. Elesil'."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Nenne nun den Namen der Fraktion in der du dich befindest. Runewick, Galmair oder Cadomyr?", "Say the name of the faction you are now. Runewick, Galmair or Cadomyr?"):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -25,7 +25,6 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
-require("npc.base.consequence.trade")
 require("npc.base.consequence.treasure")
 require("npc.base.talk")
 module("npc.rowan_banius", package.seeall)
@@ -1195,11 +1194,9 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("My apologies, but I am in no mood toright now.");
-talkEntry:addResponse("I am sorry, but I cannotwith you at the moment. I must be caring for my wife.");
+talkEntry:addResponse("My apologies, but I am in no mood to trade right now.");
+talkEntry:addResponse("I am sorry, but I cannot trade with you at the moment. I must be caring for my wife.");
 talkEntry:addResponse("I fear that I am too busy dealing with my wife at the moment.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1246,7 +1243,7 @@ talkEntry:addTrigger("Rowan");
 talkEntry:addTrigger("Banius");
 talkEntry:addResponse("Hm? Bitte, ich muss mich um meine Frau kümmern.");
 talkEntry:addResponse("Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.");
-talkEntry:addResponse("Es tut mir Leid, aber ich muss mich um meine Frau kümmern.");
+talkEntry:addResponse("Es tut mir leid, aber ich muss mich um meine Frau kümmern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1262,7 +1259,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
 talkEntry:addResponse("Hm? Bitte, ich muss mich um meine Frau kümmern.");
 talkEntry:addResponse("Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.");
-talkEntry:addResponse("Es tut mir Leid, aber ich muss mich um meine Frau kümmern.");
+talkEntry:addResponse("Es tut mir leid, aber ich muss mich um meine Frau kümmern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1298,7 +1295,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Hm? Bitte, ich muss mich um meine Frau kümmern.");
 talkEntry:addResponse("Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.");
-talkEntry:addResponse("Es tut mir Leid, aber ich muss mich um meine Frau kümmern.");
+talkEntry:addResponse("Es tut mir leid, aber ich muss mich um meine Frau kümmern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me sieht seine Frau an und lächelt schwach.", "#me glances at his wife, smiling faintly.");

@@ -339,11 +339,11 @@ function onDeath(Monster)
 
         --Category 3: Weapon
 
-        local done=monster.base.drop.AddDropItem(253,1,20,(100*math.random(3,4)+math.random(33,44)),0,3); --raw bluestone
-        if not done then done=monster.base.drop.AddDropItem(284,1,10,(100*math.random(3,4)+math.random(33,44)),0,3); end --bluestone
-        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --bluestone ring
-        if not done then done=monster.base.drop.AddDropItem(71,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --bluestone amulet
-        if not done then done=monster.base.drop.AddDropItem(446,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --bluestone powder
+        local done=monster.base.drop.AddDropItem(253,1,20,(100*math.random(3,4)+math.random(33,44)),0,3); --raw sapphire
+        if not done then done=monster.base.drop.AddDropItem(284,1,10,(100*math.random(3,4)+math.random(33,44)),0,3); end --sapphire
+        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --sapphire ring
+        if not done then done=monster.base.drop.AddDropItem(71,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --sapphire amulet
+        if not done then done=monster.base.drop.AddDropItem(446,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --sapphire powder
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(3,9),100,333,0,4); --copper coins
@@ -369,11 +369,11 @@ function onDeath(Monster)
 
         --Category 3: Weapon
 
-        local done=monster.base.drop.AddDropItem(279,1,20,(100*math.random(3,4)+math.random(33,44)),0,3); --bluestone ring
-        if not done then done=monster.base.drop.AddDropItem(71,1,10,(100*math.random(3,4)+math.random(33,44)),0,3); end --bluestone amulet
-        if not done then done=monster.base.drop.AddDropItem(253,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --raw bluestone
-        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --bluestone
-        if not done then done=monster.base.drop.AddDropItem(446,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --bluestone powder
+        local done=monster.base.drop.AddDropItem(279,1,20,(100*math.random(3,4)+math.random(33,44)),0,3); --sapphire ring
+        if not done then done=monster.base.drop.AddDropItem(71,1,10,(100*math.random(3,4)+math.random(33,44)),0,3); end --sapphire amulet
+        if not done then done=monster.base.drop.AddDropItem(253,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --raw sapphire
+        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --sapphire
+        if not done then done=monster.base.drop.AddDropItem(446,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --sapphire powder
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(3,9),100,333,0,4); --copper coins

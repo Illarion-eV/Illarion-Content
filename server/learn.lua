@@ -20,7 +20,7 @@ function learn(user, skill, actionPoints, learnLimit)
 	
     user:inform("learn called: skill: "..skillName.." AP: "..actionPoints.." learnLimit: "..learnLimit);
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
-	scalingFactor=1000; --Here, you can mod the learning speed. Higher value=faster ;-)
+	scalingFactor=500; --Here, you can mod the learning speed. Higher value=faster ;-)
 	
 	--Constants - Do not change unless you know exactly what you're doing!
 	amplification=100; --An 'abritrary' value that governs the 'resolution' of the MC function.
@@ -43,6 +43,7 @@ function learn(user, skill, actionPoints, learnLimit)
             attributeFactor=0.5+0.5*(leadAttrib/10); --0.5 to 1.5, depending on attribute
 			actionpointFactor=(actionPoints/normalAP); --An action with 50AP is "normal"
 			minorIncrease=math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor);
+            minorIncrease=math.min(minorIncrease,10000) -- to prevent overflow, we cannot gain more than one level per action anyway
 
             if minorSkill+minorIncrease<10000 then
                 user:increaseMinorSkill(skill,minorIncrease); --minimum of 10 actions of 50AP for a swirlie at 5% activity
@@ -50,7 +51,7 @@ function learn(user, skill, actionPoints, learnLimit)
      			user:increaseMinorSkill(skill,minorIncrease);
 				base.common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit '"..skillName.."' steigt von "..skillValue.." auf "..(skillValue+1).."!",
 					"[Level up] Your skill '"..skillName.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
-				world:gfx(13,user.pos); --swirly!           
+				world:gfx(41,user.pos); --swirly!           
 		    end
 
 		end
@@ -71,43 +72,9 @@ function reduceMC( user )
 end
 
 function getLeadAttrib(Char, Skill)
-
-
-    if iniLed==nil then
-        leadAtt={};
-        leadAtt[Character.tailoring]="dexterity"
-        leadAtt[Character.alchemy]="perception"
-        leadAtt[Character.tactics]="perception"
-        leadAtt[Character.farming]="constitution"
-        leadAtt[Character.poisoning]="perception"
-        leadAtt[Character.harp]="dexterity"
-        leadAtt[Character.woodcutting]="constitution"
-        leadAtt[Character.smithing]="dexterity"
-        leadAtt[Character.punctureWeapons]="agility"
-        leadAtt[Character.horn]="dexterity"
-        leadAtt[Character.distanceWeapons]="perception"
-        leadAtt[Character.gemcutting]="dexterity"
-        leadAtt[Character.slashingWeapons]="strength"
-        --leadAtt[Character.magicResistance]="essence"
-        leadAtt[Character.carpentry]="dexterity"
-        leadAtt[Character.cookingAndBaking]="dexterity"
-        leadAtt[Character.goldsmithing]="dexterity"
-        leadAtt[Character.concussionWeapons]="strength"
-        leadAtt[Character.flute]="dexterity"
-        leadAtt[Character.parry]="agility"
-        leadAtt[Character.lute]="dexterity"
-        leadAtt[Character.dodge]="agility"
-        leadAtt[Character.herblore]="constitution"
-        leadAtt[Character.mining]="constitution"
-        leadAtt[Character.smithing]="dexterity"
-        leadAtt[Character.glassBlowing]="dexterity"
-        leadAtt[Character.fishing]="constitution"
-        leadAtt[Character.wrestling]="strength"
-        iniLed=1;
-    end
-
-    if lAttrib~=nil then
-        return Char:increaseAttrib(lAttrib,0);
-    end
-    return 5;
+  local leadAttribName = base.common.GetLeadAttributeName(Skill);
+  if leadAttribName~=nil then
+    return Char:increaseAttrib(leadAttribName,0);
+  end
+  return 5;
 end

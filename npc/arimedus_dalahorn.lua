@@ -18,7 +18,6 @@ VALUES (0, 951, 830, 1, 4, 'Arimedus Dalahorn', 'npc.arimedus_dalahorn', 0, 3, 1
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.arimedus_dalahorn", package.seeall)
 
@@ -805,8 +804,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("Gynk is an important centre ofand goods. And corruption.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Gynk is an important centre of trade and goods. And corruption.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -430,8 +430,8 @@ end;
 --- Checks if are gems integrated in a item and returns the strength one or both
 -- gems.<br />
 -- Gem index:
--- <ol><li>dimond</li><li>smaragd</li><li>ruby</li><li>blackstone</li>
--- <li>bluestone</li><li>amethyst</li><li>topas</li></ol>
+-- <ol><li>dimond</li><li>smaragd</li><li>ruby</li><li>obsidian</li>
+-- <li>sapphire</li><li>amethyst</li><li>topas</li></ol>
 -- @param toolItem The item that shall be checked
 -- @return Index value of the first gem
 -- @return Strength of the first gem
@@ -1633,4 +1633,71 @@ function CheckIfOnline(playername)
 		end
 	end
 	return nil
+end
+
+--- Looks up the name of the defined lead attribute of a given skill name.
+-- @param Skill  The name of the skill.
+-- @return String  The name of the corresponding lead attribute.
+--                 NOTE: in case there is no lead attribute, nil will be returned.
+function GetLeadAttributeName(Skill)
+  if leadAttribTable==nil then
+    leadAttribTable={};
+    leadAttribTable[Character.tailoring]="dexterity"
+    leadAttribTable[Character.alchemy]="perception"
+    leadAttribTable[Character.tactics]="perception"
+    leadAttribTable[Character.farming]="constitution"
+    leadAttribTable[Character.poisoning]="perception"
+    leadAttribTable[Character.harp]="dexterity"
+    leadAttribTable[Character.woodcutting]="constitution"
+    leadAttribTable[Character.smithing]="dexterity"
+    leadAttribTable[Character.punctureWeapons]="agility"
+    leadAttribTable[Character.horn]="dexterity"
+    leadAttribTable[Character.distanceWeapons]="perception"
+    leadAttribTable[Character.gemcutting]="dexterity"
+    leadAttribTable[Character.slashingWeapons]="strength"
+    --leadAttribTable[Character.magicResistance]="essence"
+    leadAttribTable[Character.carpentry]="dexterity"
+    leadAttribTable[Character.cookingAndBaking]="dexterity"
+    leadAttribTable[Character.goldsmithing]="dexterity"
+    leadAttribTable[Character.concussionWeapons]="strength"
+    leadAttribTable[Character.flute]="dexterity"
+    leadAttribTable[Character.parry]="agility"
+    leadAttribTable[Character.lute]="dexterity"
+    leadAttribTable[Character.dodge]="agility"
+    leadAttribTable[Character.herblore]="constitution"
+    leadAttribTable[Character.mining]="constitution"
+    leadAttribTable[Character.glassBlowing]="dexterity"
+    leadAttribTable[Character.fishing]="constitution"
+    leadAttribTable[Character.wrestling]="strength"
+  end
+  return leadAttribTable[Skill]
+end
+
+--- Searches in an area for an item id.
+-- @param CenterPos  Position struct of the center position of the area.
+-- @param ItemId  The ID of the sought item.
+-- @param Radius  Around the CenterPos, an area of +/-Radius is queried in x and y direction.
+--                Default value is 1.
+-- @return scrItem  If an item with ItemId is found, this is the first one found. Otherwise it is nil.
+-- @return bool  Writeable flag. If there are multiple items on the field, only the top one is writeable.
+--               If none is found, nil is returned.
+function GetItemInArea(CenterPos, ItemId, Radius)
+  if (not Radius) then
+    Radius = 1;
+  end
+  for x=-radius,radius do
+    for y=-radius,radius do 
+      local field = world:getField(position(CenterPos.x + x, CenterPos.y, CenterPos.z));
+      local itemCount = field:countItems();
+      if (itemCount > 0) then
+        for i=0,itemCount-1 do 
+          local item = field:getStackItem(i);
+          if (item.id == ItemId) then
+            return item, (i==0);
+          end
+        end
+      end
+    end
+  end
+  return nil, nil;
 end

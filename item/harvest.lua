@@ -78,6 +78,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		amount = harvestProduct.maxAmount;
 		SourceItem:setData("amount","" .. harvestProduct.maxAmount);
 		world:changeItem(SourceItem);
+    User:changeSource(SourceItem);
 	end
 	User:inform("amount: " .. amount);
 	if ( amount < 0 ) then
@@ -107,7 +108,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], 100, User:increaseAttrib(fruitgathering.LeadAttribute,0) );
+	User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], 100);
 	amount = amount - 1;
 	User:inform("reduced amount: " .. amount);
 	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
@@ -136,6 +137,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	SourceItem:setData("amount","" .. amount);
 	User:inform("data amount set to " .. amount);
 	world:changeItem(SourceItem);
+  User:changeSource(SourceItem);
 	User:inform("security check after changed item: " .. SourceItem:getData("amount"));
 end
 

@@ -89,9 +89,9 @@ english, "quest", "mission" -> "I don't got any tasks for you. Better ask the Do
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich hab keine Arbeit für dich, frag lieber den Don. Aye?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "Iwith seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there.", trade
+"profession" -> "I trade with seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there."
 "beruf" -> "Ich handle mit Saatgut. Wenn du ein Bauer bist, bist du bei mir richtig. Ich verkauf dir alles was du brauchst. Aye. Und außerdem pass ich auf, dass die Grünschnauzen dort drüben keinen Unsinn treiben."
-english, "job" -> "Iwith seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there.", trade
+english, "job" -> "I trade with seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need! Aye. Furthermore I hold'n eye on these pignoses over there."
 "job" -> "Ich handle mit Saatgut. Wenn du ein Bauer bist, bist du bei mir richtig. Ich verkauf dir alles was du brauchst. Aye. Und außerdem pass ich auf, dass die Grünschnauzen dort drüben keinen Unsinn treiben."
 english, "Gobaith", "Gobiath" -> "Gobaith? Drhg'hgin! Nobody's allowed to speak that way about my granny! Get rid!"
 "Gobaith", "Gobiath" -> "Gobaith? Drhg'hgin! So spricht niemand über meine Großmutter! Verzieh dich!"

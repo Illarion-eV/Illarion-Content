@@ -206,7 +206,7 @@ english, "Zhambra" -> "I don't care about your gods. All I care about is that yo
 "Zhambra" -> "Deine Götter kümmern mich nen Furz! Geh, arbeiten - Abschaum!"
 
 -- Catching typical NPC phrases
-"what sell", "What buy", "list wares", "price of" -> "I could sell you some lashes from my whip. Interested!?", "Ipain.", "Stop bartering and get to work before I lose my patience.", trade
+"what sell", "What buy", "list wares", "price of" -> "I could sell you some lashes from my whip. Interested!?", "I trade pain.", "Stop bartering and get to work before I lose my patience."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kann dir ein paar Peitschenhiebe anbieten. Interesse?!", "Ich handel mit Schmerzen.", "Hör auf, rumzufeilschen und arbeite oder ich vergesse mich!"
 "tell something" -> "Shut up and work!", "No talking!", "Shut up and swing the pick, you punk!"
 "erzähl was", "erzähl etwas" -> "Halt deinen Mund und arbeite!", "Hier wird nicht geplaudert!", "Klappe halten, Hacke schwingen, du Gauner!"

@@ -25,7 +25,6 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.skill")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.raban", package.seeall)
 
@@ -1167,10 +1166,8 @@ talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
 talkEntry:addResponse("Is money all that matters for you? I abstain from it since decades and never missed it a single day.");
-talkEntry:addResponse("I have no use for money. So I do not.");
-talkEntry:addResponse("I am not ar. Maybe you want to help me in a quest?");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I have no use for money. So I do not trade.");
+talkEntry:addResponse("I am not a trade r. Maybe you want to help me in a quest?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

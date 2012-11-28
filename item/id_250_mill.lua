@@ -28,7 +28,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     
     if base.common.Encumbrence(User) then -- Durch Steife Rüstung behindert
         base.common.InformNLS( User,
-        "Deine Rüstung behindert Dich beim Mehl Mahlen.",
+        "Deine Rüstung behindert Dich beim Mahlen des Getreides.",
         "Your armor disturbs you when grinding grain" );
         return
     end

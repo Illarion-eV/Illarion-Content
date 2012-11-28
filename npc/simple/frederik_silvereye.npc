@@ -2,7 +2,7 @@
 -- NPC Name: Frederik Silvereye                                       Galmair --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  106, 553, 0            --
+-- NPC Race: human                      NPC Position:  404, 263, 1            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Ardian                                                           --
@@ -12,7 +12,7 @@
 name = "Frederik Silvereye"
 race = human
 sex = male
-position = 106, 553, 0
+position = 404, 263, 1
 direction = south
 affiliation = "Galmair"
 job = "Notary"
@@ -33,9 +33,9 @@ wrongLangUS = "#me looks around confused."
 radius = 0
 hairID = 3
 beardID = 5
-colorHair = 139, 0, 0
+colorHair = 42, 20, 2
 colorSkin = 245, 222, 179
-itemHead = 0
+itemHead = 830
 itemChest = 813
 itemCoat = 0
 itemMainHand = 0
@@ -74,7 +74,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin with you.", "Farew
 english, "quest", "mission" -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."
 "quest", "mission" -> "Derzeit habe ich alles, aber danke für eure Sorge.", "Vielleicht ein anderes mal, derzeit habe ich alles was ich brauche."
 "task", "adventure", "order" -> "I have no tasks for you right now, maybe another time."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe derzeit keine Aufgaben für euch, vielleicht aber wann anders."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe derzeit keine Aufgaben für Euch, vielleicht aber wann anders."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the notary of Galmair and do all the stuff a notary does.", "I take care of the new arrivals in Galmair, I am the notary here."
@@ -84,112 +84,105 @@ english, "job" -> "I am the notary of Galmair and do all the stuff a notary does
 english, "Gobaith", "Gobiath" -> "Never heard of that. Is it something to eat?"
 "Gobaith", "Gobiath" -> "Nie davon gehört. Ist es etwas zu Essen?"
 "my name" -> "I'm pleasured to meet you."
-"mein Name" -> "Ich freu mich euch kennenzulernen."
+"mein Name" -> "Ich freu mich Euch kennenzulernen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"YOURTRIGGER1" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER2" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER3" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER4" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"YOURTRIGGER5" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"chair" -> "I like my chair!"
+"Stuhl" -> "Ich mag meinen Stuhl!"
+"table" -> "Donk't walk on the table! You can't imagine what uncivilised people enter this house here."
+"Tisch" -> "Nicht auf dem Tisch laufen! Ihr könnte Euch nicht vorstellen was für unzivilisierte Leute dieses Haus betreten."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Elvaine", "Morgan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Runewick" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Valerio", "Guilianni", "Don" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Galmair" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "rosaline", "edwards" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Cadomyr" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"archmage" -> "No comment.", "I won't comment on that."
+"Erzmagier" -> "Kein Kommentar.", "Dazu sage ich jetzt nichts."
+english, "Elvaine", "Morgan" -> "No comment.", "I won't comment on that."
+"Elvaine", "Morgan" -> "Kein Kommentar.", "Dazu sage ich jetzt nichts."
+english, "Runewick" -> "I won't comment on that."
+"Runewick" -> "Dazu sage ich jetzt nichts."
+english, "Valerio", "Guilianni", "Don" -> "No comment.", "I won't comment on that."
+"Valerio", "Guilianni", "Don" -> "Kein Kommentar.", "Dazu sage ich jetzt nichts."
+english, "Galmair" -> "That's the best place in Illarion."
+"Galmair" -> "Der beste Ort in Illarion."
+"Queen" -> "No comment.", "I won't comment on that."
+"Königin" -> "Kein Kommentar.", "Dazu sage ich jetzt nichts."
+english, "rosaline", "edwards" -> "No comment.", "I won't comment on that."
+"rosaline", "edwards" -> "Kein Kommentar.", "Dazu sage ich jetzt nichts."
+english, "Cadomyr" -> "I won't comment on that."
+"Cadomyr" -> "Dazu sage ich jetzt nichts."
 
 -- Main land factions
-english, "albar" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "gynk", "gync" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "salkama" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "albar" -> "I head this is place far away, right?"
+"albar" -> "Der Ort soll recht weit weg sein."
+english, "gynk", "gync" -> "I head this is place far away, right?"
+"gync", "gynk" -> "Der Ort soll recht weit weg sein."
+english, "salkama" -> "I head this is place far away, right?"
+"salkama" -> "Der Ort soll recht weit weg sein."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Adron" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Bragon", "Brágon" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Cherga" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Elara" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Eldan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Findari" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Irmorom" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Malachin", "Malachín" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Moshran" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Nargun", "Nargún", "Nargùn" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Oldra" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Ronagan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Sirani" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Tanora", "Zelphia" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Ushara" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "Zhambra" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"god" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
+"Gott", "Götter" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+english, "Adron" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
+"Adron" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+english, "Bragon", "Brágon" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
+"Bragon", "Brágon" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+english, "Cherga" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Cherga" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+english, "Elara" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
+"Elara" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+english, "Eldan" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
+"Eldan" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+english, "Findari" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
+"Findari" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+english, "Irmorom" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
+"Irmorom" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+english, "Moshran" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
+"Moshran" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+english, "Nargun", "Nargún", "Nargùn" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
+"Nargun", "Nargún", "Nargùn" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+english, "Oldra" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
+"Oldra" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+english, "Ronagan" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
+"Ronagan" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+english, "Sirani" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
+"Sirani" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+english, "Tanora", "Zelphia" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
+"Tanora", "Zelphia" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+english, "Ushara" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Ushara" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+english, "Zhambra" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Zhambra" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"what sell", "what buy", "list wares", "price of" -> "I am not trader. But if you give me money, you can become citizen of Galmair."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler. Wenn du mir Geld gibst, kannst du Bürger von Galmair werden."
+"tell something" -> "Everyone should become a citizen of Galmair. That way I can make lots of money!"
+"erzähl was", "erzähl etwas" -> "Jeder sollte Bürger Glamairs werden, so kann ich viel Geld verdienen!"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-english, "<NPC first name>", "<NPC last name>" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"Yes" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Ja" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"No" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Nein" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Frederik", "Silvereye" -> "Yes, that's me!", "Who? Me?", "#me waves"
+"Frederik ", "Silvereye" -> "Ja, das bin ich!", "Wer? Ich?", "#me winkt"
+"Yes" -> "#me nods."
+"Ja" -> "#me nickt."
+"No" -> "#me shakes his head."
+"Nein" -> "#me schüttelt den Kopf."
+"bless you" -> "Thanks."
+"gesundheit" -> "Danke."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-german, chance(20.0), ".*" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, chance(20.0), ".*" -> "...pardon?", "Well...", "#me lookes around."
+german, chance(20.0), ".*" -> "...bitte?", "Mhm....", "#me schaut sich um."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "#me schüttelt den Kopf während er einen Brief liest", "#me shakes his head while reading a letter."
+cycletext "#me zählt einige Münzen.", "#me counts some coints."
+cycletext "#me starrt vor sich hin.", "#me stares into thin air."
+cycletext "#me schreibt einen Brief.", " #me writes a letter."
+cycletext "#me grummelt:'Arbeit, nichts ale Arbeit!'", "#me mubles: 'Work, nothing but work.'"
+cycletext "Werdet Bürger von Galmair! Macht mich reich!...äh ich meine, werdet reich in Galmair!", "Become a citzen of Galmair! Make me rich...ehm, I mean become rich in Galmair."
+cycletext "#me niest.", "#me snoozes."
+cycletext "#me kratzt sich am Kopf.", "#me scratches his head."
+cycletext "#me putzt seine Nase.", "#me blows his nose."

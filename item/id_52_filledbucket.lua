@@ -3,7 +3,7 @@
 -- UPDATE common SET com_script='item.id_52_filledbucket' WHERE com_itemid IN (52);
 
 require("base.common")
-
+require("alchemy.base.alchemy")
 
 module("item.id_52_filledbucket", package.seeall)
 
@@ -25,11 +25,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		return;
 	end
 	
-    --[[ infront of a cauldron
-	if (TargetItem.id == 1008) then
+    -- infront of a cauldron
+	if (TargetItem.id >= 1008) or (TargetItem.id <= 1018) then
 	    WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		return
-	end]]
+	end
 	
 	-- Wasserflasche auffüllen
 	if( TargetItem.id == 2498 ) then
@@ -173,64 +173,59 @@ function BlockCheck(Posi)
 end
 
 function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    cauldron = TargetItem
+    local cauldron = TargetItem
 	
 	if ( ltstate == Action.abort ) then
-		   base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
-	       return
-		end
+	   base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+	   return
+	end
 		
-		-- is the char an alchemist?
-	    if User:getMagicType() ~= 3 then
-		  base.common.InformNLS( User,
-				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
-				"Only those who have been introduced to the art of alchemy are able to work here.")
-		  return;
-	    end
+	-- is the char an alchemist?
+	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+	if not anAlchemist then
+		return
+	end
 		
-		if ( ltstate == Action.none ) then
-            User:startAction( 20, 21, 5, 0, 0)
-			return
-		end	
+	if ( ltstate == Action.none ) then
+		User:startAction( 20, 21, 5, 0, 0)
+		return
+	end	
 
 	-- water, essence brew, potion or stock is in the cauldron; leads to a failure
-	if cauldron:getData("cauldronFilledWith") == "water" then
+	if cauldron:getData("filledWith") == "water" then
 		base.common.InformNLS( User,
 				"Der Kessel läuft über. Offensichtlich war schon Wasser in ihm.",
 				"The water runs over. Obviously, ther was already water in it.")
 		world:makeSound(9,cauldron.pos)
 		world:gfx(11,cauldron.pos)
 		
-	elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
+	elseif cauldron:getData("filledWith") == "essenceBrew" then 
 		world:gfx(1,cauldron.pos)
 		base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.", 
 		                            "The substance in the cauldron blows out, as you fill the water in.")
-		cauldron:setData("essenceHerbs","")
-		cauldron:setData("cauldronFilledWith","")
-        cauldron:setData("potionId","")		
+		base.alchemy.base.RemoveAll(cauldron)		
 									
 	elseif cauldron:getData("potionEffectId") ~= "" then
-		if cauldron:getData("potionId") == "165" then
+		base.alchemy.base.RemoveAll(cauldron)
+		if cauldron.id == 1013 then
 		    world:makeSound(10,cauldron.pos)
-		    cauldron:setData("cauldronFilledWith","water")
+		    cauldron:setData("filledWith","water")
 		else
 			base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.", 
 										"The substance in the cauldron blows out, as you fill the water in.")
 		end
 		world:gfx(1,cauldron.pos)
-		cauldron:setData("potionEffectId","")
-		cauldron:setData("potionId","")
-		cauldron:setData("potionQuality","")
 		
-	elseif cauldron:getData("stockData") ~= "" then
+	elseif cauldron:getData("filledWith") == "stock" then
 		world:gfx(1,cauldron.pos)
 		base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.", 
 		                            "The substance in the cauldron blows out, as you fill the water in.")
-	    cauldron:setData("stockData","")
+	    alchemy.base.alchemy.RemoveAll(cauldron)
 	    
 	else -- nothing in the cauldron, we just fill in the water
 	    world:makeSound(10,cauldron.pos)
-		cauldron:setData("cauldronFilledWith","water")
+		cauldron:setData("filledWith","water")
+		cauldron.id = 1010
     end
 
 	world:changeItem(cauldron)

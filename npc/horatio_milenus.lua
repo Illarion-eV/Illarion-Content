@@ -18,7 +18,6 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.horatio_milenus", package.seeall)
 
@@ -844,10 +843,8 @@ talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
 talkEntry:addResponse("I buy only the safety of the realm and I sell only the crushing of Cadomyr's enemies.");
-talkEntry:addResponse("I am nor.");
-talkEntry:addResponse("If you are looking for ar, go to the market place.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I am no trader.");
+talkEntry:addResponse("If you are looking for a trader, go to the market place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -946,7 +943,7 @@ talkEntry:addResponse("Rein oder raus?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me zieht einen beeindruckenden Krummsäbel aus einer Lederscheide.", "#me unsheathes his giant scimitar.");
-talkingNPC:addCycleText("#me schärft seinen großen Krummsäbel. ", "#me sharpens his giant scimitar.");
+talkingNPC:addCycleText("#me schärft seinen großen Krummsäbel.", "#me sharpens his giant scimitar.");
 talkingNPC:addCycleText("#me lässt seinen furchteinflößenden Krummsäbel zurück in seine Lederscheide gleiten.", "#me resheathes his giant scimitar.");
 talkingNPC:addCycleText("Weitergehen.", "Pass along.");
 talkingNPC:addCycleText("Macht keinen Ärger.", "Cause no trouble.");

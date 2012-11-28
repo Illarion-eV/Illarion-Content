@@ -233,7 +233,7 @@ english, "Zerarisa" -> "Zerarisa have name, have claw, have tail! And you?"
 "Dewy", "swamps" -> "Zss, Dewy Sswampss be Runewick landss. Go far, north, easst."
 "Morgentau", "Sumpf" -> "Zss, Morgentaussumpf seienss Runewickland. Gehenss weit, Nord, Osst."
 "Yes" -> "What iss the yess for? If you want a job assk me for a job.", "You are very agreeable persson, but if you want job, assk for job."
-"Ja" -> "Wass meinenss mit ja? Wollenss Aufgabe, fragenss Aufgabe.", "Seienss zssustimmaber wenn wollenss Aufgabe, fragenss Aufgabe.", end
+"Ja" -> "Wass meinenss mit ja? Wollenss Aufgabe, fragenss Aufgabe.", "Seienss zssustimmend, aber wenn wollenss Aufgabe, fragenss Aufgabe."
 "No" -> "You isss not very nice?", "No, zss?"
 "Nein" -> "Du seienss nicht ssehr nett?", "Nein, zss?"
 

@@ -2,16 +2,16 @@
 -- NPC Name: Ruggero Bloom                                               None --
 -- NPC Job:  pirate                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  5, 557, 0              --
+-- NPC Race: human                      NPC Position:  6, 558, 0              --
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
--- Author:   not set                                                          --
+-- Author:   Rincewind                                                        --
 --                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 5, 557, 0, 0, 'Ruggero Bloom', 'npc.ruggero_bloom', 0, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 6, 558, 0, 0, 'Ruggero Bloom', 'npc.ruggero_bloom', 0, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -21,6 +21,7 @@ require("npc.base.condition.state")
 require("npc.base.consequence.attribute")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.state")
+require("npc.base.consequence.warp")
 require("npc.base.talk")
 module("npc.ruggero_bloom", package.seeall)
 
@@ -85,6 +86,7 @@ talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -97,6 +99,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -109,6 +112,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addResponse("Aye, You may pass matee!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -127,6 +131,7 @@ talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addResponse("Aye, You may pass matee!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -143,6 +148,7 @@ talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -155,6 +161,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -167,6 +174,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addResponse("Aye, You may pass matee!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -185,6 +193,7 @@ talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addResponse("Aye, You may pass matee!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -201,6 +210,7 @@ talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -213,6 +223,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -225,6 +236,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addResponse("Aye, You may pass matee!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -243,6 +255,7 @@ talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addResponse("Aye, You may pass matee!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -259,6 +272,7 @@ talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -271,6 +285,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -283,6 +298,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addResponse("Aye, You may pass matee!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -301,6 +317,7 @@ talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addResponse("Aye, You may pass matee!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -317,6 +334,7 @@ talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -329,6 +347,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addResponse("Aye, du darfst vorbei, Kumpel!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -341,6 +360,7 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addResponse("Aye, You may pass matee!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -359,6 +379,7 @@ talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addResponse("Aye, You may pass matee!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(6, 560, 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

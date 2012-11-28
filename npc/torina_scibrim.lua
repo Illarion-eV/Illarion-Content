@@ -1,8 +1,8 @@
 --------------------------------------------------------------------------------
--- NPC Name: Torina Scibrim                                           Cadomyr --
+-- NPC Name: Torina Scibrim                                          Runewick --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  106, 553, 0            --
+-- NPC Race: human                      NPC Position:  898, 760, 1            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Ardian                                                           --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 106, 553, 0, 4, 'Torina Scibrim', 'npc.torina_scibrim', 1, 1, 0, 255, 250, 205, 245, 222, 179);
+VALUES (0, 898, 760, 1, 4, 'Torina Scibrim', 'npc.torina_scibrim', 1, 1, 0, 255, 250, 205, 245, 222, 179);
 ---]]
 
 require("npc.base.basic")
@@ -152,7 +152,7 @@ talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
 talkEntry:addResponse("Mir geht es gut, danke der Nachfrage.");
 talkEntry:addResponse("Ich kann nicht klagen, auch wenn ein bisschen mehr Abenteuer mal wieder nicht schlecht wäre.");
-talkEntry:addResponse("Ganz gut, und euch?");
+talkEntry:addResponse("Ganz gut, und Euch?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -161,7 +161,7 @@ talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("My name is Torina Scibrim, I take care of the new arrivals of this place.");
-talkEntry:addResponse("I'm Torina Scibrim, I am the notary of Cadomyr.");
+talkEntry:addResponse("I'm Torina Scibrim, I am the notary of Runewick.");
 talkEntry:addResponse("You can call me Torina Scibrim, as notary of this town I could put you on the citizen list of this beautiful place.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -173,8 +173,8 @@ talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Mein Name ist Torina Scibrim, ich kümmere mich um die Neuankömmlinge dieses Ortes.");
-talkEntry:addResponse("Mein Name ist Torina Scibrim, ich bin die Notarin Cadomyrs.");
-talkEntry:addResponse("Man nennt mich Torina Scibrim, als Notarin kann Ich euch zum Bürger unseres schönen Ortes eintragen.");
+talkEntry:addResponse("Mein Name ist Torina Scibrim, ich bin die Notarin Runewicks.");
+talkEntry:addResponse("Man nennt mich Torina Scibrim, als Notarin kann Ich Euch zum Bürger unseres schönen Ortes eintragen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -190,7 +190,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Derzeit habe ich alles, aber danke für eure Sorge.");
+talkEntry:addResponse("Derzeit habe ich alles, aber danke für Eure Sorge.");
 talkEntry:addResponse("Vielleicht ein anderes mal, derzeit habe ich alles was ich brauche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -208,36 +208,36 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich habe derzeit keine Aufgaben für euch, vielleicht aber wann anders.");
+talkEntry:addResponse("Ich habe derzeit keine Aufgaben für Euch, vielleicht aber wann anders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am the notary of Cadomyr and do all the stuff a notary does.");
-talkEntry:addResponse("I take care of the new arrivals in Cadomyr, I am the notary here.");
+talkEntry:addResponse("I am the notary of Runewick and do all the stuff a notary does.");
+talkEntry:addResponse("I take care of the new arrivals in Runewick, I am the notary here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich bin die Notarin Cadomyrs und tu all das was ein Notar so tut.");
-talkEntry:addResponse("Ich kümmere mich um die Neuankömmlinge in Cadomyr, ich bin hier die Notarin.");
+talkEntry:addResponse("Ich bin die Notarin Runewick und tu all das was ein Notar so tut.");
+talkEntry:addResponse("Ich kümmere mich um die Neuankömmlinge in Runewick, ich bin hier die Notarin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I am the notary of Cadomyr and do all the stuff a notary does.");
+talkEntry:addResponse("I am the notary of Runewick and do all the stuff a notary does.");
 talkEntry:addResponse("I take care of the new arrivals in Cadomyr, I am the notary here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin die Notarin Cadomyrs und tu all das was ein Notar so tut.");
-talkEntry:addResponse("Ich kümmere mich um die Neuankömmlinge in Cadomyr, ich bin hier die Notarin.");
+talkEntry:addResponse("Ich bin die Notarin Runewick und tu all das was ein Notar so tut.");
+talkEntry:addResponse("Ich kümmere mich um die Neuankömmlinge in Runewick, ich bin hier die Notarin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -264,20 +264,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Ich freu mich Euch kennenzulernen.");
+talkEntry:addResponse("Ich freue mich Euch kennenzulernen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("He's the best mage in rune wick, they say.");
+talkEntry:addResponse("He's the best mage in Runewick.");
 talkEntry:addResponse("I head he likes drinking tea.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Er soll der beste Magier in Runewick sein, so erzählt man sich.");
+talkEntry:addResponse("Er ist der beste Magier in Runewick.");
 talkEntry:addResponse("Ich hörte sagen, dass er gern Tee trinkt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -286,15 +286,15 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Er soll der beste Magier in Runewick sein, so erzählt man sich.");
-talkEntry:addResponse("Ich hörte sagen, dass er gern Tee trinkt.");
+talkEntry:addResponse("He's the best mage in Runewick.");
+talkEntry:addResponse("I head he likes drinking tea.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Er soll der beste Magier in Runewick sein, so erzählt man sich.");
+talkEntry:addResponse("Er ist der beste Magier in Runewick.");
 talkEntry:addResponse("Ich hörte sagen, dass er gern Tee trinkt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -302,15 +302,15 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("The people in Runewick think of wisdom as more important than honour. I'll tell you thoses are strange people!");
-talkEntry:addResponse("That's there the achmage lives.");
+talkEntry:addResponse("We people of Runewick think of wisdom as more important than honour.");
+talkEntry:addResponse("That's there the Achmage lives, of couse!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Die Leute von Runewick halten Wissen für wertvoller als Ehre.Ich sag Euch, dass sich seltsame Leute!");
-talkEntry:addResponse("Das ist der Ort wo der Erzmagier lebt");
+talkEntry:addResponse("Wir Leute von Runewick halten Wissen für wertvoller als Ehre.");
+talkEntry:addResponse("Selbstverständlich ist dies der Ort wo der Erzmagier lebt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -343,22 +343,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("in Galmair zähnt nur Reichtum und Geld.");
+talkEntry:addResponse("In Galmair zählt nur Reichtum und Geld.");
 talkEntry:addResponse("Es gibt auch in Galmair einen Notar, so wie in jeder Stadt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Honour to the queen!");
-talkEntry:addResponse("May the gods protecht the queen!");
+talkEntry:addResponse("You want to see a real queen? Go to Cadomyr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("Ehre der Königin!");
-talkEntry:addResponse("Mögen die Götter die Königin schützen!");
+talkEntry:addResponse("Ihr wollt eine echte Königin sehen? Geht nach Cadomyr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -366,46 +364,40 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("This is the name of our fair and noble queen.");
-talkEntry:addResponse("Honour to the queen!");
-talkEntry:addResponse("May the gods protecht the queen!");
+talkEntry:addResponse("Does she live in Runewick? I think I've head that name before.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Dies ist der Name unsere gerechten und edlen Königin.");
-talkEntry:addResponse("Ehre der Königin!");
-talkEntry:addResponse("Mögen die Götter die Königin schützen!");
+talkEntry:addResponse("Lebt die in Runewick? I denke, ich habe den Namen schon mal gehört.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("We are lucky to live in a place where everyone knows his place, this way chaos can not spread.");
-talkEntry:addResponse("Every Place should be as nice as Cadomyr.");
+talkEntry:addResponse("Cadomyr is quite a hot place. Especially if you like knights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("We haben Glück an einem Ort zu leben, wo jeder seinen Platz kennt, so kann keine Unordnung aufkommen.");
-talkEntry:addResponse("Jeder Ort sollte so schön sein, wie Cadomyr.");
+talkEntry:addResponse("Cadomyr ist schon sehenswert, besonders wenn Ihr Ritter mögt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Albar is a nice country. Oder is important there.");
+talkEntry:addResponse("Albar is a nice country. But oder is important there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Albar ist ein schönes Land. Dort herrscht Ordnung.");
+talkEntry:addResponse("Albar ist ein schönes Land. Aber dort herrscht Ordnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -421,7 +413,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("Gynk ist nicht der beste Ort wo man aufzuwachsen kann.Es ist ein dreckiger Ort, genau wie Galmair.");
+talkEntry:addResponse("Gynk ist nicht der beste Ort wo man aufzuwachsen kann. Es ist ein dreckiger Ort, genau wie Galmair.");
 talkEntry:addResponse("Ich war noch nie in Gynk, I denke dort würde es mir nicht gefallen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -437,36 +429,34 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Salkamar ist ein schöner Ort. Dort ist es recht sonnig.");
-talkEntry:addResponse("Ich war noch nie in Salkamar, I glaube dieser Ort liegt am Meer.");
+talkEntry:addResponse("Ich war noch nie in Salkamar, ich glaube dieser Ort liegt am Meer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("The month were named after the 16 Gods, we should name one month after the queen!");
-talkEntry:addResponse("I pray to Zhambra. To wich God do you pray?");
+talkEntry:addResponse("The month were named after the 16 Gods, we should name one month after the arch mage!");
+talkEntry:addResponse("I pray to Zhambra. To which god do you pray?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("Nach den 16 Göttern wurden die Monate des Jahres benannt. Wir sollten einem Monat nach der Königin benennen!");
-talkEntry:addResponse("I bete zu Zhambar. zu welchem Gott betet Ihr?");
+talkEntry:addResponse("Nach den 16 Göttern wurden die Monate des Jahres benannt. Wir sollten einem Monat nach dem Erzmagier benennen!");
+talkEntry:addResponse("Ich bete zu Zhambar. Zu welchem Gott betet Ihr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("Some people in Cadomyr pray to Adron.");
 talkEntry:addResponse("I don't worship this god.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("Einige Leute in Cadomyr beten zu Adron.");
 talkEntry:addResponse("I don't worship this god.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -503,12 +493,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
 talkEntry:addResponse("I don't worship this god.");
+talkEntry:addResponse("Some people pay to her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addResponse("Ich verehre diesen Gott nicht.");
+talkEntry:addResponse("Einige Leute beten zu ihm.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -516,12 +508,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
 talkEntry:addResponse("I don't worship this god.");
+talkEntry:addResponse("Some people pay to him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
 talkEntry:addResponse("Ich verehre diesen Gott nicht.");
+talkEntry:addResponse("Einige Leute beten zu ihm.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -562,7 +556,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Viele dle Ritter beten zu Malachín.");
+talkEntry:addResponse("Viele edle Ritter beten zu Malachín.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -666,7 +660,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Pray to Zhambar, so he'll protect your friend during battle.");
+talkEntry:addResponse("Pray to Zhambar, so he'll protect your friends during battle.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -677,25 +671,12 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("status");
-talkEntry:addResponse("You are a member of the realm %TOWN with the rank %RANK. So you can call yourself %RANK of %TOWN.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("status");
-talkEntry:addResponse("Du Mitglied des Reiches %TOWN mit dem Rang %RANK. Ihr könnt euch also %RANK von %TOWN nennen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
 talkEntry:addResponse("I'm a notary.");
-talkEntry:addResponse("I do not sell aything.");
+talkEntry:addResponse("I do not sell anything.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -718,7 +699,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Es tut mir leid, ich bin gerade beschäftigt.Ihr sollte mit jemand anderem reden, wenn euch der Sinn nach einer netten Plauerdei steht.");
+talkEntry:addResponse("Es tut mir leid, ich bin gerade beschäftigt.Ihr sollte mit jemand anderem reden, wenn Euch der Sinn nach einer netten Plauerdei steht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -754,7 +735,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addResponse("So you don't think that way?");
-talkEntry:addResponse("Well...I wouln't say it that way.");
+talkEntry:addResponse("Well...I wouldn't say it that way.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -764,10 +745,10 @@ talkEntry:addResponse("Ihr seht dies also anders?");
 talkEntry:addResponse("Nun ja... so würde ich das nicht sagen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me blättert duch einen Stapel Pergamente.", "#me skims throug a pile of parchments.");
+talkingNPC:addCycleText("#me blättert durch einen Stapel Pergamente.", "#me skims through a pile of parchments.");
 talkingNPC:addCycleText("#me betrachtet die Schreibfeder in ihrer Hand.", "#me looks at the quill, she's holding in her hand.");
 talkingNPC:addCycleText("#me liest einen Brief.", "#me reads a letter.");
-talkingNPC:addCycleText("#me summt leise eine Melodie.", "#me humms a little melodie silently.");
+talkingNPC:addCycleText("#me summt leise eine Melodie.", "#me hums a little melodie silently.");
 talkingNPC:addCycleText("#me bringt ein Siegel unter einem Brief an.", "#me affixes a seal under a letter.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);

@@ -26,7 +26,6 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.anthar_vilicon", package.seeall)
 
@@ -2809,7 +2808,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünfzig Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("Ich danke euch vielmals. Ich sollte mit dem Schmieden des goldenen Armreifes für die Königin beginnen, sobald ich mit meinen anderen Verpflichtungen fertig bin. Ich glaube, das nennt man dann Feierabend.");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 50));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
@@ -3218,8 +3217,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Where is the sign above my head, reading 'Anthar's general store'? I am not ar!");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Where is the sign above my head, reading 'Anthar's general store'? I am not a trader!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

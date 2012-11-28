@@ -78,3 +78,11 @@ item,1,UseItem,trigger77
 item,1,UseItem,trigger78
 triggerfield,107,637,-4,MoveToField,trigger79
 triggerfield,103,637,-4,MoveToField,trigger80
+npc,341,receiveText,trigger81
+npc,341,receiveText,trigger82
+npc,341,receiveText,trigger83
+npc,341,receiveText,trigger84
+npc,341,receiveText,trigger85
+npc,341,receiveText,trigger86
+npc,341,receiveText,trigger87
+npc,341,receiveText,trigger88

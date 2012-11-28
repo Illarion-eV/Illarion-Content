@@ -1,5 +1,6 @@
 require("handler.sendmessage")
 require("base.common")
+require("item.gems")
 
 -- UPDATE common SET com_script = 'test.vilarion' WHERE com_itemid = 9;
 
@@ -34,7 +35,11 @@ function LookAtItem(player, item)
     return true    
 end
 
-function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
+function UseItem(User, SourceItem, TargetItem, counter, Param, ltstate)
+    if (User.lastSpokenText == "gem") then
+        item.gems.gemCraft:showDialog(User, User)
+    end
+    
     if (User.lastSpokenText == "scriptvar") then
         ScriptVars:set("var_test", 42)
         ScriptVars:save()
@@ -91,6 +96,14 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
         User:inform("Quest " .. quest .. " has been reset!")
         return
     end
+	-- added by merung: check queststatus
+	local a, b, quest
+    a,b,quest = string.find(User.lastSpokenText,"getquest (%d+)")
+	if a ~= nil then
+		quest = tonumber(quest)
+		User:inform("Quest "..quest.." has queststatus "..User:getQuestProgress(quest))
+		return
+	end
 
     if (User.lastSpokenText == "GM") then
         User:pageGM("test ticket")
@@ -261,6 +274,7 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
         end
         User:requestSelectionDialog(dialog)
     end
+
 end
 
 function useNPC(User,counter,param)

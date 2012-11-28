@@ -142,7 +142,7 @@ function onDeath(Monster)
 
         local done=monster.base.drop.AddDropItem(735,1,20,(100*math.random(4,5)+math.random(44,55)),0,2); --raw stone
         if not done then done=monster.base.drop.AddDropItem(733,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --stone block
-        if not done then done=monster.base.drop.AddDropItem(253,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --raw bluestone
+        if not done then done=monster.base.drop.AddDropItem(253,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --raw sapphire
         if not done then done=monster.base.drop.AddDropItem(254,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --raw diamond
         if not done then done=monster.base.drop.AddDropItem(1266,20,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --stone
 

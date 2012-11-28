@@ -22,7 +22,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Vielleicht dieser Grabstein an der Wand? Gehe näher und untersuche ihn!", "Maybe this tomb stone at the wall? Go closer and examine it!"):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Vielleicht dieser Grabstein an der Wand? Gehe nï¿½her und untersuche ihn!", "Maybe this tomb stone at the wall? Go closer and examine it!"):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

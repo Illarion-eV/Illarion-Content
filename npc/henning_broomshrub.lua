@@ -23,7 +23,6 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.henning_broomshrub", package.seeall)
 
@@ -876,10 +875,9 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Do I look like ar!?");
+talkEntry:addResponse("Do I look like a trader!?");
 talkEntry:addResponse("Oh, I forgot my vendor's tray at home. Want to play a game instead?");
 talkEntry:addResponse("You must be kidding me. I am not a huckster!");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
