@@ -24,7 +24,6 @@ require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
-require("npc.base.consequence.talkstate")
 require("npc.base.talk")
 module("npc.hassan", package.seeall)
 
@@ -122,8 +121,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hah! My fricome, let us talk about important things, we're important people, aren't we?");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Hah! My friend, come, let us talk about important things, we're important people, aren't we?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -754,8 +752,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("#me seufzt: 'Cadomyr, oh Cadomyr! Wir sind die ehrenhafteste und groﬂartigste Nation in der Gegnur behindert durch unsere verr‰terischen Nachbarn.'");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("#me seufzt: 'Cadomyr, oh Cadomyr! Wir sind die ehrenhafteste und groﬂartigste Nation in der Gegend, nur behindert durch unsere verr‰terischen Nachbarn.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -55,8 +55,8 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Elesil Daelwon the informant. Keywords: Question, information, Runewick, building, mission.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Elesil Daelwon die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Auftrag.")
+"Help" -> inform("[Game Help] This NPC is Elesil Daelwon the informant. Keywords: Question, information, Runewick, building, mission, faction.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Elesil Daelwon die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Auftrag, Fraktion.")
 
 -- Mandatory: General speech
 queststatus(604) = 1, english, ".*" -> inform("You can talk with Elesil now. Ask for 'help' if you do not know what to ask! You can also go back to Hummi to collect your reward and come back later."), "How can I help you? Do you like to have any information? Or do you like to have a task?", queststatus(604)=2
@@ -199,12 +199,11 @@ english, "Hinterland" -> inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutte
 "Lurnord Brücke" -> "Das ist die Brücke zwischen hier und Eibental. *zeigt in den Westen* Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welch nun gegangen ist. Sein Name war Lunord."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
--- "quest", "mission", english -> "IN PROGRESS."
--- "quest", "mission" -> "IN ARBEIT."
--- "task", "adventure", "order" -> "IN PROGRESS."
--- "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+-- quest information_runewick_1.quest belongs to this NPC
 
 -- Faction stuff
+"faction" -> "There are three factions: Our faction Runewick, ruled by our great leader Elvaine Morgan. Then the two foolish factions of Galmair and Cadomyr, ruled by Don Valerio Guilianni and Queen Rosaline Edwards."
+"Fratktion" -> "Es gibt drei Fraktionen: Unsere Fraktion Runewick, geführt von unserem Herrscher Elvaine Morgan. Dann diese zwei närrischen Fraktionen Galmair und Cadomyr, geführt von Don Valerio Guilianni und Königin Rosaline Edwards."
 "archmage" -> "Our leader can be found in the Hall of Elara in the Fire Tower if you want to talk with him."
 "Erzmagier" -> "Unser Herrscher kann in der Halle der Elara im Turm des Feuers gefunden werden, wenn ihr ihn zu sprechen wünscht."
 english, "Elvaine", "Morgan" -> "Our leader can be found in the Hall of Elara in the Fire Tower if you want to talk with him."

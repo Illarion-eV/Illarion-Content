@@ -1,3 +1,4 @@
+require("item.gems")
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
@@ -244,7 +245,7 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
         if not done then done=monster.base.drop.AddDropItem(278,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --obsidian ring
         if not done then done=monster.base.drop.AddDropItem(2185,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --wooden cup
         if not done then done=monster.base.drop.AddDropItem(1858,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --goblet
-        if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(6,7)+math.random(66,77)),{magicalTopaz="1"},2); end --magic topaz
+        if not done then done=monster.base.drop.AddDropItem(item.gems.getMagicGemId(item.gems.TOPAZ),1,1,999,item.gems.getMagicGemData(1),2); end --magic topaz
 
         --Category 3: Weapon
 
@@ -274,7 +275,6 @@ if (MonID==201) then --Demon Skeleton, Level: 6, Armourtype: medium, Weapontype:
         if not done then done=monster.base.drop.AddDropItem(279,1,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --sapphire ring
         if not done then done=monster.base.drop.AddDropItem(314,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --pot ash
         if not done then done=monster.base.drop.AddDropItem(224,1,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --golden goblet
-        if not done then done=monster.base.drop.AddDropItem(285,1,1,(100*math.random(7,8)+math.random(77,88)),{magicalDiamond="1"},2); end --magic diamond
 
         --Category 3: Weapon
 

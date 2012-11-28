@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 100
 
 local POSITION = position(408, 308, 0)
 local RADIUS = 15
-local LOOKAT_TEXT_DE = "Folgende Zeilen sind mit roter Farbe geschrieben: '10 Peitschenschläge für den Don belügen; 100 Peitschenschläge für den Don betrügen; 1000 Peitschenschläge für den Don bestehlen!'"
+local LOOKAT_TEXT_DE = "Folgende Zeilen sind mit roter Farbe geschrieben: '10 Peitschenschlï¿½ge fï¿½r den Don belï¿½gen; 100 Peitschenschlï¿½ge fï¿½r den Don betrï¿½gen; 1000 Peitschenschlï¿½ge fï¿½r den Don bestehlen!'"
 local LOOKAT_TEXT_EN = "With red colour following words are written: '10 wipe lashes for lying to the Don; 100 wipe lashes for betraying the Don; 1000 wipe lashes for stealing from the Don!'"
 
 function LookAtItem(PLAYER, item)
@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Iradona und teile ihr mit die Anzahl der Peitschenhiebe.", "Go back to Iradona and tell her the number of wipe lashes."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurï¿½ck zu Iradona und teile ihr mit die Anzahl der Peitschenhiebe.", "Go back to Iradona and tell her the number of wipe lashes."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

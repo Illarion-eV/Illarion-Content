@@ -18,7 +18,6 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.talkstate")
 require("npc.base.talk")
 module("npc.brute_booze", package.seeall)
 
@@ -676,8 +675,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("There's nothing keeping me in Runewick. It makes my hair stend onwhen sorcery is near.");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("There's nothing keeping me in Runewick. It makes my hair stend on end when sorcery is near.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

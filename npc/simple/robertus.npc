@@ -98,9 +98,9 @@ queststatus(108) = 3, english, "Hector", "Valerion" -> inform("[Quest status] De
 queststatus(108) = 3, "Hector", "Valerion" -> inform("[Queststatus] Späte Post II: Du überbringst Robertus die Nachricht von Hector Valerion."), "Oh, ihre Majestät hat eine Skizze gezeichnet, wie ihr Grab aussehen soll. Was für ein wundervoller Plan! Ein Kubus in der Wüste!", queststatus(108) = 4
 
 -- Catching quest triggers
-english, "quest", "mission" -> "So, you want to help, building the grave of her highness? I'll alwaysbuilding material with you, but there is nothing specific you can do for me.", trade
+english, "quest", "mission" -> "So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me."
 "quest", "mission" -> "Nun, ihr wollt also dabei helfen, das Grabmal ihrer Hoheit zu bauen? Ich werde stets Baumaterial mit euch handeln, aber konkret könnt ihr mir gerade nicht weiterhelfen."
-"task", "adventure", "order" -> "So, you want to help, building the grave of her highness? I'll alwaysbuilding material with you, but there is nothing specific you can do for me.", trade
+"task", "adventure", "order" -> "So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun, ihr wollt also dabei helfen, das Grabmal ihrer Hoheit zu bauen? Ich werde stets Baumaterial mit euch handeln, aber konkret könnt ihr mir gerade nicht weiterhelfen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!

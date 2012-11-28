@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 84
 
 local POSITION = position(958, 788, 0)
 local RADIUS = 15
-local LOOKAT_TEXT_DE = "Die linke Säule trägt offensichtlich ein Feuerelement."
+local LOOKAT_TEXT_DE = "Die linke Sï¿½ule trï¿½gt offensichtlich ein Feuerelement."
 local LOOKAT_TEXT_EN = "The left column bears an element of fire obviously."
 
 function LookAtItem(PLAYER, item)
@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Elsil und teile ihr mit welches Element du gefunden hast.", "Go to Elesil and tell her the kind of element you found."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurï¿½ck zu Elsil und teile ihr mit welches Element du gefunden hast.", "Go to Elesil and tell her the kind of element you found."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -305,7 +305,7 @@ english, "Zhambra" -> "Zhambra is the most overrated god of them all. Friendship
 "Zhambra" -> "Zhambra ist der am meisten überschätzte Gott von allen. Freundschaft, eh? Ich zeig dir gleich Freundschaft. Meine Freundin ist meine Faust. Deine auch?"
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Come to me if you owe the Don money. Then, you give it to me. If you don't, I give something to you. Right in your face!", "I'm not ar. The difference is: I just take money and give nothing in return. You just get something from me if you don't pay. Pain!", "Get lost if you want to barter.", trade
+"what sell", "what buy", "list wares", "price of" -> "Come to me if you owe the Don money. Then, you give it to me. If you don't, I give something to you. Right in your face!", "I'm not a trader. The difference is: I just take money and give nothing in return. You just get something from me if you don't pay. Pain!", "Get lost if you want to barter."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Komm zu mir, wenn du dem Don Geld schuldest. Das gibst du dann mir. Wenn du das nicht tust, dann gebe ich dir was. Auf die Fresse!", "Ich bin doch kein Händler. Der Unterschied: Ich nehme nur Geld und gebe nichts im Gegenzug. Du bekommst nur etwas von mir, wenn du nicht bezahlst. Schmerz!", "Hau ab, wenn du feilschen willst."
 "tell something" -> "I'm not in the mood.", "Do I look like an elven bard?", "Do you know how much pain it is when you pull on somebody's tongue? Lizards don't like this, especially."
 "erzähl was", "erzähl etwas" -> "Mir ist nicht danach.", "Sehe ich aus wie ein Elfenbarde?", "Weißt du eigentlich, wie schmerzhaft es ist, jemanden an der Zunge zu ziehen? Echsenwesen hassen das ganz besonders."

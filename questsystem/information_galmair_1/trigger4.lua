@@ -7,7 +7,7 @@ local QUEST_NUMBER = 631
 local PRECONDITION_QUESTSTATE = 26
 local POSTCONDITION_QUESTSTATE = 29
 
-local NPC_TRIGGER_DE = "[Bb]laustein"
+local NPC_TRIGGER_DE = "[Ss]aphir"
 local NPC_TRIGGER_EN = "[Bb]luestone"
 local NPC_REPLY_DE = "Gut, aber wir haben noch einen zweiten. Ist der auch bekannt? Rubin, Amethyst oder Obsidian?"
 local NPC_REPLY_EN = "Good, but we have a second. Do you also know it? Ruby, Amethyst or Obsidian?"

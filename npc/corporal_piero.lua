@@ -22,7 +22,6 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.corporal_piero", package.seeall)
 
@@ -716,13 +715,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("On the Battlefield I count on a sharp blade and my closest friend to watch my back! That's what Zhambra stands for! Friendship.");
+talkEntry:addResponse("On the battlefield I count on a sharp blade and my closest friend to watch my back! That's what Zhambra stands for! Friendship.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Am Schlachtfällt verlasse ich mich auf eine scharfe Klinge und meine engsten freunde die mir den Rücken decken! Dies ist wofür Zhambra steht. Freundschaft - die bis über den Tot hinaus geht.");
+talkEntry:addResponse("Auf dem Schlachtfeld verlasse ich mich auf eine scharfe Klinge und meine engsten Freunde die mir den Rücken decken! Dies ist wofür Zhambra steht. Freundschaft - die bis über den Tot hinaus geht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -731,8 +730,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I'm a guard. Not a merchant. For sure you are able toinside of the town.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I'm a guard. Not a merchant. For sure you are able to trade inside of the town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -804,7 +802,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ich bin Wache. Ich be-Wache Leute.");
+talkEntry:addResponse("Ich bin eine Wache. Ich bewache Leute.");
 talkEntry:addResponse("Hmh - was? Piraten. Aha.");
 talkEntry:addResponse("Ja Genau. - Weitermachen!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -813,7 +811,7 @@ talkingNPC:addCycleText("Lang lebe Königin Rosaline Edwards.", "Long live queen 
 talkingNPC:addCycleText("#me kratzt sich am Nasenrücken.", "#me has a scratch at the back of his nose.");
 talkingNPC:addCycleText("#me holt ein Stück Brot aus der Tasche und steckt es sich in den Mund.", "#me takes a pice bread out of his bag and eat it.");
 talkingNPC:addCycleText("#me nimmt einen kräftigen Schluck aus seinen Trinkschlauch.", "#me takes a nip out of his water bottle.");
-talkingNPC:addCycleText("#me blickt zur Seite. 'Halt! Wer da?...Hm. War wohl doch nur der Wind.'", "#me turns to side. 'Stop! Someone there?...Hm. Seems the wind tricked me again.'");
+talkingNPC:addCycleText("#me blickt zur Seite. 'Halt! Wer da? War wohl doch nur der Wind.'", "#me turns to side. 'Stop! Someone there? Seems the wind tricked me again.'");
 talkingNPC:addCycleText("#me kratzt sich unauffällig am Hinterteil.", "#me has a inconspicuous short scratch at his butt.");
 talkingNPC:addCycleText("#me blickt leicht verträumt in den Himmel.", "#me glances the sky in a moony way.");
 talkingNPC:addCycleText("#me kaut nachdenklich an den Fingernägeln.", "#me noshes his fingernails, a thoughtful gaze in his face.");

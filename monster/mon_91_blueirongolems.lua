@@ -1,3 +1,4 @@
+require("item.gems")
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
@@ -94,9 +95,9 @@ if (MonID==911) then -- Merinium Golem, Level: 9, Armourtype: medium, Weapontype
 
         local done=monster.base.drop.AddDropItem(285,5,20,(100*math.random(8,9)+math.random(88,99)),0,2); --diamond
         if not done then done=monster.base.drop.AddDropItem(283,5,10,(100*math.random(8,9)+math.random(88,99)),0,2); end --obsidian
-        if not done then done=monster.base.drop.AddDropItem(46,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalRuby="1"},2); end --magic ruby
-        if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalAmethyst="1"},2); end --magic amethyst
-        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(8,9)+math.random(88,99)),{magicalSapphire="1"},2); end --magic sapphire
+        if not done then done=monster.base.drop.AddDropItem(item.gems.getMagicGemId(item.gems.RUBY),1,1,999,item.gems.getMagicGemData(1),2); end --magic ruby
+        if not done then done=monster.base.drop.AddDropItem(item.gems.getMagicGemId(item.gems.AMETHYST),1,1,999,item.gems.getMagicGemData(1),2); end --magic amethyst
+        if not done then done=monster.base.drop.AddDropItem(item.gems.getMagicGemId(item.gems.SAPPHIRE),1,1,999,item.gems.getMagicGemData(1),2); end --magic sapphire
 
         --Category 3: Special Loot
 

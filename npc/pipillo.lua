@@ -31,7 +31,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("handel");
 talkEntry:addTrigger("verkauf");
 talkEntry:addTrigger("portal");
-talkEntry:addResponse("Hiho, lass und handeln!");
+talkEntry:addResponse("Hiho, lass uns handeln!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;

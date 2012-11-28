@@ -237,22 +237,22 @@ english, "Zhambra" -> "I would welcome the aid of any of the Gods at this point.
 "Zhambra" -> "Zur Zeit würde ich die Hilfe jeglicher Gottheit begrüßen.", "Bitte bedenke meine Frau in Euren Gebeten.", "Die Götter haben bis jetzt immer über meine Gesundheit und die meiner Frau gewacht, ich hoffe das sie es auch nocheinmal tun."
 
 -- Catching typical NPC phrases
-queststatus(1337) < 11, "what sell", "what buy", "list wares", "price of" -> "My apologies, but I am in no mood toright now.", "I am sorry, but I cannotwith you at the moment. I must be caring for my wife.", "I fear that I am too busy dealing with my wife at the moment.", trade, trade
+queststatus(1337) < 11, "what sell", "what buy", "list wares", "price of" -> "My apologies, but I am in no mood to trade right now.", "I am sorry, but I cannot trade with you at the moment. I must be caring for my wife.", "I fear that I am too busy dealing with my wife at the moment."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Entschuldigt, aber ich bin nicht in der Stimmung zu Handeln.", "Es tut mir leid, aber ich kann gerade keinen Handel mit euch Abschließen, icg muss nicht um meine Frau kümmern.", "Ich fürchte ich bin zu beschäftigt mich um meine Frau zu kümmern, als dass ich mit Euch handeln könnte."
 "tell something" -> "I am sorry, but I do not feel much like talking at the moment.", "I apologise, but my wife requires my help.", "I am sorry, but I am too upset to properly engage in conversation at the moment."
 "erzähl was", "erzähl etwas" -> "Es tut mir leid, aber ich bin nicht in der Stimmung etwas zu erzählen.", "Bitte entschuldigt, aber meine Frau bracht meine Hilfe.", "Es tut mir leid, ich bin zu besorgt, als dass ich jetzt ein gutes Gespräch führen könnte."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Rowan", "Banius" -> "Hm? Please, I must take care of my wife.", "Forgive me, but my wife needs my care.", "I am sorry but I must be looking after my wife."
-"Rowan", "Banius" -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir Leid, aber ich muss mich um meine Frau kümmern."
+"Rowan", "Banius" -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir leid, aber ich muss mich um meine Frau kümmern."
 "Yes" -> "Hm? Please, I must take care of my wife.", "Forgive me, but my wife needs my care.", "I am sorry but I must be looking after my wife."
-"Ja" -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir Leid, aber ich muss mich um meine Frau kümmern."
+"Ja" -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir leid, aber ich muss mich um meine Frau kümmern."
 "No" -> "Hm? Please, I must take care of my wife.", "Forgive me, but my wife needs my care.", "I am sorry but I must be looking after my wife."
 "Nein" -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir Leid, aber ich muss mich um meine Frau kümmern."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "Hm? Please, I must take care of my wife.", "Forgive me, but my wife needs my care.", "I am sorry but I must be looking after my wife."
-german, chance(20.0), ".*" -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir Leid, aber ich muss mich um meine Frau kümmern."
+german, chance(20.0), ".*" -> "Hm? Bitte, ich muss mich um meine Frau kümmern.", "Entschuldigt, aber meine Frau braucht meine Aufmerkamkeit.", "Es tut mir leid, aber ich muss mich um meine Frau kümmern."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

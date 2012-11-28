@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 51
 
 local NPC_TRIGGER_DE = "[Rr]unewick"
 local NPC_TRIGGER_EN = "[Rr]unewick"
-local NPC_REPLY_DE = "Nun eine Frage zu den Lokalitäten hier. Wie heißt die Brücke die du etwas östlich von hier findest im Hinterland?"
+local NPC_REPLY_DE = "Nun eine Frage zu den Lokalitï¿½ten hier. Wie heiï¿½t die Brï¿½cke die du etwas ï¿½stlich von hier im Hinterland findest?"
 local NPC_REPLY_EN = "Now, a question about locations here. What is the name of the bridge which you can find east from here in the hinterland?"
 
 function receiveText(npc, type, text, PLAYER)

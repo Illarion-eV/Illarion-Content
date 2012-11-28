@@ -260,8 +260,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("So, you want to help, building the grave of her highness? I'll alwaysbuilding material with you, but there is nothing specific you can do for me.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -276,8 +275,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("So, you want to help, building the grave of her highness? I'll alwaysbuilding material with you, but there is nothing specific you can do for me.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("So, you want to help, building the grave of her highness? I'll always trade building material with you, but there is nothing specific you can do for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

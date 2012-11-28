@@ -7,8 +7,8 @@ local QUEST_NUMBER = 631
 local PRECONDITION_QUESTSTATE = 51
 local POSTCONDITION_QUESTSTATE = 53
 
-local NPC_TRIGGER_DE = "[Cc]opper"
-local NPC_TRIGGER_EN = "[Kk]upfer"
+local NPC_TRIGGER_DE = "[Kk]upfer"
+local NPC_TRIGGER_EN = "[Cc]opper"
 local NPC_REPLY_DE = "Auch richtig. Und nun die letzte Frage bevor wir mit ein paar Aufgaben beginnen. Wer kann dir hier mit Orten um Galmair behilflich sein? "
 local NPC_REPLY_EN = "Again correct. Now the last question before I give you some task. Whom can you ask if you want to know more about locations around Galmair?"
 
