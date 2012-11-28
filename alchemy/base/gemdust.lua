@@ -65,7 +65,7 @@ end
 function GemDustInWater(User,cauldron,gemDust)
 
     cauldron:setData("filledWith","essenceBrew")
-	local reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(gemDust, nil, nil, nil)
+	local reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(gemDust, nil, nil, nil, User)
 	cauldron.id = reCauldron
 	world:changeItem(cauldron)
 	world:makeSound(13,cauldron.pos)
