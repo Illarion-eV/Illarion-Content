@@ -398,7 +398,7 @@ function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
 	local myList
 	local myValue
     if gemdust then
-	    myList = gemdustList
+	    myList = gemDustList
 		myValue = gemdust.id
 	elseif cauldron then
 	    myList = cauldronList
