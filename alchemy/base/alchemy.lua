@@ -277,12 +277,9 @@ end
 function CheckIfGemDust(SourceItem, User)
 local retVal = nil;
 for i,checkId in pairs(gemList) do
-    User:inform("debug al 1")
-	theItem = SourceItem
-	User:inform("debug al 2: "..theItem.id)
+    theItem = SourceItem
 	if theItem.id == checkId then
-    User:inform("debug al 3")
-	retVal = theItem
+    retVal = theItem
     break;
     end
 end	
