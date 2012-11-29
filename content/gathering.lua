@@ -37,13 +37,13 @@ function InitGathering()
     waxproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming}; -- id_428_candletable
     glassingotproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.glassBlowing}; -- id_313_glassmeltoven
     bricksproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.firingBricks}; -- id_313_glassmeltoven
+    smokefood = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.cookingAndBaking}; -- id_305_smokingoven
+    graingrinding = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5}; -- id_250_mill
 		
 		-- TODO
         -- id_52_filledbucket ("peasantry")
         -- id_220_barrel
         -- id_250_mill
-        -- id_305_smokingoven
-        -- id_313_glassmeltoven
 
 
 		--woodchopping
