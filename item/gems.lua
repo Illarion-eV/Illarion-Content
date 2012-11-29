@@ -146,6 +146,7 @@ function handleSocketing(user, gem)
                 user:inform("key: " .. key .. ", level: " .. level)
                 item:setData(key, level)
                 world:erase(gem, 1)
+                world:changeItem(item)
             end
         end
     end
