@@ -471,6 +471,7 @@ function CombineStockEssence( User, stock, essenceBrew)
 		SetQuality(User,cauldron)
 		cauldron.id = newCauldron
 		cauldron:setData("potionEffectId", effectID)
+		cauldron:setData("filledWith", "potion")
 		world:changeItem(cauldron)
 		world:makeSound(13,cauldron.pos)
 		world:gfx(52,cauldron.pos)
