@@ -18,8 +18,11 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.condition.town")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
 module("npc.johnathan_idler", package.seeall)
 
@@ -35,7 +38,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Jonathan Idler  der Magier. Schlüßsselwörter: Beruf, Zarissa, Quest, Auftrag."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Jonathan Idler der Magier. Schlüßsselwörter: Beruf,  Zassaria, Quest, Auftrag."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -169,7 +172,7 @@ talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("Ah, yes...");
 talkEntry:addResponse("#me moves his glasses.");
-talkEntry:addResponse("Who? Me? I'm Joanthat. Joanathan Ideler.");
+talkEntry:addResponse("Who? Me? I'm Jonathan. Jonathan Ideler.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -207,6 +210,134 @@ talkEntry:addTrigger("erwerb");
 talkEntry:addResponse("Ich bin ein Magier, kein Kaufmann.");
 talkEntry:addResponse("Entschuldigt, ich lese gerade, ...");
 talkEntry:addResponse("Ah. Das erklärt einiges!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(318, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Idler's Request I"));
+talkEntry:addResponse("...");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(318, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(318, "=", 0));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] ... I"));
+talkEntry:addResponse("...");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(318, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(318, "=", 0));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("message");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest]  ... I"));
+talkEntry:addResponse("...");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(318, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(318, "=", 0));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Botschaft");
+talkEntry:addTrigger("Nachricht");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] ...I "));
+talkEntry:addResponse("...");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(318, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(318, "=", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("... ");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(318, "=", 1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("message");
+talkEntry:addResponse("...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(318, "=", 1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Botschaft");
+talkEntry:addTrigger("Nachricht");
+talkEntry:addResponse("...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 5 silver coins. You advance in the Archmage's favour."));
+talkEntry:addResponse("...");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 300));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 5 silver coins."));
+talkEntry:addResponse("...");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 5 Silberstücke. Dein Ansehen beim Erzmagier steigt."));
+talkEntry:addResponse("...");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 300));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 2));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 2 Silberstücke."));
+talkEntry:addResponse("...");
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 300));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -667,7 +798,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addResponse("Tut mir leid, ich kenne diese Person nicht.");
-talkEntry:addResponse("Ich habe diesen Namen schon einmal gehöret...");
+talkEntry:addResponse("Ich habe diesen Namen schon einmal gehört...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -703,7 +834,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addResponse("Tut mir leid, ich kenne diese Person nicht.");
-talkEntry:addResponse("Ich habe diesen Namen schon einmal gehöret...");
+talkEntry:addResponse("Ich habe diesen Namen schon einmal gehört...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -720,7 +851,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Ich war dort noch nie.");
 talkEntry:addResponse("Ah, ja. Galmair.");
-talkEntry:addResponse("Isthis place far from here?");
+talkEntry:addResponse("Is this place far from here?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -749,7 +880,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addResponse("Tut mir leid, ich kenne diese Person nicht.");
-talkEntry:addResponse("Ich habe diesen Namen schon einmal gehöret...");
+talkEntry:addResponse("Ich habe diesen Namen schon einmal gehört...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -783,7 +914,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addResponse("Albar ist berühm für seine Gesellschaft die an Traditionen festklammert, nicht jedem gefällt dies...");
 talkEntry:addResponse("Albar, ah ja.");
-talkEntry:addResponse("Der Beruf seines Vaters spielt in Albar eine größere Rolle als das geld was man besitzt.");
+talkEntry:addResponse("Der Beruf seines Vaters spielt in Albar eine größere Rolle als das Geld was man besitzt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
