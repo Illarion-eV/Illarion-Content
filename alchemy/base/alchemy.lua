@@ -443,7 +443,7 @@ function CombineStockEssence( User, stock, essenceBrew)
 		-- secondly, the stock
 		local stockConc = ""
 		for i=1,8 do 
-		    local currentSubs = stock:getData(wirkstoff[1].."Concentration")
+		    local currentSubs = stock:getData(wirkstoff[i].."Concentration")
 			if currentSubs == "" then
 			    currentSubs = 5
 			end	
