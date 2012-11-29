@@ -334,9 +334,14 @@ function EmptyBottle(User,Bottle)
 	   User:eraseItem(SourceItem,1) -- bottle breaks
 	   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
 	else	
-		Bottle.id = 164
-	    Bottle.quality = 333
-		world:changeItem(Bottle)
+		if Bottle.number > 1 then -- if we empty a bottle (stock, potion or essence brew) it should normally never be a stack! but to be one the safe side, we check anyway
+		    User:createItem(164,1,333,nil)
+			User:eraseItem(Bottle,1)
+		else
+			Bottle.id = 164
+			Bottle.quality = 333
+			world:changeItem(Bottle)
+		end	
 	end
 end
 
