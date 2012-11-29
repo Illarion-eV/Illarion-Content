@@ -157,7 +157,7 @@ function handleSocketing(user, gem)
         local slot = weaponPositions[i]
         local itemId = user:getItemAt(slot).id
         local name = world:getItemName(itemId, language)
-        dialog:addOption(item, name)
+        dialog:addOption(itemId, name)
     end
 
     user:requestSelectionDialog(dialog)
