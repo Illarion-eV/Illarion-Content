@@ -1,5 +1,6 @@
 require("content.lookat.unique")
 require("base.common")
+require("base.lookat")
 require("base.factions")
 require("alchemy.base.analyse")
 
@@ -23,6 +24,24 @@ gemItem[OBSIDIAN] = 283
 gemItem[SAPPHIRE] = 284
 gemItem[AMETHYST] = 197
 gemItem[TOPAZ] = 198
+
+gemId = {}
+gemId[285] = DIAMOND
+gemId[45] = EMERALD
+gemId[46] = RUBY
+gemId[283] = OBSIDIAN
+gemId[284] = SAPPHIRE
+gemId[197] = AMETHYST
+gemId[198] = TOPAZ
+
+gemDataKey = {}
+gemDataKey[DIAMOND] = "magicalDiamond"
+gemDataKey[EMERALD] = "magicalEmerald"
+gemDataKey[RUBY] = "magicalRuby"
+gemDataKey[OBSIDIAN] = "magicalObsidian"
+gemDataKey[SAPPHIRE] = "magicalSapphire"
+gemDataKey[AMETHYST] = "magicalAmethyst"
+gemDataKey[TOPAZ] = "magicalTopaz"
 
 gemPrefixDE = {"latent", "bedingt", "leicht", "m‰ﬂig", "durchschnittlich", "bemerkenswert", "stark", "sehr stark", "unglaublich", "einzigartig"}
 gemPrefixEN = {"latent", "limited", "slight", "moderate", "average", "notable", "strong", "very strong", "unbelievable", "unique"}
@@ -108,25 +127,43 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 	    alchemy.base.analyse.CauldronCheck(User, SourceItem, TargetItem, Counter, Param, ltstate)
 		return
 	end    
-	
+
+    handleSocketing(User, SourceItem)
+end
+
+function handleSocketing(user, gem)
+    local weaponPositions = getWeaponPositions(user)
+
 	local callback = function(dialog)
-        success = dialog:getSuccess()
-        if success then
-            selected = dialog:getSelectedIndex()
+        local success = dialog:getSuccess()
+        if success and base.common.CheckItem(user, gem) then
+            local selected = dialog:getSelectedIndex() + 1
+            local slot = weaponPositions[selected]
+            local item = user:getItemAt(slot)
+
+            if world:getWeaponStruct(item.id) then
+                local key = gemDataKey[gemId[gem.id]]
+                local level = gem:getData("gemLevel")
+                item:setData(key, level)
+                world:erase(gem, 1)
+                world:changeItem(item)
+            end
         end
     end
 
-    local dialog = SelectionDialog("Socketing", "Please select a weapon to insert the gem into:", callback)
-    local weaponTable = getWeaponTable(User)
-    local language = User:getPlayerLanguage()
+    local language = user:getPlayerLanguage()
+    local caption = base.common.GetNLS(user, "Sockeln", "Socketing")
+    local description = base.common.GetNLS(user, "Bitte w‰hle eine Waffe die gesockelt werden soll:", "Please select a weapon to insert the gem into:")
+    local dialog = SelectionDialog(caption, description, callback)
    
-    for i=1,#weaponTable do
-        local item = weaponTable[i].id
-        local name = world:getItemName(item, language)
-        dialog:addOption(item, name)
+    for i=1,#weaponPositions do
+        local slot = weaponPositions[i]
+        local itemId = user:getItemAt(slot).id
+        local name = world:getItemName(itemId, language)
+        dialog:addOption(itemId, name)
     end
 
-    User:requestSelectionDialog(dialog)
+    user:requestSelectionDialog(dialog)
 end
 
 weaponSlots = {}
@@ -139,15 +176,15 @@ table.insert(weaponSlots, Character.belt_pos_4)
 table.insert(weaponSlots, Character.belt_pos_5)
 table.insert(weaponSlots, Character.belt_pos_6)
 
-function getWeaponTable(user)
+function getWeaponPositions(user)
     weaponTable = {}
 
     for i=1,#weaponSlots do
         local slot = weaponSlots[i]
-        local item = user:getItemAt(slot)
+        local itemId = user:getItemAt(slot).id
         
-        if world:getWeaponStruct(item.id) then
-            table.insert(weaponTable, item)
+        if world:getWeaponStruct(itemId) then
+            table.insert(weaponTable, slot)
         end
     end
 
