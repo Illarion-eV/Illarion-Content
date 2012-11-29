@@ -1,5 +1,6 @@
 require("content.lookat.unique")
 require("base.common")
+require("base.lookat")
 require("base.factions")
 require("alchemy.base.analyse")
 
