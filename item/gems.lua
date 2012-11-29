@@ -141,7 +141,7 @@ function handleSocketing(user, gem)
             local item = user:getItemAt(slot)
 
             if world:getWeaponStruct(item.id) then
-                local key = gemDataKey[gemId[item.id]]
+                local key = gemDataKey[gemId[gem.id]]
                 item:setData(key, gem:getData("gemLevel"))
                 world:erase(gem, 1)
             end
