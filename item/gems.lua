@@ -135,7 +135,7 @@ function handleSocketing(user, gem)
 
 	local callback = function(dialog)
         local success = dialog:getSuccess()
-        if success then
+        if success and base.common.CheckItem(user, gem) then
             local selected = dialog:getSelectedIndex() + 1
             local slot = weaponPositions[selected]
             local item = user:getItemAt(slot)
@@ -143,6 +143,7 @@ function handleSocketing(user, gem)
             if world:getWeaponStruct(item.id) then
                 local key = gemDataKey[gemId[item.id]]
                 item:setData(key, gem:getData("gemLevel"))
+                world:erase(gem, 1)
             end
         end
     end
