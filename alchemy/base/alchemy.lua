@@ -459,11 +459,18 @@ function CombineStockEssence( User, stock, essenceBrew)
 			end	
 	    end
 	    -- get the potion effect id
-		local effectID = getPotion(myIngredients[1],myIngredients[2],myIngredients[3],myIngredients[4],myIngredients[5],myIngredients[6],myIngredients[7],myIngredients[8])
-		-- delte old cauldron datas
+		local effectID
+		if (myIngredients[3] == false) and (ingredientGemdust == 447 or ingredientGemdust == 450) then
+		    -- potion kind is primary or secondary attributes AND there was no plant in the essence brew -> stock concentration determines the effect
+			effectID = stockConc
+		else
+            effectID = getPotion(myIngredients[1],myIngredients[2],myIngredients[3],myIngredients[4],myIngredients[5],myIngredients[6],myIngredients[7],myIngredients[8],myIngredients[9],myIngredients[10])		
+		end
+		-- delte old cauldron datas and add new ones
 		RemoveAll(cauldron)
 		SetQuality(User,cauldron)
 		cauldron.id = newCauldron
+		cauldron:setData
 		world:changeItem(cauldron)
 		world:makeSound(13,cauldron.pos)
 		world:gfx(52,cauldron.pos)
