@@ -45,7 +45,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		    if SourceItem.number > 1 then -- stack! 
 			    if cauldron:getData("filledWith") == "stock" then
 				    local data = {}
-					data.AdrazinConcentration=cauldron:getData("AdrazionConcentration")
+					data.AdrazinConcentration=cauldron:getData("AdrazinConcentration")
 					data.IllidriumConcentration=cauldron:getData("IllidriumConcentration")
 				    data.CaprazinConcentration=cauldron:getData("CaprazinConcentration")
 					data.HyperborliumConcentration=cauldron:getData("HyperborliumConcentration")

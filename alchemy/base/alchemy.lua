@@ -43,6 +43,7 @@ end
 
 -- the list of possible potions effects
 potionsList = {};
+potionName = {}
 
 -- on reload, this function is called
 -- setPotion(effect id, stock data, gemdust ,Herb1, Herb2, Herb3, Herb4, Herb5, Herb6, Herb7, Herb8)
@@ -54,6 +55,7 @@ potionsList = {};
 -- document properly, please
 function InitPotions()
     setPotion(45, 450, 65555545, 133, 133, 133, false, false, false, false, false);
+	potionName[45] = {"that's my test potion!","mein test trank!"}
 end;
 
 --- Set the effect of a potion
