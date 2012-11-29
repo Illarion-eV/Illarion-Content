@@ -4,7 +4,7 @@ require("item.gems")
 
 module("npc.base.consequence.gemcraft", package.seeall)
 
-craft = base.class.class(npc.base.consequence.consequence.consequence,
+gemcraft = base.class.class(npc.base.consequence.consequence.consequence,
 function(self)
     npc.base.consequence.consequence.consequence:init(self);
     
