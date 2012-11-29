@@ -52,7 +52,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		if TargetItem.id < 1008 then -- not a cauldron, but a potion
 		    potionQuality = TargetItem.quality
 		else	
-		    potionQuality = TargetItem:getData("potionQuality")
+		    if TargetItem:getData("filledWith") == "potion" then 
+			    potionQuality = TargetItem:getData("potionQuality")
+			end	
 		end	
 		
 		local callback = function(dialog) end
