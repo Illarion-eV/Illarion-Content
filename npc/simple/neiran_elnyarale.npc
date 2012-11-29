@@ -2,7 +2,7 @@
 -- NPC Name: Neiran el Nyarale                                       Runewick--
 -- NPC Job:  Runewick 'recycle mechanism' guard                                             --
 --                                                                            --
--- NPC Race: Elf                      NPC Position: 385, 241,0                          --
+-- NPC Race: Elf                      NPC Position: 897, 781,2                          --
 -- NPC Sex:  male                       NPC Direction: southeast                  --
 --                                                                            --
 -- Author:   Miriam                                         --
@@ -11,7 +11,7 @@
 name = "Neiran el Nyarale"
 race = elf
 sex = male
-position = 385, 241,0
+position = 397, 781,2
 direction = southeast
 affiliation = "None"
 job = "Insert profession here"

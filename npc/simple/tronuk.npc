@@ -84,8 +84,8 @@ english, "quest", "mission", queststatus(602) = 0 -> inform("[Quest 602 started]
 "Auftrag", "Aufgabe", queststatus(602) = 0 -> inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."), "Eine Mission du haben wollen. Hurr, nur kleine Aufgabe. Bringe Tronruk Flasche Bier. Bier sein immer gut. Aber nix warmes Stumpie Bier!", queststatus(602) = 1
 
 --Player brings beer and gets reward
-english, ".*", queststatus(602) = 1, item(2501,all)>0 -> inform("[Quest end 602] You gained some coins."), "Hurr, you hub beer! Great! For dhat you shall hub some coins. Hundred beh enub, yubba.", money + 1000, queststatus(602) = 2, deleteitem(2501,1)
-german, ".*", queststatus(602) = 1, item(2501,all)>0 -> inform("[Quest Ende 602] Du hast ein paar Münzen erhalten."), "Hurr, du haben Bier! Gut! Für das du sollen haben einige Münzen. Hundert sind genug, yubba.", money + 1000, queststatus(602) = 2, deleteitem(2501,1)
+english, ".*", queststatus(602) = 1, item(2501,all)>0 -> inform("[Quest end 602] You gained some coins."), "Hurr, you hub beer! Great! For dhat you shall hub some coins.", money + 1000, queststatus(602) = 2, deleteitem(2501,1)
+german, ".*", queststatus(602) = 1, item(2501,all)>0 -> inform("[Quest Ende 602] Du hast ein paar Münzen erhalten."), "Hurr, du haben Bier! Gut! Für das du sollen haben einige Münzen.", money + 1000, queststatus(602) = 2, deleteitem(2501,1)
 english, ".*", queststatus(602) = 1 -> inform("Bring Tronuk a full bottle beer."), "Hurr, you should get beer first! Yubba!"
 german, ".*", queststatus(602) = 1 -> inform("Bringe Tronuk eine volle Flasche Bier."), "Hurr, du sollen bringen Bier erst! Yubba!"
 

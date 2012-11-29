@@ -78,10 +78,10 @@ queststatus(316) = 3, "nein" -> "Gut, komm wieder falls du doch noch möchtest."
 queststatus(316) = 3, "no" -> "Allright, come again if you change your mind.", queststatus(316) = 1
 queststatus(316) = 4, "nein" -> "Nein? Was soll das heißen? Du kommst dir wohl zu fein für meine Gesellschaft vor!", queststatus(316) = 1
 queststatus(316) = 4, "no" -> "No? What are you trying to say? I'm not good enough for you?!", queststatus(316) = 1
-money => 250, queststatus(316) = 4, "ja" -> "Fantastisch, komm wir suchen uns ein ruhiges Plätzchen.", money - 250, queststatus(316) = 1
+money => 2500, queststatus(316) = 4, "ja" -> "Fantastisch, komm wir suchen uns ein ruhiges Plätzchen.", money - 2500, queststatus(316) = 1
 
 -- +teleport des Char nach (424,293,-3), +add Flitzläuse
-money => 250, queststatus(316) = 4, "yes" -> "Awesome, come on, lets go somewhere more... quiet.", money - 250, queststatus(316) = 1
+money => 2500, queststatus(316) = 4, "yes" -> "Awesome, come on, lets go somewhere more... quiet.", money - 2500, queststatus(316) = 1
 
 -- +teleport des Char nach (424,293,-3), +add Flitzläuse
 queststatus(316) = 4, "ja" -> "Schätzchen, du hast ja gar nicht geügend Münzen. Geh schnell welche hohlen, ich warte auf dich!", queststatus(316) = 1
@@ -91,7 +91,7 @@ queststatus(316) = 3, queststatus(303) > 7, "yes" -> "Great, its just 200 copper
 money => 200, queststatus(316) = 5, "ja" -> "Fantastisch, komm wir suchen uns ein ruhiges Plätzchen.", money - 200, queststatus(316) = 1
 
 -- +teleport des Char nach (424,293,-3), +add Flitzläuse
-money => 200, queststatus(316) = 5, "yes" -> "Awesome, lets go somewhere more quiet.", money - 200, queststatus(316) = 1
+money => 2000, queststatus(316) = 5, "yes" -> "Awesome, lets go somewhere more quiet.", money - 2000, queststatus(316) = 1
 
 -- +teleport des Char nach (424,293,-3), +add Flitzläuse
 queststatus(316) = 5, "ja" -> "Schätzchen, du hast ja gar nicht geügend Münzen. Geh schnell welche hohlen, ich warte auf dich!", queststatus(316) = 1
@@ -114,12 +114,12 @@ queststatus(303) = 2, english, "info", "quest", "job", "detail" -> "#w Allright,
 queststatus(303) = 2, "task", "adventure", "mission" -> "#w Allright, listen to me. I'm searching for a special necklace. It's a heirloom of my family. My stupid brother sold it to a merchant. You should bring it back to me. Search the mearchant in Varshikar. His name is Gilbert."
 queststatus(303) = 2, "aufgabe", "abenteuer" -> "#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Suche den Händler in Varshikar, sein Name ist Gilbert."
 queststatus(303) = 2, german, "info", "quest", "job", "detail" -> "#w In Ordnung, hör zu. Ich suche ein besonderes Kollier. Es ist ein Erbstück meiner Familie, aber mein Bruder hat es einem Händler verkauft. Kannst du es bitte zurückbringen? Suche den Händler in Varshikar, sein Name ist Gilbert."
-queststatus(303) = 3, item(79, belt) => 1, english, "job", "quest" -> inform("She pays you 100 coppercoins. It feels good, doesn't it?"), "Oh, that's amazing! You really found it! This to compensate you for your effort.", money + 100, deleteItem(79, 1), queststatus(303) = 4
-queststatus(303) = 3, item(79, belt) => 1, german, "job", "quest" -> inform("Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder?"), "Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.", money + 100, deleteItem(79, 1), queststatus(303) = 4
+queststatus(303) = 3, item(79, belt) => 1, english, "job", "quest" -> inform("She pays you ten silver coins. It feels good, doesn't it?"), "Oh, that's amazing! You really found it! This to compensate you for your effort.", money + 1000, deleteItem(79, 1), queststatus(303) = 4
+queststatus(303) = 3, item(79, belt) => 1, german, "job", "quest" -> inform("Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder?"), "Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.", money + 1000, deleteItem(79, 1), queststatus(303) = 4
 queststatus(303) = 3, english, "job", "quest" -> "Yes? You found it? Amazing... but hey where is it? You havn't the necklace with you."
 queststatus(303) = 3, german, "job", "quest" -> "Ja? Du hast es gefunden? Fantastisch... aber wo hast du's? Du hast das Kollier nicht bei dir."
-queststatus(303) = 3, item(79, belt) = 1, "necklet", "necklace", "task", "adventure", "mission" -> inform("She pays you 100 coppercoins. It feels good, right?"), "Oh, that's amazing! You really found it! This to compensate you for your effort.", money + 100, deleteItem(79, 1), queststatus(303) = 4
-queststatus(303) = 3, item(79, belt) = 1, "kollier", "amulett", "aufgabe", "abenteuer" -> inform("Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder?"), "Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.", money + 100, deleteItem(79, 1), queststatus(303) = 4
+queststatus(303) = 3, item(79, belt) = 1, "necklet", "necklace", "task", "adventure", "mission" -> inform("She pays you ten silver coins. It feels good, right?"), "Oh, that's amazing! You really found it! This to compensate you for your effort.", money + 1000, deleteItem(79, 1), queststatus(303) = 4
+queststatus(303) = 3, item(79, belt) = 1, "kollier", "amulett", "aufgabe", "abenteuer" -> inform("Sie bezahlt dir 100 Kupferlinge. Das fühlt sich gut an, oder?"), "Oh wie fantastisch! Du hast es wirklich gefunden! Das ist für deine Mühe.", money + 1000, deleteItem(79, 1), queststatus(303) = 4
 queststatus(303) = 3, "necklet", "necklace", "task", "adventure", "mission" -> "Yes? You found it? Amazing... but hey where is it? Bring it with you next time"
 queststatus(303) = 3, "kollier", "amulett", "aufgabe", "abenteuer" -> "Ja? Du hast es gefunden? Fantastisch... aber wo hast du's? Du hast das Kollier nicht bei dir."
 queststatus(303) = 3, item(79, all) => 1, english, "job", "quest" -> inform("Put the necklet into your belt, when you are willing to give it Rose.")
@@ -140,10 +140,10 @@ queststatus(303) = 5, english, "info", "quest", "job", "detail" -> "#w Allright,
 queststatus(303) = 5, "task", "adventure", "mission" -> "#w Allright, listen to me. Take the fake necklace and put it unnoticed into Gilbert's bag, who stays at Varshikar. He will not realise what happened."
 queststatus(303) = 5, "aufgabe", "abenteuer" -> "#w In Ordnung, hör zu. Nimm dieses gefälschte Kollier, gehe nach Varshikar und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken."
 queststatus(303) = 5, german, "info", "quest", "job", "detail" -> "#w In Ordnung, hör zu. Nimm dieses gefälschte Kollier, gehe nach Varshikar und schiebe es umbermerkt in Gilberts Tasche. Er wird den Trick nicht bemerken."
-queststatus(303) = 7, english, "job", "quest" -> inform("She pays you again 100 coppercoins. It feels also feels good, right?"), "Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!", money + 100, queststatus(303) = 8
-queststatus(303) = 7, "necklet", "necklace", "task", "adventure", "mission" -> inform("She pays you again 100 coppercoins. It feels also feels good, right?"), "Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!!", money + 100, queststatus(303) = 8
-queststatus(303) = 7, german, "job", "quest" -> inform("She pays you again 100 coppercoins. It feels again good, agree?"), "Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.", money + 100, queststatus(303) = 8
-queststatus(303) = 7, "kollier", "amulett", "aufgabe", "abenteuer" -> inform("Sie bezahlt dir abermals 100 Kupferlinge. Das fühlt sich abermals gut an, oder?"), "Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.", money + 100, queststatus(303) = 8
+queststatus(303) = 7, english, "job", "quest" -> inform("She pays you ten silver coins again. It feels also feels good, right?"), "Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!", money + 1000, queststatus(303) = 8
+queststatus(303) = 7, "necklet", "necklace", "task", "adventure", "mission" -> inform("She pays you ten silver coins again. It feels also feels good, right?"), "Great work, Gilbert hasn't noticed. So he's never going to start searching for the necklace. This to compensate you for your effort!!", money + 1000, queststatus(303) = 8
+queststatus(303) = 7, german, "job", "quest" -> inform("She pays you again 100 coppercoins. It feels again good, agree?"), "Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.", money + 1000, queststatus(303) = 8
+queststatus(303) = 7, "kollier", "amulett", "aufgabe", "abenteuer" -> inform("Sie bezahlt dir abermals 100 Kupferlinge. Das fühlt sich abermals gut an, oder?"), "Gut gemacht! Gilbert hat unseren Trick nicht bemerkt. Jetzt wird er erst gar nicht anfangen nach dem Kollie zu suchen. Das ist für deine Mühe.", money + 1000, queststatus(303) = 8
 queststatus(303) => 8, english, "job", "quest", "info" -> inform("Gibberson, you should remember this name. Maybe you'll meet him someday."), "I'm sorry my dear, I havn't any more tasks for you. A lot of thanks for helping with the necklace. But if you really need a job, why you don't ask the Gibberson for it?"
 queststatus(303) => 8, "necklet", "necklace", "task", "adventure", "mission" -> inform("Gibberson, you should remember this name. Maybe you'll meet him someday."), "I'm sorry my dear, I havn't any more tasks for you. A lot of thanks for helping with the necklace. But if you really need a job, why you don't ask the Gibberson for it?"
 queststatus(303) => 8, german, "job", "quest", "info" -> inform("Gibberson, den Namen solltest du dir merken. Vielleicht triffst du diese Person eines Tages."), "Es tut mir Leid mein Schatz, ich habe keine weiteren Aufgaben für dich. Danke für die Hilfe mit dem Kollier. Aber wenn du so unbedingt Geld brauchst, warum fragst du dann nicht den Gibberson?"
