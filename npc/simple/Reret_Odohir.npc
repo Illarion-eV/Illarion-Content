@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------------AC
--- NPC Name: Reret Odohir                                         (Runewick)  --
+-- NPC Name: Reret Odohir                                         Runewick --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
 -- NPC Race: human      NPC Position: 900,776,1                                 --
@@ -13,8 +13,8 @@ name = "Reret Odohir"
 race = human
 sex = female
 position = 900,776,1
-direction = south
-affiliation = "None"
+direction = west
+affiliation = "Runewick"
 job = "Notary"
 
 language = common
@@ -98,6 +98,9 @@ tradeWrongItemMsg "Oh, Das kaufe ixch nicht. Tut mir leid.", "Oh, I don't buy th
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I sell nothing, but I can register you as a citizen."
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ick verkauf nichts, aber ich kann Euch als Bürger eintragen."
+"become citizen" -> "Welcome to Runewick!"
+"Bürger werden" ->  "Willkommen in Runewick"
+
 --"Danke nein, ich habe bereits alles, was ich brauche."
 --"Habt Ihr ein Dekret für mich oder wollt ihr vielleicht ein Dekret oder Schlüßel kaufen?"
 -- "Gut, ich trage euch als neuen Anführer dieser Stadt ein."/ "Good, I will enregister you as new leader of this town."
