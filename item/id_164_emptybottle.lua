@@ -45,28 +45,28 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		    if SourceItem.number > 1 then -- stack! 
 			    if cauldron:getData("filledWith") == "stock" then
 				    local data = {}
-					data.AdrazinConcentration=cauldron:getData("AdrazionConcentration"),
-					data.IllidriumConcentration=cauldron:getData("IllidriumConcentration"),
-				    data.CaprazinConcentration=cauldron:getData("CaprazinConcentration"),
-					data.HyperborliumConcentration=cauldron:getData("HyperborliumConcentration"),
-					data.EcholonConcentration=cauldron:getData("EcholonConcentration"),
-					data.DracolinConcentration=cauldron:getData("DracolinConcentration"),
-					data.OrcanolConcentration=cauldron:getData("OrcanolConcentration"),
+					data.AdrazinConcentration=cauldron:getData("AdrazionConcentration")
+					data.IllidriumConcentration=cauldron:getData("IllidriumConcentration")
+				    data.CaprazinConcentration=cauldron:getData("CaprazinConcentration")
+					data.HyperborliumConcentration=cauldron:getData("HyperborliumConcentration")
+					data.EcholonConcentration=cauldron:getData("EcholonConcentration")
+					data.DracolinConcentration=cauldron:getData("DracolinConcentration")
+					data.OrcanolConcentration=cauldron:getData("OrcanolConcentration")
 					data.FenolinConcentration=cauldron:getData("FenolinConcentration")
 					data.filledWith="stock"
 					User:createItem(reBottle, 1, 0, data)
                                     													
                 elseif cauldron:getData("filledWith") == "essenceBrew" then
 					data = {}
-					data.essenceHerb1=cauldron:getData("essenceHerb1"),
-					data.essenceHerb2=cauldron:getData("essenceHerb2"),
-					data.essenceHerb3=cauldron:getData("essenceHerb3"),
-					data.essenceHerb4=cauldron:getData("essenceHerb4"),
-					data.essenceHerb5=cauldron:getData("essenceHerb5"),
-					data.essenceHerb6=cauldron:getData("essenceHerb6"),
-					data.essenceHerb7=cauldron:getData("essenceHerb7"),
-					data.essenceHerb8=cauldron:getData("essenceHerb8"),
-					data.filledWith="essenceBrew"}
+					data.essenceHerb1=cauldron:getData("essenceHerb1")
+					data.essenceHerb2=cauldron:getData("essenceHerb2")
+					data.essenceHerb3=cauldron:getData("essenceHerb3")
+					data.essenceHerb4=cauldron:getData("essenceHerb4")
+					data.essenceHerb5=cauldron:getData("essenceHerb5")
+					data.essenceHerb6=cauldron:getData("essenceHerb6")
+					data.essenceHerb7=cauldron:getData("essenceHerb7")
+					data.essenceHerb8=cauldron:getData("essenceHerb8")
+					data.filledWith="essenceBrew"
 					User:createItem(reBottle, 1, 0, data)
                                         
                 elseif cauldron:getData("filledWith") == "potion" then
