@@ -53,7 +53,7 @@ potionsList = {};
 -- Example: setPotion(15, 459, 95554553, 133, 15, 81, false, false, false, false, false)
 -- document properly, please
 function InitPotions()
-    setPotion(45, 450, 55555555, 775, 3443, 33, false, false, false, false, false);
+    setPotion(45, 450, 65555545, 133, 133, 133, false, false, false, false, false);
 end;
 
 --- Set the effect of a potion
@@ -475,5 +475,7 @@ function CombineStockEssence( User, stock, essenceBrew)
 		world:changeItem(cauldron)
 		world:makeSound(13,cauldron.pos)
 		world:gfx(52,cauldron.pos)
+	    -- and learn!
+	    User:learn(Character.alchemy, 20, 100)
 	end
 end

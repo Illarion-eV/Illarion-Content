@@ -44,9 +44,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	        local reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, cauldron, nil, User)
 			SourceItem.id = reBottle
 			alchemy.base.alchemy.CopyAllDatas(cauldron,SourceItem)
-		    alchemy.base.alchemy.RemoveAll(cauldron)
-		    
-	   end
+		    if cauldron:getData("filledWith") == "potion" then
+			    SourceItem:setData("potionQuality","") -- in case it is a potion, we don't save the quality via data
+			    SourceItem.quality = cauldron:getData("potionQuality")
+			end
+			alchemy.base.alchemy.RemoveAll(cauldron)
+		end
 	    world:changeItem(cauldron)
 		world:changeItem(SourceItem)
 		world:makeSound(10,cauldron.pos)
