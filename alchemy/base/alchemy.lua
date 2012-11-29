@@ -394,8 +394,7 @@ bottleList   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
 function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
     -- this function returns matching gemdust id, cauldron id and bottle id
     -- only one parameter is needed; if there are more than one, only the first one will be taken into account
-    User:inform("debug 0.5")
-	local myList
+    local myList
 	local myValue
     if gemdust then
 	    myList = gemDustList
@@ -409,12 +408,11 @@ function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
     else 
 	    return 
 	end
-User:inform("debug 0.75: "..myValue)	
+	
 	local reGemdust; local reCauldron; local reBottle
 	for i=1,#myList do
 	    if myList[i] == myValue then
-		    User:inform("al 1")
-			reGemdust = gemDustList[i]
+		    reGemdust = gemDustList[i]
 	        reCauldron = cauldronList[i]
 			reBottle = bottleList[i]
 	        break
