@@ -2,7 +2,7 @@
 -- NPC Name: Reret Odohir                                                None --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  111, 599, 0            --
+-- NPC Race: human                      NPC Position:  900, 776, 1            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   ?? + Miriam                                                      --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 111, 599, 0, 4, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 5, 68, 63, 58, 255, 210, 204);
+VALUES (0, 900, 776, 1, 4, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 5, 68, 63, 58, 255, 210, 204);
 ---]]
 
 require("npc.base.basic")
@@ -288,7 +288,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(0, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 16, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] INFORM ..."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved]  You are awarded with a dagger."));
 talkEntry:addResponse("Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it s shall be your rewand for your troubles.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 433, nil));
@@ -301,7 +301,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(0, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 16, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] INFORM..."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] Du erhälst als Belohnung einen Dolch."));
 talkEntry:addResponse("Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 433, nil));

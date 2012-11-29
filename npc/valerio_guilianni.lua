@@ -475,6 +475,23 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 12));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("*.");
+talkEntry:addResponse("A Letter from Cadomyr? Oh, thank you very much. ? What? Ah, I see. I'll take care of that, you may leave now.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 13));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 12));
+talkEntry:addTrigger("*.");
+talkEntry:addResponse("Ein Brief aus Cadomyr? Oh, vielen Dank...Was? Ah, ich verstehe. Ich werde mich darum kümmer. Ihr könnt nun gehen.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 13));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("Well, I provide for myself and my family. Ah and I rule Galmair of course.");
 talkingNPC:addTalkingEntry(talkEntry);
