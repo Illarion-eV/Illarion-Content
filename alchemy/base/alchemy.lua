@@ -43,6 +43,7 @@ end
 
 -- the list of possible potions effects
 potionsList = {};
+potionName = {}
 
 -- on reload, this function is called
 -- setPotion(effect id, stock data, gemdust ,Herb1, Herb2, Herb3, Herb4, Herb5, Herb6, Herb7, Herb8)
@@ -54,6 +55,7 @@ potionsList = {};
 -- document properly, please
 function InitPotions()
     setPotion(45, 450, 65555545, 133, 133, 133, false, false, false, false, false);
+	potionName[45] = {"that's my test potion!","mein test trank!"}
 end;
 
 --- Set the effect of a potion
@@ -334,9 +336,14 @@ function EmptyBottle(User,Bottle)
 	   User:eraseItem(SourceItem,1) -- bottle breaks
 	   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
 	else	
-		Bottle.id = 164
-	    Bottle.quality = 333
-		world:changeItem(Bottle)
+		if Bottle.number > 1 then -- if we empty a bottle (stock, potion or essence brew) it should normally never be a stack! but to be one the safe side, we check anyway
+		    User:createItem(164,1,333,nil)
+			User:eraseItem(Bottle,1)
+		else
+			Bottle.id = 164
+			Bottle.quality = 333
+			world:changeItem(Bottle)
+		end	
 	end
 end
 
