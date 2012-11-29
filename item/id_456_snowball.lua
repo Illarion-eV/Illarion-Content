@@ -49,7 +49,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		local filledWith = TargetItem:getData("filledWith")
 		local potionEffectId = TargetItem:getData("potionEffectId")
 		local potionQuality = ""
-		if TargetItem.id < 1008 then -- not a cauldron, but a potion
+		if TargetItem.id < 1008 and TargetItem.id ~= 331 then -- not a cauldron, but a potion
 		    potionQuality = TargetItem.quality
 		else	
 		    if TargetItem:getData("filledWith") == "potion" then 
