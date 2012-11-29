@@ -58,6 +58,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
 		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+    if (SourceItem.id == 2835) then
+      SourceItem.id = 2836;
+      world:changeItem(SourceItem);
+      User:changeSource(SourceItem);
+    end
 		return
 	end
 
@@ -138,16 +143,33 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   end
 	
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
-		oremelting.SavedWorkTime[User.id] = oremelting:GenWorkTime(User,toolItem);
-		User:startAction( oremelting.SavedWorkTime[User.id], 0, 0, 0, 0);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt an der Esse Erz zu schmelzen.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to melt ore at the forge."); 
+    -- oh wait, check if someone else is working at the tool
+    if (SourceItem.id == 2836) then
+      -- alright, it's off
+      oremelting.SavedWorkTime[User.id] = oremelting:GenWorkTime(User,toolItem);
+      User:startAction( oremelting.SavedWorkTime[User.id], 0, 0, 0, 0);
+      User:talkLanguage( Character.say, Player.german, "#me beginnt an der Esse Erz zu schmelzen.");
+      User:talkLanguage( Character.say, Player.english, "#me starts to melt ore at the forge."); 
+      SourceItem.id = 2835;
+      world:changeItem(SourceItem);
+      User:changeSource(SourceItem);
+    else
+      -- it's on, can't work now.
+      base.common.InformNLS( User, 
+      "Jemand anderes arbeitet schon an der Esse.", 
+      "Someone else is already working at the forge." );
+    end
 		return
 	end
 
 	-- since we're here, we're working
 
 	if oremelting:FindRandomItem(User) then
+    if (SourceItem.id == 2835) then
+      SourceItem.id = 2836;
+      world:changeItem(SourceItem);
+      User:changeSource(SourceItem);
+    end
 		return
 	end
 
@@ -160,6 +182,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   end
 	local amount = oreItem.product.amount; -- set the amount of items that are produced
 	local notCreated = User:createItem( oreItem.product.id, amount, 333, nil ); -- create the new produced items
+  local nextActionStarted = false;
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( oreItem.product.id, notCreated, User.pos, true, 333, nil );
 		base.common.InformNLS(User,
@@ -176,6 +199,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
         else
           oremelting.SavedWorkTime[User.id] = oremelting:GenWorkTime(User,toolItem);
           User:startAction( oremelting.SavedWorkTime[User.id], 0, 0, 0, 0);
+          nextActionStarted = true;
         end
       else -- no ore
         base.common.InformNLS(User,
@@ -193,6 +217,18 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		base.common.InformNLS(User,
 		"Deine alte Tiegelzange zerbricht.",
 		"Your old crucible-pincers break.");
+    if (SourceItem.id == 2835) then
+      SourceItem.id = 2836;
+      world:changeItem(SourceItem);
+      User:changeSource(SourceItem);
+    end
 		return
 	end
+  if (not nextActionStarted) then
+    if (SourceItem.id == 2835) then
+      SourceItem.id = 2836;
+      world:changeItem(SourceItem);
+      User:changeSource(SourceItem);
+    end
+  end
 end

@@ -1669,6 +1669,7 @@ function GetLeadAttributeName(Skill)
     leadAttribTable[Character.glassBlowing]="dexterity"
     leadAttribTable[Character.fishing]="constitution"
     leadAttribTable[Character.wrestling]="strength"
+    leadAttribTable[Character.firingBricks]="constitution"
   end
   return leadAttribTable[Skill]
 end
