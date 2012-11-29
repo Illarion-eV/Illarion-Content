@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------------
--- NPC Name: Reret Odohir                                                None --
+-- NPC Name: Reret Odohir                                            Runewick --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  900, 776, 1            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   ?? + Miriam                                                      --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 900, 776, 1, 4, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 5, 68, 63, 58, 255, 210, 204);
+VALUES (0, 900, 776, 1, 6, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 5, 68, 63, 58, 255, 210, 204);
 ---]]
 
 require("npc.base.basic")
@@ -200,6 +200,18 @@ talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
 talkEntry:addResponse("Ick verkauf nichts, aber ich kann Euch als Bürger eintragen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("become citizen");
+talkEntry:addResponse("Welcome to Runewick!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addResponse("Willkommen in Runewick");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
