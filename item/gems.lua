@@ -1,6 +1,7 @@
 require("content.lookat.unique")
 require("base.common")
 require("base.factions")
+require("alchemy.base.analyse")
 
 -- UPDATE common SET com_script='item.gems' WHERE com_itemid IN (45, 46, 197, 198, 283, 284, 285);
 
@@ -102,8 +103,13 @@ function LookAtItem(user, item)
     world:itemInform(user, item, lookAt)
 end
 
-function UseItem(User, SourceItem, TargetItem, Counter, Param)
-    local callback = function(dialog)
+function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
+    if SourceItem:getData("gemLevel") == "" then
+	    alchemy.base.analyse.CauldronCheck(User, SourceItem, TargetItem, Counter, Param, ltstate)
+		return
+	end    
+	
+	local callback = function(dialog)
         success = dialog:getSuccess()
         if success then
             selected = dialog:getSelectedIndex()

@@ -43,6 +43,7 @@ end
 
 -- the list of possible potions effects
 potionsList = {};
+potionName = {}
 
 -- on reload, this function is called
 -- setPotion(effect id, stock data, gemdust ,Herb1, Herb2, Herb3, Herb4, Herb5, Herb6, Herb7, Herb8)
@@ -53,7 +54,8 @@ potionsList = {};
 -- Example: setPotion(15, 459, 95554553, 133, 15, 81, false, false, false, false, false)
 -- document properly, please
 function InitPotions()
-    setPotion(45, 450, 55555555, 775, 3443, 33, false, false, false, false, false);
+    setPotion(45, 450, 65555545, 133, 133, 133, false, false, false, false, false);
+	potionName[45] = {"that's my test potion!","mein test trank!"}
 end;
 
 --- Set the effect of a potion
@@ -334,9 +336,14 @@ function EmptyBottle(User,Bottle)
 	   User:eraseItem(SourceItem,1) -- bottle breaks
 	   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
 	else	
-		Bottle.id = 164
-	    Bottle.quality = 333
-		world:changeItem(Bottle)
+		if Bottle.number > 1 then -- if we empty a bottle (stock, potion or essence brew) it should normally never be a stack! but to be one the safe side, we check anyway
+		    User:createItem(164,1,333,nil)
+			User:eraseItem(Bottle,1)
+		else
+			Bottle.id = 164
+			Bottle.quality = 333
+			world:changeItem(Bottle)
+		end	
 	end
 end
 
@@ -443,7 +450,7 @@ function CombineStockEssence( User, stock, essenceBrew)
 		-- secondly, the stock
 		local stockConc = ""
 		for i=1,8 do 
-		    local currentSubs = stock:getData(wirkstoff[1].."Concentration")
+		    local currentSubs = stock:getData(wirkstoff[i].."Concentration")
 			if currentSubs == "" then
 			    currentSubs = 5
 			end	
@@ -471,8 +478,11 @@ function CombineStockEssence( User, stock, essenceBrew)
 		SetQuality(User,cauldron)
 		cauldron.id = newCauldron
 		cauldron:setData("potionEffectId", effectID)
+		cauldron:setData("filledWith", "potion")
 		world:changeItem(cauldron)
 		world:makeSound(13,cauldron.pos)
 		world:gfx(52,cauldron.pos)
+	    -- and learn!
+	    User:learn(Character.alchemy, 20, 100)
 	end
 end
