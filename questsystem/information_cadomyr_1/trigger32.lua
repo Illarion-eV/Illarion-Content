@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 100):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis, eine Frage über 'Gebäude' mag dir helfen.", "Answer the question to get more money and further questions. Hint: A question about 'building' might be helpful."):execute()
 end
 
