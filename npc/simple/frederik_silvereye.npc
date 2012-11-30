@@ -53,8 +53,8 @@ itemShoes = 326
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Frederik Silvereye the notary. Keywords: 'I want to become citizen', 'I want to exchange a decree', ('I want to buy an life insurance')")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frederik Silvereye der Notar. Schlüsselwörter: 'Ich möchte Bürger werden', 'Ich möchte ein Dekret einlösen', ('Ich möchte eine Lebensversicherung kaufen')")
+"Help" -> inform("[Game Help] This NPC is Frederik Silvereye the notary. Keywords: become citizen.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frederik Silvereye der Notar. Schlüsselwörter: Bürger werden.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted.", "Greetings.", "Good day."
