@@ -3,7 +3,7 @@
 -- NPC Job:  Notary                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  900, 776, 1            --
--- NPC Sex:  female                     NPC Direction: west                   --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   ?? + Miriam                                                      --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 900, 776, 1, 6, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 5, 68, 63, 58, 255, 210, 204);
+VALUES (0, 900, 776, 1, 4, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 5, 68, 63, 58, 255, 210, 204);
 ---]]
 
 require("npc.base.basic")
@@ -206,12 +206,53 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("You are now a citizen of Cadomyr");
+talkEntry:addResponse("Welcome to Cadomyr!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Ihr seid jetzt Bürger von Cadomyr");
+talkEntry:addResponse("Willkommen in Cadomyr!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("You are now a citizen of Cadomyr");
+talkEntry:addResponse("Welcome to Cadomyr!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Ihr seidt jetzt Bürger von Cadomyr");
+talkEntry:addResponse("Willkommen in Cadomyr!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
-talkEntry:addResponse("You are now a citizen of Runewick");
-talkEntry:addResponse("Welcome to Runewick!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
+talkEntry:addResponse("You are already a citizen of Cadomyr");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -219,30 +260,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Du bist jetzt Bürger von Runewick");
-talkEntry:addResponse("Willkommen in Runewick!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
+talkEntry:addResponse("Ihr seid bereits Bürger von Cadomyr");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
-talkEntry:addResponse("You are now a citizen of Runewick");
-talkEntry:addResponse("Welcome to Runewick!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
+talkEntry:addResponse("You are now a citizen of Cadomyr");
+talkEntry:addResponse("Welcome to Cadomyr!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.town.town(3));
-talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Du bist jetzt Bürger von Runewick");
-talkEntry:addResponse("Willkommen in Runewick!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
+talkEntry:addResponse("Du bist jetzt Bürger von Cadomyr");
+talkEntry:addResponse("Willkommen in Cadomyr!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -952,7 +990,7 @@ talkingNPC:addCycleText("#me summt eine Melodie.", "#me hums a melody.");
 tradingNPC:addNotEnoughMoneyMsg("Ihr habt nicht genug Geld.", "You don't have enought Money.");
 tradingNPC:addDialogClosedMsg("Danke euch.", "Thank you.");
 tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal.", "Hope to see you again!");
-tradingNPC:addWrongItemMsg("Oh, Das kaufe ixch nicht. Tut mir leid.", "Oh, I don't buy that. Sorry.");
+tradingNPC:addWrongItemMsg("Oh, Das kaufe ich nicht. Tut mir leid.", "Oh, I don't buy that. Sorry.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);

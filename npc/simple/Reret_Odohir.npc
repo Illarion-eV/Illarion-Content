@@ -1,9 +1,9 @@
 -----------------------------------------------------------------------------AC
--- NPC Name: Reret Odohir                                         Runewick --
+-- NPC Name: Reret Odohir                                         Cadomyr     --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human      NPC Position: 900,776,1                                 --
--- NPC Sex:  female       NPC Direction: east                                 --
+-- NPC Race: human      NPC Position: 900,776,1                               --
+-- NPC Sex:  female       NPC Direction: south                              --
 --                                                                            --
 -- Author:  ??+ Miriam                                                        --
 --                                                                            --
@@ -13,7 +13,7 @@ name = "Reret Odohir"
 race = human
 sex = female
 position = 900,776,1
-direction = west
+direction = south
 affiliation = "Runewick"
 job = "Notary"
 
@@ -52,7 +52,7 @@ itemShoes = 45
 tradeNotEnoughMoneyMsg "Ihr habt nicht genug Geld.", "You don't have enought Money."
 tradeFinishedMsg "Danke euch.", "Thank you."
 tradeFinishedWithoutTradingMsg "Bis zum nächsten mal.", "Hope to see you again!"
-tradeWrongItemMsg "Oh, Das kaufe ixch nicht. Tut mir leid.", "Oh, I don't buy that. Sorry."
+tradeWrongItemMsg "Oh, Das kaufe ich nicht. Tut mir leid.", "Oh, I don't buy that. Sorry."
 -- Thanks, but I already have everything I need.
 -- sellItems = 1, 2, 3
 -- buyPrimaryItems = 1
@@ -98,10 +98,18 @@ tradeWrongItemMsg "Oh, Das kaufe ixch nicht. Tut mir leid.", "Oh, I don't buy th
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I sell nothing, but I can register you as a citizen. Just tell me, if you want to become a citizen."
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ick verkauf nichts, aber ich kann Euch als Bürger eintragen. Sag mir einfach wenn Ihr Bürger dieser Stadt werden möchtet."
-english, town = Cadomyr,  "become citizen", "gain citizenship" -> town = Runewick, "You are now a citizen of Runewick", "Welcome to Runewick!"
-town = Cadomyr,  "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Du bist jetzt Bürger von Runewick", "Willkommen in Runewick!"
-english, town = Galmair,  "become citizen", "gain citizenship" -> town = Runewick, "You are now a citizen of Runewick", "Welcome to Runewick!"
-town = Galmair,  "become citizen","Bürgerschaft beantragen" -> town = Runewick, "Du bist jetzt Bürger von Runewick", "Willkommen in Runewick!"
+-- english, town  = none,  "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Runewick", "Welcome to Runewick!"
+-- town = none, "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Du bist jetzt Bürger von Runewick", "Willkommen in Runewick!"
+
+-- Becoming citizen in Cadomyr
+english, town = Galmair,  "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Cadomyr", "Welcome to Cadomyr!"
+town = Galmair,  "Bürger werden","Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
+english, town = Runewick, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Cadomyr", "Welcome to Cadomyr!"
+town = Runewick, "Bürger werden","Bürgerschaft beantragen" ->  town = Cadomyr, "Ihr seidt jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
+english, town = Cadomyr,  "become citizen", "gain citizenship" -> town = Cadomyr, "You are already a citizen of Cadomyr"
+town = Cadomyr,  "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid bereits Bürger von Cadomyr"
+english, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Cadomyr", "Welcome to Cadomyr!"
+"Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Du bist jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
 
 --"Danke nein, ich habe bereits alles, was ich brauche."
 --"Habt Ihr ein Dekret für mich oder wollt ihr vielleicht ein Dekret oder Schlüßel kaufen?"
