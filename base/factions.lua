@@ -322,16 +322,7 @@ end
     @param Factionvalues -- the List with the Factionvalues of the Char
     @param theRank(number) -- the rank the char shall get in the town
 ]]
-function makeCharMemberOfTown(originator,fv,theRank,theTown)
-	NPCList = world:getNPCSInRangeOf(originator.pos, 3);
-	for i = 1, #(NPCList) do
-		for j=1, #(notaryNames) do
-			if NPCList[i].name == notaryNames[j] then
-				thisNPC = NPCList[i]
-			end
-		end
-	end
-	
+function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)	
 	if theRank==leaderRank then --make char to leader of this town
 		fv.tid = theTown; --make him member of this town
 		fv.rankTown = leaderRank; --give him the leader rank
