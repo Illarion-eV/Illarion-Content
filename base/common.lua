@@ -239,7 +239,7 @@ end;
 -- @param User The character whos front area is searched
 -- @return The item that was found or nil
 function GetFrontItem(User, dir)
-    local Posi = GetFrontPosition(User, dir);
+    local Posi = GetFrontPosition(User, 1, dir);
 
     if world:isItemOnField(Posi) then
         return world:getItemOnField(Posi);

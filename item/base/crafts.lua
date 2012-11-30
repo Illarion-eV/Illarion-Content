@@ -481,14 +481,14 @@ function Craft:turnToTool(user)
     local left = (right - 1) % 8
 
     for i=1,4 do
-        local staticTool = base.common.GetFrontItemID(user, 1, right)
+        local staticTool = base.common.GetFrontItemID(user, right)
 
         if self.tool[staticTool] then
             user:setAttrib("faceto", right)
             return true
         end
 
-        staticTool = base.common.GetFrontItemID(user, 1, left)
+        staticTool = base.common.GetFrontItemID(user, left)
 
         if self.tool[staticTool] then
             user:setAttrib("faceto", left)
