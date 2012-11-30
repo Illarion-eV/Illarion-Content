@@ -130,7 +130,7 @@ function talkNPCEntry:addResponse(text)
 			if (self._responseProcessors[self._responsesCount] == nil) then
 				self._responseProcessors[self._responsesCount] = {};
 			end;
-			debug("Processor found for response: " .. text);
+			debug("Processor found for response: " .. self._responsesCount);
 			table.insert(self._responseProcessors[self._responsesCount], processor)
 		end;
 	end;
@@ -182,7 +182,7 @@ function talkNPCEntry:execute(npcChar, player)
 				 debug("Processing!");
 			end;
 		else
-			debug("No response processors");
+			debug("No response processors for response: " .. selectedResponse);
 		end;
     	
 		npcChar:talk(Character.say, responseText);
