@@ -48,7 +48,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		end			
 		local filledWith = TargetItem:getData("filledWith")
 		local potionEffectId = TargetItem:getData("potionEffectId")
-		local potionQuality = TargetItem:getData("potionQuality")
+		local potionQuality = ""
+		if TargetItem.id < 1008 and TargetItem.id ~= 331 then -- not a cauldron, but a potion
+		    potionQuality = TargetItem.quality
+		else	
+		    if TargetItem:getData("filledWith") == "potion" then 
+			    potionQuality = TargetItem:getData("potionQuality")
+			end	
+		end	
 		
 		local callback = function(dialog) end
 		local dataText = "stockConc: "..stockConc.."\nessenceHerbs: "..essenceHerbs.."\nfilledWith: "..filledWith.."\neffectId: "..potionEffectId.."\npotionQuality: "..potionQuality

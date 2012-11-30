@@ -150,7 +150,7 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		                            "The substance in the cauldron blows out, as you fill the water in.")
 		base.alchemy.base.RemoveAll(cauldron)		
 									
-	elseif cauldron:getData("potionEffectId") ~= "" then
+	elseif cauldron:getData("filledWith") == "potion" then
 		base.alchemy.base.RemoveAll(cauldron)
 		if cauldron.id == 1013 then
 		    world:makeSound(10,cauldron.pos)

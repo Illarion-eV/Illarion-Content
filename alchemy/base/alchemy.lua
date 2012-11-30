@@ -43,6 +43,7 @@ end
 
 -- the list of possible potions effects
 potionsList = {};
+potionName = {}
 
 -- on reload, this function is called
 -- setPotion(effect id, stock data, gemdust ,Herb1, Herb2, Herb3, Herb4, Herb5, Herb6, Herb7, Herb8)
@@ -53,7 +54,8 @@ potionsList = {};
 -- Example: setPotion(15, 459, 95554553, 133, 15, 81, false, false, false, false, false)
 -- document properly, please
 function InitPotions()
-    setPotion(45, 450, 55555555, 775, 3443, 33, false, false, false, false, false);
+    setPotion(45, 450, 65555545, 133, 133, 133, false, false, false, false, false);
+	potionName[45] = {"that's my test potion!","mein test trank!"}
 end;
 
 --- Set the effect of a potion
@@ -334,9 +336,14 @@ function EmptyBottle(User,Bottle)
 	   User:eraseItem(SourceItem,1) -- bottle breaks
 	   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
 	else	
-		Bottle.id = 164
-	    Bottle.quality = 333
-		world:changeItem(Bottle)
+		if Bottle.number > 1 then -- if we empty a bottle (stock, potion or essence brew) it should normally never be a stack! but to be one the safe side, we check anyway
+		    User:createItem(164,1,333,nil)
+			User:eraseItem(Bottle,1)
+		else
+			Bottle.id = 164
+			Bottle.quality = 333
+			world:changeItem(Bottle)
+		end	
 	end
 end
 
@@ -391,11 +398,10 @@ gemDustList  = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
 cauldronList = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017} 
 bottleList   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
 
-function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
+function GemDustBottleCauldron(gemdust, cauldron, bottle)
     -- this function returns matching gemdust id, cauldron id and bottle id
     -- only one parameter is needed; if there are more than one, only the first one will be taken into account
-    User:inform("debug 0.5")
-	local myList
+    local myList
 	local myValue
     if gemdust then
 	    myList = gemDustList
@@ -409,12 +415,11 @@ function GemDustBottleCauldron(gemdust, cauldron, bottle, User)
     else 
 	    return 
 	end
-User:inform("debug 0.75: "..myValue)	
+	
 	local reGemdust; local reCauldron; local reBottle
 	for i=1,#myList do
 	    if myList[i] == myValue then
-		    User:inform("al 1")
-			reGemdust = gemDustList[i]
+		    reGemdust = gemDustList[i]
 	        reCauldron = cauldronList[i]
 			reBottle = bottleList[i]
 	        break
@@ -445,7 +450,7 @@ function CombineStockEssence( User, stock, essenceBrew)
 		-- secondly, the stock
 		local stockConc = ""
 		for i=1,8 do 
-		    local currentSubs = stock:getData(wirkstoff[1].."Concentration")
+		    local currentSubs = stock:getData(wirkstoff[i].."Concentration")
 			if currentSubs == "" then
 			    currentSubs = 5
 			end	
@@ -461,13 +466,23 @@ function CombineStockEssence( User, stock, essenceBrew)
 			end	
 	    end
 	    -- get the potion effect id
-		local effectID = getPotion(myIngredients[1],myIngredients[2],myIngredients[3],myIngredients[4],myIngredients[5],myIngredients[6],myIngredients[7],myIngredients[8])
-		-- delte old cauldron datas
+		local effectID
+		if (myIngredients[3] == false) and (ingredientGemdust == 447 or ingredientGemdust == 450) then
+		    -- potion kind is primary or secondary attributes AND there was no plant in the essence brew -> stock concentration determines the effect
+			effectID = stockConc
+		else
+            effectID = getPotion(myIngredients[1],myIngredients[2],myIngredients[3],myIngredients[4],myIngredients[5],myIngredients[6],myIngredients[7],myIngredients[8],myIngredients[9],myIngredients[10])		
+		end
+		-- delte old cauldron datas and add new ones
 		RemoveAll(cauldron)
 		SetQuality(User,cauldron)
 		cauldron.id = newCauldron
+		cauldron:setData("potionEffectId", effectID)
+		cauldron:setData("filledWith", "potion")
 		world:changeItem(cauldron)
 		world:makeSound(13,cauldron.pos)
 		world:gfx(52,cauldron.pos)
+	    -- and learn!
+	    User:learn(Character.alchemy, 20, 100)
 	end
 end
