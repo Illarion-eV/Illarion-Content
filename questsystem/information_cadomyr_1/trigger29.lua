@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 100):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Die Antwort hat der NPC Hummi Olaficht bei der neutralen Taverne, die du durch den Teleporter erreichen kannst. Frage ihn nach den Steinen der Macht.", "Answer the question to get more money and further questions. The answer has the NPC Hummi Olaficht, whom you find at the neutral taverne. You can use the teleporter to get there. Ask him for the stones of power."):execute()
 end
 
