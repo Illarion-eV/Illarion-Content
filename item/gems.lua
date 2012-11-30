@@ -2,7 +2,7 @@ require("content.lookat.unique")
 require("base.common")
 require("base.lookat")
 require("base.factions")
-require("alchemy.base.analyse")
+require("alchemy.base.analysis")
 
 -- UPDATE common SET com_script='item.gems' WHERE com_itemid IN (45, 46, 197, 198, 283, 284, 285);
 
@@ -124,7 +124,7 @@ end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     if SourceItem:getData("gemLevel") == "" then
-	    alchemy.base.analyse.CauldronCheck(User, SourceItem, TargetItem, Counter, Param, ltstate)
+	    alchemy.base.analysis.CauldronCheck(User, SourceItem, TargetItem, Counter, Param, ltstate)
 		return
 	end    
 
