@@ -3,7 +3,7 @@
 -- NPC Job:  Notary                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  900, 776, 1            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   ?? + Miriam                                                      --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 900, 776, 1, 4, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 5, 68, 63, 58, 255, 210, 204);
+VALUES (0, 900, 776, 1, 0, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 5, 68, 63, 58, 255, 210, 204);
 ---]]
 
 require("npc.base.basic")
@@ -288,6 +288,12 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("weche Stadt");
 talkEntry:addTrigger("weche faktion");
 talkEntry:addResponse("Du gehöerst nach %TOWN!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ich");
+talkEntry:addResponse("%CHARNAME");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -3,7 +3,7 @@
 -- NPC Job:  Notary                                                           --
 --                                                                            --
 -- NPC Race: human      NPC Position: 900,776,1                               --
--- NPC Sex:  female       NPC Direction: south                              --
+-- NPC Sex:  female       NPC Direction:north                           --
 --                                                                            --
 -- Author:  ??+ Miriam                                                        --
 --                                                                            --
@@ -13,7 +13,7 @@ name = "Reret Odohir"
 race = human
 sex = female
 position = 900,776,1
-direction = south
+direction = north
 affiliation = "Runewick"
 job = "Notary"
 
@@ -113,6 +113,7 @@ english, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a 
 
 -- Test Question
 "weche Stadt", "weche faktion" -> "Du gehöerst nach %TOWN!"
+"ich" ->  "%CHARNAME"
 
 --"Danke nein, ich habe bereits alles, was ich brauche."
 --"Habt Ihr ein Dekret für mich oder wollt ihr vielleicht ein Dekret oder Schlüßel kaufen?"
