@@ -2,7 +2,7 @@
 -- NPC Name: Neiran el Nyarale                                       Runewick--
 -- NPC Job:  Runewick 'recycle mechanism' guard                                             --
 --                                                                            --
--- NPC Race: Elf                      NPC Position: 897, 781,2                          --
+-- NPC Race: Elf                      NPC Position: 897, 781, 2                          --
 -- NPC Sex:  male                       NPC Direction: southeast                  --
 --                                                                            --
 -- Author:   Miriam                                         --
@@ -11,10 +11,10 @@
 name = "Neiran el Nyarale"
 race = elf
 sex = male
-position = 397, 781,2
+position = 897, 781,2
 direction = southeast
-affiliation = "None"
-job = "Insert profession here"
+affiliation = "Runewick"
+job = "guard"
 
 language = common
 language = elf
@@ -195,11 +195,11 @@ german, chance(20.0), ".*" -> "Ah... verzeiht. Was sagtet Ihr?", "#me hebt eine 
 cycletext "Wir in Runewick wollen unsere Straßen sauer halten. Hilf auch du mit!", "Let's keep Runewicks streets clean!"
 cycletext "#me schaut sich um.", "#me lookes around."
 cycletext "#me lächelt und  lässt einige Münzen auf die magische Oberfläche fallen.", "#me smiles and drops some coins into the magical surface."
-cycletext "Was ist wahrer Reichtum? Wissen oder Münzen?", "What is more of more value?Knowledge or coins?"
-cycletext "Münzen, Waffen, Schmuck und Besteck – alles kann eingeschmolzen werden! Spendet unserer Sschönen Stadt.", "Coins, weapon, juwely, cutlery - everything can be melted down!"
-cycletext "Getreide, Käuter, Küchenabfälle – Alles kommt auf den Kompst!", "Grain, Herbs, kitchen waste - everything will be composted."
-cycletext "Spendet Roh- und Baustoffe – Wir bessern die Straßen von Runewick aus!", "Donate building material and ressouces – We repair the streets of Runewick!"
-cycletext "Spendet Papier und Tinte – Die Bibliothek von Runewick wird es Euch danken!", "Donate ink and paper - For the library in Runewick!"
-cycletext "Ich werde von eurem Einsatz für unsere schöne Stadt beim Erzmagier sprechen – zögert nicht!", "I'll tell the archmage about you supporting for you town! Do not heasitate to donate."
+cycletext "Was ist wahrer Reichtum? Wissen oder Münzen?", "What is more of more value? Knowledge or coins?"
+cycletext "Münzen, Waffen, Schmuck und Besteck – alles kann eingeschmolzen werden! Spendet unserer schönen Stadt.", "Coins, weapon, juwely, cutlery - everything can be melted down!"
+cycletext "Getreide, Käuter, Küchenabfälle – Alles kommt auf den Kompst!", "Grain, Herbs, kitchen waste- Everything will be composted."
+cycletext "Spendet Roh- und Baustoffe - Wir bessern die Straßen von Runewick aus!", "Donate building material and ressouces – We repair the streets of Runewick!"
+cycletext "Spendet Papier und Tinte - Die Bibliothek von Runewick wird es Euch danken!", "Donate ink and paper - For the library in Runewick!"
+cycletext "Ich werde von euren Einsatz für unsere schöne Stadt beim Erzmagier sprechen - zögert nicht!", "I'll tell the archmage about you supporting for you town! Do not heasitate to donate."
 cycletext "#me sieht glücklich aus.", "#me seems to be happy."
 cycletext "#me schreibt eine Liste.", "#me writes a list."

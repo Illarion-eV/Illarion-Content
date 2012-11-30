@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------------
--- NPC Name: Neiran el Nyarale                                       Runewick --
--- NPC Job:  guard                                                            --
+-- NPC Name: Gretel Goldhair                                          Galmair --
+-- NPC Job:  Galmair Treasurer                                                --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  897, 781, 2            --
--- NPC Sex:  male                       NPC Direction: southeast              --
+-- NPC Race: human                      NPC Position:  341, 281, 0            --
+-- NPC Sex:  female                     NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 897, 781, 2, 3, 'Neiran el Nyarale', 'npc.neiran_el_nyarale', 0, 2, 5, 128, 255, 255, 245, 230, 197);
+VALUES (0, 341, 281, 0, 5, 'Gretel Goldhair', 'npc.gretel_goldhair', 1, 2, 5, 150, 157, 164, 232, 214, 199);
 ---]]
 
 require("npc.base.basic")
@@ -23,23 +23,21 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
-require("npc.base.trade")
-module("npc.neiran_el_nyarale", package.seeall)
+module("npc.gretel_goldhair", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Neiran el Nyarale the guard. Keywords: Quest, TRIGGER2, TRIGGER3, rubbish, recycling."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Gretel Goldhair. Keywords: Quest, profession, Galmair, garbage, gods, Don."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Neiran el Nyarale der Wachmann. Schlüsselwörter: Auftrag, TRIGGER2, TRIGGER3, Müll, recycling."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Gretel Goldhair. Süsselwörter: Auftrag, Beruf, Galmair, Müll, Götter, Don."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -51,9 +49,9 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("Greetings to you!");
-talkEntry:addResponse("#me smiles: 'Greetings'");
-talkEntry:addResponse("Hello! .");
+talkEntry:addResponse("Greetings!");
+talkEntry:addResponse("#me nods.");
+talkEntry:addResponse("Speak louder, I can't hear you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -68,9 +66,9 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
-talkEntry:addResponse("Seid gegrüßt!");
-talkEntry:addResponse("#me lächlet: 'Grüße'");
-talkEntry:addResponse("Hallo! ");
+talkEntry:addResponse("Grüße!");
+talkEntry:addResponse("#me nickt.'");
+talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -80,8 +78,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hello hello!");
-talkEntry:addResponse("Well...?");
+talkEntry:addResponse("Hm?");
+talkEntry:addResponse("Speak louder, I can't hear you!");
+talkEntry:addResponse("Hello.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -90,8 +89,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hallo hallo!");
-talkEntry:addResponse("Nun...?");
+talkEntry:addResponse("Hm?");
+talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören.");
+talkEntry:addResponse("Hallo.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -100,9 +100,8 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Fare well!");
-talkEntry:addResponse("See you soon again.");
-talkEntry:addResponse("#me waves");
+talkEntry:addResponse("#me nods");
+talkEntry:addResponse("Speak louder, I can't hear you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -111,9 +110,8 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("Lebt wohl.");
-talkEntry:addResponse("Tschüss. Bis demnächst!");
-talkEntry:addResponse("#me winkt");
+talkEntry:addResponse("#me nickt.");
+talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -125,7 +123,7 @@ talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Take care!");
 talkEntry:addResponse("May the five be with you!");
-talkEntry:addResponse("#me bows.");
+talkEntry:addResponse("#me bows her head.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -136,7 +134,7 @@ talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Bis bald!");
 talkEntry:addResponse("Mögen die Fünf mit Euch sein!");
-talkEntry:addResponse("#me verbeugt sich.");
+talkEntry:addResponse("#me neigt den Kopf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -144,9 +142,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("Me? Thank you, I am fine. How are you?");
-talkEntry:addResponse("How do you do?");
-talkEntry:addResponse("#me shrougs his shoulders.");
+talkEntry:addResponse("Speak louder, I can't hear you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -155,9 +151,13 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("Ich? Mir geht es gut. Danke. Wie geht es Euch?");
-talkEntry:addResponse("Wie geht es Euch?");
-talkEntry:addResponse("#me zuckt mit den Schultern.");
+talkEntry:addResponse("Sprecht lauter, Ich kann Euch nicht hören.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("How do you do");
+talkEntry:addResponse("Shoe? Just drop your shoe on the field here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -165,9 +165,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Neiran el Nyarale, how can I help you?");
-talkEntry:addResponse("Neiran el Nyarale, at your service.");
-talkEntry:addResponse("Neiran el Nyarale from Runewick. And who are you?");
+talkEntry:addResponse("I am Gretel. And you are...?");
+talkEntry:addResponse("Gretel Goldhair. I once was famous, maybe you heard of me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -177,9 +176,8 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("Neiran el Nyarale, was kann ich für Euch tun?");
-talkEntry:addResponse("Neiran el Nyarale , zu Diensten.");
-talkEntry:addResponse("Neiran el Nyarale, aus Runewick. Und wer seid Ihr?");
+talkEntry:addResponse("Gretel Goldhair. Und Ihr seid?");
+talkEntry:addResponse("Gretel Goldhair. Ich war mal berühmt. Vielleicht habt Ihr von mir gehört?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -190,7 +188,7 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("Me? I am not a trader. I am a treasurer. Or, rather the guard of the garbage bin.");
+talkEntry:addResponse("I do not sell anything. But I take donations...or well, the Don does. Just bring the things here and place them on the field.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -201,64 +199,64 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addResponse("Ich? Ich bin kein Händler, ich bin der Schatzmeister... Nun ja, wohl eher der Wächter der Müllkippe.");
+talkEntry:addResponse("Ich verkaufe nichts. Aber ich nehme Spenden entgegen... nun ja, eigentlich sind es Spenden für den Don. Bringt die Sachen ruhig her und legt sie auf das Feld.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 1));
+talkEntry:addResponse("Do you want a task? Bring some more donations. And drop it on the field here!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 1));
+talkEntry:addResponse("Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 1));
+talkEntry:addResponse("Do you want a task? Bring some more donations. And drop it on the field here!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 1));
+talkEntry:addResponse("Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her!");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Just drop what ever you do not need or want to donate to the treasury here on the field. It is not difficult to make Runewick a better place!");
+talkEntry:addResponse("Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Werft das was Ihr nicht braucht oder was Ihr spenden wollt hier auf das Feld. Es ist  nicht schwere Runewick zu einem bessren Ort zu machen!");
+talkEntry:addResponse("Ganz genau! Ihr habt heraus gefunden, wie man das Feld benutzt! War auch nicht schwer, oder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -267,17 +265,17 @@ talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Just drop what ever you do not need or want to donate to the treasury here on the field. It is not difficult to keep the streets clean!");
+talkEntry:addResponse("Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 1));
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Werft das was Ihr nicht braucht oder was Ihr spenden wollt hier auf das Feld. Es ist  nicht schwere Runewick zu einem bessren Ort zu machen!");
+talkEntry:addResponse("Ganz genau! Ihr habt heraus gefunden, wie man das Feld benutzt! War auch nicht schwer, oder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -286,8 +284,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Thank you for you help!");
-talkEntry:addResponse("Thank you for your support!");
+talkEntry:addResponse("Thank you for your donnation!");
+talkEntry:addResponse("#me cakles");
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -296,8 +294,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Vielen Dank für Eure Hilfe!");
-talkEntry:addResponse("Vielen Dank für Eure Unterstützung!");
+talkEntry:addResponse("Danke für Eure Spende!");
+talkEntry:addResponse("#me kichert");
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -307,50 +305,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Thank you for you help!");
-talkEntry:addResponse("Thank you for your support!");
+talkEntry:addResponse("Thank you for your donnation!");
+talkEntry:addResponse("#me cakles");
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("=", 20));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Vielen Dank für Eure Hilfe!");
-talkEntry:addResponse("Vielen Dank für Eure Unterstützung!");
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("=", 20));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("#me smiles");
-talkEntry:addResponse("Just keep the streets clean.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("#me lächelt");
-talkEntry:addResponse("Haltet einfach die Straßen sauber.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("order");
-talkEntry:addResponse("#me smiles");
-talkEntry:addResponse("Just keep the streets clean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -360,54 +317,93 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("#me lächelt");
-talkEntry:addResponse("Haltet einfach die Straßen sauber.");
+talkEntry:addResponse("Danke für Eure Spende!");
+talkEntry:addResponse("#me kichert");
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("=", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("#me grins showing a pair of yellow theeth.");
+talkEntry:addResponse(" Come back again!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("#me grinst und entblößt dabei ein paar gelber Zähne.");
+talkEntry:addResponse("Bis bald!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("#me grins showing a pair of yellow theeth.");
+talkEntry:addResponse(" Come back again, Sweetheart!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("#me grinst und entblößt dabei ein paar gelber Zähne.");
+talkEntry:addResponse("Bis bald, Schätzchen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am the guard here. I guard the magical surface.");
-talkEntry:addResponse("I tell newcomers how to use the how to use recycle mechanism.");
-talkEntry:addResponse("I help to keep the steets clean. Do you want to help me with this task?");
+talkEntry:addResponse("I am sorting all that rubbish ... I mean, all the donnations to the Don.");
+talkEntry:addResponse("...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Ich bin Wächter hier. Ich hüte die magische Oberfälche.");
-talkEntry:addResponse("Ich erkläre Neuankömmlingen wir man den Recyclemechanismus verwendet.");
-talkEntry:addResponse("Ich helfe die Straßen sauber zu halten. Möchtet Ihr mir bei dieser Aufgabe behilflich sein?");
+talkEntry:addResponse("Ich sortiere all diesen Müll... ähm, all diese Spenden an den Don, wollte ich sagen.");
+talkEntry:addResponse("...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I am the guard here. I guard the magical surface.");
-talkEntry:addResponse("I tell newcomers how to use the how to use recycle mechanism.");
-talkEntry:addResponse("I help to keep the steets clean. Do you want to help me with this task?");
+talkEntry:addResponse("I am sorting all that rubbish ... I mean, all the donnations to the Don.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ich bin Wächter hier. Ich hüte die magische Oberfälche.");
-talkEntry:addResponse("Ich erkläre Neuankömmlingen wir man den Recyclemechanismus verwendet.");
-talkEntry:addResponse("Ich helfe die Straßen sauber zu halten. Möchtet Ihr mir bei dieser Aufgabe behilflich sein?");
+talkEntry:addResponse("Ich sortiere all diesen Müll... ähm, all diese Spenden an den Don, wollte ich sagen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I do not have much to tell, if you want to hear about adventures, then better go on adventure yourself.");
+talkEntry:addResponse("I came to Galmair as a young girl. And I am still here now. How long will you stay here?");
+talkEntry:addResponse("I once was a well known, beautiful dancer. But I grew old and ugly. Now I guard this garbage bin.");
+talkEntry:addResponse("When I was young, they called me Gretel Goldhair, but now they call me Gretel Graihair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Ich habe nicht viel zu erzählen, wenn Ihr über Abenteuer hören wollt, geht besser selst welche erleben.");
+talkEntry:addResponse("Ich kam als junges Mädchen nach Galmair. Jetzt bin ich immer noch da. Wie lange werden Ihr bleiben?");
+talkEntry:addResponse("Ich war mal eine Stadtbekannt, wunderschöne Tänzerin. Doch ich wurde alt und hässlich. Jetzt beaufsichtige ich diese Müllkippe!");
+talkEntry:addResponse("Früher nannten sie mich Gertel Goldhair, jetzt nennen sie mich Graue Gretel:");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -416,8 +412,7 @@ talkEntry:addTrigger("garbage bin");
 talkEntry:addTrigger("rubbish");
 talkEntry:addTrigger("garbadge");
 talkEntry:addTrigger("trash");
-talkEntry:addResponse("There is no real rubbish, we reuse the most things.");
-talkEntry:addResponse("This is no garbadge bin! It's a most magical recycle mechanism!");
+talkEntry:addResponse("You do not doante garbage to the Don, do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -425,24 +420,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Müllkippe");
 talkEntry:addTrigger("Müll");
 talkEntry:addTrigger("Schrott");
-talkEntry:addResponse("Es gibt eigentlich keinen Abfall. Wir verwerten das meiste weiter.");
-talkEntry:addResponse("Das ist keine Müllkippe! Das ist ein höchst magischer Recylemechanismus!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("recycle mechanism");
-talkEntry:addResponse("The Archmage invented the recycle mechanism. It is a wounderfull thing.");
-talkEntry:addResponse("By using the recycle mechanism we keep this place clean. The arch mage is always happy when someone uses it.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("recyclemechanismus");
-talkEntry:addTrigger("Recyclemechanismus");
-talkEntry:addTrigger("recycle mechanismus");
-talkEntry:addResponse("Der Erzmagier erfand den Recyclemechanismus.");
-talkEntry:addResponse("Mit Hilfe des Recyclemechanismus halten wir Runewick sauer. Der Erzmagier freut sich immer, wenn jemand ihn benutzt.");
+talkEntry:addResponse("...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,19 +440,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("recycling");
-talkEntry:addResponse("The archmage invented the word 'recycling'.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("recycling");
-talkEntry:addResponse("Der Erzmgier erfand das Wort 'recycling'.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
 talkEntry:addResponse("The gods created Illarion without rubbish. Most of us produce rubbish everyday.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -490,41 +455,39 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("religion");
-talkEntry:addResponse("We elves pray to the five elder gods.");
+talkEntry:addResponse("If you lost your loved ones you hope the gods keep them save in their realms. Maybe you'll understand oneday... or maybe you alredy do?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("religion");
-talkEntry:addResponse("Wir Elfen beten zu den fünf alten Göttern.");
+talkEntry:addResponse("Wenn du deine Liebsten verloren hast, betest du zu den Göttern, das sie sie sicher in ihrer Spähre verweilen lassen. Eines Tags werdet Ihr das verstehen... oder versteh Ihr das schon?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faith");
-talkEntry:addResponse("We elves pray to the five elder gods.");
+talkEntry:addResponse("The elder gods are retuned.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glaube");
-talkEntry:addResponse("Wir Elfen beten zu den fünf alten Göttern.");
+talkEntry:addResponse("Die aölten Götter sind zurüch gekehrt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("The arch mage is a wise man.");
-talkEntry:addResponse("The arch mage helps to keep the streets clean!");
-talkEntry:addResponse("The arch mages name ist Elvain Morgan.");
+talkEntry:addResponse("I am older than the arch mage. By ages!");
+talkEntry:addResponse("Speak louder, I can't hear you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Der Erzmagier ist ein weiser Mann.");
-talkEntry:addResponse("Der Erzmagier hilft die Straßen sauber zu halten.");
-talkEntry:addResponse("Der Erzmagier heißt Elvaine Morgan.");
+talkEntry:addResponse("Ich bin älter als der Erzmagier. Wesentlich älter!");
+talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -532,35 +495,31 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Elvaine Morgan is a wise man.");
-talkEntry:addResponse("Elvaine Morgan helps to keep the streets clean!");
-talkEntry:addResponse("Elvaine Morgan is the arch mage.");
+talkEntry:addResponse("I am older than the arch mage. By ages!");
+talkEntry:addResponse("Speak louder, I can't hear you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Elvaine Morgan ist ein weiser Mann.");
-talkEntry:addResponse("Elvaine Morgan hilft die Staßeb sauber zu halten!");
-talkEntry:addResponse("Elvaine Morgan ist der Erzmagier.");
+talkEntry:addResponse("Ich bin älter als der Erzmagier. Wesentlich älter!");
+talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Yes, this is Runewick.");
-talkEntry:addResponse("Let's keep the steets of Runewick clean!");
-talkEntry:addResponse("Many people here study magic. Why did you come here?");
+talkEntry:addResponse("Speak louder, I can't hear you!");
+talkEntry:addResponse("No. No. This place is Galmair, sweetheart");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Ja, dies ist Runewick.");
-talkEntry:addResponse("Lasst uns die Straßen von Runewick sauber halten!");
-talkEntry:addResponse("Viele Leute hier studieren Magie. Warum seid Ihr hier?");
+talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören!");
+talkEntry:addResponse("Nein, nein. Dieser Ort ist Galmair, Schätzchen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -569,9 +528,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("No, that's not me.");
-talkEntry:addResponse("He ist not here.");
-talkEntry:addResponse("He has not here, as far as I know.");
+talkEntry:addResponse("That's the Don here. He allowed me to guard the garbage bin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -579,34 +536,32 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Nein, das bin ich nicht.");
-talkEntry:addResponse("Der ist nicht hier.");
-talkEntry:addResponse("So weit ich weiß, war er nicht hier.");
+talkEntry:addResponse("Das ist der Don. Er erlaubte mir auf die Müllkippe zu wachen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("They do not keep the streets clean in Galmair.");
+talkEntry:addResponse("...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("In Galmair halten sie die Straßen nicht sauber.");
+talkEntry:addResponse("...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Queen is a title used by humans and dwarves for female leaders.");
+talkEntry:addResponse("Even she will be ugly, then she's old. But I'll be dead that day, what a pitty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("Königin ist ein Titel den Menschen und Zwerge für weibliche Anführer benutzen.");
+talkEntry:addResponse("Auch sie wird häßlich, wenn sie alt wird. Aber dann ich schon tot, schade, schade...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -614,46 +569,43 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Mh? ? Who is that?");
-talkEntry:addResponse("No, I haven't seen her. She has not used the recycle mechanism recently.");
+talkEntry:addResponse("I hate this arogant bart!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Mh? ...Wer?");
-talkEntry:addResponse("Nein, ich habe sie nicht gesehen. Sie hat den Recyclemechanismus schon lange nicht benutzt.");
+talkEntry:addResponse("Ich hasse diese arrogante Göre!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Ah... Cadomyr. That's a town full of sand.");
-talkEntry:addResponse("Just a place not far from here. nothing more, nothing less.");
-talkEntry:addResponse("#me nods slowly.");
+talkEntry:addResponse("Speak louder, I can't hear you!");
+talkEntry:addResponse("Cadomyr ...what's with Cadomyr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Ah... Cadomyr. Das ist eine Stadt voll von Sand.");
-talkEntry:addResponse("Nur ein Ort nicht weit vob hier. Nichts mehr oder weniger als dies.");
-talkEntry:addResponse("#me nickt langsam.");
+talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören!");
+talkEntry:addResponse("Cadomyr? ? Was ist damit?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("#me nods with a faint smile on his lips.");
+talkEntry:addResponse("Speak louder, I can't hear you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("#me nickt mit einem schmalen Lächeln auf den Lippen.");
+talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören!");
+talkEntry:addResponse("Albar...did you say?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -661,27 +613,28 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("#me nods with a faint smile on his lips.");
+talkEntry:addResponse("Speak louder, I can't hear you!");
+talkEntry:addResponse("Albar...had Ihr gesagt?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("#me nickt mit einem schmalen Lächeln auf den Lippen.");
+talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("#me nods with a faint smile on his lips.");
+talkEntry:addResponse("Speak louder, I can't hear you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("#me nickt mit einem schmalen Lächeln auf den Lippen.");
+talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -689,89 +642,76 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse(" I've never been to this place.");
-talkEntry:addResponse("It was ...a place.");
-talkEntry:addResponse("#me nods with a faint smile on his lips.");
+talkEntry:addResponse("Speak louder, I can't hear you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Da war ich noch nie.");
-talkEntry:addResponse("Es war ? ein Ort.");
-talkEntry:addResponse("#me nickt mit einem schmalen Lächeln auf den Lippen.");
+talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Nice to meet you! ");
-talkEntry:addResponse("Good to see you!");
-talkEntry:addResponse("#me smiles friendly.");
+talkEntry:addResponse("Speak louder, I can't hear you!");
+talkEntry:addResponse("Haven't I met you before?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Feut mich!");
-talkEntry:addResponse("Schön euch zu treffen!");
-talkEntry:addResponse("#me lächelt freundlich.");
+talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören!");
+talkEntry:addResponse("Habe ich Euch nicht schon einmal gesehen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Neiran");
-talkEntry:addTrigger("el Nyarale");
-talkEntry:addTrigger("Nyarale");
-talkEntry:addResponse("That's me. How can I help you?");
-talkEntry:addResponse("#me raises a hand and waves.");
-talkEntry:addResponse("#me lookes around: 'Who called for me?'");
-talkEntry:addResponse("#me smiles friendly");
+talkEntry:addTrigger("Gretel");
+talkEntry:addTrigger("Goldhair");
+talkEntry:addResponse("You asked for me?");
+talkEntry:addResponse("Who asked?");
+talkEntry:addResponse("Did you say something?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Neiran");
-talkEntry:addTrigger("el Nyarale");
-talkEntry:addTrigger("Nyarale");
-talkEntry:addResponse("Das bin ich. Was kann ich für Euch tun?");
-talkEntry:addResponse("#me hebt eine Hand und winkt.");
-talkEntry:addResponse("#me bickt sich um: 'Wer rief nach mir?'");
-talkEntry:addResponse("#me smiles friendly");
+talkEntry:addTrigger("Gretel");
+talkEntry:addTrigger("Goldhair");
+talkEntry:addResponse("Ihr fragt nach mir?");
+talkEntry:addResponse("Wer fragt?");
+talkEntry:addResponse("Habt Ihr was gesagt?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("#me nods slowly.");
-talkEntry:addResponse("#me smiles.");
-talkEntry:addResponse("I am happy to hear you say so!");
+talkEntry:addResponse("#me grins showing a pair of yellow theeth.");
+talkEntry:addResponse("Very well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("#me nickt langsam.");
-talkEntry:addResponse("#me lächelt.");
-talkEntry:addResponse("Es freut mich, dass Ihr das sagt..");
+talkEntry:addResponse("#me grinst und zeigt ein paar gelber Zähne.");
+talkEntry:addResponse(" Schön. Schön.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("I didn't expect that answer.");
-talkEntry:addResponse("#me raises an eyebrow.");
-talkEntry:addResponse("I shall give  you some more time to consider your answer. But at the moment you seem to be ? still inexperieced.");
+talkEntry:addResponse("Oh...that's too sad.");
+talkEntry:addResponse("Speak louder, I can't hear you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("Ich hätte eine andere Antwort erwartet.");
+talkEntry:addResponse("Oh, das ist jammer schade ...");
 talkEntry:addResponse("#me hebt eine Augenbraue.");
-talkEntry:addResponse("Ich werde dir mehr Zeit geben deine Antwort zu bedenken. Zur Zeit scheinst du noch ? unerfahren zu sein.");
+talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -779,8 +719,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ah...pardon? What did you say?");
-talkEntry:addResponse("#me raises an eyebrow.");
+talkEntry:addResponse("Speak louder, I can't hear you!");
+talkEntry:addResponse("Did you say something?");
+talkEntry:addResponse("#me lookes around");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -788,41 +729,34 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ah... verzeiht. Was sagtet Ihr?");
-talkEntry:addResponse("#me hebt eine Augenbraue.");
+talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören!");
+talkEntry:addResponse("Habt Ihr was gesagt?");
+talkEntry:addResponse("#me schaut sich um.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Wir in Runewick wollen unsere Straßen sauer halten. Hilf auch du mit!", "Let's keep Runewicks streets clean!");
+talkingNPC:addCycleText("Seht mich an, so werdet auch Ihr aussehen, wenn Ihr alt seid!", "...");
+talkingNPC:addCycleText("#me kichert irre wie eine alte Hexe.", "#me cakles like an old witch.");
+talkingNPC:addCycleText("#me stützt sich auf ihren Stock.", "#me rests her arms on her walking staff.");
+talkingNPC:addCycleText("#me starrt in die Ferne.", "#me stares at the horizon.");
+talkingNPC:addCycleText("#me zieht die Nase hoch. ", "#me snuffels.");
+talkingNPC:addCycleText("#me redet leise mich sich selbst.", "#me talkes to herself silently.");
 talkingNPC:addCycleText("#me schaut sich um.", "#me lookes around.");
-talkingNPC:addCycleText("#me lächelt und  lässt einige Münzen auf die magische Oberfläche fallen.", "#me smiles and drops some coins into the magical surface.");
-talkingNPC:addCycleText("Was ist wahrer Reichtum? Wissen oder Münzen?", "What is more of more value? Knowledge or coins?");
-talkingNPC:addCycleText("Münzen, Waffen, Schmuck und Besteck ? alles kann eingeschmolzen werden! Spendet unserer schönen Stadt.", "Coins, weapon, juwely, cutlery - everything can be melted down!");
-talkingNPC:addCycleText("Getreide, Käuter, Küchenabfälle ? Alles kommt auf den Kompst!", "Grain, Herbs, kitchen waste- Everything will be composted.");
-talkingNPC:addCycleText("Spendet Roh- und Baustoffe - Wir bessern die Straßen von Runewick aus!", "Donate building material and ressouces ? We repair the streets of Runewick!");
-talkingNPC:addCycleText("Spendet Papier und Tinte - Die Bibliothek von Runewick wird es Euch danken!", "Donate ink and paper - For the library in Runewick!");
-talkingNPC:addCycleText("Ich werde von euren Einsatz für unsere schöne Stadt beim Erzmagier sprechen - zögert nicht!", "I'll tell the archmage about you supporting for you town! Do not heasitate to donate.");
-talkingNPC:addCycleText("#me sieht glücklich aus.", "#me seems to be happy.");
-talkingNPC:addCycleText("#me schreibt eine Liste.", "#me writes a list.");
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"buySecondary"));
+talkingNPC:addCycleText("#me hustet.", "#me coughts.");
+talkingNPC:addCycleText("#me spuckt auf den Boden.", "#me spits on the ground.");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(3);
+mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Neiran el Nyarale der Wachmann.", "This NPC is Neiran el Nyarale the guard.");
-mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
+mainNPC:setLookat("Dieser NPC ist Gretel Goldhair.", "This NPC is Gretel Goldhair.");
+mainNPC:setUseMessage("Bleibt weg von mir!", "Stay away from me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
-mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 181);
+mainNPC:setEquipment(1, 1);
+mainNPC:setEquipment(3, 802);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 825);
-mainNPC:setEquipment(10, 53);
+mainNPC:setEquipment(4, 0);
+mainNPC:setEquipment(9, 0);
+mainNPC:setEquipment(10, 369);
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

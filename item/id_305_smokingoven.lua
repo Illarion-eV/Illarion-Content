@@ -1,150 +1,128 @@
--- RÄUCHEROFEN
-
--- Roher Schinken(307) zu Schinken(306)
--- oder
--- Forelle (73) zu Räucherfisch (455)
--- oder
--- Lachs (355) zu Räucherfisch (455)
---
--- Arbeitscyclus: 2s - 5s
+-- pork (307) --> ham (306)
+-- trout (73) --> smoked fish (455)
+-- salmon (355) --> smoked fish (455)
 
 -- UPDATE common SET com_script='item.id_305_smokingoven' WHERE com_itemid IN (305,304);
 
 require("base.common")
+require("content.gathering")
 
 module("item.id_305_smokingoven", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    base.common.ResetInterruption( User, ltstate )
-    if ( ltstate == Action.abort ) then
-        if (User:increaseAttrib("sex",0) == 0) then
-            gText = "seine";
-            eText = "his";
-        else
-            gText = "ihre";
-            eText = "her";
-        end
-        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-        if (SourceItem.id ~= 304) then
-            world:swap(SourceItem,304,0);
-        end
-        return
-    end
-    
-    if not base.common.CheckItem( User, SourceItem, {305,304} ) then
-        if (SourceItem.id ~= 304) then
-            world:swap(SourceItem,304,0);
-        end
-        return
-    end
-    
-    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
-        base.common.InformNLS( User,
-        "Deine Rüstung behindert dich beim Räuchern",
-        "Your armor disturbs you roasting ham or fish" );
-        if (SourceItem.id ~= 304) then
-            world:swap(SourceItem,304,0);
-        end
-        return
-    end
-    
-    if not base.common.IsLookingAt( User, SourceItem.pos ) then
-        base.common.TurnTo( User, SourceItem.pos );
-    end
-    
-    if not base.common.FitForWork( User ) then
-        if (SourceItem.id ~= 304) then
-            world:swap(SourceItem,304,0);
-        end
-        return
-    end
-    
-    if ( (User:countItemAt("belt",307) < 1)  and (User:countItemAt("belt",355) < 1) and (User:countItemAt("belt",73) < 1) ) then
-        if (ltstate ~= Action.success) then
-            base.common.InformNLS( User, 
-            "Du benötigst rohen Schinken oder rohen Fisch um diesen hier zu räuchern.", 
-            "You need raw ham or raw fish to roast it here." );
-        end
-        if (SourceItem.id ~= 304) then
-            world:swap(SourceItem,304,0);
-        end
-        return
-    end
-    
-    if ( ltstate == Action.none ) then
-        User:startAction( GenWorkTime(User), 0, 0, 0, 0);
-        User:talkLanguage( Character.say, Player.german, "#me beginnt zu räuchern.");
-        User:talkLanguage( Character.say, Player.english, "#me starts to roast.");
-        if (SourceItem.id ~= 305) then
-            world:swap(SourceItem,305,0);
-        end
-        return
-    end
-    
-    if base.common.IsInterrupted( User ) then
-        base.common.InformNLS(User,
-        "Du verbrennst dir die Finger an dem heissen Ofen.",
-        "You burn your fingers on the hot oven.");
-        if (SourceItem.id ~= 304) then
-            world:swap(SourceItem,304,0);
-        end
-        return
-    end
-    
-    if (User:countItemAt("all",307) > 0) then
-        User:eraseItem( 307, 1 );
-        local notcreated = User:createItem(306, 1, 333 ,0 );
-        if (notcreated > 0) then
-            world:createItemFromId( 306, 1, User.pos, true, 333 ,0);
-            base.common.InformNLS(User,
-            "Du kannst nichts mehr halten.",
-            "You can't carry any more.");
-            if (SourceItem.id ~= 304) then
-                world:swap(SourceItem,304,0);
-            end
-        else
-            User:startAction( GenWorkTime(User), 0, 0, 0, 0 );
-        end
-    elseif (User:countItemAt("all",355) > 0) then
-        User:eraseItem( 355, 1 );
-        local notcreated = User:createItem(455, 1, 333 ,0 );
-        if (notcreated > 0) then
-            world:createItemFromId( 455, 1, User.pos, true, 333 ,0);
-            base.common.InformNLS(User,
-            "Du kannst nichts mehr halten.",
-            "You can't carry any more.");
-            if (SourceItem.id ~= 304) then
-                world:swap(SourceItem,304,0);
-            end
-        else
-            User:startAction( GenWorkTime(User), 0, 0, 0, 0 );
-        end
-    elseif (User:countItemAt("all",73) > 0) then
-        User:eraseItem( 73, 1 );
-        local notcreated = User:createItem(455, 1, 333 ,0 );
-        if (notcreated > 0) then
-            world:createItemFromId( 455, 1, User.pos, true, 333 ,0);
-            base.common.InformNLS(User,
-            "Du kannst nichts mehr halten.",
-            "You can't carry any more.");
-            if (SourceItem.id ~= 304) then
-                world:swap(SourceItem,304,0);
-            end
-        else
-	    User:startAction( GenWorkTime(User), 0, 0, 0, 0 );
+-- creates a simple item struct that specifies the id and the amount that is needed
+-- @param itemId  The ID of that item.
+-- @param itemAmount  The amount of that item. Default is 1.
+function CreateItem(itemId, itemAmount)
+  if (itemAmount == nil) then
+    itemAmount = 1;
+  end
+  return {id = itemId, amount = itemAmount};
+end
+
+-- @param sourceItem  Item struct of the source. The amount specifies how many are required.
+-- @param productItem  Item struct of the product. The amount specifies how many are produced.
+function CreateCraftItem(sourceItem, productItem)
+  return {source = sourceItem, product = productItem};
+end
+
+function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	content.gathering.InitGathering();
+	local smokefood = content.gathering.smokefood;
+  
+  if (craftList == nil) then
+    craftList = {
+      CreateCraftItem(CreateItem(307), CreateItem(306)),
+      CreateCraftItem(CreateItem(73), CreateItem(455)),
+      CreateCraftItem(CreateItem(355), CreateItem(455))
+    };
+  end
+  
+	base.common.ResetInterruption( User, ltstate );
+	if ( ltstate == Action.abort ) then -- work interrupted
+		if (User:increaseAttrib("sex",0) == 0) then
+			gText = "seine";
+			eText = "his";
+		else
+			gText = "ihre";
+			eText = "her";
+		end
+		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		return
 	end
+
+	if not base.common.CheckItem( User, SourceItem ) then -- security check
+		return
+	end
+
+	if base.common.Encumbrence(User) then
+		base.common.InformNLS( User,
+		"Deine Rüstung behindert Dich beim Räuchern des Fisches und Schweinefleisches.",
+		"Your armour disturbs you while smoking fish and pork." );
+		return
+	end
+
+	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
+
+	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
+		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+	end
+	
+	-- any other checks?
+  local craftItem = nil;
+  for _,entry in pairs(craftList) do
+    if (User:countItemAt("all",entry.source.id)>=entry.source.amount) then
+      craftItem = entry;
+      break;
     end
+  end
+	if (craftItem == nil) then -- check for items to work on
+		base.common.InformNLS( User, 
+		"Du brauchst Forellen, Lachs oder rohen Schinken um diese zu räuchern.", 
+		"You need trouts, salmons or ham for smoking them." );
+		return;
+	end
+	
+	if ( ltstate == Action.none ) then -- currently not working -> let's go
+		smokefood.SavedWorkTime[User.id] = smokefood:GenWorkTime(User,nil);
+		User:startAction( smokefood.SavedWorkTime[User.id], 0, 0, 0, 0);
+		User:talkLanguage( Character.say, Player.german, "#me beginnt an der Räucherhütte zu arbeiten.");
+		User:talkLanguage( Character.say, Player.english, "#me starts to work at the smoke oven."); 
+		return
+	end
 
-    base.common.GetHungry( User, 100 );
-    --User:learn( 2, "cookingAndBaking", 2, 10 );
-	--Replace with new learn function, see learn.lua 
-    
-end -- function
+	-- since we're here, we're working
 
-function GenWorkTime(User)
-    local Attrib = User:increaseAttrib("dexterity",0); -- Geschicklichkeit: 0 - 20
-    local Skill  = User:getSkill(Character.cooking);     -- Backen & Kochen: 0 - 100
-    
-    return math.floor(-0.3 * (Attrib + Skill) + 50);
+	if smokefood:FindRandomItem(User) then
+		return
+	end
+
+	User:learn( smokefood.LeadSkill, smokefood.SavedWorkTime[User.id], 100);
+	User:eraseItem( craftItem.source.id, craftItem.source.amount ); -- erase the item we're working on
+	local amount = craftItem.product.amount; -- set the amount of items that are produced
+	local notCreated = User:createItem( craftItem.source.id, amount, 333, nil ); -- create the new produced items
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( craftItem.source.id, notCreated, User.pos, true, 333, nil );
+		base.common.InformNLS(User,
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
+	else -- character can still carry something
+    craftItem = nil;
+    for _,entry in pairs(craftList) do
+      if (User:countItemAt("all",entry.source.id)>=entry.source.amount) then
+        craftItem = entry;
+        break;
+      end
+    end
+		if (craftItem ~= nil) then  -- there are still items we can work on
+			smokefood.SavedWorkTime[User.id] = smokefood:GenWorkTime(User,nil);
+			User:startAction( smokefood.SavedWorkTime[User.id], 0, 0, 0, 0);
+		else -- no items left
+			base.common.InformNLS(User,
+			"Du brauchst Forellen, Lachs oder rohen Schinken um diese zu räuchern.", 
+      "You need trouts, salmons or ham for smoking them." );
+		end
+	end
 end
