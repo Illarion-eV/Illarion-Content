@@ -70,6 +70,20 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin with you.", "Farew
 "your name", "who are you", "who art thou" -> "My name is Frederik Silvereye, I take care of the new arrivals of this place.", "I'm Frederik Silvereye, I am the notary of Galmair.", "You can call me Frederik Silvereye, as notary of this town I could put you on the citizen list of this beautiful place."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Frederik Silvereye, ich kümmere mich um die Neuankömmlinge dieses Ortes.", "Mein Name ist Frederik Silvereye, ich bin der Notar Galmairs.", "Man nennt mich Frederik Silvereye, als Notar kann Ich euch zum Bürger unseres schönen Ortes eintragen."
 
+-- Becoming citizen in Galmair
+english, town = Cadomyr,  "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
+town = Cadomyr,  "Bürger werden","Bürgerschaft beantragen" -> town =  Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
+english, town = Runewick, "become citizen", "gain citizenship" -> town =  Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
+town = Runewick, "Bürger werden","Bürgerschaft beantragen" ->  town =  Galmair, "Ihr seidt jetzt Bürger von Galmair!", "Willkommen in Galmair!"
+english, town = Galmair,  "become citizen", "gain citizenship" -> town =  Galmair, "You are already a citizen of Galmair!"
+town = Galmair,  "Bürger werden", "Bürgerschaft beantragen" -> town =  Galmair, "Ihr seid bereits Bürger von Galmair!"
+english, "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
+"Bürger werden", "Bürgerschaft beantragen" -> town = Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
+
+-- Test Question
+"weche Stadt", "weche faktion" -> "Du gehöerst nach %TOWN!"
+"ich" ->  "%CHARNAME"
+
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."
 "quest", "mission" -> "Derzeit habe ich alles, aber danke für eure Sorge.", "Vielleicht ein anderes mal, derzeit habe ich alles was ich brauche."

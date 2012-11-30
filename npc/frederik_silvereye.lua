@@ -17,7 +17,9 @@ VALUES (0, 404, 263, 1, 4, 'Frederik Silvereye', 'npc.frederik_silvereye', 0, 3,
 require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
+require("npc.base.condition.town")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.town")
 require("npc.base.talk")
 module("npc.frederik_silvereye", package.seeall)
 
@@ -176,6 +178,99 @@ talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Mein Name ist Frederik Silvereye, ich kümmere mich um die Neuankömmlinge dieses Ortes.");
 talkEntry:addResponse("Mein Name ist Frederik Silvereye, ich bin der Notar Galmairs.");
 talkEntry:addResponse("Man nennt mich Frederik Silvereye, als Notar kann Ich euch zum Bürger unseres schönen Ortes eintragen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("You are now a citizen of Galmair!");
+talkEntry:addResponse("Welcome to Galmair!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Ihr seid jetzt Bürger von Galmair!");
+talkEntry:addResponse("Willkommen in Galmair!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("You are now a citizen of Galmair!");
+talkEntry:addResponse("Welcome to Galmair!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Ihr seidt jetzt Bürger von Galmair!");
+talkEntry:addResponse("Willkommen in Galmair!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("You are already a citizen of Galmair!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Ihr seid bereits Bürger von Galmair!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("You are now a citizen of Galmair!");
+talkEntry:addResponse("Welcome to Galmair!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Ihr seid jetzt Bürger von Galmair!");
+talkEntry:addResponse("Willkommen in Galmair!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("weche Stadt");
+talkEntry:addTrigger("weche faktion");
+talkEntry:addResponse("Du gehöerst nach %TOWN!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ich");
+talkEntry:addResponse("%CHARNAME");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
