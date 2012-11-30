@@ -749,7 +749,7 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Gretel Goldhair.", "This NPC is Gretel Goldhair.");
 mainNPC:setUseMessage("Bleibt weg von mir!", "Stay away from me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
-mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(1, 1);
 mainNPC:setEquipment(3, 802);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
