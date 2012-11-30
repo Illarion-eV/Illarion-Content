@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 100):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde die K�nigin, rede mit ihr und komme wieder zur�ck.", "Find the Queen, speak with her and come back."):execute()
 end
 
