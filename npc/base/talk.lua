@@ -130,6 +130,7 @@ function talkNPCEntry:addResponse(text)
 			if (self._responseProcessors[self._responsesCount] == nil) then
 				self._responseProcessors[self._responsesCount] = {};
 			end;
+			debug("Processor found for response: " .. text);
 			table.insert(self._responseProcessors[self._responsesCount], processor)
 		end;
 	end;
