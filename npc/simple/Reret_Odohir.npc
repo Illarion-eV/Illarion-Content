@@ -109,7 +109,10 @@ town = Runewick, "Bürger werden","Bürgerschaft beantragen" ->  town = Cadomyr,
 english, town = Cadomyr,  "become citizen", "gain citizenship" -> town = Cadomyr, "You are already a citizen of Cadomyr"
 town = Cadomyr,  "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid bereits Bürger von Cadomyr"
 english, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Cadomyr", "Welcome to Cadomyr!"
-"Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Du bist jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
+"Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
+
+-- Test Question
+"weche Stadt", "weche faktion" -> "Du gehöerst nach %TOWN!"
 
 --"Danke nein, ich habe bereits alles, was ich brauche."
 --"Habt Ihr ein Dekret für mich oder wollt ihr vielleicht ein Dekret oder Schlüßel kaufen?"

@@ -278,9 +278,16 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Du bist jetzt Bürger von Cadomyr");
+talkEntry:addResponse("Ihr seid jetzt Bürger von Cadomyr");
 talkEntry:addResponse("Willkommen in Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("weche Stadt");
+talkEntry:addTrigger("weche faktion");
+talkEntry:addResponse("Du gehöerst nach %TOWN!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
