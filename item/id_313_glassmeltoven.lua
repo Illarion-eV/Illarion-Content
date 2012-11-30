@@ -14,21 +14,38 @@ module("item.id_313_glassmeltoven", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   content.gathering.InitGathering();
-  
-  -- first determine what action to do
-  if (User:countItemAt("all",311)>0) then
-    -- glass blowing
-    ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltstate );
-  elseif (User:countItemAt("all",734)>0) then
-    if (User:countItemAt("all",26)>0) then
-      ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
-    else
-      ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
-    end
-  else
+  if (User:countItemAt("all",311)==0 and User:countItemAt("all",734)==0) then
+    -- no tool at all
     base.common.InformNLS( User,
 		"Du brauchst ein Glasblasrohr oder eine Ziegelform um hier zu arbeiten.", 
 		"You need a glass blow pipe or a brick mould to work here." );
+  elseif (User:countItemAt("all",311)>0 and User:countItemAt("all",734)==0) then
+    -- only glass blow pipe
+    ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltstate );
+  elseif (User:countItemAt("all",311)==0 and User:countItemAt("all",734)>0) then
+    -- only brick mould
+    if (User:countItemAt("all",26)>0) then
+      ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
+    elseif (User:countItemAt("all",736)>4) then
+      ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
+    else
+      base.common.InformNLS( User,
+      "Du brauchst Lehm oder 5 ungebrannte Ziegel um mit der Ziegelform hier zu arbeiten.", 
+      "You need clay or 5 unfired bricks to work here with the brick mould." );
+    end
+  else
+    -- both tools
+    if (User:countItemAt("all",26)>0) then
+      ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
+    elseif (User:countItemAt("all",736)>4) then
+      ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
+    elseif (User:countItemAt("all",316)>0 and User:countItemAt("all",314)>0) then
+      ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltstate );
+    else
+      base.common.InformNLS( User,
+      "Für die Ziegelform brauchst du Lehm oder 5 ungebrannte Ziegel, für das Glasblasrohr brauchst du Quarzsand und Pottasche.", 
+      "For the brick mould you need clay or 5 unfired bricks, for the glass blow pipe you need quartz sand and pott ash." );
+    end
   end
 end
 
@@ -190,12 +207,9 @@ function ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, lts
 	end
 	
 	-- any other checks?
-
-	if (User:countItemAt("all",26)==0) then -- check for items to work on
-		base.common.InformNLS( User, 
-		"Du brauchst Lehm um ungebrannte Ziegel herzustellen.", 
-		"You need clay for producing unfired bricks." );
-		return;
+  if (User:countItemAt("all",26)==0) then
+		User:inform("[ERROR] No clay found. Please inform a developer.");
+		return
 	end
 	
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
@@ -226,6 +240,7 @@ function ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, lts
 			bricksproducing.SavedWorkTime[User.id] = bricksproducing:GenWorkTime(User,toolItem);
 			User:startAction( bricksproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
+      -- Should actually never reach this, handle it nevertheless.
 			base.common.InformNLS(User,
 			"Du hast keinen Lehm mehr.",
 			"You have no clay anymore.");
@@ -293,12 +308,9 @@ function ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	-- any other checks?
-
-	if (User:countItemAt("all",736)==0) then -- check for items to work on
-		base.common.InformNLS( User, 
-		"Du brauchst ungebrannte Ziegel um sie zu brennen.", 
-		"You need unfired bricks for firing them." );
-		return;
+  if (User:countItemAt("all",736)<5) then
+		User:inform("[ERROR] Not enough unfired bricks found. Please inform a developer.");
+		return
 	end
 	
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
@@ -316,7 +328,7 @@ function ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], 100);
-	User:eraseItem( 736, 1 ); -- erase the item we're working on
+	User:eraseItem( 736, 5 ); -- erase the item we're working on
 	local amount = 5; -- set the amount of items that are produced
 	local notCreated = User:createItem( 2588, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -329,6 +341,7 @@ function ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			bricksproducing.SavedWorkTime[User.id] = bricksproducing:GenWorkTime(User,toolItem);
 			User:startAction( bricksproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
+      -- Should actually never reach this, handle it nevertheless.
 			base.common.InformNLS(User,
 			"Du hast nicht mehr genug ungebrannte Ziegel.",
 			"You don't have enough unfired bricks anymore.");

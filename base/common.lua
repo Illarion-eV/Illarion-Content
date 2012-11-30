@@ -692,22 +692,32 @@ function GetItemsOnField(Fieldpos)
 end;
 
 --[[
-    GetItemsOnField
+    GetItemInInventory
     Search the whole Inventory of a character for a Item and a Data value
     @param CharacterStruct - The characters who's inventory is checked
     @param integer - The item ID we are looking for
-    @param integer - The data value we are looking for
-    @return mixed - The itemstruct of the first found item or false
+    @param list(list(string)) - Optional list of key-value pairs of the sought item. Default is an empty list.
+            E.g. { {"amount", "4"}, {"valid", "true"} }. NOTE: key & value have to be both strings.
+    @return mixed - The itemstruct of the first found item or nil.
 ]]
-function GetItemInInventory(User, ItemID, DataValue)
-    local ItemList = User:getItemList(ItemID);
-    for _, item in pairs(ItemList) do
-        if (DataValue == nil or item.data == DataValue) then
-            return item;
-        end;
+function GetItemInInventory(User, ItemID, DataValues)
+  local ItemList = User:getItemList(ItemID);
+  if (DataValues == nil) then
+    DataValues = {};
+  end
+  for _, item in pairs(ItemList) do
+    local dataOk = true;
+    for _,d in pairs(DataValues) do 
+      if (item:getData(d[1]) ~= d[2]) then
+        dataOk = false;
+        break;
+      end
+    end
+    if (dataOk) then
+      return item;
     end;
-
-    return false;
+  end;
+  return nil;
 end;
 
 --[[
@@ -1679,18 +1689,23 @@ end
 -- @param ItemId  The ID of the sought item.
 -- @param Radius  Around the CenterPos, an area of +/-Radius is queried in x and y direction.
 --                Default value is 1.
+-- @param OnlyWriteable  Bool that defines if only writeable items should be returned.
+--                       Default value is false.
 -- @return scrItem  If an item with ItemId is found, this is the first one found. Otherwise it is nil.
 -- @return bool  Writeable flag. If there are multiple items on the field, only the top one is writeable.
 --               If none is found, nil is returned.
-function GetItemInArea(CenterPos, ItemId, Radius)
+function GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
   if (not Radius) then
     Radius = 1;
   end
-  for x=-radius,radius do
-    for y=-radius,radius do 
+  for x=-Radius,Radius do
+    for y=-Radius,Radius do 
       local field = world:getField(position(CenterPos.x + x, CenterPos.y, CenterPos.z));
       local itemCount = field:countItems();
       if (itemCount > 0) then
+        if (OnlyWriteable) then
+          itemCount = 1;
+        end
         for i=0,itemCount-1 do 
           local item = field:getStackItem(i);
           if (item.id == ItemId) then

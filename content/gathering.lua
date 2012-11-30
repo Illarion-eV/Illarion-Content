@@ -39,11 +39,10 @@ function InitGathering()
     bricksproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.firingBricks}; -- id_313_glassmeltoven
     smokefood = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.cookingAndBaking}; -- id_305_smokingoven
     graingrinding = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5}; -- id_250_mill
+    dyeing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_220_barrel
 		
 		-- TODO
         -- id_52_filledbucket ("peasantry")
-        -- id_220_barrel
-        -- id_250_mill
 
 
 		--woodchopping

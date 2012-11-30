@@ -1,5 +1,8 @@
--- I_52.lua voller Wassereimer
-
+-- fill cauldron
+-- large empty bottle (2498) --> blue potion (2496) aka bottle with water
+-- extinguish forge (2835) --> (2836)
+-- extinguish fire
+-- pour on character
 -- UPDATE common SET com_script='item.id_52_filledbucket' WHERE com_itemid IN (52);
 
 require("base.common")
@@ -9,167 +12,109 @@ module("item.id_52_filledbucket", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
-	local TargetItem = base.common.GetTargetItem(User, SourceItem); -- item in hands
-	
-	if TargetItem == nil then
-		TargetItem = base.common.GetFrontItem(User); -- item infront
-	end
-	
-	if TargetItem == nil or TargetItem.id == 0 then
-		local targetChar = base.common.GetFrontCharacter(User); -- char infront
-		if targetChar == nil then
-			PourOnCharacter(User,SourceItem,User);
-		else
-			PourOnCharacter(User,SourceItem,targetChar); -- self
-		end
-		return;
-	end
-	
-    -- infront of a cauldron
-	if (TargetItem.id >= 1008) or (TargetItem.id <= 1018) then
-	    WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
+  CheckSetAmount(SourceItem);
+  
+  if (SourceItem:getType() ~= 4) then -- tool in hand
+		base.common.InformNLS( User,
+		"Du musst den Eimer in der Hand haben!",
+		"You have to hold the bucket in your hand!" );
 		return
 	end
-	
-	-- Wasserflasche auffüllen
-	if( TargetItem.id == 2498 ) then
-		if(TargetItem.number > 1) then
-			base.common.InformNLS(User, "Du kannst nur eine Flasche befüllen.", "You can only fill one bottle.");
-			return;
-		end
-        world:makeSound( 10, User.pos )
-        world:swap(TargetItem,2496,933);
-    else
-        if TargetItem.id ~= 0 then
-			if ((TargetItem.id==12 or TargetItem.id == 359) and (User.pos.z==100 or User.pos.z==101)) then --Prevents extinguishing campfires on n00bia(needed for the cook-npc)
-				base.common.InformNLS(User,"Du solltest das Feuer besser nicht ausmachen, du könntest es noch gebrauchen.","You shouldn't extinguish the fire, you maybe could need it.");
-				return;
-			else	
-				world:makeSound( 9, User.pos );
-	            -- Lagerfeuer ausmachen
-	            if (TargetItem.id == 12 or TargetItem.id == 359) then
-					if (TargetItem.wear == 255) then
-						base.common.InformNLS(User,
-							"Das Wasser verdampft in dem Feuer ohne es zu löschen.",
-							"The water vaporises in the fire but it does not extinguish it.");
-					else
-						world:erase(TargetItem,1);
-					end
-	                -- Esse ausmachen
-	            elseif ( TargetItem.id == 2835 ) then
-	                world:swap(TargetItem,2836,333);
-	                -- test for seedlings
-	            else
-					--Planting trees deactivated. Players should not change the map.
-	                --MakeSprout( User, SourceItem, TargetItem )
-				end
-			end
-		else
-			PourOnCharacter(User, SourceItem, User);
-		end
+  
+  -- look for cauldron
+  TargetItem = GetCauldron(User);
+  if (TargetItem ~= nil) then
+    if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
+      base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
     end
-	SourceItem.id = 51;
-	SourceItem.data = 0;
-	world:changeItem(SourceItem);
-end  -- function
-
-function PourOnCharacter (Character, SourceItem, TargetCharacter )
-
-    world:makeSound( 9, Character.pos );
-    SourceItem.id = 51;
-    SourceItem.data = 0;
-    world:changeItem(SourceItem);
-	base.common.InformNLS(TargetCharacter, "Du fühlst dich gleich viel sauberer.", "You feel much cleaner.");
-
+    WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate);
+    return;
+  end
+  
+  -- look for bottle
+  if (User:countItemAt("all",2498)>0) then
+    base.common.InformNLS( User,
+		"Du füllst eine Flasche mit Wasser.",
+		"You fill a bottle with water." );
+    User:eraseItem(2498, 1);
+    local notCreated = User:createItem( 2496, amount, 333, nil );
+    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+      world:createItemFromId( 2496, notCreated, User.pos, true, 333, nil );
+      base.common.InformNLS(User,
+      "Du kannst nichts mehr halten und musst die Flasche auf den Boden stellen.",
+      "You can't carry any more and you have to put the bottle on the ground.");
+    end
+    world:makeSound(10,User.pos);
+    world:swap(SourceItem, 51, 333);
+    return;
+  end
+  
+  -- look for forge
+  TargetItem = base.common.GetItemInArea(User.pos, 2835, 1, true);
+  if (TargetItem ~= nil) then
+    world:makeSound(9, TargetItem.pos)
+    world:swap(TargetItem, 2836, 333);
+    base.common.InformNLS(User,
+    "Du löschst das Feuer in der Esse.",
+    "You extinguish the fire in the forge.");
+    world:swap(SourceItem, 51, 333);
+    return;
+  end
+  
+  -- look for fire
+  TargetItem = base.common.GetItemInArea(User.pos, 12, 1, true);
+  if (TargetItem == nil or TargetItem.wear == 255) then
+    local i = base.common.GetItemInArea(User.pos, 12, 1, true);
+    if (i ~= nil) then
+      TargetItem = i;
+    end
+  end
+  if (TargetItem ~= nil) then
+    if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
+      base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
+    end
+    -- TODO is a noobia check needed?
+    -- Don't extinguish static fires.
+    world:makeSound(9, TargetItem.pos);
+    if (TargetItem.wear == 255) then
+      base.common.InformNLS(User,
+      "Das Wasser verdampft in dem Feuer ohne es zu löschen.",
+      "The water vaporises in the fire but it does not extinguish it.");
+    else
+      world:erase(TargetItem, 1);
+      base.common.InformNLS(User,
+      "Du löschst das Feuer.",
+      "You extinguish the fire.");
+    end
+    world:swap(SourceItem, 51, 333);
+    return;
+  end
+  
+  -- pour water on character. Either on the one in front or on the User himself.
+  local TargetChar = base.common.GetFrontCharacter(User);
+  if (TargetChar ~= nil) then
+    -- is this really a player?
+    local players = world:getPlayersInRangeOf(TargetChar, 0);
+    for _,p in players do 
+      if (p.id == TargetChar.id) then
+        base.common.InformNLS(User,
+        "Du schüttest das Wasser über die Person vor dir.",
+        "You pour the water on the person in front of you.");
+        PourOnCharacter(TargetChar, SourceItem);
+        return;
+      end
+    end    
+  end
+  -- no person in front found. Pour on self.
+  PourOnCharacter(User, SourceItem);
 end
 
-function MakeSprout( User, SourceItem, TargetItem )
-    if seedList == nil then
-        seedList = {  };
-        seedList[ 15 ] = {139,4};              -- Apple tree seedling
-        seedList[ 302 ] = {132,4};             -- Cherry tree seedling
-        seedList[ 149 ] = {150,2};             -- Fir tree seedling
-		--seedList[ ??? ] = {588,???};           -- cachdern seedling
-		--seedList[ ??? ] = {589,???};           -- eldan oak seedling
-		--seedList[ ??? ] = {590,???};           -- scandrel seedling
-		--seedList[ ??? ] = {591,???};           -- naldor tree seedling
-
-    end
-    local seed = seedList[ TargetItem.id ];
-    if( seed == nil ) then
-        return
-    end
-    local Field = world:getField( TargetItem.pos )
-    local boden = base.common.GetGroundType( Field:tile() );
-
-    -- only on fields
-    if( boden == seed[2] ) then
-        --User:inform( "on field" );
-
-        if BlockCheck(TargetItem.pos) then
-
-            if CheckSucceed(User) then
-                world:swap(TargetItem,seed[1],333)
-			else
-				base.common.InformNLS(User, "Der Setzling braucht noch mehr Wasser um anzuwachsen.", "The seedling needs more water to grow.");
-            end
-
-        else
-        base.common.InformNLS( User,"Der Boden ist an dieser Stelle zu ausgelaugt, als das Bäume wachsen könnten. Der Setzling geht ein.","The soil at this location is not fertile enough to let a tree grow. The seedling whithers." ); 
-        end    
-        --User:learn( 2, "peasantry", 1, 100 )
-		--Replace with new learn function, see learn.lua 
-    end
-end
-
-function CheckSucceed(User)
-    Con=User:increaseAttrib("constitution",0);
-    Pea=User:getSkill(Character.farming);
-    TryValue=20+60*(Pea/100)+20*(Con/20);
-    if (math.random(0,100)<TryValue) then
-        return true
-    else
-        return false
-    end
-end
-
-function BlockCheck(Posi)
-    local testLoc;
-    local TestItem;
-    local block = 0;
-    if Directions == nil then
-        Directions = {
-        { 1, 0, 3 }, { 1, 1, 2 }, { 0, 1, 3 }, { -1, 1, 2 },
-        { -1, 0, 3 }, { -1, -1, 2 }, { 0, -1, 3 }, { 1, -1, 2 }
-        };
-	end
-    if allowed == nil then
-	    allowed={};
-		allowed[273]=true;
-		allowed[274]=true;
-		allowed[338]=true;
-		allowed[1782]=true;
-		allowed[1783]=true;
-		allowed[1790]=true;
-    end
-    for i, dir in pairs(Directions) do
-        testLoc = position( Posi.x + dir[ 1 ], Posi.y + dir[ 2 ], Posi.z );
-        if world:isItemOnField( testLoc ) then
-		    theItem=world:getItemOnField(testLoc);
-		    if allowed[theItem.id] == nil then
-              block = block + dir[ 3 ];
-			end
-        end
-    end
-	local Field = world:getField(Posi);
-	if(Field:countItems() > 1) then
-		return false
-	end
-    if (block<2) then
-        return true
-    else
-        return false
-    end
+function PourOnCharacter (TargetCharacter, SourceItem )
+  world:makeSound( 9, Character.pos );
+  world:swap(SourceItem, 51, 333);
+	base.common.InformNLS(TargetCharacter, 
+  "Du fühlst dich gleich viel sauberer.", 
+  "You feel much cleaner.");
 end
 
 function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
@@ -232,4 +177,41 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	SourceItem.id = 51
 	SourceItem.quality = 333
 	world:changeItem(SourceItem)
+end
+
+function GetCauldron(User)
+  -- first check in front
+  if (world:isItemOnField(targetPos)) then
+    local item = world:getItemOnField(targetPos);
+    if (item.id > 1007 or item.id < 1019) then
+      return item;
+    end
+  end
+  local Radius = 1;
+  for x=-Radius,Radius do
+    for y=-Radius,Radius do 
+      local targetPos = position(User.pos.x + x, User.pos.y, User.pos.z);
+      if (world:isItemOnField(targetPos)) then
+        local item = world:getItemOnField(targetPos);
+        if (item.id > 1007 or item.id < 1019) then
+          return item;
+        end
+      end
+    end
+  end
+  return nil;
+end
+
+-- Checks if the data "amount" is correctly set and adjusts it if necessaray.
+function CheckSetAmount(Item)
+  local str = Item:getData("amount");
+  if (str == "" or tonumber(str) < 1) then
+    Item:setData("amount", "10");
+    world:changeItem(Item);
+  end
+end
+
+function LookAtItem(User, Item)
+  CheckSetAmount(Item);
+  world:itemInform(User, Item, base.lookat.GetItemDescription(User, Item, base.lookat.WOOD))
 end
