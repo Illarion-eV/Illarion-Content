@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 86
 
 local NPC_TRIGGER_DE = "[Ff]euer"
 local NPC_TRIGGER_EN = "[Ff]ire"
-local NPC_REPLY_DE = "Feuer ist die richtige Antwort und hier gibt es ein Beil um eines zu machen. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei der Holzfäller Hütte."
+local NPC_REPLY_DE = "Feuer ist die richtige Antwort und hier gibt es ein Beil um eines zu machen. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei der Holzfï¿½ller Hï¿½tte."
 local NPC_REPLY_EN = "Fire is the right answer and here do have a hutchet to make one. A good place for one is at the firespot at the Woodcutter Hut."
 
 function receiveText(npc, type, text, PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe zum Holzfäller Lager im Süden. Dort findest du eine Feuerstelle bei einem Teich. Dort mache ein Lagerfeuer.", "Go to the Woodcutter Camp in the south. You will find a firespot close at a little lake. Make a fire there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe zum Holzfï¿½ller Lager im Sï¿½den. Dort findest du eine Feuerstelle bei einem Teich. Dort mache ein Lagerfeuer.", "Go to the Woodcutter Camp in the south. You will find a firespot close at a little lake. Make a fire there."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 74, 333, 1):execute()
 end
 

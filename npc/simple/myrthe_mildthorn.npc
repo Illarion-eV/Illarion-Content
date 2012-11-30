@@ -98,10 +98,10 @@ queststatus(79) = 0, "task", "adventure" -> inform("[New quest] A Cave in the Wo
 queststatus(79) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Eine Höhle im Wald I"), "Seitdem mein alter Freund der Bär nicht mehr ist, fürchte ich mich jede Nacht vor den Wölfen. Könntet ihr bitte nach Norden ziehen und sie... für immer... zähmen? Nehmt diese Fackel, es ist dunkel da drinnen.", item(391, 1, 399), queststatus(79) = 1
 
 -- Quest 1 solved, reward: 100cp, +5 rankpoints
-queststatus(79) = 11, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 100 copper coins. You advance in Archmage Elvaine Morgan's favour."), "Oh, how great! Now I can sleep without the wolves scaring me. Take mm loan of this week, do not refuse it, please. Another adventure awaits you.", money + 100, queststatus(79) = 12, rankpoints + 5
-queststatus(79) = 11, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins."), "Oh, how great! Now I can sleep without the wolves scaring me. Take my loan of this week, do not refuse it, please. Another adventure awaits you.", money + 100, queststatus(79) = 12
-queststatus(79) = 11, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Oh, wie fein! Jetzt kann ich die Nacht ohne Angst vor den Wölfen durchschlafen. Hier, nehmt meinen Wochenlohn, lehnt ihn bitte nicht ab. Ein weiteres Abenteuer wartet auf euch.", money + 100, queststatus(79) = 12, rankpoints + 5
-queststatus(79) = 11, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Oh, wie fein! Jetzt kann ich die Nacht ohne Angst vor den Wölfen durchschlafen. Hier, nehmt meinen Wochenlohn, lehnt ihn bitte nicht ab. Ein weiteres Abenteuer wartet auf euch.", money + 100, queststatus(79) = 12
+queststatus(79) = 11, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded ten silver coins. You advance in Archmage Elvaine Morgan's favour."), "Oh, how great! Now I can sleep without the wolves scaring me. Take mm loan of this week, do not refuse it, please. Another adventure awaits you.", money + 1000, queststatus(79) = 12, rankpoints + 5
+queststatus(79) = 11, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), "Oh, how great! Now I can sleep without the wolves scaring me. Take my loan of this week, do not refuse it, please. Another adventure awaits you.", money + 1000, queststatus(79) = 12
+queststatus(79) = 11, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Oh, wie fein! Jetzt kann ich die Nacht ohne Angst vor den Wölfen durchschlafen. Hier, nehmt meinen Wochenlohn, lehnt ihn bitte nicht ab. Ein weiteres Abenteuer wartet auf euch.", money + 1000, queststatus(79) = 12, rankpoints + 5
+queststatus(79) = 11, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "Oh, wie fein! Jetzt kann ich die Nacht ohne Angst vor den Wölfen durchschlafen. Hier, nehmt meinen Wochenlohn, lehnt ihn bitte nicht ab. Ein weiteres Abenteuer wartet auf euch.", money + 1000, queststatus(79) = 12
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(79) > 0, queststatus(79) < 11, english, "quest", "mission" -> "There is still a pack of wolves in the north. Can't you hear them howling?"
@@ -117,10 +117,10 @@ queststatus(79) = 12, "task", "adventure" -> inform("[New quest] A Cave in the W
 queststatus(79) = 12, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Eine Höhle im Wald II"), "Ihr seid wahrhaftig ein Held. Wilde Hunde jagen alles und jeden, sogar Halblinge. Bitte, könntet ihr sie auch... ruhigstellen?", queststatus(79) = 13
 
 -- Quest 2 solved, reward: 100cp, yellow robe (195), +10 rankpoints
-queststatus(79) = 18, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a yellow robe. You advance in Archmage Elvaine Morgan's favour."), "Wonder, wonderful! The dogs were so mean. Here, a customer forgot to pick up a robe, it is yours now.", money + 100, item(195, 1, 599), queststatus(79) = 19, rankpoints + 10
-queststatus(79) = 18, english, ".+" -> inform("[Quest solved] You are awarded 100 copper coins and a yellow robe."), "Wonder, wonderful! The dogs were so mean. Here, a customer forgot to pick up a robe, it is yours now.", money + 100, item(195, 1, 599), queststatus(79) = 19
-queststatus(79) = 18, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Wunder, wunderbar! Die Hunde waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.", money + 100, item(195, 1, 599), queststatus(79) = 19, rankpoints + 10
-queststatus(79) = 18, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe."), "Wunder, wunderbar! Die Hunde waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.", money + 100, item(195, 1, 599), queststatus(79) = 19
+queststatus(79) = 18, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded ten silver coins and a yellow robe. You advance in Archmage Elvaine Morgan's favour."), "Wonder, wonderful! The dogs were so mean. Here, a customer forgot to pick up a robe, it is yours now.", money + 1000, item(195, 1, 599), queststatus(79) = 19, rankpoints + 10
+queststatus(79) = 18, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and a yellow robe."), "Wonder, wonderful! The dogs were so mean. Here, a customer forgot to pick up a robe, it is yours now.", money + 1000, item(195, 1, 599), queststatus(79) = 19
+queststatus(79) = 18, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Wunder, wunderbar! Die Hunde waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.", money + 1000, item(195, 1, 599), queststatus(79) = 19, rankpoints + 10
+queststatus(79) = 18, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und eine gelbe Robe."), "Wunder, wunderbar! Die Hunde waren so böse! Hier, ein Kunde vergaß eine Robe bei mir abzuholen, sie sei nun eure.", money + 1000, item(195, 1, 599), queststatus(79) = 19
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(79) > 12, queststatus(79) < 18, english, "quest", "mission" -> "I saw a black shadow again! Are there still mean dogs around?"
@@ -195,7 +195,7 @@ english, "Runewick" -> "Runewick is that magnificient town to the east. I wash t
 "Runewick" -> "Runewick ist diese großartige Stadt im Osten. Ich wasche die Wäsche der Bürger! Ist das nicht toll?"
 english, "Valerio", "Guilianni", "Don" -> "Oh, isn't that a cook from the north who cooks noodles of semolina?"
 "Valerio", "Guilianni", "Don" -> "Oh, ist das nicht ein Koch aus dem Norden, der Nudeln aus Hartweizengrieß kocht?"
-english, "Galmair" -> "Once, a dwarf from Galmair called Miggs came to me. He demanded money from me, but then my old frithe bear came and the dwarf ran!", end
+english, "Galmair" -> "Once, a dwarf from Galmair called Miggs came to me. He demanded money from me, but then my old friend, the bear came and the dwarf ran!"
 "Galmair" -> "Einst kam ein Zwerg namens Miggs aus Galmair zu mir. Er verlangte Geld, doch dann kam mein alter Freund der Bär und der Zwerg rannte davon!"
 "Queen" -> "Ui, the queen of Cadomyr? I wish I'd be a queen, too."
 "Königin" -> "Ui, die Königin von Cadomyr? Ich wünschte, ich wäre auch eine Königin."

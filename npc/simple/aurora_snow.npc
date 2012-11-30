@@ -241,7 +241,7 @@ english, "Zhambra" -> "Ah, yes. One of the Holy Ancestors.", "We wander the path
 "Zhambra" -> "Ah ja. Einer der heiligen Vorfahren..", "Wir schreiten die Pfade entlang, die unsere Ahnen für uns bereiteten.", "Es gibt vieles zu berichten über die heiligen Vorfahren."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I have no need for material possessions.", "Your money is worthless to me.", "I do not desire to.", trade
+"what sell", "what buy", "list wares", "price of" -> "I have no need for material possessions.", "Your money is worthless to me.", "I do not desire to trade."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich habe kein Interesse an weltlichem Besitz.", "Euer Geld ist für mich wertlos.", "Ich bin nicht daran interessiert zu handeln."
 "tell something" -> "#me closes her eyes and places a hand upon your shoulder.", "Hmm...I sense that you already know what I shall say.", "I shall do so. But I shall not reply upon mere words."
 "erzähl was", "erzähl etwas" -> "#me schließt ihre Augen und legt eine Hand auf deine Schulter.", "Hmm... I spüre, das Ihr bereits wisst, was I sagen werde.", "Das werde ich tun. Doch werde ich nicht auf bloße Worte antworten."

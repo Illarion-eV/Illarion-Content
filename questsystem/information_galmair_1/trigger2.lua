@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 25
 
 local NPC_TRIGGER_DE = "[Gg]almair"
 local NPC_TRIGGER_EN = "[Gg]almair"
-local NPC_REPLY_DE = "Sehr gut, hier nun die nächste Aufgabe. Welcher der unterschiedlichen Schächte der Schlackengrube hat einen zweiten Eingang?"
+local NPC_REPLY_DE = "Sehr gut, hier nun die nï¿½chste Aufgabe. Welcher der unterschiedlichen Schï¿½chte der Schlackengrube hat einen zweiten Eingang?"
 local NPC_REPLY_EN = "Very good, now your next task. Which of the different shafts of the Scoria Mine has a second entrance?"
 
 function receiveText(npc, type, text, PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten.", "Answer the question to get more money and further questions."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Frage sie nach 'Schlackengrube' um die Antwort zu erhalten.", "Answer the question to get more money and further questions. The answer has the NPC Hummi Olaficht, whom you find at the neutral taverne. You can use the teleporter to get there. Ask him for the stones of power. You may ask her about 'Scoria Mine' in order to get the answer."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

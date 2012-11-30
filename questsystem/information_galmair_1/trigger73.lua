@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Iradona und teile ihr das fehlende Wort mit.", "Go to Iradona and tell her the missing word."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurï¿½ck zu Iradona und teile ihr das fehlende Wort mit.", "Go to Iradona and tell her the missing word."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

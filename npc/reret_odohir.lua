@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------------
--- NPC Name: Reret Odohir                                                None --
+-- NPC Name: Reret Odohir                                            Runewick --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  111, 599, 0            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: human                      NPC Position:  900, 776, 1            --
+-- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   ?? + Miriam                                                      --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 111, 599, 0, 4, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 5, 68, 63, 58, 255, 210, 204);
+VALUES (0, 900, 776, 1, 0, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 5, 68, 63, 58, 255, 210, 204);
 ---]]
 
 require("npc.base.basic")
@@ -25,6 +25,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
+require("npc.base.consequence.town")
 require("npc.base.talk")
 require("npc.base.trade")
 module("npc.reret_odohir", package.seeall)
@@ -188,7 +189,7 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("I sell nothing, but I can register you as a citizen.");
+talkEntry:addResponse("I sell nothing, but I can register you as a citizen. Just tell me, if you want to become a citizen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -199,7 +200,100 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addResponse("Ick verkauf nichts, aber ich kann Euch als Bürger eintragen.");
+talkEntry:addResponse("Ick verkauf nichts, aber ich kann Euch als Bürger eintragen. Sag mir einfach wenn Ihr Bürger dieser Stadt werden möchtet.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("You are now a citizen of Cadomyr");
+talkEntry:addResponse("Welcome to Cadomyr!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Ihr seid jetzt Bürger von Cadomyr");
+talkEntry:addResponse("Willkommen in Cadomyr!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("You are now a citizen of Cadomyr");
+talkEntry:addResponse("Welcome to Cadomyr!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Ihr seidt jetzt Bürger von Cadomyr");
+talkEntry:addResponse("Willkommen in Cadomyr!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("You are already a citizen of Cadomyr");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Ihr seid bereits Bürger von Cadomyr");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("You are now a citizen of Cadomyr");
+talkEntry:addResponse("Welcome to Cadomyr!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Ihr seid jetzt Bürger von Cadomyr");
+talkEntry:addResponse("Willkommen in Cadomyr!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("weche Stadt");
+talkEntry:addTrigger("weche faktion");
+talkEntry:addResponse("Du gehöerst nach %TOWN!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("ich");
+talkEntry:addResponse("%CHARNAME");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -288,7 +382,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(0, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 16, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] INFORM ..."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved]  You are awarded with a dagger."));
 talkEntry:addResponse("Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it s shall be your rewand for your troubles.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 433, nil));
@@ -301,7 +395,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(0, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 16, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] INFORM..."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] Du erhälst als Belohnung einen Dolch."));
 talkEntry:addResponse("Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 433, nil));
@@ -909,7 +1003,7 @@ talkingNPC:addCycleText("#me summt eine Melodie.", "#me hums a melody.");
 tradingNPC:addNotEnoughMoneyMsg("Ihr habt nicht genug Geld.", "You don't have enought Money.");
 tradingNPC:addDialogClosedMsg("Danke euch.", "Thank you.");
 tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal.", "Hope to see you again!");
-tradingNPC:addWrongItemMsg("Oh, Das kaufe ixch nicht. Tut mir leid.", "Oh, I don't buy that. Sorry.");
+tradingNPC:addWrongItemMsg("Oh, Das kaufe ich nicht. Tut mir leid.", "Oh, I don't buy that. Sorry.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);

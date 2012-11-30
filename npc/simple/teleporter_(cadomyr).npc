@@ -42,7 +42,7 @@ wrongLangUS = "[Teleporter] Say the name of the realm you want to travel to: Run
 -- Wilderland: 684 307 0
 
 -- Help
-"Help" -> inform("[Game Help] This is the teleporter of Cadomyr. A journey costs a silver coin. Destinations: Runewick, Galmair, Wilderland.")
+"Help" -> inform("[Game Help] This is the teleporter of Cadomyr. A journey costs ten silver coins. Destinations: Runewick, Galmair, Wilderland.")
 "Hilfe" -> inform("[Spielhilfe] Dies ist der Teleporter Cadomyrs. Die Reise kostet ein Silberstück. Ziele: Runewick, Galmair, Wilderland.")
 
 -- Already there
@@ -50,16 +50,16 @@ english, "Cadomyr" -> inform("[Teleporter] You are already in Cadomyr.")
 "Cadomyr" -> inform("[Teleporter] Ihr seid bereits in Cadomyr.")
 
 -- Not enough money
-money < 100, english, "Runewick", "Galmair", "Wilderland" -> inform("[Teleporter] You don't have enough money for this journey. The journey costs a silver coin.")
-money < 100, "Runewick", "Galmair", "Wilderland" -> inform("[Teleporter] Ihr habt nicht genug Geld für diese Reise. Die Reise kostet ein Silberstück.")
+money < 1000, english, "Runewick", "Galmair", "Wilderland" -> inform("[Teleporter] You don't have enough money for this journey. The journey costs ten silver coins.")
+money < 1000, "Runewick", "Galmair", "Wilderland" -> inform("[Teleporter] Ihr habt nicht genug Geld für diese Reise. Die Reise kostet ein Silberstück.")
 
 -- Warping
-english, "Runewick" -> inform("[Teleporter] You make the teleporter open a portal to Runewick at a cost of one silver piece."), money - 100, warp(788, 826, 0)
-"Runewick" -> inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Runewick zu einem Preis von einem Silberstück öffnen."), money - 100, warp(788, 826, 0)
-english, "Galmair" -> inform("[Teleporter] You make the teleporter open a portal to Galmair at a cost of one silver piece."), money - 100, warp(424, 246, 0)
-"Galmair" -> inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Galmair zu einem Preis von einem Silberstück öffnen."), money - 100, warp(424, 246, 0)
-english, "Wilderland" -> inform("[Teleporter] You make the teleporter open a portal to Wilderland at a cost of one silver piece."), money - 100, warp(684, 307, 0)
-"Wilderland" -> inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Wilderland zu einem Preis von einem Silberstück öffnen."), money - 100, warp(684, 307, 0)
+english, "Runewick" -> inform("[Teleporter] You make the teleporter open a portal to Runewick at a cost of ten silver pieces."), money - 1000, warp(788, 826, 0)
+"Runewick" -> inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Runewick zu einem Preis von einem Silberstück öffnen."), money - 1000, warp(788, 826, 0)
+english, "Galmair" -> inform("[Teleporter] You make the teleporter open a portal to Galmair at a cost of ten silver pieces."), money - 1000, warp(424, 246, 0)
+"Galmair" -> inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Galmair zu einem Preis von einem Silberstück öffnen."), money - 1000, warp(424, 246, 0)
+english, "Wilderland" -> inform("[Teleporter] You make the teleporter open a portal to Wilderland at a cost of ten silver pieces."), money - 1000, warp(684, 307, 0)
+"Wilderland" -> inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Wilderland zu einem Preis von einem Silberstück öffnen."), money - 1000, warp(684, 307, 0)
 
 -- Default
 english, ".*" -> inform("[Teleporter] Say the name of the realm you want to travel to: Runewick, Galmair, Wilderland.")

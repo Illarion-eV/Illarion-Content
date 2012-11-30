@@ -9,7 +9,7 @@ module("alchemy.base.gemdust", package.seeall)
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
     -- infront of a cauldron?
-    local cauldron = GetCauldronInfront(User)
+    local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
     if cauldron then
 	  
         -- is the char an alchemist?
@@ -35,60 +35,39 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 end
 
-function GetPotionId(gemDust)
-
-    local potionId
-    if gemDust.id == 446 then --bluestone
-	   cauldronId = 1011 -- id of the matching potion
-	elseif gemDust.id == 447 then  -- ruby
-		   cauldronId = 1016
-	elseif gemDust.id == 448 then  -- emerald
-		   cauldronId = 1013
-	elseif gemDust.id == 449 then  -- blackstone
-		   cauldronId = 1009
-	elseif gemDust.id == 450 then -- amethyst
-		   cauldronId = 1015
-	elseif gemDust.id == 451 then -- topaz
-		   cauldronId = 1014
-	elseif gemDust.id == 452 then -- diamond
-		   cauldronId = 1017
-	end 
-
-    return cauldronId
-end
-
 function GemDustInStock(User,cauldron,gemDust)
-    
+    -- stock + gemdust = potion
+	
 	local potionEffectId = ""
 	local addCon
-	if (gemDust.id == 447) or (gemDust.id == 450) then 
+	if (gemDust.id == 447) or (gemDust.id == 450) then  -- secondary and primary attribute potions
 		local mySubstances = alchemy.base.alchemy.wirkstoff
 		for i=1,8 do 
-		    addCon = (cauldron:getData(mySubstances[i].."Concentration"))
+		    addCon = (cauldron:getData(mySubstances[i].."Concentration")) -- stock conncentration determines the effect
 			if addCon == "" then
 			    addCon = 5 
 			end	
 			potionEffectId = potionEffectId..addCon
 	    end
 	else 
-		potionEffectId = 0
+		potionEffectId = 0 -- every other potion kind has NO effect
     end
-    local cauldronId = GetCauldronId(gemDust)
-	cauldron.id = cauldronId
-	cauldron:setData("potionEffectId",""..potionEffectId)	
-    getQuality = alchemy.base.alchemy.GetQuality(User)
-	cauldron:setData("potionQuality",""..getQuality)
-	cahuldron:setData("cauldronFilledWith","potion")
+    local reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(gemDust, nil, nil)
+	cauldron.id = reCauldron
+	alchemy.base.alchemy.SetQuality(User, cauldron)
+	cauldron:setData("potionEffectId",""..potionEffectId)
+	cauldron:setData("filledWith","potion")
 	world:changeItem(cauldron)
 	world:makeSound(13,cauldron.pos)
 	world:gfx(52,cauldron.pos)
 end
 
 function GemDustInWater(User,cauldron,gemDust)
-
-    cauldron:setData("cauldronFilledWith","essenceBrew")
-	local cauldronId = GetCauldronId(gemDust)
-	cauldron.id = cauldronId
+    -- water + gemdust = essence brew
+	
+	cauldron:setData("filledWith","essenceBrew")
+	local reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(gemDust, nil, nil)
+	cauldron.id = reCauldron
 	world:changeItem(cauldron)
 	world:makeSound(13,cauldron.pos)
 	world:gfx(52,cauldron.pos)
@@ -97,19 +76,19 @@ end
 
 function BrewingGemDust(User,gemDust,cauldron)
     
-	if cauldron:getData("cauldronFilledWith")=="potion" then -- potion in cauldron, failure
+	if cauldron:getData("filledWith")=="potion" then -- potion in cauldron, failure
 	    alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)
 	
-    elseif cauldron:getData("cauldronFilledWith")=="essenceBrew" then -- essence brew in cauldron, failure
+    elseif cauldron:getData("filledWith")=="essenceBrew" then -- essence brew in cauldron, failure
 	    alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)
 		
-	elseif cauldron:getData("cauldronFilledWith") == "stock" then
+	elseif cauldron:getData("filledWith") == "stock" then -- create a potion
 	    GemDustInStock(User,cauldron,gemDust)
-		User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
+		User:learn(Character.alchemy, 20, 100)
 
-    elseif cauldron:getData("cauldronFilledWith")=="water" then
+    elseif cauldron:getData("filledWith")=="water" then -- create an essence brew
 		GemDustInWater(User,cauldron,gemDust)
-		User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
+		User:learn(Character.alchemy, 20, 100)
 	
 	else -- nothing in the cauldron
 	    base.common.InformNLS(User, "Der Edelsteinstaub verflüchtigt sich, als du ihn in den leeren Kessel schüttest.", 

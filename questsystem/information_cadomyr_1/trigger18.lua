@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 158
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Ich sehe den Rauch. Dafür gibt es noch einen Ring. Nun, nächste Aufgabe: Welche Art von Krieger symbolisieren die beiden Statuen in Zhambras Tempel?"
+local NPC_REPLY_DE = "Ich sehe den Rauch. Dafï¿½r gibt es noch einen Ring. Nun, nï¿½chste Aufgabe: Welche Art von Krieger symbolisieren die beiden Statuen in Zhambras Tempel?"
 local NPC_REPLY_EN = "I see the smoke, fine. There you have another ring. Now, next task.  What kind of warrior do they two statues in the temple of Zhambra symbolize?"
 
 function receiveText(npc, type, text, PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 282, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Schrein der Elara und finde das erwünschte Alter heraus in dem du die Geh zum Zhambra Tempel und finde die Art der Krieger heraus in dem du die Statuen dort betrachtest. dort betrachtest.", "Go to the temple of Zhambra and figure out the required kind through looking at statues there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Schrein der Elara und finde das erwï¿½nschte Alter heraus in dem du die Geh zum Zhambra Tempel und finde die Art der Krieger heraus in dem du die Statuen dort betrachtest. dort betrachtest.", "Go to the temple of Zhambra and figure out the required kind through looking at statues there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

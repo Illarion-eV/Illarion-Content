@@ -119,9 +119,9 @@ queststatus(77) = 18, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhält
 queststatus(77) = 18, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke und einen verzierten Dolch."), "Jeder schlechte Tag für die Untoten ist ein guter für die Lebenden. Hier, nehmt diesen Dolch als Ausgleich für eure Gefälligkeit.", money + 1000, item(190, 1, 599), queststatus(77) = 19
 
 -- Quest 2 taken but not solved, repeat the instructions
-queststatus(77) > 12, queststatus(77) < 18, english, "quest", "mission" -> "Those undead bastards in the sewers scare away customers. Help Galmair and itsrs, slay as many as possible.", trade
+queststatus(77) > 12, queststatus(77) < 18, english, "quest", "mission" -> "Those undead bastards in the sewers scare away customers. Help Galmair and its traders, slay as many as possible."
 queststatus(77) > 12, queststatus(77) < 18, "quest", "mission" -> "Diese untoten Bastarde in der Kanalisation verschrecken die Kundschaft. Helft Galmair und seinen Händlern, erschlagt so viele wie möglich."
-queststatus(77) > 12, queststatus(77) < 18, "task", "adventure" -> "Those undead bastards in the sewers scare away customers. Help Galmair and itsrs, slay as many as possible.", trade
+queststatus(77) > 12, queststatus(77) < 18, "task", "adventure" -> "Those undead bastards in the sewers scare away customers. Help Galmair and its traders, slay as many as possible."
 queststatus(77) > 12, queststatus(77) < 18, "Auftrag", "Aufgabe", "Abenteuer" -> "Diese untoten Bastarde in der Kanalisation verschrecken die Kundschaft. Helft Galmair und seinen Händlern, erschlagt so viele wie möglich."
 
 -- 3rd quest: Kill 1 halfling bandit
@@ -151,7 +151,7 @@ english, "job" -> "Some call me a henchman. I work for the Don; and I am good in
 "job" -> "Manche nennen mich einen Handlanger. Ich arbeite für den Don; und ich bin gut darin, was ich mache."
 "castle" -> "Some say, this castle was once built by dwarves. I don't care at all!"
 "Burg" -> "Manche behaupten, diese Burg wurde einst von Zwergen erbaut. Das ist mir sowas von egal!"
-"trader", "merchant", "collegue", "vendor", "market" -> "In Galmair, you maywhatever you want with whoever you want whenever you want.", "The market place is a good place to. It is outside. So... get out!", trade, trade
+"trader", "merchant", "collegue", "vendor", "market" -> "In Galmair, you may trade whatever you want with whoever you want whenever you want.", "The market place is a good place to trade. It is outside. So... get out!"
 "händler", "kollege", "höker", "markt" -> "In Galmair könnt ihr Handel treiben, was immer ihr wollt, mit wem ihr wollt und wann ihr es wollt.", "Der Marktplatz ist ein guter Ort, um Handeln zu treiben. Er ist draußen. Also... raus mit euch!"
 english, "Gobaith", "Gobiath" -> "Ruffian? You call me a ruffian? You're so right!"
 "Gobaith", "Gobiath" -> "Grobian? Ihr nennt mich einen Grobian? Recht habt ihr!"

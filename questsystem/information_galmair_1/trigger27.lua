@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Nenne nun den Namen der Fraktion in der du dich befindest.", "Say the name of the faction you are now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Nenne nun den Namen der Fraktion in der du dich befindest. Runewick, Galmair oder Cadomyr?", "Say the name of the faction you are now. Runewick, Galmair or Cadomyr?"):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -126,7 +126,7 @@ english, "Gobaith", "Gobiath" -> "That reminds me on a story I once heard... a v
 "Stahl" -> "Was soll das sein?"
 "smith" -> "Use my forged items to smite the foes of Cadomyr."
 "Schmied" -> "Benutze meine Schmiedewaren um die Feinde Cadomyrs zu zerschmettern."
-"trader", "merchant", "collegue", "vendor", "market" -> "Buy whatever you want on this marketplace, but in theonly weapons will make Cadomyr prosper.", end
+"trader", "merchant", "collegue", "vendor", "market" -> "Buy whatever you want on this marketplace, but in the end, only weapons will make Cadomyr prosper."
 "händler", "kollege", "höker", "markt" -> "Kauft, was immer ihr wollt auf diesem Marktplatz, aber am Ende werden nur Waffen Cadomyr vorran bringen."
 
 -- Faction stuff

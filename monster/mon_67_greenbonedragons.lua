@@ -1,3 +1,4 @@
+require("item.gems")
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
@@ -157,21 +158,21 @@ function onDeath(Monster)
         if not done then done=monster.base.drop.AddDropItem(225,1,10,(100*math.random(6,7)+math.random(66,77)),0,1); end --crown
         if not done then done=monster.base.drop.AddDropItem(738,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --dragon egg
         if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(6,7)+math.random(66,77)),nil,1); end --treasure map
-        if not done then done=monster.base.drop.AddDropItem(449,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --blackstone powder
+        if not done then done=monster.base.drop.AddDropItem(449,1,1,(100*math.random(6,7)+math.random(66,77)),0,1); end --obsidian powder
 
         --Category 2: Special loot
 
         local done=monster.base.drop.AddDropItem(285,1,20,(100*math.random(6,7)+math.random(66,77)),0,2); --diamond
         if not done then done=monster.base.drop.AddDropItem(198,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --topaz
-        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --bluestone
+        if not done then done=monster.base.drop.AddDropItem(284,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --sapphire
         if not done then done=monster.base.drop.AddDropItem(197,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --amethyst
-        if not done then done=monster.base.drop.AddDropItem(45,1,1,(100*math.random(6,7)+math.random(66,77)),{magicalEmerald="1"},2); end --magic emerald
+        if not done then done=monster.base.drop.AddDropItem(item.gems.getMagicGemId(item.gems.EMERALD),1,1,999,item.gems.getMagicGemData(1),2); end --magic emerald
 
         --Category 3: Weapon
 
         local done=monster.base.drop.AddDropItem(280,1,20,(100*math.random(6,7)+math.random(66,77)),0,3); --diamond ring
         if not done then done=monster.base.drop.AddDropItem(282,1,10,(100*math.random(6,7)+math.random(66,77)),0,3); end --topaz ring
-        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --bluestone ring
+        if not done then done=monster.base.drop.AddDropItem(279,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --sapphire ring
         if not done then done=monster.base.drop.AddDropItem(277,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --amethyst ring
         if not done then done=monster.base.drop.AddDropItem(281,1,1,(100*math.random(6,7)+math.random(66,77)),0,3); end --emerald ring
 

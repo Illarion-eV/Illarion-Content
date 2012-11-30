@@ -1,247 +1,357 @@
--- Glasschmelzofen
+-- quartz sand (316) + pott ash (314) --> glass ingot (41)
+-- additional tool: glass blow pipe (311)
 
--- Sand(316) und Asche(314) zu Glasbarren(41)
--- Lehm(26) zu Ungebrannten Ziegel(736)
--- Ungebrannte Ziegel(736) zu Ziegeln(2588)
-
--- Arbeitscyclus: 2s - 5s
--- Zusätzliches Werkzeug: Glasblasrohr ( 311 )
--- Zusätzliches Werkzeug: Ziegelform ( 734 )
+-- clay (26) --> unfired bricks (736)
+-- 5x unfired bricks (736) --> 5x bricks (2588)
+-- additional tool: brick mould (734)
 
 -- UPDATE common SET com_script='item.id_313_glassmeltoven' WHERE com_itemid IN (313);
 
 require("base.common")
+require("content.gathering")
 
 module("item.id_313_glassmeltoven", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    base.common.ResetInterruption( User, ltstate );
-    if base.common.Encumbrence(User) then -- Sehr streife Rüstung?
-        base.common.InformNLS( User,
-        "Deine Rüstung behindert beim arbeiten.",
-        "Your armour disturbs while working." );
-        return
-    end
-    
-    if not base.common.CheckItem( User, SourceItem ) then -- Sicherheitscheck
-        return
-    end
-    
-    if not base.common.IsLookingAt( User, SourceItem.pos ) then -- Blickrichtung
-        base.common.TurnTo( User, SourceItem.pos ); -- Drehen wenn nötig
-    end
-    
-    if not base.common.FitForWork( User ) then -- Kein Hunger
-        return
-    end
-    
-    if ( ltstate == Action.abort ) then -- Arbeit unterbrochen
-        if (User:increaseAttrib("sex",0) == 0) then
-            gText = "seine";
-            eText = "his";
-        else
-            gText = "ihre";
-            eText = "her";
-        end
-        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-        return
-    end
-    
-    local toolFound = false;
-    local didSomething = false;
-    local missingRess = "";
-    if (User:countItemAt("body",311)~=0) then
-        toolFound = true;
-        if ((User:countItemAt("belt",316)>0) and (User:countItemAt("belt",314)>0)) then
-            if ( ltstate == Action.none ) then -- Arbeit nicht gestartet -> Starten
-                User:startAction( GenWorkTime(User,"glass blowing"), 0, 0, 0, 0 );
-                User:talkLanguage( Character.say, Player.german, "#me beginnt Glas zu schmelzen.");
-                User:talkLanguage( Character.say, Player.english, "#me starts to melt glass.");
-                return                
-            end
-            if base.common.IsInterrupted( User ) then
-                local selectMessage = math.random(1,6);
-                if ( selectMessage == 1 ) then
-                    base.common.InformNLS(User,
-                    "Du wischst dir den Schweiß von der Stirn.",
-                    "You wipe sweat off your forehead.");
-                elseif ( selectMessage == 2 ) then
-                    base.common.InformNLS(User,
-                    "Dir rutscht eine Kelle mit Sand aus der Hand und der Sand verteilt sich über den Boden. Nun wirst du erst den Sand aufkehren müssen.",
-                    "Some sand slips out of your hand, and you stop to try to scoop it up.");
-                elseif ( selectMessage == 3 ) then
-                    base.common.InformNLS(User,
-                    "Dir rutscht eine Kelle mit Asche aus der Hand und die Asche verteilt sich über den Boden. Nun wirst du erst die Asche aufkehren müssen.",
-                    "Some ash falls out of your hand, and you try your best to scoop it up.");
-                elseif ( selectMessage == 4 ) then
-                    base.common.InformNLS(User,
-                    "Der fertige Barren klemmt in der Form. Du klopfst sehr stark auf die Rückseite der Form bis er endlich heraus füllt.",
-                    "The finished ingot is jamed in the mold. You clap a few times on the back of the mold until it gets loose.");
-                elseif ( selectMessage == 5 ) then
-                    base.common.InformNLS(User,
-                    "Für einen Moment hast du vergessen wo du die Kelle zum Sand schaufeln hingelegt hast und musst nach ihr suchen.",
-                    "You forgot for a moment where you placed the throwle for the sand and so you have to look for it.");
-                else
-                    base.common.InformNLS(User,
-                    "Du beseitigst eine Verstopfung des Glasblasrohres.",
-                    "You remove an obstruction from the glass-blowing rod.");
-                end
-                return
-            end
-            User:eraseItem(316,1);
-            User:eraseItem(314,1); 
-            notCreated = User:createItem(41,1,333,0);
-            if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char überladen
-                world:createItemFromId( 41, notCreated, User.pos, true, 333 ,0);
-                base.common.InformNLS(User,
-                "Du kannst nichts mehr halten.",
-                "You can't carry any more.");
-            else
-                User:startAction( GenWorkTime(User,"glass blowing"), 0, 0, 0, 0 );
-            end
-            local Tool = User:getItemAt(Character.left_tool); -- Item in Linker Hand auslesen
-            if ((Tool == nil) or (Tool.id ~= 311)) then -- Wenn das Item nicht die Zange ist
-                Tool = User:getItemAt(Character.right_tool); -- In anderer Hand nachsehen
-            end
-            if base.common.ToolBreaks( User, Tool ) then -- Zange beschädigen
-                base.common.InformNLS( User, 
-                "Das Glasblasrohr zerbricht.", 
-                "The glasblow pipe breaks." );
-                return
-            end
-            --User:learn(2,"glass blowing",2,20);
-			--Replace with new learn function, see learn.lua 
-            base.common.GetHungry( User, 300 );
-            didSomething = true;
-        else
-            missingRess = base.common.GetNLS(User,
-            "Du brauchst Sand und Asche und Glasblöcke herzustellen",
-            "You need sand and ash to make glas ingots.");
-        end
-    end
-    
-    if ((User:countItemAt("body",734)~=0) and not didSomething) then
-        if (User:countItemAt("belt",736)>4) then
-            if ( ltstate == Action.none ) then -- Arbeit nicht gestartet -> Starten
-                User:startAction( GenWorkTime(User,"fireing bricks"), 0, 0, 0, 0 );
-                User:talkLanguage( Character.say, Player.german, "#me beginnt Ziegel zu brennen.");
-                User:talkLanguage( Character.say, Player.english, "#me starts to fire bricks.");
-                return                
-            end
-            if base.common.IsInterrupted( User ) then
-                local selectMessage = math.random(1,4);
-                if ( selectMessage == 1 ) then
-                    base.common.InformNLS(User,
-                    "Du wischst dir den Schweiß von der Stirn.",
-                    "You wipe sweat off your forehead.");
-                elseif ( selectMessage == 2 ) then
-                    base.common.InformNLS(User,
-                    "Du bekommst den Ziegel nicht aus der Form und musst deshalb stark auf die Form klopfen bis er heraus fällt.",
-                    "A brick refuses to come out of the mould, it takes some time for you to get it out.");
-                elseif ( selectMessage == 3 ) then
-                    base.common.InformNLS(User,
-                    "Bevor du weiter machst reinigst du deine Hände kurz vom feuchten Lehm der an den Fingern klebt.",
-                    "You wash your hands of the wet clay.");
-                else
-                    base.common.InformNLS(User,
-                    "Du holst einen Stein aus dem Lehm. Zum Glück hast du ihn noch vor dem brennen bemerkt, sonst wäre der Ziegel bestimmt gebrochen.",
-                    "You fish out a stone from the wet clay.");
-                end
-                return
-            end
-            User:eraseItem(736,5);
-            notCreated = User:createItem(2588,5,333,0);
-            if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char überladen
-                world:createItemFromId( 2588, notCreated, User.pos, true, 333 ,0);
-                base.common.InformNLS(User,
-                "Du kannst nichts mehr halten.",
-                "You can't carry any more.");
-            else
-                User:startAction( GenWorkTime(User,"fireing bricks"), 0, 0, 0, 0 );
-            end
-            --User:learn(2,"fireing bricks",2,100);
-			--Replace with new learn function, see learn.lua 
-            base.common.GetHungry( User, 300 );
-            didSomething = true;
-        elseif (User:countItemAt("belt",26)>0) then
-            if ( ltstate == Action.none ) then -- Arbeit nicht gestartet -> Starten
-                User:startAction( GenWorkTime(User,"fireing bricks"), 0, 0, 0, 0 );
-                User:talkLanguage( Character.say, Player.german, "#me beginnt Ziegel zu brennen.");
-                User:talkLanguage( Character.say, Player.english, "#me starts to fire bricks.");
-                return              
-            end
-            if base.common.IsInterrupted( User ) then
-                local selectMessage = math.random(1,4);
-                if ( selectMessage == 1 ) then
-                    base.common.InformNLS(User,
-                    "Du wischst dir den Schweiß von der Stirn.",
-                    "You wipe sweat off your forehead.");
-                elseif ( selectMessage == 2 ) then
-                    base.common.InformNLS(User,
-                    "Du bekommst den Ziegel nicht aus der Form und musst deshalb stark auf die Form klopfen bis er heraus fällt.",
-                    "A brick refuses to come out of the mould, it takes some time for you to get it out.");
-                elseif ( selectMessage == 3 ) then
-                    base.common.InformNLS(User,
-                    "Bevor du weiter machst reinigst du deine Hände kurz vom feuchten Lehm der an den Fingern klebt.",
-                    "You wash your hands of the wet clay.");
-                else
-                    base.common.InformNLS(User,
-                    "Du holst einen Stein aus dem Lehm. Zum Glück hast du ihn noch vor dem brennen bemerkt, sonst wäre der Ziegel bestimmt gebrochen.",
-                    "You fish out a stone from the wet clay.");
-                end
-                return
-            end
-            User:eraseItem(26,1);
-            notCreated = User:createItem(736,1,333,0);
-            if ( notCreated > 0 ) then -- Zu viele Items erstellt --> Char überladen
-                world:createItemFromId( 736, notCreated, User.pos, true, 333 ,0);
-                base.common.InformNLS(User,
-                "Du kannst nichts mehr halten.",
-                "You can't carry any more.");
-            else
-                User:startAction( GenWorkTime(User,Character.firingBricks), 0, 0, 0, 0 );
-            end
-            --User:learn(2,"fireing bricks",2,100);
-			--Replace with new learn function, see learn.lua 
-            base.common.GetHungry( User, 200 );
-            didSomething = true;
-        elseif toolFound then
-            missingRess = base.common.GetNLS(User,
-            "Du brauchst Sand und Asche und Glasblöcke herzustellen oder Lehm und ungebrannte Ziegel um Ziegel zu fertigen.",
-            "You need sand and ash to make glas ingots or clay and unfired bricks to make bricks.");
-        else
-            missingRess = base.common.GetNLS(User,
-            "Du brauchst Lehm und ungebrannte Ziegel um Ziegel zu fertigen.",
-            "You need clay and unfired bricks to make bricks.");
-        end
-        if didSomething then
-            local Tool = User:getItemAt(Character.left_tool); -- Item in Linker Hand auslesen
-            if ((Tool == nil) or (Tool.id ~= 734)) then -- Wenn das Item nicht die Zange ist
-                Tool = User:getItemAt(Character.right_tool); -- In anderer Hand nachsehen
-            end
-            if base.common.ToolBreaks( User, Tool ) then -- Zange beschädigen
-                base.common.InformNLS( User, 
-                "Deine Ziegelform geht zu bruch.", 
-                "Your brick mold breaks." );
-                return
-            end
-        end
-        toolFound = true;
-    end
-    
-    if not toolFound then
-        base.common.InformNLS(User,
-        "Du brauchst ein Glasblasrohr oder eine Ziegelform um hier zu arbeiten.",
-        "You need a glasblowpipe or a brick mold to work here.");
+function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+  content.gathering.InitGathering();
+  if (User:countItemAt("all",311)==0 and User:countItemAt("all",734)==0) then
+    -- no tool at all
+    base.common.InformNLS( User,
+		"Du brauchst ein Glasblasrohr oder eine Ziegelform um hier zu arbeiten.", 
+		"You need a glass blow pipe or a brick mould to work here." );
+  elseif (User:countItemAt("all",311)>0 and User:countItemAt("all",734)==0) then
+    -- only glass blow pipe
+    ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltstate );
+  elseif (User:countItemAt("all",311)==0 and User:countItemAt("all",734)>0) then
+    -- only brick mould
+    if (User:countItemAt("all",26)>0) then
+      ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
+    elseif (User:countItemAt("all",736)>4) then
+      ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
     else
-        User:inform(missingRess);
+      base.common.InformNLS( User,
+      "Du brauchst Lehm oder 5 ungebrannte Ziegel um mit der Ziegelform hier zu arbeiten.", 
+      "You need clay or 5 unfired bricks to work here with the brick mould." );
     end
+  else
+    -- both tools
+    if (User:countItemAt("all",26)>0) then
+      ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
+    elseif (User:countItemAt("all",736)>4) then
+      ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
+    elseif (User:countItemAt("all",316)>0 and User:countItemAt("all",314)>0) then
+      ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltstate );
+    else
+      base.common.InformNLS( User,
+      "Für die Ziegelform brauchst du Lehm oder 5 ungebrannte Ziegel, für das Glasblasrohr brauchst du Quarzsand und Pottasche.", 
+      "For the brick mould you need clay or 5 unfired bricks, for the glass blow pipe you need quartz sand and pott ash." );
+    end
+  end
 end
 
-function GenWorkTime(User,Skill)
-    local Attrib = User:increaseAttrib("dexterity",0); -- Geschicklichkeit: 0 - 20
-    local Skill  = User:getSkill(Skill);     -- Edelstein schleifen: 0 - 100
-    
-    return math.floor(-0.3 * (Attrib + Skill) + 50);
+function ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltstate )
+
+  local glassingotproducing = content.gathering.glassingotproducing;
+
+	base.common.ResetInterruption( User, ltstate );
+	if ( ltstate == Action.abort ) then -- work interrupted
+		if (User:increaseAttrib("sex",0) == 0) then
+			gText = "seine";
+			eText = "his";
+		else
+			gText = "ihre";
+			eText = "her";
+		end
+		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		return
+	end
+
+	if not base.common.CheckItem( User, SourceItem ) then -- security check
+		return
+	end
+  
+	-- additional tool item is needed
+	if (User:countItemAt("all",311)==0) then
+		User:inform("[ERROR] No glass blowing pipe found. Please inform a developer.");
+		return
+	end
+	local toolItem = User:getItemAt(5);
+	if ( toolItem.id ~= 311 ) then
+		toolItem = User:getItemAt(6);
+		if ( toolItem.id ~= 311 ) then
+			base.common.InformNLS( User,
+			"Du musst das Glasblasrohr in der Hand haben!",
+			"You have to hold the glass blow pipe in your hand!" );
+			return
+		end
+	end
+
+	if base.common.Encumbrence(User) then
+		base.common.InformNLS( User,
+		"Deine Rüstung behindert Dich beim Herstellen der Glasblöcke.",
+		"Your armour disturbs you while producing glass ingots." );
+		return
+	end
+
+	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
+
+	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
+		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+	end
+	
+	-- any other checks?
+
+	if (User:countItemAt("all",316)==0 or User:countItemAt("all",314)==0) then -- check for items to work on
+		base.common.InformNLS( User, 
+		"Du brauchst Quarzsand und Pottasche um Glasblöcke herzustellen.", 
+		"You need quartz sand and pott ash for producing glass ingots." );
+    return;
+	end
+	
+	if ( ltstate == Action.none ) then -- currently not working -> let's go
+		glassingotproducing.SavedWorkTime[User.id] = glassingotproducing:GenWorkTime(User,toolItem);
+		User:startAction( glassingotproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		User:talkLanguage( Character.say, Player.german, "#me beginnt Glasblöcke herzustellen.");
+		User:talkLanguage( Character.say, Player.english, "#me starts to produce glass ingots."); 
+		return
+	end
+
+	-- since we're here, we're working
+
+	if glassingotproducing:FindRandomItem(User) then
+		return
+	end
+
+	User:learn( glassingotproducing.LeadSkill, glassingotproducing.SavedWorkTime[User.id], 100);
+	User:eraseItem( 316, 1 ); -- erase the item we're working on
+  User:eraseItem( 314, 1 ); -- erase the item we're working on
+	local amount = 1; -- set the amount of items that are produced
+	local notCreated = User:createItem( 41, amount, 333, nil ); -- create the new produced items
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( 41, notCreated, User.pos, true, 333, nil );
+		base.common.InformNLS(User,
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
+	else -- character can still carry something
+		if (User:countItemAt("all",316)>0 and User:countItemAt("all",314)>0) then  -- there are still items we can work on
+			glassingotproducing.SavedWorkTime[User.id] = glassingotproducing:GenWorkTime(User,toolItem);
+			User:startAction( glassingotproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		else -- no items left
+			base.common.InformNLS(User,
+			"Du brauchst Quarzsand und Pottasche um Glasblöcke herzustellen.", 
+      "You need quartz sand and pott ash for producing glass ingots." );
+		end
+	end
+
+	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+		base.common.InformNLS(User,
+		"Dein altes Glasblasrohr zerbricht.",
+		"Your old glass blow pipe breaks.");
+		return
+	end
+end
+
+function ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	local bricksproducing = content.gathering.bricksproducing;
+
+	base.common.ResetInterruption( User, ltstate );
+	if ( ltstate == Action.abort ) then -- work interrupted
+		if (User:increaseAttrib("sex",0) == 0) then
+			gText = "seine";
+			eText = "his";
+		else
+			gText = "ihre";
+			eText = "her";
+		end
+		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		return
+	end
+
+	if not base.common.CheckItem( User, SourceItem ) then -- security check
+		return
+	end
+
+	-- additional tool item is needed
+	if (User:countItemAt("all",734)==0) then
+		User:inform("[ERROR] No brick mould found. Please inform a developer.");
+		return
+	end
+	local toolItem = User:getItemAt(5);
+	if ( toolItem.id ~= 734 ) then
+		toolItem = User:getItemAt(6);
+		if ( toolItem.id ~= 734 ) then
+			base.common.InformNLS( User,
+			"Du musst die Ziegelform in der Hand haben!",
+			"You have to hold the brick mould in your hand!" );
+			return
+		end
+	end
+
+	if base.common.Encumbrence(User) then
+		base.common.InformNLS( User,
+		"Deine Rüstung behindert Dich beim Herstellen der ungebrannten Ziegel.",
+		"Your armour disturbs you while producing unfired bricks." );
+		return
+	end
+
+	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
+
+	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
+		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+	end
+	
+	-- any other checks?
+  if (User:countItemAt("all",26)==0) then
+		User:inform("[ERROR] No clay found. Please inform a developer.");
+		return
+	end
+	
+	if ( ltstate == Action.none ) then -- currently not working -> let's go
+		bricksproducing.SavedWorkTime[User.id] = bricksproducing:GenWorkTime(User,toolItem);
+		User:startAction( bricksproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		User:talkLanguage( Character.say, Player.german, "#me beginnt ungebrannte Ziegel herzustellen.");
+		User:talkLanguage( Character.say, Player.english, "#me starts to produce unfired bricks."); 
+		return
+	end
+
+	-- since we're here, we're working
+
+	if bricksproducing:FindRandomItem(User) then
+		return
+	end
+
+	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], 100);
+	User:eraseItem( 26, 1 ); -- erase the item we're working on
+	local amount = 1; -- set the amount of items that are produced
+	local notCreated = User:createItem( 736, amount, 333, nil ); -- create the new produced items
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( 736, notCreated, User.pos, true, 333, nil );
+		base.common.InformNLS(User,
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
+	else -- character can still carry something
+		if (User:countItemAt("all",26)>0) then  -- there are still items we can work on
+			bricksproducing.SavedWorkTime[User.id] = bricksproducing:GenWorkTime(User,toolItem);
+			User:startAction( bricksproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		else -- no items left
+      -- Should actually never reach this, handle it nevertheless.
+			base.common.InformNLS(User,
+			"Du hast keinen Lehm mehr.",
+			"You have no clay anymore.");
+		end
+	end
+
+	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+		base.common.InformNLS(User,
+		"Deine alte Ziegelform zerbricht.",
+		"Your old brick mould breaks.");
+		return
+	end
+end
+
+function ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	local bricksproducing = content.gathering.bricksproducing;
+
+	base.common.ResetInterruption( User, ltstate );
+	if ( ltstate == Action.abort ) then -- work interrupted
+		if (User:increaseAttrib("sex",0) == 0) then
+			gText = "seine";
+			eText = "his";
+		else
+			gText = "ihre";
+			eText = "her";
+		end
+		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+		return
+	end
+
+	if not base.common.CheckItem( User, SourceItem ) then -- security check
+		return
+	end
+
+	-- additional tool item is needed
+	if (User:countItemAt("all",734)==0) then
+		User:inform("[ERROR] No brick mould found. Please inform a developer.");
+		return
+	end
+	local toolItem = User:getItemAt(5);
+	if ( toolItem.id ~= 734 ) then
+		toolItem = User:getItemAt(6);
+		if ( toolItem.id ~= 734 ) then
+			base.common.InformNLS( User,
+			"Du musst die Ziegelform in der Hand haben!",
+			"You have to hold the brick mould in your hand!" );
+			return
+		end
+	end
+
+	if base.common.Encumbrence(User) then
+		base.common.InformNLS( User,
+		"Deine Rüstung behindert Dich beim Brennen der Ziegel.",
+		"Your armour disturbs you while firing bricks." );
+		return
+	end
+
+	if not base.common.FitForWork( User ) then -- check minimal food points
+		return
+	end
+
+	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
+		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
+	end
+	
+	-- any other checks?
+  if (User:countItemAt("all",736)<5) then
+		User:inform("[ERROR] Not enough unfired bricks found. Please inform a developer.");
+		return
+	end
+	
+	if ( ltstate == Action.none ) then -- currently not working -> let's go
+		bricksproducing.SavedWorkTime[User.id] = bricksproducing:GenWorkTime(User,toolItem);
+		User:startAction( bricksproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		User:talkLanguage( Character.say, Player.german, "#me beginnt Ziegel zu brennen.");
+		User:talkLanguage( Character.say, Player.english, "#me starts to fire bricks."); 
+		return
+	end
+
+	-- since we're here, we're working
+
+	if bricksproducing:FindRandomItem(User) then
+		return
+	end
+
+	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], 100);
+	User:eraseItem( 736, 5 ); -- erase the item we're working on
+	local amount = 5; -- set the amount of items that are produced
+	local notCreated = User:createItem( 2588, amount, 333, nil ); -- create the new produced items
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( 2588, notCreated, User.pos, true, 333, nil );
+		base.common.InformNLS(User,
+		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+		"You can't carry any more and the rest drops to the ground.");
+	else -- character can still carry something
+		if (User:countItemAt("all",736)>4) then  -- there are still items we can work on
+			bricksproducing.SavedWorkTime[User.id] = bricksproducing:GenWorkTime(User,toolItem);
+			User:startAction( bricksproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
+		else -- no items left
+      -- Should actually never reach this, handle it nevertheless.
+			base.common.InformNLS(User,
+			"Du hast nicht mehr genug ungebrannte Ziegel.",
+			"You don't have enough unfired bricks anymore.");
+		end
+	end
+
+	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+		base.common.InformNLS(User,
+		"Deine alte Ziegelform zerbricht.",
+		"Your old brick mould breaks.");
+		return
+	end
 end

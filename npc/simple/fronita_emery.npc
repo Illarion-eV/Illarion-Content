@@ -135,9 +135,9 @@ english, "Gobaith", "Gobiath" -> "I'm just a humble crafter. Ask a scholar about
 
 -- Faction stuff
 "archmage" -> "It's a great comfort to have such a smart man rule over Runewick.", "I have given him wine glasses as a present. Enough for many guests, eventhough he never has guests."
-"Erzmagier" -> "Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt.", end
+"Erzmagier" -> "Ich finde es beruhigend, dass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt."
 english, "Elvaine", "Morgan" -> "It's a great comfort to have such a smart man rule over Runewick.", "I have given him wine glasses as a present. Enough for many guests, eventhough he never has guests."
-"Elvaine", "Morgan" -> "Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt.", end
+"Elvaine", "Morgan" -> "Ich finde es beruhigend, dass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt."
 english, "Runewick" -> "What a wonderful town! You take some steps away from the furnace and the cool sea air refreshes you.", "We have the greenest meadows, the tastiest food and the best beer here in Rnewick!"
 "Runewick" -> "Eine wunderbare Stadt! Man tritt einige Schritte weg vom Schmelzofen und die kühle Seeluft erfrischt einen.", "Wir haben die grünsten Wiesen, das leckerste Essen und das beste Bier hier in Runewick!"
 english, "Valerio", "Guilianni", "Don" -> "Imagine a little goblin with the beard of a dwarf. That's him.", "Even if I admire archmage Morgan, I don't understand why he doesn't do anything against this fiend!"

@@ -17,7 +17,9 @@ VALUES (0, 897, 794, 1, 4, 'William Daloire', 'npc.william_daloire', 0, 2, 5, 12
 require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
@@ -201,32 +203,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("sell");
-talkEntry:addTrigger("buy");
-talkEntry:addTrigger("wares");
-talkEntry:addTrigger("price");
-talkEntry:addTrigger("trade");
-talkEntry:addTrigger("purchase");
-talkEntry:addResponse("Ah, so you are interested in my wares.");
-talkEntry:addResponse("Take your time to look around.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("kauf");
-talkEntry:addTrigger("waren");
-talkEntry:addTrigger("preis");
-talkEntry:addTrigger("Handel");
-talkEntry:addTrigger("veräußer");
-talkEntry:addTrigger("erwerb");
-talkEntry:addResponse("Ah, dann interessiert Ihr Euch also für meine Waren.");
-talkEntry:addResponse("Schaut Euch ruhig in Ruhe um.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -255,6 +231,23 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Soetwas verkaufe ich nicht. Ähm...Ich wollte sagen, ich biete soetwas nicht an.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".");
+talkEntry:addResponse("Oh? ... A letter for me? ... Ah, I see. Please tell Miss Bragolin I'll send her a letter to answer her questions.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 10));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 9));
+talkEntry:addTrigger(".");
+talkEntry:addResponse("Oh?... ein Brief für mich? ... Ah, ich verstehe. Bitte sagt Fräulein Bragolin ich werde ihr einen Brief schreiben um ihre Fragen zu beantworten.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -723,7 +716,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("GERMAN1.");
 talkEntry:addResponse("Es ist eine Freude Eure Bekanntschaft zu machen, %CHARNAME.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

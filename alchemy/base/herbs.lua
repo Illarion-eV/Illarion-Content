@@ -10,7 +10,7 @@ module("alchemy.base.herbs", package.seeall)
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
     -- infront of a cauldron?
-	local cauldron = GetCauldronInfront(User)
+	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
     if cauldron then
 	  
         -- is the char an alchemist?
@@ -29,7 +29,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		   return
 	    end
 		
-		local isPlant = alchemy.base.alchemy.getPlant(SourceItem.id)
+		local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(SourceItem.id, User)
 	    if isPlant then
 	        BrewingPlant(User,SourceItem,cauldron)
 	    elseif SourceItem.id == 157 then
@@ -42,7 +42,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 end
 
-function PlantInEssenceBrew(User,cauldron,plant)
+function PlantInEssenceBrew(User,plant,cauldron)
     local success = nil
     for i=1,8 do 
 		if cauldron:getData("essenceHerb"..i) == "" then
@@ -59,29 +59,30 @@ function PlantInEssenceBrew(User,cauldron,plant)
 	end	
 end
 
-function PlantInStock(User,cauldron,plant)
-    local plusSubstance, minusSubstance = alchemy.base.alchemy.getPlantSubstance(plant.id)
+function PlantInStock(User,plant,cauldron)
+    local plusSubstance, minusSubstance = alchemy.base.alchemy.getPlantSubstance(plant.id, User)
 	if plusSubstance == "" and minusSubstance == "" then
 	    alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
 	else
 	    if plusSubstance ~= "" then
 		    local oldConcentration = tonumber(cauldron:getData(plusSubstance.."Concentration"))
-			if concentration == nil then
-			    concentration = 5 
+			if oldConcentration == nil then
+			    oldConcentration = 5 
 			end
             local newConcentration = oldConcentration + 1
             if newConcentration > 9 then
                 alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)
 			    return
 			else
-                cauldron:setData(plusSubstance..Concentration,newConcentration)
+                cauldron:setData(plusSubstance.."Concentration",newConcentration)
                 cauldron.id = 1012
+				cauldron:setData("filledWith","stock")
 			end				
 	    end
 		if minusSubstance ~= "" then
 		    local oldConcentration = tonumber(cauldron:getData(minusSubstance.."Concentration"))
-			if concentration == nil then
-			    concentration = 5 
+			if oldConcentration == nil then
+			    oldConcentration = 5 
 			end
 
             local newConcentration = oldConcentration - 1
@@ -91,6 +92,7 @@ function PlantInStock(User,cauldron,plant)
 			else
                 cauldron:setData(minusSubstance.."Concentration",newConcentration)
                 cauldron.id = 1012
+				cauldron:setData("filledWith","stock")
 			end				
 	    end
 	    world:changeItem(cauldron)
@@ -98,16 +100,17 @@ function PlantInStock(User,cauldron,plant)
 end
 
 function BrewingPlant(User,plant,cauldron)
-    if cauldron:getData("cauldronFilledWith") == "potion" then -- potion in cauldron, failure
+    world:makeSound(10,cauldron.pos) 
+	if cauldron:getData("filledWith") == "potion" then -- potion in cauldron, failure
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
 		
-	elseif cauldron:getData("cauldronFilledWith")== "essenceBrew" then -- essence brew
-		PlantInEssenceBrew(User,cauldron,plant)
-		User:learn(Character.alchemy,20,100,User:increaseAttrib("essence",0))
+	elseif cauldron:getData("filledWith")== "essenceBrew" then -- essence brew
+		PlantInEssenceBrew(User,plant,cauldron)
+		User:learn(Character.alchemy, 20, 100)
 		
-	elseif (cauldron:getData("cauldronFilledWith") == "stock") or (cauldron:getData("cauldronFilledWith") == "water") then -- water or a stock we put the herb in
-	    PlantInStock(User,cauldron,plant)
-		User:learn(Character.alchemy,20,100,User:increaseAttrib("essence",0))
+	elseif (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "water") then -- water or a stock we put the herb in
+	    PlantInStock(User,plant,cauldron)
+		User:learn(Character.alchemy, 20, 100)
 		
 	else -- there is nothing in the cauldron to put the herb in, failure
 	    base.common.InformNLS(User, "Die Pflanze vertrockent auf dem Boden des heißen Kessels und zerfällt zu Asche.", 
@@ -117,17 +120,18 @@ function BrewingPlant(User,plant,cauldron)
 	world:erase(plant,1)	
 end
 
-function FilterStock(User,cauldron,plant)
+function FilterStock(User,plant,cauldron)
     local success = false
 	local mySubstance = alchemy.base.alchemy.wirkstoff
 	for i=1,8 do 
-	    local oldConcentration = tonumber(cauldron:getData(mySubstance.."Concentration"))
-		if not oldConcentration == nil then
+	    User:inform(""..mySubstance[i])
+		local oldConcentration = tonumber(cauldron:getData(mySubstance[i].."Concentration"))
+		if oldConcentration ~= nil then
 		    if oldConcentration > 5 then
-			    cauldron:setData(mySubstance.."Concentration",oldConcentration-1)
+			    cauldron:setData(mySubstance[i].."Concentration",oldConcentration-1)
 				success = true
 			elseif oldConcentration < 5 then
-			    cauldron:setData(mySubstance.."Concentration",oldConcentration+1)
+			    cauldron:setData(mySubstance[i].."Concentration",oldConcentration+1)
 				success = true
             end    			
         end
@@ -139,22 +143,23 @@ function FilterStock(User,cauldron,plant)
 end
 
 function BrewingFilter(User,plant,cauldron)
-    if cauldron:getData("cauldronFilledWith") == "potion" then -- potion in cauldron, failure
+    world:makeSound(10,cauldron.pos)
+	if cauldron:getData("filledWith") == "potion" then -- potion in cauldron, failure
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
     
-	elseif cauldron:getData("cauldronFilledWith")=="essenceBrew" then -- essence brew in cauldron, failure
+	elseif cauldron:getData("filledWith")=="essenceBrew" then -- essence brew in cauldron, failure
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
 		
-	elseif cauldron:getData("cauldronFilledWith")=="water" then
+	elseif cauldron:getData("filledWith")=="water" then
         alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
     
-	elseif cauldron:getData("stockData")~="" then -- stock, let's filter
-	    FilterStock(User,cauldron,plant)
-		User:learn("alchemy",6,20,100,User:increaseAttrib("essence",0))
-        
+	elseif cauldron:getData("filledWith")=="stock" then -- stock, let's filter
+	    FilterStock(User,plant,cauldron)
+		User:learn(Character.alchemy, 20, 100)
+		
     else -- empty cauldron
         base.common.InformNLS(User, "Die Pflanze vertrockent auf dem Boden des heißen Kessels und zerfällt zu Asche", 
 		                            "The plant dries up on the hot bottom of the cauldron and falls to ashes.")	
 	end
-    world:erase(SourceItem,1)	
+    world:erase(plant,1)	
 end

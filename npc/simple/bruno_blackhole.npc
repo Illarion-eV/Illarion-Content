@@ -229,7 +229,7 @@ english, "albar" -> "In Albar, arr, you can make good profit. They are so stupid
 "albar" -> "In Albar, arr, da kann man gute Profite machen. Die sind so dämlich da, die können einen Kieselstein nicht von einem Rubin unterscheiden."
 english, "gynk", "gync" -> "In Albar, arr, you can make good profit. You just need to know who to bribe, a little investment before payday."
 "gync", "gynk" -> "In Gynk, arr, da kann man gute Profite machen. Du mußt nur wissen, wen du schmieren mußt, eine kleine Investition vor dem Zahltag!"
-english, "salkama" -> "In Salkamar, arr, you can make good profit. Just stuff some wax in your ears before negotiating with ar and shake your head. After an hour, you pay close to nothing!", trade
+english, "salkama" -> "In Salkamar, arr, you can make good profit. Just stuff some wax in your ears before negotiating with a trader and shake your head. After an hour, you pay close to nothing!"
 "salkama" -> "In Salkamar, arr, da kann man gute Profite machen. Stop' dir einfach Wachs in die Ohren bevor du mit einem Händler verhandelst und schüttel immer mit dem Kopf. Nach einer Stunde wirst du kaum noch etwas zahlen müssen!"
 
 -- Gods - use the triggers of the god the NPC worships or fights
@@ -241,7 +241,7 @@ english, "Ushara" -> "Us dwarves honour Ushara. Maybe not every day and with hig
 "Ushara" -> "Wir Zwerge verehren Ushara. Vielleicht nicht an jedem Tag und mit vollster Hingabe, aber wir wissen schon genau, wem wir all die Edelsteine zu verdanken haben!"
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I do not sell or buy anything, but I could need ya help.", "Do I really look like ar?", "I'm nor, I'm a miner!", trade, trade
+"what sell", "what buy", "list wares", "price of" -> "I do not sell or buy anything, but I could need ya help.", "Do I really look like a trader?", "I'm no trader, I'm a miner!"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kaufe und verkaufe nichts, aber ich könnte Hilfe gebrauchen.", "Seh' ich wirklich wie 'n Händler aus?", "Ich bin kein Händler, sondern 'n Bergarbeiter."
 "tell something" -> "If you want to hear a story, ya in da wrong place.", "I'm here to work, not to tell stories.", "My gold nugget is my most precious posession."
 "erzähl was", "erzähl etwas" -> "Wenn du 'ne Geschichte hören wollt, biste am falschen Ort.", "Ich bin nicht zum Geschichtenerzählen hier, sondern zum Arbeiten.", "Mein Goldnugget ist mein wertvollster Besitz."

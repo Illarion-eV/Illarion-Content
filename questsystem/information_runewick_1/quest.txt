@@ -77,3 +77,11 @@ triggerfield,897,804,-3,MoveToField,trigger76
 triggerfield,897,803,-3,MoveToField,trigger77
 item,1,UseItem,trigger78
 item,1,UseItem,trigger79
+npc,340,receiveText,trigger80
+npc,340,receiveText,trigger81
+npc,340,receiveText,trigger82
+npc,340,receiveText,trigger83
+npc,340,receiveText,trigger84
+npc,340,receiveText,trigger85
+npc,340,receiveText,trigger86
+npc,340,receiveText,trigger87

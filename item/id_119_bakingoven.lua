@@ -93,8 +93,25 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	User:learn( doughproducing.LeadSkill, doughproducing.SavedWorkTime[User.id], 100);
 	User:eraseItem( 2, 5 ); -- erase the item we're working on
-	User:eraseItem( 52, 1 ); -- erase the item we're working on
-	local bucketNotCreated = User:createItem( 51, 1, 333, nil ); -- create an empty bucket
+  local theBucket = base.common.GetItemInInventory(User, 52);
+  local bucketAmount = 0;
+  local bucketString = theBucket:getData("amount");
+  if (bucketString ~= "") then
+    bucketAmount = tonumber(bucketString);
+  end
+  if (bucketAmount < 1) then
+    User:inform("[ERROR] Filled bucket has no amount. Data string: " .. bucketString .. ". Please informa developer.");
+    world:swap(theBucket, 51, 333);
+    return;
+  end
+  bucketAmount = bucketAmount - 1;
+  local bucketNotCreated = 0;
+  if (bucketAmount < 1) then
+    User:eraseItem( 52, 1 )
+    bucketNotCreated = User:createItem( 51, 1, 333, nil ); -- create an empty bucket
+  else
+    theBucket:setData("amount", bucketAmount);
+  end
 	local amount = 5; -- set the amount of items that are produced
 	local notCreated = User:createItem( 5, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 or bucketNotCreated > 0) then -- too many items -> character can't carry anymore
@@ -104,7 +121,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		if (User:countItemAt("all",2)>=5 and User:countItemAt("all",2)>0) then  -- there are still items we can work on
+		if (User:countItemAt("all",2)>=5 and User:countItemAt("all",52)>0) then  -- there are still items we can work on
 			doughproducing.SavedWorkTime[User.id] = doughproducing:GenWorkTime(User,toolItem);
 			User:startAction( doughproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left

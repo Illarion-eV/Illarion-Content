@@ -22,7 +22,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Frizza und nenne ihr das Gebäude das dort auf dem Bild beschrieben wird.", "Go to Frizza back and tell her the building that is mentioned on the painting at the wall."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurï¿½ck zu Frizza und nenne ihr das Gebï¿½ude das dort auf dem Bild beschrieben wird.", "Go to Frizza back and tell her the building that is mentioned on the painting at the wall."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

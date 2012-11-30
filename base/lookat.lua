@@ -1,6 +1,7 @@
 -- Default look-at script
 
 require("base.common");
+require("base.gems")
 
 module("base.lookat", package.seeall)
 
@@ -122,7 +123,7 @@ function GenerateLookAt(user, item, material)
 		lookAt.amethystLevel = GetGemLevel(item, "magicalAmethyst");
 		lookAt.obsidianLevel = GetGemLevel(item, "magicalObsidian");
 		lookAt.topazLevel = GetGemLevel(item, "magicalTopaz");
-		lookAt.bonus = 0;
+		lookAt.bonus = base.gems.getGemBonus(item);
 	end;
 	
 	return lookAt;

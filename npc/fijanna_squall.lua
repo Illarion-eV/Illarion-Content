@@ -31,13 +31,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Fijanna Squall the fortune teler. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Fijanna Squall the fortune teler. Keywords: Fortune, greetings, profession, Findari."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Fijanna Squall die Wahrsagerin. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Fijanna Squall die Wahrsagerin. Schlüsselwörter: Zukunft, Grüße, Beruf, Findari."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -107,7 +107,7 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("Möge Findari über dichh wachen.");
+talkEntry:addResponse("Möge Findari über dich wachen.");
 talkEntry:addResponse("Sichere Pfade, Reisender.");
 talkEntry:addResponse("Auf Bald.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -171,42 +171,28 @@ talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Ich bin Fijanna Spuall, eine wandernde Seherin.");
-talkEntry:addResponse("Ich bin eine reisende Prieserin der Götin der Luft. Ich heiße Fijanna. Es freut mich dich zu treffen.");
+talkEntry:addResponse("Ich bin eine reisende Prieserin der Göttin der Luft. Ich heiße Fijanna. Es freut mich dich zu treffen.");
 talkEntry:addResponse("Ich heiße Fijanna. Freut mich dich zu sehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("fortune");
-talkEntry:addResponse("I'll tell you your future, if you give me ten silver coins in retun. Do you to hear about your fortune?");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zukunft");
-talkEntry:addResponse("Ich sage dir deine Zukunft vorraus, wenn du mir dafür ein Silberstück gibst. Möchtest du etwas über deine deine Zukunft hören?");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
-talkEntry:addCondition(npc.base.condition.money.money("=>", 1000));
+talkEntry:addCondition(npc.base.condition.money.money("=>", 100));
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("Very well. I shall tell your fortune. What do you want to hear?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
-talkEntry:addCondition(npc.base.condition.money.money("=>", 1000));
+talkEntry:addCondition(npc.base.condition.money.money("=>", 100));
 talkEntry:addTrigger("Ja");
 talkEntry:addResponse("Gut. Ich werde deine Zukunft lesen. Worüber möchtest du etwas erfahren?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -238,14 +224,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
-talkEntry:addTrigger("*.");
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Willst du deine Zukunft im Tausch für ein Silberstück gesagt bekommen? Antwortet einfach mit ja oder nein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
-talkEntry:addTrigger("*");
+talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse(". . . lauf!");
 talkEntry:addResponse("Du wirst strake Freunde brauchen.");
 talkEntry:addResponse("Gibt in nächster Zeit gut auf dich Acht.");
@@ -261,7 +248,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
-talkEntry:addTrigger("*");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse(". . . run!");
 talkEntry:addResponse("You'll need strong friends");
 talkEntry:addResponse("Take good care of yourself during the next days.");
@@ -277,7 +265,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
-talkEntry:addTrigger("*");
+talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Bedenke, Hochmut kommt vor dem Fall.");
 talkEntry:addResponse("Bedenke: Wer Streit sucht, wird Ärger finden.");
 talkEntry:addResponse("Wie man sich bettet so liegt man. Denke darüber nach.");
@@ -302,7 +291,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
-talkEntry:addTrigger("*");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Pride will have a fall");
 talkEntry:addResponse("Consider this, if you sow mischief, you'll reap conflict.");
 talkEntry:addResponse("As you make your bed so you must lie on it. Condsider this well.");
@@ -326,7 +316,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
-talkEntry:addTrigger("*");
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Dich erwartet Reichtum");
 talkEntry:addResponse("Du wirst ein Geschenk bekommen.");
 talkEntry:addResponse("Du wirst Geld finden.");
@@ -341,7 +331,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
-talkEntry:addTrigger("*");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Wealth is waiting for you.");
 talkEntry:addResponse("You will recieve a present.");
 talkEntry:addResponse("You will be very lucky in the near future.");
@@ -350,6 +341,20 @@ talkEntry:addResponse("You'll find new friends.");
 talkEntry:addResponse("You'll see the good in others.");
 talkEntry:addResponse("You'll find a new friend.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("fortune");
+talkEntry:addResponse("I'll tell you your future, if you give me ten silver coins in retun. Do you to hear about your fortune?");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Zukunft");
+talkEntry:addResponse("Ich sage dir deine Zukunft vorraus, wenn du mir dafür ein Silberstück gibst. Möchtest du etwas über deine deine Zukunft hören?");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -16,7 +16,9 @@ VALUES (0, 113, 611, 0, 0, 'Thomas Dalenus', 'npc.thomas_dalenus', 0, 3, 0, 242,
 
 require("npc.base.basic")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
@@ -227,6 +229,23 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".");
+talkEntry:addResponse("I'm sorry, I don't have time. I still needed to finish that dress. Please tell Lady Bragolin that I'll notify her soon.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 3));
+talkEntry:addTrigger(".");
+talkEntry:addResponse("Tut mei leid. Ich habe grade keine Zeit, ich muss noch ein Kleid fertig nähen. Sagst doch bitte Fräulein Bragolin, dass ich mich bei ihr melden werde.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 4));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I'm a tailor, I even made a dress for the queen once.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -296,9 +315,7 @@ talkEntry:addTrigger("merchant");
 talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
-talkEntry:addResponse("The amount of goods,d on this marketplace, is magnificient. We're not a people ofrs, but everyone needs something sometimes.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("The amount of goods, traded on this marketplace, is magnificient. We're not a people of traders, but everyone needs something sometimes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -414,8 +431,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("I am honest; I do not like Galmair. I prefer towith honourable men.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I am honest; I do not like Galmair. I prefer to trade with honourable men.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -482,8 +498,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("I will neverwith anyone from Gynk. They never fulfill a contract.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I will never trade with anyone from Gynk. They never fulfill a contract.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -551,7 +566,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("Never trade with Galmair. Just saying.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
