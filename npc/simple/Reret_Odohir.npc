@@ -96,10 +96,12 @@ tradeWrongItemMsg "Oh, Das kaufe ixch nicht. Tut mir leid.", "Oh, I don't buy th
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I sell nothing, but I can register you as a citizen."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ick verkauf nichts, aber ich kann Euch als Bürger eintragen."
-"become citizen" -> "Welcome to Runewick!"
-"Bürger werden" ->  "Willkommen in Runewick"
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I sell nothing, but I can register you as a citizen. Just tell me, if you want to become a citizen."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ick verkauf nichts, aber ich kann Euch als Bürger eintragen. Sag mir einfach wenn Ihr Bürger dieser Stadt werden möchtet."
+english, town = Cadomyr,  "become citizen", "gain citizenship" -> town = Runewick, "You are now a citizen of Runewick", "Welcome to Runewick!"
+town = Cadomyr,  "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Du bist jetzt Bürger von Runewick", "Willkommen in Runewick!"
+english, town = Galmair,  "become citizen", "gain citizenship" -> town = Runewick, "You are now a citizen of Runewick", "Welcome to Runewick!"
+town = Galmair,  "become citizen","Bürgerschaft beantragen" -> town = Runewick, "Du bist jetzt Bürger von Runewick", "Willkommen in Runewick!"
 
 --"Danke nein, ich habe bereits alles, was ich brauche."
 --"Habt Ihr ein Dekret für mich oder wollt ihr vielleicht ein Dekret oder Schlüßel kaufen?"
