@@ -441,6 +441,8 @@ function Craft:generateQuality(user, productId, toolItem)
 end
 
 function Craft:locationFine(user)
+    self:turnToTool(user)
+
     local staticTool = base.common.GetFrontItemID(user)
     if self.activeTool[staticTool] then
         if not self.fallbackCraft then
@@ -466,6 +468,38 @@ function Craft:locationFine(user)
     end
     
     return true
+end
+
+-- Turn to a static tool, keeping the turning radius as small as possible and searching
+-- in the following order around the user (u), starting at the frontal position (1):
+-- 2 1 3
+-- 4 u 5
+-- 6 8 7
+function Craft:turnToTool(user)
+    local dir = user:getFaceTo()
+    local right = dir
+    local left = (right - 1) % 8
+
+    for i=1,4 do
+        local staticTool = base.common.getFrontItemID(user, 1, right)
+
+        if self.tool[staticTool] then
+            user:setAttrib("faceto", right)
+            return true
+        end
+
+        staticTool = base.common.getFrontItemID(user, 1, left)
+
+        if self.tool[staticTool] then
+            user:setAttrib("faceto", left)
+            return true
+        end
+
+        right = (right + 1) % 8
+        left = (left - 1) % 8
+    end
+
+    return false
 end
 
 function Craft:craftItem(user, productId, toolItem)

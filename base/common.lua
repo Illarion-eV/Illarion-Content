@@ -210,8 +210,8 @@ end;
 --- Get the position right in front of a character in looking direction
 -- @param User The character the front position is wanted
 -- @return The position in front of the character
-function GetFrontPosition(User, distance)
-    local direct = User:getFaceTo();
+function GetFrontPosition(User, distance, dir)
+    local direct = dir or User:getFaceTo();
     local d = distance or 1;
 	
     if (direct == Character.north) then
@@ -238,8 +238,8 @@ end;
 --- Get the item that is in front of the character in case there is one
 -- @param User The character whos front area is searched
 -- @return The item that was found or nil
-function GetFrontItem(User)
-    local Posi = GetFrontPosition(User);
+function GetFrontItem(User, dir)
+    local Posi = GetFrontPosition(User, dir);
 
     if world:isItemOnField(Posi) then
         return world:getItemOnField(Posi);
@@ -251,8 +251,8 @@ end;
 --- Get the ID of the item that is in front of the character in case there is one
 -- @param User The character whos front area is searched
 -- @return The ID of the item in front of the character or 0 in case there is none
-function GetFrontItemID(User)
-    local theItem = GetFrontItem(User);
+function GetFrontItemID(User, dir)
+    local theItem = GetFrontItem(User, dir);
 
     if not theItem then
         return 0;
