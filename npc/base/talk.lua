@@ -180,7 +180,10 @@ function talkNPCEntry:execute(npcChar, player)
 		if (responseProcessors ~= nil) then
 			for _, processor in pairs(responseProcessors) do
 				responseText = processor:process(player, self._parent, npcChar, responseText);
+				 debug("Processing!");
 			end;
+		else
+			debug("No response processors");
 		end;
     	
 		npcChar:talk(Character.say, responseText);
