@@ -125,17 +125,16 @@ function talkNPCEntry:addResponse(text)
     end;
     table.insert(self._responses, text);
 	
+    self._responsesCount = self._responsesCount + 1;
+	
 	for _, processor in pairs(npc.base.responses.processorList) do
 		if processor:check(text) then
 			if (self._responseProcessors[self._responsesCount] == nil) then
 				self._responseProcessors[self._responsesCount] = {};
 			end;
-			debug("Processor found for response: " .. text);
 			table.insert(self._responseProcessors[self._responsesCount], processor)
 		end;
 	end;
-	
-    self._responsesCount = self._responsesCount + 1;
 end;
 
 function talkNPCEntry:addConsequence(consequence)
@@ -179,10 +178,7 @@ function talkNPCEntry:execute(npcChar, player)
 		if (responseProcessors ~= nil) then
 			for _, processor in pairs(responseProcessors) do
 				responseText = processor:process(player, self._parent, npcChar, responseText);
-				 debug("Processing!");
 			end;
-		else
-			debug("No response processors");
 		end;
     	
 		npcChar:talk(Character.say, responseText);
