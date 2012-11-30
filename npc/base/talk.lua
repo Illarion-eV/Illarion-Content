@@ -125,7 +125,7 @@ function talkNPCEntry:addResponse(text)
     end;
     table.insert(self._responses, text);
 	
-	local processorFkt = function(_, processor)
+	for _, processor in pairs(npc.base.responses.processorList) do
 		if processor:check(text) then
 			if (self._responseProcessors[self._responsesCount] == nil) then
 				self._responseProcessors[self._responsesCount] = {};
@@ -134,8 +134,6 @@ function talkNPCEntry:addResponse(text)
 			table.insert(self._responseProcessors[self._responsesCount], processor)
 		end;
 	end;
-	
-	table.foreach(npc.base.responses.processorList, processorFkt);
 	
     self._responsesCount = self._responsesCount + 1;
 end;
