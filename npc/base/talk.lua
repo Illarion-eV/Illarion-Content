@@ -171,7 +171,7 @@ end;
 
 function talkNPCEntry:execute(npcChar, player)
     if (self._responsesCount > 0) then
-        local selectedResponse = math.random(1, self._responsesCount);
+        local selectedResponse = math.random(1, self._responsesCount) - 1;
 		
 		local responseText = self._responses[selectedResponse];
 		local responseProcessors = self._responseProcessors[selectedResponse];
