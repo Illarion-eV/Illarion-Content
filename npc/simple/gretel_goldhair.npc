@@ -2,8 +2,8 @@
 -- NPC Name: Gretel  Goldhair                                         Galmair --
 -- NPC Job: Galmair                                                           --
 --                                                                            --
--- NPC Race: human                     NPC Position:  341, 281,0                 --
--- NPC Sex:  female                    NPC Direction:  north               --
+-- NPC Race: human                     NPC Position:341, 281,0                --
+-- NPC Sex:  female                    NPC Direction: southwest               --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
@@ -12,7 +12,7 @@ name = "Gretel Goldhair"
 race = human
 sex = female
 position = 341, 281,0
-direction = north
+direction = southwest
 affiliation = "Galmair"
 job = "Galmair Treasurer"
 
@@ -88,7 +88,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the five 
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Sprecht lauter, Ich kann Euch nicht hören."
 "How do you do" -> "Shoe? Just drop your shoe on the field here!"
 "your name", "who are you", "who art thou" -> "I am Gretel. And you are...?", "Gretel Goldhair. I once was famous, maybe you heard of me?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Gretel Goldhair. Und Ihr seid?" ,"Gretel Goldhair. Ich war mal berühmt. Vielleicht habt Ihr von mir gehört?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Gretel Goldhair. Und Ihr seid?","Gretel Goldhair. Ich war mal berühmt. Vielleicht habt Ihr von mir gehört?"
 
 -- OPTIONAL TRIGGERS
 
@@ -139,8 +139,8 @@ english, "job" -> "I am sorting all that rubbish ... I mean, all the donnations 
 "Gott", "Götter" -> "Die Götter erschufen Illarion ohne Müll. Wir erschaffen jeden Tag Müll."
 english, "religion" -> "If you lost your loved ones you hope the gods keep them save in their realms. Maybe you'll understand oneday... or maybe you alredy do?"
 "religion" -> "Wenn du deine Liebsten verloren hast, betest du zu den Göttern, das sie sie sicher in ihrer Spähre verweilen lassen. Eines Tags werdet Ihr das verstehen... oder versteh Ihr das schon?"
-"faith" -> "..."
-"Glaube" -> "..."
+"faith" -> "The elder gods are retuned."
+"Glaube" -> "Die aölten Götter sind zurüch gekehrt."
 
 -- Optional: Faction stuff
 "archmage" -> "I am older than the arch mage. By ages!", "Speak louder, I can't hear you!"
@@ -148,7 +148,7 @@ english, "religion" -> "If you lost your loved ones you hope the gods keep them 
 english, "Elvaine", "Morgan" -> "I am older than the arch mage. By ages!", "Speak louder, I can't hear you!"
 "Elvaine", "Morgan" -> "Ich bin älter als der Erzmagier. Wesentlich älter!", "Sprecht lauter, ich kann Euch nicht hören!"
 english, "Runewick" -> "Speak louder, I can't hear you!","No. No. This place is Galmair, sweetheart"
-"Runewick" ->"Sprecht lauter, ich kann Euch nicht hören!", "Nein,nein. Dieser Ort ist Galmair, Schätzchen."
+"Runewick" ->"Sprecht lauter, ich kann Euch nicht hören!", "Nein, nein. Dieser Ort ist Galmair, Schätzchen."
 english, "Valerio", "Guilianni", "Don" -> "That's the Don here. He allowed me to guard the garbage bin."
 "Valerio", "Guilianni", "Don" -> "Das ist der Don. Er erlaubte mir auf die Müllkippe zu wachen."
 english, "Galmair" -> "..."
@@ -192,9 +192,7 @@ german, chance(20.0), ".*" ->  "Sprecht lauter, ich kann Euch nicht hören!", "H
 
 cycletext "Seht mich an, so werdet auch Ihr aussehen, wenn Ihr alt seid!", "..."
 cycletext "#me kichert irre wie eine alte Hexe.", "#me cakles like an old witch."
-cycletext "#me hüllt sich fröstelnd in ihren Umhang.", "..."
-cycletext "#me schleicht mit gebeugtem Gang umher.", "..."
-cycletext "#me stützt sich auf ihren Stock.", "..."
+cycletext "#me stützt sich auf ihren Stock.", "#me rests her arms on her walking staff."
 cycletext "#me starrt in die Ferne.", "#me stares at the horizon."
 cycletext "#me zieht die Nase hoch. ", "#me snuffels."
 cycletext "#me redet leise mich sich selbst.", "#me talkes to herself silently."

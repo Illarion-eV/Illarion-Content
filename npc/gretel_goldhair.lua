@@ -3,7 +3,7 @@
 -- NPC Job:  Galmair Treasurer                                                --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  341, 281, 0            --
--- NPC Sex:  female                     NPC Direction: north                  --
+-- NPC Sex:  female                     NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 341, 281, 0, 0, 'Gretel Goldhair', 'npc.gretel_goldhair', 1, 2, 5, 150, 157, 164, 232, 214, 199);
+VALUES (0, 341, 281, 0, 5, 'Gretel Goldhair', 'npc.gretel_goldhair', 1, 2, 5, 150, 157, 164, 232, 214, 199);
 ---]]
 
 require("npc.base.basic")
@@ -467,13 +467,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faith");
-talkEntry:addResponse("...");
+talkEntry:addResponse("The elder gods are retuned.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glaube");
-talkEntry:addResponse("...");
+talkEntry:addResponse("Die aölten Götter sind zurüch gekehrt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -519,7 +519,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören!");
-talkEntry:addResponse("Nein,nein. Dieser Ort ist Galmair, Schätzchen.");
+talkEntry:addResponse("Nein, nein. Dieser Ort ist Galmair, Schätzchen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -736,9 +736,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Seht mich an, so werdet auch Ihr aussehen, wenn Ihr alt seid!", "...");
 talkingNPC:addCycleText("#me kichert irre wie eine alte Hexe.", "#me cakles like an old witch.");
-talkingNPC:addCycleText("#me hüllt sich fröstelnd in ihren Umhang.", "...");
-talkingNPC:addCycleText("#me schleicht mit gebeugtem Gang umher.", "...");
-talkingNPC:addCycleText("#me stützt sich auf ihren Stock.", "...");
+talkingNPC:addCycleText("#me stützt sich auf ihren Stock.", "#me rests her arms on her walking staff.");
 talkingNPC:addCycleText("#me starrt in die Ferne.", "#me stares at the horizon.");
 talkingNPC:addCycleText("#me zieht die Nase hoch. ", "#me snuffels.");
 talkingNPC:addCycleText("#me redet leise mich sich selbst.", "#me talkes to herself silently.");
