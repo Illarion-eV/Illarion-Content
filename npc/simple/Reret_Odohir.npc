@@ -2,8 +2,8 @@
 -- NPC Name: Reret Odohir                                         Cadomyr     --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human      NPC Position: 900,776,1                               --
--- NPC Sex:  female       NPC Direction:north                           --
+-- NPC Race: human      NPC Position: 106,533,0                               --
+-- NPC Sex:  female     NPC Direction:north                           --
 --                                                                            --
 -- Author:  ??+ Miriam                                                        --
 --                                                                            --
@@ -12,9 +12,9 @@
 name = "Reret Odohir"
 race = human
 sex = female
-position = 900,776,1
+position = 106,533,0
 direction = north
-affiliation = "Runewick"
+affiliation = "Cadomyr"
 job = "Notary"
 
 language = common
@@ -98,8 +98,6 @@ tradeWrongItemMsg "Oh, Das kaufe ich nicht. Tut mir leid.", "Oh, I don't buy tha
 -- Optional: Trade Hooks, use only for traders
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I sell nothing, but I can register you as a citizen. Just tell me, if you want to become a citizen."
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ick verkauf nichts, aber ich kann Euch als Bürger eintragen. Sag mir einfach wenn Ihr Bürger dieser Stadt werden möchtet."
--- english, town  = none,  "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Runewick", "Welcome to Runewick!"
--- town = none, "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Du bist jetzt Bürger von Runewick", "Willkommen in Runewick!"
 
 -- Becoming citizen in Cadomyr
 english, town = Galmair,  "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Cadomyr", "Welcome to Cadomyr!"

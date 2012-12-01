@@ -102,6 +102,11 @@ town = galmair, "quest", "mission" -> "Ihr möchtet eine Aufgabe? Bringt ein paa
 town = galmair, "task", "adventure", "order" -> "Do you want a task? Bring some more donations. And drop it on the field here!", queststatus(206) =1
 town = galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" ->  "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her!", queststatus(206) =1
 
+english, "quest", "mission"  -> "I have nothing to do for you, darling."
+"quest", "mission" -> "I have nothing to do for you, darling."
+"task", "adventure", "order" -> "Ich habe keine Aufgabe für dich, Liebling."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe für dich, Liebling."
+
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(206) =1, english, "quest", "mission" -> "Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?"
 queststatus(206) =1,"quest", "mission" -> "Ganz genau! Ihr habt heraus gefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
