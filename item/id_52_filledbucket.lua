@@ -14,13 +14,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
   CheckSetAmount(SourceItem);
   
-  if (SourceItem:getType() ~= 4) then -- tool in hand
-		base.common.InformNLS( User,
-		"Du musst den Eimer in der Hand haben!",
-		"You have to hold the bucket in your hand!" );
-		return
-	end
-  
   -- look for cauldron
   TargetItem = GetCauldron(User);
   if (TargetItem ~= nil) then
