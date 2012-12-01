@@ -121,11 +121,6 @@ function AnalysisOfBrew(User, gem, brew, Counter, Param, ltstate)
         return
     end
 	
-	if brew.id == 1008 then -- empty cauldron!
-	    User:inform("Hier gibt es nichts zu analysieren.","There is nothing you could analyse.")
-		return
-	end
-    
 	-- for every possible substance, we create the proper informs
     local analysisResultDE
 	local analysisResultEN
