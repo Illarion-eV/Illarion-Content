@@ -91,6 +91,12 @@ function getPotion(...)
 end;
 
 
+              --stock,sapphire ,ruby,emerald,obsidian  ,amethyst,topaz,diamant
+gemDustList  = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
+gemList      = {"non",284      ,46  ,45     ,283       ,197     ,198  ,285}
+cauldronList = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017} 
+bottleList   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
+
 --Qualitätsbezeichnungen
 qListDe={"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"};
 qListEn={"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"};
@@ -400,11 +406,6 @@ function SetQuality(User,Item)
     quali = 999 -- replace with formula
 	Item:setData("potionQuality",quali)
 end
-              --stock,sapphire ,ruby,emerald,obsidian  ,amethyst,topaz,diamant
-gemDustList  = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
-gemList      = {"non",284      ,46  ,45     ,283       ,197     ,198  ,285}
-cauldronList = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017} 
-bottleList   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
 
 function GemDustBottleCauldron(gem, gemdust, cauldron, bottle)
     -- this function returns matching gem id, gemdust id, cauldron id and bottle id
