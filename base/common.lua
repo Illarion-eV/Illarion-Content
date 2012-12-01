@@ -1703,17 +1703,14 @@ function GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
   end
   for x=-Radius,Radius do
     for y=-Radius,Radius do 
-      debug("check position " .. x .. " " .. y);
-      local field = world:getField(position(CenterPos.x + x, CenterPos.y, CenterPos.z));
+      local field = world:getField(position(CenterPos.x + x, CenterPos.y + y, CenterPos.z));
       local itemCount = field:countItems();
       if (itemCount > 0) then
-        debug("items found: " .. itemCount);
         if (OnlyWriteable) then
           itemCount = 1;
         end
         for i=0,itemCount-1 do 
           local item = field:getStackItem(i);
-          debug("stack item " .. i .. " with ID " .. item.id);
           if (item.id == ItemId) then
             return item, (i==0);
           end
