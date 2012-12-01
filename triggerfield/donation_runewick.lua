@@ -19,7 +19,7 @@ function PutItemOnField(Item,User)
 
     if (donated) and (User:getQuestProgress(205) == 1) then
 		User:setQuestProgress(205, 2); --Quest solved!
-		base.common.InformNLS(User,"[Queststatus] Du hast erfolgreich Recycling betrieben <Sorry, das geht so nicht. Bitte schreib ernsthafte Texte ~Estralis>. Sprich mit Neiran el Nyarale, um deine Belohnung einzufordern.","[Quest status] You successfully recyled <--typo! something. Talk to Neiran el Nyarale to claim your reward."); --sending a message
+		base.common.InformNLS(User,"[Queststatus] Du hast erfolgreich die Aufgabe von Neiran el Nyarale aufgeführt. Sprich mit ihm, um deine Belohnung einzufordern.","[Quest status] You successfully completet the task given by Neiran el Nyarale. Talk to him to claim your reward."); --sending a message
 	end
 
 	-- Quest end

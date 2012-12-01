@@ -19,7 +19,7 @@ end);
 function _town_helper_set(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);	
 	local factionValues = base.factions.getFaction(player);
-	base.factions.makeCharMemberOfTown(player,factionValues,1, value);
+	base.factions.makeCharMemberOfTown(player,npcChar,factionValues,1, value);
 end;
 
 function _town_helper_status(self, npcChar, player)

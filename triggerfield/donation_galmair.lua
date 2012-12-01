@@ -15,10 +15,12 @@ function PutItemOnField(Item,User)
 
     donated=triggerfield.donation_base.donate(Item,User,"Galmair","Valerio Guilianni","TreasureGalmair"); -- That's all folks
 
-    -- Quest 206 (NPC Job, NPC Name )
 
-    if donated then
-	    -- add your quest here
+   -- Quest 206 (Galmair Treasury, NPC Geretel Goldhair)
+
+    if (donated) and (User:getQuestProgress(206) == 1) then
+		User:setQuestProgress(206, 2); --Quest solved!
+		base.common.InformNLS(User,"[Queststatus] Du hast erfolgreich etwas an den Don gespendet. Sprich mit Geretel Goldhair, um deine Belohnung einzufordern.","[Quest status] You successfully made a donnation to the Don. Talk to Gretel Goldhair to claim your reward."); --sending a message
 	end
 
 	-- Quest end

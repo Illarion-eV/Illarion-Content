@@ -171,7 +171,7 @@ talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Ich bin Fijanna Spuall, eine wandernde Seherin.");
-talkEntry:addResponse("Ich bin eine reisende Prieserin der Götin der Luft. Ich heiße Fijanna. Es freut mich dich zu treffen.");
+talkEntry:addResponse("Ich bin eine reisende Prieserin der Göttin der Luft. Ich heiße Fijanna. Es freut mich dich zu treffen.");
 talkEntry:addResponse("Ich heiße Fijanna. Freut mich dich zu sehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -231,7 +231,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
-talkEntry:addCondition(npc.base.condition.chance.chance(35.0));
+talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse(". . . lauf!");
 talkEntry:addResponse("Du wirst strake Freunde brauchen.");
@@ -265,7 +265,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
-talkEntry:addCondition(npc.base.condition.chance.chance(35.0));
+talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Bedenke, Hochmut kommt vor dem Fall.");
 talkEntry:addResponse("Bedenke: Wer Streit sucht, wird Ärger finden.");
