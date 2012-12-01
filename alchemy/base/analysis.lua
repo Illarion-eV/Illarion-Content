@@ -29,7 +29,7 @@ function EssenceBrewAnalysis(User, gem, brew, Counter, Param, ltstate)
 		cauldron = nil
 		bottle = brew			
 	end	
-	local reGem, ingredientGemdust, newCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron, bottle) -- get gemdust id
+	local reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron, bottle) -- get gemdust id
 	local analysisResultDE
 	local analysisResultEN
 	if not gem.id == reGem then -- the gem used does not match the substance
