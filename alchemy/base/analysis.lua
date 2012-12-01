@@ -77,10 +77,11 @@ function PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
 		potionQualityDE = alchemy.base.alchemy.qListDe[math.floor(potionQuality/100)]
 		analysisResultDE = "Substanz:\nTrank auf "..world:getItemName(reGemdust,Player.german).."basis\n\Trankgüte:\n"..potionQualityDE.." Qualität.\n\nWirkung:\n"
 		analysisResultEN = "Substance:\nPotion based on "..world:getItemName(reGemdust,Player.german).."\n\nPotion Quality:\n"..potionQualityEN.." quality.\n\nEffect:"
-		if brew:getData("potionEffectId") == 0 or brew:getData("potionEffectId") == "" then
+		local potionEffectId = tonumber(brew:getData("potionEffectId"))
+		if (potionEffectId == 0) or (potionEffectId == nil) then
 			analysisResultDE = analysisResultDE.."Keine Wirkung"
 			analysisResultEN = analysisResultEN.."No effect"
-		elseif (brew:getData("potionEffectId") >= 11111111) and (brew:getData("potionEffectId") <= 99999999) then
+		elseif (potionEffectId >= 11111111) and (potionEffectId <= 99999999) then
 			if (reGemdust == 447) or (reGemdust == 450) then 
 				local dataZList = alchemy.base.alchemy.SplitData(User,brew:getData("potionEffectId"))
 				for i=1,8 do 
@@ -97,8 +98,8 @@ function PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
 			end
 		else 
 			effectList = alchemy.base.alchemy.potionName
-			local potionEffectEN = effectList[brew:getData("potionEffectId")][1]
-			local potionEffectDE = effectList[brew:getData("potionEffectId")][2]
+			local potionEffectEN = effectList[potionEffectId][1]
+			local potionEffectDE = effectList[potionEffectId][2]
 			if (potionEffectEN == nil) or (potionEffectDE == nil) then -- potion has an effect id, but the effect id has no entry in the name list
 				potionEffectEN = "Unknow effect"; potionEffectDE = "Unbekannte Wirkung"
 			end	
