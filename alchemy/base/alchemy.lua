@@ -95,11 +95,6 @@ end;
 qListDe={"fürchterliche","schlechte","schwache","leicht schwache","durchschnittliche","gute","sehr gute","großartige","hervorragende"};
 qListEn={"awful","bad","weak","slightly weak","average","good","very good","great","outstanding"};
 
---                stock,sapphire,ruby,emerald,obsidian,amethyst,topaz,diamant
-gemList        = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
-cauldronPotion = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017} 
-bottlePotion   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
-
 -- Liste der Wirkstoffnamen
 wirkstoff = {};
 wirkung_de = {};
@@ -231,6 +226,18 @@ function ImpactRow1(User,dataZList)
   --User:inform("debug 13")
 end
 -- --------------------------------------------------------------------------------
+function SplitData(User,theData)
+    local myData
+	dataZList = {}
+	for i=1,8 do
+	    myData = math.floor(theData/(10^(8-i)))
+		myData = myData - (math.floor(myData/10))*10
+		dataZList[i] = myData
+    end
+	return dataZList
+end
+
+
 function generateTasteMessage(Character,dataZList)
     local textDe = "Der Trank schmeckt ";
 	local textEn = "The potion tastes ";
@@ -393,17 +400,21 @@ function SetQuality(User,Item)
     quali = 999 -- replace with formula
 	Item:setData("potionQuality",quali)
 end
-
+              --stock,sapphire ,ruby,emerald,obsidian  ,amethyst,topaz,diamant
 gemDustList  = {"non",446      ,447 ,448    ,449       ,450     ,451  ,452}
+gemList      = {"non",284      ,46  ,45     ,283       ,197     ,198  ,285}
 cauldronList = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017} 
 bottleList   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
 
-function GemDustBottleCauldron(gemdust, cauldron, bottle)
-    -- this function returns matching gemdust id, cauldron id and bottle id
+function GemDustBottleCauldron(gem, gemdust, cauldron, bottle)
+    -- this function returns matching gem id, gemdust id, cauldron id and bottle id
     -- only one parameter is needed; if there are more than one, only the first one will be taken into account
     local myList
 	local myValue
-    if gemdust then
+    if gem then
+	    myList = gemList
+		myValue = gem.id
+	elseif gemdust then
 	    myList = gemDustList
 		myValue = gemdust.id
 	elseif cauldron then
@@ -416,16 +427,17 @@ function GemDustBottleCauldron(gemdust, cauldron, bottle)
 	    return 
 	end
 	
-	local reGemdust; local reCauldron; local reBottle
+	local reGem, reGemdust, reCauldron, reBottle
 	for i=1,#myList do
 	    if myList[i] == myValue then
-		    reGemdust = gemDustList[i]
+		    reGem = gemList[i]
+			reGemdust = gemDustList[i]
 	        reCauldron = cauldronList[i]
 			reBottle = bottleList[i]
 	        break
 		end
 	end
-	return reGemdust, reCauldron, reBottle
+	return reGem, reGemdust, reCauldron, reBottle
 end
 ----------------------------------------------------
 -- combine of stock and essence brew to create a potion
@@ -436,11 +448,11 @@ function CombineStockEssence( User, stock, essenceBrew)
     if cauldron then
         
 		-- we get the gem dust used as an ingredient; and the new cauldron id we need later
-		local ingredientGemdust; local newCauldron
+		local reGem, ingredientGemdust, newCauldron, reBottle
 		if cauldron:getData("filledWith") == "essenceBrew" then
-		    ingredientGemdust, newCauldron = GemDustBottleCauldron(nil, essenceBrew, nil)
+		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew, nil)
 		else
-		    ingredientGemdust, newCauldron = GemDustBottleCauldron(nil, nil, essenceBrew)
+		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, essenceBrew)
 		end
 		
 		-- create our ingredients list
