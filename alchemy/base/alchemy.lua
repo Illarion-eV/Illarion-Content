@@ -291,7 +291,7 @@ end
 
 function CheckIfGemDust(SourceItem, User)
 local retVal = nil;
-for i,checkId in pairs(gemList) do
+for i,checkId in pairs(gemDustList) do
     theItem = SourceItem
 	if theItem.id == checkId then
     retVal = theItem
