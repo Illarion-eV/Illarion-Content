@@ -1703,6 +1703,7 @@ function GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
   end
   for x=-Radius,Radius do
     for y=-Radius,Radius do 
+      debug("check position " .. x .. " " .. y);
       local field = world:getField(position(CenterPos.x + x, CenterPos.y, CenterPos.z));
       local itemCount = field:countItems();
       if (itemCount > 0) then
