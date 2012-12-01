@@ -94,7 +94,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
   local TargetChar = base.common.GetFrontCharacter(User);
   if (TargetChar ~= nil) then
     -- is this really a player?
-    local players = world:getPlayersInRangeOf(TargetChar, 1);
+    local players = world:getPlayersInRangeOf(TargetChar.pos, 0);
     for _,p in players do 
       if (p.id == TargetChar.id) then
         base.common.InformNLS(User,
