@@ -140,7 +140,6 @@ function AnalysisOfBrew(User, gem, brew, Counter, Param, ltstate)
 	
 	if analysisResultDE and analysisResultEN then 
 		-- message box for the results
-		local questInfos = GetTeacherQuestInfos(User, SourceItem)
 		local callback = function(dialog) end
 		if User:getPlayerLanguage() == 0 then
 			dialog = MessageDialog("Analyseergebnis", analysisResultDE, callback)
