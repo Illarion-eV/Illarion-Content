@@ -159,11 +159,11 @@ function CauldronPotionCheck(User, SourceItem, TargetItem, Counter, Param, ltsta
 	else	
 	    local brew = User:getItemAt(5)
 		if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") then
-	        AnalysisOfBrewCauldron(User, SourceItem, brew, Counter, Param, ltstate)
+	        AnalysisOfBrew(User, SourceItem, brew, Counter, Param, ltstate)
 		else	
 	        local brew = User:getItemAt(6)
 			if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") then
-				AnalysisOfBrewCauldron(User, SourceItem, brew, Counter, Param, ltstate)
+				AnalysisOfBrew(User, SourceItem, brew, Counter, Param, ltstate)
 			end
         end
     end		
