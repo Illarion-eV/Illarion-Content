@@ -110,7 +110,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 end
 
 function PourOnCharacter (TargetCharacter, SourceItem )
-  world:makeSound( 9, Character.pos );
+  world:makeSound( 9, TargetCharacter.pos );
   world:swap(SourceItem, 51, 333);
 	base.common.InformNLS(TargetCharacter, 
   "Du fühlst dich gleich viel sauberer.", 
@@ -181,9 +181,10 @@ end
 
 function GetCauldron(User)
   -- first check in front
-  if (world:isItemOnField(targetPos)) then
-    local item = world:getItemOnField(targetPos);
-    if (item.id > 1007 or item.id < 1019) then
+  local frontPos = base.common.GetFrontPosition(User);
+  if (world:isItemOnField(frontPos)) then
+    local item = world:getItemOnField(frontPos);
+    if (item.id > 1007 and item.id < 1019) then
       return item;
     end
   end
@@ -193,7 +194,7 @@ function GetCauldron(User)
       local targetPos = position(User.pos.x + x, User.pos.y, User.pos.z);
       if (world:isItemOnField(targetPos)) then
         local item = world:getItemOnField(targetPos);
-        if (item.id > 1007 or item.id < 1019) then
+        if (item.id > 1007 and item.id < 1019) then
           return item;
         end
       end
