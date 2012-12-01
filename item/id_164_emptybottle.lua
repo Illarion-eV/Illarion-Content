@@ -41,7 +41,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		
 		-- stock, essence brew or potion; fill it up
 	   if (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "essenceBrew") or (cauldron:getData("filledWith") == "potion") then  
-	        local reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, cauldron, nil, User)
+	        local reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron, nil, User)
 		    if SourceItem.number > 1 then -- stack! 
 			    if cauldron:getData("filledWith") == "stock" then
 				    local data = {}
@@ -78,7 +78,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				alchemy.base.alchemy.CopyAllDatas(cauldron,SourceItem)
 				if cauldron:getData("filledWith") == "potion" then
 					SourceItem:setData("potionQuality","") -- in case it is a potion, we don't save the quality via data
-					SourceItem.quality = cauldron:getData("potionQuality")
+					SourceItem.quality = tonumber(cauldron:getData("potionQuality"))
 			    end
 			    world:changeItem(SourceItem)
 			end   

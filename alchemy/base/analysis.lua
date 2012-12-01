@@ -39,15 +39,17 @@ function EssenceBrewAnalysis(User, gem, brew, Counter, Param, ltstate)
 		analysisResultDE = "Substanz:\nEssenzgebräu auf "..world:getItemName(reGemdust,Player.german).."basis\n\nEssenzierte Kräuter:\n"
 		analysisResultEN = "Substance:\nEssence brew based on "..world:getItemName(reGemdust,Player.english).."\n\nEssenced herbs:\n"
 		for i=1,8 do -- loop to get the essence herbs
-			if brew:getData("essenceHerb".."1") == "" then
+			if brew:getData("essenceHerb1") == "" then
 				analysisResultDE = analysisResultDE.."Keine essenzierten Kräuter entahlten"
 				analysisResultEN = analysisResultEN.."Contains no essenced herbs"
 				break
-			else
-				local id = tonumber(brew:getData("essenceHerb"..i))
-				User:inform(""..id)
-				analysisResultDE = analysisResultDE..world:getItemName(id,Player.german).."\n"
-				analysisResultEN = analysisResultEN..world:getItemName(id,Player.english).."\n"	
+			elseif brew:getData("essenceHerb"..i) == "" then
+			        break
+			else		
+				local myId = tonumber(brew:getData("essenceHerb"..i))
+				User:inform(""..myId)
+				analysisResultDE = analysisResultDE..world:getItemName(myId,Player.german).."\n"
+				analysisResultEN = analysisResultEN..world:getItemName(myId,Player.english).."\n"	
 			end
 		end
 	end	
@@ -119,11 +121,6 @@ function AnalysisOfBrew(User, gem, brew, Counter, Param, ltstate)
         return
     end
 	
-	if brew.id == 1008 then -- empty cauldron!
-	    User:inform("Hier gibt es nichts zu analysieren.","There is nothing you could analyse.")
-		return
-	end
-    
 	-- for every possible substance, we create the proper informs
     local analysisResultDE
 	local analysisResultEN
@@ -156,17 +153,17 @@ end
 function CauldronPotionCheck(User, SourceItem, TargetItem, Counter, Param, ltstate)
     User:inform("debug analysis 1")
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
-	if cauldron then
+	if (cauldron) and (cauldron.id ~= 1008) then
 	User:inform("debug analysis 2")
 	    AnalysisOfBrew(User, SourceItem, cauldron, Counter, Param, ltstate)
 	else	
 	    local brew = User:getItemAt(5)
 		if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") then
-	        AnalysisOfBrewCauldron(User, SourceItem, brew, Counter, Param, ltstate)
+	        AnalysisOfBrew(User, SourceItem, brew, Counter, Param, ltstate)
 		else	
 	        local brew = User:getItemAt(6)
 			if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") then
-				AnalysisOfBrewCauldron(User, SourceItem, brew, Counter, Param, ltstate)
+				AnalysisOfBrew(User, SourceItem, brew, Counter, Param, ltstate)
 			end
         end
     end		
