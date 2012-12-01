@@ -44,10 +44,10 @@ function EssenceBrewAnalysis(User, gem, brew, Counter, Param, ltstate)
 				analysisResultEN = analysisResultEN.."Contains no essenced herbs"
 				break
 			else
-				local id = tonumber(brew:getData("essenceHerb"..i))
-				User:inform(""..id)
-				analysisResultDE = analysisResultDE..world:getItemName(id,Player.german).."\n"
-				analysisResultEN = analysisResultEN..world:getItemName(id,Player.english).."\n"	
+				local myId = tonumber(brew:getData("essenceHerb"..i))
+				User:inform(""..myId)
+				analysisResultDE = analysisResultDE..world:getItemName(myId,Player.german).."\n"
+				analysisResultEN = analysisResultEN..world:getItemName(myId,Player.english).."\n"	
 			end
 		end
 	end	
