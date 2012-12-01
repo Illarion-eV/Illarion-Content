@@ -83,7 +83,7 @@ function PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
 				analysisResultEN = analysisResultEN..""..conListEN[myCon].." "..wirkstoff[i].."\n"
 			end			
 		end
-	elseif 
+	else 
 	    effectList = alchemy.base.alchemy.potionName
 	    local potionEffectEN = effectList[brew:getData("potionEffectId")][1]
 	    local potionEffectDE = effectList[brew:getData("potionEffectId")][2]
