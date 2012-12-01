@@ -67,6 +67,7 @@ function PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
 	local reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron, bottle) -- get gemdust id
 	local analysisResultDE
 	local analysisResultEN
+	User:inform(""..gem.id.." and "..reGem)
 	if not gem.id == reGem then -- the gem used does not match the substance
 	    analysisResultDE = "Die Analyse führt zu keinen schlüssigen Ergebnissen."
 		analysisResultEN = "The analysis does not provide any decent results."
