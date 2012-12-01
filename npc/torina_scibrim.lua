@@ -2,7 +2,7 @@
 -- NPC Name: Torina Scibrim                                          Runewick --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  898, 760, 1            --
+-- NPC Race: human                      NPC Position:  899, 776, 1            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Ardian                                                           --
@@ -11,12 +11,14 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 898, 760, 1, 4, 'Torina Scibrim', 'npc.torina_scibrim', 1, 1, 0, 255, 250, 205, 245, 222, 179);
+VALUES (0, 899, 776, 1, 4, 'Torina Scibrim', 'npc.torina_scibrim', 1, 1, 0, 255, 250, 205, 245, 222, 179);
 ---]]
 
 require("npc.base.basic")
 require("npc.base.condition.language")
+require("npc.base.condition.town")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.town")
 require("npc.base.talk")
 module("npc.torina_scibrim", package.seeall)
 
@@ -26,13 +28,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Torina Scibrim the notary. Keywords: 'I want to become citizen', 'I want to exchange a decree', ('I want to buy an life insurance')"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Torina Scibrim the notary. Keywords: 'become citizen'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Ich möchte Bürger werden', 'Ich möchte ein Dekret einlösen', ('Ich möchte eine Lebensversicherung kaufen')"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Bürger werden'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -175,6 +177,84 @@ talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Mein Name ist Torina Scibrim, ich kümmere mich um die Neuankömmlinge dieses Ortes.");
 talkEntry:addResponse("Mein Name ist Torina Scibrim, ich bin die Notarin Runewicks.");
 talkEntry:addResponse("Man nennt mich Torina Scibrim, als Notarin kann Ich Euch zum Bürger unseres schönen Ortes eintragen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("You are now a citizen of Runewick");
+talkEntry:addResponse("Welcome to Runewick!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Du bist jetzt Bürger von Runewick");
+talkEntry:addResponse("Willkommen in Runewick!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("You are now a citizen of Runewick");
+talkEntry:addResponse("Welcome to Runewick!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Du bist jetzt Bürger von Runewick");
+talkEntry:addResponse("Willkommen in Runewick!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("Ehm...you are already a citizen of Runewick. Didn't you know?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Ehm... ihr seid schon Bürger in Runewick. Wusstet Ihr das nicht?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("You are now a citizen of Runewick");
+talkEntry:addResponse("Welcome to Runewick!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Ihr seid jetzt Bürger von Runewick");
+talkEntry:addResponse("Willkommen in Runewick!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -45,7 +45,7 @@ do
 		end);
 
 		function playerNameProcessor:check(response)
-			return (string.find(response, "%CHARNAME", 0, true) ~= nil);
+			return (string.find(response, "%%CHARNAME") ~= nil);
 		end;
 
 		function playerNameProcessor:process(playerChar, npc, npcChar, response)
@@ -63,7 +63,7 @@ do
 		end);
 
 		function npcNameProcessor:check(response)
-			return (string.find(response, "%NPCNAME", 0, true) ~= nil);
+			return (string.find(response, "%%NPCNAME") ~= nil);
 		end;
 
 		function npcNameProcessor:process(playerChar, npc, npcChar, response)
@@ -81,7 +81,7 @@ do
 		end);
 
 		function townNameProcessor:check(response)
-			return (string.find(response, "%TOWN", 0, true) ~= nil);
+			return (string.find(response, "%%TOWN") ~= nil);
 		end;
 
 		function townNameProcessor:process(playerChar, npc, npcChar, response)
@@ -100,7 +100,7 @@ do
 		end);
 
 		function rankProcessor:check(response)
-			return (string.find(response, "%RANK", 0, true) ~= nil);
+			return (string.find(response, "%%RANK") ~= nil);
 		end;
 
 		function rankProcessor:process(playerChar, npc, npcChar, response)
