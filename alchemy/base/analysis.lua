@@ -67,8 +67,7 @@ function PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
 	local reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron, bottle) -- get gemdust id
 	local analysisResultDE
 	local analysisResultEN
-	User:inform(""..gem.id.." and "..reGem)
-	if not gem.id == reGem then -- the gem used does not match the substance
+	if gem.id ~= reGem then -- the gem used does not match the substance
 	    analysisResultDE = "Die Analyse führt zu keinen schlüssigen Ergebnissen."
 		analysisResultEN = "The analysis does not provide any decent results."
 	else	
@@ -112,7 +111,7 @@ function PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
 end
 
 function AnalysisOfBrew(User, gem, brew, Counter, Param, ltstate)
-User:inform("debug analysis 2")
+
     local isAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die die Kunst der Alchemie beherrschen vermögen zu analysieren.","Only those who have been introduced to the art of alchemy are able to analyse.")
     if not isAlchemist then
         return
