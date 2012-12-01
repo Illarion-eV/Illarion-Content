@@ -14,13 +14,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
   CheckSetAmount(SourceItem);
   
-  if (SourceItem:getType() ~= 4) then -- tool in hand
-		base.common.InformNLS( User,
-		"Du musst den Eimer in der Hand haben!",
-		"You have to hold the bucket in your hand!" );
-		return
-	end
-  
   -- look for cauldron
   TargetItem = GetCauldron(User);
   if (TargetItem ~= nil) then
@@ -95,7 +88,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
   if (TargetChar ~= nil) then
     -- is this really a player?
     local players = world:getPlayersInRangeOf(TargetChar.pos, 0);
-    for _,p in players do 
+    for _,p in pairs(players) do 
       if (p.id == TargetChar.id) then
         base.common.InformNLS(User,
         "Du schüttest das Wasser über die Person vor dir.",

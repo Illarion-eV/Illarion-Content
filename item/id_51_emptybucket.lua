@@ -12,21 +12,13 @@ module("item.id_51_emptybucket", package.seeall)
 
 -- Wassereimer fuellen
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-
-  if (SourceItem:getType() ~= 4) then -- tool in hand
-		base.common.InformNLS( User,
-		"Du musst den Eimer in der Hand haben!",
-		"You have to hold the bucket in your hand!" );
-		return
-	end
-  
   -- check for cauldron
   TargetItem = GetCauldron(User);
   if (TargetItem ~= nil) then
     if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
       base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
     end
-    FillFromCauldron(User,SourceItem,frontItem,Counter,Param,ltstate);
+    FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate);
     return;
   end
   
