@@ -33,8 +33,8 @@ function EssenceBrewAnalysis(User, gem, brew, Counter, Param, ltstate)
 	local analysisResultDE
 	local analysisResultEN
 	if not gem.id == reGem then -- the gem used does not match the substance
-	    analysisResultDE == "Die Analyse führt zu keinen schlüssigen Ergebnissen."
-		analysisResultEN == "The analysis does not provide any decent results."
+	    analysisResultDE = "Die Analyse führt zu keinen schlüssigen Ergebnissen."
+		analysisResultEN = "The analysis does not provide any decent results."
 	else	
 		analysisResultDE = "Substanz:\nEssenzgebräu auf "..world:getItemName(reGemdust,Player.german).."basis\n\nEssenzierte Kräuter:\n"
 		analysisResultEN = "Substance:\nEssence brew based on "..world:getItemName(reGemdust,Player.english).."\n\nEssenced herbs:\n"
@@ -68,8 +68,8 @@ function PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
 	local analysisResultDE
 	local analysisResultEN
 	if not gem.id == reGem then -- the gem used does not match the substance
-	    analysisResultDE == "Die Analyse führt zu keinen schlüssigen Ergebnissen."
-		analysisResultEN == "The analysis does not provide any decent results."
+	    analysisResultDE = "Die Analyse führt zu keinen schlüssigen Ergebnissen."
+		analysisResultEN = "The analysis does not provide any decent results."
 	else	
 		local qListDE = alchemy.base.alchemy.qListDe
 		local qListEN = alchemy.base.alchemy.qListEn
