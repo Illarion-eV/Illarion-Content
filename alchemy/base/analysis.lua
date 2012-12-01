@@ -30,19 +30,26 @@ function EssenceBrewAnalysis(User, gem, brew, Counter, Param, ltstate)
 		bottle = brew			
 	end	
 	local reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, cauldron, bottle) -- get gemdust id
-	local analysisResultDE = "Substanz:\nEssenzgebräu auf "..world:getItemName(reGemdust,Player.german).."basis\n\nEssenzierte Kräuter:\n"
-	local analysisResultEN = "Substance:\nEssence brew based on "..world:getItemName(reGemdust,Player.english).."\n\nEssenced herbs:\n"
-	for i=1,8 do -- loop to get the essence herbs
-		if brew:getData("essenceHerb".."1") == "" then
-			analysisResultDE = analysisResultDE.."Keine essenzierten Kräuter entahlten"
-			analysisResultDE = analysisResultEN.."Contains no essenced herbs"
-			break
-		else
-			local id = tonumber(brew:getData("essenceHerb"..i))
-			analysisResultDE = analysisResultDE..world:getItemName(id,Player.german).."\n"
-			analysisResultEN = analysisResultEN..world:getItemName(id,Player.english).."\n"	
+	local analysisResultDE
+	local analysisResultEN
+	if not gem.id == reGem then -- the gem used does not match the substance
+	    analysisResultDE == "Die Analyse führt zu keinen schlüssigen Ergebnissen."
+		analysisResultEN == "The analysis does not provide any decent results."
+	else	
+		analysisResultDE = "Substanz:\nEssenzgebräu auf "..world:getItemName(reGemdust,Player.german).."basis\n\nEssenzierte Kräuter:\n"
+		analysisResultEN = "Substance:\nEssence brew based on "..world:getItemName(reGemdust,Player.english).."\n\nEssenced herbs:\n"
+		for i=1,8 do -- loop to get the essence herbs
+			if brew:getData("essenceHerb".."1") == "" then
+				analysisResultDE = analysisResultDE.."Keine essenzierten Kräuter entahlten"
+				analysisResultDE = analysisResultEN.."Contains no essenced herbs"
+				break
+			else
+				local id = tonumber(brew:getData("essenceHerb"..i))
+				analysisResultDE = analysisResultDE..world:getItemName(id,Player.german).."\n"
+				analysisResultEN = analysisResultEN..world:getItemName(id,Player.english).."\n"	
+			end
 		end
-	end			
+	end	
     return analysisResultDE, analysisResultEN
 end
 
@@ -57,43 +64,49 @@ function PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
 		bottle = brew
 		potionQuality = brew.quality
 	end
-	local qListDE = alchemy.base.alchemy.qListDe
-	local qListEN = alchemy.base.alchemy.qListEn
-	potionQualityEN = alchemy.base.alchemy.qListEn[math.floor(potionQuality/100)]
-	potionQualityDE = alchemy.base.alchemy.qListDe[math.floor(potionQuality/100)]
-	
 	local reGem, reGemdust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, cauldron, bottle) -- get gemdust id
-	local analysisResultDE = "Substanz:\nTrank auf "..world:getItemName(reGemdust,Player.german).."basis\n\Trankgüte:\n"..potionQualityDE.." Qualität.\n\nWirkung:\n"
-	local analysisResultEN = "Substance:\nPotion based on "..world:getItemName(reGemdust,Player.german).."\n\nPotion Quality:\n"..potionQualityEN.." quality.\n\nEffect:"
-	if brew:getData("potionEffectId") == 0 or brew:getData("potionEffectId") == "" then
-		analysisResultDE = analysisResultDE.."Keine Wirkung"
-		analysisResultEN = analysisResultEN.."No effect"
-	elseif (brew:getData("potionEffectId") >= 11111111) and (brew:getData("potionEffectId") <= 99999999) then
-		if (reGemdust == 447) or (reGemdust == 450) then 
-			local dataZList = alchemy.base.alchemy.SplitData(User,brew:getData("potionEffectId"))
-			for i=1,8 do 
-			    local wirkstoff = alchemy.base.alchemy.wirkstoff
-				local myCon = dataZList[i]
-				if myCon == nil then
-					myCon = 5
-				end
-				local conListDE = alchemy.base.alchemy.wirkung_de
-				local conListEN = alchemy.base.alchemy.wirkung_en		
-				analysisResultDE = analysisResultDE..""..conListDE[myCon].." "..wirkstoff[i].."\n"
-				analysisResultEN = analysisResultEN..""..conListEN[myCon].." "..wirkstoff[i].."\n"
-			end			
+	local analysisResultDE
+	local analysisResultEN
+	if not gem.id == reGem then -- the gem used does not match the substance
+	    analysisResultDE == "Die Analyse führt zu keinen schlüssigen Ergebnissen."
+		analysisResultEN == "The analysis does not provide any decent results."
+	else	
+		local qListDE = alchemy.base.alchemy.qListDe
+		local qListEN = alchemy.base.alchemy.qListEn
+		potionQualityEN = alchemy.base.alchemy.qListEn[math.floor(potionQuality/100)]
+		potionQualityDE = alchemy.base.alchemy.qListDe[math.floor(potionQuality/100)]
+		analysisResultDE = "Substanz:\nTrank auf "..world:getItemName(reGemdust,Player.german).."basis\n\Trankgüte:\n"..potionQualityDE.." Qualität.\n\nWirkung:\n"
+		analysisResultEN = "Substance:\nPotion based on "..world:getItemName(reGemdust,Player.german).."\n\nPotion Quality:\n"..potionQualityEN.." quality.\n\nEffect:"
+		if brew:getData("potionEffectId") == 0 or brew:getData("potionEffectId") == "" then
+			analysisResultDE = analysisResultDE.."Keine Wirkung"
+			analysisResultEN = analysisResultEN.."No effect"
+		elseif (brew:getData("potionEffectId") >= 11111111) and (brew:getData("potionEffectId") <= 99999999) then
+			if (reGemdust == 447) or (reGemdust == 450) then 
+				local dataZList = alchemy.base.alchemy.SplitData(User,brew:getData("potionEffectId"))
+				for i=1,8 do 
+					local wirkstoff = alchemy.base.alchemy.wirkstoff
+					local myCon = dataZList[i]
+					if myCon == nil then
+						myCon = 5
+					end
+					local conListDE = alchemy.base.alchemy.wirkung_de
+					local conListEN = alchemy.base.alchemy.wirkung_en		
+					analysisResultDE = analysisResultDE..""..conListDE[myCon].." "..wirkstoff[i].."\n"
+					analysisResultEN = analysisResultEN..""..conListEN[myCon].." "..wirkstoff[i].."\n"
+				end			
+			end
+		else 
+			effectList = alchemy.base.alchemy.potionName
+			local potionEffectEN = effectList[brew:getData("potionEffectId")][1]
+			local potionEffectDE = effectList[brew:getData("potionEffectId")][2]
+			if (potionEffectEN == nil) or (potionEffectDE == nil) then -- potion has an effect id, but the effect id has no entry in the name list
+				potionEffectEN = "Unknow effect"; potionEffectDE = "Unbekannte Wirkung"
+			end	
+			analysisResultDE = analysisResultDE..potionEffectDE
+			analysisResultEN = analysisResultEN..potionEffectEN
 		end
-	else 
-	    effectList = alchemy.base.alchemy.potionName
-	    local potionEffectEN = effectList[brew:getData("potionEffectId")][1]
-	    local potionEffectDE = effectList[brew:getData("potionEffectId")][2]
-	    if (potionEffectEN == nil) or (potionEffectDE == nil) then -- potion has an effect id, but the effect id has no entry in the name list
-	        potionEffectEN = "Unknow effect"; potionEffectDE = "Unbekannte Wirkung"
-		end	
-	    analysisResultDE = analysisResultDE..potionEffectDE
-		analysisResultEN = analysisResultEN..potionEffectEN
-	end
-    return analysisResultDE, analysisResultEN	
+    end
+	return analysisResultDE, analysisResultEN	
 end
 
 function AnalysisOfBrew(User, gem, brew, Counter, Param, ltstate)
