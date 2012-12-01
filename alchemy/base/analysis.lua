@@ -32,7 +32,7 @@ function EssenceBrewAnalysis(User, gem, brew, Counter, Param, ltstate)
 	local reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron, bottle) -- get gemdust id
 	local analysisResultDE
 	local analysisResultEN
-	if not gem.id == reGem then -- the gem used does not match the substance
+	if gem.id ~= reGem then -- the gem used does not match the substance
 	    analysisResultDE = "Die Analyse führt zu keinen schlüssigen Ergebnissen."
 		analysisResultEN = "The analysis does not provide any decent results."
 	else	
@@ -41,7 +41,7 @@ function EssenceBrewAnalysis(User, gem, brew, Counter, Param, ltstate)
 		for i=1,8 do -- loop to get the essence herbs
 			if brew:getData("essenceHerb".."1") == "" then
 				analysisResultDE = analysisResultDE.."Keine essenzierten Kräuter entahlten"
-				analysisResultDE = analysisResultEN.."Contains no essenced herbs"
+				analysisResultEN = analysisResultEN.."Contains no essenced herbs"
 				break
 			else
 				local id = tonumber(brew:getData("essenceHerb"..i))
@@ -50,7 +50,8 @@ function EssenceBrewAnalysis(User, gem, brew, Counter, Param, ltstate)
 			end
 		end
 	end	
-    return analysisResultDE, analysisResultEN
+    
+	return analysisResultDE, analysisResultEN
 end
 
 function PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
