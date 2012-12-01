@@ -181,8 +181,9 @@ end
 
 function GetCauldron(User)
   -- first check in front
-  if (world:isItemOnField(targetPos)) then
-    local item = world:getItemOnField(targetPos);
+  local frontPos = base.common.GetFrontPosition(User);
+  if (world:isItemOnField(frontPos)) then
+    local item = world:getItemOnField(frontPos);
     if (item.id > 1007 or item.id < 1019) then
       return item;
     end

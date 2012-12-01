@@ -1,4 +1,7 @@
--- I_51 Eimer mit Wasser fuellen
+-- fill bucket from ...
+--- cauldron
+--- well
+--- waters
 
 -- UPDATE common SET com_script='item.id_51_emptybucket' WHERE com_itemid IN (51);
 
@@ -9,27 +12,54 @@ module("item.id_51_emptybucket", package.seeall)
 
 -- Wassereimer fuellen
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-	local pos = base.common.GetFrontPosition(User);
-	local Field = world:getField(pos);
-	local boden = base.common.GetGroundType(Field:tile());
-	local frontItem = base.common.GetFrontItem( User );
-	if frontItem == nil then
-	    IdFrontItem = 0
-	else
-        IdfrontItem = frontItem.id	
+
+  if (SourceItem:getType() ~= 4) then -- tool in hand
+		base.common.InformNLS( User,
+		"Du musst den Eimer in der Hand haben!",
+		"You have to hold the bucket in your hand!" );
+		return
 	end
-	
-	if(IdfrontItem == 2207) or (IdfrontItem == 631) or (IdfrontItem == 2079) then -- Am Brunnen fuellen
-		FillBucket(User, SourceItem);
-	elseif (boden == 6) then -- Am Wasser fuellen
-		FillBucket(User, SourceItem);
-	elseif(IdfrontItem == 1010) and (frontItem:getData("filledWith") == "water") then -- cauldron with water
-	    FillFromCauldron(User,SourceItem,frontItem,Counter,Param,ltstate)
-	else
-		base.common.InformNLS(User, 
-    "Du kannst den Eimer an einem Brunnen oder an einem Gewässer füllen.", 
-    "You can fill the bucket at a well or at some waters.");
-	end
+  
+  -- check for cauldron
+  TargetItem = GetCauldron(User);
+  if (TargetItem ~= nil) then
+    if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
+      base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
+    end
+    FillFromCauldron(User,SourceItem,frontItem,Counter,Param,ltstate);
+    return;
+  end
+  
+  -- check for well or fountain
+  TargetItem = base.common.GetItemInArea(User.pos, 2207);
+  if (TargetItem == nil) then
+    TargetItem = base.common.GetItemInArea(User.pos, 631);
+    if (TargetItem == nil) then
+      TargetItem = base.common.GetItemInArea(User.pos, 2079);
+    end
+  end
+  if (TargetItem ~= nil) then
+    if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
+      base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
+    end
+    FillBucket(User, SourceItem);
+    return;
+  end
+  
+  -- check for water tile
+  local targetPos = GetWaterTilePosition(User);
+  if (targetPos ~= nil) then
+    if not base.common.IsLookingAt( User, targetPos ) then -- check looking direction
+      base.common.TurnTo( User, targetPos ); -- turn if necessary
+    end
+    FillBucket(User, SourceItem);
+    return;
+  end
+  
+  -- nothing found to fill the bucket.
+  base.common.InformNLS(User, 
+  "Du kannst den Eimer an einem Brunnen oder an einem Gewässer füllen.", 
+  "You can fill the bucket at a well or at some waters.");
 end
 
 -- common bucket filling function
@@ -39,6 +69,9 @@ function FillBucket( User, SourceItem )
     SourceItem:setData("amount", "10");
     world:changeItem(SourceItem);
     base.common.GetHungry( User, 100 );
+    base.common.InformNLS(User, 
+    "Du füllst den Eimer mit Wasser.", 
+    "You fill the bucket with water.");
   end
 end
 
@@ -59,6 +92,10 @@ function FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		User:startAction( 20, 21, 5, 0, 0)
 		return
 	end
+  
+  base.common.InformNLS(User, 
+  "Du füllst den Eimer mit dem Wasser im Kessel.", 
+  "You fill the bucket with the water in the cauldron.");
 
 	world:makeSound(10,TargetItem.pos)
 	TargetItem.id = 1008
@@ -68,4 +105,42 @@ function FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
   SourceItem:setData("amount", "1");
 	SourceItem.quality = 333
 	world:changeItem(SourceItem)
+end
+
+-- returns a cauldron filled with water if one is found next to the user.
+function GetCauldron(User)
+  -- first check in front
+  local frontPos = base.common.GetFrontPosition(User);
+  if (world:isItemOnField(frontPos)) then
+    local item = world:getItemOnField(frontPos);
+    if (item.id == 1010 and item:getData("filledWith") == "water") then
+      return item;
+    end
+  end
+  local Radius = 1;
+  for x=-Radius,Radius do
+    for y=-Radius,Radius do 
+      local targetPos = position(User.pos.x + x, User.pos.y, User.pos.z);
+      if (world:isItemOnField(targetPos)) then
+        local item = world:getItemOnField(targetPos);
+        if (item.id == 1010 and item:getData("filledWith") == "water") then
+          return item;
+        end
+      end
+    end
+  end
+  return nil;
+end
+
+function GetWaterTilePosition(User)
+  local Radius = 1;
+  for x=-Radius,Radius do
+    for y=-Radius,Radius do 
+      local targetPos = position(User.pos.x + x, User.pos.y, User.pos.z);
+      if (base.common.GetGroundType(world:getField(targetPos):tile()) == base.common.GroundType.water) then
+        return targetPos;
+      end
+    end
+  end
+  return nil;
 end
