@@ -1,0 +1,226 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Nizar 'Licht aus Magie'                                     None --
+-- NPC Job:                                                                   --
+--                                                                            --
+-- NPC Race: human                     NPC Position:  910, 800, 1             --
+-- NPC Sex: male                       NPC Direction: south                   --
+--                                                                            --
+-- Author:  Miriam                                                            --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Nizar"
+race = human
+sex = male
+position = 0, 0, 0
+direction = south
+affiliation = "Runewick"
+job = "magical blacksmith"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Miriam"
+
+lookatDE = "Dieser NPC ist Nizar der magische Schmied."
+lookatUS = "This NPC is Nizar the magical blacksmith."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut kurz verwirrt und lächelt dann."
+wrongLangUS = "#me looks around confused, then he smiles."
+radius = 0
+hairID = 3
+beardID = 0
+colorHair = 150, 79, 0
+colorSkin = 03,05,20
+itemHead = 0
+itemChest = 365
+itemCoat = 0
+itemMainHand = 398
+--297
+itemSecondHand = 0
+itemHands = 527
+itemTrousers = 366
+itemShoes = 698
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 1, 2, 3
+buyPrimaryItems = 1
+buySecondaryItems = 2, 3
+
+-- Template Version 1.08, 10/18/2012 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- TRADING
+-- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Nizar the <profession/function>. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Nizar der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße. Soll ich Euch was magisches aus Edelsteinen zusammenschmieden?", "Seid Gegrüßt. Wollt Ihr Eure magischen Edelsteine kombinieren lassen? Dann seid Ihr hier richtig."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Farewell", "Bye", "Fare well", "See you" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"How are you", "How feel", "How do you do" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"your name", "who are you", "who art thou" -> "#me bows 'Nazir, from the serin desert. Would you tell me your name, my friend?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#me verneigt sich. 'Nizar aus der Serin Wüste. Es würde mich freuen, wenn ihr mir Euchen Namen verratet mein Freund.'"
+
+-- TRIGGERS for Gemcraft
+"gem", "magical smithing" -> "Ah. I like to work for you. Well ...", "Of course I will help you with thoses magical gems.", gemcraft
+"Edelstein", "magisches Schmieden" -> "Ah. Ich arbeite gern für Euch. Nun denn ...", "Natürlich helfe ich Euch was diese magischen Edelsteinen betrifft!", gemcraft
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Trade Hooks, use only for traders
+--"sell", "buy", "wares", "price", "trade", "purchase" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.",  gemcraft
+--"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3.",  gemcraft
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I'd love to make you happy by giving you a task, but I fear I can not help you. I'd sugggest asking someone else."
+"quest", "mission" -> "Es würde mich freuen Euch mit einer Aufgabe glücklich zu machen, aber leider kann ich da nicht helfen, mein Freund. Ich schlage vor, ihr fragt jemand anders."
+"task", "adventure", "order" -> "I'd love to make you happy by giving you a task, but I fear I can not help you. I'd sugggest asking someone else."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es würde mich freuen Euch mit einer Aufgabe glücklich zu machen, aber leider kann ich da nicht helfen, mein Freund. Ich schlage vor, ihr fragt jemand anders."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am what is called a magical blacksmith, but my work has merely something in commen with the work of a blacksmith.", "A magical blacksmith works with magical gemstones, and not with fire and iron. But the rest must be kept secret, please forgive me, I can not say more."
+"beruf" -> "Ich bin das, was man einen magischen Schmied nennt. Dabei hat mein Handwerk kaum etwas mit dem eines Schmiedes gemein.", "Ein magischer Schmied arbeitewt mit magischen Edelsteinen und nicht mit Eisen und Hammer. Mehr darf ich Euch jedoch nicht verraten, bitte verzeiht mir."
+english, "job" ->  "I am what is called a magical blacksmith, but my work has merely something in commen with the work of a blacksmith.", "A magical blacksmith works with magical gemstones, and not with fire and iron. But the rest must be kept secret, please forgive me, I can not say more."
+"job" -> "Ich bin das, was man einen magischen Schmied nennt. Dabei hat mein Handwerk kaum etwas mit dem eines Schmiedes gemein.", "Ein magischer Schmied arbeitewt mit magischen Edelsteinen und nicht mit Eisen und Hammer. Mehr darf ich Euch jedoch nicht verraten, bitte verzeiht mir."
+"tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+english, "Serin" -> "There is the River Serin, the forst of Serin and the plains of Serin. It there my ancestors, the Serinjah."
+"Serin" -> "Es gibt den Fluss Serin, den Wald Serin und die Ebene Serin. Dort lebten meine Vorfahren, die Serinjah."
+english, "serinjah", "Serinjah" -> "That's what my folk is called. What is yours called? Where does it live?","Every Serinjah knows how to ride a horse. If you don't, then you can't be a Serinjah.", "Many Serinjah pray to Findari, the godess of air."
+"serinjah","Serinjah" -> "So nennt man Leute aus meinem Volk. Wie heißt Euer Volk? Wo lebt es?", "Jeder Serinjah weiß auf einem Pferd zu reiten. Könnt Ihr es nicht, so seid ihr kein Serinjah.", "Viele Serinjah beten zu Findari, der Göttin der Luft."
+english, "Ama-shoon" -> "The Ama-shoon are the warriors of our folk. There are many tales told about those brave women."
+"Ama-shoon" -> "Die Ama-shoon sind die Kriger unsere Volkes. Es gibt viele Geschichten über diese mutigen Frauen."
+"Secret" -> "Exactly! It is a secret, this meanns it is secret.", "I can not tell you the secet of my profession. Some things you really do better not tell.", "To become a magical blacksmith one has to scrifice a lot... do not try , my friend!"
+"Geheimnis" -> "Ganz genau! Es ist ein Geheimnis, das heißt, es ist geheim.", "Ich kann Euch das Geheimniss meines Berufe nicht verraten, einge Dinge bleiben besser unausgesprochen.", "Um ein magischer Schmied zu werden muss man große Opfer bringen..., versucht es nicht, mein Freund!"
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Differen people pray to diffent gods. What do you think?"
+"Gott", "Götter" -> "Verschiedene Leute geben zu verschieden Göttern. Wie denkt Ihr darüber?"
+english, "religion" -> "Differen people pray to diffent gods. What do you think?", "Serinja often pray to Findari."
+"religion" -> "Verschiedene Leute geben zu verschieden Göttern. Wie denkt Ihr darüber?", "Serinjah beten oft zu Findari."
+"faith" -> "Differen people pray to diffent gods. What do you think?", "Serinja often pray to Findari."
+"Glaube" -> "Verschiedene Leute geben zu verschieden Göttern. Wie denkt Ihr darüber?", "Serinjah beten oft zu Findari."
+english, "Adron" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Adron" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Bragon", "Brágon" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Bragon", "Brágon" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Cherga" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cherga" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Elara" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Eldan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Eldan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Findari" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Findari" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Irmorom" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Irmorom" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Malachin", "Malachín" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Malachin", "Malachín" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Moshran" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Moshran" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Nargun", "Nargún", "Nargùn" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Nargun", "Nargún", "Nargùn" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Oldra" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Oldra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Ronagan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ronagan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Sirani" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Sirani" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Tanora", "Zelphia" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Tanora", "Zelphia" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Ushara" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Ushara" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Zhambra" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Zhambra" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Faction stuff
+"archmage" -> "He is a wise man. I guess He das been reading lots of books.", "He is a mage, a mage is not a magical blacksmith thoug... Are you also a mage?", "I admire his wisdom."
+"Erzmagier" -> "Es ist ein weiser Mann. Er muss viele Bücher gelesen haben.", "Er ist ein Magier, ein Magier ist allerdings kein magischer Schmied... Seid Ihr Magier?", "Ich bewundere seine Weisheit."
+english, "Elvaine", "Morgan" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Runewick" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Valerio", "Guilianni", "Don" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Galmair" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Queen" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "rosaline", "edwards" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Cadomyr" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Main land factions
+english, "albar" -> "I am very sorry. I do not know this place.", "Sounds like the name for a very rare magical stone. Don't you think so, my friend? ", "#me shakes his head lightly.'Please tell me more about this, my friend'."
+"albar" -> "Es tut mir aufrichtig Leid. Ich kenne diesen Ort nicht.", "Es klingt nach dem Namen eines sehr seltenen magischen Steins. Findet Ihr das nicht auch, mein Freund?", "#me schüttelt leicht den Kopf. 'Bitte erzählt mir mehr davon, mein Freund.'"
+english, "gynk", "gync" -> "I am very sorry. I do not know this place.", "Sounds like the name for a very rare magical stone. Don't you think so, my friend? ", "#me shakes his head lightly.'Please tell me more about this, my friend'."
+"gync", "gynk" -> "Es tut mir aufrichtig Leid. Ich kenne diesen Ort nicht.", "Es klingt nach dem Namen eines sehr seltenen magischen Steins. Findet Ihr das nicht auch, mein Freund?", "#me schüttelt leicht den Kopf. 'Bitte erzählt mir mehr davon, mein Freund.'"
+english, "salkama" -> "I am very sorry. I do not know this place.", "Sounds like the name for a very rare magical stone. Don't you think so, my friend? ", "#me shakes his head lightly.'Please tell me more about this, my friend'."
+"salkama" -> "Es tut mir aufrichtig Leid. Ich kenne diesen Ort nicht.", "Es klingt nach dem Namen eines sehr seltenen magischen Steins. Findet Ihr das nicht auch, mein Freund?", "#me schüttelt leicht den Kopf. 'Bitte erzählt mir mehr davon, mein Freund.'"
+
+-- Optional: Gobaith
+english, "Gobaith", "Gobiath" -> "I am very sorry. I do not know this place.", "Sounds like the name for a very rare magical stone. Don't you think so, my friend? ", "#me shakes his head lightly.'Please tell me more about this, my friend'."
+"Gobaith", "Gobiath" -> "Es tut mir aufrichtig Leid. Ich kenne diesen Ort nicht.", "Es klingt nach dem Namen eines sehr seltenen magischen Steins. Findet Ihr das nicht auch, mein Freund?", "#me schüttelt leicht den Kopf. 'Bitte erzählt mir mehr davon, mein Freund.'"
+
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
+"my name" -> "#me bows 'Nazir, from the serin desert. I am pleasured to meet you'.", "It is a honour meeting you, espacialy on such a wounderfull day."
+"mein Name" -> "#me verneigt sich. 'Nizar aus der Serin Wüste. Es freut mich ungemein Eure Bekanntschaft zu machen.'", "Es ist eine Ehre Euch zu treffen, besonders an diesem schönen Tag."
+english, "Nizar" -> "#me grins.'That would be me! How can I help you?'", "Yes? You want to talk? I always like a good discussion."
+"Nizar" -> "#me grinst. 'Das bin ich! Wie kann ich Euch helfen?", "Ja? Ihr möchtet reden? Ich bin immer für ein gutes Gespräch zu haben."
+"Yes" -> "#me nods. 'I see...'", "#me smiles brightly and nods.", "If I may say so my friend, this is indeed a wise decision..."
+"Ja" -> "#me nickt 'Ich verstehe...'", "#me lächelt freundlich und nickt.", "Wenn ich das so sagen darf, mein Freund, dies ist in der Tat eine weise Entscheidung."
+"No" -> "#me nods. 'I see...'", "You know, there I come from if you do not say 'No' three times it will count as a 'Yes'.", "Just take you time to consider you answer, while we talk."
+"Nein" -> "#me nickt. 'Ich verstehe...'", "Ihr wisst, das man dort wo ich herkomme drei mal 'Nein' sagen muss, denn sonst heißt es 'Ja'.", "Nehmt Euch Zeit eure Antwort zu bedenken während wir reden."
+"no no no" -> "Ah, I understand, but your answer fills my heart with sadness."
+"nein nein nein" -> "Nun, I verstehe, doch Eure Antwort füllt mein Herz mit Trauer."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "#me smiles.", "#me listens attentively.", "I see."
+german, chance(20.0), ".*" -> "#me lächelt.", "#me hört aufmerksam zu.", "Ich verstehe."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
+cycletext "GERMAN.", "ENGLISH."
