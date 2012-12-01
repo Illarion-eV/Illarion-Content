@@ -81,8 +81,8 @@ english, "become citizen", "gain citizenship" -> town = Galmair, "You are now a 
 "Bürger werden", "Bürgerschaft beantragen" -> town = Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
 
 -- Test Question
-"weche Stadt", "weche faktion" -> "Du gehöerst nach %TOWN!"
-"ich" ->  "%CHARNAME"
+--"welche Stadt", "weche faktion" -> "Du gehöerst nach %TOWN!"
+--"ich" ->  "%CHARNAME"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."

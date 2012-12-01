@@ -98,7 +98,12 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the five 
 town = runewick, english, "quest", "mission" -> "Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!", queststatus(205) =1
 town = runewick, "quest", "mission" -> "Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.", queststatus(205) =1
 town = runewick, "task", "adventure", "order" ->"Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!", queststatus(205) =1
-town = runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" ->  "Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.", queststatus(205) =1
+town = runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.", queststatus(205) =1
+
+english,"quest", "mission" -> "Just keep the streets clean."
+"quest", "mission" -> "Haltet einfach die Straßen sauber."
+"task", "adventure", "order" -> "Just keep the streets clean."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Haltet einfach die Straßen sauber."
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(205) =1, english, "quest", "mission" -> "Just drop what ever you do not need or want to donate to the treasury here on the field. It is not difficult to make Runewick a better place!"
