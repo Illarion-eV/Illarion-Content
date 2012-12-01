@@ -153,7 +153,7 @@ end
 function CauldronPotionCheck(User, SourceItem, TargetItem, Counter, Param, ltstate)
     User:inform("debug analysis 1")
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
-	if cauldron then
+	if (cauldron) and (cauldron.id ~= 1008) then
 	User:inform("debug analysis 2")
 	    AnalysisOfBrew(User, SourceItem, cauldron, Counter, Param, ltstate)
 	else	
