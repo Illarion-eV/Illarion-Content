@@ -1695,19 +1695,24 @@ end
 -- @return bool  Writeable flag. If there are multiple items on the field, only the top one is writeable.
 --               If none is found, nil is returned.
 function GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
-  if (not Radius) then
+  if (Radius == nil) then
     Radius = 1;
+  end
+  if (OnlyWriteable == nil) then
+    OnlyWriteable = false;
   end
   for x=-Radius,Radius do
     for y=-Radius,Radius do 
       local field = world:getField(position(CenterPos.x + x, CenterPos.y, CenterPos.z));
       local itemCount = field:countItems();
       if (itemCount > 0) then
+        debug("items found: " .. itemCount);
         if (OnlyWriteable) then
           itemCount = 1;
         end
         for i=0,itemCount-1 do 
           local item = field:getStackItem(i);
+          debug("stack item " .. i .. " with ID " .. item.id);
           if (item.id == ItemId) then
             return item, (i==0);
           end
