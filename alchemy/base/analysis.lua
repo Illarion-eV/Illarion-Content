@@ -29,7 +29,7 @@ function EssenceBrewAnalysis(User, gem, brew, Counter, Param, ltstate)
 		cauldron = nil
 		bottle = brew			
 	end	
-	local reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, cauldron, bottle) -- get gemdust id
+	local reGem, ingredientGemdust, newCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron, bottle) -- get gemdust id
 	local analysisResultDE
 	local analysisResultEN
 	if not gem.id == reGem then -- the gem used does not match the substance
@@ -64,7 +64,7 @@ function PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
 		bottle = brew
 		potionQuality = brew.quality
 	end
-	local reGem, reGemdust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, cauldron, bottle) -- get gemdust id
+	local reGem, reGemdust, reCauldron, reBottle = alchemy.base.alchemy.GemDustBottleCauldron(nil, nil, cauldron, bottle) -- get gemdust id
 	local analysisResultDE
 	local analysisResultEN
 	if not gem.id == reGem then -- the gem used does not match the substance
@@ -110,7 +110,7 @@ function PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
 end
 
 function AnalysisOfBrew(User, gem, brew, Counter, Param, ltstate)
-
+User:inform("debug analysis 2")
     local isAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die die Kunst der Alchemie beherrschen vermögen zu analysieren.","Only those who have been introduced to the art of alchemy are able to analyse.")
     if not isAlchemist then
         return
@@ -134,7 +134,7 @@ function AnalysisOfBrew(User, gem, brew, Counter, Param, ltstate)
 	elseif brew:getData("filledWith") == "essenceBrew" then
         analysisResultDE, analysisResultEN = EssenceBrewAnalysis(User, gem, brew, Counter, Param, ltstate)
 		
-	elseif brew:getData("filledWith") == potion then
+	elseif brew:getData("filledWith") == "potion" then
 	    analysisResultDE, analysisResultEN = PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
 	end	
 	
@@ -151,9 +151,10 @@ function AnalysisOfBrew(User, gem, brew, Counter, Param, ltstate)
 end
 
 function CauldronPotionCheck(User, SourceItem, TargetItem, Counter, Param, ltstate)
-    
+    User:inform("debug analysis 1")
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
 	if cauldron then
+	User:inform("debug analysis 2")
 	    AnalysisOfBrew(User, SourceItem, cauldron, Counter, Param, ltstate)
 	else	
 	    local brew = User:getItemAt(5)
