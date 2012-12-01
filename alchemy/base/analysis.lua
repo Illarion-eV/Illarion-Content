@@ -39,11 +39,13 @@ function EssenceBrewAnalysis(User, gem, brew, Counter, Param, ltstate)
 		analysisResultDE = "Substanz:\nEssenzgebräu auf "..world:getItemName(reGemdust,Player.german).."basis\n\nEssenzierte Kräuter:\n"
 		analysisResultEN = "Substance:\nEssence brew based on "..world:getItemName(reGemdust,Player.english).."\n\nEssenced herbs:\n"
 		for i=1,8 do -- loop to get the essence herbs
-			if brew:getData("essenceHerb"..i) == "" then
+			if brew:getData("essenceHerb1") == "" then
 				analysisResultDE = analysisResultDE.."Keine essenzierten Kräuter entahlten"
 				analysisResultEN = analysisResultEN.."Contains no essenced herbs"
 				break
-			else
+			elseif brew:getData("essenceHerb"..i) == "" then
+			        break
+			else		
 				local myId = tonumber(brew:getData("essenceHerb"..i))
 				User:inform(""..myId)
 				analysisResultDE = analysisResultDE..world:getItemName(myId,Player.german).."\n"
