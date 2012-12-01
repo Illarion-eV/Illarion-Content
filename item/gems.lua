@@ -124,7 +124,7 @@ end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
     if SourceItem:getData("gemLevel") == "" then
-	    alchemy.base.analysis.CauldronCheck(User, SourceItem, TargetItem, Counter, Param, ltstate)
+	    alchemy.base.analysis.CauldronPotionCheck(User, SourceItem, TargetItem, Counter, Param, ltstate)
 		return
 	end    
 
