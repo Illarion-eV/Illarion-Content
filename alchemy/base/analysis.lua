@@ -88,7 +88,7 @@ function PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
 	    local potionEffectEN = effectList[brew:getData("potionEffectId")][1]
 	    local potionEffectDE = effectList[brew:getData("potionEffectId")][2]
 	    if (potionEffectEN == nil) or (potionEffectDE == nil) then -- potion has an effect id, but the effect id has no entry in the name list
-	        potionEffectEN == "Unknow effect"; potionEffectDE == "Unbekannte Wirkung"
+	        potionEffectEN = "Unknow effect"; potionEffectDE = "Unbekannte Wirkung"
 		end	
 	    analysisResultDE = analysisResultDE..potionEffectDE
 		analysisResultEN = analysisResultEN..potionEffectEN
