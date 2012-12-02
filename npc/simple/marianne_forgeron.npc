@@ -10,7 +10,7 @@
 --------------------------------------------------------------------------------
 
 name = "Marianne Forgeron"
-race = human
+race = dwarf
 sex = female
 position = 382,249,0
 direction = south
@@ -18,7 +18,7 @@ affiliation = "Galmair"
 job = "Magical Blacksmith"
 
 language = common
-language = human
+language = dwarf
 defaultLanguage = common
 autointroduce = on
 
@@ -30,7 +30,7 @@ useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
-radius = 2
+radius = 0
 hairID = 7
 beardID = 0
 colorHair = 97, 89, 75
@@ -204,13 +204,11 @@ german, chance(20.0), ".*" -> "Watt?", "Watt meinste damit?", "Datt versteh' ich
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "#me streicht sich eine Haarsträhne aus dem Gesicht.", "#me wipes some hair off her face."
+cycletext "#me schaut in den Himmel.", "#me lookes into the sky."
+cycletext "Magischer Schmied, Marinne Forgeron!", "Magical Blacksmith, Marinne Forgeron!"
+cycletext "#me winkt, einen Hammer in der Hand haltend.", "#me waves with the hammer in her hand."
+cycletext "Magische Edelseine sind janz nett. Aber ich kann se noch mehr veredelen!", "Magical gems are nice. I can make yours even nicer!"
+cycletext "#me summt eine rhytmische Melodie.", "#me humms a rhytmic melodie."
+cycletext "#me schaut sich um.", "#me lookes abound."
+cycletext "Schönes Wetter heute.", "Nice weather today!"

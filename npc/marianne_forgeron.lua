@@ -2,7 +2,7 @@
 -- NPC Name: Marianne Forgeron                                        Galmair --
 -- NPC Job:  Magical Blacksmith                                               --
 --                                                                            --
--- NPC Race: human                      NPC Position:  382, 249, 0            --
+-- NPC Race: dwarf                      NPC Position:  382, 249, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 382, 249, 0, 4, 'Marianne Forgeron', 'npc.marianne_forgeron', 1, 7, 0, 97, 89, 75, 198, 153, 82);
+VALUES (1, 382, 249, 0, 4, 'Marianne Forgeron', 'npc.marianne_forgeron', 1, 7, 0, 97, 89, 75, 198, 153, 82);
 ---]]
 
 require("npc.base.basic")
@@ -782,16 +782,14 @@ talkEntry:addResponse("Watt meinste damit?");
 talkEntry:addResponse("Datt versteh' ich nich'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("#me streicht sich eine Haarsträhne aus dem Gesicht.", "#me wipes some hair off her face.");
+talkingNPC:addCycleText("#me schaut in den Himmel.", "#me lookes into the sky.");
+talkingNPC:addCycleText("Magischer Schmied, Marinne Forgeron!", "Magical Blacksmith, Marinne Forgeron!");
+talkingNPC:addCycleText("#me winkt, einen Hammer in der Hand haltend.", "#me waves with the hammer in her hand.");
+talkingNPC:addCycleText("Magische Edelseine sind janz nett. Aber ich kann se noch mehr veredelen!", "Magical gems are nice. I can make yours even nicer!");
+talkingNPC:addCycleText("#me summt eine rhytmische Melodie.", "#me humms a rhytmic melodie.");
+talkingNPC:addCycleText("#me schaut sich um.", "#me lookes abound.");
+talkingNPC:addCycleText("Schönes Wetter heute.", "Nice weather today!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
@@ -799,7 +797,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"buySecondary"));
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(1);
+mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Marianne Forgeron die magische Schmiedin.", "This NPC is Marianne Forgeron the magical Blacksmith.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");

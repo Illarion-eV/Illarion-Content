@@ -12,7 +12,7 @@
 name = "Nizar"
 race = human
 sex = male
-position = 0, 0, 0
+position = 910, 800, 1
 direction = south
 affiliation = "Runewick"
 job = "magical blacksmith"
@@ -33,8 +33,8 @@ wrongLangUS = "#me looks around confused, then he smiles."
 radius = 0
 hairID = 3
 beardID = 0
-colorHair = 150, 79, 0
-colorSkin = 03,05,20
+colorHair = 03,05,20
+colorSkin = 150, 79, 0
 itemHead = 0
 itemChest = 365
 itemCoat = 0
@@ -214,13 +214,13 @@ german, chance(20.0), ".*" -> "#me lächelt.", "#me hört aufmerksam zu.", "Ich 
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
-cycletext "GERMAN.", "ENGLISH."
+cycletext "#me smiles.", "#me lächelt."
+cycletext "#me leht sich gegen eine Säule.", "#me leans agains a pillar."
+cycletext "#me scheint in die Sonne zu starren.", "#me seems to stare into the sun."
+cycletext "Kommt zu Nazir, wenn Ihr etwas über magische Steine wissen wollt!", "Talk to Nazir if you want to know about magical gems!"
+cycletext "Magische Steine: Je magischer desto besser! Ich mache sie besser!", "Magical stones: More magic is better! I make them better!"
+cycletext "#me schließt seine Augen.", "#me closes his eyes."
+cycletext "Ihr möchtet Eure magischen Steine aufwerten? Nazir kann Euch Helfen.", "You want to upgrade you magical gems? Nazir can help you!"
+cycletext "#w Ich vermisse dich Serinjah-Steppe...", "#w I miss the serin plains..."
+cycletext "Lasst mich Eure magischen Edelsteine aufbessern!", "Let me upgrade your magical gem stones!"
 cycletext "GERMAN.", "ENGLISH."

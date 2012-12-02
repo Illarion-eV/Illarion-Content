@@ -2,7 +2,7 @@
 -- NPC Name: Nizar                                                   Runewick --
 -- NPC Job:  magical blacksmith                                               --
 --                                                                            --
--- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Race: human                      NPC Position:  910, 800, 1            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 0, 0, 0, 4, 'Nizar', 'npc.nizar', 0, 3, 0, 150, 79, 0, 3, 5, 20);
+VALUES (0, 910, 800, 1, 4, 'Nizar', 'npc.nizar', 0, 3, 0, 3, 5, 20, 150, 79, 0);
 ---]]
 
 require("npc.base.basic")
@@ -964,15 +964,15 @@ talkEntry:addResponse("#me hört aufmerksam zu.");
 talkEntry:addResponse("Ich verstehe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("#me smiles.", "#me lächelt.");
+talkingNPC:addCycleText("#me leht sich gegen eine Säule.", "#me leans agains a pillar.");
+talkingNPC:addCycleText("#me scheint in die Sonne zu starren.", "#me seems to stare into the sun.");
+talkingNPC:addCycleText("Kommt zu Nazir, wenn Ihr etwas über magische Steine wissen wollt!", "Talk to Nazir if you want to know about magical gems!");
+talkingNPC:addCycleText("Magische Steine: Je magischer desto besser! Ich mache sie besser!", "Magical stones: More magic is better! I make them better!");
+talkingNPC:addCycleText("#me schließt seine Augen.", "#me closes his eyes.");
+talkingNPC:addCycleText("Ihr möchtet Eure magischen Steine aufwerten? Nazir kann Euch Helfen.", "You want to upgrade you magical gems? Nazir can help you!");
+talkingNPC:addCycleText("#w Ich vermisse dich Serinjah-Steppe...", "#w I miss the serin plains...");
+talkingNPC:addCycleText("Lasst mich Eure magischen Edelsteine aufbessern!", "Let me upgrade your magical gem stones!");
 talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
