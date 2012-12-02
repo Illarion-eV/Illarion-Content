@@ -362,7 +362,7 @@ function EmptyBottle(User,Bottle)
 end
 
 function FillFromTo(fromItem,toItem)
--- copies all datas (and quality) from fromItem to toItem
+-- copies all datas (and quality and id) from fromItem to toItem
 	for i=1,8 do
 	    toItem:setData(wirkstoff[i].."Concentration",fromItem:getData(wirkstoff[i].."Concentration")) 
 		toItem:setData("essenceHerb"..i,fromItem:getData("essenceHerb"..i))
@@ -371,9 +371,17 @@ function FillFromTo(fromItem,toItem)
 	toItem:setData("potionEffectId",fromItem:getData("potionEffectId"))
 	if fromItem:getData("filledWith") == "potion" then
 		if toItem.id >= 1008 and toItem.id <= 1018 then
-			toItem:setData("potionQuality",fromItem.quality) 
+		    toItem:setData("potionQuality",fromItem.quality) 
 		else
 			toItem.quality = tonumber(fromItem:getData("potionQuality"))
+		end	
+	elseif fromItem:getData("filledWith") == "potion" or fromItem:getData("filledWith") == "essenceBrew" or fromItem:getData("filledWith") == "stock" then
+	    if toItem.id >= 1008 and toItem.id <= 1018 then
+		    local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem)
+			toItem.id = reCauldron
+		else
+			local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem, nil)
+			toItem.id = reCauldron
 		end	
 	end
 end
@@ -509,7 +517,7 @@ end
 function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
     -- function to fill stock, essencebrew or potion into a cauldron
 	-- is the char an alchemist?
-	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+	local anAlchemist = CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
 	if not anAlchemist then
 		return
     end
@@ -520,7 +528,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 	end
 		
 	if ( ltstate == Action.none ) then
-		if (SourceItem:getData("filledWith") =="essenceBrew") and (cauldron:getData("sfilledWith") == "stock") then
+		if (SourceItem:getData("filledWith") =="essenceBrew") and (cauldron:getData("filledWith") == "stock") then
 			actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
 		else
 			actionDuration = 20

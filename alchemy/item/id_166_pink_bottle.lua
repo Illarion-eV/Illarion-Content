@@ -117,7 +117,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
 	if cauldron then -- infront of a cauldron?
-	    FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
+	    alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 	
 	else -- not infront of a cauldron, therefore drink!
         if User.attackmode then
