@@ -76,11 +76,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			else
 			    SourceItem.id = reBottle
 				alchemy.base.alchemy.CopyAllDatas(cauldron,SourceItem)
-				if cauldron:getData("filledWith") == "potion" then
-					SourceItem:setData("potionQuality","") -- in case it is a potion, we don't save the quality via data
-					SourceItem.quality = tonumber(cauldron:getData("potionQuality"))
-			    end
-			    world:changeItem(SourceItem)
+				world:changeItem(SourceItem)
 			end   
             alchemy.base.alchemy.RemoveAll(cauldron)    			
 		end

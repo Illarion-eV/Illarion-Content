@@ -11,7 +11,7 @@ module("alchemy.item.id_328_orange_bottle", package.seeall)
 function DoDruidism(Character,SourceItem)
 --Heilmittel für 8 Virus-Erkrankungen
 
-	if (SourceItem.data == 12345678) then -- TODO: Assign Potion Data
+	if (SourceItemREPLACED == 12345678) then -- TODO: Assign Potion Data
 		-- Vampirism Desease Healing
 		local foundEffect, vampEffect = Character.effects:find(501);
 		if foundEffect then
@@ -46,7 +46,7 @@ function DoDruidism(Character,SourceItem)
            Character:inform("Error in 328.2 - please call dev")
         else
 			local codeList = {16159738,49134362,37568889,15363356,82655747,14791859,85568351,76359585};
-			local potionData = SourceItem.data;
+			local potionData = SourceItemREPLACED;
 			if potionData == codeList[diagnose] then
 --            Feststellung, ob die Qualität des Heiltrankes ï¿½ber der Schwere der Krankheit liegt 
 --            Je hï¿½her die Krankheit in der Ordnungsnummer (1-8) liegt, umso hï¿½her sind die Anforderungen an den Heiltrank                    
@@ -127,21 +127,21 @@ end
 
 function LookAtItem(User,Item)
 
-  if Item.data == 16159738 then
+  if ItemREPLACED == 16159738 then
      Etikett ="Rhag Anghenfil Twymyn"
-  elseif Item.data == 49134362 then
+  elseif ItemREPLACED == 49134362 then
      Etikett ="Rhag Morfa Cwlwm Gwythi"
-  elseif Item.data == 37568889 then
+  elseif ItemREPLACED == 37568889 then
      Etikett ="Trolio Caethineb Meddyginiaeth"
   elseif Item.id_data == 15363356 then
      Etikett ="Corrach Rhithdyb Gwrthwenwyn"
-  elseif Item.data == 82655747 then
+  elseif ItemREPLACED == 82655747 then
      Etikett ="Rhag Vein-Syndrome Meddyginiaeth"
-  elseif Item.data == 14791859 then
+  elseif ItemREPLACED == 14791859 then
      Etikett ="Draig Brech Moddion"
-  elseif Item.data == 85568351 then
+  elseif ItemREPLACED == 85568351 then
      Etikett ="Gwrthwenwyn Rhag Sgorpion Epidemig"
-  elseif Item.data == 76359585 then
+  elseif ItemREPLACED == 76359585 then
      Etikett ="Blaidd Haint Meddyginiaeth"
   else
      Etikett ="Cyffur"

@@ -353,6 +353,7 @@ function EmptyBottle(User,Bottle)
 		    User:createItem(164,1,333,nil)
 			User:eraseItem(Bottle,1)
 		else
+			RemoveAll(Bottle)
 			Bottle.id = 164
 			Bottle.quality = 333
 			world:changeItem(Bottle)
@@ -360,16 +361,21 @@ function EmptyBottle(User,Bottle)
 	end
 end
 
-function CopyAllDatas(fromItem,toItem)
--- copies all datas from fromItem to toItem
+function FillFromTo(fromItem,toItem)
+-- copies all datas (and quality) from fromItem to toItem
 	for i=1,8 do
 	    toItem:setData(wirkstoff[i].."Concentration",fromItem:getData(wirkstoff[i].."Concentration")) 
 		toItem:setData("essenceHerb"..i,fromItem:getData("essenceHerb"..i))
 	end	
     toItem:setData("filledWith",fromItem:getData("filledWith")) 
 	toItem:setData("potionEffectId",fromItem:getData("potionEffectId"))
-	toItem:setData("potionQuality",fromItem:getData("potionQuality")) 
-
+	if fromItem:getData("filledWith") == "potion" then
+		if toItem.id >= 1008 and toItem.id <= 1018 then
+			toItem:setData("potionQuality",fromItem.quality) 
+		else
+			toItem.quality = tonumber(fromItem:getData("potionQuality"))
+		end	
+	end
 end
 
 function CauldronDestruction(User,cauldron,effectId)
@@ -382,8 +388,8 @@ function CauldronDestruction(User,cauldron,effectId)
 	if effectId == 1 then
 	    world:gfx(1,cauldron.pos)
 		world:makeSound(5,cauldron.pos)
-	    User:inform("Der Inhalt des Kessels verpufft, als du das Kraut hinzu tust.",
-		            "The substance in the cauldron blows out, as you put the herb in."
+	    User:inform("Der Inhalt des Kessels verpufft.",
+		            "The substance in the cauldron blows out."
 					)
 	elseif effectId == 2 then
 	    world:makeSound(5,cauldron.pos)
@@ -498,4 +504,77 @@ function CombineStockEssence( User, stock, essenceBrew)
 	    -- and learn!
 	    User:learn(Character.alchemy, 20, 100)
 	end
+end
+
+function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
+    -- function to fill stock, essencebrew or potion into a cauldron
+	-- is the char an alchemist?
+	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+	if not anAlchemist then
+		return
+    end
+	   
+    if ( ltstate == Action.abort ) then
+		base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
+	    return
+	end
+		
+	if ( ltstate == Action.none ) then
+		if (SourceItem:getData("filledWith") =="essenceBrew") and (cauldron:getData("sfilledWith") == "stock") then
+			actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
+		else
+			actionDuration = 20
+		end				
+		User:startAction( actionDuration, 21, 5, 10, 45)
+		return
+	end	
+	
+    if (SourceItem:getData("filledWith") =="essenceBrew") then -- essence brew should be filled into the cauldron
+		-- water, essence brew or potion is in the cauldron; leads to a failure
+		if cauldron:getData("cauldronFilledWith") == "water" then
+			CauldronDestruction(User,cauldron,1)
+			
+		elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
+			CauldronDestruction(User,cauldron,2)
+			
+		elseif cauldron:getData("filledWith") == "potion" then
+			if cauldron.id == 1011 then -- support potion
+				alchemy.item.id_165_blue_bottle.SupportEssencebrew(User,cauldron,SourceItem)
+			else
+				CauldronDestruction(User,cauldron,2)
+		    end
+			
+		elseif cauldron:getData("filledWith") == "stock" then -- stock is in the cauldron; we call the combin function
+				CombineStockEssence( User, SourceItem, cauldron, Counter, Param, ltstate )
+				
+		else -- nothing in the cauldron, we just fill in the essence brew
+			FillFromTo(SourceItem,cauldron)	
+		end
+		
+	elseif (SourceItem:getData("filledWith")=="potion") then -- potion should be filled into the cauldron
+		    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
+		if cauldron:getData("cauldronFilledWith") == "water" then
+			CauldronDestruction(User,cauldron,1)
+			
+		elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
+			CauldronDestruction(User,cauldron,2)
+			
+		elseif cauldron:getData("filledWith") == "potion" then
+			if cauldron.id == 1011 then -- support potion
+			    alchemy.item.id_165_blue_bottle.SupportPotion(User,cauldron,SourceItem)
+			else
+				CauldronDestruction(User,cauldron,2)
+			end
+				
+		elseif cauldron:getData("filledWith") == "stock" then
+			CauldronDestruction(User,cauldron,2)
+			
+		else -- nothing in the cauldron, we just fill in the potion
+            FillFromTo(SourceItem,cauldron)	
+		end
+                
+    end
+	EmptyBottle(User,SourceItem)
+	world:changeItem(SourceItem)
+	world:changeItem(cauldron)	
 end
