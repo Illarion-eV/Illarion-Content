@@ -20,7 +20,17 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    if (User.lastSpokenText == "hand") then 
+    if (User.lastSpokenText == "data1") then 
+	    SourceItem:setData("msg","hello")
+		SourceItem:setData("msg","goodbye")
+		return
+	end
+	if (User.lastSpokenText == "data2") then
+	    User:inform(""..SourceItem:getData("msg"))
+		return
+	end	
+	
+	if (User.lastSpokenText == "hand") then 
 	    local myItem = User:getItemAt(5)
 		alchemy.base.brewing.UseItem( User, myItem, TargetItem, Counter, Param, ltstate )
 	    return
