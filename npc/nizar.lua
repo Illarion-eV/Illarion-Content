@@ -30,13 +30,13 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Nizar the <profession/function>. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Nizar the <profession/function>. Keywords: gems, smithing, magical smithing, profession, Serinjah, Greetings."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Nizar der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Nizar der <Beruf/Funktion>. Schlüsselwörter: Edelsteine, Schmieden, magisches Schmieden, Beruf, Serinjah, Grüße."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -48,9 +48,8 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Greetings. Shall I smith something for you out of gems?.");
+talkEntry:addResponse("Be greeted. Do you want to combine magical gems? This is the right place for that!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -76,9 +75,8 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Greetings. Shall I smith something for you out of gems?.");
+talkEntry:addResponse("Be greeted. Do you want to combine magical gems? This is the right place for that!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -87,9 +85,8 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Grüße. Soll ich Euch was magisches aus Edelsteinen zusammenschmieden?");
+talkEntry:addResponse("Seid Gegrüßt. Wollt Ihr Eure magischen Edelsteine kombinieren lassen? Dann seid Ihr hier richtig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -98,9 +95,9 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Fare well and do not forget to comre back to Nizar!");
+talkEntry:addResponse("#me bows: 'May Findari be with you, my friend'");
+talkEntry:addResponse("May Finadari be with you, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -109,9 +106,9 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Lebt wohl und vergesst nicht bnoch einmal zurück zu Nizar zu kommen.");
+talkEntry:addResponse("#me verbeugt sich: 'Mögte Finadri mit Euich sein, mein Freund.'");
+talkEntry:addResponse("Möge Finadri über Euch wachen, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -121,9 +118,9 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Fare well and do not forget to comre back to Nizar!");
+talkEntry:addResponse("#me bows: 'May Findari be with you, my friend'");
+talkEntry:addResponse("May Finadari be with you, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -132,9 +129,9 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Lebt wohl und vergesst nicht bnoch einmal zurück zu Nizar zu kommen.");
+talkEntry:addResponse("#me verbeugt sich: 'Mögte Finadri mit Euich sein, mein Freund.'");
+talkEntry:addResponse("Möge Finadri über Euch wachen, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -142,9 +139,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("#me smiles.'Thank you very much for you concern, my friend. I am fine as I do not leave the save town. But what about you?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -153,9 +148,7 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("#me lächelt: 'Danke für Eure Sorge, mein Freund. Mir geht es gut, da ich die sichere Stadt nicht verlasse. Wie ist es Euch ergangen?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -180,6 +173,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gem");
 talkEntry:addTrigger("magical smithing");
+talkEntry:addTrigger("smithing");
 talkEntry:addResponse("Ah. I like to work for you. Well ...");
 talkEntry:addResponse("Of course I will help you with thoses magical gems.");
 talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
@@ -189,6 +183,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Edelstein");
 talkEntry:addTrigger("magisches Schmieden");
+talkEntry:addTrigger("Schmieden");
 talkEntry:addResponse("Ah. Ich arbeite gern für Euch. Nun denn ...");
 talkEntry:addResponse("Natürlich helfe ich Euch was diese magischen Edelsteinen betrifft!");
 talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
@@ -258,18 +253,18 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Not everything they tell you is ture, my friend.");
+talkEntry:addResponse("Somethings are better not told. Trust me.");
+talkEntry:addResponse("I always like a dood conversation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Nicht alles, was man hört ist wahr, mein Freund.");
+talkEntry:addResponse(" Vertraut mir, wenn ich sage, dass es Dinge gibt, die besser ungesprochen bleiben.");
+talkEntry:addResponse("Ich mag seit jeher gute Gespräche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -351,7 +346,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("religion");
 talkEntry:addResponse("Differen people pray to diffent gods. What do you think?");
-talkEntry:addResponse("Serinja often pray to Findari.");
+talkEntry:addResponse("Serinjah often pray to Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -365,7 +360,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faith");
 talkEntry:addResponse("Differen people pray to diffent gods. What do you think?");
-talkEntry:addResponse("Serinja often pray to Findari.");
+talkEntry:addResponse("Serinjah often pray to Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -379,17 +374,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I do not know much about this god, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich weiß nicht viel über diese Gottheit, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -397,103 +388,79 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I do not know much about this god, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich weiß nicht viel über diese Gottheit, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I do not know much about this god, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich weiß nicht viel über diese Gottheit, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I do not know much about this god, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich weiß nicht viel über diese Gottheit, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I do not know much about this god, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich weiß nicht viel über diese Gottheit, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Serinjah often pray to Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Serinjah beten oft zu Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I do not know much about this god, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich weiß nicht viel über diese Gottheit, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -501,35 +468,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I do not know much about this god, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich weiß nicht viel über diese Gottheit, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I do not know much about this god, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich weiß nicht viel über diese Gottheit, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -538,9 +497,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Ich weiß nicht viel über diese Gottheit, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -548,60 +505,46 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("I do not know much about this god, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I do not know much about this god, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich weiß nicht viel über diese Gottheit, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I do not know much about this god, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich weiß nicht viel über diese Gottheit, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I do not know much about this god, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich weiß nicht viel über diese Gottheit, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -609,52 +552,40 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I do not know much about this god, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich weiß nicht viel über diese Gottheit, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I do not know much about this god, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich weiß nicht viel über diese Gottheit, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("I do not know much about this god, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich weiß nicht viel über diese Gottheit, mein Freund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -678,35 +609,31 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("He is a wise man. I guess He das been reading lots of books.");
+talkEntry:addResponse("He is a mage, a mage is not a magical blacksmith thoug... Are you also a mage?");
+talkEntry:addResponse("I admire his wisdom.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Es ist ein weiser Mann. Er muss viele Bücher gelesen haben.");
+talkEntry:addResponse("Er ist ein Magier, ein Magier ist allerdings kein magischer Schmied... Seid Ihr Magier?");
+talkEntry:addResponse("Ich bewundere seine Weisheit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Runewick is my home. Do not ask why, for I will not tell you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Runewick ist meine Heimat. Fragt nicht warum, denn ich werde ich Euch nicht sagen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -715,9 +642,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Talking a bit about politics is good, but talking to much about it ...well, it can get nasty, don't you agree?");
+talkEntry:addResponse("You have to know that facts before you can change them, they say, right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -725,42 +651,37 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ein wenig über Politik zu reden ist gut, doch zu viel davon zu sprechen,... nun, mein Freund das kann unschön werden. Meint Ihr nicht auch?");
+talkEntry:addResponse("Man muss die Tatsachen kennen um sie verdrehen zu können.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Talking a bit about politics is good, but talking to much about it ...well, it can get nasty, don't you agree?");
+talkEntry:addResponse("You have to know that facts before you can change them, they say, right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ein wenig über Politik zu reden ist gut, doch zu viel davon zu sprechen,... nun, mein Freund das kann unschön werden. Meint Ihr nicht auch?");
+talkEntry:addResponse("Man muss die Tatsachen kennen um sie verdrehen zu können.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Talking a bit about politics is good, but talking to much about it ...well, it can get nasty, don't you agree?");
+talkEntry:addResponse("You have to know that facts before you can change them, they say, right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ein wenig über Politik zu reden ist gut, doch zu viel davon zu sprechen,... nun, mein Freund das kann unschön werden. Meint Ihr nicht auch?");
+talkEntry:addResponse("Man muss die Tatsachen kennen um sie verdrehen zu können.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -768,35 +689,31 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Talking a bit about politics is good, but talking to much about it ...well, it can get nasty, don't you agree?");
+talkEntry:addResponse("You have to know that facts before you can change them, they say, right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ein wenig über Politik zu reden ist gut, doch zu viel davon zu sprechen,... nun, mein Freund das kann unschön werden. Meint Ihr nicht auch?");
+talkEntry:addResponse("Man muss die Tatsachen kennen um sie verdrehen zu können.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
+talkEntry:addResponse("Talking a bit about politics is good, but talking to much about it ...well, it can get nasty, don't you agree?");
+talkEntry:addResponse("You have to know that facts before you can change them, they say, right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ein wenig über Politik zu reden ist gut, doch zu viel davon zu sprechen,... nun, mein Freund das kann unschön werden. Meint Ihr nicht auch?");
+talkEntry:addResponse("Man muss die Tatsachen kennen um sie verdrehen zu können.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -967,13 +884,13 @@ end;
 talkingNPC:addCycleText("#me smiles.", "#me lächelt.");
 talkingNPC:addCycleText("#me leht sich gegen eine Säule.", "#me leans agains a pillar.");
 talkingNPC:addCycleText("#me scheint in die Sonne zu starren.", "#me seems to stare into the sun.");
-talkingNPC:addCycleText("Kommt zu Nazir, wenn Ihr etwas über magische Steine wissen wollt!", "Talk to Nazir if you want to know about magical gems!");
+talkingNPC:addCycleText("Kommt zu Nizar, wenn Ihr etwas über magische Steine wissen wollt!", "Talk to Nizar if you want to know about magical gems!");
 talkingNPC:addCycleText("Magische Steine: Je magischer desto besser! Ich mache sie besser!", "Magical stones: More magic is better! I make them better!");
 talkingNPC:addCycleText("#me schließt seine Augen.", "#me closes his eyes.");
 talkingNPC:addCycleText("Ihr möchtet Eure magischen Steine aufwerten? Nazir kann Euch Helfen.", "You want to upgrade you magical gems? Nazir can help you!");
 talkingNPC:addCycleText("#w Ich vermisse dich Serinjah-Steppe...", "#w I miss the serin plains...");
 talkingNPC:addCycleText("Lasst mich Eure magischen Edelsteine aufbessern!", "Let me upgrade your magical gem stones!");
-talkingNPC:addCycleText("GERMAN.", "ENGLISH.");
+talkingNPC:addCycleText("#me breitet die Arme aus.'Egal welche Farbe und welche Qualität Eure magischen Edelsteine sind bei Nizar in guten Händen.'", "#me spreads his arms: 'No matter the colour or the quality Nizar will take care of your magical gems!'.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));

@@ -71,8 +71,8 @@ buySecondaryItems = 2, 3
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Marianne Forgeron the magical blacksmith. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Marianne Forgeron die magische Schmiedin. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Help" -> inform("[Game Help] This NPC is Marianne Forgeron the magical blacksmith. Keywords: gem, magical smithing, smithing , Profession, Greetings.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Marianne Forgeron die magische Schmiedin. Schlüsselwörter: Edelstein, magisches Schmieden, Schmieden, Beruf, Grüße.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings. Ya want something magical made from gemstones?", "Be greeted. Shall I combine magical gemstones for you? That is my job, ya konw?"
@@ -89,7 +89,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Irmorom be with you!", 
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> " Marianne Forgeron, so heiße ich.", " Marianne Forgeron."
 
 -- TRIGGERS for Gemcraft
-"gem", "magical smithing" -> "Did I hear ya say work?.", "Let's start!", gemcraft
+"gem", "magical smithing", "smithing"  -> "Did I hear ya say work?.", "Let's start!", gemcraft
 "Edelstein", "magisches Schmieden" -> "Dann woll'n wir ma!", "Auf ans Werk!", gemcraft
 -- OPTIONAL TRIGGERS
 
@@ -134,8 +134,8 @@ english, "Eldan" -> "I do not pray to this god. Didn't ya know?"
 "Eldan" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
 english, "Findari" -> "I do not pray to this god. Didn't ya know?"
 "Findari" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
-english, "Irmorom" -> "I do not pray to this god. Didn't ya know?"
-"Irmorom" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
+english, "Irmorom" -> "I do only pray to this god. Didn't ya know?"
+"Irmorom" ->  "I bete nur zu dem. Weiß' du datt etwa nich?"
 english, "Malachin", "Malachín" -> "I do not pray to this god. Didn't ya know?"
 "Malachin", "Malachín" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
 english, "Moshran" -> "I do not pray to this god. Didn't ya know?"

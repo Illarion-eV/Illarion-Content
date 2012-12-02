@@ -30,13 +30,13 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Marianne Forgeron the magical blacksmith. Keywords: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Marianne Forgeron the magical blacksmith. Keywords: gem, magical smithing, smithing , Profession, Greetings."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Marianne Forgeron die magische Schmiedin. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Marianne Forgeron die magische Schmiedin. Schlüsselwörter: Edelstein, magisches Schmieden, Schmieden, Beruf, Grüße."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -171,6 +171,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gem");
 talkEntry:addTrigger("magical smithing");
+talkEntry:addTrigger("smithing");
 talkEntry:addResponse("Did I hear ya say work?.");
 talkEntry:addResponse("Let's start!");
 talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
@@ -401,13 +402,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("I do only pray to this god. Didn't ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("I bete nich' zu dem. Weiß' du datt etwa nich?");
+talkEntry:addResponse("I bete nur zu dem. Weiß' du datt etwa nich?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
