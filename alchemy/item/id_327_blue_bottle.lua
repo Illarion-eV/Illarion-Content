@@ -7,51 +7,51 @@
 require("base.common")
 require("alchemy.base.alchemy")
 require("alchemy.base.missile")
-require("alchemy.item.id_165_blue_bottle")
+
 
 module("alchemy.item.id_327_blue_bottle", package.seeall)
 
 -- UPDATE common SET com_script='alchemy.item.id_327_blue_bottle' WHERE com_itemid = 327;
 
 function Explode(User,TargetItem)
-Item = TargetItem
+local Item = TargetItem
 local potionEffectId = (tonumber(Item:getData("potionEffectId")))
 
-	if (potionEffectId > 0) and (potionEffectId < 100) then	-- bombs
+	if (potionEffectId >= 300) and (potionEffectId <= 399) then	-- bombs
 		
-		if (potionEffectId == 1) then
+		if (potionEffectId == 300) then
 			druid.base.missile.effect_1( User, Item );
-		elseif (potionEffectId == 2) then
+		elseif (potionEffectId == 301) then
 			druid.base.missile.effect_2( User, Item );
-		elseif (potionEffectId == 3) then
+		elseif (potionEffectId == 303) then
 			druid.base.missile.effect_3( User, Item );
-		elseif (potionEffectId == 4) then
+		elseif (potionEffectId == 304) then
 			druid.base.missile.effect_4( User, Item );
-		elseif (potionEffectId == 5) then
+		elseif (potionEffectId == 305) then
 			druid.base.missile.effect_5( User, Item );
-		elseif (potionEffectId == 6) then
+		elseif (potionEffectId == 306) then
 			druid.base.missile.effect_6( User, Item );
-		elseif (potionEffectId == 7) then
+		elseif (potionEffectId == 307) then
 			druid.base.missile.effect_7( User, Item );
-		elseif (potionEffectId == 8) then
+		elseif (potionEffectId == 308) then
 			druid.base.missile.effect_8( User, Item );
-		elseif (potionEffectId == 9) then
+		elseif (potionEffectId == 309) then
 			druid.base.missile.effect_9( User, Item );
-		elseif (potionEffectId == 10) then
+		elseif (potionEffectId == 310) then
 			druid.base.missile.effect_10( User, Item );
-		elseif (potionEffectId == 11) then 
+		elseif (potionEffectId == 311) then 
 			druid.base.missile.effect_11( User, Item );
-		elseif (potionEffectId == 12) then
+		elseif (potionEffectId == 312) then
 			druid.base.missile.effect_12( User, Item );
-		elseif (potionEffectId == 13) then 
+		elseif (potionEffectId == 313) then 
 			druid.base.missile.effect_13( User, Item );
-		elseif (potionEffectId == 14) then
+		elseif (potionEffectId == 314) then
 			druid.base.missile.effect_14( User, Item );
-		elseif (potionEffectId == 15) then
+		elseif (potionEffectId == 315) then
 			druid.base.missile.effect_15( User, Item );
-		elseif (potionEffectId == 16) then
+		elseif (potionEffectId == 316) then
 			druid.base.missile.effect_16( User, Item );
-		elseif (potionEffectId == 17) then 
+		elseif (potionEffectId == 317) then 
 			druid.base.missile.effect_17( User, Item );
 		else
 			-- unbekannter Trank
@@ -77,7 +77,7 @@ end;
 function MoveItemAfterMove(User, SourceItem, TargetItem)
 	local missileStatus = (SourceItem:getData("missileStatus"));
     
-	if not ((potionEffectId > 0) and (potionEffectId < 100)) then
+	if not ((potionEffectId >= 300) and (potionEffectId <= 399)) then
         return true; -- no missile
     end
  
@@ -100,17 +100,17 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
     User:talkLanguage(Character.say,Player.german,"#me wirft eine Flasche, die zerplatzt.");
     User:talkLanguage(Character.say,Player.english,"#me throws a bottle that splits.");
     User.movepoints=User.movepoints-30;
-	   
+	return true   
 end;
 
 function MoveItemBeforeMove( User, SourceItem, TargetItem )
 	local missileStatus = (SourceItem:getData("missileStatus"));
-    potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
+    local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 	if potionEffectId == nil then
 	    potionEffectId = 0
 	end	
 	
-	if not ((potionEffectId > 0) and (potionEffectId < 100)) then
+	if not ((potionEffectId >= 300) and (potionEffectId <= 399)) then
         return true; -- no missile
     end
     
@@ -122,133 +122,34 @@ function MoveItemBeforeMove( User, SourceItem, TargetItem )
         base.common.InformNLS( User,
         "Du musst den Wurfkörper aus der Hand werfen.",
         "You have to throw the missle out of your hand.");
-        User:inform(""..(SourceItem:getData("missileStatus")))
-		return false; -- not in the hand; only for activated missile
+        return false; -- not in the hand; only for activated missile
 	end
     return true;
 end
 
 function DrinkPotion(User,SourceItem)
-   if potionEffectId == 0 or potionEffectId == nil  then -- no effect	
-	    base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
+-- no drink effect exists for bomb potions, yet
+   base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
 		"You don't have the feeling that something happens.")
-	    return
-    end
 end
 
 function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	
-	if not ((SourceItem:getData("potionEffectId")~="") or (SourceItem:getData("essenceBrew") =="true")) then
+	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else
 	end
 	
-	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
-	   local cauldron = base.common.GetFrontItem( User );
-	
-	   -- is the char an alchemist?
-	    if User:getMagicType() ~= 3 then
-		  User:talkLanguage(Character.say, Player.german, "nur alchemisten");
-          base.common.InformNLS( User,
-				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
-				"Only those who have been introduced to the art of alchemy are able to work here.")
-		  return;
-	    end
+	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
+	if cauldron then -- infront of a cauldron?
+	    alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 	   
-	   if ( ltstate == Action.abort ) then
-	        base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
-	       return
-		end
-		
-		if ( ltstate == Action.none ) then
-            if (SourceItem:getData("essenceBrew") =="true") and (cauldron:getData("stockData") ~= "") then
-		        actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
-            else
-                actionDuration = 20
-            end				
-			User:startAction( actionDuration, 21, 5, 10, 45)
-			return
-		end	
-		
-	   if (SourceItem:getData("essenceBrew") =="true") then -- essence brew should be filled into the cauldron
-			-- water, essence brew or potion is in the cauldron; leads to a failure
-			if cauldron:getData("cauldronFilledWith") == "water" then
-			    world:gfx(1,cauldron.pos)
-		        base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Gebräu hinzu tust.", 
-		                                    "The substance in the cauldron blows out, as you fill the mixture in.")
-			    cauldron:setData("cauldronFilledWith","")
-			
-			elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
-			     druid.base.alchemy.CauldronExplosion(User,cauldron,{4,44})
-			
-			elseif cauldron:getData("potionEffectId") ~= "" then
-			     if cauldron:getData("potionId") == "165" then -- support potion
-			        druid.item.id_165_blue_bottle.SupportEssencebrew(User,cauldron,SourceItem)
-			     else
-				    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,45})
-			     end
-			
-			elseif cauldron:getData("stockData") ~= "" then -- stock is in the cauldron; we call the combin function
-				druid.base.alchemy.CombineStockEssence( User, SourceItem, cauldron, Counter, Param, ltstate )
-				
-			else -- nothing in the cauldron, we just fill in the essence brew
-				cauldron:setData("cauldronFilledWith","essenceBrew")
-				cauldron:setData("potionId",""..SourceItem.id)
-				cauldron:setData("essenceHerbs",SourceItem:getData("essenceHerbs"))
-			end
-		
-		    SourceItem:setData("essenceBrew","")
-			SourceItem:setData("potionId","")
-			SourceItem:setData("essenceHerbs")
-				
-		elseif (SourceItem:getData("potionEffectId")~="") then -- potion should be filled into the cauldron
-		    -- water, essence brew, potion or stock is in the cauldron; leads to a failure
-			if cauldron:getData("cauldronFilledWith") == "water" then
-			    world:gfx(1,cauldron.pos)
-		        base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.", 
-		                            "The substance in the cauldron blows out, as you fill the water in.")
-			    cauldron:setData("cauldronFilledWith","")
-			
-			elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
-			    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,45})
-			
-			elseif cauldron:getData("potionEffectId") ~= "" then
-			    if cauldron:getData("potionId") == "165" then -- support potion
-			        druid.item.id_165_blue_bottle.SupportPotion(User,cauldron,SourceItem)
-			    else
-				    druid.base.alchemy.CauldronExplosion(User,cauldron,{4,38})
-			    end
-			
-			elseif cauldron:getData("stockData") ~= "" then
-				druid.base.alchemy.CauldronExplosion(User,cauldron,{4,36})
-			
-			else -- nothing in the cauldron, we just fill in the potion
-                cauldron:setData("potionEffectId",SourceItem:getData("potionEffectId"))
-                cauldron:setData("potionId",""..SourceItem.id)
-				cauldron:setData("potionQuality",""..SourceItem.quality)
-			end
-                
-            SourceItem:setData("potionEffectId","")
-			SourceItem:setData("potionId","")				
-			SourceItem:setData("potionQuality","")
-		end
-	    if math.random(1,20) == 1 then
-		    world:erase(SourceItem,1)	 -- bottle breaks
-		    User:talkLanguage(Character.say, Player.german, "flasche kaputt");
-		     base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
-        else	
-		    SourceItem.id = 164
-			SourceItem.quality = 333
-			world:changeItem(SourceItem)
-        end
-		world:changeItem(cauldron)		
-			
-    else -- not infront of a cauldron, therefore drink!
+	else -- not infront of a cauldron, therefore use it
         if User.attackmode then
 		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
 		else
-			if (potionEffectId > 0) and (potionEffectId < 100) then
+			if (potionEffectId >= 300) and (potionEffectId <= 399) then -- a bomb
 			      
-				missileStatus = SourceItem:getData("missileStatus")
+				local missileStatus = SourceItem:getData("missileStatus")
 				if (missileStatus == "deactivated") or (missileStatus == "") then -- potion deactivated or status not set --> activate
 					base.common.InformNLS( User,
 					"Du entsicherst des Wurfkörper. Vorsicht damit.",
@@ -263,17 +164,10 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 					world:changeItem( SourceItem );
 		        end
 			
-			else 
+			else -- not a bomb
 				User:talkLanguage(Character.say, Player.german, "#me trinkt eine dunkelblaue Flüssigkeit.");
 				User:talkLanguage(Character.say, Player.english, "#me drinks a dark blue liquid.");
-				SourceItem.id = 164
-				SourceItem.quality = 333
-				if math.random(1,20) == 1 then
-				   world:erase(SourceItem,1) -- bottle breaks
-				   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
-				else	
-					world:changeItem(SourceItem)
-				end
+				Salchemy.base.alchemy.EmptyBottle(User,SourceItem)
 				User.movepoints=User.movepoints - 20
 				DrinkPotion(User,SourceItem)
 	        end
@@ -282,23 +176,5 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 end
 
 function LookAtItem(User,Item)
-	if (Item.data == 63321157) then
-		if (User:getPlayerLanguage()==0) then
-			world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: 'Windtrank'")
-		else
-			world:itemInform(User,Item,"You look at a sticker telling: 'Wind Potion'")        
-		end
-	elseif (Item.data == 0) then
-		if (User:getPlayerLanguage()==0) then
-			world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: 'Windtrank'")
-		else
-			world:itemInform(User,Item,"You look at a sticker telling: 'Wind Potion'")        
-		end 
-	else 
-		if (User:getPlayerLanguage()==0) then
-			world:itemInform(User,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: 'Wurfkörper'")
-		else
-			world:itemInform(User,Item,"You look at a sticker telling: 'Missile'")        
-		end
-	end    
+	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))   
 end

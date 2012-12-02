@@ -22,6 +22,7 @@ end
 
 function removeEffect(Effect,User)
     -- restore the attributes
+	local find_i, attrib_i, attribValue
 	for i=1,8 do
 		find_i,attrib_i = Effect:findValue(""..attribList[i])
 		if find_i then
@@ -29,18 +30,15 @@ function removeEffect(Effect,User)
 			User:increaseAttrib(attribList[i],-attribValue);
 		end
 	end
-	local pax = User:increaseAttrib("strength",0)
-	local bellum = User:increaseAttrib("constitution",0)
 end
 
 function loadEffect(Effect,User)
     -- login, we have to change the attributes again
+	local find_i, attrib_i
 	for i=1,8 do
 		find_i,attrib_i = Effect:findValue(""..attribList[i])
 		if find_i then
 			User:increaseAttrib(attribList[i],attrib_i - 5)
 		end	
 	end
-	local pax = User:increaseAttrib("strength",0)
-	local bellum = User:increaseAttrib("constitution",0)
 end

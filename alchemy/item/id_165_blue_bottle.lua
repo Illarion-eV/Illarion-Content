@@ -18,21 +18,18 @@ end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
-	if not ((SourceItem:getData("potionEffectId")~="") or (SourceItem:getData("essenceBrew") =="true")) then
+	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else
 	end
 	
-	if base.common.GetFrontItemID(User) == 1008 then -- infront of a cauldron?
-	   local cauldron = base.common.GetFrontItem( User )
+	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
+	if cauldron then -- infront of a cauldron?
 	
 	   -- is the char an alchemist?
-	    if User:getMagicType() ~= 3 then
-		  User:talkLanguage(Character.say, Player.german, "nur alchemisten")
-          base.common.InformNLS( User,
-				"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.",
-				"Only those who have been introduced to the art of alchemy are able to work here.")
-		  return;
-	    end
+	    local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")
+		if not anAlchemist then
+			return
+		end
 	   
 	   if ( ltstate == Action.abort ) then
 	        base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
@@ -40,7 +37,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		end
 		
 		if ( ltstate == Action.none ) then
-            if (SourceItem:getData("essenceBrew") =="true") and (cauldron:getData("stockData") ~= "") then
+            if (SourceItem:getData("filledWith") =="essenceBrew") and (cauldron:getData("filledWith") == "stock") then
 		        actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
             else
                 actionDuration = 20
@@ -49,81 +46,39 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			return
 		end	
 	
-	    if (SourceItem:getData("essenceBrew") =="true") then -- essence brew should be filled into the cauldron
-			-- water, essence brew or potion is in the cauldron; leads to a failure
-			if cauldron:getData("cauldronFilledWith") == "water" then
-			    world:gfx(1,cauldron.pos)
-		        base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Gebräu hinzu tust.", 
-		                                    "The substance in the cauldron blows out, as you fill the mixture in.")
-			    cauldron:setData("cauldronFilledWith","")
-			
-			elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
-			     druid.base.alchemy.CauldronExplosion(User,cauldron,{4,44})
-			
-			elseif cauldron:getData("potionEffectId") ~= "" then
-			     druid.base.alchemy.CauldronExplosion(User,cauldron,{4,45})
-			
-			elseif cauldron:getData("stockData") ~= "" then -- stock is in the cauldron; we call the combine function
-				druid.base.alchemy.CombineStockEssence( User, SourceItem, cauldron)
-				
-			else -- nothing in the cauldron, we just fill in the essence brew
-				cauldron:setData("cauldronFilledWith","essenceBrew")
-				cauldron:setData("potionId",""..SourceItem.id)
-				cauldron:setData("essenceHerbs",SourceItem:getData("essenceHerbs"))
-			end
-		
-		    SourceItem:setData("essenceBrew","")
-			SourceItem:setData("potionId","")
-			SourceItem:setData("essenceHerbs")
-	
-	    elseif (SourceItem:getData("potionEffectId")~="") then -- potion should be filled into the cauldron
+	    if (SourceItem:getData("filledWith")=="potion") then -- potion should be filled into the cauldron
 		    -- water leads to a failure
 			if cauldron:getData("cauldronFilledWith") == "water" then
 			    world:gfx(1,cauldron.pos)
 		    
-			elseif cauldron:getData("cauldronFilledWith") == "essenceBrew" then 
+			elseif cauldron:getData("filledWith") == "essenceBrew" then 
 			    cauldron = SupportEssencebrew(User,SourceItem,cauldron)
 			
-			elseif cauldron:getData("potionEffectId") ~= "" then
+			elseif cauldron:getData("filledWith") == "potion" then
 			    cauldron = SupportPotion(User,SourceItem,cauldron)
 			    
-			elseif cauldron:getData("stockData") ~= "" then
+			elseif cauldron:getData("filledWith") == "stock" then
 				cauldron = SupportStock(User,SourceItem,cauldron)
 			
-			else -- nothing in the cauldron, we just fill in the potion
-                cauldron:setData("potionEffectId",SourceItem:getData("potionEffectId"))
-                cauldron:setData("potionId",SourceItem.id)
-				cauldron:setData("potionQuality",SourceItem.quality)
-			end
-                
-            SourceItem:setData("potionEffectId","")
-			SourceItem:setData("potionId","")				
-			SourceItem:setData("potionQuality","")
-	    end
-		if math.random(1,20) == 1 then
-		    world:erase(SourceItem,1)	 -- bottle breaks
-		    base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
-        else	
-		    SourceItem.id = 164
-			SourceItem.quality = 333
-			world:changeItem(SourceItem)
-        end
-		world:changeItem(cauldron)	 
-	
-    else -- not infront of a cauldron, therefore drink!
+			else
+			    alchemy.base.alchemy.FillFromTo(SourceItem,cauldron)
+			end    
+            alchemy.base.alchemy.EmptyBottle(User,SourceItem)
+			world:changeItem(cauldron)
+		
+		elseif (SourceItem:getData("filledWith") =="essenceBrew") then -- essence brew should be filled into the cauldron
+		    -- unlike the support potion itself, the essence brew of it has no specail effects when filled in
+			-- therefore we call the ordinary fill-function; note that we call it after checking for potion in this script
+			-- and we do not set ltstate as a parameter, since we did the abort stuff already here
+			alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron,Counter,Param)
+		end
+	else -- not infront of a cauldron, therefore drink!
         if User.attackmode then
 		   base.common.InformNLS(User, "Du kannst das Gebräu nicht nutzen, während du kämpfst.", "You cannot use the potion while fighting.")
 		else
 			User:talkLanguage(Character.say, Player.german, "#me trinkt eine hellblaue Flüssigkeit.");
 			User:talkLanguage(Character.say, Player.english, "#me drinks a light blue liquid.");
-			SourceItem.id = 164
-			SourceItem.quality = 333
-			if math.random(1,20) == 1 then
-			   world:erase(SourceItem,1) -- bottle breaks
-			   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.")
-			else	
-				world:changeItem(SourceItem)
-			end
+			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
 			User.movepoints=User.movepoints - 20
 			DrinkPotion(User,SourceItem)
 	    end
@@ -233,11 +188,5 @@ function SupportPotion(User,support,potion)
 end
 
 function LookAtItem(User,Item)
-  
-  --[[if (Character:getPlayerLanguage()==0) then
-	world:itemInform(Character,Item,"Du siehst ein Flaschenetikett mit der Aufschrift: \"Wunderpaste\"")
-  else
-	world:itemInform(Character,Item,"You look at a sticker telling: \"Marvel Paste\"")      
-  end]]
-  
+	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))   
 end
