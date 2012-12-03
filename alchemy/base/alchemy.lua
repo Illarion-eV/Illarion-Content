@@ -135,35 +135,6 @@ wirkung_en[7] = "enriched";
 wirkung_en[8] = "dominant pronounced";
 wirkung_en[9] = "highly noxious";
 
--- Liste der Krankheiten
-
-illness = {};
-
-illness[1] = {};
-illness[2] = {};
--- deutsche Bezeichnugnen                -- englische Bezeichnungen
-
-illness[1][1] = "Ork-Fieber";            illness[2][1] = "orc-fever";
-illness[1][2] = "Sumpfkrampf";           illness[2][2] = "bog-attack";
-illness[1][3] = "Trollsucht";            illness[2][3] = "Troll's rash";
-illness[1][4] = "Gnom-Wahn";             illness[2][4] = "gnome-paranoia";
-illness[1][5] = "Vein'sches Syndrom";    illness[2][5] = "Veins'syndrome";
-illness[1][6] = "Drachenpocken";         illness[2][6] = "dragon's pox";
-illness[1][7] = "Skorpion-Seuche";       illness[2][7] = "scorpion's pestilence";
-illness[1][8] = "Wolfspest";             illness[2][8] = "wolves pest";
-
--- illness seriousness: 1-8
-illness_seriousness = {};
-
-illness_seriousness[1] = 1;
-illness_seriousness[2] = 2;
-illness_seriousness[3] = 3;
-illness_seriousness[4] = 4;
-illness_seriousness[5] = 5;
-illness_seriousness[6] = 6;
-illness_seriousness[7] = 7;
-illness_seriousness[8] = 8;
-
 --Wirkungen auf Attribute
 --Reihe 1
 attr_r1 = {};                   untererGrenzwert = {};      obererGrenzwert = {};
