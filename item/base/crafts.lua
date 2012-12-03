@@ -189,7 +189,7 @@ function Craft:allowCrafting(user, source)
 end
 
 function Craft:allowUserCrafting(user, source)
-    if source:getType() == ScriptItem.field and self.tool[source.id] then
+    if source:getType() == scriptItem.field and self.tool[source.id] then
         base.common.TurnTo(user, source.pos)
         if not self:isHandToolEquipped(user) then
             base.common.InformNLS(user,
