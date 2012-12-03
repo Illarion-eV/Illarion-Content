@@ -231,7 +231,7 @@ function onLogin( player )
 	if not find then
 		player.effects:addEffect( LongTimeEffect(33,10) );
 	end
-
+end
 
 function setNewbiePos(newbieEffect,Character)
 	newbieEffect:addValue("newbiePosX",Character.pos.x);
