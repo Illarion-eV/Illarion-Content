@@ -6,7 +6,7 @@ module("scheduled.gaia", package.seeall)
 
 -- simple gaia until we create a more complex version (postVBU)
 function plantdrop()
-    if ( plnt==nil ) then
+  --[[  if ( plnt==nil ) then
         Init();
     end
 
@@ -49,7 +49,7 @@ function Init()
 	AddPlant(765,{GroundType.forest,GroundType.grass});  -- Tagtraum
 	AddPlant(766,{GroundType.dirt,GroundType.grass});  -- Trugblüte
 	AddPlant(769,{GroundType.sand,GroundType.grass});  -- Wüstenbeere
-
+]]
 end
 function AddPlant(ItemID,Ground)
     table.insert(plnt,ItemID);

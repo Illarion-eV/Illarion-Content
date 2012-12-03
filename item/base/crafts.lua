@@ -192,9 +192,11 @@ function Craft:allowUserCrafting(user, source)
     if source:getType() == scriptItem.field and self.tool[source.id] then
         base.common.TurnTo(user, source.pos)
         if not self:isHandToolEquipped(user) then
+            local germanTool = world:getItemName(self.handTool, Player.german)
+            local englishTool = world:getItemName(self.handTool, Player.english)
             base.common.InformNLS(user,
-            "Du musst das Werkzeug in die Hand nehmen um damit zu arbeiten.",
-            "To work with that tool you have to hold it in your hand.")
+            "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: " .. germanTool,
+            "To work here you have to hold a tool in your hand: " .. englishTool)
             return false
         end
     else
@@ -476,9 +478,11 @@ function Craft:locationFine(user)
         return false
     elseif not self.tool[staticTool] then
         if not self.fallbackCraft then
+            local germanTool = world:getItemName(staticTool, Player.german)
+            local englishTool = world:getItemName(staticTool, Player.english)
             base.common.InformNLS(user,
-            "Hier kannst du nicht arbeiten.",
-            "You cannot work here.")
+            "Du stehst nicht neben dem benötigten Werkzeug: " .. germanTool,
+            "There is no " .. englishTool .. " close by to work with.")
         end
         return false
     elseif base.common.GetFrontItem(user).id == 359 and base.common.GetFrontItem(user).quality == 100 then
