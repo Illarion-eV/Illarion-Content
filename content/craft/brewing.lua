@@ -5,6 +5,7 @@ module("content.craft.brewing", package.seeall)
 brewing = item.base.crafts.Craft:new{
                      craftEN = "brewing",
                      craftDE = "Brauen",
+                     handTool = 227,
                      leadSkill = Character.cookingAndBaking,
                      defaultFoodConsumption = 100,
                      sfx = 10,

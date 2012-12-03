@@ -5,6 +5,7 @@ module("content.craft.glassblowing", package.seeall)
 glassblowing = item.base.crafts.Craft:new{
                           craftEN = "glass blowing",
                           craftDE = "Glasblasen",
+                          handTool = 311,
                           leadSkill = Character.glassBlowing,
                           DefaultFoodConsumption = 300,
                         };

@@ -5,6 +5,7 @@ module("content.craft.tailoring", package.seeall)
 tailoring = item.base.crafts.Craft:new{
                       craftEN = "tailoring",
                       craftDE = "Schneidern",
+                      handTool = 47,
                       leadSkill = Character.tailoring,
                       defaultFoodConsumption = 300,
                     }

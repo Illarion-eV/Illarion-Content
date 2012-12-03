@@ -185,9 +185,7 @@ end
 -- winter: 13-16: kalt, 
 
 function changeWeather()
-    return; -- FOR SAVETY REASONS!
-end
- --[[   actWeather=world.weather;
+    actWeather=world.weather;
     
     month=world:getTime("month");
     
@@ -219,11 +217,10 @@ end
     m_Weather.fog_density=newFog;
     m_Weather.wind_dir=newWindDir;
     m_Weather.gust_strength=newGust
-    m_Weather.percipitation_strength=0;
-   -- m_Weather.percipitation_strength=newRain;
+    m_Weather.percipitation_strength=newRain;
     m_Weather.percipitation_type=newPerTyp;
     m_Weather.thunderstorm=newThunder;
     m_Weather.temperature=newTemp;
     logWeather(m_Weather);
-    world:setWeather(m_Weather); --]]
---end
+    world:setWeather(m_Weather);
+end

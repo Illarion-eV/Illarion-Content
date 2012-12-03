@@ -5,6 +5,7 @@ module("content.craft.dyemaking", package.seeall)
 dyemaking = item.base.crafts.Craft:new{
                     craftEN = "tailoring",
                     craftDE = "Schneidern",
+                    handTool = 58,
                     leadSkill = Character.tailoring,
                     defaultFoodConsumption = 300,
                   }

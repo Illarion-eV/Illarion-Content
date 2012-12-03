@@ -30,6 +30,7 @@ Craft = {
 
     defaultRaceBonus = {0, 0, 0, 0, 0, 0},
 
+    handTool = 0,
     tool = {},
     activeTool = {},
     toolLink = {},
@@ -48,6 +49,7 @@ Craft = {
 --[[
 Usage: myCraft = Craft:new{ craftEN = "CRAFT_EN",
                             craftDE = "CRAFT_DE",
+                            handTool = ID,
                             [leadSkill = SKILL | leadSkill = function(user)],
                             [defaultFoodConsumption = FOOD,]
                             [sfx = SFX, sfxDuration = DURATION,]
@@ -187,31 +189,52 @@ function Craft:allowCrafting(user, source)
 end
 
 function Craft:allowUserCrafting(user, source)
-    if not self:locationFine(user) then
-        return false
-    end
+    if source:getType() == scriptItem.field and self.tool[source.id] then
+        base.common.TurnTo(user, source.pos)
+        if not self:isHandToolEquipped(user) then
+            base.common.InformNLS(user,
+            "Du musst das Werkzeug in die Hand nehmen um damit zu arbeiten.",
+            "To work with that tool you have to hold it in your hand.")
+            return false
+        end
+    else
+        if not self:locationFine(user) then
+            return false
+        end
 
-    if not base.common.CheckItem(user, source) then
-        self:swapToInactiveItem(user)
-        return false
-    end
+        if not base.common.CheckItem(user, source) then
+            self:swapToInactiveItem(user)
+            return false
+        end
 
-    if source:getType() ~= 4 then
-        base.common.InformNLS(user,
-        "Du musst das Werkzeug in die Hand nehmen um damit zu arbeiten.",
-        "To work with that tool you have to hold it in your hand.")
-        return false
+        if source:getType() ~= 4 then
+            base.common.InformNLS(user,
+            "Du musst das Werkzeug in die Hand nehmen um damit zu arbeiten.",
+            "To work with that tool you have to hold it in your hand.")
+            return false
+        end
     end
 
     if base.common.Encumbrence(user) then
         base.common.InformNLS(user,
-        "Deine Râstung hindert dich am arbeiten.",
+        "Deine Rüstung hindert dich am arbeiten.",
         "Your armour hinders you from working.")
         self:swapToInactiveItem(user)
         return false
     end
 
     return true
+end
+
+function Craft:isHandToolEquipped(user)
+    local leftTool = user:getItemAt(Character.left_tool).id
+    local rightTool = user:getItemAt(Character.right_tool).id
+    
+    if leftTool == self.handTool or rightTool == self.handTool then
+        return true
+    end
+
+    return false
 end
 
 function Craft:allowNpcCrafting(user, source)
@@ -461,7 +484,7 @@ function Craft:locationFine(user)
     elseif base.common.GetFrontItem(user).id == 359 and base.common.GetFrontItem(user).quality == 100 then
         if not self.fallbackCraft then
             base.common.InformNLS(user,
-            "Aus irgendeinem Grund liefert die Flamme nicht die benoetigte Hitze.",
+            "Aus irgendeinem Grund liefert die Flamme nicht die benötigte Hitze.",
             "For some reason the flame does not provide the required heat.")
         end
         return false
