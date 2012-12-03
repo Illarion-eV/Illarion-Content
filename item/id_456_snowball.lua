@@ -20,7 +20,17 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    if (User.lastSpokenText == "data1") then 
+    if (User.lastSpokenText == "gaia") then
+	    local foundGaia, gaia = ScriptVars:find("gaiatest_var_by_merung")
+		if not foundGaia then -- security check
+			oldTreasure = 0
+		else
+			oldTreasure = tonumber(oldTreasure)
+		end	
+		User:inform("old treasure: "..oldTreasure)
+	end	
+	
+	if (User.lastSpokenText == "data1") then 
 	    SourceItem:setData("msg","hello")
 		SourceItem:setData("msg","goodbye")
 		return
