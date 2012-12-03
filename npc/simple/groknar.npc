@@ -65,12 +65,12 @@ itemShoes = 697
 "überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im Süden trittst."), warp(35, 95, 100)
 
 -- Learn how to fight
-queststatus(311) < 2, english, ".*" -> inform("[Tutorial] You can attack other creatures with a click of the right mouse button."), "Hurr! Fresh meat! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Choose a weapon and crush three of those pigs over there.", queststatus(311) = 2
-queststatus(311) < 2, ".*" -> inform("[Tutorial] Du kannst andere Kreaturen angreifen, indem du sie mit der rechten Maustaste anklickst."), "Hurr! Frischfleisch! Ich bin Groknar, der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(311) = 2
+queststatus(311) < 2, english, ".*" -> inform("[Tutorial] You can attack other creatures by clicking them once with the right mouse button."), "Hurr! Fresh meat! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Choose a weapon and crush three of those pigs over there.", queststatus(311) = 2
+queststatus(311) < 2, ".*" -> inform("[Tutorial] Du kannst andere Kreaturen angreifen, indem du sie mit der rechten Maustaste einmal anklickst."), "Hurr! Frischfleisch! Ich bin Groknar, der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.", queststatus(311) = 2
 
 -- Player seems to have problems with fighting. Weichei!
-queststatus(311) < 5, english, ".*" -> inform("[Tutorial] You can attack other creatures with a click of the right mouse button."), "Hurr, you afraid of those puny pigs? Off! Kill at least three of them."
-queststatus(311) < 5, ".*" -> inform("[Tutorial] Du kannst andere Kreaturen angreifen, indem du sie mit der rechten Maustaste anklickst."), "Hurr, hast du Angst vor diesen erbärmlichen Schweinen? Geh! Töte mindestens drei von ihnen."
+queststatus(311) < 5, english, ".*" -> inform("[Tutorial] You can attack other creatures by clicking them once with the right mouse button."), "Hurr, you afraid of those puny pigs? Off! Kill at least three of them."
+queststatus(311) < 5, ".*" -> inform("[Tutorial] Du kannst andere Kreaturen angreifen, indem du sie mit der rechten Maustaste einmal anklickst."), "Hurr, hast du Angst vor diesen erbärmlichen Schweinen? Geh! Töte mindestens drei von ihnen."
 
 -- Player killed the pigs. Reward: Club (2664)
 queststatus(311) = 5, english, ".*" -> inform("[Tutorial] You are awarded a club."), "Good. You might just survive out there. Here, take this club. It will crush good. Follow the road, Hammerfist is expecting you. Good travels, %CHARNAME!", item(2664, 1, 599), queststatus(311) = 6
