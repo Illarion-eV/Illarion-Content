@@ -478,8 +478,8 @@ function Craft:locationFine(user)
         return false
     elseif not self.tool[staticTool] then
         if not self.fallbackCraft then
-            local germanTool = world:getItemName(self.handTool, Player.german)
-            local englishTool = world:getItemName(self.handTool, Player.english)
+            local germanTool = world:getItemName(staticTool, Player.german)
+            local englishTool = world:getItemName(staticTool, Player.english)
             base.common.InformNLS(user,
             "Du stehst nicht neben dem benötigten Werkzeug: " .. germanTool,
             "There is no " .. englishTool .. " close by to work with.")
