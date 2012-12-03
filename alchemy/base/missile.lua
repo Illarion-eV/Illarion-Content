@@ -73,12 +73,12 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
             Person = world:getCharacterOnField( posi );
 
             -- Schaden bestimmt sich aus Item Qualität
-            -- 1000HP - 9990HP
+            -- 850HP - 9990HP
             local qual = Item.quality;
-            if (qual > 999) then
-                qual = math.mod( qual, 1000 );
-            end
-            Schaden = 10 * qual;
+            qual = base.common.Limit(math.floor(qual/100), 1, 9)
+			qual = qual/100
+            
+			Schaden = 8.5 * qual;
 
             -- Ermittle Summe der als schützend angegebene Attribute
             AttribEffect = 0;

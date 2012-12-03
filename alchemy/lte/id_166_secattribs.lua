@@ -11,12 +11,12 @@ function addEffect(Effect, User)               -- we start with adding the effec
 end
 
 function callEffect(Effect,User) 
-    findCounter,counterPink = Effect:findValue("counterPink")
+    local findCounter,counterPink = Effect:findValue("counterPink")
     
-	findHitpoints,hitpointsIncrease = Effect:findValue("hitpointsIncrease")
-    findMana,manaIncrease = Effect:findValue("manaIncrease")
-    findFoodlevel,foodlevelIncrease = Effect:findValue("foodlevelIncrease")
-    findPoisonvalue,poisonvalueIncrease = Effect:findValue("poisonvalueIncrease")
+	local findHitpoints,hitpointsIncrease = Effect:findValue("hitpointsIncrease")
+    local findMana,manaIncrease = Effect:findValue("manaIncrease")
+    local findFoodlevel,foodlevelIncrease = Effect:findValue("foodlevelIncrease")
+    local findPoisonvalue,poisonvalueIncrease = Effect:findValue("poisonvalueIncrease")
     
 	if findCounter then 
        if counterPink > 0 then

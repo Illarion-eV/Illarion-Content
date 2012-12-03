@@ -42,7 +42,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 				return
 			end	  
 
-			FillStockIn(User,cauldron,SourceItem)
+			FillStockIn(User,SourceItem,cauldron)
 			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
 		else
 		    DrinkIt(User, SourceItem)
@@ -58,11 +58,10 @@ function DrinkIt(User, SourceItem)
 		User:talkLanguage(Character.say, Player.english, "#me drinks a green liquid.")
 		base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", "You don't have the feeling that something happens.")
 		User.movepoints=User.movepoints - 20
-		alchemy.base.alchemy.EmptyBottle(User,SourceItem)
-    end
+	end
 end
 
-function FillStockIn(User,cauldron,SourceItem)
+function FillStockIn(User,SourceItem, cauldron)
     -- water, stock or potion is in the cauldron; leads to a failure
 	if cauldron:getData("filledWith") == "water" then
 		alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
@@ -81,9 +80,7 @@ function FillStockIn(User,cauldron,SourceItem)
 		alchemy.base.alchemy.CombineStockEssence( User, SourceItem, cauldron)
 
 	elseif cauldron.id == 1008 then -- nothing in the cauldron, we just fill in the stock
-		alchemy.base.alchemy.CopyAllDatas(SourceItem,cauldron)
-		cauldron:setData("filledWith","stock")
-		cauldron.id = 1012
+		alchemy.base.alchemy.FillFromTo(SourceItem,cauldron)
 		world:changeItem(cauldron)
 	end
 end

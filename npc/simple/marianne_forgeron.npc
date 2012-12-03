@@ -1,0 +1,214 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Marianne Forgeron                                        Glamair --
+-- NPC Job: Magical Blacksmith                                                --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  382,249,0               --
+-- NPC Sex: female                     NPC Direction: south                   --
+--                                                                            --
+-- Author:   Miriam                                                           --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Marianne Forgeron"
+race = dwarf
+sex = female
+position = 382,249,0
+direction = south
+affiliation = "Galmair"
+job = "Magical Blacksmith"
+
+language = common
+language = dwarf
+defaultLanguage = common
+autointroduce = on
+
+author = "Miriam"
+
+lookatDE = "Dieser NPC ist Marianne Forgeron die magische Schmiedin."
+lookatUS = "This NPC is Marianne Forgeron the magical Blacksmith."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 7
+beardID = 0
+colorHair = 97, 89, 75
+colorSkin = 198,153,82
+itemHead = 371
+itemChest = 182
+itemCoat = 0
+itemMainHand = 23
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 34
+itemShoes = 697
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 1, 2, 3
+buyPrimaryItems = 1
+buySecondaryItems = 2, 3
+
+-- Template Version 1.08, 10/18/2012 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- TRADING
+-- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Marianne Forgeron the magical blacksmith. Keywords: gem, magical smithing, smithing , Profession, Greetings.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Marianne Forgeron die magische Schmiedin. Schlüsselwörter: Edelstein, magisches Schmieden, Schmieden, Beruf, Grüße.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings. Ya want something magical made from gemstones?", "Be greeted. Shall I combine magical gemstones for you? That is my job, ya konw?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße. Soll ich dir watt Magisches aus Edelsteinen machen?", "Sei jegrüßt. Willste datt ich deine maagischen Edelsteine kombinieren tue? Datt is nämlich mein Job."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings. Ya want something magical made from gemstones?", "Be greeted. Shall I combine magical gemstones for you? That is my job, ya konw?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüße. Soll ich dir watt Magisches aus Edelsteinen machen?", "Seid jegrüßt. Willste datt ich deine maagischen Edelsteine kombinieren tue? Datt is nämlich mein Job."
+"Farewell", "Bye", "Fare well", "See you" -> "May Irmorom be with you!", "May Irmorom protect you!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge Irmorom mit dir sein!", "Möge Irmorom dich beschützen!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Irmorom be with you!", "May Irmorom protect you!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Möge Irmorom mit dir sein!", "Möge Irmorom dich beschützen!"
+"How are you", "How feel", "How do you do" -> "Fine. And you?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Jut, jut. Selber?"
+"your name", "who are you", "who art thou" -> " Marianne Forgeron, that's my name.", " Marianne Forgeron."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> " Marianne Forgeron, so heiße ich.", " Marianne Forgeron."
+
+-- TRIGGERS for Gemcraft
+"gem", "magical smithing", "smithing"  -> "Did I hear ya say work?.", "Let's start!", gemcraft
+"Edelstein", "magisches Schmieden" -> "Dann woll'n wir ma!", "Auf ans Werk!", gemcraft
+-- OPTIONAL TRIGGERS
+
+-- Optional: Trade Hooks, use only for traders
+-- "sell", "buy", "wares", "price", "trade", "purchase" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.", gemcraft
+-- "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", gemcraft
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I have nothing to do for ya."
+"quest", "mission" -> "Ich hab nix für dich zu tun."
+"task", "adventure", "order" -> "I have nothing to do for ya."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich hab nix für dich zu tun."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am a magical Blacksmith. How one becomes a magical blacksmith is none of your bussinens.", "I am a magical Blacksmith. The rest is a professional secret."
+"beruf" -> "Ich bin 'nen magischer Schmied. Wie man datt wird jeht dich 'ne feuchten Dreck an!", "Ich bin 'nen magischer Schmied. Der Rest is 'nen Berufsjeheimnis!"
+english, "job" -> "I am a magical Blacksmith. How one becomes a magical blacksmith is none of your bussinens.", "I am a magical Blacksmith. The rest is a professional secret."
+"job" -> "Ich bin 'nen magischer Schmied. Wie man datt wird jeht dich 'ne feuchten Dreck an!", "Ich bin 'nen magischer Schmied. Der Rest is 'nen Berufsjeheimnis!"
+"tell something" -> "There are thing ya dont wish to kown. Got it?"
+"erzähl was", "erzähl etwas" -> "Es jibt Dinge die willste gar nich' wissen. Klar?"
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"how do", "how does", "magical Blacksmith" -> "That's none of your bussinenss!", "That is a professional secret.", "There are thing ya dont wish to kown. Got it?"
+"wie machst", "wie macht", "Magical Blacksmith" -> "Datt jeht dich 'ne feuchten Dreck an!", "Datt is nen Berufsjeheimnis!", "Es jibt Dinge die willste gar nich' wissen. Klar?"
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "We dwarfes pray to Irmorom."
+"Gott", "Götter" -> "Wir Zwerge beten zu Irmorom."
+english, "religion" -> "We dwarfes pray to Irmorom."
+"religion" -> "Wir Zwerge beten zu Irmorom."
+"faith" -> "Wir Zwerge beten zu Irmorom."
+"Glaube" -> "Wir Zwerge beten zu Irmorom."
+english, "Adron" -> "I do not pray to this god. Didn't ya know?"
+"Adron" -> "I bete nich' zu dem. Weiß' du datt etwa nich?"
+english, "Bragon", "Brágon" -> "I do not pray to this god. Didn't ya know?"
+"Bragon", "Brágon" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
+english, "Cherga" -> "I do not pray to this god. Didn't ya know?"
+"Cherga" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
+english, "Elara" -> "I do not pray to this god. Didn't ya know?"
+"Elara" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
+english, "Eldan" -> "I do not pray to this god. Didn't ya know?"
+"Eldan" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
+english, "Findari" -> "I do not pray to this god. Didn't ya know?"
+"Findari" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
+english, "Irmorom" -> "I do only pray to this god. Didn't ya know?"
+"Irmorom" ->  "I bete nur zu dem. Weiß' du datt etwa nich?"
+english, "Malachin", "Malachín" -> "I do not pray to this god. Didn't ya know?"
+"Malachin", "Malachín" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
+english, "Moshran" -> "I do not pray to this god. Didn't ya know?"
+"Moshran" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
+english, "Nargun", "Nargún", "Nargùn" -> "I do not pray to this god. Didn't ya know?"
+"Nargun", "Nargún", "Nargùn" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
+english, "Oldra" -> "I do not pray to this god. Didn't ya know?"
+"Oldra" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
+english, "Ronagan" -> "I do not pray to this god. Didn't ya know?"
+"Ronagan" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
+english, "Sirani" -> "I do not pray to this god. Didn't ya know?"
+"Sirani" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
+english, "Tanora", "Zelphia" -> "I do not pray to this god. Didn't ya know?"
+"Tanora", "Zelphia" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
+english, "Ushara" -> "I do not pray to this god. Didn't ya know?"
+"Ushara" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
+english, "Zhambra" -> "I do not pray to this god. Didn't ya know?"
+"Zhambra" ->  "I bete nich' zu dem. Weiß' du datt etwa nich?"
+
+-- Optional: Faction stuff
+"archmage" -> "I heard he lives in Runewick."
+"Erzmagier" -> "Ich hörte der lebt in Runewick."
+english, "Elvaine", "Morgan" -> "I heard he lives in Runewick, this so called arch mage does, too."
+"Elvaine", "Morgan" -> "Ich hörte der lebt auch in Runewick, wie dieser Erzmagier."
+english, "Runewick" -> "Mages live there.They do not know about smithing, I tell ya!"
+"Runewick" -> "Da wohnen magier. Die verstehen nix vom schmieden, ich sag's dir!"
+english, "Valerio", "Guilianni", "Don" -> "The Don likes money. We all do, right?"
+"Valerio", "Guilianni", "Don" -> "Der Don mag Geld, wir auch, nich' wahr?"
+english, "Galmair" -> "I like Galmair! Money, Beer and magical gemstones."
+"Galmair" -> "Ich mag Galmair, hier gibt's Geld, Bier und magische Edelsteine."
+"Queen" -> "I can't understand why they call her queen. Dwarven queens are way diffent."
+"Königin" -> "Ich verstewh nicht warum die se  nen Königin nennen. Ne' zwergische Königin is jang anders drauf."
+english, "rosaline", "edwards" -> "I can't understand why they call her queen. Dwarven queens are way diffent."
+"rosaline", "edwards" -> "Ich verstewh nicht warum die se  nen Königin nennen. Ne' zwergische Königin is jang anders drauf."
+english, "Cadomyr" -> "If I hear ya say Cadomyar, then I think of sun burnd skin... Juck!"
+"Cadomyr" -> "WEnn ich dich Cadomiy sagen hör, dann denk ich an von'ner Sonne verbrannte Haut... Igitt!"
+
+-- Optional: Main land factions
+english, "albar" -> "Humans live there...sounds boring."
+"albar" -> "Da leben Menschen ... wie öde."
+english, "gynk", "gync" -> "Humans live there...sounds boring."
+"gync", "gynk" -> "Da leben Menschen ... wie öde."
+english, "salkama" -> "Humans live there...sounds boring."
+"salkama" -> "Da leben Menschen ... wie öde."
+
+-- Optional: Gobaith
+english, "Gobaith", "Gobiath" -> "Haven't heard 'bout that."
+"Gobaith", "Gobiath" -> "Hab ich nix von gehört."
+
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
+"my name" -> "Nice to know ya. But say don't ya want to have something made out of magical gems?"
+"mein Name" -> "Nett dich kennen zu leren. Aber sag ma, willst nich was aus magischen Edelsteinen gemacht haben?"
+english, "Marianne", "Forgeron" -> "#me raises a hand.", "Me? Here!", "Marianne Forgeron, the magical blacksmith, what do ya want?"
+"Marianne", "Forgeron" -> "#me hebt eine Hand.", "Ich? Hier!", "Marinanne Forgeron, die magische Schmiedin. Watt willste?"
+"Yes" -> "That's what I told ya!", "Exactelly!", "#me nods eagerly."
+"Ja" -> "Sag' ich doch!", "Janz jenau!", "#me nickt eifrig."
+"No" -> "What? No?...", "That not nice of ya."
+"Nein" -> "Wie? Nich'...?", "Datt is jez aber nicht nett."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "What?", "Whst ya wanna say with that?", "I dont understand ya."
+german, chance(20.0), ".*" -> "Watt?", "Watt meinste damit?", "Datt versteh' ich nich'."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me streicht sich eine Haarsträhne aus dem Gesicht.", "#me wipes some hair off her face."
+cycletext "#me schaut in den Himmel.", "#me lookes into the sky."
+cycletext "Magischer Schmied, Marinne Forgeron!", "Magical Blacksmith, Marinne Forgeron!"
+cycletext "#me winkt, einen Hammer in der Hand haltend.", "#me waves with the hammer in her hand."
+cycletext "Magische Edelseine sind janz nett. Aber ich kann se noch mehr veredelen!", "Magical gems are nice. I can make yours even nicer!"
+cycletext "#me summt eine rhytmische Melodie.", "#me humms a rhytmic melodie."
+cycletext "#me schaut sich um.", "#me lookes abound."
+cycletext "Schönes Wetter heute.", "Nice weather today!"

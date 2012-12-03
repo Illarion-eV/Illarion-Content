@@ -9,11 +9,7 @@
 -- Pflanze,Mineral,Filtrat in der Hand
 -- Auf Kessel auslösen
 
-require("base.common")
-require("druid.base.alchemy")
-require("item.general.metal")
 
-module("druid.item.id_1008_cauldron", package.seeall)
 
 -- UPDATE common SET com_script='druid.item.id_1008_cauldron' WHERE com_itemid = 1008;
 
