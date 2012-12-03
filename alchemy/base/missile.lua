@@ -76,9 +76,8 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
             -- 850HP - 9990HP
             local qual = Item.quality;
             qual = base.common.Limit(math.floor(qual/100), 1, 9)
-			qual = qual/100
-            
-			Schaden = 8.5 * qual;
+			
+			Schaden = 850 * qual;
 
             -- Ermittle Summe der als schützend angegebene Attribute
             AttribEffect = 0;

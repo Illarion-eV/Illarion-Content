@@ -18,7 +18,7 @@ end
 function callEffect(Effect,User)   
 --User:inform("debug func callEffect")
     
-	findCounter,counterBlack = Effect:findValue("counterBlack")
+	local findCounter,counterBlack = Effect:findValue("counterBlack")
     if findCounter then 
 	  
 	   if counterBlack >= 1 then 
@@ -32,7 +32,7 @@ function callEffect(Effect,User)
 		   end
 		  counterBlack = counterBlack - 1; -- reduce of the effect counter
 		  Effect:addValue("counterBlack",counterBlack)
-		  findCounter,counterBlack = Effect:findValue("counterBlack")
+		  local findCounter,counterBlack = Effect:findValue("counterBlack")
 		  
 		   if counterBlack == 0 then
 				-- the effect counter is down to zero; we change the char back
@@ -42,7 +42,7 @@ function callEffect(Effect,User)
 	   end   
    end
 
-   Effect.nextCalled = 50
+   Effect.nextCalled = 600
    return true
 end
 
@@ -50,21 +50,21 @@ function removeEffect(Effect,User)
 end
 
 function loadEffect(Effect,User)
-    findCounter,counterBlack = Effect:findValue("counterBlack")	
+   local findCounter,counterBlack = Effect:findValue("counterBlack")	
 	if findCounter then	
 	   if counterBlack > 0 then -- check if the actual effect is still active
 		
-			findIsMonster, isMonster = Effect:findValue("isMonster")
+			local findIsMonster, isMonster = Effect:findValue("isMonster")
 			if isMonster ~= 1 then
-				finnNewSkincolor1, newSkincolor1 = Effect:findValue("newSkincolor1")
-				finnNewSkincolor2, newSkincolor2 = Effect:findValue("newSkincolor2")
-				finnNewSkincolor3, newSkincolor3 = Effect:findValue("newSkincolor3")
-				finnNewHaircolor1, newHaircolor1 = Effect:findValue("newHaircolor1")
-				finnNewHaircolor2, newHaircolor2 = Effect:findValue("newHaircolor2")
-				finnNewHaircolor3, newHaircolor3 = Effect:findValue("newHaircolor3")
-				finnNewBeard, newBeard = Effect:findValue("newBeard")
-				finnNewHair, newHair = Effect:findValue("newHair")
-				finnNewSex, newSex = Effect:findValue("newSex")
+				local finnNewSkincolor1, newSkincolor1 = Effect:findValue("newSkincolor1")
+				local finnNewSkincolor2, newSkincolor2 = Effect:findValue("newSkincolor2")
+				local finnNewSkincolor3, newSkincolor3 = Effect:findValue("newSkincolor3")
+				local finnNewHaircolor1, newHaircolor1 = Effect:findValue("newHaircolor1")
+				local finnNewHaircolor2, newHaircolor2 = Effect:findValue("newHaircolor2")
+				local finnNewHaircolor3, newHaircolor3 = Effect:findValue("newHaircolor3")
+				local finnNewBeard, newBeard = Effect:findValue("newBeard")
+				local finnNewHair, newHair = Effect:findValue("newHair")
+				local finnNewSex, newSex = Effect:findValue("newSex")
 				
 				User:setSkinColor(newSkincolor1,newSkincolor2,newSkincolor3)
 				User:setHairColor(newHaircolor1,newHaircolor2,newHaircolor3)
@@ -72,8 +72,8 @@ function loadEffect(Effect,User)
 				User:setHair(newHair)
 				User:setAttrib("sex",newSex)
 			end
-			finnNewRace, newRace = Effect:findValue("newRace")
-			finnNewHeight, newHeight = Effect:findValue("newHeight")
+			local finnNewRace, newRace = Effect:findValue("newRace")
+			local finnNewHeight, newHeight = Effect:findValue("newHeight")
 			
 			User:setAttrib("racetyp",newRace)
 			User:setAttrib("body_height",newHeight) 
@@ -85,17 +85,17 @@ end
 
 function TransformBack(Effect,User)  
     -- give the char his original appeance back
-	findIsMonster, isMonster = Effect:findValue("isMonster")
+	local findIsMonster, isMonster = Effect:findValue("isMonster")
 	if isMonster ~= 1 then
-	    findOldSkincolor1, oldSkincolor1 = Effect:findValue("oldSkincolor1")
-	    findOldSkincolor2, oldSkincolor2 = Effect:findValue("oldSkincolor2")
-	    findOldSkincolor3, oldSkincolor3 = Effect:findValue("oldSkincolor3")
-		findOldHaircolor1, oldHaircolor1 = Effect:findValue("oldHaircolor1")
-	    findOldHaircolor2, oldHaircolor2 = Effect:findValue("oldHaircolor2")
-	    findOldHaircolor3, oldHaircolor3 = Effect:findValue("oldHaircolor3")
-		findOldBeard, oldBeard = Effect:findValue("oldBeard")
-        findOldHair, oldHair = Effect:findValue("oldHair")
-		findOldSex, oldSex = Effect:findValue("oldSex")
+	    local findOldSkincolor1, oldSkincolor1 = Effect:findValue("oldSkincolor1")
+	    local findOldSkincolor2, oldSkincolor2 = Effect:findValue("oldSkincolor2")
+	    local findOldSkincolor3, oldSkincolor3 = Effect:findValue("oldSkincolor3")
+		local findOldHaircolor1, oldHaircolor1 = Effect:findValue("oldHaircolor1")
+	    local findOldHaircolor2, oldHaircolor2 = Effect:findValue("oldHaircolor2")
+	    local findOldHaircolor3, oldHaircolor3 = Effect:findValue("oldHaircolor3")
+		local findOldBeard, oldBeard = Effect:findValue("oldBeard")
+        local findOldHair, oldHair = Effect:findValue("oldHair")
+		local findOldSex, oldSex = Effect:findValue("oldSex")
         
 		User:setSkinColor(oldSkincolor1,oldSkincolor2,oldSkincolor3)
 		User:setHairColor(oldHaircolor1,oldHaircolor2,oldHaircolor3)
@@ -103,8 +103,8 @@ function TransformBack(Effect,User)
 		User:setHair(oldHair)
 	    User:setAttrib("sex",oldSex)
 	end
-    findOldRace, oldRace = Effect:findValue("oldRace")
-	findOldHeight, oldHeight = Effect:findValue("oldHeight")
+    local findOldRace, oldRace = Effect:findValue("oldRace")
+	local findOldHeight, oldHeight = Effect:findValue("oldHeight")
 	
     User:setAttrib("racetyp",oldRace)
 	User:setAttrib("body_height",oldHeight) 
