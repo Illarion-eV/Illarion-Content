@@ -86,7 +86,7 @@ queststatus(310) = 3, ".*" -> inform("[Tutorial] Bitte überprüfe, ob deine Cha
 
 -- Player lost his torch. We will remove farmed torches at the end of the tutorial.
 queststatus(310) = 4, item(391, all) = 0, english, ".*" -> "Without a light source, the darkness will engulf you sooner or later. I have given you another torch, be more careful with this one.", item(391, 1, 333)
-queststatus(310) = 4, item(391, all) = 0, ".*" -> "Ohne eine Lichtquelle wird Euch die Dunkelheit früher oder später einhüllen. Ich habe Euch eine neue Fackel gegeben, bite seid vorsichtiger mit dieser.", item(391, 1, 333)
+queststatus(310) = 4, item(391, all) = 0, ".*" -> "Ohne eine Lichtquelle wird Euch die Dunkelheit früher oder später einhüllen. Ich habe Euch eine neue Fackel gegeben, bitte seid vorsichtiger mit dieser.", item(391, 1, 333)
 
 -- Player seems to have a problem with using items
 queststatus(310) = 4, english, ".*" -> inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. You can perform a double click on an item to use it. Double click the torch to ignite it."), "What is the purpose of owning an item if you cannot use it properly? Ignite the torch I gave you with a double click. Light sources are quite important when travelling by night."

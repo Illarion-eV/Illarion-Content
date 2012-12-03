@@ -178,7 +178,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(310, "=", 4));
 talkEntry:addCondition(npc.base.condition.item.item(391, "all", "=", 0, nil));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ohne eine Lichtquelle wird Euch die Dunkelheit früher oder später einhüllen. Ich habe Euch eine neue Fackel gegeben, bite seid vorsichtiger mit dieser.");
+talkEntry:addResponse("Ohne eine Lichtquelle wird Euch die Dunkelheit früher oder später einhüllen. Ich habe Euch eine neue Fackel gegeben, bitte seid vorsichtiger mit dieser.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, nil));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
