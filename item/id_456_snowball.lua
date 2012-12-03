@@ -23,11 +23,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if (User.lastSpokenText == "gaia") then
 	    local foundGaia, gaia = ScriptVars:find("gaiatest_var_by_merung")
 		if not foundGaia then -- security check
-			oldTreasure = 0
+			gaia = 0
 		else
-			oldTreasure = tonumber(oldTreasure)
+			gaia = tonumber(gaia)
 		end	
-		User:inform("old treasure: "..oldTreasure)
+		User:inform("gaia: "..gaia)
+		return
 	end	
 	
 	if (User.lastSpokenText == "data1") then 
