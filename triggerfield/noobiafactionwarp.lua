@@ -52,9 +52,11 @@ function MoveToField(Character)
 	end
 
     world:gfx(41,Character.pos);
-	Character:forceWarp(destination);
+	world:makeSound(13,Character.pos);
+	--Deactivated for beta test ~Estralis
+	--[[Character:forceWarp(destination);
     world:makeSound(13,destination);
-    world:gfx(41,Character.pos);
+    world:gfx(41,Character.pos);]]
 	
 	FactionCheck = base.factions.getFaction(Character);
 	
