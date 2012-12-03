@@ -231,82 +231,9 @@ function onLogin( player )
 	if not find then
 		player.effects:addEffect( LongTimeEffect(33,10) );
 	end
-
-	-- Smell effect removed for the time being (annoying!!!)
-	find, stinkEffekt = player.effects:find(18);
-	if find then
-		player.effects:removeEffect(18);
-	end
-
-	-- Cold effect removed for the time being (annoying!!!)
-	find, coldEffekt = player.effects:find(3);
-	if find then
-		player.effects:removeEffect(3);
-	end
-
-	-- Langzeitefekt für Runenlehren
-    year=world:getTime("year");
-    year=(year-1)*31536000;						-- (year-1)*((15*24) + 5)*24*60*60;
-    month=world:getTime("month");
-    month=(month-1)*2073600;					-- (month-1)*24*24*60*60;
-    day=world:getTime("day");
-    day=(day-1)*86400;							-- (day-1)*24*60*60;
-    hour=world:getTime("hour");
-    hour=hour*3600;								-- hour*60*60;
-    minute=world:getTime("minute");
-    minute=minute*60;
-    second=world:getTime("second");
-    second=second;
-
-	timestamp=year+month+day+hour+minute+second;
-
-	find, teachEffect = player.effects:find(22);
-	if find then
-		found, Rune1Index = teachEffect:findValue("Rune1Index");
-		if found then
-    		if ( (timestamp>=Rune1Index) or (Rune1Index==1) ) then
-    			teachEffect:addValue("Rune1Index",1);
-				Rune1=1;
-			else
-			    Rune1=2;
-			end
-		end
-		found, Rune2Index = teachEffect:findValue("Rune2Index");
-		if found then
-    		if ( (timestamp>=Rune2Index) or (Rune2Index==1) ) then
-				teachEffect:addValue("Rune2Index",1);
-				Rune2=1;
-			else
-			    Rune2=2;
-			end
-		end
-		if ( (Rune1==1) and (Rune2==1) ) then
-			player.effects:removeEffect(22);
-		end
-	else
-    end
-	return true;
-end
-
-function createCow( player )
-	posList = { 0, 1, -1, 2, -2 };
-	for i, XPos in pairs(posList) do
-		for k, YPos in pairs(posList) do
-			SettingPos = position(player.pos.x+XPos,player.pos.y+YPos,player.pos.z);
-			if not world:isCharacterOnField( SettingPos ) and not world:isItemOnField( SettingPos ) then
-				if world:createDynamicNPC("Lasttier",50,SettingPos,0,"npc_lasttier.lua") then
-					return SettingPos;
-				else
-					return false;
-				end
-			end
-		end
-	end
-	return false;
 end
 
 function setNewbiePos(newbieEffect,Character)
-
 	newbieEffect:addValue("newbiePosX",Character.pos.x);
 	newbieEffect:addValue("newbiePosY",Character.pos.y);
 	newbieEffect:addValue("newbiePosZ",Character.pos.z);
