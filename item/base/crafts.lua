@@ -75,6 +75,10 @@ function Craft:new(c)
 end
 
 function Craft:addTool(itemId)
+    if not self.defaultTool then
+        self.defaultTool = itemId
+    end
+
     self.tool[itemId] = true
 end
 
@@ -478,8 +482,8 @@ function Craft:locationFine(user)
         return false
     elseif not self.tool[staticTool] then
         if not self.fallbackCraft then
-            local germanTool = world:getItemName(staticTool, Player.german)
-            local englishTool = world:getItemName(staticTool, Player.english)
+            local germanTool = world:getItemName(self.defaultTool, Player.german)
+            local englishTool = world:getItemName(self.defaultTool, Player.english)
             base.common.InformNLS(user,
             "Du stehst nicht neben dem benötigten Werkzeug: " .. germanTool,
             "There is no " .. englishTool .. " close by to work with.")
