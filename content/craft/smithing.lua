@@ -5,6 +5,7 @@ module("content.craft.smithing", package.seeall)
 smithing = item.base.crafts.Craft:new{
                       craftEN = "blacksmithing",
                       craftDE = "Schmieden",
+                      handTool = 23,
                       leadSkill = Character.smithing,
                       defaultFoodConsumption = 300,
                       sfx = 8,

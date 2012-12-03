@@ -5,6 +5,7 @@ module("content.craft.goldgoldsmithing", package.seeall)
 goldsmithing = item.base.crafts.Craft:new{
                       craftEN = "goldgoldsmithing",
                       craftDE = "Goldschmieden",
+                      handTool = 122,
                       leadSkill = Character.goldsmithing,
                       defaultFoodConsumption = 300,
                       sfx = 8,

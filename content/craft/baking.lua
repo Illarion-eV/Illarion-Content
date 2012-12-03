@@ -5,6 +5,7 @@ module("content.craft.baking", package.seeall)
 baking = item.base.crafts.Craft:new{
                      craftEN = "baking",
                      craftDE = "Backen",
+                     handTool = 121,
                      leadSkill = Character.cookingAndBaking,
                      defaultFoodConsumption = 100,
                    };

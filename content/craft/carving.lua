@@ -5,6 +5,7 @@ module("content.craft.carving", package.seeall)
 carving = item.base.crafts.Craft:new{
               craftEN = "carpentry",
               craftDE = "Schreinern",
+              handTool = 2752,
               leadSkill = Character.carpentry,
               defaultFoodConsumption = 200,
               sfx = 14,

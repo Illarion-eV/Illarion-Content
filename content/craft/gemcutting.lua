@@ -5,6 +5,7 @@ module("content.craft.gemcutting", package.seeall)
 gemcutting = item.base.crafts.Craft:new{
                           craftEN = "gemcutting",
                           craftDE = "Edelsteine schleifen",
+                          handTool = 2140,
                           leadSkill = Character.gemcutting,
                           DefaultFoodConsumption = 200,
                         };
