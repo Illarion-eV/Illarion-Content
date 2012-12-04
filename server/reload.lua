@@ -9,6 +9,7 @@ require("content.gods")
 require("item.lever")
 require("content.areas")
 require("alchemy.base.alchemy")
+require("item.id_456_snowball") -- just tetsing
 
 module("server.reload", package.seeall)
 
@@ -22,6 +23,7 @@ function onReload()
 	initNoobia();
 	initTreasureChests();
     alchemy.base.alchemy.InitAlchemy();
+	item.id_456_snowball.Init()
 	-- logToFile("end onReload");
     item.lever.init();
 	content.areas.Init();
