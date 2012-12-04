@@ -70,7 +70,7 @@ radius = 0
 
 -- Debugging
 
-queststatus(1000) > 14, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
+queststatus(317) > 14, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
 
