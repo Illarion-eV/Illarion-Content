@@ -330,9 +330,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("land");
 talkEntry:addTrigger("region");
-talkEntry:addTrigger("area");
 talkEntry:addResponse("The four towers of Runewick are somewhere in the southeast between the meadow and the forest. The halls and caves of Galmair are to the northwest between the mountains and the forest. The town of Cadomyr lies to the west between the desert and the mountains.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -386,7 +386,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Landschaft");
+talkEntry:addTrigger("Land");
+talkEntry:addTrigger("Region");
 talkEntry:addResponse("Die vier Türme von Runewick wirst du irgendwo im Südosten zwischen Sümpfen und Wäldern finden; die Hallen und Höhlen von Galmair inmitten von Bergen und Wäldern; und die Häuser von Cadomyr zwischen einer Wüste und Bergen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
