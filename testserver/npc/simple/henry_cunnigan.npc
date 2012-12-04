@@ -61,8 +61,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Henry Cunnigan. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
 
 -- Skipping
-"skip", "cancel", "abort" -> inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands to the south."), warp(35, 95, 100)
-"überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im Süden trittst."), warp(35, 95, 100)
+"skip", "cancel", "abort" -> inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands to the south."), warp(36, 94, 100)
+"überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im Süden trittst."), warp(36, 94, 100)
 
 -- Learn how to shout
 queststatus(309) < 2, english, ".*" -> inform("[Tutorial] To shout, please hit the return key to activate the chatbox. Type '#s' in front of the words you wish to shout and then hit return again to make your character shout them."), "Welcome to the tutorial, %CHARNAME. Henry Cunnigan, harbourmaster, at your service. I will teach you how to communicate with other characters. Since you clearly already know how to talk, I will show you how to shout. Please shout out something for me to hear. Perhaps your name, for example!", queststatus(309) = 2

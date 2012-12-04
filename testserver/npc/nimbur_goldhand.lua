@@ -60,7 +60,7 @@ talkEntry:addTrigger("skip");
 talkEntry:addTrigger("cancel");
 talkEntry:addTrigger("abort");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands to the south."));
-talkEntry:addConsequence(npc.base.consequence.warp.warp(35, 95, 100));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(36, 94, 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -68,7 +68,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("überspring");
 talkEntry:addTrigger("abbrech");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln  im Süden trittst."));
-talkEntry:addConsequence(npc.base.consequence.warp.warp(35, 95, 100));
+talkEntry:addConsequence(npc.base.consequence.warp.warp(36, 94, 100));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
