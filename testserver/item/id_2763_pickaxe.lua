@@ -545,7 +545,7 @@ function DigForTresure(User,TargetPos)
             "You swing your pick-axe towards the ground and it digs deeply into the grass.");
         elseif ( GroundType == 5 ) then
             base.common.InformNLS( User,
-            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und lockerst du den festen Boden etwas",
+            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und lockerst den festen Boden etwas",
             "You swing your pick-axe towards the ground and disturb the stony ground slightly.");
         elseif ( GroundType == 6 ) then
             base.common.InformNLS( User,
