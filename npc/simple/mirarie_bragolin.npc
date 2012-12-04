@@ -74,9 +74,9 @@ queststatus(1000) > 14, ".+" -> inform("[Error] Something went wrong, please inf
 
 -- Help
 
-"Help" -> inform("[Game Help] This NPC is Mirarie Bragolin, the dwarven explorer. Keywords: Quest, Mission, Adventure, TRIGGER4, profession.")
+"Help" -> inform("[Game Help] This NPC is Mirarie Bragolin, the dwarven explorer. Keywords: Quest, Mission, Adventure, tell something, profession.")
 
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Mirarie Bragolin, die zwergische Entdeckerin. Schlüsselwörter: Quest, Mission, Abenteuer, BLABLA, Beruf.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Mirarie Bragolin, die zwergische Entdeckerin. Schlüsselwörter: Quest, Mission, Abenteuer, erzähl was, Beruf.")
 
 -- General speech
 
