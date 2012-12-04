@@ -959,7 +959,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(1000, "=", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 12));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -968,7 +968,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(1000, "=", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 12));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Du hast die Nachricht vergessen? Sie ist wirklich wichtig. Sie ist an den Don von Galmair Valerio Guilianni bestimmt.");
@@ -976,7 +976,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(1000, "=", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 12));
 talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
@@ -985,7 +985,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(1000, "=", 12));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 12));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -996,53 +996,53 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(1000, "=", 13));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 13));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded fire dagger. You advance in Queen Rosaline's favour."));
 talkEntry:addResponse("So, you got an answer? I see... That's just amazing!  By the gods! Your story will fill a whole chapter in the book. Oh, before I forget, here, this is for you my friend and thanks again, my friend.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2742, 1, 999, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1000, "=", 14));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 14));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(1000, "=", 13));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 13));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded with fire dagger."));
 talkEntry:addResponse("So, you got answer? I see... That's just amazing!  By the gods! Your story will fill a whole chapter in the book. Oh, before I forget, here, this is for you, my friend and thanks again, my friend.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2742, 1, 999, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1000, "=", 14));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 14));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(1000, "=", 13));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 13));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Feuerdolch. Dein Ansehen bei Königin Rosaline steigt."));
 talkEntry:addResponse("So, hast du also die Antwort?  Ich verstehe ? Das ist großartig! Bei den Göttern! Deine Geschichte wird ein ganzese Kapitel meines Buches füllen! Oh, befor ich es vergesse, hier, das ist für dich, mein Freund und Danke nochmals.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2742, 1, 999, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1000, "=", 14));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 14));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(1000, "=", 13));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 13));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Feuerdolch."));
 talkEntry:addResponse("So, hast du also die Antwort?  Ich verstehe ? Das ist großartig! Bei den Göttern! Deine Geschichte wird ein ganzese Kapitel meines Buches füllen! Oh, befor ich es vergesse, hier, das ist für dich, mein Freund und Danke nochmals.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2742, 1, 999, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(1000, "=", 14));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 14));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(1000, "=", 14));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 14));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -1051,7 +1051,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(1000, "=", 14));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 14));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Hallo mein Freund. Nur dank dir konnte ich das letzte Kapitel fertigstellen.");
@@ -1059,7 +1059,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(1000, "=", 14));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 14));
 talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
@@ -1068,7 +1068,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(1000, "=", 14));
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 14));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
