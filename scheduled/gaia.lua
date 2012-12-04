@@ -34,8 +34,8 @@ function plantdrop()
 	for i=1,30 do
 	    
 		local rndValue = math.random(1,#plnt)
-		local myPlant = plnt(rndValue)
-	    local myGrndsList = grnd(rndValue)
+		local myPlant = plnt[rndValue]
+	    local myGrndsList = grnd[rndValue]
 		local myPos = position( math.random(0,1024), math.random(0,1024), 0 )
 		local theTile=world:getField(myPos);
 		local groundType = base.common.GetGroundType( theTile:tile() )
