@@ -2,4 +2,4 @@
 -- default. The script is fetched from /home/nitram/testnpc/npc_test.lua
 -- This NPC is required to work correctly with the realtime NPC Update System
 
-dofile("/home/nitram/testnpc/npc_test.lua");
+dofile("../../../../../../home/nitram/testnpc/npc_test.lua");
