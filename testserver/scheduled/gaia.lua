@@ -5,8 +5,28 @@ module("scheduled.gaia", package.seeall)
 -- INSERT INTO scheduledscripts VALUES('scheduled.gaia', 10, 10, 'plantdrop');
 
 -- simple gaia until we create a more complex version (postVBU)
+function Init()
+    
+	plnt = {};
+    grnd = {};
+	local gt = base.common.GroundType
+	AddPlant(752,{gt.sand,gt.grass});  -- Alraune
+	AddPlant(756,{gt.forest,gt.grass});  -- Frommbeere
+	AddPlant(757,{gt.forest,gt.grass});  -- Gottesblume
+	AddPlant(758,{gt.forest,gt.grass});  -- Herzblut
+	AddPlant(764,{gt.forest,gt.grass});  -- Tagteufel
+	AddPlant(765,{gt.forest,gt.grass});  -- Tagtraum
+	AddPlant(766,{gt.dirt,gt.grass});  -- Trugblüte
+	AddPlant(769,{gt.sand,gt.grass});  -- Wüstenbeere
+
+end
+function AddPlant(ItemID,Ground)
+    table.insert(plnt,ItemID);
+    table.insert(grnd,Ground);
+end
+
 function plantdrop()
-  --[[  if ( plnt==nil ) then
+   if ( plnt==nil ) then
         Init();
     end
 
@@ -14,46 +34,28 @@ function plantdrop()
 	for i=1,30 do
 	    
 		local rndValue = math.random(1,#plnt)
-		local myPlant = plnt(myValue)
-	    local myGrndsList = grnd(myValue)
+		local myPlant = plnt[rndValue]
+	    local myGrndsList = grnd[rndValue]
 		local myPos = position( math.random(0,1024), math.random(0,1024), 0 )
 		local theTile=world:getField(myPos);
-		local groundType = base.common.GetGroundType( theTile:tile() )
-		
-		local success = false
-		for i=1,#myGrndsList do
-		    if groundType == myGrndsList[i] then
-			    success = true
+		if theTile then
+			local groundType = base.common.GetGroundType( theTile:tile() )
+			
+			local success = false
+			for i=1,#myGrndsList do
+				if groundType == myGrndsList[i] then
+					success = true
+				end
+			end			
+			
+			if success then
+				world:createItemFromId(myPlant,1,myPos,false,333,nil)
+				herbCounter = herbCounter + 1
 			end
-        end			
-		
-		if success then
-		    world:createItemFromId(myPlant,1,myPos,false,333,nil)
-			herbCounter = herbCounter + 1
-		end
+		end	
     end
 	ScriptVars:set("gaiatest_var_by_merung", tostring(herbCounter))
 	ScriptVars:save()
-end	
-
-function Init()
-    
-	plnt = {};
-    grnd = {};
-	
-	AddPlant(752,{GroundType.sand,GroundType.grass});  -- Alraune
-	AddPlant(756,{GroundType.forest,GroundType.grass});  -- Frommbeere
-	AddPlant(757,{GroundType.forest,GroundType.grass});  -- Gottesblume
-	AddPlant(758,{GroundType.forest,GroundType.grass});  -- Herzblut
-	AddPlant(764,{GroundType.forest,GroundType.grass});  -- Tagteufel
-	AddPlant(765,{GroundType.forest,GroundType.grass});  -- Tagtraum
-	AddPlant(766,{GroundType.dirt,GroundType.grass});  -- Trugblüte
-	AddPlant(769,{GroundType.sand,GroundType.grass});  -- Wüstenbeere
-]]
-end
-function AddPlant(ItemID,Ground)
-    table.insert(plnt,ItemID);
-    table.insert(grnd,Ground);
 end
 
 --[[ OLD VERSION !!! this will be used later again. for the time being, we use a much more simple version 

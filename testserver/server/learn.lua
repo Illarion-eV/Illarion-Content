@@ -76,5 +76,5 @@ function getLeadAttrib(Char, Skill)
   if leadAttribName~=nil then
     return Char:increaseAttrib(leadAttribName,0);
   end
-  return 5;
+  return 10; --No way, 10 should be default. Why did you return 5? ~Estralis
 end

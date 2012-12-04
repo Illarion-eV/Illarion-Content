@@ -61,8 +61,8 @@ itemShoes = 53
 "Hilfe" -> inform("[Tutorial] Dieser NPC ist der Tutor Henry Cunnigan. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
 
 -- Skipping
-"skip", "cancel", "abort" -> inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands to the south."), warp(35, 95, 100)
-"überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im Süden trittst."), warp(35, 95, 100)
+"skip", "cancel", "abort" -> inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands to the south."), warp(36, 94, 100)
+"überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden, das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im Süden trittst."), warp(36, 94, 100)
 
 -- Learn how to shout
 queststatus(309) < 2, english, ".*" -> inform("[Tutorial] To shout, please hit the return key to activate the chatbox. Type '#s' in front of the words you wish to shout and then hit return again to make your character shout them."), "Welcome to the tutorial, %CHARNAME. Henry Cunnigan, harbourmaster, at your service. I will teach you how to communicate with other characters. Since you clearly already know how to talk, I will show you how to shout. Please shout out something for me to hear. Perhaps your name, for example!", queststatus(309) = 2
@@ -70,7 +70,7 @@ queststatus(309) < 2, ".*" -> inform("[Tutorial] Um zu schreien, aktiviere bitte
 
 -- Learn how to whisper
 queststatus(309) = 2, english, "#s" -> inform("[Tutorial] Whispering works a lot like shouting. Activate your chatbox again and write '#w' in front of the words you want to whisper."), "My, but you have a powerful voice! Shouting can be heard over quite some distance and is useful for communicating with large crowds or people that are far away. Sometimes, however, you don't want people eavesdropping into your private conversations. Please whisper some secret words for my ears only.", queststatus(309) = 3
-queststatus(309) = 2, "#s" -> inform("[Tutorial] Flüstern funktioniert fast wie Schreien. Aktiviere erneut deine Chatbox und schreibe '#w' vor die zu flüsternden Worte."), "Ui, du hast aber eine kraftvolle Stimme! Schreien kann auch in einiger Entfernung noch hören und es ist nützlich zur Kommunikation mit großen Gruppen oder Personen, die weit weg sind. Manchmal will man allerdings nicht von anderen bei einer privaten Unterhaltung belauscht werden. Bitte flüster mir ein paar geheime Worte zu, die nur für meine Ohren bestimmt sind.", queststatus(309) = 3
+queststatus(309) = 2, "#s" -> inform("[Tutorial] Flüstern funktioniert fast wie Schreien. Aktiviere erneut deine Chatbox und schreibe '#w' vor die zu flüsternden Worte."), "Ui, du hast aber eine kraftvolle Stimme! Schreien kann man auch in einiger Entfernung noch hören und es ist nützlich zur Kommunikation mit großen Gruppen oder Personen, die weit weg sind. Manchmal will man allerdings nicht von anderen bei einer privaten Unterhaltung belauscht werden. Bitte flüster mir ein paar geheime Worte zu, die nur für meine Ohren bestimmt sind.", queststatus(309) = 3
 
 -- Player seems to have a problem with shouting
 queststatus(309) = 2, english, ".*" -> inform("[Tutorial] To shout, please hit the return key to activate the chatbox. Type '#s' in front of the words you wish to say and then hit return again to make your character shout them."), "You already know how to talk, but shouting can help you to find your lost friends in lonely woods or dark dungeons. Please shout some words at will. Let your voice be heard! I shan't take offence, honest!"
@@ -101,5 +101,5 @@ queststatus(309) = 5, ".*" -> "Du hast alles gelernt, was ich dir beibringen kan
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Kommt näher und sagt doch 'Hallo'.", "Come a little closer and say 'hello'."
-cycletext "Hast du vergessen, wie man sich bewegt? Benutz die rechte Maustaste, die Pfeiltasten, den Ziffernblock oder WASD.", "Forgot how to move? Use the right mouse button, the arrow keys, the num pad or WASD."
+cycletext "Komm näher und sag doch 'Hallo' zu mir.", "Come a little closer and say 'hello'."
+cycletext "Hast du vergessen, wie man sich bewegt? Benutz die linke Maustaste, die Pfeiltasten, den Ziffernblock oder WASD.", "Forgotten how to move? Use the left mouse button, the arrow keys, the num pad or WASD."
