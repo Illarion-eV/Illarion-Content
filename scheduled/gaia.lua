@@ -38,19 +38,21 @@ function plantdrop()
 	    local myGrndsList = grnd[rndValue]
 		local myPos = position( math.random(0,1024), math.random(0,1024), 0 )
 		local theTile=world:getField(myPos);
-		local groundType = base.common.GetGroundType( theTile:tile() )
-		
-		local success = false
-		for i=1,#myGrndsList do
-		    if groundType == myGrndsList[i] then
-			    success = true
+		if theTile then
+			local groundType = base.common.GetGroundType( theTile:tile() )
+			
+			local success = false
+			for i=1,#myGrndsList do
+				if groundType == myGrndsList[i] then
+					success = true
+				end
+			end			
+			
+			if success then
+				world:createItemFromId(myPlant,1,myPos,false,333,nil)
+				herbCounter = herbCounter + 1
 			end
-        end			
-		
-		if success then
-		    world:createItemFromId(myPlant,1,myPos,false,333,nil)
-			herbCounter = herbCounter + 1
-		end
+		end	
     end
 	ScriptVars:set("gaiatest_var_by_merung", tostring(herbCounter))
 	ScriptVars:save()
