@@ -210,7 +210,7 @@ talkEntry:addResponse("Du hast alles gelernt, was ich dir beibringen kann. Viel 
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Kommt näher und sagt doch 'Hallo'.", "Come a little closer and say 'hello'.");
-talkingNPC:addCycleText("Hast du vergessen, wie man sich bewegt? Benutz die rechte Maustaste, die Pfeiltasten, den Ziffernblock oder WASD.", "Forgot how to move? Use the right mouse button, the arrow keys, the num pad or WASD.");
+talkingNPC:addCycleText("Hast du vergessen, wie man sich bewegt? Benutz die rechte Maustaste, die Pfeiltasten, den Ziffernblock oder WASD.", "Forgotten how to move? Use the left mouse button, the arrow keys, the num pad or WASD.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
