@@ -34,8 +34,8 @@ function plantdrop()
 	for i=1,30 do
 	    
 		local rndValue = math.random(1,#plnt)
-		local myPlant = plnt(myValue)
-	    local myGrndsList = grnd(myValue)
+		local myPlant = plnt(rndValue)
+	    local myGrndsList = grnd(rndValue)
 		local myPos = position( math.random(0,1024), math.random(0,1024), 0 )
 		local theTile=world:getField(myPos);
 		local groundType = base.common.GetGroundType( theTile:tile() )
@@ -53,8 +53,8 @@ function plantdrop()
 		end
     end
 	ScriptVars:set("gaiatest_var_by_merung", tostring(herbCounter))
-	ScriptVars:save()
-end	
+	ScriptVars:save()]]
+end
 
 --[[ OLD VERSION !!! this will be used later again. for the time being, we use a much more simple version 
 function AddPlant(ItemID,Ground,Region,Season,Datawert)
