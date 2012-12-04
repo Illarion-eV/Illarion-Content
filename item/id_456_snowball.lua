@@ -36,10 +36,10 @@ function Init()
 
 end
 function AddPlant(ItemID,Ground)
-    if plnt = nil then
+    if plnt == nil then
 	    plnt = {}
 	end
-	if grnd = nil then
+	if grnd == nil then
 	    grnd = {}
 	end	
  	
