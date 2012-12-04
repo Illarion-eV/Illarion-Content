@@ -5,6 +5,26 @@ module("scheduled.gaia", package.seeall)
 -- INSERT INTO scheduledscripts VALUES('scheduled.gaia', 10, 10, 'plantdrop');
 
 -- simple gaia until we create a more complex version (postVBU)
+function Init()
+    
+	plnt = {};
+    grnd = {};
+	local gt = base.common.GroundType
+	AddPlant(752,{gt.sand,gt.grass});  -- Alraune
+	AddPlant(756,{gt.forest,gt.grass});  -- Frommbeere
+	AddPlant(757,{gt.forest,gt.grass});  -- Gottesblume
+	AddPlant(758,{gt.forest,gt.grass});  -- Herzblut
+	AddPlant(764,{gt.forest,gt.grass});  -- Tagteufel
+	AddPlant(765,{gt.forest,gt.grass});  -- Tagtraum
+	AddPlant(766,{gt.dirt,gt.grass});  -- Trugblüte
+	AddPlant(769,{gt.sand,gt.grass});  -- Wüstenbeere
+
+end
+function AddPlant(ItemID,Ground)
+    table.insert(plnt,ItemID);
+    table.insert(grnd,Ground);
+end
+
 function plantdrop()
     if ( plnt==nil ) then
         Init();
@@ -35,26 +55,6 @@ function plantdrop()
 	ScriptVars:set("gaiatest_var_by_merung", tostring(herbCounter))
 	ScriptVars:save()
 end	
-
-function Init()
-    
-	plnt = {};
-    grnd = {};
-	local gt = base.common.GroundType
-	AddPlant(752,{gt.sand,gt.grass});  -- Alraune
-	AddPlant(756,{gt.forest,gt.grass});  -- Frommbeere
-	AddPlant(757,{gt.forest,gt.grass});  -- Gottesblume
-	AddPlant(758,{gt.forest,gt.grass});  -- Herzblut
-	AddPlant(764,{gt.forest,gt.grass});  -- Tagteufel
-	AddPlant(765,{gt.forest,gt.grass});  -- Tagtraum
-	AddPlant(766,{gt.dirt,gt.grass});  -- Trugblüte
-	AddPlant(769,{gt.sand,gt.grass});  -- Wüstenbeere
-
-end
-function AddPlant(ItemID,Ground)
-    table.insert(plnt,ItemID);
-    table.insert(grnd,Ground);
-end
 
 --[[ OLD VERSION !!! this will be used later again. for the time being, we use a much more simple version 
 function AddPlant(ItemID,Ground,Region,Season,Datawert)
