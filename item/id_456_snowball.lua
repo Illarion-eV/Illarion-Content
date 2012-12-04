@@ -19,8 +19,65 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 	end
 end
 
+function Init()
+    
+	plnt = {};
+    grnd = {};
+	local gt = base.common.GroundType
+	AddPlant(752,{gt.sand,gt.grass});  -- Alraune
+	AddPlant(756,{gt.forest,gt.grass});  -- Frommbeere
+	AddPlant(757,{gt.forest,gt.grass});  -- Gottesblume
+	AddPlant(758,{gt.forest,gt.grass});  -- Herzblut
+	AddPlant(764,{gt.forest,gt.grass});  -- Tagteufel
+	AddPlant(765,{gt.forest,gt.grass});  -- Tagtraum
+	AddPlant(766,{gt.dirt,gt.grass});  -- Trugblüte
+	AddPlant(769,{gt.sand,gt.grass});  -- Wüstenbeere
+
+end
+function AddPlant(ItemID,Ground)
+    table.insert(plnt,ItemID);
+    table.insert(grnd,Ground);
+end
+
+function plantdrop()
+   if ( plnt==nil ) then
+        Init();
+    end
+
+	local herbCounter = 0 -- for testing
+	for i=1,30 do
+	    
+		local rndValue = math.random(1,#plnt)
+		local myPlant = plnt(rndValue)
+	    local myGrndsList = grnd(rndValue)
+		local myPos = position( math.random(0,1024), math.random(0,1024), 0 )
+		local theTile=world:getField(myPos);
+		local groundType = base.common.GetGroundType( theTile:tile() )
+		
+		local success = false
+		for i=1,#myGrndsList do
+		    if groundType == myGrndsList[i] then
+			    success = true
+			end
+        end			
+		
+		if success then
+		    world:createItemFromId(myPlant,1,myPos,false,333,nil)
+			herbCounter = herbCounter + 1
+		end
+    end
+	ScriptVars:set("gaiatest_var_by_merung", tostring(herbCounter))
+	ScriptVars:save()
+end
+
+
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    if (User.lastSpokenText == "gaia") then
+    if (User.lastSpokenText == "doGaia") then
+	    plantdrop()
+	    return
+	end	
+	
+	if (User.lastSpokenText == "gaiaResult") then
 	    local foundGaia, gaia = ScriptVars:find("gaiatest_var_by_merung")
 		if not foundGaia then -- security check
 			gaia = 0
