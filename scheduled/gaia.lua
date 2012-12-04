@@ -53,7 +53,7 @@ function plantdrop()
 		end
     end
 	ScriptVars:set("gaiatest_var_by_merung", tostring(herbCounter))
-	ScriptVars:save()]]
+	ScriptVars:save()
 end
 
 --[[ OLD VERSION !!! this will be used later again. for the time being, we use a much more simple version 
