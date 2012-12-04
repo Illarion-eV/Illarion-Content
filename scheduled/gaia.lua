@@ -6,7 +6,7 @@ module("scheduled.gaia", package.seeall)
 
 -- simple gaia until we create a more complex version (postVBU)
 function plantdrop()
-  --[[  if ( plnt==nil ) then
+    if ( plnt==nil ) then
         Init();
     end
 
@@ -40,16 +40,16 @@ function Init()
     
 	plnt = {};
     grnd = {};
-	
-	AddPlant(752,{GroundType.sand,GroundType.grass});  -- Alraune
-	AddPlant(756,{GroundType.forest,GroundType.grass});  -- Frommbeere
-	AddPlant(757,{GroundType.forest,GroundType.grass});  -- Gottesblume
-	AddPlant(758,{GroundType.forest,GroundType.grass});  -- Herzblut
-	AddPlant(764,{GroundType.forest,GroundType.grass});  -- Tagteufel
-	AddPlant(765,{GroundType.forest,GroundType.grass});  -- Tagtraum
-	AddPlant(766,{GroundType.dirt,GroundType.grass});  -- Trugblüte
-	AddPlant(769,{GroundType.sand,GroundType.grass});  -- Wüstenbeere
-]]
+	local gt = base.common.GroundType
+	AddPlant(752,{gt.sand,gt.grass});  -- Alraune
+	AddPlant(756,{gt.forest,gt.grass});  -- Frommbeere
+	AddPlant(757,{gt.forest,gt.grass});  -- Gottesblume
+	AddPlant(758,{gt.forest,gt.grass});  -- Herzblut
+	AddPlant(764,{gt.forest,gt.grass});  -- Tagteufel
+	AddPlant(765,{gt.forest,gt.grass});  -- Tagtraum
+	AddPlant(766,{gt.dirt,gt.grass});  -- Trugblüte
+	AddPlant(769,{gt.sand,gt.grass});  -- Wüstenbeere
+
 end
 function AddPlant(ItemID,Ground)
     table.insert(plnt,ItemID);
