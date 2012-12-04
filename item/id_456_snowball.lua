@@ -19,29 +19,31 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 	end
 end
 
-function Init()
-    
+function Init(User)
+    User:inform("debug 2")
 	plnt = {};
     grnd = {};
 	local gt = base.common.GroundType
-	AddPlant(752,{gt.sand,gt.grass});  -- Alraune
-	AddPlant(756,{gt.forest,gt.grass});  -- Frommbeere
-	AddPlant(757,{gt.forest,gt.grass});  -- Gottesblume
-	AddPlant(758,{gt.forest,gt.grass});  -- Herzblut
-	AddPlant(764,{gt.forest,gt.grass});  -- Tagteufel
-	AddPlant(765,{gt.forest,gt.grass});  -- Tagtraum
-	AddPlant(766,{gt.dirt,gt.grass});  -- Trugblüte
-	AddPlant(769,{gt.sand,gt.grass});  -- Wüstenbeere
+	AddPlant(752,{gt.sand,gt.grass}, User);  -- Alraune
+	AddPlant(756,{gt.forest,gt.grass},User);  -- Frommbeere
+	AddPlant(757,{gt.forest,gt.grass},User);  -- Gottesblume
+	AddPlant(758,{gt.forest,gt.grass},User);  -- Herzblut
+	AddPlant(764,{gt.forest,gt.grass},User);  -- Tagteufel
+	AddPlant(765,{gt.forest,gt.grass},User);  -- Tagtraum
+	AddPlant(766,{gt.dirt,gt.grass},User);  -- Trugblüte
+	AddPlant(769,{gt.sand,gt.grass},User);  -- Wüstenbeere
 
 end
-function AddPlant(ItemID,Ground)
-    table.insert(plnt,ItemID);
+function AddPlant(ItemID,Ground, User)
+    User:inform("debug 3")
+	table.insert(plnt,ItemID);
     table.insert(grnd,Ground);
 end
 
-function plantdrop()
+function plantdrop(User)
    if ( plnt==nil ) then
-        Init();
+        User:inform("debug 1")
+		Init(User);
     end
 
 	local herbCounter = 0 -- for testing
@@ -73,7 +75,7 @@ end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if (User.lastSpokenText == "doGaia") then
-	    plantdrop()
+	    plantdrop(User)
 	    return
 	end	
 	
