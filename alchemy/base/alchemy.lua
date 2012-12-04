@@ -272,7 +272,7 @@ end
 return retVal
 end
 
-function GetCauldronInfront(User)
+function GetCauldronInfront(User,Item)
     local retVal = nil
     Item = base.common.base.common.GetFrontItem(User)
 	if (Item.id >= 1008) and (Item.id <= 1018) then
