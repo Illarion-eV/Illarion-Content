@@ -94,7 +94,7 @@ function MoveToField(Character)
 	    playerlist = world:getPlayersOnline();
 		
 	    for i = 1, #(playerlist) do 
-		    FactionStuff = base.factions.get_Faction(playerlist[i]);
+		    FactionStuff = base.factions.getFaction(playerlist[i]);
 	        if FactionStuff.tid == factionID then --Other faction members are alerted
                 base.common.InformNLS(playerlist[i],"[New player] Ein neuer Spieler ist gerade deinem Reich beigetreten.","[New player] A new player has just joined your realm.");  
 		    end
