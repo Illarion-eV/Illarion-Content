@@ -104,8 +104,8 @@ english, town = Galmair,  "become citizen", "gain citizenship" -> town = Cadomyr
 town = Galmair,  "Bürger werden","Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
 english, town = Runewick, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Cadomyr", "Welcome to Cadomyr!"
 town = Runewick, "Bürger werden","Bürgerschaft beantragen" ->  town = Cadomyr, "Ihr seidt jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
-english, town = Cadomyr,  "become citizen", "gain citizenship" -> town = Cadomyr, "You are already a citizen of Cadomyr"
-town = Cadomyr,  "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid bereits Bürger von Cadomyr"
+english, town = Cadomyr,  "become citizen", "gain citizenship" -> town = Cadomyr, "Oh! You are already a citizen of Cadomyr"
+town = Cadomyr,  "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Oh! Ihr seid bereits Bürger von Cadomyr"
 english, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Cadomyr", "Welcome to Cadomyr!"
 "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
 
@@ -244,8 +244,8 @@ english, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a 
 "Nein" -> "No. That's sad.", "No? well, You'll have a reason for saying so."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-".*", english, chance(20.0) -> "Welcome to Runewick. Do you want to become a citizen?"
-".*", german, chance(20.0) -> "Willkommen in Runewick. Möchtet Ihr hier Bürger werden?"
+".*", english, chance(20.0) -> "Welcome to Cadomyr. Do you want to become a citizen?"
+".*", german, chance(20.0) -> "Willkommen in Cadomyr. Möchtet Ihr hier Bürger werden?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
