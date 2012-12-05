@@ -401,7 +401,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     return;
   end
   
-  local areaId = GetAreaId(TargetItem.pos);
+  local areaId = GetAreaId(User.pos);
   if (areaId == nil) then
     base.common.InformNLS(User,
     "Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
@@ -477,7 +477,7 @@ function DigForTresure(User)
 
   if ( (GroundType ~= base.common.GroundType.rocks) and
       base.treasure.DigForTreasure( 
-        User, TargetPos, (User:getSkill("mining")/10)+1,
+        User, TargetPos, (User:getSkill(Character.mining)/10)+1,
         base.common.GetNLS( User,
           "Du schwingst deine Spitzhacke gegen den steinigen Boden und stößt auf etwas das noch härter ist als der Boden. Das muss er sein! Der Schatz. Noch einmal graben und der grenzenlose Reichtum ist dein!",
           "You swing your pick-axe against the stony ground and hit something that is even harder then the ground. That must it be! The treasure! Another swing and it is yours!" ), 
