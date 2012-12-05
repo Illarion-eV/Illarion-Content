@@ -50,14 +50,15 @@ function learn(user, skill, actionPoints, learnLimit)
 			user:inform("MCfactor: "..MCfactor.."!"); --debug
 			user:inform("Minor: "..minorIncrease.."!"); --debug
 			
-			while minorIncrease>0 do
+			while minorIncrease>0 do --for the rare case that an action results in two swirlies, we have this loop
 			
                 realIncrease=math.min(minorIncrease,10000) -- to prevent overflow, we cannot gain more than one level per action anyway
 				
                 if minorSkill+realIncrease<10000 then
                     user:increaseMinorSkill(skill,realIncrease); --minimum of 10 actions of 50AP for a swirlie at 5% activity
                 else
-     			    user:increaseMinorSkill(skill,realIncrease);
+				    skillValue=user:getSkill(skill); --reading the skill points
+     			    user:increaseMinorSkill(skill,realIncrease); --this is why we do all this grinding!
 				    base.common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit '"..skillName.."' steigt von "..skillValue.." auf "..(skillValue+1).."!",
 					"[Level up] Your skill '"..skillName.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
 				    world:gfx(41,user.pos); --swirly!           
