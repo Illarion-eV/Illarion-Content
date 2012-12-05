@@ -413,9 +413,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   if (rock == nil) then
     -- TODO check if this condition is needed.
     --if (ltstate ~= Action.success) then
-        base.common.InformNLS(User,
-        "Da ist nichts zum Draufschlagen.",
-        "There is nothing to hit.");
+        base.common.HighInformNLS(User,
+        "Du musst neben einem Felsen stehen um Bergbau zu betreiben.",
+        "You have to stand next to a rock to mine.");
     --end
     return
   end
