@@ -43,7 +43,22 @@ function Init()
     AddPlant(163, {gt.forest})						-- champignon
 	
 	-- rar herbs; not collectable with sickle
-    
+    AddPlant(138, {gt.dirt})                        -- night angels blossom
+	AddPlant(146, {gt.sand})                        -- deser sky capsule
+	AddPlant(152, {gt.grass, gt.forest})            -- life root
+	AddPlant(754, {gt.grass})                        -- oneleaved fourberry
+	AddPlant(755, {gt.rocks})                        -- fire root
+	AddPlant(756, {gt.grass,gt.forest})             -- pious berry
+	AddPlant(757, {gt.forest})                        -- tybalt star
+	AddPlant(758, {gt.rocks})                        -- heart blood
+	AddPlant(760, {gt.grass})                        -- ice leaf
+	AddPlant(761, {gt.grass})                        -- rain weed
+	AddPlant(762, {gt.rocks})                        -- gold crack herb
+	AddPlant(764, {gt.forest})                        -- dark moos
+	AddPlant(765, {gt.forest})                        -- day tream
+	AddPlant(766, {gt.forest})                        -- con blossom
+	AddPlant(768, {gt.forest})                        -- wolverine fern
+	AddPlant(769, {gt.sand})                         -- desert berry
 end
 
 function AddPlant(ItemID,Ground)
@@ -80,7 +95,7 @@ function plantdrop()
 			end
 		end	
     end
-	ScriptVars:set("gaiatest_var_by_merung", tostring(herbCounter))
+	ScriptVars:set("gaiatest_var_by_merung", tostring(herbCounter)) -- testing, to see how many herbs have been spawned in the last round
 	ScriptVars:save()
 end
 
