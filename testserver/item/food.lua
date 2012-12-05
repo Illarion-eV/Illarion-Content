@@ -154,7 +154,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 				if( math.random( 50 ) <= 1 ) then
 					base.common.InformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.");
 				else
-					User:createItem( food.Leftover, 1, 333,0);
+					User:createItem( food.Leftover, 1, 333);
 				end
 			end
 			-- inform the player
