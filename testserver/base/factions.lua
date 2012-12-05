@@ -149,6 +149,11 @@ function getRank(player)
 	end
 end
 
+function getRankAsNumber(player)
+	rankpoints = getRankpoints(player);
+	return math.floor(rankpoints/100)+1;
+end
+
 --[[
     getFaction
 	Looks up to which Faction a Character belongs and checks also his rank
@@ -159,7 +164,7 @@ end
 ]]
 function getFaction(originator)
 
-	local rankTown = originator:getQuestProgress(200);
+	local rankTown = getRankAsNumber(originator);
 	local factionMembership = originator:getQuestProgress(199);
 	local towncnt = originator:getQuestProgress(201);
 	local rankpoints = getRankpoints(originator);
