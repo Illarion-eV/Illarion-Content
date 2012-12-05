@@ -102,7 +102,7 @@ if not InitFaction then
 	highestRank = 10;
     leaderRank = 11;
 
---==================================ADD NEW TOWNS AND GUILDS HERE===============
+--==================================ADD NEW TOWNS HERE===============
 --AddTown(TownID,TownName), IDs from 1-9
 --AddAdditionalTownName(German Trigger, English Trigger)
 --AddTownMainKey(TownID, KeyID, KeyQuality, KeyData)
@@ -139,38 +139,14 @@ function getMemberShipByName(player)
 	return getTownNameByID(player:getQuestProgress(199));
 end
 
-function informPlayerAboutStatus(player)
-	NPCList = world:getNPCSInRangeOf(player.pos, 3);
-	for i = 1, #(NPCList) do
-		for j=1, #(notaryNames) do
-			if NPCList[i].name == notaryNames[j] then
-				thisNPC = NPCList[i]
-			end
-		end
-	end
-
+function getRank(player)
 	local Faction = getFaction(player)
-	local gText, eText;
 	
-	if Faction.tid ~= 0 then
-		local townMember = getMemberShipByName(player)
-		local rankName = townRanks[Faction.tid][Faction.rankTown]
-		local rankpoints = Faction.rankpoints
-		local missingPoints = (math.floor(tonumber(rankpoints)/100)+1)*100-tonumber(rankpoints) --calculates the missing points to advance a rank
-		
-		if Faction.rankTown < highestRank then
-			gText = "Ihr seid Mitglied des Reiches "..townMember..". Dort habt ihr den Rang "..rankName.gRank.." und besitzt "..rankpoints.." Rangpunkte. Ihr benötigt noch "..missingPoints.." Rangpunkte um einen Rang aufzusteigen."
-			eText = "You are member of the realm "..townMember..". You have the rank "..rankName.eRank.." and possess "..rankpoints.." rankpoints. You still need "..missingPoints.." rankpoints to advance a rank."
-		else
-			gText = "Ihr seid Mitglied des Reiches "..townMember..". Dort habt ihr den Rang "..rankName.gRank.." und besitzt "..rankpoints.." Rangpunkte. Ihr habt den höchsten Rang erreicht."
-			eText = "You are member of the realm "..townMember..". You have the rank "..rankName.eRank.." and possess "..rankpoints.." rankpoints. You reached the highest rank."
-		end	
+	if player:getPlayerLanguage() == 0 then
+		return townRanks[Faction.tid][Faction.rankTown].gRank;
 	else
-		gText = "Ihr gehört keinem Reich an."
-		eText = "You don't belong to any realm."
+		return townRanks[Faction.tid][Faction.rankTown].eRank;
 	end
-	outText=base.common.GetNLS(player,gText,eText);
-    thisNPC:talk(Character.say, outText);
 end
 
 --[[
@@ -332,10 +308,6 @@ function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 		leaveFaction(originator, fv, thisNPC)
 	elseif theRank~=leaderRank then --make char to citizen
 		if (fv.tid == theTown) then --already citizen
-		 	gText="Ihr seid bereits Bürger dieser Stadt!";
-			eText="You're already citizen of this town!";
-			outText=base.common.GetNLS(originator,gText,eText);
-            thisNPC:talk(Character.say, outText);
 			return;
 		end
 		
@@ -356,11 +328,6 @@ function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 		if (fv.towncnt<99) then fv.towncnt = fv.towncnt+1; end; -- raise the town counter
 		setFaction(originator,fv); --write fv in Questprogress
 		base.money.TakeMoneyFromChar(originator,amountToPay); --take money
-
-		gText="Ihr seid nun als Bürger dieser Stadt eingetragen.";
-		eText="You're now registered as citizen of this town.";
-		outText=base.common.GetNLS(originator,gText,eText);
-        thisNPC:talk(Character.say, outText);
 	end
 	return;
 end
