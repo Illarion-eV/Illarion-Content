@@ -43,7 +43,7 @@ function learn(user, skill, actionPoints, learnLimit)
             attributeFactor=0.5+0.5*(leadAttrib/10); --0.5 to 1.5, depending on attribute
 			actionpointFactor=(actionPoints/normalAP); --An action with 50AP is "normal"
 			minorIncrease=math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor);
-			user:inform(minorIncrease); --debug
+			user:inform("Minor: "..minorIncrease.."!"); --debug
             minorIncrease=math.min(minorIncrease,10000) -- to prevent overflow, we cannot gain more than one level per action anyway
 
             if minorSkill+minorIncrease<10000 then
