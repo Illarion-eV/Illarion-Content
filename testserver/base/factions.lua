@@ -149,6 +149,10 @@ function getRank(player)
 	end
 end
 
+function getRankAsNumber(player)
+	return player:getQuestProgress(200);
+end
+
 --[[
     getFaction
 	Looks up to which Faction a Character belongs and checks also his rank
