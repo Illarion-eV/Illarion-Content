@@ -344,7 +344,7 @@ function getRock(User, AreaId)
   local Radius = 1;
   for x=-Radius,Radius do
     for y=-Radius,Radius do 
-      local targetPos = position(User.pos.x + x, User.pos.y, User.pos.z);
+      local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
       if (world:isItemOnField(targetPos)) then
         local targetItem = world:getItemOnField(targetPos);
         if (Area[AreaId]["Stones"][targetItem.id] ~= nil) then
@@ -413,9 +413,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   if (rock == nil) then
     -- TODO check if this condition is needed.
     --if (ltstate ~= Action.success) then
-        base.common.InformNLS(User,
-        "Da ist nichts zum Draufschlagen.",
-        "There is nothing to hit.");
+        base.common.HighInformNLS(User,
+        "Du musst neben einem Felsen stehen um Bergbau zu betreiben.",
+        "You have to stand next to a rock to mine.");
     --end
     return
   end
