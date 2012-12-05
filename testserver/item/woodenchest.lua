@@ -57,9 +57,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, LTState )
 	local num = 0;
 	for _,item in this.Items do
 		num = math.random(item.minNum,(item.maxNum or item.minNum));
-		rest = User:createItem(item.id, num, (item.quality or 333), (item.data or 0));
+		rest = User:createItem(item.id, num, (item.quality or 333), (item.data or nil));
 		if rest>0 then
-			world:createItemFromId(item.id, rest, User.pos, true, (item.qual or 333), (item.data or 0));
+			world:createItemFromId(item.id, rest, User.pos, true, (item.qual or 333), (item.data or nil));
 		end
 	end
 	if this.NextStatus==DELETE_CHEST then
