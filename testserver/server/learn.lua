@@ -40,7 +40,7 @@ function learn(user, skill, actionPoints, learnLimit)
         if math.random(0,99)<chanceForSkillGain then --Success?
 
             MCfactor=normalMC/(math.max(MCvalue,1)); --5% of time spent online is considered "normal" -> MCfactor is 1
-            attributeFactor=math.min(1.5,(0.5+0.5*(leadAttrib/10)); --0.5 to 1.5, depending on attribute, limited to 1.5 (no bonus for insane attributes, balancing!)
+            attributeFactor=math.min(1.5,(0.5+0.5*(leadAttrib/10))); --0.5 to 1.5, depending on attribute, limited to 1.5 (no bonus for insane attributes, balancing!)
 			actionpointFactor=(actionPoints/normalAP); --An action with 50AP is "normal"
 			minorIncrease=math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor);
 			user:inform("actionPoints: "..actionPoints.."!"); --debug
