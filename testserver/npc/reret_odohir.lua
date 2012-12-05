@@ -19,6 +19,8 @@ require("npc.base.condition.chance")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.condition.rank")
+require("npc.base.condition.sex")
 require("npc.base.condition.town")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
@@ -294,6 +296,56 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ich");
 talkEntry:addResponse("%CHARNAME");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("You are new here. You are not well known. Make an effort ands become famous,Recruit!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("You are new here. You are not well known. Make an effort ands become famous,Recruit!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Du bist noch ganz neu hier. Dir kennt kaum jemand. Streng dich mehr an und mach dir einen Namen, Rekrut!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Du bist noch ganz neu hier. Dir kennt kaum jemand. Streng dich mehr an und mach dir einen Namen, Rekrutin!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Ah! Du bist ein Knappe?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Ah! Du bist ein Knappin?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
