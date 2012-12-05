@@ -113,6 +113,20 @@ english, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a 
 "weche Stadt", "weche faktion" -> "Du gehöerst nach %TOWN!"
 "ich" ->  "%CHARNAME"
 
+english, male, rank > 0, "rank" -> "You are new here. You are not well known. Make an effort ands become famous,Recruit!"
+english, female, rank >0, "rank" -> "You are new here. You are not well known. Make an effort ands become famous,Recruit!"
+male, rank > 1, "rank" -> "Du bist noch ganz neu hier. Dir kennt kaum jemand. Streng dich mehr an und mach dir einen Namen, Rekrut!"
+female, rank > 1, "rank" -> "Du bist noch ganz neu hier. Dir kennt kaum jemand. Streng dich mehr an und mach dir einen Namen, Rekrutin!"
+male, rank > 2, "rank" -> "Ah! Du bist ein Knappe?"
+female, rank > 2, "rank" -> "Ah! Du bist ein Knappin?"
+--rank > 3,
+--rank >4,
+--rank >5,
+--rank >6,
+--rank >7,
+--rank >8,
+--rank =9,"rank"-> "Seid gegrüßt"
+
 --"Danke nein, ich habe bereits alles, was ich brauche."
 --"Habt Ihr ein Dekret für mich oder wollt ihr vielleicht ein Dekret oder Schlüßel kaufen?"
 -- "Gut, ich trage euch als neuen Anführer dieser Stadt ein."/ "Good, I will enregister you as new leader of this town."
