@@ -100,7 +100,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	-- check if used for alchemy purpose
 	local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(SourceItem.id, User)
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User,SourceItem)
-	if cauldron and isPlant then
+	if (cauldron ~= nil) and isPlant then
 	    alchemy.base.herbs.UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end	
