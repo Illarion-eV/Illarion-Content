@@ -10,16 +10,42 @@ function Init()
 	plnt = {};
     grnd = {};
 	local gt = base.common.GroundType
-	AddPlant(752,{gt.sand,gt.grass});  -- Alraune
-	AddPlant(756,{gt.forest,gt.grass});  -- Frommbeere
-	AddPlant(757,{gt.forest,gt.grass});  -- Gottesblume
-	AddPlant(758,{gt.forest,gt.grass});  -- Herzblut
-	AddPlant(764,{gt.forest,gt.grass});  -- Tagteufel
-	AddPlant(765,{gt.forest,gt.grass});  -- Tagtraum
-	AddPlant(766,{gt.dirt,gt.grass});  -- Trugblüte
-	AddPlant(769,{gt.sand,gt.grass});  -- Wüstenbeere
-
+	
+	-- normal herbs; collectable with sickle
+	AddPlant(144, {gt.rocks})                         -- virgins weed
+    AddPlant(137, {gt.sand})                          -- flamegoblet blossom
+    AddPlant(135, {gt.grass})                         -- yellow weed
+    AddPlant(148, {gt.forest})                        -- firnis blossom
+    AddPlant(763, {gt.dirt})                          -- mash flower
+    AddPlant(767, {gt.water})                          -- water blossom
+	AddPlant(140, {gt.forest})                        -- donf blade
+    AddPlant(156, {gt.sand})                          -- steppe fern
+    AddPlant(153, {gt.grass})                         -- foot leaf
+    AddPlant(752, {gt.rock})                         -- mandrake
+	AddPlant(147, {gt.forest})                       -- blackberry
+    AddPlant(142, {gt.sand})                         -- sandberry
+    AddPlant(143, {gt.grass})                         -- red elder
+    AddPlant(136, {gt.dirt})                          -- anger berry
+    AddPlant(134, {gt.grass})                         -- fourleafed oneberry
+    AddPlant(155, {gt.water})                         -- sibanac leaf
+    AddPlant(151, {gt.forest})                        -- strawberry
+    AddPlant(141, {gt.rocks})                         -- black thistle
+    AddPlant(145, {gt.grass})                         -- heath flower
+    AddPlant(151, {gt.forest})                        -- strawberry
+    AddPlant(141, {gt.rocks})                         -- black thistle
+    AddPlant(145, {gt.grass})                         -- heath flower
+    AddPlant(133, {gt.grass})                         -- sun herb
+    AddPlant(753, {gt.grass,gt.forest})              -- blue bird's berry
+    AddPlant(159, {gt.forest})						-- toadstool
+    AddPlant(160, {gt.forest})						-- red head
+    AddPlant(161, {gt.grass})						-- herder's mushroom
+    AddPlant(162, {gt.grass})						-- birth mushroom
+    AddPlant(163, {gt.forest})						-- champignon
+	
+	-- rar herbs; not collectable with sickle
+    
 end
+
 function AddPlant(ItemID,Ground)
     table.insert(plnt,ItemID);
     table.insert(grnd,Ground);
