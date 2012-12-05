@@ -20,7 +20,7 @@ function learn(user, skill, actionPoints, learnLimit)
 	
     user:inform("learn called: skill: "..skillName.." AP: "..actionPoints.." learnLimit: "..learnLimit);
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
-	scalingFactor=50000; --Here, you can mod the learning speed. Higher value=faster ;-)
+	scalingFactor=500; --Here, you can mod the learning speed. Higher value=faster ;-)
 	
 	--Constants - Do not change unless you know exactly what you're doing!
 	amplification=100; --An 'abritrary' value that governs the 'resolution' of the MC function.
