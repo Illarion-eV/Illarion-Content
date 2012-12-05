@@ -290,30 +290,25 @@ function InitHarvestItems()
 	-- herbs marked with TODO probably have the wrong name in the database. Correct names in German are given in the old list below
     -- druid herbs
     HarvestItems[273] = {                                   -- flower
-    CreateHarvestProduct(144, gt.forest),                        -- virgins weed
+    CreateHarvestProduct(144, gt.rocks),                         -- virgins weed
     CreateHarvestProduct(137, gt.sand),                          -- flamegoblet blossom
     CreateHarvestProduct(135, gt.grass),                         -- yellow weed
-    CreateHarvestProduct(148, gt.rocks),                         -- firnis blossom
-    CreateHarvestProduct(763, gt.water),                         -- mash flower
-    CreateHarvestProduct(138, gt.dirt),                          -- night angels blossom
-    CreateHarvestProduct(757, gt.snow)                           -- godsflower
-    }
+    CreateHarvestProduct(148, gt.forest),                        -- firnis blossom
+    CreateHarvestProduct(763, gt.dirt),                          -- mash flower
+    CreateHarvestProduct(767, gt.water)                          -- water blossom
+	}
     
     HarvestItems[274] = {                                   -- fern
     CreateHarvestProduct(140, gt.forest),                        -- donf blade
     CreateHarvestProduct(156, gt.sand),                          -- steppe fern
     CreateHarvestProduct(153, gt.grass),                         -- foot leaf
-    CreateHarvestProduct(768, gt.rocks),                         -- wolverine fern
-    CreateHarvestProduct(754, gt.water),                         -- water fern TODO
-    CreateHarvestProduct(752, gt.dirt),                          -- mandrake
-    CreateHarvestProduct(760, gt.snow)                          -- ice leaf TODO
-    }
+    CreateHarvestProduct(752, gt.rock)                         -- mandrake
+	}
     
     HarvestItems[301] = {                                   -- hedge
     CreateHarvestProduct(147, gt.forest),                        -- blackberry
     CreateHarvestProduct(142, gt.sand),                          -- sandberry
     CreateHarvestProduct(143, gt.grass),                         -- red elder
-    CreateHarvestProduct(756, gt.rocks),                         -- pious berry
     CreateHarvestProduct(136, gt.dirt)                          -- anger berry
     }
     
@@ -324,45 +319,35 @@ function InitHarvestItems()
     
     HarvestItems[1782] = {                                   -- grass
     CreateHarvestProduct(151, gt.forest),                        -- strawberry
-    CreateHarvestProduct(146, gt.sand),                          -- desert sky capsule
-    CreateHarvestProduct(141, gt.grass),                         -- black thistle
-    CreateHarvestProduct(145, gt.rocks),                         -- heath flower
-    CreateHarvestProduct(761, gt.water),                         -- rain weed
-    CreateHarvestProduct(762, gt.dirt)                          -- sulphur weed
+    CreateHarvestProduct(141, gt.rocks),                         -- black thistle
+    CreateHarvestProduct(145, gt.grass)                         -- heath flower
     }
     
     HarvestItems[1783] = {                                   -- grass
     CreateHarvestProduct(151, gt.forest),                        -- strawberry
-    CreateHarvestProduct(146, gt.sand),                          -- desert sky capsule
-    CreateHarvestProduct(141, gt.grass),                         -- black thistle
-    CreateHarvestProduct(145, gt.rocks),                         -- heath flower
-    CreateHarvestProduct(761, gt.water),                         -- rain weed
-    CreateHarvestProduct(762, gt.dirt)                          -- sulphur weed
+    CreateHarvestProduct(141, gt.rocks),                         -- black thistle
+    CreateHarvestProduct(145, gt.grass)                         -- heath flower
     }
 	
     HarvestItems[1791] = {                                   -- sunflower
-    CreateHarvestProduct(133, gt.grass)                         -- sun herb
-    }
-    
-    HarvestItems[767] = {                                   -- TODO
-    CreateHarvestProduct(767, gt.grass)                         -- TODO
+    CreateHarvestProduct(133, nil)                         -- sun herb
     }
     
     HarvestItems[1807] = {                                   -- blooming ceridern
-    CreateHarvestProduct(753, nil)                             -- TODO
+    CreateHarvestProduct(753, nil)                             -- blue bird's berry
     }
     
-    HarvestItems[1808] = {                                   -- TODO
-    CreateHarvestProduct(755, nil)                         -- TODO
-    }
-	
-	-- mushrooms
+    -- mushrooms
 	HarvestItems[159] = {									-- toadstool
     CreateHarvestProduct(159, nil)								-- toadstool
     }
 	
+	HarvestItems[160] = {									-- red head
+    CreateHarvestProduct(160, nil)								-- red head
+    }
+	
 	HarvestItems[161] = {									-- herder's mushroom
-    CreateHarvestProduct(159, nil)								-- herder's mushroom
+    CreateHarvestProduct(161, nil)								-- herder's mushroom
     }
 	
 	HarvestItems[426] = {									-- mushroom
@@ -378,19 +363,13 @@ function InitHarvestItems()
     }
     
     -- helper herb
-    HarvestItems[203] = {                                   -- palm tree
-    CreateHarvestProduct(157, nil)                            -- rotten tree bark
-    }
-    
     HarvestItems[2169] = {									-- old log
-    CreateHarvestProduct(157, gt.grass),							-- rotten tree bark
-	CreateHarvestProduct(157, gt.dirt)							-- rotten tree bark
-    }
+    CreateHarvestProduct(157, nil)						-- rotten tree bark
+	}
 	
 	HarvestItems[2170] = {									-- old log
-    CreateHarvestProduct(157, gt.grass),							-- rotten tree bark
-	CreateHarvestProduct(157, gt.dirt)							-- rotten tree bark
-    }
+    CreateHarvestProduct(157, nil)  						-- rotten tree bark
+	}
 	
 	-- field crops
 	HarvestItems[290] = {									-- cabbage
@@ -419,10 +398,9 @@ function InitHarvestItems()
     }
 	
 	-- anything else
-	--[[ deactivated as players are not allowed to change the map on their own
 	HarvestItems[308] = {									-- fir tree
     CreateHarvestProduct(149, nil)								-- fir tree sprout
-    }--]]
+    }
 	HarvestItems[1812] = {									-- palm tree
     CreateHarvestProduct(80, gt.sand)							-- banana
     }
@@ -434,27 +412,6 @@ function InitHarvestItems()
 	CreateHarvestProduct(759, nil, {0.5,0.5,0.5,0.5})			-- nuts (was actually in harvest.lua with 20 MaxAmount, so just let it regrow twice as fast)
 	}
 	
-	HarvestItems[125] = {									-- tree trunk (apple)
-    CreateHarvestProduct(152, nil)							-- life root
-    }
-	HarvestItems[309] = {									-- tree trunk (fir)
-    CreateHarvestProduct(152, nil)							-- life root
-    }
-	HarvestItems[541] = {									-- tree trunk (cherry)
-    CreateHarvestProduct(152, nil)							-- life root
-    }
-	HarvestItems[542] = {									-- tree trunk (cachdern)
-    CreateHarvestProduct(152, nil)							-- life root
-    }
-	HarvestItems[584] = {									-- tree trunk (eldan oak)
-    CreateHarvestProduct(152, nil)							-- life root
-    }
-	HarvestItems[585] = {									-- tree trunk (pine)
-    CreateHarvestProduct(152, nil)							-- life root
-    }
-	HarvestItems[587] = {									-- tree trunk (naldor)
-    CreateHarvestProduct(152, nil)							-- life root
-    }
 end
 
 --[[ old list
