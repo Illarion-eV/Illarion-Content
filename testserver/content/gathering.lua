@@ -12,7 +12,7 @@ function InitGathering()
 		woodchopping = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.woodcutting}; -- id_74_axe
 		honeygathering = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming}; -- id_1005_beehive
 		farming = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5}; -- seeds, id_126_sickle
-		fruitgathering = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming}; -- harvest
+		fruitgathering = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5}; -- harvest
 		mining = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.mining}; -- id_2763_pickaxe
 		sanddigging = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.mining}; -- id_24_shovel
 		claydigging = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.mining}; -- id_24_shovel
