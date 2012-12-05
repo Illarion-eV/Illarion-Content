@@ -104,10 +104,12 @@ for gem=1,7 do
 end
 
 function getMagicGemId(gem, level)
+    local level = level or 1
     return gemItem[gem]
 end
 
 function getMagicGemData(level)
+    local level = level or 1
     return {gemLevel = level}
 end
 
