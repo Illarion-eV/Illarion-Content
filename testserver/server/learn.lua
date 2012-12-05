@@ -20,7 +20,7 @@ function learn(user, skill, actionPoints, learnLimit)
 	
     user:inform("learn called: skill: "..skillName.." AP: "..actionPoints.." learnLimit: "..learnLimit);
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
-	scalingFactor=500; --Here, you can mod the learning speed. Higher value=faster ;-)
+	scalingFactor=50000; --Here, you can mod the learning speed. Higher value=faster ;-)
 	
 	--Constants - Do not change unless you know exactly what you're doing!
 	amplification=100; --An 'abritrary' value that governs the 'resolution' of the MC function.
@@ -49,16 +49,23 @@ function learn(user, skill, actionPoints, learnLimit)
 			user:inform("actionpointFactor: "..actionpointFactor.."!"); --debug
 			user:inform("MCfactor: "..MCfactor.."!"); --debug
 			user:inform("Minor: "..minorIncrease.."!"); --debug
-            minorIncrease=math.min(minorIncrease,10000) -- to prevent overflow, we cannot gain more than one level per action anyway
-
-            if minorSkill+minorIncrease<10000 then
-                user:increaseMinorSkill(skill,minorIncrease); --minimum of 10 actions of 50AP for a swirlie at 5% activity
-            else
-     			user:increaseMinorSkill(skill,minorIncrease);
-				base.common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit '"..skillName.."' steigt von "..skillValue.." auf "..(skillValue+1).."!",
+			
+			while minorIncrease>0 do
+			
+                realIncrease=math.min(minorIncrease,10000) -- to prevent overflow, we cannot gain more than one level per action anyway
+				
+                if minorSkill+realIncrease<10000 then
+                    user:increaseMinorSkill(skill,realIncrease); --minimum of 10 actions of 50AP for a swirlie at 5% activity
+                else
+     			    user:increaseMinorSkill(skill,realIncrease);
+				    base.common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit '"..skillName.."' steigt von "..skillValue.." auf "..(skillValue+1).."!",
 					"[Level up] Your skill '"..skillName.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
-				world:gfx(41,user.pos); --swirly!           
-		    end
+				    world:gfx(41,user.pos); --swirly!           
+		        end
+			
+			minorIncrease=minorIncrease-10000;
+			
+			end 
 
 		end
         user:increaseMentalCapacity(amplification*actionPoints);
