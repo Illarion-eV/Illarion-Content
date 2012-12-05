@@ -326,7 +326,6 @@ function breakRock(Rock)
     local RockPos=Rock.pos;
     local RockQual=Rock.quality;
     local HitDMG=math.random(6,8);
-    debug("rockqual " .. RockQual .. "; hitdmg " .. HitDMG);
     if (RockQual<HitDMG) then
         world:swap(Rock,Rocks[Rock.id],333);
         return true;
