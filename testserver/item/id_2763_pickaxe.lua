@@ -401,7 +401,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     return;
   end
   
-  local areaId = GetAreaId(TargetItem.pos);
+  local areaId = GetAreaId(User.pos);
   if (areaId == nil) then
     base.common.InformNLS(User,
     "Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
