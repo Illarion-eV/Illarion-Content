@@ -344,7 +344,7 @@ function getRock(User, AreaId)
   local Radius = 1;
   for x=-Radius,Radius do
     for y=-Radius,Radius do 
-      local targetPos = position(User.pos.x + x, User.pos.y, User.pos.z);
+      local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
       if (world:isItemOnField(targetPos)) then
         local targetItem = world:getItemOnField(targetPos);
         if (Area[AreaId]["Stones"][targetItem.id] ~= nil) then
