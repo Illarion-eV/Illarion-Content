@@ -102,9 +102,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	User:learn( smokefood.LeadSkill, smokefood.SavedWorkTime[User.id], 100);
 	User:eraseItem( craftItem.source.id, craftItem.source.amount ); -- erase the item we're working on
 	local amount = craftItem.product.amount; -- set the amount of items that are produced
-	local notCreated = User:createItem( craftItem.source.id, amount, 333, nil ); -- create the new produced items
+	local notCreated = User:createItem( craftItem.product.id, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( craftItem.source.id, notCreated, User.pos, true, 333, nil );
+		world:createItemFromId( craftItem.product.id, notCreated, User.pos, true, 333, nil );
 		base.common.InformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
