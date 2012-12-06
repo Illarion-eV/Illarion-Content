@@ -1,0 +1,118 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Joseph Quatrilla                                         Cadomyr --
+-- NPC Job:  alchemist (teaching recipes)                                     --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  138, 543, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Author:   merung                                                           --
+--                                                                            --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Joseph Quatrilla"
+race = human
+sex = male
+position = 138, 543, 0
+direction = west
+affiliation = "Cadomyr"
+job = "Alchemist"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "merung"
+
+lookatDE = "Dieser NPC ist Joseph Quatrilla  der Lehrmeister der Alchemie."
+lookatUS = "This NPC is Joseph Quatrilla the master of alchemy."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 0
+colorHair = 221, 199, 140
+colorSkin = 255, 210, 204
+itemHead = 0
+itemChest = 180
+itemCoat = 196
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 823
+itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- help
+"Help" -> inform("[Game Help] This NPC is Joseph Quatrilla the master of alchemy. Keywords: recipes, alchemy")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joseph Quatrilla der Lehrmeister der Alchemie. Schlüsselwörter: Rezepte, Alchemie")
+
+-- general speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!", "Hello.", "Be greeted!"
+"Grüß", "Gruß","Gruss","Grüss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße.", "Hallo.", "Seid gegrüßt!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings!", "Hello.", "Be greeted!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüße.", "Hallo.", "Seid gegrüßt!"
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell", "Goodbye.", "Have a nice day."
+"Tschüss", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf bald.", "Wiedersehen.", "Schönen Tag noch."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell", "Goodbye.", "Have a nice day."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf bald.", "Wiedersehen.", "Schönen Tag noch."
+"How are you", "How feel", "How do you do" -> "I was doing better. I was doing worse.", "I am fine.", "Thanks for asking. I am doing well."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut.", "Danke der Nachfrage. Ich kann nicht klagen.", "Es ging mir schon besser."
+"your name", "who are you", "who art thou" -> "I am Joseph Quatrilla."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Joseph Quatrilla."
+
+-- tasks-- leraning recipes
+english, "quest", "mission" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
+"quest", "mission" -> "Wenn Ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
+"task", "adventure", "order","recipe","learn","teach","lesson" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl","Rezept","lernen","lehren","Unterricht" -> "Wenn Ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
+
+-- small talk
+"profession" -> "I am an alchemist and iff you are an alchemist, too, I am able to teach you something."
+"beruf" -> "Ich bin Alchemist und kann Euch Dinge in der Alchemie lehren, solltet Ihr schon einer sein."
+english, "job" -> "I am an alchemist and if you are an alchemist, too, I am able to teach you something."
+"job" -> "Ich bin Alchemist und kann Euch Dinge in der Alchemie lehren, solltet Ihr schon einer sein."
+"tell something" -> "How about you tell me something?"
+"erzähl was", "erzähl etwas" -> "Erzhält Ihr mir doch was."
+english, "druid" -> "Druids are actually rather strange people. Most of them are excellent alchemists, true. But well. They indded have some mazy ideas: spirits of natur, will of nature and all those things."
+"druid" -> "Druiden sind schon ein sonderbarer Schlag. Die meisten von ihnen sind zwar exellente Alchemisten, aber nun ja. Sie haben doch schon recht wirre Ideen: Naturgeister, Wille der Natur und all sowas."
+english, "alchemy","alchemist" -> "Alchemists are masters of of potions, have profound knwolegde about the herbs and are keen observer of the world."
+"alchemie","alchimi","alchemist" -> "Alchemisten sind Meister der Tränke, Kenner der Kräuter und gute Beobachter der Welt."
+"heal","medicine","medical" -> "Medicine. If you know the arte of creating medicine very well, you can fight against all diseases."
+"heil","medizin" -> "Medizin. Wer die Kunst der Medizinherstellung wirklich beherrscht mag alle Krankheiten zu bekämpfen."
+"potion" -> "Potions are true wonders. They may cause great benefaction or great disaster."
+"trank","tränk" -> "Tränke sind wahre Wunderwerke. Sie gehen große Wohltaten oder großes Unheil bewirken."
+"herb" -> "Herbs are the foundation of alchemy. More powerful than any sword or spell."
+"kraut", "kräuter" -> "Kräuter sind die Grundlage der Alchemie. Mächtiger als jedes Schwert und jeder Zauber."
+"dust" -> "O, what would be a potion without gem dust - a stock! Right!"
+"staub" -> "O, was wäre ein Trank doch ohne den Edelsteinstaub - ein Sud! Genau!"
+english,"adrazin","echolon","hyperborelium","dracolin","orcanol","fenolin","caprazin","illidrium" -> "Active ingredients! Magnificent. Fantastic."
+"adrazin","echolon","hyperborelium","dracolin","orcanol","fenolin","caprazin","illidrium" -> "Wirkstoffe! Herrlich. Fantastisch."
+"active ingredient","active agent","active substance" -> "Active ingredients! Magnificent. Fantastic."
+"wirkstoff" -> "Wirkstoffe! Herrlich. Fantastisch."
+"sickle" -> "The way you treat it, the way will the sickel treat you."
+"sichel" -> "So wie du sie behandelst, wird die Sichel dich behandeln."
+"magic","mage" -> "Mages! Always up to no good."
+"magie" -> "Magier! Nichts als Schindluder im Kopf."
+
+-- last catch
+"my name" -> "Glad to meet you."
+"mein Name" -> "Freut mich, Eure Bekanntschaft zu machen."
+english, "Joseph", "Quatrilla" -> "That's me. Correct."
+"Joseph", "Quatrilla" -> "Das bin ich. Richtig erkannt."
+
+------------------------------------------------------------------------------AC
+-- cycle Texts
+cycletext "#me betrachtet eine Flasche.", "#me looks closely at a bottle."
+cycletext "Wo bleibt er nur mit meinem Trank?", "What does him take so long to bring me my potion?"
+cycletext "#me hackt Kräuter klein.", "#me chops some herbs."
+cycletext "#me sortiert einige Kräuter.", "#me assorts some herbs."
+cycletext "#me beschriftet eine Flasche.", "#me labels a bottle."
+cycletext "#me füllt einen Trank ab.", "#me fills a potion into a bottle."
+cycletext "#me lässt einen Rubin fallen und hebt ihn seufzend wieder auf.", "#me drops a ruby and picks it up with a sigh."
+cycletext "Adrazin...Adrazin...immwer wieder Adrazin!", "Adrazin...Adrazin...and again: Adrazin!"
+cycletext "Das nächste mal sollte ich darauf achten, was ich in den Kessel tue.", "Next time, I should take care what I fill into the cauldron."
+cycletext "Jemand, der noch nie was zum explodieren gebracht hat, ist kein richtiger Alchemist.", "Someone who never have caused and explosion can hardly be called an alchemist."

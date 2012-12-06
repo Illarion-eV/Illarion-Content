@@ -555,9 +555,12 @@ function Craft:craftItem(user, productId, toolItem)
     local skill = self:getSkill(user)
     local skillGain = false
 
+    if user.id == 64 then
+        user:inform("Craft tool type: " .. toolItem:getType())
+    end
+
     if toolItem:getType() == scriptItem.field then
         toolItem = self:getHandToolEquipped(user)
-    else if 
     end
     
     if product.difficulty > skill then
