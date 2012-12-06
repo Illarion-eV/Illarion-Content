@@ -90,7 +90,7 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local myListTaskItem = ListTaskItem[town]
 	
 	local language 
-	if User:getPlayerLanguage() = Player.english then
+	if User:getPlayerLanguage() == Player.english then
 	    language = 1
 	else
         language = 2
