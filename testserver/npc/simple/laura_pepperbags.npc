@@ -1,3 +1,14 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Laura Pepperbags                                         Galmair --
+-- NPC Job:  Money changer                                                    --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  374, 229, 0            --
+-- NPC Sex:  female                     NPC Direction: southeast              --
+--                                                                            --
+-- Author:   Miriam                                                           --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
 name = "Laura Pepperbags"
 race = human
 sex = female
