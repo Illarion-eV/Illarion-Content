@@ -131,141 +131,141 @@ Radius 15
     --Galmair "Dark Hole Mine" 
     AddArea( 1, position(406,159,-3), 20 );
     AddStone( 1, 1245 );
-    SetRessource( 1, 1245,  21, 60,  0); -- coal
-	SetRessource( 1, 1245,  252, 7, 0); -- obsidian
-    SetRessource( 1, 1245,  255, 3,  0); -- rubys
+    SetResource( 1, 1245,  21, 60); -- coal
+	SetResource( 1, 1245,  252, 7); -- obsidian
+    SetResource( 1, 1245,  255, 3); -- rubys
     AddStone( 1, 1246 );
-    SetRessource( 1, 1246, 21,  40, 0); -- coal
-    SetRessource( 1, 1246, 251,  7, 0); -- amethysts
-    SetRessource( 1, 1246,  256,  3,  0); -- emerald
+    SetResource( 1, 1246, 21,  40); -- coal
+    SetResource( 1, 1246, 251,  7); -- amethysts
+    SetResource( 1, 1246,  256,  3); -- emerald
 
 	--Galmair "Malachite Mine"
     AddArea( 2, position(420,371,0), 30 );
     AddStone( 2, 232 );
-    SetRessource( 2, 232, 2536, 40,  0); -- copper
-    SetRessource( 2, 232, 234,  10,  0); -- gold nuggets
-	SetRessource( 2, 232, 254,  7,  0); -- diamonds
-	SetRessource( 2, 232, 251,  3, 0); -- amethysts
+    SetResource( 2, 232, 2536, 40); -- copper
+    SetResource( 2, 232, 234,  10); -- gold nuggets
+	SetResource( 2, 232, 254,  7); -- diamonds
+	SetResource( 2, 232, 251,  3); -- amethysts
     AddStone( 2, 914 );
-    SetRessource( 2, 914,  22, 60,  0); -- iron ore
-	SetRessource( 2, 914,  255, 7, 0); -- rubys
-	SetRessource( 2, 914,  257, 3, 0); -- topas
+    SetResource( 2, 914,  22, 60); -- iron ore
+	SetResource( 2, 914,  255, 7); -- rubys
+	SetResource( 2, 914,  257, 3); -- topas
     AddStone( 2, 1273 );
-    SetRessource( 2, 1273,  22, 40,  0); -- iron ore
-	SetRessource( 2, 1273,  253, 7, 0); -- sapphire
-	SetRessource( 2, 1273,  252, 3, 0); -- obsidian
+    SetResource( 2, 1273,  22, 40); -- iron ore
+	SetResource( 2, 1273,  253, 7); -- sapphire
+	SetResource( 2, 1273,  252, 3); -- obsidian
     AddStone( 2, 1276 );
-    SetRessource( 2, 1276,  2536, 40,  0); -- copper ore
-	SetRessource( 2, 1276,  256, 7, 0); -- emerald
-	SetRessource( 2, 1276,  253, 3, 0); -- sapphire
+    SetResource( 2, 1276,  2536, 40); -- copper ore
+	SetResource( 2, 1276,  256, 7); -- emerald
+	SetResource( 2, 1276,  253, 3); -- sapphire
 	
 	--Cadomyr "Cornerstone of Candour"
 	AddArea( 3, position(142,686,0), 15 );
     AddStone( 3, 1245 );
-    SetRessource( 3, 1245,  21, 60,  0); -- coal
-	SetRessource( 3, 1245,  252, 7, 0); -- obsidian
-    SetRessource( 3, 1245,  255, 3,  0); -- rubys
+    SetResource( 3, 1245,  21, 60); -- coal
+	SetResource( 3, 1245,  252, 7); -- obsidian
+    SetResource( 3, 1245,  255, 3); -- rubys
     AddStone( 3, 1246 );
-    SetRessource( 3, 1246, 21,  40, 0); -- coal
-    SetRessource( 3, 1246, 251,  7, 0); -- amethysts
-    SetRessource( 3, 1246,  256,  3,  0); -- emerald
+    SetResource( 3, 1246, 21,  40); -- coal
+    SetResource( 3, 1246, 251,  7); -- amethysts
+    SetResource( 3, 1246,  256,  3); -- emerald
 	
 	--Cadomyr "Liberty Quarry"
 	AddArea( 4, position(165,603,0), 15 );
     AddStone( 4, 232 );
-    SetRessource( 4, 232, 2536, 40,  0); -- copper
-    SetRessource( 4, 232, 234,  10,  0); -- gold nuggets
-	SetRessource( 4, 232, 254,  7,  0); -- diamonds
-	SetRessource( 4, 232, 251,  3, 0); -- amethysts
+    SetResource( 4, 232, 2536, 40); -- copper
+    SetResource( 4, 232, 234,  10); -- gold nuggets
+	SetResource( 4, 232, 254,  7); -- diamonds
+	SetResource( 4, 232, 251,  3); -- amethysts
     AddStone( 4, 914 );
-    SetRessource( 4, 914,  22, 60,  0); -- iron ore
-	SetRessource( 4, 914,  255, 7, 0); -- rubys
-	SetRessource( 4, 914,  257, 3, 0); -- topas
+    SetResource( 4, 914,  22, 60); -- iron ore
+	SetResource( 4, 914,  255, 7); -- rubys
+	SetResource( 4, 914,  257, 3); -- topas
     AddStone( 4, 1273 );
-    SetRessource( 4, 1273,  22, 40,  0); -- iron ore
-	SetRessource( 4, 1273,  253, 7, 0); -- sapphire
-	SetRessource( 4, 1273,  252, 3, 0); -- obsidian
+    SetResource( 4, 1273,  22, 40); -- iron ore
+	SetResource( 4, 1273,  253, 7); -- sapphire
+	SetResource( 4, 1273,  252, 3); -- obsidian
 	AddStone( 4, 1276 );
-    SetRessource( 4, 1276,  2536, 40,  0); -- copper ore
-	SetRessource( 4, 1276,  256, 7, 0); -- emerald
-	SetRessource( 4, 1276,  253, 3, 0); -- sapphire
+    SetResource( 4, 1276,  2536, 40); -- copper ore
+	SetResource( 4, 1276,  256, 7); -- emerald
+	SetResource( 4, 1276,  253, 3); -- sapphire
 	
 	--Wilderness "Glittering Cave"
 	AddArea( 5, position(548,371,0), 15 );
     AddStone( 5, 1245 );
-    SetRessource( 5, 1245,  21, 60,  0); -- coal
-	SetRessource( 5, 1245,  252, 7, 0); -- obsidian
-    SetRessource( 5, 1245,  255, 3,  0); -- rubys
+    SetResource( 5, 1245,  21, 60); -- coal
+	SetResource( 5, 1245,  252, 7); -- obsidian
+    SetResource( 5, 1245,  255, 3); -- rubys
     AddStone( 5, 1246 );
-    SetRessource( 5, 1246, 21,  40, 0); -- coal
-    SetRessource( 5, 1246, 251,  7, 0); -- amethysts
-    SetRessource( 5, 1246, 256,  3,  0); -- emerald
+    SetResource( 5, 1246, 21,  40); -- coal
+    SetResource( 5, 1246, 251,  7); -- amethysts
+    SetResource( 5, 1246, 256,  3); -- emerald
     AddStone( 5, 1250 );
-    SetRessource( 5, 1250, 234,  10, 0); -- gold nuggets
-    SetRessource( 5, 1250, 2534,  5, 0); -- merinium ore
-    SetRessource( 5, 1250,  254,  7,  0); -- diamonds
-	SetRessource( 5, 1250,  257,  3, 0); -- topas
+    SetResource( 5, 1250, 234,  10); -- gold nuggets
+    SetResource( 5, 1250, 2534,  5); -- merinium ore
+    SetResource( 5, 1250,  254,  7); -- diamonds
+	SetResource( 5, 1250,  257,  3); -- topas
 		
 	--Wilderness "Skewer Drift"
 	AddArea( 6, position(942,444,0), 15 );
     AddStone( 6, 232 );
-    SetRessource( 6, 232, 2536, 40,  0); -- copper
-    SetRessource( 6, 232, 234,  10,  0); -- gold nuggets
-	SetRessource( 6, 232, 254,  7,  0); -- diamonds
-	SetRessource( 6, 232, 251,  3, 0); -- amethysts
+    SetResource( 6, 232, 2536, 40); -- copper
+    SetResource( 6, 232, 234,  10); -- gold nuggets
+	SetResource( 6, 232, 254,  7); -- diamonds
+	SetResource( 6, 232, 251,  3); -- amethysts
     AddStone( 6, 914 );
-    SetRessource( 6, 914,  22, 60,  0); -- iron ore
-	SetRessource( 6, 914,  255, 7, 0); -- rubys
-	SetRessource( 6, 914,  257, 3, 0); -- topas
+    SetResource( 6, 914,  22, 60); -- iron ore
+	SetResource( 6, 914,  255, 7); -- rubys
+	SetResource( 6, 914,  257, 3); -- topas
     AddStone( 6, 1273 );
-    SetRessource( 6, 1273,  22, 40,  0); -- iron ore
-	SetRessource( 6, 1273,  253, 7, 0); -- sapphire
-	SetRessource( 6, 1273,  252, 3, 0); -- obsidian
+    SetResource( 6, 1273,  22, 40); -- iron ore
+	SetResource( 6, 1273,  253, 7); -- sapphire
+	SetResource( 6, 1273,  252, 3); -- obsidian
 	AddStone( 6, 1245 );
-    SetRessource( 6, 1245,  21, 60,  0); -- coal
-	SetRessource( 6, 1245,  252, 7, 0); -- obsidian
-    SetRessource( 6, 1245,  255, 3,  0); -- rubys
+    SetResource( 6, 1245,  21, 60); -- coal
+	SetResource( 6, 1245,  252, 7); -- obsidian
+    SetResource( 6, 1245,  255, 3); -- rubys
     AddStone( 6, 1246 );
-    SetRessource( 6, 1246, 21,  40, 0); -- coal
-    SetRessource( 6, 1246, 251,  7, 0); -- amethysts
-    SetRessource( 6, 1246,  256,  3,  0); -- emerald
+    SetResource( 6, 1246, 21,  40); -- coal
+    SetResource( 6, 1246, 251,  7); -- amethysts
+    SetResource( 6, 1246,  256,  3); -- emerald
 	AddStone( 6, 1276 );
-    SetRessource( 6, 1276,  2536, 40,  0); -- copper ore
-	SetRessource( 6, 1276,  256, 7, 0); -- emerald
-	SetRessource( 6, 1276,  253, 3, 0); -- sapphire
+    SetResource( 6, 1276,  2536, 40); -- copper ore
+	SetResource( 6, 1276,  256, 7); -- emerald
+	SetResource( 6, 1276,  253, 3); -- sapphire
 	    	
 	----------- Noobia Mine -----------
 	AddArea( 7, position(59,49,100), 15 );
     AddStone( 7, 232 );
-    SetRessource( 7, 232, 2536, 40,  0); -- copper
-    SetRessource( 7, 232, 234,  10,  0); -- gold nuggets
-	SetRessource( 7, 232, 254,  7,  0); -- diamonds
-	SetRessource( 7, 232, 251,  3, 0); -- amethysts
+    SetResource( 7, 232, 2536, 40); -- copper
+    SetResource( 7, 232, 234,  10); -- gold nuggets
+	SetResource( 7, 232, 254,  7); -- diamonds
+	SetResource( 7, 232, 251,  3); -- amethysts
     AddStone( 7, 914 );
-    SetRessource( 7, 914,  22, 60,  0); -- iron ore
-	SetRessource( 7, 914,  255, 7, 0); -- rubys
-	SetRessource( 7, 914,  257, 3, 0); -- topas
+    SetResource( 7, 914,  22, 60); -- iron ore
+	SetResource( 7, 914,  255, 7); -- rubys
+	SetResource( 7, 914,  257, 3); -- topas
     AddStone( 7, 1273 );
-    SetRessource( 7, 1273,  22, 40,  0); -- iron ore
-	SetRessource( 7, 1273,  253, 7, 0); -- sapphire
-	SetRessource( 7, 1273,  252, 3, 0); -- obsidian
+    SetResource( 7, 1273,  22, 40); -- iron ore
+	SetResource( 7, 1273,  253, 7); -- sapphire
+	SetResource( 7, 1273,  252, 3); -- obsidian
 	AddStone( 7, 1245 );
-    SetRessource( 7, 1245,  21, 60,  0); -- coal
-	SetRessource( 7, 1245,  252, 7, 0); -- obsidian
-    SetRessource( 7, 1245,  255, 3,  0); -- rubys
+    SetResource( 7, 1245,  21, 60); -- coal
+	SetResource( 7, 1245,  252, 7); -- obsidian
+    SetResource( 7, 1245,  255, 3); -- rubys
     AddStone( 7, 1246 );
-    SetRessource( 7, 1246, 21,  40, 0); -- coal
-    SetRessource( 7, 1246, 251,  7, 0); -- amethysts
-    SetRessource( 7, 1246,  256,  3,  0); -- emerald
+    SetResource( 7, 1246, 21,  40); -- coal
+    SetResource( 7, 1246, 251,  7); -- amethysts
+    SetResource( 7, 1246,  256,  3); -- emerald
 	AddStone( 7, 1276 );
-    SetRessource( 7, 1276,  2536, 40,  0); -- copper ore
-	SetRessource( 7, 1276,  256, 7, 0); -- emerald
-	SetRessource( 7, 1276,  253, 3, 0); -- sapphire
+    SetResource( 7, 1276,  2536, 40); -- copper ore
+	SetResource( 7, 1276,  256, 7); -- emerald
+	SetResource( 7, 1276,  253, 3); -- sapphire
 	AddStone( 7, 1250 );
-    SetRessource( 7, 1250, 234,  10, 0); -- gold nuggets
-    SetRessource( 7, 1250, 2534,  5, 0); -- merinium ore
-    SetRessource( 7, 1250,  254,  7,  0); -- diamonds
-	SetRessource( 7, 1250,  257,  3, 0); -- topas
+    SetResource( 7, 1250, 234,  10); -- gold nuggets
+    SetResource( 7, 1250, 2534,  5); -- merinium ore
+    SetResource( 7, 1250,  254,  7); -- diamonds
+	SetResource( 7, 1250,  257,  3); -- topas
 	------- Noobia Mine - FERTIG ------
 
     InitDone = true;
@@ -287,65 +287,27 @@ function AddStone(AreaID,StoneID)
     Area[AreaID]["Stones"][StoneID] = { };
 end
 
-function SetRessource(AreaID,StoneID,RessID,Chance,minSkill)
-    Area[AreaID]["Stones"][StoneID][RessID] = { };
-    Area[AreaID]["Stones"][StoneID][RessID][1] = Chance;
-    Area[AreaID]["Stones"][StoneID][RessID][2] = minSkill;
+function SetResource(AreaID,StoneID,RessID,Chance)
+  Area[AreaID]["Stones"][StoneID][RessID] = Chance;
 end
 
-function GetRessource(AreaID, StoneID, Skill)
-    RessourceList = Area[AreaID]["Stones"][StoneID];
-    AvaiableRess = { };
-    MaxTry = 100;
-    RessCnt = 0;
-    for i,Ressource in RessourceList do
-        if (Skill >= Ressource[2]) then
-            AvaiableRess[i] = Ressource[1];
-            RessCnt = RessCnt + 1;
-        else
-            MaxTry = MaxTry - Ressource[1];
-        end
+function GetResource(AreaID, StoneID)
+  ResourceList = Area[AreaID]["Stones"][StoneID];
+  cumulatedProbability = 0;
+  rand = math.random(1,100);
+  -- Default: raw stone
+  resourceId = 735;
+  for i,chances in pairs(ResourceList) do
+    cumulatedProbability = cumulatedProbability + chances;
+    if (rand <= cumulatedProbability) then
+      resourceId = i;
+      break;
     end
-    if (RessCnt == 0) then
-        return -1;
-    end
-    RessourceTry = math.random(0,MaxTry);
-    TriggerTry = 0;
-    for i,Ressource in AvaiableRess do
-        if ((RessourceTry >= TriggerTry) and (RessourceTry < (TriggerTry+Ressource))) then
-            return i;
-        else
-            TriggerTry = TriggerTry + Ressource;
-        end
-    end
-    return 0;
+  end
+  return resourceId;
 end
 
-function GetModifiedSkill(Char)
-    local USkill=Char:getSkill(Character.mining);
-    local UStr=Char:increaseAttrib("strength",0);
-    local UPerc=Char:increaseAttrib("perception",0);
-    return math.max(0,math.min(100,(USkill * Scale(0.5,1.2,UStr*4 + UPerc))));
-end
-
-function checkSucc(Skill)
-    local prob=Scale(40,90,Skill);
-    if (math.random(100)<prob) then
-        return true;
-    else
-        return false;
-    end
-end
-
-function CheckRock(AreaID,StoneID)
-    if (Area[AreaID]["Stones"][StoneID] ~= nil) then
-        return true;
-    else
-        return false;
-    end
-end
-
-function Areas(TargetPos)
+function GetAreaId(TargetPos)
     local XDiff = 0;
     local YDiff = 0;
     for i, AreaData in pairs(Area) do
@@ -357,7 +319,7 @@ function Areas(TargetPos)
             end
         end
     end
-    return false;
+    return nil;
 end
 
 function breakRock(Rock)
@@ -374,203 +336,153 @@ function breakRock(Rock)
     return false;
 end
 
-function Scale(ScBegin, ScEnd, value)
-    if (ScBegin < ScEnd) then
-        return math.min(ScEnd,math.max(ScBegin,((ScEnd-ScBegin)/100)*value+ScBegin));
+function getRock(User, AreaId)
+  local targetItem = base.common.GetFrontItem(User);
+  if (targetItem ~= nil and Area[AreaId]["Stones"][targetItem.id] ~= nil) then
+    return targetItem;
+  end
+  local Radius = 1;
+  for x=-Radius,Radius do
+    for y=-Radius,Radius do 
+      local targetPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
+      if (world:isItemOnField(targetPos)) then
+        local targetItem = world:getItemOnField(targetPos);
+        if (Area[AreaId]["Stones"][targetItem.id] ~= nil) then
+          return targetItem;
+        end
+      end
+    end
+  end
+  return nil;
+end
+
+function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+  Init();
+  content.gathering.InitGathering();
+  local mining = content.gathering.mining;
+
+  base.common.ResetInterruption( User, ltstate );
+  if ( ltstate == Action.abort ) then -- work interrupted
+    if (User:increaseAttrib("sex",0) == 0) then
+      gText = "seine";
+      eText = "his";
     else
-        return math.max(ScEnd,math.min(ScBegin,((ScEnd-ScBegin)/100)*value+ScBegin));
+      gText = "ihre";
+      eText = "her";
     end
-end
+    User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
+    User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
+    return
+  end
 
-function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
-	content.gathering.InitGathering();
-    Init();
-    base.common.ResetInterruption( User, ltstate );
-    if ( ltstate == Action.abort ) then
-        if (User:increaseAttrib("sex",0) == 0) then
-            gText = "seine";
-            eText = "his";
-        else
-            gText = "ihre";
-            eText = "her";
-        end
-        User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
-        User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-        return
-    end
+  if not base.common.CheckItem( User, SourceItem ) then -- security check
+    return
+  end
+  
+  if (SourceItem:getType() ~= 4) then -- tool in hand
+    base.common.InformNLS( User,
+    "Du musst die Spitzhacke in der Hand haben!",
+    "You have to hold the pick-axe in your hand!" );
+    return
+  end
 
-    if not base.common.CheckItem( User, SourceItem ) then
-        return
-    end
-	
-    local TargetItem = base.common.GetFrontItem( User );
-    
-    if ((TargetItem == nil) or (TargetItem.id == 0)) then
-        DigForTresure(User, base.common.GetFrontPosition(User));
-        return;
-    end
+  if base.common.Encumbrence(User) then
+    base.common.InformNLS( User,
+    "Deine Rüstung behindert Dich bei der Bergarbeit.",
+    "Your armour disturbs you while mining." );
+    return
+  end
 
-    if base.common.Encumbrence(User) then
-        base.common.InformNLS( User,
-        "Deine Rüstung behindert dich beim Schürfen.",
-        "Your armour disturbs you when mining ores" );
-        return
-    end
-
-    if (SourceItem:getType() ~= 4) then
-        base.common.InformNLS( User,
-        "Du musst eine Spitzhacke in der Hand haben!",
-        "You have to hold the pick-axe in your hand!" );
-        return
-    end
-
-    if not base.common.IsLookingAt( User, TargetItem.pos ) then
-        base.common.TurnTo( User, TargetItem.pos );
-    end
-
-    AreaID = Areas(TargetItem.pos);
-
-    if ( AreaID == false ) then
-        base.common.InformNLS(User,
-        "Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
-        "The area doesn't look like a good place to mine.");
-        return
-    end
-
-    if not CheckRock(AreaID,TargetItem.id) then
-        if (ltstate ~= Action.success) then
-            base.common.InformNLS(User,
-            "Da ist nichts zum Draufschlagen.",
-            "There is nothing to hit.");
-        end
-        return
-    end
-
-    if (ltstate == Action.none) then
-        User:talkLanguage( Character.say, Player.german, "#me beginnt mit der Spitzhacke auf den Stein zu schlagen.");
-        User:talkLanguage( Character.say, Player.english, "#me starts to hit the stone with a pick axe.");
-		User:startAction( base.gatheringcraft.GenWorkTime(User), 0, 0, 8, 15);
-        return
-    end
-
-    if base.common.ToolBreaks( User, SourceItem, true ) then
-        base.common.InformNLS(User,
-        "Die alte und abgenutzte Spitzhacke in deinen Händen zerbricht.",
-        "The old and used pick-axe in your hands breaks.");
-        return
-    end
-
-    if breakRock(TargetItem) then
-        User:talkLanguage( Character.say, Player.german, "#me zertrümmert den Stein.");
-        User:talkLanguage( Character.say, Player.english, "#me destroys the rock.");
-        return
-    end
-
-    Skill = GetModifiedSkill(User);
-	
-
-	if not base.gatheringcraft.mining:FindRandomItem(User) then
-		return
-	end
-	
-    if not checkSucc(Skill) then
-        User:startAction( base.gatheringcraft.GenWorkTime(User), 0, 0, 8, 15);
-        --User:learn(2,"mining",1,100);
-		--Replace with new learn function, see learn.lua 
-        return
-    end
-
-    Ressource=GetRessource(AreaID, TargetItem.id, Skill);
-
-    -- Edit by abcfantasy
-
-    --    if (Ressource < 1 ) then
-    --        User:startAction( GenWorkTime(User), 0, 0, 8, 15);
-    --        base.common.GetHungry( User, 300 );
-    --        if (Ressource == 0 ) then
-    --            User:learn(2,"mining",1,100);
-    --        end
-    --        return
-    --    end
-
-    if Ressource == 0 then     -- set resource to raw stone and continue script
-        Ressource = 735
-    elseif Ressource < 0 then  -- find nothing
-        User:startAction( base.gatheringcraft.GenWorkTime(User), 0, 0, 8, 15);
-		base.common.GetHungry( User, 300 );
-        return
-    end
-
-    --User:learn(2,"mining",1,100);
-	--Replace with new learn function, see learn.lua 
-
-    -- End edit
-
-    local notcreated=User:createItem(Ressource,1,333,0);
-
-    if (notcreated~=0) then
-        world:createItemFromId(Ressource,1,User.pos,true,333,0);
-        base.common.InformNLS(User,
-        "Du kannst nicht noch mehr halten.",
-        "You can't carry any more.");
-    else
-        User:startAction( base.gatheringcraft.GenWorkTime(User), 0, 0, 8, 15);
-    end
-end
-
-function DigForTresure(User,TargetPos)
-    local groundTile = world:getField( TargetPos ):tile();
-    local GroundType = base.common.GetGroundType( groundTile );
-    
-    if (GroundType ~= 5) and base.treasure.DigForTreasure( User, TargetPos, (User:getSkill("mining")/10)+1,
-                                                base.common.GetNLS( User,
-                                                    "Du schwingst deine Spitzhacke gegen den steinigen Boden und stößt auf etwas das noch härter ist als der Boden. Das muss er sein! Der Schatz. Noch einmal graben und der grenzenlose Reichtum ist dein!",
-                                                    "You swing your pick-axe against the stony ground and hit something that is even harder then the ground. That must it be! The treasure! Another swing and it is yours!" ), false ) then
-        return;
-    end
-    
-    
-    if (( groundTile ~= 3 ) and ( groundTile ~= 8 )) then
-        if ( GroundType == 1 ) then
-            base.common.InformNLS( User,
-            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie gräbt sich tief in den Ackerboden.",
-            "You swing your pick-axe towards the ground and it digs deeply into the farm land.");
-        elseif ( GroundType == 2 ) then
-            base.common.InformNLS( User,
-            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie gräbt sich tief in den Waldboden.",
-            "You swing your pick-axe towards the ground and it digs deeply into the forest ground.");
-        elseif ( GroundType == 4 ) then
-            base.common.InformNLS( User,
-            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie gräbt sich tief in die Wiese.",
-            "You swing your pick-axe towards the ground and it digs deeply into the grass.");
-        elseif ( GroundType == 5 ) then
-            base.common.InformNLS( User,
-            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und lockerst den festen Boden etwas",
-            "You swing your pick-axe towards the ground and disturb the stony ground slightly.");
-        elseif ( GroundType == 6 ) then
-            base.common.InformNLS( User,
-            "Du schwingst deine Spitzhacke schwungvoll gegen den Boden und sie versinkt mit einem Platschen im Wasser.",
-            "You swing your pick-axe towards the ground and it runs with a splash into the water.");
-        else
-            base.common.InformNLS(User,
-            "Dein Versuch, an dieser Stelle zu graben, dürfte nicht von Erfolge gekrönt werden.",
-            "This isn't a good place to dig.");
-        end
-        return
-    end
-end
-
-function UseItemWithCharacter(User,SourceItem,TargetChar,counter,param)
+  if not base.common.FitForWork( User ) then -- check minimal food points
+    return
+  end
+  
+  if DigForTresure(User) then
+    return;
+  end
+  
+  local areaId = GetAreaId(User.pos);
+  if (areaId == nil) then
     base.common.InformNLS(User,
-    "Eine Spitzhacke ist nicht so sehr als Waffe geeignet.",
-    "You shouldn't use a pick-axe as a weapon.");
+    "Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
+    "The area doesn't look like a good place to mine.");
+    return;
+  end
+  
+  local rock = getRock(User, areaId);
+  if (rock == nil) then
+    -- TODO check if this condition is needed.
+    --if (ltstate ~= Action.success) then
+        base.common.HighInformNLS(User,
+        "Du musst neben einem Felsen stehen um Bergbau zu betreiben.",
+        "You have to stand next to a rock to mine.");
+    --end
+    return
+  end
+
+  if not base.common.IsLookingAt( User, rock.pos ) then -- check looking direction
+    base.common.TurnTo( User, rock.pos ); -- turn if necessary
+  end
+  
+  if ( ltstate == Action.none ) then -- currently not working -> let's go
+    mining.SavedWorkTime[User.id] = mining:GenWorkTime(User,SourceItem);
+    User:startAction( mining.SavedWorkTime[User.id], 0, 0, 0, 0);
+    User:talkLanguage( Character.say, Player.german, "#me beginnt mit einer Spitzhacke auf den Stein zu schlagen.");
+    User:talkLanguage( Character.say, Player.english, "#me starts to hit the stone with a pick-axe."); 
+    return
+  end
+
+  -- since we're here, we're working
+
+  if mining:FindRandomItem(User) then
+    return
+  end
+  
+  local productId = GetResource(areaId, rock.id);
+
+  User:learn( mining.LeadSkill, mining.SavedWorkTime[User.id], 100);
+  local amount = 1; -- set the amount of items that are produced
+  local notCreated = User:createItem( productId, amount, 333, nil ); -- create the new produced items
+  local rockBroken = breakRock(rock);
+  if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+    world:createItemFromId( productId, notCreated, User.pos, true, 333, nil );
+    base.common.InformNLS(User,
+    "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+    "You can't carry any more and the rest drops to the ground.");
+  elseif (not rockBroken) then -- character can still carry something and rock is okay
+    rock = getRock(User, areaId);
+    if (rock ~= nil) then  -- there are still items we can work on
+      mining.SavedWorkTime[User.id] = mining:GenWorkTime(User,SourceItem);
+      User:startAction( mining.SavedWorkTime[User.id], 0, 0, 0, 0);
+    else -- no items left
+      base.common.InformNLS(User,
+      "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
+      "There are no stones for mining anymore.");
+    end
+  end
+
+  if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+    base.common.InformNLS(User,
+    "Deine alte Spitzhacke zerbricht.",
+    "Your old pick-axe breaks.");
+    return
+  end
 end
 
---[[ Arbeitszeit generieren
--- 2s - 5.5s
-function GenWorkTime(User)
-    local Attrib = User:increaseAttrib("constitution",0); -- Konstitution: 0 - 20
-    local Skill  = math.min(100,User:getSkill("mining")*10);    -- Mining: 0 - 100
+-- @return  True if found a treasure.
+function DigForTresure(User)
+  local TargetPos = base.common.GetFrontPosition(User);
+  local groundTile = world:getField( TargetPos ):tile();
+  local GroundType = base.common.GetGroundType( groundTile );
 
-    return math.floor(-0.3 * (Attrib + Skill) + 60);
-end]]--
+  if ( (GroundType ~= base.common.GroundType.rocks) and
+      base.treasure.DigForTreasure( 
+        User, TargetPos, (User:getSkill(Character.mining)/10)+1,
+        base.common.GetNLS( User,
+          "Du schwingst deine Spitzhacke gegen den steinigen Boden und stößt auf etwas das noch härter ist als der Boden. Das muss er sein! Der Schatz. Noch einmal graben und der grenzenlose Reichtum ist dein!",
+          "You swing your pick-axe against the stony ground and hit something that is even harder then the ground. That must it be! The treasure! Another swing and it is yours!" ), 
+        false) ) then
+    return true;
+  end
+  return false;
+end

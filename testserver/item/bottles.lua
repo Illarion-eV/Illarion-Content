@@ -80,7 +80,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 						-- fill drink
 						if (TargetItem.number > 1) then
 							world:erase( TargetItem, 1 );
-							User:createItem( combo[2], 1, 333,0);
+							User:createItem( combo[2], 1, 333,nil);
 						else
 							TargetItem.id = combo[2];
 							world:changeItem(TargetItem);

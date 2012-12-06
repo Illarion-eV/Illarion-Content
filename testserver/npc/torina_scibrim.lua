@@ -235,7 +235,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Ehm... ihr seid schon Bürger in Runewick. Wusstet Ihr das nicht?");
+talkEntry:addResponse("Ehm... Ihr seid schon Bürger in Runewick. Wusstet Ihr das nicht?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

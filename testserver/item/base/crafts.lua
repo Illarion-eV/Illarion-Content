@@ -243,6 +243,19 @@ function Craft:isHandToolEquipped(user)
     return false
 end
 
+function Craft:getHandToolEquipped(user)
+    local leftTool = user:getItemAt(Character.left_tool)
+    local rightTool = user:getItemAt(Character.right_tool)
+
+    if leftTool.id == self.handTool then
+        return leftTool
+    elseif rightTool.id == self.handTool then
+        return rightTool
+    end
+
+    return nil
+end
+
 function Craft:allowNpcCrafting(user, source)
     return user:isInRange(source, 2)
 end
@@ -537,6 +550,10 @@ function Craft:craftItem(user, productId, toolItem)
     local product = self.products[productId]
     local skill = self:getSkill(user)
     local skillGain = false
+
+    if toolItem:getType() == scriptItem.field then
+        toolItem = self:getHandToolEquipped(user)
+    end
     
     if product.difficulty > skill then
         base.common.InformNLS(user,

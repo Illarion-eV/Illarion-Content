@@ -36,6 +36,13 @@ function LookAtItem(player, item)
 end
 
 function UseItem(User, SourceItem, TargetItem, counter, Param, ltstate)
+    if (User.lastSpokenText == "rain") then
+        local weather = world.weather
+        weather.percipitation_type = 1
+        weather.percipitation_strength = 100
+        world:setWeather(weather)
+    end
+
     if (User.lastSpokenText == "gem") then
         item.gems.gemCraft:showDialog(User, User)
     end

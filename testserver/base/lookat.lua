@@ -83,7 +83,7 @@ function GenerateLookAt(user, item, material)
 		lookAt.description = usedDescription;
 	end;
 	
-	if itemCommon.AgeingSpeed < 255 then
+	if itemCommon.AgeingSpeed < 255 and itemCommon.Weight < 30000 then
 		local craftedByData = item:getData("craftedBy");
 		if not base.common.IsNilOrEmpty(craftedByData) then
 			lookAt.craftedBy = craftedByData;
