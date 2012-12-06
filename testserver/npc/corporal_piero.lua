@@ -22,6 +22,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
+require("npc.base.consequence.treasure")
 require("npc.base.talk")
 module("npc.corporal_piero", package.seeall)
 
@@ -32,7 +33,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(305, "=", 6));
 talkEntry:addTrigger("hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Corporal Piero the guard. Keywords: Galmair, Runewick, Queen Rosaline."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Corporal Piero der Wächter. Schlüsselwörter: Galmair, Runewick, Queen Rosaline."));
 talkEntry:addResponse("Ich bin Wache. Ich be-Wache Leute. Lang lebe die Königin. Danke für deine Hilfe mit den Piraten, Zhambra soll dich schützen.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -266,9 +267,9 @@ talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Die Anführer der Fraktionen haben von deiner Tat erfahren, dies wirkt sich mit Sicherheit auf deinen Ruf aus."));
 talkEntry:addResponse("Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.");
-talkEntry:addConsequence(npc.base.consequence.item.item(505, 1, 733, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -286,9 +287,9 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Die Anführer der Fraktionen haben von deiner Tat erfahren, dies wirkt sich mit Sicherheit auf deinen Ruf aus."));
 talkEntry:addResponse("Gut gut! Ihr bringt gute Nachricht. Im Namen Cadomyrs will ich Euch danken und diese Karte überreichen. Sie stammt aus der Piraten Hand... oh und Tobis meinte ich soll Euch diesen Hut geben.");
-talkEntry:addConsequence(npc.base.consequence.item.item(505, 1, 733, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -306,9 +307,9 @@ talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("The leaders about the factions got knowledge about your deeds, this influences your reputation."));
 talkEntry:addResponse("Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat.");
-talkEntry:addConsequence(npc.base.consequence.item.item(505, 1, 733, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,9 +322,9 @@ talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("The leaders about the factions got knowledge about your deeds, this influences your reputation."));
 talkEntry:addResponse("Well well! You deliver good news. In name of the great Cadomyr I like to thank you and present you this map I was able to capture from the pirates hands...oh and Tobis told me to hand you this hat.");
-talkEntry:addConsequence(npc.base.consequence.item.item(505, 1, 733, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(356, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(305, "=", 6));
+talkEntry:addConsequence(npc.base.consequence.treasure.treasure(2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
