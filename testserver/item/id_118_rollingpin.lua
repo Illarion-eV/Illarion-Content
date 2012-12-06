@@ -46,6 +46,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     "You have to work at a Tisch!" );
     return;
   end
+  
+  if (SourceItem:getType() ~= 4) then -- tool in hand
+    base.common.HighInformNLS( User,
+    "Du musst das Nudelholz in der Hand haben!",
+    "You have to hold the rolling pin in your hand!" );
+    return
+  end
 
 	if base.common.Encumbrence(User) then
 		base.common.HighInformNLS( User,
@@ -97,9 +104,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   local bucketString = theBucket:getData("amount");
   if (bucketString ~= "") then
     bucketAmount = tonumber(bucketString);
+  else
+    bucketAmount = 10;
   end
   if (bucketAmount < 1) then
-    User:inform("[ERROR] Filled bucket has no amount. Data string: " .. bucketString .. ". Please informa developer.");
+    User:inform("[ERROR] Filled bucket has zero amount. Data string: " .. bucketString .. ". Please informa developer.");
     world:swap(theBucket, 51, 333);
     return;
   end
