@@ -80,7 +80,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		world:changeItem(SourceItem);
     User:changeSource(SourceItem);
 	end
-	User:inform("amount: " .. amount);
 	if ( amount < 0 ) then
 		-- this should never happen...
 		User:inform("[ERROR] Negative amount " .. amount .. " for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
@@ -110,7 +109,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], 100);
 	amount = amount - 1;
-	User:inform("reduced amount: " .. amount);
 	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( harvestProduct.productId, notCreated, User.pos, true, 333, nil );
@@ -135,10 +133,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		SourceItem.wear = harvestProduct.growCycles[4];
 	end
 	SourceItem:setData("amount","" .. amount);
-	User:inform("data amount set to " .. amount);
 	world:changeItem(SourceItem);
   User:changeSource(SourceItem);
-	User:inform("security check after changed item: " .. SourceItem:getData("amount"));
 end
 
 function InitHarvestItems()

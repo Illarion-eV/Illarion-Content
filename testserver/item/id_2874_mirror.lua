@@ -30,7 +30,7 @@ function LookAtItem( User, Item )
             world:itemInform(User, Item, "Behind your back you can clearly see a ladder in the mirror.");
         end
         if ( not base.common.isItemIdInFieldStack( 35, lpos ) ) then
-            world:createItemFromId( 35, 1, lpos, true, 999 ,0);
+            world:createItemFromId( 35, 1, lpos, true, 999 ,nil);
         end;
     else
         if lang==0 then

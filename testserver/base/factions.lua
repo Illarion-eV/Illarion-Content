@@ -36,7 +36,7 @@ function InitFactionLists()
 					 {gRank = "Adliger", eRank = "Noble"},           	--rank 8
 					 {gRank = "Baron", eRank = "Baron"},				--rank 9
 					 {gRank = "Herzog", eRank = "Duke"},				--rank 10
-					 {gRank = "Queen", eRank = "Königin"}};				--rank leader
+					 {gRank = "Königin", eRank = "Queen"}};				--rank leader
 	
 	RunewickRankList = { {gRank = "Neuling", eRank = "Novice"},    		--rank 1
 					 {gRank = "Anwärter", eRank = "Apprentice"},       	--rank 2

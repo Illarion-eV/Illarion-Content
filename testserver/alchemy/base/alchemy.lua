@@ -388,8 +388,17 @@ function CauldronDestruction(User,cauldron,effectId)
 end
 
 function SetQuality(User,Item)
-    quali = 999 -- replace with formula
-	Item:setData("potionQuality",quali)
+-- skill has an influence of 75% on the mean
+    local skillQuali = User:getSkill(Character.alchemy)*0.75 
+-- attributes have an influence of 25% on the mean (if the sum of the attributes is 40 or higher, we reach the maixmum influence)	
+	local attribCalc = (((User:increaseAttrib("essence") + User:increaseAttrib("perception"))/2))*5 
+	local attribQuali = base.common.Scale(0,25,attribCalc)
+-- the mean	
+	local mean =  base.common.Scale(1,9,(attribQuali + skillQuali)) 
+-- normal distribution; mean determined by skill and attributes; fixed standard deviation	
+	local quality = (Random.normal(mean, 4.5)*100) + 99 -- duarability is useless, we set it anway
+	
+	Item:setData("potionQuality",quality)
 end
 
 function GemDustBottleCauldron(gem, gemdust, cauldron, bottle)
