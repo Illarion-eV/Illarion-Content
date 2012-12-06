@@ -7,19 +7,14 @@ BAG_LABEL_COMMAND = "!bag"
 MAX_LABEL_LENGTH = 100
 
 function LookAtItem(User,Item)
-    local description
-    if User:getPlayerLanguage() == 0 then
-        description = "Ledertasche"
-    else
-        description = "leather bag"
-    end
+    local lookAt = base.lookat.GenerateLookAt(User, Item)
 
     local bagLabel = Item:getData(BAG_LABEL_KEY)
     if bagLabel ~= "" then
-        description = description .. " (" .. bagLabel .. ")" 
+        lookAt.description = bagLabel
     end
 
-    world:itemInform(User, Item, description)
+    world:itemInform(User, Item, lookAt)
 end
 
 function UseItem( User, Item, TargetItem, Counter, Param )

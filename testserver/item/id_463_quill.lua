@@ -6,14 +6,27 @@ require("alchemy.base.alchemy")
 module("item.id_463_quill", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    User:inform("0.5")
     -- we check if the char holds a bottle to label it
-    local bottle = alchemy.base.alchemy.CheckIfBottleInHand(User)
+    local bottle = CheckIfBottleInHand(User)
 	if bottle then 
-	    User:inform("1")
-		WriteLabel(User,SourceItem,bottle)
+	    WriteLabel(User,SourceItem,bottle)
 	end	
 
+end
+
+function CheckIfBottleInHand(User)
+
+	local bottleList = alchemy.base.alchemy.bottleList
+	for i=1,((#bottleList)+1) do
+		local ItemA = User.getItemAt(5)
+		local ItemB = User.getItemAt(6)
+		if (ItemA.id == bottleList[i]) or (ItemA.id == 164) then
+			return ItemA
+		elseif (ItemB.id == bottleList[i]) or (ItemB.id == 164) then
+			return ItemB
+		end
+	end
+	return nil		
 end
 
 function WriteLabel (User,SourceItem,bottle)
@@ -21,6 +34,11 @@ function WriteLabel (User,SourceItem,bottle)
 	-- does the char have parchment?
     if User:countItem(2745) < 1 then 
 	    User:inform("Dir fehlt Pergament, das du als Etikett nutzen könntest.","You don't have any parchment you could use as a label.")		
+	    return
+	end
+	
+	if bottle.number > 1 then
+	    User:inform("Du kannst immer nur eine Flasche beschriften.","You can label only one bottle at once.")		
 	    return
 	end
 	

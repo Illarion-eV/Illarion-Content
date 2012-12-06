@@ -233,24 +233,24 @@ function GetTeacherQuestInfos(User,SourceItem)
     -- depending on the position of the sourceitem (= the teacher), we get particular infos
 	
 	local questId; local questPrg; local teacherEN1; local teacherEN2; local teacherDE1; local teacherDE2
-	if SourceItem.pos == position(1,1,0) or SourceItem.id == 456 then
+	if SourceItem.pos == position(432,238,0) then
 	    questId = 350
 		teacherEN1 = "The Knowing Tree"
         teacherEN2 = "Knowing Tree"
 		teacherDE1 = "Der Wissende Baum" 
 		teacherDE2 = "der Wissende Baum"
-	elseif SourceItem.pos == position(2,1,0) then 
+	elseif SourceItem.pos == position(75,65,0) then 
 	    questId = 351
 		teacherEN1 = "The Thinking Stone"
-        teacherEN2 = "Thinking stone"
+        teacherEN2 = "Thinking Stone"
 		teacherDE1 = "Der Denkende Stein" 
 		teacherDE2 = "der Denkende Stein"
-	elseif SourceItem.pos == position(3,1,0) then
-        questId = 351
-		teacherEN1 = "The Thinking Stone"
-        teacherEN2 = "Thinking stone"
-		teacherDE1 = "Der Denkende Stein" 
-		teacherDE2 = "der Denkende Stein"	
+	elseif SourceItem.pos == position(873,878,0) then 
+        questId = 352
+		teacherEN1 = "The Recognizing Spring"
+        teacherEN2 = "Recognizing Spring"
+		teacherDE1 = "Die Erkennende Quelle" 
+		teacherDE2 = "die Erkennende Quelle"	
     end
 	if questId ~= nil then
 	    questPrg = User:getQuestProgress(questId)
@@ -502,8 +502,11 @@ function ThirdTask(User, SourceItem)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
- 
-    -- already an alchemist?
+    if not (SourceItem.pos == position(75,651,0) or SourceItem.pos == position(432,238,0) or SourceItem.pos == position(873,878,0)) then
+	    return
+	end	
+	
+	-- already an alchemist?
     local alchemistCheck = AlchemistCheck(User)
 	if alchemistCheck then
 	    SendMessage(User, SourceItem,
