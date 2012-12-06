@@ -1,6 +1,7 @@
 -- Tree Script
 -- Envi
 require("base.common")
+require("base.lookat")
 require("content.tree")
 
 module("item.tree", package.seeall)
@@ -32,20 +33,19 @@ function LookAtItemIdent(User,Item)
     local signItemId     = content.tree.signItemId;
     local signPerception = content.tree.signPerception;
 
-    found = false;
+    local lookAt = base.lookat.GenerateLookAt(User, Item)
+
     UserPer = User:increaseAttrib("perception",0);
     tablePosition = Item.pos.x .. Item.pos.y .. Item.pos.z;
 	if signCoo ~= nil then
 		if (signCoo[tablePosition] ~= nil) then
 			for i, signpos in pairs(signCoo[tablePosition]) do
 				if (Item.pos == signpos) then
-					if (UserPer >= signPerception[tablePosition][i]) then
-						found = true;
-						world:itemInform(User,Item,base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name)));
+                    if (UserPer >= signPerception[tablePosition][i]) then
+						lookAt.description = base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name))
 						test = signTextDe[tablePosition][i];
 					else
-                        found = true;
-						world:itemInform(User,Item,base.common.GetNLS(User,"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~"));
+						lookAt.description = base.common.GetNLS(User,"Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.","You recognise something, but you cannot read it, because you are too blind.")
 					end
 				end
 			end
@@ -58,9 +58,8 @@ function LookAtItemIdent(User,Item)
 		found = true;
 	end ]]
 
-	if not found then
-        world:itemInform(User,Item,world:getItemName(Item.id,User:getPlayerLanguage()));
-    end
+    world:itemInform(User, Item, lookAt)
+    
     --[[if not found then
         val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(TreeListGerman))+1;
         world:itemInform( User, Item, base.common.GetNLS(User, TreeListGerman[val], TreeListEnglish[val]) );
