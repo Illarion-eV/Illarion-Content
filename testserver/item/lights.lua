@@ -106,9 +106,9 @@ end
 
 function checkReq(User, Item, this)
 	local wear = -1;
-	if Item.data>=1000 then
+	if getLightData(Item)>=1000 then
 		-- item has already been used and old wear is saved in data
-		wear = Item.data-1000;
+		wear = getLightData(Item)-1000;
 	elseif this.req then
 		-- there's a requirement, check on body and belt
 		if ( User:countItemAt("body", this.req.id) + User:countItemAt("belt", this.req.id) >= this.req.num ) then
@@ -138,6 +138,7 @@ function checkReq(User, Item, this)
 	return (wear>=0), wear;
 end
 
+-- CURRENTLY DEACTIVATED
 -- give something back
 function giveBack(User, Item, this)
 	if Item.data==2 then -- a night watchman has put on that light, give nothing back
@@ -191,9 +192,9 @@ end
 function putOn(Item, newWear, noBack)
 
 	if noBack then
-		Item.data = 2; -- give nothing back
+		setLightData(Item, 2); -- give nothing back
 	else
-		Item.data = Item.wear + 500; -- save old wear value
+		setLightData(Item, Item.wear + 500); -- save old wear value
 	end
 	Item.id = LightsOff[Item.id].on;
 	Item.wear = newWear;
@@ -202,9 +203,9 @@ end
 
 function putOff(Item, this)
 	local oldWear = Item.wear;
-	if Item.data >= 500 then
+	if getLightData(Item) >= 500 then
 		-- item has already been used and old wear value is saved in data
-		Item.wear = Item.data - 500;
+		Item.wear = getLightData(Item) - 500;
 	elseif this.portable then
 		Item.wear = PORTABLE_WEAR;
 	else
@@ -212,10 +213,10 @@ function putOff(Item, this)
 	end
 	if this.back then
 		-- old wear value is already saved, as we've given a torch to the user
-		Item.data = 0;
+		setLightData(Item, 0);
 	else
 		-- save old wear value in data
-		Item.data = oldWear + 1000;
+		setLightData(Item, oldWear + 1000);
 	end
 	Item.id = this.off;
 	world:changeItem(Item);
@@ -257,8 +258,8 @@ function LookAtItem(User, Item)
 	if(LightsOn[Item.id]) then
 		TimeLeftI = Item.wear;
 	elseif (LightsOff[Item.id]) then
-		if (Item.data >= 1000) then
-			TimeLeftI = Item.data - 1000;
+		if (getLightData(Item) >= 1000) then
+			TimeLeftI = getLightData(Item) - 1000;
 		else
 			TimeLeftI = PORTABLE_WEAR;
 		end
@@ -281,4 +282,18 @@ function LookAtItem(User, Item)
 	end	
 	
 	world:itemInform(User, Item, base.common.GetNLS(User, ItemName..", sie wird "..TimeLeft.." ausbrennen.", ItemName..", it will burn down "..TimeLeft.."."));
+end
+
+-- dirty quick fix for old data
+function getLightData(Item)
+  local str = Item:getData("lightData");
+  if (str == "") then
+    setLightData(Item, 0);
+    return 0;
+  end
+  return tonumber(str);
+end
+
+function setLightData(Item, Num)
+  Item:setData("lightData", "" .. Num);
 end
