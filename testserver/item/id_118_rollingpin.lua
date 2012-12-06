@@ -37,7 +37,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   local staticTool = nil;
   local tableIndex = 1;
   while (staticTool == nil and tableIndex <= table.getn(TableList)) do 
-    staticTool = base.common.GetItemInArea(User.pos, tableId);
+    staticTool = base.common.GetItemInArea(User.pos, TableList[tableIndex]);
     tableIndex = tableIndex + 1;
   end
   if (staticTool == nil) then
