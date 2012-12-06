@@ -31,7 +31,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Pressen des Öls.",
 		"Your armour disturbs you while squeezing oil." );
 		return
@@ -49,11 +49,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	if (User:countItemAt("all",141)<1) then -- check for items to work on
 		if (User:countItemAt("all",141)==0) then
-			base.common.InformNLS( User, 
+			base.common.HighInformNLS( User, 
 			"Du brauchst schwarze Disteln um daraus Öl zu pressen.", 
 			"You need black thistles for squeezing oil." );
 		else
-			base.common.InformNLS( User, 
+			base.common.HighInformNLS( User, 
 			"Du hast nicht genug schwarze Disteln um daraus Öl zu pressen.", 
 			"You don't have enough black thistles for squeezing oil." );
 		end
@@ -80,7 +80,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( 390, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 390, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -88,7 +88,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			oilsqueezing.SavedWorkTime[User.id] = oilsqueezing:GenWorkTime(User,nil);
 			User:startAction( oilsqueezing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.InformNLS(User,
+			base.common.HighInformNLS(User,
 			"Du hast nicht mehr genug schwarze Disteln.",
 			"You don't have enough black thistles anymore.");
 		end

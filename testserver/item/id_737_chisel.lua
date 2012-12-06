@@ -50,14 +50,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du musst den Meiﬂel in der Hand haben!",
 		"You have to hold the chisel in your hand!" );
 		return
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine R¸stung behindert Dich beim Behauen der Steine.",
 		"Your armour disturbs you while cutting stones." );
 		return
@@ -70,7 +70,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- any other checks?
 
 	if (User:countItemAt("all",733)==0 and User:countItemAt("all",735)==0) then -- check for items to work on
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Du brauchst rohe Steine oder Steinquader um sie zu behauen.", 
 		"You need raw stones or stone blocks for cutting them." );
 		return;
@@ -93,7 +93,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- since we're here, we're working
 	-- But do we still have the stone type we're really working on?
 	if ( User:countItemAt("all",WorkOnStone[User.id]) == 0 ) then
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Du hast keine " .. Stones[WorkOnStone[User.id]].nameDE .. " mehr.", 
 		"You have no " .. Stones[WorkOnStone[User.id]].nameEN .. " anymore." );
 		return;
@@ -108,7 +108,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( Stones[WorkOnStone[User.id]].productId, Stones[WorkOnStone[User.id]].amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( Stones[WorkOnStone[User.id]].productId, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest f‰llt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -116,14 +116,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			stonecutting.SavedWorkTime[User.id] = stonecutting:GenWorkTime(User,SourceItem);
 			User:startAction( stonecutting.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.InformNLS( User, 
+			base.common.HighInformNLS( User, 
 			"Du hast keine " .. Stones[WorkOnStone[User.id]].nameDE .. " mehr.", 
 			"You have no " .. Stones[WorkOnStone[User.id]].nameEN .. " anymore." );
 		end
 	end
 
 	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Dein alter Meiﬂel zerbricht.",
 		"Your old chisel breaks.");
 		return

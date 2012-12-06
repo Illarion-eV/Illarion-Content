@@ -30,7 +30,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Herstellen der Pottasche.",
 		"Your armour disturbs you while producing potash." );
 		return
@@ -48,7 +48,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	if ((User:countItemAt("all",2560) == 0) and (User:countItemAt("all",543) == 0) and
 		(User:countItemAt("all",544) == 0) and (User:countItemAt("all",3) == 0)) then -- check for items to work on
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Du brauchst Holz um Pottasche zu produzieren.", 
 		"You need wood for producing potash." );
 		return;
@@ -82,7 +82,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( 314, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 314, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -91,7 +91,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			potashproducing.SavedWorkTime[User.id] = potashproducing:GenWorkTime(User,nil);
 			User:startAction( potashproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.InformNLS(User,
+			base.common.HighInformNLS(User,
 			"Du hast kein Holz mehr.",
 			"You have no wood anymore.");
 		end

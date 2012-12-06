@@ -16,7 +16,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   content.gathering.InitGathering();
   if (User:countItemAt("all",311)==0 and User:countItemAt("all",734)==0) then
     -- no tool at all
-    base.common.InformNLS( User,
+    base.common.HighInformNLS( User,
 		"Du brauchst ein Glasblasrohr oder eine Ziegelform um hier zu arbeiten.", 
 		"You need a glass blow pipe or a brick mould to work here." );
   elseif (User:countItemAt("all",311)>0 and User:countItemAt("all",734)==0) then
@@ -29,7 +29,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     elseif (User:countItemAt("all",736)>4) then
       ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
     else
-      base.common.InformNLS( User,
+      base.common.HighInformNLS( User,
       "Du brauchst Lehm oder 5 ungebrannte Ziegel um mit der Ziegelform hier zu arbeiten.", 
       "You need clay or 5 unfired bricks to work here with the brick mould." );
     end
@@ -42,7 +42,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     elseif (User:countItemAt("all",316)>0 and User:countItemAt("all",314)>0) then
       ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltstate );
     else
-      base.common.InformNLS( User,
+      base.common.HighInformNLS( User,
       "Für die Ziegelform brauchst du Lehm oder 5 ungebrannte Ziegel, für das Glasblasrohr brauchst du Quarzsand und Pottasche.", 
       "For the brick mould you need clay or 5 unfired bricks, for the glass blow pipe you need quartz sand and pott ash." );
     end
@@ -80,7 +80,7 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltsta
 	if ( toolItem.id ~= 311 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 311 ) then
-			base.common.InformNLS( User,
+			base.common.HighInformNLS( User,
 			"Du musst das Glasblasrohr in der Hand haben!",
 			"You have to hold the glass blow pipe in your hand!" );
 			return
@@ -88,7 +88,7 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltsta
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Herstellen der Glasblöcke.",
 		"Your armour disturbs you while producing glass ingots." );
 		return
@@ -105,7 +105,7 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltsta
 	-- any other checks?
 
 	if (User:countItemAt("all",316)==0 or User:countItemAt("all",314)==0) then -- check for items to work on
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Du brauchst Quarzsand und Pottasche um Glasblöcke herzustellen.", 
 		"You need quartz sand and pott ash for producing glass ingots." );
     return;
@@ -132,7 +132,7 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltsta
 	local notCreated = User:createItem( 41, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 41, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -140,14 +140,14 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltsta
 			glassingotproducing.SavedWorkTime[User.id] = glassingotproducing:GenWorkTime(User,toolItem);
 			User:startAction( glassingotproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.InformNLS(User,
+			base.common.HighInformNLS(User,
 			"Du brauchst Quarzsand und Pottasche um Glasblöcke herzustellen.", 
       "You need quartz sand and pott ash for producing glass ingots." );
 		end
 	end
 
 	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Dein altes Glasblasrohr zerbricht.",
 		"Your old glass blow pipe breaks.");
 		return
@@ -184,7 +184,7 @@ function ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, lts
 	if ( toolItem.id ~= 734 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 734 ) then
-			base.common.InformNLS( User,
+			base.common.HighInformNLS( User,
 			"Du musst die Ziegelform in der Hand haben!",
 			"You have to hold the brick mould in your hand!" );
 			return
@@ -192,7 +192,7 @@ function ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, lts
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Herstellen der ungebrannten Ziegel.",
 		"Your armour disturbs you while producing unfired bricks." );
 		return
@@ -232,7 +232,7 @@ function ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, lts
 	local notCreated = User:createItem( 736, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 736, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -241,14 +241,14 @@ function ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, lts
 			User:startAction( bricksproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
       -- Should actually never reach this, handle it nevertheless.
-			base.common.InformNLS(User,
+			base.common.HighInformNLS(User,
 			"Du hast keinen Lehm mehr.",
 			"You have no clay anymore.");
 		end
 	end
 
 	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Deine alte Ziegelform zerbricht.",
 		"Your old brick mould breaks.");
 		return
@@ -285,7 +285,7 @@ function ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( toolItem.id ~= 734 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 734 ) then
-			base.common.InformNLS( User,
+			base.common.HighInformNLS( User,
 			"Du musst die Ziegelform in der Hand haben!",
 			"You have to hold the brick mould in your hand!" );
 			return
@@ -293,7 +293,7 @@ function ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Brennen der Ziegel.",
 		"Your armour disturbs you while firing bricks." );
 		return
@@ -333,7 +333,7 @@ function ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( 2588, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 2588, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -342,14 +342,14 @@ function ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			User:startAction( bricksproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
       -- Should actually never reach this, handle it nevertheless.
-			base.common.InformNLS(User,
+			base.common.HighInformNLS(User,
 			"Du hast nicht mehr genug ungebrannte Ziegel.",
 			"You don't have enough unfired bricks anymore.");
 		end
 	end
 
 	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Deine alte Ziegelform zerbricht.",
 		"Your old brick mould breaks.");
 		return

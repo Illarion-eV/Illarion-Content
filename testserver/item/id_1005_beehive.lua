@@ -28,7 +28,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Sammeln von Honigwaben.",
 		"Your armour disturbs you while collecting honeycombs." );
 		return
@@ -61,7 +61,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( 2529, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 2529, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something

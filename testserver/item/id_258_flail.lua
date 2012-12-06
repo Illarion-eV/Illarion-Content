@@ -33,14 +33,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du musst den Dreschflegel in der Hand haben!",
 		"You have to hold the flail in your hand!" );
 		return
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Getreide dreschen.",
 		"Your armour disturbs you while flailing grain." );
 		return
@@ -51,7 +51,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if (User:countItemAt("all",249)==0) then -- check for items to work on
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Du brauchst Getreidebündel um Getreide zu dreschen.", 
 		"You need bundles of grain for flailing grain." );
 		return;
@@ -77,7 +77,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( 259, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 259, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -85,14 +85,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			flailing.SavedWorkTime[User.id] = flailing:GenWorkTime(User,SourceItem);
 			User:startAction( flailing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.InformNLS(User,
+			base.common.HighInformNLS(User,
 			"Du hast kein Getreidebündel mehr.",
 			"You have no bundle of grain anymore.");
 		end
 	end
 
 	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Dein alter Dreschflegel zerbricht.",
 		"Your old flail breaks.");
 		return
