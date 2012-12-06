@@ -61,6 +61,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( TargetItem ~= nil ) then
 		harvestItem = HarvestItems[TargetItem.id];
 	end
+  -- ensure that the user harvests only from static items.
+  if (TargetItem ~= nil and TargetItem.wear < 255) then
+    TargetItem = nil;
+  end
 	if ( TargetItem == nil or harvestItem == nil) then
 		base.common.InformNLS( User, 
 		"Hier ist nichts, wofür du die Sichel benutzen kannst.", 
