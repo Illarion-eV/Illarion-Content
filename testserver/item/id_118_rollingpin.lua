@@ -119,6 +119,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     bucketNotCreated = User:createItem( 51, 1, 333, nil ); -- create an empty bucket
   else
     theBucket:setData("amount", bucketAmount);
+    world:changeItem(theBucket);
   end
 	local amount = 5; -- set the amount of items that are produced
 	local notCreated = User:createItem( 5, amount, 333, nil ); -- create the new produced items
