@@ -1,18 +1,17 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Snorri                                                   Galmair --
--- NPC Job:  Trader                                                           --
+-- NPC Job:  Ambiente                                                         --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  352, 256, 0            --
+-- NPC Race: dwarf                      NPC Position:  350, 254, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                                            --
--- Last parsing: October 01, 2012                        easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 352, 256, 0, 4, 'Snorri', 'npc.snorri', 0, 1, 1, 119, 56, 3, 217, 154, 123);
+VALUES (1, 350, 254, 0, 4, 'Snorri', 'npc.snorri', 0, 1, 1, 119, 56, 3, 217, 154, 123);
 ---]]
 
 require("npc.base.basic")
@@ -21,13 +20,11 @@ require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
-require("npc.base.trade")
 module("npc.snorri", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sell");
@@ -36,8 +33,8 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("While examining the fish, you realize that everything is addled. - It's impossible to trade here. "));
 talkEntry:addResponse("I sell fish. Big fish, small fish, colourful fish or boring... they are all different. But they have one thing in common! They are fresh! So fresh, they might even jump out of your pan.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -48,24 +45,20 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Während du den dargebotenen Fisch näher untersuchst, wird dir bewusst, dass alles verdorben ist. - Es ist nicht möglich hier zu handeln. "));
 talkEntry:addResponse("Ich verkaufe Fisch. Große Fische, kleine Fische, bunte Fische oder langweilige... alle sind sie anders. Aber eines haben sie Gemeinsam. Sie sind frisch! So frisch, sie würden Euch glatt aus der Pfanne hüpfen.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can not afford that!");
-tradingNPC:addDialogClosedMsg("Danke, komm bald wieder!", "Thanks, come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Snorri the fishmonger. Keywords: buy, sell, trade, fish, orc, morri, nose, dwarf."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Snorri the fishmonger. Keywords: fish, orc, morri, nose, dwarf."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Snorri der Fischhändler. Schlüsselwörter: kaufe, verkaufe, Handel, Fisch, Ork, Morri, Nase, Zwerg."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Snorri der Fischhändler. Schlüsselwörter: Fisch, Ork, Morri, Nase, Zwerg."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -687,12 +680,8 @@ talkEntry:addResponse("Hm-h? Ihr wollt den großen Fisch da?");
 talkEntry:addResponse("Wenn ihr das sagt, will ich zustimmen. *lacht*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can not afford that!");
-tradingNPC:addDialogClosedMsg("Danke, komm bald wieder!", "Thanks, come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
-talkingNPC:addCycleText("#me fuchtelt mit einer Hand über den Tresen, dutzende Fliegen schwirren summend auf. Jedoch nach wenigen Augenblicken hocken sie sich wieder auf die Fische.", "#me shoos away the large quantities of flies that land on his fish.");
-talkingNPC:addCycleText("#me dreht sich um und klatscht Morri eine Forelle an die Schulter. 'Hör auf den Leuten zu sagen, mein Fisch ist gammelig!'", "#me slaps Morri with a big large trout. 'Stop persuade people that my fish is rotten!'");
+talkingNPC:addCycleText("#me fuchtelt mit einer Hand über die Güter, dutzende Fliegen schwirren summend auf. Jedoch nach wenigen Augenblicken hocken sie sich wieder auf die Fische.", "#me shoos away the large quantities of flies that land on his fish.");
+talkingNPC:addCycleText("#me klatscht Morri eine Forelle an die Schulter. 'Hör auf den Leuten zu sagen, mein Fisch ist gammelig!'", "#me slaps Morri with a big large trout. 'Stop persuade people that my fish is rotten!'");
 talkingNPC:addCycleText("Fisch! Frischer Fisch! Kommt ihr Leute und kauft frischen Fisch!", "Fish! Fresh Fish! Come and buy my fresh fish!");
 talkingNPC:addCycleText("Frischester, schmackhafter Fisch! Ich hab die größten und feinsten Fische in ganz Galmair!", "The freshest, tastiest fish! I sell the best and biggest fish in Galmair!");
 talkingNPC:addCycleText("#me wirft einen Blick über die Schulter, im nächsten Moment wirft einen zerfledderten Fisch in Morris Richtung. 'Der geht auf's Haus, Morri!", "#me throws an old, decayed fish at Morri. 'Thats for you!'");
@@ -701,26 +690,6 @@ talkingNPC:addCycleText("#me beugt sich mit misstrauischem Gesichtsausdruck über
 talkingNPC:addCycleText("#me wischt seine Hände an der Hose ab.", "#me wipes his hand on his trousers.");
 talkingNPC:addCycleText("Der Fisch ist frisch! Aufgepasst, dass er nicht davon hüpft.", "The fish is fresh. Be careful or it might jump away!");
 talkingNPC:addCycleText("#me nickt dem anderen Zwerg zu. 'Aye, Morri!'", "#me nods at the dwarf next to him. 'Aye, Morri!'");
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(51,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(72,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(73,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(92,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(50,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(355,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(556,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2459,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(51,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(72,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(73,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(92,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(50,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(355,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(556,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2459,"buySecondary"));
-tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can not afford that!");
-tradingNPC:addDialogClosedMsg("Danke, komm bald wieder!", "Thanks, come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
@@ -730,10 +699,6 @@ mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.")
 mainNPC:setEquipment(3, 2407);
 mainNPC:setEquipment(9, 821);
 mainNPC:setEquipment(10, 369);
-tradingNPC:addNotEnoughMoneyMsg("Du kannst dir das nicht leisten!", "You can not afford that!");
-tradingNPC:addDialogClosedMsg("Danke, komm bald wieder!", "Thanks, come again!");
-tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
-tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:setAutoIntroduceMode(true);
 
 mainNPC:initDone();

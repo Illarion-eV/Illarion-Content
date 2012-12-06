@@ -1,22 +1,21 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Snorri                                                   Galmair --
--- NPC Job:  Trader                                                           --
+-- NPC Job:  Ambiente                                                         --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  352, 256, 0            --
+-- NPC Race: dwarf                      NPC Position:  350, 254, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                                            --
--- Last parsing: September 11, 2012                      easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Snorri"
 race = dwarf
 sex = male
-position = 352, 256, 0
+position = 350, 254, 0
 direction = south
 affiliation = "Galmair"
-job = "Trader"
+job = "Ambiente"
 
 language = common
 language = dwarf
@@ -41,25 +40,12 @@ itemTrousers = 821
 itemShoes = 369
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
--- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
--- Valid races: human, elf, dwarf, lizardman, orc, halfling
--- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
--- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
--- When you are done, please hit the "Rebuild Script" button.
-
-"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "I sell fish. Big fish, small fish, colourful fish or boring... they are all different. But they have one thing in common! They are fresh! So fresh, they might even jump out of your pan."
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ich verkaufe Fisch. Große Fische, kleine Fische, bunte Fische oder langweilige... alle sind sie anders. Aber eines haben sie Gemeinsam. Sie sind frisch! So frisch, sie würden Euch glatt aus der Pfanne hüpfen."
-sellItems = 51, 72, 73, 92, 50, 355, 556, 2459
-buySecondaryItems = 51, 72, 73, 92, 50, 355, 556, 2459
-tradeNotEnoughMoneyMsg "Du kannst dir das nicht leisten!", "You can not afford that!"
-tradeFinishedMsg "Danke, komm bald wieder!", "Thanks, come again!"
-tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
-tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+"sell", "buy", "wares", "price", "trade", "purchase" -> inform("While examining the fish, you realize that everything is addled. - It's impossible to trade here. "), "I sell fish. Big fish, small fish, colourful fish or boring... they are all different. But they have one thing in common! They are fresh! So fresh, they might even jump out of your pan."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> inform("Während du den dargebotenen Fisch näher untersuchst, wird dir bewusst, dass alles verdorben ist. - Es ist nicht möglich hier zu handeln. "), "Ich verkaufe Fisch. Große Fische, kleine Fische, bunte Fische oder langweilige... alle sind sie anders. Aber eines haben sie Gemeinsam. Sie sind frisch! So frisch, sie würden Euch glatt aus der Pfanne hüpfen."
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Snorri the fishmonger. Keywords: buy, sell, trade, fish, orc, morri, nose, dwarf.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Snorri der Fischhändler. Schlüsselwörter: kaufe, verkaufe, Handel, Fisch, Ork, Morri, Nase, Zwerg.")
+"Help" -> inform("[Game Help] This NPC is Snorri the fishmonger. Keywords: fish, orc, morri, nose, dwarf.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Snorri der Fischhändler. Schlüsselwörter: Fisch, Ork, Morri, Nase, Zwerg.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho, how can I help you? - No, don't tell me, let me guess. You wanna buy some fish, right?", "Hello, Hello. How are you today? I haven't seen you for years. New haircut? It really suits you!", "Oh! Good day! It's nice to meet you!"
@@ -110,7 +96,7 @@ english, "Elvaine", "Morgan" -> "Aye, you talk about the wizard, right? Elvaine 
 "Elvaine", "Morgan" -> "Aye, ihr sprecht über diesen Zauberer nicht wahr? Elvaine Morgan. Ist der König in Runewick, hab ich mir sagen lassen. Oder wie war das? Naja, mit so etwas muss sich ein Fischhändler nicht abmühen"
 english, "Runewick" -> "You better not trust Runewick. Who knows what evil things they do in their towers. Any minute the sky might fall on our heads! But whatever, the longears will be the first to get hit."
 "Runewick" -> "Runewick, darf man nicht vertrauen. Wer kann schon sagen welches Unheil man dort in den Türmen zusammen braut. Und irgendwann fällt uns der Himmel auf den Kopf. Mir soll's recht sein, die Spitzohren sind dann die Ersten die's erwischt."
-english, "Valerio", "Guilianni", "Don" -> trade, "Aye, don't tell anyone, but my brother Morri and I, we only pay half as much for our market stall as the otherrs. We played a trick on the Don, didn't we?"
+english, "Valerio", "Guilianni", "Don" -> "Aye, don't tell anyone, but my brother Morri and I, we only pay half as much for our market stall as the otherrs. We played a trick on the Don, didn't we?", trade
 "Valerio", "Guilianni", "Don" -> "Aye, sagt's nicht weiter, aber mein Bruder Morri und ich, wir bezahlen nur Halb so viel für unseren Stand wie die anderen Händler. Da haben wir dem Don ein Schnippchen geschlagen, nicht wahr?"
 english, "Galmair" -> "Those who have a problem in Galmair should talk with the Don. Valerio Guilianni! If you have a problem with the Don himself....Erm yes..better not get in the Don's way."
 "Galmair" -> "Wer in Galmair ein Problem hat, dem seis geraten sich an den Don zu wenden. Valerio Guilianni! Wenn man allerdings ein Problem mit dem Don selbst hat... *räuspert sich* nun seht zu, dass ihr dem Don nicht in die Quere kommt."
@@ -162,8 +148,8 @@ german, chance(20.0), ".*" -> "Aye. Alles klar.", "Hm-h? Ihr wollt den großen F
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me fuchtelt mit einer Hand über den Tresen, dutzende Fliegen schwirren summend auf. Jedoch nach wenigen Augenblicken hocken sie sich wieder auf die Fische.", "#me shoos away the large quantities of flies that land on his fish."
-cycletext "#me dreht sich um und klatscht Morri eine Forelle an die Schulter. 'Hör auf den Leuten zu sagen, mein Fisch ist gammelig!'", "#me slaps Morri with a big large trout. 'Stop persuade people that my fish is rotten!'"
+cycletext "#me fuchtelt mit einer Hand über die Güter, dutzende Fliegen schwirren summend auf. Jedoch nach wenigen Augenblicken hocken sie sich wieder auf die Fische.", "#me shoos away the large quantities of flies that land on his fish."
+cycletext "#me klatscht Morri eine Forelle an die Schulter. 'Hör auf den Leuten zu sagen, mein Fisch ist gammelig!'", "#me slaps Morri with a big large trout. 'Stop persuade people that my fish is rotten!'"
 cycletext "Fisch! Frischer Fisch! Kommt ihr Leute und kauft frischen Fisch!", "Fish! Fresh Fish! Come and buy my fresh fish!"
 cycletext "Frischester, schmackhafter Fisch! Ich hab die größten und feinsten Fische in ganz Galmair!", "The freshest, tastiest fish! I sell the best and biggest fish in Galmair!"
 cycletext "#me wirft einen Blick über die Schulter, im nächsten Moment wirft einen zerfledderten Fisch in Morris Richtung. 'Der geht auf's Haus, Morri!", "#me throws an old, decayed fish at Morri. 'Thats for you!'"
