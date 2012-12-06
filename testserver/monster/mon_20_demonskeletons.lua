@@ -88,14 +88,7 @@ function enemyOnSight(Monster,Enemy)
 end
 
 function onAttacked(Monster,Enemy)
-local MonID=Monster:getMonsterType();
-	if(MonID == 205) then
-		if monster.specialattacks.lich_spells.Lich_Forcefield (monster, char) then
-			return true;
-		else
-			return false;
-		end
-	end	
+
     if init==nil then
         ini(Monster);
     end
