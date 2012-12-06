@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 953, 766, 5, 6, 'Vallaria Medrota', 'npc.vallaria_medrota', 1, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (3, 953, 766, 5, 6, 'Vallaria Medrota', 'npc.vallaria_medrota', 1, 2, 7, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
