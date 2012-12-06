@@ -2,8 +2,8 @@
 -- NPC Name: Antonius Copperhand                                      Galmair --
 -- NPC Job:  Goldsmith NPC                                                    --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  353, 255, 0            --
--- NPC Sex:  male                       NPC Direction: east                   --
+-- NPC Race: dwarf                      NPC Position:  352, 256, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 353, 255, 0, 2, 'Antonius Copperhand', 'npc.antonius_copperhand', 0, 2, 1, 140, 50, 15, 189, 162, 151);
+VALUES (1, 352, 256, 0, 4, 'Antonius Copperhand', 'npc.antonius_copperhand', 0, 2, 1, 140, 50, 15, 189, 162, 151);
 ---]]
 
 require("npc.base.basic")
