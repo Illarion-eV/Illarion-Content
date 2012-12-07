@@ -314,7 +314,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
@@ -323,7 +323,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
