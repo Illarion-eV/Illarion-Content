@@ -36,7 +36,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	-- additional tool item is needed
 	if (User:countItemAt("all",2746)==0) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du brauchst eine Rasierklinge um Leder zu gerben.", 
 		"You need a razor blade for tanning leather." );
 		return
@@ -45,7 +45,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( toolItem.id ~= 2746 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 2746 ) then
-			base.common.InformNLS( User,
+			base.common.HighInformNLS( User,
 			"Du musst das Rasierklinge in der Hand haben!",
 			"You have to hold the razor blade in your hand!" );
 			return
@@ -53,7 +53,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Gerben.",
 		"Your armour disturbs you while tanning." );
 		return
@@ -70,7 +70,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- any other checks?
 
 	if (User:countItemAt("all",2586)==0 and User:countItemAt("all",69)==0) then -- check for items to work on
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Du brauchst Fell oder rohes Leder um es zu gerben.", 
 		"You need fur or raw leather for tanning it." );
 		return;
@@ -106,7 +106,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( 2547, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 2547, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -114,14 +114,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			leatherproducing.SavedWorkTime[User.id] = leatherproducing:GenWorkTime(User,toolItem);
 			User:startAction( leatherproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.InformNLS(User,
+			base.common.HighInformNLS(User,
 			"Du hast kein Fell und rohes Leder mehr.",
 			"You have no fur and raw leather anymore.");
 		end
 	end
 
 	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Deine alte Rasierklinge zerbricht.",
 		"Your old razor blade breaks.");
 		return

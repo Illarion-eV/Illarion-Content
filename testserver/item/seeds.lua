@@ -78,14 +78,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du musst das Saatgut in der Hand haben!",
 		"You have to hold the seeds in your hand!" );
 		return
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Aussäen des Saatguts.",
 		"Your armour disturbs you while sowing seeds." );
 		return
@@ -103,7 +103,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local Field = world:getField( TargetPos )
     local groundType = base.common.GetGroundType( Field:tile() );
     if ( groundType ~= 1 ) then
-        base.common.InformNLS(User,
+        base.common.HighInformNLS(User,
         "Du kannst nur auf Ackerboden Saatgut aussäen.",
         "Sowing seeds is only possible on farm land.");
         return
@@ -113,7 +113,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     local month=world:getTime("month");
     local season=math.ceil(month/4);
     if (season == 4) then
-        base.common.InformNLS(User,
+        base.common.HighInformNLS(User,
         "Der Boden ist tief gefroren. Im Winter wirst du nichts anbauen können.",
         "The ground is frozen deeply. You won't be able to plant anything in winter.");
         return

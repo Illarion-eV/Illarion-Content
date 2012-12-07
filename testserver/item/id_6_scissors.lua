@@ -34,7 +34,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return;
 	end
 	-- there is no sheep and no entrails
-	base.common.InformNLS( User,
+	base.common.HighInformNLS( User,
 	"Du brauchst entweder ein Schaf, um es zu scheren, oder Eingeweide, um sie zu Garn zu zerschneiden.",
 	"You need either a sheep for shearing it, or entrails for cutting it and thus producing thread." );
 end
@@ -62,14 +62,14 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 	end
 	
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du musst die Schere in der Hand haben!",
 		"You have to hold the scissors in your hand!" );
 		return
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Scheren der Schafe.",
 		"Your armour disturbs you while shearing sheep." );
 		return
@@ -84,7 +84,7 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 	end
 	-- Sheep should actually be already a sheep character struct, but check it nevertheless
 	if ( Sheep == nil or (Sheep ~= nil and Sheep:getRace()~=18) ) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du musst vor einem Schaf stehen, um es zu scheren.",
 		"You have to stand in front of a sheep for shearing it." );
 		return;
@@ -111,7 +111,7 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 	local notCreated = User:createItem( 170, amount, 333, nil); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 170, notCreated, User.pos, true, 333, nil);
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -122,7 +122,7 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 	end
 
 	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Deine alte Schere zerbricht.",
 		"Your old scissors break.");
 		return
@@ -152,14 +152,14 @@ function UseItemEntrailsCutting( User, SourceItem, TargetItem, Counter, Param, l
 	end
 	
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du musst die Schere in der Hand haben!",
 		"You have to hold the scissors in your hand!" );
 		return
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Schneiden der Eingeweide.",
 		"Your armour disturbs you while cutting entrails." );
 		return
@@ -172,7 +172,7 @@ function UseItemEntrailsCutting( User, SourceItem, TargetItem, Counter, Param, l
 	-- any other checks?
 
 	if (User:countItemAt("all",63)==0) then -- check for items to work on
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Du brauchst Eingeweide um daraus Garn herzustellen.", 
 		"You need entrails for producing thread." );
 		return;
@@ -198,7 +198,7 @@ function UseItemEntrailsCutting( User, SourceItem, TargetItem, Counter, Param, l
 	local notCreated = User:createItem( 50, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 50, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -206,14 +206,14 @@ function UseItemEntrailsCutting( User, SourceItem, TargetItem, Counter, Param, l
 			entrailscutting.SavedWorkTime[User.id] = entrailscutting:GenWorkTime(User,SourceItem);
 			User:startAction( entrailscutting.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.InformNLS(User,
+			base.common.HighInformNLS(User,
 			"Du hast keine Eingeweide mehr.",
 			"You have no entrails anymore.");
 		end
 	end
 
 	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Deine alte Schere zerbricht.",
 		"Your old scissors break.");
 		return

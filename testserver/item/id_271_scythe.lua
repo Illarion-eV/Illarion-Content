@@ -33,14 +33,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du musst die Sense in der Hand haben!",
 		"You have to hold the scythe in your hand!" );
 		return
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Schneiden des Getreides.",
 		"Your armour disturbs you while harvesting grain." );
 		return
@@ -61,11 +61,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		if ( TargetItem == nil ) then
 			-- since we're here, there is no fully grown grain
 			if ( foundYoungGrain ) then
-				base.common.InformNLS( User, 
+				base.common.HighInformNLS( User, 
 				"Das Getreide ist noch nicht reif für den Schnitt.", 
 				"The grain is not ready for harvest yet." );
 			else
-				base.common.InformNLS( User, 
+				base.common.HighInformNLS( User, 
 				"Du brauchst Getriede um es mit der Sense zu schneiden.", 
 				"You need grain for harvesting it with the scythe." );
 			end
@@ -111,7 +111,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( 249, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 249, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -123,7 +123,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Deine alte Sense zerbricht.",
 		"Your old scythe breaks.");
 		return

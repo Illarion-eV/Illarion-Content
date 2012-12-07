@@ -302,7 +302,7 @@ talkEntry:addTrigger("third");
 talkEntry:addTrigger("three");
 talkEntry:addTrigger("goods");
 talkEntry:addResponse("Goody from third hand! Aye. That means these things are used alredy.");
-talkEntry:addResponse("#me laughs quitly: 'The third hand is mine, the second is the hand of the person who sold it to me and the first is the hand of the property owner.'");
+talkEntry:addResponse("#me laughs quietly: 'The third hand is mine, the second is the hand of the person who sold it to me and the first is the hand of the property owner.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -315,7 +315,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("#me smirks kind of sad: 'Years ago, I succeeded to steal the nightdress of King Edwards. Shortly the catched me... the king ordered to chop my hand of and banned me. Therefore I'm here now and everyone calls me Hook Gowan.'");
+talkEntry:addResponse("#me smirks kind of sad: 'Years ago, I succeeded to steal the nightdress of King Edwards. Shortly the caught me... the king ordered to chop my hand of and banned me. Therefore I'm here now and everyone calls me Hook Gowan.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -323,7 +323,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nubris");
 talkEntry:addResponse("Well, my father lived directly in Nubris. I moved... - Nubris, the golden jewel of the south, like they say in Salkamar. Many people there have a dark skin.");
-talkEntry:addResponse(" Nubris! Well let me tell about my far away home... - there lives a animel named Kawaaru. A giant lizard with calm mind. Used to lift and bear heavy goods.");
+talkEntry:addResponse(" Nubris! Well let me tell about my far away home... - there lives a animal named Kawaaru. A giant lizard with calm mind. Used to lift and bear heavy goods.");
 talkEntry:addResponse("I tend to say - kind of subjective of course - Nubris is the most beautiful town of Illarion. The dome-shaped roofs are seeable from far away and glowing in the desert sun. And A Circle of Elders is ruling the town.");
 talkEntry:addResponse("In Nubris it's too hot for heavy armory. Instead they use armors made of hard wood and thin stones.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -432,7 +432,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Hui-ui! Galmair? Not even ten Ogres can make me going there again. I owe the Don a proud amount of Gold. Once he was forced to lent it out of his private treasury.");
+talkEntry:addResponse("Hui-ui! Galmair? Not even ten Ogres can make me going there again. I owe the Don a proud amount of gold. Once he was forced to lend it out of his private treasury.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -483,7 +483,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("I was banned from Cadomyr years ago. I loved my town, after all I called it my home. But thats the way life goes, isn't it?");
+talkEntry:addResponse("I was banned from Cadomyr years ago. I loved my town, after all I called it my home. But that's the way life goes, isn't it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -511,7 +511,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("The swanmplands stink, Gynk stinks and Gnykese stink as well. - Isn't that obvious?");
+talkEntry:addResponse("The swamplands stink, Gynk stinks and Gnykese stink as well. - Isn't that obvious?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -539,7 +539,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("I would love to speak about Ronagan, so be free to ask me about the Shadowlord, wahtever you want to know.");
+talkEntry:addResponse("I would love to speak about Ronagan, so be free to ask me about the Shadow lord, whatever you want to know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -554,10 +554,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
 talkEntry:addResponse("Ronagan, the god of thieves and shadows! He promises shelter to everyone who live in the shadow of the so called high society");
-talkEntry:addResponse("They say there is a shrine for the Shadowlord somwhere in Galmair. But when I went there I didn't find it.");
+talkEntry:addResponse("They say there is a shrine for the Shadow lord somwhere in Galmair. But when I went there I didn't find it.");
 talkEntry:addResponse("My Lord despises the autority of the nobility. And like Ronagan himself, its my aim to hoax them.");
 talkEntry:addResponse("Sometimes he appears as a dark haired and clothed charming man, guarding those who are in need of helping hand. He seems quite good humored to me.");
-talkEntry:addResponse("Ronagan dislikes betrayal. To betray confederates is the worst and for sure the shadowlord will calm for revange one day.");
+talkEntry:addResponse("Ronagan dislikes betrayal. To betray a confederate is  the worst and for sure the Shadow lord will calm for revenge one day.");
 talkEntry:addResponse("They say there are traders who sacrifice a part of their earnings to Ronagan, so he will shelter their goods.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -576,7 +576,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("Stop questioning, nobody likes a snoopy one.");
-talkEntry:addResponse("#me starts to smile braodly: 'Let me tell you I'm a bad lad. Years ago I have stolen the nightdress of old King Edwards.'");
+talkEntry:addResponse("#me starts to smile broadly: 'Let me tell you I'm a bad lad. Years ago I have stolen the nightdress of old King Edwards.'");
 talkEntry:addResponse("Once I was citizen of Cadomyr, then I got banned. Obviously right after chopping my hand of.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -595,8 +595,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gowan");
 talkEntry:addTrigger("Hook");
 talkEntry:addTrigger("hand");
-talkEntry:addResponse("Yes, I got a hook instead of a hand. What'S the matter?");
-talkEntry:addResponse("No I'm not a pirat. I don't even like the sea. To much sway and swinging... makes me sick.");
+talkEntry:addResponse("Yes, I got a hook instead of a hand. What's the matter?");
+talkEntry:addResponse("No I'm not a pirate. I don't even like the sea. Too much sway and swinging... makes me sick.");
 talkEntry:addResponse("The old king of Cadomyr chopped my hand of. True Story, lad.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -621,7 +621,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Awesome, thats in my interesst.");
+talkEntry:addResponse("Awesome, that's in my interest.");
 talkEntry:addResponse("Yes! Yes-yes. There we go.");
 talkEntry:addResponse("Superb!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -638,7 +638,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addResponse("Aye.");
-talkEntry:addResponse("Are you Sure?");
+talkEntry:addResponse("Are you sure?");
 talkEntry:addResponse("Really? Is that true?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -657,7 +657,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Listen - If you don't ask any questions I will not lie to you. Agreed?");
 talkEntry:addResponse("Aha? Good to know.");
-talkEntry:addResponse("Oh, that's quite interessting.");
+talkEntry:addResponse("Oh, that's quite interesting.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -671,15 +671,15 @@ talkEntry:addResponse("Oh, das ist ja interessant.");
 talkEntry:addResponse("Ein Schritt im Schatten und Einer über die Rinne...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me hebt seine Hakenhand und kratzt sich mit der Spitze des Hakens am Hinterkopf. Er kneift die Augen zusammen und scheint einen Moment nachzudenken.", "#me rises his hook hand and scratche shis backhead. He narrows his eyes and seems to think for a moment.");
-talkingNPC:addCycleText("#me hängt seinen Haken in den Gurt einer seiner Ledertaschen und hebt sie hoch, mit kritischem Blick mustert er die Tasche von allen Seiten.", "#me takes a leatherbag with his hook and examines it closely.");
-talkingNPC:addCycleText("#me betastet abwesend blickend, mit seiner gesunden Hand den Haken an seinem rechten Arm. ", "#me touches with his healty hand the hook replacing his right hand unconsciously.");
+talkingNPC:addCycleText("#me hebt seine Hakenhand und kratzt sich mit der Spitze des Hakens am Hinterkopf. Er kneift die Augen zusammen und scheint einen Moment nachzudenken.", "#me raises his hook hand and scratche shis backhead. He narrows his eyes and seems to think for a moment.");
+talkingNPC:addCycleText("#me hängt seinen Haken in den Gurt einer seiner Ledertaschen und hebt sie hoch, mit kritischem Blick mustert er die Tasche von allen Seiten.", "#me takes a leather bag with his hook and examines it closely.");
+talkingNPC:addCycleText("#me betastet abwesend blickend, mit seiner gesunden Hand den Haken an seinem rechten Arm. ", "#me touches with his healthy hand the hook replacing his right hand unconsciously.");
 talkingNPC:addCycleText("#me legt seinen Kopf schief.", "#me scratches his neck.");
-talkingNPC:addCycleText("#me räuspert sich unauffällig.", "#me chaugs quitly.");
+talkingNPC:addCycleText("#me räuspert sich unauffällig.", "#me clear his's throat quietly.");
 talkingNPC:addCycleText("#me gähnt ausgiebig und hält sich dabei den glänzenden Haken vor den Mund.", "#me yawns copiously and covers his mouth with his hook.");
-talkingNPC:addCycleText("#me stemmt seine Arme in die Seiten und blickt mit zweifelnder Mimik durch den Raum.", "#me pushes his arms at the hips and glances the room with an courious glare.");
+talkingNPC:addCycleText("#me stemmt seine Arme in die Seiten und blickt mit zweifelnder Mimik durch den Raum.", "#me pushes his arms at the hips and glances the room with an curious glare.");
 talkingNPC:addCycleText("#me lehnt sich ein wenig zurück und atmet lächelnd aus.", "#me leans back slightly and breaths out with a smile.");
-talkingNPC:addCycleText("#me murmelt: 'Ein Schritt im Schatten und Einer über die Rinne, der Diebe Stern verbirgt sich am Gestirne.'", "#me mumbles: 'A step into the shadow and one over the roadside ditch, the thieves star is hiding uppon the sky.'");
+talkingNPC:addCycleText("#me murmelt: 'Ein Schritt im Schatten und Einer über die Rinne, der Diebe Stern verbirgt sich am Gestirne.'", "#me mumbles: 'A step into the shadow and one over the roadside ditch, the thieves star is hiding upon the sky.'");
 talkingNPC:addCycleText("#me wirft einen ungeduldigen Blick aus dem nächst liegenden Fenster.", "#me eyes trough the window next to him, seeming quite impatient.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(7,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(27,"sell"));

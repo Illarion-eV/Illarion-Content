@@ -2,7 +2,7 @@
 -- NPC Name: Laramir Silverwood                                          None --
 -- NPC Job:  Carpenter/Schmied                                                --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  352, 256, 0            --
+-- NPC Race: elf                        NPC Position:  369, 262, 0            --
 -- NPC Sex:  male                       NPC Direction: east                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 352, 256, 0, 2, 'Laramir Silverwood', 'npc.laramir_silverwood', 0, 2, 0, 200, 221, 243, 245, 217, 200);
+VALUES (3, 369, 262, 0, 2, 'Laramir Silverwood', 'npc.laramir_silverwood', 0, 2, 0, 200, 221, 243, 245, 217, 200);
 ---]]
 
 require("npc.base.basic")

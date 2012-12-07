@@ -46,7 +46,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   
 	-- additional tool item is needed
 	if (User:countItemAt("all",2781)==0) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du brauchst einen Färberstab um Stoffe zu färben.", 
 		"You need a dyeing rod for dyeing cloth." );
 		return
@@ -55,7 +55,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( toolItem.id ~= 2781 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 2781 ) then
-			base.common.InformNLS( User,
+			base.common.HighInformNLS( User,
 			"Du musst den Färberstab in der Hand haben!",
 			"You have to hold the dyeing rod in your hand!" );
 			return
@@ -63,7 +63,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Färben.",
 		"Your armour disturbs you while dyeing." );
 		return
@@ -88,7 +88,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   end
 
 	if (dye == nil) then -- check for items to work on
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Du brauchst weiße Farbe und grauen Stoff oder eine andere Farbe und weißen Stoff um zu färben.", 
 		"You need white dye and grey cloth or any other dye and white cloth for dyeing." );
 		return;
@@ -115,7 +115,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( dye[3], amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( dye[3], notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -130,14 +130,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			dyeing.SavedWorkTime[User.id] = dyeing:GenWorkTime(User,toolItem);
 			User:startAction( dyeing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.InformNLS(User,
+			base.common.HighInformNLS(User,
 			"Du hast keine Farbe und passenden Stoff mehr.",
 			"You have no dye and respective cloth anymore.");
 		end
 	end
 
 	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Dein alter Färberstab zerbricht.",
 		"Your old dyeing rod breaks.");
 		return
