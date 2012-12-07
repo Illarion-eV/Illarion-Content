@@ -265,7 +265,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
-talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
+talkEntry:addCondition(npc.base.condition.chance.chance(53.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Bedenke, Hochmut kommt vor dem Fall.");
 talkEntry:addResponse("Bedenke: Wer Streit sucht, wird Ärger finden.");
