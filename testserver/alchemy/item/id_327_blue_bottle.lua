@@ -19,9 +19,9 @@ local potionEffectId = (tonumber(Item:getData("potionEffectId")))
 
 	if (potionEffectId >= 300) and (potionEffectId <= 399) then	-- bombs
 		
-		if (potionEffectId == 300) then
+		if (potionEffectId == 301) then
 			druid.base.missile.effect_1( User, Item );
-		elseif (potionEffectId == 301) then
+		elseif (potionEffectId == 302) then
 			druid.base.missile.effect_2( User, Item );
 		elseif (potionEffectId == 303) then
 			druid.base.missile.effect_3( User, Item );

@@ -38,7 +38,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		
 		if ( ltstate == Action.none ) then
             if (SourceItem:getData("filledWith") =="essenceBrew") and (cauldron:getData("filledWith") == "stock") then
-		        actionDuration = 40 -- when we combine a stock and an essence brew, it takes longer
+		        actionDuration = 80 -- when we combine a stock and an essence brew, it takes longer
             else
                 actionDuration = 20
             end				
@@ -127,8 +127,8 @@ function SupportPotion(User,support,potion)
 	end	
 	if (supportEffectId >= 400) and (supportEffectId <= 406) then -- quality raiser
 	    -- list with potions in cauldron and bottle
-		local cauldronPotion = {1012 ,1011     ,1016,1013   ,1009      ,1015    ,1018 ,1017} 
-        local bottlePotion   = {331  ,327      ,59  ,165    ,329       ,166     ,167  ,330}
+		local cauldronPotion = {1011,1016,1013,1009,1015,1018,1017} 
+        local bottlePotion   = {327 ,59  ,165 ,329 ,166 ,167 ,330}
 	
 	    if (potion.id == cauldronPotion[supportEffectId-399]) or (potion.id == bottlePotion[supportEffectId-399]) then -- support and potion belong together
 		    
