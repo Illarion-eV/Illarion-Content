@@ -283,12 +283,12 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	else
         language = 2
     end		
-	
+	User:inform("debug 3")
 	myNPC = getNPC(SourceItem)
 	if myNPC == false then
 	    return
 	end	
-	
+	User:inform("debug 4")
 	local callback = function(dialog)
 		local success = dialog:getSuccess()
 		if success then
