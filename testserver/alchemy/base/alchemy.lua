@@ -517,13 +517,7 @@ end
 function FillFromTo(fromItem,toItem)
 -- copies all datas (and quality and id) from fromItem to toItem
 	for i=1,8 do
-	    local concentration
-		if fromItem:getData(wirkstoff[i].."Concentration") == "" then
-		    concentration = "5"
-		else
-		    concentration = fromItem:getData(wirkstoff[i].."Concentration")
-		end	
-		toItem:setData(wirkstoff[i].."Concentration",concentration)
+	    toItem:setData(wirkstoff[i].."Concentration",fromItem:getData(wirkstoff[i].."Concentration"))
 		toItem:setData("essenceHerb"..i,fromItem:getData("essenceHerb"..i))
 	end	
     toItem:setData("filledWith",fromItem:getData("filledWith")) 

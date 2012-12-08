@@ -60,7 +60,13 @@ function PlantInEssenceBrew(User,plant,cauldron)
 end
 
 function PlantInStock(User,plant,cauldron)
-    local plusSubstance, minusSubstance = alchemy.base.alchemy.getPlantSubstance(plant.id, User)
+    local substance = alchemy.base.alchemy.wirkstoff
+		for i=1,8 do
+		    if cauldron:getData(wirkstoff[i].."Concentration") == "" then
+			    cauldron:setData(wirkstoff[i].."Concentration","5")
+			end
+        end			
+	local plusSubstance, minusSubstance = alchemy.base.alchemy.getPlantSubstance(plant.id, User)
 	if plusSubstance == "" and minusSubstance == "" then
 	    alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
 	else
