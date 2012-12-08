@@ -228,8 +228,8 @@ end
 
 function AddPotion(town, potionEffectId, taskText, taskItem)
     table.insert(ListEffectId[town],potionEffectId)
-	table.insert(ListTask[town],taskText)
-	table.insert(ListProperties[town],taskItem)
+	table.insert(ListTaskText[town],taskText)
+	table.insert(ListTaskItem[town],taskItem)
 end
 
 function getTown(SourceItem)
