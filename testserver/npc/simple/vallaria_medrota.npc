@@ -32,8 +32,8 @@ useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
-hairID = 2
-beardID = 7
+hairID = 7
+beardID = 0
 colorHair = 123, 62, 9
 colorSkin = 245, 180, 137
 itemHead = 0
@@ -47,8 +47,8 @@ itemShoes = 53
 
 ------------------------------------------------------------------------------AC
 -- help
-"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: recipes, alchemy")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: Rezepte, Alchemie")
+"Help" -> inform("[Game Help] This NPC is Vallaria Medrota the healer an alchemy teacher. Keywords: recipes, alchemy")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Vallaria Medrota die Heilerin und Alchemielehrerin. Schlüsselwörter: Rezepte, Alchemie")
 
 -- general speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!", "Hello.", "Be greeted!"
