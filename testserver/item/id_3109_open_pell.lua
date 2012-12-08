@@ -289,7 +289,8 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if myNPC == false then
 	    return
 	end	
-	User:inform("debug 4")
+	
+	local originalPos = {}
 	local callback = function(dialog)
 		local success = dialog:getSuccess()
 		if success then
@@ -307,8 +308,6 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	    dialog = SelectionDialog("Trankrezepte", "An welchem Rezept bist du interessiert?", callback)
 	end	
 	local success = nil
-	local originalPos = {}
-	local mytest = "i am a test"
 	for i=1,#myListEffectId do
 		if User:getQuestProgress(myListEffectId[i]+1000) == 0 then
 			dialog:addOption(0, alchemy.base.alchemy.potionName[myListEffectId[i]][language])
