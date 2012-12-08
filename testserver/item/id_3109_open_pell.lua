@@ -234,11 +234,11 @@ end
 
 function getTown(SourceItem)
 
-    if SourceItem.pos == position(1,1,0) then
+    if SourceItem.pos == position(952,767,5) then
 	    return "Runewick"
-	elseif SourceItem.pos == position(1,2,0) then
+	elseif SourceItem.pos == position(137,542,0) then
 	    return "Cadomyr"
-	elseif SourceItem.pos == position(1,3,0) then
+	elseif SourceItem.pos == position(376,222,0) then
         return "Galmair"
     end		
 	return false
