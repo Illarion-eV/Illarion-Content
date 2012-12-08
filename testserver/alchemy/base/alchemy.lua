@@ -531,10 +531,10 @@ function FillFromTo(fromItem,toItem)
 	elseif fromItem:getData("filledWith") == "potion" or fromItem:getData("filledWith") == "essenceBrew" or fromItem:getData("filledWith") == "stock" then
 	    if toItem.id >= 1008 and toItem.id <= 1018 then
 		    local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem)
-			toItem.id = reCauldron
+			toItem.id = reBottle
 		else
 			local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem, nil)
-			toItem.id = reCauldron
+			toItem.id = reBottle
 		end	
 	end
 end
