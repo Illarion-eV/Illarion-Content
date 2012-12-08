@@ -10,7 +10,7 @@ end
 
 -- the list of plants with their substances
 plantSubstanceList = {};
-setPlantSubstance
+
 function InitPlantSubstance()
     if plantSubstanceList == nil then
 	    plantSubstanceList = {}

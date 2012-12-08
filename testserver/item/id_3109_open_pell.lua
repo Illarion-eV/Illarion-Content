@@ -91,137 +91,137 @@ function Init()
 			  )		  
     AddPotion("Runewick",		  
 			  400,
-			  {"a desert sky capsule","eine Wüstenhimmelskapsel"}
+			  {"a desert sky capsule","eine Wüstenhimmelskapsel"},
 			  {146,false}
 			  )
 	AddPotion("Runewick",		  
 			  401,
-			  {"a dark moss","ein Dunkelmoos"}
+			  {"a dark moss","ein Dunkelmoos"},
 			  {764,false}
 			  )
     AddPotion("Galmair",		  
 			  402,
-			  {"a rain weed","ein Regenkraut"}
+			  {"a rain weed","ein Regenkraut"},
 			  {761,false}
 			  )
     AddPotion("Galmair",		  
 			  403,
-			  {"a con blossom","eine Trugblüte"}
+			  {"a con blossom","eine Trugblüte"},
 			  {766}
 			  )
 	AddPotion("Cadomyr",		  
 			  404,
-			  {"a life root","eine Lebenswurzel"}
+			  {"a life root","eine Lebenswurzel"},
 			  {152,false}
 			  )
     AddPotion("Cadomyr",		  
 			  405,
-			  {"a heart blood","ein Herzblut"}
+			  {"a heart blood","ein Herzblut"},
 			  {758,false}
 			  )
     AddPotion("Cadomyr",		  
 			  406,
-			  {"a daydream","einen Tragtraum"}
+			  {"a daydream","einen Tragtraum"},
 			  {765,false}
 			  )
     AddPotion("Cadomyr",		  
 			  605,
-			  {"a stock containing no Adrazin, dominant pronounced Illidrium, no Caprazin, slightly marked Hyperborelium, saturated solution of Echolon, enriched Dracolin, no Orcanol and enriched Fenolin","einen Sud der kein Adrazin, konzentriertes Illidrium, kein Caprazin, schwache Konzentration Hyperborelium, gesättige Anreicherung von Echolon, etwas Dracolin, kein Orcanol und etwas Fenolin enthält"}
+			  {"a stock containing no Adrazin, dominant pronounced Illidrium, no Caprazin, slightly marked Hyperborelium, saturated solution of Echolon, enriched Dracolin, no Orcanol and enriched Fenolin","einen Sud der kein Adrazin, konzentriertes Illidrium, kein Caprazin, schwache Konzentration Hyperborelium, gesättige Anreicherung von Echolon, etwas Dracolin, kein Orcanol und etwas Fenolin enthält"},
 			  {331,false,{"AdrazinConcentration","5"},{"IllidriumConcentration","8"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","4"},{"EcholonConcentration","1"},{"DracolinConcentration","7"},{"OrcanolConcentration","5"},{"FenolinConcentration","7"}}
 			  )
     AddPotion("Cadomyr",		  
 			  601,
-			  {"a potion for orc language with at least average quality","ein Orksprachtrank von zumindest durchschnittlicher Qualität"}
+			  {"a potion for orc language with at least average quality","ein Orksprachtrank von zumindest durchschnittlicher Qualität"},
 			  {330,5,{"potionEffectId","605"}}
 			  )
     AddPotion("Galmair",		  
 			  606,
-			  {"a stock containing no Adrazin, dominant pronounced Illidrium, no Caprazin, slightly marked Hyperborelium, saturated solution of Echolon, enriched Dracolin, no Orcanol and enriched Fenolin","einen Sud der kein Adrazin, konzentriertes Illidrium, kein Caprazin, schwache Konzentration Hyperborelium, gesättige Anreicherung von Echolon, etwas Dracolin, kein Orcanol und etwas Fenolin enthält"}
+			  {"a stock containing no Adrazin, dominant pronounced Illidrium, no Caprazin, slightly marked Hyperborelium, saturated solution of Echolon, enriched Dracolin, no Orcanol and enriched Fenolin","einen Sud der kein Adrazin, konzentriertes Illidrium, kein Caprazin, schwache Konzentration Hyperborelium, gesättige Anreicherung von Echolon, etwas Dracolin, kein Orcanol und etwas Fenolin enthält"},
 			  {331,false,{"AdrazinConcentration","5"},{"IllidriumConcentration","8"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","4"},{"EcholonConcentration","1"},{"DracolinConcentration","7"},{"OrcanolConcentration","5"},{"FenolinConcentration","7"}}
 			  )		
     AddPotion("Galmair",		  
 			  602,
-			  {"a potion for halfling language with at least average quality","ein Halblingssprachtrank von zumindest durchschnittlicher Qualität"}
+			  {"a potion for halfling language with at least average quality","ein Halblingssprachtrank von zumindest durchschnittlicher Qualität"},
 			  {330,5,{"potionEffectId","606"}}
 			  )
     AddPotion("Galmair",		  
 			  600,
-			  {"a pious berry","eine Frommbeere"}
+			  {"a pious berry","eine Frommbeere"},
 			  {756,false}
 			  )
     AddPotion("Runewick",		  
 			  604,
-			  {"a stock containing no Adrazin, dominant pronounced Illidrium, no Caprazin, slightly marked Hyperborelium, saturated solution of Echolon, enriched Dracolin, no Orcanol and enriched Fenolin","einen Sud der kein Adrazin, konzentriertes Illidrium, kein Caprazin, schwache Konzentration Hyperborelium, gesättige Anreicherung von Echolon, etwas Dracolin, kein Orcanol und etwas Fenolin enthält"}
+			  {"a stock containing no Adrazin, dominant pronounced Illidrium, no Caprazin, slightly marked Hyperborelium, saturated solution of Echolon, enriched Dracolin, no Orcanol and enriched Fenolin","einen Sud der kein Adrazin, konzentriertes Illidrium, kein Caprazin, schwache Konzentration Hyperborelium, gesättige Anreicherung von Echolon, etwas Dracolin, kein Orcanol und etwas Fenolin enthält"},
 			  {331,false,{"AdrazinConcentration","5"},{"IllidriumConcentration","8"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","4"},{"EcholonConcentration","1"},{"DracolinConcentration","7"},{"OrcanolConcentration","5"},{"FenolinConcentration","7"}}
 			  )	
     AddPotion("Runewick",		  
 			  603,
-			  {"a potion for lizard language with at least average quality","ein Echsensprachtrank von zumindest durchschnittlicher Qualität"}
+			  {"a potion for lizard language with at least average quality","ein Echsensprachtrank von zumindest durchschnittlicher Qualität"},
 			  {330,5,{"potionEffectId","604"}}
 			  )
     AddPotion("Runewick",		  
 			  607,
-			  {"a potion for the common language with the best quality","einen Trank für die Handelssprache in bester Qualität"}
+			  {"a potion for the common language with the best quality","einen Trank für die Handelssprache in bester Qualität"},
 			  {330,9,{"potionEffectId","600"}}
 			  )			  
 	AddPotion("Runewick",		  
 			  550,
-			  {"a potion for the lizard language with at least average quality","ein Trank für die Echsensprache mit mindestens durchschnittlicher Qualität"}
+			  {"a potion for the lizard language with at least average quality","ein Trank für die Echsensprache mit mindestens durchschnittlicher Qualität"},
 			  {330,5,{"potionEffectId","604"}}
 			  )
     AddPotion("Runewick",		  
 			  501,
-			  {"a shape shifter potion male human with at least average quality","einen Verwandlungstrank männlicher Mensch mit zumindest durchschnittlicher Qualität"}
+			  {"a shape shifter potion male human with at least average quality","einen Verwandlungstrank männlicher Mensch mit zumindest durchschnittlicher Qualität"},
 			  {329,5,{"potionEffectId","500"}}
 			  )
     AddPotion("Runewick",		  
 			  521,
-			  {"a potion for the halfling language with at least average quality","einen Trank für die Halblingssprache von mindestens durchschnittlicher Qualität"}
+			  {"a potion for the halfling language with at least average quality","einen Trank für die Halblingssprache von mindestens durchschnittlicher Qualität"},
 			  {330,5,{"potionEffectId","606"}}
 			  )
     AddPotion("Runewick",		  
 			  530,
-			  {"a shape shifter female elf with at least average quality","einen Verwandlungstrank weiblicher Elf von mindestens durchschnittlicher Qualität"}
+			  {"a shape shifter female elf with at least average quality","einen Verwandlungstrank weiblicher Elf von mindestens durchschnittlicher Qualität"},
 			  {329,5,{"potionEffectId","531"}}
 			  )
 	AddPotion("Cadomyr",		  
 			  500,
-			  {"a potion for the human language with at least average quality","ein Trank für die Menschensprache mit mindestens durchschnittlicher Qualität"}
+			  {"a potion for the human language with at least average quality","ein Trank für die Menschensprache mit mindestens durchschnittlicher Qualität"},
 			  {330,5,{"potionEffectId","601"}}
 			  )
     AddPotion("Cadomyr",		  
 			  540,
-			  {"a potion for the orc language with at least average quality","ein Trank für die Orksprache mit zumindest durchschnittlicher Qualität"}
+			  {"a potion for the orc language with at least average quality","ein Trank für die Orksprache mit zumindest durchschnittlicher Qualität"},
 			  {330,5,{"potionEffectId","605"}}
 			  )
     AddPotion("Cadomyr",		  
 			  511,
-			  {"a potion for the dwarf language with at least average quality","einen Trank für die Zwergensprache von mindestens durchschnittlicher Qualität"}
+			  {"a potion for the dwarf language with at least average quality","einen Trank für die Zwergensprache von mindestens durchschnittlicher Qualität"},
 			  {330,5,{"potionEffectId","602"}}
 			  )
     AddPotion("Cadomyr",		  
 			  531,
-			  {"a potion for the elf language with at least average quality","einen Trank für die Elfensprache von mindestens durchschnittlicher Qualität"}
+			  {"a potion for the elf language with at least average quality","einen Trank für die Elfensprache von mindestens durchschnittlicher Qualität"},
 			  {330,5,{"potionEffectId","603"}}
 			  )	  
 	AddPotion("Galmair",		  
 			  551,
-			  {"a shape shifter male lizard with at least average quality","einen Verwandlungstrank männlicher Echsenmensch von mindestens durchschnittlicher Qualität"}
+			  {"a shape shifter male lizard with at least average quality","einen Verwandlungstrank männlicher Echsenmensch von mindestens durchschnittlicher Qualität"},
 			  {329,5,{"potionEffectId","550"}}
 			  )
     AddPotion("Galmair",		  
 			  520,
-			  {"a shape shifter female halfling with at least average quality","einen Verwandlungstrank weiblicher Halbling von mindestens durchschnittlicher Qualität"}
+			  {"a shape shifter female halfling with at least average quality","einen Verwandlungstrank weiblicher Halbling von mindestens durchschnittlicher Qualität"},
 			  {329,5,{"potionEffectId","521"}}
 			  )
     AddPotion("Galmair",		  
 			  541,
-			  {"a shape shifter male orc with at least average quality","einen Verwandlungstrank männlicher Ork von mindestens durchschnittlicher Qualität"}
+			  {"a shape shifter male orc with at least average quality","einen Verwandlungstrank männlicher Ork von mindestens durchschnittlicher Qualität"},
 			  {329,5,{"potionEffectId","540"}}
 			  )
     AddPotion("Galmair",		  
 			  510,
-			  {"a shape shifter female dwarf with at least average quality","einen Verwandlungstrank weiblicher Zwerg von mindestens durchschnittlicher Qualität"}
+			  {"a shape shifter female dwarf with at least average quality","einen Verwandlungstrank weiblicher Zwerg von mindestens durchschnittlicher Qualität"},
 			  {329,5,{"potionEffectId","511"}}
 			  )		  
 end
