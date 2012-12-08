@@ -308,7 +308,7 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local success = nil
 	local originalPos = {}
 	for i=1,#myListEffectId do
-		if User:getQueststatus(myListEffectId[i]+1000) == 0 then
+		if User:getQuestProgress(myListEffectId[i]+1000) == 0 then
 			dialog:addOption(0, alchemy.base.alchemy.potionName[myListEffectId[i]][language])
 			table.insert(originalPos,i)
 			success = true
