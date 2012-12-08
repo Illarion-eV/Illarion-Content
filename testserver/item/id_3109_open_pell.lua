@@ -274,7 +274,7 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	local myListEffectId = ListEffectId[town]
-	local myListTaskText = ListTask[town]
+	local myListTaskText = ListTaskText[town]
 	local myListTaskItem = ListTaskItem[town]
 	
 	local language 
