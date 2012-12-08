@@ -263,7 +263,7 @@ end
 
 function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
-    if (ListEffectId_Runewick == nil) or (ListEffectId_Runewick == nil) or (ListEffectId_Runewick == nil) then
+    if (ListEffectId == nil) then
 	    Init()
     end
 
