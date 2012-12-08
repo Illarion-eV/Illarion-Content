@@ -228,17 +228,17 @@ end
 
 function AddPotion(town, potionEffectId, taskText, taskItem)
     table.insert(ListEffectId[town],potionEffectId)
-	table.insert(ListTask[town],taskText)
-	table.insert(ListProperties[town],taskItem)
+	table.insert(ListTaskText[town],taskText)
+	table.insert(ListTaskItem[town],taskItem)
 end
 
 function getTown(SourceItem)
 
-    if SourceItem.pos == position(1,1,0) then
+    if SourceItem.pos == position(952,767,5) then
 	    return "Runewick"
-	elseif SourceItem.pos == position(1,2,0) then
+	elseif SourceItem.pos == position(137,542,0) then
 	    return "Cadomyr"
-	elseif SourceItem.pos == position(1,3,0) then
+	elseif SourceItem.pos == position(376,222,0) then
         return "Galmair"
     end		
 	return false
@@ -252,7 +252,7 @@ function getNPC(SourceItem)
 	    return myNPC
 	else
         for i=1,#npcList do 
-            if (npcList[i].name "Vallaria Medrota") or (npcList[i].name "Grator Bottlebreak") or (npcList[i].name "Joseph Quatrilla") then 
+            if (npcList[i].name == "Vallaria Medrota") or (npcList[i].name == "Grator Bottlebreak") or (npcList[i].name == "Joseph Quatrilla") then 
                 myNPC = npcList[i] 
                 break
 			end	
@@ -274,7 +274,7 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	local myListEffectId = ListEffectId[town]
-	local myListTaskText = ListTask[town]
+	local myListTaskText = ListTaskText[town]
 	local myListTaskItem = ListTaskItem[town]
 	
 	local language 
@@ -283,12 +283,12 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	else
         language = 2
     end		
-	
+	User:inform("debug 3")
 	myNPC = getNPC(SourceItem)
 	if myNPC == false then
 	    return
 	end	
-	
+	User:inform("debug 4")
 	local callback = function(dialog)
 		local success = dialog:getSuccess()
 		if success then
@@ -322,14 +322,15 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-      
-    if (TargetItem:getType()~=3) then -- no map item
+      User:inform("debug 1")
+    if (SourceItem:getType()~=3) then -- no map item
 	    return
 	end	
 
     local town = getTown(SourceItem)
 	if town == false then
-	    return
+	    User:inform("debug 2")
+		return
 	else
 	    RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end	
