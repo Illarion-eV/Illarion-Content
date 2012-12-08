@@ -273,6 +273,7 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 	
+	local town = getTown(SourceItem)
 	local myListEffectId = ListEffectId[town]
 	local myListTaskText = ListTaskText[town]
 	local myListTaskItem = ListTaskItem[town]
