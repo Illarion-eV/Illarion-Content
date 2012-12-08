@@ -289,7 +289,7 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if myNPC == false then
 	    return
 	end	
-	
+	User:inform(""..myListTaskText[Galmair][2][2])
 	local originalPos = {}
 	local callback = function(dialog)
 		local success = dialog:getSuccess()
