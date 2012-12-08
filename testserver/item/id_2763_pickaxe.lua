@@ -380,14 +380,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   end
   
   if (SourceItem:getType() ~= 4) then -- tool in hand
-    base.common.InformNLS( User,
+    base.common.HighInformNLS( User,
     "Du musst die Spitzhacke in der Hand haben!",
     "You have to hold the pick-axe in your hand!" );
     return
   end
 
   if base.common.Encumbrence(User) then
-    base.common.InformNLS( User,
+    base.common.HighInformNLS( User,
     "Deine Rüstung behindert Dich bei der Bergarbeit.",
     "Your armour disturbs you while mining." );
     return
@@ -403,7 +403,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   
   local areaId = GetAreaId(User.pos);
   if (areaId == nil) then
-    base.common.InformNLS(User,
+    base.common.HighInformNLS(User,
     "Die Gegend sieht nicht so aus, als könnte man hier etwas finden.",
     "The area doesn't look like a good place to mine.");
     return;
@@ -446,7 +446,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   local rockBroken = breakRock(rock);
   if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
     world:createItemFromId( productId, notCreated, User.pos, true, 333, nil );
-    base.common.InformNLS(User,
+    base.common.HighInformNLS(User,
     "Du kannst nichts mehr halten und der Rest fällt zu Boden.",
     "You can't carry any more and the rest drops to the ground.");
   elseif (not rockBroken) then -- character can still carry something and rock is okay
@@ -455,14 +455,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
       mining.SavedWorkTime[User.id] = mining:GenWorkTime(User,SourceItem);
       User:startAction( mining.SavedWorkTime[User.id], 0, 0, 0, 0);
     else -- no items left
-      base.common.InformNLS(User,
+      base.common.HighInformNLS(User,
       "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
       "There are no stones for mining anymore.");
     end
   end
 
   if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
-    base.common.InformNLS(User,
+    base.common.HighInformNLS(User,
     "Deine alte Spitzhacke zerbricht.",
     "Your old pick-axe breaks.");
     return

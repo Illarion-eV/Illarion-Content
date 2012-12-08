@@ -33,7 +33,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	-- additional tool item is needed
 	if (User:countItemAt("all",2751)==0) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du brauchst eine Tiegelzange um Wachs zu schmelzen.", 
 		"You need a pair of crucible-pincers for melting wax." );
 		return
@@ -42,7 +42,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( toolItem.id ~= 2751 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 2751 ) then
-			base.common.InformNLS( User,
+			base.common.HighInformNLS( User,
 			"Du musst die Tiegelzange in der Hand haben!",
 			"You have to hold the crucible-pincers in your hand!" );
 			return
@@ -50,7 +50,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Wachsschmelzen.",
 		"Your armour disturbs you while melting wax." );
 		return
@@ -67,7 +67,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- any other checks?
 
 	if (User:countItemAt("all",2529)==0) then -- check for items to work on
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Du brauchst Honigwaben um Wachs herzustellen.", 
 		"You need honeycombs for producing wax." );
 		return;
@@ -93,7 +93,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( 431, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 431, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -101,14 +101,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			waxproducing.SavedWorkTime[User.id] = waxproducing:GenWorkTime(User,toolItem);
 			User:startAction( waxproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.InformNLS(User,
+			base.common.HighInformNLS(User,
 			"Du hast keine Honigwaben mehr.",
 			"You have no honeycombs anymore.");
 		end
 	end
 
 	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Deine alte Tiegelzange zerbricht.",
 		"Your old crucible-pincers break.");
 		return

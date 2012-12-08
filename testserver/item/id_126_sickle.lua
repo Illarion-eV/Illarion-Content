@@ -34,14 +34,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du musst die Sichel in der Hand haben!",
 		"You have to hold the sickle in your hand!" );
 		return
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Schneiden mit der Sichel.",
 		"Your armour disturbs you while cutting with the sickle." );
 		return
@@ -66,7 +66,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     TargetItem = nil;
   end
 	if ( TargetItem == nil or harvestItem == nil) then
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Hier ist nichts, wofür du die Sichel benutzen kannst.", 
 		"There is nothing for which you can use the sickle." );
 		return;
@@ -81,7 +81,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 	if ( harvestProduct == nil ) then
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Diese Pflanze trägt nichts Nützliches, das du mit deiner Sichel schneiden kannst. Vielleicht wird diese Art Pflanze in einem anderen Boden besser gedeihen.", 
 		"This plant yields nothing useful which you can cut with your sickle. Maybe this type of plant will flourish better in another soil." );
 		return;
@@ -118,7 +118,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 		if ( amount == 0 ) then
 			-- not regrown...
-			base.common.InformNLS( User, 
+			base.common.HighInformNLS( User, 
 			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
 			"This plant is already fully harvested. Give it time to grow again." );
 			if ( changeItem ) then
@@ -138,7 +138,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	elseif ( amount == 0 and harvestProduct.isFarmingItem ) then
 		-- this is a farming item, it can't regrow
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Hier kannst du nichts ernten.", 
 		"There is nothing you can harvest." );
 		if ( changeItem ) then
@@ -237,7 +237,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( harvestProduct.productId, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -246,14 +246,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
 		elseif ( not harvestProduct.isFarmingItem ) then -- no items left
 			-- only inform for non farming items. Farming items with amount==0 should already be erased.
-			base.common.InformNLS(User,
+			base.common.HighInformNLS(User,
 			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
 			"This plant is already fully harvested. Give it time to grow again." );
 		end
 	end
 
 	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Deine alte Sichel zerbricht.",
 		"Your old sickle breaks.");
 	end

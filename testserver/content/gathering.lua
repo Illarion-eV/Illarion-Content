@@ -1,4 +1,5 @@
 require("base.gatheringcraft")
+require("item.gems")
 
 module("content.gathering", package.seeall)
 
@@ -28,7 +29,7 @@ function InitGathering()
 		grainharvesting = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5}; -- id_271_scythe
 		threadproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_171_spinningwheel
 		oilsqueezing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming}; -- id_44_squeezer
-		doughproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.cookingAndBaking}; -- id_119_bakingoven
+		doughproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.cookingAndBaking}; -- id_118_rollingpin
     weaving = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_169_loom
     oremelting = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.smithing}; -- id_2836_forge
     leatherproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_2052_stretcher
@@ -41,14 +42,10 @@ function InitGathering()
     graingrinding = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5}; -- id_250_mill
     dyeing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_220_barrel
 		
-		-- TODO
-        -- id_52_filledbucket ("peasantry")
-
-
 		--woodchopping
 
 		woodchopping:AddRandomItem(2551,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Findari, die Göttin der Luft, mit einem Kleinod aus Reiner Luft.","For your hard and honest labor Findari, the Godess of Air, rewards you with a treasure of Pure Air."); --Pure air
-		woodchopping:AddRandomItem(45,1,333,1,prob_extremely_rarely,"Im Unterholz erspähst du einen grün funkelnden Gegenstand. Du findest einen magischen Smaragd.","In the undergrowth you spot a green sparkling object. On closer inspection you discover it is a magical emerald."); --Magical emerald
+		woodchopping:AddRandomItem(item.gems.getMagicGemId(item.gems.EMERALD),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"Im Unterholz erspähst du einen grün funkelnden Gegenstand. Du findest einen magischen Smaragd.","In the undergrowth you spot a green sparkling object. On closer inspection you discover it is a magical emerald."); --Magical emerald
 		woodchopping:AddRandomItem(2441,1,333,{},prob_extremely_rarely,"Im Erdboben machst du einen alten, rostigen Helm aus. Ein Überbleibsel einer längst vergessenen Schlacht?","As you work you unearth an old rusty helmet. A remnant of a long-forgotten battle?"); --Storm cap
 		woodchopping:AddRandomItem(235,1,333,{},prob_occasionally,"In einer Spechthöhle findest du einen goldenen Ring. Wird er dich ins Dunkle treiben?","From a woodpecker's hole a golden gleam catches your eye, and you discover it is a golden ring."); --gold ring
 		woodchopping:AddRandomItem(2664,1,333,{},prob_frequently,"Du findest einen Ast, den man auch sehr gut als Keule verwenden könnte.","You find a branch that resembles a sturdy club."); --Club
@@ -59,7 +56,7 @@ function InitGathering()
 		--honeygathering
 
 		honeygathering:AddRandomItem(2551,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Findari, die Göttin der Luft, mit einem Kleinod aus Reiner Luft.","For your hard and honest labor Findari, the Godess of Air, rewards you with a treasure of Pure Air."); --Pure air
-		honeygathering:AddRandomItem(46,1,333,1,prob_extremely_rarely,"Im Inneren des Bienenstocks bemerkst du ein rot glühendes Licht. Du findest einen magischen Rubin.","Inside the hive, you notice a red light. With a closer look you realize it is a magical ruby."); --Magical ruby
+		honeygathering:AddRandomItem(item.gems.getMagicGemId(item.gems.RUBY),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"Im Inneren des Bienenstocks bemerkst du ein rot glühendes Licht. Du findest einen magischen Rubin.","Inside the hive, you notice a red light. With a closer look you realize it is a magical ruby."); --Magical ruby
 		honeygathering:AddRandomItem(2744,1,333,{},prob_extremely_rarely,"Ein Imkerkollege scheint hier seine Pfeife vergessen zu haben. Du nimmst sie an dich.","A beekeeper colleague must have forgotten his pipe for smoking out the bees. You take it with you."); --Pipe
 		honeygathering:AddRandomItem(151,1,333,{},prob_occasionally,"Die Bienen haben offensichtlich Vorräte angelegt. Sogar eine ganze Erdbeere haben sie in ihren Stock geschleppt.","As you carefully pull honey from the hive you notice a sticky strawberry in your grasp!"); --Strawberry
 		honeygathering:AddRandomItem(431,1,333,{},prob_frequently,"An deinen Händen bleibt klebriger Wachs hängen.","Your hands get stuck in sticky wax.", 0); --Wax
@@ -76,7 +73,7 @@ function InitGathering()
 		--farming
 
 		farming:AddRandomItem(2552,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Ushara, die Göttin der Erde, mit einem Kleinod aus Reiner Erde.","For your hard and honest labor Ushara, the Godess of Earth, rewards you with a treasure of Pure Earth."); --Pure earth
-		farming:AddRandomItem(46,1,333,1,prob_extremely_rarely,"Beim Durchpflügen des Erdbodens stößt du auf einen grün scheinenden Stein. Du findest einen magischen Smaragd.","While plowing the soil you notice a green stone shining brightly. As you get closer you notice it is a magical emerald."); --Magical ruby
+		farming:AddRandomItem(item.gems.getMagicGemId(item.gems.RUBY),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"Beim Durchpflügen des Erdbodens stößt du auf einen grün scheinenden Stein. Du findest einen magischen Smaragd.","While plowing the soil you notice a green stone shining brightly. As you get closer you notice it is a magical emerald."); --Magical ruby
 		farming:AddRandomItem(1840,1,333,{},prob_extremely_rarely,"Im Ackerboden ist ein angelaufender Kupferkelch zu finden.","In the arable soil you find a tarnished copper goblet."); --copper goblet
 		farming:AddRandomItem(2935,1,333,{},prob_occasionally,"Da hat wohl jemand eine Schüssel verloren, mit der er Saatgut augestreut hat. Nun gehört sie dir.","You dig up an old bowl. Now it belongs to you."); --soup bowl
 		farming:AddRandomItem(2760,1,333,{},prob_frequently,"Zwischen den Feldfrüchten findest du ein altes Seil. Nützlich, oder?","Among the crops you find an old rope. Can never have enough rope!"); --rope
@@ -86,7 +83,7 @@ function InitGathering()
 		--fruitgathering
 
 		fruitgathering:AddRandomItem(2551,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Findari, die Göttin der Luft, mit einem Kleinod aus Reiner Luft.","For your hard and honest labor Findari, the Godess of Air, rewards you with a treasure of Pure Air."); --Pure air
-		fruitgathering:AddRandomItem(197,1,333,1,prob_extremely_rarely,"Zwischen all den Früchten siehst du auf einmal ein strahlendes Etwas. Du findest einen magischen Amethyst.","Between all the fruit you suddenly spot a flickering reflection, a magical amethyst!"); --Magical amethyst
+		fruitgathering:AddRandomItem(item.gems.getMagicGemId(item.gems.AMETHYST),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"Zwischen all den Früchten siehst du auf einmal ein strahlendes Etwas. Du findest einen magischen Amethyst.","Between all the fruit you suddenly spot a flickering reflection, a magical amethyst!"); --Magical amethyst
 		fruitgathering:AddRandomItem(65,1,333,{},prob_extremely_rarely,"Bei genauer Betrachtung entpuppt sich ein Ast am Boden als Bogen. Ob den ein elfischer Späher hier deponiert hat?","On closer inspection, a branch on the ground turns out to be a bow. Did an elven scout forget it here?"); --short bow
 		fruitgathering:AddRandomItem(2295,1,333,{},prob_occasionally,"Über einem Ast hängt ein Paar alter Handschuhe. Der Besitzer vermisst die offenbahr nicht.","Over a branch hangs a pair of old gloves. Judging by their condition no one would miss them."); --cloth gloves
 		fruitgathering:AddRandomItem(463,1,333,{},prob_frequently,"Eine Feder hat sich zwischen den Zweigen verfangen. Ob man mit ihr auch schreiben kann?","A feather lies entangled among the branches. Perhaps one could write with it?"); --quill
@@ -97,7 +94,7 @@ function InitGathering()
 		--mining
 
 		mining:AddRandomItem(2552,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Ushara, die Göttin der Erde, mit einem Kleinod aus Reiner Erde.","For your hard and honest labor Ushara, the Godess of Earth, rewards you with a treasure of Pure Earth."); --Pure earth
-		mining:AddRandomItem(197,1,333,1,prob_extremely_rarely,"Deine Spitzhacke zertrümmert den Fels und zum Vorschein kommt ein eingeschlossener Edelstein. Du findest einen magischen Amethyst.","Your pickaxe smashes the rock and reveals an enclosed gemstone. Wow a magical amethyst!"); --Magical amethyst
+		mining:AddRandomItem(item.gems.getMagicGemId(item.gems.AMETHYST),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"Deine Spitzhacke zertrümmert den Fels und zum Vorschein kommt ein eingeschlossener Edelstein. Du findest einen magischen Amethyst.","Your pickaxe smashes the rock and reveals an enclosed gemstone. Wow a magical amethyst!"); --Magical amethyst
 		mining:AddRandomItem(310,1,333,{},prob_extremely_rarely,"Zwerge scheinen alten Krügen keine Beachtung beizumessen, insbesondere, wenn sie leer sind. Auch hier liegt einfach einer herum.","Dwarves seem to pay no attention to old pitchers, especially if they are empty. As you work one catches your eye."); --mug with lid
 		mining:AddRandomItem(1908,1,333,{},prob_occasionally,"Diese Mine wurde offensichtlich kürzlich von Zwergen aufgesucht. Wie sonst erklärt sich der Bierkrug, den du zwischen dem Geröll findest?","This mine was occupied recently. How else would you explain the beer mug at your feet?"); --beer mug
 		mining:AddRandomItem(391,1,333,{},prob_frequently,"In einer Felsspalte liegt eine alte Fackel. Hier ist wohl jemanden ein Licht aufgegangen.","In a crevice you spot an old torch."); --torch
@@ -113,7 +110,7 @@ function InitGathering()
 		--sanddigging
 
 		sanddigging:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labor Brágon, the god of fire, rewards you with a treasure of Pure Fire."); --Pure fire
-		sanddigging:AddRandomItem(198,1,333,1,prob_extremely_rarely,"Ein Stein, strahlend wie die heiße Wüstensonne, kommt zwischen all dem Sand zum Vorschein. Du findest einen magischen Topa.","A stone, bright as the hot desert sun, reveals itself beneath your feet. Upon closer inspection it turns out to be a magic topaz."); --Magical topaz
+		sanddigging:AddRandomItem(item.gems.getMagicGemId(item.gems.TOPAZ),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"Ein Stein, strahlend wie die heiße Wüstensonne, kommt zwischen all dem Sand zum Vorschein. Du findest einen magischen Topa.","A stone, bright as the hot desert sun, reveals itself beneath your feet. Upon closer inspection it turns out to be a magic topaz."); --Magical topaz
 		sanddigging:AddRandomItem(3077,1,333,{},prob_extremely_rarely,"Eine funkelnde Münze liegt auf deinem Schaufelblatt. Hat sich die harte Arbeit doch gelohnt!","A tink of your shovel blade causes you to pause. Then to your surprise it turns out you struck a silver coin!"); --Silver coin
 		sanddigging:AddRandomItem(21,1,333,{},prob_occasionally,"Du findest einige noch heiße Kohlen im Sand. Ein Glück, dass du nicht auf diese Überreste einer nächtlichen Grillfeier getreten bist.","As your shovel digs through the sand you unearth an unused lump of coal and discover an abandoned campfire."); --Coal
 		sanddigging:AddRandomItem(1266,1,333,{},prob_frequently,"Deine Schaufel stößt auf einen runden Kieselstein.","Your shoulder locks as your shovel drives into a hard stone."); --Rock
@@ -129,7 +126,7 @@ function InitGathering()
 		--claydigging
 
 		claydigging:AddRandomItem(2554,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Tanora, die Göttin des Wassers, mit einem Kleinod aus Reinem Wasser.","For your hard and honest labor Tanora, the Godess of Water, rewards you with a treasure of Pure Water."); --Pure water
-		claydigging:AddRandomItem(283,1,333,1,prob_extremely_rarely,"Tief im Matsch stößt deine Schaufel auf etwas hartes. Du findest einen magischen Obsidian.","Deep in the mud your shovel hits on something hard. To your surprise it's a magical obsidian."); --Magical obsidian
+		claydigging:AddRandomItem(item.gems.getMagicGemId(item.gems.OBSIDIAN),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"Tief im Matsch stößt deine Schaufel auf etwas hartes. Du findest einen magischen Obsidian.","Deep in the mud your shovel hits on something hard. To your surprise it's a magical obsidian."); --Magical obsidian
 		claydigging:AddRandomItem(2658,1,333,{},prob_extremely_rarely,"Du findest eine Knochenhand im Matsch. Sie umklammert ein altes Schwert.","You find a boney hand in the mud clutching an old sword."); --broadsword
 		claydigging:AddRandomItem(51,1,333,{},prob_occasionally,"Du ziehst einen alten Eimer aus dem Schlick.","You draw an old bucket from the silt."); --bucket
 		claydigging:AddRandomItem(2184,1,333,{},prob_frequently,"Ein Tonkrug offenbahrt sich im Matsch. Die Überreste einer alten Zivilisation oder einfach nur vom letzten Saufgelage?","A clay mug reveals itself in the mud. Perhaps the remains of an ancient civilization or just a littering traveller, who knows?"); --clay cup
@@ -146,7 +143,7 @@ function InitGathering()
 		--herbgathering
 
 		herbgathering:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labor Brágon, the God of Fire, rewards you with a treasure of Pure Fire."); --Pure fire
-		herbgathering:AddRandomItem(284,1,333,1,prob_extremely_rarely,"Tief im Gestrüpp machst du ein blaues, unheimliches Leuchten aus. Du findest einen magischen Saphir.","Deep in the shrub you notice a blue, eerie glow. To your delight it turns out to be a magical sapphire."); --Magical sapphire
+		herbgathering:AddRandomItem(item.gems.getMagicGemId(item.gems.SAPPHIRE),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"Tief im Gestrüpp machst du ein blaues, unheimliches Leuchten aus. Du findest einen magischen Saphir.","Deep in the shrub you notice a blue, eerie glow. To your delight it turns out to be a magical sapphire."); --Magical sapphire
 		herbgathering:AddRandomItem(2183,1,333,{},prob_extremely_rarely,"Ein alter Krug liegt verlassen und einsam im Gebüsch.","An old mug lies abandoned and lonesome in the bushes."); --Mug
 		herbgathering:AddRandomItem(799,1,333,{},prob_occasionally,"Ein Weidenkorb liegt am Boden. Er scheint noch brauchbar zu sein.","A wicker basket lies on the ground. It still seems to be usable."); --Basket
 		herbgathering:AddRandomItem(2570,1,333,{},prob_frequently,"Ein Griff einer alten Sichel liegt achtlos weggeworfen zwischen Blättern und Ästen herum.","A handle of an old sickle lies between the leaves and branches, but the blade is no where in sight."); --Sickle hilt
@@ -157,7 +154,7 @@ function InitGathering()
 		--fishing
 
 		fishing:AddRandomItem(2554,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Tanora, die Göttin des Wassers, mit einem Kleinod aus Reinem Wasser.","For your hard and honest labor Tanora, the Godess of Water, rewards you with a treasure of Pure Water."); --Pure water
-		fishing:AddRandomItem(284,1,333,3,prob_extremely_rarely,"Im Wasser kaum auszumachen, erspähst du ein blaues Funkeln am Boden des Gewässers. Du findest einen magischen Saphir.","Beneath the rhythmic ripples of the water you spot an odd blue sparkle rich in hue. Wow it's a magical sapphire!"); --Magical sapphire
+		fishing:AddRandomItem(item.gems.getMagicGemId(item.gems.SAPPHIRE),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"Im Wasser kaum auszumachen, erspähst du ein blaues Funkeln am Boden des Gewässers. Du findest einen magischen Saphir.","Beneath the rhythmic ripples of the water you spot an odd blue sparkle rich in hue. Wow it's a magical sapphire!"); --Magical sapphire
 		fishing:AddRandomItem(51,1,333,{},prob_extremely_rarely,"Ein Eimer verfängt sich in deiner Angelschnur. Den hat hier wohl jemand verloren.","As you tighten your line you feel a heavy resistance. With a careful approach you are able to pull a bucket ashore."); --Bucket
 		fishing:AddRandomItem(92,1,333,{},prob_occasionally,"Du ziehst eine glitzernde Öllampe aus dem Wasser. Wo die wohl herkommt...?","You pull a sparkling oil lamp out of the water. Where did that come from?"); --Oil lamp
 		fishing:AddRandomItem(53,1,333,{},prob_frequently,"Ein alter, durchlöcherter Lederstiefel hängt am Haken.","As you angle back and forth for fish you feel a snag. Instead of a fish, however, a pair of old perforated boots tied together hangs from your hook!"); --Leather boots
@@ -168,7 +165,7 @@ function InitGathering()
 		--woolcutting
 
 		woolcutting:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, der Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labor Brágon, the God of Fire, rewards you with a treasure of Pure Fire."); --Pure fire
-		woolcutting:AddRandomItem(285,1,333,1,prob_extremely_rarely,"Während du das Schaf scherst, tritt dein Fuss achtlos gegen einen Stein, welcher sich aber als durchaus beachtenswert herausstellt. Du findest einen magischen Diamant.","While you shear the sheep your foot kicks a stone carelessly. Underneath the rock to your surprise you find a magical diamond!"); --Magical diamond
+		woolcutting:AddRandomItem(item.gems.getMagicGemId(item.gems.DIAMOND),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"Während du das Schaf scherst, tritt dein Fuss achtlos gegen einen Stein, welcher sich aber als durchaus beachtenswert herausstellt. Du findest einen magischen Diamant.","While you shear the sheep your foot kicks a stone carelessly. Underneath the rock to your surprise you find a magical diamond!"); --Magical diamond
 		woolcutting:AddRandomItem(222,1,333,{},prob_extremely_rarely,"Dieses Schaf trägt ein merkwürdiges Amulett um den Hals. Wer kommt auf solch eine Idee?","This sheep is bearing a strange amulet around its neck. Who had such an idea?"); --Amulet
 		woolcutting:AddRandomItem(153,1,333,{},prob_occasionally,"Ein großes Blatt hat sich im Fell des Schafes verfangen. Du betreibst zunächst ein wenig Fellpflege, bevor du weiter scherst.","A large leaf was tangled in the fur of the sheep. You do a little grooming before you continue shearing."); --Foot leaf
 		woolcutting:AddRandomItem(156,1,333,{},prob_frequently,"Etwas Gras hat sich im Fell des Schafs verfangen. Du entfernst das klebrige Grünzeug.","Some grass was ensnared in the fur of the sheep. Before you can continue shearing you have to remove the sticky green weed."); --Steppe fern
@@ -178,7 +175,7 @@ function InitGathering()
 		--potashproducing
 
 		potashproducing:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labor Brágon, the God of Fire, awards you with a treasure of Pure Fire."); --Pure fire
-		potashproducing:AddRandomItem(45,1,333,1,prob_extremely_rarely,"In der Asche erspähst du einen grün funkelnden Gegenstand. Du findest einen magischen Smaragd.","Amidst the burning rubble and potash you spot a green sparkling object. To your fortune it is a magical emerald."); --Magical emerald
+		potashproducing:AddRandomItem(item.gems.getMagicGemId(item.gems.EMERALD),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"In der Asche erspähst du einen grün funkelnden Gegenstand. Du findest einen magischen Smaragd.","Amidst the burning rubble and potash you spot a green sparkling object. To your fortune it is a magical emerald."); --Magical emerald
 		potashproducing:SetTreasureMap(prob_rarely,"Fein säuberlich aufgerollt findest du eine Schatzkarte in einem ausgehöhlten Ast. Gut, dass du das Holz noch nicht verbrannt hattest!","Nestled in a hollowed-out branch you find a treasure map neatly rolled up. Luckily you did not burn it yet!");
 		potashproducing:AddMonster(131,prob_rarely,"Angezogen vom Licht des wärmenden Feuers, taucht ein schwarm agressiver Insekten auf.","Attracted to the bright warm light of your fire a swarm of aggressive flies come after you.",4,7);
 

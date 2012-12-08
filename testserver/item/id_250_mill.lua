@@ -33,7 +33,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   
 	-- additional tool item is needed
 	if (User:countItemAt("all",312)==0) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du brauchst eine Holzkelle um Getreide zu mahlen.", 
 		"You need a wooden shovel for grinding grain." );
 		return
@@ -42,7 +42,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( toolItem.id ~= 312 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 312 ) then
-			base.common.InformNLS( User,
+			base.common.HighInformNLS( User,
 			"Du musst die Holzkelle in der Hand haben!",
 			"You have to hold the wooden shovel in your hand!" );
 			return
@@ -50,7 +50,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Getreidemahlen.",
 		"Your armour disturbs you while grinding grain." );
 		return
@@ -67,7 +67,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- any other checks?
 
 	if (User:countItemAt("all",259)==0) then -- check for items to work on
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Du brauchst Getreide um es zu mahlen.", 
 		"You need grain for grinding it." );
 		return;
@@ -93,7 +93,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( 2, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 2, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -101,14 +101,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			graingrinding.SavedWorkTime[User.id] = graingrinding:GenWorkTime(User,toolItem);
 			User:startAction( graingrinding.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.InformNLS(User,
+			base.common.HighInformNLS(User,
 			"Du hast kein Getreide mehr.",
 			"You have no grain anymore.");
 		end
 	end
 
 	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Deine alte Holzkelle zerbricht.",
 		"Your old wooden shovel breaks.");
 		return

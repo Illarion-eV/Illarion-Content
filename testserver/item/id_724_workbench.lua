@@ -61,7 +61,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	-- additional tool item is needed
 	if (User:countItemAt("all",9)==0) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du brauchst eine Säge um Bretter herzustellen.", 
 		"You need a saw for producing boards." );
 		return
@@ -70,7 +70,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( toolItem.id ~= 9 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 9 ) then
-			base.common.InformNLS( User,
+			base.common.HighInformNLS( User,
 			"Du musst die Säge in der Hand haben!",
 			"You have to hold the saw in your hand!" );
 			return
@@ -78,7 +78,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Sägen.",
 		"Your armour disturbs you while sawing." );
 		return
@@ -101,7 +101,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
   end
 	if (craftItem == nil) then -- check for items to work on
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Du brauchst Nadelholz, Kirschholz, Naldorholz oder Laubholz um es zu zersägen.", 
 		"You need conifer wood, cherry wood, naldor wood or deciduous wood for sawing them." );
 		return;
@@ -127,7 +127,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( craftItem.product.id, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( craftItem.product.id, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -142,14 +142,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			boardproducing.SavedWorkTime[User.id] = boardproducing:GenWorkTime(User,toolItem);
 			User:startAction( boardproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.InformNLS(User,
+			base.common.HighInformNLS(User,
 			"Du hast kein Holz mehr.",
 			"You have no wood anymore.");
 		end
 	end
 
 	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Deine alte Säge zerbricht.",
 		"Your old saw breaks.");
 		return

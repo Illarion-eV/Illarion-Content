@@ -31,14 +31,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du musst die Angel in der Hand haben!",
 		"You have to hold the fishing rod in your hand!" );
 		return
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Fischen.",
 		"Your armour disturbs you while fishing." );
 		return
@@ -53,14 +53,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if (world:getField(TargetPos):tile() ~= 6) then -- fishing only possible on water tiles
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Die Chance im Wasser einen Fisch zu fangen ist bedeutend höher als auf dem Land.",
 		"The chance to catch a fish is much higher in the water than on the land.");
 		return
 	end
 	
 	if (TargetPos.z < 0) then -- fishing underground is not possible
-		base.common.InformNLS(User, 
+		base.common.HighInformNLS(User, 
 		"In unterirdischen Wasserlöchern wird das Angeln kaum erfolgreich sein.", 
 		"Fishing in underground waterholes wouldn't be successful.");
 		return
@@ -97,7 +97,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( fishID, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( fishID, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -106,7 +106,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Deine alte Angel zerbricht.",
 		"Your old fishing rod breaks.");
 		return

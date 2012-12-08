@@ -38,14 +38,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if (SourceItem:getType() ~= 4) then -- tool in Hand
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du musst die Schaufel in der Hand haben!",
 		"You have to hold the shovel in your hand!" );
 		return
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Graben.",
 		"Your armour disturbs you while digging." );
 		return
@@ -72,27 +72,27 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- neither sand nor dirt => find nothing
     if (( groundType ~= gt.sand ) and ( groundType ~= gt.dirt )) then
         if ( groundType == gt.field ) then
-            base.common.InformNLS( User,
+            base.common.HighInformNLS( User,
             "Du gräbst ein kleines Loch in den Ackerboden doch findest du hier gar nichts.",
             "You dig a small hole into the farming ground. But you find nothing.");
         elseif ( groundType == gt.forest ) then
-            base.common.InformNLS( User,
+            base.common.HighInformNLS( User,
             "Du gräbst ein kleines Loch in den Waldboden doch findest du hier gar nichts.",
             "You dig a small hole into the forest ground. But you find nothing.");
         elseif ( groundType == gt.grass ) then
-            base.common.InformNLS( User,
+            base.common.HighInformNLS( User,
             "Du gräbst ein kleines Loch in die Wiese doch findest du hier gar nichts.",
             "You dig a small hole into the grass. But you find nothing.");
         elseif ( groundType == gt.rocks ) then
-            base.common.InformNLS( User,
+            base.common.HighInformNLS( User,
             "Der Boden besteht hier aus solidem Stein. Mit einer Schaufel hast du eindeutig das falsche Werkzeug.",
             "The ground here is heavy stone. With a shovel you have the wrong tool here for sure.");
         elseif ( groundType == gt.water ) then
-            base.common.InformNLS( User,
+            base.common.HighInformNLS( User,
             "Im Wasser mit einer Schaufel zu graben geht zwar relativ leicht, doch der Effekt ist recht gering.",
             "To dig with a shovel in the water is pretty easy. But sadly there is no effect in doing this.");
         else
-            base.common.InformNLS(User,
+            base.common.HighInformNLS(User,
             "Du versuchst an dieser Stelle zu graben, findest aber nichts.",
             "You attempt to dig here, but you don't find anything.");
         end
@@ -104,12 +104,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- check location, only succeed if there is a stone / water nearby
 	if not LocationCheck(TargetPos,groundType, User) then
         if ( groundType == gt.sand ) then
-            base.common.InformNLS( User,
+            base.common.HighInformNLS( User,
             "Der Wind hat hier allen Sand fortgeweht. Vielleicht solltest du es in der Nähe eines Steins versuchen.",
             "The wind has blown away the whole sand. Maybe you should try it somewhere near a rock." );
             return
         else
-            base.common.InformNLS( User,
+            base.common.HighInformNLS( User,
             "Der Boden ist hier nicht feucht genug. Vielleicht solltest du es in der Nähe von Wasser versuchen.",
             "The ground is not wet enough here. Maybe you should try it somewhere near water." );
             return
@@ -149,7 +149,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( digForID, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( digForID, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten.",
 		"You can't carry any more.");
 	else -- character can still carry something
@@ -158,7 +158,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Deine alte Schaufel zerbricht.",
 		"Your old shovel breaks.");
 		return

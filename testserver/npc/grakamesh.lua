@@ -614,7 +614,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger(".");
+talkEntry:addTrigger("Mirarie");
+talkEntry:addTrigger("Bragolin");
+talkEntry:addTrigger("letter");
+talkEntry:addTrigger("message");
 talkEntry:addResponse("Meh need to think about table manners. Hurr Hurr. Yoos go and tell Mirarie?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -622,7 +625,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 6));
-talkEntry:addTrigger(".");
+talkEntry:addTrigger("Mirarie");
+talkEntry:addTrigger("Bragolin");
+talkEntry:addTrigger("Brief");
+talkEntry:addTrigger("Nachricht");
 talkEntry:addResponse("Ich musse nachdenken übers die Tischsitten. Hurr Hurr. Geh und sagst Mirarie, ja?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 7));
 talkingNPC:addTalkingEntry(talkEntry);
