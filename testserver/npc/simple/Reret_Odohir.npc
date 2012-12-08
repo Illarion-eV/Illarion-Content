@@ -110,7 +110,8 @@ english, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a 
 "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
 
 -- Test Question
-"weche Stadt", "weche faktion" -> "Du gehöerst nach %TOWN!"
+"welche Stadt", "weche faktion" -> "Du gehöerst nach %TOWN!"
+"wich town", "wich faction" -> "Youz belong to %TOWN!"
 --"ich" ->  "%CHARNAME"
 
 -- RANK informations
