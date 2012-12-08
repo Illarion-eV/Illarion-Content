@@ -294,7 +294,6 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local callback = function(dialog)
 		local success = dialog:getSuccess()
 		if success then
-			User:inform(mytest)
 			selected = dialog:getSelectedIndex()
 			local orgPos = originalPos[selected+1] 
 			myNPC:talkLanguage(Character.say,Player.english,"If you want me to show you how to create this potion properly, bring me "..myListTaskText[town][orgPos][language]..". Just put it here ony my table so that I can analyse it.")
