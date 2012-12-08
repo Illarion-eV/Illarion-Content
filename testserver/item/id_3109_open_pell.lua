@@ -322,7 +322,7 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-      
+      User:inform("debug 1")
     if (TargetItem:getType()~=3) then -- no map item
 	    return
 	end	
