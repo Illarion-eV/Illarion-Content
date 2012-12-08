@@ -289,10 +289,10 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if myNPC == false then
 	    return
 	end
-User:inform(""..#myListTaskText)
-User:inform(""..#myListTaskText["Galmair"])	
-User:inform(""..#myListTaskText["Galmair"][2])		
-	User:inform(""..myListTaskText["Galmair"][2][2])
+--User:inform(""..#myListTaskText)
+--User:inform(""..#myListTaskText["Galmair"])	
+--User:inform(""..#myListTaskText["Galmair"][2])		
+	--User:inform(""..myListTaskText["Galmair"][2][2])
 	local originalPos = {}
 	local callback = function(dialog)
 		local success = dialog:getSuccess()
@@ -302,8 +302,8 @@ User:inform(""..#myListTaskText["Galmair"][2])
 			User:inform(""..town)
 			User:inform(""..orgPos)
 			User:inform(""..language)
-			myNPC:talkLanguage(Character.say,Player.english,"If you want me to show you how to create this potion properly, bring me "..myListTaskText[town][orgPos][language]..". Just put it here ony my table so that I can analyse it.")
-			myNPC:talkLanguage(Character.say,Player.german,"Wenn Ihr wollt, dass ich Euch zeige, wie dieser Trank richtig hergestellt wird, bringt mir "..myListTaskText[town][orgPos][language]..". Einfach hier auf meinen Tisch tun, damit ich meine Analyse vollziehen kann.")
+			myNPC:talkLanguage(Character.say,Player.english,"If you want me to show you how to create this potion properly, bring me "..myListTaskText[orgPos][language]..". Just put it here ony my table so that I can analyse it.")
+			myNPC:talkLanguage(Character.say,Player.german,"Wenn Ihr wollt, dass ich Euch zeige, wie dieser Trank richtig hergestellt wird, bringt mir "..myListTaskText[orgPos][language]..". Einfach hier auf meinen Tisch tun, damit ich meine Analyse vollziehen kann.")
 		end
 	end
 	local dialog
