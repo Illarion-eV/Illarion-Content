@@ -1,0 +1,144 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Marcel Metalfeet                                         Galmair --
+-- NPC Job: craftsman/ repair NPC                                             --
+--                                                                            --
+-- NPC Race: halfling                     NPC Position: 389,269, 0            --
+-- NPC Sex:  male                       NPC Direction: west                  --
+--                                                                            --
+-- Author: Miriam                                                             --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Marcel Metalfeet"
+race = halfling
+sex = male
+position = 389,269, 0
+direction = west
+affiliation = "Galmair"
+job = "craftsman"
+
+language = common
+language = halfling
+defaultLanguage = common
+autointroduce = on
+
+author = "Miriam"
+
+lookatDE = "Dieser NPC ist Marcel Metalfeet der Handwerker."
+lookatUS = "This NPC is Marcel Metalfeet the craftsman."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 0
+colorHair = 68, 62, 0
+colorSkin = 245, 211, 179
+itemHead = 0
+itemChest = 180
+itemCoat =  196
+itemMainHand = 311
+itemSecondHand = 9
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 1, 2, 3
+buyPrimaryItems = 1
+buySecondaryItems = 2, 3
+
+-- Template Version 1.08, 10/18/2012 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- TRADING
+-- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Marcel Metalfeet  the <profession/function>. Keywords: repair, work, Greetings, religion.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC istMarcel Metalfeet der <Beruf/Funktion>. Schlüsselwörter: reparieren, arbeiten, Grüße, Religion,.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello. You look happy today? Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegesen?", "Hallo. Du siehst nicht so glücklich aus. Hast du hunger?", "Hallo. Wie geht es dir?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello. You look happy today? Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
+"Hiho", "Hallo", "Hey", "Greeb" ->  "Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegesen?", "Hallo. Du siehst nicht so glücklich aus. Hast du hunger?", "Hallo. Wie geht es dir?"
+"Farewell", "Bye", "Fare well", "See you" -> "Save journy. And don't forget to take enough food with you!", "#me waves goodbye.", "Please come again!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gute Reise. Und vergiss nicht genug proviant mit zu nehmen!", "#me winkt zum Abschied", "Komm wieder!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Save journy. And don't forget to take enough food with you!", "#me waves goodbye.", "Please come again!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gute Reise. Und vergiss nicht genug proviant mit zu nehmen!", "#me winkt zum Abschied", "Komm wieder!"
+"How are you", "How feel", "How do you do" -> "I am fine. I just ate my cake.", "I am fine. I'll soon eat my cake.", "I am sad. I ate all my cake."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut. Ich habe eben Kuchen gegessen.", "Mir geht es gut. Ich werde gleich Kuchen essen.", "Ich bin traurig. Ich habe meinen Kuchen aufgegessen."
+"your name", "who are you", "who art thou" -> "Marcel Metalfeet, at your service."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Marcel Metalfeet, stets zu Diensten."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Trade Hooks, use only for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I do not sell anything. But I can repair all kind of things for you."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "I verkaufe nichts, aber ich kann allesmögliche für Euch reparieren."
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I don't have anything to do for you."
+"quest", "mission" -> "Ich habe nichts für Euch zu tun."
+"task", "adventure", "order" -> "I don't have anything to do for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für Euch zu tun."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I can repair all kind of things for you."
+"beruf" -> "Ich kann allesmögliche für Euch reparieren."
+english, "job" -> "I can repair all kind of things for you."
+"job" ->  "Ich kann allesmögliche für Euch reparieren."
+"tell something" -> "I like cake! Everyonelse also likes cake! Nice,eh?"
+"erzähl was", "erzähl etwas" -> "Ich mag Kuchen! Und alle andern mögen auch Kuchen. Nett, oder?"
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "We were created by the gods to colltect and eat the fruits in Illarion.", "The gods were created out of cherry seeds.", "One of the gods, the Milkspiller is evil. He ate a bad cake."
+"Gott", "Götter" -> "Wir wurden von den Göttern geschaffen um die Früchte Illarions zu essen.", "Die Götter entstanden aus Kirschkernen.", "Einer der Götter, der Milchversaurer ist böse. Er hat von einem schlechten Kuchen gegessen."
+english, "religion" -> "Halflings have their own myths about how Illarion was created."
+"religion" -> "Halblinge haben ihre eignen Mythern über die Entstehung Illarions."
+"faith" -> "Halflings have their own myths about how Illarion was created."
+"Glaube" -> "Halblinge haben ihre eignen Mythern über die Entstehung Illarions."
+english, "Oldra" -> "I pray to Ushara. Cake is made of grain."
+"Oldra" -> "Ich bete zu Oldra. Kuchen wird auch Korn gemacht."
+
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
+"my name" -> "Nice to meet you."
+"mein Name" -> "Freu mich."
+english, "Marcel", "Metalfeet" -> "You want me to repair something for you?"
+"Metalfeet", "Metalfeet" -> "Ich soll etwas für Euch reparieren?"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "Did you say cake?", "Did I hear you say cookies?", "Pardon?"
+german, chance(20.0), ".*" -> "Hast du Kuchen gesagt?.", "Hast du eben Kekse gesagt?", "Wie bitte?"
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me summt eine Melodie.", "#me hums a melody."
+cycletext "#me grinst.", "#me grins."
+cycletext "#me isst ein Stück Kuchen, welcher er grade aus seiner Tasche hervorholte.", "#me eats a pice of cake, he just took out for his bag."
+cycletext "Marcel Metalfeet! Ich repariere alles und jeden!", "Marcel Metalfeet! I repair everything and everyone!"
+cycletext "#me pfeift eine Melodie.", "#me whistles."
+cycletext "#me schaut sich um.", "#me lookes around."
+cycletext "#me leckt sich über die Lippen.", "#me licks his lips."
+cycletext "#me lekt seine Finger ab.", "#me licks his fingers."
+cycletext "#w Ich möchte Kuchen essen... Ich möchte nicht arbeiten.", "#w I want to eat Cake... I do not want to work."
