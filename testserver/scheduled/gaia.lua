@@ -72,7 +72,7 @@ function plantdrop()
     end
 
 	local herbCounter = 0 -- for testing
-	for i=1,30 do
+	for i=1,50 do
 	    
 		local rndValue = math.random(1,#plnt)
 		local myPlant = plnt[rndValue]

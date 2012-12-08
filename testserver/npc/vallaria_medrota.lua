@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 953, 766, 5, 6, 'Vallaria Medrota', 'npc.vallaria_medrota', 1, 2, 7, 123, 62, 9, 245, 180, 137);
+VALUES (3, 953, 766, 5, 6, 'Vallaria Medrota', 'npc.vallaria_medrota', 1, 7, 0, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -26,13 +26,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: recipes, alchemy"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Vallaria Medrota the healer an alchemy teacher. Keywords: recipes, alchemy"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: Rezepte, Alchemie"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Vallaria Medrota die Heilerin und Alchemielehrerin. Schlüsselwörter: Rezepte, Alchemie"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
