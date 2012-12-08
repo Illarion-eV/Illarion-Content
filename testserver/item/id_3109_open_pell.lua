@@ -329,7 +329,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
     local town = getTown(SourceItem)
 	if town == false then
-	    return
+	    User:inform("debug 2")
+		return
 	else
 	    RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end	
