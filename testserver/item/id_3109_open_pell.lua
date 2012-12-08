@@ -6,12 +6,12 @@ module("item.id_3109_open_pell",package.seeall)
 
 -- script currently only used to teach alchemy recipes
 
+ListEffectId = {}
+ListTaskText = {}
+ListTaskItem = {}
 
 function Init()
-    ListEffectId = {}
-	ListTaskText = {}
-	ListTaskItem = {}
-	
+    
 	ListEffectId["Runewick"] = {}
 	ListTaskText["Runewick"] = {}
 	ListTaskItem["Runewick"] = {}
@@ -263,7 +263,7 @@ end
 
 function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
-    if (ListEffectId == nil) then
+    if (ListEffectId["Runewick"] == nil) then
 	    Init()
     end
 
