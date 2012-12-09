@@ -77,6 +77,11 @@ end;
 function MoveItemAfterMove(User, SourceItem, TargetItem)
 	local missileStatus = (SourceItem:getData("missileStatus"));
     
+	local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
+	if potionEffectId == nil then
+	    potionEffectId = 0
+	end	
+	
 	if not ((potionEffectId >= 300) and (potionEffectId <= 399)) then
         return true; -- no missile
     end
