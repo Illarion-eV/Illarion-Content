@@ -87,7 +87,8 @@ function PutItemOnField(Item,User)
 		myNPC:talkLanguage(Character.say,Player.german,"Dafür werde ich Euch nichts lehren. Schaut auf meine Liste und zeigt mir, was Euch interessiert und ich sage Euch, was ich dafür verlange.")
 	
 	else
-        if User:getQuestProgress(ListEffectId[myListPos]+1000,1) ~= 0 then
+        local ListEffectId = item.id_3109_open_pell.ListEffectId[town]
+		if User:getQuestProgress(ListEffectId[myListPos]+1000,1) ~= 0 then
 		    myNPC:talkLanguage(Character.say,Player.german,"Mhh. Ich würde Euch wohl dafür etwas zeigen, aber Ihr macht den Eindruck, diese Kenntnisse schon zu haben.")
 		    myNPC:talkLanguage(Character.say,Player.english,"Mhh. Well, I would teach you something for this, but you seem to already have this knowledge.")
 		else
@@ -96,7 +97,6 @@ function PutItemOnField(Item,User)
 			world:eraseItem(Item,1)
 			myNPC:talkLanguage(Character.say,Player.german,"#me beginnt sorgsam und langsam die einzelnen Zutaten vorzubereiten und dann zu verarbeiten, darauf Acht gebend, dass keine Unbefugten es sehen können. \"So geht das richtig.\"")
 			myNPC:talkLanguage(Character.say,Player.english,"#me starts to prepare the ingredients carefully and slowly and then to worken them, while making sure that no unasked eyes have a look at it. \"So geht das richtig.\"")
-			local effectList = item.id_3109_open_pell.ListEffectId
 			User:setQuestProgress(ListEffectId[myListPos]+1000,1)
 			User:inform("Du bist jetzt in der Lage den Trank zu fertigen.","You are now able to create this potion.")
 		end	
