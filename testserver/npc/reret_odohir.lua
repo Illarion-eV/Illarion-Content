@@ -2,7 +2,7 @@
 -- NPC Name: Reret Odohir                                             Cadomyr --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  106, 533, 0            --
+-- NPC Race: human                      NPC Position:  106, 553, 0            --
 -- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   ?? + Miriam                                                      --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 106, 533, 0, 0, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 0, 68, 63, 58, 255, 210, 204);
+VALUES (0, 106, 553, 0, 0, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 0, 68, 63, 58, 255, 210, 204);
 ---]]
 
 require("npc.base.basic")
@@ -39,13 +39,13 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Retret Odohir the Notary of Cadomyr. Keywords: become citizen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Retret Odohir the Notary of Cadomyr. Keywords: become citizen, wich town."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Retret Odohir die Notar von Cadomyr. Schlüsselwörter: Bürger werden."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Retret Odohir die Notar von Cadomyr. Schlüsselwörter: Bürger werden, welche Stadt."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -287,9 +287,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("weche Stadt");
+talkEntry:addTrigger("welche Stadt");
 talkEntry:addTrigger("weche faktion");
-talkEntry:addResponse("Du gehöerst nach %TOWN!");
+talkEntry:addResponse("Du gehörst nach %TOWN!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("wich town");
+talkEntry:addTrigger("wich faction");
+talkEntry:addResponse("You belong to %TOWN!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
