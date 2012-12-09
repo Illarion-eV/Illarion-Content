@@ -88,7 +88,7 @@ function PutItemOnField(Item,User)
 	
 	else
         local ListEffectId = item.id_3109_open_pell.ListEffectId[town]
-		if User:getQuestProgress(ListEffectId[myListPos]+1000,1) ~= 0 then
+		if User:getQuestProgress(ListEffectId[myListPos]+1000) ~= 0 then
 		    myNPC:talkLanguage(Character.say,Player.german,"Mhh. Ich würde Euch wohl dafür etwas zeigen, aber Ihr macht den Eindruck, diese Kenntnisse schon zu haben.")
 		    myNPC:talkLanguage(Character.say,Player.english,"Mhh. Well, I would teach you something for this, but you seem to already have this knowledge.")
 		else
