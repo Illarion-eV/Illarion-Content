@@ -20,39 +20,39 @@ local potionEffectId = (tonumber(Item:getData("potionEffectId")))
 	if (potionEffectId >= 300) and (potionEffectId <= 399) then	-- bombs
 		
 		if (potionEffectId == 301) then
-			druid.base.missile.effect_1( User, Item );
+			alchemy.base.missile.effect_1( User, Item );
 		elseif (potionEffectId == 302) then
-			druid.base.missile.effect_2( User, Item );
+			alchemy.base.missile.effect_2( User, Item );
 		elseif (potionEffectId == 303) then
-			druid.base.missile.effect_3( User, Item );
+			alchemy.base.missile.effect_3( User, Item );
 		elseif (potionEffectId == 304) then
-			druid.base.missile.effect_4( User, Item );
+			alchemy.base.missile.effect_4( User, Item );
 		elseif (potionEffectId == 305) then
-			druid.base.missile.effect_5( User, Item );
+			alchemy.base.missile.effect_5( User, Item );
 		elseif (potionEffectId == 306) then
-			druid.base.missile.effect_6( User, Item );
+			alchemy.base.missile.effect_6( User, Item );
 		elseif (potionEffectId == 307) then
-			druid.base.missile.effect_7( User, Item );
+			alchemy.base.missile.effect_7( User, Item );
 		elseif (potionEffectId == 308) then
-			druid.base.missile.effect_8( User, Item );
+			alchemy.base.missile.effect_8( User, Item );
 		elseif (potionEffectId == 309) then
-			druid.base.missile.effect_9( User, Item );
+			alchemy.base.missile.effect_9( User, Item );
 		elseif (potionEffectId == 310) then
-			druid.base.missile.effect_10( User, Item );
+			alchemy.base.missile.effect_10( User, Item );
 		elseif (potionEffectId == 311) then 
-			druid.base.missile.effect_11( User, Item );
+			alchemy.base.missile.effect_11( User, Item );
 		elseif (potionEffectId == 312) then
-			druid.base.missile.effect_12( User, Item );
+			alchemy.base.missile.effect_12( User, Item );
 		elseif (potionEffectId == 313) then 
-			druid.base.missile.effect_13( User, Item );
+			alchemy.base.missile.effect_13( User, Item );
 		elseif (potionEffectId == 314) then
-			druid.base.missile.effect_14( User, Item );
+			alchemy.base.missile.effect_14( User, Item );
 		elseif (potionEffectId == 315) then
-			druid.base.missile.effect_15( User, Item );
+			alchemy.base.missile.effect_15( User, Item );
 		elseif (potionEffectId == 316) then
-			druid.base.missile.effect_16( User, Item );
+			alchemy.base.missile.effect_16( User, Item );
 		elseif (potionEffectId == 317) then 
-			druid.base.missile.effect_17( User, Item );
+			alchemy.base.missile.effect_17( User, Item );
 		else
 			-- unbekannter Trank
 		end
