@@ -47,8 +47,15 @@ function PutItemOnField(Item,User)
 	end
 	
 	local town = getTown(Item)
+	if town == false then
+	    return
+	end	
 	local myNPC = getNPC(Item)
 	local ListTaskItem = item.id_3109_open_pell.ListTaskItem[town]
+	if ListTaskItem == nil then
+	    item.id_3109_open_pell.Init()
+	end
+	ListTaskItem = item.id_3109_open_pell.ListTaskItem[town]
 	local success = false
 	local myListPos
 	for i=1,#ListTaskItem do 
