@@ -139,6 +139,11 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 		return -- no potion, no essencebrew, something else
 	end
 	
+	local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
+	if potionEffectId == nil then
+	    potionEffectId = 0
+	end	
+	
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
 	if cauldron then -- infront of a cauldron?
 	    alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
