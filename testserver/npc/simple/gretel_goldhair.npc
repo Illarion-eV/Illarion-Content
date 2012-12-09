@@ -2,7 +2,7 @@
 -- NPC Name: Gretel  Goldhair                                         Galmair --
 -- NPC Job: Galmair                                                           --
 --                                                                            --
--- NPC Race: human                     NPC Position:341, 281,0                --
+-- NPC Race: human                     NPC Position:341, 218,0                --
 -- NPC Sex:  female                    NPC Direction: southwest               --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -11,7 +11,7 @@
 name = "Gretel Goldhair"
 race = human
 sex = female
-position = 341, 281,0
+position = 341, 218,0
 direction = southwest
 affiliation = "Galmair"
 job = "Galmair Treasurer"

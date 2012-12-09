@@ -65,7 +65,7 @@ talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegesen?");
-talkEntry:addResponse("Hallo. Du siehst nicht so glücklich aus. Hast du hunger?");
+talkEntry:addResponse("Hallo. Du siehst nicht so glücklich aus. Hast du Hunger?");
 talkEntry:addResponse("Hallo. Wie geht es dir?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
