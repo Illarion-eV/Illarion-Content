@@ -663,7 +663,7 @@ function CombineStockEssence( User, stock, essenceBrew)
             effectID = getPotion(myIngredients[1],myIngredients[2],myIngredients[3],myIngredients[4],myIngredients[5],myIngredients[6],myIngredients[7],myIngredients[8],myIngredients[9],myIngredients[10])		
 		end
 		-- check if char is able to combine
-		if User:getQustProgress(effetcID+1000) == 0 then
+		if User:getQustProgress(effectID+1000) == 0 then
 		    User:inform("Du versuchst die Gebräue zu verbinden, doch sie scheinen sich nicht vermischen zu wollen. Scheinbar beherrscht du diesen Trank noch nicht richtig.",
 			            "You try to combine the brews but they just don't admix. It seem that you haven't learned how to create this potion properly.")
 		    return false
