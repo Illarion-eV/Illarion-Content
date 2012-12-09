@@ -118,44 +118,44 @@ function InitPotions()
     
 -- bombs 
     potionName[301]	= {"Small Explosion","Kleine Explosion"}
-	setPotion(301, 448, 15761498, 146, 764, 141, false, false, false, false, false)
+	setPotion(301, 446, 15761498, 146, 764, 141, false, false, false, false, false)
 	potionName[302]	= {"Medium Explosion","Mittlere Explosion"}
-	setPotion(302, 448, 15761498, 146, 764, 764, 141, 141, false, false, false)
+	setPotion(302, 446, 15761498, 146, 764, 764, 141, 141, false, false, false)
 	potionName[304]	= {"Big Explosion","Große Explosion"}
-	setPotion(304, 448, 15761498, 146, 764, 764, 764, 141, 141, 141, false)
+	setPotion(304, 446, 15761498, 146, 764, 764, 764, 141, 141, 141, false)
 	potionName[306]	= {"Small Mana Annihilator","Kleiner Manaannihilator"}
-	setPotion(306, 448, 15761498, 146, 134, 141, false, false, false, false, false)
+	setPotion(306, 446, 15761498, 146, 134, 141, false, false, false, false, false)
 	potionName[307]	= {"Medium Mana Annihilator","Mittlerer Manaannihilator"}
-	setPotion(307, 448, 15761498, 146, 134, 134, 141, 141, false, false, false)
+	setPotion(307, 446, 15761498, 146, 134, 134, 141, 141, false, false, false)
 	potionName[309]	= {"Big Mana Annihilator","Großer Manaannihilator"}
-	setPotion(309, 448, 15761498, 146, 134, 134, 134, 141, 141, 141, false)
+	setPotion(309, 446, 15761498, 146, 134, 134, 134, 141, 141, 141, false)
 	potionName[311]	= {"Small Nutrition Annihilator","Kleiner Nahrungsannihilator"}
-	setPotion(311, 448, 15761498, 146, 754, 141, false, false, false, false, false)
+	setPotion(311, 446, 15761498, 146, 754, 141, false, false, false, false, false)
 	potionName[312]	= {"Medium Nutrition Annihilator","Mittlerer Nahrungsannihilator"}
-	setPotion(312, 448, 15761498, 146, 754, 754, 141, 141, false, false, false)
+	setPotion(312, 446, 15761498, 146, 754, 754, 141, 141, false, false, false)
 	potionName[314]	= {"Big Nutrition Annihilator","Großer Nahrungsannihilator"}
-	setPotion(314, 448, 15761498, 146, 754, 754, 754, 141, 141, 141, false)
+	setPotion(314, 446, 15761498, 146, 754, 754, 754, 141, 141, 141, false)
 	potionName[316]	= {"Small Slime Barrier","Kleine Schleimbarriere"}
-	setPotion(316, 448, 91535851, 146, 140, 140, 152, 141, 141, false, false)
+	setPotion(316, 446, 91535851, 146, 140, 140, 152, 141, 141, false, false)
 	potionName[317]	= {"Big Slime Barrier","Große Schleimbarriere"}
-	setPotion(317, 448, 91535851, 146, 140, 140, 140, 152, 152, 141, 141)
+	setPotion(317, 446, 91535851, 146, 140, 140, 140, 152, 152, 141, 141)
 -- bombs end	
 	
 -- quality raiser
 	potionName[400] = {"Quality Raiser For Potions On Emerald Powder Base","Qualitätsheber Für Tränke Auf Smaragdstaubbasis"}
-	setPotion(400, 446, 95155955, 133, 133, 133, 146, false, false, false, false)
+	setPotion(400, 448, 95155955, 133, 133, 133, 146, false, false, false, false)
     potionName[401] = {"Quality Raiser For Potions On Ruby Powder Base","Qualitätsheber Für Tränke Auf Rubinstaubbasis"}
-	setPotion(401, 446, 95155955, 133, 133, 133, 764, false, false, false, false)
+	setPotion(401, 448, 95155955, 133, 133, 133, 764, false, false, false, false)
 	potionName[402] = {"Quality Raiser For Potions On Sapphire Powder Base","Qualitätsheber Für Tränke Auf Saphirstaubbasis"}
-	setPotion(402, 446, 95155955, 133, 133, 133, 761, false, false, false, false)
+	setPotion(402, 448, 95155955, 133, 133, 133, 761, false, false, false, false)
 	potionName[403] = {"Quality Raiser For Potions On Obsidian Powder Base","Qualitätsheber Für Tränke Auf Obsidianstaubbasis"}
-	setPotion(403, 446, 95155955, 133, 133, 133, 766, false, false, false, false)
+	setPotion(403, 448, 95155955, 133, 133, 133, 766, false, false, false, false)
 	potionName[404] = {"Quality Raiser For Potions On Amethyst Powder Base","Qualitätsheber Für Tränke Auf Amethyststaubbasis"}
-	setPotion(404, 446, 95155955, 133, 133, 133, 152, false, false, false, false)
+	setPotion(404, 448, 95155955, 133, 133, 133, 152, false, false, false, false)
 	potionName[405] = {"Quality Raiser For Potions On Topaz Powder Base","Qualitätsheber Für Tränke Auf Topasstaubbasis"}
-	setPotion(405, 446, 95155955, 133, 133, 133, 758, false, false, false, false)
+	setPotion(405, 448, 95155955, 133, 133, 133, 758, false, false, false, false)
 	potionName[406] = {"Quality Raiser For Potions On Diamond Powder Base","Qualitätsheber Für Tränke Auf Diamantstaubbasis"}
-	setPotion(406, 446, 95155955, 133, 133, 133, 765, false, false, false, false)
+	setPotion(406, 448, 95155955, 133, 133, 133, 765, false, false, false, false)
 -- quality raiser end
 
 -- transformation potions
@@ -573,7 +573,7 @@ function SetQuality(User,Item)
 -- skill has an influence of 75% on the mean
     local skillQuali = User:getSkill(Character.alchemy)*0.75 
 -- attributes have an influence of 25% on the mean (if the sum of the attributes is 40 or higher, we reach the maixmum influence)	
-	local attribCalc = (((User:increaseAttrib("essence") + User:increaseAttrib("perception"))/2))*5 
+	local attribCalc = (((User:increaseAttrib("essence",0) + User:increaseAttrib("perception",0))/2))*5 
 	local attribQuali = base.common.Scale(0,25,attribCalc)
 -- the mean	
 	local mean =  base.common.Scale(1,9,(attribQuali + skillQuali)) 
@@ -663,12 +663,13 @@ function CombineStockEssence( User, stock, essenceBrew)
             effectID = getPotion(myIngredients[1],myIngredients[2],myIngredients[3],myIngredients[4],myIngredients[5],myIngredients[6],myIngredients[7],myIngredients[8],myIngredients[9],myIngredients[10])		
 		end
 		-- check if char is able to combine
-		if User:getQustProgress(effetcID+1000) == 0 then
-		    User:inform("Du versuchst die Gebräue zu verbinden, doch sie scheinen sich nicht vermischen zu wollen. Scheinbar beherrscht du diesen Trank noch nicht richtig.",
-			            "You try to combine the brews but they just don't admix. It seem that you haven't learned how to create this potion properly.")
-		    return false
-		end	
-		
+		if effectID > 0 then
+			if User:getQuestProgress(effectID+1000) == 0 then
+				User:inform("Du versuchst die Gebräue zu verbinden, doch sie scheinen sich nicht vermischen zu wollen. Scheinbar beherrscht du diesen Trank noch nicht richtig.",
+							"You try to combine the brews but they just don't admix. It seem that you haven't learned how to create this potion properly.")
+				return false
+			end
+        end			
 		-- delte old cauldron datas and add new ones
 		RemoveAll(cauldron)
 		SetQuality(User,cauldron)

@@ -46,8 +46,7 @@ function Init()
 			  {"a medium explosion bomb with at least average quality", "eine mittlere Explosionsbombe von zumindest durchschnittlicher Qualität"},
 			  {327,5,{"potionEffectId","302"}}
 			  )
-    
-	AddPotion("Galmair", 
+    AddPotion("Galmair", 
 	          306, 
 			  {"a stock containing only highly toxic Caprazin", "einen Sud, der nur nur hoch toxisches Caprazin enthält"},
 			  {331,false,{"AdrazinConcentration","5"},{"IllidriumConcentration","5"},{"CaprazinConcentration","9"},{"HyperboreliumConcentration","5"},{"EcholonConcentration","5"},{"DracolinConcentration","5"},{"OrcanolConcentration","5"},{"FenolinConcentration","5"}}
@@ -62,8 +61,7 @@ function Init()
 			  {"a medium mana annihilator bomb with at least average quality", "einen mittleren Manaannihilator von zumindest durchschnittlicher Qualität"},
 			  {327,5,{"potionEffectId","307"}}
 			  )
-
-	AddPotion("Runewick", 
+    AddPotion("Runewick", 
 	          311, 
 			  {"a stock containing only highly toxic Illidrium", "einen Sud, der nur nur hoch toxisches Illidrium enthält"},
 			  {331,false,{"AdrazinConcentration","5"},{"IllidriumConcentration","9"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","5"},{"EcholonConcentration","5"},{"DracolinConcentration","5"},{"OrcanolConcentration","5"},{"FenolinConcentration","5"}}
@@ -78,8 +76,7 @@ function Init()
 			  {"a small nutrition annihilator bomb with at least average quality", "einen kleinen Nahrungsannihilator von zumindest durchschnittlicher Qualität"},
 			  {327,5,{"potionEffectId","311"}}
 			  )
-
-	AddPotion("Galmair", 
+    AddPotion("Galmair", 
 	          316, 
 			  {"a medium mana annihilator bomb with at least average quality", "einen mittleren Manaannihilator von zumindest durchschnittlicher Qualität"},
 			  {327,5,{"potionEffectId","307"}}

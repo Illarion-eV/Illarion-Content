@@ -77,7 +77,15 @@ end
 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    if (User.lastSpokenText == "doGaia") then
+    if (User.lastSpokenText == "kessel") then
+	    local myPos = base.common.GetFrontPosition(User)
+		local myItem = world:createItemFromId(1008,1,myPos,false,333,nil)
+		myItem.wear = 200
+		world:changeItem(myItem)
+	    return
+	end	
+	
+	if (User.lastSpokenText == "doGaia") then
 	    plantdrop(User)
 	    return
 	end	
