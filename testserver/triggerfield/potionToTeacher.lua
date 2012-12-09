@@ -17,7 +17,7 @@ function getNPC(Item)
 	    return myNPC
 	else
         for i=1,#npcList do 
-            if (npcList[i].name "Vallaria Medrota") or (npcList[i].name "Grator Bottlebreak") or (npcList[i].name "Joseph Quatrilla") then 
+            if (npcList[i].name == "Vallaria Medrota") or (npcList[i].name == "Grator Bottlebreak") or (npcList[i].name == "Joseph Quatrilla") then 
                 myNPC = npcList[i] 
                 break
 			end	
