@@ -76,7 +76,7 @@ buySecondaryItems = 2, 3
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello. You look happy today? Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegesen?", "Hallo. Du siehst nicht so glücklich aus. Hast du hunger?", "Hallo. Wie geht es dir?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegesen?", "Hallo. Du siehst nicht so glücklich aus. Hast du Hunger?", "Hallo. Wie geht es dir?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello. You look happy today? Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
 "Hiho", "Hallo", "Hey", "Greeb" ->  "Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegesen?", "Hallo. Du siehst nicht so glücklich aus. Hast du hunger?", "Hallo. Wie geht es dir?"
 "Farewell", "Bye", "Fare well", "See you" -> "Save journy. And don't forget to take enough food with you!", "#me waves goodbye.", "Please come again!"
