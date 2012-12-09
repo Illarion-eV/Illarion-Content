@@ -16,6 +16,8 @@ function(self, comp ,value)
 end);
 
 function _town_helper_equal(self, npcChar, player)
+    player:inform("Town: "..base.factions.getFaction(player).tid)
+    player:inform("Value-Town: "..self.value)
     return (base.factions.getFaction(player).tid == self.value);
 end;
 
