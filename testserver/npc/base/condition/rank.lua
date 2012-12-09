@@ -26,6 +26,8 @@ end;
 
 function _rank_helper_greater(self, npcChar, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
+player:inform("Rank: " .. base.factions.getRankAsNumber(player))
+player:inform("Value: " .. value)
     return base.factions.getRankAsNumber(player) > value;
 end;
 
