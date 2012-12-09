@@ -125,15 +125,15 @@ function InitPotions()
 	setPotion(304, 448, 15761498, 146, 764, 764, 764, 141, 141, 141, false)
 	potionName[306]	= {"Small Mana Annihilator","Kleiner Manaannihilator"}
 	setPotion(306, 448, 15761498, 146, 134, 141, false, false, false, false, false)
-	potionName[307]	= {"Medium Mana Annihilator","Mittlere Manaannihilator"}
+	potionName[307]	= {"Medium Mana Annihilator","Mittlerer Manaannihilator"}
 	setPotion(307, 448, 15761498, 146, 134, 134, 141, 141, false, false, false)
-	potionName[309]	= {"Big Mana Annihilator","Große Manaannihilator"}
+	potionName[309]	= {"Big Mana Annihilator","Großer Manaannihilator"}
 	setPotion(309, 448, 15761498, 146, 134, 134, 134, 141, 141, 141, false)
 	potionName[311]	= {"Small Nutrition Annihilator","Kleiner Nahrungsannihilator"}
 	setPotion(311, 448, 15761498, 146, 754, 141, false, false, false, false, false)
-	potionName[312]	= {"Medium Nutrition Annihilator","Mittlere Nahrungsannihilator"}
+	potionName[312]	= {"Medium Nutrition Annihilator","Mittlerer Nahrungsannihilator"}
 	setPotion(312, 448, 15761498, 146, 754, 754, 141, 141, false, false, false)
-	potionName[314]	= {"Big Nutrition Annihilator","Große Nahrungsannihilator"}
+	potionName[314]	= {"Big Nutrition Annihilator","Großer Nahrungsannihilator"}
 	setPotion(314, 448, 15761498, 146, 754, 754, 754, 141, 141, 141, false)
 	potionName[316]	= {"Small Slime Barrier","Kleine Schleimbarriere"}
 	setPotion(316, 448, 91535851, 146, 140, 140, 152, 141, 141, false, false)
@@ -517,7 +517,7 @@ end
 function FillFromTo(fromItem,toItem)
 -- copies all datas (and quality and id) from fromItem to toItem
 	for i=1,8 do
-	    toItem:setData(wirkstoff[i].."Concentration",fromItem:getData(wirkstoff[i].."Concentration")) 
+	    toItem:setData(wirkstoff[i].."Concentration",fromItem:getData(wirkstoff[i].."Concentration"))
 		toItem:setData("essenceHerb"..i,fromItem:getData("essenceHerb"..i))
 	end	
     toItem:setData("filledWith",fromItem:getData("filledWith")) 
@@ -531,10 +531,10 @@ function FillFromTo(fromItem,toItem)
 	elseif fromItem:getData("filledWith") == "potion" or fromItem:getData("filledWith") == "essenceBrew" or fromItem:getData("filledWith") == "stock" then
 	    if toItem.id >= 1008 and toItem.id <= 1018 then
 		    local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem)
-			toItem.id = reCauldron
+			toItem.id = reBottle
 		else
 			local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem, nil)
-			toItem.id = reCauldron
+			toItem.id = reBottle
 		end	
 	end
 end
