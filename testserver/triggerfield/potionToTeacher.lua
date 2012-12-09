@@ -94,7 +94,7 @@ function PutItemOnField(Item,User)
 		else
 			myNPC:talkLanguage(Character.say,Player.german,"Ah! Sehr gut, sehr gut! Nun denn, Ihr habt es Euch verdient. Schaut genau her.")
 			myNPC:talkLanguage(Character.say,Player.english,"Ah! Very good, very good! Well, you've earned your pay. Look closely.")
-			world:eraseItem(Item,1)
+			world:erase(Item,1)
 			myNPC:talkLanguage(Character.say,Player.german,"#me beginnt sorgsam und langsam die einzelnen Zutaten vorzubereiten und dann zu verarbeiten, darauf Acht gebend, dass keine Unbefugten es sehen können. \"So geht das richtig.\"")
 			myNPC:talkLanguage(Character.say,Player.english,"#me starts to prepare the ingredients carefully and slowly and then to worken them, while making sure that no unasked eyes have a look at it. \"So geht das richtig.\"")
 			User:setQuestProgress(ListEffectId[myListPos]+1000,1)
