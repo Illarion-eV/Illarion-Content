@@ -187,10 +187,6 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
     --    return;
     --end;
 
-    local stats = world:getItemStats(SourceItem)
-    User:inform("Worth: " .. stats.Worth)
-
-
     --User.effects:addEffect(LongTimeEffect(777, 30))
 
     --pos = User.pos
