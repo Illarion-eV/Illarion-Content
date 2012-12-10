@@ -36,6 +36,10 @@ function LookAtItem(player, item)
 end
 
 function UseItem(User, SourceItem, TargetItem, counter, Param, ltstate)
+    if (User.lastSpokenText == "anim") then
+        User:performAnimation(14)
+    end
+
     if (User.lastSpokenText == "rain") then
         local weather = world.weather
         weather.percipitation_type = 1
