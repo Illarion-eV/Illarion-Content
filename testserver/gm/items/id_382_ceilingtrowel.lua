@@ -78,7 +78,7 @@ function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
 			end			
 		else
 			-- print some infos
-			local info = base.factions.get_Faction(TargetCharacter);
+			local info = base.factions.getFaction(TargetCharacter);
 			local townName = "None";
 			if info.tid == 1 then
 				townName = "Cadomyr";
