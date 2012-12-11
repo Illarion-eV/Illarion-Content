@@ -7,9 +7,9 @@ module("item.id_2207_wishingwell", package.seeall)
 function LookAtItem(User, Item)
     if ( Item:getData("modifier") == "wishing well" ) then
 		base.lookat.SetSpecialName(item, "Wunschbrunnen", "wishing well")
-		world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)));
+		world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
     else
-	    world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)));
+	    world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
     end
 end
 
