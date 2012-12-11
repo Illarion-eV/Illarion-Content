@@ -221,14 +221,6 @@ function Craft:allowUserCrafting(user, source)
         end
     end
 
-    if base.common.Encumbrence(user) then
-        base.common.InformNLS(user,
-        "Deine Rüstung hindert dich am arbeiten.",
-        "Your armour hinders you from working.")
-        self:swapToInactiveItem(user)
-        return false
-    end
-
     return true
 end
 
