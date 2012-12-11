@@ -53,10 +53,9 @@ function MoveToField(Character)
 
     world:gfx(41,Character.pos);
 	world:makeSound(13,Character.pos);
-	--Deactivated for beta test ~Estralis
-	--[[Character:forceWarp(destination);
+	Character:forceWarp(destination);
     world:makeSound(13,destination);
-    world:gfx(41,Character.pos);]]
+    world:gfx(41,Character.pos);
 	
 	FactionCheck = base.factions.getFaction(Character);
 	
@@ -101,7 +100,7 @@ function MoveToField(Character)
 	    end
 		
 		-- We make the noob a faction member - finally!
-		Character:setQuestProgress(200,10111+(factionID*1000))
+		Character:setQuestProgress(200,10111+(factionID*1000)); --WTF is this! ~Estralis
 		
 	end	
 end	
