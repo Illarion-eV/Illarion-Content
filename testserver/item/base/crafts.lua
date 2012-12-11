@@ -193,10 +193,6 @@ function Craft:allowCrafting(user, source)
 end
 
 function Craft:allowUserCrafting(user, source)
-    if user.id == 64 then
-        user:inform("Source type: " .. source:getType())
-    end
-
     if source:getType() == scriptItem.field and self.tool[source.id] then
         base.common.TurnTo(user, source.pos)
         if not self:isHandToolEquipped(user) then
@@ -554,10 +550,6 @@ function Craft:craftItem(user, productId, toolItem)
     local product = self.products[productId]
     local skill = self:getSkill(user)
     local skillGain = false
-
-    if user.id == 64 then
-        user:inform("Craft tool type: " .. toolItem:getType())
-    end
 
     if toolItem:getType() == scriptItem.field then
         toolItem = self:getHandToolEquipped(user)
