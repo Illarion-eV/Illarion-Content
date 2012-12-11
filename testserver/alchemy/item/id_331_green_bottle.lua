@@ -38,7 +38,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			end
 		
 			if ( ltstate == Action.none ) then
-				User:startAction( 40, 21, 5, 10, 45)
+				if (SourceItem:getData("filledWith") =="stock") and (cauldron:getData("filledWith") == "essenceBrew") then
+					actionDuration = 80 -- when we combine a stock and an essence brew, it takes longer
+				else
+					actionDuration = 20
+				end				
+				User:startAction( actionDuration, 21, 5, 10, 45)
 				return
 			end	  
 
@@ -77,8 +82,10 @@ function FillStockIn(User,SourceItem, cauldron)
 		end
 	
 	elseif cauldron:getData("filledWith") == "essenceBrew" then 
-		alchemy.base.alchemy.CombineStockEssence( User, SourceItem, cauldron)
-
+		local check = alchemy.base.alchemy.CombineStockEssence( User, SourceItem, cauldron)
+        if check == false then
+		    return
+		end	
 	elseif cauldron.id == 1008 then -- nothing in the cauldron, we just fill in the stock
 		alchemy.base.alchemy.FillFromTo(SourceItem,cauldron)
 		world:changeItem(cauldron)

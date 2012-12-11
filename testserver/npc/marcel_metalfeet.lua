@@ -1,5 +1,5 @@
 --------------------------------------------------------------------------------
--- NPC Name: Marcel Metalfeet                                                    Galmair --
+-- NPC Name: Marcel Metalfeet                                         Galmair --
 -- NPC Job:  craftsman                                                        --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  389, 269, 0            --
@@ -10,7 +10,7 @@
 --------------------------------------------------------------------------------
 
 --[[SQL
-INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue")
+INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
 VALUES (2, 389, 269, 0, 6, 'Marcel Metalfeet', 'npc.marcel_metalfeet', 0, 2, 0, 68, 62, 0, 245, 211, 179);
 ---]]
 
@@ -20,7 +20,7 @@ require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
 require("npc.base.trade")
-module("npc.maik", package.seeall)
+module("npc.marcel_metalfeet", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -65,7 +65,7 @@ talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegesen?");
-talkEntry:addResponse("Hallo. Du siehst nicht so glücklich aus. Hast du hunger?");
+talkEntry:addResponse("Hallo. Du siehst nicht so glücklich aus. Hast du Hunger?");
 talkEntry:addResponse("Hallo. Wie geht es dir?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

@@ -25,7 +25,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    end
 	
 	    if (ltstate == Action.none) then
-		   User:startAction(20,21,5,15,25);
+		   User:startAction(50,21,5,15,25);
 		   return
 	    end
 		
@@ -60,7 +60,13 @@ function PlantInEssenceBrew(User,plant,cauldron)
 end
 
 function PlantInStock(User,plant,cauldron)
-    local plusSubstance, minusSubstance = alchemy.base.alchemy.getPlantSubstance(plant.id, User)
+    local substance = alchemy.base.alchemy.wirkstoff
+		for i=1,8 do
+		    if cauldron:getData(wirkstoff[i].."Concentration") == "" then
+			    cauldron:setData(wirkstoff[i].."Concentration","5")
+			end
+        end			
+	local plusSubstance, minusSubstance = alchemy.base.alchemy.getPlantSubstance(plant.id, User)
 	if plusSubstance == "" and minusSubstance == "" then
 	    alchemy.base.alchemy.CauldronDestruction(User,cauldron,1)
 	else
@@ -106,11 +112,11 @@ function BrewingPlant(User,plant,cauldron)
 		
 	elseif cauldron:getData("filledWith")== "essenceBrew" then -- essence brew
 		PlantInEssenceBrew(User,plant,cauldron)
-		User:learn(Character.alchemy, 20, 100)
+		User:learn(Character.alchemy, 50, 100)
 		
 	elseif (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "water") then -- water or a stock we put the herb in
 	    PlantInStock(User,plant,cauldron)
-		User:learn(Character.alchemy, 20, 100)
+		User:learn(Character.alchemy, 50, 100)
 		
 	else -- there is nothing in the cauldron to put the herb in, failure
 	    base.common.InformNLS(User, "Die Pflanze vertrockent auf dem Boden des heiﬂen Kessels und zerf‰llt zu Asche.", 
@@ -155,7 +161,7 @@ function BrewingFilter(User,plant,cauldron)
     
 	elseif cauldron:getData("filledWith")=="stock" then -- stock, let's filter
 	    FilterStock(User,plant,cauldron)
-		User:learn(Character.alchemy, 20, 100)
+		User:learn(Character.alchemy, 50, 100)
 		
     else -- empty cauldron
         base.common.InformNLS(User, "Die Pflanze vertrockent auf dem Boden des heiﬂen Kessels und zerf‰llt zu Asche", 

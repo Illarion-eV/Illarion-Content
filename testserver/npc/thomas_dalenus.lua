@@ -231,7 +231,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger(".");
+talkEntry:addTrigger("Mirarie");
+talkEntry:addTrigger("Bragolin");
+talkEntry:addTrigger("letter");
+talkEntry:addTrigger("message");
 talkEntry:addResponse("I'm sorry, I don't have time. I still needed to finish that dress. Please tell Lady Bragolin that I'll notify her soon.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -239,7 +242,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 3));
-talkEntry:addTrigger(".");
+talkEntry:addTrigger("Mirarie");
+talkEntry:addTrigger("Bragolin");
+talkEntry:addTrigger("Brief");
+talkEntry:addTrigger("Nachricht");
 talkEntry:addResponse("Tut mei leid. Ich habe grade keine Zeit, ich muss noch ein Kleid fertig nähen. Sagst doch bitte Fräulein Bragolin, dass ich mich bei ihr melden werde.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 4));
 talkingNPC:addTalkingEntry(talkEntry);

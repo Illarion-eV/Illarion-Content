@@ -75,7 +75,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
                 world:erase(SourceItem,1)
 			else
 			    SourceItem.id = reBottle
-				alchemy.base.alchemy.CopyAllDatas(cauldron,SourceItem)
+				alchemy.base.alchemy.FillFromTo(cauldron,SourceItem)
 				world:changeItem(SourceItem)
 			end   
             alchemy.base.alchemy.RemoveAll(cauldron)    			

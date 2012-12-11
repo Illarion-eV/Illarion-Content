@@ -24,7 +24,7 @@ User:inform("debug gemdust 1")
 		end
 	
 		if (ltstate == Action.none) then
-		   User:startAction(30,21,5,15,25);
+		   User:startAction(50,21,5,15,25);
 		   return
 		end
 		
@@ -84,11 +84,11 @@ function BrewingGemDust(User,gemDust,cauldron)
 		
 	elseif cauldron:getData("filledWith") == "stock" then -- create a potion
 	    GemDustInStock(User,cauldron,gemDust)
-		User:learn(Character.alchemy, 20, 100)
+		User:learn(Character.alchemy, 50, 100)
 
     elseif cauldron:getData("filledWith")=="water" then -- create an essence brew
 		GemDustInWater(User,cauldron,gemDust)
-		User:learn(Character.alchemy, 20, 100)
+		User:learn(Character.alchemy, 50, 100)
 	
 	else -- nothing in the cauldron
 	    base.common.InformNLS(User, "Der Edelsteinstaub verflüchtigt sich, als du ihn in den leeren Kessel schüttest.", 

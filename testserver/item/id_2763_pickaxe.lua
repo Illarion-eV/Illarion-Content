@@ -43,7 +43,7 @@ function LookAtItem(User,Item)
 		NPCList=world:getNPCSInRangeOf(position(52,24,100),1); --Let's be tolerant, the NPC might move a tile.
 		for i, Aldania in pairs(NPCList) do
 		    base.common.TalkNLS(Aldania, Character.say, "Gegenstände können von unterschiedlicher Güte sein, denk daran, wenn du über sie verhandelst. Meine letzte Lektion ist das Benutzen von Gegenständen. Nimm diese Fackel und entzünde sie!", "See, items can be of differing quality. Keep this in mind when you are negotiating a trade with a merchant. My final lesson is on how to use items. I have given you a torch, try lighting it!");
-		    User:createItem(391,1,333,0); --Torch
+		    User:createItem(391,1,333,nil); --Torch
 		end
 	    base.common.InformNLS( User,"[Tutorial] Stelle sicher, dass die Chatbox deaktiviert ist und drücke 'I' um das Inventar zu öffnen. Öffne deinen Rucksack mit einem Doppelklick. Mit einem Doppelklick benutzt du auch Gegenstände. Klicke also zweimal auf die Fackel um sie anzuzünden.","[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Double click on your backpack to open it. You can perform a double click on an item to use it. Double click the torch to ignite it." );
 	end

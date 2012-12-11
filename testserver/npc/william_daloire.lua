@@ -237,7 +237,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger(".");
+talkEntry:addTrigger("Mirarie");
+talkEntry:addTrigger("Bragolin");
+talkEntry:addTrigger("letter");
+talkEntry:addTrigger("message");
 talkEntry:addResponse("Oh? ... A letter for me? ... Ah, I see. Please tell Miss Bragolin I'll send her a letter to answer her questions.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -245,7 +248,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 9));
-talkEntry:addTrigger(".");
+talkEntry:addTrigger("Mirarie");
+talkEntry:addTrigger("Bragolin");
+talkEntry:addTrigger("Brief");
+talkEntry:addTrigger("Nachricht");
 talkEntry:addResponse("Oh?... ein Brief für mich? ... Ah, ich verstehe. Bitte sagt Fräulein Bragolin ich werde ihr einen Brief schreiben um ihre Fragen zu beantworten.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);

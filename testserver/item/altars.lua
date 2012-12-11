@@ -29,31 +29,12 @@
 --16: Moshran – God of blood and bones
 
 require("base.common")
+require("content.gods")
 module("item.altars", package.seeall)
 
 function ini()
 
     init=true;
-
-    --Setting the names of the gods
-
-    godName={};
-    godName[1]="Ushara";
-    godName[2]="Brágon";
-    godName[3]="Eldan";
-    godName[4]="Tanora";
-    godName[5]="Findari";
-    godName[6]="Nargùn";
-    godName[7]="Elara";
-    godName[8]="Adron";
-    godName[9]="Oldra";
-    godName[10]="Cherga";
-    godName[11]="Malachín";
-    godName[12]="Irmorom";
-    godName[13]="Sirani";
-    godName[14]="Zhambra";
-    godName[15]="Ronagan";
-    godName[16]="Moshran";
 
     --Setting the gods' descriptions
 
@@ -138,7 +119,7 @@ end
 
 function LookAtItem( User, Item )
 
-    thisGod=Item.data;
+    thisGod=tonumber(Item:getData("devotedToGodID"));
 
     if init==nil or init==false then
         ini();
@@ -146,14 +127,14 @@ function LookAtItem( User, Item )
 
     --Tell the user who's altar that is
 
-    if thisGod==0 or thisGod>16 then --undedicated altar
+    if thisGod==content.gods.GOD_NONE  or thisGod>content.gods.GOD_THEFIVE then --undedicated altar
+		base.lookat.SetSpecialName(item, "Ungeweihter Altar","Undedicated altar")
+		world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 
-        world:itemInform(User,Item,base.common.GetNLS(User,"Ungeweihter Altar","Undedicated altar"));
-
-    elseif thisGod > 0 then --dedicated altar
-
-        world:itemInform(User,Item,base.common.GetNLS(User,"Altar "..godName[thisGod].."s, "..godDescriptionG[thisGod]..".","Altar of "..godName[thisGod]..", the "..godDescriptionE[thisGod].."."));
-    
+    elseif thisGod > content.gods.GOD_NONE then --dedicated altar
+		base.lookat.SetSpecialName(item, "Altar "..content.gods.GOD_DE[thisGod].."s, "..godDescriptionG[thisGod]..".","Altar of "..content.gods.GOD_EN[thisGod]..", the "..godDescriptionE[thisGod]..".")
+		world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
+		
         --Now send the user some infos what he should do if he wants to become a devotee, change dedication or become a priest
 
         devotion=User:getQuestProgress(401);
@@ -179,29 +160,29 @@ function LookAtItem( User, Item )
 
         if devotion == 0 and thisGod > 5 then --a noob without a god
 
-             base.common.InformNLS(User,"Um euch "..godName[thisGod].." zu weihen, werdet ihr folgendes opfern müssen:","To devote yourself to "..godName[thisGod]..", you'll have to donate:");
+             base.common.InformNLS(User,"Um euch "..content.gods.GOD_DE[thisGod].." zu weihen, werdet ihr folgendes opfern müssen:","To devote yourself to "..content.gods.GOD_EN[thisGod]..", you'll have to donate:");
              User:inform(tellStuff(devoteItems[thisGod],User:getPlayerLanguage())); --stuff4devotee
 
         elseif devotion ~= thisGod and priesthood == devotion and User:getMagicType()== 1 and thisGod>5 then --a priest of another god
              
-             base.common.InformNLS(User,"Als Priester einer anderen Gottheit müßtet ihr eurer Gottheit abschwören, um ein Priester "..godName[thisGod].."s zu werden.","As priest of another god, you'll have to abjure your god to become a priest of "..godName[thisGod]..".");
-             base.common.InformNLS(User,"Um ein Priester "..godName[thisGod].."s zu werden, werdet ihr folgendes opfern müssen:","To devote yourself to "..godName[thisGod]..", you'll have to donate:");
+             base.common.InformNLS(User,"Als Priester einer anderen Gottheit müßtet ihr eurer Gottheit abschwören, um ein Priester "..content.gods.GOD_DE[thisGod].."s zu werden.","As priest of another god, you'll have to abjure your god to become a priest of "..content.gods.GOD_EN[thisGod]..".");
+             base.common.InformNLS(User,"Um ein Priester "..content.gods.GOD_DE[thisGod].."s zu werden, werdet ihr folgendes opfern müssen:","To devote yourself to "..content.gods.GOD_EN[thisGod]..", you'll have to donate:");
              User:inform(tellStuff(devoteItems[thisGod],User:getPlayerLanguage())); --stuff4devotee
              User:inform(tellStuff(priestItems[thisGod],User:getPlayerLanguage())); --stuff4priest
 
         elseif devotion ~= thisGod and priesthood == 0 and User:getMagicType()~= 1 and thisGod>5 then --a devotee of another god
 
-             base.common.InformNLS(User,"Als Anhänger einer anderen Gottheit werdet ihr eurem Gott abschwören müssen, um euch "..godName[thisGod].." zu weihen.","As devotee of another god, you'll have to abjure your god to devote yourself to "..godName[thisGod]..".");
-             base.common.InformNLS(User,"Um euch "..godName[thisGod].." zu weihen, werdet ihr folgendes opfern müssen:","To devote yourself to "..godName[thisGod]..", you'll have to donate:");
+             base.common.InformNLS(User,"Als Anhänger einer anderen Gottheit werdet ihr eurem Gott abschwören müssen, um euch "..content.gods.GOD_DE[thisGod].." zu weihen.","As devotee of another god, you'll have to abjure your god to devote yourself to "..content.gods.GOD_EN[thisGod]..".");
+             base.common.InformNLS(User,"Um euch "..content.gods.GOD_DE[thisGod].." zu weihen, werdet ihr folgendes opfern müssen:","To devote yourself to "..content.gods.GOD_EN[thisGod]..", you'll have to donate:");
              User:inform(tellStuff(devoteItems[thisGod],User:getPlayerLanguage())); --stuff4devotee
 
         elseif devotion == thisGod and priesthood == thisGod and User:getMagicType()== 1 then --a priest of this god
 
-             base.common.InformNLS(User,"Der Anblick von "..godName[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.","Beholding the altar of "..godName[thisGod].." makes you feel proud of your devotion.");
+             base.common.InformNLS(User,"Der Anblick von "..content.gods.GOD_DE[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.","Beholding the altar of "..content.gods.GOD_DE[thisGod].." makes you feel proud of your devotion.");
 
         elseif devotion == thisGod and priesthood == 0 and User:getMagicType()~= 1 then --a devotee of this god.
 		
-		     base.common.InformNLS(User,"Der Anblick von "..godName[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.","Beholding the altar of "..godName[thisGod].." makes you feel proud of your devotion.");
+		     base.common.InformNLS(User,"Der Anblick von "..content.gods.GOD_DE[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.","Beholding the altar of "..content.gods.GOD_EN[thisGod].." makes you feel proud of your devotion.");
 
 --For enabling becoming a priest, use the stuff below. Doesn't make any sense without priest magic, though.
 
@@ -236,7 +217,7 @@ end --function
 
 function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 
-    thisGod=SourceItem.data;
+    thisGod=tonumber(SourceItem:getData("devotedToGodID"));
 
     if init==nil or init==false then
         ini();
@@ -244,11 +225,11 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 
     --Depending on who's altar that is and who uses it, execute different actions
 
-    if thisGod==0 or thisGod>16 then --undedicated altar
+    if thisGod==content.gods.GOD_NONE or thisGod>content.gods.GOD_THEFIVE then --undedicated altar
 
         base.common.InformNLS(User,"Ihr berührt den Altar, die Abwesenheit göttlichen Wirkens ist offensichtlich.","You touch the altar, the absence of divine blessing is obvious.");
 
-    elseif thisGod > 0 then --dedicated altar
+    elseif thisGod > content.gods.GOD_NONE then --dedicated altar
 
         --Let us first know who the user is
 
@@ -277,7 +258,7 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
              if checkStuff(User,devoteItems[thisGod]) then
 
                  deleteStuff(User,devoteItems[thisGod]);
-                 base.common.InformNLS(User,"Ihr empfangt den Segen "..godName[thisGod].."s und weiht euer Leben dem Glaube an die Gottheit. Euer Opfer:","You receive the blessing of "..godName[thisGod].." and devote your life to the faith in the divinity. Your donation:");
+                 base.common.InformNLS(User,"Ihr empfangt den Segen "..content.gods.GOD_DE[thisGod].."s und weiht euer Leben dem Glaube an die Gottheit. Euer Opfer:","You receive the blessing of "..content.gods.GOD_EN[thisGod].." and devote your life to the faith in the divinity. Your donation:");
                  world:gfx(16,User.pos);
                  world:makeSound(13,User.pos);
                  User:setQuestProgress(401,thisGod); --become devotee
@@ -285,7 +266,7 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
                  
              else --does not have the stuff
 
-                 base.common.InformNLS(User,"Um euch "..godName[thisGod].." zu weihen, werdet ihr folgendes opfern müssen:","To devote yourself to "..godName[thisGod]..", you'll have to donate:");
+                 base.common.InformNLS(User,"Um euch "..content.gods.GOD_DE[thisGod].." zu weihen, werdet ihr folgendes opfern müssen:","To devote yourself to "..content.gods.GOD_EN[thisGod]..", you'll have to donate:");
 
              end
 
@@ -328,25 +309,25 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
              if checkStuff(User,devoteItems[thisGod]) then
 
                  deleteStuff(User,devoteItems[thisGod]);
-                 base.common.InformNLS(User,"Ihr empfangt den Segen "..godName[thisGod].."s und weiht euer Leben dem Glaube an die Gottheit. Euer Opfer:","You receive the blessing of "..godName[thisGod].." and devote your life to the faith in the divinity. Your donation:");                 world:gfx(16,User.pos);
+                 base.common.InformNLS(User,"Ihr empfangt den Segen "..content.gods.GOD_DE[thisGod].."s und weiht euer Leben dem Glaube an die Gottheit. Euer Opfer:","You receive the blessing of "..content.gods.GOD_EN[thisGod].." and devote your life to the faith in the divinity. Your donation:");                 world:gfx(16,User.pos);
                  world:makeSound(13,User.pos);
                  User:setQuestProgress(401,thisGod); --become devotee
                  User:setQuestProgress(402,0); --the char was no priest before - must not be one afterwards
 
              else --does not have the stuff
-                 base.common.InformNLS(User,"Um euch "..godName[thisGod].." zu weihen, werdet ihr folgendes opfern müssen:","To devote yourself to "..godName[thisGod]..", you'll have to donate:");
+                 base.common.InformNLS(User,"Um euch "..content.gods.GOD_DE[thisGod].." zu weihen, werdet ihr folgendes opfern müssen:","To devote yourself to "..content.gods.GOD_EN[thisGod]..", you'll have to donate:");
              end
 
              User:inform(tellStuff(devoteItems[thisGod],User:getPlayerLanguage())); --stuff4devotee
 
         elseif devotion == thisGod and priesthood == thisGod and User:getMagicType()== 1 then --a priest of this god. Prays, nothing more.
 
-             base.common.InformNLS(User,"Ihr betet zu "..godName[thisGod].." und bekräftigt euren Glauben.","You pray to "..godName[thisGod].." and confirm your faith.");
+             base.common.InformNLS(User,"Ihr betet zu "..content.gods.GOD_DE[thisGod].." und bekräftigt euren Glauben.","You pray to "..content.gods.GOD_EN[thisGod].." and confirm your faith.");
 
         elseif devotion == thisGod and priesthood == 0 and User:getMagicType()~= 1 then --a devotee of this god.
 
 		    --Delete the line below if you implement priest magic.
-		     base.common.InformNLS(User,"Ihr betet zu "..godName[thisGod].." und bekräftigt euren Glauben.","You pray to "..godName[thisGod].." and confirm your faith.");
+		     base.common.InformNLS(User,"Ihr betet zu "..content.gods.GOD_DE[thisGod].." und bekräftigt euren Glauben.","You pray to "..content.gods.GOD_EN[thisGod].." and confirm your faith.");
 
         --Below, even more stuff that only makes sense with priest magic. Code makes devotees become priests.			 
 		--[[
