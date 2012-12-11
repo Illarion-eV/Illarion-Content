@@ -101,7 +101,8 @@ function MoveToField(Character)
 	    end
 		
 		-- We make the noob a faction member - finally!
-		Character:setQuestProgress(200,10111+(factionID*1000))
+		Character:setQuestProgress(199,factionID);
+		base.factions.setRankpoints(Character,0);
 		
 	end	
 end	
