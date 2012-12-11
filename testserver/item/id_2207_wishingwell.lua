@@ -5,18 +5,11 @@ require("base.common")
 module("item.id_2207_wishingwell", package.seeall)
 
 function LookAtItem(User, Item)
-    if ( Item.data == 666 ) then
-        if (User:getPlayerLanguage() == 0) then
-            world:itemInform(User,Item,"Wunschbrunnen");
-        else
-            world:itemInform(User,Item,"wishing well");
-        end
+    if ( Item:getData("modifier") == "wishing well" ) then
+		base.lookat.SetSpecialName(item, "Wunschbrunnen", "wishing well")
+		world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)));
     else
-        if (User:getPlayerLanguage() == 0) then
-	    world:itemInform(User,Item,"Brunnen");
-        else
-            world:itemInform(User,Item,"well");
-        end
+	    world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE)));
     end
 end
 
