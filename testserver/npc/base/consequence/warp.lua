@@ -15,5 +15,5 @@ function(self, x, y, z)
 end);
 
 function _warp_helper(self, npcChar, player)
-    player:forceWarp(position(self.x,self.y,self.z));
+    player:warp(position(self.x,self.y,self.z));
 end;

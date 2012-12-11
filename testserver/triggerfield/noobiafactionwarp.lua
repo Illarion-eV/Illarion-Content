@@ -53,7 +53,7 @@ function MoveToField(Character)
 
     world:gfx(41,Character.pos);
 	world:makeSound(13,Character.pos);
-	Character:forceWarp(destination);
+	Character:warp(destination);
     world:makeSound(13,destination);
     world:gfx(41,Character.pos);
 	
