@@ -20,6 +20,7 @@ module("lte.newbieisland", package.seeall)
 	"[Tutorial] Indem du NPCs nach 'Aufgaben' und 'Quests' fragst, kannst du großen Reichtum erlangen.",
 	"[Tutorial] Um die Fertigkeiten deines Charakters zu überprüfen, drücke bei deaktivierter Chatbox 'C'.",
 	"[Tutorial] Der rote Balken repräsentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier.",
+	"[Tutorial] Um gestapelte Gegenstände zu trennen, halte die Shift-Taste beim Bewegen gedrückt.",
 	"[Tutorial] Hast du dir schon Gedanken zum Hintergrund und zur Vergangenheit deines Charakters gemnacht? Die Illarion-Homepage enthält eine Menge nützliche Informationen über Rassen, Götter und die Geschichte Illarions.",
 	"[Tutorial] Sollte dein Charakter Hunger bekommen, so pflücke ein paar Früchte indem du den Stamm eines Obstbaums benutzt. Früchte werden gegessen, indem man sie benutzt."}
 
@@ -35,6 +36,7 @@ module("lte.newbieisland", package.seeall)
 	"[Tutorial] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy.",
 	"[Tutorial] You can review your skills by deactivating the chat box and hitting 'C'.",
 	"[Tutorial] The red bar represents the health of your character. The yellow bar is an indicator of how hungry your character is, and the blue bar shows the mana level of mage characters.",
+	"[Tutorial] To split a stack of items, hold shift while moving the stack.",
 	"[Tutorial] Did you already think about the background and past of your character? The illarion.org homepage contains a lot of information on the races, the gods, and the lore of Illarion.",
 	"[Tutorial] If your character ever gets hungry, just harvest some fruits by using the trunk of a fruit tree. You can then eat the fruits by using them."}
 	-- cycle messages end

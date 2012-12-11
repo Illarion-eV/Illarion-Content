@@ -131,6 +131,7 @@ function onLogin( player )
 		messageG[63]="[Tipp] Laufen ist schneller als Gehen - halte die linke Maustaste gedrückt um zu laufen."
 		messageG[64]="[Tipp] Die meisten NPCs reagieren auf 'Hilfe' mit der Ausgabe einer Liste ihrer wichtigsten Schlüsselwörter."
 		messageG[65]="[Tipp] Die Fertigkeiten deines Charakters kannst du aufrufen, indem du 'C' drückst."
+        messageG[66]="[Tipp] Ein Stapel von Gegenständen läßt sich durch Halten der Shift-Taste beim Bewegen auflösen."
 
 		--English
 		messageE={};
@@ -199,6 +200,7 @@ function onLogin( player )
         messageE[63]="[Hint] Running is faster than walking - hold down the left mouse button to run.";
         messageE[64]="[Hint] Most NPCs react on 'help' with a list of their most important keywords.";
         messageE[65]="[Hint] You can review the skills of your character by hitting 'C'.";
+		messageE[66]="[Hint] To split a stack of items, hold shift while moving it.";
 
 	    dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	    base.common.InformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message
