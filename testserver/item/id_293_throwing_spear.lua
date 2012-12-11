@@ -6,12 +6,10 @@ module("item.id_293_throwing_spear", package.seeall)
 
 function LookAtItem(User, Item)
 	
-	local customText = base.lookat.GetItemDescription(User,Item,2,false,false);
-	if Item.data > 2^30 then
+	local customText = base.lookat.GetItemDescription(User,Item,base.lookat.WOOD,false,false);
+	if tonumber(Item:getData("spearData")) > 2^30 then
 		world:itemInform( User, Item, customText );
 	else
-		world:itemInform( User, Item, User:getPlayerLanguage()==0 and
-			world:getItemName(Item.id,0) or
-			world:getItemName(Item.id,1) );
+		world:itemInform( User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.WOOD));
 	end
 end
