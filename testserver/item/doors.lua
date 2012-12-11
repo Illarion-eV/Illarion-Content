@@ -37,23 +37,5 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 end
 
 function LookAtItem(User,Item)
-    local DataVal=Item.data;
-    if (specialnames==nil) then
-        specialnames={};
-        --nothing defined yet		
-    end
-    local lang=User:getPlayerLanguage();
-    if (specialnames[DataVal]~=nil) then
-        if (lang==0) then
-            world:itemInform(User,Item,world:getItemName(Item.id,0).." \""..specialnames[DataVal][1].."\"");
-        else
-            world:itemInform(User,Item,world:getItemName(Item.id,1).." \""..specialnames[DataVal][2].."\"");
-        end
-    else
-        if (lang==0) then
-            world:itemInform(User,Item,world:getItemName(Item.id,0));
-        else
-            world:itemInform(User,Item,world:getItemName(Item.id,1));
-        end
-    end
+    world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 end

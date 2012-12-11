@@ -1,4 +1,4 @@
--- 5x ball of wool (168) --> grey cloth (176)
+-- 5x wool (170) --> grey cloth (176)
 
 -- additional tool: scissors (6)
 
@@ -69,15 +69,15 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	-- any other checks?
 
-	if (User:countItemAt("all",168)<5) then -- check for items to work on
-    if (User:countItemAt("all",168)==0) then
+	if (User:countItemAt("all",170)<5) then -- check for items to work on
+    if (User:countItemAt("all",170)==0) then
       base.common.HighInformNLS( User, 
-      "Du brauchst Wollknäuel um zu weben.", 
-      "You need balls of wool for weaving." );
+      "Du brauchst Wolle um zu weben.", 
+      "You need wool for weaving." );
     else
       base.common.HighInformNLS( User, 
-      "Du hast nicht genug Wollknäuel um zu weben.", 
-      "You don't have enough balls of wool for weaving." );
+      "Du hast nicht genug Wolle um zu weben.", 
+      "You don't have enough wool for weaving." );
     end
 		return;
 	end
@@ -97,7 +97,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	User:learn( weaving.LeadSkill, weaving.SavedWorkTime[User.id], 100);
-	User:eraseItem( 168, 5 ); -- erase the item we're working on
+	User:eraseItem( 170, 5 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 176, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -106,13 +106,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		if (User:countItemAt("all",168)>4) then  -- there are still items we can work on
+		if (User:countItemAt("all",170)>4) then  -- there are still items we can work on
 			weaving.SavedWorkTime[User.id] = weaving:GenWorkTime(User,toolItem);
 			User:startAction( weaving.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
 			base.common.HighInformNLS(User,
-			"Du hast nicht mehr genug Wollknäuel.",
-			"You don't have enough balls of wool anymore.");
+			"Du hast nicht mehr genug Wolle.",
+			"You don't have enough wool anymore.");
 		end
 	end
 
