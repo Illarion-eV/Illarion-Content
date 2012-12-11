@@ -182,7 +182,7 @@ function LookAtItem( User, Item )
 
         elseif devotion == thisGod and priesthood == 0 and User:getMagicType()~= 1 then --a devotee of this god.
 		
-		     base.common.InformNLS(User,"Der Anblick von "..content.gods.GOD_DE[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.","Beholding the altar of "..content.gods.GOD_ENthisGod].." makes you feel proud of your devotion.");
+		     base.common.InformNLS(User,"Der Anblick von "..content.gods.GOD_DE[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.","Beholding the altar of "..content.gods.GOD_EN[thisGod].." makes you feel proud of your devotion.");
 
 --For enabling becoming a priest, use the stuff below. Doesn't make any sense without priest magic, though.
 
