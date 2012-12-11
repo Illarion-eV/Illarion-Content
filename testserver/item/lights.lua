@@ -281,7 +281,8 @@ function LookAtItem(User, Item)
 		TimeLeft = base.common.GetNLS(User, "nach langer Zeit", "in a long time");
 	end	
 	
-	world:itemInform(User, Item, base.common.GetNLS(User, ItemName..", sie wird "..TimeLeft.." ausbrennen.", ItemName..", it will burn down "..TimeLeft.."."));
+	base.lookat.SetSpecialDescription(item, "Sie wird "..TimeLeft.." ausbrennen.", "It will burn down "..TimeLeft.."."))
+	world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 end
 
 -- dirty quick fix for old data
