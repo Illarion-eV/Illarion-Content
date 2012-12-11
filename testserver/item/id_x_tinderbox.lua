@@ -58,7 +58,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		LightFire(User, frontPos);
 		if frontItem.number > 0 then
 			-- there was more than one wood item, so put the rest on top
-			world:createItemFromId(frontItem.id,frontItem.number,frontPos,true,333,0);
+			world:createItemFromId(frontItem.id,frontItem.number,frontPos,true,333,nil);
 			-- and erase the rest
 			world:erase(frontItem,frontItem.number);
 		end
@@ -116,7 +116,7 @@ function IsWood(item)
 end
 
 function LightFire(User, FrontPos)
-	world:createItemFromId(12,1,frontPos,true,333,0); -- the fire
+	world:createItemFromId(12,1,frontPos,true,333,nil); -- the fire
 	BC.InformNLS(User,
 		"Du entzündest ein Feuer.",
 		"You light a fire.");

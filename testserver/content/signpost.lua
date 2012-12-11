@@ -20,7 +20,7 @@ function InitWegweiser()
     
 	--Noobia
 	--ToDo
-	AddWeg({35,23,100},"[Tutorial] Willkommen auf Illarion!","[Tutorial] Welcome to Illarion!",2,0);
+	AddWeg({35,23,100},"[Tutorial] Willkommen in Illarion!","[Tutorial] Welcome to Illarion!",2,0);
 	AddWeg({41,49,100},"[Tutorial] Die Mine - Sammeln","[Tutorial] The mine - gathering",2,0);
     AddWeg({38,49,100},"[Tutorial] Der Sumpf - Kampf","[Tutorial] The swamp - fighting",6,0);
     AddWeg({40,57,100},"[Tutorial] Die Schmiede - Handwerk","[Tutorial] The forge - crafting",4,0);

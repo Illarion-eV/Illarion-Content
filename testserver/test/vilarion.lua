@@ -36,6 +36,17 @@ function LookAtItem(player, item)
 end
 
 function UseItem(User, SourceItem, TargetItem, counter, Param, ltstate)
+    if (User.lastSpokenText == "anim") then
+        User:performAnimation(14)
+    end
+
+    if (User.lastSpokenText == "rain") then
+        local weather = world.weather
+        weather.percipitation_type = 1
+        weather.percipitation_strength = 100
+        world:setWeather(weather)
+    end
+
     if (User.lastSpokenText == "gem") then
         item.gems.gemCraft:showDialog(User, User)
     end
@@ -175,10 +186,6 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
     --    User:inform("e-Vil says: You are not allowed to use this!");
     --    return;
     --end;
-
-    local stats = world:getItemStats(SourceItem)
-    User:inform("Worth: " .. stats.Worth)
-
 
     --User.effects:addEffect(LongTimeEffect(777, 30))
 

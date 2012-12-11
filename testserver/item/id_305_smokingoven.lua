@@ -56,7 +56,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Räuchern des Fisches und Schweinefleisches.",
 		"Your armour disturbs you while smoking fish and pork." );
 		return
@@ -79,7 +79,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
   end
 	if (craftItem == nil) then -- check for items to work on
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Du brauchst Forellen, Lachs oder rohen Schinken um diese zu räuchern.", 
 		"You need trouts, salmons or ham for smoking them." );
 		return;
@@ -102,10 +102,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	User:learn( smokefood.LeadSkill, smokefood.SavedWorkTime[User.id], 100);
 	User:eraseItem( craftItem.source.id, craftItem.source.amount ); -- erase the item we're working on
 	local amount = craftItem.product.amount; -- set the amount of items that are produced
-	local notCreated = User:createItem( craftItem.source.id, amount, 333, nil ); -- create the new produced items
+	local notCreated = User:createItem( craftItem.product.id, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( craftItem.source.id, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		world:createItemFromId( craftItem.product.id, notCreated, User.pos, true, 333, nil );
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -120,7 +120,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			smokefood.SavedWorkTime[User.id] = smokefood:GenWorkTime(User,nil);
 			User:startAction( smokefood.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.InformNLS(User,
+			base.common.HighInformNLS(User,
 			"Du brauchst Forellen, Lachs oder rohen Schinken um diese zu räuchern.", 
       "You need trouts, salmons or ham for smoking them." );
 		end

@@ -34,21 +34,21 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   -- check for some static item around
   local staticTool = base.common.GetItemInArea(User.pos, 428);
   if (staticTool == nil) then
-    base.common.InformNLS( User,
+    base.common.HighInformNLS( User,
     "Du musst an einem Kerzenziehertisch arbeiten!",
     "You have to work at a chandler table!" );
     return;
   end
 	
 	if (SourceItem:getType() ~= 4) then -- tool in hand
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du musst die Kerzenform in der Hand haben!",
 		"You have to hold the candle mold in your hand!" );
 		return
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Kerzenziehen.",
 		"Your armour disturbs you while making candles." );
 		return
@@ -65,7 +65,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- any other checks?
 
 	if (User:countItemAt("all",431)==0) then -- check for items to work on
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Du brauchst Wachs um Kerzen herzustellen.", 
 		"You need wax for producing candles." );
 		return;
@@ -91,7 +91,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( 43, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 43, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -99,14 +99,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			candleproducing.SavedWorkTime[User.id] = candleproducing:GenWorkTime(User,SourceItem);
 			User:startAction( candleproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
-			base.common.InformNLS(User,
+			base.common.HighInformNLS(User,
 			"Du hast kein Wachs mehr.",
 			"You have no wax anymore.");
 		end
 	end
 
 	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Deine alte Kerzenform zerbricht.",
 		"Your old candle mold breaks.");
 		return

@@ -36,7 +36,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	-- additional tool item is needed
 	if (User:countItemAt("all",6)==0) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du brauchst eine Schere um Garn herzustellen.", 
 		"You need a pair of scissors for producing thread." );
 		return
@@ -45,7 +45,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( toolItem.id ~= 6 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 6 ) then
-			base.common.InformNLS( User,
+			base.common.HighInformNLS( User,
 			"Du musst die Schere in der Hand haben!",
 			"You have to hold the scissors in your hand!" );
 			return
@@ -53,7 +53,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich bei der Herstellung des Garns.",
 		"Your armour disturbs you while producing thread." );
 		return
@@ -71,11 +71,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 
 	if (User:countItemAt("all",170)<2 and User:countItemAt("all",155)<3) then -- check for items to work on
 		if (User:countItemAt("all",170)==0 and User:countItemAt("all",155)==0) then
-			base.common.InformNLS( User, 
+			base.common.HighInformNLS( User, 
 			"Du brauchst Wolle oder Sibanacblätter um Garn herzustellen.", 
 			"You need wool or sibanac leaves for producing thread." );
 		else
-			base.common.InformNLS( User, 
+			base.common.HighInformNLS( User, 
 			"Du hast nicht genug Wolle oder Sibanacblätter um Garn herzustellen.", 
 			"You don't have enough wool or sibanac leaves for producing thread." );
 		end
@@ -113,7 +113,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local notCreated = User:createItem( 50, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 50, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -121,14 +121,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			threadproducing.SavedWorkTime[User.id] = threadproducing:GenWorkTime(User,toolItem);
 			User:startAction( threadproducing.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- not enough items left
-			base.common.InformNLS( User, 
+			base.common.HighInformNLS( User, 
 			"Du hast nicht mehr genug Wolle oder Sibanacblätter.", 
 			"You don't have enough wool or sibanac leaves anymore." );
 		end
 	end
 
 	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Dein alte Schere zerbricht.",
 		"Your old scissors break.");
 		return

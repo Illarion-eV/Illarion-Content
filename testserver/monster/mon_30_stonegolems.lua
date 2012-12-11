@@ -3,9 +3,6 @@ require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
-require("monster.specialattacks.mgolem_spells");
-require("monster.specialattacks.demon_spells");
-require("monster.specialattacks.beholder_spells");
 module("monster.mon_30_stonegolems", package.seeall)
 
 
@@ -33,18 +30,7 @@ msgs:addMessage("#me hebt seine imposanten Fäuste und stößt einen donnernden Kri
 end
 
 function enemyNear(Monster,Enemy)
-local MonID=Monster:getMonsterType();
-	if(MonID == 302) then
-	
-		if monster.specialattacks.mgolem_spells.MGolem_PowerFist (Monster, Enemy, 10) then
-			return true;
-		else
-			return false;
-		end
-	else
-		return false;		
-	end
-	
+
     if init==nil then
         ini(Monster);
     end

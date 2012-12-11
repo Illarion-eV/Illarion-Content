@@ -60,6 +60,13 @@ function GenerateLookAt(user, item, material)
 	if base.common.IsNilOrEmpty(usedName) then
 		usedName = world:getItemName(item.id, user:getPlayerLanguage());
 	end;
+
+    -- Enforce Title Case
+    local function tchelper(first, rest)
+        return first:upper()..rest:lower()
+    end
+    usedName = usedName:gsub("(%a)([%wäöüß_']*)", tchelper)
+
 	lookAt.name = usedName;
 	
 	local rarenessData = item:getData("rareness");
@@ -83,7 +90,7 @@ function GenerateLookAt(user, item, material)
 		lookAt.description = usedDescription;
 	end;
 	
-	if itemCommon.AgeingSpeed < 255 then
+	if itemCommon.AgeingSpeed < 255 and itemCommon.Weight < 30000 then
 		local craftedByData = item:getData("craftedBy");
 		if not base.common.IsNilOrEmpty(craftedByData) then
 			lookAt.craftedBy = craftedByData;

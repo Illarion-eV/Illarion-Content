@@ -2,7 +2,7 @@
 -- NPC Name: Reret Odohir                                         Cadomyr     --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human      NPC Position: 106,533,0                               --
+-- NPC Race: human      NPC Position: 106,553,0                               --
 -- NPC Sex:  female     NPC Direction:north                           --
 --                                                                            --
 -- Author:  ??+ Miriam                                                        --
@@ -12,7 +12,7 @@
 name = "Reret Odohir"
 race = human
 sex = female
-position = 106,533,0
+position = 106,553,0
 direction = north
 affiliation = "Cadomyr"
 job = "Notary"
@@ -32,7 +32,7 @@ wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
 hairID = 2
-beardID = 5
+beardID = 0
 colorHair = 68, 63, 58
 colorSkin = 255, 210, 204
 itemHead = 257
@@ -76,8 +76,8 @@ tradeWrongItemMsg "Oh, Das kaufe ich nicht. Tut mir leid.", "Oh, I don't buy tha
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Retret Odohir the Notary of Cadomyr. Keywords: become citizen.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Retret Odohir die Notar von Cadomyr. Schlüsselwörter: Bürger werden.")
+"Help" -> inform("[Game Help] This NPC is Retret Odohir the Notary of Cadomyr. Keywords: become citizen, wich town.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Retret Odohir die Notar von Cadomyr. Schlüsselwörter: Bürger werden, welche Stadt.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted.", "Greetings.", "Be greeted, nice to see you here.", "Be greeted, I am the notary of this town."
@@ -104,14 +104,71 @@ english, town = Galmair,  "become citizen", "gain citizenship" -> town = Cadomyr
 town = Galmair,  "Bürger werden","Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
 english, town = Runewick, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Cadomyr", "Welcome to Cadomyr!"
 town = Runewick, "Bürger werden","Bürgerschaft beantragen" ->  town = Cadomyr, "Ihr seidt jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
-english, town = Cadomyr,  "become citizen", "gain citizenship" -> town = Cadomyr, "Oh! You are already a citizen of Cadomyr"
-town = Cadomyr,  "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Oh! Ihr seid bereits Bürger von Cadomyr"
+english, town = Cadomyr,  "become citizen", "gain citizenship" -> town = Cadomyr, "Oh! You are already a citizen of Cadomyr."
+town = Cadomyr,  "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Oh! Ihr seid bereits Bürger von Cadomyr."
 english, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Cadomyr", "Welcome to Cadomyr!"
 "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
 
 -- Test Question
-"weche Stadt", "weche faktion" -> "Du gehöerst nach %TOWN!"
-"ich" ->  "%CHARNAME"
+"welche Stadt", "weche faktion" -> "Du gehörst nach %TOWN!"
+"wich town", "wich faction" -> "You belong to %TOWN!"
+--"ich" ->  "%CHARNAME"
+
+-- RANK informations
+
+--rank =9,"rank"-> "Seid gegrüßt"
+town = Cadomyr,english, male, rank > 9, "rank" -> "Greetings to you, Baron %Name! !"
+town = Cadomyr,english, female, rank > 9, "rank" -> "Greetings to you, Lancer!"
+town = Cadomyr,male, rank > 9, "rang" -> "Baron %Name! Hochwohlgeboren, wie ist es Euch ergangen?"
+town = Cadomyr,female, rank > 9, "rang" -> "Baronin %! Hochwohlgeboren, wie ist es Euch ergangen?"
+
+--rank >8
+town = Cadomyr,english, male, rank > 8,"rank" -> "Greetings to you, Sir!"
+town = Cadomyr,english, female, rank > 8, "rank" -> "Greetings to you, Lady!"
+town = Cadomyr,male, rank > 8,"rang" -> "Seid gegrüßt, mein Herr!"
+town = Cadomyr,female, rank > 8, "rang" -> "Seid gegrüßt, meine Dame!"
+
+--rank >7
+town = Cadomyr,english, male, rank > 7,"rank" -> "Greetings to you, Knight %Name!"
+town = Cadomyr,english, female, rank > 7, "rank" -> "Greetings to you, Dame %Name!"
+town = Cadomyr,male, rank > 7,"rang" -> "Seid gegrüßt, mein Ritter!"
+town = Cadomyr,female, rank > 7, "rang" -> "Seid gegrüßt, meine Dame!"
+
+--Rank 6
+town = Cadomyr,english, male, rank > 6,"rank" -> "Greetings to you, Lancer!"
+town = Cadomyr,english, female, rank > 6, "rank" -> "Greetings to you, Lancer!"
+town = Cadomyr,male, rank > 6,"rang" -> "Lancier, seid gegrüßt!"
+town = Cadomyr,female, rank > 6, "rang" -> "Lancier, seid gegrüßt!"
+
+-- Rank 5
+town = Cadomyr,english, male, rank > 5,"rank" -> "Greetings to you, Sergeant!"
+town = Cadomyr,english, female, rank > 5, "rank" -> "Greetings to you, Sergeant!"
+town = Cadomyr,male, rank > 5,"rang" -> "Berittener, seid gegrüßt!"
+town = Cadomyr,female, rank > 5, "rang" -> "Berittene, seid gegrüßt!"
+
+-- Rank 4
+town = Cadomyr,english, male, rank > 4,"rank" -> "Good to see you, Sergeant!"
+town = Cadomyr,english, female, rank > 4, "rank" -> "Good to see you, Sergeant!"
+town = Cadomyr,male, rank > 4,"rang" -> "Schön Euch zu sehen Herr Wachmeister!"
+town = Cadomyr,female, rank > 4, "rang" -> "Schön Euch zu sehen Frau Wachmeisterin!"
+
+-- Rank 3
+town = Cadomyr,english, male, rank > 3,"rank" -> "Good day, Corporal!"
+town = Cadomyr,english, female, rank > 3, "rank" -> "Good day, Corporal!"
+town = Cadomyr,male, rank > 3,"rang" -> "Guten Tag, Korporal!"
+town = Cadomyr,female, rank > 3, "rang" -> "Guten Tag, Korporal!"
+
+-- Rank 2
+town = Cadomyr,english, male, rank > 2, "rank" -> "Ah! So you are a squire?"
+town = Cadomyr,english, female, rank > 2, "rank" -> "Ah! So you are a squire?"
+town = Cadomyr, male, rank > 2, "rang" -> "Ah! Du bist ein Knappe?"
+town = Cadomyr, female, rank > 2, "rang" -> "Ah! Du bist ein Knappin?"
+
+--Rank 1
+town = Cadomyr, english, male, rank > 0, "rank" -> "You are new here. You are not well known. Make an effort ands become famous, Recruit!"
+town = Cadomyr, english, female, rank > 0, "rank" -> "You are new here. You are not well known. Make an effort ands become famous, Recruit!"
+town = Cadomyr, male, rank > 0, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und mach dir einen Namen, Rekrut!"
+town = Cadomyr, female, rank > 0, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und mach dir einen Namen, Rekrutin!"
 
 --"Danke nein, ich habe bereits alles, was ich brauche."
 --"Habt Ihr ein Dekret für mich oder wollt ihr vielleicht ein Dekret oder Schlüßel kaufen?"
@@ -140,8 +197,8 @@ english, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a 
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl",town = Cadomyr, queststatus(150) = 0 -> inform("[Neues Quest] Geschenk aus Cadomyr"),"Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüsenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?", queststatus(150) = 1
 
 -- 1st quest solved, Reward:(dagger 27)
-".+", queststatus(000) = 1, item(146, all) > 16, english -> inform("[Quest solved]  You are awarded with a dagger."), "Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it s shall be your rewand for your troubles.", deleteItem (146, 15), item(27,1,433,0),rankpoints + 7, queststatus(000) = 2
-".+", queststatus(000) = 1, item(146, all) > 16 -> inform("[Quest gelößt] Du erhälst als Belohnung einen Dolch."), "Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen.", deleteItem(146, 15), item(27,1,433,0),rankpoints + 7, queststatus(000) = 2
+english, "quest", "mission","task", "adventure", "order", queststatus(000) = 1, item(146, all) > 16, english -> inform("[Quest solved]  You are awarded with a dagger."), "Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it s shall be your rewand for your troubles.", deleteItem (146, 15), item(27,1,433,0),rankpoints + 7, queststatus(000) = 2
+"quest", "mission","Auftrag", "Aufgabe", "Abenteuer", "Befehl", queststatus(000) = 1, item(146, all) > 16 -> inform("[Quest gelößt] Du erhälst als Belohnung einen Dolch."), "Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen.", deleteItem(146, 15), item(27,1,433,0),rankpoints + 7, queststatus(000) = 2
 
 -- 1st quest not solved, repeat the instructions
 "quest", "mission", queststatus(150) = 1, english -> "I'm still busy working, so could I ask you to go and find fifteen desert sky capsule for me, please?"

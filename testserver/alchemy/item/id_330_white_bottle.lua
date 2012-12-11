@@ -41,7 +41,7 @@ function DrinkPotion(User,SourceItem)
 			end
 		end
 		
-		oldSkill = User:getSkill(ListLanguages[potionEffectId])
+		oldSkill = User:getSkill(ListLanguages[potionEffectId-599])
 		if oldSkill == nil then
 		   oldSkill = 0
 		end

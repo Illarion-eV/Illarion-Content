@@ -95,10 +95,10 @@ english, "Gobaith", "Gobiath" -> "An old friend of mine lived on Gobaith once. B
 "mein Name" -> "Alles klar. Wollt Ihr etwas veräußern oder einkaufen?", "In Ordnung. Hört her - Ihr stellt keine Fragen und ich werde Euch nicht belügen.", "Ausgezeichnet."
 
 -- More small talk; add at least five triggers
-"third", "three", "goods" -> "Goody from third hand! Aye. That means these things are used alredy.", "#me laughs quitly: 'The third hand is mine, the second is the hand of the person who sold it to me and the first is the hand of the property owner.'"
+"third", "three", "goods" -> "Goody from third hand! Aye. That means these things are used alredy.", "#me laughs quietly: 'The third hand is mine, the second is the hand of the person who sold it to me and the first is the hand of the property owner.'"
 "king" -> "#me smirks kind of sad: 'Years ago, I succeeded to steal the nightdress of King Edwards. Shortly the catched me... the king ordered to chop my hand of and banned me. Therefore I'm here now and everyone calls me Hook Gowan.'"
-english, "edwards" -> "#me smirks kind of sad: 'Years ago, I succeeded to steal the nightdress of King Edwards. Shortly the catched me... the king ordered to chop my hand of and banned me. Therefore I'm here now and everyone calls me Hook Gowan.'"
-english, "Nubris" -> "Well, my father lived directly in Nubris. I moved... - Nubris, the golden jewel of the south, like they say in Salkamar. Many people there have a dark skin.", " Nubris! Well let me tell about my far away home... - there lives a animel named Kawaaru. A giant lizard with calm mind. Used to lift and bear heavy goods.", "I tend to say - kind of subjective of course - Nubris is the most beautiful town of Illarion. The dome-shaped roofs are seeable from far away and glowing in the desert sun. And A Circle of Elders is ruling the town.", "In Nubris it's too hot for heavy armory. Instead they use armors made of hard wood and thin stones."
+english, "edwards" -> "#me smirks kind of sad: 'Years ago, I succeeded to steal the nightdress of King Edwards. Shortly the caught me... the king ordered to chop my hand of and banned me. Therefore I'm here now and everyone calls me Hook Gowan.'"
+english, "Nubris" -> "Well, my father lived directly in Nubris. I moved... - Nubris, the golden jewel of the south, like they say in Salkamar. Many people there have a dark skin.", " Nubris! Well let me tell about my far away home... - there lives a animal named Kawaaru. A giant lizard with calm mind. Used to lift and bear heavy goods.", "I tend to say - kind of subjective of course - Nubris is the most beautiful town of Illarion. The dome-shaped roofs are seeable from far away and glowing in the desert sun. And A Circle of Elders is ruling the town.", "In Nubris it's too hot for heavy armory. Instead they use armors made of hard wood and thin stones."
 "drei", "dritter", "dritt", "wahre", "güter" -> "Wahre aus dritter Hand. Aye. Das heißt die Sachen sind schon Mal benutzt worden.", "#me lacht leise: 'Die dritte Hand ist meine, die Zweite gehört meinem Verkäufer und die Erste dem Eigentümer.'"
 "König" -> "#me schmunzelt traurig: 'Vor vielen Jahren gelang es mit das Nachthemd von König Edwards zu stehlen. Doch man fasste mich kurz darauf, der König ließ mir die Hand abhacken und verbannte mich. Nun bin ich hier und man nennt mich Hook Gowan.'"
 "edwards" -> "#me schmunzelt traurig: 'Vor vielen Jahren gelang es mit das Nachthemd von König Edwards zu stehlen. Doch man fasste mich kurz darauf, der König ließ mir die Hand abhacken und verbannte mich. Nun bin ich hier und man nennt mich Hook Gowan.'"
@@ -113,44 +113,44 @@ english, "Runewick" -> "Hm-h, let me think about. I'm wanted in Runewick for thr
 "Runewick" -> "Hm-h, lasst mich nachdenken. In Runewick werde ich wegen drei verschiedener Verstöße gesucht. - Ich denke ich werde mich erst einmal eine Weile von dort fern halten. Ihr nicht auch?"
 english, "Valerio", "Guilianni", "Don" -> "Ha! Those tiny lecher should get an red cap, so you can't oversee him while walking trough grass anymore."
 "Valerio", "Guilianni", "Don" -> "Ha! Diesem zu klein geratenen Lustmolch sollte man eine rote Mütze aufsetzen, damit man ihn nicht mehr so leicht übersieht wenn er durchs Gras läuft."
-english, "Galmair" -> "Hui-ui! Galmair? Not even ten Ogres can make me going there again. I owe the Don a proud amount of Gold. Once he was forced to lent it out of his private treasury."
+english, "Galmair" -> "Hui-ui! Galmair? Not even ten Ogres can make me going there again. I owe the Don a proud amount of gold. Once he was forced to lend it out of his private treasury."
 "Galmair" -> "Hui-ui! Nach Galmair bringen mich keine zehn Oger! Ich schulde dem Don Guilianni eine beachtliche Summe Gold. Er hat es mir einst unfreiwilliger Weise aus seiner privaten Schatzkammer geliehen."
 english, "rosaline", "königin", "queen", "edwards" -> "I won't guarantee it to you but they say the queen is even more strict than her father. The old king, ordered to chop my hand of..."
 "rosaline", "königin", "queen", "edwards" -> "Ich kann es Euch nicht genau sagen, doch es heißt Rosaline sei noch strikter als ihr Vater. Der alte König, ließ mir ja einst die Hand abhacken..."
 english, "rosaline", "königin", "queen", "edwards" -> "I won't guarantee it to you but they say the queen is even more strict than her father. The old king, ordered to chop my hand of..."
 "rosaline", "königin", "queen", "edwards" -> "Ich kann es Euch nicht genau sagen, doch es heißt Rosaline sei noch strikter als ihr Vater. Der alte König, ließ mir ja einst die Hand abhacken..."
-english, "Cadomyr" -> "I was banned from Cadomyr years ago. I loved my town, after all I called it my home. But thats the way life goes, isn't it?"
+english, "Cadomyr" -> "I was banned from Cadomyr years ago. I loved my town, after all I called it my home. But that's the way life goes, isn't it?"
 "Cadomyr" -> "Ich bin vor vielen Jahren aus Cadomyr verbannt worden. Es war mir lieb, schließlich war die Stadt meine Heimat. Aber so läuft das nun Mal."
 
 -- Main land factions
 english, "albar" -> "Well Albar... I know some Albarians but each single one of them is a doltish goop or a blockhead."
 german, "albar" -> "Ach Albar... Ich kenne einige Albarer, aber es sind allesamt dumme Rüpel und Bauernköpfe."
-english, "gynk", "gync" -> "The swanmplands stink, Gynk stinks and Gnykese stink as well. - Isn't that obvious?"
+english, "gynk", "gync" -> "The swamplands stink, Gynk stinks and Gnykese stink as well. - Isn't that obvious?"
 german, "gync", "gynk" -> "Die Sumpflande stinken, Gynk stinkt und Gynkesen stinken ebenso. - Wie könnte es auch anders sein?"
 english, "salkama" -> "In Salkamar the sun shines each single month in the year someone told me. Of course not out of the sky, rather out of the buttocks of the Salkamarians!"
 german, "salkama" -> "In Salkamar soll das liebe lange Jahr die Sonne scheinen, hat man mir gesagt. Allerdings nicht vom Himmel herab, sondern aus den Hinterteilen der Salkamarer."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "I would love to speak about Ronagan, so be free to ask me about the Shadowlord, wahtever you want to know."
+"god" -> "I would love to speak about Ronagan, so be free to ask me about the Shadow lord, whatever you want to know."
 "Gott", "Götter" -> "Ich will mit Euch über Ronagan sprechen, wenn ihr mehr über unseren Schattenherrn wissen wollt."
-english, "Ronagan" -> "Ronagan, the god of thieves and shadows! He promises shelter to everyone who live in the shadow of the so called high society", "They say there is a shrine for the Shadowlord somwhere in Galmair. But when I went there I didn't find it.", "My Lord despises the autority of the nobility. And like Ronagan himself, its my aim to hoax them.", "Sometimes he appears as a dark haired and clothed charming man, guarding those who are in need of helping hand. He seems quite good humored to me.", "Ronagan dislikes betrayal. To betray confederates is the worst and for sure the shadowlord will calm for revange one day.", "They say there are traders who sacrifice a part of their earnings to Ronagan, so he will shelter their goods."
+english, "Ronagan" -> "Ronagan, the god of thieves and shadows! He promises shelter to everyone who live in the shadow of the so called high society", "They say there is a shrine for the Shadow lord somwhere in Galmair. But when I went there I didn't find it.", "My Lord despises the autority of the nobility. And like Ronagan himself, its my aim to hoax them.", "Sometimes he appears as a dark haired and clothed charming man, guarding those who are in need of helping hand. He seems quite good humored to me.", "Ronagan dislikes betrayal. To betray a confederate is  the worst and for sure the Shadow lord will calm for revenge one day.", "They say there are traders who sacrifice a part of their earnings to Ronagan, so he will shelter their goods."
 "Ronagan" -> "Ronagan, Gott der Diebe und Schatten! Er behütet jene die im Schatten der Reichen und feinen Gesellschaft leben müssen.", "Es heißt es gäbe einen Schrein für den Schattenherrn irgendwo in Galmair. Allerdings konnte ich nichts finden als ich danach suchte.", "Mein Herr, verachtet die Autorität des Adels. Und wie er, lebe ich um Schabernak mit der dekadenten Obrigkeit zu treiben. ", "Manch mal erscheint er als junger Galan, verkleidet, Vagabunden oder Landstreichern. Er soll durchaus humorvoll sein.", "Ronagan verabscheut Vertrauensbruch oder Verrat. Einem Partner zu hintergehen ist eine schlimme Tat, für unsereins und der Schattenherr wird es gewiss nicht übersehen.", "Ich hörte es gibt Händler die dem Schattenherrn opfern, damit sie nicht beraubt werden und er die Langfinger fern hält."
 
 -- Catching typical NPC phrases
-"tell something" -> "Stop questioning, nobody likes a snoopy one.", "#me starts to smile braodly: 'Let me tell you I'm a bad lad. Years ago I have stolen the nightdress of old King Edwards.'", "Once I was citizen of Cadomyr, then I got banned. Obviously right after chopping my hand of."
+"tell something" -> "Stop questioning, nobody likes a snoopy one.", "#me starts to smile broadly: 'Let me tell you I'm a bad lad. Years ago I have stolen the nightdress of old King Edwards.'", "Once I was citizen of Cadomyr, then I got banned. Obviously right after chopping my hand of."
 "erzähl was", "erzähl etwas" -> "Hört auf Fragen zu stellen, das sieht hier niemand gern.", "#me setzt ein lächeln auf und prahlt: 'Lasst Euch sagen, ich bin ein übler Bursche. Vor langer Zeit stahl ich das Nachthemd König Edwards.'", "Einst war ich Bürger Cadomyrs, doch man hat mich verbannt. Zuvor vergaß man allerdings nicht mir die Hand abzuhacken."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-english, "Gowan", "Hook", "hand" -> "Yes, I got a hook instead of a hand. What'S the matter?", "No I'm not a pirat. I don't even like the sea. To much sway and swinging... makes me sick.", "The old king of Cadomyr chopped my hand of. True Story, lad."
+english, "Gowan", "Hook", "hand" -> "Yes, I got a hook instead of a hand. What's the matter?", "No I'm not a pirate. I don't even like the sea. Too much sway and swinging... makes me sick.", "The old king of Cadomyr chopped my hand of. True Story, lad."
 "Gowan", "Hook" -> "Ja, ich hab einen Haken an der Hand. Was wollt Ihr?", "Nein ich bin kein Pirat. Ich mag nicht mal das Meer, von zu viel Geschaukle wird mir nämlich immer übel.", "Der alte König, Cadomyrs hat mir damals noch die Hand abgehackt. Ist wahr - ist wahr."
 "haken", "hand" -> "Ja, ich hab einen Haken an der Hand. Was wollt Ihr?", "Nein ich bin kein Pirat. Ich mag nicht mal das Meer, von zu viel Geschaukle wird mir nämlich immer übel.", "Der alte König, Cadomyrs hat mir damals noch die Hand abgehackt. Ist wahr - ist wahr."
-"Yes" -> "Awesome, thats in my interesst.", "Yes! Yes-yes. There we go.", "Superb!"
+"Yes" -> "Awesome, that's in my interest.", "Yes! Yes-yes. There we go.", "Superb!"
 "Ja" -> "Fein! Das kommt mir eigentlich ganz gelegen.", "Ja! Ja-ja, so machen wir das.", "Ausgezeichnet."
-"No" -> "Aye.", "Are you Sure?", "Really? Is that true?"
+"No" -> "Aye.", "Are you sure?", "Really? Is that true?"
 "Nein" -> "Aye.", "Seid ihr sicher?", "Tatsächlich?"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Listen - If you don't ask any questions I will not lie to you. Agreed?", "Aha? Good to know.", "Oh, that's quite interessting."
+english, chance(20.0), ".*" -> "Listen - If you don't ask any questions I will not lie to you. Agreed?", "Aha? Good to know.", "Oh, that's quite interesting."
 german, chance(20.0), ".*" -> "Wenn Ihr keine Fragen stellt, werde ich Euch auch nicht belügen.", "Soso? - Gut zu wissen.", "Oh, das ist ja interessant.", "Ein Schritt im Schatten und Einer über die Rinne..."
 
 ------------------------------------------------------------------------------AC
@@ -158,13 +158,13 @@ german, chance(20.0), ".*" -> "Wenn Ihr keine Fragen stellt, werde ich Euch auch
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me hebt seine Hakenhand und kratzt sich mit der Spitze des Hakens am Hinterkopf. Er kneift die Augen zusammen und scheint einen Moment nachzudenken.", "#me rises his hook hand and scratche shis backhead. He narrows his eyes and seems to think for a moment."
-cycletext "#me hängt seinen Haken in den Gurt einer seiner Ledertaschen und hebt sie hoch, mit kritischem Blick mustert er die Tasche von allen Seiten.", "#me takes a leatherbag with his hook and examines it closely."
-cycletext "#me betastet abwesend blickend, mit seiner gesunden Hand den Haken an seinem rechten Arm. ", "#me touches with his healty hand the hook replacing his right hand unconsciously."
+cycletext "#me hebt seine Hakenhand und kratzt sich mit der Spitze des Hakens am Hinterkopf. Er kneift die Augen zusammen und scheint einen Moment nachzudenken.", "#me raises his hook hand and scratche shis backhead. He narrows his eyes and seems to think for a moment."
+cycletext "#me hängt seinen Haken in den Gurt einer seiner Ledertaschen und hebt sie hoch, mit kritischem Blick mustert er die Tasche von allen Seiten.", "#me takes a leather bag with his hook and examines it closely."
+cycletext "#me betastet abwesend blickend, mit seiner gesunden Hand den Haken an seinem rechten Arm. ", "#me touches with his healthy hand the hook replacing his right hand unconsciously."
 cycletext "#me legt seinen Kopf schief.", "#me scratches his neck."
-cycletext "#me räuspert sich unauffällig.", "#me chaugs quitly."
+cycletext "#me räuspert sich unauffällig.", "#me clear his's throat quietly."
 cycletext "#me gähnt ausgiebig und hält sich dabei den glänzenden Haken vor den Mund.", "#me yawns copiously and covers his mouth with his hook."
-cycletext "#me stemmt seine Arme in die Seiten und blickt mit zweifelnder Mimik durch den Raum.", "#me pushes his arms at the hips and glances the room with an courious glare."
+cycletext "#me stemmt seine Arme in die Seiten und blickt mit zweifelnder Mimik durch den Raum.", "#me pushes his arms at the hips and glances the room with an curious glare."
 cycletext "#me lehnt sich ein wenig zurück und atmet lächelnd aus.", "#me leans back slightly and breaths out with a smile."
-cycletext "#me murmelt: 'Ein Schritt im Schatten und Einer über die Rinne, der Diebe Stern verbirgt sich am Gestirne.'", "#me mumbles: 'A step into the shadow and one over the roadside ditch, the thieves star is hiding uppon the sky.'"
+cycletext "#me murmelt: 'Ein Schritt im Schatten und Einer über die Rinne, der Diebe Stern verbirgt sich am Gestirne.'", "#me mumbles: 'A step into the shadow and one over the roadside ditch, the thieves star is hiding upon the sky.'"
 cycletext "#me wirft einen ungeduldigen Blick aus dem nächst liegenden Fenster.", "#me eyes trough the window next to him, seeming quite impatient."

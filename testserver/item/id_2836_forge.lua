@@ -72,7 +72,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	-- additional tool item is needed
 	if (User:countItemAt("all",2751)==0) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Du brauchst eine Tiegelzange um Erz zu schmelzen.", 
 		"You need a pair of crucible-pincers for melting ore." );
 		return
@@ -81,7 +81,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( toolItem.id ~= 2751 ) then
 		toolItem = User:getItemAt(6);
 		if ( toolItem.id ~= 2751 ) then
-			base.common.InformNLS( User,
+			base.common.HighInformNLS( User,
 			"Du musst die Tiegelzange in der Hand haben!",
 			"You have to hold the crucible-pincers in your hand!" );
 			return
@@ -89,7 +89,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 
 	if base.common.Encumbrence(User) then
-		base.common.InformNLS( User,
+		base.common.HighInformNLS( User,
 		"Deine Rüstung behindert Dich beim Erzschmelzen.",
 		"Your armour disturbs you while melting ore." );
 		return
@@ -106,7 +106,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- any other checks?
 
 	if (User:countItemAt("all",coalItem.id)<coalItem.amount) then -- check for items to work on
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Du brauchst Kohle um an der Esse zu arbeiten.", 
 		"You need coal for working at the forge." );
 		return;
@@ -120,7 +120,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
       if (i.ore.id == 2534) then
         -- that's merinium (should be the last in the list), we need pure fire
         if (User:countItemAt("all",2553) == 0) then
-          base.common.InformNLS( User, 
+          base.common.HighInformNLS( User, 
           "Du brauchst reines Feuer um Meriniumerz zu schmelzen.", 
           "You need pure fire for melting merinium ore." );
           return;
@@ -136,7 +136,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
   end
   if (oreItem == nil) then
-		base.common.InformNLS( User, 
+		base.common.HighInformNLS( User, 
 		"Du brauchst Eisenerz, Kupfererz, Goldnuggets oder Meriniumerz um es zu schmelzen.", 
 		"You need iron ore, copper ore, gold nuggets or merinium ore for melting it." );
     return;
@@ -155,7 +155,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
       User:changeSource(SourceItem);
     else
       -- it's on, can't work now.
-      base.common.InformNLS( User, 
+      base.common.HighInformNLS( User, 
       "Jemand anderes arbeitet schon an der Esse.", 
       "Someone else is already working at the forge." );
     end
@@ -185,7 +185,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   local nextActionStarted = false;
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( oreItem.product.id, notCreated, User.pos, true, 333, nil );
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
@@ -193,7 +193,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
       if (User:countItemAt("all",oreItem.ore.id)>=oreItem.ore.amount) then
         if (oreItem.ore.id == 2534 and User:countItemAt("all",2553) == 0) then
         -- merinium requires pure fire
-          base.common.InformNLS( User, 
+          base.common.HighInformNLS( User, 
           "Du brauchst reines Feuer um Meriniumerz zu schmelzen.", 
           "You need pure fire for melting merinium ore." );
         else
@@ -202,19 +202,19 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
           nextActionStarted = true;
         end
       else -- no ore
-        base.common.InformNLS(User,
+        base.common.HighInformNLS(User,
         "Du brauchst Eisenerz, Kupfererz, Goldnuggets oder Meriniumerz um es zu schmelzen.", 
         "You need iron ore, copper ore, gold nuggets or merinium ore for melting it." );
       end
     else -- no coal
-      base.common.InformNLS(User,
+      base.common.HighInformNLS(User,
       "Du hast nicht mehr genug Kohle.", 
       "You don't have enough coal anymore." );
     end
 	end
 
 	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
-		base.common.InformNLS(User,
+		base.common.HighInformNLS(User,
 		"Deine alte Tiegelzange zerbricht.",
 		"Your old crucible-pincers break.");
     if (SourceItem.id == 2835) then

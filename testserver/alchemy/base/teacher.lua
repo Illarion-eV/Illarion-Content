@@ -75,157 +75,132 @@ end
 
 -- questions and answers; note: one question and three answers, !!! the first answer ins the list of answers is the correct answer !!!
 -- difficulty 1: 
-questionAnswerList["german"]["question"][1][1]  = {"f"}
-questionAnswerList["english"]["question"][1][1] = {"q"}
-questionAnswerList["german"]["answer"][1][1]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][1][1] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][1][1]  = {"Welche Pflanze enthält keinen der acht Wirkstoffe?"}
+questionAnswerList["english"]["question"][1][1] = {"Which plant does not contain any active substance?"}
+questionAnswerList["german"]["answer"][1][1]  = {"Kohl","Firnisblüte","Erdbeere"} 
+questionAnswerList["english"]["answer"][1][1] = {"Cabbage","Firnis blossom","Strawberry"}
 
-questionAnswerList["german"]["question"][1][2]  = {"f"}
-questionAnswerList["english"]["question"][1][2] = {"q"}
-questionAnswerList["german"]["answer"][1][2]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][1][2] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][1][2]  = {"Was ist kein Wirkstoff?"}
+questionAnswerList["english"]["question"][1][2] = {"What is no active substance?"}
+questionAnswerList["german"]["answer"][1][2]  = {"Platanat","Adrazin","Orcanol"} 
+questionAnswerList["english"]["answer"][1][2] = {"Platanat","Adrazin","Orcanol"}
 
-questionAnswerList["german"]["question"][1][3]  = {"f"}
-questionAnswerList["english"]["question"][1][3] = {"q"}
-questionAnswerList["german"]["answer"][1][3]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][1][3] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][1][3]  = {"Was verwenden wir zum Filtern eines Sudes?"}
+questionAnswerList["english"]["question"][1][3] = {"What do we use to filter a stock?"}
+questionAnswerList["german"]["answer"][1][3]  = {"Faulbaumrinde","Fliegenpilz","Sumpfblume"} 
+questionAnswerList["english"]["answer"][1][3] = {"Rotten Tree Bark","Toad Stool","a3"} --- !!!!
 
-questionAnswerList["german"]["question"][1][4]  = {"f"}
-questionAnswerList["english"]["question"][1][4] = {"q"}
-questionAnswerList["german"]["answer"][1][4]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][1][4] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][1][4]  = {"Wieviele Wirkstoffe gibt es?"}
+questionAnswerList["english"]["question"][1][4] = {"How many active substances do we know?"}
+questionAnswerList["german"]["answer"][1][4]  = {"Acht","Sechs","Neun"} 
+questionAnswerList["english"]["answer"][1][4] = {"Eight","Six","Nine"}
 
-questionAnswerList["german"]["question"][1][5]  = {"f"}
-questionAnswerList["english"]["question"][1][5] = {"q"}
-questionAnswerList["german"]["answer"][1][5]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][1][5] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][1][5]  = {"Was verwenden wir, um Gebräue zu analysieren?"}
+questionAnswerList["english"]["question"][1][5] = {"What do we use to analyse brews?"}
+questionAnswerList["german"]["answer"][1][5]  = {"Edelsteine","Spiegel","Elfenohren"} 
+questionAnswerList["english"]["answer"][1][5] = {"Gems","Mirror","Elf Ears"}
 
-questionAnswerList["german"]["question"][1][6]  = {"f"}
-questionAnswerList["english"]["question"][1][6] = {"q"}
-questionAnswerList["german"]["answer"][1][6]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][1][6] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][1][6]  = {"Welche Pflanze enthält Wirkstoffe?"}
+questionAnswerList["english"]["question"][1][6] = {"Wich plant contains activ substances?"}
+questionAnswerList["german"]["answer"][1][6]  = {"Mandarine","Apfel","Tomate"} 
+questionAnswerList["english"]["answer"][1][6] = {"Tangerine","Apple","Tomato"}
 
-questionAnswerList["german"]["question"][1][7]  = {"f"}
-questionAnswerList["english"]["question"][1][7] = {"q"}
-questionAnswerList["german"]["answer"][1][7]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][1][7] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][1][7]  = {"Welchen Wirkstoff gibt es wirklich?"}
+questionAnswerList["english"]["question"][1][7] = {"What is a real active substance?"}
+questionAnswerList["german"]["answer"][1][7]  = {"Hyperborelium","Stalavius","Domerata"} 
+questionAnswerList["english"]["answer"][1][7] = {"Hyperborelium","Stalavius","Domerata"}
 
-questionAnswerList["german"]["question"][1][8]  = {"f"}
-questionAnswerList["english"]["question"][1][8] = {"q"}
-questionAnswerList["german"]["answer"][1][8]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][1][8] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][1][8]  = {"Was zeichent ein reines Kraut?"}
+questionAnswerList["english"]["question"][1][8] = {"What is a pure herb?"}
+questionAnswerList["german"]["answer"][1][8]  = {"Beeinflussung von nur einem Wirkstoff","Wurde nie von einem Ork berührt","Frei von jeder Verunreinigung"} 
+questionAnswerList["english"]["answer"][1][8] = {"Effecting just one active substance","Never been touched by an orc","Free from any dirt"}
 
-questionAnswerList["german"]["question"][1][9]  = {"f"}
-questionAnswerList["english"]["question"][1][9] = {"q"}
-questionAnswerList["german"]["answer"][1][9]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][1][9] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][1][9]  = {"Welches ist ein reines Kraut?"}
+questionAnswerList["english"]["question"][1][9] = {"Which one is a pure herb?"}
+questionAnswerList["german"]["answer"][1][9]  = {"Wüstenbeere","Jungfernkraut","Sumpfblume"} 
+questionAnswerList["english"]["answer"][1][9] = {"Desert Berry","Virgins Weed","Mash Flower"}
 
-questionAnswerList["german"]["question"][1][10]  = {"f"}
-questionAnswerList["english"]["question"][1][10] = {"q"}
-questionAnswerList["german"]["answer"][1][10]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][1][10] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][1][10]  = {"Welche Pflanze ist im Wald zu finden?"}
+questionAnswerList["english"]["question"][1][10] = {"Which plant can be found in the woods?"}
+questionAnswerList["german"]["answer"][1][10]  = {"Firnisblüte","Flammenkelchblüte","Steppenfarn"} 
+questionAnswerList["english"]["answer"][1][10] = {"Firnis Blossom","","Steppe Farn"}
 
 -- difficulty 2:
-questionAnswerList["german"]["question"][2][1]  = {"f"}
-questionAnswerList["english"]["question"][2][1] = {"q"}
-questionAnswerList["german"]["answer"][2][1]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][2][1] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][2][1]  = {"Wie bezeichnen wir die höchste positive Konzentration eines Wirkstoffes?"}
+questionAnswerList["english"]["question"][2][1] = {"How to we call the highest positive concentration of an active substance?"}
+questionAnswerList["german"]["answer"][2][1]  = {"Hoch Toxisch","Gesättigte Anreicherung","merklich"} 
+questionAnswerList["english"]["answer"][2][1] = {"Highly Toxic","Saturated Solution","Distinctive"}
 
-questionAnswerList["german"]["question"][2][2]  = {"f"}
-questionAnswerList["english"]["question"][2][2] = {"q"}
-questionAnswerList["german"]["answer"][2][2]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][2][2] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][2][2]  = {"Wie bezeichnen wir die höchste negative Konzentration eines Wirkstoffes?"}
+questionAnswerList["english"]["question"][2][2] = {"How to we call the highest negative concentration of an active substance?"}
+questionAnswerList["german"]["answer"][2][2]  = {"Gesättigte Anreicherung","Hoch Toxisch","merklich"} 
+questionAnswerList["english"]["answer"][2][2] = {"Saturated Solution","Highly Toxic","Distintive"} 
 
-questionAnswerList["german"]["question"][2][3]  = {"f"}
-questionAnswerList["english"]["question"][2][3] = {"q"}
-questionAnswerList["german"]["answer"][2][3]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][2][3] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][2][3]  = {"Welcher Wirkstoff kann die Intelligenz beeinflussen?"}
+questionAnswerList["english"]["question"][2][3] = {"Which active substance can haven an influence on intelligence"}
+questionAnswerList["german"]["answer"][2][3]  = {"Illidrium","Orcanol","Adrazin"} 
+questionAnswerList["english"]["answer"][2][3] = {"Illidrium","Orcanol","Adrazin"}
 
-questionAnswerList["german"]["question"][2][4]  = {"f"}
-questionAnswerList["english"]["question"][2][4] = {"q"}
-questionAnswerList["german"]["answer"][2][4]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][2][4] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][2][4]  = {"Wieviele Kräuter kann ein gewöhnliches Essenzgebräu maximal enthalten?"}
+questionAnswerList["english"]["question"][2][4] = {"How many herbs can an ordinary essence brew contain at maximum?"}
+questionAnswerList["german"]["answer"][2][4]  = {"Acht","Vier","Zehn"} 
+questionAnswerList["english"]["answer"][2][4] = {"Eight","Four","Ten"}
 
-questionAnswerList["german"]["question"][2][5]  = {"f"}
-questionAnswerList["english"]["question"][2][5] = {"q"}
-questionAnswerList["german"]["answer"][2][5]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][2][5] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][2][5]  = {"Mit welchem Edelsteinstaub stellen wir Wurfbomben her?"}
+questionAnswerList["english"]["question"][2][5] = {"Which gem dust do we use to create throwing bombs?"}
+questionAnswerList["german"]["answer"][2][5]  = {"Smaragdstaub","Rubinstaub","Obsidianstaub"} 
+questionAnswerList["english"]["answer"][2][5] = {"Emerald Gemdust","Ruby Gemdust","Obisdian Gemdust"}
 
-questionAnswerList["german"]["question"][2][6]  = {"f"}
-questionAnswerList["english"]["question"][2][6] = {"q"}
-questionAnswerList["german"]["answer"][2][6]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][2][6] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][2][6]  = {"Welcher Wirkstoff kann keinen Einfluss auf Gift haben?"}
+questionAnswerList["english"]["question"][2][6] = {"Which active substance cannot influence poison?"}
+questionAnswerList["german"]["answer"][2][6]  = {"Dracolin","Hyperborelium","Fenolin"} 
+questionAnswerList["english"]["answer"][2][6] = {"Dracolin","Hyperborelium","Fenolin"}
 
-questionAnswerList["german"]["question"][2][7]  = {"f"}
-questionAnswerList["english"]["question"][2][7] = {"q"}
-questionAnswerList["german"]["answer"][2][7]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][2][7] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][2][7]  = {"Auf was kann Adrazin unteranderem Einfluss haben?"}
+questionAnswerList["english"]["question"][2][7] = {"Among others, Adrazin can have influence on what?"}
+questionAnswerList["german"]["answer"][2][7]  = {"Stärke","Wahrnehmung","Willenskraft"} 
+questionAnswerList["english"]["answer"][2][7] = {"Strength","Pereception","Willpower"}
 
-questionAnswerList["german"]["question"][2][8]  = {"f"}
-questionAnswerList["english"]["question"][2][8] = {"q"}
-questionAnswerList["german"]["answer"][2][8]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][2][8] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][2][8]  = {"Mit welchem Edelsteinstaub stellen wir Verwandlungstränke her?"}
+questionAnswerList["english"]["question"][2][8] = {"Which gemdust do we use to create shape shifter potions?"}
+questionAnswerList["german"]["answer"][2][8]  = {"Obisdianstaub","Rubinstaub","Diamantstaub"} 
+questionAnswerList["english"]["answer"][2][8] = {"Obisdian Dust","Ruby Dust","Diamant Dust"}
 
-questionAnswerList["german"]["question"][2][9]  = {"f"}
-questionAnswerList["english"]["question"][2][9] = {"q"}
-questionAnswerList["german"]["answer"][2][9]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][2][9] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][2][9]  = {"Worauf hat der Tybaltstern Einfluss?"}
+questionAnswerList["english"]["question"][2][9] = {"On which active substance does the Tybalt Star have an influence on?"}
+questionAnswerList["german"]["answer"][2][9]  = {"Dracolin","Echolon","Hyperborelium"} 
+questionAnswerList["english"]["answer"][2][9] = {"Dracolin","Echolon","Hyperborelium"}
 
-questionAnswerList["german"]["question"][2][10]  = {"f"}
-questionAnswerList["english"]["question"][2][10] = {"q"}
-questionAnswerList["german"]["answer"][2][10]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][2][10] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][2][10]  = {"Von welcher Pflanze heißt es, dass sie in jeder Medizin, die erfolgreich sein soll, entahlten sein muss?"}
+questionAnswerList["english"]["question"][2][10] = {"What plant is to be said to be a necessary ingredient for every successfull medicine?"}
+questionAnswerList["german"]["answer"][2][10]  = {"Firnisblüte","Heideblüte","Brombeere"} 
+questionAnswerList["english"]["answer"][2][10] = {"Firnisblüte","Heath Flower","Black Berry"}
 
 --difficulty 3:
-questionAnswerList["german"]["question"][3][1]  = {"f"}
-questionAnswerList["english"]["question"][3][1] = {"q"}
-questionAnswerList["german"]["answer"][3][1]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][3][1] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][3][1]  = {"Was passiert, wenn wir einen Sud in einen anderen Sud zu füllen versuchen?"}
+questionAnswerList["english"]["question"][3][1] = {"What happens when we try to fill a stock into an other stock?"}
+questionAnswerList["german"]["answer"][3][1]  = {"Explosion","Nichts","Sude verbinden sich"} 
+questionAnswerList["english"]["answer"][3][1] = {"Explosion","Nothing","Combination of the stocks"}
 
-questionAnswerList["german"]["question"][3][2]  = {"f"}
-questionAnswerList["english"]["question"][3][2] = {"q"}
-questionAnswerList["german"]["answer"][3][2]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][3][2] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][3][2]  = {"Was passiert, wenn wir einen neutralen Sud zu filtern versuchen?"}
+questionAnswerList["english"]["question"][3][2] = {"Whaten happens if we try to filter a neutral stock?"}
+questionAnswerList["german"]["answer"][3][2]  = {"Explosion","Nichts","Zufälliges Heben eines Wirkstoffes"} 
+questionAnswerList["english"]["answer"][3][2] = {"Explosion","Nothing","Random raising of an active substance"} 
 
-questionAnswerList["german"]["question"][3][3]  = {"f"}
-questionAnswerList["english"]["question"][3][3] = {"q"}
-questionAnswerList["german"]["answer"][3][3]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][3][3] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][3][3]  = {"Was passiert, wenn wir einen Wirkstoff über seine höchste positive Konzentration hinaus zu heben versuchen?"}
+questionAnswerList["english"]["question"][3][3] = {"What happens when we try to increase an active substance beyond it's highest positive concentration?"}
+questionAnswerList["german"]["answer"][3][3]  = {"Explosion","Nichts","Der Wirkstoff wird gesenkt"} 
+questionAnswerList["english"]["answer"][3][3] = {"Explosion","Nothing","The active substance is being decreased"}
 
-questionAnswerList["german"]["question"][3][4]  = {"f"}
-questionAnswerList["english"]["question"][3][4] = {"q"}
-questionAnswerList["german"]["answer"][3][4]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][3][4] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][3][4]  = {"Was passiert, wenn wir einen Wirkstoff über seine höchste negative Konzentration hinaus zu senken versuchen?"}
+questionAnswerList["english"]["question"][3][4] = {"What happens when we try to decrease an active substance beyond it's highest negative concentration?"}
+questionAnswerList["german"]["answer"][3][4]  = {"Explosion","Nichts","Der Wirkstoff wird gehoben"} 
+questionAnswerList["english"]["answer"][3][4] = {"Explosion","Nothing","The active substance is being increased"}
 
-questionAnswerList["german"]["question"][3][5]  = {"f"}
-questionAnswerList["english"]["question"][3][5] = {"q"}
-questionAnswerList["german"]["answer"][3][5]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][3][5] = {"a1","a2","a3"}
-
-questionAnswerList["german"]["question"][3][6]  = {"f"}
-questionAnswerList["english"]["question"][3][6] = {"q"}
-questionAnswerList["german"]["answer"][3][6]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][3][6] = {"a1","a2","a3"}
-
-questionAnswerList["german"]["question"][3][7]  = {"f"}
-questionAnswerList["english"]["question"][3][7] = {"q"}
-questionAnswerList["german"]["answer"][3][7]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][3][7] = {"a1","a2","a3"}
-
-questionAnswerList["german"]["question"][3][8]  = {"f"}
-questionAnswerList["english"]["question"][3][8] = {"q"}
-questionAnswerList["german"]["answer"][3][8]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][3][8] = {"a1","a2","a3"}
-
-questionAnswerList["german"]["question"][3][9]  = {"f"}
-questionAnswerList["english"]["question"][3][9] = {"q"}
-questionAnswerList["german"]["answer"][3][9]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][3][9] = {"a1","a2","a3"}
-
-questionAnswerList["german"]["question"][3][10]  = {"f"}
-questionAnswerList["english"]["question"][3][10] = {"q"}
-questionAnswerList["german"]["answer"][3][10]  = {"a1","a2","a3"} 
-questionAnswerList["english"]["answer"][3][10] = {"a1","a2","a3"}
+questionAnswerList["german"]["question"][3][5]  = {"Was passiert, wenn wir ein Essenzgebräu in ein anderes Essenzgebräu schütten?"}
+questionAnswerList["english"]["question"][3][5] = {"What happens when we fill an essence brew into an other essence brew?"}
+questionAnswerList["german"]["answer"][3][5]  = {"Explosion","Nichts","Sie verbinden sich"}  
+questionAnswerList["english"]["answer"][3][5] = {"Explosion","Nothing","They combine"}
 
 -------------------------------------------------- LISTS END ------------------------------------------------------------
 
@@ -233,24 +208,24 @@ function GetTeacherQuestInfos(User,SourceItem)
     -- depending on the position of the sourceitem (= the teacher), we get particular infos
 	
 	local questId; local questPrg; local teacherEN1; local teacherEN2; local teacherDE1; local teacherDE2
-	if SourceItem.pos == position(1,1,0) or SourceItem.id == 456 then
+	if SourceItem.pos == position(432,238,0) then
 	    questId = 350
 		teacherEN1 = "The Knowing Tree"
         teacherEN2 = "Knowing Tree"
 		teacherDE1 = "Der Wissende Baum" 
 		teacherDE2 = "der Wissende Baum"
-	elseif SourceItem.pos == position(2,1,0) then 
+	elseif SourceItem.pos == position(75,65,0) then 
 	    questId = 351
 		teacherEN1 = "The Thinking Stone"
-        teacherEN2 = "Thinking stone"
+        teacherEN2 = "Thinking Stone"
 		teacherDE1 = "Der Denkende Stein" 
 		teacherDE2 = "der Denkende Stein"
-	elseif SourceItem.pos == position(3,1,0) then
-        questId = 351
-		teacherEN1 = "The Thinking Stone"
-        teacherEN2 = "Thinking stone"
-		teacherDE1 = "Der Denkende Stein" 
-		teacherDE2 = "der Denkende Stein"	
+	elseif SourceItem.pos == position(873,878,0) then 
+        questId = 352
+		teacherEN1 = "The Recognizing Spring"
+        teacherEN2 = "Recognizing Spring"
+		teacherDE1 = "Die Erkennende Quelle" 
+		teacherDE2 = "die Erkennende Quelle"	
     end
 	if questId ~= nil then
 	    questPrg = User:getQuestProgress(questId)
@@ -364,7 +339,7 @@ function GetQuestionAndAnswers(User,SourceItem)
 	if difficulty == 3 then
 	    lastQuestion = true
 	end	
-	local rnd = math.random(1,10)
+	local rnd = math.random(1,#questionAnswerList[userLanguage]["question"][difficulty])
 	local myQuestion = questionAnswerList[userLanguage]["question"][difficulty][rnd][1]
 	local sourceAnswerList = questionAnswerList[userLanguage]["answer"][difficulty][rnd]
 	local myAnswer = sourceAnswerList[1]
@@ -502,8 +477,11 @@ function ThirdTask(User, SourceItem)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
- 
-    -- already an alchemist?
+    if not (SourceItem.pos == position(75,651,0) or SourceItem.pos == position(432,238,0) or SourceItem.pos == position(873,878,0)) then
+	    return
+	end	
+	
+	-- already an alchemist?
     local alchemistCheck = AlchemistCheck(User)
 	if alchemistCheck then
 	    SendMessage(User, SourceItem,
