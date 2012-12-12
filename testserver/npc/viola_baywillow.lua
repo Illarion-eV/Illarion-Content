@@ -992,13 +992,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("alten");
+talkEntry:addTrigger("alte");
 talkEntry:addResponse("Die alten Götter sind Brágon, Eldan, Findari, Tanora und Ushara. Nur nostalgische und verwirrte Elfen verehren sie, komisch, oder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("younger");
+talkEntry:addTrigger("young");
 talkEntry:addResponse("The younger gods are Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan, and Moshran. Most realms are shaped and molded by the gods they follow. I follow Elara!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
