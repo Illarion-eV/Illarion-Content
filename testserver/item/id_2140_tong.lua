@@ -6,7 +6,7 @@ require("base.lookat")
 module("item.id_2140_tong", package.seeall)
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
-    content.craft.gemcutting.gemgutting:showDialog(User, SourceItem)
+    content.craft.gemcutting.gemcutting:showDialog(User, SourceItem)
 end
 
 function LookAtItem(User, Item)
