@@ -117,9 +117,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Auf wiedersehen.");
-talkEntry:addResponse("Bis zum nächsten mal.");
-talkEntry:addResponse("Gehet in Frieden.");
+talkEntry:addResponse("Ah, ihr müßt der Marmorlieferant sein. Lagert es neben den Ziegelsteinen.");
+talkEntry:addResponse("Willkommen, Fremdling. Habt ihr Baumaterial für mich?");
+talkEntry:addResponse("Seid im Namen der Königin gegrüßt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
