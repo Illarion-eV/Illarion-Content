@@ -94,7 +94,7 @@ english, "Gobaith", "Gobiath" -> "This in an old island, which does not exist an
 -- More small talk; add at least five triggers
 "faction", "realm" -> "We have three realms here: Runewick, Cadomyr and Galmair. Each realm is home to famous craftsmen. If you'd like to know more about races or crafting in these realms just say the word."
 "race", "people" -> "In every realm there are members of all races, though some prefer certain realms. In Runewick, you'll find many elves and halflings; in Galmair, dwarves and orcs; and in Cadomyr, lizardmen and humans."
-"craft" -> "About which craft shall I tell you all I know? Alchemist, candle maker, carpenter, lumberjack, cook, baker, farmer, herb gatherer, tailor, tanner, dyer, blacksmith, brick maker, mason, miner, brewer, fisher, glass blower, digger, finesmith or gem grinder?"
+"craft" -> "About which craft shall I tell you all I know? Alchemist, candle maker, carpenter, lumberjack, cook, baker, farmer, herb gatherer, tailor, tanner, dyer, blacksmith, brick maker, mason, miner, brewer, fisher, glass blower, sand digger, finesmith or gem grinder?"
 english, "motiv", "motif", "theme" -> "The central theme of Runewick is wisdom, in Galmair it is wealth and in Cadomyr it's honour."
 english, "land", "region" -> "The four towers of Runewick are somewhere in the southeast between the meadow and the forest. The halls and caves of Galmair are to the northwest between the mountains and the forest. The town of Cadomyr lies to the west between the desert and the mountains."
 "leader", "ruler", "govern" -> "Archmage Elvaine Morgan is the leader of Runewick, Don Valerio Guilianni rules in Galmair, and Queen Rosaline Edwards reigns over Cadomyr."
@@ -104,7 +104,7 @@ english, "land", "region" -> "The four towers of Runewick are somewhere in the s
 -- German
 "Fraktion", "Reich" -> "Wir haben hier drei Reiche: Runewick, Cadomyr und Galmair. Die Bewohner sind für unterschiedliche Handwerken berühmt. Wenn du mehr über Handwerke oder die Reiche wissen möchtest, dann sag den jeweiligen Namen."
 "Rasse" -> "In jedem Reich sind Angehörige aller Rassen willkommen, aber einige Rassen bevorzugen bestimmte Reiche. In Runewick kann man viele Elfen und Halblinge finden; in Galmair Zwerge und Orks; und in Cadomyr Menschen und Echsen."
-"Handwerk" -> "Über welches Handwerk möchtest du etwas wissen? Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Gräber, Goldschmied oder Edelsteinschleifer?"
+"Handwerk" -> "Über welches Handwerk möchtest du etwas wissen? Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Sandgräber, Goldschmied oder Edelsteinschleifer?"
 "Motiv" -> "Das Leitmotiv in Runewick ist Weisheit, in Galmair ist es Reichtum, und in Cadomyr ist es Ehre."
 "Land", "Region" -> "Die vier Türme von Runewick wirst du irgendwo im Südosten zwischen Sümpfen und Wäldern finden; die Hallen und Höhlen von Galmair inmitten von Bergen und Wäldern; und die Häuser von Cadomyr zwischen einer Wüste und Bergen."
 "Anführer" -> "Erzmagier Elvaine Morgan ist der Herrscher in Runewick, Don Valerio Guilianni herrscht in Galmair, und Königin Rosaline Edwards in Cadomyr."
@@ -146,8 +146,8 @@ english, "Alchem", "Druid" -> "Alchemists and druids alike can be found readily 
 "Fisch" -> "Fischer können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Runewick gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
 "Glass", "blow" -> "Cadomyr has always been known for their glassblowers, if you are searching for a mentor. However, if you're looking for less competition perhaps you should make your way to Runewick. Now, as for Galmair, you won't find many glassblowers if my memory serves me right."
 "Glasbläser", "Glasblas" -> "Glasbläser können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Runewick gibt es ein paar wenige. Galmair hat zu handeln, wenn es etwas von denen benötigt."
-"Digger" -> "Diggers can always find clay and sand near Cadomyr. Then again, Galmair isn't a bad place either, but as for Runewick, the nearby land is no place for diggers."
-"Gräber" -> "Gräber können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
+"Digger" -> "Sand diggers can always find clay and sand near Cadomyr. Then again, Galmair isn't a bad place either, but as for Runewick, the nearby land is no place for sand diggers."
+"Gräber" -> "Sandgräber können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
 "Finesmith" -> "Finesmiths are mainly found in Cadomyr, but you could also search in Galmair as well. Runewick, not so much, they import such wares."
 "Goldschmied" -> "Goldschmiede können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt."
 "Gem", "grinder" -> "The most precise gem grinders in the land are found in Cadomyr, but I have met a fair number in Galmair too. Don't expect much in Runewick though, they mainly depend on trade for gems."
