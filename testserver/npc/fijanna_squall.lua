@@ -225,7 +225,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Willst du deine Zukunft im Tausch für ein Silberstück gesagt bekommen? Antwortet einfach mit ja oder nein.");
+talkEntry:addResponse("Willst du deine Zukunft im Tausch für zehn Silberstücke gesagt bekommen? Antwortet einfach mit ja oder nein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -353,7 +353,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zukunft");
-talkEntry:addResponse("Ich sage dir deine Zukunft vorraus, wenn du mir dafür ein Silberstück gibst. Möchtest du etwas über deine deine Zukunft hören?");
+talkEntry:addResponse("Ich sage dir deine Zukunft vorraus, wenn du mir dafür zehn Silberstücke gibst. Möchtest du etwas über deine deine Zukunft hören?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;

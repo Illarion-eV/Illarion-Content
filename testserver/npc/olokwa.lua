@@ -104,7 +104,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("seek advice");
-talkEntry:addResponse("Indee! But the advice of mine and tha ancestors 'll need twenty copper coins! Entrails and ashes from a campfire... uhm 'nd yes, yes a sousage also be needed, he he!");
+talkEntry:addResponse("Indee! But the advice of mine and tha ancestors 'll need 20 copper coins! Entrails and ashes from a campfire... uhm 'nd yes, yes a sousage also be needed, he he!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -177,7 +177,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("suche rat");
-talkEntry:addResponse("Türlich! Aber Rat von Ahnen und mirr braucht Kupfermünzen... zwei! Gedärm und Asche von Lagerfeuer... uhm 'nd ja, ja ne Wurst brauchen wir auch, he he!");
+talkEntry:addResponse("Türlich! Aber Rat von Ahnen und mirr braucht Kupfermünzen... 20! Gedärm und Asche von Lagerfeuer... uhm 'nd ja, ja ne Wurst brauchen wir auch, he he!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

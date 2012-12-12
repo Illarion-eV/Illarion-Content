@@ -118,8 +118,8 @@ queststatus(334) = 1, item(148, all) < 2, "task", "adventure" -> "You've got the
 queststatus(334) = 1, item(148, all) < 2, "Auftrag", "Aufgabe", "Abenteuer" -> "Ihr habt mir vier Fussblatt gegeben. Jetzt sucht mir noch zwei Firnisblüten."
 
 -- Quest 2 solved, reward: 5 small healing potions
-queststatus(334) = 1, item(153, all) > 3, item(148, all) > 1, english, ".+" -> inform("[Quest solved] You are awarded twenty silver coins."), "Oh wonderful, thank you! Mistress Snow shall be so pleased with me! Here, take this as payment.", money + 2000, deleteItem(153, 4), deleteItem(148, 2), queststatus(334) = 2
-queststatus(334) = 1, item(153, all) > 3, item(148, all) > 1, ".+" -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke."), "Oh, wunderbar, vielen Dank! Meine Lehrerin Frau Shnow wird so stolz auf mich sein! Hier, nehmt dies zu Dank.", money + 2000, deleteItem(153, 4), deleteItem(148, 2), queststatus(334) = 2
+queststatus(334) = 1, item(153, all) > 3, item(148, all) > 1, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), "Oh wonderful, thank you! Mistress Snow shall be so pleased with me! Here, take this as payment.", money + 2000, deleteItem(153, 4), deleteItem(148, 2), queststatus(334) = 2
+queststatus(334) = 1, item(153, all) > 3, item(148, all) > 1, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), "Oh, wunderbar, vielen Dank! Meine Lehrerin Frau Shnow wird so stolz auf mich sein! Hier, nehmt dies zu Dank.", money + 2000, deleteItem(153, 4), deleteItem(148, 2), queststatus(334) = 2
 
 -- No more quests, just nice words of gratitude
 queststatus(334) = 2, english, "quest", "mission" -> "Thanks for your help. I should really start doing some work, though. I don't want to disappoint Aurora."
