@@ -21,6 +21,9 @@ function Init()
 			Please use a uniform naming format for the areas, especially lower case letters. You may use spaces.
 	]]
 	-- ## ADD AREAS BELOW ##
+  AddArea("cadomyr guard 1", {
+    {{position(118,637,0),position(118,633,0),position(110,633,0),position(110,637,0)}, {0}}
+  });
 end
 
 --- adds an area
