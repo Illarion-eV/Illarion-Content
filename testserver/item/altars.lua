@@ -120,7 +120,11 @@ end
 function LookAtItem( User, Item )
 
     thisGod=tonumber(Item:getData("devotedToGodID"));
-
+	
+	if thisGod==nil then
+		thisGod = 0;
+	end;
+	
     if init==nil or init==false then
         ini();
     end
@@ -218,6 +222,10 @@ end --function
 function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 
     thisGod=tonumber(SourceItem:getData("devotedToGodID"));
+	
+	if thisGod==nil then
+		thisGod = 0;
+	end;
 
     if init==nil or init==false then
         ini();
