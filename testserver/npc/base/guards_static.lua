@@ -15,7 +15,7 @@ ACTION_AGGRESSIVE = 3;	-- attack (TO DO)
 function CheckForEnemies(guard)
 
 	-- check for hostile monsters
-	local monsterList = world:getMonstersInRangeOf(CheckCenter[guard.id], content.guardsGuards[guard.id].radius);
+	local monsterList = world:getMonstersInRangeOf(guard.pos, content.guardsGuards[guard.id].radius);
 	for i,mon in pairs(monsterList) do
     if (content.areas.PointInArea(mon.pos,content.guardsGuards[guard.id].areaName)) then
       if ( not base.common.IsMonsterDocile(mon:getMonsterType()) ) then
@@ -27,7 +27,7 @@ function CheckForEnemies(guard)
 	end
 
 	-- check for player characters
-	local charList = world:getPlayersInRangeOf(CheckCenter[guard.id], content.guardsGuards[guard.id].radius);
+	local charList = world:getPlayersInRangeOf(guard.pos, content.guardsGuards[guard.id].radius);
 	for i,char in pairs(charList) do
     if (content.areas.PointInArea(char.pos,content.guardsGuards[guard.id].areaName)) then
       local mode = GetMode(char, content.guardsGuards[guard.id].faction);
