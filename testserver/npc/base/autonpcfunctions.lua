@@ -359,12 +359,12 @@ function CheckCondition( User, condition )
             return not idle;
         end
     elseif ( condition[1] == "town" ) then
-    	local Faction = base.factions.get_Faction(User); local townID = translateFractionname( condition[3] );
+    	local Faction = base.factions.getFaction(User); local townID = translateFractionname( condition[3] );
     	if not CompareValues( Faction.tid, townID, condition[2]) then
     		return false;
     	end
 	elseif ( condition[1] == "rank" or condition[1] == "rang") then
-		local Faction = base.factions.get_Faction(User);
+		local Faction = base.factions.getFaction(User);
 		local theName = condition[2];
 		if condition[2] == "hometown" then
 			if Faction.tid==0 then return false; end
@@ -579,7 +579,7 @@ function PerformConsequences( User, ListIndex )
 			Faction = base.factions.put(User,Faction);			
 		elseif ( consequence[1] == "rank" or consequence[1] == "rang") then		
 			
-			local Faction = base.factions.get_Faction(User); 
+			local Faction = base.factions.getFaction(User); 
 			local theName = consequence[2];
 			if consequence[2] == "hometown" then
 				if Faction.tid==0 then return false; end

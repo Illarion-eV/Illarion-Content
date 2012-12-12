@@ -449,3 +449,7 @@ function TakeMoneyFromDepot(char, money, depotId)
     
     TakeCoinsFromDepot(char, PayGold, PaySilver, PayCopper,depotId);
 end;
+
+function IsCurrency(itemId)
+    return itemId == CopperCoinsID or itemId == SilverCoinsID or itemId == GoldCoinsID
+end

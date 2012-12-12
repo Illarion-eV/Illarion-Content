@@ -1245,7 +1245,7 @@ end;
 talkingNPC:addCycleText("#me macht sich Notizen.", "#me takes notes.");
 talkingNPC:addCycleText("Das klingt spannend! Moment...wie schreibt man das?", "That sounds fascinating!Wait... how do you spell that?");
 talkingNPC:addCycleText("Ehre der Königin!", "Honor to the Queen!");
-talkingNPC:addCycleText("#me schaut sich neugierig um.", "#me lookes around couriously.");
+talkingNPC:addCycleText("#me schaut sich neugierig um.", "#me looks around curiously.");
 talkingNPC:addCycleText("#me lächelt freundlich.", "#me smiles brightly.");
 talkingNPC:addCycleText("Ich mag Cadomyr.", "I like Cadomyr.");
 talkingNPC:addCycleText("#me wischt sich den Schweiß von der Stirn.", "#me wipes the sweat off her forehead.");

@@ -111,10 +111,10 @@ queststatus(108) = 1, item(463, all) < 5, "task", "adventure", "message" -> "How
 queststatus(108) = 1, item(463, all) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Wie soll ich ohne Federkiele die neuesten Befehle der Königin niederschreiben? Bring mit wenigstens fünf, wenn ihr loyal seid."
 
 -- Quest 1 solved, reward: 200cp, +5 rankpoints
-queststatus(108) = 1, item(463, all) > 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded twenty silver coins. You advance in Queen Rosaline Edwards' favour."), "Very good! With those quills, I can write down today's orders. If you wait a brief moment, you could go on a mission to issue the orders.", money + 2000, deleteItem(463, 5), queststatus(108) = 2, rankpoints + 5
-queststatus(108) = 1, item(463, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded twenty silver coins."), "Very good! With those quills, I can write down today's orders. If you wait a brief moment, you could go on a mission to issue the orders.", money + 2000, deleteItem(463, 5), queststatus(108) = 2
-queststatus(108) = 1, item(463, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Sehr gut! Mit diesen Federkielen kann ich die Tagesbefehle niederschreiben. Wenn ihr kurz wartet, könnt ihr auf die Mission gehen, die Befehle auszuteilen.", money + 2000, deleteItem(463, 5), queststatus(108) = 2, rankpoints + 5
-queststatus(108) = 1, item(463, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 200 Kupferstücke."), "Sehr gut! Mit diesen Federkielen kann ich die Tagesbefehle niederschreiben. Wenn ihr kurz wartet, könnt ihr auf die Mission gehen, die Befehle auszuteilen.", money + 2000, deleteItem(463, 5), queststatus(108) = 2
+queststatus(108) = 1, item(463, all) > 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins. You advance in Queen Rosaline Edwards' favour."), "Very good! With those quills, I can write down today's orders. If you wait a brief moment, you could go on a mission to issue the orders.", money + 2000, deleteItem(463, 5), queststatus(108) = 2, rankpoints + 5
+queststatus(108) = 1, item(463, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), "Very good! With those quills, I can write down today's orders. If you wait a brief moment, you could go on a mission to issue the orders.", money + 2000, deleteItem(463, 5), queststatus(108) = 2
+queststatus(108) = 1, item(463, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Sehr gut! Mit diesen Federkielen kann ich die Tagesbefehle niederschreiben. Wenn ihr kurz wartet, könnt ihr auf die Mission gehen, die Befehle auszuteilen.", money + 2000, deleteItem(463, 5), queststatus(108) = 2, rankpoints + 5
+queststatus(108) = 1, item(463, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), "Sehr gut! Mit diesen Federkielen kann ich die Tagesbefehle niederschreiben. Wenn ihr kurz wartet, könnt ihr auf die Mission gehen, die Befehle auszuteilen.", money + 2000, deleteItem(463, 5), queststatus(108) = 2
 
 -- 2nd quest: Bring a message to Robertus
 
@@ -133,8 +133,8 @@ queststatus(108) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht
 -- Quest 2 solved, reward: 50cp, large metal shield (20), +10 rankpoints
 queststatus(108) = 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded five silver coins and a large metal shield. You advance in Queen Rosaline Edwards' favour."), "Very good, now Robertus has the sketch the queen drew. As messenger of the queen, you deserve this shield with her crest.", money + 500, item(20, 1, 599), queststatus(108) = 5, rankpoints + 10
 queststatus(108) = 4, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and a large metal shield."), "Very good, now Robertus has the sketch the queen drew. As messenger of the queen, you deserve this shield with her crest.", money + 500, item(20, 1, 599), queststatus(108) = 5
-queststatus(108) = 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und einen großen Metallschild. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Sehr gut, nun hat Robertus die Skizze der Königin. Als Bote der Königin verdient ihr diesen Schild mit ihrem Wappen.", money + 500, item(20, 1, 599), queststatus(108) = 5, rankpoints + 10
-queststatus(108) = 4, ".+" -> inform("[Quest gelöst] Du erhältst 50 Kupferstücke und einen großen Metallschild."), "Sehr gut, nun hat Robertus die Skizze der Königin. Als Bote der Königin verdient ihr diesen Schild mit ihrem Wappen.", money + 500, item(20, 1, 599), queststatus(108) = 5
+queststatus(108) = 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und einen großen Metallschild. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Sehr gut, nun hat Robertus die Skizze der Königin. Als Bote der Königin verdient ihr diesen Schild mit ihrem Wappen.", money + 500, item(20, 1, 599), queststatus(108) = 5, rankpoints + 10
+queststatus(108) = 4, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und einen großen Metallschild."), "Sehr gut, nun hat Robertus die Skizze der Königin. Als Bote der Königin verdient ihr diesen Schild mit ihrem Wappen.", money + 500, item(20, 1, 599), queststatus(108) = 5
 
 -- 3rd quest: Bring a message to Arenius Batavius.
 
@@ -171,10 +171,10 @@ queststatus(108) = 9, "Task", "Adventure", "Message" -> "The queen does not appr
 queststatus(108) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Die Königin wartet nicht gerne. Bald wird sie erfahren, dass ihr dafür verantwortlich seid, dass ihre Edelsteine aus der Dunkellochmine nicht ankommen."
 
 -- Quest 4 solved, reward: 400cp, +15 rankpoints
-queststatus(108) = 10, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded forty silver coins. You advance in Queen Rosaline Edwards' favour."), "Great! Now the treasury of Cadomyr will have more trumpery. Here is your reward.", money + 4000, queststatus(108) = 11, rankpoints + 15
-queststatus(108) = 10, english, ".+" -> inform("[Quest solved] You are awarded forty silver coins."), "Great! Now the treasury of Cadomyr will have more trumpery. Here is your reward.", money + 4000, queststatus(108) = 11
-queststatus(108) = 10, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 400 Kupferstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Großartig! Nun wird noch mehr Kitsch die Schatzkammer Cadomyrs überfluten. Hier, eure Belohnung.", money + 4000, queststatus(108) = 11, rankpoints + 15
-queststatus(108) = 10, ".+" -> inform("[Quest gelöst] Du erhältst 400 Kupferstücke."), "Großartig! Nun wird noch mehr Kitsch die Schatzkammer Cadomyrs überfluten. Hier, eure Belohnung.", money + 4000, queststatus(108) = 11
+queststatus(108) = 10, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 40 silver coins. You advance in Queen Rosaline Edwards' favour."), "Great! Now the treasury of Cadomyr will have more trumpery. Here is your reward.", money + 4000, queststatus(108) = 11, rankpoints + 15
+queststatus(108) = 10, english, ".+" -> inform("[Quest solved] You are awarded 40 silver coins."), "Great! Now the treasury of Cadomyr will have more trumpery. Here is your reward.", money + 4000, queststatus(108) = 11
+queststatus(108) = 10, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 40 Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Großartig! Nun wird noch mehr Kitsch die Schatzkammer Cadomyrs überfluten. Hier, eure Belohnung.", money + 4000, queststatus(108) = 11, rankpoints + 15
+queststatus(108) = 10, ".+" -> inform("[Quest gelöst] Du erhältst 40 Silberstücke."), "Großartig! Nun wird noch mehr Kitsch die Schatzkammer Cadomyrs überfluten. Hier, eure Belohnung.", money + 4000, queststatus(108) = 11
 
 -- 5th quest: Bring a message to Archmage Elvaine Morgan.
 

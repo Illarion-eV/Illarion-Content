@@ -59,7 +59,7 @@ function LookAtItemIdent(User,Item)
 	end ]]
 
 	if not found then
-        world:itemInform(User,Item,world:getItemName(Item.id,User:getPlayerLanguage()));
+        world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
     end
     --[[if not found then
         val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(ChimneyListGerman))+1;

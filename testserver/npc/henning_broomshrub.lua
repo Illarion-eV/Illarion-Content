@@ -38,7 +38,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist ein Hütchenspieler. Er schiebt in einer Tour drei Nüße hin und her. Sag 'Ich wette.' um um ein Silberstück zu spielen. Sage dann 'rechts', 'links' oder 'mitte' um eine Nuss zu wählen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist ein Hütchenspieler. Er schiebt in einer Tour drei Nüße hin und her. Sag 'Ich wette.' um zehn Silberstücke zu spielen. Sage dann 'rechts', 'links' oder 'mitte' um eine Nuss zu wählen."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,7 +321,7 @@ talkEntry:addCondition(npc.base.condition.money.money("<", 1000));
 talkEntry:addTrigger("setze");
 talkEntry:addTrigger("wette");
 talkEntry:addTrigger("setz");
-talkEntry:addResponse("Du hast ja nichtmal eine Silbermünze.");
+talkEntry:addResponse("Du hast ja nichtmal zehn Silbermünzen.");
 talkEntry:addResponse("Du solltest nicht mehr setzen als du eigentlich hast. Zack, eine Silbermünze auf den Tisch!");
 talkEntry:addResponse("Willst du mich veräppeln? Zähl mal dein Geld!");
 talkEntry:addResponse("Netter Versuch. Hol erstmal dein Geld, bevor wir spielen.");
