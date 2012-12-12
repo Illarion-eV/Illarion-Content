@@ -1153,7 +1153,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addResponse("Don Valerio ist wie ein Vater für mich. Wie ein Pate, könnte man auch sagen.");
-talkEntry:addResponse("Sag ein böses Wort über den Don und die riskierst einen Zahn. Sage ein weiteres und du riskierst deine Zunge.");
+talkEntry:addResponse("Sag ein böses Wort über den Don und du riskierst einen Zahn. Sage ein weiteres und du riskierst deine Zunge.");
 talkEntry:addResponse("Don Valerio hat all dies hier aufgebaut. Nicht Stein für Stein, sondern Münze für Münze. Reichtum hat Galmair stark gemacht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
