@@ -31,7 +31,8 @@ function LookAtItemIdent(User,Item)
     local signItemId     = content.grave.signItemId;
     local signPerception = content.grave.signPerception;
 
-    found = false;
+    local lookAt = base.lookat.GenerateLookAt(User, Item)
+    
     UserPer = User:increaseAttrib("perception",0);
     tablePosition = Item.pos.x .. Item.pos.y .. Item.pos.z;
 	if signCoo ~= nil then
@@ -39,34 +40,16 @@ function LookAtItemIdent(User,Item)
 			for i, signpos in pairs(signCoo[tablePosition]) do
 				if (Item.pos == signpos) then
 					if (UserPer >= signPerception[tablePosition][i]) then
-						found = true;
-						world:itemInform(User,Item,base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name)));
-						test = signTextDe[tablePosition][i];
+						lookAt.description = base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name))
 					else
-                        found = true;
-						world:itemInform(User,Item,base.common.GetNLS(User,"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~"));
+						lookAt.description = base.common.GetNLS(User,"Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.","You recognise something, but you cannot read it, because you are too blind.")
 					end
 				end
 			end
 		end
 	end
 
-	--[[local outText = checkNoobiaSigns(User,Item.pos);
-	if outText and not found then
-		world:itemInform(User,Item,outText);
-		found = true;
-	end ]]
-
-	if not found then
-        world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
-    end
-    --[[if not found then
-        val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(GraveListGerman))+1;
-        world:itemInform( User, Item, base.common.GetNLS(User, GraveListGerman[val], GraveListEnglish[val]) );
-	end]]-- 
-
---		User:inform("in LookAtItem of base_wegweiser.lua");
-		--User:inform(test);
+    world:itemInform(User, Item, lookAt)
 end
 --[[
 	LookAtItemIdent
