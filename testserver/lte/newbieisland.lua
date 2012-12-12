@@ -14,11 +14,13 @@ module("lte.newbieisland", package.seeall)
 	"[Tutorial] Brauchst du Hilfe? Schreibe '!gm Deine Frage' und drücke Return. Sobald ein Gamemaster verfügbar ist wird er dir helfen.",
 	"[Tutorial] Um laut zu rufen, schreibe #s vor deine Nachricht. Um zu flüstern, verwende #w. Für den 'Out-of-character'-Modus verwendest du #o.",
 	"[Tutorial] Ein Tutorial kann niemals die Hilfe anderer Spieler oder des Illarion-Teams ersetzen. Trete bitte dem offiziellen Illarion-Chat, der auf der Homepage verlinkt ist, und stell dich einfach mal vor.",
+	"[Tutorial] Klicke und halte die linke Maustaste auf ein weit entferntes Feld um zu laufen.",
 	"[Tutorial] Um deinen Charakter anderen Charakteren vorzustellen, schreibe #i in die Chatbox und drücke Return. Spieler in der näheren Umgebung werden so den Namen deines Charakters erfahren.",
 	"[Tutorial] Alle NPCs reagieren auf eine Reihe von Schlüsselwörtern. Eine List der wichtigsten Schlüsselwörter erhältst du als Antwort auf 'Hilfe'.",
 	"[Tutorial] Indem du NPCs nach 'Aufgaben' und 'Quests' fragst, kannst du großen Reichtum erlangen.",
 	"[Tutorial] Um die Fertigkeiten deines Charakters zu überprüfen, drücke bei deaktivierter Chatbox 'C'.",
 	"[Tutorial] Der rote Balken repräsentiert die Gesundheit deines Charakters. Der gelbe Balken zeigt wie satt dein Charakter ist und der blaue Balken symbolisiert das Mana der Magier.",
+	"[Tutorial] Um gestapelte Gegenstände zu trennen, halte die Shift-Taste beim Bewegen gedrückt.",
 	"[Tutorial] Hast du dir schon Gedanken zum Hintergrund und zur Vergangenheit deines Charakters gemnacht? Die Illarion-Homepage enthält eine Menge nützliche Informationen über Rassen, Götter und die Geschichte Illarions.",
 	"[Tutorial] Sollte dein Charakter Hunger bekommen, so pflücke ein paar Früchte indem du den Stamm eines Obstbaums benutzt. Früchte werden gegessen, indem man sie benutzt."}
 
@@ -28,11 +30,13 @@ module("lte.newbieisland", package.seeall)
 	"[Tutorial] Do you need help? Type '!gm <your question>' and hit enter. As soon as a Gamemaster is available, they will assist you.",
 	"[Tutorial] To shout, type #s in front of your message. To whisper, use #w. And use #o for the out of character mode.",
 	"[Tutorial] A tutorial can never replace the help of other players or the Illarion staff. We invite you to join the official Illarion chat, linked on the homepage, and introduce yourself.",
-	"[Tutorial] If you want to introduce your character to other players, #i in the chatbox and hit return. The players around you will then be able to see your character's name.",
+	"[Tutorial] Click and hold the left mouse button while pointing at a distant field to make your character run.",
+	"[Tutorial] If you want to introduce your character to other players, type #i in the chatbox and hit return. The players around you will then be able to see your character's name.",
 	"[Tutorial] All NPCs react on a number of keywords. You can get a list of the most important keywords for a particular NPC with the command 'help'.",
 	"[Tutorial] By asking NPCs for 'missions' and 'quests' you can become extremely wealthy.",
 	"[Tutorial] You can review your skills by deactivating the chat box and hitting 'C'.",
 	"[Tutorial] The red bar represents the health of your character. The yellow bar is an indicator of how hungry your character is, and the blue bar shows the mana level of mage characters.",
+	"[Tutorial] To split a stack of items, hold shift while moving the stack.",
 	"[Tutorial] Did you already think about the background and past of your character? The illarion.org homepage contains a lot of information on the races, the gods, and the lore of Illarion.",
 	"[Tutorial] If your character ever gets hungry, just harvest some fruits by using the trunk of a fruit tree. You can then eat the fruits by using them."}
 	-- cycle messages end

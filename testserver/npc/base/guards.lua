@@ -117,7 +117,7 @@ function GetMode(guard, char)
 	if not found then
 		return 0;
 	end
-	local f = base.factions.get_Faction(char).tid;
+	local f = base.factions.getFaction(char).tid;
 	mode = mode % (10^(f+1));
 	mode = math.floor(mode / 10^f);
 	return mode;]]

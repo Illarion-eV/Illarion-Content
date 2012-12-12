@@ -13,8 +13,6 @@ module("base.factions", package.seeall)
 
 function InitFactionLists()
    
-	notaryNames = {"Torina Scibrim"}
-   
 	--Lists for Functions--
 	NpcLocation = {};   --holds the location(townID) of the NPC
 	TextRepeatCnt={}; --a value/counter to allow text repeation(e.g.for questions)
@@ -168,10 +166,7 @@ function getFaction(originator)
 	local factionMembership = originator:getQuestProgress(199);
 	local towncnt = originator:getQuestProgress(201);
 	local rankpoints = getRankpoints(originator);
-	if rankTown==nil then
-		originator:setQuestProgress(200,0);
-		rankTown = 0;
-	elseif factionMembership == nil then
+	if factionMembership == nil then
 		originator:setQuestProgress(199,0);
 		factionMembership = 0;
 	elseif towncnt == nil then
@@ -224,12 +219,8 @@ end
 
 ]]
 function setFaction(originator,Faction)
-
-	--------don't allow unknown ranks-----
-	if Faction.rankTown>11 then Faction.rankTown = 11 elseif Faction.rankTown<0 then Faction.rankTown = 0; end
 	-------------write changes------------
 	originator:setQuestProgress(199,tonumber(Faction.tid));
-	originator:setQuestProgress(200,tonumber(Faction.rankTown));
 	originator:setQuestProgress(201,tonumber(Faction.towncnt));
 	originator:setQuestProgress(202,tonumber(Faction.rankpoints));
 end
@@ -326,7 +317,7 @@ function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 			return;
 		end
 		
-		fv.rankpoints = 20 -- set default value for rankpoints
+		fv.rankpoints = 0 -- set default value for rankpoints
 		fv.tid = theTown; --set new Town ID
 		fv.rankTown = theRank -- set the rank of the town
 				
