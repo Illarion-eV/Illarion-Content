@@ -373,13 +373,13 @@ product = smithing:addProduct(catId, 230, 18, 38, 9, 18)
 product:addIngredient(2535, 2) -- Iron Ingot: 2x1
 product:addIngredient(2548) -- Mace Handle: 1x1
 
---Morning Star
-product = smithing:addProduct(catId, 2737, 36, 56, 14, 28)
+--Battle Flail
+product = smithing:addProduct(catId, 231, 36, 56, 14, 28)
 product:addIngredient(2535, 5) -- Iron Ingot: 5x1
 product:addIngredient(2549) -- Morning Star: 1x1
 
---Morning Star
-product = smithing:addProduct(catId, 231, 48, 68, 17, 34)
+--War Flail
+product = smithing:addProduct(catId, 2737, 48, 68, 17, 34)
 product:addIngredient(2535, 7) -- Iron Ingot: 7x1
 product:addIngredient(2549) -- Morning Star: 1x1
 
