@@ -488,10 +488,10 @@ talkEntry:addResponse("Ich und meine Familie wandern und entdecken gern. Ich bin
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Ich kann euch an interessante Orte bringen.", "I can take you to interesting places.");
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Cadomyr","portal book to Cadomyr",20000,1,333,{["destinationCoordsY"] = "647", ["destinationCoordsX"] = "127", ["destinationCoordsZ"] = "0"}));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Galmair","portal book to Galmair",20000,1,333,{["destinationCoordsY"] = "245", ["destinationCoordsX"] = "424", ["destinationCoordsZ"] = "0"}));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Runewick","portal book to Runewick",20000,1,333,{["destinationCoordsY"] = "826", ["destinationCoordsX"] = "788", ["destinationCoordsZ"] = "0"}));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch zum Hemp Necktie Inn","portal book to the Hemp Necktie Inn",20000,1,333,{["destinationCoordsY"] = "308", ["destinationCoordsX"] = "648", ["destinationCoordsZ"] = "0"}));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Cadomyr","portal book to Cadomyr",2000,1,333,{["destinationCoordsY"] = "647", ["destinationCoordsX"] = "127", ["destinationCoordsZ"] = "0", ["descriptionEn"] = "Portal to Cadomyr", ["descriptionDe"] = "Portal nach Cadomyr"}));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Galmair","portal book to Galmair",2000,1,333,{["destinationCoordsY"] = "245", ["destinationCoordsX"] = "424", ["destinationCoordsZ"] = "0", ["descriptionEn"] = "Portal to Galmair", ["descriptionDe"] = "Portal nach Galmair"}));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch nach Runewick","portal book to Runewick",2000,1,333,{["destinationCoordsY"] = "826", ["destinationCoordsX"] = "788", ["destinationCoordsZ"] = "0", ["descriptionEn"] = "Portal to Runewick", ["descriptionDe"] = "Portal nach Runewick"}));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(1061,"sell","Portalbuch zum Hemp Necktie Inn","portal book to the Hemp Necktie Inn",2000,1,333,{["destinationCoordsY"] = "308", ["destinationCoordsX"] = "648", ["destinationCoordsZ"] = "0", ["descriptionEn"] = "Portal to the Hemp Necktie Inn", ["descriptionDe"] = "Portal zum Hemp Necktie Inn"}));
 tradingNPC:addNotEnoughMoneyMsg("Du hast nicht genug Geld!", "You don't have enough money!");
 tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come back soon.");
 tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was euch gefällt?", "Don't you like my wares?");
