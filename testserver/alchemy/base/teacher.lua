@@ -12,8 +12,8 @@ HerbsTaskOneNameEN = {}
 HerbsTaskOneNameDE = {}
 
 HerbsTaskOneId["Knowing Tree"] =   {133  ,  81, 140}
-HerbsTaskOneNameEN["Knowing Tree"] = {"sonnenkraut","beeren","donfblatt"}
-HerbsTaskOneNameDE["Knowing Tree"] = {"1","2","3"}
+HerbsTaskOneNameEN["Knowing Tree"] = {"sunherbs","berries","donf blades"}
+HerbsTaskOneNameDE["Knowing Tree"] = {"Sonnenkräuter","Beeren","Donfblätter"}
 
 HerbsTaskOneId["Thinking Stone"] =   {7,5,6}
 HerbsTaskOneNameEN["Thinking Stone"] = {"4","5","6"}
@@ -30,8 +30,8 @@ HerbsTaskTwoNameEN = {}
 HerbsTaskTwoNameDE = {}
 
 HerbsTaskTwoId["Knowing Tree"] =   {756,755}
-HerbsTaskTwoNameEN["Knowing Tree"] = {"frommbeere","feuerwurz"}
-HerbsTaskTwoNameDE["Knowing Tree"] = {"1","2"}
+HerbsTaskTwoNameEN["Knowing Tree"] = {"Frommbeere","Feuerwurz"}
+HerbsTaskTwoNameDE["Knowing Tree"] = {"pious berry","fire root"}
 
 HerbsTaskTwoId["Thinking Stone"] =   {4,5}
 HerbsTaskTwoNameEN["Thinking Stone"] = {"4","5"}
