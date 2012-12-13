@@ -3,6 +3,7 @@
 -- UPDATE common SET com_script='item.id_532_panpipe' WHERE com_itemid=532;
 
 require("item.base.music")
+require("item.general.wood")
 
 module("item.id_532_panpipe", package.seeall)
 
@@ -17,3 +18,5 @@ item.base.music.addTalkText("#me plays his panpipes, blowing gently and graceful
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     item.base.music.PlayInstrument(User,SourceItem, skill);
 end
+
+LookAtItem = item.general.wood.LookAtItem
