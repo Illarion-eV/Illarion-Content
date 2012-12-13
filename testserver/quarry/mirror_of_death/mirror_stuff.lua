@@ -1,7 +1,88 @@
--- INSERT INTO triggerfields VALUES (891,390,0,'triggerfield.sacrificial_bowl')
 
-require("base.common")
-module("triggerfield.sacrificial_bowl", package.seeall)
+-- will be used post vbu --
+-- Mirror of Death --
+	if (Item.pos == position(892,390,0)) and (User:getFaceTo() == 2) and (User.pos == position(890,390,0)) then
+	    MirrorOfDeath(User)
+	    return
+	end	-- end of mirror of death
+	
+	
+	
+	
+	function MirrorOfDeath(User)
+	-- shows the a picture of him after his death
+	-- can be reducned by donations, see coin scripts MoveItemAfterMove
+	
+	getProgress = User:getQuestProgress(666)
+	if getProgress == 0 then
+	    getProgress = 10000
+	end	
+	charSex = User:increaseAttrib("sex",0)
+	charRace = User:getRace()
+	deathCounter = getProgress-((math.floor(getProgress/10))*10)  
+	
+	if deathCounter == 0 then
+		base.common.InformNLS(User, "Im Spiegel siehst du ein Bild deiner selbst - jedoch in den besten deiner Jahre, bei voller Gesundheit.",
+									"You see yourself in the mirror - but in your prime time and fit as a fiddle.")
+	else
+	    if charSex == 0 then
+		    base.common.InformNLS(User, DeathTextMaleDE[charRace][deathCounter], DeathTextMaleEN[charRace][deathCounter])
+	    else
+	        base.common.InformNLS(User, DeathTextFemaleDE[charRace][deathCounter], DeathTextFemaleEN[charRace][deathCounter])
+	    end
+	end
+end
+
+DeathTextMaleDE = {}
+DeathTextMaleEN = {}
+-- human
+DeathTextMaleDE[0] = {"de1","de2","de3","de4","de5"}
+DeathTextMaleEN[0] = {"en1","en2","en3","en4","en5"}
+-- dwarf
+DeathTextMaleDE[1] = {"de1","de2","de3","de4","de5"}
+DeathTextMaleEN[1] = {"en1","en2","en3","en4","en5"}
+-- halfling
+DeathTextMaleDE[2] = {"de1","de2","de3","de4","de5"}
+DeathTextMaleEN[2] = {"en1","en2","en3","en4","en5"}
+-- elf
+DeathTextMaleDE[3] = {"de1","de2","de3","de4","de5"}
+DeathTextMaleEN[3] = {"en1","en2","en3","en4","en5"}
+-- orc
+DeathTextMaleDE[4] = {"de1","de2","de3","de4","de5"}
+DeathTextMaleEN[4] = {"en1","en2","en3","en4","en5"}
+-- lizard
+DeathTextMaleDE[5] = {"de1","de2","de3","de4","de5"}
+DeathTextMaleEN[5] = {"en1","en2","en3","en4","en5"}
+
+DeathTextFemaleDE = {}
+DeathTextFemaleEN = {}
+-- human
+DeathTextFemaleDE[0] = {"de1","de2","de3","de4","de5"}
+DeathTextFemaleEN[0] = {"en1","en2","en3","en4","en5"}
+-- dwarf
+DeathTextFemaleDE[1] = {"de1","de2","de3","de4","de5"}
+DeathTextFemaleEN[1] = {"en1","en2","en3","en4","en5"}
+-- halfling
+DeathTextFemaleDE[2] = {"de1","de2","de3","de4","de5"}
+DeathTextFemaleEN[2] = {"en1","en2","en3","en4","en5"}
+-- elf
+DeathTextFemaleDE[3] = {"de1","de2","de3","de4","de5"}
+DeathTextFemaleEN[3] = {"en1","en2","en3","en4","en5"}
+-- orc
+DeathTextFemaleDE[4] = {"de1","de2","de3","de4","de5"}
+DeathTextFemaleEN[4] = {"en1","en2","en3","en4","en5"}
+-- lizard
+DeathTextFemaleDE[5] = {"de1","de2","de3","de4","de5"}
+DeathTextFemaleEN[5] = {"en1","en2","en3","en4","en5"}
+
+
+function LookAtItem(User,Item)
+    if Item.pos == position(891,390,0) then -- cherga temple, infront of Mirror of Death
+	    world:itemInform( User,Item,base.common.GetNLS( User, "Opferschale", "Sacrificial bowl") )
+    else
+        world:itemInform( User,Item,base.common.GetNLS( User, "Teller", "plate") )
+    end
+end
 
 -- sacrificial bowl for the Mirror of Death
 -- here, the death counter is reduced 
