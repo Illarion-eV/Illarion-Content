@@ -794,7 +794,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
 talkEntry:addResponse("Runewick is firm like a rock. No wonder, it was made of rocks.");
 talkEntry:addResponse("Runewick became my new home. I was born in Salkamar and spent my youth on an island called Gobaith. But that is no more...");
-talkEntry:addResponse("Runewick, well, look east and tell me what you see there. That is Runewick!");
+talkEntry:addResponse("Runewick? Well, look east and tell me what you see there. That is Runewick!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
