@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------AC
+﻿------------------------------------------------------------------------------AC
 -- NPC Name: Frizza                                                   Cadomyr --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
@@ -224,12 +224,12 @@ english, "Zhambra" -> "The followers of Zhambra are righteous and loyal ones who
 "Zhambra" -> "Die Anhänger Zhambras sind geradlinig und ergebene Gefolgsleute, die an Ehre und Recht glauben. Sie versuchen häufig, Andere zu retten und stehen im Kampf gegen das Böse. Zhambra wird gehuldigt von Adligen, Rittern, Höflingen und von vielen Kriegern."
 
 -- Optional: Main land factions
--- "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
--- "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
--- "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "albar", english -> "I have never heard that name.."
+-- "albar" -> "Ich habe diesssen Namen nie gehört."
+-- "gynk", "gync", english -> "I have never heard that name."
+-- "gync", "gynk" -> "Ich habe diesssen Namen nie gehört."
+-- "salkama", english -> "I have never heard that name."
+-- "salkama" ->"Ich habe diesssen Namen nie gehört."
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "I have never heard that name."

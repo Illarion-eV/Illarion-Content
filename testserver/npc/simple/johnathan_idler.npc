@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------AC
+﻿------------------------------------------------------------------------------AC
 -- NPC Name: Johnathan Idler                                             None --
 -- NPC Job:  Mage                                                             --
 --                                                                            --
@@ -136,7 +136,7 @@ english, "Elf" -> "I'd like to see one...Would you do me a favor?", "So, so know
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "There are books about the gods in this library. Just look around, I'm sure you'll find them.", "I'm usually busy reading, so I don't go to the temples often."
-"Gott", "Götter" -> "Hier in der Bibliothek gibt es Bücher über die Götter. Seht Euch nur um und Ihr werdet sie finden.", "Ich bin normalerweise zu sehr mit lesen beschäftigt, als das ich in den Tempel gehe.", "GERMAN3."
+"Gott", "Götter" -> "Hier in der Bibliothek gibt es Bücher über die Götter. Seht Euch nur um und Ihr werdet sie finden.", "Ich bin normalerweise zu sehr mit lesen beschäftigt, als das ich in den Tempel gehe.", 
 english, "Adron" -> "Ah yes...", "Interesting.", "This book is not about this god."
 "Adron" -> "Ah ja...", "Interessant.", "Diese Buch handelt nicht von diesem Gott."
 english, "Bragon", "Brágon" -> "Ah, yes...", "Interesting.", "This book is not about this god."
