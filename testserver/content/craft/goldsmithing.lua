@@ -1,9 +1,9 @@
 require("item.base.crafts")
 
-module("content.craft.goldgoldsmithing", package.seeall)
+module("content.craft.goldsmithing", package.seeall)
 
 goldsmithing = item.base.crafts.Craft:new{
-                      craftEN = "goldgoldsmithing",
+                      craftEN = "goldsmithing",
                       craftDE = "Goldschmieden",
                       handTool = 122,
                       leadSkill = Character.goldsmithing,
