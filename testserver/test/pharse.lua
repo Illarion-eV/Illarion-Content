@@ -160,7 +160,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 				User:inform("Sorry, I didn't understand you.");
         local cbSel = function (dialog)
           if (dialog:getSuccess()) then
-            User.inform("success with index " .. dialog:getSelectedIndex());
+            User:inform("success with index " .. dialog:getSelectedIndex());
           else
             User:inform("failure");
           end
@@ -168,7 +168,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         local s = SelectionDialog("Test Item", "What do you want to do?", cbSel);
         s:addOption(1,"ind 0");
         s:addOption(4,"ind 1");
-        s:addOption(6,"ind 2");
+        s:addOption(0,"ind 2");
         User:requestSelectionDialog(s);
 			end
 		end
