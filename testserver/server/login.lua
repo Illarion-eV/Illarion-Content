@@ -318,8 +318,7 @@ function payNow(User)
     
 	local infText = base.common.GetNLS(User, 
 	                                   "Du hast deine monatliche Abgabe gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "....(taxHeight*100).."%", 
-	                                   "You have paid your monthly tribute. This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%"
-	)
+	                                   "You have paid your monthly tribute. This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
 	
 	local dialog=MessageDialog("Tribute information",infText,closeTrib);
     --Please add the information to which town the tribute was paid ~Estralis
