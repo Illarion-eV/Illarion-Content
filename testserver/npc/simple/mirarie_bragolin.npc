@@ -260,7 +260,7 @@ queststatus(317) = 14, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachrich
 cycletext "#me macht sich Notizen.", "#me takes notes."
 cycletext "Das klingt spannend! Moment...wie schreibt man das?", "That sounds fascinating!Wait... how do you spell that?"
 cycletext "Ehre der Königin!", "Honor to the Queen!"
-cycletext "#me schaut sich neugierig um.", "#me lookes around couriously."
+cycletext "#me schaut sich neugierig um.", "#me looks around curiously."
 cycletext "#me lächelt freundlich.", "#me smiles brightly."
 cycletext "Ich mag Cadomyr.", "I like Cadomyr."
 cycletext "#me wischt sich den Schweiß von der Stirn.", "#me wipes the sweat off her forehead."

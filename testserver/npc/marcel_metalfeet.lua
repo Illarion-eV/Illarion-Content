@@ -332,7 +332,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Freu mich.");
+talkEntry:addResponse("Freut mich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -377,8 +377,8 @@ talkingNPC:addCycleText("Marcel Metalfeet! Ich repariere alles und jeden!", "Mar
 talkingNPC:addCycleText("#me pfeift eine Melodie.", "#me whistles.");
 talkingNPC:addCycleText("#me schaut sich um.", "#me lookes around.");
 talkingNPC:addCycleText("#me leckt sich über die Lippen.", "#me licks his lips.");
-talkingNPC:addCycleText("#me lekt seine Finger ab.", "#me licks his fingers.");
-talkingNPC:addCycleText("#w Ich möchte Kuchen essen... Ich möchte nicht arbeiten.", "#w I want to eat Cake... I do not want to work.");
+talkingNPC:addCycleText("#me leckt seine Finger ab.", "#me licks his fingers.");
+talkingNPC:addCycleText("#w Ich möchte Kuchen essen... Ich möchte nicht arbeiten.", "#w I want to eat a cake... I do not want to work.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));

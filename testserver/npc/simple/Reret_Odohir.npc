@@ -2,7 +2,7 @@
 -- NPC Name: Reret Odohir                                         Cadomyr     --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human      NPC Position: 106,533,0                               --
+-- NPC Race: human      NPC Position: 106,553,0                               --
 -- NPC Sex:  female     NPC Direction:north                           --
 --                                                                            --
 -- Author:  ??+ Miriam                                                        --
@@ -12,7 +12,7 @@
 name = "Reret Odohir"
 race = human
 sex = female
-position = 106,533,0
+position = 106,553,0
 direction = north
 affiliation = "Cadomyr"
 job = "Notary"
@@ -76,8 +76,8 @@ tradeWrongItemMsg "Oh, Das kaufe ich nicht. Tut mir leid.", "Oh, I don't buy tha
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Retret Odohir the Notary of Cadomyr. Keywords: become citizen.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Retret Odohir die Notar von Cadomyr. Schlüsselwörter: Bürger werden.")
+"Help" -> inform("[Game Help] This NPC is Retret Odohir the Notary of Cadomyr. Keywords: become citizen, wich town.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Retret Odohir die Notar von Cadomyr. Schlüsselwörter: Bürger werden, welche Stadt.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted.", "Greetings.", "Be greeted, nice to see you here.", "Be greeted, I am the notary of this town."
@@ -110,8 +110,8 @@ english, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a 
 "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
 
 -- Test Question
-"welche Stadt", "weche faktion" -> "Du gehöerst nach %TOWN!"
-"wich town", "wich faction" -> "Youz belong to %TOWN!"
+"welche Stadt", "weche faktion" -> "Du gehörst nach %TOWN!"
+"wich town", "wich faction" -> "You belong to %TOWN!"
 --"ich" ->  "%CHARNAME"
 
 -- RANK informations

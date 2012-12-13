@@ -138,7 +138,7 @@ queststatus(112) = 1, "Auftrag", "Aufgabe", "Abenteuer" -> "Oh, ihr habt noch ni
 
 -- Quest 1 solved, reward: 60cp
 queststatus(112) = 2, english, ".+" -> inform("[Quest solved] You are awarded six silver coins."), "So, the origin of the evil presence is an oak? Let me think about this for a minute or a year and come back to me.", money + 600, queststatus(112) = 3
-queststatus(112) = 2, ".+" -> inform("[Quest gelöst] Du erhältst 60 Kupferstücke."), "Also der Ursprung der dunklen Präsenz ist eine Eiche? Lasst mich eine Minute oder auch ein Jahr darüber nachdenken und kommt dann zu mir zurück.", money + 600, queststatus(112) = 3
+queststatus(112) = 2, ".+" -> inform("[Quest gelöst] Du erhältst sechs Silberstücke."), "Also der Ursprung der dunklen Präsenz ist eine Eiche? Lasst mich eine Minute oder auch ein Jahr darüber nachdenken und kommt dann zu mir zurück.", money + 600, queststatus(112) = 3
 
 -- 2nd quest: Bring a battle axe 2946 and a silver bar 104
 -- Give out quest 2
@@ -149,8 +149,8 @@ queststatus(112) = 3, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest]
 
 -- Quest 2 solved, reward: 120cp, ruby amulet
 -- All Items are gathered except for one.
-queststatus(112) = 4, item(2946, all) > 0, item(104, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded twelve silver coins and a ruby amulet."), "You warriors are a gift. That's all the items except for one. Let me meditate for a moment and then come back to me.", money + 1200, deleteItem(2946, 1), deleteItem(104, 1), item(67, 1, 599), queststatus(112) = 5
-queststatus(112) = 4, item(2946, all) > 0, item(104, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 120 Kupferstücke und ein Rubinamulett."), "Ihr Krieger seid eine Segen. Das sind alle Dinge, die ich brauche, außer eines. Lasst mich kurz meditieren und kommt dann zurück zu mir.", money + 1200, deleteItem(2946, 1), deleteItem(104, 1), item(67, 1, 599), queststatus(112) = 5
+queststatus(112) = 4, item(2946, all) > 0, item(104, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded 12 silver coins and a ruby amulet."), "You warriors are a gift. That's all the items except for one. Let me meditate for a moment and then come back to me.", money + 1200, deleteItem(2946, 1), deleteItem(104, 1), item(67, 1, 599), queststatus(112) = 5
+queststatus(112) = 4, item(2946, all) > 0, item(104, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst 12 Silberstücke und ein Rubinamulett."), "Ihr Krieger seid eine Segen. Das sind alle Dinge, die ich brauche, außer eines. Lasst mich kurz meditieren und kommt dann zurück zu mir.", money + 1200, deleteItem(2946, 1), deleteItem(104, 1), item(67, 1, 599), queststatus(112) = 5
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(112) = 4, english, "quest", "mission" -> "Bring me a battle axe, a bar of silver and one more thing. I will tell you the last thing after you bring me these."

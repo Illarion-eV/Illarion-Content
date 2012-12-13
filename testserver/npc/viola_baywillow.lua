@@ -316,7 +316,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("craft");
-talkEntry:addResponse("About which craft shall I tell you all I know? Alchemist, candle maker, carpenter, lumberjack, cook, baker, farmer, herb gatherer, tailor, tanner, dyer, blacksmith, brick maker, mason, miner, brewer, fisher, glass blower, digger, finesmith or gem grinder?");
+talkEntry:addResponse("About which craft shall I tell you all I know? Alchemist, candle maker, carpenter, lumberjack, cook, baker, farmer, herb gatherer, tailor, tanner, dyer, blacksmith, brick maker, mason, miner, brewer, fisher, glass blower, sand digger, finesmith or gem grinder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -375,7 +375,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Handwerk");
-talkEntry:addResponse("Über welches Handwerk möchtest du etwas wissen? Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Gräber, Goldschmied oder Edelsteinschleifer?");
+talkEntry:addResponse("Über welches Handwerk möchtest du etwas wissen? Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Sandgräber, Goldschmied oder Edelsteinschleifer?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -618,13 +618,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Digger");
-talkEntry:addResponse("Diggers can always find clay and sand near Cadomyr. Then again, Galmair isn't a bad place either, but as for Runewick, the nearby land is no place for diggers.");
+talkEntry:addResponse("Sand diggers can always find clay and sand near Cadomyr. Then again, Galmair isn't a bad place either, but as for Runewick, the nearby land is no place for sand diggers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gräber");
-talkEntry:addResponse("Gräber können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt.");
+talkEntry:addResponse("Sandgräber können vor allem in Cadomyr gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Runewick hat zu handeln, wenn es etwas von denen benötigt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -853,7 +853,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Er ist der Herrscher von Galamair und Nachfolger von seinem Vater. Er ist ein sehr starker Zwerg und ist auch sehr reich. Es ist besser ihn nicht zu verärgern, da er sonst speziell für dich Kopfgeldjäger anheuern wird.");
+talkEntry:addResponse("Er ist der Herrscher von Galmair und Nachfolger von seinem Vater. Er ist ein sehr starker Zwerg und ist auch sehr reich. Es ist besser ihn nicht zu verärgern, da er sonst speziell für dich Kopfgeldjäger anheuern wird.");
 talkEntry:addResponse("Insbesondere folgende Handwerke können in Galmair gefunden werden: Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -992,13 +992,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("alten");
+talkEntry:addTrigger("alte");
 talkEntry:addResponse("Die alten Götter sind Brágon, Eldan, Findari, Tanora und Ushara. Nur nostalgische und verwirrte Elfen verehren sie, komisch, oder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("younger");
+talkEntry:addTrigger("young");
 talkEntry:addResponse("The younger gods are Nargùn, Elara, Adron, Oldra, Cherga, Malachín, Irmorom, Sirani, Zhambra, Ronagan, and Moshran. Most realms are shaped and molded by the gods they follow. I follow Elara!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

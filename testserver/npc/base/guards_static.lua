@@ -1,5 +1,7 @@
 require("base.factions")
 require("base.common")
+require("content.guards")
+require("content.areas")
 module("npc.base.guards_static", package.seeall)
 
 -- modes to define how players are handled. Monsters are always attacked (TO DO, for now: warp only)
@@ -8,46 +10,36 @@ ACTION_PASSIVE = 1;		-- if in attackmode, warp away
 ACTION_HOSTILE = 2;		-- warp away
 ACTION_AGGRESSIVE = 3;	-- attack (TO DO)
 
-WarpPos = {};
-FactionId = {};
-Radius = {};
-CheckCenter = {}
-
-function Init(guard, factionId, warpPos, radius, checkCenter)
-	--guard:talk(Character.say,"BEGIN guards_static.Init");
-	WarpPos[guard.id] = warpPos;
-	FactionId[guard.id] = factionId;
-	Radius[guard.id] = radius;
-	CheckCenter[guard.id] = checkCenter;
-	--guard:talk(Character.say,"END guards_static.Init");
-end
-
 --- Checks for chars in range and handles them (warp)
 -- @param guard The character struct of the guard NPC
 function CheckForEnemies(guard)
 
 	-- check for hostile monsters
-	local monsterList = world:getMonstersInRangeOf(CheckCenter[guard.id], Radius[guard.id]);
+	local monsterList = world:getMonstersInRangeOf(guard.pos, content.guards.Guards[guard.id].radius);
 	for i,mon in pairs(monsterList) do
-		if ( not base.common.IsMonsterDocile(mon:getMonsterType()) ) then
-			-- kill them and get help
-			-- but warp for now
-			Warp(guard, mon);
-		end
+    if (content.areas.PointInArea(mon.pos,content.guards.Guards[guard.id].areaName)) then
+      if ( not base.common.IsMonsterDocile(mon:getMonsterType()) ) then
+        -- kill them and get help
+        -- but warp for now
+        Warp(guard, mon);
+      end
+    end
 	end
 
 	-- check for player characters
-	local charList = world:getPlayersInRangeOf(CheckCenter[guard.id], Radius[guard.id]);
+	local charList = world:getPlayersInRangeOf(guard.pos, content.guards.Guards[guard.id].radius);
 	for i,char in pairs(charList) do
-		local mode = GetMode(char, FactionId[guard.id]);
-		if (mode == ACTION_AGGRESSIVE) then
-			-- spawn monster guards
-			-- for now: just warp
-			Warp(guard, char);
-		elseif (mode == ACTION_HOSTILE or (mode == ACTION_PASSIVE and char.attackmode)) then
-			-- warp
-			Warp(guard, char);
-		end
+    if (content.areas.PointInArea(char.pos,content.guards.Guards[guard.id].areaName)) then
+      local mode = GetMode(char, content.guards.Guards[guard.id].faction);
+      if (mode == ACTION_AGGRESSIVE) then
+        -- spawn monster guards
+        -- for now: just warp
+        Warp(guard, char);
+      elseif (mode == ACTION_HOSTILE or (mode == ACTION_PASSIVE and char.attackmode)) then
+        -- warp
+        Warp(guard, char);
+      end
+    end
 	end
 end
 
@@ -60,7 +52,7 @@ function GetMode(char, thisFaction)
 		-- return ACTION_NONE;
 	-- end
 
-	local f = base.factions.get_Faction(char).tid;
+	local f = base.factions.getFaction(char).tid;
 	return GetModeByFaction(thisFaction, f);
 end
 
@@ -121,7 +113,7 @@ end
 -- @param guard The guard that warps the char
 -- @param char The char that will be warped
 function Warp(guard, char)
-	char:warp(WarpPos[guard.id]);
+	char:warp(content.guards.Guards[guard.id].warpPos);
 	base.common.InformNLS(char,
 		"Du wurdest soeben von einer Wache der Stadt verwiesen.",
 		"You've just been expelled from the town by a guard.");
@@ -167,7 +159,7 @@ function CheckAdminCommand(guard, speaker, message)
 		modeString[ACTION_AGGRESSIVE] = "aggressive";
 		-- just print the mode if the admin wants to check a mode
 		if string.find(msg, "check .*mode") then
-			local mode = GetModeByFaction(FactionId[guard.id],faction);
+			local mode = GetModeByFaction(content.guards.Guards[guard.id].faction,faction);
 			speaker:inform("[Guard Help] Current mode for ".. factionString[faction] ..": ".. modeString[mode],Player.mediumPriority);
 			return;
 		end
@@ -182,45 +174,41 @@ function CheckAdminCommand(guard, speaker, message)
 			return;
 		else
 		end
-		if FactionId then
-			if FactionId[guard.id] then
-			end
-		end
-		SetMode(FactionId[guard.id], faction, mode);
+		SetMode(content.guards.Guards[guard.id].faction, faction, mode);
 		speaker:inform("[Guard Help] Mode for ".. factionString[faction] .." set to ".. modeString[mode],Player.mediumPriority);
 	elseif string.find(msg, "help") then
 		speaker:inform("[Guard Help] You can set the mode for the guards by: set mode <faction> <mode>",Player.mediumPriority);
 	end
 end
 
+function ReceiveText(NpcChar, Texttype, Message, Speaker)
+  CheckAdminCommand(NpcChar,Speaker,Message);
+end
+
+function NextCycle(NpcChar)
+  content.guards.InitGuards();
+  if (CheckCount == nil) then
+    CheckCount = {};
+  elseif (CheckCount[NpcChar.id] == nil) then
+    CheckCount[NpcChar.id] = 0;
+  elseif (CheckCount[NpcChar.id] == 5) then
+    CheckForEnemies(NpcChar);
+    CheckCount[NpcChar.id] = 0;
+  else
+    CheckCount[NpcChar.id] = CheckCount[NpcChar.id] + 1;
+  end
+end
+
 --[[
 -- ## REPLACE THESE FUNCTIONS IN THE LUA CODE OF EACH GUARD ##
 
-function receiveText(texttype, message, speaker)
-	npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);
-	mainNPC:receiveText(speaker, message);
+function receiveText(npcChar, texttype, message, speaker)
+  mainNPC:receiveText(npcChar, speaker, message);
+  npc.base.guards_static.ReceiveText(npcChar, texttype, message, speaker);
 end;
-function nextCycle()
-	mainNPC:nextCycle();
-	if not guards_init then
-		-- init after 10 cycles
-		guards_init = 10;
-		gCount = 0;
-	end
-	if guards_init == 0 then
-		guards_init = -1;
-		npc.base.guards_static.Init(thisNPC, #FACTION_ID, #WARP_POS, #WARP_RADIUS, #CHECK_CENTER);
-	elseif guards_init > 0 then
-		guards_init = guards_init - 1;
-	end
-	if guards_init == -1 then
-		if gCount == 4 then
-			gCount = 0;
-			npc.base.guards_static.CheckForEnemies(thisNPC);
-		else
-			gCount = gCount + 1;
-		end
-	end
+function nextCycle(npcChar)
+  mainNPC:nextCycle(npcChar);
+  npc.base.guards_static.NextCycle(npcChar);
 end;
 
 ]]

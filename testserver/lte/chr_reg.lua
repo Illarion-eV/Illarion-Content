@@ -360,7 +360,7 @@ function leadToCross( Char , Effect )
         base.common.InformNLS( Char,"[Wiederbelebung] Der Eintritt in Chergas Reich der Toten wird dir verwehrt. Deine Taten auf Illarion sind noch nicht vorüber. Die Götter gewähren dir eine weitere Chance auf die Ebene der Lebenden zurückzukehren.","[Respawn] You are denied access to Cherga's Realm of the Death. Your deeds on Illarion are not over. The gods grant you another chance to return to the Mortal Plane.");
         world:gfx(31,Char.pos); --GFX, alternatively 16
         world:makeSound(13,Char.pos); --Healing sound
-        factionValues=base.factions.get_Faction(Char); --reading the faction values
+        factionValues=base.factions.getFaction(Char); --reading the faction values
         Char:warp(crossPosition[factionValues.tid]); --warp to home cross
         Effect:removeValue("cycleCounter"); --stop counting
 

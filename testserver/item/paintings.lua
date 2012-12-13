@@ -113,8 +113,9 @@ function LookAtItemIdent(User,Item)
     local signCoo        = content.paintings.signCoo;
     local signItemId     = content.paintings.signItemId;
     local signPerception = content.paintings.signPerception;
-    
-    found = false;
+
+    local lookAt = base.lookat.GenerateLookAt(User, Item)
+
     UserPer = User:increaseAttrib("perception",0);
     tablePosition = Item.pos.x .. Item.pos.y .. Item.pos.z;
 	if signCoo ~= nil then
@@ -122,12 +123,9 @@ function LookAtItemIdent(User,Item)
 			for i, signpos in pairs(signCoo[tablePosition]) do
 				if (Item.pos == signpos) then
 					if (UserPer >= signPerception[tablePosition][i]) then
-							found = true;
-							world:itemInform(User,Item,base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name)));
-							test = signTextDe[tablePosition][i];
+							lookAt.description = base.common.GetNLS(User,string.gsub(signTextDe[tablePosition][i],"currentChar",User.name),string.gsub(signTextEn[tablePosition][i],"currentChar",User.name))
 					else
-                        	found = true;
-						  	world:itemInform(User,Item,base.common.GetNLS(User,"~Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.~","~You recognise something, but you cannot read it, because you are too blind.~"));
+						  	lookAt.description = base.common.GetNLS(User,"Du erkennst, dass hier etwas ist, kannst es aber nicht entziffern, da du zu blind bist.","You recognise something, but you cannot read it, because you are too blind.")
 					end
 
 				end
@@ -135,47 +133,16 @@ function LookAtItemIdent(User,Item)
 		end
 	end 
 							 
-	--[[local outText = checkNoobiaSigns(User,Item.pos);
-	if outText and not found then
-		world:itemInform(User,Item,outText);
-		found = true;
-	end ]]
-                     
-                      
-    if not found then
+    if lookAt.description == "" then
         val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
-        world:itemInform( User, Item, base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val]) );
-	end                     
-	--[[if not found then
-        world:itemInform(User,Item,world:getItemName(Item.id,User:getPlayerLanguage()));
-    end  ]]                                                 
+        lookAt.description = base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val])
+    end
 
---		User:inform("in LookAtItem of base_weiser.lua");  
-		--User:inform(test);
+    world:itemInform(User, Item, lookAt)
 end
+
 --[[
 	LookAtItemIdent
 	identity of LookAtItem
   ]]
 LookAtItem = LookAtItemIdent;
- 
-
-
---orignal function
---[[function LookAtPaintingItem( User, Item )
-    local val = 0;
-    if ( Item.data == 0 ) then
-        val = ((Item.pos.x + Item.pos.y + Item.pos.z) % table.getn(PaintingListGerman))+1;
-    else
-        val = (Item.data % table.getn(PaintingListGerman))+1;
-    end
-    
-    world:itemInform( User, Item, base.common.GetNLS(User, PaintingListGerman[val], PaintingListEnglish[val]) );
-end
-
-function LookAtItem(User,Item)
-    LookAtPaintingItem(User,Item);  
-end  ]]
-
-
-

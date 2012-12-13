@@ -39,9 +39,9 @@ function MoveToField(Character)
 	        local callbackNewbie = function(dialogNewbie) end; --empty callback
 			
 	        if Character:getPlayerLanguage() == 0 then
-		        dialogNewbie = MessageDialog("Tutorial","An dieser Station wird dir die Elfe erkläre, wie man Gegenstände anlegt, sie benutzt und sie untersucht. Begrüße sie einfach so, wie du es von Henry Cunnigan gelernt hast!", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial","An dieser Station wird dir die Elfe Aldania erkläre, wie man Gegenstände anlegt, sie benutzt und sie untersucht. Begrüße sie einfach so, wie du es von Henry Cunnigan gelernt hast! Aktiviere deine Chatbox und schreibe 'Hallo'. Du kannst die Chatbox anschließend mit einem weiteren Druck der Returntaste deaktivieren.", callbackNewbie)
 	        else	
-		        dialogNewbie = MessageDialog("Tutorial", "At this station, the elfess will explain to you how to equip, use and examine items. Greet her as you learned from Henry Cunnigan!", callbackNewbie)
+		        dialogNewbie = MessageDialog("Tutorial", "At this station, the elfess Aldania will explain to you how to equip, use and examine items. Greet her as you learned from Henry Cunnigan! Activate your chatbox and type 'Hello'. You can deactivate the chatbox with another hit on the return key.", callbackNewbie)
 	        end	
 	        Character:requestMessageDialog(dialogNewbie)
 		end

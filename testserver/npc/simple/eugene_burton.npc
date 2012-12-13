@@ -137,8 +137,8 @@ queststatus(4) = 21, item(2940, all) < 12, "task", "adventure" -> "Slaying anima
 queststatus(4) = 21, item(2940, all) < 12, "Auftrag", "Aufgabe", "Abenteuer" -> "Viele Tiere getötet, aber das Fleisch den Krähen überlassen? Ist dem so! Ich flehe euch an, im Namen meiner Kinder, jeder Bissen Fleisch kann ein Menschenleben retten."
 
 -- Quest 2 solved, reward: Golden ring, copper goblet, emerald amulet, 200cp
-queststatus(4) = 21, item(2940, all) > 11, english, ".+" -> inform("[Quest solved] You are awarded a golden ring, a copper goblet, an emerald amulet and twenty silver coins."), "How great! You brought enough meat for my whole family. Here, I... found a bag with precious things. You can have it as reward.", money + 2000, deleteItem(2940, 12), item(235, 1, 666), item(1840, 1, 666), item(62, 1, 666), queststatus(4) = 22
-queststatus(4) = 21, item(2940, all) > 11, ".+" -> inform("[Quest gelöst] Du erhältst einen goldenen Ring, einen Kupferkelch, ein Smaragdamulet und 200 Kupferstücke."), "Großartig! Ihr habt genug Fleisch für meine ganze Familie mitgebracht. Hier, ich habe diesen Beutel mit kostbaren Dingen... gefunden. Nehmt ihn als Belohnung.", money + 2000, deleteItem(2940, 12), item(235, 1, 666), item(1840, 1, 666), item(62, 1, 666), queststatus(4) = 22
+queststatus(4) = 21, item(2940, all) > 11, english, ".+" -> inform("[Quest solved] You are awarded a golden ring, a copper goblet, an emerald amulet and 20 silver coins."), "How great! You brought enough meat for my whole family. Here, I... found a bag with precious things. You can have it as reward.", money + 2000, deleteItem(2940, 12), item(235, 1, 666), item(1840, 1, 666), item(62, 1, 666), queststatus(4) = 22
+queststatus(4) = 21, item(2940, all) > 11, ".+" -> inform("[Quest gelöst] Du erhältst einen goldenen Ring, einen Kupferkelch, ein Smaragdamulet und 20 Silberstücke."), "Großartig! Ihr habt genug Fleisch für meine ganze Familie mitgebracht. Hier, ich habe diesen Beutel mit kostbaren Dingen... gefunden. Nehmt ihn als Belohnung.", money + 2000, deleteItem(2940, 12), item(235, 1, 666), item(1840, 1, 666), item(62, 1, 666), queststatus(4) = 22
 
 -- 3rd quest: Kill 6 wolves
 

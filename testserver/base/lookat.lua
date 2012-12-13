@@ -2,6 +2,7 @@
 
 require("base.common");
 require("base.gems")
+require("base.money")
 
 module("base.lookat", package.seeall)
 
@@ -60,6 +61,13 @@ function GenerateLookAt(user, item, material)
 	if base.common.IsNilOrEmpty(usedName) then
 		usedName = world:getItemName(item.id, user:getPlayerLanguage());
 	end;
+
+    -- Enforce Title Case
+    local function tchelper(first, rest)
+        return first:upper()..rest:lower()
+    end
+    usedName = usedName:gsub("(%a)([%wäöüß_']*)", tchelper)
+
 	lookAt.name = usedName;
 	
 	local rarenessData = item:getData("rareness");
@@ -90,7 +98,10 @@ function GenerateLookAt(user, item, material)
 		end;
 		
 		lookAt.weight = item.number * itemCommon.Weight;
-		lookAt.worth = item.number * itemCommon.Worth;
+		
+        if not base.money.IsCurrency(item.id) then
+            lookAt.worth = item.number * itemCommon.Worth;
+        end
 		
         if material > NONE then
             local itemDura = math.mod(item.quality, 100);

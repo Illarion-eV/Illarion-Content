@@ -35,7 +35,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dies ist der Teleporter Wilderlands. Die Reise kostet ein Silberstück. Ziele: Runewick, Cadomyr, Galmair."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dies ist der Teleporter Wilderlands. Die Reise kostet zehn Silberstücke. Ziele: Runewick, Cadomyr, Galmair."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -53,7 +53,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.money.money("<", 100));
+talkEntry:addCondition(npc.base.condition.money.money("<", 1000));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
 talkEntry:addTrigger("Cadomyr");
@@ -63,11 +63,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.money.money("<", 100));
+talkEntry:addCondition(npc.base.condition.money.money("<", 1000));
 talkEntry:addTrigger("Runewick");
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addTrigger("Galmair");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Ihr habt nicht genug Geld für diese Reise. Die Reise kostet ein Silberstück."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Ihr habt nicht genug Geld für diese Reise. Die Reise kostet zehn Silberstücke."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -82,7 +82,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Runewick zu einem Preis von einem Silberstück öffnen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Runewick zu einem Preis von zehn Silberstücken öffnen."));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(788, 826, 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -99,7 +99,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Cadomyr zu einem Preis von einem Silberstück öffnen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Cadomyr zu einem Preis von zehn Silberstücken öffnen."));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(127, 647, 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -116,7 +116,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Galmair zu einem Preis von einem Silberstück öffnen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Galmair zu einem Preis von zehn Silberstücken öffnen."));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
 talkEntry:addConsequence(npc.base.consequence.warp.warp(424, 245, 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -125,13 +125,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Say the name of the realm you want to travel to: Runewick, Galmair, Galmair."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Say the name of the realm you want to travel to: Runewick, Cadomyr, Galmair."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Galmair, Galmair."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Cadomyr, Galmair."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 mainNPC:addLanguage(0);

@@ -35,7 +35,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+	return false
 end
 
 function enemyOnSight(Monster,Enemy)
@@ -45,7 +45,11 @@ function enemyOnSight(Monster,Enemy)
     end
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
-
+	if monster.base.drop.DefaultSlowdown( Monster ) then
+        return true;
+	else
+		return false;
+	end
 end
 
 function onAttacked(Monster,Enemy)

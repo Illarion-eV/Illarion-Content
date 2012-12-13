@@ -100,7 +100,7 @@ queststatus(109) = 1, item(15, all) < 5, "Auftrag", "Aufgabe", "Abenteuer" -> "#
 
 -- Quest 1 solved, reward: 30cp
 queststatus(109) = 1, item(15, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded three silver coins."), "#me quickly grabs the fruit, handing over a small purse of coins: 'Thank you kindly!'. He takes a large bite and stuffs the other apples into his bag as he chews.", money + 300, deleteItem(15, 5), queststatus(109) = 2
-queststatus(109) = 1, item(15, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 30 Kupferstücke."), "#me reißt die Äpfel an sich und übergibt beiläufig eine Geldbeutel: 'Vielen Dank!'. Er beißt genüßlich ab und verstaut die Äpfel kauend in einem Beutel.", money + 300, deleteItem(15, 5), queststatus(109) = 2
+queststatus(109) = 1, item(15, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst drei Silberstücke."), "#me reißt die Äpfel an sich und übergibt beiläufig eine Geldbeutel: 'Vielen Dank!'. Er beißt genüßlich ab und verstaut die Äpfel kauend in einem Beutel.", money + 300, deleteItem(15, 5), queststatus(109) = 2
 
 -- 2nd quest: Bring 10 ARROWS (64)
 
@@ -118,7 +118,7 @@ queststatus(109) = 3, item(64, all) < 10, "Auftrag", "Aufgabe", "Abenteuer" -> "
 
 -- Quest 2 solved, reward: 100cp
 queststatus(109) = 3, item(64, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), "#me slides the arrows into his quiver, nodding in thanks, 'These shall do perfectly, thank you. I hope that this shall suffice as compensation.'", money + 500, deleteItem(64, 10), queststatus(109) = 4
-queststatus(109) = 3, item(64, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 100 Kupferstücke."), "#me steckt die Pfeile in seinen Köcher, dankbar nickend: 'Das sollte erstmal genug sein, habt dank. Ich hoffe, dies reicht euch als Entlohnung.", money + 500, deleteItem(64, 10), queststatus(109) = 4
+queststatus(109) = 3, item(64, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), "#me steckt die Pfeile in seinen Köcher, dankbar nickend: 'Das sollte erstmal genug sein, habt dank. Ich hoffe, dies reicht euch als Entlohnung.", money + 500, deleteItem(64, 10), queststatus(109) = 4
 
 -- 3rd quest: Bring 10 FUR (2586)
 

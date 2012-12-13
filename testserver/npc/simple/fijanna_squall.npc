@@ -85,7 +85,7 @@ state = 1, money => 100, "Ja" -> "Gut. Ich werde deine Zukunft lesen. Worüber m
 state = 1, "No", "Thanks" -> "Come back, anytime you want to hear bout your fortune.", state = 0
 state = 1, "Nein", "Danke" -> "Komm einfach wieder vorbei wenn dfu etwas über deine Zukunft erfahren möchtest.", state = 0
 state = 1, english, "*." -> "Do you want to hear your Fortune in exange for ten silver coins? Say yes or no."
-state = 1, ".*" -> "Willst du deine Zukunft im Tausch für ein Silberstück gesagt bekommen? Antwortet einfach mit ja oder nein."
+state = 1, ".*" -> "Willst du deine Zukunft im Tausch für zehn Silberstücke gesagt bekommen? Antwortet einfach mit ja oder nein."
 
 -- Warnings
 chance(33.0), state = 2, ".*" -> ". . . lauf!", "Du wirst strake Freunde brauchen.", "Gibt in nächster Zeit gut auf dich Acht.", "Meide Schwierigkeiten soweit es geht.", "Gehe Monstern besser aus dem Weg, sonst erwartet dich Unglück.", "Du wirst in nächster Zeit viel Glück gebrauchen können.", "Sei in nächster Zeit sehr vorsichtig.", "Besser du meidest unnötige Gefahren.", "Es tut mir leid. Dich erwartet eine Enttäuschung.", state = 0
@@ -101,7 +101,7 @@ english, state = 2, ".*" -> "Wealth is waiting for you.", "You will recieve a pr
 
 -- Fortune telling phrases - starting point
 "fortune" -> "I'll tell you your future, if you give me ten silver coins in retun. Do you to hear about your fortune?", state = 1
-"Zukunft" -> "Ich sage dir deine Zukunft vorraus, wenn du mir dafür ein Silberstück gibst. Möchtest du etwas über deine deine Zukunft hören?", state = 1
+"Zukunft" -> "Ich sage dir deine Zukunft vorraus, wenn du mir dafür zehn Silberstücke gibst. Möchtest du etwas über deine deine Zukunft hören?", state = 1
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a fortune teller. You know what a fortune teller does?", "I listen to the wind and the people.", "People come and ask me for advice, so I give advice."
