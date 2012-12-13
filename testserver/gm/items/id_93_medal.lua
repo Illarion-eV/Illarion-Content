@@ -86,7 +86,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 		end --all tiles affected
 		world:sendMapUpdate(TargetPos,30);
 		
-	elseif (tonumber(SourceItem:getData("data"))==8) then --earthquake
+	elseif (tonumber(SourceItem:getData("data"))==9) then --earthquake
 
 		world:makeSound(5,TargetPos); --SFX 5 (BOOOM)
 
