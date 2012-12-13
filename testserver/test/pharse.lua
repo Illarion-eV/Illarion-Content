@@ -89,12 +89,12 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         selectionDialog:addOption(0, User:getSkillName(s));
       end
       User:requestSelectionDialog(selectionDialog);
+    elseif (ind == 2) then
+      User:increaseAttrib("hitpoints", 10000);
+      User:increaseAttrib("foodlevel", 10000);
+      User:increaseAttrib("mana", 10000);
+      User:increaseAttrib("poisonvalue", -10000);
     end
-  elseif (ind == 2) then
-    User:increaseAttrib("hitpoints", 10000);
-    User:increaseAttrib("foodlevel", 10000);
-    User:increaseAttrib("mana", 10000);
-    User:increaseAttrib("poisonvalue", -10000);
   end
   local sd = SelectionDialog("Pharse's test item", "What do you want to do?", cbWhatYouWant);
   sd:addOption(10, possibilities[1]);
