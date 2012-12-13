@@ -183,6 +183,10 @@ end
 
 function ReceiveText(NpcChar, Texttype, Message, Speaker)
   CheckAdminCommand(NpcChar,Speaker,Message);
+  content.guards.InitGuards();
+  if string.find(Message, "checkforenemies") then
+    CheckForEnemies(NpcChar);
+  end
 end
 
 function NextCycle(NpcChar)
