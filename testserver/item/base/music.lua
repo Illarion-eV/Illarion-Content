@@ -5,7 +5,7 @@ require("base.common")
 
 module("item.base.music", package.seeall)
 
-TalkTexts={ flute = {}, lute = {}, horn = {}, harp = {}, panpipe = {}, drum = {}};
+TalkTexts={ Character.flute = {}, Character.lute = {}, Character.horn = {}, Character.harp = {}, Character.panpipe = {}, Character.drum = {}};
 
 function addTalkText(eText,gText, Skill)
     table.insert(TalkTexts[Skill],{eText,gText});
