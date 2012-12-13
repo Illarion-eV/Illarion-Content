@@ -10,9 +10,9 @@ function InitGuards()
 end
 
 function AddGuard(GuardId, FactionId, WarpPos, Radius, AreaName)
-  Guards[guardId] = {
-    faction = factionId,
-    warpPos = warpPos,
+  Guards[GuardId] = {
+    faction = FactionId,
+    warpPos = WarpPos,
     radius = Radius,
     areaName = AreaName
   };
