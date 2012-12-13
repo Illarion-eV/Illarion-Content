@@ -3,6 +3,7 @@
 -- UPDATE common SET com_script='item.id_335_lute' WHERE com_itemid=335;
 
 require("item.base.music")
+require("item.general.wood")
 
 module("item.id_335_lute", package.seeall)
 
@@ -17,3 +18,5 @@ item.base.music.addTalkText("#me plays a lilting melody on a lute.","#me spielt 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     item.base.music.PlayInstrument(User,SourceItem, skill);
 end
+
+LookAtItem = item.general.wood.LookAtItem

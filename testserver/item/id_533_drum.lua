@@ -3,6 +3,7 @@
 -- UPDATE common SET com_script='item.id_533_drum' WHERE com_itemid=533;
 
 require("item.base.music")
+require("item.general.wood")
 
 module("item.id_533_drum", package.seeall)
 
@@ -18,3 +19,5 @@ item.base.music.addTalkText("#me beats in a wild, frenzied pulse, a deep broad s
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     item.base.music.PlayInstrument(User,SourceItem, skill);
 end 
+
+LookAtItem = item.general.wood.LookAtItem
