@@ -448,7 +448,7 @@ function ThirdTask(User, SourceItem)
 	
 	if qstPrg == 3 then
         -- check if he accomplished the second task	
-	    if (User:countItem(HerbsTaskTwoId[questInfos.teacherEN2][1]) < 1) then
+	    if (User:countItem(HerbsTaskTwoId[questInfos.teacherEN2][1]) < 1) or (User:countItem(HerbsTaskTwoId[questInfos.teacherEN2][2]) < 1) then
 	        SendMessage(User, SourceItem,
 			            "\"Oh! You don't have the herbs. If you have forgotten what you are supposed to get - "..HerbsTaskTwoNameEN[questInfos.teacherEN2][1].." and "..HerbsTaskTwoNameEN[questInfos.teacherEN2][2]..".\"", 
 						"\"Sowas! Du hast die Kräuter nicht dabei. Falls du es vergessen hast - "..HerbsTaskTwoNameDE[questInfos.teacherEN2][1].." and "..HerbsTaskTwoNameDE[questInfos.teacherEN2][2]..".\""
