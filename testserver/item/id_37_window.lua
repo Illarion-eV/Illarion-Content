@@ -1,13 +1,13 @@
 --Ronagan's Ancient Temple
 --Dyluck
-
+--[[ Not used yet. Commented out for now. -Dyluck Dec 13, 2012
 
 module("item.id_37_window", package.seeall)
 
 
 --Window_ID37
 --A window that the player can use to enter/exit the temple
---Part of Ronagan's Temple questid(1111) and related NPCs/scripts...
+--Part of Ronagan's Temple questid(n/a) and related NPCs/scripts...
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 
@@ -17,7 +17,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 	--player must face window directly in order to climb through
 
 	--quest progress; quest id to be changed
-	--local queststatus = User:getQuestProgress(1111); uncomment later
+	--local queststatus = User:getQuestProgress(n/a); uncomment later
 	local queststatus = 1; --remove later
 
 
@@ -43,3 +43,5 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
 		end
 	end
 end
+
+]]

@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------AC
+﻿------------------------------------------------------------------------------AC
 -- NPC Name: Lotta Medborgar                                          Galmair --
 -- NPC Job:  hunter                                                           --
 --                                                                            --
@@ -77,10 +77,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See ya soon."
 -- OPTIONAL TRIGGERS
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
--- "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
--- "job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "profession" -> "I am a hunter."
+-- "beruf" -> "Ich bin eine Jägerin."
+-- "job", english -> "I am a hunter."
+-- "job" -> "Ich bin eine Jägerin."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "inform" -> inform("[Keywords] place"), "I can give you information about places near of Galmair. Just ask me!"
@@ -225,10 +225,10 @@ english, "Cadomyr" -> "That's is the southwest. Follow the road trough Nagrun's 
 "Cadomyr" -> "Das liegt im Südwesten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südwestlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter."
 
 -- Optional: Catching typical NPC phrases
--- "what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
--- "tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "what sell", "what buy", "list wares", "price of" -> "I do not sell anything."
+-- "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe nichts."
+-- "tell something" -> "I don't have much to tell."
+-- "erzähl was", "erzähl etwas" -> "Ich habe nicht viel zu erzählen."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Primarly, we pray to three gods in Galmair. They are Irmorom, Nargun and Ronagan of course, my favorite god."

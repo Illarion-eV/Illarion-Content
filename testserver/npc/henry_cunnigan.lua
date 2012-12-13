@@ -214,7 +214,7 @@ talkingNPC:addCycleText("Hast du vergessen, wie man sich bewegt? Benutz die link
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist dein Tutor Henry Cunnigan.", "This is your tutorial guide Henry Cunnigan.");
+mainNPC:setLookat("Das ist dein Tutor Henry Cunnigan.", "This is your tutorial guide, Henry Cunnigan.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
 mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache mit dem Befehl '!l common'.", "Please switch the language of your character to the common tongue with the command '!l common'.");
 mainNPC:setEquipment(1, 0);
