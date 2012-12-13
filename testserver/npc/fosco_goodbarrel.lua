@@ -274,7 +274,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 7));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("german");
+talkEntry:addTrigger("Stab");
 talkEntry:addResponse("Du möchtest den Stab, dann bringt mir meinem verzierten Dolch. Dabei hanldelt es sich um den Kai'tza. Ich bin in der Lage einen Betrug zubemerken. Du findest den Echsenmensch in <Stadtname>. Sie hat meine Flöte gestohlen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -549,7 +549,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Ah, nun! GERMAN.");
+talkEntry:addResponse("Ah, nun! Die Freude luegt ganz auf Eurer Seite.");
 talkEntry:addResponse("Ich hab's mir gedacht!");
 talkEntry:addResponse("So hieß meine Mutter auch!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -565,9 +565,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Selbst ich würde nicht wagen es ihm ins Gesicht zu sagen, aber dieser Zeitgenosse ist 'ne hohle Nuss.");
+talkEntry:addResponse("Nichts weiter als der typische Magier, stolziert umher als würden seine Füße niemals stinken.");
+talkEntry:addResponse("Weisheiten aus Büchern sind nicht alles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -584,9 +584,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Selbst ich würde nicht wagen es ihm ins Gesicht zu sagen, aber dieser Zeitgenosse ist 'ne hohle Nuss.");
+talkEntry:addResponse("Nichts weiter als der typische Magier, stolziert umher als würden seine Füße niemals stinken.");
+talkEntry:addResponse("Weisheiten aus Büchern sind nicht alles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -601,9 +601,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Die glauben dort, sie hätten kluge Köpfe, aber frag' nicht nach deren Füßen.");
+talkEntry:addResponse("Die Stadt hat recht interessante Bucher, da könhnte man richtig Geld rausschlagen.");
+talkEntry:addResponse("Runewick is voll von kriecherischen, gebildeten Kreaturen. Nicht ganz mein Geschmack.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -622,9 +622,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Wie könnte ihrgendwer den Don nicht verehren?");
+talkEntry:addResponse("Er weiß was er will, und wie er es bekommt.");
+talkEntry:addResponse("Er weiß das Geld das einzige ist, was in dieser Welt nzählt. Das ist kein Gund ihm was vorzuwerfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -639,9 +639,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Da wandern die Pfennige durch die Straßen.");
+talkEntry:addResponse("Ahh...Galmair. Wenn man weißt, wo man suchen musst, so findet man es dort.");
+talkEntry:addResponse("Galmair? Dort erleichtet ich die Geldbörsen wann immer ich kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -655,9 +655,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Sie zieht die Blick auf sich.");
+talkEntry:addResponse("Vielleicht sollte ich sie mit meinem Fosco-Charm bezaubern? Hm?");
+talkEntry:addResponse("Das wisst Ihr nicht von mir, aber ich hörte der Don hat ein Auge auf sie geworfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -674,9 +674,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Sie zieht die Blick auf sich.");
+talkEntry:addResponse("Vielleicht sollte ich sie mit meinem Fosco-Charm bezaubern? Hm?");
+talkEntry:addResponse("Das wisst Ihr nicht von mir, aber ich hörte der Don hat ein Auge auf sie geworfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -691,9 +691,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Freundlich und gutgläubig, diese Völkchen. Dies erleichtert vieles.");
+talkEntry:addResponse("Große Herzen, aber keine großen Geister.");
+talkEntry:addResponse("Ich hätte nichts dagegen Rosaline zu meiner Königin zu machen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

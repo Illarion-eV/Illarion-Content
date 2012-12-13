@@ -1341,7 +1341,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("One of the unimportant, younger gods. You can find fellowsss in Cadomyr.");
+talkEntry:addResponse("One of the unimportant, younger gods. You can find fellows in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
