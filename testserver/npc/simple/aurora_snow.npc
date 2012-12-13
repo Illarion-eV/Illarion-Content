@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------AC
+﻿------------------------------------------------------------------------------AC
 -- NPC Name: Aurora Snow                                             Runewick --
 -- NPC Job:  Druid                                                            --
 --                                                                            --
@@ -176,25 +176,25 @@ english, "Gobaith", "Gobiath" -> "That island often slipped into unbalance. My f
 "my name" -> "It is a true honour to meet you.", "Ah, yes. I see it now.", "I am most pleased to have met you."
 "mein Name" -> "Es ist für wahr eine Ehre Euch zu treffen.", "Ah jah, jetzt verstehe ich.", "Ich bin hoch erfeut Euch getroffen zu haben."
 "apprentice" -> "Madeline Clarbelis is my apprentice...she is talented, though impatient."
-"german" -> "Madeline Clarbelis ist meine Schülerin... sie ist begabt, aber ungeduldig."
+"Leherling" -> "Madeline Clarbelis ist meine Schülerin... sie ist begabt, aber ungeduldig."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Elvaine is a intelligent being.", "I have seen few more powerful beings than the Archmage.", "Elvaine, the Archmage, is the ruler of Runewick."
-"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Erzmagier" -> "Elvaine ist eine intelligentes Wesen.", "Ich habe mächtige Wesen als den Erzmagier gesehen.", "Elvaine, der Erzmagier, ist Herrscher von Runewick."
 english, "Elvaine", "Morgan" -> "Elvaine is a intelligent being.", "I have seen few more powerful beings than the Archmage.", "Elvaine, the Archmage, is the ruler of Runewick."
-"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan" ->"Elvaine ist eine intelligentes Wesen.", "Ich habe mächtige Wesen als den Erzmagier gesehen.", "Elvaine, der Erzmagier, ist Herrscher von Runewick."
 english, "Runewick" -> "Runewick is a place of learning.", "Many wise beings reside within the lands of Runewick.", "If it is knowledge you seek, Runewick would be a wise starting point."
-"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick" -> "Runewick ist ein Ort des Lernens.", "Viele weise Wesen leben auf Runewicks Länderein.", "Wenn Ihr Wissen sucht, wäre Runewick ein guter Anfang ."
 english, "Valerio", "Guilianni", "Don" -> "Mister Guilianni is concerned with nought but material possessions.", "The Don places that of least importance above all else.", "Mister Guilianni has yet to learn that true value is not to be found in a simple coin."
-"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don" -> "Herr Guillianni ist nur an materiellen Besitz interessiert.", "Der Don misst dem Bedeutungslosesten die meiste meißt Bedeutung zu.", "Herr Guilianni muss noch begreifen, dass wahre Werte nicht in Münzen gefunden werden können."
 english, "Galmair" -> "The people of Galmair concern themselves with wealth, and little else.", "I would not waste my breath upon this place.", "If it is money you seek, perhaps Galmair should be your destination. Though, I must warn you, you shall find yourself unsatisfied with such a life."
-"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair" -> "Die Leute in Galmair kümmer der Reichtum, und wenig anderes.", "Ich wurde meinen Atem nicht verschwenden um über diesen Ort zu reden.", "Wenn Ihr Geld sucht, vielleicht wäre Galmair ein guter Ort für Euch. Doch, ich muss Euch warnen, Ihr werdet keine Erfüllung in solch einem Leben finden."
 "Queen" -> "Queen Rosaline is the ruler of Cadomyr.", "The Queen resides within a large castle in Cadomyr. I cannot agree with such extravagance.", "The town of Cadomyr is ruled by the Queen."
-"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Königin" -> "Königin Rosaline ist Herrscherin über Cadomyr.", "Die Königin wohnt in einem großen Schloß in Cadomyr. Ich kann solch einer extravaganz nicht zustimmen.", "Die Stadt Cadomyr wird beherrscht von der Königin."
 english, "rosaline", "edwards" -> "Queen Rosaline is the ruler of Cadomyr.", "The Queen resides within a large castle in Cadomyr. I cannot agree with such extravagance.", "The town of Cadomyr is ruled by the Queen."
-"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards" -> "Königin Rosaline ist Herrscherin über Cadomyr.", "Die Königin wohnt in einem großen Schloß in Cadomyr. Ich kann solch einer extravaganz nicht zustimmen.", "Die Stadt Cadomyr wird beherrscht von der Königin."
 english, "Cadomyr" -> "The people of Cadomyr are pleasant, for the most part.", "Cadomyr often seems a misguided settlement.", "If you value honour above all else, you would do well to visit the lands of Cadomyr."
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr" -> "Die meistehn Leute in Cadomyr sind feundlich.", "Cadomyr erinnert oft an eine falsch geführte Siedlung.", "Wenn Euch Ehre am meisten bedeutet, so tut Ihr gut daran Cadomyr zu besuchen."
 
 -- Main land factions
 english, "albar" -> "Come now, let us not speak of such trivial matters.", "It is merely a place; nothing of any true importance.", "I would not waste my breath upon this subject."
@@ -252,11 +252,11 @@ english, "Zhambra" -> "Ah, yes. One of the Holy Ancestors.", "We wander the path
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Aurora", "Snow" -> "Let us communicate without words.", "Have you spoken with my apprentice?", "We must all learn to embrace nature and be one."
-"Aurora", "Snow" -> "Lass und ohne Worte sprechen.", "Habt ihr mit meiner Schülerin gespochen?", "Wir alle müssen lernen eines mit der Natur zu werden."
+"Aurora", "Snow" -> "Lass und ohne Worte sprechen.", "Habt Ihr mit meiner Schülerin gespochen?", "Wir alle müssen lernen eines mit der Natur zu werden."
 "Yes" -> "Let us communicate without words.", "Have you spoken with my apprentice?", "We must all learn to embrace nature and be one."
-"Ja" -> "Lass und ohne Worte sprechen.", "Habt ihr mit meiner Schülerin gespochen?", "Wir alle müssen lernen eines mit der Natur zu werden."
+"Ja" -> "Lass und ohne Worte sprechen.", "Habt Ihr mit meiner Schülerin gespochen?", "Wir alle müssen lernen eines mit der Natur zu werden."
 "No" -> "Let us communicate without words.", "Have you spoken with my apprentice?", "We must all learn to embrace nature and be one."
-"Nein" -> "Lass und ohne Worte sprechen.", "Habt ihr mit meiner Schülerin gespochen?", "Wir alle müssen lernen eines mit der Natur zu werden."
+"Nein" -> "Lass und ohne Worte sprechen.", "Habt Ihr mit meiner Schülerin gespochen?", "Wir alle müssen lernen eines mit der Natur zu werden."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "#me closes her eyes, nodding slowly.", "Time is just an illusion.", "Society is a mask."

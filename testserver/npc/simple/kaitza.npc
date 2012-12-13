@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------AC
+﻿------------------------------------------------------------------------------AC
 -- NPC Name: Kaitza                                                      None --
 -- NPC Job:  Temple Guard                                                     --
 --                                                                            --
@@ -148,31 +148,31 @@ queststatus(335) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> "Lassst mich allein. 
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I ssserve ze Goddessss.", "Zss. I am a temple guard.", "I dessstroy evil."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"beruf" -> "Ich diene der Göttin. Zss.", "Ich bin ein Tempelwächter. Sss.", "Ich bekämpfe dasss Bössse."
 english, "job" -> "I ssserve ze Goddessss.", "Zss. I am a temple guard.", "I dessstroy evil."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"job" ->  "Ich diene der Göttin. Zss.", "Ich bin ein Tempelwächter. Sss.", "Ich bekämpfe dasss Bössse."
 english, "Gobaith", "Gobiath" -> "Zis land wasss very corrupt.", "Zis island had much evil. Much evil, yesss. Zss.", "Zss. Ze people zere, zey were weak."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath" -> "Diess land war sssehr koorup. Zss.", "Diessse Inssel war Heim von viel bössem. Ja, sssehr viel bösses.", "Zss. Die Leute dort waren szz...schwach."
 "my name" -> "Zss. It isss an honour to meet you.", "A pleasssure to meet you.", "Glory to ze Goddessss."
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"mein Name" -> "Zss. Es isst eine Ehre Euch zzzu treffen.", "Ess issst eine Freude Euch zzzu treffen.", "Ehre sssei der Göttin!"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Zss. Ze magicsss isss not to be trusssted.", "Zey sssay zat he wasss blesssed by ze human Goddesss Elara.", "Ze archmage rulesss ze town of Runewick."
-"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Erzmagier" -> "Zss. Diesser Magie sssolte man nicht trauen.", "Sssie sagen, er ssein von der menssschlichen Göttin Elara gesssegnet.", "Der Erzzzmagier herssscht über die Sss...Stadt Runewick."
 english, "Elvaine", "Morgan" -> "Zss. Ze magicsss isss not to be trusssted.", "Zey sssay zat he wasss blesssed by ze human Goddesss Elara.", "Ze archmage rulesss ze town of Runewick."
-"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan" -> "Zss. Diesser Magie sssolte masn nicht trauen.", "Sssie sagen, er ssein von der menssschlichen Göttin Elara gesssegnet.", "Der Erzzzmagier herssscht über die Sss...Stadt Runewick."
 english, "Runewick" -> "Zss. Runewick isss ze land of wisdom.", "Ze people of Runewick are ssstrong of mind, but not of body.", "Zese people know nozing of honour."
-"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick" -> "Zss. Runewick issst dasss Land des Weisssheit.", "Die Leute von Runewivk sssind ss..stark im Geisste, aber nicht im Kampf.", "Diessse Leute wisssen nichtsss über Ehre."
 english, "Valerio", "Guilianni", "Don" -> "Money...only zis isss important to zat human.", "Zis human knowsss no honour.", "Do not trussst a word ze Don uttersss."
-"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don" -> "Geld...Ged issst dass einzzzig wichtige dort.", "Diessse Leute wisssen nichtss über Ehre.", "Glaubt dem Don ssseine Worte bessser nicht."
 english, "Galmair" -> "Zis town isss plagued by corruption.", "Gold isss ze only object zat mattersss zere.", "Zese people know nozing of honour."
-"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair" -> "Diessse sss..Stadt isst von Koruption geplagt. Zzs.", "Gold zzzählt dort, alsss einzzigesss.", "Diessse Leute wisssen nichtss über Ehre."
 "Queen" -> "Honour to ze Queen!", "Queen Rosssaline isss ze highest of ze humansss.", "Ze noble Queen rulesss ze town of Cadomyr."
-"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Königin" -> "Ehre sssei der Königin.", "Königin Rossaline issst die höchssste der Menssschen.", "Die edle Königin regiert die Stadt Cadomyr."
 english, "rosaline", "edwards" -> "Honour to ze Queen!", "Queen Rosssaline isss ze highest of ze humansss.", "Ze noble Queen rulesss ze town of Cadomyr."
-"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards" -> "Ehre sssei der Königin.", "Königin Rossaline issst die höchssste der Menssschen.", "Die edle Königin regiert die Stadt Cadomyr."
 english, "Cadomyr" -> "Zss. A more honourable people ssshall never be ssseen.", "Zis town isss ruled by ze noble Queen Rosssaline. Zss.", "Ze enemiesss of Cadomyr ssshall fall beneath our bladesss."
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr" -> "Zss. Eherbarer Menssschen alsss diese  waren niemalsss gessehen.", "Diessse Stadt wird behersscht von Köngin Rosssaline. Zss.", "Die Feinde Cadomyr sssollen neben unsssere Klingen fallen."
 
 -- Main land factions
 english, "albar" -> "Zss. I know little of ze human sssettlementsss.", "I know nozing of zese placesss.", "I have no interessst in zis. Zss."
@@ -230,7 +230,7 @@ english, "Kaitza" -> "Zss. Kaitza mussst be working.", "#me hisses quietly.", "Z
 "Yes" -> "Zss. Kaitza mussst be working.", "#me hisses quietly.", "Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time."
 "Ja" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss."
 "No" -> "Zss. Kaitza mussst be working.", "#me hisses quietly.", "Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time."
-"Nein" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss."
+"Nein" -> "Zss. Kaitza mussss arbeiten.", "#me zischt leise.", "Es gibt Bösesss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "Zss. Kaitza mussst be working.", "#me hisses quietly.", "Zere isss evil that mussst be dessstroyed. Ssstop wasting Kaitza'sss time."

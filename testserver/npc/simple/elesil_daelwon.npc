@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------AC
+﻿------------------------------------------------------------------------------AC
 -- NPC Name: Elesil Daelwon                                          Runewick --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
@@ -262,16 +262,16 @@ english, "Tanora", "Zelphia" -> "One of the elder gods. She is also known as God
 "Tanora", "Zelphia" -> "Eine der alten Götter. Sie ist auch als Göttin des Wassers bekannt."
 english, "Ushara" -> "One of the elder god. She is also known as Goddess of Earth"
 "Ushara" -> "Eine der alten Götter. Sie ist auch als Göttin der Erde bekannt."
-english, "Zhambra" -> "One of the unimportant, younger gods. You can find fellowsss in Cadomyr."
+english, "Zhambra" -> "One of the unimportant, younger gods. You can find fellows in Cadomyr."
 "Zhambra" -> "Eine der unwichtigen, jüngeren Götter. Man kann Anhänger in Cadomyr finden."
 
 -- Optional: Main land factions
--- "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
--- "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
--- "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "albar", english -> "I've never been there. So I can not tell you much about it.", "It's a place far away from here.", "I heard that the Albarians do not woreship female gods at all."
+-- "albar" -> "Ich war noch nie dort. Ich kann Euch nicht viel über diesen Ort sagen.", "Das ist ein Ort weit weg von hier.", "Ich höret die Albarner verehren die weiblichen Gottheiten überhaupt nicht."
+-- "gynk", "gync", english ->  "I've never been there. So I can not tell you much about it.","It's a place far away from here.", "I heard people say the weather was hot in gynk."
+-- "gync", "gynk" ->  "Ich war noch nie dort. Ich kann euch nicht viel über diesen Ort sagen.", "Das ist ein Ort weit weg von hier.", "Ich hörte Leute sagen, das wetter in Gynk sei warm."
+-- "salkama", english -> "I've never been there. So I can not tell you much about it.", "It's a place far away from here.", "I heard that the Salkamaerians are also called the lightfolk."
+-- "salkama" ->  "Ich war noch nie dort. Ich kann euch nicht viel über diesen Ort sagen.", "Das ist ein Ort weit weg von hier.", "Ich hörte die Salkamearier nennen sich das Volk des Lichtes."
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "Hmm...ask someone else if you want know about it."

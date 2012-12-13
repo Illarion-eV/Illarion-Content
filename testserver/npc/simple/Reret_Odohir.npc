@@ -106,9 +106,14 @@ english, town = Runewick, "become citizen", "gain citizenship" -> town = Cadomyr
 town = Runewick, "Bürger werden","Bürgerschaft beantragen" ->  town = Cadomyr, "Ihr seidt jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
 english, town = Cadomyr,  "become citizen", "gain citizenship" -> town = Cadomyr, "Oh! You are already a citizen of Cadomyr."
 town = Cadomyr,  "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Oh! Ihr seid bereits Bürger von Cadomyr."
+town = none, english, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Cadomyr", "Welcome to Cadomyr!"
+town = none, "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
 english, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Cadomyr", "Welcome to Cadomyr!"
 "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
 
+-- terminating citiienship in Cadomyr
+english, "give up citizenship","terminating citizen ship", "leave Cadomyr", "leaving Cadomyr" -> town = none, "Ihr seit nun kein Bürger Cadomyrs mehr. Sucht Euer Glück woanders."
+"beende Bürgerstatus", "verlasse Cadomyr", "Verlasse Cadomyr" -> town = none, "Ihr seit nun kein Bürger Cadomyrs mehr. Sucht Euer Glück woanders."
 -- Test Question
 "welche Stadt", "weche faktion" -> "Du gehörst nach %TOWN!"
 "wich town", "wich faction" -> "You belong to %TOWN!"
