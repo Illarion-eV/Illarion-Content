@@ -6,41 +6,28 @@ module("item.id_2874_mirror", package.seeall)
 
 -- UPDATE common SET com_script='item.id_2874_mirror' WHERE com_itemid = 2874;
 
-function init()
-   lpos = position(-32,193,-8);
-   mpos = position(-28,193,-8);
-end
+ladderPosition = position(-32,193,-8)
+mirrorPosition = position(-28,193,-8)
 
-function LookAtItem( User, Item )
+function LookAtItem(User, Item)
     -- Mirror of Death --
 	if (Item.pos == position(892,390,0)) and (User:getFaceTo() == 2) and (User.pos == position(890,390,0)) then
 	    MirrorOfDeath(User)
 	    return
 	end	-- end of mirror of death
 		
-	if (first==nil) then
-        init();
-        first=1;
+    local lookAt = base.lookat.GenerateLookAt(User, Item)
+
+    if Item.pos == mirrorPosition and User:getFaceTo() == Character.dir_east and User.pos == position(-29, 193, -8) then
+        lookAt.description = base.common.GetNLS("Hinter deinem Rücken erkennst du deutlich eine Leiter im Spiegel.",
+                                                "Behind your back you can clearly see a ladder in the mirror.")
+    
+        if ( not base.common.isItemIdInFieldStack(35, ladderPosition)) then
+            world:createItemFromId(35, 1, ladderPosition, true, 999, nil)
+        end
     end
-    lang=User:getPlayerLanguage();
-    if ( (Item.pos == mpos) and (User:getFaceTo() == 2) and (User.pos == position(-29,193,-8)) ) then
-        if lang==0 then
-            world:itemInform(User, Item, "Hinter deinem Rücken erkennst du deutlich eine Leiter im Spiegel.");
-        else
-            world:itemInform(User, Item, "Behind your back you can clearly see a ladder in the mirror.");
-        end
-        if ( not base.common.isItemIdInFieldStack( 35, lpos ) ) then
-            world:createItemFromId( 35, 1, lpos, true, 999 ,nil);
-        end;
-    else
-        if lang==0 then
-            world:itemInform(User, Item, "Spiegel");
-        else
-            world:itemInform(User, Item, "mirror");
-        end
-    end;
---	User:inform("in LookAtItem of spiegel");
-	LookAtItemIdent(User,Item);
+	
+    world:itemInform(User, Item, lookAt)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)

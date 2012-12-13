@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------AC
+﻿------------------------------------------------------------------------------AC
 -- NPC Name: Iradona Goldschein                                       Galmair --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
@@ -264,12 +264,12 @@ english, "Zhambra" -> "One of the weak younger gods. You can find fellows in Cad
 "Zhambra" -> "Einer der schwachen, jüngeren Götter. Du kann Anhänger in Cadomyr finden"
 
 -- Optional: Main land factions
--- "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
--- "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
--- "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "albar", english -> "Arrr, what shall that be?"
+-- "albar" ->  "Arrr, was soll das sein?"
+-- "gynk", "gync", english -> "Arrr, what shall that be?"
+-- "gync", "gynk" -> "Arrr, was soll das sein?"
+-- "salkama", english -> "Arrr, what shall that be?"
+-- "salkama" -> "Arrr, was soll das sein?"
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "Arrr, what shall that be?"

@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------AC
+﻿------------------------------------------------------------------------------AC
 -- NPC Name: Fosco Goodbarrel                                            None --
 -- NPC Job:  Mischievous halfling                                             --
 --                                                                            --
@@ -103,7 +103,7 @@ queststatus(333) = 6, "Auftrag", "Aufgabe", "Abenteuer", "german" -> inform("[Ne
 queststatus(333) = 7, english, "quest", "mission" -> "You want your staff, you bring me my ornate dagger. And it had better be Kai'itza's. I'll be able to spot a fake. You'll find the lizard in <town name>. She stole my flute."
 queststatus(333) = 7, "quest", "mission" -> "Du möchtest den Stab, dann bringt mir meinem verzierten Dolch. Dabei hanldelt es sich um den Kai'tza. Ich bin in der Lage einen Betrug zubemerken. Du findest den Echsenmensch in <Stadtname>. Sie hat meine Flöte gestohlen."
 queststatus(333) = 7, "task", "adventure", "staff" -> "You want your staff, you bring me my ornate dagger. And it had better be Kai'itza's. I'll be able to spot a fake. You'll find the lizard in <town name>. She stole my flute."
-queststatus(333) = 7, "Auftrag", "Aufgabe", "Abenteuer", "german" -> "Du möchtest den Stab, dann bringt mir meinem verzierten Dolch. Dabei hanldelt es sich um den Kai'tza. Ich bin in der Lage einen Betrug zubemerken. Du findest den Echsenmensch in <Stadtname>. Sie hat meine Flöte gestohlen."
+queststatus(333) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Stab" -> "Du möchtest den Stab, dann bringt mir meinem verzierten Dolch. Dabei hanldelt es sich um den Kai'tza. Ich bin in der Lage einen Betrug zubemerken. Du findest den Echsenmensch in <Stadtname>. Sie hat meine Flöte gestohlen."
 
 -- Quest 1 solved, ornate dagger deleted, battle staff added
 queststatus(333) = 10, item(190, all) > 0, english, ".+" -> inform("[Quest updated] Aurora's Staff: Part II."), "That's the one! I didn't think you had it in ya. Well, I'm a halfling of his word today. Here's the staff. I hope you enjoy your piece of wood.", deleteItem(190, 1), item(209, 1, 499), queststatus(13372) = 11
@@ -145,25 +145,25 @@ english, "job" -> "I'm a charming rogue!", "When you are this handsome, people p
 english, "Gobaith", "Gobiath" -> "It was an island, surrounded by water, not much more to say, really.", "Lots o' the people there were...hmm...well...slow to catch on.", "The name was strange. The land was stranger. The people were strangest."
 "Gobaith", "Gobiath" -> "Es war eine Insel umgeben von Wasser, da gibt's nichts weiter zu sagen.", "Viele Leute da hatten...wenig Durchblick.", "Der Name war seltsam. Das Land war seltsamer. Die Leute dort warem am seltsamsten."
 "my name" -> "Ah, well! The pleasure is yours!", "I guessed that!", "That was my mother's name!"
-"mein Name" -> "Ah, nun! GERMAN.", "Ich hab's mir gedacht!", "So hieß meine Mutter auch!"
+"mein Name" -> "Ah, nun! Die Freude luegt ganz auf Eurer Seite.", "Ich hab's mir gedacht!", "So hieß meine Mutter auch!"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Even I wouldn't dare say it to his face, but the fellow's a nut.", "Just your typical mage, that fellow. Prances around like his feet don't stink.", "Book smarts will only get you so far."
-"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Erzmagier" -> "Selbst ich würde nicht wagen es ihm ins Gesicht zu sagen, aber dieser Zeitgenosse ist 'ne hohle Nuss.", "Nichts weiter als der typische Magier, stolziert umher als würden seine Füße niemals stinken.", "Weisheiten aus Büchern sind nicht alles."
 english, "Elvaine", "Morgan" -> "Even I wouldn't dare say it to his face, but the fellow's a nut.", "Just your typical mage, that fellow. Prances around like his feet don't stink.", "Book smarts will only get you so far."
-"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan" -> "Selbst ich würde nicht wagen es ihm ins Gesicht zu sagen, aber dieser Zeitgenosse ist 'ne hohle Nuss.", "Nichts weiter als der typische Magier, stolziert umher als würden seine Füße niemals stinken.", "Weisheiten aus Büchern sind nicht alles."
 english, "Runewick" -> "They might be quick o' mind, but their feet are another story.", "That town has quite the interest in books. A fair penny can be made from providing them.", "Runewick is full of smarmy educated types. Not my poison."
-"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick" -> "Die glauben dort, sie hätten kluge Köpfe, aber frag' nicht nach deren Füßen.", "Die Stadt hat recht interessante Bucher, da könhnte man richtig Geld rausschlagen.", "Runewick is voll von kriecherischen, gebildeten Kreaturen. Nicht ganz mein Geschmack."
 english, "Valerio", "Guilianni", "Don" -> "How could anyone not admire the Don?", "He knows what he wants, and how to get it.", "He knows that money is the only thing of value in this world. Can't fault him for that!"
-"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don" -> "Wie könnte ihrgendwer den Don nicht verehren?", "Er weiß was er will, und wie er es bekommt.", "Er weiß das Geld das einzige ist, was in dieser Welt nzählt. Das ist kein Gund ihm was vorzuwerfen."
 english, "Galmair" -> "Plenty of coin flowing through those streets.", "Ahh...Galmair. If you know where to look, you'll find what you need.", "Galmair? I try to lighten the purses of that town whenever I have a moment to help."
-"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair" -> "Da wandern die Pfennige durch die Straßen.", "Ahh...Galmair. Wenn man weißt, wo man suchen musst, so findet man es dort.", "Galmair? Dort erleichtet ich die Geldbörsen wann immer ich kann."
 "Queen" -> "Quite the looker, that one.", "Perhaps I should show her some of the ol' Fosco charm.", "You didn't hear it from me, but I hear the Don has an eye for her."
-"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Königin" -> "Sie zieht die Blick auf sich.", "Vielleicht sollte ich sie mit meinem Fosco-Charm bezaubern? Hm?", "Das wisst Ihr nicht von mir, aber ich hörte der Don hat ein Auge auf sie geworfen."
 english, "rosaline", "edwards" -> "Quite the looker, that one.", "Perhaps I should show her some of the ol' Fosco charm.", "You didn't hear it from me, but I hear the Don has an eye for her."
-"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards" -> "Sie zieht die Blick auf sich.", "Vielleicht sollte ich sie mit meinem Fosco-Charm bezaubern? Hm?", "Das wisst Ihr nicht von mir, aber ich hörte der Don hat ein Auge auf sie geworfen."
 english, "Cadomyr" -> "Nice and trusting, those folk. Makes things much easier.", "Big hearts, smaller minds.", "Wouldn't mind making ol' Rosaline my Queen."
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr" -> "Freundlich und gutgläubig, diese Völkchen. Dies erleichtert vieles.", "Große Herzen, aber keine großen Geister.", "Ich hätte nichts dagegen Rosaline zu meiner Königin zu machen."
 
 -- Main land factions
 english, "albar" -> "Bo-ring.", "Humans are almost too easy. Almost.", "Albar...eh. Doesn't interest me."
