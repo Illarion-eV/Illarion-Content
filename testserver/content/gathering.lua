@@ -6,10 +6,10 @@ module("content.gathering", package.seeall)
 function InitGathering()
 	if(Init == nil) then
 		-- if FastAction==true then the probabilities are again reduced in FindRandomItem, see gatheringcraft.lua
-		local prob_frequently = 0.1;
-		local prob_occasionally = 0.05;
-		local prob_rarely = 0.01;
-		local prob_extremely_rarely = 0.005;
+		local prob_frequently = 0.005;
+		local prob_occasionally = 0.0025;
+		local prob_rarely = 0.0005;
+		local prob_extremely_rarely = 0.00025;
 		woodchopping = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.woodcutting}; -- id_74_axe
 		honeygathering = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming}; -- id_1005_beehive
 		farming = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, FastActionFactor = 0.5}; -- seeds, id_126_sickle

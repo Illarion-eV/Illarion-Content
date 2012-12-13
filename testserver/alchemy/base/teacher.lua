@@ -30,16 +30,16 @@ HerbsTaskTwoNameEN = {}
 HerbsTaskTwoNameDE = {}
 
 HerbsTaskTwoId["Knowing Tree"] =   {756,755}
-HerbsTaskTwoNameEN["Knowing Tree"] = {"Frommbeere","Feuerwurz"}
-HerbsTaskTwoNameDE["Knowing Tree"] = {"pious berry","fire root"}
+HerbsTaskTwoNameEN["Knowing Tree"] = {"pious berry","fire root"}
+HerbsTaskTwoNameDE["Knowing Tree"] = {"Frommbeere","Feuerwurz"}
 
 HerbsTaskTwoId["Thinking Stone"] =   {756,755}
-HerbsTaskTwoNameEN["Thinking Stone"] = {"Frommbeere","Feuerwurz"}
-HerbsTaskTwoNameDE["Thinking Stone"] = {"pious berry","fire root"}
+HerbsTaskTwoNameEN["Thinking Stone"] = {"pious berry","fire root"}
+HerbsTaskTwoNameDE["Thinking Stone"] = {"Frommbeere","Feuerwurz"}
 
 HerbsTaskTwoId["Recognizing Spring"] = {756,755}
-HerbsTaskTwoNameEN["Recognizing Spring"] = {"Frommbeere","Feuerwurz"}
-HerbsTaskTwoNameDE["Recognizing Spring"] = {"pious berry","fire root"}
+HerbsTaskTwoNameEN["Recognizing Spring"] = {"pious berry","fire root"}
+HerbsTaskTwoNameDE["Recognizing Spring"] = {"Frommbeere","Feuerwurz"}
 -- TASK TWO END --
 
 -- deleting the herbs --
@@ -409,7 +409,7 @@ function FirstTask(User, SourceItem)
 	local questInfos = GetTeacherQuestInfos(User, SourceItem)
 	SendMessage(User, SourceItem, 
 		            "You hear a voice, but you cannot tell from where it comes. Maybe it's even just in your head and it says: \"I am the "..questInfos.teacherEN2..". I help those who wish to enter the world of fine matter. If you want to learn about the great secret of alchemy, fullfill my tasks. Go and bring me five "..HerbsTaskOneNameEN[questInfos.teacherEN2][1]..", five "..HerbsTaskOneNameEN[questInfos.teacherEN2][2].." and five "..HerbsTaskOneNameEN[questInfos.teacherEN2][3]..". If you have them, touch me and you will have my attention.\"", 
-					"Du vernimmst eine Stimme, von der du nicht sagen kannst, woher sie kommt, oder ob sie vielleicht auch nur in deinem Kopf ist und sie spricht: \"Ich bin "..questInfos.teacherDE2..". Ich helfe jenen, die die Welt der Feinstofflichkeit betreten zu wollen. Willst du also das große Geheimnis der Alchmie erfahren, erfülle meine erste Prüfungen. Geh und bringe mir fünf "..HerbsTaskOneNameDE[questInfos.teacherEN2][1]..", fünf "..HerbsTaskOneNameDE[questInfos.teacherEN2][2].." und fünf "..HerbsTaskOneNameDE[questInfos.teacherEN2][3]..". Wenn du sie hast, berühre mich und du wirst meine Aufmerksamkeit haben.\""
+					"Du vernimmst eine Stimme, von der du nicht sagen kannst, woher sie kommt, oder ob sie vielleicht auch nur in deinem Kopf ist und sie spricht: \"Ich bin "..questInfos.teacherDE2..". Ich helfe jenen, die die Welt der Feinstofflichkeit betreten wollen. Willst du also das große Geheimnis der Alchemie erfahren, erfülle meine erste Prüfung. Geh und bringe mir fünf "..HerbsTaskOneNameDE[questInfos.teacherEN2][1]..", fünf "..HerbsTaskOneNameDE[questInfos.teacherEN2][2].." und fünf "..HerbsTaskOneNameDE[questInfos.teacherEN2][3]..". Wenn du sie hast, berühre mich und du wirst meine Aufmerksamkeit haben.\""
 					);
 	User:setQuestProgress(questInfos.questId,2)
 	
@@ -448,7 +448,7 @@ function ThirdTask(User, SourceItem)
 	
 	if qstPrg == 3 then
         -- check if he accomplished the second task	
-	    if (User:countItem(HerbsTaskTwoId[questInfos.teacherEN2][1]) < 1) then
+	    if (User:countItem(HerbsTaskTwoId[questInfos.teacherEN2][1]) < 1) or (User:countItem(HerbsTaskTwoId[questInfos.teacherEN2][2]) < 1) then
 	        SendMessage(User, SourceItem,
 			            "\"Oh! You don't have the herbs. If you have forgotten what you are supposed to get - "..HerbsTaskTwoNameEN[questInfos.teacherEN2][1].." and "..HerbsTaskTwoNameEN[questInfos.teacherEN2][2]..".\"", 
 						"\"Sowas! Du hast die Kräuter nicht dabei. Falls du es vergessen hast - "..HerbsTaskTwoNameDE[questInfos.teacherEN2][1].." and "..HerbsTaskTwoNameDE[questInfos.teacherEN2][2]..".\""
@@ -480,7 +480,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if not (SourceItem.pos == position(75,651,0) or SourceItem.pos == position(432,238,0) or SourceItem.pos == position(873,878,0)) then
 	    return
 	end	
-	
+	--[[
 	-- already an alchemist?
     local alchemistCheck = AlchemistCheck(User)
 	if alchemistCheck then
@@ -498,7 +498,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 					"You feel observed, but nothing else seems to happen."
 					)
 	return
-	end	
+	end	]]
 
 	-- teacher and quest infos 
 	local questInfos = GetTeacherQuestInfos(User, SourceItem)

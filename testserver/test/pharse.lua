@@ -30,155 +30,77 @@ function String2Number(str)
 end
 
 function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
-	possibilities = [[remove all
-	set skill
-	get skill
-	heal
-	restore items
-	create item
-	create front item
-	]];
-	
-	local cbRemoveAll = function (dialog)
-		if (dialog:getSuccess()) then
-			local num, okay = String2Number(dialog:getInput());
-			if (okay) then
-				User:eraseItem(num, User:countItem(num));
-			else
-				User:inform("You have not entered a number that could be used as item ID.");
-			end
-		end
-	end
-	
-	local cbSetSkill = function (dialog)
-		if (dialog:getSuccess()) then
-			local skillGroup, okay = String2Number(dialog:getInput());
-			if (not okay) then
-				User:inform("no number");
-				return;
-			end
-			local groupNames = { "Language", "Craftsmanship", "Magic", "Other", "Fighting", "Druid", "Priest", "Bard"};
-			if (skillGroup < 1 or skillGroup > 8) then
-				User:inform("Skill group number has to be between 1 and 8 (incl.)");
-				return;
-			end
-			local cbSkillName = function (dialog)
-				if (dialog:getSuccess()) then
-					local skillName = dialog:getInput();
-					local cbSkillValue = function (dialog)
-						if (dialog:getSuccess()) then
-							local skillValue, okay = String2Number(dialog:getInput());
-							if (not okay) then
-								User:inform("no number");
-								return;
-							end
-							if (skillValue < 0 or skillValue > 100) then
-								User:inform("value has to be between 0 and 100 (incl.)");
-								return;
-							end
-							local curSkill = User:getSkill(skillName);
-							User:increaseSkill(skillGroup, skillName, skillValue-curSkill);
-						end
-					end
-					User:requestInputDialog(InputDialog("Enter the skill value","Chosen skill name: " .. skillName, false, 255, cbSkillValue));
-				end
-			end
-			User:requestInputDialog(InputDialog("Enter the skill name","Chosen skill group: " .. groupNames[skillGroup], false, 255, cbSkillName));
-		end
-	end
-	
-	local cbGetSkill = function (dialog)
-		if (dialog:getSuccess()) then
-			local val = User:getSkill(dialog:getInput());
-			if (val~=nil) then
-				User:inform("Value of " .. dialog:getInput() .. ": " .. val);
-			else
-				User:inform("something went wrong");
-			end
-		end
-	end
-	
-	local cbCreateItem = function (dialog)
-		if (dialog:getSuccess()) then
-			local input = dialog:getInput();
-			local _,_,id,count,_,qual = string.find(input,"(%d+) (%d+)(%s*)(%d*)");
-			if (id=="" or count=="") then
-				User:inform("You have to enter at least the ID and the count.");
-				return;
-			end
-			if (qual=="") then
-				qual = 333;
-			end
-			User:createItem(tonumber(id), tonumber(count), tonumber(qual), nil);
-		end
-	end
-	
-	local cbCreateFrontItem = function (dialog)
-		if (dialog:getSuccess()) then
-			local input = dialog:getInput();
-			local _,_,id,count,_,qual = string.find(input,"(%d+) (%d+)(%s*)(%d*)");
-			if (id=="" or count=="") then
-				User:inform("You have to enter at least the ID and the count.");
-				return;
-			end
-			if (qual=="") then
-				qual = 333;
-			end
-			local frontPos = base.common.GetFrontPosition(User);
-			world:createItemFromId(tonumber(id), tonumber(count), frontPos, true, tonumber(qual), nil);
-		end
-	end
-	
-	local cbChooseOne = function (dialog)
-		if (dialog:getSuccess()) then
-			local input = dialog:getInput();
-			if (input == "remove all") then
-				local inputDialog = InputDialog("Enter an item ID you want to remove","", false, 255, cbRemoveAll);
-				User:requestInputDialog(inputDialog);
-				return;
-			elseif (input == "set skill") then
-				User:requestInputDialog(InputDialog("For setting a skill value, first enter the skill group","1=Language,\n 2=Craftsmanship,\n 3=Magic,\n 4=Other,\n 5=Fighting,  6=Druid,7=Priest, 8=Bard", false, 255, cbSetSkill));
-			elseif (input == "get skill") then
-				User:requestInputDialog(InputDialog("For getting a skill value, enter the skill name:","", false, 255, cbGetSkill));
-			elseif (input == "heal") then
-				User:increaseAttrib("hitpoints", 10000);
-				User:increaseAttrib("foodlevel", 10000);
-				User:increaseAttrib("mana", 10000);
-				User:increaseAttrib("poisonvalue", -10000);
-			elseif (input == "restore items") then
-				User:createItem(97,1,333,nil);
-				User:createItem(99,1,333,nil);
-				User:createItem(362,1,999,nil);
-				User:createItem(366,1,999,nil);
-				User:createItem(527,1,999,nil);
-				User:createItem(698,1,999,nil);
-			elseif (input == "create item") then
-				User:requestInputDialog(InputDialog("What item do you want?","Format:\n ID COUNT [QUALITY]\n quality is optional, default is 333", false, 255, cbCreateItem));
-			elseif (input == "create front item") then
-				User:requestInputDialog(InputDialog("What item do you want to create in front of you?","Format:\n ID COUNT [QUALITY]\n quality is optional, default is 333", false, 255, cbCreateFrontItem));
-			else
-				User:inform("Sorry, I didn't understand you.");
-        local cbSel = function (dialog)
-          if (dialog:getSuccess()) then
-            User:inform("success with index " .. dialog:getSelectedIndex());
+	local possibilities = {
+    "Remove all items by ID",
+    "Get/Set skill",
+    "Heal yourself"
+  };
+  
+  local cbWhatYouWant = function (dialog)
+    if (not dialog:getSuccess()) then
+      return;
+    end
+    local ind = dialog:getSelectedIndex();
+    if (ind == 0) then
+      local cbRemoveAll = function (dialog)
+        if (dialog:getSuccess()) then
+          local num, okay = String2Number(dialog:getInput());
+          if (okay) then
+            User:eraseItem(num, User:countItem(num));
           else
-            User:inform("failure");
+            User:inform("You have not entered a number that could be used as item ID.");
           end
         end
-        local s = SelectionDialog("Test Item", "What do you want to do?", cbSel);
-        s:addOption(1,"ind 0");
-        s:addOption(4,"ind 1");
-        s:addOption(0,"ind 2");
-        User:requestSelectionDialog(s);
-			end
-		end
-	end
-	
-	--local msgDialog = MessageDialog("Your possibilities:", possibilities, nil);
-    local inputDialog = InputDialog("What do you want to do?", "Your possibilities:\n" .. possibilities, false, 255, cbChooseOne);
-	
-	--User:requestMessageDialog(msgDialog);
-    User:requestInputDialog(inputDialog);
+      end
+      User:requestInputDialog(InputDialog(possibilities[ind+1], "Enter an ID of the items you want to remove from your character.", false, 255, cbRemoveAll));
+    elseif (ind == 1) then
+      local skillList = {
+        Character.tailoring,Character.alchemy,Character.tactics,Character.farming,Character.poisoning,
+        Character.harp,Character.woodcutting,Character.smithing,Character.firingBricks,
+        Character.punctureWeapons,Character.horn,Character.distanceWeapons,Character.gemcutting,
+        Character.slashingWeapons,Character.carpentry,Character.cookingAndBaking,Character.goldsmithing,
+        Character.concussionWeapons,Character.flute,Character.parry,Character.lute,Character.dodge,
+        Character.herblore,Character.mining,Character.glassBlowing,Character.fishing,Character.wrestling
+      };
+      local cbGetSetSkill = function(dialog)
+        if (not dialog:getSuccess()) then
+          return;
+        end
+        local skill = skillList[dialog:getSelectedIndex()+1];
+        local cbSetSkill = function (dialog)
+          if (not dialog:getSuccess()) then
+            return;
+          end
+          local skillValue, okay = String2Number(dialog:getInput());
+          if (not okay) then
+            User:inform("no number");
+            return;
+          end
+          if (skillValue < 0 or skillValue > 100) then
+            User:inform("value has to be between 0 and 100 (incl.)");
+            return;
+          end
+          User:increaseSkill(skill, User:getSkill(skill) - skillValue);
+        end
+        User:requestInputDialog(InputDialog("Set skill","Chosen skill: " .. User:getSkillName(skill) .."\nCurrent value: " .. User:getSkill(skill) .. "\nYou can set a new value.",false,255,cbSetSkill));
+      end
+      local selectionDialog = SelectionDialog(possibilities[ind+1], "Select a skill.", cbGetSetSkill);
+      for _,s in pairs(skillList) do 
+        selectionDialog:addOption(0, User:getSkillName(s));
+      end
+      User:requestSelectionDialog(selectionDialog);
+    elseif (ind == 2) then
+      User:increaseAttrib("hitpoints", 10000);
+      User:increaseAttrib("foodlevel", 10000);
+      User:increaseAttrib("mana", 10000);
+      User:increaseAttrib("poisonvalue", -10000);
+    end
+  end
+  local sd = SelectionDialog("Pharse's test item", "What do you want to do?", cbWhatYouWant);
+  sd:addOption(10, possibilities[1]);
+  sd:addOption(467, possibilities[2]);
+  sd:addOption(331, possibilities[3]);
+  User:requestSelectionDialog(sd);
 end
 
 function UseItem_deprecated(User,SourceItem,TargetItem,counter,param,ltstate)
