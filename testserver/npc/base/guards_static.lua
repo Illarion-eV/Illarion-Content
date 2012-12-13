@@ -16,9 +16,9 @@ function CheckForEnemies(guard)
 
 	-- check for hostile monsters
   debug("guard id: " .. guard.id);
-	local monsterList = world:getMonstersInRangeOf(guard.pos, content.guards.Guards[guard.id].radius);
+	local monsterList = world:getMonstersInRangeOf(guard.pos, content.guards.Guards[guard.name].radius);
 	for i,mon in pairs(monsterList) do
-    if (content.areas.PointInArea(mon.pos,content.guards.Guards[guard.id].areaName)) then
+    if (content.areas.PointInArea(mon.pos,content.guards.Guards[guard.name].areaName)) then
       if ( not base.common.IsMonsterDocile(mon:getMonsterType()) ) then
         -- kill them and get help
         -- but warp for now
@@ -28,10 +28,10 @@ function CheckForEnemies(guard)
 	end
 
 	-- check for player characters
-	local charList = world:getPlayersInRangeOf(guard.pos, content.guards.Guards[guard.id].radius);
+	local charList = world:getPlayersInRangeOf(guard.pos, content.guards.Guards[guard.name].radius);
 	for i,char in pairs(charList) do
-    if (content.areas.PointInArea(char.pos,content.guards.Guards[guard.id].areaName)) then
-      local mode = GetMode(char, content.guards.Guards[guard.id].faction);
+    if (content.areas.PointInArea(char.pos,content.guards.Guards[guard.name].areaName)) then
+      local mode = GetMode(char, content.guards.Guards[guard.name].faction);
       if (mode == ACTION_AGGRESSIVE) then
         -- spawn monster guards
         -- for now: just warp
@@ -114,7 +114,7 @@ end
 -- @param guard The guard that warps the char
 -- @param char The char that will be warped
 function Warp(guard, char)
-	char:warp(content.guards.Guards[guard.id].warpPos);
+	char:warp(content.guards.Guards[guard.name].warpPos);
 	base.common.InformNLS(char,
 		"Du wurdest soeben von einer Wache der Stadt verwiesen.",
 		"You've just been expelled from the town by a guard.");
@@ -160,7 +160,7 @@ function CheckAdminCommand(guard, speaker, message)
 		modeString[ACTION_AGGRESSIVE] = "aggressive";
 		-- just print the mode if the admin wants to check a mode
 		if string.find(msg, "check .*mode") then
-			local mode = GetModeByFaction(content.guards.Guards[guard.id].faction,faction);
+			local mode = GetModeByFaction(content.guards.Guards[guard.name].faction,faction);
 			speaker:inform("[Guard Help] Current mode for ".. factionString[faction] ..": ".. modeString[mode],Player.mediumPriority);
 			return;
 		end
@@ -175,7 +175,7 @@ function CheckAdminCommand(guard, speaker, message)
 			return;
 		else
 		end
-		SetMode(content.guards.Guards[guard.id].faction, faction, mode);
+		SetMode(content.guards.Guards[guard.name].faction, faction, mode);
 		speaker:inform("[Guard Help] Mode for ".. factionString[faction] .." set to ".. modeString[mode],Player.mediumPriority);
 	elseif string.find(msg, "help") then
 		speaker:inform("[Guard Help] You can set the mode for the guards by: set mode <faction> <mode>",Player.mediumPriority);
@@ -183,8 +183,8 @@ function CheckAdminCommand(guard, speaker, message)
 end
 
 function ReceiveText(NpcChar, Texttype, Message, Speaker)
-  CheckAdminCommand(NpcChar,Speaker,Message);
   content.guards.InitGuards();
+  CheckAdminCommand(NpcChar,Speaker,Message);
   if string.find(Message, "checkforenemies") then
     CheckForEnemies(NpcChar);
   end

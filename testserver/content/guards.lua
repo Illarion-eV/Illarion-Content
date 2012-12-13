@@ -5,12 +5,12 @@ function InitGuards()
     debug("init guards");
     Init = 1;
     Guards = {};
-    AddGuard(4278190318, 1, position(114, 639, 0), 3, "cadomyr guard 1");  -- horatio milenus
+    AddGuard("Horatio Milenus", 1, position(114, 639, 0), 3, "cadomyr guard 1");  -- horatio milenus
   end
 end
 
-function AddGuard(GuardId, FactionId, WarpPos, Radius, AreaName)
-  Guards[GuardId] = {
+function AddGuard(GuardName, FactionId, WarpPos, Radius, AreaName)
+  Guards[GuardName] = {
     faction = FactionId,
     warpPos = WarpPos,
     radius = Radius,
