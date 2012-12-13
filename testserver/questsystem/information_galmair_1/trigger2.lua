@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 25
 
 local NPC_TRIGGER_DE = "[Gg]almair"
 local NPC_TRIGGER_EN = "[Gg]almair"
-local NPC_REPLY_DE = "Sehr gut, hier nun die nï¿½chste Aufgabe. Welcher der unterschiedlichen Schï¿½chte der Schlackengrube hat einen zweiten Eingang?"
+local NPC_REPLY_DE = "Sehr gut, hier nun die nächste Aufgabe. Welcher der unterschiedlichen Schï¿½chte der Schlackengrube hat einen zweiten Eingang?"
 local NPC_REPLY_EN = "Very good, now your next task. Which of the different shafts of the Scoria Mine has a second entrance?"
 
 function receiveText(npc, type, text, PLAYER)
