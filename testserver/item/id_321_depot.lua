@@ -9,7 +9,7 @@ module("item.id_321_depot", package.seeall)
 
 function LookAtItem(User, Item)
     local lookAt = base.lookat.GenerateLookAt(User, Item)
-    local depotId = tonumber(Item.getData("depot"))
+    local depotId = tonumber(Item:getData("depot"))
 
     if depotId == 101 then
         lookAt.description = "Cadomyr"
