@@ -15,13 +15,13 @@ HerbsTaskOneId["Knowing Tree"] =   {133  ,  81, 140}
 HerbsTaskOneNameEN["Knowing Tree"] = {"sunherbs","berries","donf blades"}
 HerbsTaskOneNameDE["Knowing Tree"] = {"Sonnenkräuter","Beeren","Donfblätter"}
 
-HerbsTaskOneId["Thinking Stone"] =   {7,5,6}
-HerbsTaskOneNameEN["Thinking Stone"] = {"4","5","6"}
-HerbsTaskOneNameDE["Thinking Stone"] = {"4","5","6"}
+HerbsTaskOneId["Thinking Stone"] =   {133  ,  81, 140}
+HerbsTaskOneNameEN["Thinking Stone"] = {"sunherbs","berries","donf blades"}
+HerbsTaskOneNameDE["Thinking Stone"] = {"Sonnenkräuter","Beeren","Donfblätter"}
 
-HerbsTaskOneId["Recognizing Spring"] = {7,8,9}
-HerbsTaskOneNameEN["Recognizing Spring"] = {"7","8","9"}
-HerbsTaskOneNameDE["Recognizing Spring"] = {"7","8","9"}
+HerbsTaskOneId["Recognizing Spring"] =  {133  ,  81, 140}
+HerbsTaskOneNameEN["Recognizing Spring"] = {"sunherbs","berries","donf blades"}
+HerbsTaskOneNameDE["Recognizing Spring"] = {"Sonnenkräuter","Beeren","Donfblätter"}
 -- TASK ONE END --
 
 -- TASK TWO: two normal herbs 
@@ -33,13 +33,13 @@ HerbsTaskTwoId["Knowing Tree"] =   {756,755}
 HerbsTaskTwoNameEN["Knowing Tree"] = {"Frommbeere","Feuerwurz"}
 HerbsTaskTwoNameDE["Knowing Tree"] = {"pious berry","fire root"}
 
-HerbsTaskTwoId["Thinking Stone"] =   {4,5}
-HerbsTaskTwoNameEN["Thinking Stone"] = {"4","5"}
-HerbsTaskTwoNameDE["Thinking Stone"] = {"4","5"}
+HerbsTaskTwoId["Thinking Stone"] =   {756,755}
+HerbsTaskTwoNameEN["Thinking Stone"] = {"Frommbeere","Feuerwurz"}
+HerbsTaskTwoNameDE["Thinking Stone"] = {"pious berry","fire root"}
 
-HerbsTaskTwoId["Recognizing Spring"] = {7,8}
-HerbsTaskTwoNameEN["Recognizing Spring"] = {"7","8"}
-HerbsTaskTwoNameDE["Recognizing Spring"] = {"7","8"}
+HerbsTaskTwoId["Recognizing Spring"] = {756,755}
+HerbsTaskTwoNameEN["Recognizing Spring"] = {"Frommbeere","Feuerwurz"}
+HerbsTaskTwoNameDE["Recognizing Spring"] = {"pious berry","fire root"}
 -- TASK TWO END --
 
 -- deleting the herbs --
