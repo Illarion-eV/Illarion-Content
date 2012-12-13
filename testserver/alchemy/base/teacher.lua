@@ -489,7 +489,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"Du kennst das große Geheimnis der Alchemie schon. Ich darf dir nicht weiter helfen. Geh weg!\""
 	                )
 	return
-	end			]]	
+	end				
 	-- check if the char belongs to any other mage class
 	local noMagicCheck = NoMagicCheck(User)
 	if not noMagicCheck then
@@ -498,7 +498,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 					"You feel observed, but nothing else seems to happen."
 					)
 	return
-	end	
+	end	]]
 
 	-- teacher and quest infos 
 	local questInfos = GetTeacherQuestInfos(User, SourceItem)
