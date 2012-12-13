@@ -30,16 +30,16 @@ HerbsTaskTwoNameEN = {}
 HerbsTaskTwoNameDE = {}
 
 HerbsTaskTwoId["Knowing Tree"] =   {756,755}
-HerbsTaskTwoNameEN["Knowing Tree"] = {"Frommbeere","Feuerwurz"}
-HerbsTaskTwoNameDE["Knowing Tree"] = {"pious berry","fire root"}
+HerbsTaskTwoNameEN["Knowing Tree"] = {"pious berry","fire root"}
+HerbsTaskTwoNameDE["Knowing Tree"] = {"Frommbeere","Feuerwurz"}
 
 HerbsTaskTwoId["Thinking Stone"] =   {756,755}
-HerbsTaskTwoNameEN["Thinking Stone"] = {"Frommbeere","Feuerwurz"}
-HerbsTaskTwoNameDE["Thinking Stone"] = {"pious berry","fire root"}
+HerbsTaskTwoNameEN["Thinking Stone"] = {"pious berry","fire root"}
+HerbsTaskTwoNameDE["Thinking Stone"] = {"Frommbeere","Feuerwurz"}
 
 HerbsTaskTwoId["Recognizing Spring"] = {756,755}
-HerbsTaskTwoNameEN["Recognizing Spring"] = {"Frommbeere","Feuerwurz"}
-HerbsTaskTwoNameDE["Recognizing Spring"] = {"pious berry","fire root"}
+HerbsTaskTwoNameEN["Recognizing Spring"] = {"pious berry","fire root"}
+HerbsTaskTwoNameDE["Recognizing Spring"] = {"Frommbeere","Feuerwurz"}
 -- TASK TWO END --
 
 -- deleting the herbs --
