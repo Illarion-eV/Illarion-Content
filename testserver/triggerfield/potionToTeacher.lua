@@ -103,7 +103,7 @@ function PutItemOnField(Item,User)
 	end					
 end
 
-function TellRecipe(User, effectId)
+--[[function TellRecipe(User, effectId)
     local ingredientList = alchemy.base.alchemy.getIngredients(effectId)
 	local titleEN = "Learned Recipe" 
 	local titleDE = "Erlerntes Rezept"
@@ -117,4 +117,4 @@ function TellRecipe(User, effectId)
 	
 
 
-end
+end]]
