@@ -15,6 +15,7 @@ ACTION_AGGRESSIVE = 3;	-- attack (TO DO)
 function CheckForEnemies(guard)
 
 	-- check for hostile monsters
+  debug("guard id: " .. guard.id);
 	local monsterList = world:getMonstersInRangeOf(guard.pos, content.guards.Guards[guard.id].radius);
 	for i,mon in pairs(monsterList) do
     if (content.areas.PointInArea(mon.pos,content.guards.Guards[guard.id].areaName)) then
