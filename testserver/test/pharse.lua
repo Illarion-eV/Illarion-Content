@@ -70,19 +70,19 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         local cbSetSkill = function (dialog)
           if (not dialog:getSuccess()) then
             return;
-            local skillValue, okay = String2Number(dialog:getInput());
-            if (not okay) then
-              User:inform("no number");
-              return;
-            end
-            if (skillValue < 0 or skillValue > 100) then
-              User:inform("value has to be between 0 and 100 (incl.)");
-              return;
-            end
-            User:increaseSkill(skill, User:getSkill(skill) - skillValue);
           end
+          local skillValue, okay = String2Number(dialog:getInput());
+          if (not okay) then
+            User:inform("no number");
+            return;
+          end
+          if (skillValue < 0 or skillValue > 100) then
+            User:inform("value has to be between 0 and 100 (incl.)");
+            return;
+          end
+          User:increaseSkill(skill, User:getSkill(skill) - skillValue);
         end
-        User:requestInputDialog(InputDialog("Set skill","Chosen skill: " .. User:getSkillName(skill) .."\nCurrent value: " .. User:getSkill(skill) .. "\nYou can set a new value.",false,255,));
+        User:requestInputDialog(InputDialog("Set skill","Chosen skill: " .. User:getSkillName(skill) .."\nCurrent value: " .. User:getSkill(skill) .. "\nYou can set a new value.",false,255,cbSetSkill));
       end
       local selectionDialog = SelectionDialog(possibilities[ind+1], "Select a skill.", );
       for _,s in pairs(skillList) do 
