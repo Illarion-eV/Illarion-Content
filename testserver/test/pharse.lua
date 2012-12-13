@@ -158,6 +158,18 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 				User:requestInputDialog(InputDialog("What item do you want to create in front of you?","Format:\n ID COUNT [QUALITY]\n quality is optional, default is 333", false, 255, cbCreateFrontItem));
 			else
 				User:inform("Sorry, I didn't understand you.");
+        local cbSel = function (dialog)
+          if (dialog:getSuccess()) then
+            User.inform("success with index " .. dialog:getSelectedIndex());
+          else
+            User:inform("failure");
+          end
+        end
+        local s = SelectionDialog("Test Item", "What do you want to do?", cbSel);
+        s:addOption(1,"ind 0");
+        s:addOption(4,"ind 1");
+        s:addOption(6,"ind 2");
+        User:requestSelectionDialog(s);
 			end
 		end
 	end
