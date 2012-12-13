@@ -120,10 +120,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 end
 
 
-function LookAtItem(User,Item)
+function LookAtItem(User, Item)
+    local lookAt = base.lookat.GenerateLookAt(User, Item)
 
-    if (Item.id==2496) and (Item.data >= 1) and (Item.data <= 3) then
-
+--    if (Item.id==2496) and (Item.data >= 1) and (Item.data <= 3) then
+--[[ Needs to be changed for new Irundar
         if (Item.data == 1) then
             DisplayText = base.common.GetNLS( User, "Quellwasser der Troll's Vein", "Water from the Troll's Vein spring");
         elseif (Item.data == 2) then
@@ -131,12 +132,10 @@ function LookAtItem(User,Item)
         elseif (Item.data == 3) then
             DisplayText = base.common.GetNLS( User, "Gesegnetes Wasser von Irundar", "Blessed Water of Irundar");
         end
-        -- end
-        -- end
 
         world:itemInform(User,Item, DisplayText );
-
-    else
+--]]
+--    else
         if firstcall==nil then
             InitDrinks();
             firstcall=1;
@@ -164,9 +163,10 @@ function LookAtItem(User,Item)
                 break;
             end
         end
+        
         DisplayText = DisplayText..base.common.GetNLS( User, food[1], food[2] );
-        --User:inform( DisplayText );
+        lookAt.description = DisplayText
+--    end
 
-        world:itemInform(User,Item, DisplayText );
-    end
+    world:itemInform(User, Item, lookAt)
 end
