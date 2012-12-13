@@ -84,7 +84,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         end
         User:requestInputDialog(InputDialog("Set skill","Chosen skill: " .. User:getSkillName(skill) .."\nCurrent value: " .. User:getSkill(skill) .. "\nYou can set a new value.",false,255,cbSetSkill));
       end
-      local selectionDialog = SelectionDialog(possibilities[ind+1], "Select a skill.", );
+      local selectionDialog = SelectionDialog(possibilities[ind+1], "Select a skill.", cbGetSetSkill);
       for _,s in pairs(skillList) do 
         selectionDialog:addOption(0, User:getSkillName(s));
       end
