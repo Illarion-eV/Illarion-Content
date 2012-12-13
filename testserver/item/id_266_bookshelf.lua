@@ -3,6 +3,8 @@
 
 -- UPDATE common SET com_script='item.id_266_bookshelf' WHERE com_itemid IN (266, 267);
 
+require("base.common")
+
 module("item.id_266_bookshelf", package.seeall)
 
 function InitLibraries()
@@ -452,31 +454,24 @@ function DistanceFromPosToPos(TargetA,TargetB)
     return math.ceil(math.sqrt(math.pow(LengthX,2)+math.pow(LengthY,2)))
 end
 
-function LookAtItem(User,Item)
+function LookAtItem(User, Item)
     if ( Libraries == nil ) then
         InitLibraries()        
     end
-    
+
+    local lookAt = base.lookat.GenerateLookAt(User, Item)
+
     for i = 1, table.getn( Libraries ) do      
         for j = 1, table.getn( Libraries[i][1] ) do      
             if ( BookshelvesEqual( Libraries[i][1][j], Item.pos ) ) then
-                if (User:getPlayerLanguage()==0) then
-                    --world:itemInform(User,Item, "Bücherregal (" .. Libraries[i][3] .. ")" );
-                    User:inform( "Verschiedene Bücher über " .. Libraries[i][3] );
-                else
-                    --world:itemInform(User,Item, "Bookshelf (" .. Libraries[i][5] .. ")" );
-                    User:inform( "books about " .. Libraries[i][4] );
-                end  
+                lookAt.description = base.common.GetNLS(User, "Verschiedene Bücher über " .. Libraries[i][3], "Different books on " .. Libraries[i][4])
+                world:itemInform(User, Item, lookAt)
                 return;  
             end
         end
     end
     
-    if (User:getPlayerLanguage()==0) then
-        world:itemInform(User,Item,world:getItemName(Item.id,0)) 
-    else
-        world:itemInform(User,Item,world:getItemName(Item.id,1)) 
-    end        
+    world:itemInform(User, Item, lookAt) 
 end
 ---- Bücherregal
 --
