@@ -102,3 +102,19 @@ function PutItemOnField(Item,User)
 		end	
 	end					
 end
+
+function TellRecipe(User, effectId)
+    local ingredientList = alchemy.base.alchemy.getIngredients(effectId)
+	local titleEN = "Learned Recipe" 
+	local titleDE = "Erlerntes Rezept"
+	local potionLearnedEN = alchemy.base.alchemy.potionName[effectId][1]
+	local potionLearnedDE = alchemy.base.alchemy.potionName[effectId][2]
+	local stockEN = ""
+	local stockDE = ""
+	local dataZList = alchemy.base.alchemy.SplitData(User,ingredientList[2])
+	for i=1,8 do
+	    stockEN = stockEN.. 
+	
+
+
+end
