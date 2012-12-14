@@ -242,7 +242,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				end
 			end
 		end
-    if (SourceItem.data==1) then
+    if (SourceItem:getData("mode")=="weather") then
         if (string.find(User.lastSpokenText,"set weather")~=nil) then
             currWeather=world.weather;
             if (string.find(User.lastSpokenText,"help")~=nil) then
@@ -338,7 +338,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             end
             world:setWeather(currWeather);
         end
-    elseif (SourceItem.data==2) then  --ranksystem
+    elseif (SourceItem:getData=="ranksystem") then  --ranksystem
 		if (string.find(User.lastSpokenText,"help")~=nil) then
 			local a,b, value = string.find(User.lastSpokenText,"help (%d+)");
 						
@@ -412,14 +412,14 @@ end
 function LookAtItem(User,Item)
 
     if (Item:getData("mode")=="items") then
-		base.lookat.SetSpecialName(Item, "Kelle(Items)","Kelle(Items)")
+		base.lookat.SetSpecialName(Item, "Kelle (Items)","Kelle (Items)")
 		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: setdata <key> <value>, setqual <value>, setwaer <value>, setnumber <value>, field, count <value>", "Possible actions:  setdata <key> <value>, setqual <value>, setwaer <value>, setnumber <value>, field, count <value>");
     elseif (Item:getData("mode")=="weather") then
-        base.lookat.SetSpecialName(Item, "Kelle(Wetter)","Kelle(Weather)");
-		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: ", "");
+        base.lookat.SetSpecialName(Item, "Kelle (Wetter)","Kelle (Weather)");
+		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: help, clouds <value>, fog <value>, wind <value>, gust <value>, per <value>, thunder <value>, temp <value>", "Possible actions: help, clouds <value>, fog <value>, wind <value>, gust <value>, per <value>, thunder <value>, temp <value> ");
 	elseif (Item:getData("mode")=="ranksystem") then
-        base.lookat.SetSpecialName(Item, "Kelle(Rangsystem)", "Kelle(Ranksystem)");
-		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: ", "");
+        base.lookat.SetSpecialName(Item, "Kelle (Rangsystem)", "Kelle (Ranksystem)");
+		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: ", "Possible actions: ");
 	else
 		base.lookat.SetSpecialDescription(Item, "Um einen Modus zu setzen sage 'setdata mode xyz' und benutzt die Kelle. Modi sind items, weather und ranksystem. Items ist default.", "To set a mode type 'setdata mode xyz' and use the trowel. Modes are standard, items, weather and ranksystem. Items is default.");
         base.lookat.SetSpecialName(Item, "Kelle", "Kelle");
