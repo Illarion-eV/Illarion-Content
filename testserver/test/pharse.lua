@@ -79,7 +79,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
             User:inform("value has to be between 0 and 100 (incl.)");
             return;
           end
-          User:increaseSkill(skill, User:getSkill(skill) - skillValue);
+          User:increaseSkill(skill, skillValue - User:getSkill(skill));
         end
         User:requestInputDialog(InputDialog("Set skill","Chosen skill: " .. User:getSkillName(skill) .."\nCurrent value: " .. User:getSkill(skill) .. "\nYou can set a new value.",false,255,cbSetSkill));
       end
