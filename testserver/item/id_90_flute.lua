@@ -22,9 +22,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	local targetPos
 	local targetChar
 	
-	if ( SourceItem:getData("name") = "fireball") then --if book is fireball
+	if ( SourceItem:getData("name") = "fireball" ) then
 		User:talk(Character.say, "#me casts Fireball ");
-		
+
 		if ( User:getFaceTo() = 0) then --if facing north
 			targetPos = position(User.pos.x, User.pos.y + 3, User.pos.z);
 			world:gfx(9, targetPos);
