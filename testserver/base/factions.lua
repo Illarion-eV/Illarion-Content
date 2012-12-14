@@ -26,14 +26,14 @@ function InitFactionLists()
 	--A list with the Ranks, Rank 8 and Rank 9 can not be reached with faction points(e.g. npc quests), only with GM help, don't give any normal player rank 9!
 	CadomyrRankList = { {gRank = "Rekrut", eRank = "Recruit"},        	--rank 1
 					 {gRank = "Knappe", eRank = "Squire"},           	--rank 2
-					 {gRank = "Korporal", eRank = "Corporal"},         	--rank 3
-					 {gRank = "Wachmeister", eRank = "Sergeant"},       --rank 4
-					 {gRank = "Berittener", eRank = "Trooper"},         --rank 5
-					 {gRank = "Lancier", eRank = "Lancer"},        		--rank 6
-					 {gRank = "Ritter", eRank = "Knight"},     			--rank 7
-					 {gRank = "Adliger", eRank = "Noble"},           	--rank 8
-					 {gRank = "Baron", eRank = "Baron"},				--rank 9
-					 {gRank = "Herzog", eRank = "Duke"},				--rank 10
+					 {gRank = "Herr", eRank = "Lord"},         	--rank 3
+					 {gRank = "Ritter", eRank = "Knight"},       --rank 4
+					 {gRank = "Vogt", eRank = "Reeve"},         --rank 5
+					 {gRank = "Baron", eRank = "Baron"},        		--rank 6
+					 {gRank = "Graf", eRank = "Count"},     			--rank 7
+					 {gRank = "Fürst", eRank = "Earl"},           	--rank 8
+					 {gRank = "Herzog", eRank = "Duke"},				--rank 9
+					 {gRank = "Erzherzog", eRank = "Archduke"},				--rank 10
 					 {gRank = "Königin", eRank = "Queen"}};				--rank leader
 
 	RunewickRankList = { {gRank = "Neuling", eRank = "Novice"},    		--rank 1
