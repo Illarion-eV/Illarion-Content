@@ -21,7 +21,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		--Testing fireball, only activates if flute's data key name=fireball -Dyluck
 	local targetPos
 	local targetChar
-	
+	local extraPos
 	
 	if ( SourceItem:getData("name") == "fireball" ) then
 		User:talk(Character.say, "#me casts Fireball ");
