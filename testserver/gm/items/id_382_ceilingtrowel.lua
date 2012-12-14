@@ -407,7 +407,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		end
         
 		
-	end
+	--end
 end
 
 function LookAtItem(User,Item)
