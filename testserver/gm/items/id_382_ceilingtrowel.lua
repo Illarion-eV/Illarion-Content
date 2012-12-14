@@ -168,8 +168,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             else
                 User:inform("Quality: "..TargetItem.quality.. " ID: "..TargetItem.id.." number: "..TargetItem.number.." data: "..TargetItem.data.." wear: "..TargetItem.wear);
             end]]
-            if (string.find(User.lastSpokenText,"setdata (%a+) (.)")~=nil) then
-                a,b,dataString,newdata=string.find(User.lastSpokenText,"setdata (%a+) (.)");
+            if (string.find(User.lastSpokenText,"setdata (%a+) (.+)")~=nil) then
+                a,b,dataString,newdata=string.find(User.lastSpokenText,"setdata (%a+) (.+)");
                 TargetItem:setData(dataString,newdata);
                 world:changeItem(TargetItem);
                 User:inform("Data of "..world:getItemName(TargetItem.id,0).." set to key: " ..dataString.." value: "..TargetItem:getData(dataString));
