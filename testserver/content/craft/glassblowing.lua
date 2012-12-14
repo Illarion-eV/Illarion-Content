@@ -47,7 +47,7 @@ product:addIngredient(41) -- Glass Ingot: 1x
 catId = glassblowing:addCategory("decoration", "Dekoration")
 
 --Vase
-product = glassblowing:addProduct(catId, 315, 90, 110, 27, 54)
+product = glassblowing:addProduct(catId, 315, 90, 110, 135, 270)
 product:addIngredient(41, 3) -- Glass Ingot: 3x
 product:addIngredient(197) -- Amethyst: 1x
 product:addIngredient(46) -- Ruby: 1x

@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------AC
+﻿------------------------------------------------------------------------------AC
 -- NPC Name: Ruzusss                                                  Cadomyr --
 -- NPC Job:  hunter                                                           --
 --                                                                            --
@@ -77,10 +77,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sssee you again if you need
 -- OPTIONAL TRIGGERS
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
--- "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
--- "job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "profession" -> "Ruzusss is Hunter."
+-- "beruf" -> "Ruzusss ist Jäger."
+-- "job", english -> "Ruzusss is Hunter."
+-- "job" -> "Ruzusss ist Jäger."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "inform" -> inform("[Keywords] place"), "I have information about placesss clossse to Cadomyr. Just asssk me!"
@@ -319,10 +319,10 @@ english, "Cadomyr" -> "That isss here and if you want to know more about it asss
 "Cadomyr" -> "Das issst hier und wenn du mehr darüber wisssen möchtest, dann frag Frizza nach weiterer Information."
 
 -- Optional: Catching typical NPC phrases
--- "what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
--- "tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "what sell", "what buy", "list wares", "price of" -> "Ruzusss does not sell and Ruzuss does not trade."
+-- "was verkauf", "was kauf", "warenliste", "preis von" -> "Ruzuss verkauft nichts, und kauft nichts."
+-- "tell something" -> "Ruzusss does not sell and Ruzuss does not trade."
+-- "erzähl was", "erzähl etwas" ->"Ruzuss verkauft nichts, und kauft nichts."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Primarly, we pray to three godsss in Cadomyr. They are Sirani, Zhambra and Malachin. But I pray to Zelphia, mother of my race"
@@ -363,8 +363,8 @@ english, "Zhambra" -> "You can find a Temple of him in our town. Jussst go throu
 "Zhambra" -> "Du kannst den Tempel von in unserer Ssstadt finden. Gehe einfach durch die Ssstadtmauer, überquere den Marktplatz und dann findest du ihn auch schon an der rechten Ssseite hinter der Werkstatt."
 
 -- Optional: Main land factions
--- "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+-- "albar", english -> "I do not know."
+-- "albar" -> "Kenne ich nicht."
 -- "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
 -- "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 -- "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."

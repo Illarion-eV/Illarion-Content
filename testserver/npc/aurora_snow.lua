@@ -289,7 +289,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(141, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
 talkEntry:addResponse("Ja, dies sollte reichen. Gut gemacht. Hmm... vielleicht habt Ihr für diese Münzen eine bessere Verwendung als ich.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(141, 10, nil));
@@ -396,7 +396,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(322, "=", 9));
 talkEntry:addCondition(npc.base.condition.item.item(1317, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zwei Silberstücke und Natianas Medizin."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Kupferstücke und Natianas Medizin."));
 talkEntry:addResponse("Wunderbar. Jetzt lasst mich das ein wenig mischen, ? nun  einwenig davon abfüllen ?. und da hätten wir es! Gebt das Herrn Banius. Ihr musst euch jedoch beeilen, Natiana hat nicht mehr viel Zeit.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1317, 1, nil));
@@ -512,7 +512,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünf Silberstücke."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke"));
 talkEntry:addResponse("Ahh, ich Danke Eu... Moment. Dies ist nicht mein Stab. Ich bin da aber mal auf die Erklärung gespannt, was hinter dieser Sache steckt. Meine Schülerin macht nichts als Ärger. Nun, Ich habe zwar meinen Stab nicht wieder, aber nehmt dies als Entschädigung für eure Mühe.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 4));
@@ -657,7 +657,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 11));
 talkEntry:addCondition(npc.base.condition.item.item(209, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You have received a magical serinjah-sword and 40 silver coins."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You have received a magical serinjah-sword and forty silver coins."));
 talkEntry:addResponse("Ahh... my staff! Thank you, my friend. I'll save you the effort of explaining to me what sort of trouble my apprentice got into. Here is the reward, as promised.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 4000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(209, 1, nil));
@@ -670,7 +670,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 11));
 talkEntry:addCondition(npc.base.condition.item.item(209, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 40 Silberstücke und ein magisches Serinjah-Schwert."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Kupferstücke und ein magisches Serinjah-Schwert."));
 talkEntry:addResponse("Ahh...mein Stab! Ich danke euch, mein Freund. Ich erlasse Euch die Mühe mir zu erklären in welche Schwierigkeiten sind meine Schülerin gebracht hat.Hier ist Eure Belohnung, wie versprochen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 4000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(209, 1, nil));
@@ -788,7 +788,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("german");
+talkEntry:addTrigger("Leherling");
 talkEntry:addResponse("Madeline Clarbelis ist meine Schülerin... sie ist begabt, aber ungeduldig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -803,9 +803,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Elvaine ist eine intelligentes Wesen.");
+talkEntry:addResponse("Ich habe mächtige Wesen als den Erzmagier gesehen.");
+talkEntry:addResponse("Elvaine, der Erzmagier, ist Herrscher von Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -822,9 +822,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Elvaine ist eine intelligentes Wesen.");
+talkEntry:addResponse("Ich habe mächtige Wesen als den Erzmagier gesehen.");
+talkEntry:addResponse("Elvaine, der Erzmagier, ist Herrscher von Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -839,9 +839,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Runewick ist ein Ort des Lernens.");
+talkEntry:addResponse("Viele weise Wesen leben auf Runewicks Länderein.");
+talkEntry:addResponse("Wenn Ihr Wissen sucht, wäre Runewick ein guter Anfang .");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -860,9 +860,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Herr Guillianni ist nur an materiellen Besitz interessiert.");
+talkEntry:addResponse("Der Don misst dem Bedeutungslosesten die meiste meißt Bedeutung zu.");
+talkEntry:addResponse("Herr Guilianni muss noch begreifen, dass wahre Werte nicht in Münzen gefunden werden können.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -877,9 +877,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Die Leute in Galmair kümmer der Reichtum, und wenig anderes.");
+talkEntry:addResponse("Ich wurde meinen Atem nicht verschwenden um über diesen Ort zu reden.");
+talkEntry:addResponse("Wenn Ihr Geld sucht, vielleicht wäre Galmair ein guter Ort für Euch. Doch, ich muss Euch warnen, Ihr werdet keine Erfüllung in solch einem Leben finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -893,9 +893,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Königin Rosaline ist Herrscherin über Cadomyr.");
+talkEntry:addResponse("Die Königin wohnt in einem großen Schloß in Cadomyr. Ich kann solch einer extravaganz nicht zustimmen.");
+talkEntry:addResponse("Die Stadt Cadomyr wird beherrscht von der Königin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -912,9 +912,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Königin Rosaline ist Herrscherin über Cadomyr.");
+talkEntry:addResponse("Die Königin wohnt in einem großen Schloß in Cadomyr. Ich kann solch einer extravaganz nicht zustimmen.");
+talkEntry:addResponse("Die Stadt Cadomyr wird beherrscht von der Königin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -929,9 +929,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Die meistehn Leute in Cadomyr sind feundlich.");
+talkEntry:addResponse("Cadomyr erinnert oft an eine falsch geführte Siedlung.");
+talkEntry:addResponse("Wenn Euch Ehre am meisten bedeutet, so tut Ihr gut daran Cadomyr zu besuchen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1352,7 +1352,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Aurora");
 talkEntry:addTrigger("Snow");
 talkEntry:addResponse("Lass und ohne Worte sprechen.");
-talkEntry:addResponse("Habt ihr mit meiner Schülerin gespochen?");
+talkEntry:addResponse("Habt Ihr mit meiner Schülerin gespochen?");
 talkEntry:addResponse("Wir alle müssen lernen eines mit der Natur zu werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1368,7 +1368,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
 talkEntry:addResponse("Lass und ohne Worte sprechen.");
-talkEntry:addResponse("Habt ihr mit meiner Schülerin gespochen?");
+talkEntry:addResponse("Habt Ihr mit meiner Schülerin gespochen?");
 talkEntry:addResponse("Wir alle müssen lernen eines mit der Natur zu werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1384,7 +1384,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
 talkEntry:addResponse("Lass und ohne Worte sprechen.");
-talkEntry:addResponse("Habt ihr mit meiner Schülerin gespochen?");
+talkEntry:addResponse("Habt Ihr mit meiner Schülerin gespochen?");
 talkEntry:addResponse("Wir alle müssen lernen eines mit der Natur zu werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
