@@ -131,7 +131,7 @@ if (MonID==931) then --Contaminated Ratchild, Level: 3, Armourtype: cloth, Weapo
         --Category 3: Weapons
 
         local done=monster.base.drop.AddDropItem(27,1,20,(100*math.random(3,4)+math.random(33,44)),0,3); --simple dagger
-        if not done then done=monster.base.drop.AddDropItem(2674,1,10,(100*math.random(3,4)+math.random(33,44)),0,3); end --dull simple dagger
+        if not done then done=monster.base.drop.AddDropItem(189,1,10,(100*math.random(3,4)+math.random(33,44)),0,3); end --dagger
         if not done then done=monster.base.drop.AddDropItem(2672,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --poisoned dagger
         if not done then done=monster.base.drop.AddDropItem(2675,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --rapier
         if not done then done=monster.base.drop.AddDropItem(2740,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --red dagger

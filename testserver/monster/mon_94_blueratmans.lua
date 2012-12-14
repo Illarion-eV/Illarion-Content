@@ -109,9 +109,9 @@ if (MonID==941) then --Crazy Rat Alchemist, Level: 2, Armourtype: cloth, Weapont
 
         local done=monster.base.drop.AddDropItem(189,1,20,(100*math.random(1,2)+math.random(11,22)),0,3); --dagger
         if not done then done=monster.base.drop.AddDropItem(27,1,10,(100*math.random(1,2)+math.random(11,22)),0,3); end --simple dagger
-        if not done then done=monster.base.drop.AddDropItem(2663,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --dull dwarfen axe
-        if not done then done=monster.base.drop.AddDropItem(2652,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --dull broadsword
-        if not done then done=monster.base.drop.AddDropItem(2728,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --dull mace
+        if not done then done=monster.base.drop.AddDropItem(2645,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --throwing axe
+        if not done then done=monster.base.drop.AddDropItem(2658,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --broadsword
+        if not done then done=monster.base.drop.AddDropItem(230,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --mace
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(10,30),100,773,0,4); --copper coins
