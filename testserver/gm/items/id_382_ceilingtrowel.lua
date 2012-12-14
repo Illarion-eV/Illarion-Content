@@ -154,7 +154,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		TargetItem = base.common.GetFrontItem(User);
 	end
 	
-    if (SourceItem.data==0) then
+    --if (SourceItem.data==0) then
         if (TargetItem and TargetItem.id~=0) then
             User:inform("target item");
             WFound,weapon = world:getWeaponStruct(TargetItem.id);
@@ -168,11 +168,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             else
                 User:inform("Quality: "..TargetItem.quality.. " ID: "..TargetItem.id.." number: "..TargetItem.number.." data: "..TargetItem.data.." wear: "..TargetItem.wear);
             end
-            if (string.find(User.lastSpokenText,"setdata (%d+)")~=nil) then
-                a,b,newdata=string.find(User.lastSpokenText,"setdata (%d+)");
-                TargetItem.data=newdata+1-1;
+            if (string.find(User.lastSpokenText,"setdata (%a+) (.)")~=nil) then
+                a,b,dataString,newdata=string.find(User.lastSpokenText,"setdata (%a+) (.)");
+                TargetItem:setData(dataString,newdata);
                 world:changeItem(TargetItem);
-                User:inform("Data of "..world:getItemName(TargetItem.id,0).." set to "..TargetItem.data);
+                User:inform("Data of "..world:getItemName(TargetItem.id,0).." set to key: " ..dataString.." value: "..TargetItem:getData(dataString));
                 -- LogGMAction(User,User.name.."("..User.id..") changed data of "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..") to "..TargetItem.data);
             end
             if (string.find(User.lastSpokenText,"setqual (%d)(%d)(%d)")~=nil) then
@@ -242,7 +242,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				end
 			end
 		end
-    elseif (SourceItem.data==1) then
+    if (SourceItem.data==1) then
         if (string.find(User.lastSpokenText,"set weather")~=nil) then
             currWeather=world.weather;
             if (string.find(User.lastSpokenText,"help")~=nil) then
@@ -407,21 +407,25 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		end
         
 		
-	--end
+	end
 end
 
 function LookAtItem(User,Item)
-    if (Item.data==0) then
-        world:itemInform(User,Item,"Decke Kelle(Items)");
-    elseif (Item.data==1) then
-        world:itemInform(User,Item,"Decke Kelle(Weather)");
-	elseif (Item.data==2) then
-        world:itemInform(User,Item,"Decke Kelle(Ranksystem)");
-	elseif (Item.data==3) then
-		world:itemInform(User,Item,"Decke Kelle(Blay)");
+    local lookAt = ItemLookAt()
+
+    if (Item:getData("trowelData")==0) then
+        lookAt.name = "Decke Kelle(Items)";
+    elseif (Item:getData("trowelData")==1) then
+        lookAt.name = "Decke Kelle(Weather)";
+	elseif (Item:getData("trowelData")==2) then
+        lookAt.name = "Decke Kelle(Ranksystem)";
+	elseif (Item:getData("trowelData")==3) then
+		lookAt.name = "Decke Kelle(Blay)";
 	else
-        world:itemInform(User,Item,"Decke Kelle");
+        lookAt.name ="Decke Kelle");
     end
+	world:itemInform(User,Item,lookAt);
+	
     for intx=User.pos.x-5,User.pos.x+5 do
         for inty=User.pos.y-5,User.pos.y+5 do
             if (world:isCharacterOnField(position(intx,inty,User.pos.z))==true) then
