@@ -452,8 +452,6 @@ function GenusData(ItemID) -- returns (0=male, 1=female, 2=neuter)
     genus[2741]=0;
     genus[2742]=0;
     genus[2745]=2;
-    genus[2747]=0;
-    genus[2748]=0;
     genus[2752]=2;
     genus[2755]=2;
     genus[2756]=2;
