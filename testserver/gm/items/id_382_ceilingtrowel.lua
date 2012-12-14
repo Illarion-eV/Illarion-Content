@@ -154,10 +154,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		TargetItem = base.common.GetFrontItem(User);
 	end
 	
-    if (SourceItem.data==0) then
+    --if (SourceItem.data==0) then
         if (TargetItem and TargetItem.id~=0) then
             User:inform("target item");
-            WFound,weapon = world:getWeaponStruct(TargetItem.id);
+            --[[WFound,weapon = world:getWeaponStruct(TargetItem.id);
             AFound,armor = world:getArmorStruct(TargetItem.id);
             if (WFound) then
                 User:inform("Quality: "..TargetItem.quality.. "; ID: "..TargetItem.id.."; number: "..TargetItem.number.."; data: "..TargetItem.data.."; wear: "..TargetItem.wear.. "; attack: "..weapon.Attack.."; defense: "..weapon.Defence.."; AP: "..weapon.ActionPoints.."; range: "..weapon.Range.."; type: "..weapon.WeaponType);
@@ -167,12 +167,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
                 User:inform("Quality: "..TargetItem.quality.. " ID: "..TargetItem.id.." number: "..TargetItem.number.." data: "..TargetItem.data.." wear: "..TargetItem.wear.. " PuncA: "..armor.PunctureArmor.." StrokeA: "..armor.StrokeArmor.." ThrustA: "..armor.ThrustArmor.." stiffness: "..armor.Stiffness.." absorb: "..armor.Absorb.."HP");
             else
                 User:inform("Quality: "..TargetItem.quality.. " ID: "..TargetItem.id.." number: "..TargetItem.number.." data: "..TargetItem.data.." wear: "..TargetItem.wear);
-            end
-            if (string.find(User.lastSpokenText,"setdata (%d+)")~=nil) then
-                a,b,newdata=string.find(User.lastSpokenText,"setdata (%d+)");
-                TargetItem.data=newdata+1-1;
+            end]]
+            if (string.find(User.lastSpokenText,"setdata (%a+) (.+)")~=nil) then
+                a,b,dataString,newdata=string.find(User.lastSpokenText,"setdata (%a+) (.+)");
+                TargetItem:setData(dataString,newdata);
                 world:changeItem(TargetItem);
-                User:inform("Data of "..world:getItemName(TargetItem.id,0).." set to "..TargetItem.data);
+                User:inform("Data of "..world:getItemName(TargetItem.id,0).." set to key: " ..dataString.." value: "..TargetItem:getData(dataString));
                 -- LogGMAction(User,User.name.."("..User.id..") changed data of "..world:getItemName(TargetItem.id,1).."("..TargetItem.id..") to "..TargetItem.data);
             end
             if (string.find(User.lastSpokenText,"setqual (%d)(%d)(%d)")~=nil) then
@@ -242,7 +242,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				end
 			end
 		end
-    elseif (SourceItem.data==1) then
+    if (SourceItem:getData("mode")=="weather") then
         if (string.find(User.lastSpokenText,"set weather")~=nil) then
             currWeather=world.weather;
             if (string.find(User.lastSpokenText,"help")~=nil) then
@@ -338,7 +338,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             end
             world:setWeather(currWeather);
         end
-    elseif (SourceItem.data==2) then  --ranksystem
+    elseif (SourceItem:getData("mode")=="ranksystem") then  --ranksystem
 		if (string.find(User.lastSpokenText,"help")~=nil) then
 			local a,b, value = string.find(User.lastSpokenText,"help (%d+)");
 						
@@ -364,6 +364,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			else
 				User:inform(Page[0]);
         	end
+			
 		elseif (string.find(User.lastSpokenText,"setradius (%d+)")~=nil) then
 			local a,b, radius = string.find(User.lastSpokenText,"setradius (%d+)");
 			if (radius~=nil and radius>-1 and radius <101) then
@@ -372,7 +373,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			else
 				User:inform("[Faction]: Invalid radius value, only numbers from 0 to 100 allowed!")
 			end
-			
 				
 		elseif (string.find(User.lastSpokenText,"addpoints (%d+)")~=nil) then --add rankpoints within a radius Counter
 				a,b,value = string.find(User.lastSpokenText,"addpoints (%d+)");
@@ -385,17 +385,17 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				else
 					User:inform("[Faction]: Failed adding rankpoints: max. 100 rankpoints")
 				end
-			elseif (string.find(User.lastSpokenText,"removepoints (%d+)")~=nil) then --remove rankpoints within a radius Counter
-				a,b,value = string.find(User.lastSpokenText,"removepoints (%d+)");
-				value=value+1-1;
-				if (value<101 and value>-1) then
-					if radius == nil then
-				   		radius=5;
-				   		ChangeRankpoints(User,radius,false, value);
-				   	end
-				else
-					User:inform("[Faction]: Failed removing rankpoints: You can only remove 1-100 rankpoints")
-				end
+				
+		elseif (string.find(User.lastSpokenText,"removepoints (%d+)")~=nil) then --remove rankpoints within a radius Counter
+			a,b,value = string.find(User.lastSpokenText,"removepoints (%d+)");
+			value=value+1-1;
+			if (value<101 and value>-1) then
+				if radius == nil then
+			   		radius=5;
+			   		ChangeRankpoints(User,radius,false, value);
+			   	end
+			else
+				User:inform("[Faction]: Failed removing rankpoints: You can only remove 1-100 rankpoints")
 			end
 		else
 			local frontChar = base.common.GetFrontCharacter(User);
@@ -405,23 +405,27 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				UseItemWithCharacter(User, SourceItem, User, Counter, Param);
 			end
 		end
-        
 		
-	--end
+	end
 end
 
 function LookAtItem(User,Item)
-    if (Item.data==0) then
-        world:itemInform(User,Item,"Decke Kelle(Items)");
-    elseif (Item.data==1) then
-        world:itemInform(User,Item,"Decke Kelle(Weather)");
-	elseif (Item.data==2) then
-        world:itemInform(User,Item,"Decke Kelle(Ranksystem)");
-	elseif (Item.data==3) then
-		world:itemInform(User,Item,"Decke Kelle(Blay)");
+
+    if (Item:getData("mode")=="items") then
+		base.lookat.SetSpecialName(Item, "Kelle (Items)","Kelle (Items)")
+		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: setdata <key> <value>, setqual <value>, setwaer <value>, setnumber <value>, field, count <value>", "Possible actions:  setdata <key> <value>, setqual <value>, setwaer <value>, setnumber <value>, field, count <value>");
+    elseif (Item:getData("mode")=="weather") then
+        base.lookat.SetSpecialName(Item, "Kelle (Wetter)","Kelle (Weather)");
+		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: help, clouds <value>, fog <value>, wind <value>, gust <value>, per <value>, thunder <value>, temp <value>", "Possible actions: help, clouds <value>, fog <value>, wind <value>, gust <value>, per <value>, thunder <value>, temp <value> ");
+	elseif (Item:getData("mode")=="ranksystem") then
+        base.lookat.SetSpecialName(Item, "Kelle (Rangsystem)", "Kelle (Ranksystem)");
+		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: ", "Possible actions: ");
 	else
-        world:itemInform(User,Item,"Decke Kelle");
+		base.lookat.SetSpecialDescription(Item, "Um einen Modus zu setzen sage 'setdata mode xyz' und benutzt die Kelle. Modi sind items, weather und ranksystem. Items ist default.", "To set a mode type 'setdata mode xyz' and use the trowel. Modes are standard, items, weather and ranksystem. Items is default.");
+        base.lookat.SetSpecialName(Item, "Kelle", "Kelle");
     end
+	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
+	
     for intx=User.pos.x-5,User.pos.x+5 do
         for inty=User.pos.y-5,User.pos.y+5 do
             if (world:isCharacterOnField(position(intx,inty,User.pos.z))==true) then
