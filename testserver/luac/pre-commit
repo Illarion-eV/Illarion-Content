@@ -10,15 +10,16 @@ scriptPath="${scriptPath}/"
 tmpFile="${scriptPath}tmpLuac"
 if [ $UNIX_FLAG ]
 then
-	luacPath="${scriptPath}luac/luac"
+	luacPath="${scriptPath}testserver/luac/luac"
 else
-	luacPath="${scriptPath}luac/luac.exe"
+	luacPath="${scriptPath}testserver/luac/luac.exe"
 fi
 
 function syntaxCheckFile
 {
 	# get the filenmame from the parameter & add it to the script path
 	local file="${scriptPath}$1"
+  
 	if [ -e "$file" ]
 	then
 		# redirect error to output & write to temporary file
@@ -34,8 +35,8 @@ function syntaxCheckFile
 }
 
 # get the files to commit
-IN=$(git diff-index --cached --name-only HEAD)
-
+IN=$(git show --pretty="format:" --name-only)
+echo "check $IN"
 # iterate over all file names
 while IFS=$'\n' read -ra ARR; do 
 	for i in "${ARR[@]}"; do
