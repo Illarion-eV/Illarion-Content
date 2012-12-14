@@ -37,9 +37,23 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			
 			if world:isCharacterOnField(targetPos) then --if there's a target char on target position
 				targetChar = world:getCharacterOnField(targetPos); --find the char
-				target:increaseAttrib("hitpoints", -1000);
+				targetChar:increaseAttrib("hitpoints", -1000);
 				world:makeSound(1, targetPos);
+				
 			end
+			if world:isCharacterOnField(targetPos2) then --if there's a target char on target position
+				targetChar = world:getCharacterOnField(targetPos2); --find the char
+				targetChar:increaseAttrib("hitpoints", -1000);
+				world:makeSound(1, targetPos);
+				
+			end
+			if world:isCharacterOnField(targetPos3) then --if there's a target char on target position
+				targetChar = world:getCharacterOnField(targetPos3); --find the char
+				targetChar:increaseAttrib("hitpoints", -1000);
+				world:makeSound(1, targetPos);
+				
+			end
+			
 		end
 	end			
 	--End Test
