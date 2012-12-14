@@ -45,6 +45,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 						targetChar = world:getCharacterOnField(extraPos); --find the char
 						targetChar:increaseAttrib("hitpoints", -1000);
 						world:makeSound(1, extraPos);
+			end
 				
 				
 			--[[
