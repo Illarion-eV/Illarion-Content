@@ -16,8 +16,10 @@ VALUES (0, 899, 776, 1, 4, 'Torina Scibrim', 'npc.torina_scibrim', 1, 1, 0, 255,
 
 require("npc.base.basic")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.condition.town")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.town")
 require("npc.base.talk")
 module("npc.torina_scibrim", package.seeall)
@@ -224,18 +226,22 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
-talkEntry:addResponse("Ehm...you are already a citizen of Runewick. Didn't you know?");
+talkEntry:addResponse("You are now a citizen of Runewick");
+talkEntry:addResponse("Welcome to Runewick!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Ehm... Ihr seid schon Bürger in Runewick. Wusstet Ihr das nicht?");
+talkEntry:addResponse("Ihr seid jetzt Bürger von Runewick");
+talkEntry:addResponse("Willkommen in Runewick!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -255,6 +261,96 @@ talkEntry:addTrigger("Bürgerschaft beantragen");
 talkEntry:addResponse("Ihr seid jetzt Bürger von Runewick");
 talkEntry:addResponse("Willkommen in Runewick!");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("Ehm...you are already a citizen of Runewick. Didn't you know?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Ehm... Ihr seid schon Bürger in Runewick. Wusstet Ihr das nicht?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("give up citizenship");
+talkEntry:addTrigger("terminating citizen ship");
+talkEntry:addTrigger("leave");
+talkEntry:addTrigger("leaving");
+talkEntry:addResponse("So, you realy want to leave Runewick and live elsewhere? Are you sure?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(207, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("beende Bürgerstatus");
+talkEntry:addTrigger("verlassen");
+talkEntry:addTrigger("verlasse");
+talkEntry:addTrigger("annuliere");
+talkEntry:addResponse("So, ihr möchtet Runwick wirklich verlassen und woanders leben? Seid Ihr sicher?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(207, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(207, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("yes");
+talkEntry:addResponse("You are no longer a citizen of Runewick, Fare well.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(207, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "0"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(207, "=", 1));
+talkEntry:addTrigger("ja");
+talkEntry:addResponse("Nun seid Ihr nicht länger Bürger Runewicks. Fare well.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(207, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "0"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(207, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("*.");
+talkEntry:addResponse("Ah, good. You stay here, a wise decision.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(207, "=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(207, "=", 1));
+talkEntry:addTrigger("*.");
+talkEntry:addResponse("Ah, gut. Ihr bleibt hier, eine weise Entscheidung.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(207, "=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("welche Stadt");
+talkEntry:addTrigger("welche faktion");
+talkEntry:addResponse("Du gehöerst nach %TOWN!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("wich town");
+talkEntry:addTrigger("wich faction");
+talkEntry:addResponse("You belong to %TOWN!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
