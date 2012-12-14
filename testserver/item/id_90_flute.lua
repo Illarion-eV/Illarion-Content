@@ -36,8 +36,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			pos7 = position(pos1.pos.x +1, pos1.pos.y +1, pos1.pos.z);
 			pos8 = position(pos1.pos.x -1, pos1.pos.y -1, pos1.pos.z);
 			pos9 = position(pos1.pos.x -1, pos1.pos.y +1, pos1.pos.z);
-			--[[
+			
 			world:gfx(9, pos1);
+			--[[
 			world:gfx(9, pos2);
 			world:gfx(9, pos3);
 			world:gfx(9, pos4);
