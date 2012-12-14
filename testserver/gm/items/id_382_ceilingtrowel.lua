@@ -157,7 +157,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     --if (SourceItem.data==0) then
         if (TargetItem and TargetItem.id~=0) then
             User:inform("target item");
-            WFound,weapon = world:getWeaponStruct(TargetItem.id);
+            --[[WFound,weapon = world:getWeaponStruct(TargetItem.id);
             AFound,armor = world:getArmorStruct(TargetItem.id);
             if (WFound) then
                 User:inform("Quality: "..TargetItem.quality.. "; ID: "..TargetItem.id.."; number: "..TargetItem.number.."; data: "..TargetItem.data.."; wear: "..TargetItem.wear.. "; attack: "..weapon.Attack.."; defense: "..weapon.Defence.."; AP: "..weapon.ActionPoints.."; range: "..weapon.Range.."; type: "..weapon.WeaponType);
@@ -167,7 +167,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
                 User:inform("Quality: "..TargetItem.quality.. " ID: "..TargetItem.id.." number: "..TargetItem.number.." data: "..TargetItem.data.." wear: "..TargetItem.wear.. " PuncA: "..armor.PunctureArmor.." StrokeA: "..armor.StrokeArmor.." ThrustA: "..armor.ThrustArmor.." stiffness: "..armor.Stiffness.." absorb: "..armor.Absorb.."HP");
             else
                 User:inform("Quality: "..TargetItem.quality.. " ID: "..TargetItem.id.." number: "..TargetItem.number.." data: "..TargetItem.data.." wear: "..TargetItem.wear);
-            end
+            end]]
             if (string.find(User.lastSpokenText,"setdata (%a+) (.)")~=nil) then
                 a,b,dataString,newdata=string.find(User.lastSpokenText,"setdata (%a+) (.)");
                 TargetItem:setData(dataString,newdata);
