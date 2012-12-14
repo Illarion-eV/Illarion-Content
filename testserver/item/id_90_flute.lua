@@ -18,26 +18,4 @@ item.base.music.addTalkText("#me plays a wild tune on the flute.","#me spielt ei
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	item.base.music.PlayInstrument(User,SourceItem,"flute");
 	
-	--[[
-	--Testing fireball, only activates if flute's data key name=fireball -Dyluck
-	local targetPos
-	local targetChar
-	
-	if ( SourceItem:getData("name") == "fireball" ) then
-		User:talk(Character.say, "#me casts Fireball ");
-
-		if ( User:getFaceTo() == 0) then --if facing north
-			targetPos = position(User.pos.x, User.pos.y + 3, User.pos.z);
-			world:gfx(9, targetPos);
-			world:makeSound(5, targetPos);
-			
-			if world:isCharacterOnField(targetPos) then --if there's a target char on target position
-				targetChar = world:getCharacterOnField(targetPos); --find the char
-				target:increaseAttrib("hitpoints", -1000);
-				world:makeSound(1, targetPos);
-			end
-		end
-	end			
-	--End Test
-	]]--
 end
