@@ -35,8 +35,6 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
     "Get/Set skill",
     "Heal yourself"
   };
-  if true
-  end
   local cbWhatYouWant = function (dialog)
     if (not dialog:getSuccess()) then
       return;
