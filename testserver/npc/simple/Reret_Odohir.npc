@@ -122,8 +122,8 @@ english, queststatus (209)=1, "yes" -> "You are no longer citizen under the prot
 queststatus (209)=1, "ja" -> "Ihr seit nicht länger Büger unter dem Schutz der Königin Rosalines, Ihr gehört nicht mehr zu Cadomyrs. Fare well.",  queststatus (209)=0, town = none
 
 -- answer no
-english, queststatus (209)=1, "*." -> "I see... Yes, Cadomyr is truly a nice place.", queststatus (209) = 0
-queststatus (209)=1, "*." -> "Ich verstehe... Ja,Cadomyr ist für wahr ein gut Ort.", queststatus (209) = 0
+english, queststatus (209)=1, ".*" -> "I see... Yes, Cadomyr is truly a nice place.", queststatus (209) = 0
+queststatus (209)=1, ".*" -> "Ich verstehe... Ja,Cadomyr ist für wahr ein gut Ort.", queststatus (209) = 0
 
 -- Test Question
 "welche Stadt", "welche faktion" -> "Du gehörst nach %TOWN!"

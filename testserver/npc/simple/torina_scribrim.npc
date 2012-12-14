@@ -93,8 +93,8 @@ english, queststatus (207) = 1, "yes" -> "You are no longer a citizen of Runewic
 queststatus (207) = 1, "ja" -> "Nun seid Ihr nicht länger Bürger Runewicks. Fare well.", town = none, queststatus (207) =0
 
 -- answer "no"
-english, queststatus (207)=1, "*." -> "Ah, good. You stay here, a wise decision.", queststatus (207) = 0
-queststatus (207)=1, "*." -> "Ah, gut. Ihr bleibt hier, eine weise Entscheidung.", queststatus (207) = 0
+english, queststatus (207)=1, ".*" -> "Ah, good. You stay here, a wise decision.", queststatus (207) = 0
+queststatus (207)=1, ".*" -> "Ah, gut. Ihr bleibt hier, eine weise Entscheidung.", queststatus (207) = 0
 
 -- Test Question
 "welche Stadt", "welche faktion" -> "Du gehöerst nach %TOWN!"

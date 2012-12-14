@@ -93,8 +93,8 @@ english, queststatus (208) = 1, "yes" -> "You are no longer citizen of Galmair. 
 queststatus (208) = 1, "ja" ->  "Ihr seit nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders.", queststatus (208) = 1, town = none
 
 --answer no
-english, queststatus (208)=1, "*." -> "Mhm... The Don will be pleased to hear that.", queststatus (208) = 0
-queststatus (208)=1, "*." -> "Mhm, ... Der Don wird sich freuen, dies zu hören.", queststatus (208) = 0
+english, queststatus (208)=1, ".*" -> "Mhm... The Don will be pleased to hear that.", queststatus (208) = 0
+queststatus (208)=1, ".*" -> "Mhm, ... Der Don wird sich freuen, dies zu hören.", queststatus (208) = 0
 -- Test Question
 "welche Stadt", "welche faktion" -> "Du gehöerst nach %TOWN!"
 "wich town", "wich faction" -> "You belong to %TOWN!"

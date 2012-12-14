@@ -331,7 +331,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(208, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("*.");
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Mhm... The Don will be pleased to hear that.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -339,7 +339,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(208, "=", 1));
-talkEntry:addTrigger("*.");
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Mhm, ... Der Don wird sich freuen, dies zu hören.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);

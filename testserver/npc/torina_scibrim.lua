@@ -326,7 +326,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(207, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("*.");
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Ah, good. You stay here, a wise decision.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(207, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -334,7 +334,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(207, "=", 1));
-talkEntry:addTrigger("*.");
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Ah, gut. Ihr bleibt hier, eine weise Entscheidung.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(207, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);

@@ -352,7 +352,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(209, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("*.");
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("I see... Yes, Cadomyr is truly a nice place.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -360,7 +360,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(209, "=", 1));
-talkEntry:addTrigger("*.");
+talkEntry:addTrigger(".*");
 talkEntry:addResponse("Ich verstehe... Ja,Cadomyr ist für wahr ein gut Ort.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
