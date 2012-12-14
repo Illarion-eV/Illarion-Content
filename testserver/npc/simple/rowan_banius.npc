@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------AC
+﻿------------------------------------------------------------------------------AC
 -- NPC Name: Rowan Banius                                            Runewick --
 -- NPC Job:  Farmer                                                           --
 --                                                                            --
@@ -114,9 +114,9 @@ queststatus(322) = 1, item(306, all) > 9, ".+" -> inform("[Quest gelöst] Du erh
 
 -- Give out quest 2
 queststatus(322) = 2, english, "quest", "mission" -> inform("[New quest] The Farmer's Wife: Part II"), "Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face.", queststatus(322) = 3
-queststatus(322) = 2, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche II"), "Ja, ich könnte mit Sicherheit Eure Hilfe gebrauchen. Meine liebe Frau friert so sehr. Wenn Ihr mir einen blauen Mantel bringen könntet, wäre ich Euch ausgesprochen bankbar.Baul ist ihre Lieblingsfarbe, Ihr versteht, dass der Mantel sie nicht nur warm halten, sonder ihr auch ein Lächeln entlocken.", queststatus(322) = 3
+queststatus(322) = 2, "quest", "mission" -> inform("[Neues Quest] Die Frau des Bauern II"), "Ja, ich könnte mit Sicherheit Eure Hilfe gebrauchen. Meine liebe Frau friert so sehr. Wenn Ihr mir einen blauen Mantel bringen könntet, wäre ich Euch ausgesprochen bankbar.Baul ist ihre Lieblingsfarbe, Ihr versteht, dass der Mantel sie nicht nur warm halten, sonder ihr auch ein Lächeln entlocken.", queststatus(322) = 3
 queststatus(322) = 2, "task", "adventure" -> inform("[New quest] The Farmer's Wife: Part II"), "Yes, I could certainly use your assistance again. My dear wife has quite the chill. If you could bring me a blue coat, I would be most grateful. Blue is her favourite colour, you see, so it will keep her warm and bring a smile to her dear face.", queststatus(322) = 3
-queststatus(322) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche II"), "Ja, ich könnte mit Sicherheit Eure Hilfe gebrauchen. Meine liebe Frau friert so sehr. Wenn Ihr mir einen blauen Mantel bringen könntet, wäre ich Euch ausgesprochen bankbar.Baul ist ihre Lieblingsfarbe, Ihr versteht, dass der Mantel sie nicht nur warm halten, sonder ihr auch ein Lächeln entlocken..", queststatus(322) = 3
+queststatus(322) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest]Die Frau des Bauern II"), "Ja, ich könnte mit Sicherheit Eure Hilfe gebrauchen. Meine liebe Frau friert so sehr. Wenn Ihr mir einen blauen Mantel bringen könntet, wäre ich Euch ausgesprochen bankbar.Baul ist ihre Lieblingsfarbe, Ihr versteht, dass der Mantel sie nicht nur warm halten, sonder ihr auch ein Lächeln entlocken..", queststatus(322) = 3
 
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(322) = 3, item(2380, all) = 0, english, "quest", "mission" -> "My poor wife has had a good meal, but she shivers night and day. The sooner you can get that blue coat to me, the better."
@@ -132,9 +132,9 @@ queststatus(322) = 3, item(2380, all) > 0, ".+" -> inform("[Quest gelöst] Du er
 
 -- Give out quest 3
 queststatus(322) = 4, english, "quest", "mission" -> inform("[New quest] The Farmer's Wife: Part III"), "Though my wife's condition continues to worsen, we finally have some good news. I wrote to a healer and she believes that she may have found a cure to my wife's illness. Please, go to Druidhouse and seek out the druid, Aurora Snow, for me.", queststatus(322) = 5
-queststatus(322) = 4, "quest", "mission" -> inform("[Neues Quest] Die Geistereiche III"), "Obwohl es meiner Frau immer schlechter geht, haben wir dennoch gute Neuigkeiten. Ich schrieb einem Heiler und sie meinte, sie könne meiner Frau helfen. Bitte, geht zum Druidenhaus und sucht die Heilerin Aurora Snow für mich auf.", queststatus(322) = 5
+queststatus(322) = 4, "quest", "mission" -> inform("[Neues Quest] Die Frau des Bauern III"), "Obwohl es meiner Frau immer schlechter geht, haben wir dennoch gute Neuigkeiten. Ich schrieb einem Heiler und sie meinte, sie könne meiner Frau helfen. Bitte, geht zum Druidenhaus und sucht die Heilerin Aurora Snow für mich auf.", queststatus(322) = 5
 queststatus(322) = 4, "task", "adventure" -> inform("[New quest] The Farmer's Wife: Part III"), "Though my wife's condition continues to worsen, we finally have some good news. I wrote to a healer and she believes that she may have found a cure to my wife's illness. Please, go to the Druidhouse and seek out the druid, Aurora Snow, for me.", queststatus(322) = 5
-queststatus(322) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Geistereiche III"), "Obwohl es meiner Frau immer schlechter geht, haben wir dennoch gute Neuigkeiten. Ich schrieb einem Heiler und sie meinte, sie könne meiner Frau helfen. Bitte, geht zum Druidenhaus und sucht die Heilerin Aurora Snow für mich auf.", queststatus(322) = 5
+queststatus(322) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Frau des Bauern III"), "Obwohl es meiner Frau immer schlechter geht, haben wir dennoch gute Neuigkeiten. Ich schrieb einem Heiler und sie meinte, sie könne meiner Frau helfen. Bitte, geht zum Druidenhaus und sucht die Heilerin Aurora Snow für mich auf.", queststatus(322) = 5
 
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(322) = 5, english, "quest", "mission" -> "Have you spoken with the druid yet? Aurora Snow is awaiting your arrival at the Druidhouse. Please, hurry. My poor wife has not improved."
@@ -160,7 +160,7 @@ english, "job" -> "I am a farmer. Though that may not last too much longer, if m
 english, "Gobaith", "Gobiath" -> "That land was always kind to us.", "Gobaith was a wonderful island. There, my wife and I never had so much as a cold between us.", "That island's soil was rich and moist, perfect for a man of my profession."
 "Gobaith", "Gobiath" -> "Dieses Land meinte es stets gut mit uns.", "Gobaith war eine wunderbare Insel.Dort stand nichts zwischen mir und meiner Frau, außer vielleicht mal einer Erkältung.", "Die Insel war reich und fruchtbar, wie gemacht für einen Mann mit meinem Beruf."
 "my name" -> "It is a pleasure to meet you. I only wish I could have done so at a less troubling time.", "I am pleased to meet you. Though, if you do not mind, I should be caring for my wife.", "It is a pleasure to meet you. I am not one to ask for a favour, but perhaps you would be so kind as to help my wife?"
-"mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"mein Name" -> "Es ist eine Freude Euch zu treffen. Aber ich wünschte Eure Bekanntschaft zu einem besseren Zeitpunkt wäre.", "Eine Freude Euch zu treffen, aber ich sollte mich um meine Frau kümmern.", "Eine Freude Euch zu treffen. Es steht mir nicht zu um Hilfe zu bitten, aber könntet Ihr nicht meiner Frau helfen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "farm" -> "This place does alright.", "The two of us can run this place comfortably enough. It's a bit more demanding when it is me alone, though.", "I love it here. The peace, the quiet, the fresh air. It is a wonderful life."
@@ -176,21 +176,21 @@ english, "Aurora" -> "Aurora Snow is an old friend of my wife.", "Ah, yes, Auror
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
-"Erzmagier" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Erzmagier" -> "Ich bitte um entschuldigung, aber mit stehrt der Sinn nicht nach solch einer Unterhaltung.", "Es tut mir wirklich leid, aber meine Frau bedarf meiner Hilfe.", "Vielleicht diskutieren wir das ein andermal, ich muss mich um meine Frau kümmern."
 english, "Elvaine", "Morgan" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
-"Elvaine", "Morgan" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Elvaine", "Morgan" -> "Ich bitte um entschuldigung, aber mit stehrt der Sinn nicht nach solch einer Unterhaltung.", "Es tut mir wirklich leid, aber meine Frau bedarf meiner Hilfe.", "Vielleicht diskutieren wir das ein andermal, ich muss mich um meine Frau kümmern."
 english, "Runewick" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
-"Runewick" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Runewick" -> "Ich bitte um entschuldigung, aber mit stehrt der Sinn nicht nach solch einer Unterhaltung.", "Es tut mir wirklich leid, aber meine Frau bedarf meiner Hilfe.", "Vielleicht diskutieren wir das ein andermal, ich muss mich um meine Frau kümmern."
 english, "Valerio", "Guilianni", "Don" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
-"Valerio", "Guilianni", "Don" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Valerio", "Guilianni", "Don" -> "Ich bitte um entschuldigung, aber mit stehrt der Sinn nicht nach solch einer Unterhaltung.", "Es tut mir wirklich leid, aber meine Frau bedarf meiner Hilfe.", "Vielleicht diskutieren wir das ein andermal, ich muss mich um meine Frau kümmern."
 english, "Galmair" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
-"Galmair" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Galmair" -> "Ich bitte um entschuldigung, aber mit stehrt der Sinn nicht nach solch einer Unterhaltung.", "Es tut mir wirklich leid, aber meine Frau bedarf meiner Hilfe.", "Vielleicht diskutieren wir das ein andermal, ich muss mich um meine Frau kümmern."
 "Queen" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
-"Königin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Königin" -> "Ich bitte um entschuldigung, aber mit stehrt der Sinn nicht nach solch einer Unterhaltung.", "Es tut mir wirklich leid, aber meine Frau bedarf meiner Hilfe.", "Vielleicht diskutieren wir das ein andermal, ich muss mich um meine Frau kümmern."
 english, "rosaline", "edwards" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
-"rosaline", "edwards" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"rosaline", "edwards" -> "Ich bitte um entschuldigung, aber mit stehrt der Sinn nicht nach solch einer Unterhaltung.", "Es tut mir wirklich leid, aber meine Frau bedarf meiner Hilfe.", "Vielleicht diskutieren wir das ein andermal, ich muss mich um meine Frau kümmern."
 english, "Cadomyr" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."
-"Cadomyr" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Cadomyr" -> "Ich bitte um entschuldigung, aber mit stehrt der Sinn nicht nach solch einer Unterhaltung.", "Es tut mir wirklich leid, aber meine Frau bedarf meiner Hilfe.", "Vielleicht diskutieren wir das ein andermal, ich muss mich um meine Frau kümmern."
 
 -- Main land factions
 english, "albar" -> "My apologies, but my mind is too heavy to engage in such a discussion now.", "I am truly sorry, but my wife needs my help.", "Perhaps we can continue this discussion at a later time, for I must be helping my wife at the moment."

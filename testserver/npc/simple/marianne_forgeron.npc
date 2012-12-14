@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------AC
+﻿------------------------------------------------------------------------------AC
 -- NPC Name: Marianne Forgeron                                        Glamair --
 -- NPC Job: Magical Blacksmith                                                --
 --                                                                            --
@@ -94,8 +94,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Irmorom be with you!", 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
--- "sell", "buy", "wares", "price", "trade", "purchase" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.", gemcraft
--- "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3.", gemcraft
+-- "sell", "buy", "wares", "price", "trade", "purchase" -> "I do not sell any wares! But I can upgrade your magical gems!", gemcraft
+-- "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich verkauf kein Zeuch! Aber ich kann deine magischen Edelsteine aufbessern.", gemcraft
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "I have nothing to do for ya."

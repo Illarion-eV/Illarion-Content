@@ -215,7 +215,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Auroras Stab: Teil  I"));
 talkEntry:addResponse("#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit.");
 talkEntry:addConsequence(npc.base.consequence.item.item(40, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 3));
@@ -238,7 +238,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest]Auroras Stab: Teil  I"));
 talkEntry:addResponse("#me's Augen huschen nervös hin und her als sie dir einen länglichen Holzstab reicht 'Oh? Ihr seid hier um den Stab zu hohlen?' Hier ist er... s...seid vorsichtig damit.");
 talkEntry:addConsequence(npc.base.consequence.item.item(40, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 3));
@@ -260,8 +260,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 5));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addResponse("GERMAN.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Auroras Stab: Teil  II"));
+talkEntry:addResponse("Es tut mir wirklich leid. Ich hätte nicht lügen sollen. Ein Halbling, Fosco Goodbarrel hat mich rein gelegt, so dass ich ihm den Stab gegeben habe. Er sagte, er könne mich zu einem mächtigeren Druiden machen. Ich wollte nicht das man mich für dumm hält. Ihr findet ihn im Wald westlich von hier.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -283,7 +283,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Stab");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest]Auroras Stab: Teil  II"));
 talkEntry:addResponse("Es tut mir wirklich leid. Ich hätte nicht lügen sollen. Ein Halbling, Fosco Goodbarrel hat mich rein gelegt, so dass ich ihm den Stab gegeben habe. Er sagte, er könne mich zu einem mächtigeren Druiden machen. Ich wollte nicht das man mich für dumm hält. Ihr findet ihn im Wald westlich von hier.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -340,7 +340,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der faule Lehrling"));
 talkEntry:addResponse("Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -361,7 +361,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(334, "=", 0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der faule Lehrling"));
 talkEntry:addResponse("Meine Lehrerin Frau Snow möchte das ich Kräuter sammle. Aber ich habe nicht wirklich Lust dazu.Wenn Ihr mir die Kräuter sucht gebe ich Euch ein schönes Geschenk. Ich brache vier Fussblatt und zwei Firnisblüten");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(334, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -570,7 +570,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
 talkEntry:addResponse("F...freut mich Euch kennen zu lernen.");
 talkEntry:addResponse("I...Ich freu mich euch zu treffen.");
-talkEntry:addResponse("E... Es ist eine Freude Euch zu terffen.");
+talkEntry:addResponse("E... Es ist eine Freude Euch zu treffen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -617,9 +617,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Meine Leherin Aurora sagt, er übersieht etwas. Ich frage mich, was sie damit meint.");
+talkEntry:addResponse("Ich hörte der Erzmagier sei der mächtigste Magier, der jemals seinen Fuß auf dieses Lang gesetzt hat.");
+talkEntry:addResponse("Ich frage mich ob er genauselange bracht Magie zu unterrichten, wie meine Lehrerin Aurora braucht um Magie zu unterrichten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -636,9 +636,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Meine Leherin Aurora sagt, er übersieht etwas. Ich frage mich, was sie damit meint.");
+talkEntry:addResponse("Ich hörte der Erzmagier sei der mächtigste Magier, der jemals seinen Fuß auf dieses Lang gesetzt hat.");
+talkEntry:addResponse("Ich frage mich ob er genauselange bracht Magie zu unterrichten, wie meine Lehrerin Aurora braucht um Magie zu unterrichten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -653,9 +653,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Dort sind so viele Bücher in Runewick. Könnt Ihr lesen?");
+talkEntry:addResponse("Meine Leherin sagt ich solle viel Zeit in Runewick verbringen, wenn ich so weise wie sie werden will.");
+talkEntry:addResponse("Manchmal kann ich verstehen, was die Leute in Runewick sagen. Sie gebrauchen wirklich komplizierte Worte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -674,9 +674,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Man sagt, er habe viel Geld.");
+talkEntry:addResponse("Meisterin Aurora sagt das Geld nicht wichtig ist, der Don jedoch hat viel davon.");
+talkEntry:addResponse("Der Don herrscht über die Stadt Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -691,9 +691,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Meine Leherin Aurora sagt die Leute da seinen engstirning.");
+talkEntry:addResponse("Man sagt Galmair erinnert an Gync. Ich war niemals in Gync.");
+talkEntry:addResponse("Die Stadt Galmairs wird behersscht vom Don.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -707,9 +707,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Meisterin Aurora sagt nie viel über die Königin.");
+talkEntry:addResponse("Königin Rosaline ist sehr hübsch.");
+talkEntry:addResponse("Königin Rosaline ist die Herrscerin über Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -726,9 +726,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Meisterin Aurora sagt nie viel über die Königin.");
+talkEntry:addResponse("Königin Rosaline ist sehr hübsch.");
+talkEntry:addResponse("Königin Rosaline ist die Herrscerin über Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -743,9 +743,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("I denke, die Leute in Cadomyr sind sehr nett.");
+talkEntry:addResponse("Leherin Aurora sagt, man könnte eine gute Lektion von den leuten aus Cadomyr lernen. Sie sagt mir jedoch nicht welche Lektion das ist.");
+talkEntry:addResponse("Die Stadt Cadomyr wird von Queen Rosaline beherrscht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -953,9 +953,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Aurora hat mir noch nicht viel über diesen Gott beigebracht.");
+talkEntry:addResponse("Aurora sagt, man soll die Anhänger jeden Gottes respektieren.");
+talkEntry:addResponse("Manchmal erwähnt Aurora diese Gottheit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -96,8 +96,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" ->  "Fare well and do not forge
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
---"sell", "buy", "wares", "price", "trade", "purchase" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3.",  gemcraft
---"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "GERMAN1.", "GERMAN2.", "GERMAN3.",  gemcraft
+--"sell", "buy", "wares", "price", "trade", "purchase" -> "I am not a trader, but I will gladly help you with your magical gems.",  gemcraft
+--"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich bin kein Händler, aber ich helfe Euch gerne was diese magischen Edelsteinen betrifft!", gemcraft
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 english, "quest", "mission" -> "I'd love to make you happy by giving you a task, but I fear I can not help you. I'd sugggest asking someone else."

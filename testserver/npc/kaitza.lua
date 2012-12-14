@@ -546,9 +546,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich diene der Göttin. Zss.");
+talkEntry:addResponse("Ich bin ein Tempelwächter. Sss.");
+talkEntry:addResponse("Ich bekämpfe dasss Bössse.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -563,9 +563,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich diene der Göttin. Zss.");
+talkEntry:addResponse("Ich bin ein Tempelwächter. Sss.");
+talkEntry:addResponse("Ich bekämpfe dasss Bössse.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -582,9 +582,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Diess land war sssehr koorup. Zss.");
+talkEntry:addResponse("Diessse Inssel war Heim von viel bössem. Ja, sssehr viel bösses.");
+talkEntry:addResponse("Zss. Die Leute dort waren szz...schwach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -598,9 +598,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zss. Es isst eine Ehre Euch zzzu treffen.");
+talkEntry:addResponse("Ess issst eine Freude Euch zzzu treffen.");
+talkEntry:addResponse("Ehre sssei der Göttin!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -614,9 +614,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zss. Diesser Magie sssolte man nicht trauen.");
+talkEntry:addResponse("Sssie sagen, er ssein von der menssschlichen Göttin Elara gesssegnet.");
+talkEntry:addResponse("Der Erzzzmagier herssscht über die Sss...Stadt Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -633,9 +633,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zss. Diesser Magie sssolte masn nicht trauen.");
+talkEntry:addResponse("Sssie sagen, er ssein von der menssschlichen Göttin Elara gesssegnet.");
+talkEntry:addResponse("Der Erzzzmagier herssscht über die Sss...Stadt Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -650,9 +650,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zss. Runewick issst dasss Land des Weisssheit.");
+talkEntry:addResponse("Die Leute von Runewivk sssind ss..stark im Geisste, aber nicht im Kampf.");
+talkEntry:addResponse("Diessse Leute wisssen nichtsss über Ehre.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -671,9 +671,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Geld...Ged issst dass einzzzig wichtige dort.");
+talkEntry:addResponse("Diessse Leute wisssen nichtss über Ehre.");
+talkEntry:addResponse("Glaubt dem Don ssseine Worte bessser nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -688,9 +688,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Diessse sss..Stadt isst von Koruption geplagt. Zzs.");
+talkEntry:addResponse("Gold zzzählt dort, alsss einzzigesss.");
+talkEntry:addResponse("Diessse Leute wisssen nichtss über Ehre.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -704,9 +704,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Königin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ehre sssei der Königin.");
+talkEntry:addResponse("Königin Rossaline issst die höchssste der Menssschen.");
+talkEntry:addResponse("Die edle Königin regiert die Stadt Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -723,9 +723,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ehre sssei der Königin.");
+talkEntry:addResponse("Königin Rossaline issst die höchssste der Menssschen.");
+talkEntry:addResponse("Die edle Königin regiert die Stadt Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -740,9 +740,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Zss. Eherbarer Menssschen alsss diese  waren niemalsss gessehen.");
+talkEntry:addResponse("Diessse Stadt wird behersscht von Köngin Rosssaline. Zss.");
+talkEntry:addResponse("Die Feinde Cadomyr sssollen neben unsssere Klingen fallen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1181,7 +1181,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
 talkEntry:addResponse("Zss. Kaitza mussss arbeiten.");
 talkEntry:addResponse("#me zischt leise.");
-talkEntry:addResponse("Es gibt Bösessss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss.");
+talkEntry:addResponse("Es gibt Bösesss in der Welt, dasss zerstört werden mussss. Verschwendet nicht meine Zeit. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
