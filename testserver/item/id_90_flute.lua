@@ -28,13 +28,26 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 
 		if ( User:getFaceTo() == 0) then --if facing north
 			targetPos = position(User.pos.x, User.pos.y - 3, User.pos.z);
+			world:makeSound(5, targetPos);
+			--[[
 			targetPos2 = position(targetPos.x -1, targetPos.y, targetPos.z);
 			targetPos3 = position(targetPos.x +1, targetPos.y, targetPos.z);
 			world:gfx(9, targetPos);
 			world:gfx(9, targetPos2);
 			world:gfx(9, targetPos3);
-			world:makeSound(5, targetPos);
 			
+			]]--
+			for i = 0, 2, 1 do
+				for j = 0, 2, 1 do
+					extraPos = position(targetPos.x -1 +i, targetPos.y -1 +j, targetPos.z);
+					world:gfx(9, extraPos);
+					if world:isCharacterOnField(extraPos) then --if there's a target char on target position
+						targetChar = world:getCharacterOnField(extraPos); --find the char
+						targetChar:increaseAttrib("hitpoints", -1000);
+						world:makeSound(1, extraPos);
+				
+				
+			--[[
 			if world:isCharacterOnField(targetPos) then --if there's a target char on target position
 				targetChar = world:getCharacterOnField(targetPos); --find the char
 				targetChar:increaseAttrib("hitpoints", -1000);
@@ -53,7 +66,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				world:makeSound(1, targetPos);
 				
 			end
-			
+			]]--
 		end
 	end			
 	--End Test
