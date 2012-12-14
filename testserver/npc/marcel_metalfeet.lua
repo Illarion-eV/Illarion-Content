@@ -297,7 +297,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("religion");
-talkEntry:addResponse("Halblinge haben ihre eignen Mythern über die Entstehung Illarions.");
+talkEntry:addResponse("Halblinge haben ihre eignen Mythen über die Entstehung Illarions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -309,7 +309,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glaube");
-talkEntry:addResponse("Halblinge haben ihre eignen Mythern über die Entstehung Illarions.");
+talkEntry:addResponse("Halblinge haben ihre eignen Mythen über die Entstehung Illarions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
