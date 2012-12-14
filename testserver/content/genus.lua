@@ -405,8 +405,6 @@ function GenusData(ItemID) -- returns (0=male, 1=female, 2=neuter)
     genus[2646]=0;
     genus[2647]=2;
     genus[2649]=2;
-    genus[2650]=2;
-    genus[2652]=2;
     genus[2653]=2;
     genus[2654]=2;
     genus[2655]=2;
@@ -417,8 +415,6 @@ function GenusData(ItemID) -- returns (0=male, 1=female, 2=neuter)
     genus[2670]=0;
     genus[2671]=0;
     genus[2672]=0;
-    genus[2673]=0;
-    genus[2674]=0;
     genus[2675]=0;
     genus[2676]=0;
     genus[2677]=0;
@@ -444,7 +440,6 @@ function GenusData(ItemID) -- returns (0=male, 1=female, 2=neuter)
     genus[2719]=0;
     genus[2721]=0;
     genus[2727]=0;
-    genus[2728]=0;
     genus[2729]=0;
     genus[2731]=0;
     genus[2732]=0;
@@ -456,7 +451,6 @@ function GenusData(ItemID) -- returns (0=male, 1=female, 2=neuter)
     genus[2740]=0;
     genus[2741]=0;
     genus[2742]=0;
-    genus[2743]=0;
     genus[2745]=2;
     genus[2747]=0;
     genus[2748]=0;
@@ -512,7 +506,6 @@ function GenusData(ItemID) -- returns (0=male, 1=female, 2=neuter)
     genus[2946]=2;
     genus[2952]=0;
     genus[3035]=2;
-    genus[3036]=2;
     genus[3054]=0;
     genus[3055]=0;
     genus[3056]=0;

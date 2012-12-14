@@ -214,13 +214,13 @@ function InitializeHelpList()
     HelpLBon={};
     -- Daggers
 	-- {simple dagger, malachin dagger, dagger, ornate dagger, gilded dagger, silvered dagger, coppered dagger, merinium-plated dagger, poisoned simple dagger,
-	-- magical dagger, poisened dagger, dull dagger, dull simple dagger, poisoned ornate dagger, red dagger, red fire dagger, dull red dagger }
-    PraeList[1]={27    ,91    ,189   ,190  ,297  ,389  ,398  ,444  ,2668  ,2671  ,2672  ,2673  ,2674  ,2689  ,2740  ,2742  ,2743  };
+	-- magical dagger, poisened dagger, poisoned ornate dagger, red dagger, red fire dagger}
+    PraeList[1]={27    ,91    ,189   ,190  ,297  ,389  ,398  ,444  ,2668  ,2671  ,2672   ,2689  ,2740  ,2742   };
     PraeLBon[1]={-10   ,-5    ,-10   ,-8   ,-6   ,-6   ,-6   ,6    ,-10   ,0     ,-10   ,-10   ,-10   ,-8    ,-5    ,-4    ,-6    };
     -- Common Swords
-	-- {serinjah-sword, sabre, short sword, bastard sword, dull bastardsword, dull broadsword, poisened broadsword, broadsword, rapier, poisoned serinjah-sword,
-	-- longsword, poisoned longsword, poisoned longsword, two-handed sword, scimitar, short sword, elvensword, snake sword, dull elvensword }
-    PraeList[2]={1     ,25    ,78    ,204   ,2650  ,2652  ,2655  ,2658  ,2675  ,2694  ,2701  ,2705  ,2731  ,2757  ,2776  ,2778  ,2788  ,3036  };
+	-- {serinjah-sword, sabre, short sword, bastard sword, poisened broadsword, broadsword, rapier, poisoned serinjah-sword,
+	-- longsword, poisoned longsword, poisoned longsword, two-handed sword, scimitar, short sword, elvensword, snake sword}
+    PraeList[2]={1     ,25    ,78    ,204   ,2655  ,2658  ,2675  ,2694  ,2701  ,2705  ,2731  ,2757  ,2776  ,2778  ,2788};
     PraeLBon[2]={-10   ,-30   ,-30   ,-80   ,-80   ,-50   ,-50   ,-50   ,-30   ,-30   ,-40   ,-40   ,-80   ,-40   ,-30   ,-30   ,-30   ,-30   };
     -- Rare Swords
 	-- {gilded longsword, coppered longsword, silvered longsword, merinium-plated longsword, fire longsword, magical broadsword,
@@ -229,8 +229,8 @@ function InitializeHelpList()
     PraeLBon[3]={-35  ,-35  ,-35  ,-35  ,-20  ,-20   ,-30   ,-10   ,-10   ,-20   ,-20   ,-20   };
     -- Common Axes
 	-- {halberd, longaxe, large waraxe, double axe, waraxe, heavy battleaxe, poisened long axe, large fire-waraxe, dwarven axe,
-	-- dull dwarven axe, executioners axe, poisened executioner's axe }
-    PraeList[4]={77   ,88    ,188   ,205   ,383   ,2629  ,2636  ,2642  ,2660  ,2663  ,2723  ,2725  };
+	-- executioners axe, poisened executioner's axe }
+    PraeList[4]={77   ,88    ,188   ,205   ,383   ,2629  ,2636  ,2642  ,2660   ,2723  ,2725  };
     PraeLBon[4]={-50  ,-50   ,-100  ,-80   ,-100  ,-100  ,-50   ,-60   ,-60   ,-60   ,-60   ,-60   };
     -- Rare Axes
 	-- {gilded battleaxe, coppered battleaxe, silvered battleaxe, merinium-plated battleaxe, magical waraxe, fire waraxe,
@@ -239,7 +239,7 @@ function InitializeHelpList()
     PraeLBon[5]={-75  ,-75  ,-75  ,-75  ,-60   ,-70   ,-30   ,-90   ,-40  };
     -- Concussion Weapons
 	-- {war hammer, mace, morning star, dull mace, morning star }
-    PraeList[6]={226  ,230   ,231   ,2728  ,2737 };
+    PraeList[6]={226  ,230   ,231   ,2737 };
     PraeLBon[6]={-60  ,-40   ,-40   ,-40   ,-40  };
     -- Staffs & Wands
 	-- {skull staff, cleric's staff, simple mage's staff, mage's staff, battle staff, ornate mage's staff, elven mage's staff
@@ -296,8 +296,8 @@ function InitializeHelpList()
     PraeList[18]={6    ,9    ,23   ,24   ,47  ,74  ,122  ,126  ,258  ,271  ,311  ,312  ,737  ,2140 ,2495 ,2659 };
     PraeLBon[18]={-10  ,-10  ,-10  ,-10  ,-5  ,-10 ,-10  ,-10  ,0   ,-15   ,0    ,0    ,-5   ,-10  ,-10  ,-5   };
     -- Tools II
-	-- {rasp, crucible, crucible, carpenter hammer, mould, lumberjack axe, slicer, pins, razor blade, crucible, crucible, crucible-pincers, carving tools, pick-axe, hatchet }
-    PraeList[19]={2697 ,2699 ,2700 ,2709 ,2710 ,2711 ,2715 ,2738 ,2746 ,2747 ,2748 ,2751 ,2752 ,2763 ,2946  };
+	-- {rasp, carpenter hammer, mould, lumberjack axe, slicer, pins, razor blade, crucible, crucible, crucible-pincers, carving tools, pick-axe, hatchet }
+    PraeList[19]={2697,2709 ,2710 ,2711 ,2715 ,2738 ,2746 ,2747 ,2748 ,2751 ,2752 ,2763 ,2946  };
     PraeLBon[19]={-10  ,-10  ,-10  ,-10  ,-10  ,-10  ,-5   ,-1   ,-10  ,-10  ,-10  ,-10  ,-10  ,-10  ,-10   };
     -- other Iron items
 	-- {iron ore, iron goblet, handcuffs, ore, iron ingot, iron plate }
