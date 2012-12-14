@@ -22,12 +22,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	local targetPos
 	local targetChar
 	
-	User:talk(Character.say, "got this far?");
+	
 	if ( SourceItem:getData("name") == "fireball" ) then
 		User:talk(Character.say, "#me casts Fireball ");
 
 		if ( User:getFaceTo() == 0) then --if facing north
-			targetPos = position(User.pos.x, User.pos.y + 3, User.pos.z);
+			targetPos = position(User.pos.x, User.pos.y - 3, User.pos.z);
 			world:gfx(9, targetPos);
 			world:makeSound(5, targetPos);
 			
