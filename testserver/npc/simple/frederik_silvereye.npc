@@ -71,17 +71,22 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin with you.", "Farew
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Frederik Silvereye, ich kümmere mich um die Neuankömmlinge dieses Ortes.", "Mein Name ist Frederik Silvereye, ich bin der Notar Galmairs.", "Man nennt mich Frederik Silvereye, als Notar kann Ich euch zum Bürger unseres schönen Ortes eintragen."
 
 -- Becoming citizen in Galmair
-english, town = Cadomyr,  "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
-town = Cadomyr,  "Bürger werden","Bürgerschaft beantragen" -> town =  Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
+english, town = Cadomyr, "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
+town = Cadomyr, "Bürger werden","Bürgerschaft beantragen" -> town =  Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
 english, town = Runewick, "become citizen", "gain citizenship" -> town =  Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
-town = Runewick, "Bürger werden","Bürgerschaft beantragen" ->  town =  Galmair, "Ihr seidt jetzt Bürger von Galmair!", "Willkommen in Galmair!"
-english, town = Galmair,  "become citizen", "gain citizenship" -> town =  Galmair, "You are already a citizen of Galmair!"
-town = Galmair,  "Bürger werden", "Bürgerschaft beantragen" -> town =  Galmair, "Ihr seid bereits Bürger von Galmair!"
+town = Runewick, "Bürger werden","Bürgerschaft beantragen" -> town =  Galmair, "Ihr seidt jetzt Bürger von Galmair!", "Willkommen in Galmair!"
+town = none, english, "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
+town = none, "Bürger werden","Bürgerschaft beantragen" -> town =  Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
 english, "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
 "Bürger werden", "Bürgerschaft beantragen" -> town = Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
+english, town = Galmair, "become citizen", "gain citizenship" -> town =  Galmair, "You are already a citizen of Galmair!"
+town = Galmair, "Bürger werden", "Bürgerschaft beantragen" -> town =  Galmair, "Ihr seid bereits Bürger von Galmair!"
 
+-- leaving City
+english, "give up citizenship", "terminating citizen ship", "leave Cadomyr", "leaving Cadomyr" -> town = none, "Ihr seit nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders."
+town = Cadomyr,"beende Bürgerstatus", "verlasse Cadomyr", "Verlasse Cadomyr" -> town = none, "Ihr seit nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders."
 -- Test Question
---"welche Stadt", "weche faktion" -> "Du gehöerst nach %TOWN!"
+"welche Stadt", "welche faktion" -> "Du gehöerst nach %TOWN!"
 --"ich" ->  "%CHARNAME"
 
 -- Catching quest triggers. Modify if the NPC does quests.
