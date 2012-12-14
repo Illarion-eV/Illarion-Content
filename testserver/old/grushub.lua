@@ -1181,7 +1181,6 @@ function initializeNpc()
     TraderItemDura[142]={33,66};
     --rainbowsword-blade
     TraderItemPrice[143]=0;
-    TraderItemId[143]=2707;
     TraderItemNumber[143]=0;
     TraderItemSellPrice[143]=90;
     TraderItemStandard[143]=10;
