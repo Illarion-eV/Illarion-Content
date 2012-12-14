@@ -40,11 +40,3 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	--End Test
 	
 end
-
---Testing fireball lookat -Dyluck
-function LookAtItem(User,Item)
-	if ( Item:getData("name") == "fireball") then --if book is fireball
-		world:itemInform(User,Item,"Spellbook 'Fireball'");
-	end
-end
---End Test
