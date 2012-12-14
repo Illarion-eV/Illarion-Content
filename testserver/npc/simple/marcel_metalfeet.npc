@@ -2,7 +2,7 @@
 -- NPC Name: Marcel Metalfeet                                         Galmair --
 -- NPC Job:  craftsman                                                        --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  389, 269, 0            --
+-- NPC Race: halfling                   NPC Position:  389, 265, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -12,7 +12,7 @@
 name = "Marcel Metalfeet"
 race = halfling
 sex = male
-position = 389, 269, 0
+position = 389, 265, 0
 direction = west
 affiliation = "Galmair"
 job = "craftsman"
