@@ -162,7 +162,7 @@ function Craft:showDialog(user, source)
             return self:getIngredientLookAt(user, productId, ingredientId)
         elseif result == CraftingDialog.playerCraftingComplete then
             local productId = dialog:getCraftableId()
-            local skillGain = self:craftItem(user, productId, source)
+            local skillGain = self:craftItem(user, productId)
             if skillGain then
                 self:refreshDialog(dialog, user)
             end
@@ -206,7 +206,7 @@ function Craft:allowUserCrafting(user, source)
             return false
         end
 
-        if not base.common.CheckItem(user, source) then
+        if not self:isHandToolEquipped(user) then
             self:swapToInactiveItem(user)
             return false
         end
@@ -536,14 +536,12 @@ function Craft:turnToTool(user)
     return false
 end
 
-function Craft:craftItem(user, productId, toolItem)
+function Craft:craftItem(user, productId)
     local product = self.products[productId]
     local skill = self:getSkill(user)
     local skillGain = false
 
-    if toolItem:getType() == scriptItem.field then
-        toolItem = self:getHandToolEquipped(user)
-    end
+    local toolItem = self:getHandToolEquipped(user)
     
     if product.difficulty > skill then
         base.common.InformNLS(user,
