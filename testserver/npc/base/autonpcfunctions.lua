@@ -1020,7 +1020,7 @@ function PayTheNPC(User,Copper)
     if (PaySilber>0) then
         User:eraseItem(3077,PaySilber);
     elseif (PaySilber<0) then
-        notcreated = User:createItem(3077,PaySilber*(-1),333);
+        notcreated = User:createItem(3077,PaySilber*(-1),333, nil);
         if ( notcreated > 0 ) then
             world:createItemFromId( 3077, notcreated, User.pos, true, 333,
                                     nil);
