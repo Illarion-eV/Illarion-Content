@@ -45,6 +45,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 						targetChar = world:getCharacterOnField(extraPos); --find the char
 						targetChar:increaseAttrib("hitpoints", -1000);
 						world:makeSound(1, extraPos);
+					end
+				end
 			end
 				
 				
@@ -69,9 +71,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			end
 			]]--
 		end
-	end			
+	end		
 	--End Test
-	
 end
 
 LookAtItem = item.general.wood.LookAtItem
