@@ -28,8 +28,6 @@ Craft = {
     categories = {},
     skill = nil,
 
-    defaultRaceBonus = {0, 0, 0, 0, 0, 0},
-
     handTool = 0,
     tool = {},
     activeTool = {},
