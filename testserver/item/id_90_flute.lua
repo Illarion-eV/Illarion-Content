@@ -28,7 +28,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 
 		if ( User:getFaceTo() == 0) then --if facing north
 			targetPos = position(User.pos.x, User.pos.y - 3, User.pos.z);
+			targetPos2 = position(targetPos.x -1, targetPos.y, targetPos.z);
+			targetPos3 = position(targetPos.x +1, targetPos.y, targetPos.z);
 			world:gfx(9, targetPos);
+			world:gfx(9, targetPos2);
+			world:gfx(9, targetPos3);
 			world:makeSound(5, targetPos);
 			
 			if world:isCharacterOnField(targetPos) then --if there's a target char on target position
