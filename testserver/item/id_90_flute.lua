@@ -18,6 +18,7 @@ item.base.music.addTalkText("#me plays a wild tune on the flute.","#me spielt ei
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	item.base.music.PlayInstrument(User,SourceItem,"flute");
 	
+	--[[
 	--Testing fireball, only activates if flute's data key name=fireball -Dyluck
 	local targetPos
 	local targetChar
@@ -38,5 +39,5 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		end
 	end			
 	--End Test
-	
+	]]--
 end
