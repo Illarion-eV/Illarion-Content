@@ -22,7 +22,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	local targetPos
 	local targetChar
 	
-	if ( SourceItem:getData("name")="fireball") then --if book is fireball
+	if ( SourceItem:getData("name") = "fireball") then --if book is fireball
 		User:talk(Character.say, "#me casts Fireball ");
 		
 		if ( User:getFaceTo() = 0) then --if facing north
