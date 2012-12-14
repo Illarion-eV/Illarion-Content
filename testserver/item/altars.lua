@@ -119,7 +119,7 @@ end
 
 function LookAtItem( User, Item )
 
-    thisGod=tonumber(Item:getData("devotedToGodID"));
+    thisGod=tonumber(Item:getData("god"));
 	
 	if thisGod==nil then
 		thisGod = 0;
@@ -164,7 +164,7 @@ function LookAtItem( User, Item )
 
         if devotion == 0 and thisGod > 5 then --a noob without a god
 
-             base.common.InformNLS(User,"Um euch "..content.gods.GOD_DE[thisGod].." zu weihen, werdet ihr folgendes opfern müssen:","To devote yourself to "..content.gods.GOD_EN[thisGod]..", you'll have to donate:");
+             base.lookat.SetSpecialDescription(Item,"Um euch "..content.gods.GOD_DE[thisGod].." zu weihen, werdet ihr folgendes opfern müssen: "..tellStuff(devoteItems[thisGod],User:getPlayerLanguage()),"To devote yourself to "..content.gods.GOD_EN[thisGod]..", you'll have to donate: "..tellStuff(devoteItems[thisGod],User:getPlayerLanguage()));
              User:inform(tellStuff(devoteItems[thisGod],User:getPlayerLanguage())); --stuff4devotee
 
         elseif devotion ~= thisGod and priesthood == devotion and User:getMagicType()== 1 and thisGod>5 then --a priest of another god
@@ -221,7 +221,7 @@ end --function
 
 function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 
-    thisGod=tonumber(SourceItem:getData("devotedToGodID"));
+    thisGod=tonumber(SourceItem:getData("god"));
 	
 	if thisGod==nil then
 		thisGod = 0;
