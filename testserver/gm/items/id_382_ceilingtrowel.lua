@@ -410,20 +410,17 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 end
 
 function LookAtItem(User,Item)
-    local lookAt = ItemLookAt()
 
-    if (Item:getData("trowelData")==0) then
-        lookAt.name = "Decke Kelle(Items)";
+    if (tonumber(Item:getData("trowelData"))==0) then
+		base.lookat.SetSpecialName(Item, "Decke Kelle(Items)","Decke Kelle(Items)")
     elseif (Item:getData("trowelData")==1) then
-        lookAt.name = "Decke Kelle(Weather)";
+        base.lookat.SetSpecialName(Item, "Decke Kelle(Weather)","Decke Kelle(Weather)");
 	elseif (Item:getData("trowelData")==2) then
-        lookAt.name = "Decke Kelle(Ranksystem)";
-	elseif (Item:getData("trowelData")==3) then
-		lookAt.name = "Decke Kelle(Blay)";
+        base.lookat.SetSpecialName(Item, "Decke Kelle(Ranksystem)", "Decke Kelle(Ranksystem)");
 	else
-        lookAt.name = "Decke Kelle";
+        base.lookat.SetSpecialName(Item, "Decke Kelle", "Decke Kelle");
     end
-	world:itemInform(User,Item,lookAt);
+	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
 	
     for intx=User.pos.x-5,User.pos.x+5 do
         for inty=User.pos.y-5,User.pos.y+5 do
