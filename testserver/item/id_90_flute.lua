@@ -16,6 +16,7 @@ item.base.music.addTalkText("#me plays an airy tune on the flute.","#me spielt e
 item.base.music.addTalkText("#me plays a wild tune on the flute.","#me spielt eine wilde Melodie auf der Flöte.", skill);
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-	item.base.music.PlayInstrument(User,SourceItem,"flute");
-	
+	item.base.music.PlayInstrument(User,SourceItem,skill);
 end
+
+LookAtItem = item.general.wood.LookAtItem
