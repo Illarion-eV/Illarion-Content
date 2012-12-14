@@ -98,7 +98,7 @@ function LookAtItem( User, Item )
 		world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 
     elseif thisGod > content.gods.GOD_NONE then --dedicated altar
-		base.lookat.SetSpecialName(Item, "Altar "..content.gods.GOD_DE[thisGod].."s, "content.gods.DESCRIPTION_DE[thisGod]..".","Altar of "..content.gods.GOD_EN[thisGod]..", the "..content.gods.DESCRIPTION_EN[thisGod]..".")
+		base.lookat.SetSpecialName(Item, "Altar "..content.gods.GOD_DE[thisGod].."s, "..content.gods.DESCRIPTION_DE[thisGod]..".","Altar of "..content.gods.GOD_EN[thisGod]..", the "..content.gods.DESCRIPTION_EN[thisGod]..".")
 		world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 		
         --Now send the user some infos what he should do if he wants to become a devotee, change dedication or become a priest
