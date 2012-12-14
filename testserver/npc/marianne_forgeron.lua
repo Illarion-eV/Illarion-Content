@@ -181,6 +181,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Edelstein");
 talkEntry:addTrigger("magisches Schmieden");
+talkEntry:addTrigger("Schmieden");
 talkEntry:addResponse("Dann woll'n wir ma!");
 talkEntry:addResponse("Auf ans Werk!");
 talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
