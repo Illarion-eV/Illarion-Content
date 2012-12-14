@@ -114,8 +114,8 @@ town = Galmair,male, rank > 8, "rang" -> "Magnat, seid willkommen. Welch eine Eh
 town = Galmair,female, rank > 8, "rang" -> "Magnatin, seid wilokmmen.Welch eine Ehre Euch zu sehen."
 
 --Rank 8
-town = Galmair,english, male, rank > 7,"rank" -> "Mogul  %Name! How can I help you?"
-town = Galmair,english, female, rank > 7, "rank" -> "Mogul  %Name! How can I help you?"
+town = Galmair,english, male, rank > 7,"rank" -> "Mogul %Name! How can I help you?"
+town = Galmair,english, female, rank > 7, "rank" -> "Mogul %Name! How can I help you?"
 town = Galmair,male, rank > 7,"rang" -> "Mogul %Name! Was kann ich für Euch tun?"
 town = Galmair,female, rank > 7, "rang" -> "Mogulin %Name! Was kann ich für Euch tun?"
 
@@ -144,8 +144,8 @@ town = Galmair,male, rank > 3,"rang" -> "Leute wie dich würde ich Krämer nenne
 town = Galmair,female, rank > 3, "rang" -> "Leute wie dich würde ich Krämer nennen!"
 
 -- Rank 3
-town = Galmair,english, male, rank > 2,"rank" ->"What do you want, Pedler?"
-town = Galmair,english, female, rank > 2, "rank" -> "What do you want, Pedler?"
+town = Galmair,english, male, rank > 2,"rank" ->"What do you want, Pedlar?"
+town = Galmair,english, female, rank > 2, "rank" -> "What do you want, Pedlar?"
 town = Galmair,male, rank > 2,"rang" -> "Hausierer, was gibt’s?"
 town = Galmair,female, rank > 2, "rang" ->"Hausierer, was gibt’s?"
 

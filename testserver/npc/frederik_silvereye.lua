@@ -441,7 +441,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Mogul  %Name! How can I help you?");
+talkEntry:addResponse("Mogul %Name! How can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -451,7 +451,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Mogul  %Name! How can I help you?");
+talkEntry:addResponse("Mogul %Name! How can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -631,7 +631,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("What do you want, Pedler?");
+talkEntry:addResponse("What do you want, Pedlar?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -641,7 +641,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("What do you want, Pedler?");
+talkEntry:addResponse("What do you want, Pedlar?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
