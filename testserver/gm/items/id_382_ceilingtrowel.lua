@@ -411,14 +411,18 @@ end
 
 function LookAtItem(User,Item)
 
-    if (tonumber(Item:getData("trowelData"))==0) then
-		base.lookat.SetSpecialName(Item, "Decke Kelle(Items)","Decke Kelle(Items)")
-    elseif (Item:getData("trowelData")==1) then
-        base.lookat.SetSpecialName(Item, "Decke Kelle(Weather)","Decke Kelle(Weather)");
-	elseif (Item:getData("trowelData")==2) then
-        base.lookat.SetSpecialName(Item, "Decke Kelle(Ranksystem)", "Decke Kelle(Ranksystem)");
+    if (Item:getData("mode")=="items") then
+		base.lookat.SetSpecialName(Item, "Kelle(Items)","Kelle(Items)")
+		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: setdata <key> <value>, setqual <value>, setwaer <value>, setnumber <value>, field, count <value>", "Possible actions:  setdata <key> <value>, setqual <value>, setwaer <value>, setnumber <value>, field, count <value>");
+    elseif (Item:getData("mode")=="weather") then
+        base.lookat.SetSpecialName(Item, "Kelle(Wetter)","Kelle(Weather)");
+		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: ", "");
+	elseif (Item:getData("mode")=="ranksystem") then
+        base.lookat.SetSpecialName(Item, "Kelle(Rangsystem)", "Kelle(Ranksystem)");
+		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: ", "");
 	else
-        base.lookat.SetSpecialName(Item, "Decke Kelle", "Decke Kelle");
+		base.lookat.SetSpecialDescription(Item, "Um einen Modus zu setzen sage 'setdata mode xyz' und benutzt die Kelle. Modi sind items, weather und ranksystem. Items ist default.", "To set a mode type 'setdata mode xyz' and use the trowel. Modes are standard, items, weather and ranksystem. Items is default.");
+        base.lookat.SetSpecialName(Item, "Kelle", "Kelle");
     end
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
 	
