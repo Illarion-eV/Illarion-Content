@@ -338,7 +338,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             end
             world:setWeather(currWeather);
         end
-    elseif (SourceItem:getData=="ranksystem") then  --ranksystem
+    elseif (SourceItem:getData("mode")=="ranksystem") then  --ranksystem
 		if (string.find(User.lastSpokenText,"help")~=nil) then
 			local a,b, value = string.find(User.lastSpokenText,"help (%d+)");
 						
