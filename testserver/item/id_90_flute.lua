@@ -22,10 +22,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	local targetPos
 	local targetChar
 	
-	if ( SourceItem:getData("name") = "fireball" ) then
+	if ( SourceItem:getData("name") == "fireball" ) then
 		User:talk(Character.say, "#me casts Fireball ");
 
-		if ( User:getFaceTo() = 0) then --if facing north
+		if ( User:getFaceTo() == 0) then --if facing north
 			targetPos = position(User.pos.x, User.pos.y + 3, User.pos.z);
 			world:gfx(9, targetPos);
 			world:makeSound(5, targetPos);
@@ -43,7 +43,7 @@ end
 
 --Testing fireball lookat -Dyluck
 function LookAtItem(User,Item)
-	if ( Item:getData("name") = "fireball") then --if book is fireball
+	if ( Item:getData("name") == "fireball") then --if book is fireball
 		world:itemInform(User,Item,"Spellbook 'Fireball'");
 	end
 end
