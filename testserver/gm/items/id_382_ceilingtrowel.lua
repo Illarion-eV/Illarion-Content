@@ -364,6 +364,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			else
 				User:inform(Page[0]);
         	end
+			
 		elseif (string.find(User.lastSpokenText,"setradius (%d+)")~=nil) then
 			local a,b, radius = string.find(User.lastSpokenText,"setradius (%d+)");
 			if (radius~=nil and radius>-1 and radius <101) then
@@ -372,7 +373,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			else
 				User:inform("[Faction]: Invalid radius value, only numbers from 0 to 100 allowed!")
 			end
-			
 				
 		elseif (string.find(User.lastSpokenText,"addpoints (%d+)")~=nil) then --add rankpoints within a radius Counter
 				a,b,value = string.find(User.lastSpokenText,"addpoints (%d+)");
@@ -385,17 +385,17 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				else
 					User:inform("[Faction]: Failed adding rankpoints: max. 100 rankpoints")
 				end
-			elseif (string.find(User.lastSpokenText,"removepoints (%d+)")~=nil) then --remove rankpoints within a radius Counter
-				a,b,value = string.find(User.lastSpokenText,"removepoints (%d+)");
-				value=value+1-1;
-				if (value<101 and value>-1) then
-					if radius == nil then
-				   		radius=5;
-				   		ChangeRankpoints(User,radius,false, value);
-				   	end
-				else
-					User:inform("[Faction]: Failed removing rankpoints: You can only remove 1-100 rankpoints")
-				end
+				
+		elseif (string.find(User.lastSpokenText,"removepoints (%d+)")~=nil) then --remove rankpoints within a radius Counter
+			a,b,value = string.find(User.lastSpokenText,"removepoints (%d+)");
+			value=value+1-1;
+			if (value<101 and value>-1) then
+				if radius == nil then
+			   		radius=5;
+			   		ChangeRankpoints(User,radius,false, value);
+			   	end
+			else
+				User:inform("[Faction]: Failed removing rankpoints: You can only remove 1-100 rankpoints")
 			end
 		else
 			local frontChar = base.common.GetFrontCharacter(User);
@@ -405,9 +405,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				UseItemWithCharacter(User, SourceItem, User, Counter, Param);
 			end
 		end
-        
 		
-	--end
+	end
 end
 
 function LookAtItem(User,Item)
