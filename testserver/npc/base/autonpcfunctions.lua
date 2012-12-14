@@ -1020,19 +1020,19 @@ function PayTheNPC(User,Copper)
     if (PaySilber>0) then
         User:eraseItem(3077,PaySilber);
     elseif (PaySilber<0) then
-        notcreated = User:createItem(3077,PaySilber*(-1),333,0);
+        notcreated = User:createItem(3077,PaySilber*(-1),333);
         if ( notcreated > 0 ) then
             world:createItemFromId( 3077, notcreated, User.pos, true, 333,
-                                    0 );
+                                    nil);
         end
     end
     if (PayKupfer>0) then
         User:eraseItem(3076,PayKupfer);
     elseif (PayKupfer<0) then
-        notcreated = User:createItem(3076,PayKupfer*(-1),333,0);
+        notcreated = User:createItem(3076,PayKupfer*(-1),333);
         if ( notcreated > 0 ) then
             world:createItemFromId( 3076, notcreated, User.pos, true, 333,
-                                    0 );
+                                    nil);
         end
     end
 end
@@ -1046,17 +1046,17 @@ function PayThePlayer(User,Copper)
     local Gold = 0;
     local Silver = 0;
     Gold, Silver, Copper = SplitMoney( Copper );
-    notcreated = User:createItem(61,Gold,333,0);
+    notcreated = User:createItem(61,Gold,333,nil);
     if ( notcreated > 0 ) then
-        world:createItemFromId( 61, notcreated, User.pos, true, 333, 0 );
+        world:createItemFromId( 61, notcreated, User.pos, true, 333,nil);
     end
-    notcreated = User:createItem(3077,Silver,333,0);
+    notcreated = User:createItem(3077,Silver,333,nil);
     if ( notcreated > 0 ) then
-        world:createItemFromId( 3077, notcreated, User.pos, true, 333, 0 );
+        world:createItemFromId( 3077, notcreated, User.pos, true, 333,nil);
     end
     notcreated = User:createItem(3076,Copper,333,0);
     if ( notcreated > 0 ) then
-        world:createItemFromId( 3076, notcreated, User.pos, true, 333, 0 );
+        world:createItemFromId( 3076, notcreated, User.pos, true, 333,nil );
     end
 end
 
