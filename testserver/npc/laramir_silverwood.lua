@@ -124,7 +124,7 @@ talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Fare well, my friend.");
 talkEntry:addResponse("Stay safe, my friend!");
-talkEntry:addResponse("My the gods protect you, my Friend!");
+talkEntry:addResponse("May the gods protect you, my Friend!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -147,7 +147,7 @@ talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Fare well, my friend.");
 talkEntry:addResponse("Stay safe, my friend!");
-talkEntry:addResponse("My the gods protect you, my Friend!");
+talkEntry:addResponse("May the gods protect you, my Friend!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -203,14 +203,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("My friend, there is nothing I could ask you for. But I'm thankfull for your concern.");
+talkEntry:addResponse("My friend, there is nothing I could ask you to do. But I'm thankfull for your concern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Mein Freund, es gibts nicht um was ich dich bitten könnte. Aber ich bin dankbar für deine Sorge.");
+talkEntry:addResponse("Mein Freund, es gibt nichts um was ich dich bitten könnte. Aber ich bin dankbar für deine Sorge.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -218,7 +218,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("My friend, there is nothing I could ask you for. But I'm thankfull for your concern.");
+talkEntry:addResponse("My friend, there is nothing I could ask you to do. But I'm thankfull for your concern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -227,7 +227,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Mein Freund, es gibts nicht um was ich dich bitten könnte. Aber ich bin dankbar für deine Sorge.");
+talkEntry:addResponse("Mein Freund, es gibt nichts um was ich dich bitten könnte. Aber ich bin dankbar für deine Sorge.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -262,7 +262,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Do you like nice conversations, my friend? We have to lean how to talk with others from young age on.");
+talkEntry:addResponse("Do you like nice conversations, my friend? We have to learn how to talk with others from young age on.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
