@@ -421,7 +421,7 @@ function LookAtItem(User,Item)
 	elseif (Item:getData("trowelData")==3) then
 		lookAt.name = "Decke Kelle(Blay)";
 	else
-        lookAt.name ="Decke Kelle");
+        lookAt.name = "Decke Kelle";
     end
 	world:itemInform(User,Item,lookAt);
 	
