@@ -7,6 +7,8 @@ require("content.gathering")
 
 module("item.id_24_shovel", package.seeall, package.seeall(item.general.metal))
 
+LookAtItem = item.general.metal.LookAtItem
+
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
 	-- the craft has to be determined according to ground type, see below

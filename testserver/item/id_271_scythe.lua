@@ -10,6 +10,8 @@ require("content.gathering")
 
 module("item.id_271_scythe", package.seeall, package.seeall(item.general.metal))
 
+LookAtItem = item.general.metal.LookAtItem
+
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
 	local grainharvesting = content.gathering.grainharvesting;

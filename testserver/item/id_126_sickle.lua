@@ -6,6 +6,8 @@ require("item.general.metal")
 require("base.common")
 module("item.id_126_sickle", package.seeall, package.seeall(item.general.metal))
 
+LookAtItem = item.general.metal.LookAtItem
+
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
 	InitHarvestItems();
