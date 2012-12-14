@@ -104,70 +104,86 @@ english, town = Galmair,  "become citizen", "gain citizenship" -> town = Cadomyr
 town = Galmair,  "Bürger werden","Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
 english, town = Runewick, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Cadomyr", "Welcome to Cadomyr!"
 town = Runewick, "Bürger werden","Bürgerschaft beantragen" ->  town = Cadomyr, "Ihr seidt jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
-english, town = Cadomyr,  "become citizen", "gain citizenship" -> town = Cadomyr, "Oh! You are already a citizen of Cadomyr."
-town = Cadomyr,  "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Oh! Ihr seid bereits Bürger von Cadomyr."
 town = none, english, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Cadomyr", "Welcome to Cadomyr!"
 town = none, "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
 english, "become citizen", "gain citizenship" -> town = Cadomyr, "You are now a citizen of Cadomyr", "Welcome to Cadomyr!"
 "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Ihr seid jetzt Bürger von Cadomyr", "Willkommen in Cadomyr!"
 
--- terminating citiienship in Cadomyr
-english, "give up citizenship","terminating citizen ship", "leave Cadomyr", "leaving Cadomyr" -> town = none, "Ihr seit nun kein Bürger Cadomyrs mehr. Sucht Euer Glück woanders."
-"beende Bürgerstatus", "verlasse Cadomyr", "Verlasse Cadomyr" -> town = none, "Ihr seit nun kein Bürger Cadomyrs mehr. Sucht Euer Glück woanders."
+-- Player is already citizen
+english, town = Cadomyr,  "become citizen", "gain citizenship" -> town = Cadomyr, "Oh! You are already a citizen of Cadomyr."
+town = Cadomyr,  "Bürger werden", "Bürgerschaft beantragen" -> town = Cadomyr, "Oh! Ihr seid bereits Bürger von Cadomyr."
+
+-- terminating citiienship, leaving in Cadomyr (209)
+town = Cadomyr, english, "give up citizenship","terminating citizen ship", "leave", "leaving" -> "You want to give up citizen ship in Cadomyr. Are you sure?", queststatus (209)=1
+town = Cadomyr, "beende Bürgerstatus", "verlassen", "verlasse", "annuliere" -> "Ihr wollt den Status als Bürger Cadomyrs augfeben? Seid Ihr sicher?", queststatus (209)=1
+
+-- answer yes
+english, queststatus (209)=1, "yes" -> "You are no longer citizen under the protection of her majesty Queen Rosaline, you no longer belong to Cadomyr. Fare well.", queststatus (209)=0, town = none
+queststatus (209)=1, "ja" -> "Ihr seit nicht länger Büger unter dem Schutz der Königin Rosalines, Ihr gehört nicht mehr zu Cadomyrs. Fare well.",  queststatus (209)=0, town = none
+
+-- answer no
+english, queststatus (209)=1, ".*" -> "I see... Yes, Cadomyr is truly a nice place.", queststatus (209) = 0
+queststatus (209)=1, ".*" -> "Ich verstehe... Ja,Cadomyr ist für wahr ein gut Ort.", queststatus (209) = 0
+
 -- Test Question
-"welche Stadt", "weche faktion" -> "Du gehörst nach %TOWN!"
+"welche Stadt", "welche faktion" -> "Du gehörst nach %TOWN!"
 "wich town", "wich faction" -> "You belong to %TOWN!"
---"ich" ->  "%CHARNAME"
 
 -- RANK informations
 
---rank =9,"rank"-> "Seid gegrüßt"
-town = Cadomyr,english, male, rank > 9, "rank" -> "Greetings to you, Baron %Name! !"
-town = Cadomyr,english, female, rank > 9, "rank" -> "Greetings to you, Lancer!"
-town = Cadomyr,male, rank > 9, "rang" -> "Baron %Name! Hochwohlgeboren, wie ist es Euch ergangen?"
-town = Cadomyr,female, rank > 9, "rang" -> "Baronin %! Hochwohlgeboren, wie ist es Euch ergangen?"
+--Rank 10
+town = Cadomyr,english, male, rank > 9, "rank" -> "Greetings to you, Duke %Name!"
+town = Cadomyr,english, female, rank > 9, "rank" -> "Greetings to you, Duchess %Name!"
+town = Cadomyr,male, rank > 9, "rang" -> "Herzog %Name! Hochwohlgeboren, wie ist es Euch ergangen?"
+town = Cadomyr,female, rank > 9, "rang" -> "Herzogin %! Hochwohlgeboren, wie ist es Euch ergangen?"
 
---rank >8
-town = Cadomyr,english, male, rank > 8,"rank" -> "Greetings to you, Sir!"
-town = Cadomyr,english, female, rank > 8, "rank" -> "Greetings to you, Lady!"
-town = Cadomyr,male, rank > 8,"rang" -> "Seid gegrüßt, mein Herr!"
-town = Cadomyr,female, rank > 8, "rang" -> "Seid gegrüßt, meine Dame!"
+--Rank 9
+town = Cadomyr,english, male, rank > 8, "rank" -> "Greetings to you, Baron %Name!"
+town = Cadomyr,english, female, rank > 8, "rank" -> "Greetings to you, Baronin %Name!"
+town = Cadomyr,male, rank > 8, "rang" -> "Baron %Name! Hochwohlgeboren, wie ist es Euch ergangen?"
+town = Cadomyr,female, rank > 8, "rang" -> "Baronin %! Hochwohlgeboren, wie ist es Euch ergangen?"
 
---rank >7
-town = Cadomyr,english, male, rank > 7,"rank" -> "Greetings to you, Knight %Name!"
-town = Cadomyr,english, female, rank > 7, "rank" -> "Greetings to you, Dame %Name!"
-town = Cadomyr,male, rank > 7,"rang" -> "Seid gegrüßt, mein Ritter!"
+--Rank 8
+town = Cadomyr,english, male, rank > 7,"rank" -> "Greetings to you, Sir!"
+town = Cadomyr,english, female, rank > 7, "rank" -> "Greetings to you, Lady!"
+town = Cadomyr,male, rank > 7,"rang" -> "Seid gegrüßt, mein Herr!"
 town = Cadomyr,female, rank > 7, "rang" -> "Seid gegrüßt, meine Dame!"
 
+--Rank 7
+town = Cadomyr,english, male, rank > 6,"rank" -> "Greetings to you, Knight %Name!"
+town = Cadomyr,english, female, rank > 6, "rank" -> "Greetings to you, Dame %Name!"
+town = Cadomyr,male, rank > 6,"rang" -> "Seid gegrüßt, mein Ritter!"
+town = Cadomyr,female, rank > 6, "rang" -> "Seid gegrüßt, meine Dame!"
+
 --Rank 6
-town = Cadomyr,english, male, rank > 6,"rank" -> "Greetings to you, Lancer!"
-town = Cadomyr,english, female, rank > 6, "rank" -> "Greetings to you, Lancer!"
-town = Cadomyr,male, rank > 6,"rang" -> "Lancier, seid gegrüßt!"
-town = Cadomyr,female, rank > 6, "rang" -> "Lancier, seid gegrüßt!"
+town = Cadomyr,english, male, rank > 5,"rank" -> "Greetings to you, Lancer!"
+town = Cadomyr,english, female, rank > 5, "rank" -> "Greetings to you, Lancer!"
+town = Cadomyr,male, rank > 5,"rang" -> "Lancier, seid gegrüßt!"
+town = Cadomyr,female, rank > 5, "rang" -> "Lancier, seid gegrüßt!"
 
 -- Rank 5
-town = Cadomyr,english, male, rank > 5,"rank" -> "Greetings to you, Sergeant!"
-town = Cadomyr,english, female, rank > 5, "rank" -> "Greetings to you, Sergeant!"
-town = Cadomyr,male, rank > 5,"rang" -> "Berittener, seid gegrüßt!"
-town = Cadomyr,female, rank > 5, "rang" -> "Berittene, seid gegrüßt!"
+town = Cadomyr,english, male, rank > 4,"rank" -> "Greetings to you, Sergeant!"
+town = Cadomyr,english, female, rank > 4, "rank" -> "Greetings to you, Sergeant!"
+town = Cadomyr,male, rank > 4,"rang" -> "Berittener, seid gegrüßt!"
+town = Cadomyr,female, rank > 4, "rang" -> "Berittene, seid gegrüßt!"
 
 -- Rank 4
-town = Cadomyr,english, male, rank > 4,"rank" -> "Good to see you, Sergeant!"
-town = Cadomyr,english, female, rank > 4, "rank" -> "Good to see you, Sergeant!"
-town = Cadomyr,male, rank > 4,"rang" -> "Schön Euch zu sehen Herr Wachmeister!"
-town = Cadomyr,female, rank > 4, "rang" -> "Schön Euch zu sehen Frau Wachmeisterin!"
+town = Cadomyr,english, male, rank > 3,"rank" -> "Good to see you, Sergeant!"
+town = Cadomyr,english, female, rank > 3, "rank" -> "Good to see you, Sergeant!"
+town = Cadomyr,male, rank > 3,"rang" -> "Schön Euch zu sehen Herr Wachmeister!"
+town = Cadomyr,female, rank > 3, "rang" -> "Schön Euch zu sehen Frau Wachmeisterin!"
 
 -- Rank 3
-town = Cadomyr,english, male, rank > 3,"rank" -> "Good day, Corporal!"
-town = Cadomyr,english, female, rank > 3, "rank" -> "Good day, Corporal!"
-town = Cadomyr,male, rank > 3,"rang" -> "Guten Tag, Korporal!"
-town = Cadomyr,female, rank > 3, "rang" -> "Guten Tag, Korporal!"
+town = Cadomyr,english, male, rank > 2,"rank" -> "Good day, Corporal!"
+town = Cadomyr,english, female, rank > 2, "rank" -> "Good day, Corporal!"
+town = Cadomyr,male, rank > 2,"rang" -> "Guten Tag, Korporal!"
+town = Cadomyr,female, rank > 2, "rang" -> "Guten Tag, Korporal!"
 
 -- Rank 2
-town = Cadomyr,english, male, rank > 2, "rank" -> "Ah! So you are a squire?"
-town = Cadomyr,english, female, rank > 2, "rank" -> "Ah! So you are a squire?"
-town = Cadomyr, male, rank > 2, "rang" -> "Ah! Du bist ein Knappe?"
-town = Cadomyr, female, rank > 2, "rang" -> "Ah! Du bist ein Knappin?"
+town = Cadomyr,english, male, rank > 1, "rank" -> "Ah! So you are a squire?"
+town = Cadomyr,english, female, rank > 1, "rank" -> "Ah! So you are a squire?"
+town = Cadomyr, male, rank > 1, "rang" -> "Ah! Du bist ein Knappe?"
+town = Cadomyr, female, rank > 1, "rang" -> "Ah! Du bist ein Knappin?"
 
 --Rank 1
 town = Cadomyr, english, male, rank > 0, "rank" -> "You are new here. You are not well known. Make an effort ands become famous, Recruit!"

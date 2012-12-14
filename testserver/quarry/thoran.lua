@@ -551,15 +551,7 @@ if not InitPrices then
 	price [   2535   ] =    40   ; --    iron ingot   ,   Intermediate   metal
 	price [   2550   ] =    40   ; --    copper ingot   ,   Intermediate   metal
 	price [   2738   ] =    40   ; --    pins   ,   Intermediate   metal
-	price [   2526   ] =    80   ; --    axehead   ,   Intermediate   metal
 	price [   2537   ] =    80   ; --    iron plate   ,   Intermediate   metal
-	price [   2542   ] =    80   ; --    hammer head   ,   Intermediate   metal
-	price [   2562   ] =    80   ; --    large sword blade   ,   Intermediate   metal
-	price [   2563   ] =    80   ; --    dagger blade   ,   Intermediate   metal
-	price [   2564   ] =    80   ; --    sword blade   ,   Intermediate   metal
-	price [   2565   ] =    80   ; --    scythe blade   ,   Intermediate   metal
-	price [   2568   ] =    80   ; --    shovel head   ,   Intermediate   metal
-	price [   2569   ] =    80   ; --    sickle blade   ,   Intermediate   metal
 	price [   2571   ] =    80   ; --    merinium ingot   ,   Intermediate   metal
 	price [   2696   ] =    80   ; --    metal pieces   ,   Intermediate   metal
 	price [   236   ] =    120   ; --    gold ingot   ,   Intermediate   metal
@@ -704,7 +696,6 @@ if not InitPrices then
 	price [   699   ] =    500   ; --    salkamarian steel boots   ,   Shoes   metal
 	price [   771   ] =    1100   ; --    albarian steel boots   ,   Shoes   metal
 	price [   770   ] =    2300   ; --    knight boots   ,   Shoes   metal
-	price [   2707   ] =    80   ; --    rainbowsword-blade   ,   Slashing   metal
 	price [   2635   ] =    180   ; --    poisoned halfling axe   ,   Slashing   metal
 	price [   2711   ] =    180   ; --    halfling axe   ,   Slashing   metal
 	price [   2723   ] =    200   ; --    executioner's axe   ,   Slashing   metal

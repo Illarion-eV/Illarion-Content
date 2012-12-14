@@ -12,14 +12,14 @@ module("base.factions", package.seeall)
 
 
 function InitFactionLists()
-   
+
 	--Lists for Functions--
 	NpcLocation = {};   --holds the location(townID) of the NPC
 	TextRepeatCnt={}; --a value/counter to allow text repeation(e.g.for questions)
-	
+
 	--Towns--
 	TownList={};
-    
+
 	TownMainKey={};
 	TownJailKey={};
 
@@ -35,7 +35,7 @@ function InitFactionLists()
 					 {gRank = "Baron", eRank = "Baron"},				--rank 9
 					 {gRank = "Herzog", eRank = "Duke"},				--rank 10
 					 {gRank = "Königin", eRank = "Queen"}};				--rank leader
-	
+
 	RunewickRankList = { {gRank = "Neuling", eRank = "Novice"},    		--rank 1
 					 {gRank = "Anwärter", eRank = "Apprentice"},       	--rank 2
 					 {gRank = "Student", eRank = "Student"},         	--rank 3
@@ -47,9 +47,9 @@ function InitFactionLists()
 					 {gRank = "Dekan", eRank = "Dean"},    				--rank 9
 					 {gRank = "Rektor", eRank = "Rector"},    			--rank 10
 					 {gRank = "Erzmagier", eRank = "Archmage"}};		--rank leader
-	
+
 	GalmairRankList = { {gRank = "Rumtreiber", eRank = "Tramp"},      	--rank 1
-					 {gRank = "Gehilfe", eRank = "Assistand"},          --rank 2
+					 {gRank = "Gehilfe", eRank = "Assistant"},          --rank 2
 					 {gRank = "Hausierer", eRank = "Pedlar"},         	--rank 3
 					 {gRank = "Krämer", eRank = "Grocer"},       		--rank 4
 					 {gRank = "Kaufmann", eRank = "Merchant"},          --rank 5
@@ -59,10 +59,10 @@ function InitFactionLists()
 					 {gRank = "Magnat", eRank = "Magnate"},    			--rank 9
 					 {gRank = "Tycoon", eRank = "Tycoon"},				--rank 10
 					 {gRank = "Don", eRank = "Don"}};					--rank leader
-	
+
 	NoneRankList ={};
 	NoneRankList[0] = {gRank = "Geächteter", eRank = "outcast"};
-	
+
 	townRanks = {CadomyrRankList, RunewickRankList, GalmairRankList}
 	townRanks[0] = NoneRankList;
 end
@@ -71,7 +71,7 @@ end
     AddTown
 	Add a Town to the Faction System(be carefull, adding a new town needs further changes in the whole script!)
     @param TownID		- the ID of the town(1-9 allowed)
-    @param TownName		- the Townname 
+    @param TownName		- the Townname
 ]]
 function AddTown(TownID, TownName)
 	table.insert(TownList,{townID=TownID, townName=TownName});
@@ -139,7 +139,7 @@ end
 
 function getRank(player)
 	local Faction = getFaction(player)
-	
+
 	if player:getPlayerLanguage() == 0 then
 		return townRanks[Faction.tid][Faction.rankTown].gRank;
 	else
@@ -245,28 +245,28 @@ end
 ]]
 function setRankpoints(originator, rankpoints)
 	local Faction = getFactionInformations(originator);
-	local rank = Faction.rankTown; 	
-	
+	local rank = Faction.rankTown;
+
 	if Faction.tid == 0 then --outlaw
 		return;
 	end
-	
+
 	if rankpoints < 0 then
 		rankpoints = 0;
 	elseif rankpoints > (highestRank-1)*100 then
 		rankpoints = (highestRank-1)*100;
 	end
-	
+
 	Faction.rankTown = checkForRankChange(rankpoints,rank);
-		
+
 	local townName = getTownNameByID(Faction.tid)
 	local rankName = townRanks[Faction.tid][Faction.rankTown]
-	if Faction.rankTown>rank then  
-		base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in "..townName.." erreicht. Du bist nun "..rankName.gRank..".", 
+	if Faction.rankTown>rank then
+		base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in "..townName.." erreicht. Du bist nun "..rankName.gRank..".",
 			"You reached a new town rank in "..townName..". You are now "..rankName.eRank..".")
-	elseif Faction.rankTown<rank then  
-		base.common.InformNLS( originator, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in "..townName.." um eine Stufe gesunken. Du bist nun "..rankName.gRank..".", 
-			"Because of your permanent conflicts with the law your rank sinks for a degree in "..townName..". You are now "..rankName.eRank.."." ) 
+	elseif Faction.rankTown<rank then
+		base.common.InformNLS( originator, "Durch deine ständigen Konflikte mit dem Gesetz ist dein Rang in "..townName.." um eine Stufe gesunken. Du bist nun "..rankName.gRank..".",
+			"Because of your permanent conflicts with the law your rank sinks for a degree in "..townName..". You are now "..rankName.eRank.."." )
 	end
 
 	------save changes----------------
@@ -294,7 +294,7 @@ end
     @param Factionvalues -- the List with the Factionvalues of the Char
     @param theRank(number) -- the rank the char shall get in the town
 ]]
-function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)	
+function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 	if theRank==leaderRank then --make char to leader of this town
 		fv.tid = theTown; --make him member of this town
 		fv.rankTown = leaderRank; --give him the leader rank
@@ -306,7 +306,7 @@ function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 		if (fv.tid == theTown) then --already citizen
 			return;
 		end
-		
+
 		local amountToPay = 1000*(2^fv.towncnt) -- amount in coppercoins
 		if not base.money.CharHasMoney(originator,amountToPay) then --not enough money!
 			local GAmount, SAmount,CAmount = base.money.MoneyToCoins(amountToPay);
@@ -316,11 +316,11 @@ function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
             thisNPC:talk(Character.say, outText);
 			return;
 		end
-		
+
 		fv.rankpoints = 0 -- set default value for rankpoints
 		fv.tid = theTown; --set new Town ID
 		fv.rankTown = theRank -- set the rank of the town
-				
+
 		if (fv.towncnt<99) then fv.towncnt = fv.towncnt+1; end; -- raise the town counter
 		setFaction(originator,fv); --write fv in Questprogress
 		base.money.TakeMoneyFromChar(originator,amountToPay); --take money
@@ -333,10 +333,10 @@ function leaveFaction(originator, Faction, thisNPC)
 	Faction.rankpoints = 0;
 	Faction.rankTown = 0;
 	Faction.tid = 0;
-	
+
 	setFaction(originator,Faction); --write fv in Questprogress
-	
-	gText="Ihr gehört nun keinem Reich mehr an. Das bedeutet das ihr frei, aber auf Euch selbst gestellt seid. Viel Glück.";
+
+	gText="Ihr gehört nun keinem Reich mehr an. Das bedeutet das Ihr frei, aber auf Euch selbst gestellt seid. Viel Glück.";
 	eText="You're now not belonging to any realm. This means you're free but also on your own. Good luck.";
 	outText=base.common.GetNLS(originator,gText,eText);
     thisNPC:talk(Character.say, outText);
