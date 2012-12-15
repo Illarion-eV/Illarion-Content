@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 897, 781, 2, 3, 'Neiran el Nyarale', 'npc.neiran_el_nyarale', 0, 2, 5, 128, 255, 255, 245, 230, 197);
+VALUES (3, 897, 781, 2, 3, 'Neiran el Nyarale', 'npc.neiran_el_nyarale', 0, 2, 0, 128, 255, 255, 245, 230, 197);
 ---]]
 
 require("npc.base.basic")
@@ -852,7 +852,7 @@ mainNPC:setEquipment(3, 181);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(4, 0);
 mainNPC:setEquipment(9, 825);
 mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);

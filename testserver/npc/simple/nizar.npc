@@ -72,8 +72,8 @@ buySecondaryItems = 2, 3
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Nizar the <profession/function>. Keywords: gems, smithing, magical smithing, profession, Serinjah, Greetings.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Nizar der <Beruf/Funktion>. Schlüsselwörter: Edelsteine, Schmieden, magisches Schmieden, Beruf, Serinjah, Grüße.")
+"Help" -> inform("[Game Help] This NPC is Nizar the magical blacksmith. Keywords: gems, smithing, magical smithing, profession, Serinjah, Greetings.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Nizar der magische Schmied. Schlüsselwörter: Edelsteine, Schmieden, magisches Schmieden, Beruf, Serinjah, Grüße.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings. Shall I smith something for you out of gems?.", "Be greeted. Do you want to combine magical gems? This is the right place for that!"

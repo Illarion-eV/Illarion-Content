@@ -30,13 +30,13 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Nizar the <profession/function>. Keywords: gems, smithing, magical smithing, profession, Serinjah, Greetings."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Nizar the magical blacksmith. Keywords: gems, smithing, magical smithing, profession, Serinjah, Greetings."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Nizar der <Beruf/Funktion>. Schlüsselwörter: Edelsteine, Schmieden, magisches Schmieden, Beruf, Serinjah, Grüße."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Nizar der magische Schmied. Schlüsselwörter: Edelsteine, Schmieden, magisches Schmieden, Beruf, Serinjah, Grüße."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

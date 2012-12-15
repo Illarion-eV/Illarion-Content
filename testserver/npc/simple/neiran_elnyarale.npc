@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------AC
+﻿------------------------------------------------------------------------------AC
 -- NPC Name: Neiran el Nyarale                                       Runewick--
 -- NPC Job:  Runewick 'recycle mechanism' guard                                             --
 --                                                                            --
@@ -31,7 +31,7 @@ wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
 hairID = 2
-beardID = 5
+beardID = 0
 colorHair = 128, 255, 255
 colorSkin = 245, 230, 197
 itemHead = 0
@@ -39,7 +39,7 @@ itemChest = 181
 itemCoat = 0
 itemMainHand = 0
 itemSecondHand = 0
-itemHands = 48
+itemHands = 0
 -- fur trousers
 itemTrousers = 825
 itemShoes = 53
