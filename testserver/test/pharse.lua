@@ -179,7 +179,11 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         end
         local firstFaction = factionIds[dialog:getSelectedIndex()+1];
         local guards = npc.base.guards_static;
-        local modeStrings = {"none", "passive", "hostile", "aggressive"};
+        local modeStrings = {};
+        modeStrings[ACTION_NONE] = "none";
+        modeStrings[ACTION_PASSIVE] = "passive";
+        modeStrings[ACTION_HOSTILE] = "hostile";
+        modeStrings[ACTION_AGGRESSIVE] = "aggressive";
         local modeValues = {guards.ACTION_NONE, guards.ACTION_PASSIVE, guards.ACTION_HOSTILE, guards.ACTION_AGGRESSIVE};
         local cbSecondFaction = function (dialog)
           if (not dialog:getSuccess()) then
@@ -194,8 +198,8 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
             guards.SetMode(firstFaction, secondFaction, mode);
           end
           local sd = SelectionDialog("Set guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
-          for _,m in ipairs(modeStrings) do 
-            sd:addOption(0,m);
+          for _,m in ipairs(modeValues) do 
+            sd:addOption(0,modeStrings[m]);
           end
           User:requestSelectionDialog(sd);
         end
