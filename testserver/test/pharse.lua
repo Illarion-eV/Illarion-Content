@@ -180,10 +180,10 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         local firstFaction = factionIds[dialog:getSelectedIndex()+1];
         local guards = npc.base.guards_static;
         local modeStrings = {};
-        modeStrings[ACTION_NONE] = "none";
-        modeStrings[ACTION_PASSIVE] = "passive";
-        modeStrings[ACTION_HOSTILE] = "hostile";
-        modeStrings[ACTION_AGGRESSIVE] = "aggressive";
+        modeStrings[guards.ACTION_NONE] = "none";
+        modeStrings[guards.ACTION_PASSIVE] = "passive";
+        modeStrings[guards.ACTION_HOSTILE] = "hostile";
+        modeStrings[guards.ACTION_AGGRESSIVE] = "aggressive";
         local modeValues = {guards.ACTION_NONE, guards.ACTION_PASSIVE, guards.ACTION_HOSTILE, guards.ACTION_AGGRESSIVE};
         local cbSecondFaction = function (dialog)
           if (not dialog:getSuccess()) then
