@@ -361,7 +361,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
           end
           local inputString = dialog:getInput();
           if (string.find(inputString,"(%a+) (%d+)") ~= nil) then
-            a,modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)");
+            modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)");
             value=tonumber(value);
 			User:inform("[Debug] Fitting string found "..modifier..value)
             ChangeRankpoints(User,modifier,value,faction,radius);
