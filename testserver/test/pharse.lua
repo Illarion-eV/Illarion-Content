@@ -150,7 +150,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
           infoText = infoText .. "\nRank: " .. base.factions.townRanks[faction.tid][faction.rankTown].eRank .. "/" .. base.factions.townRanks[faction.tid][faction.rankTown].gRank;
         else
-          infoText = infoText .. "\nRank: no rank " faction.rankTown;
+          infoText = infoText .. "\nRank: no rank " .. faction.rankTown;
         end
         infoText = infoText .. "\nExact rank points: " .. faction.rankpoints;
         local sb = SelectionDialog("Set faction value", infoText, cbSetFactionValue);
