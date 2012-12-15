@@ -16,21 +16,20 @@ function CheckForEnemies(guard)
 
 	-- check for hostile monsters
 	local monsterList = world:getMonstersInRangeOf(guard.pos, content.guards.Guards[guard.name].radius);
-  local killedMonster = false;
+  local warpedMonster = false;
 	for i,mon in pairs(monsterList) do
     if (content.areas.PointInArea(mon.pos,content.guards.Guards[guard.name].areaName)) then
       if ( not base.common.IsMonsterDocile(mon:getMonsterType()) ) then
-        -- kill them and get help
-        -- TODO
-        killedMonster = true;
-        mon:increaseAttrib("hitpoints", -1*mon:increaseAttrib("hitpoints",0));
+        -- TODO call help
+        -- for now only warp
+        warpedMonster = true;
+        Warp(guard, mon);
       end
     end
 	end
-  if (killedMonster) then
-    world:makeSound(3, guard.pos);
-    guard:talkLanguage(Character.say, Player.german, "Nimm das, widerliche Kreatur!");
-    guard:talkLanguage(Character.say, Player.english, "Take this, nasty creature!");
+  if (warpedMonster) then
+    guard:talkLanguage(Character.say, Player.german, "Weg mit dir, widerliche Kreatur!");
+    guard:talkLanguage(Character.say, Player.english, "Go away, nasty creature!");
   end
 
 	-- check for player characters
