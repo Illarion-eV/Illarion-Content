@@ -360,14 +360,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             return;
           end
           local inputString = dialog:getInput();
-          if (string.find(inputString,"(%a+) (%d+)") ~= nil) then
-            a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)");
+          if (string.find(inputString,"(%a+) (%d+)+") ~= nil) then
+            a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)+");
             value=tonumber(value);
 			User:inform("[Debug] Fitting string found "..modifier..value)
             ChangeRankpoints(User,modifier,value,faction,radius);
           else
             User:inform("Sorry, I didn't understand you.");
-            User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|nil> (= cadomyr|runewick|galmair|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
+            User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|0|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
           end
         end
         User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|nil> (= cadomyr|runewick|galmair|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
@@ -480,7 +480,7 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 	if player_list[1]~=nil then
 		for i, player in pairs(player_list) do
 			Factionvalues = base.factions.getFaction(player);
-			if faction == nil then
+			if faction == nil or faction == 0 then
 				base.factions.setRankpoints(player, Factionvalues.rankpoints+value);
 				User:inform(text.." "..value.." rankpoints for ALL characters within "..radius.." tiles.");
 			elseif faction == Factionvalues.tid then
