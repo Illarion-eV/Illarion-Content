@@ -138,7 +138,13 @@ function getMemberShipByName(player)
 end
 
 function getRank(player)
-	local Faction = getFaction(player)
+	local Faction = getFaction(player);
+  if (townRanks[Faction.tid] == nil) then
+    return "[ERROR: no ranks for " .. Faction.tid .. "]";
+  end
+  if (townRanks[Faction.tid][Faction.rankTown] == nil) then
+    return "[ERROR: no rank " .. Faction.rankTown .. " in town " .. Faction.tid .. "]";
+  end
 
 	if player:getPlayerLanguage() == 0 then
 		return townRanks[Faction.tid][Faction.rankTown].gRank;
