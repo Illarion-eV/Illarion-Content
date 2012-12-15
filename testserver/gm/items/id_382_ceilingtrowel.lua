@@ -459,7 +459,7 @@ end
 
 function ChangeRankpoints(User,modifier,value,faction,radius)
 
-	User:inform("[debug] In ChangeRankpoints")
+	User:inform("[debug] In ChangeRankpoints "..modifier..value..faction..radius)
 	--check if the points shall be added or removed
 	if modifier == "add" then
 		text = "Added";
