@@ -90,7 +90,7 @@ town = Galmair, "beende Bürgerstatus", "verlassen", "verlasse", "annuliere" -> 
 
 -- answer yes
 english, queststatus (208) = 1, "yes" -> "You are no longer citizen of Galmair. Go elsewhere.", queststatus (208) = 1, town = none
-queststatus (208) = 1, "ja" ->  "Ihr seit nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders.", queststatus (208) = 1, town = none
+queststatus (208) = 1, "ja" ->  "Ihr seid nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders.", queststatus (208) = 1, town = none
 
 --answer no
 english, queststatus (208)=1, ".*" -> "Mhm... The Don will be pleased to hear that.", queststatus (208) = 0
@@ -102,10 +102,10 @@ queststatus (208)=1, ".*" -> "Mhm, ... Der Don wird sich freuen, dies zu hören.
 -- RANK informations
 
 -- Rank 10
-town = Cadomyr,english, male, rank > 9, "rank" -> "Tycoon %Name, be welcome. Is is truly a honour to see you!"
-town = Cadomyr,english, female, rank > 9, "rank" -> "Tyconn %Name, be welcome. Is is truly a honour to see you.!"
-town = Cadomyr,male, rank > 9, "rang" -> " Tycoon %Name! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
-town = Cadomyr,female, rank > 9, "rang" -> "Baronin %! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
+town = Galmair,english, male, rank > 9, "rank" -> "Tycoon %Name, be welcome. Is is truly a honour to see you!"
+town = Galmair,english, female, rank > 9, "rank" -> "Tyconn %Name, be welcome. Is is truly a honour to see you.!"
+town = Galmair,male, rank > 9, "rang" -> " Tycoon %Name! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
+town = Galmair,female, rank > 9, "rang" -> "Baronin %! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
 
 --Rank 9
 town = Galmair,english, male, rank > 8, "rank" -> "Magnate, be welcome. Is is a honour to see you."

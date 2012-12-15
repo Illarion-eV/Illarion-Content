@@ -24,6 +24,12 @@ function Init()
   AddArea("cadomyr guard 1", {
     {{position(118,637,0),position(118,633,0),position(110,633,0),position(110,637,0)}, {0}}
   });
+  AddArea("galmair guard 1", {
+    {{position(416,247,0),position(413,247,0),position(413,252,0),position(416,252,0)}, {0}}
+  });
+  AddArea("runewick guard 1", {
+    {{position(839,825,0),position(839,819,0),position(846,819,0),position(846,825,0)}, {0}}
+  });
 end
 
 --- adds an area

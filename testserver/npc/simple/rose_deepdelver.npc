@@ -67,8 +67,8 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Rose Deepdelver die Besitzerin der Taverne. Schlüsselwörter: Grüße, Familie, Handel.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Ich verkauf die besten Getränke weit und breit."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Ich hab die besten Getränke weit und breit."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! I sell the best drinks."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Ich verkaufe die besten Getränke!"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Nice day, isn't it?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Schöner Tag heute, nicht?"
 "Farewell", "Bye", "Fare well", "See you" -> "See you!", "Toodles!", "Farewell."

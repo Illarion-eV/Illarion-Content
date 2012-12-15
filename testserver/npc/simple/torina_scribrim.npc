@@ -102,6 +102,65 @@ queststatus (207)=1, ".*" -> "Ah, gut. Ihr bleibt hier, eine weise Entscheidung.
 
 -- RANK informations
 
+-- Rank 10
+town = Cadomyr,english, male, rank > 9, "rank" -> "Ah! Rector %Name, be welcome, Sir. Is is truly a honour to see you!"
+town = Cadomyr,english, female, rank > 9, "rank" -> "Ah! Rector %Name, be welcome, Madam. Is is truly a honour to see you!"
+town = Cadomyr,male, rank > 9, "rang" -> "Ah! Rekor %Name! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
+town = Cadomyr,female, rank > 9, "rang" -> "Ah! Rektorin %! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
+
+--Rank 9
+town = Galmair,english, male, rank > 8, "rank" -> "Dean, be welcome. Is is a honour to see you."
+town = Galmair,english, female, rank > 8, "rank" -> "Dean, be welcome. Is is a honour to see you."
+town = Galmair,male, rank > 8, "rang" -> "Dekan, seid willkommen. Welch eine Ehre Euch zu sehen."
+town = Galmair,female, rank > 8, "rang" -> "Dekanin, seid wilokmmen.Welch eine Ehre Euch zu sehen."
+
+--Rank 8
+town = Galmair,english, male, rank > 7,"rank" -> "Oh! Professor  %Name! How can I help you?"
+town = Galmair,english, female, rank > 7, "rank" -> "Oh! Professort %Name! How can I help you?"
+town = Galmair,male, rank > 7,"rang" -> "Oh!Professor %Name! Was kann ich für Euch tun?"
+town = Galmair,female, rank > 7, "rang" -> "Oh! Professorin %Name! Was kann ich für Euch tun?"
+
+--Rank 7
+town = Galmair,english, male, rank > 6,"rank" ->  "Good to see you, Docent %Name! How are you?"
+town = Galmair,english, female, rank > 6, "rank" ->  " Good to see you, Docent %Name! How are you?"
+town = Galmair,male, rank > 6,"rang" -> "Schön Euch zu sehen, Dozent %Name! Wie geht es Euch?"
+town = Galmair,female, rank > 6, "rang" -> " Schön euch zu sehen, Dozentin %Name! Wie geht es Euch?"
+
+--Rank 6
+town = Galmair,english, male, rank > 5,"rank" -> "Greetings to you, Doctor %Name!"
+town = Galmair,english, female, rank > 5, "rank" -> "Greetings to you, Doctor %Name!"
+town = Galmair,male, rank > 5,"rang" -> "Seid gegrüß, Doktort %Name!"
+town = Galmair,female, rank > 5, "rang" -> "Seid gegrüßt, Doktorin %Name!"
+
+-- Rank 5
+town = Galmair,english, male, rank > 4,"rank" -> "Greetings to you, Master!"
+town = Galmair,english, female, rank > 4, "rank" -> "Greetings to you, Master!"
+town = Galmair,male, rank > 4,"rang" -> "Seid gegrüßt, Magister !"
+town = Galmair,female, rank > 4, "rang" ->"Seid gegrüßt, Magister!"
+
+-- Rank 4
+town = Galmair,english, male, rank > 3,"rank" ->  "Scolar, how are you today?"
+town = Galmair,english, female, rank > 3, "rank" -> " Scolar, how are you today?"
+town = Galmair,male, rank > 3,"rang" -> "Gelehrter, wie geht es Euch?"
+town = Galmair,female, rank > 3, "rang" -> "Gelehrte, wie geht es Euch?"
+
+-- Rank 3
+town = Galmair,english, male, rank > 2,"rank" ->"Student, what are you here? Do you need help?"
+town = Galmair,english, female, rank > 2, "rank" -> "Student, what are you here? Do you need help?"
+town = Galmair,male, rank > 2,"rang" -> "Student, was führt dich zu mir? Brauchst du Hilfe?"
+town = Galmair,female, rank > 2, "rang" ->"Studentin, was dich Euch zu mir? Brauchst du Hilfe?"
+
+-- Rank 2
+town = Galmair,english, male, rank > 1, "rank" -> "You are an assistat. Please set a good example for the Novices."
+town = Galmair,english, female, rank > 1, "rank" -> "You are an assistant. Please set a good example for the Novices."
+town = Galmair, male, rank > 1, "rang" ->  "Du bist ein Anwärter. Bitte sei ein gutes Beispiel für die Novizen."
+town = Galmair, female, rank > 1, "rang" -> "Du bist eine Anwärterin. Bitte sei ein gutes Beispiel für die Novizen."
+
+--Rank 1
+town = Galmair, english, male, rank > 0, "rank" -> "You are new here. You are not well known. Feel free to stay in Runewick and gain more knowledge, Novice!"
+town = Galmair, english, female, rank > 0, "rank" -> "You are new here. You are not well known.  Feel free to stay in Runewick and gain more knowledge, Novice!"
+town = Galmair, male, rank > 0, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Sei so frei und bleibe in Runewick um mehr zu lernen, Novize!"
+town = Galmair, female, rank > 0, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Sei so frei und bleibe in Runewick um mehr zu lernen, Novizin!"
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."
 "quest", "mission" -> "Derzeit habe ich alles, aber danke für Eure Sorge.", "Vielleicht ein anderes mal, derzeit habe ich alles was ich brauche."

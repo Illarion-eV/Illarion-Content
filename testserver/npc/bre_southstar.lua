@@ -20,6 +20,7 @@ require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
+require("npc.base.guards_static")
 module("npc.bre_southstar", package.seeall)
 
 function initNpc()
@@ -696,7 +697,10 @@ mainNPC:initDone();
 end;
 
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
-function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function nextCycle(npcChar)
+  mainNPC:nextCycle(npcChar);
+  npc.base.guards_static.NextCycle(npcChar);
+end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
 function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
