@@ -3,6 +3,7 @@
 require("gm.base.log")
 require("base.factions")
 require("base.common")
+require("npc.base.guards_static");
 
 module("gm.items.id_382_ceilingtrowel", package.seeall, package.seeall(gm.base.log))
 
@@ -65,7 +66,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
   
   -- First check for mode change
   if (string.find(User.lastSpokenText, "setmode")~=nil) then
-    local modes = {"items", "weather", "ranksystem"}
+    local modes = {"items", "weather", "factions"}
     local cbSetMode = function (dialog)
       if (not dialog:getSuccess()) then
         return;
@@ -271,7 +272,155 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         currWeather.percipitation_type=2;
     end
     world:setWeather(currWeather);
-  elseif (SourceItem:getData("mode")=="ranksystem") then  --ranksystem
+  elseif (SourceItem:getData("mode")=="factions") then  --faction system
+    local cbFaction = function (dialog)
+      if (not dialog:getSuccess()) then
+        return;
+      end
+      local ind = dialog:getSelectedIndex();
+      if (ind == 0) then -- get/set for specific player
+        local playersTmp = world:getPlayersInRangeOf(User.pos, 2);
+        local players = {User};
+        for _,player in pairs(playersTmp) do 
+          if (player.id ~= User.id) then 
+            table.insert(players, player);
+          end
+        end
+        local cbChoosePlayer = function (dialog)
+          if (not dialog:getSuccess()) then
+            return;
+          end
+          local chosenPlayer = players[dialog:getSelectedIndex()+1];
+          local faction = base.factions.getFaction(chosenPlayer);
+          local cbSetFactionValue = function (dialog)
+            if (not dialog:getSuccess()) then
+              return;
+            end
+            local ind = dialog:getSelectedIndex();
+            if (ind < 4) then
+              faction.tid = ind;
+              base.factions.setFaction(chosenPlayer, faction);
+            elseif (ind == 4) then
+              local cbSetCount = function (dialog)
+                if (not dialog:getSuccess()) then
+                  return;
+                end
+                local countValue, okay = String2Number(dialog:getInput());
+                if (not okay) then
+                  User:inform("no number");
+                  return;
+                end
+                faction.towncnt = countValue;
+                base.factions.setFaction(chosenPlayer, faction);
+              end
+              User:requestInputDialog(InputDialog("Set town count", "", false, 255, cbSetCount));
+            elseif (ind == 5) then
+              local cbSetRank = function (dialog)
+                if (not dialog:getSuccess()) then
+                  return;
+                end
+                local rankpoints, okay = String2Number(dialog:getInput());
+                if (not okay) then
+                  User:inform("no number");
+                  return;
+                end
+                base.factions.setRankpoints(chosenPlayer, rankpoints);
+              end
+              User:requestInputDialog(InputDialog("Set rank points", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
+            end
+          end
+          local infoText = "Town: " .. base.factions.getMemberShipByName(chosenPlayer);
+          infoText = infoText .. "\nChanged towns already (town count): " .. faction.towncnt;
+          if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
+            infoText = infoText .. "\nRank: " .. base.factions.townRanks[faction.tid][faction.rankTown].eRank .. "/" .. base.factions.townRanks[faction.tid][faction.rankTown].gRank;
+          else
+            infoText = infoText .. "\nRank: no rank " .. faction.rankTown;
+          end
+          infoText = infoText .. "\nExact rank points: " .. faction.rankpoints;
+          local sd = SelectionDialog("Set faction value", infoText, cbSetFactionValue);
+          sd:addOption(0, "Change town to None");
+          sd:addOption(0, "Change town to Cadomyr");
+          sd:addOption(0, "Change town to Runewick");
+          sd:addOption(0, "Change town to Galmair");
+          sd:addOption(0, "Change town count");
+          sd:addOption(0, "Change rank points");
+          User:requestSelectionDialog(sd);
+        end 
+        local sd = SelectionDialog("Get/Set faction values for ...", "First choose a player:", cbChoosePlayer);
+        local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
+        for _,player in ipairs(players) do 
+          local race = math.min(player:getRace()+1, table.getn(raceNames));
+          sd:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
+        end
+        User:requestSelectionDialog(sd);
+      elseif (ind == 1) then -- rankpoints in radius
+        local cbRadius = function (dialog)
+          if (not dialog:getSuccess()) then
+            return;
+          end
+          local inputString = dialog:getInput();
+          if (string.find(inputString,"(%a+) (%d+) (%d+) (%d+)") ~= nil) then
+            a,b,modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)");
+            value=tonumber(value);
+            radius=tonumber(radius);
+            ChangeRankpoints(User,modifier,value,faction,radius);
+          else
+            User:inform("Sorry, I didn't understand you.");
+            User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <add|sub> <value> <1|2|3|nil> <radius|nil>", false, 255, cbRadius));
+          end
+        end
+        User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <add|sub> <value> <1|2|3|nil> <radius|nil>", false, 255, cbRadius));
+      elseif (ind == 2) then -- guard modes
+        local factionIds = {0,1,2,3};
+        local cbFirstFaction = function (dialog)
+          if (not dialog:getSuccess()) then
+            return;
+          end
+          local firstFaction = factionIds[dialog:getSelectedIndex()+1];
+          local guards = npc.base.guards_static;
+          local modeStrings = {};
+          modeStrings[guards.ACTION_NONE] = "none";
+          modeStrings[guards.ACTION_PASSIVE] = "passive";
+          modeStrings[guards.ACTION_HOSTILE] = "hostile";
+          modeStrings[guards.ACTION_AGGRESSIVE] = "aggressive";
+          local modeValues = {guards.ACTION_NONE, guards.ACTION_PASSIVE, guards.ACTION_HOSTILE, guards.ACTION_AGGRESSIVE};
+          local cbSecondFaction = function (dialog)
+            if (not dialog:getSuccess()) then
+              return;
+            end
+            local secondFaction = factionIds[dialog:getSelectedIndex()+1];
+            local cbSetMode = function (dialog)
+              if (not dialog:getSuccess()) then
+                return;
+              end
+              local mode = modeValues[dialog:getSelectedIndex()+1];
+              guards.SetMode(firstFaction, secondFaction, mode);
+            end
+            local sd = SelectionDialog("Set guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
+            for _,m in ipairs(modeValues) do 
+              sd:addOption(0,modeStrings[m]);
+            end
+            User:requestSelectionDialog(sd);
+          end
+          local sd = SelectionDialog("Guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
+          for _,f in ipairs(factionIds) do 
+            sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[guards.GetModeByFaction(firstFaction, f)]);
+          end
+          User:requestSelectionDialog(sd);
+        end
+        local sd = SelectionDialog("Get/Set guard modes", "For which faction do you want to get/set values?", cbFirstFaction);
+        for _,f in ipairs(factionIds) do 
+          sd:addOption(0,base.factions.getTownNameByID(f));
+        end
+        User:requestSelectionDialog(sd);
+      end
+    end
+    local sd = SelectionDialog("What do you want to do about factions?", "", cbFaction);
+    sd:addOption(0,"Get/Set faction values for ...");
+    sd:addOption(0,"Add/Subtract rankpoints in radius");
+    sd:addOption(0,"Get/Set guard modes");
+    User:requestSelectionDialog(sd);
+    
     if (string.find(User.lastSpokenText,"help")~=nil) then
       local a,b, value = string.find(User.lastSpokenText,"help (%d+)");
             
@@ -311,11 +460,11 @@ function LookAtItem(User,Item)
     elseif (Item:getData("mode")=="weather") then
         base.lookat.SetSpecialName(Item, "Kelle (Wetter)","Kelle (Weather)");
 		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: help, clouds <value>, fog <value>, wind <value>, gust <value>, per <value>, thunder <value>, temp <value>", "Possible actions: help, clouds <value>, fog <value>, wind <value>, gust <value>, per <value>, thunder <value>, temp <value> ");
-	elseif (Item:getData("mode")=="ranksystem") then
-        base.lookat.SetSpecialName(Item, "Kelle (Rangsystem)", "Kelle (Ranksystem)");
-		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: rankpoints <add|sub> <value> <1|2|3|nil> <radius|nil> ", "Possible actions: rankpoints <add|sub> <value> <1|2|3|nil> <radius|nil>");
+	elseif (Item:getData("mode")=="factions") then
+        base.lookat.SetSpecialName(Item, "Kelle (Fraktionen)", "Kelle (Factions)");
+		base.lookat.SetSpecialDescription(Item, "Ändert Werte des Fraktionssystems. Benutze die Kelle.", "Changes values of the faction system. Use the trowel.");
 	else
-		base.lookat.SetSpecialDescription(Item, "Um einen Modus zu setzen sage 'setdata mode xyz' und benutzt die Kelle. Modi sind items, weather und ranksystem. Items ist default.", "To set a mode type 'setdata mode xyz' and use the trowel. Modes are standard, items, weather and ranksystem. Items is default.");
+		base.lookat.SetSpecialDescription(Item, "Um einen Modus zu setzen sage 'setmode' und benutzt die Kelle.", "To set a mode type 'setmode' and use the trowel.");
         base.lookat.SetSpecialName(Item, "Kelle", "Kelle");
     end
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
