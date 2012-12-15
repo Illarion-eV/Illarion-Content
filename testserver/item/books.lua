@@ -4,6 +4,7 @@ module("item.books", package.seeall)
 -- UPDATE common SET com_script='item.books' WHERE com_itemid = 2622;
 
 function InitBook()
+	--[[ -- needs a check
 	if (Init == nil) then
 		bookTitleDE = {}; -- The german title of the book.
 		bookTitleEN = {}; -- The english title of the book.
@@ -17,20 +18,27 @@ function InitBook()
 		bookMinimumLanguage[1] = 0;			
 		
 		Init = true;
-	end
+	end]]
 end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param)
 	InitBook();
-	if (User:getSkill(bookLanguage[SourceItem.data]) >= bookMinimumLanguage) then
+    -- alchemy book; just to make it accessable for testers
+	if SourceItem:getData("alchemyBook")=="true" then
+	    User:sendBook(3)
+	end	
+	-- alchemy end
+	
+	-- old data! 
+	--[[	if (User:getSkill(bookLanguage[SourceItem.data]) >= bookMinimumLanguage) then
 		User:sendBook(SourceItem.data);
 	else
 		base.common.InformNLS(User, Item, 
 			"Das Buch ist in einer Sprache geschrieben, von der du zu wenig Kenntnisse hast.",
 			"The book is written in a language in what your knowledge is not advanced enough.");
-	end
+	end]]
 end
 
 function LookAtItem(User, Item)
-    world:itemInform(User, Item, base.common.GetNLS(bookTitleDE[Item.data], bookTitleEN[Item.data]));
+    world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
 end

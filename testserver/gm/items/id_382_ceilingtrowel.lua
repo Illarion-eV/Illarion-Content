@@ -367,10 +367,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             ChangeRankpoints(User,modifier,value,faction,radius);
           else
             User:inform("Sorry, I didn't understand you.");
-            User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <add|sub> <value> <1|2|3|nil> <radius|nil>", false, 255, cbRadius));
+            User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|nil> (= cadomyr|runewick|galmair|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
           end
         end
-        User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <add|sub> <value> <1|2|3|nil> <radius|nil>", false, 255, cbRadius));
+        User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|nil> (= cadomyr|runewick|galmair|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
       elseif (ind == 2) then -- guard modes
         local factionIds = {0,1,2,3};
         local cbFirstFaction = function (dialog)
