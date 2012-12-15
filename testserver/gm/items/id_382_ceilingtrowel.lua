@@ -420,34 +420,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     sd:addOption(0,"Add/Subtract rankpoints in radius");
     sd:addOption(0,"Get/Set guard modes");
     User:requestSelectionDialog(sd);
-    
-    if (string.find(User.lastSpokenText,"help")~=nil) then
-      local a,b, value = string.find(User.lastSpokenText,"help (%d+)");
-            
-      Page = {};
-      Page[0] = "[Faction]: To look through the commands say 'help X' where X can a number from 1 to 2 and use this Item again."
-      Page[2] = "[Faction]: Add or remove rankpoints for a Char in a town (1=cadomyr, 2=runewick, 3=galmair) within a certain radius (default 5) 'rankpoints <add|sub> <value> <1|2|3|nil> <radius|nil>'"
-            
-      if value then
-        value = value *1;
-        if value <= 2 then
-          User:inform(Page[value]);
-        else
-          User:inform("[Faction]: This documentation has only 2 pages!");
-        end
-      else
-        User:inform(Page[0]);
-      end
-    -- rankpoints <add|sub> <value> <1|2|3|nil> <radius|nil>
-    elseif (string.find(User.lastSpokenText,"rankpoints (%a+) (%d+) (%d+) (%d+)")~=nil) then --add rankpoints within a radius Counter
-      a,b,modifier,value,faction,radius = string.find(User.lastSpokenText,"rankpoints (%a+) (%d+) (%d+) (%d+)");
-      value=tonumber(value);
-      radius=tonumber(radius);
-      ChangeRankpoints(User,modifier,value,faction,radius);
-    else
-      User:inform("Nothing to do.")
-      return;
-    end
   end
 end
 
