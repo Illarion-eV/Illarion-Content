@@ -339,7 +339,7 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 	if player_list[1]~=nil then
 		for i, player in pairs(player_list) do
 			Factionvalues = base.factions.getFaction(player_list[i]);
-			if faction = nil then
+			if faction == nil then
 				setRankpoints(player_list[i], Factionvalues.rankpoints+value);
 				User:inform(text.." "..value.." rankpoints for ALL characters within "..radius.." tiles.");
 			elseif Factionvalues.tid == faction then
