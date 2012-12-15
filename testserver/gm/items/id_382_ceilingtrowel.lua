@@ -272,19 +272,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         	end
 		-- rankpoints <add|sub> <value> <1|2|3|nil> <radius|nil>
 		elseif (string.find(User.lastSpokenText,"rankpoints (%a+) (%d+) (%d+) (%d+)")~=nil) then --add rankpoints within a radius Counter
-			a,b,modifier,value,faction,radius = string.find(User.lastSpokenText,"rankpoints (%a+) (%d+) (%a+) (%d+)");
+			a,b,modifier,value,faction,radius = string.find(User.lastSpokenText,"rankpoints (%a+) (%d+) (%d+) (%d+)");
 			value=tonumber(value);
 			radius=tonumber(radius);
 			ChangeRankpoints(User,modifier,value,faction,radius);
 		else
-			local frontChar = base.common.GetFrontCharacter(User);
-			if frontChar then
-				UseItemWithCharacter(User, SourceItem, frontChar, Counter, Param);
-			else
-				UseItemWithCharacter(User, SourceItem, User, Counter, Param);
-			end
+			User:inform("Nothing to do.")
+			return;
 		end
-		
 	end
 end
 
