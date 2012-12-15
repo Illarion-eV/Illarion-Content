@@ -150,16 +150,16 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
           infoText = infoText .. "\nRank: " .. base.factions.townRanks[faction.tid][faction.rankTown].eRank .. "/" .. base.factions.townRanks[faction.tid][faction.rankTown].gRank;
         else
-          infoText = infoText .. "\nRank: no rank " faction.rankTown;
+          infoText = infoText .. "\nRank: no rank " .. faction.rankTown;
         end
         infoText = infoText .. "\nExact rank points: " .. faction.rankpoints;
-        local sb = SelectionDialog("Set faction value", infoText, cbSetFactionValue);
-        sb:addOption(0, "Change town to None");
-        sb:addOption(0, "Change town to Cadomyr");
-        sb:addOption(0, "Change town to Runewick");
-        sb:addOption(0, "Change town to Galmair");
-        sb:addOption(0, "Change town count");
-        sb:addOption(0, "Change rank points");
+        local sd = SelectionDialog("Set faction value", infoText, cbSetFactionValue);
+        sd:addOption(0, "Change town to None");
+        sd:addOption(0, "Change town to Cadomyr");
+        sd:addOption(0, "Change town to Runewick");
+        sd:addOption(0, "Change town to Galmair");
+        sd:addOption(0, "Change town count");
+        sd:addOption(0, "Change rank points");
         User:requestSelectionDialog(sd);
       end 
       local sd = SelectionDialog(possibilities[ind+1], "First choose a player:", cbChoosePlayer);
