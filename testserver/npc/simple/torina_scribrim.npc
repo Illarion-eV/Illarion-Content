@@ -103,9 +103,9 @@ queststatus (207)=1, ".*" -> "Ah, gut. Ihr bleibt hier, eine weise Entscheidung.
 -- RANK informations
 
 -- Rank 10
-town = Cadomyr,english, male, rank > 9, "rank" -> "Ah! Rector %Name, be welcome, Sir. Is is truly a honour to see you!"
-town = Cadomyr,english, female, rank > 9, "rank" -> "Ah! Rector %Name, be welcome, Madam. Is is truly a honour to see you!"
-town = Cadomyr,male, rank > 9, "rang" -> "Ah! Rekor %Name! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
+town = Cadomyr,english, male, rank > 9, "rank" -> "Ah! Rector %CHARNAME, be welcome, Sir. Is is truly a honour to see you!"
+town = Cadomyr,english, female, rank > 9, "rank" -> "Ah! Rector %CHARNAME, be welcome, Madam. Is is truly a honour to see you!"
+town = Cadomyr,male, rank > 9, "rang" -> "Ah! Rekor %CHARNAME! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
 town = Cadomyr,female, rank > 9, "rang" -> "Ah! Rektorin %! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
 
 --Rank 9
@@ -115,22 +115,22 @@ town = Galmair,male, rank > 8, "rang" -> "Dekan, seid willkommen. Welch eine Ehr
 town = Galmair,female, rank > 8, "rang" -> "Dekanin, seid wilokmmen.Welch eine Ehre Euch zu sehen."
 
 --Rank 8
-town = Galmair,english, male, rank > 7,"rank" -> "Oh! Professor  %Name! How can I help you?"
-town = Galmair,english, female, rank > 7, "rank" -> "Oh! Professort %Name! How can I help you?"
-town = Galmair,male, rank > 7,"rang" -> "Oh!Professor %Name! Was kann ich für Euch tun?"
-town = Galmair,female, rank > 7, "rang" -> "Oh! Professorin %Name! Was kann ich für Euch tun?"
+town = Galmair,english, male, rank > 7,"rank" -> "Oh! Professor  %CHARNAME! How can I help you?"
+town = Galmair,english, female, rank > 7, "rank" -> "Oh! Professort %CHARNAME! How can I help you?"
+town = Galmair,male, rank > 7,"rang" -> "Oh!Professor %CHARNAME! Was kann ich für Euch tun?"
+town = Galmair,female, rank > 7, "rang" -> "Oh! Professorin %CHARNAME! Was kann ich für Euch tun?"
 
 --Rank 7
-town = Galmair,english, male, rank > 6,"rank" ->  "Good to see you, Docent %Name! How are you?"
-town = Galmair,english, female, rank > 6, "rank" ->  " Good to see you, Docent %Name! How are you?"
-town = Galmair,male, rank > 6,"rang" -> "Schön Euch zu sehen, Dozent %Name! Wie geht es Euch?"
-town = Galmair,female, rank > 6, "rang" -> " Schön euch zu sehen, Dozentin %Name! Wie geht es Euch?"
+town = Galmair,english, male, rank > 6,"rank" ->  "Good to see you, Docent %CHARNAME! How are you?"
+town = Galmair,english, female, rank > 6, "rank" ->  " Good to see you, Docent %CHARNAME! How are you?"
+town = Galmair,male, rank > 6,"rang" -> "Schön Euch zu sehen, Dozent %CHARNAME! Wie geht es Euch?"
+town = Galmair,female, rank > 6, "rang" -> " Schön euch zu sehen, Dozentin %CHARNAME! Wie geht es Euch?"
 
 --Rank 6
-town = Galmair,english, male, rank > 5,"rank" -> "Greetings to you, Doctor %Name!"
-town = Galmair,english, female, rank > 5, "rank" -> "Greetings to you, Doctor %Name!"
-town = Galmair,male, rank > 5,"rang" -> "Seid gegrüß, Doktort %Name!"
-town = Galmair,female, rank > 5, "rang" -> "Seid gegrüßt, Doktorin %Name!"
+town = Galmair,english, male, rank > 5,"rank" -> "Greetings to you, Doctor %CHARNAME!"
+town = Galmair,english, female, rank > 5, "rank" -> "Greetings to you, Doctor %CHARNAME!"
+town = Galmair,male, rank > 5,"rang" -> "Seid gegrüß, Doktort %CHARNAME!"
+town = Galmair,female, rank > 5, "rang" -> "Seid gegrüßt, Doktorin %CHARNAME!"
 
 -- Rank 5
 town = Galmair,english, male, rank > 4,"rank" -> "Greetings to you, Master!"

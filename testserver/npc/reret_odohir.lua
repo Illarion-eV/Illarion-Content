@@ -386,7 +386,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Archduke %Name!");
+talkEntry:addResponse("Greetings to you, Archduke %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -396,7 +396,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Archduchess %Name!");
+talkEntry:addResponse("Greetings to you, Archduchess %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -405,7 +405,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 9));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Erzherzog %Name! Hochwohlgeboren, wie ist es Euch ergangen?");
+talkEntry:addResponse("Erzherzog %CHARNAME! Hochwohlgeboren, wie ist es Euch ergangen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -424,7 +424,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Duke %Name!");
+talkEntry:addResponse("Greetings to you, Duke %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -434,7 +434,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Ducess %Name!");
+talkEntry:addResponse("Greetings to you, Ducess %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -443,7 +443,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 8));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Herzog %Name! Hochwohlgeboren, wie ist es Euch ergangen?");
+talkEntry:addResponse("Herzog %CHARNAME! Hochwohlgeboren, wie ist es Euch ergangen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -452,7 +452,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 8));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Herzogin %Name! Hochwohlgeboren, wie ist es Euch ergangen?");
+talkEntry:addResponse("Herzogin %CHARNAME! Hochwohlgeboren, wie ist es Euch ergangen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -500,7 +500,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Count %Name!");
+talkEntry:addResponse("Greetings to you, Count %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -510,7 +510,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Countess %Name!");
+talkEntry:addResponse("Greetings to you, Countess %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -519,7 +519,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Graf %Name, seid gegrüßt!");
+talkEntry:addResponse("Graf %CHARNAME, seid gegrüßt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -528,7 +528,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Gräfin %Name, seid gegrüßt!");
+talkEntry:addResponse("Gräfin %CHARNAME, seid gegrüßt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -652,7 +652,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Good day, Lord %Name!");
+talkEntry:addResponse("Good day, Lord %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -662,7 +662,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Good day, Lady %Name!");
+talkEntry:addResponse("Good day, Lady %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -671,7 +671,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Guten Tag, Herr %Name!");
+talkEntry:addResponse("Guten Tag, Herr %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -680,7 +680,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Guten Tag, Dame %Name!");
+talkEntry:addResponse("Guten Tag, Dame %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

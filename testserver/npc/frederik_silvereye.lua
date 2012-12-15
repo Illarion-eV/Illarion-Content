@@ -365,7 +365,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Tycoon %Name, be welcome. Is is truly a honour to see you!");
+talkEntry:addResponse("Tycoon %CHARNAME, be welcome. Is is truly a honour to see you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -375,7 +375,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Tyconn %Name, be welcome. Is is truly a honour to see you.!");
+talkEntry:addResponse("Tyconn %CHARNAME, be welcome. Is is truly a honour to see you.!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -384,7 +384,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 9));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse(" Tycoon %Name! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen.");
+talkEntry:addResponse(" Tycoon %CHARNAME! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -441,7 +441,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Mogul %Name! How can I help you?");
+talkEntry:addResponse("Mogul %CHARNAME! How can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -451,7 +451,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Mogul %Name! How can I help you?");
+talkEntry:addResponse("Mogul %CHARNAME! How can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -460,7 +460,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Mogul %Name! Was kann ich für Euch tun?");
+talkEntry:addResponse("Mogul %CHARNAME! Was kann ich für Euch tun?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -469,7 +469,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Mogulin %Name! Was kann ich für Euch tun?");
+talkEntry:addResponse("Mogulin %CHARNAME! Was kann ich für Euch tun?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -479,7 +479,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Patrician %Name!");
+talkEntry:addResponse("Greetings to you, Patrician %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -489,7 +489,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Patrician %Name!");
+talkEntry:addResponse("Greetings to you, Patrician %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -498,7 +498,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Seid gegrüßt, Patrizier %Name!");
+talkEntry:addResponse("Seid gegrüßt, Patrizier %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -507,7 +507,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Seid gegrüßt, Patrizierin %Name!");
+talkEntry:addResponse("Seid gegrüßt, Patrizierin %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -517,7 +517,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Financier %Name!");
+talkEntry:addResponse("Greetings to you, Financier %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -527,7 +527,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Financier %Name!");
+talkEntry:addResponse("Greetings to you, Financier %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -536,7 +536,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Seid gegrüßt, Finanzier %Name!");
+talkEntry:addResponse("Seid gegrüßt, Finanzier %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -545,7 +545,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Seid gegrüßt, Finanzier %Name!");
+talkEntry:addResponse("Seid gegrüßt, Finanzier %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
