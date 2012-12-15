@@ -57,8 +57,20 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		end
 		
 		targetPos = position(User.pos.x + 3 * xoff, User.pos.y + 3 * yoff, User.pos.z);
-		world:makeSound(5, targetPos);
-
+		
+		list=world:LoS(User.pos, targetPos);
+		if (list == nil) then
+			world:gfx(graphicNum, targetPos);
+			world:makeSound(5, targetPos);
+		else
+			world:gfx(graphicNum, list[1].OBJECT.pos);
+			if (list[1].type == "CHARACTER") then
+				list[1].OBJECT:increaseAttrib("hitpoints", -2000);
+				world:makeSound(1, extraPos);
+			end
+		end
+			
+		--[[
 		for i = 0, 2, 1 do
 			for j = 0, 2, 1 do
 				extraPos = position(targetPos.x -1 +i, targetPos.y -1 +j, targetPos.z);
@@ -73,7 +85,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 					world:makeSound(1, extraPos);
 				end
 			end
-		end
+		end]]--
 	end	--End Test -Dyluck
 end
 
