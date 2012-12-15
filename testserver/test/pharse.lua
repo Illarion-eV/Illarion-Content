@@ -157,7 +157,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         sb:addOption(0, "Change town count");
         sb:addOption(0, "Change rank points");
         User:requestSelectionDialog(sd);
-      end
+      end 
       local sd = SelectionDialog(possibilities[ind+1], "First choose a player:", cbChoosePlayer);
       local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
       for _,player in ipairs(players) do 
