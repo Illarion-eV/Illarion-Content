@@ -58,7 +58,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			yoff = -1;
 		end
 		
-		targetPos = position(User.pos.x + 3 * xoff, User.pos.y + 3 * yoff, User.pos.z);
+		targetPos = position(User.pos.x + 5 * xoff, User.pos.y + 5 * yoff, User.pos.z);
 		
 		mylist = world:LoS(User.pos, targetPos);
 		last = table.getn(mylist);
@@ -67,6 +67,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			world:gfx(graphicNum, targetPos);
 			world:makeSound(5, targetPos);
 			if world:isCharacterOnField(targetPos) then
+				User:inform("hit something live");
 				world:makeSound(1, targetPos);
 				targetChar = world:getCharacterOnField(targetPos);
 				targetChar:increaseAttrib("hitpoints", -2000);
