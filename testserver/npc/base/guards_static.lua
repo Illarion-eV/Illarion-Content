@@ -141,13 +141,6 @@ function Warp(guard, char)
 		"You've just been expelled from the town by a guard.");
 end
 
-function ReceiveText(NpcChar, Texttype, Message, Speaker)
-  if string.find(Message, "checkforenemies") then
-    content.guards.InitGuards();
-    CheckForEnemies(NpcChar);
-  end
-end
-
 function NextCycle(NpcChar)
   content.guards.InitGuards();
   if (CheckCount == nil) then

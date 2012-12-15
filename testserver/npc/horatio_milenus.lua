@@ -979,7 +979,6 @@ mainNPC:initDone();
 end;
 
 function receiveText(npcChar, texttype, message, speaker)
-  mainNPC:receiveText(npcChar, speaker, message);
   npc.base.guards_static.ReceiveText(npcChar, texttype, message, speaker);
 end;
 function nextCycle(npcChar)

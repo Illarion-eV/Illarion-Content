@@ -5,7 +5,7 @@ function InitGuards()
     debug("init guards");
     Init = 1;
     Guards = {};
-    AddGuard("Horatio Milenus", 1, position(114, 639, 0), 3, "cadomyr guard 1");  -- horatio milenus
+    AddGuard("Horatio Milenus", 1, position(114, 643, 0), 6, "cadomyr guard 1");  -- horatio milenus
   end
 end
 
