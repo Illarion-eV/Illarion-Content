@@ -32,7 +32,7 @@ end
 
 function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	local possibilities = {
-    "Remove all items by ID",
+    "Remove all items by ID (in inventory)",
     "Get/Set skill",
     "Heal yourself",
     "Get/Set faction values for ..."
@@ -85,7 +85,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         User:requestInputDialog(InputDialog("Set skill","Chosen skill: " .. User:getSkillName(skill) .."\nCurrent value: " .. User:getSkill(skill) .. "\nYou can set a new value.",false,255,cbSetSkill));
       end
       local selectionDialog = SelectionDialog(possibilities[ind+1], "Select a skill.", cbGetSetSkill);
-      for _,s in pairs(skillList) do 
+      for _,s in ipairs(skillList) do 
         selectionDialog:addOption(0, User:getSkillName(s));
       end
       User:requestSelectionDialog(selectionDialog);
@@ -142,7 +142,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
               end
               base.factions.setRankpoints(chosenPlayer, rankpoints);
             end
-            User:requestInputDialog(InputDialog("Set rank points", "", false, 255, cbSetRank));
+            User:requestInputDialog(InputDialog("Set rank points", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
           end
         end
         local infoText = "Town: " .. base.factions.getMemberShipByName(chosenPlayer);
@@ -172,7 +172,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
     end
   end -- what you want
   local sd = SelectionDialog("Pharse's test item", "What do you want to do?", cbWhatYouWant);
-  for _,poss in pairs(possibilities) do 
+  for _,poss in ipairs(possibilities) do 
     sd:addOption(0, poss);
   end
   User:requestSelectionDialog(sd);
