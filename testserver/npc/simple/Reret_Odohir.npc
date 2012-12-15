@@ -77,7 +77,7 @@ tradeWrongItemMsg "Oh, Das kaufe ich nicht. Tut mir leid.", "Oh, I don't buy tha
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Retret Odohir the Notary of Cadomyr. Keywords: become citizen, wich town.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Retret Odohir die Notar von Cadomyr. Schlüsselwörter: Bürger werden, welche Stadt.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Retret Odohir die Notarin von Cadomyr. Schlüsselwörter: Bürger werden, welche Stadt.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted.", "Greetings.", "Be greeted, nice to see you here.", "Be greeted, I am the notary of this town."

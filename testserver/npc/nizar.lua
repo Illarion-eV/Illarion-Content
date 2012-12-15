@@ -858,7 +858,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("nein nein nein");
-talkEntry:addResponse("Nun, I verstehe, doch Eure Antwort füllt mein Herz mit Trauer.");
+talkEntry:addResponse("Nun, Ich verstehe, doch Eure Antwort füllt mein Herz mit Trauer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -888,7 +888,7 @@ talkingNPC:addCycleText("Kommt zu Nizar, wenn Ihr etwas über magische Steine wis
 talkingNPC:addCycleText("Magische Steine: Je magischer desto besser! Ich mache sie besser!", "Magical stones: More magic is better! I make them better!");
 talkingNPC:addCycleText("#me schließt seine Augen.", "#me closes his eyes.");
 talkingNPC:addCycleText("Ihr möchtet Eure magischen Steine aufwerten? Nazir kann Euch Helfen.", "You want to upgrade you magical gems? Nazir can help you!");
-talkingNPC:addCycleText("#w Ich vermisse dich Serinjah-Steppe...", "#w I miss the serin plains...");
+talkingNPC:addCycleText("#w Ich vermisse dich, Serinjah-Steppe...", "#w I miss you, serin plains...");
 talkingNPC:addCycleText("Lasst mich Eure magischen Edelsteine aufbessern!", "Let me upgrade your magical gem stones!");
 talkingNPC:addCycleText("#me breitet die Arme aus.'Egal welche Farbe und welche Qualität Eure magischen Edelsteine sind bei Nizar in guten Händen.'", "#me spreads his arms: 'No matter the colour or the quality Nizar will take care of your magical gems!'.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));

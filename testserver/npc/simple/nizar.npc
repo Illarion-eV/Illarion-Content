@@ -203,7 +203,7 @@ english, "Nizar" -> "#me grins.'That would be me! How can I help you?'", "Yes? Y
 "No" -> "#me nods. 'I see...'", "You know, there I come from if you do not say 'No' three times it will count as a 'Yes'.", "Just take you time to consider you answer, while we talk."
 "Nein" -> "#me nickt. 'Ich verstehe...'", "Ihr wisst, das man dort wo ich herkomme drei mal 'Nein' sagen muss, denn sonst heißt es 'Ja'.", "Nehmt Euch Zeit eure Antwort zu bedenken während wir reden."
 "no no no" -> "Ah, I understand, but your answer fills my heart with sadness."
-"nein nein nein" -> "Nun, I verstehe, doch Eure Antwort füllt mein Herz mit Trauer."
+"nein nein nein" -> "Nun, Ich verstehe, doch Eure Antwort füllt mein Herz mit Trauer."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "#me smiles.", "#me listens attentively.", "I see."
@@ -221,6 +221,6 @@ cycletext "Kommt zu Nizar, wenn Ihr etwas über magische Steine wissen wollt!", 
 cycletext "Magische Steine: Je magischer desto besser! Ich mache sie besser!", "Magical stones: More magic is better! I make them better!"
 cycletext "#me schließt seine Augen.", "#me closes his eyes."
 cycletext "Ihr möchtet Eure magischen Steine aufwerten? Nazir kann Euch Helfen.", "You want to upgrade you magical gems? Nazir can help you!"
-cycletext "#w Ich vermisse dich Serinjah-Steppe...", "#w I miss the serin plains..."
+cycletext "#w Ich vermisse dich, Serinjah-Steppe...", "#w I miss you, serin plains..."
 cycletext "Lasst mich Eure magischen Edelsteine aufbessern!", "Let me upgrade your magical gem stones!"
 cycletext "#me breitet die Arme aus.'Egal welche Farbe und welche Qualität Eure magischen Edelsteine sind bei Nizar in guten Händen.'", "#me spreads his arms: 'No matter the colour or the quality Nizar will take care of your magical gems!'."

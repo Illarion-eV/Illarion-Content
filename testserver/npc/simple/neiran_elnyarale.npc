@@ -71,8 +71,8 @@ buySecondaryItems = 2, 3
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Neiran el Nyarale the guard. Keywords: Quest, TRIGGER2, TRIGGER3, rubbish, recycling.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Neiran el Nyarale der Wachmann. Schlüsselwörter: Auftrag, TRIGGER2, TRIGGER3, Müll, recycling.")
+"Help" -> inform("[Game Help] This NPC is Neiran el Nyarale the guard. Keywords: Quest, greetings, archmage, rubbish, recycling.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Neiran el Nyarale der Wachmann. Schlüsselwörter: Auftrag, Grüße, Erzmagier, Müll, recycling.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you!", "#me smiles: 'Greetings'", "Hello! ."
