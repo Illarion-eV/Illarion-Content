@@ -197,11 +197,13 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
           for _,m in ipairs(modeStrings) do 
             sd:addOption(0,m);
           end
+          User:requestSelectionDialog(sd);
         end
         local sd = SelectionDialog("Guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
         for _,f in ipairs(factionIds) do 
           sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. guards.GetModeByFaction(firstFaction, f));
         end
+        User:requestSelectionDialog(sd);
       end
       local sd = SelectionDialog(possibilities[ind+1], "For which faction do you want to get/set values?", cbFirstFaction);
       for _,f in ipairs(factionIds) do 
