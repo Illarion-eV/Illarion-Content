@@ -23,7 +23,7 @@ end
 function UseItem(User, SourceItem, TargetItem, Counter, Param)
 	InitBook();
     -- alchemy book; just to make it accessable for testers
-	if SourceItem:getData("alchemyBook","true") then
+	if SourceItem:getData("alchemyBook")=="true" then
 	    User:sendBook(3)
 	end	
 	-- alchemy end
