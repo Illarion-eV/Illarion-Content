@@ -65,6 +65,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			world:gfx(graphicNum, targetPos);
 			world:makeSound(5, targetPos);
 			if world:isCharacterOnField(targetPos) then
+				world:makeSound(1, targetPos);
 				targetChar = world:getCharacterOnField(targetPos);
 				targetChar:increaseAttrib("hitpoints", -2000);
 			end			
@@ -74,8 +75,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				User:inform("Item with the ID: "..listEntry.OBJECT.id);
 			end
 			world:gfx(graphicNum, mylist[1].OBJECT.pos);
+			world:makeSound(5, targetPos);
 			if (mylist[1].type == "CHARACTER") then
-				world:gfx(graphicNum, mylist[1].pos);
 				world:makeSound(1, mylist[1].pos);
 				mylist[1].OBJECT:increaseAttrib("hitpoints", -2000);
 			end
