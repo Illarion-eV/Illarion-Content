@@ -204,6 +204,44 @@ RUNE_HEALING = 1;
 -- other runes
 RUNE_SMALL = 32;
 
+DESCRIPTION_EN = {
+	[GOD_USHARA]="Goddess of earth";
+    [GOD_BRAGON]="God of fire";
+    [GOD_ELDAN]="God of spirit";
+    [GOD_TANORA]="Goddess of water";
+    [GOD_FINDARI]="Goddess of air";
+    [GOD_NARGUN]="God of chaos";
+    [GOD_ELARA]="Goddess of wisdom and knowledge";
+    [GOD_ADRON]="God of festivities and wine";
+    [GOD_OLDRA]="Goddess of life and fertility";
+    [GOD_CHERGA]="Goddess of spirits and the underworld";
+    [GOD_MALACHIN]="God of battle and hunting";
+    [GOD_IRMOROM]="God of trade and craftsmanship";
+    [GOD_SIRANI]="Goddess of love and pleasure";
+    [GOD_ZHAMBRA]="God of friendship and loyalty";
+    [GOD_RONAGAN]="God of thieves and shadows";
+    [GOD_MOSHRAN]="God of blood and bones";
+}
+	
+DESCRIPTION_DE ={
+    [GOD_BRAGON]="der Gott des Feuers";
+    [GOD_ELDAN]="der Gott des Geistes";
+    [GOD_FINDARI]="die Göttin der Luft";
+    [GOD_TANORA]="die Göttin des Wassers";
+    [GOD_USHARA]="die Göttin der Erde";
+    [GOD_ADRON]="der Gott des Weines und der Feste";
+    [GOD_CHERGA]="die Göttin der Geister und der Unterwelt";
+    [GOD_ELARA]="die Göttin des Wissens und der Weisheit";
+    [GOD_IRMOROM]="der Gott des Handels und des Handwerks";
+    [GOD_MALACHIN]="der Gott der Jagd und der Schlachten";
+    [GOD_MOSHRAN]="der Gott des Blutes und der Gebeine";
+    [GOD_NARGUN]="der Gott des Chaos";
+    [GOD_OLDRA]="die Göttin der Fruchtbarkeit und des Lebens";
+    [GOD_RONAGAN]="der Gott der Diebe und der Schatten";
+    [GOD_SIRANI]="die Göttin der Liebe und der Freude";
+    [GOD_ZHAMBRA]="der Gott der Freundschaft und Treue";
+}
+
 --[[
 DEFAULT = {
 	[GOD_NARGUN]	= 
