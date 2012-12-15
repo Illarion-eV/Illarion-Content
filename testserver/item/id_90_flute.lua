@@ -73,10 +73,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			for key, listEntry in pairs(mylist) do
 				User:inform("Item with the ID: "..listEntry.OBJECT.id);
 			end
-			world:gfx(graphicNum, mylist[0].OBJECT.pos);
+			world:gfx(graphicNum, mylist[1].OBJECT.pos);
 			if (mylist[1].type == "CHARACTER") then
-				world:gfx(graphicNum, mylist[0].pos);
-				world:makeSound(1, mylist[0].pos);
+				world:gfx(graphicNum, mylist[1].pos);
+				world:makeSound(1, mylist[1].pos);
 				mylist[1].OBJECT:increaseAttrib("hitpoints", -2000);
 			end
 		end
