@@ -53,8 +53,8 @@ itemShoes = 326
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Torina Scibrim the notary. Keywords: 'become citizen'.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Bürger werden'.")
+"Help" -> inform("[Game Help] This NPC is Torina Scibrim the notary. Keywords: 'become citizen','leave','give up citizenship', 'rank'.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Bürger werden','verlassen','beende Bürgerstatus','Rang'.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted.", "Greetings.", "Good day."
@@ -97,7 +97,7 @@ english, queststatus (207)=1, ".*" -> "Ah, good. You stay here, a wise decision.
 queststatus (207)=1, ".*" -> "Ah, gut. Ihr bleibt hier, eine weise Entscheidung.", queststatus (207) = 0
 
 -- Test Question
-"welche Stadt", "welche faktion" -> "Du gehöerst nach %TOWN!"
+"welche Stadt", "welche Faktion" -> "Du gehöerst nach %TOWN!"
 "wich town", "wich faction" -> "You belong to %TOWN!"
 
 -- RANK informations

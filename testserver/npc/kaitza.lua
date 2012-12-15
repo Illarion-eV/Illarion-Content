@@ -39,7 +39,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Kaitza der Tempelwächter. Schlüsselwörter: Zelphia, Beruf, Gobaith, Götter."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Kaitza der Tempelwächter. Schlüsselwörter: Zelphia,Auftrag ,Beruf, Gobaith, Götter."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

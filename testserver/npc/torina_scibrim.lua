@@ -32,13 +32,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Torina Scibrim the notary. Keywords: 'become citizen'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Torina Scibrim the notary. Keywords: 'become citizen','leave','give up citizenship', 'rank'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Bürger werden'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Bürger werden','verlassen','beende Bürgerstatus','Rang'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -344,7 +344,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("welche Stadt");
-talkEntry:addTrigger("welche faktion");
+talkEntry:addTrigger("welche Faktion");
 talkEntry:addResponse("Du gehöerst nach %TOWN!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
