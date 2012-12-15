@@ -129,7 +129,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
               faction.towncnt = countValue;
               base.factions.setFaction(chosenPlayer, faction);
             end
-            User:requestInputDialog(InputDialog("Set town count", "", 255, false, cbSetCount));
+            User:requestInputDialog(InputDialog("Set town count", "", false, 255, cbSetCount));
           elseif (ind == 5) then
             local cbSetRank = function (dialog)
               if (not dialog:getSuccess()) then
@@ -142,7 +142,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
               end
               base.factions.setRankpoints(chosenPlayer, rankpoints);
             end
-            User:requestInputDialog(InputDialog("Set rank points", "", 255, false, cbSetRank));
+            User:requestInputDialog(InputDialog("Set rank points", "", false, 255, cbSetRank));
           end
         end
         local infoText = "Town: " .. base.factions.getMemberShipByName(chosenPlayer);
