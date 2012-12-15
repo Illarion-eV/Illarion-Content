@@ -22,7 +22,7 @@ addBookshelf(position(7, 7, 0), {CRAFTING})
 function LookAtItem(user, item)
     local lookAt = base.lookat.GenerateLookAt(user, item)
     
-    if source:getType() == scriptItem.field then 
+    if item:getType() == scriptItem.field then 
         local pos = item.pos
         local bookshelf = bookshelves and bookshelves[pos.x] and bookshelves[pos.x][pos.y] and bookshelves[pos.x][pos.y][pos.z]
 
