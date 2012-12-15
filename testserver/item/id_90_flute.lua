@@ -45,7 +45,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 					if graphicNum ~= "" then
 						world:gfx(graphicNum, extraPos);
 					else
-						world:gfx(graphicNum, extraPos);
+						world:gfx(9, extraPos);
 					end
 					if world:isCharacterOnField(extraPos) then --if there's a target char on target position
 						targetChar = world:getCharacterOnField(extraPos); --find the char
