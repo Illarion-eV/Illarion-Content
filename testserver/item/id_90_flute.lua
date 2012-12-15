@@ -60,7 +60,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		targetPos = position(User.pos.x + 3 * xoff, User.pos.y + 3 * yoff, User.pos.z);
 		
 		mylist = world:LoS(User.pos, targetPos);
-		if (mylist == nil) then
+		if (mylist[1] == nil) then
 			User:talk(Character.say, "option 1");
 			world:gfx(graphicNum, targetPos);
 			world:makeSound(5, targetPos);
