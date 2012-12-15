@@ -166,7 +166,7 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("#me verneigt sich. 'Nizar aus der Serin Wüste. Es würde mich freuen, wenn ihr mir Euchen Namen verratet mein Freund.'");
+talkEntry:addResponse("#me verneigt sich. 'Nizar aus der Serin Wüste. Es würde mich freuen, wenn Ihr mir euren Namen verratet, mein Freund.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

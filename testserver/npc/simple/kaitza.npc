@@ -70,7 +70,7 @@ itemShoes = 326
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Kaitza the temple guard. Keywords: quest, Zelphia, profession, Gobaith, gods.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Kaitza> der Tempelwächter. Schlüsselwörter: Zelphia, Beruf, Gobaith, gods.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Kaitza der Tempelwächter. Schlüsselwörter: Zelphia, Beruf, Gobaith, Götter.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Glory to ze Goddessss.", "Greetingsss, landwalker.", "#me lowers his head respectfully, 'Greetingsss.'"

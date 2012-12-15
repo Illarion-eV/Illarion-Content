@@ -87,7 +87,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" ->  "Fare well and do not forge
 "How are you", "How feel", "How do you do" -> "#me smiles.'Thank you very much for you concern, my friend. I am fine as I do not leave the save town. But what about you?'"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "#me lächelt: 'Danke für Eure Sorge, mein Freund. Mir geht es gut, da ich die sichere Stadt nicht verlasse. Wie ist es Euch ergangen?'"
 "your name", "who are you", "who art thou" -> "#me bows 'Nazir, from the serin desert. Would you tell me your name, my friend?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#me verneigt sich. 'Nizar aus der Serin Wüste. Es würde mich freuen, wenn ihr mir Euchen Namen verratet mein Freund.'"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#me verneigt sich. 'Nizar aus der Serin Wüste. Es würde mich freuen, wenn Ihr mir euren Namen verratet, mein Freund.'"
 
 -- TRIGGERS for Gemcraft
 "gem", "magical smithing", "smithing" -> "Ah. I like to work for you. Well ...", "Of course I will help you with thoses magical gems.", gemcraft
