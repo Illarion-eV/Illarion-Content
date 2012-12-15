@@ -22,8 +22,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	local targetPos
 	local targetChar
 	local extraPos
-	local graphicNum = tonumber(SourceItem:getData("spell"));
+	local graphicNum
 	
+	graphicNum = tonumber(SourceItem:getData("spell"));
 	if ( graphicNum ~= nil ) then
 		User:talk(Character.say, "#me casts Fireball ");
 
