@@ -25,6 +25,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	local graphicNum
 	local xoff
 	local yoff
+	local mylist
 	
 	graphicNum = tonumber(SourceItem:getData("spell"));
 	if ( graphicNum ~= nil ) then
@@ -58,15 +59,16 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		
 		targetPos = position(User.pos.x + 3 * xoff, User.pos.y + 3 * yoff, User.pos.z);
 		
-		list=world:LoS(User.pos, targetPos);
-		if (list == nil) then
+		mylist=world:LoS(User.pos, targetPos);
+		if (mylist == nil) then
 			world:gfx(graphicNum, targetPos);
 			world:makeSound(5, targetPos);
 		else
-			world:gfx(graphicNum, list[1].OBJECT.pos);
-			if (list[1].type == "CHARACTER") then
-				list[1].OBJECT:increaseAttrib("hitpoints", -2000);
-				world:makeSound(1, extraPos);
+			world:gfx(graphicNum, mylist[1].OBJECT.pos);
+			if (mylist[1].type == "CHARACTER") then
+				world:gfx(graphicNum, mylist[1].pos);
+				world:makeSound(1, mylist[1].pos);
+				mylist[1].OBJECT:increaseAttrib("hitpoints", -2000);
 			end
 		end
 			
