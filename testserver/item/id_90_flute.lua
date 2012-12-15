@@ -30,7 +30,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		if ( User:getFaceTo() == 0) then --if facing north
 			targetPos = position(User.pos.x, User.pos.y - 3, User.pos.z);
 			world:makeSound(5, targetPos);
-			graphicNum = SourceItem:getData("num");
+			graphicNum = tonumber(SourceItem:getData("num"));
 			--[[
 			targetPos2 = position(targetPos.x -1, targetPos.y, targetPos.z);
 			targetPos3 = position(targetPos.x +1, targetPos.y, targetPos.z);
