@@ -458,6 +458,8 @@ function UseItemWithField(User,SourceItem,TargetPos,Counter,param)
 end
 
 function ChangeRankpoints(User,modifier,value,faction,radius)
+
+	User:inform("[debug] In ChangeRankpoints")
 	--check if the points shall be added or removed
 	if modifier == "add" then
 		text = "Added";
