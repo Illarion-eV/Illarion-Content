@@ -363,7 +363,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
           if (string.find(inputString,"(%a+) [(%d+)+]") ~= nil) then
             a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) [(%d+)+]");
             value=tonumber(value);
-			User:inform("[Debug] Fitting string found "..modifier..value)
+			User:inform("[Debug] Fitting string found "..modifier)
             ChangeRankpoints(User,modifier,value,faction,radius);
           else
             User:inform("Sorry, I didn't understand you.");
