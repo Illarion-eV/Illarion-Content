@@ -26,6 +26,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	local xoff
 	local yoff
 	local mylist
+	local last
 	
 	graphicNum = tonumber(SourceItem:getData("spell"));
 	if ( graphicNum ~= nil ) then
@@ -60,6 +61,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		targetPos = position(User.pos.x + 3 * xoff, User.pos.y + 3 * yoff, User.pos.z);
 		
 		mylist = world:LoS(User.pos, targetPos);
+		last = table.getn(mylist);
 		if (mylist[1] == nil) then
 			User:talk(Character.say, "option 1");
 			world:gfx(graphicNum, targetPos);
@@ -74,11 +76,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			for key, listEntry in pairs(mylist) do
 				User:inform("Item with the ID: "..listEntry.OBJECT.id);
 			end
-			world:gfx(graphicNum, mylist[1].OBJECT.pos);
-			world:makeSound(5, targetPos);
-			if (mylist[1].type == "CHARACTER") then
-				world:makeSound(1, mylist[1].pos);
-				mylist[1].OBJECT:increaseAttrib("hitpoints", -2000);
+			User:inform("Array size is: "..last);
+			world:gfx(graphicNum, mylist[last].OBJECT.pos);
+			world:makeSound(5, mylist[last].OBJECT.pos);
+			if (mylist[last].type == "CHARACTER") then
+				world:makeSound(1, mylist[last].OBJECT.pos);
+				mylist[last].OBJECT:increaseAttrib("hitpoints", -2000);
 			end
 		end
 			
