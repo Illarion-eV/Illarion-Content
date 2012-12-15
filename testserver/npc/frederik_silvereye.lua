@@ -17,8 +17,12 @@ VALUES (0, 404, 263, 1, 4, 'Frederik Silvereye', 'npc.frederik_silvereye', 0, 3,
 require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
+require("npc.base.condition.rank")
+require("npc.base.condition.sex")
 require("npc.base.condition.town")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.town")
 require("npc.base.talk")
 module("npc.frederik_silvereye", package.seeall)
@@ -217,7 +221,47 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Ihr seidt jetzt Bürger von Galmair!");
+talkEntry:addResponse("Ihr seid jetzt Bürger von Galmair!");
+talkEntry:addResponse("Willkommen in Galmair!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(0));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("You are now a citizen of Galmair!");
+talkEntry:addResponse("Welcome to Galmair!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(0));
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Ihr seid jetzt Bürger von Galmair!");
+talkEntry:addResponse("Willkommen in Galmair!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("You are now a citizen of Galmair!");
+talkEntry:addResponse("Welcome to Galmair!");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Ihr seid jetzt Bürger von Galmair!");
 talkEntry:addResponse("Willkommen in Galmair!");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -244,20 +288,454 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("become citizen");
-talkEntry:addTrigger("gain citizenship");
-talkEntry:addResponse("You are now a citizen of Galmair!");
-talkEntry:addResponse("Welcome to Galmair!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("give up citizenship");
+talkEntry:addTrigger("terminating citizen ship");
+talkEntry:addTrigger("leave");
+talkEntry:addTrigger("leaving");
+talkEntry:addResponse("Oh, you no longer want to be citizen in Galmair?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bürger werden");
-talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Ihr seid jetzt Bürger von Galmair!");
-talkEntry:addResponse("Willkommen in Galmair!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("beende Bürgerstatus");
+talkEntry:addTrigger("verlassen");
+talkEntry:addTrigger("verlasse");
+talkEntry:addTrigger("annuliere");
+talkEntry:addResponse("Oh, Ihr wollt kein Büger in Galmair mehr sein?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(208, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("yes");
+talkEntry:addResponse("You are no longer citizen of Galmair. Go elsewhere.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "0"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(208, "=", 1));
+talkEntry:addTrigger("ja");
+talkEntry:addResponse("Ihr seit nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "0"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(208, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("Mhm... The Don will be pleased to hear that.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(208, "=", 1));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("Mhm, ... Der Don wird sich freuen, dies zu hören.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("welche Stadt");
+talkEntry:addTrigger("welche faktion");
+talkEntry:addResponse("Du gehöerst nach %TOWN!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("wich town");
+talkEntry:addTrigger("wich faction");
+talkEntry:addResponse("You belong to %TOWN!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Tycoon %Name, be welcome. Is is truly a honour to see you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 9));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Tyconn %Name, be welcome. Is is truly a honour to see you.!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 9));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse(" Tycoon %Name! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 9));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Baronin %! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 8));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Magnate, be welcome. Is is a honour to see you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 8));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Magnate, be welcome. Is is a honour to see you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 8));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Magnat, seid willkommen. Welch eine Ehre Euch zu sehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 8));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Magnatin, seid wilokmmen.Welch eine Ehre Euch zu sehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Mogul %Name! How can I help you?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Mogul %Name! How can I help you?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Mogul %Name! Was kann ich für Euch tun?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Mogulin %Name! Was kann ich für Euch tun?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Greetings to you, Patrician %Name!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Greetings to you, Patrician %Name!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Seid gegrüßt, Patrizier %Name!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Seid gegrüßt, Patrizierin %Name!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Greetings to you, Financier %Name!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Greetings to you, Financier %Name!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Seid gegrüßt, Finanzier %Name!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Seid gegrüßt, Finanzier %Name!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Greetings to you, Merchant!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Greetings to you, Merchant!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Kaufmann, seid gegrüßt!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Kauffrau, seid gegrüßt!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Grocer is whast I'd call you folks like you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Grocer is whast I'd call you folks like you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Leute wie dich würde ich Krämer nennen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Leute wie dich würde ich Krämer nennen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("What do you want, Pedlar?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("What do you want, Pedlar?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Hausierer, was gibt?s?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Hausierer, was gibt?s?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("You are just an assistant. Got it?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("You are just a assistant. Got it?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Du bist bloss ein Gehilfe. Kapiert?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Du bist bloss eine Gehilfin. Kapiert?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("You are new here. You are not well known. Make an effort and become rich, Tramp!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("You are new here. You are not well known. Make an effort and become rich, Tramp!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und werde reich, du Rumtreiber!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und werde reich Rumtreiber!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

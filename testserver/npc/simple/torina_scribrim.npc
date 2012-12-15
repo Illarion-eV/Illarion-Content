@@ -5,7 +5,7 @@
 -- NPC Race: human                      NPC Position: 899, 776, 1            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
--- Author:   Ardian                                                           --
+-- Author:   Ardian+Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
@@ -75,15 +75,32 @@ english, town = Cadomyr,  "become citizen", "gain citizenship" -> town = Runewic
 town = Cadomyr,  "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Du bist jetzt Bürger von Runewick", "Willkommen in Runewick!"
 english, town = Galmair,  "become citizen", "gain citizenship" -> town = Runewick, "You are now a citizen of Runewick", "Welcome to Runewick!"
 town = Galmair,  "Bürger werden","Bürgerschaft beantragen" -> town = Runewick, "Du bist jetzt Bürger von Runewick", "Willkommen in Runewick!"
-english, town = Runewick, "become citizen", "gain citizenship" -> "Ehm...you are already a citizen of Runewick. Didn't you know?"
-town = Runewick, "Bürger werden","Bürgerschaft beantragen" -> "Ehm... Ihr seid schon Bürger in Runewick. Wusstet Ihr das nicht?"
+english, town = none, "become citizen", "gain citizenship" -> town = Runewick, "You are now a citizen of Runewick", "Welcome to Runewick!"
+town = none,  "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Ihr seid jetzt Bürger von Runewick", "Willkommen in Runewick!"
 english, "become citizen", "gain citizenship" -> town = Runewick, "You are now a citizen of Runewick", "Welcome to Runewick!"
 "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Ihr seid jetzt Bürger von Runewick", "Willkommen in Runewick!"
 
+-- Player is already citizen
+english, town = Runewick, "become citizen", "gain citizenship" -> "Ehm...you are already a citizen of Runewick. Didn't you know?"
+town = Runewick, "Bürger werden","Bürgerschaft beantragen" -> "Ehm... Ihr seid schon Bürger in Runewick. Wusstet Ihr das nicht?"
+
+-- leaving Runewick (207)
+town = runewick, english, "give up citizenship", "terminating citizen ship", "leave", "leaving" -> "So, you realy want to leave Runewick and live elsewhere? Are you sure?", queststatus (207) = 1
+town = runewick, "beende Bürgerstatus", "verlassen", "verlasse", "annuliere" -> "So, ihr möchtet Runwick wirklich verlassen und woanders leben? Seid Ihr sicher?", queststatus (207) = 1
+
+-- answer "yes"
+english, queststatus (207) = 1, "yes" -> "You are no longer a citizen of Runewick, Fare well.", town = none, queststatus (207) =0
+queststatus (207) = 1, "ja" -> "Nun seid Ihr nicht länger Bürger Runewicks. Fare well.", town = none, queststatus (207) =0
+
+-- answer "no"
+english, queststatus (207)=1, ".*" -> "Ah, good. You stay here, a wise decision.", queststatus (207) = 0
+queststatus (207)=1, ".*" -> "Ah, gut. Ihr bleibt hier, eine weise Entscheidung.", queststatus (207) = 0
+
 -- Test Question
---"weche Stadt", "weche faktion" -> "Du gehöerst nach %TOWN!"
---"ich" ->  "%CHARNAME"
---"Rang", "Status", "Position", rankpoints > 10  -> "Bla"
+"welche Stadt", "welche faktion" -> "Du gehöerst nach %TOWN!"
+"wich town", "wich faction" -> "You belong to %TOWN!"
+
+-- RANK informations
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."

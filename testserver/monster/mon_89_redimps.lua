@@ -100,8 +100,8 @@ if (MonID==891) then --Fireimp, Level: 2, Armourtype: light, Weapontype: punctur
 
         local done=monster.base.drop.AddDropItem(189,1,20,(100*math.random(1,2)+math.random(11,22)),0,3); --dagger
         if not done then done=monster.base.drop.AddDropItem(27,1,10,(100*math.random(1,2)+math.random(11,22)),0,3); end --simple dagger
-        if not done then done=monster.base.drop.AddDropItem(2637,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --dull dagger
-        if not done then done=monster.base.drop.AddDropItem(2674,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --dull simple dagger
+        if not done then done=monster.base.drop.AddDropItem(189,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --dagger
+        if not done then done=monster.base.drop.AddDropItem(190,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --simple dagger
         if not done then done=monster.base.drop.AddDropItem(2740,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --red dagger
 
         --Category 4: Perma Loot

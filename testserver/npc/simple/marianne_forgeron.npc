@@ -1,4 +1,4 @@
-﻿------------------------------------------------------------------------------AC
+------------------------------------------------------------------------------AC
 -- NPC Name: Marianne Forgeron                                        Glamair --
 -- NPC Job: Magical Blacksmith                                                --
 --                                                                            --
@@ -90,7 +90,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Irmorom be with you!", 
 
 -- TRIGGERS for Gemcraft
 "gem", "magical smithing", "smithing"  -> "Did I hear ya say work?.", "Let's start!", gemcraft
-"Edelstein", "magisches Schmieden" -> "Dann woll'n wir ma!", "Auf ans Werk!", gemcraft
+"Edelstein", "magisches Schmieden", "Schmieden" -> "Dann woll'n wir ma!", "Auf ans Werk!", gemcraft
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders

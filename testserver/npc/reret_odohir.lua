@@ -250,19 +250,21 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
-talkEntry:addResponse("Oh! You are already a citizen of Cadomyr.");
+talkEntry:addResponse("You are now a citizen of Cadomyr");
+talkEntry:addResponse("Welcome to Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Oh! Ihr seid bereits Bürger von Cadomyr.");
+talkEntry:addResponse("Ihr seid jetzt Bürger von Cadomyr");
+talkEntry:addResponse("Willkommen in Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -287,8 +289,86 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("become citizen");
+talkEntry:addTrigger("gain citizenship");
+talkEntry:addResponse("Oh! You are already a citizen of Cadomyr.");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("Bürger werden");
+talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addResponse("Oh! Ihr seid bereits Bürger von Cadomyr.");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("give up citizenship");
+talkEntry:addTrigger("terminating citizen ship");
+talkEntry:addTrigger("leave");
+talkEntry:addTrigger("leaving");
+talkEntry:addResponse("You want to give up citizen ship in Cadomyr. Are you sure?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("beende Bürgerstatus");
+talkEntry:addTrigger("verlassen");
+talkEntry:addTrigger("verlasse");
+talkEntry:addTrigger("annuliere");
+talkEntry:addResponse("Ihr wollt den Status als Bürger Cadomyrs augfeben? Seid Ihr sicher?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(209, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("yes");
+talkEntry:addResponse("You are no longer citizen under the protection of her majesty Queen Rosaline, you no longer belong to Cadomyr. Fare well.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "0"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(209, "=", 1));
+talkEntry:addTrigger("ja");
+talkEntry:addResponse("Ihr seit nicht länger Büger unter dem Schutz der Königin Rosalines, Ihr gehört nicht mehr zu Cadomyrs. Fare well.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 0));
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "0"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(209, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("I see... Yes, Cadomyr is truly a nice place.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(209, "=", 1));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("Ich verstehe... Ja,Cadomyr ist für wahr ein gut Ort.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 0));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("welche Stadt");
-talkEntry:addTrigger("weche faktion");
+talkEntry:addTrigger("welche faktion");
 talkEntry:addResponse("Du gehörst nach %TOWN!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -306,7 +386,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Baron %Name! !");
+talkEntry:addResponse("Greetings to you, Duke %Name!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,7 +396,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Lancer!");
+talkEntry:addResponse("Greetings to you, Duchess %Name!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -325,7 +405,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 9));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Baron %Name! Hochwohlgeboren, wie ist es Euch ergangen?");
+talkEntry:addResponse("Herzog %Name! Hochwohlgeboren, wie ist es Euch ergangen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -334,12 +414,50 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 9));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Baronin %! Hochwohlgeboren, wie ist es Euch ergangen?");
+talkEntry:addResponse("Herzogin %! Hochwohlgeboren, wie ist es Euch ergangen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.rank.rank(">", 8));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Greetings to you, Baron %Name!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 8));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("Greetings to you, Baronin %Name!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 8));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Baron %Name! Hochwohlgeboren, wie ist es Euch ergangen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 8));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("Baronin %! Hochwohlgeboren, wie ist es Euch ergangen?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
@@ -349,7 +467,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 8));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
@@ -359,7 +477,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 8));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
@@ -368,7 +486,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 8));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
@@ -377,7 +495,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
@@ -387,7 +505,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
@@ -397,7 +515,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
@@ -406,7 +524,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
@@ -415,7 +533,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
@@ -425,7 +543,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
@@ -435,7 +553,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
@@ -444,7 +562,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
@@ -453,7 +571,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
@@ -463,7 +581,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
@@ -473,7 +591,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
@@ -482,7 +600,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
@@ -491,7 +609,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
@@ -501,7 +619,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
@@ -511,7 +629,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
@@ -520,7 +638,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 4));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
@@ -529,7 +647,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
@@ -539,7 +657,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
@@ -549,7 +667,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
@@ -558,7 +676,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
@@ -567,7 +685,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
@@ -577,7 +695,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
@@ -587,7 +705,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
@@ -596,7 +714,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
