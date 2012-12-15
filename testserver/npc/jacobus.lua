@@ -610,7 +610,6 @@ talkingNPC:addCycleText("Ein Edelstein hält ein Leben lang.", "A gem stone lasts
 talkingNPC:addCycleText("Goldringe mit Inschriften und magischen Kräften für wenige Silberstücke!", "Gold rings with inscriptions and magical powers for a few silver coins!");
 talkingNPC:addCycleText("Habt ihr Edelsteine?", "Have you gem stones?");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(122,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2747,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(21,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(22,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(234,"sell"));
@@ -667,7 +666,6 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(255,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(256,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(257,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(122,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2747,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(21,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(22,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(234,"buyPrimary"));
