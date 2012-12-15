@@ -61,10 +61,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		
 		mylist=world:LoS(User.pos, targetPos);
 		if (mylist == nil) then
+			User:talk(Character.say, "option 1");
 			world:gfx(graphicNum, targetPos);
 			world:makeSound(5, targetPos);
 		else
 			world:gfx(graphicNum, mylist[1].OBJECT.pos);
+			User:talk(Character.say, "option 2");
 			if (mylist[1].type == "CHARACTER") then
 				world:gfx(graphicNum, mylist[1].pos);
 				world:makeSound(1, mylist[1].pos);
