@@ -62,8 +62,8 @@ queststatus(334) > 2, ".+" -> inform("[Error] Something went wrong, please infor
 queststatus(333) > 12, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Madeline Clarbelis the apprentice druid. Keywords: quest, Aurora, profession, apprentice, Ushara.")
-"Hilfe" -> inform("[Spielhilfe]  Dieser NPC ist Mabeline Clarbelis die Druiden-Schülerin. Schlüsselwörter: Auftrag, Aurora, Beruf, Lehrling, Ushara,")
+"Help" -> inform("[Game Help] This NPC is Madeline Clarbelis the apprentice druid. Keywords: quest, Aurora, profession, Ushara.")
+"Hilfe" -> inform("[Spielhilfe]  Dieser NPC ist Mabeline Clarbelis die Druiden-Schülerin. Schlüsselwörter: Auftrag, Aurora, Beruf, Ushara,")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me blushes slightly, 'H...hello there.'", "#me glances toward her feet, 'Greetings.'", "G...greetings."
@@ -77,7 +77,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me purses her lips, noddin
 "How are you", "How feel", "How do you do" -> "I...I am fine.", "Well...of course. Why would I be otherwise?", "#me fidgets nervously, 'I cannot complain.'"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "I...Ich, mir geht es gut.", "Gut... natürlich. Warum sollte es mir schlecht gehen?", "#me zappelt nervös. 'Ich kann nicht klagen'."
 "your name", "who are you", "who art thou" -> "Madeline. Madeline Clarbelis.", "I am Madeline.", "M...my name is Madeline Clarbelis."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Madeline. Madeline Clarbelis.", "I am Madeline.", "M...my name is Madeline Clarbelis."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Madeline. Madeline Clarbelis.", "I am Madeline.", "M...mein Name i...ist Madeline Clarbelis."
 
 -- 1st quest: Deliver 'Aurora's staff': receive long staff handle
 

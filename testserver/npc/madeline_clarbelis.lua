@@ -47,13 +47,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Madeline Clarbelis the apprentice druid. Keywords: quest, Aurora, profession, apprentice, Ushara."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Madeline Clarbelis the apprentice druid. Keywords: quest, Aurora, profession, Ushara."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe]  Dieser NPC ist Mabeline Clarbelis die Druiden-Schülerin. Schlüsselwörter: Auftrag, Aurora, Beruf, Lehrling, Ushara,"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe]  Dieser NPC ist Mabeline Clarbelis die Druiden-Schülerin. Schlüsselwörter: Auftrag, Aurora, Beruf, Ushara,"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -195,7 +195,7 @@ talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Madeline. Madeline Clarbelis.");
 talkEntry:addResponse("I am Madeline.");
-talkEntry:addResponse("M...my name is Madeline Clarbelis.");
+talkEntry:addResponse("M...mein Name i...ist Madeline Clarbelis.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
