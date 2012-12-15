@@ -24,6 +24,7 @@ end
 function UseItem(User, SourceItem, TargetItem, Counter, Param)
 	InitBook();
     -- alchemy book; just to make it accessable for testers
+	User:inform(""..SourceItem:getData("alchemyBook"))
 	if SourceItem:getData("alchemyBook")=="true" then
 	    User:sendBook(3)
 	end	
