@@ -257,48 +257,25 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			local a,b, value = string.find(User.lastSpokenText,"help (%d+)");
 						
 			Page = {};
-			Page[0] = "[Faction]: To look through the commands say 'help X' where X can a number from 1 to 5 and use this Item again."
-			Page[1] = "[Faction]: Set hometown: \"settown <townname>\"";
-			Page[2] = "[Faction]: Add rankpoints for a Char in a town: \"addpoints <townname> <value>\"";
-			Page[3] = "[Faction]: Remove rankpoints for the Char in a town: \"removepoints <townname> <value>\"";
-			Page[4] = "[Faction]: Set the radius of influence of this trowel when adding or removing rankpoints: \"setradius <value>\" - range of value: 0 - 100, default: 5";
-			Page[5] = "[Faction]: If you \"use\" the item with the command addpoints or removepoints for ALL characters within a radius of the choosen radius the rankpoints get added or removed!";
+			Page[0] = "[Faction]: To look through the commands say 'help X' where X can a number from 1 to 2 and use this Item again."
+			Page[2] = "[Faction]: Add or remove rankpoints for a Char in a town (1=cadomyr, 2=runewick, 3=galmair) within a certain radius (default 5) 'rankpoints <add|sub> <value> <1|2|3|nil> <radius|nil>'"
             
 			if value then
 				value = value *1;
-				if value <= 5 then
+				if value <= 2 then
 					User:inform(Page[value]);
 				else
-					User:inform("[Faction]: This documentation has only 5 pages!");
+					User:inform("[Faction]: This documentation has only 2 pages!");
 				end
 			else
 				User:inform(Page[0]);
         	end
-			
-		elseif (string.find(User.lastSpokenText,"setradius (%d+)")~=nil) then
-			local a,b, radius = string.find(User.lastSpokenText,"setradius (%d+)");
-			if (radius~=nil and radius>-1 and radius <101) then
-				radius=radius+1-1;
-				User:inform("[Faction]: Radius set on value"..radius)
-			else
-				User:inform("[Faction]: Invalid radius value, only numbers from 0 to 100 allowed!")
-			end
-				
-		elseif (string.find(User.lastSpokenText,"addpoints (%d+)")~=nil) then --add rankpoints within a radius Counter
-				a,b,value = string.find(User.lastSpokenText,"addpoints (%d+)");
-				value=value+1-1;
-				if radius == nil then
-				   	radius=5;
-				    ChangeRankpoints(User,radius,true, value);
-				end
-				
-		elseif (string.find(User.lastSpokenText,"removepoints (%d+)")~=nil) then --remove rankpoints within a radius Counter
-			a,b,value = string.find(User.lastSpokenText,"removepoints (%d+)");
-			value=value+1-1;
-			if radius == nil then
-			   	radius=5;
-			   	ChangeRankpoints(User,radius,false, value);
-			end
+		-- rankpoints <add|sub> <value> <1|2|3|nil> <radius|nil>
+		elseif (string.find(User.lastSpokenText,"rankpoints (%a+) (%d+) (%d+) (%d+)")~=nil) then --add rankpoints within a radius Counter
+			a,b,modifier,value,faction,radius = string.find(User.lastSpokenText,"rankpoints (%a+) (%d+) (%a+) (%d+)");
+			value=tonumber(value);
+			radius=tonumber(radius);
+			ChangeRankpoints(User,modifier,value,faction,radius);
 		else
 			local frontChar = base.common.GetFrontCharacter(User);
 			if frontChar then
@@ -321,7 +298,7 @@ function LookAtItem(User,Item)
 		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: help, clouds <value>, fog <value>, wind <value>, gust <value>, per <value>, thunder <value>, temp <value>", "Possible actions: help, clouds <value>, fog <value>, wind <value>, gust <value>, per <value>, thunder <value>, temp <value> ");
 	elseif (Item:getData("mode")=="ranksystem") then
         base.lookat.SetSpecialName(Item, "Kelle (Rangsystem)", "Kelle (Ranksystem)");
-		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: ", "Possible actions: ");
+		base.lookat.SetSpecialDescription(Item, "Mögliche Aktionen: rankpoints <add|sub> <value> <1|2|3|nil> <radius|nil> ", "Possible actions: rankpoints <add|sub> <value> <1|2|3|nil> <radius|nil>");
 	else
 		base.lookat.SetSpecialDescription(Item, "Um einen Modus zu setzen sage 'setdata mode xyz' und benutzt die Kelle. Modi sind items, weather und ranksystem. Items ist default.", "To set a mode type 'setdata mode xyz' and use the trowel. Modes are standard, items, weather and ranksystem. Items is default.");
         base.lookat.SetSpecialName(Item, "Kelle", "Kelle");
@@ -343,26 +320,35 @@ function UseItemWithField(User,SourceItem,TargetPos,Counter,param)
     User:inform("This field has the ID: "..Field:tile());
 end
 
-function ChangeRankpoints(User, Counter, Increase,value)
+function ChangeRankpoints(User,modifier,value,faction,radius)
 	--check if the points shall be added or removed
-	if Increase then
-		text = "added";
-	else
-		text = "removed";
+	if modifier == "add" then
+		text = "Added";
+	elseif modifier == "sub" then
+		text = "Removed";
 		value = -value;
+	else
+		return;
 	end
 	
-	if CheckTown > 0 then
-		player_list=world:getPlayersInRangeOf(User.pos, Counter);
-		if player_list[1]~=nil then
-			 for i, player in pairs(player_list) do
-			    Factionvalues = base.factions.getFaction(player_list[i]); --get rankpoints
-				setRankpoints(player_list[i], Factionvalues.rankpoints+value)			
-			 end
-        	User:inform("Added "..value.." rankpoints to for the characters within "..Counter.." radius.");
-	    end
+	if radius == nil then
+		radius = 5;
 	end
 	
+	player_list=world:getPlayersInRangeOf(User.pos, radius);
+	if player_list[1]~=nil then
+		for i, player in pairs(player_list) do
+			Factionvalues = base.factions.getFaction(player_list[i]);
+			if faction = nil then
+				setRankpoints(player_list[i], Factionvalues.rankpoints+value);
+				User:inform(text.." "..value.." rankpoints for ALL characters within "..radius.." tiles.");
+			elseif Factionvalues.tid == faction then
+				setRankpoints(player_list[i], Factionvalues.rankpoints+value);
+				User:inform(text.." "..value.." rankpoints for characters who belong to "..base.factions.getTownNameByID(faction).." within "..radius.." tiles.");
+			end	
+		end
+
+	end	
 end
 
 function Init()
@@ -370,6 +356,4 @@ function Init()
 		return;
 	end
 	InitDone = 1;
-	-- init faction variables
-	TownNameGList = base.factions.TownNameGList;
 end
