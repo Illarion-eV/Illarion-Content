@@ -363,7 +363,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
           if (string.find(inputString,"(%a+) (%d+)") ~= nil) then
             a,b,modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)");
             value=tonumber(value);
-            radius=tonumber(radius);
+			User:inform("[Debug] Fitting string found")
             ChangeRankpoints(User,modifier,value,faction,radius);
           else
             User:inform("Sorry, I didn't understand you.");
