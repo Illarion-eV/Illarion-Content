@@ -71,6 +71,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         return;
       end
       SourceItem:setData("mode", modes[dialog:getSelectedIndex()+1]);
+      world:changeItem(SourceItem);
     end
     local sd = SelectionDialog("Set mode of this ceiling trowel", "To which mode you want to change?", cbSetMode);
     for _,m in ipairs(modes) do 
