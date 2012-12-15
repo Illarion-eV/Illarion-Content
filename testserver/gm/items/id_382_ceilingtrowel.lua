@@ -360,8 +360,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             return;
           end
           local inputString = dialog:getInput();
-          if (string.find(inputString,"(%a+) ((%d+))+") ~= nil) then
-            a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) ((%d+))+");
+          if (string.find(inputString,"(%a+) (%d+)[(%s)(%d+)]*") ~= nil) then
+            a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)[(%s)(%d+)]*");
             value=tonumber(value);
 			User:inform("[Debug] Fitting string found "..modifier..value)
             ChangeRankpoints(User,modifier,value,faction,radius);
