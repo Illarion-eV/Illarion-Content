@@ -36,44 +36,6 @@ function ini()
 
     init=true;
 
-    --Setting the gods' descriptions
-
-    godDescriptionE={};
-    godDescriptionE[1]="Goddess of earth";
-    godDescriptionE[2]="God of fire";
-    godDescriptionE[3]="God of spirit";
-    godDescriptionE[4]="Goddess of water";
-    godDescriptionE[5]="Goddess of air";
-    godDescriptionE[6]="God of chaos";
-    godDescriptionE[7]="Goddess of wisdom and knowledge";
-    godDescriptionE[8]="God of festivities and wine";
-    godDescriptionE[9]="Goddess of life and fertility";
-    godDescriptionE[10]="Goddess of spirits and the underworld";
-    godDescriptionE[11]="God of battle and hunting";
-    godDescriptionE[12]="God of trade and craftsmanship";
-    godDescriptionE[13]="Goddess of love and pleasure";
-    godDescriptionE[14]="God of friendship and loyalty";
-    godDescriptionE[15]="God of thieves and shadows";
-    godDescriptionE[16]="God of blood and bones";
-
-    godDescriptionG={};
-    godDescriptionG[1]="der Gott des Feuers";
-    godDescriptionG[2]="der Gott des Geistes";
-    godDescriptionG[3]="die Göttin der Luft";
-    godDescriptionG[4]="die Göttin des Wassers";
-    godDescriptionG[5]="die Göttin der Erde";
-    godDescriptionG[6]="der Gott des Weines und der Feste";
-    godDescriptionG[7]="die Göttin der Geister und der Unterwelt";
-    godDescriptionG[8]="die Göttin des Wissens und der Weisheit";
-    godDescriptionG[9]="der Gott des Handels und des Handwerks";
-    godDescriptionG[10]="der Gott der Jagd und der Schlachten";
-    godDescriptionG[11]="der Gott des Blutes und der Gebeine";
-    godDescriptionG[12]="der Gott des Chaos";
-    godDescriptionG[13]="die Göttin der Fruchtbarkeit und des Lebens";
-    godDescriptionG[14]="der Gott der Diebe und der Schatten";
-    godDescriptionG[15]="die Göttin der Liebe und der Freude";
-    godDescriptionG[16]="der Gott der Freundschaft und Treue";
-
 --These are the items I need to become a devotee
 --Items by Cromwell
 
@@ -119,7 +81,7 @@ end
 
 function LookAtItem( User, Item )
 
-    thisGod=tonumber(Item:getData("devotedToGodID"));
+    thisGod=tonumber(Item:getData("god"));
 	
 	if thisGod==nil then
 		thisGod = 0;
@@ -133,11 +95,10 @@ function LookAtItem( User, Item )
 
     if thisGod==content.gods.GOD_NONE  or thisGod>content.gods.GOD_THEFIVE then --undedicated altar
 		base.lookat.SetSpecialName(Item, "Ungeweihter Altar","Undedicated altar")
-		world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 
     elseif thisGod > content.gods.GOD_NONE then --dedicated altar
-		base.lookat.SetSpecialName(Item, "Altar "..content.gods.GOD_DE[thisGod].."s, "..godDescriptionG[thisGod]..".","Altar of "..content.gods.GOD_EN[thisGod]..", the "..godDescriptionE[thisGod]..".")
-		world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
+		base.lookat.SetSpecialName(Item, "Altar "..content.gods.GOD_DE[thisGod].."s, "..content.gods.DESCRIPTION_DE[thisGod]..".","Altar of "..content.gods.GOD_EN[thisGod]..", the "..content.gods.DESCRIPTION_EN[thisGod]..".")
+
 		
         --Now send the user some infos what he should do if he wants to become a devotee, change dedication or become a priest
 
@@ -164,8 +125,7 @@ function LookAtItem( User, Item )
 
         if devotion == 0 and thisGod > 5 then --a noob without a god
 
-             base.common.InformNLS(User,"Um euch "..content.gods.GOD_DE[thisGod].." zu weihen, werdet ihr folgendes opfern müssen:","To devote yourself to "..content.gods.GOD_EN[thisGod]..", you'll have to donate:");
-             User:inform(tellStuff(devoteItems[thisGod],User:getPlayerLanguage())); --stuff4devotee
+             base.lookat.SetSpecialDescription(Item,"Um euch "..content.gods.GOD_DE[thisGod].." zu weihen, werdet ihr folgendes opfern müssen: "..tellStuff(devoteItems[thisGod],User:getPlayerLanguage()),"To devote yourself to "..content.gods.GOD_EN[thisGod]..", you'll have to donate: "..tellStuff(devoteItems[thisGod],User:getPlayerLanguage()));
 
         elseif devotion ~= thisGod and priesthood == devotion and User:getMagicType()== 1 and thisGod>5 then --a priest of another god
              
@@ -216,12 +176,12 @@ function LookAtItem( User, Item )
         end
 
     end --dedicated altar
-
+	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 end --function
 
 function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 
-    thisGod=tonumber(SourceItem:getData("devotedToGodID"));
+    thisGod=tonumber(SourceItem:getData("god"));
 	
 	if thisGod==nil then
 		thisGod = 0;

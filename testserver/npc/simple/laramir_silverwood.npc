@@ -100,9 +100,9 @@ buySecondaryItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 323, 2782, 
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid Gegrüßt mein Freund. Wie geht es dir heute?", "Grüße, mein Freund. Bist du gekommen um meine Ware zu bewundern?", "#me lächelt 'Grüße, mein Freund.'"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted, my friend. How are you today?", "Greetings my friend. Did you come here for taking a look at my wares?", "#me smiles 'Greetings, my Friend.'"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid Gegrüßt mein Freund. Wie geht es dir heute?", "Grüße, mein Freund. Bist du gekommen um meine Ware zu bewundern?", "#me lächelt 'Grüße, mein Freund.'"
-"Farewell", "Bye", "Fare well", "See you" -> "Fare well, my friend.", "Stay safe, my friend!", "My the gods protect you, my Friend!"
+"Farewell", "Bye", "Fare well", "See you" -> "Fare well, my friend.", "Stay safe, my friend!", "May the gods protect you, my Friend!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl, mein Freund.", "Pass auf dich auf, mein Freund.", "Mögen die Götter dich beschützen, mein Freund."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare well, my friend.", "Stay safe, my friend!", "My the gods protect you, my Friend!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare well, my friend.", "Stay safe, my friend!", "May the gods protect you, my Friend!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Lebt wohl, mein Freund.", "Pass auf dich auf, mein Freund.", "Mögen die Götter dich beschützen, mein Freund."
 "How are you", "How feel", "How do you do" -> "Thank you for asking, my friend. I feel fine. And you?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Danke der Nachfrage, mein Freund. Ich fühle mich gut. Und du?"
@@ -112,15 +112,15 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare well, my friend.", "St
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-english, "quest", "mission" -> "My friend, there is nothing I could ask you for. But I'm thankfull for your concern."
-"quest", "mission" -> "Mein Freund, es gibts nicht um was ich dich bitten könnte. Aber ich bin dankbar für deine Sorge."
-"task", "adventure", "order" -> "My friend, there is nothing I could ask you for. But I'm thankfull for your concern."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Mein Freund, es gibts nicht um was ich dich bitten könnte. Aber ich bin dankbar für deine Sorge."
+english, "quest", "mission" -> "My friend, there is nothing I could ask you to do. But I'm thankfull for your concern."
+"quest", "mission" -> "Mein Freund, es gibt nichts um was ich dich bitten könnte. Aber ich bin dankbar für deine Sorge."
+"task", "adventure", "order" -> "My friend, there is nothing I could ask you to do. But I'm thankfull for your concern."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Mein Freund, es gibt nichts um was ich dich bitten könnte. Aber ich bin dankbar für deine Sorge."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm an elven trader, my friend.", "I'm an elven carpenter, my friend."
 "beruf" -> "Ich bin ein elfischer Händler, mein Freund.", "Ich bin ein elfischer Schreiner, mein Freund."
 english, "job" -> "I'm an elven trader, my friend.", "I'm an elven carpenter, my friend."
 "job" -> "Ich bin ein elfischer Händler, mein Freund.", "Ich bin ein elfischer Schreiner, mein Freund."
-"tell something" -> "Do you like nice conversations, my friend? We have to lean how to talk with others from young age on."
+"tell something" -> "Do you like nice conversations, my friend? We have to learn how to talk with others from young age on."
 "erzähl was" -> "Magst du nette Plaudereinen, mein Freund? Wir müssen von klein auf lernen mit anderen zu reden."

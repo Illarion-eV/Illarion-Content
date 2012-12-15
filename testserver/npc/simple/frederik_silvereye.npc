@@ -5,7 +5,7 @@
 -- NPC Race: human                      NPC Position:  404, 263, 1            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:   Ardian                                                           --
+-- Author:  Miriam+Ardian                                                           --
 --                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
@@ -74,20 +74,92 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin with you.", "Farew
 english, town = Cadomyr, "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
 town = Cadomyr, "Bürger werden","Bürgerschaft beantragen" -> town =  Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
 english, town = Runewick, "become citizen", "gain citizenship" -> town =  Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
-town = Runewick, "Bürger werden","Bürgerschaft beantragen" -> town =  Galmair, "Ihr seidt jetzt Bürger von Galmair!", "Willkommen in Galmair!"
+town = Runewick, "Bürger werden","Bürgerschaft beantragen" -> town =  Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
 town = none, english, "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
 town = none, "Bürger werden","Bürgerschaft beantragen" -> town =  Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
 english, "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
 "Bürger werden", "Bürgerschaft beantragen" -> town = Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
-english, town = Galmair, "become citizen", "gain citizenship" -> town =  Galmair, "You are already a citizen of Galmair!"
+
+-- Player is already citizen
+english, town = Galmair, "become citizen", "gain citizenship" -> town =  Galmair, "You are already a citizen of Galmair!",
 town = Galmair, "Bürger werden", "Bürgerschaft beantragen" -> town =  Galmair, "Ihr seid bereits Bürger von Galmair!"
 
--- leaving City
-english, "give up citizenship", "terminating citizen ship", "leave Cadomyr", "leaving Cadomyr" -> town = none, "Ihr seit nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders."
-town = Cadomyr,"beende Bürgerstatus", "verlasse Cadomyr", "Verlasse Cadomyr" -> town = none, "Ihr seit nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders."
+-- terminating citizenship, leaving Galmair (208)
+town = Galmair, english, "give up citizenship", "terminating citizen ship", "leave", "leaving" ->  "Oh, you no longer want to be citizen in Galmair?", queststatus (208) = 1
+town = Galmair, "beende Bürgerstatus", "verlassen", "verlasse", "annuliere" -> "Oh, Ihr wollt kein Büger in Galmair mehr sein?",  queststatus (208) = 1
+
+-- answer yes
+english, queststatus (208) = 1, "yes" -> "You are no longer citizen of Galmair. Go elsewhere.", queststatus (208) = 1, town = none
+queststatus (208) = 1, "ja" ->  "Ihr seit nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders.", queststatus (208) = 1, town = none
+
+--answer no
+english, queststatus (208)=1, ".*" -> "Mhm... The Don will be pleased to hear that.", queststatus (208) = 0
+queststatus (208)=1, ".*" -> "Mhm, ... Der Don wird sich freuen, dies zu hören.", queststatus (208) = 0
 -- Test Question
 "welche Stadt", "welche faktion" -> "Du gehöerst nach %TOWN!"
---"ich" ->  "%CHARNAME"
+"wich town", "wich faction" -> "You belong to %TOWN!"
+
+-- RANK informations
+
+-- Rank 10
+town = Cadomyr,english, male, rank > 9, "rank" -> "Tycoon %Name, be welcome. Is is truly a honour to see you!"
+town = Cadomyr,english, female, rank > 9, "rank" -> "Tyconn %Name, be welcome. Is is truly a honour to see you.!"
+town = Cadomyr,male, rank > 9, "rang" -> " Tycoon %Name! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
+town = Cadomyr,female, rank > 9, "rang" -> "Baronin %! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
+
+--Rank 9
+town = Galmair,english, male, rank > 8, "rank" -> "Magnate, be welcome. Is is a honour to see you."
+town = Galmair,english, female, rank > 8, "rank" -> "Magnate, be welcome. Is is a honour to see you."
+town = Galmair,male, rank > 8, "rang" -> "Magnat, seid willkommen. Welch eine Ehre Euch zu sehen."
+town = Galmair,female, rank > 8, "rang" -> "Magnatin, seid wilokmmen.Welch eine Ehre Euch zu sehen."
+
+--Rank 8
+town = Galmair,english, male, rank > 7,"rank" -> "Mogul %Name! How can I help you?"
+town = Galmair,english, female, rank > 7, "rank" -> "Mogul %Name! How can I help you?"
+town = Galmair,male, rank > 7,"rang" -> "Mogul %Name! Was kann ich für Euch tun?"
+town = Galmair,female, rank > 7, "rang" -> "Mogulin %Name! Was kann ich für Euch tun?"
+
+--Rank 7
+town = Galmair,english, male, rank > 6,"rank" ->  "Greetings to you, Patrician %Name!"
+town = Galmair,english, female, rank > 6, "rank" ->  "Greetings to you, Patrician %Name!"
+town = Galmair,male, rank > 6,"rang" -> "Seid gegrüßt, Patrizier %Name!"
+town = Galmair,female, rank > 6, "rang" -> "Seid gegrüßt, Patrizierin %Name!"
+
+--Rank 6
+town = Galmair,english, male, rank > 5,"rank" -> "Greetings to you, Financier %Name!"
+town = Galmair,english, female, rank > 5, "rank" -> "Greetings to you, Financier %Name!"
+town = Galmair,male, rank > 5,"rang" -> "Seid gegrüßt, Finanzier %Name!"
+town = Galmair,female, rank > 5, "rang" ->"Seid gegrüßt, Finanzier %Name!"
+
+-- Rank 5
+town = Galmair,english, male, rank > 4,"rank" -> "Greetings to you, Merchant!"
+town = Galmair,english, female, rank > 4, "rank" -> "Greetings to you, Merchant!"
+town = Galmair,male, rank > 4,"rang" -> "Kaufmann, seid gegrüßt!"
+town = Galmair,female, rank > 4, "rang" -> "Kauffrau, seid gegrüßt!"
+
+-- Rank 4
+town = Galmair,english, male, rank > 3,"rank" ->  "Grocer is whast I'd call you folks like you!"
+town = Galmair,english, female, rank > 3, "rank" ->  "Grocer is whast I'd call you folks like you!"
+town = Galmair,male, rank > 3,"rang" -> "Leute wie dich würde ich Krämer nennen!"
+town = Galmair,female, rank > 3, "rang" -> "Leute wie dich würde ich Krämer nennen!"
+
+-- Rank 3
+town = Galmair,english, male, rank > 2,"rank" ->"What do you want, Pedlar?"
+town = Galmair,english, female, rank > 2, "rank" -> "What do you want, Pedlar?"
+town = Galmair,male, rank > 2,"rang" -> "Hausierer, was gibt’s?"
+town = Galmair,female, rank > 2, "rang" ->"Hausierer, was gibt’s?"
+
+-- Rank 2
+town = Galmair,english, male, rank > 1, "rank" -> "You are just an assistant. Got it?"
+town = Galmair,english, female, rank > 1, "rank" -> "You are just a assistant. Got it?"
+town = Galmair, male, rank > 1, "rang" ->  "Du bist bloss ein Gehilfe. Kapiert?"
+town = Galmair, female, rank > 1, "rang" -> "Du bist bloss eine Gehilfin. Kapiert?"
+
+--Rank 1
+town = Galmair, english, male, rank > 0, "rank" -> "You are new here. You are not well known. Make an effort and become rich, Tramp!"
+town = Galmair, english, female, rank > 0, "rank" -> "You are new here. You are not well known. Make an effort and become rich, Tramp!"
+town = Galmair, male, rank > 0, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und werde reich, du Rumtreiber!"
+town = Galmair, female, rank > 0, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und werde reich Rumtreiber!"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."
