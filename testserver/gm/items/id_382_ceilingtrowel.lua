@@ -363,7 +363,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
           if (string.find(inputString,"(%a+) (%d+)") ~= nil) then
             a,b,modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)");
             value=tonumber(value);
-			User:inform("[Debug] Fitting string found")
+			User:inform("[Debug] Fitting string found "..inputString)
             ChangeRankpoints(User,modifier,value,faction,radius);
           else
             User:inform("Sorry, I didn't understand you.");
@@ -459,7 +459,7 @@ end
 
 function ChangeRankpoints(User,modifier,value,faction,radius)
 
-	User:inform("[debug] In ChangeRankpoints "..modifier..value)
+	User:inform("[debug] In ChangeRankpoints")
 	--check if the points shall be added or removed
 	if modifier == "add" then
 		text = "Added";
