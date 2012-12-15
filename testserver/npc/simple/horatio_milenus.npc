@@ -9,6 +9,14 @@
 --                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
+-- ## REPLACE THE nextCycle FUNCTION AND ADD THE REQUIREMENT IN THE LUA CODE OF EACH GUARD ##
+-- require("npc.base.guards_static")
+
+-- function nextCycle(npcChar)
+--   mainNPC:nextCycle(npcChar);
+--   npc.base.guards_static.NextCycle(npcChar);
+-- end;
+
 name = "Horatio Milenus"
 race = human
 sex = male
@@ -244,36 +252,6 @@ english, "Horatio", "Milenus" -> "That is I. State your business."
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "I am the merely a guard of Cadomyr.", "Tell that somebody else.", "Move along.", "Pass along", "Do not loiter!", "In or out?"
 german, chance(20.0), ".*" -> "Ich bin in erster Linie der Wächter Cadomyrs.", "Erzählt das jemanden anderes.", "Geht weiter.", "Weitergehen.", "Lungert hier nicht herum.", "Rein oder raus?"
-
--- Causes errors, pharse! Fix plz!
--- [[ replace the receiveText and nextCycle functions:
--- function receiveText(texttype, message, speaker)
--- npc.base.guards_static.CheckAdminCommand(thisNPC,speaker,message);
--- mainNPC:receiveText(speaker, message);
--- end;
--- function nextCycle()
--- mainNPC:nextCycle();
--- if not guards_init then
--- init after 10 cycles
--- guards_init = 10;
--- gCount = 0;
--- end
--- if guards_init == 0 then
--- guards_init = -1;
--- npc.base.guards_static.Init(thisNPC, 1, position(114, 639, 0), 3, position(114, 634, 0));
--- elseif guards_init > 0 then
--- guards_init = guards_init - 1;
--- end
--- if guards_init == -1 then
--- if gCount == 4 then
--- gCount = 0;
--- npc.base.guards_static.CheckForEnemies(thisNPC);
--- else
--- gCount = gCount + 1;
--- end
--- end
--- end;
--- ]]
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

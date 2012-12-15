@@ -158,12 +158,9 @@ function NextCycle(NpcChar)
 end
 
 --[[
--- ## REPLACE THESE FUNCTIONS IN THE LUA CODE OF EACH GUARD ##
+-- ## REPLACE THE nextCycle FUNCTION AND ADD THE REQUIREMENT IN THE LUA CODE OF EACH GUARD ##
+require("npc.base.guards_static")
 
-function receiveText(npcChar, texttype, message, speaker)
-  mainNPC:receiveText(npcChar, speaker, message);
-  npc.base.guards_static.ReceiveText(npcChar, texttype, message, speaker);
-end;
 function nextCycle(npcChar)
   mainNPC:nextCycle(npcChar);
   npc.base.guards_static.NextCycle(npcChar);
