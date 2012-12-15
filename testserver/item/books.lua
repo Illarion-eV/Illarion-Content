@@ -4,6 +4,7 @@ module("item.books", package.seeall)
 -- UPDATE common SET com_script='item.books' WHERE com_itemid = 2622;
 
 function InitBook()
+	--[[ -- needs a check
 	if (Init == nil) then
 		bookTitleDE = {}; -- The german title of the book.
 		bookTitleEN = {}; -- The english title of the book.
@@ -17,7 +18,7 @@ function InitBook()
 		bookMinimumLanguage[1] = 0;			
 		
 		Init = true;
-	end
+	end]]
 end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param)
