@@ -322,7 +322,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(208, "=", 1));
 talkEntry:addTrigger("ja");
-talkEntry:addResponse("Ihr seit nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders.");
+talkEntry:addResponse("Ihr seid nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "0"));
 talkingNPC:addTalkingEntry(talkEntry);
