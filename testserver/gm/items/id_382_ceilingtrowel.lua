@@ -79,6 +79,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
       sd:addOption(0,m);
     end
     User:requestSelectionDialog(sd);
+    return;
   end
   
   if (string.find(User.lastSpokenText, "help")) then
