@@ -105,8 +105,8 @@ end
 
 function TellRecipe(User, effectId)
     local ingredientList = alchemy.base.alchemy.getIngredients(effectId)
-	local recipeEN = "Potion:\n"..alchemy.base.alchemy.potionName[effectId][1].."\n\nKomponenten:\n\nStock:\n"
-	local recipeDE = "Trank:\n"..alchemy.base.alchemy.potionName[effectId][2].."\n\nComponent:\n\nSud:\n"
+	local recipeEN = "Potion:\n"..alchemy.base.alchemy.potionName[effectId][1].."\n\nComponents:\n\nStock:\n"
+	local recipeDE = "Trank:\n"..alchemy.base.alchemy.potionName[effectId][2].."\n\nKomponenten:\n\nSud:\n"
 	local dataZList = alchemy.base.alchemy.SplitData(User,ingredientList[2])
 	for i=1,8 do
 	    recipeEN = recipeEN..alchemy.base.alchemy.wirkung_en[dataZList[i]].." "..alchemy.base.alchemy.wirkstoff[i].."\n"
