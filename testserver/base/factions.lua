@@ -127,6 +127,7 @@ function getTownNameByID(TownID)
 			return TownList[i].townName
 		end
 	end
+  return "";
 end
 
 function getMemberShip(player)
@@ -202,22 +203,6 @@ function getRankpoints(originator)
 end
 
 --[[
-    get
-	Looks up to which Guild and Town a Character belongs to and his Rank
-    @param originator -- the CharacterStruct
-
-    @return Array - all values about Factionmembership, Guildmembership and Rankpoints
-]]--
-function getFactionInformations(originator)
-
-	local Faction = getFaction(originator);
-	local Rankpoints = getRankpoints(originator);
-
-	return {towncnt = Faction.towncnt, tid = Faction.tid, rankTown = Faction.rankTown,
-			rankpoints = Rankpoints};
-end
-
---[[
     setFaction
 	Saves the Factionchanges of the Char
     @param CharacterStruct - The character who gets the new Questprogress
@@ -250,7 +235,7 @@ end
 
 ]]
 function setRankpoints(originator, rankpoints)
-	local Faction = getFactionInformations(originator);
+	local Faction = getFaction(originator);
 	local rank = Faction.rankTown;
 
 	if Faction.tid == 0 then --outlaw
@@ -278,19 +263,6 @@ function setRankpoints(originator, rankpoints)
 	------save changes----------------
 	setFaction(originator,Faction);
 	originator:setQuestProgress(202,rankpoints);
-end
---[[
-    put_
-	Saves the Factionchanges of the Char//Guildchanges of the Char//Rankpoints
-    @param CharacterStruct - The character who gets the new Questprogress
-    @param Faction - the Array which includes the values Rankpoints//Guild Values//Town Values
-
-]]
-function setFactionInformations(originator,Factionvalues)
-	--town
-    setFaction(originator,Factionvalues);
-	--rankpoints town
-	setRankpoints(originator,Factionvalues);
 end
 
 --[[
