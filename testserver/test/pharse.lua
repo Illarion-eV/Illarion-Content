@@ -9,6 +9,8 @@ require("npc.base.patrol");
 require("base.doors")
 require("gm.items.id_382_ceilingtrowel");
 require("base.polygons");
+require("base.factions");
+require("npc.base.guards_static");
 
 module("test.pharse", package.seeall)
 
@@ -31,16 +33,18 @@ end
 
 function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	local possibilities = {
-    "Remove all items by ID",
+    "Remove all items by ID (in inventory)",
     "Get/Set skill",
-    "Heal yourself"
+    "Heal yourself",
+    "Get/Set faction values for ...",
+    "Get/Set guard modes"
   };
   local cbWhatYouWant = function (dialog)
     if (not dialog:getSuccess()) then
       return;
     end
     local ind = dialog:getSelectedIndex();
-    if (ind == 0) then
+    if (ind == 0) then -- remove items
       local cbRemoveAll = function (dialog)
         if (dialog:getSuccess()) then
           local num, okay = String2Number(dialog:getInput());
@@ -52,14 +56,13 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         end
       end
       User:requestInputDialog(InputDialog(possibilities[ind+1], "Enter an ID of the items you want to remove from your character.", false, 255, cbRemoveAll));
-    elseif (ind == 1) then
+    elseif (ind == 1) then -- skill
       local skillList = {
-        Character.tailoring,Character.alchemy,Character.tactics,Character.farming,Character.poisoning,
-        Character.harp,Character.woodcutting,Character.smithing,Character.firingBricks,
-        Character.punctureWeapons,Character.horn,Character.distanceWeapons,Character.gemcutting,
-        Character.slashingWeapons,Character.carpentry,Character.cookingAndBaking,Character.goldsmithing,
-        Character.concussionWeapons,Character.flute,Character.parry,Character.lute,Character.dodge,
-        Character.herblore,Character.mining,Character.glassBlowing,Character.fishing,Character.wrestling
+        Character.carpentry,Character.tailoring,Character.smithing,Character.cookingAndBaking,Character.goldsmithing,Character.glassBlowing,
+        Character.farming,Character.mining,Character.woodcutting,Character.firingBricks,Character.fishing,Character.gemcutting,
+        Character.herblore,Character.alchemy,Character.poisoning,
+        Character.tactics,Character.dodge,Character.parry,Character.slashingWeapons,Character.concussionWeapons,Character.punctureWeapons,Character.distanceWeapons,Character.wrestling,
+        Character.harp,Character.horn,Character.flute,Character.lute
       };
       local cbGetSetSkill = function(dialog)
         if (not dialog:getSuccess()) then
@@ -84,21 +87,139 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         User:requestInputDialog(InputDialog("Set skill","Chosen skill: " .. User:getSkillName(skill) .."\nCurrent value: " .. User:getSkill(skill) .. "\nYou can set a new value.",false,255,cbSetSkill));
       end
       local selectionDialog = SelectionDialog(possibilities[ind+1], "Select a skill.", cbGetSetSkill);
-      for _,s in pairs(skillList) do 
+      for _,s in ipairs(skillList) do 
         selectionDialog:addOption(0, User:getSkillName(s));
       end
       User:requestSelectionDialog(selectionDialog);
-    elseif (ind == 2) then
+    elseif (ind == 2) then -- heal
       User:increaseAttrib("hitpoints", 10000);
       User:increaseAttrib("foodlevel", 10000);
       User:increaseAttrib("mana", 10000);
       User:increaseAttrib("poisonvalue", -10000);
-    end
-  end
+    elseif (ind == 3) then -- faction
+      local playersTmp = world:getPlayersInRangeOf(User.pos, 2);
+      local players = {User};
+      for _,player in pairs(playersTmp) do 
+        if (player.id ~= User.id) then 
+          table.insert(players, player);
+        end
+      end
+      local cbChoosePlayer = function (dialog)
+        if (not dialog:getSuccess()) then
+          return;
+        end
+        local chosenPlayer = players[dialog:getSelectedIndex()+1];
+        local faction = base.factions.getFaction(chosenPlayer);
+        local cbSetFactionValue = function (dialog)
+          if (not dialog:getSuccess()) then
+            return;
+          end
+          local ind = dialog:getSelectedIndex();
+          if (ind < 4) then
+            faction.tid = ind;
+            base.factions.setFaction(chosenPlayer, faction);
+          elseif (ind == 4) then
+            local cbSetCount = function (dialog)
+              if (not dialog:getSuccess()) then
+                return;
+              end
+              local countValue, okay = String2Number(dialog:getInput());
+              if (not okay) then
+                User:inform("no number");
+                return;
+              end
+              faction.towncnt = countValue;
+              base.factions.setFaction(chosenPlayer, faction);
+            end
+            User:requestInputDialog(InputDialog("Set town count", "", false, 255, cbSetCount));
+          elseif (ind == 5) then
+            local cbSetRank = function (dialog)
+              if (not dialog:getSuccess()) then
+                return;
+              end
+              local rankpoints, okay = String2Number(dialog:getInput());
+              if (not okay) then
+                User:inform("no number");
+                return;
+              end
+              base.factions.setRankpoints(chosenPlayer, rankpoints);
+            end
+            User:requestInputDialog(InputDialog("Set rank points", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
+          end
+        end
+        local infoText = "Town: " .. base.factions.getMemberShipByName(chosenPlayer);
+        infoText = infoText .. "\nChanged towns already (town count): " .. faction.towncnt;
+        if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
+          infoText = infoText .. "\nRank: " .. base.factions.townRanks[faction.tid][faction.rankTown].eRank .. "/" .. base.factions.townRanks[faction.tid][faction.rankTown].gRank;
+        else
+          infoText = infoText .. "\nRank: no rank " .. faction.rankTown;
+        end
+        infoText = infoText .. "\nExact rank points: " .. faction.rankpoints;
+        local sd = SelectionDialog("Set faction value", infoText, cbSetFactionValue);
+        sd:addOption(0, "Change town to None");
+        sd:addOption(0, "Change town to Cadomyr");
+        sd:addOption(0, "Change town to Runewick");
+        sd:addOption(0, "Change town to Galmair");
+        sd:addOption(0, "Change town count");
+        sd:addOption(0, "Change rank points");
+        User:requestSelectionDialog(sd);
+      end 
+      local sd = SelectionDialog(possibilities[ind+1], "First choose a player:", cbChoosePlayer);
+      local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
+      for _,player in ipairs(players) do 
+        local race = math.min(player:getRace()+1, table.getn(raceNames));
+        sd:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
+      end
+      User:requestSelectionDialog(sd);
+    elseif (ind == 4) then -- guard mode
+      local factionIds = {0,1,2,3};
+      local cbFirstFaction = function (dialog)
+        if (not dialog:getSuccess()) then
+          return;
+        end
+        local firstFaction = factionIds[dialog:getSelectedIndex()+1];
+        local guards = npc.base.guards_static;
+        local modeStrings = {};
+        modeStrings[guards.ACTION_NONE] = "none";
+        modeStrings[guards.ACTION_PASSIVE] = "passive";
+        modeStrings[guards.ACTION_HOSTILE] = "hostile";
+        modeStrings[guards.ACTION_AGGRESSIVE] = "aggressive";
+        local modeValues = {guards.ACTION_NONE, guards.ACTION_PASSIVE, guards.ACTION_HOSTILE, guards.ACTION_AGGRESSIVE};
+        local cbSecondFaction = function (dialog)
+          if (not dialog:getSuccess()) then
+            return;
+          end
+          local secondFaction = factionIds[dialog:getSelectedIndex()+1];
+          local cbSetMode = function (dialog)
+            if (not dialog:getSuccess()) then
+              return;
+            end
+            local mode = modeValues[dialog:getSelectedIndex()+1];
+            guards.SetMode(firstFaction, secondFaction, mode);
+          end
+          local sd = SelectionDialog("Set guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
+          for _,m in ipairs(modeValues) do 
+            sd:addOption(0,modeStrings[m]);
+          end
+          User:requestSelectionDialog(sd);
+        end
+        local sd = SelectionDialog("Guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
+        for _,f in ipairs(factionIds) do 
+          sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[guards.GetModeByFaction(firstFaction, f)]);
+        end
+        User:requestSelectionDialog(sd);
+      end
+      local sd = SelectionDialog(possibilities[ind+1], "For which faction do you want to get/set values?", cbFirstFaction);
+      for _,f in ipairs(factionIds) do 
+        sd:addOption(0,base.factions.getTownNameByID(f));
+      end
+      User:requestSelectionDialog(sd);
+    end -- choice indices
+  end -- what you want
   local sd = SelectionDialog("Pharse's test item", "What do you want to do?", cbWhatYouWant);
-  sd:addOption(10, possibilities[1]);
-  sd:addOption(467, possibilities[2]);
-  sd:addOption(331, possibilities[3]);
+  for _,poss in ipairs(possibilities) do 
+    sd:addOption(0, poss);
+  end
   User:requestSelectionDialog(sd);
 end
 

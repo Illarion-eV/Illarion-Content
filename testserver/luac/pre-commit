@@ -35,8 +35,7 @@ function syntaxCheckFile
 }
 
 # get the files to commit
-IN=$(git show --pretty="format:" --name-only)
-echo "check $IN"
+IN=$(git diff-index --cached --name-only HEAD)
 # iterate over all file names
 while IFS=$'\n' read -ra ARR; do 
 	for i in "${ARR[@]}"; do

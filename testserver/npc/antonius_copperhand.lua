@@ -269,7 +269,6 @@ talkingNPC:addCycleText("#me betrachtet zufrieden seine geschmiedeten Werke.", "
 talkingNPC:addCycleText("#me hält ein Amulett gegen das Licht, um es besser zu betrachten.", "#me holds an Amulett against the light, to have a better look at it.");
 talkingNPC:addCycleText("Schmiedewaren! Schöner Schmuck! Kaufste woanders, dann bereustes!", "Smithes goods! Fine Juwelry! Ya buy elsewhere, and ya will regret it!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(122,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2747,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2140,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(92,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(393,"sell"));
@@ -312,7 +311,6 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(280,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(281,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(282,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(122,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2747,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2140,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(92,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(393,"buySecondary"));

@@ -1218,14 +1218,6 @@ function initializeNpc()
     TraderItemStandard[147]=5;
     TraderItemQuality[147]={4,6};
     TraderItemDura[147]={33,66};
-    --dull mace
-    TraderItemPrice[148]=0;
-    TraderItemId[148]=2728;
-    TraderItemNumber[148]=0;
-    TraderItemSellPrice[148]=120;
-    TraderItemStandard[148]=5;
-    TraderItemQuality[148]={4,6};
-    TraderItemDura[148]={33,66};
     --morning star
     TraderItemPrice[149]=0;
     TraderItemId[149]=2737;

@@ -26,14 +26,14 @@ function InitFactionLists()
 	--A list with the Ranks, Rank 8 and Rank 9 can not be reached with faction points(e.g. npc quests), only with GM help, don't give any normal player rank 9!
 	CadomyrRankList = { {gRank = "Rekrut", eRank = "Recruit"},        	--rank 1
 					 {gRank = "Knappe", eRank = "Squire"},           	--rank 2
-					 {gRank = "Korporal", eRank = "Corporal"},         	--rank 3
-					 {gRank = "Wachmeister", eRank = "Sergeant"},       --rank 4
-					 {gRank = "Berittener", eRank = "Trooper"},         --rank 5
-					 {gRank = "Lancier", eRank = "Lancer"},        		--rank 6
-					 {gRank = "Ritter", eRank = "Knight"},     			--rank 7
-					 {gRank = "Adliger", eRank = "Noble"},           	--rank 8
-					 {gRank = "Baron", eRank = "Baron"},				--rank 9
-					 {gRank = "Herzog", eRank = "Duke"},				--rank 10
+					 {gRank = "Herr", eRank = "Lord"},         	--rank 3
+					 {gRank = "Ritter", eRank = "Knight"},       --rank 4
+					 {gRank = "Vogt", eRank = "Reeve"},         --rank 5
+					 {gRank = "Baron", eRank = "Baron"},        		--rank 6
+					 {gRank = "Graf", eRank = "Count"},     			--rank 7
+					 {gRank = "Fürst", eRank = "Earl"},           	--rank 8
+					 {gRank = "Herzog", eRank = "Duke"},				--rank 9
+					 {gRank = "Erzherzog", eRank = "Archduke"},				--rank 10
 					 {gRank = "Königin", eRank = "Queen"}};				--rank leader
 
 	RunewickRankList = { {gRank = "Neuling", eRank = "Novice"},    		--rank 1
@@ -61,7 +61,7 @@ function InitFactionLists()
 					 {gRank = "Don", eRank = "Don"}};					--rank leader
 
 	NoneRankList ={};
-	NoneRankList[0] = {gRank = "Geächteter", eRank = "outcast"};
+	NoneRankList[0] = {gRank = "Geächteter", eRank = "Outcast"};
 
 	townRanks = {CadomyrRankList, RunewickRankList, GalmairRankList}
 	townRanks[0] = NoneRankList;
@@ -127,6 +127,7 @@ function getTownNameByID(TownID)
 			return TownList[i].townName
 		end
 	end
+  return "";
 end
 
 function getMemberShip(player)
@@ -138,7 +139,13 @@ function getMemberShipByName(player)
 end
 
 function getRank(player)
-	local Faction = getFaction(player)
+	local Faction = getFaction(player);
+  if (townRanks[Faction.tid] == nil) then
+    return "[ERROR: no ranks for " .. Faction.tid .. "]";
+  end
+  if (townRanks[Faction.tid][Faction.rankTown] == nil) then
+    return "[ERROR: no rank " .. Faction.rankTown .. " in town " .. Faction.tid .. "]";
+  end
 
 	if player:getPlayerLanguage() == 0 then
 		return townRanks[Faction.tid][Faction.rankTown].gRank;
@@ -196,22 +203,6 @@ function getRankpoints(originator)
 end
 
 --[[
-    get
-	Looks up to which Guild and Town a Character belongs to and his Rank
-    @param originator -- the CharacterStruct
-
-    @return Array - all values about Factionmembership, Guildmembership and Rankpoints
-]]--
-function getFactionInformations(originator)
-
-	local Faction = getFaction(originator);
-	local Rankpoints = getRankpoints(originator);
-
-	return {towncnt = Faction.towncnt, tid = Faction.tid, rankTown = Faction.rankTown,
-			rankpoints = Rankpoints};
-end
-
---[[
     setFaction
 	Saves the Factionchanges of the Char
     @param CharacterStruct - The character who gets the new Questprogress
@@ -244,7 +235,7 @@ end
 
 ]]
 function setRankpoints(originator, rankpoints)
-	local Faction = getFactionInformations(originator);
+	local Faction = getFaction(originator);
 	local rank = Faction.rankTown;
 
 	if Faction.tid == 0 then --outlaw
@@ -272,19 +263,6 @@ function setRankpoints(originator, rankpoints)
 	------save changes----------------
 	setFaction(originator,Faction);
 	originator:setQuestProgress(202,rankpoints);
-end
---[[
-    put_
-	Saves the Factionchanges of the Char//Guildchanges of the Char//Rankpoints
-    @param CharacterStruct - The character who gets the new Questprogress
-    @param Faction - the Array which includes the values Rankpoints//Guild Values//Town Values
-
-]]
-function setFactionInformations(originator,Factionvalues)
-	--town
-    setFaction(originator,Factionvalues);
-	--rankpoints town
-	setRankpoints(originator,Factionvalues);
 end
 
 --[[

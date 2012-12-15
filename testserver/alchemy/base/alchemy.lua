@@ -32,7 +32,7 @@ function InitPlantSubstance()
 	setPlantSubstance(146,"","Echolon")
 	setPlantSubstance(152,"Echolon","")
 	setPlantSubstance(754,"","Caprazin")
-	setPlantSubstance(755,"","Feuerwurz")
+	setPlantSubstance(755,"","Illidrium")
 	setPlantSubstance(756,"Caprazin","")
 	setPlantSubstance(757,"Dracolin","")
 	setPlantSubstance(758,"Adrazin","")
@@ -142,19 +142,19 @@ function InitPotions()
 -- bombs end	
 	
 -- quality raiser
-	potionName[400] = {"Quality Raiser For Potions On Emerald Powder Base","Qualitätsheber Für Tränke Auf Smaragdstaubbasis"}
+	potionName[400] = {"Quality Raiser for Potions based on Emerald Powder","Qualitätsheber für Tränke auf Smaragdstaubbasis"}
 	setPotion(400, 448, 95155955, 133, 133, 133, 146, false, false, false, false)
-    potionName[401] = {"Quality Raiser For Potions On Ruby Powder Base","Qualitätsheber Für Tränke Auf Rubinstaubbasis"}
+    potionName[401] = {"Quality Raiser for Potions based on Ruby Powder","Qualitätsheber für Tränke auf Rubinstaubbasis"}
 	setPotion(401, 448, 95155955, 133, 133, 133, 764, false, false, false, false)
-	potionName[402] = {"Quality Raiser For Potions On Sapphire Powder Base","Qualitätsheber Für Tränke Auf Saphirstaubbasis"}
+	potionName[402] = {"Quality Raiser for Potions based on Sapphire Powder","Qualitätsheber für Tränke auf Saphirstaubbasis"}
 	setPotion(402, 448, 95155955, 133, 133, 133, 761, false, false, false, false)
-	potionName[403] = {"Quality Raiser For Potions On Obsidian Powder Base","Qualitätsheber Für Tränke Auf Obsidianstaubbasis"}
+	potionName[403] = {"Quality Raiser for Potions based on Obsidian Powder","Qualitätsheber für Tränke auf Obsidianstaubbasis"}
 	setPotion(403, 448, 95155955, 133, 133, 133, 766, false, false, false, false)
-	potionName[404] = {"Quality Raiser For Potions On Amethyst Powder Base","Qualitätsheber Für Tränke Auf Amethyststaubbasis"}
+	potionName[404] = {"Quality Raiser for Potions based on Amethyst Powder","Qualitätsheber für Tränke auf Amethyststaubbasis"}
 	setPotion(404, 448, 95155955, 133, 133, 133, 152, false, false, false, false)
-	potionName[405] = {"Quality Raiser For Potions On Topaz Powder Base","Qualitätsheber Für Tränke Auf Topasstaubbasis"}
+	potionName[405] = {"Quality Raiser for Potions based on Topaz Powder","Qualitätsheber für Tränke auf Topasstaubbasis"}
 	setPotion(405, 448, 95155955, 133, 133, 133, 758, false, false, false, false)
-	potionName[406] = {"Quality Raiser For Potions On Diamond Powder Base","Qualitätsheber Für Tränke Auf Diamantstaubbasis"}
+	potionName[406] = {"Quality Raiser for Potions based on Diamond Powder","Qualitätsheber für Tränke auf Diamantstaubbasis"}
 	setPotion(406, 448, 95155955, 133, 133, 133, 765, false, false, false, false)
 -- quality raiser end
 
