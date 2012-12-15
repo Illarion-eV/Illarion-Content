@@ -63,7 +63,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("Hiho! Ich verkauf die besten Getränke weit und breit.");
+talkEntry:addResponse("Hiho! I sell the best drinks.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -78,7 +78,7 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
-talkEntry:addResponse("Hiho! Ich hab die besten Getränke weit und breit.");
+talkEntry:addResponse("Hiho! Ich verkaufe die besten Getränke!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

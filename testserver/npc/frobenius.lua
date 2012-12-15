@@ -618,7 +618,6 @@ talkingNPC:addCycleText("Heute ist ein guter Tag zum Sterben... für die Feinde d
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2697,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2710,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2748,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2751,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(325,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(326,"sell"));
@@ -724,7 +723,6 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(2444,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2697,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2710,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2748,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2751,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(325,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(326,"buySecondary"));

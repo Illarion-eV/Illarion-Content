@@ -768,8 +768,6 @@ if not InitPrices then
 	price [   2710   ] =    200   ; --    mould   ,   Tool   metal
 	price [   2715   ] =    200   ; --    slicer   ,   Tool   metal
 	price [   2746   ] =    200   ; --    razor blade   ,   Tool   metal
-	price [   2747   ] =    200   ; --    crucible   ,   Tool   metal
-	price [   2748   ] =    200   ; --    crucible   ,   Tool   metal
 	price [   2751   ] =    200   ; --    crucible-pincers   ,   Tool   metal
 	price [   2752   ] =    200   ; --    carving tools   ,   Tool   metal
 	price [   2763   ] =    200   ; --    pick-axe   ,   Tool   metal
