@@ -127,6 +127,7 @@ function getTownNameByID(TownID)
 			return TownList[i].townName
 		end
 	end
+  return "";
 end
 
 function getMemberShip(player)

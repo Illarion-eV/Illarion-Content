@@ -10,6 +10,7 @@ require("base.doors")
 require("gm.items.id_382_ceilingtrowel");
 require("base.polygons");
 require("base.factions");
+require("npc.base.guards_static");
 
 module("test.pharse", package.seeall)
 
@@ -35,7 +36,8 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
     "Remove all items by ID (in inventory)",
     "Get/Set skill",
     "Heal yourself",
-    "Get/Set faction values for ..."
+    "Get/Set faction values for ...",
+    "Get/Set guard modes"
   };
   local cbWhatYouWant = function (dialog)
     if (not dialog:getSuccess()) then
@@ -169,7 +171,44 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         sd:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
       end
       User:requestSelectionDialog(sd);
-    end
+    elseif (ind == 4) then -- guard mode
+      local factionIds = {0,1,2,3};
+      local cbFirstFaction = function (dialog)
+        if (not dialog:getSuccess()) then
+          return;
+        end
+        local firstFaction = factionIds[dialog:getSelectedIndex()+1];
+        local guards = npc.base.guards_static;
+        local modeStrings = {"none", "passive", "hostile", "aggressive"};
+        local modeValues = {guards.ACTION_NONE, guards.ACTION_PASSIVE, guards.ACTION_HOSTILE, guards.ACTION_AGGRESSIVE};
+        local cbSecondFaction = function (dialog)
+          if (not dialog:getSuccess()) then
+            return;
+          end
+          local secondFaction = factionIds[dialog:getSelectedIndex()+1];
+          local cbSetMode = function (dialog)
+            if (not dialog:getSuccess()) then
+              return;
+            end
+            local mode = modeValues[dialog:getSelectedIndex()+1];
+            guards.SetMode(firstFaction, secondFaction, mode);
+          end
+          local sd = SelectionDialog("Set guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
+          for _,m in ipairs(modeStrings) do 
+            sd:addOption(0,m);
+          end
+        end
+        local sd = SelectionDialog("Guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
+        for _,f in ipairs(factionIds) do 
+          sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. guards.GetModeByFaction(firstFaction, f));
+        end
+      end
+      local sd = SelectionDialog(possibilities[ind+1], "For which faction do you want to get/set values?", cbFirstFaction);
+      for _,f in ipairs(factionIds) do 
+        sd:addOption(0,base.factions.getTownNameByID(f));
+      end
+      User:requestSelectionDialog(sd);
+    end -- choice indices
   end -- what you want
   local sd = SelectionDialog("Pharse's test item", "What do you want to do?", cbWhatYouWant);
   for _,poss in ipairs(possibilities) do 
