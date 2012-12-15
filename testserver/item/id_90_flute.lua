@@ -79,7 +79,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			User:inform("Array size is: "..last);
 			world:gfx(graphicNum, mylist[last].OBJECT.pos);
 			world:makeSound(5, mylist[last].OBJECT.pos);
-			if (mylist[last].type == "CHARACTER") then
+			if (mylist[last].TYPE == "CHARACTER") then
 				User:inform("hit something live");
 				world:makeSound(1, mylist[last].OBJECT.pos);
 				mylist[last].OBJECT:increaseAttrib("hitpoints", -2000);
