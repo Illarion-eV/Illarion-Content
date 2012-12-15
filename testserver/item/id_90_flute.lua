@@ -18,10 +18,11 @@ item.base.music.addTalkText("#me plays a wild tune on the flute.","#me spielt ei
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	item.base.music.PlayInstrument(User,SourceItem,skill);
 	
-		--Testing fireball, only activates if flute's data key name=fireball -Dyluck
+		--Testing fireball, only activates if flute's data key name is used -Dyluck
 	local targetPos
 	local targetChar
 	local extraPos
+	local graphicNum
 	
 	if ( SourceItem:getData("name") == "fireball" ) then
 		User:talk(Character.say, "#me casts Fireball ");
@@ -29,6 +30,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		if ( User:getFaceTo() == 0) then --if facing north
 			targetPos = position(User.pos.x, User.pos.y - 3, User.pos.z);
 			world:makeSound(5, targetPos);
+			graphicNum = SourceItem:getData("num");
 			--[[
 			targetPos2 = position(targetPos.x -1, targetPos.y, targetPos.z);
 			targetPos3 = position(targetPos.x +1, targetPos.y, targetPos.z);
@@ -40,7 +42,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			for i = 0, 2, 1 do
 				for j = 0, 2, 1 do
 					extraPos = position(targetPos.x -1 +i, targetPos.y -1 +j, targetPos.z);
-					world:gfx(9, extraPos);
+					if graphicNum ~= "" then
+						world:gfx(graphicNum, extraPos);
+					else
+						world:gfx(graphicNum, extraPos);
+					end
 					if world:isCharacterOnField(extraPos) then --if there's a target char on target position
 						targetChar = world:getCharacterOnField(extraPos); --find the char
 						targetChar:increaseAttrib("hitpoints", -1000);
