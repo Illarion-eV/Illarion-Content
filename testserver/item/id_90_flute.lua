@@ -80,6 +80,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			world:gfx(graphicNum, mylist[last].OBJECT.pos);
 			world:makeSound(5, mylist[last].OBJECT.pos);
 			if (mylist[last].type == "CHARACTER") then
+				User:inform("hit something live");
 				world:makeSound(1, mylist[last].OBJECT.pos);
 				mylist[last].OBJECT:increaseAttrib("hitpoints", -2000);
 			end
