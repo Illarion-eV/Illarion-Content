@@ -113,13 +113,13 @@ catId = goldsmithing:addCategory("crowns", "Kronen") --Crowns
 
 --Diadem
 product = goldsmithing:addProduct(catId, 465, 50, 70, 68, 136)
-product:addIngredient(2250) -- Copper Ingot: 1x1
+product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236, 2) -- Gold Ingot: 2x1
 product:addIngredient(284) -- Sapphire: 1x1
 
 --Crown
 product = goldsmithing:addProduct(catId, 225, 70, 90, 220, 440)
-product:addIngredient(2250, 3) -- Copper Ingot: 3x1
+product:addIngredient(2550, 3) -- Copper Ingot: 3x1
 product:addIngredient(236, 3) -- Gold Ingot: 3x1
 product:addIngredient(284) -- Sapphire: 1x1
 product:addIngredient(198) -- Topas: 1x1
@@ -129,12 +129,12 @@ catId = goldsmithing:addCategory("rings", "Ringe") --Rings
 
 --Golden Ring
 product = goldsmithing:addProduct(catId, 235, 5, 25, 12, 24)
-product:addIngredient(2250) -- Copper Ingot: 1x1
+product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
 
 --Amethyst Ring
 product = goldsmithing:addProduct(catId, 277, 15, 35, 27, 54)
-product:addIngredient(2250) -- Copper Ingot: 1x1
+product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
 product:addIngredient(197) -- Amethyst: 1x1
 

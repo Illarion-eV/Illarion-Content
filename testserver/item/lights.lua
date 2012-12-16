@@ -224,7 +224,25 @@ end
 
 function MoveItemAfterMove(User,SourceItem,TargetItem)
 	-- Quest 305: we burn a tabacco plantaion
-    local fld=world:getField(TargetItem.pos);
+    
+	if User:getQuestProgress(305) == 2 then
+		if ((3 <= TargetItem.pos.x) or (TargetItem.pos.x <= 6)) and ((565 <= TargetItem.pos.y) or (TargetItem.pos.y <= 571)) and (TargetItem.pos.z == 0) then -- is it the right plantaion?
+			local spawnFire = function(posi) 
+				world:createItemFromId(359,1,posi,true,333,nil)
+			end
+			world:makeSound(7,position(5,568,0))
+			world:createItemFromId(359,1,position(5,568,0),true,333,nil)
+			base.common.CreateCircle(position(5,568,0), 1, spawnFire)
+			base.common.CreateCircle(position(5,568,0), 2, spawnFire)
+			User:setQuestProgress(305,3)
+			User:inform("Du hast das Tabakfeld zerstört. Gut gemacht. Spreche nun mit Tobis Vunu.","You destroyed the tabacco field. Well done. Talk to Tobis Vunu now.")
+	    end
+	end	
+	
+	-- I comment the following out, because In think it is not neccessary to actually delete the plants
+	-- furthermore, if we just spawn fire and let it rot, we don't have to replace the plants by using a scheduled script. Merung
+	--[[
+	 local fld=world:getField(TargetItem.pos);
 	local cnt=fld:countItems();
 	
 	if (SourceItem.id == 392 ) then
@@ -248,7 +266,7 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
 				end
 			end
 	    end
-	end   
+	end   ]]
 return
 end
    

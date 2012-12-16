@@ -36,7 +36,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("buy,");
+talkEntry:addTrigger("buy");
 talkEntry:addTrigger("sell");
 talkEntry:addTrigger("trade");
 talkEntry:addResponse("Let's trade!");
