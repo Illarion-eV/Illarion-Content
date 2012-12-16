@@ -34,11 +34,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	graphicNum = tonumber(SourceItem:getData("spell"));
 	if ( graphicNum ~= nil ) then
 		if (User:increaseAttrib("intelligence", 0) < 10) then 
-			User:talk(Character.say, "INT too low. You have "..User:increaseAttrib("intelligence", 0));
-			return;
+			User:talk(Character.say, "INT would be too low. You have "..User:increaseAttrib("intelligence", 0));
 		elseif (User:increaseAttrib("mana", 0) < 100)  then
-			User:talk(Character.say, "Mana too low. You have "..User:increaseAttrib("mana", 0));
-			return;
+			User:talk(Character.say, "Mana would be too low. You have "..User:increaseAttrib("mana", 0));
 		end
 		User:talk(Character.say, "#me casts Fireball ");
 		--User facing direction to determine offset numbers for target area
@@ -98,7 +96,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			world:makeSound(1, targetPos);
 			totalDmg = (21 + User:increaseAttrib("intelligence", 0) - targetChar:increaseAttrib("essence", 0) ) * 50
 			targetChar:increaseAttrib("hitpoints", - totalDmg);
-			User:increaseAttrib("mana", - 100);
+			User:increaseAttrib("mana", - 50);
 			User:talk(Character.say, "Damage was "..totalDmg);			
 		end
 		User:talk(Character.say, "Mana is now "..User:increaseAttrib("mana", 0));
