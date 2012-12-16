@@ -69,7 +69,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		mylist = world:LoS(User.pos, targetPos);
 		last = table.getn(mylist);
 		if (mylist[1] == nil) then --hit max range
-			User:talk(Character.say, "option 1");
 			world:gfx(graphicNum, targetPos);
 			world:makeSound(5, targetPos);
 			if world:isCharacterOnField(targetPos) then --hit char at max range
@@ -77,7 +76,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				targetChar = world:getCharacterOnField(targetPos);
 			end			
 		else --hit obstacle
-			User:talk(Character.say, "option 2");
 			for key, listEntry in pairs(mylist) do
 				User:inform("Item with the ID: "..listEntry.OBJECT.id);
 			end
@@ -97,7 +95,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			totalDmg = (21 + User:increaseAttrib("intelligence", 0) - targetChar:increaseAttrib("essence", 0) ) * 50
 			targetChar:increaseAttrib("hitpoints", - totalDmg);
 			User:increaseAttrib("mana", - 100);
+			User:talk(Character.say, "Damage was "..totalDmg);			
 		end
+		User:talk(Character.say, "Mana is now "..User:increaseAttrib("mana", 0));
 		
 			
 		--[[
