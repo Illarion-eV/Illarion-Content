@@ -62,8 +62,8 @@ itemShoes = 45
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Jonathan Idler the mage. Keywords: Profession, Zassaria, Quest, Order.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Jonathan Idler der Magier. Schlüßsselwörter: Beruf,  Zassaria, Quest, Auftrag.")
+"Help" -> inform("[Game Help] This NPC is Jonathan Idler the mage. Keywords: Profession, Zassaria, Grüße.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Jonathan Idler der Magier. Schlüßsselwörter: Beruf, Zassaria, Greetings.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. Did you come here to read a book?", "#me truns a page of his book.", "Hm? What happend? I'm busy reading...", "Greetings. I'm sorry, but i'm using this book at the moment. There are several copies of it over there in the bookself. I read them already."
@@ -93,30 +93,30 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Elara be with you.", "M
 -- Quest ID (318)
 -- Triggerfield: 1 Field/Tile, position: 900,760,1 (opposite the table, chair)
 
-queststatus(318) = 0, english, "quest", "mission" -> inform("[New quest] The Idler's Request I"), queststatus(318) = 1, "..."
-queststatus(318) = 0, "quest", "mission" -> inform("[Neues Quest] ... I"), queststatus(318) = 1, "..."
-queststatus(318) = 0, "task", "adventure", "message" -> inform("[New quest]  ... I"), queststatus(318) = 1, "..."
-queststatus(318) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] ...I "), queststatus(317) = 1, "..."
+--queststatus(318) = 0, english, "quest", "mission" -> inform("[New quest] The Idler's Request I"), queststatus(318) = 1, "..."
+--queststatus(318) = 0, "quest", "mission" -> inform("[Neues Quest] ... I"), queststatus(318) = 1, "..."
+--queststatus(318) = 0, "task", "adventure", "message" -> inform("[New quest]  ... I"), queststatus(318) = 1, "..."
+--queststatus(318) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] ...I "), queststatus(317) = 1, "..."
 
 -- Quest 1 taken but not solved, repeat the instructions
-queststatus(318) = 1,english, "quest", "mission" -> "..."
-queststatus(318) = 1,"quest", "mission" -> "... "
-queststatus(318) = 1,"task", "adventure", "message" -> "..."
-queststatus(318) = 1,"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "..."
+--queststatus(318) = 1,english, "quest", "mission" -> "..."
+--queststatus(318) = 1,"quest", "mission" -> "... "
+--queststatus(318) = 1,"task", "adventure", "message" -> "..."
+--queststatus(318) = 1,"Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "..."
 
 -- Quest 1 solved, reward: 500cp + , +5 rankpoints
-queststatus(317) = 2, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 5 silver coins. You advance in the Archmage's favour."), money + 300, queststatus(317) = 2, rankpoints + 5,"..."
-queststatus(317) = 2, english, ".+" -> inform("[Quest solved] You are awarded 5 silver coins."), money + 500, queststatus(317) = 2, "..."
-queststatus(317) = 2, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 5 Silberstücke. Dein Ansehen beim Erzmagier steigt."), money + 300, queststatus(317) = 2, rankpoints + 5, "..."
-queststatus(317) = 2, ".+" -> inform("[Quest gelöst] Du erhältst 2 Silberstücke."), money + 300, queststatus(317) = 2,"..."
+--queststatus(317) = 2, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded 5 silver coins. You advance in the Archmage's favour."), money + 300, queststatus(317) = 2, rankpoints + 5,"..."
+--queststatus(317) = 2, english, ".+" -> inform("[Quest solved] You are awarded 5 silver coins."), money + 500, queststatus(317) = 2, "..."
+--queststatus(317) = 2, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst 5 Silberstücke. Dein Ansehen beim Erzmagier steigt."), money + 300, queststatus(317) = 2, rankpoints + 5, "..."
+--queststatus(317) = 2, ".+" -> inform("[Quest gelöst] Du erhältst 2 Silberstücke."), money + 300, queststatus(317) = 2,"..."
 
 -- Quest given by Zarissa Riverbank (Talk to Jonathan), if not solved, thoses instruction will be repeated
 queststatus(701) = 1, english, "Zarissa", "Lizzard", "oil lamp" -> "Ah, the lizard lady Zassaria send you? I'm very busy with my studies right now, but I'll see her later. Can you tell her, please?", queststatus(701) = 2
-queststatus(701) = 1, "Zarissa", "Lizzard", "oil lamp" -> "Ah, die Echsendame Zassaria schickt Euch? Ich bin zur Zeit sehr mit meinen Studien beschäftigt, bitte richtet ihr aus, dass ich sie später aufsuchen werde.", queststatus(701) = 2
+queststatus(701) = 1, "Zarissa", "Lizzard", "Öllampe" -> "Ah, die Echsendame Zassaria schickt Euch? Ich bin zur Zeit sehr mit meinen Studien beschäftigt, bitte richtet ihr aus, dass ich sie später aufsuchen werde.", queststatus(701) = 2
 
 -- Quest given by Zarissa Riverbank (Talk to Jonathan) solves, Jonathann remaks he has the oil lamp now.
-queststatus(701) = 3, english, "quest", "mission" -> "I finally got the oil lamp. Danke."
-queststatus(701) = 3, "quest", "mission" -> "Ich hab nun endlich die Öllampe erhalten. Thanks."
+queststatus(701) = 3, english, "Zarissa", "Lizzard", "oil lamp" -> "I finally got the oil lamp. Thanks."
+queststatus(701) = 3,  "Zarissa", "Lizzard", "Öllampe" -> "Ich hab nun endlich die Öllampe erhalten. Danke."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I used all my time in live to study the arts of magic.", "To train my mind I read many books. Mages should do so, don't you think?", "The life o a mages is a live behind pages."
@@ -127,10 +127,10 @@ english, "job" -> "I used all my time in live to study the arts of magic.", "To 
 "erzähl was", "erzähl etwas" -> "Die Alten Götter representieren die fünf Schulen der Magie.", "Magie ist eine fanzinierende Kunst.", "Ich las, dass an einem fernen Ort Acient genutzt wurde um Zauber aufzusagen."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"Tea" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-"Tee" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
-english, "Elf" -> "I'd like to see one...Would you do me a favor?", "So, so know an Elf? Really? Would you do me favour?", "Seems like I have a task for you."
-"Elf", "Elb" -> "Ich würde gern mal seinen sehen... Könntet ihr mir einen gefallen tun?", "So, Ihr kennt als einen Elfen? Wirklich? Würdet Ihr mir einen Gefallen tun?", "Ich hätte da eine Aufgabe für Euch."
+--"Tea" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--"Tee" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
+--english, "Elf" -> "I'd like to see one...Would you do me a favor?", "So, so know an Elf? Really? Would you do me favour?", "Seems like I have a task for you."
+--"Elf", "Elb" -> "Ich würde gern mal seinen sehen... Könntet ihr mir einen gefallen tun?", "So, Ihr kennt als einen Elfen? Wirklich? Würdet Ihr mir einen Gefallen tun?", "Ich hätte da eine Aufgabe für Euch."
 "Buch" -> "This books is about the diffrent races that live in Illarion."
 "Book" -> "Dieses Buch handelt von den verschiedenrn Rasse die auf Illarion leben."
 
