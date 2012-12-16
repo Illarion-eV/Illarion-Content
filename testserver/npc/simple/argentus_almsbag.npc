@@ -78,7 +78,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you.", "Be greeted. Would you like to change your copper coins into silver coins?"
-"GrÃ¼ÃŸ", "GruÃŸ", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt.", "Grüße. Mögt ihre euren Kupfer nicht gegen Silber eintauschen?"
+"Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt.", "Grüße. Mögt ihre euren Kupfer nicht gegen Silber eintauschen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, hello!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, hallo!"
 "Farewell", "Bye", "Fare well", "See you" -> "Fare well."
