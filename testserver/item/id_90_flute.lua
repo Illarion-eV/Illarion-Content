@@ -19,9 +19,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	item.base.music.PlayInstrument(User,SourceItem,skill);
 	
 	--Testing fireball, only activates if flute's data key name is used. Does not affect normal flute -Dyluck
-	if ( (User:increaseAttrib("intelligence", 0) < 10) or (User:increaseAttrib("mana", 0) < 100) ) then
-		return;
-	end
 	
 	local targetPos
 	local targetChar
@@ -36,6 +33,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	
 	graphicNum = tonumber(SourceItem:getData("spell"));
 	if ( graphicNum ~= nil ) then
+		if (User:increaseAttrib("intelligence", 0) < 10) then 
+			User:talk(Character.say, "INT too low. You have "..User:increaseAttrib("intelligence", 0));
+			return;
+		elseif (User:increaseAttrib("mana", 0) < 100)  then
+			User:talk(Character.say, "Mana too low. You have "..User:increaseAttrib("mana", 0));
+			return;
+		end
 		User:talk(Character.say, "#me casts Fireball ");
 		--User facing direction to determine offset numbers for target area
 		if ( User:getFaceTo() == 0) then --north
