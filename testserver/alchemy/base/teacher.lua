@@ -214,7 +214,7 @@ function GetTeacherQuestInfos(User,SourceItem)
         teacherEN2 = "Knowing Tree"
 		teacherDE1 = "Der Wissende Baum" 
 		teacherDE2 = "der Wissende Baum"
-	elseif SourceItem.pos == position(75,65,0) then 
+	elseif SourceItem.pos == position(75,651,0) then 
 	    questId = 351
 		teacherEN1 = "The Thinking Stone"
         teacherEN2 = "Thinking Stone"
