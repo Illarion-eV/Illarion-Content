@@ -480,7 +480,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if not (SourceItem.pos == position(75,651,0) or SourceItem.pos == position(432,238,0) or SourceItem.pos == position(873,878,0)) then
 	    return
 	end	
-	--[[
+	
 	-- already an alchemist?
     local alchemistCheck = AlchemistCheck(User)
 	if alchemistCheck then
@@ -498,7 +498,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 					"You feel observed, but nothing else seems to happen."
 					)
 	return
-	end	]]
+	end	
 
 	-- teacher and quest infos 
 	local questInfos = GetTeacherQuestInfos(User, SourceItem)
