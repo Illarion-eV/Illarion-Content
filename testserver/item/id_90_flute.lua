@@ -30,12 +30,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	local last
 	local isChar
 	local totalDmg
+	local testDmg
 	
 	graphicNum = tonumber(SourceItem:getData("spell"));
 	if ( graphicNum ~= nil ) then
 		if (User:increaseAttrib("intelligence", 0) < 10) then 
 			User:talk(Character.say, "INT would be too low. You have "..User:increaseAttrib("intelligence", 0));
-		elseif (User:increaseAttrib("mana", 0) < 50)  then
+		end
+		if (User:increaseAttrib("mana", 0) < 50)  then
 			User:talk(Character.say, "Mana would be too low. You have "..User:increaseAttrib("mana", 0));
 		end
 		User:talk(Character.say, "#me casts Fireball ");
@@ -92,15 +94,15 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		end
 		--Calculate numbers and damage char
 		if ( (isChar == true) and (targetChar:increaseAttrib("hitpoints", 0) > 0) ) then
-			User:inform("hit something live");
 			world:makeSound(1, targetPos);
-			totalDmg = (21 + User:increaseAttrib("intelligence", 0) - targetChar:increaseAttrib("essence", 0) ) * 50
-			targetChar:increaseAttrib("hitpoints", - totalDmg);
+			totalDmg = -( (21 + User:increaseAttrib("intelligence", 0) - targetChar:increaseAttrib("essence", 0) ) * 50)
+			testDmg = -2000;
+			targetChar:increaseAttrib("hitpoints", testDmg);
 			if (User:increaseAttrib("mana", 0) >= 50)  then
 				User:increaseAttrib("mana", - 50);
 			end
-			User:talk(Character.say, "Damage was "..totalDmg);
-			User:talk(Character.say, "Because your int was "..User:increaseAttrib("intelligence", 0));				
+			User:talk(Character.say, "Damage is 2000, but would've been "..totalDmg);
+			User:talk(Character.say, "Because your INT was "..User:increaseAttrib("intelligence", 0));				
 		end
 		User:talk(Character.say, "Mana is now "..User:increaseAttrib("mana", 0));
 		
