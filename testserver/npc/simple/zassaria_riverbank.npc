@@ -64,8 +64,8 @@ itemShoes = 0
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Zassaria Riverbank. Keywords: guest, mission, Order.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Zassaria Riverbank. Schlüsselwörter: Quest, Misson, Auftrag.")
+"Help" -> inform("[Game Help] This NPC is Zassaria Riverbank. Keywords: quest, mission, order.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Zassaria Riverbank. Schlüsselwörter: Quest, Mission, Auftrag.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you."
