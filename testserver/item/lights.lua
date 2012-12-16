@@ -230,7 +230,10 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
 			local spawnFire = function(posi) 
 				world:createItemFromId(359,1,posi,true,333,nil)
 			end
-			base.common.CreateCircle(position(5,568,0), 3, spawnFire)
+			world:makeSound(7,position(5,568,0))
+			world:createItemFromId(359,1,position(5,568,0),true,333,nil)
+			base.common.CreateCircle(position(5,568,0), 1, spawnFire)
+			base.common.CreateCircle(position(5,568,0), 2, spawnFire)
 			User:getQuestProgress(305,3)
 			User:inform("Du hast das Tabakfeld zerstört. Gut gemacht. Spreche nun mit Tobis Vunu.","You destroyed the tabacco field. Well done. Talk to Tobis Vunu now.")
 	    end
