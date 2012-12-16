@@ -101,7 +101,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			if (User:increaseAttrib("mana", 0) >= 50)  then
 				User:increaseAttrib("mana", - 50);
 			end
-			User:talk(Character.say, "Damage is 2000, but would've been "..totalDmg);
+			User:talk(Character.say, "Damage is -2000, but would've been "..totalDmg);
 			User:talk(Character.say, "Because your INT was "..User:increaseAttrib("intelligence", 0));				
 		end
 		User:talk(Character.say, "Mana is now "..User:increaseAttrib("mana", 0));
