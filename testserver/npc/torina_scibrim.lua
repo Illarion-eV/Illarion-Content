@@ -32,13 +32,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Torina Scibrim the notary. Keywords: 'become citizen'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Torina Scibrim the notary. Keywords: 'become citizen','leave','give up citizenship', 'rank'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Bürger werden'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Bürger werden','verlassen','beende Bürgerstatus','Rang'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -344,7 +344,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("welche Stadt");
-talkEntry:addTrigger("welche faktion");
+talkEntry:addTrigger("welche Faktion");
 talkEntry:addResponse("Du gehöerst nach %TOWN!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -362,7 +362,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Ah! Rector %Name, be welcome, Sir. Is is truly a honour to see you!");
+talkEntry:addResponse("Ah! Rector %CHARNAME, be welcome, Sir. Is is truly a honour to see you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -372,7 +372,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Ah! Rector %Name, be welcome, Madam. Is is truly a honour to see you!");
+talkEntry:addResponse("Ah! Rector %CHARNAME, be welcome, Madam. Is is truly a honour to see you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -381,7 +381,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 9));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Ah! Rekor %Name! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen.");
+talkEntry:addResponse("Ah! Rekor %CHARNAME! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -438,7 +438,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Oh! Professor  %Name! How can I help you?");
+talkEntry:addResponse("Oh! Professor  %CHARNAME! How can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -448,7 +448,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Oh! Professort %Name! How can I help you?");
+talkEntry:addResponse("Oh! Professort %CHARNAME! How can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -457,7 +457,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Oh!Professor %Name! Was kann ich für Euch tun?");
+talkEntry:addResponse("Oh!Professor %CHARNAME! Was kann ich für Euch tun?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -466,7 +466,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Oh! Professorin %Name! Was kann ich für Euch tun?");
+talkEntry:addResponse("Oh! Professorin %CHARNAME! Was kann ich für Euch tun?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -476,7 +476,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Good to see you, Docent %Name! How are you?");
+talkEntry:addResponse("Good to see you, Docent %CHARNAME! How are you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -486,7 +486,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse(" Good to see you, Docent %Name! How are you?");
+talkEntry:addResponse(" Good to see you, Docent %CHARNAME! How are you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -495,7 +495,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Schön Euch zu sehen, Dozent %Name! Wie geht es Euch?");
+talkEntry:addResponse("Schön Euch zu sehen, Dozent %CHARNAME! Wie geht es Euch?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -504,7 +504,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 6));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse(" Schön euch zu sehen, Dozentin %Name! Wie geht es Euch?");
+talkEntry:addResponse(" Schön euch zu sehen, Dozentin %CHARNAME! Wie geht es Euch?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -514,7 +514,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Doctor %Name!");
+talkEntry:addResponse("Greetings to you, Doctor %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -524,7 +524,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Doctor %Name!");
+talkEntry:addResponse("Greetings to you, Doctor %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -533,7 +533,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Seid gegrüß, Doktort %Name!");
+talkEntry:addResponse("Seid gegrüß, Doktort %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -542,7 +542,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Seid gegrüßt, Doktorin %Name!");
+talkEntry:addResponse("Seid gegrüßt, Doktorin %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -39,7 +39,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Kaitza> der Tempelwächter. Schlüsselwörter: Zelphia, Beruf, Gobaith, gods."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Kaitza der Tempelwächter. Schlüsselwörter: Zelphia,Auftrag ,Beruf, Gobaith, Götter."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1211,7 +1211,7 @@ talkingNPC:addCycleText("#me streckt die Brust raus.", "#me pushes his chest out
 talkingNPC:addCycleText("#me fährt sich mit einer Fingerkralle durchs Gesicht.", "#me runs a clawed finger along his cheek.");
 talkingNPC:addCycleText("#me zischt leise.", "#me hisses quietly.");
 talkingNPC:addCycleText("#me schließt  füreinen kurzen Momemt seine Augen und atmet tief ein.", "#me closes his eyes for a few moments, breathing deeply.");
-talkingNPC:addCycleText("#me flüsterte still ein Gebet.", "#me whispers a silent prayer.");
+talkingNPC:addCycleText("#me flüstert still ein Gebet.", "#me whispers a silent prayer.");
 talkingNPC:addCycleText("Für die Göttin! Zss!", "For ze Goddessss!");
 talkingNPC:addCycleText("Ehre sssei der Göttin!", "Glory to ze Goddessss!");
 mainNPC:addLanguage(0);

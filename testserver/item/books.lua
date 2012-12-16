@@ -4,6 +4,7 @@ module("item.books", package.seeall)
 -- UPDATE common SET com_script='item.books' WHERE com_itemid = 2622;
 
 function InitBook()
+	--[[ -- needs a check
 	if (Init == nil) then
 		bookTitleDE = {}; -- The german title of the book.
 		bookTitleEN = {}; -- The english title of the book.
@@ -17,13 +18,14 @@ function InitBook()
 		bookMinimumLanguage[1] = 0;			
 		
 		Init = true;
-	end
+	end]]
 end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param)
 	InitBook();
     -- alchemy book; just to make it accessable for testers
-	if SourceItem:getData("alchemyBook","true") then
+	User:inform(""..SourceItem:getData("alchemyBook"))
+	if SourceItem:getData("alchemyBook")=="true" then
 	    User:sendBook(3)
 	end	
 	-- alchemy end

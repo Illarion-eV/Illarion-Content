@@ -15,7 +15,7 @@ function Drop(User,Item)
         Explode(User, Item);
         User:talkLanguage(Character.say,Player.german,"#me lässt eine Flasche fallen, welche explodiert.");
         User:talkLanguage(Character.say,Player.english,"#me drops a bottle and it explodes.");
-        InformChar(User,"Das Gynkesische Feuer rutscht dir aus den Händen und explodiert vor deinen Füßen.","The Gynkese Fire slips out of your hands and explodes in front of you feets.");
+        InformChar(User,"Das Gynkesische Feuer rutscht dir aus den Händen und explodiert vor deinen Füßen.","The Gynkese Fire slips out of your hands and explodes in front of your feet.");
     end;
 end;
 
