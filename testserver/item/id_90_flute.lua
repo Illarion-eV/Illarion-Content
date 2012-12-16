@@ -18,7 +18,11 @@ item.base.music.addTalkText("#me plays a wild tune on the flute.","#me spielt ei
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	item.base.music.PlayInstrument(User,SourceItem,skill);
 	
-	--Testing fireball, only activates if flute's data key name is used -Dyluck
+	--Testing fireball, only activates if flute's data key name is used. Does not affect normal flute -Dyluck
+	if ( (User:increaseAttrib("intelligence", 0) < 10) or (User:increaseAttrib("mana", 0) < 100) ) then
+		return;
+	end
+	
 	local targetPos
 	local targetChar
 	local extraPos
@@ -27,6 +31,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	local yoff
 	local mylist
 	local last
+	local isChar
+	local totalDmg
 	
 	graphicNum = tonumber(SourceItem:getData("spell"));
 	if ( graphicNum ~= nil ) then
@@ -58,34 +64,41 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			yoff = -1;
 		end
 		
+		--Set max range and check for line of sight
 		targetPos = position(User.pos.x + 5 * xoff, User.pos.y + 5 * yoff, User.pos.z);
-		
 		mylist = world:LoS(User.pos, targetPos);
 		last = table.getn(mylist);
-		if (mylist[1] == nil) then
+		if (mylist[1] == nil) then --hit max range
 			User:talk(Character.say, "option 1");
 			world:gfx(graphicNum, targetPos);
 			world:makeSound(5, targetPos);
-			if world:isCharacterOnField(targetPos) then
-				User:inform("hit something live");
-				world:makeSound(1, targetPos);
+			if world:isCharacterOnField(targetPos) then --hit char at max range
+				isChar = true;
 				targetChar = world:getCharacterOnField(targetPos);
-				targetChar:increaseAttrib("hitpoints", -2000);
 			end			
-		else
+		else --hit obstacle
 			User:talk(Character.say, "option 2");
 			for key, listEntry in pairs(mylist) do
 				User:inform("Item with the ID: "..listEntry.OBJECT.id);
 			end
 			User:inform("Array size is: "..last);
+			targetPos = mylist[last].OBJECT.pos;
 			world:gfx(graphicNum, mylist[last].OBJECT.pos);
 			world:makeSound(5, mylist[last].OBJECT.pos);
-			if (mylist[last].TYPE == "CHARACTER") then
-				User:inform("hit something live");
-				world:makeSound(1, mylist[last].OBJECT.pos);
-				mylist[last].OBJECT:increaseAttrib("hitpoints", -2000);
+			if (mylist[last].TYPE == "CHARACTER") then --obstacle is a char
+				isChar = true;
+				targetChar = mylist[last].OBJECT;
 			end
 		end
+		--Calculate numbers and damage char
+		if ( (isChar == true) and (targetChar:increaseAttrib("hitpoints", 0) > 0) ) then
+			User:inform("hit something live");
+			world:makeSound(1, targetPos);
+			totalDmg = (21 + User:increaseAttrib("intelligence", 0) - targetChar:increaseAttrib("essence", 0) ) * 50
+			targetChar:increaseAttrib("hitpoints", - totalDmg);
+			User:increaseAttrib("mana", - 100);
+		end
+		
 			
 		--[[
 		for i = 0, 2, 1 do
@@ -103,7 +116,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				end
 			end
 		end]]--
-	end	--End Test -Dyluck
+	end
+	--End Test -Dyluck
 end
 
 LookAtItem = item.general.wood.LookAtItem
