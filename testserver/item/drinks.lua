@@ -76,9 +76,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             if perc>19 then
                 perc=19;
             end
-            User:inform( "part1" );
-            local itemData = SourceItem.data + math.random( -40 + (perc*2), 40 - (perc*2) );
-            User:inform( "data: " .. itemData );
+            local itemData = SourceItem:getData("wineData") + math.random( -40 + (perc*2), 40 - (perc*2) );
             local wineQual = 0;
             local modv = itemData - math.floor(itemData/10)*10;
             local result = itemData / 10;
@@ -87,7 +85,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             else
                 wineQual = math.floor( result )
             end;
-            User:inform( "part3" );
             
 
             if ( wineQual < 1 ) then

@@ -53,8 +53,8 @@ itemShoes = 326
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Frederik Silvereye the notary. Keywords: become citizen.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frederik Silvereye der Notar. Schlüsselwörter: Bürger werden.")
+"Help" -> inform("[Game Help] This NPC is Frederik Silvereye the notary. Keywords: 'become citizen','leave','give up citizenship', 'rank'.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frederik Silvereye der Notar. Schlüsselwörter: Bürger werden,,'verlassen','beende Bürgerstatus','Rang'.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted.", "Greetings.", "Good day."
@@ -90,7 +90,7 @@ town = Galmair, "beende Bürgerstatus", "verlassen", "verlasse", "annuliere" -> 
 
 -- answer yes
 english, queststatus (208) = 1, "yes" -> "You are no longer citizen of Galmair. Go elsewhere.", queststatus (208) = 1, town = none
-queststatus (208) = 1, "ja" ->  "Ihr seit nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders.", queststatus (208) = 1, town = none
+queststatus (208) = 1, "ja" ->  "Ihr seid nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders.", queststatus (208) = 1, town = none
 
 --answer no
 english, queststatus (208)=1, ".*" -> "Mhm... The Don will be pleased to hear that.", queststatus (208) = 0
@@ -102,10 +102,10 @@ queststatus (208)=1, ".*" -> "Mhm, ... Der Don wird sich freuen, dies zu hören.
 -- RANK informations
 
 -- Rank 10
-town = Cadomyr,english, male, rank > 9, "rank" -> "Tycoon %Name, be welcome. Is is truly a honour to see you!"
-town = Cadomyr,english, female, rank > 9, "rank" -> "Tyconn %Name, be welcome. Is is truly a honour to see you.!"
-town = Cadomyr,male, rank > 9, "rang" -> " Tycoon %Name! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
-town = Cadomyr,female, rank > 9, "rang" -> "Baronin %! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
+town = Galmair,english, male, rank > 9, "rank" -> "Tycoon %CHARNAME, be welcome. Is is truly a honour to see you!"
+town = Galmair,english, female, rank > 9, "rank" -> "Tyconn %CHARNAME, be welcome. Is is truly a honour to see you.!"
+town = Galmair,male, rank > 9, "rang" -> " Tycoon %CHARNAME! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
+town = Galmair,female, rank > 9, "rang" -> "Baronin %! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
 
 --Rank 9
 town = Galmair,english, male, rank > 8, "rank" -> "Magnate, be welcome. Is is a honour to see you."
@@ -114,22 +114,22 @@ town = Galmair,male, rank > 8, "rang" -> "Magnat, seid willkommen. Welch eine Eh
 town = Galmair,female, rank > 8, "rang" -> "Magnatin, seid wilokmmen.Welch eine Ehre Euch zu sehen."
 
 --Rank 8
-town = Galmair,english, male, rank > 7,"rank" -> "Mogul %Name! How can I help you?"
-town = Galmair,english, female, rank > 7, "rank" -> "Mogul %Name! How can I help you?"
-town = Galmair,male, rank > 7,"rang" -> "Mogul %Name! Was kann ich für Euch tun?"
-town = Galmair,female, rank > 7, "rang" -> "Mogulin %Name! Was kann ich für Euch tun?"
+town = Galmair,english, male, rank > 7,"rank" -> "Mogul %CHARNAME! How can I help you?"
+town = Galmair,english, female, rank > 7, "rank" -> "Mogul %CHARNAME! How can I help you?"
+town = Galmair,male, rank > 7,"rang" -> "Mogul %CHARNAME! Was kann ich für Euch tun?"
+town = Galmair,female, rank > 7, "rang" -> "Mogulin %CHARNAME! Was kann ich für Euch tun?"
 
 --Rank 7
-town = Galmair,english, male, rank > 6,"rank" ->  "Greetings to you, Patrician %Name!"
-town = Galmair,english, female, rank > 6, "rank" ->  "Greetings to you, Patrician %Name!"
-town = Galmair,male, rank > 6,"rang" -> "Seid gegrüßt, Patrizier %Name!"
-town = Galmair,female, rank > 6, "rang" -> "Seid gegrüßt, Patrizierin %Name!"
+town = Galmair,english, male, rank > 6,"rank" ->  "Greetings to you, Patrician %CHARNAME!"
+town = Galmair,english, female, rank > 6, "rank" ->  "Greetings to you, Patrician %CHARNAME!"
+town = Galmair,male, rank > 6,"rang" -> "Seid gegrüßt, Patrizier %CHARNAME!"
+town = Galmair,female, rank > 6, "rang" -> "Seid gegrüßt, Patrizierin %CHARNAME!"
 
 --Rank 6
-town = Galmair,english, male, rank > 5,"rank" -> "Greetings to you, Financier %Name!"
-town = Galmair,english, female, rank > 5, "rank" -> "Greetings to you, Financier %Name!"
-town = Galmair,male, rank > 5,"rang" -> "Seid gegrüßt, Finanzier %Name!"
-town = Galmair,female, rank > 5, "rang" ->"Seid gegrüßt, Finanzier %Name!"
+town = Galmair,english, male, rank > 5,"rank" -> "Greetings to you, Financier %CHARNAME!"
+town = Galmair,english, female, rank > 5, "rank" -> "Greetings to you, Financier %CHARNAME!"
+town = Galmair,male, rank > 5,"rang" -> "Seid gegrüßt, Finanzier %CHARNAME!"
+town = Galmair,female, rank > 5, "rang" ->"Seid gegrüßt, Finanzier %CHARNAME!"
 
 -- Rank 5
 town = Galmair,english, male, rank > 4,"rank" -> "Greetings to you, Merchant!"

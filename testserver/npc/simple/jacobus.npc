@@ -49,8 +49,8 @@ itemShoes = 771
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 122, 2747, 21, 22, 234, 2534, 2536, 446, 447, 448, 449, 450, 451, 452, 45, 46, 197, 198, 283, 284, 285, 224, 225, 336, 465, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 92, 393, 397, 399, 1001, 1840, 2031, 24, 2763, 2140, 251, 252, 253, 254, 255, 256, 257
-buyPrimaryItems = 122, 2747, 21, 22, 234, 2534, 2536, 446, 447, 448, 449, 450, 451, 452, 45, 46, 197, 198, 283, 284, 285, 224, 225, 336, 465, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 92, 393, 397, 399, 1001, 1840, 2031
+sellItems = 122, 21, 22, 234, 2534, 2536, 446, 447, 448, 449, 450, 451, 452, 45, 46, 197, 198, 283, 284, 285, 224, 225, 336, 465, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 92, 393, 397, 399, 1001, 1840, 2031, 24, 2763, 2140, 251, 252, 253, 254, 255, 256, 257
+buyPrimaryItems = 122, 21, 22, 234, 2534, 2536, 446, 447, 448, 449, 450, 451, 452, 45, 46, 197, 198, 283, 284, 285, 224, 225, 336, 465, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282, 92, 393, 397, 399, 1001, 1840, 2031
 buySecondaryItems = 24, 2763, 2140, 251, 252, 253, 254, 255, 256, 257
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
@@ -63,7 +63,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bough/sold):
 
 -- 5% Tools (Miner): 24, 2763
--- 10% Tools (Finesmith): 122, 2747
+-- 10% Tools (Finesmith): 122
 -- 5% Tools (Gem grinder): 2140
 -- 10% Coal, Ores, Nuggets: 21, 22, 234, 2534, 2536
 -- 10% Gem powder: 446, 447, 448, 449, 450, 451, 452

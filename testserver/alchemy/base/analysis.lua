@@ -80,7 +80,7 @@ function PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
 		potionQualityEN = alchemy.base.alchemy.qListEn[math.floor(potionQuality/100)]
 		potionQualityDE = alchemy.base.alchemy.qListDe[math.floor(potionQuality/100)]
 		analysisResultDE = "Substanz:\nTrank auf "..world:getItemName(reGemdust,Player.german).."basis\n\nTrankgüte:\n"..potionQualityDE.." Qualität\n\nWirkung:\n"
-		analysisResultEN = "Substance:\nPotion based on "..world:getItemName(reGemdust,Player.german).."\n\nPotion quality:\n"..potionQualityEN.." quality\n\nEffect:"
+		analysisResultEN = "Substance:\nPotion based on "..world:getItemName(reGemdust,Player.english).."\n\nPotion quality:\n"..potionQualityEN.." quality\n\nEffect:"
 		local potionEffectId = tonumber(brew:getData("potionEffectId"))
 		if (potionEffectId == 0) or (potionEffectId == nil) then
 			analysisResultDE = analysisResultDE.."Keine Wirkung"

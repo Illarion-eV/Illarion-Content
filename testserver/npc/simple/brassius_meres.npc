@@ -9,6 +9,14 @@
 --                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
+-- ## REPLACE THE nextCycle FUNCTION AND ADD THE REQUIREMENT IN THE LUA CODE OF EACH GUARD ##
+-- require("npc.base.guards_static")
+
+-- function nextCycle(npcChar)
+--   mainNPC:nextCycle(npcChar);
+--   npc.base.guards_static.NextCycle(npcChar);
+-- end;
+
 name = "Brassius Meres"
 race = human
 sex = male
