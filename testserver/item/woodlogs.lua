@@ -20,27 +20,33 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
       return;
     end
   else
+    debug("1");
     -- item on a field
     -- no stacks of wood
     if (SourceItem.number > 1) then
+      debug("2");
       base.common.HighInformNLS(User,
       "Du kannst immer nur ein Feuer gleichzeitig entfachen.",
       "You can light a fire only one at a time.");
       return;
     end
+    debug("3");
     -- there should be no other item on the field
     if (world:getField(checkPos):countItems() > 1) then
+      debug("4");
       base.common.HighInformNLS(User,
       "Du kannst nur an einer freien Stelle ein Feuer entfachen.",
       "You can light a fire only at a free spot.");
       return;
     end
+    debug("5");
     -- turn to field if necessary
     if not base.common.IsLookingAt(User,checkPos) then
       base.common.TurnTo( User, checkPos );
     end
+    debug("6");
   end
-  
+  debug("7");
   -- check wether user is under roof
   local potentialRoofPos=position(checkPos.x, checkPos.y, checkPos.z+1);
   local potRoof=world:getField(potentialRoofPos);
