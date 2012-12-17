@@ -67,10 +67,10 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings in the name of Elara. Can
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge euch Elara den Weg weisen.", "Gehabt euch wohl und noch viel Erfolg bei euren weiteren Nachforschungen."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Elara guide your way.", "Farewell and best of luck for your further studies."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Möge euch Elara den Weg weisen.", "Gehabt euch wohl und noch viel Erfolg bei euren weiteren Nachforschungen."
-"How are you", "How feel", "How do you do" -> "I am busy. I studied the runes of magic, so do not distract me too long."
+"How are you", "How feel", "How do you do" -> "I am busy. I study the runes of magic, so do not distract me too long."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich bin beschäftigt. Ich erforsche die magischen Runen, also lenkt mich nicht allzu lange ab."
 "your name", "who are you", "who art thou" -> "My name is Arimedus Dalahorn."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "My name is Arimedus Dalahorn."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Arimedus Dalahorn."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "I am not here to entertain you."
