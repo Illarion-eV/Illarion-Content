@@ -80,7 +80,7 @@ function UseItem(user, item, target, counter, param, ltstate)
             local callback = function(dialog)
                 local success = dialog:getSuccess()
 
-                if success and user:isInRangeToPosition(pos, 1) then
+                if success and isUserNextTo(user, pos) then
                     local selected = dialog:getSelectedIndex() + 1
                     user:sendBook(bookshelf[selected])
                 end
@@ -101,4 +101,8 @@ end
 
 function getBookshelf(pos)
     return bookshelves and bookshelves[pos.x] and bookshelves[pos.x][pos.y] and bookshelves[pos.x][pos.y][pos.z]
+end
+
+function isUserNextTo(user, pos)
+    return user.pos.z == pos.z and math.max(math.abs(user.pos.x - pos.x), math.abs(user.pos.y - pos.y)) <= 1
 end
