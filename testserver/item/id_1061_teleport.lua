@@ -15,8 +15,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	destCoordY = SourceItem:getData("destinationCoordsY")
 	destCoordZ = SourceItem:getData("destinationCoordsZ")
 	if (destCoordX ~= "") and (destCoordY ~= "") and (destCoordZ ~= "") then
-	    User:inform("debug 10")
-		success = false;
+	    success = false;
 		radius = 4;
 
 		for i = 1, 10 do
@@ -48,7 +47,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			
         world:erase( SourceItem, 1 );
     else
-	    User:inform("debug 22")
-		-- no portal book
+	   -- no portal book
 	end	
 end
