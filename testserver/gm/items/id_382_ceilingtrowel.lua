@@ -488,7 +488,7 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 	
 	player_list=world:getPlayersInRangeOf(User.pos, radius);
 	if player_list[1]~=nil then
-		for i=1 in #(player_list) do
+		for i=1, #(player_list) do
 			Factionvalues = base.factions.getFaction(player_list[i]);
 			User:inform("[debug] values for "..player_list[i].name);
 			User:inform("[debug] tid "..Factionvalues.tid)
