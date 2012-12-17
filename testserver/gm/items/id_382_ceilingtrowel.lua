@@ -495,7 +495,7 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 			end	
 		end
 	end	
-	User:inform(value.." rankpoints "..text..".")
+	User:inform("You just "..text.." "..value.." rankpoints.");
 end
 
 function Init()
