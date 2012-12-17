@@ -71,10 +71,10 @@ function Init()
 			  {"a small nutrition annihilator bomb with at least average quality", "einen kleinen Nahrungsannihilator von zumindest durchschnittlicher Qualität"},
 			  {327,5,{"potionEffectId","311"}}
 			  )		
-    AddPotion("Cadomyr", 
-	          312, 
-			  {"a small nutrition annihilator bomb with at least average quality", "einen kleinen Nahrungsannihilator von zumindest durchschnittlicher Qualität"},
-			  {327,5,{"potionEffectId","311"}}
+    AddPotion("Galmair", 
+	          314, 
+			  {"a medium nutrition annihilator bomb with at least average quality", "einen kleinen Nahrungsannihilator von zumindest durchschnittlicher Qualität"},
+			  {327,5,{"potionEffectId","312"}}
 			  )
     AddPotion("Galmair", 
 	          316, 
