@@ -488,13 +488,15 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 	
 	player_list=world:getPlayersInRangeOf(User.pos, radius);
 	if player_list[1]~=nil then
-		for i, player in pairs(player_list) do
-			Factionvalues = base.factions.getFaction(player);
+		for i=1 in #(player_list) do
+			Factionvalues = base.factions.getFaction(player_list[i]);
+			User:inform("[debug] values for "..player_list[i].name);
+			User:inform("[debug] tid "..Factionvalues.tid)
 			if faction == nil or faction == 0 then
-				base.factions.setRankpoints(player, Factionvalues.rankpoints+value);
+				base.factions.setRankpoints(player_list[i], Factionvalues.rankpoints+value);
 				User:inform(text.." "..value.." rankpoints for ALL characters within "..radius.." tiles.");
 			elseif faction == Factionvalues.tid then
-				base.factions.setRankpoints(player, Factionvalues.rankpoints+value);
+				base.factions.setRankpoints(player_list[i], Factionvalues.rankpoints+value);
 				User:inform(text.." "..value.." rankpoints for characters who belong to "..base.factions.getTownNameByID(faction).." within "..radius.." tiles.");
 			else
 				User:inform("No fitting character in the choosen radius.")
