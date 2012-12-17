@@ -375,7 +375,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             ChangeRankpoints(User,modifier,value,faction,radius);
           else
             User:inform("Sorry, I didn't understand you.");
-            User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|0|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
+            User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
           end
         end
         User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|nil> (= cadomyr|runewick|galmair|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
@@ -484,19 +484,15 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 	if player_list[1]~=nil then
 		for i=1, #(player_list) do
 			Factionvalues = base.factions.getFaction(player_list[i]);
-			debug("factionID:"..tonumber(faction)..".");
-			debug("townID:"..tonumber(Factionvalues.tid)..".");
-			if faction == nil or faction == 0 then
+			if faction == nil or faction == 99 then
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
-				User:inform(text.." "..value.." rankpoints for ALL characters within "..radius.." tiles.");
 			elseif tonumber(faction) == tonumber(Factionvalues.tid) then
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
-				User:inform(text.." "..value.." rankpoints for characters who belong to "..base.factions.getTownNameByID(faction).." within "..radius.." tiles.");
 			else
-				User:inform("No fitting character in the choosen radius.")
+				return;
 			end	
 		end
-
+		User:inform(value.." rankpoints "..text..".")
 	end	
 end
 
