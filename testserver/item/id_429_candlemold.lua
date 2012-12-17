@@ -6,6 +6,7 @@
 
 require("base.common")
 require("content.gathering")
+require("item.general.wood")
 
 module("item.id_429_candlemold", package.seeall)
 
@@ -111,4 +112,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Your old candle mold breaks.");
 		return
 	end
+end
+
+function LookAtItem(User,Item)
+  item.general.wood.LookAtItem(User,Item)
 end
