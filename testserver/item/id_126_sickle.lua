@@ -266,7 +266,7 @@ function GetHarvestItem(User)
       local checkPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
       if (world:isItemOnField(checkPos)) then
         local item = world:getItemOnField(checkPos);
-        if (HarvestItems[item.id] ~= nil and item.wear == 255) then
+        if (HarvestItems[item.id] ~= nil and item:getData("amount") ~= "") then
           return item;
         end
       end
