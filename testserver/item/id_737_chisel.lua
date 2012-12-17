@@ -130,6 +130,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 end
 
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 1, false, false) );
+function LookAtItem(User,Item)
+    item.general.metal.LookAtItem(User,Item)
 end

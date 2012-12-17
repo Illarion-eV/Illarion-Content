@@ -36,10 +36,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	-- TODO: should it be disabled?
-	if not base.common.FitForWork( User ) then -- check minimal food points
-		return
-	end
+	-- Disabled in order to give a hungry player a chance to strengthen.
+	-- if not base.common.FitForWork( User ) then -- check minimal food points
+		-- return
+	-- end
 
 	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
 		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
