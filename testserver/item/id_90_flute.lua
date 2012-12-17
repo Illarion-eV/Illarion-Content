@@ -80,10 +80,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				targetChar = world:getCharacterOnField(targetPos);
 			end			
 		else --hit obstacle
+			--[[
 			for key, listEntry in pairs(mylist) do
 				User:inform("Item with the ID: "..listEntry.OBJECT.id);
 			end
 			User:inform("Array size is: "..last);
+			]]--
 			targetPos = mylist[last].OBJECT.pos;
 			world:gfx(graphicNum, mylist[last].OBJECT.pos);
 			world:makeSound(5, mylist[last].OBJECT.pos);
@@ -104,7 +106,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			User:talk(Character.say, "Damage is -2000, but would've been "..totalDmg);
 			User:talk(Character.say, "Because your INT was "..User:increaseAttrib("intelligence", 0));				
 		end
-		User:talk(Character.say, "Mana is now "..User:increaseAttrib("mana", 0));
+		--User:talk(Character.say, "Mana is now "..User:increaseAttrib("mana", 0));
 		
 			
 		--[[

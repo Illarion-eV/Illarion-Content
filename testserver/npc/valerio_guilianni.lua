@@ -981,7 +981,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Some of the dwarves pray to her. They say if we don't, the mountain will collapse upon us. Whatever, let the superstitious believe what they wanna.");
+talkEntry:addResponse("Some of the dwarves pray to her. They say if we don't, the mountain will collapse upon us. Whatever. Let the superstitious believe what they wanna.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -994,7 +994,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Family is all that matters, you remember that. You rely on friends and best believe your pockets will be empty and a knife will be in your back.");
+talkEntry:addResponse("Family is all that matters. You remember that. You rely on friends and surely your pockets will be empty and a knife will be in your back.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
