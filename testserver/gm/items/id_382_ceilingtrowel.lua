@@ -363,17 +363,15 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		  if (string.find(inputString,"(%a+) (%d+) (%d+) (%d+)") ~= nil) then
             a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)");
             value=tonumber(value);
-			User:inform("[Debug] Fitting string found "..modifier..value..faction..radius)
+			radius=tonumber(radius);
             ChangeRankpoints(User,modifier,value,faction,radius);
 		  elseif (string.find(inputString,"(%a+) (%d+) (%d+)") ~= nil) then
             a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+)");
             value=tonumber(value);
-			User:inform("[Debug] Fitting string found "..modifier..value..faction)
             ChangeRankpoints(User,modifier,value,faction,radius);
 		  elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
             a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)");
             value=tonumber(value);
-			User:inform("[Debug] Fitting string found "..modifier..value)
             ChangeRankpoints(User,modifier,value,faction,radius);
           else
             User:inform("Sorry, I didn't understand you.");
@@ -468,12 +466,9 @@ function UseItemWithField(User,SourceItem,TargetPos,Counter,param)
 end
 
 function ChangeRankpoints(User,modifier,value,faction,radius)
-
-	User:inform("[debug] In ChangeRankpoints")
 	--check if the points shall be added or removed
 	if modifier == "add" then
 		text = "Added";
-		User:inform("[debug] Rankpoints "..text);
 	elseif modifier == "sub" then
 		text = "Removed";
 		value = -value;
@@ -483,23 +478,20 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 	
 	if radius == nil then
 		radius = 5;
-		User:inform("[debug] Radius set to "..radius);
 	end
 	
 	player_list=world:getPlayersInRangeOf(User.pos, radius);
 	if player_list[1]~=nil then
 		for i=1, #(player_list) do
 			Factionvalues = base.factions.getFaction(player_list[i]);
-			User:inform("[debug] values for "..player_list[i].name);
-			User:inform("[debug] tid "..Factionvalues.tid)
 			if faction == nil or faction == 0 then
 				base.factions.setRankpoints(player_list[i], Factionvalues.rankpoints+value);
 				User:inform(text.." "..value.." rankpoints for ALL characters within "..radius.." tiles.");
-			elseif faction == Factionvalues.tid then
+			elseif tonumber(faction) == tonumber(Factionvalues.tid) then
 				base.factions.setRankpoints(player_list[i], Factionvalues.rankpoints+value);
 				User:inform(text.." "..value.." rankpoints for characters who belong to "..base.factions.getTownNameByID(faction).." within "..radius.." tiles.");
 			else
-				User:inform("No fitting character in the choosen radius.")
+				return;
 			end	
 		end
 
