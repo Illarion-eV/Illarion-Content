@@ -49,7 +49,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
   
-  local TargetItem = GetHarvestItem(User.pos);
+  local TargetItem = GetHarvestItem(User);
   if ( TargetItem == nil) then
 		base.common.HighInformNLS( User, 
 		"Hier ist nichts, wofür du die Sichel benutzen kannst.", 
