@@ -17,8 +17,8 @@ function addBookshelf(pos, containedBooks)
     bookshelves = bookshelves or {}
     bookshelves[pos.x] = bookshelves[pos.x] or {}
     bookshelves[pos.x][pos.y] = bookshelves[pos.x][pos.y] or {}
+    bookshelves[pos.x][pos.y][pos.z] = {}
     local bookshelf = bookshelves[pos.x][pos.y][pos.z]
-    bookshelf = {}
 
     for i=1, #containedBooks do
         table.insert(bookshelf, containedBooks[i])
