@@ -363,10 +363,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		  if (string.find(inputString,"(%a+) (%d+) (%d+) (%d+)") ~= nil) then
             a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)");
             value=tonumber(value);
+			faction=tonumber(faction)
 			radius=tonumber(radius);
             ChangeRankpoints(User,modifier,value,faction,radius);
 		  elseif (string.find(inputString,"(%a+) (%d+) (%d+)") ~= nil) then
             a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+)");
+			faction=tonumber(faction)
             value=tonumber(value);
             ChangeRankpoints(User,modifier,value,faction,radius);
 		  elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
@@ -378,7 +380,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
           end
         end
-        User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|nil> (= cadomyr|runewick|galmair|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
+        User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
       elseif (ind == 2) then -- guard modes
         local factionIds = {0,1,2,3};
         local cbFirstFaction = function (dialog)
@@ -492,8 +494,8 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 				return;
 			end	
 		end
-		User:inform(value.." rankpoints "..text..".")
 	end	
+	User:inform(value.." rankpoints "..text..".")
 end
 
 function Init()
