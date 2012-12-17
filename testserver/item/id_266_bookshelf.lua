@@ -67,6 +67,19 @@ function UseItem(user, item, target, counter, param, ltstate)
     if item:getType() ~= scriptItem.field then
         return
     end
+
+    local pos = item.pos
+    local bookshelf = getBookshelf(pos)
+
+    if bookshelf then
+        local bookCount = #bookshelf
+        
+        if bookCount == 1 then
+            user:sendBook(bookshelf[1])
+        elseif bookCount > 1 then
+            
+        end
+    end
 end
 
 function getBookshelf(pos)
