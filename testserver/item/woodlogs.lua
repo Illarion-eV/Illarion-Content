@@ -36,8 +36,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
       return;
     end
     -- turn to field if necessary
-    if not base.common.IsLookingAt(User,checkPos.pos) then
-      base.common.TurnTo( User, checkPos.pos );
+    if not base.common.IsLookingAt(User,checkPos) then
+      base.common.TurnTo( User, checkPos );
     end
   end
   
