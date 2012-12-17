@@ -42,7 +42,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
   end
   
   -- check wether user is under roof
-  local potentialRoofPos=position(checkPos.pos.x, checkPos.pos.y, checkPos.pos.z+1);
+  local potentialRoofPos=position(checkPos.x, checkPos.y, checkPos.z+1);
   local potRoof=world:getField(potentialRoofPos);
   local curWeather = world.weather;
   if ( ( (curWeather.percipitation_type == 1) or (curWeather.percipitation_type == 2) ) and (curWeather.percipitation_strength > 20) and
