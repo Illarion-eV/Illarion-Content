@@ -29,13 +29,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Jonathan Idler the mage. Keywords: Profession, Zassaria, Quest, Order."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Jonathan Idler the mage. Keywords: Profession, Zassaria, Grüße."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Jonathan Idler  der Magier. Schlüßsselwörter: Beruf, Zarissa, Quest, Auftrag."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Jonathan Idler der Magier. Schlüßsselwörter: Beruf, Zassaria, Greetings."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -169,7 +169,7 @@ talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("Ah, yes...");
 talkEntry:addResponse("#me moves his glasses.");
-talkEntry:addResponse("Who? Me? I'm Joanthat. Joanathan Ideler.");
+talkEntry:addResponse("Who? Me? I'm Jonathan. Jonathan Ideler.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -225,7 +225,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 1));
 talkEntry:addTrigger("Zarissa");
 talkEntry:addTrigger("Lizzard");
-talkEntry:addTrigger("oil lamp");
+talkEntry:addTrigger("Öllampe");
 talkEntry:addResponse("Ah, die Echsendame Zassaria schickt Euch? Ich bin zur Zeit sehr mit meinen Studien beschäftigt, bitte richtet ihr aus, dass ich sie später aufsuchen werde.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -234,17 +234,19 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("I finally got the oil lamp. Danke.");
+talkEntry:addTrigger("Zarissa");
+talkEntry:addTrigger("Lizzard");
+talkEntry:addTrigger("oil lamp");
+talkEntry:addResponse("I finally got the oil lamp. Thanks.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 3));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich hab nun endlich die Öllampe erhalten. Thanks.");
+talkEntry:addTrigger("Zarissa");
+talkEntry:addTrigger("Lizzard");
+talkEntry:addTrigger("Öllampe");
+talkEntry:addResponse("Ich hab nun endlich die Öllampe erhalten. Danke.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -295,40 +297,6 @@ talkEntry:addTrigger("erzähl etwas");
 talkEntry:addResponse("Die Alten Götter representieren die fünf Schulen der Magie.");
 talkEntry:addResponse("Magie ist eine fanzinierende Kunst.");
 talkEntry:addResponse("Ich las, dass an einem fernen Ort Acient genutzt wurde um Zauber aufzusagen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tea");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tee");
-talkEntry:addResponse("ENGLISH1.");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Elf");
-talkEntry:addResponse("I'd like to see one...Would you do me a favor?");
-talkEntry:addResponse("So, so know an Elf? Really? Would you do me favour?");
-talkEntry:addResponse("Seems like I have a task for you.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elf");
-talkEntry:addTrigger("Elb");
-talkEntry:addResponse("Ich würde gern mal seinen sehen... Könntet ihr mir einen gefallen tun?");
-talkEntry:addResponse("So, Ihr kennt als einen Elfen? Wirklich? Würdet Ihr mir einen Gefallen tun?");
-talkEntry:addResponse("Ich hätte da eine Aufgabe für Euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -666,7 +634,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addResponse("Tut mir leid, ich kenne diese Person nicht.");
-talkEntry:addResponse("Ich habe diesen Namen schon einmal gehöret...");
+talkEntry:addResponse("Ich habe diesen Namen schon einmal gehört...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -702,7 +670,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addResponse("Tut mir leid, ich kenne diese Person nicht.");
-talkEntry:addResponse("Ich habe diesen Namen schon einmal gehöret...");
+talkEntry:addResponse("Ich habe diesen Namen schon einmal gehört...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -719,7 +687,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
 talkEntry:addResponse("Ich war dort noch nie.");
 talkEntry:addResponse("Ah, ja. Galmair.");
-talkEntry:addResponse("Isthis place far from here?");
+talkEntry:addResponse("Is this place far from here?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -748,7 +716,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addResponse("Tut mir leid, ich kenne diese Person nicht.");
-talkEntry:addResponse("Ich habe diesen Namen schon einmal gehöret...");
+talkEntry:addResponse("Ich habe diesen Namen schon einmal gehört...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -782,7 +750,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addResponse("Albar ist berühm für seine Gesellschaft die an Traditionen festklammert, nicht jedem gefällt dies...");
 talkEntry:addResponse("Albar, ah ja.");
-talkEntry:addResponse("Der Beruf seines Vaters spielt in Albar eine größere Rolle als das geld was man besitzt.");
+talkEntry:addResponse("Der Beruf seines Vaters spielt in Albar eine größere Rolle als das Geld was man besitzt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

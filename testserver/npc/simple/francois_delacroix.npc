@@ -93,7 +93,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Money wise Francois is doing good, but his youth is growing thin. He yearns for a mate and passively lingers the thought if she wants to be with a guy or a girl.
 -- Personality: Gentle, sweet, talented sales person, charismatic, outgoing on the outside, but lonely and self-conscious on the inside.
 "kauf", "handel" -> "Lass uns handeln!", trade
-"buy,", "sell", "trade" -> "Let's trade!", trade
+"buy", "sell", "trade" -> "Let's trade!",trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Francois Delacroix the Trader. Keywords: Hello, Markets, Buy, Sell, Agriculture, Trade.")
