@@ -468,7 +468,6 @@ function UseItemWithField(User,SourceItem,TargetPos,Counter,param)
 end
 
 function ChangeRankpoints(User,modifier,value,faction,radius)
-
 	User:inform("[debug] In ChangeRankpoints")
 	--check if the points shall be added or removed
 	if modifier == "add" then
@@ -491,7 +490,7 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 		for i=1, #(player_list) do
 			Factionvalues = base.factions.getFaction(player_list[i]);
 			User:inform("[debug] values for "..player_list[i].name);
-			User:inform("[debug] tid "..Factionvalues.tid)
+			User:inform("[debug] tid "..Factionvalues.tid.." faction "..faction)
 			if faction == nil or faction == 0 then
 				base.factions.setRankpoints(player_list[i], Factionvalues.rankpoints+value);
 				User:inform(text.." "..value.." rankpoints for ALL characters within "..radius.." tiles.");
