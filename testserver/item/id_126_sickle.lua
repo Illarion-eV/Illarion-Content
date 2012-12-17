@@ -257,7 +257,7 @@ end
 function GetHarvestItem(User)
   -- first check front position
   local item = base.common.GetFrontItem(User);
-  if (item ~= nil and HarvestItems[item.id] ~= nil and item.wear == 255) then
+  if (item ~= nil and HarvestItems[item.id] ~= nil and (item:getData("amount") ~= "" or item.wear == 255)) then
     return item;
   end
   local Radius = 1;
@@ -267,6 +267,7 @@ function GetHarvestItem(User)
       if (world:isItemOnField(checkPos)) then
         local item = world:getItemOnField(checkPos);
         -- harvest item has to be static or an amount has to be set
+        debug("id " .. item.id .. ", amount " .. item:getData("amount") .. ", wear " .. item.wear);
         if (HarvestItems[item.id] ~= nil and (item:getData("amount") ~= "" or item.wear == 255)) then
           return item;
         end
