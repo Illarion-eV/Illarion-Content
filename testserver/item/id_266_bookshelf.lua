@@ -77,7 +77,24 @@ function UseItem(user, item, target, counter, param, ltstate)
         if bookCount == 1 then
             user:sendBook(bookshelf[1])
         elseif bookCount > 1 then
+            local callback = function(dialog)
+                local success = dialog:getSuccess()
+
+                if success and user:isInRangeToPosition(pos, 1) then
+                    local selected = dialog:getSelectedIndex() + 1
+                    user:sendBook(bookshelf[selected])
+                end
+            end
             
+            local title = base.common.GetNLS(user, "Bücherregal", "Bookshelf")
+            local description = base.common.GetNLS(user, "Welches Buch möchtest du lesen?", "Which book do you want to read?")
+            local dialog = SelectionDialog(title, description, callback)
+            
+            for i=1, bookCount do
+                dialog:addOption(116, base.common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english))
+            end
+            
+            user:requestSelectionDialog(dialog)
         end
     end
 end
