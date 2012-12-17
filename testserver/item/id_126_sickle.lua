@@ -253,8 +253,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 end
 
--- check around the position for harvest items, only top items on the field!
-function GetHarvestItem(CenterPos)
+-- check around the user for harvest items, only top items on the field!
+function GetHarvestItem(User)
   -- first check front position
   local item = base.common.GetFrontItem(User);
   if (item ~= nil and HarvestItems[item.id] ~= nil and item.wear == 255) then
@@ -263,7 +263,7 @@ function GetHarvestItem(CenterPos)
   local Radius = 1;
   for x=-Radius,Radius do
     for y=-Radius,Radius do 
-      local checkPos = position(CenterPos.x + x, CenterPos.y + y, CenterPos.z);
+      local checkPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
       if (world:isItemOnField(checkPos)) then
         local item = world:getItemOnField(checkPos);
         if (HarvestItems[item.id] ~= nil and item.wear == 255) then
