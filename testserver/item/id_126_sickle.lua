@@ -11,11 +11,7 @@ LookAtItem = item.general.metal.LookAtItem
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
 	InitHarvestItems();
-    -- if we're gathering herbs or harvesting crops is determined below
-	
-	-- is the target position needed?
-	local TargetPos = base.common.GetFrontPosition(User);
-	TargetItem = base.common.GetFrontItem(User);
+  -- if we're gathering herbs or harvesting crops is determined below
 
 	base.common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
@@ -52,27 +48,20 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if not base.common.FitForWork( User ) then -- check minimal food points
 		return
 	end
-
-	if not base.common.IsLookingAt( User, TargetPos ) then -- check looking direction
-		base.common.TurnTo( User, TargetPos ); -- turn if necessary
-	end
-	
-	-- any other checks?
-	-- check if there is a harvestable item or any item at all
-	local harvestItem = nil;
-	if ( TargetItem ~= nil ) then
-		harvestItem = HarvestItems[TargetItem.id];
-	end
-  -- ensure that the user harvests only from static items.
-  if (TargetItem ~= nil and TargetItem.wear < 255) then
-    TargetItem = nil;
-  end
-	if ( TargetItem == nil or harvestItem == nil) then
+  
+  local TargetItem = GetHarvestItem(User);
+  if ( TargetItem == nil) then
 		base.common.HighInformNLS( User, 
 		"Hier ist nichts, wofür du die Sichel benutzen kannst.", 
 		"There is nothing for which you can use the sickle." );
 		return;
 	end
+  harvestItem = HarvestItems[TargetItem.id];
+  local TargetPos = TargetItem.pos;
+	if not base.common.IsLookingAt( User, TargetPos ) then -- check looking direction
+		base.common.TurnTo( User, TargetPos ); -- turn if necessary
+	end
+	
 	-- there is a harvestable item, but does the ground fit?
 	local GroundType = base.common.GetGroundType(world:getField(TargetPos):tile());
 	local harvestProduct = nil;
@@ -243,7 +232,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		if ( amount > 0 ) then  -- there are still items we can work on
+    local nextItem = GetHarvestItem(User);
+		if ( amount > 0 or (nextItem~=nil and HarvestItems[nextItem.id].isFarmingItem == harvestProduct.isFarmingItem)) then  -- there are still items we can work on
 			theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
 			User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
 		elseif ( not harvestProduct.isFarmingItem ) then -- no items left
@@ -262,6 +252,29 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( changeItem ) then
 		world:changeItem(TargetItem);
 	end
+end
+
+-- check around the user for harvest items, only top items on the field!
+function GetHarvestItem(User)
+  -- first check front position
+  local item = base.common.GetFrontItem(User);
+  if (item ~= nil and HarvestItems[item.id] ~= nil and (item:getData("amount") ~= "" or item.wear == 255)) then
+    return item;
+  end
+  local Radius = 1;
+  for x=-Radius,Radius do
+    for y=-Radius,Radius do 
+      local checkPos = position(User.pos.x + x, User.pos.y + y, User.pos.z);
+      if (world:isItemOnField(checkPos)) then
+        local item = world:getItemOnField(checkPos);
+        -- harvest item has to be static or an amount has to be set
+        if (HarvestItems[item.id] ~= nil and (item:getData("amount") ~= "" or item.wear == 255)) then
+          return item;
+        end
+      end
+    end
+  end
+  return nil;
 end
 
 -- for GroundType, see base.common.GroundType. If it doesn't matter, just set it to nil

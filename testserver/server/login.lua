@@ -28,7 +28,7 @@ function onLogin( player )
 	payTaxes(player);
 
 	--Noobia handling
-	if (player.pos.z == 100) or (player.pos.z == 101) then --On Noobia
+	if (base.common.IsOnNoobia(player.pos)) then --On Noobia
 
 	    if not player:isAdmin() then --non admin chars need help!
 
@@ -61,7 +61,7 @@ function onLogin( player )
 
     end --Noobia end
 
-    if (player.pos.z ~= 100) and (player.pos.z~= 101) then --Not on Noobia, confuses noobs
+    if (not base.common.IsOnNoobia(player.pos)) then --Not on Noobia, confuses noobs
 
 		--Messages of the day
 		--German

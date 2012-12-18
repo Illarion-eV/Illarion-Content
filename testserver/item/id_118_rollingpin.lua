@@ -5,6 +5,7 @@
 -- UPDATE common SET com_script='item.id_118_rollingpin' WHERE com_itemid IN (118);
 
 require("base.common")
+require("item.general.wood")
 
 module("item.id_118_rollingpin", package.seeall);
 
@@ -146,4 +147,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Your old rolling pin breaks.");
 		return
 	end
+end
+
+function LookAtItem(User,Item)
+    item.general.wood.LookAtItem(User,Item)
 end
