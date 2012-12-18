@@ -15,8 +15,8 @@ function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-
-    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
+	base.lookat.SetSpecialDescription(Item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN) 
+    world:itemInform(PLAYER, item, base.lookat.GenerateLookAt(User, Item, base.lookat.WOOD))
     
     HANDLER(PLAYER)
     
