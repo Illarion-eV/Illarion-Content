@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Zassaria Riverbank                                      Runewick --
--- NPC Job:  Messaege quest giver                                             --
+-- NPC Job:  Message quest giver                                              --
 --                                                                            --
 -- NPC Race: lizardman                  NPC Position:  908, 812, 1            --
 -- NPC Sex:  female                     NPC Direction: east                   --
