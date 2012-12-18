@@ -136,7 +136,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I am busy. I studied the runes of magic, so do not distract me too long.");
+talkEntry:addResponse("I am busy. I study the runes of magic, so do not distract me too long.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -163,7 +163,7 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heiﬂt");
-talkEntry:addResponse("My name is Arimedus Dalahorn.");
+talkEntry:addResponse("Mein Name ist Arimedus Dalahorn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -96,8 +96,8 @@ function GatheringCraft:FindRandomItem(User)
     -- end
 	base.common.GetHungry(User, self.FoodLevel);
 	
-	-- TODO check for new Noobia
-	if (User.pos.z == 100) or (User.pos.z == 101) then
+	-- check for Noobia
+	if (base.common.IsOnNoobia(User.pos)) then
 		return false;
 	end
 	

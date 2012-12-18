@@ -71,10 +71,10 @@ function Init()
 			  {"a small nutrition annihilator bomb with at least average quality", "einen kleinen Nahrungsannihilator von zumindest durchschnittlicher Qualität"},
 			  {327,5,{"potionEffectId","311"}}
 			  )		
-    AddPotion("Cadomyr", 
-	          312, 
-			  {"a small nutrition annihilator bomb with at least average quality", "einen kleinen Nahrungsannihilator von zumindest durchschnittlicher Qualität"},
-			  {327,5,{"potionEffectId","311"}}
+    AddPotion("Galmair", 
+	          314, 
+			  {"a medium nutrition annihilator bomb with at least average quality", "einen kleinen Nahrungsannihilator von zumindest durchschnittlicher Qualität"},
+			  {327,5,{"potionEffectId","312"}}
 			  )
     AddPotion("Galmair", 
 	          316, 
@@ -281,7 +281,6 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	else
         language = 2
     end		
-	User:inform("debug 3")
 	myNPC = getNPC(SourceItem)
 	if myNPC == false then
 	    return
@@ -326,15 +325,14 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-      User:inform("debug 1")
+      
     if (SourceItem:getType()~=3) then -- no map item
 	    return
 	end	
 
     local town = getTown(SourceItem)
 	if town == false then
-	    User:inform("debug 2")
-		return
+	    return
 	else
 	    RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end	

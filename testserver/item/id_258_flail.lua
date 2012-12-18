@@ -98,3 +98,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 end
+
+function LookAtItem(User,Item)
+    item.general.wood.LookAtItem(User,Item)
+end

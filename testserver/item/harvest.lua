@@ -36,10 +36,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	-- TODO: should it be disabled?
-	if not base.common.FitForWork( User ) then -- check minimal food points
-		return
-	end
+	-- Disabled in order to give a hungry player a chance to strengthen.
+	-- if not base.common.FitForWork( User ) then -- check minimal food points
+		-- return
+	-- end
 
 	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
 		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
@@ -63,9 +63,15 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 	if ( harvestProduct == nil ) then
-		base.common.HighInformNLS( User, 
-		"Diese Pflanze trägt keine Früchte. Vielleicht wird diese Art Pflanze in einem anderen Boden besser gedeihen.", 
-		"This plant bears no fruits. Maybe this type of plant will flourish better in another soil." );
+    if (IsTree[SourceItem.id] == true) then
+      base.common.HighInformNLS( User, 
+      "Dieser Baum trägt keine Früchte. Vielleicht wird diese Art Baum in einem anderen Boden besser gedeihen.", 
+      "This tree bears no fruits. Maybe this type of tree will flourish better in another soil." );
+    else
+      base.common.HighInformNLS( User, 
+      "Diese Pflanze trägt keine Früchte. Vielleicht wird diese Art Pflanze in einem anderen Boden besser gedeihen.", 
+      "This plant bears no fruits. Maybe this type of plant will flourish better in another soil." );
+    end
 		return;
 	end
 	-- check the amount 
@@ -122,9 +128,15 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 	if (amount<=0) then
-		base.common.HighInformNLS(User,
-		"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
-		"This plant is already fully harvested. Give it time to grow again." );
+    if (IsTree[SourceItem.id] == true) then
+      base.common.HighInformNLS(User,
+      "Dieser Baum ist schon komplett abgeerntet. Gib ihm Zeit um nachzuwachsen.", 
+      "This tree is already fully harvested. Give it time to grow again." );
+    else
+      base.common.HighInformNLS(User,
+      "Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
+      "This plant is already fully harvested. Give it time to grow again." );
+    end
 		-- reset amount
 		amount = harvestProduct.maxAmount;
 		-- change item id
@@ -145,8 +157,12 @@ function InitHarvestItems()
 	
 	RegrowTime = 300;
 	
-    -- just for short writing
-    local gt = base.common.GroundType;
+  -- just for short writing
+  local gt = base.common.GroundType;
+  
+  IsTree = {};
+  IsTree[14] = true;
+  IsTree[300] = true;
 	
 	HarvestItems[ 14 ] = {									-- apple tree
 	CreateHarvestProduct(15, nil, nil, 10, 11)					-- apple

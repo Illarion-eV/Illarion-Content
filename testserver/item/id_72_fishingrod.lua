@@ -6,6 +6,8 @@ require("content.gathering")
 
 module("item.id_72_fishingrod", package.seeall, package.seeall(item.general.wood))
 
+LookAtItem = item.general.wood.LookAtItem
+
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	content.gathering.InitGathering();
 	local fishing = content.gathering.fishing;
@@ -111,8 +113,4 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Your old fishing rod breaks.");
 		return
 	end
-end
-
-function LookAtItem( User, Item )
-    world:itemInform( User, Item, base.lookat.GetItemDescription( User, Item, 2, false, false ));
 end

@@ -363,24 +363,24 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		  if (string.find(inputString,"(%a+) (%d+) (%d+) (%d+)") ~= nil) then
             a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)");
             value=tonumber(value);
-			User:inform("[Debug] Fitting string found "..modifier..value..faction..radius)
+			faction=tonumber(faction)
+			radius=tonumber(radius);
             ChangeRankpoints(User,modifier,value,faction,radius);
 		  elseif (string.find(inputString,"(%a+) (%d+) (%d+)") ~= nil) then
             a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+) (%d+)");
+			faction=tonumber(faction)
             value=tonumber(value);
-			User:inform("[Debug] Fitting string found "..modifier..value..faction)
             ChangeRankpoints(User,modifier,value,faction,radius);
 		  elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
             a, b, modifier,value,faction,radius = string.find(inputString,"(%a+) (%d+)");
             value=tonumber(value);
-			User:inform("[Debug] Fitting string found "..modifier..value)
             ChangeRankpoints(User,modifier,value,faction,radius);
           else
             User:inform("Sorry, I didn't understand you.");
-            User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|0|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
+            User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
           end
         end
-        User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|nil> (= cadomyr|runewick|galmair|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
+        User:requestInputDialog(InputDialog("Add/Subtract rankpoints in radius", "Usage: <modifier> <value> <faction> <radius>\nPossible values:\nmodifier: <add|sub> \nfaction: <1|2|3|99|nil> (= cadomyr|runewick|galmair|all|all)\nradius: <1|2|...|nil> (nil means default: 5)", false, 255, cbRadius));
       elseif (ind == 2) then -- guard modes
         local factionIds = {0,1,2,3};
         local cbFirstFaction = function (dialog)
@@ -468,12 +468,9 @@ function UseItemWithField(User,SourceItem,TargetPos,Counter,param)
 end
 
 function ChangeRankpoints(User,modifier,value,faction,radius)
-
-	User:inform("[debug] In ChangeRankpoints")
 	--check if the points shall be added or removed
 	if modifier == "add" then
 		text = "Added";
-		User:inform("[debug] Rankpoints "..text);
 	elseif modifier == "sub" then
 		text = "Removed";
 		value = -value;
@@ -483,25 +480,22 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 	
 	if radius == nil then
 		radius = 5;
-		User:inform("[debug] Radius set to "..radius);
 	end
 	
 	player_list=world:getPlayersInRangeOf(User.pos, radius);
 	if player_list[1]~=nil then
-		for i, player in pairs(player_list) do
-			Factionvalues = base.factions.getFaction(player);
-			if faction == nil or faction == 0 then
-				base.factions.setRankpoints(player, Factionvalues.rankpoints+value);
-				User:inform(text.." "..value.." rankpoints for ALL characters within "..radius.." tiles.");
-			elseif faction == Factionvalues.tid then
-				base.factions.setRankpoints(player, Factionvalues.rankpoints+value);
-				User:inform(text.." "..value.." rankpoints for characters who belong to "..base.factions.getTownNameByID(faction).." within "..radius.." tiles.");
+		for i=1, #(player_list) do
+			Factionvalues = base.factions.getFaction(player_list[i]);
+			if faction == nil or faction == 99 then
+				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
+			elseif tonumber(faction) == tonumber(Factionvalues.tid) then
+				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
 			else
-				User:inform("No fitting character in the choosen radius.")
+				return;
 			end	
 		end
-
 	end	
+	User:inform("You just "..text.." "..value.." rankpoints.");
 end
 
 function Init()
