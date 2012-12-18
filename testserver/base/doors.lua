@@ -89,11 +89,9 @@ AddToDoorList(3490, 3486);
 AddToDoorList(3491, 3487);
 AddToDoorList(3492, 3488);
 AddToDoorList(3284, 3200);
-AddToDoorList(3285, 3203);
+AddToDoorList(3285, 3201);
 AddToDoorList(3202, 3282);
 AddToDoorList(3203, 3283);
-
-AddToDoorList(3201, 3285);
 
 AddToDoorList = nil;
 
