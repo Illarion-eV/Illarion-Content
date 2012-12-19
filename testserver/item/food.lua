@@ -117,6 +117,21 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if (Init == nil) then
     Init = 1;
     -- import difficulties from crafts
+    if content~=nil then
+      debug("content")
+    end
+    if content.craft~=nil then
+      debug("content.craft")
+    end
+    if content.craft.baking~=nil then
+      debug("content.craft.baking")
+    end
+    if content.craft.baking.baking~=nil then
+      debug("content.craft.baking.baking")
+    end
+    if content.craft.baking.baking.products~=nil then
+      debug("content.craft.baking.baking.products")
+    end
     for _,product in content.craft.baking.baking.products do 
       if (FoodList[product.item] ~= nil) then
         FoodList[product.item].difficulty = product.difficulty;
