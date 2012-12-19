@@ -22,7 +22,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Der Stuhl am anderen Ende sieht auff�llig auf. Vielleicht solltest du dir den mal genauer aus der N�he ansehen.", "The chair on the other side looks suspicious. You should probably take a look from a close position at this chair."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Der Stuhl am anderen Ende sieht auff�llig auf. Vielleicht solltest du dir den mal genauer aus der Nähe ansehen.", "The chair on the other side looks suspicious. You should probably take a look from a close position at this chair."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

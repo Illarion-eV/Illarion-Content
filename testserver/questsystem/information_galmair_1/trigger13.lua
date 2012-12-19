@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du kannst gerne weiter mit dem Don reden, aber auch zur�ck zu Iradona gehen.", "You can continue your conversation with the Don, or go back to Iradona."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du kannst gerne weiter mit dem Don reden, aber auch zurück zu Iradona gehen.", "You can continue your conversation with the Don, or go back to Iradona."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -65,7 +65,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Garten nun - nehmt das rote Portal in der Stadt. Am hinteren Ende findest du die S�ulen.", "Go to the garden now - use the red portal in the town. You find the columns at the end of the garden."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Garten nun - nehmt das rote Portal in der Stadt. Am hinteren Ende findest du die Säulen.", "Go to the garden now - use the red portal in the town. You find the columns at the end of the garden."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

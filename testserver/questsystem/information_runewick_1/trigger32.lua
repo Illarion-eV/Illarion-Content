@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 100):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3077, 333, 1):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis, es betrifft den Herrscher dieser Fraktion. Frage einfach nach 'Fraktion'.", "Answer the question to get more money and further questions. Hint: It is about the leader of this faction. Just ask about 'faction'."):execute()
 end
 
