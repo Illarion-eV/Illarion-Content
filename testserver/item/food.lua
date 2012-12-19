@@ -133,11 +133,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     local diff = MAX_CRAFTED_FOODVALUE - MIN_CRAFTED_FOODVALUE;
     local halfMin = MIN_CRAFTED_FOODVALUE/2;
     for _,foodItem in pairs(FoodList) do 
-      if (foodItem.difficulty ~= nil) then
-        foodItem.value = MIN_CRAFTED_FOODVALUE + diff*(foodItem.difficulty/MAX_DIFFICULTY);
-      else
-        -- for non crafted foods, the maximum foodvalue is half the MIN_CRAFTED_FOODVALUE
-        foodItem.value = math.min(halfMin, foodItem.value);
+      if (type(foodItem) ~= "function") then
+        if (foodItem.difficulty ~= nil) then
+          foodItem.value = MIN_CRAFTED_FOODVALUE + diff*(foodItem.difficulty/MAX_DIFFICULTY);
+        else
+          -- for non crafted foods, the maximum foodvalue is half the MIN_CRAFTED_FOODVALUE
+          foodItem.value = math.min(halfMin, foodItem.value);
+        end
       end
     end
   end
