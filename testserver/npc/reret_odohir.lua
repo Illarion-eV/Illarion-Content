@@ -39,7 +39,7 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Retret Odohir the Notary of Cadomyr. Keywords: 'become citizen', 'leave','give up citizenship', 'rank'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Retret Odohir the Notary of Cadomyr. Keywords: 'join Cadomyr','become citizen', 'leave','give up citizenship', 'rank'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -209,6 +209,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("join");
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
 talkEntry:addResponse("You are now a citizen of Cadomyr");
@@ -219,6 +220,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("beitreten");
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
 talkEntry:addResponse("Ihr seid jetzt Bürger von Cadomyr");
@@ -230,6 +232,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("join");
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
 talkEntry:addResponse("You are now a citizen of Cadomyr");
@@ -240,6 +243,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(2));
+talkEntry:addTrigger("beitreten");
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
 talkEntry:addResponse("Ihr seidt jetzt Bürger von Cadomyr");
@@ -251,6 +255,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(0));
+talkEntry:addTrigger("join");
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
 talkEntry:addResponse("You are now a citizen of Cadomyr");
@@ -261,6 +266,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(0));
+talkEntry:addTrigger("beitreten");
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
 talkEntry:addResponse("Ihr seid jetzt Bürger von Cadomyr");
@@ -271,6 +277,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("join");
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
 talkEntry:addResponse("You are now a citizen of Cadomyr");
@@ -280,6 +287,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("beitreten");
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
 talkEntry:addResponse("Ihr seid jetzt Bürger von Cadomyr");
@@ -291,6 +299,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("join");
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
 talkEntry:addResponse("Oh! You are already a citizen of Cadomyr.");
@@ -300,6 +309,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addTrigger("beitreten");
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
 talkEntry:addResponse("Oh! Ihr seid bereits Bürger von Cadomyr.");
@@ -327,6 +337,24 @@ talkEntry:addTrigger("verlasse");
 talkEntry:addTrigger("annuliere");
 talkEntry:addResponse("Ihr wollt den Status als Bürger Cadomyrs augfeben? Seid Ihr sicher?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 1));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("give up citizenship");
+talkEntry:addTrigger("terminating citizen ship");
+talkEntry:addTrigger("leave");
+talkEntry:addTrigger("leaving");
+talkEntry:addResponse("Ah yes. If you'd joind Cadomyr, this would be indeed a pitty.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("beende Bürgerstatus");
+talkEntry:addTrigger("verlassen");
+talkEntry:addTrigger("verlasse");
+talkEntry:addTrigger("annuliere");
+talkEntry:addResponse("Ah ja. Wärest Ihr Cadomyr beigeteten, wäre dies in der Tat schade.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -374,7 +402,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("wich town");
+talkEntry:addTrigger("which town");
 talkEntry:addTrigger("wich faction");
 talkEntry:addResponse("You belong to %TOWN!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -728,7 +756,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("You are new here. You are not well known. Make an effort ands become famous, Recruit!");
+talkEntry:addResponse("You are new here. You are not well known. Make an effort and become famous, Recruit!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -738,7 +766,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("You are new here. You are not well known. Make an effort ands become famous, Recruit!");
+talkEntry:addResponse("You are new here. You are not well known. Make an effort and become famous, Recruit!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -757,6 +785,20 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
 talkEntry:addResponse("Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und mach dir einen Namen, Rekrutin!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("I do not know about other towns ranks.");
+talkEntry:addResponse("I am not interested in other systems of status than the Cadomyran one.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rang");
+talkEntry:addResponse(" Ich weiß nichts über Ränge in anderen Städten.");
+talkEntry:addResponse("Ich interessiere mich nur für das cadomyrische Statussystem.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

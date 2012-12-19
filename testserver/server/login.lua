@@ -24,8 +24,11 @@ function onLogin( player )
 	
 	end
 	
-	-- So let there be taxes!
-	payTaxes(player);
+	--Taxes (has to be redone by "someone")
+    if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes. Not on Noobia!
+	    -- So let there be taxes!
+	    payTaxes(player);
+	end
 
 	--Noobia handling
 	if (base.common.IsOnNoobia(player.pos)) then --On Noobia
