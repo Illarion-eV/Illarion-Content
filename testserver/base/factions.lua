@@ -191,9 +191,9 @@ function getRank(player)
 		end
 	else
 		if player:getPlayerLanguage() == 0 then
-			return townRanks[Faction.tid+3][Faction.rankTown].gRank;
+			return townRanks[tonumber(Faction.tid)+3][Faction.rankTown].gRank;
 		else
-			return townRanks[Faction.tid+3][Faction.rankTown].eRank;
+			return townRanks[tonumber(Faction.tid)+3][Faction.rankTown].eRank;
 		end
 	end
 end
@@ -297,10 +297,10 @@ function setRankpoints(originator, rankpoints)
 	local townName = getTownNameByID(Faction.tid)
 	
 	if (originator:increaseAttrib("sex",0) == 0) then --male Ranks
-		local rankName = townRanks[Faction.tid][Faction.rankTown]
+		rankName = townRanks[Faction.tid][Faction.rankTown]
 	else --female Ranks
-		local rankName = townRanks[Faction.tid+3][Faction.rankTown]
-	end 
+		rankName = townRanks[tonumber(Faction.tid)+3][Faction.rankTown]
+	end
 	
 	if Faction.rankTown>rank then
 		base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in "..townName.." erreicht. Du bist nun "..rankName.gRank..".",
