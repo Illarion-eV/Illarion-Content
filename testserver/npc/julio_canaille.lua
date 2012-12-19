@@ -194,10 +194,9 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("Meanwhile speaking 
 talkEntry:addResponse("Aye myn Peg Leg! Here it is, ch! You made me a happy ghost, today. Thank you - thousand times, aye may the wind blow your sail.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(283, 1, 333, {["gemLevel"] = "2"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -214,10 +213,9 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("Noch während der Ge
 talkEntry:addResponse("Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blasen!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(283, 1, 333, {["gemLevel"] = "2"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -232,10 +230,9 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("Meanwhile speaking 
 talkEntry:addResponse("Aye myn Peg Leg! Here it is, ch! You made me a happy ghost, today. Thank you - thousand times, aye may the wind blow your sail.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(283, 1, 333, {["gemLevel"] = "2"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -250,10 +247,9 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("Noch während der Ge
 talkEntry:addResponse("Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(283, 1, 333, {["gemLevel"] = "2"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 17));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
