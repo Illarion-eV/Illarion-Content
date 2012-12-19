@@ -117,28 +117,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if (Init == nil) then
     Init = 1;
     -- import difficulties from crafts
-    if content~=nil then
-      debug("content")
-    end
-    if content.craft~=nil then
-      debug("content.craft")
-    end
-    if content.craft.baking~=nil then
-      debug("content.craft.baking")
-    end
-    if content.craft.baking.baking~=nil then
-      debug("content.craft.baking.baking")
-    end
-    if content.craft.baking.baking.products~=nil then
-      debug("content.craft.baking.baking.products")
-    end
-    for _,product in content.craft.baking.baking.products do 
+    for _,product in pairs(content.craft.baking.baking.products) do 
       if (FoodList[product.item] ~= nil) then
         FoodList[product.item].difficulty = product.difficulty;
         MAX_DIFFICULTY = math.max(MAX_DIFFICULTY, product.difficulty);
       end
     end
-    for _,product in content.craft.cooking.cooking.products do 
+    for _,product in pairs(content.craft.cooking.cooking.products) do 
       if (FoodList[product.item] ~= nil) then
         FoodList[product.item].difficulty = product.difficulty;
         MAX_DIFFICULTY = math.max(MAX_DIFFICULTY, product.difficulty);
@@ -147,7 +132,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     -- now we now the max difficulty, so set the food value with linear distribution
     local diff = MAX_CRAFTED_FOODVALUE - MIN_CRAFTED_FOODVALUE;
     local halfMin = MIN_CRAFTED_FOODVALUE/2;
-    for _,food in FoodList do 
+    for _,food in pairs(FoodList) do 
       if (food.difficulty ~= nil) then
         food.value = MIN_CRAFTED_FOODVALUE + diff*(food.difficulty/MAX_DIFFICULTY);
       else
