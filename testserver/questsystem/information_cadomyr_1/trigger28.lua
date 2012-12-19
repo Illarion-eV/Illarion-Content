@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 25
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Wie hei�t die erste Villa gleich links vom Markt?"
+local NPC_REPLY_DE = "Wie heißt die erste Villa gleich links vom Markt?"
 local NPC_REPLY_EN = "What is the name of the first villa left of the market?"
 
 function receiveText(npc, type, text, PLAYER)

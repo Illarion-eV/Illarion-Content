@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 34
 
 local NPC_TRIGGER_DE = "[Kk]önigin|[Rr]osaline|[Ee]dwards"
 local NPC_TRIGGER_EN = "[Qq]ueen|[Rr]osaline|[Ee]dwards"
-local NPC_REPLY_DE = "Richtig! Und wie hei�t die �rtlichkeit an der man sie findet?"
+local NPC_REPLY_DE = "Richtig! Und wie heißt die Örtlichkeit an der man sie findet?"
 local NPC_REPLY_EN = "Right! And what is the name of the place where you can find her?"
 
 function receiveText(npc, type, text, PLAYER)

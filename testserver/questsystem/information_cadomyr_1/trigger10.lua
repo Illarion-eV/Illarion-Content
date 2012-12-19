@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 51
 
 local NPC_TRIGGER_DE = "[Gg]almair"
 local NPC_TRIGGER_EN = "[Gg]almair"
-local NPC_REPLY_DE = "Nun eine Frage zu den Lokalit�ten hier. Wie hei�t die Gruft von Cadomyr?"
+local NPC_REPLY_DE = "Nun eine Frage zu den Lokalitäten hier. Wie heißt die Gruft von Cadomyr?"
 local NPC_REPLY_EN = "Now, a question about locations here. What is the name of the tomb of Cadomyr?"
 
 function receiveText(npc, type, text, PLAYER)

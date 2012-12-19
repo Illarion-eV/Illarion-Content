@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 169
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Die n�chste Aufgabe findet ihr unter einem der St�hle im Stadtsaal"
+local NPC_REPLY_DE = "Die nächste Aufgabe findet ihr unter einem der Stühle im Stadtsaal"
 local NPC_REPLY_EN = "You can find your next task under one of the chairs in the Civic Hall."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Stadtsaal und untersuche die St�hle dort.", "You can find your next task under one of the chairs in the You can find your next task under one of the chairs in the Civic Hall."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Stadtsaal und untersuche die Stühle dort.", "You can find your next task under one of the chairs in the You can find your next task under one of the chairs in the Civic Hall."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

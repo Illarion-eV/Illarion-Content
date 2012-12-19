@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 100
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "F�r die n�chste Aufgabe geht es zu den Grabsteinen beim Feuer des Triumph. Gefragt ist die Jahreszahl der angesprochenen Kampagne."
+local NPC_REPLY_DE = "Für die nächste Aufgabe geht es zu den Grabsteinen beim Feuer des Triumph. Gefragt ist die Jahreszahl der angesprochenen Kampagne."
 local NPC_REPLY_EN = "For your next task you have to go north to the tombstones at the Fire of Triumph and tell me the year of the compaign noted there."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur�ck zu Frizza und teile ihr mit die Jahreszahl des Todes von Sir Reginald.", "Go back to Frizza and tell her the year of the death of Sir Reginald."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Frizza und teile ihr mit die Jahreszahl des Todes von Sir Reginald.", "Go back to Frizza and tell her the year of the death of Sir Reginald."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

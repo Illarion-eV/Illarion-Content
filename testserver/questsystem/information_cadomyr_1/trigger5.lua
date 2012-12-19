@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 31
 
 local NPC_TRIGGER_DE = "[Aa]methyst"
 local NPC_TRIGGER_EN = "[Aa]methyst"
-local NPC_REPLY_DE = "Wieder richtig und deshalb noch mehr M�nzen! Und nun, wem darfen man hier sein Geh�r schenken?"
+local NPC_REPLY_DE = "Wieder richtig und deshalb noch mehr Münzen! Und nun, wem darfen man hier sein Gehör schenken?"
 local NPC_REPLY_EN = "Right again and therefore more coins for you! And now, whom do you have to obey here?"
 
 function receiveText(npc, type, text, PLAYER)

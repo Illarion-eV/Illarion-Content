@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 41
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Welchen dieser drei G�tter beten wir hier an? Irmorom, Malachin oder Elara?"
+local NPC_REPLY_DE = "Welchen dieser drei Götter beten wir hier an? Irmorom, Malachin oder Elara?"
 local NPC_REPLY_EN = "To whom of these gods do we pray?  Irmorom, Malachin or Elara?"
 
 function receiveText(npc, type, text, PLAYER)

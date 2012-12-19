@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 46
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Welche Fraktion wird von K�nigin Rosaline Edwards beherrscht?"
+local NPC_REPLY_DE = "Welche Fraktion wird von Königin Rosaline Edwards beherrscht?"
 local NPC_REPLY_EN = "Which faction is ruled by Queen Rosaline Edwards?"
 
 function receiveText(npc, type, text, PLAYER)

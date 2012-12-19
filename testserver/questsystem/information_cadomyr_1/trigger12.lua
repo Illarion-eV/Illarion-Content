@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 55
 
 local NPC_TRIGGER_DE = "[Rr]uzusss"
 local NPC_TRIGGER_EN = "[Rr]uzusss"
-local NPC_REPLY_DE = "Gut, sie zu besuchen wird nicht von Schaden sein. Jetzt gilt es erstmal sich der K�nigin vorzustellen. Komm zur�ck wenn du dies getan hast."
+local NPC_REPLY_DE = "Gut, sie zu besuchen wird nicht von Schaden sein. Jetzt gilt es erstmal sich der Königin vorzustellen. Komm zurück wenn du dies getan hast."
 local NPC_REPLY_EN = "Fine, it will be to your advance if you visit her. But now look for the Queen to introduce yourself. Come back if you have done that."
 
 function receiveText(npc, type, text, PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3077, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde die K�nigin, rede mit ihr und komme wieder zurück.", "Find the Queen, speak with her and come back."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde die Königin, rede mit ihr und komme wieder zurück.", "Find the Queen, speak with her and come back."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

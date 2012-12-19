@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 31
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Wem darfen man hier sein Geh�r schenken?"
+local NPC_REPLY_DE = "Wem darfen man hier sein Gehör schenken?"
 local NPC_REPLY_EN = "Whom do you have to obey here?"
 
 function receiveText(npc, type, text, PLAYER)

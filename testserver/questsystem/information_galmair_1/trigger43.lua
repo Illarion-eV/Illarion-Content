@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Macht ein Lagerfeuer. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei dem Holzf�ller Lager.", "Make a campfire. A good place for one is at the firespot at the Woodcutter Camp."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Macht ein Lagerfeuer. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei dem Holzfäller Lager.", "Make a campfire. A good place for one is at the firespot at the Woodcutter Camp."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

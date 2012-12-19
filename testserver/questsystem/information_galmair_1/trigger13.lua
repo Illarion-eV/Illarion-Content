@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 61
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Sch�n, dass du deinen Weg nach Galmair gefunden habt. M�ge dein Gold das meine bereichern."
+local NPC_REPLY_DE = "Schön, dass du deinen Weg nach Galmair gefunden habt. Möge dein Gold das meine bereichern."
 local NPC_REPLY_EN = "Wonderful, you found your way to Galmair. Your gold may grow and serve me."
 
 function receiveText(npc, type, text, PLAYER)

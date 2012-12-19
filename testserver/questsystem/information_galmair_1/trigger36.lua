@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 51
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Wie hei�t die Br�cke die du etwas �stlich von hier findest?"
+local NPC_REPLY_DE = "Wie heißt die Brücke die du etwas östlich von hier findest?"
 local NPC_REPLY_EN = "What is the name of the bridge which you can find east from here?"
 
 function receiveText(npc, type, text, PLAYER)

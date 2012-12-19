@@ -22,7 +22,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zur�ck zu Iradona und teile ihr mit auf was der Zwerg auf dem rechten Bild dort einschl�gt.", "Go to Iradona and tell her against what the dwarf swings his axe at the right painting there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Iradona und teile ihr mit auf was der Zwerg auf dem rechten Bild dort einschlägt.", "Go to Iradona and tell her against what the dwarf swings his axe at the right painting there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
