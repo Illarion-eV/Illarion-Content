@@ -254,14 +254,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("location");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Ruzusss"));
-talkEntry:addResponse("If you like to know anything about locationsss outssside, like Katanbi Desert, Western Katanbi Desert, Katanbi Delta, Tir Draganfod or Shadowland just asssk Ruzusss behind the towngate.");
+talkEntry:addResponse("If you like to know anything about locationsss outssside, like Katanbi Desert, Western Katanbi Desert, Katanbi Delta, Illarion or Shadowland just asssk Ruzusss behind the towngate.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ort");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwort] Ruzusss"));
-talkEntry:addResponse("Wenn du etwas über die Orte außerhalb wie Katanbi Wüste, Westliche Katanbi Wüste, Katanbi Delta, Tir Draganfod oder Schattenland wisssen möchtessst, dann frage Ruzusss hinter dem Stadttor.");
+talkEntry:addResponse("Wenn du etwas über die Orte außerhalb wie Katanbi Wüste, Westliche Katanbi Wüste, Katanbi Delta, Illarion oder Schattenland wisssen möchtessst, dann frage Ruzusss hinter dem Stadttor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
