@@ -117,13 +117,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if (Init == nil) then
     Init = 1;
     -- import difficulties from crafts
-    for _,product in content.craft.baking.products do 
+    for _,product in content.craft.baking.baking.products do 
       if (FoodList[product.item] ~= nil) then
         FoodList[product.item].difficulty = product.difficulty;
         MAX_DIFFICULTY = math.max(MAX_DIFFICULTY, product.difficulty);
       end
     end
-    for _,product in content.craft.cooking.products do 
+    for _,product in content.craft.cooking.cooking.products do 
       if (FoodList[product.item] ~= nil) then
         FoodList[product.item].difficulty = product.difficulty;
         MAX_DIFFICULTY = math.max(MAX_DIFFICULTY, product.difficulty);
