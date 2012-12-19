@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 109
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "So, hier eine Lampe um auch im Dunklen lesen zu k�nnen. Dies sollte nun auch getest werden. Am besten dort wo es dunkel ist. Im Abwasserschacht! Sucht nach einer Zahl an einem Grabstein dort!"
+local NPC_REPLY_DE = "So, hier eine Lampe um auch im Dunklen lesen zu können. Dies sollte nun auch getest werden. Am besten dort wo es dunkel ist. Im Abwasserschacht! Sucht nach einer Zahl an einem Grabstein dort!"
 local NPC_REPLY_EN = "So, here a lamp that you can also read in the darkness. Let us test this. Somewhere where it is dark. The Sewers! Look for a number at tomb stone there!"
 
 function receiveText(npc, type, text, PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Abwasserschacht und suche nach einer Nummer an einem Grabstein dort. Vergi� nicht die Lampe dort zu verwenden.", "Go to the Sewers and look for a number at a tomb stone there. Don't forget to use the lamp there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Abwasserschacht und suche nach einer Nummer an einem Grabstein dort. Vergiß nicht die Lampe dort zu verwenden.", "Go to the Sewers and look for a number at a tomb stone there. Don't forget to use the lamp there."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 92, 333, 1):execute()
 end
 

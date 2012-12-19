@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 158
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Ich sehe den Rauch. Daf�r gibt es noch einen Ring. Nun, n�chste Aufgabe: Wie alt k�nnte man die Frau die die Statue am Schrein der Elara sympolisiert sch�tzen?"
+local NPC_REPLY_DE = "Ich sehe den Rauch. Dafür gibt es noch einen Ring. Nun, nächste Aufgabe: Wie alt könnte man die Frau die die Statue am Schrein der Elara sympolisiert schätzen?"
 local NPC_REPLY_EN = "I see the smoke, fine. There you have another ring. Now, next task.  How old would you guess is the woman that is symoblized by this statue at Elara's shrine?"
 
 function receiveText(npc, type, text, PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 68, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Schrein der Elara und finde das erw�nschte Alter heraus in dem du die Statuen dort betrachtest.", "Go to the shrine of Elara and figure out the required age through looking at statues there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Schrein der Elara und finde das erwünschte Alter heraus in dem du die Statuen dort betrachtest.", "Go to the shrine of Elara and figure out the required age through looking at statues there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

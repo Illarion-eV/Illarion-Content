@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 97
 
 local NPC_TRIGGER_DE = "[Ss]chicksal"
 local NPC_TRIGGER_EN = "[Ff]ate"
-local NPC_REPLY_DE = "Genau, eine Abmachung mit dem Schickal und hier ein Spiegel als Belohnung. F�r die n�chste Aufgabe geht es in Richtung S�den zum Tollloch. Finde raus was du bekommst wenn du den Don bel�gst."
+local NPC_REPLY_DE = "Genau, eine Abmachung mit dem Schickal und hier ein Spiegel als Belohnung. Für die nächste Aufgabe geht es in Richtung Süden zum Tollloch. Finde raus was du bekommst wenn du den Don belügst."
 local NPC_REPLY_EN = "Exactly, a deal with your fate and here is a mirror as your reward. For your next task you have to go south to the Sport Hole. Find out what you get if you lie at the Don."
 
 function receiveText(npc, type, text, PLAYER)

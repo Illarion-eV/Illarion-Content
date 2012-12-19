@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 25
 
 local NPC_TRIGGER_DE = "[Rr]unewick"
 local NPC_TRIGGER_EN = "[Rr]unewick"
-local NPC_REPLY_DE = "Sehr gut, hier nun die n�chste Aufgabe. Welchen Turm betritt man nach dem man den Turm des Feuer ostw�rts verlassen hat?"
+local NPC_REPLY_DE = "Sehr gut, hier nun die nächste Aufgabe. Welchen Turm betritt man nach dem man den Turm des Feuer ostwärts verlassen hat?"
 local NPC_REPLY_EN = "Very good, now your next task. Which tower do you enter if you leave the Tower of Fire eastwards?"
 
 function receiveText(npc, type, text, PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 100):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3077, 333, 1):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Frage sie nach 'Gebäude' und besuche die einzelnen Türme um die Frage beantworten zu können.", "Answer the question to get more money and further questions. You may ask her about 'building' and visit those towers in order to get the answer."):execute()
 end
 

@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 61
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Sch�n, dass du deinen Weg nach Galmair gefunden habt. M�ge dein Gold das meine bereichern."
+local NPC_REPLY_DE = "Schön, dass du deinen Weg nach Galmair gefunden habt. Möge dein Gold das meine bereichern."
 local NPC_REPLY_EN = "Wonderful, you found your way to Galmair. Your gold may grow and serve me."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du kannst gerne weiter mit dem Don reden, aber auch zur�ck zu Iradona gehen.", "You can continue your conversation with the Don, or go back to Iradona."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du kannst gerne weiter mit dem Don reden, aber auch zurück zu Iradona gehen.", "You can continue your conversation with the Don, or go back to Iradona."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

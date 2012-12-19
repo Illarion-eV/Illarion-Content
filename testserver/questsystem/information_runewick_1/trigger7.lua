@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 41
 
 local NPC_TRIGGER_DE = "[Hh]alle [Ee]lara"
 local NPC_TRIGGER_EN = "[Hh]all [Ee]lara"
-local NPC_REPLY_DE = "Sehr gut. Bevor wir mit dem praktischen Teil beginnen, noch ein paar mehr Fragen: Welchen dieser drei G�tter beten wir hier an? Irmorom, Malachin oder Elara?"
+local NPC_REPLY_DE = "Sehr gut. Bevor wir mit dem praktischen Teil beginnen, noch ein paar mehr Fragen: Welchen dieser drei Götter beten wir hier an? Irmorom, Malachin oder Elara?"
 local NPC_REPLY_EN = "Very good. Bevor we start with the practical part, some more questions: To whom of these gods do we pray?  Irmorom, Malachin or Elara?"
 
 function receiveText(npc, type, text, PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 100):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3077, 333, 1):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis: Frage sie nach 'Götter'.", "Answer the question to get more money and further questions. Hint: Ask about 'gods'."):execute()
 end
 

@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 51
 
 local NPC_TRIGGER_DE = "[Rr]unewick"
 local NPC_TRIGGER_EN = "[Rr]unewick"
-local NPC_REPLY_DE = "Nun eine Frage zu den Lokalit�ten hier. Wie hei�t die Br�cke die du etwas �stlich von hier im Hinterland findest?"
+local NPC_REPLY_DE = "Nun eine Frage zu den Lokalitäten hier. Wie heißt die Brücke die du etwas östlich von hier im Hinterland findest?"
 local NPC_REPLY_EN = "Now, a question about locations here. What is the name of the bridge which you can find east from here in the hinterland?"
 
 function receiveText(npc, type, text, PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 100):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3077, 333, 1):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis: Frage nach dem Hinterland", "Answer the question to get more money and further question. Hint: Ask for the hinterland."):execute()
 end
 
