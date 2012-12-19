@@ -154,12 +154,7 @@ english, "Villa" -> inform("[Keywords] Villa Edward, Villa Rosaline, Villa Regin
 -- "Guild" -> ""
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
--- "quest", "mission", english -> "I have no task for you, but we can play a game!"
--- "quest", "mission" -> "Ich habe keine Aufgabe für dich, aber wir können ein Ssspiel ssspielen!"
--- "task", "adventure", "order" -> "I have no task for you, but we can play a game!"
--- "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe für dich, aber wir können ein Ssspiel ssspielen!"
--- "game" -> "You like to play my quiz-game with me? Sss, let me think...((quest in progress))"
--- "spiel" -> "Du willssst mein Quiz-Ssspiel mit mir ssspielen? Sss, lasss mich denken...(()quest in arbeit))"
+-- quest information_cadomyr_1.quest belongs to this NPC: Quest-ID.: 641
 
 -- Faction stuff
 "faction" -> "There are three factions: Our faction Cadomyr, ruled by our brave Queen Rosaline Edwards. Then the two cowardly factions of Galmair and Runewick, ruled by Don Valerio Guilianni and Archmage Elvaine Morgan."
@@ -222,14 +217,6 @@ english, "Ushara" -> "One of the elder gods, but we do not care about this god h
 "Ushara" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
 english, "Zhambra" -> "The followers of Zhambra are righteous and loyal ones who believe in honour and law. They often try to rescue others, and fight against the evil. Zhambra is worshipped by nobles and knights, paladins, and many soldiers."
 "Zhambra" -> "Die Anhänger Zhambras sind geradlinig und ergebene Gefolgsleute, die an Ehre und Recht glauben. Sie versuchen häufig, Andere zu retten und stehen im Kampf gegen das Böse. Zhambra wird gehuldigt von Adligen, Rittern, Höflingen und von vielen Kriegern."
-
--- Optional: Main land factions
--- "albar", english -> "I have never heard that name.."
--- "albar" -> "Ich habe diesssen Namen nie gehört."
--- "gynk", "gync", english -> "I have never heard that name."
--- "gync", "gynk" -> "Ich habe diesssen Namen nie gehört."
--- "salkama", english -> "I have never heard that name."
--- "salkama" ->"Ich habe diesssen Namen nie gehört."
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "I have never heard that name."

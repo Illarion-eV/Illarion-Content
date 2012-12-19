@@ -199,7 +199,7 @@ english, "Hinterland" -> inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutte
 "Lurnord Brücke" -> "Das ist die Brücke zwischen hier und Eibental. *zeigt in den Westen* Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welch nun gegangen ist. Sein Name war Lunord."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
--- quest information_runewick_1.quest belongs to this NPC
+-- quest information_runewick_1.quest belongs to this NPC: Quest-ID.: 621
 
 -- Faction stuff
 "faction" -> "There are three factions: Our faction Runewick, ruled by our great leader Elvaine Morgan. Then the two foolish factions of Galmair and Cadomyr, ruled by Don Valerio Guilianni and Queen Rosaline Edwards."
@@ -264,14 +264,6 @@ english, "Ushara" -> "One of the elder god. She is also known as Goddess of Eart
 "Ushara" -> "Eine der alten Götter. Sie ist auch als Göttin der Erde bekannt."
 english, "Zhambra" -> "One of the unimportant, younger gods. You can find fellows in Cadomyr."
 "Zhambra" -> "Eine der unwichtigen, jüngeren Götter. Man kann Anhänger in Cadomyr finden."
-
--- Optional: Main land factions
--- "albar", english -> "I've never been there. So I can not tell you much about it.", "It's a place far away from here.", "I heard that the Albarians do not woreship female gods at all."
--- "albar" -> "Ich war noch nie dort. Ich kann Euch nicht viel über diesen Ort sagen.", "Das ist ein Ort weit weg von hier.", "Ich höret die Albarner verehren die weiblichen Gottheiten überhaupt nicht."
--- "gynk", "gync", english ->  "I've never been there. So I can not tell you much about it.","It's a place far away from here.", "I heard people say the weather was hot in gynk."
--- "gync", "gynk" ->  "Ich war noch nie dort. Ich kann euch nicht viel über diesen Ort sagen.", "Das ist ein Ort weit weg von hier.", "Ich hörte Leute sagen, das wetter in Gynk sei warm."
--- "salkama", english -> "I've never been there. So I can not tell you much about it.", "It's a place far away from here.", "I heard that the Salkamaerians are also called the lightfolk."
--- "salkama" ->  "Ich war noch nie dort. Ich kann euch nicht viel über diesen Ort sagen.", "Das ist ein Ort weit weg von hier.", "Ich hörte die Salkamearier nennen sich das Volk des Lichtes."
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "Hmm...ask someone else if you want know about it."

@@ -22,6 +22,7 @@ require("npc.base.condition.state")
 require("npc.base.consequence.attribute")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
+require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
 require("npc.base.talk")
@@ -48,7 +49,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(640, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have a sssilvercoin for that you found me.");
-talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -57,7 +58,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(640, "=", 1));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdiente Münze.");
-talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -242,14 +243,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("IN PROGRESS.");
+talkEntry:addResponse("Nothing to do for you yet but soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("IN ARBEIT.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentant aber bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -257,7 +258,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("IN PROGRESS.");
+talkEntry:addResponse("Nothing to do for you yet but soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,7 +267,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("IN ARBEIT.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentant aber bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

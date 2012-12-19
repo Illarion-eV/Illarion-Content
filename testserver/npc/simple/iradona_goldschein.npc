@@ -196,10 +196,7 @@ english, "Hinterland" -> inform("[Keywords] Sleepy Bujhaar Inn, Census office, S
 "Schattenland" -> "Ein gefährlicher Ort am südlichen Ende der Malachit Mine. Geh nicht alleine dort hin. Für mehr Information frage jemanden anderen."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
--- "quest", "mission", english -> "IN PROGRESS."
--- "quest", "mission" -> "IN ARBEIT."
--- "task", "adventure", "order" -> "IN PROGRESS."
--- "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+-- quest information_galmair_1.quest belongs to this NPC: Quest-ID.: 631
 
 -- Faction stuff
 "faction" -> "There are three factions: Our faction Galmair, ruled by our rich leader Don Valerio Guilianni. Then the two poor factions of Runewick and Cadomyr, ruled by Archmage Elvaine Morgan and Queen Rosaline Edwards."
@@ -262,14 +259,6 @@ english, "Ushara" -> "One of the elder gods, but we do not care about this god h
 "Ushara" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
 english, "Zhambra" -> "One of the weak younger gods. You can find fellows in Cadomyr."
 "Zhambra" -> "Einer der schwachen, jüngeren Götter. Du kann Anhänger in Cadomyr finden"
-
--- Optional: Main land factions
--- "albar", english -> "Arrr, what shall that be?"
--- "albar" ->  "Arrr, was soll das sein?"
--- "gynk", "gync", english -> "Arrr, what shall that be?"
--- "gync", "gynk" -> "Arrr, was soll das sein?"
--- "salkama", english -> "Arrr, what shall that be?"
--- "salkama" -> "Arrr, was soll das sein?"
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "Arrr, what shall that be?"
