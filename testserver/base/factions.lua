@@ -286,8 +286,9 @@ function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 		end
 
 		local amountToPay = 1000*(2^fv.towncnt) -- amount in coppercoins
+		local GAmount, SAmount,CAmount = base.money.MoneyToCoins(amountToPay);
+		
 		if not base.money.CharHasMoney(originator,amountToPay) then --not enough money!
-			local GAmount, SAmount,CAmount = base.money.MoneyToCoins(amountToPay);
 		 	gText="Ihr habt nicht genug Geld dabei! Ihr benötigt "..GAmount.." Goldstücke, "..SAmount.." Silberstücke und "..CAmount.." Kupferstücke.";
 			eText="You don't have enough money with you! You'll need "..GAmount.." goldcoins, "..SAmount.." silvercoins and "..CAmount.." coppercoins.";
 			outText=base.common.GetNLS(originator,gText,eText);
@@ -295,6 +296,8 @@ function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 			return;
 		end
 
+		originator:inform("Das Wechseln der Stadt hat "..GAmount.." Goldstücke, "..SAmount.." Silberstücke und "..CAmount.." Kupferstücke gekostet.", "It costs "..GAmount.." goldcoins, "..SAmount.." silvercoins and "..CAmount.." coppercoins to change the faction.");
+		
 		fv.rankpoints = 0 -- set default value for rankpoints
 		fv.tid = theTown; --set new Town ID
 		fv.rankTown = theRank -- set the rank of the town
