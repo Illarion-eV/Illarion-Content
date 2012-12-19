@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 25
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Welchen Turm betritt man nach dem man den Turm des Feuer ostw�rts verlassen hat?"
+local NPC_REPLY_DE = "Welchen Turm betritt man nach dem man den Turm des Feuer ostwärts verlassen hat?"
 local NPC_REPLY_EN = "Which tower do you enter if you leave the Tower of Fire eastwards?"
 
 function receiveText(npc, type, text, PLAYER)

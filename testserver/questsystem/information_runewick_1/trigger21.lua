@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 97
 
 local NPC_TRIGGER_DE = "[Aa]lterslos"
 local NPC_TRIGGER_EN = "[Aa]geless"
-local NPC_REPLY_DE = "Genau, Elara erscheint oft als eine alterlose Frau und hier ein Spiegel als Belohnung. F�r die n�chste Aufgabe geht es zu den Grabsteinen beim Feuer des Triumph. Gefragt ist die Jahreszahl der angesprochenen Kampagne."
+local NPC_REPLY_DE = "Genau, Elara erscheint oft als eine alterlose Frau und hier ein Spiegel als Belohnung. Für die nächste Aufgabe geht es zu den Grabsteinen beim Feuer des Triumph. Gefragt ist die Jahreszahl der angesprochenen Kampagne."
 local NPC_REPLY_EN = "Exactly, Elara appears often as an ageless woman and here is a mirror as your reward. For your next task you have to go north to the tombstones at the Fire of Triumph and tell me the year of the compaign noted there."
 
 function receiveText(npc, type, text, PLAYER)

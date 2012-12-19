@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 55
 
 local NPC_TRIGGER_DE = "[Nn]umila|[Ii]runnleh"
 local NPC_TRIGGER_EN = "[Nn]umila|[Ii]runnleh"
-local NPC_REPLY_DE = "Gut, sie zu besuchen wird nicht von Schaden sein. Jetzt gilt es erstmal sich dem Erzmagier vorzustellen. Komm zur�ck wenn du dies getan hast."
+local NPC_REPLY_DE = "Gut, sie zu besuchen wird nicht von Schaden sein. Jetzt gilt es erstmal sich dem Erzmagier vorzustellen. Komm zurück wenn du dies getan hast."
 local NPC_REPLY_EN = "Fine, it will be to your advance if you visit her. But now look for the Archmage to introduce yourself. Come back if you have done that."
 
 function receiveText(npc, type, text, PLAYER)

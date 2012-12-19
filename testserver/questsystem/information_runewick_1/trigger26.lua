@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 111
 
 local POSITION = position(907, 803, -3)
 local RADIUS = 5
-local LOOKAT_TEXT_DE = "Nach etwas Zeit erkennst du schlie�lich eine 18."
+local LOOKAT_TEXT_DE = "Nach etwas Zeit erkennst du schließlich eine 18."
 local LOOKAT_TEXT_EN = "After some time you can recognize a 18."
 
 function LookAtItem(PLAYER, item)
@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Nun gehe zur�ck zu Elesil und berichte ihr die Nummer.", "Go back to Elesil and tell her the number."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Nun gehe zurück zu Elesil und berichte ihr die Nummer.", "Go back to Elesil and tell her the number."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

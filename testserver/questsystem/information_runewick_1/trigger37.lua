@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 51
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Wie hei�t die Br�cke die Runewick mit Eibental verbindet?"
+local NPC_REPLY_DE = "Wie heißt die Brücke die Runewick mit Eibental verbindet?"
 local NPC_REPLY_EN = "What is the name of the bridge that connects Runewick with Yewdale?"
 
 function receiveText(npc, type, text, PLAYER)
