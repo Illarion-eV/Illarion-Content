@@ -67,7 +67,7 @@ end
 
 function HANDLER(PLAYER)
     handler.eraseplayeritem.erasePlayerItem(PLAYER, 155, 10):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Sag \"Bereit\" wenn du für die letzte Aufgabe bereit bist.", "Say \"ready\" if you are ready for your last task."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Sag \"Bereit\" wenn du fÃ¼r die letzte Aufgabe bereit bist.", "Say \"ready\" if you are ready for your last task."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 199
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Ich sagte ich würde gerne ein paar Trauben haben. In Adrons Versteck gibt es traumhafte. Wenn ihr mir welche bitte bringt. Haltet Ausschau nach Bäumen, sie werden euch den Weg weisen."
+local NPC_REPLY_DE = "Ich sagte ich wÃ¼rde gerne ein paar Trauben haben. In Adrons Versteck gibt es traumhafte. Wenn ihr mir welche bitte bringt. Haltet Ausschau nach BÃ¤umen, sie werden euch den Weg weisen."
 local NPC_REPLY_EN = "I said I would like to have some some grapes. There are some very delicious grapes at Adron's Covert. Please, bring me some from there. Keep your eyes open for trees, they will guide you there."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nun zu Adrons Versteck und bringe ein paar Trauben. Der Eingang befindet sich entlang der Küste nordwestlich von Eibental. Halte Ausschau nach Bäumen.", "Go to Adron's Covert now and bring some grapes. You can find the entrance on the coast northeast from Yewdale. Keep your eyes open for trees."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nun zu Adrons Versteck und bringe ein paar Trauben. Der Eingang befindet sich entlang der KÃ¼ste nordwestlich von Eibental. Halte Ausschau nach BÃ¤umen.", "Go to Adron's Covert now and bring some grapes. You can find the entrance on the coast northeast from Yewdale. Keep your eyes open for trees."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

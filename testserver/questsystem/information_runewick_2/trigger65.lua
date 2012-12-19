@@ -11,7 +11,7 @@ local ITEM_ID = 45
 local ITEM_AMNT = 1
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "#me lächelt und reicht dir wortlos einen Stein."
+local NPC_REPLY_DE = "#me lÃ¤chelt und reicht dir wortlos einen Stein."
 local NPC_REPLY_EN = "#me smiles and hands you a stone."
 local NPC_NOITEM_DE = "#me zieht zwei Messer und zeigt zu dem Tor."
 local NPC_NOITEM_EN = "#me draws two knives and points to the door."
@@ -66,7 +66,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Da du nun alle Steine zusammen hast, ist an der Zeit zu Numila zurückzukehren.", "Since you have all stones together, it is time to go back to Numila."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Da du nun alle Steine zusammen hast, ist an der Zeit zu Numila zurÃ¼ckzukehren.", "Since you have all stones together, it is time to go back to Numila."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 198, 333, 1):execute()
 end
 

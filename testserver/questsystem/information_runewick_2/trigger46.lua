@@ -7,7 +7,7 @@ local POSTCONDITION_QUESTSTATE = 226
 
 local NPC_TRIGGER_DE = "[Dd]arter"
 local NPC_TRIGGER_EN = "[Dd]arter"
-local NPC_REPLY_DE = "Gut, dann machen wir das halbe Dutzen voll. Welcher Ort liegt zwischen der Fröhlichen Lichtung und dem Schattentor?"
+local NPC_REPLY_DE = "Gut, dann machen wir das halbe Dutzen voll. Welcher Ort liegt zwischen der FrÃ¶hlichen Lichtung und dem Schattentor?"
 local NPC_REPLY_EN = "Good, lets finish the half dozen. Which place is between the Marryglade and the Shadow Gate?"
 
 function receiveText(npc, type, text, PLAYER)

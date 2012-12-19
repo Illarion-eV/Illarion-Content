@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 10
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Eine Aufgabe wünscht ihr? Gut, ich halbe welche. Bringt mir doch zuerst eine Pergamentrolle, damit ich sie euch aufschreiben kann."
+local NPC_REPLY_DE = "Eine Aufgabe wÃ¼nscht ihr? Gut, ich halbe welche. Bringt mir doch zuerst eine Pergamentrolle, damit ich sie euch aufschreiben kann."
 local NPC_REPLY_EN = "A Task? Well, I have some. Bring me a pell, that I can write them down for you."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Bringe eine Pergamentrolle. Frage deinen Schreiner oder Händler deiner Wahl um Hilfe.", "Bring a pell. Ask a carpenter or trader of choice for help."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Bringe eine Pergamentrolle. Frage deinen Schreiner oder HÃ¤ndler deiner Wahl um Hilfe.", "Bring a pell. Ask a carpenter or trader of choice for help."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

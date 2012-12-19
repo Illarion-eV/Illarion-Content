@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 251
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Geht nun zur Bärenhöhle und erlegt einige der Wölfe dort. Vielleicht über ihr euch aber vorher noch in der Kampfkunst oder sucht nach Weggefährten. Kommt anschließend wieder zurück."
+local NPC_REPLY_DE = "Geht nun zur BÃ¤renhÃ¶hle und erlegt einige der WÃ¶lfe dort. Vielleicht Ã¼ber ihr euch aber vorher noch in der Kampfkunst oder sucht nach WeggefÃ¤hrten. Kommt anschlieÃŸend wieder zurÃ¼ck."
 local NPC_REPLY_EN = "Go to the Bear cave now and hunt some of the wolves there. You should maybe practice first or look for support. Come back afterwards."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur Bärenhöhle. Bedenke, dass dies kein ungefährlicher Ort ist. Sei daher vorbereitet durch etwas Training oder Unterstützung durch Mitspieler.", "Go to the Bear cave now. Keep in mind this is not an undangerous place. You should practice before or look for support from other players."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur BÃ¤renhÃ¶hle. Bedenke, dass dies kein ungefÃ¤hrlicher Ort ist. Sei daher vorbereitet durch etwas Training oder UnterstÃ¼tzung durch Mitspieler.", "Go to the Bear cave now. Keep in mind this is not an undangerous place. You should practice before or look for support from other players."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
