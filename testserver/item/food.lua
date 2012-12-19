@@ -311,6 +311,16 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
       dietEffect=LongTimeEffect(12, newDuration);
       dietEffect:addValue("buffType", foodItem.buffType);
       dietEffect:addValue("buffAmount", newBuffAmount);
+      if (User ~= nil) then
+        debug("User");
+      end
+      if (User.effects ~= nil) then
+        debug("User.effects");
+      end
+      if (User.effects.addEffect ~= nil) then
+        debug("User.effects:addEffect");
+        debug(type(User.effects.addEffect));
+      end
       User.effects:addEffect(dietEffect);
     end
   end

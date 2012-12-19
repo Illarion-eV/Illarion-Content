@@ -36,11 +36,13 @@ function loadEffect(dietEffect,Character)
   -- check for old values and remove them
   if dietEffect:findValue("constMod") then
     dietEffect:removeValue("constMod");
-    dietEffect.nextCalled = 1;
+    dietEffect.nextCalled = 5;
+    debug("found constMod, set nextCalled " .. dietEffect.nextCalled);
   end
   if dietEffect:findValue("dom") then
     dietEffect:removeValue("dom");
-    dietEffect.nextCalled = 1;
+    dietEffect.nextCalled = 5;
+    debug("found dom, set nextCalled " .. dietEffect.nextCalled);
   end
   
   local foundBuff, buffType = dietEffect:findValue("buffType");
