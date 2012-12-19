@@ -308,7 +308,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
       end
     end
     if (newIsBetter) then
-      dietEffect=LongTimeEffect(12, duration);
+      dietEffect=LongTimeEffect(12, newDuration);
       dietEffect:addValue("buffType", foodItem.buffType);
       dietEffect:addValue("buffAmount", newBuffAmount);
       User.effects:addEffect(dietEffect);
