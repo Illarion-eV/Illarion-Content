@@ -299,6 +299,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
           if (buffAmount > newBuffAmount or (buffAmount == newBuffAmount and dietEffect.nextCalled > newDuration)) then
             debug("old is better");
             newIsBetter = false;
+          else
+            dietEffect:addValue("buffType", foodItem.buffType);
+            dietEffect:addValue("buffAmount", newBuffAmount);
           end
         else
           User:inform("[ERROR] Found diet effect without buffAmount. Adding new buff. Please inform a developer.");
@@ -306,22 +309,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
       else
         User:inform("[ERROR] Found diet effect without buffType. Adding new buff. Please inform a developer.");
       end
-    end
-    if (newIsBetter) then
+    else
       local dietEffect=LongTimeEffect(12, newDuration);
       dietEffect:addValue("buffType", foodItem.buffType);
       dietEffect:addValue("buffAmount", newBuffAmount);
-      if (User ~= nil) then
-        debug("User");
-      end
-      if (User.effects ~= nil) then
-        debug("User.effects");
-      end
-      if (User.effects.addEffect ~= nil) then
-        debug("User.effects:addEffect");
-        debug(type(User.effects.addEffect));
-      end
-      debug(type(dietEffect));
       User.effects:addEffect(dietEffect);
     end
   end
