@@ -22,6 +22,7 @@ function addEffect(dietEffect,Character)
 end
 
 function callEffect(dietEffect,Character)
+  debug("callEffect for " .. Character.name);
 	return false;
 end
 
@@ -48,6 +49,7 @@ function loadEffect(dietEffect,Character)
   
   local foundBuff, buffType = dietEffect:findValue("buffType");
   if (foundBuff) then
+    debug("found buff");
     local foundBuffAmount, buffAmount = dietEffect:findValue("buffAmount");
     if (not foundBuffAmount) then
       -- should not happen
@@ -59,6 +61,9 @@ function loadEffect(dietEffect,Character)
       local attrib = item.food.BUFFS[buffType][i];
       Character:setAttrib(attrib,Character:increaseAttrib(attrib,0)+1);
     end
+  else
+    debug("no buff, set nextCalled");
+    dietEffect.nextCalled = 5;
   end
 end
 
