@@ -132,12 +132,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     -- now we now the max difficulty, so set the food value with linear distribution
     local diff = MAX_CRAFTED_FOODVALUE - MIN_CRAFTED_FOODVALUE;
     local halfMin = MIN_CRAFTED_FOODVALUE/2;
-    for _,food in pairs(FoodList) do 
-      if (food.difficulty ~= nil) then
-        food.value = MIN_CRAFTED_FOODVALUE + diff*(food.difficulty/MAX_DIFFICULTY);
+    for _,foodItem in pairs(FoodList) do 
+      if (foodItem.difficulty ~= nil) then
+        foodItem.value = MIN_CRAFTED_FOODVALUE + diff*(foodItem.difficulty/MAX_DIFFICULTY);
       else
         -- for non crafted foods, the maximum foodvalue is half the MIN_CRAFTED_FOODVALUE
-        food.value = math.min(halfMin, food.value);
+        foodItem.value = math.min(halfMin, foodItem.value);
       end
     end
   end
@@ -157,16 +157,16 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		return;
 	end
   
-  local food = FoodList[ SourceItem.id ];
+  local foodItem = FoodList[ SourceItem.id ];
   -- known food item?
-  if (food == nil ) then
+  if (foodItem == nil ) then
     User:inform("[ERROR] unknown food item. ID: " .. SourceItem.id .. ". Please inform a developer.");
     return; 
   end
 	-- define user's race (+1 for valid table index), non-playable races are set to 10
 	local race = math.min(User:getRace()+1, 10);
 	-- not eatable for user's race
-	if food.unEatable[race] then
+	if foodItem.unEatable[race] then
     base.common.HighInformNLS(User,
     "Das kannst du nicht essen.",
     "You can't eat that.");
@@ -196,24 +196,24 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
   -- adjust food value for small races
   local foodVal;
   if ( User:getRace() == 7 ) then                                    -- fairy (food * 1.8)
-    foodVal = math.ceil( food.value * 1.8 )
+    foodVal = math.ceil( foodItem.value * 1.8 )
   elseif ( User:getRace() == 2 ) or ( User:getRace() == 6 ) or ( User:getRace() == 8 ) then    -- halfling or gnome and goblin (food * 1.4)
-    foodVal = math.ceil( food.value * 1.4 )
+    foodVal = math.ceil( foodItem.value * 1.4 )
   else                                                                -- other races
-    foodVal = food.value;
+    foodVal = foodItem.value;
   end
   
   -- create leftovers
-  if( food.leftover > 0 ) then
+  if( foodItem.leftover > 0 ) then
     if( math.random( 50 ) <= 1 ) then
       base.common.HighInformNLS( User, "Das alte Geschirr ist nicht mehr brauchbar.", "The old dishes are no longer usable.");
     else
-      User:createItem( food.leftover, 1, 333, nil);
+      User:createItem( foodItem.leftover, 1, 333, nil);
     end
   end
   
   -- check for poison
-  local poison = food.poison;
+  local poison = foodItem.poison;
   if (poison ~= nil) then
     User:setPoisonValue( base.common.Limit( (User:getPoisonValue() + poison) , 0, 10000) );
     base.common.HighInformNLS(User,
@@ -265,23 +265,24 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
   end
   
   -- check for buffs
-  if (food.buffType ~= nil) then
+  if (foodItem.buffType ~= nil) then
     debug("check buff");
     -- calculate how long the buff will last, at least 5min, maximal 30min
     local newDuration = 3000;
+    -- grant even easy craftable items a good chance by adding 5
+    local raceDifficulty = (foodItem.difficulty+5)*foodItem.racialFactor[race];
     -- add 5 more minutes each in 5 more random experiments
     for i=1,5 do 
-      -- grant even easy craftable items a good chance by adding 5
-      if (math.random(1,105) <= food.difficulty+5) then
+      if (math.random(1,105) <= raceDifficulty) then
         newDuration = newDuration + 3000;
       end
     end
     -- determine number of increased attributes
     local newBuffAmount = 1;
-    if (math.random(1,105) <= food.difficulty+5) then
+    if (math.random(1,105) <= raceDifficulty) then
       newBuffAmount = 2;
     end
-    debug("diff " .. food.difficulty .. ", newDuration " .. newDuration .. ", newBuffAmount " .. newBuffAmount);
+    debug("diff " .. foodItem.difficulty .. ", raceDiff " .. raceDifficulty .. ", newDuration " .. newDuration .. ", newBuffAmount " .. newBuffAmount);
     -- add buff, if it is better than the previous one
     local newIsBetter = true;
     local foundEffect,dietEffect=User.effects:find(12);
@@ -306,7 +307,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     if (newIsBetter) then
       dietEffect=LongTimeEffect(12, duration);
-      dietEffect:addValue("buffType", food.buffType);
+      dietEffect:addValue("buffType", foodItem.buffType);
       dietEffect:addValue("buffAmount", newBuffAmount);
       User.effects:addEffect(dietEffect);
     end
