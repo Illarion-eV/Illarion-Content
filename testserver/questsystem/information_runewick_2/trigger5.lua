@@ -22,7 +22,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du fühlst, wie die Pergamentrolle merklich schwerer wird.", "You feel that the pell becomes heavier."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du fÃ¼hlst, wie die Pergamentrolle merklich schwerer wird.", "You feel that the pell becomes heavier."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

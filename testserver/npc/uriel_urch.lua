@@ -679,8 +679,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("elv");
-talkEntry:addTrigger("elder");
+talkEntry:addTrigger("elf");
 talkEntry:addResponse("Long haired women. Even the men look like girls.");
 talkEntry:addResponse("Gracefull and artful they say. Listen to me! They are weak and weepy.");
 talkEntry:addResponse("Elves... they just sit it out. No matter wich problem they have to deal with... they alwasy sit it out. Well they got enough time, didn't they?");
@@ -690,6 +689,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("lizard");
+talkEntry:addTrigger("lizardman");
 talkEntry:addResponse("Ahh! Fishys, always smelling of the sea.");
 talkEntry:addResponse("This dastardly fishfaces? I won't trust them at all.");
 talkEntry:addResponse("Snakes with legs, we always used to say. This lizardfolk scares me, at all.");
@@ -762,7 +762,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
 talkEntry:addResponse("Ein Haufen Halsabschneider und dreckiger Huren. Man will fast meinen Galmair zieht diesen Abschaum an, nicht wahr?");
-talkEntry:addResponse("Gynk ist ein ehrloßer wertloser Haufen. Die taugen nicht viel für den Krieg und schon gar nicht als Soldaten.");
+talkEntry:addResponse("Gynk ist ein ehrloser, wertloser Haufen. Die taugen nicht viel für den Krieg und schon gar nicht als Soldaten.");
 talkEntry:addResponse("Einen Gynkesen würde ich nicht einmal anspucken, stände er in Flammen! Die meißten von denen sind sowieso Tiere.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -793,7 +793,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("Soviel ich gesehen habe, kann nicht ien einziger Gott, dich vor dem Krieg bewahren. Trozdem, Irmorom und Cherga sind die Götter meines Hauses.");
+talkEntry:addResponse("Soviel wie ich gesehen habe, kann nicht ein einziger Gott, dich vor dem Krieg bewahren. Trozdem, Irmorom und Cherga sind die Götter meines Hauses.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1150,7 +1150,7 @@ talkingNPC:addCycleText("#me blickt auf das Wappen an seiner Brustplatte, ein sa
 talkingNPC:addCycleText("#me schüttelt den Kopf und murmelt zu sich selbst. 'Verdammte Albarianer.'", "#me sighs, muttering to himself. 'Bloody Albarians.'");
 talkingNPC:addCycleText("#me kratzt sich an der Nase.", "#me scratches his nose.");
 talkingNPC:addCycleText("#me kratzt sich kurz zwischen den Beinen.", "#me has a quick scratch between his legs.");
-talkingNPC:addCycleText("#me setzt sich aufrecht hin, seine Rüstung quitsch leise, sie macht einen sperrigen Eindruck.", "#me repositions himself, his armour seeming quite heavy.");
+talkingNPC:addCycleText("#me setzt sich aufrecht hin, seine Rüstung quietscht leise, sie macht einen sperrigen Eindruck.", "#me repositions himself, his armour seeming quite heavy.");
 talkingNPC:addCycleText("#me blickt skeptisch auf den Boden seines Kruges und verängt die Augen zu Schlitzen.", "#me looks into his empty beer mug.");
 talkingNPC:addCycleText("#me starrt dich an.", "#me glares at you.");
 talkingNPC:addCycleText("#me pfeift ein altes Soldatenlied.", "#me whistles an old military tune.");

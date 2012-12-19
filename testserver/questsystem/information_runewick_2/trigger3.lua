@@ -10,7 +10,7 @@ local ITEM_ID = 3109
 local ITEM_AMNT = 1
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Ich sehe ihr habt die Pergamentrolle. Gut, gebt sie mir. *nimmt sie und schreibt ein paar Zeilen bevor sie sie wieder zurück gibt*."
+local NPC_REPLY_DE = "Ich sehe ihr habt die Pergamentrolle. Gut, gebt sie mir. *nimmt sie und schreibt ein paar Zeilen bevor sie sie wieder zurÃ¼ck gibt*."
 local NPC_REPLY_EN = "I see you have the roll. Good, give it to me. *takes it and writes some lines before she hands them back*."
 local NPC_NOITEM_DE = "Ich habe euch doch darum gebeten mir eine Pergamentrolle zu bringen. Bringt mir daher eine."
 local NPC_NOITEM_EN = "I asked you for a pell, therefore, please bring me one."
@@ -65,7 +65,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Auf der Pergamentrolle steht geschrieben: \"Geht hoch an die Spitze des Turm des Feuers, stellt euch zwischen der Säule des Feuers und dem Altar, und blickt in die Rolle. Die Rolle wird euch ein Zeichen geben sobald ihr richtig steht.\"", "Following is written on the poll: \"Go to the top of the Tower of Fire, stay between the column of fire and altar, and read the pell. The pell will tell you the right spot as soon as you stay there.\""):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Auf der Pergamentrolle steht geschrieben: \"Geht hoch an die Spitze des Turm des Feuers, stellt euch zwischen der SÃ¤ule des Feuers und dem Altar, und blickt in die Rolle. Die Rolle wird euch ein Zeichen geben sobald ihr richtig steht.\"", "Following is written on the poll: \"Go to the top of the Tower of Fire, stay between the column of fire and altar, and read the pell. The pell will tell you the right spot as soon as you stay there.\""):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

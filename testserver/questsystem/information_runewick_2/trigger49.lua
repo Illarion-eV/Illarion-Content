@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 243
 
 local POSITION = position(848, 705, 0)
 local RADIUS = 1
-local LOOKAT_TEXT_DE = "Hier scheint etwas versteckt zu sein. Nach einer kurzen Suche entdeckst du eine Rüstung die nun dir gehört."
+local LOOKAT_TEXT_DE = "Hier scheint etwas versteckt zu sein. Nach einer kurzen Suche entdeckst du eine RÃ¼stung die nun dir gehÃ¶rt."
 local LOOKAT_TEXT_EN = "There seems something hidden. After a short search you find an armour which belongs to you now."
 
 function LookAtItem(PLAYER, item)
@@ -39,7 +39,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 101, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Numila um einen weiteren Auftrag zu erhalten.", "Go back to Numila to get a further task."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurÃ¼ck zu Numila um einen weiteren Auftrag zu erhalten.", "Go back to Numila to get a further task."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
