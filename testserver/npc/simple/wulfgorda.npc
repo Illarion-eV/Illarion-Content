@@ -59,8 +59,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Wulfgorda die Jägerin. Schlüsselwörter: Auskunft, Information, Plätze.")
 
 -- Mandatory: General speech
-queststatus(650) = 1, english, ".*" -> "#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have a silvercoin for that you found me.", item(3077, 1, 333), queststatus(650) = 2
-queststatus(650) = 1, ".*" -> "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdiente Münze.", item(3077, 1, 333), queststatus(650) = 2
+queststatus(650) = 1, english, ".*" -> "#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have a silvercoin for that you found me.", money + 1000, queststatus(650) = 2
+queststatus(650) = 1, ".*" -> "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdiente Münze.", money + 1000, queststatus(650) = 2
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me tips her helmet."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me tippt auf ihren Helm."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me tips her helmet."
@@ -76,12 +76,6 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me tips her helmet."
 
 -- OPTIONAL TRIGGERS
 
--- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
--- "profession" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
--- "job", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "inform" -> inform("[Keywords] place"), "I have information about places here in the northeast for you if you want to know them."
 "inform" -> inform("[Schlüsselwörter] Platz"), "Ich habe Informationen über Plätze hier im Nordosten für dich wenn du wünscht."
@@ -91,10 +85,11 @@ english, "inform" -> inform("[Keywords] place"), "I have information about place
 "Platz", "Plätz" -> inform("[Schlüsselwörter] Tir Draganfod, Nordosten, Nordwesten, Südwesten, Südosten"), "Plätze? Welche Plätze meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Tir Draganfod?"
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-english, "quest", "mission" -> "IN PROGRESS."
-"quest", "mission" -> "IN ARBEIT."
-"task", "adventure", "order" -> "IN PROGRESS."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "IN ARBEIT."
+-- quest information_cadomyr_1.quest belongs to this NPC: Quest-ID.: 652 - IN PROGRESS
+english, "quest", "mission" -> "Nothing to do for you yet but soon."
+"quest", "mission" -> "Ich habe nichts für dich zu tun momentant aber bald."
+"task", "adventure", "order" -> "Nothing to do for you yet but soon."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentant aber bald."
 
 -- Places
 english, "Tir", "Draganfod" -> inform("[Keywords] Sevenhill Mountains, northeast, northwest, southwest, southeast"), "This region is called Tir Draganfod and I devide it in northeast, northwest, southwest and southeast. Tir Draganfod is furthermore in the east from the Sevenhill Mountains."
@@ -212,27 +207,9 @@ english, "rosaline", "edwards" -> "The Queen owns two stones of power. These are
 english, "Cadomyr" -> "Cadomyr is in the southwest. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway."
 "Cadomyr" -> "Cadomyr ist im Südwesten zu finden. Wenn du dumm genug bist, wirst du dort hin zu Fuß gehen. Aber orientierte dich wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen."
 
--- Optional: Catching typical NPC phrases
--- "what sell", "what buy", "list wares", "price of" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "was verkauf", "was kauf", "warenliste", "preis von" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
--- "tell something" -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "erzähl was", "erzähl etwas" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "If you want to know something about gods, than look for priests or ask in one of the factions."
 "Gott", "Götter" -> "Wenn du etwas über die Götter wissen möchtest, dann suche einen Priester oder frage jemanden in den Fraktionen."
-
--- Optional: Main land factions
--- "albar", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "albar" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
--- "gynk", "gync", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "gync", "gynk" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
--- "salkama", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "salkama" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-
--- Optional: Gobaith
--- "Gobaith", "Gobiath", english -> "ENGLISH1.", "ENGLISH2.", "ENGLISH3."
--- "Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Hmm... you want some information? But about what?"

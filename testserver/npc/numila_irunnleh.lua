@@ -22,6 +22,7 @@ require("npc.base.condition.state")
 require("npc.base.consequence.attribute")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
+require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
 require("npc.base.talk")
@@ -48,7 +49,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(620, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers a silvercoin and turns back to her book*");
-talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -57,7 +58,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(620, "=", 1));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht eine Silbermünze und wendet sich wieder ihrem Buch zu*");
-talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
