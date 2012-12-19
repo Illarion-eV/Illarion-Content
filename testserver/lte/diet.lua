@@ -33,6 +33,7 @@ function removeEffect(dietEffect,Character)
 end
 
 function loadEffect(dietEffect,Character)
+  debug("load effect for " .. Character.name);
   -- check for old values and remove them
   if dietEffect:findValue("constMod") then
     dietEffect:removeValue("constMod");
