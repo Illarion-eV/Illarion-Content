@@ -311,6 +311,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         User:inform("[ERROR] Found diet effect without buffType. Adding new buff. Please inform a developer.");
       end
     else
+      debug("adding effect 12 with " .. newDuration);
       local dietEffect=LongTimeEffect(12, newDuration);
       dietEffect:addValue("buffType", foodItem.buffType);
       dietEffect:addValue("buffAmount", newBuffAmount);
