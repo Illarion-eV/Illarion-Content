@@ -411,13 +411,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bounding Stream");
-talkEntry:addResponse("The Bounding Stream is the river that seperates the northeast from the rest of Tir Draganfod and where the Glowing River finds it end.");
+talkEntry:addResponse("The Bounding Stream is the river that seperates the northeast from the rest of Illarion and where the Glowing River finds it end.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Grenzstrom");
-talkEntry:addResponse("Der Grenzstrom ist jeder Fluss, der den Nordosten vom Rest von Tir Draganfod trennt und wo der Glühende Fluss sein Ende findet.");
+talkEntry:addResponse("Der Grenzstrom ist jeder Fluss, der den Nordosten vom Rest von Illarion trennt und wo der Glühende Fluss sein Ende findet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
