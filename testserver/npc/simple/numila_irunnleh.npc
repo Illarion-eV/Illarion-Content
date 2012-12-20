@@ -1,0 +1,284 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Numila Irunnleh                                         Runewick --
+-- NPC Job:  scholar                                                          --
+--                                                                            --
+-- NPC Race: elf                        NPC Position:  942, 765, 1            --
+-- NPC Sex:  female                     NPC Direction: north                  --
+--                                                                            --
+-- Author:   envi                                                             --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Numila Irunnleh"
+race = elf
+sex = female
+position = 942, 765, 1
+direction = north
+affiliation = "Runewick"
+job = "scholar"
+
+language = common
+language = elf
+defaultLanguage = common
+autointroduce = on
+
+author = "envi"
+
+lookatDE = "Dieser NPC ist Numila Irunnleh die Wissenschaftlerin."
+lookatUS = "This NPC is Numila Irunnleh the scholar."
+useMsgDE = "Ihr seid gut damit beraten mich nicht anzufassen."
+useMsgUS = "I recommend do not touch me."
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 7
+beardID = 0
+colorHair = 139, 137, 112
+colorSkin = 230, 230, 250
+itemHead = 0
+itemChest = 846
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 826
+itemShoes = 369
+
+-- Template Version 1.04, 07/12/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Numila Irunnleh the scholar. Keywords: Question, information, Runewick, Places.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Numila Irunnleh die Wissenschaftlerin. Schlüsselwörter: Auskunft, Information, Runewick, Plätze.")
+
+-- Mandatory: General speech
+queststatus(620) = 1, english, ".*" -> "Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers a silvercoin and turns back to her book*", money + 1000, queststatus(620) = 2
+queststatus(620) = 1, ".*" -> "Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht eine Silbermünze und wendet sich wieder ihrem Buch zu*", money + 1000, queststatus(620) = 2
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail Oldra. *Turns back to her book*"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail Oldra. *Turns back to her book*"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
+"Farewell", "Bye", "Fare well", "See you" -> "Au revoir. *Turns back to her book*"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Au revoir. *Wendet sich wieder ihrem Buch zu*"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Turns back to her book*"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Wendet sich wieder ihrem Buch zu*"
+"How are you", "How feel", "How do you do" -> "Fine, fine. *Turns back to her book*"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Fein, fein. *Wendet sich wieder ihrem Buch zu*"
+"your name", "who are you", "who art thou" -> "Numila Irunnleh the scholar. *Turns back to her book*"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Numila Irunnleh die Wissenschaftlerin. *Wendet sich wieder ihrem Buch zu*"
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+english, "inform" -> inform("[Keywords] place"), "I have information about places close to Runewick for you if you want to know them."
+"inform" -> inform("[Schlüsselwörter] Platz"), "Ich habe Informationen über Plätze in der Nähe von Runewick für euch wenn ihr wünscht."
+"question" -> inform("[Keywords] place"), "I have information about places close to Runewick for you if you want to know them."
+"Frage", "Auskunft" -> inform("[Schlüsselwörter] Platz"), "Ich habe Informationen über Plätze in der Nähe von Runewick für euch wenn ihr wünscht."
+"place" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Illarion?"
+"Platz", "Plätz" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Plätze? Welche Plätze meint ihr? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Illarion?"
+english, "Elesil", "Daelwon" -> "You can find her outside of the town close to the teleporter. She has a lot of information and some tasks for you."
+"Elesil", "Daelwon" -> "Ihr findet sie drausen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für euch."
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+-- quest information_runewick_2.quest belongs to this NPC: Quest-ID.: 622
+
+-- Places
+english, "Illarion" -> inform("[Keywords] northeast, northwest, southwest, southeast"), "This land is called Illarion and I devide it in northeast, northwest, southwest and southeast."
+"Illarion" -> inform("[Schlüsselwörter] Nordosten, Nordwesten, Südwesten, Südosten"), "Dieses Land wird Illarion genannt und ich unterteile es in in Nordost, Nordwest, Südwest und Südost."
+"northeast" -> inform("[Keywords] Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock"), "I know following places: Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock."
+"Nordost" -> inform("[Schlüsselwörter] Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen"), "Dort gibt es: Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen."
+"northwest" -> inform("[Keywords] Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau"), "I know following places: Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau."
+"Nordwest" -> inform("[Schlüsselwörter] See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene"), "Ich weiß folgende Plätze: See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene."
+"southwest" -> inform("[Keywords] Shadowland, Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert"), "I know following places: Shadowland, The Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert."
+"Südwest" -> inform("[Schlüsselwörter] Schattenland, Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste"), "Ich weiß folgende Plätze: Schattenland, Der Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste"
+"southeast" -> inform("[Keywords] Snakehead Bay, Lonely Islands, Death's Stench, Dragon's Lair, Dewy Swamps, Merryglade, Oldra's Tower, Coward's last stand, Northern Outpost, Anthill Brook, Bear cave, Adron's Covert, Yewdale"), "I know following places: Snakehead Bay, Lonely Islands, Death's Stench, Dragon's Lair, Dewy Swamps, Merryglade, Oldra's Tower, Coward's last stand, Northern Outpost, Anthill Brook, Bear cave, Adron's Covert, Yewdale."
+"Südost" -> inform("[Schlüsselwörter] Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Fröhliche Lichtung, Oldras Turm, Feiglings letztes Gefecht, Nördlicher Außenposten, Ameisenhügelbach, Bärenhöhle, Adrons Versteck, Eibental"), "Ich weiß folgende Plätze: Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Fröhliche Lichtung, Oldras Turm, Feiglings letztes Gefecht, Nördlicher Außenposten, Ameisenhügelbach, Bärenhöhle, Adrons Versteck, Eibental."
+
+-- northeast
+"Elstree Forest" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Elstree Wald" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Elstree Plain" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Elstree Ebene" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Eastland" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Ostland" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Pauldron Isle" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Schulterplatten Insel" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Dead Marsh" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Todes Sumpf" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Spider Mouth" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Spinnen Mund" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Hemp Necktie Inn" -> "The Hemp Necktie Inn is a neutral taverne in the Spider's Mouth and many adventurer are resting there. Among others Wulfgorda. You can use the teleporter to get there."
+"Gasthof Hanfschlinge" -> "Der Gasthof zur Hanfschlinge ist eine neutrale Taverne im Spinnen Mund und viele Abenteuerer rasten dort. Unteranderem Wulfgorda. Du kannst den Teleporter verwenden um dort hinzukommen."
+queststatus(650) < 1, english, "Wulfgorda" -> inform("[New Quest] Try to find Wulfgorda and bring her the sibanac leafs to get your reward."), "Wulfgorda is a hunter who knows almost each place in the northeast. You can find her infront of the Hemp Necktie Inn. Furthermore, you should bring her these leafs here. *hands some sibanac leafs*", item(155, 10, 333), queststatus(650) = 1
+queststatus(650) < 1, "Wulfgorda" -> inform("[Neues Quest] Finde Wulfgorda und bringe ihr die Sibanacblätter um deine Belohnung zur erhalten."), "Wulfgorda ist eine Jägerin, welche beinahe jeden Platz im Nordosten kennt. Du findest sie vor dem Gasthaus zur Hanfschlinge. Des weiteren kannst du ihr auch gleich diese Blätter hier bringen. *überreicht Sibanac Blätter*", item(155, 10, 333), queststatus(650) = 1
+english, "Wulfgorda" -> "Wulfgorda is a hunter who knows almost each place in the northeast. You can find her infront of the Hemp Necktie Inn."
+"Wulfgorda" -> "Wulfgorda ist eine Jägerin, welche beinahe jeden Platz im Nordosten kennt. Du findest sie vor dem Gasthaus zur Hanfschlinge."
+"Bounding Stream" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Grenzstrom" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Glowing River" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Glühender Fluss" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Plains Silence" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Ebene Stille" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Northern Woods" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Nördliche Wälder" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Insurmountable Limes" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Unüberwindbarer Limes" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Evilrock" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Böser Fels" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Three Fingertips" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Dreifingerspitzen" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+
+-- northwest
+"Lake Syrita" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
+"See Syrita" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
+"Nagrun Plain" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
+"Nagrun Ebene" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
+"The Swamp" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
+"Der Sumpf" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
+"Temple five" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
+"Tempel Fünf" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
+"Lonely Mountains" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
+"Einsame Berge" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
+"Galmair Plateau" -> "Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair."
+"Galmair Hochebene" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair."
+english, "Lotta", "Medborgar" -> "Die findet man in Galmair und die weiß sämtliche Orte im Nordwesten, sprich um Galmair."
+"Lotta", "Medborgar" -> "You can find her in Galmair and he knows several places in the northwest, thus around Galmair."
+
+-- southwest
+"Shadowland" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
+"Schattenland" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+"Wight Canal" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
+"Wichtkanal" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+"Sentry Forest" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
+"Wachwald" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+"Great Ocean" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
+"Großer Ozean" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+"Border Mountains" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
+"Grenzberge" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+"Katanbi Desert" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
+"Katanbi Wüste" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+"Katanbi Delta" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
+"Katanbi Delta" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+"Western Katanbi Desert" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
+"Westliche Katanbi Wüste" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+english, "Ruzusss" -> "Den findet man in Cadomyr und der weiß sämtliche Orte im Südwesten, sprich um Cadomyr."
+"Ruzusss" -> "You can find him in Cadomyr and he knows several places in the southwest, thus around Cadomyr."
+
+-- southeast
+"Snakehead Bay" -> "The bay westwards from Runewick is called Snakehead Bay."
+"Schlangenkopfbucht" -> "Die Bucht westlich von Runewick heißt Schlangenkopfbucht."
+"Lonely Islands" -> "These two islands southwest from Runewick. You will have to take a ferry to get there. But be careful, it is said, that noone has ever returned from there."
+"Einsame Inseln" -> "Diese zwei Inseln liegen südwestlich von Runewick. Ihr werdet eine Fähre nehmen müssen. Aber seid vorsicht! Es wird gesagt, dass noch nie jemand von dort zurückkam."
+"Death Stench" -> "These area north of the Dragon's Lair has been turned into a swamp by dragons years ago."
+"Todes Gestank" -> "Dieser Bereich nördlich der Drachenhöhle wurde von Drachen in einen Sumpf verwandelt vor einigen Jahren."
+"Dragon Lair" -> "The Dragon's Lair is north of the Bear Cave. Don't go there alone!"
+"Drachenhöhle" -> "Die Drachenhöhle ist nördlich der Bärenhöhle. Geht dort nicht alleine hin!"
+"Dewy Swamps" -> inform("[Keywords] Darter's Shop, Shadow Gate"), "The Dewy Swamps are north from Runewick. Walk to Yewdale, then northeast, pass Merryglade and you are there. You find there Darter's Shop and the Shadow Gate."
+"Frische Sümpfe" -> inform("[Schlüsselwörter] Darters Laden, Schattentor"), "Die Frischen Sümpfe ligen nördlich von Runwick. Geht nach Eibental, von dort nordöstlich, passiert die Fröhliche Lichtung und schon seid ihr dort. Ihr findet dort Darters Laden und das Schattentor."
+"Darter Shop" -> "That is a part of Dewy Swamps. This shop belongs to the Darter family, but it collapsed years ago. I think you can still find a member there."
+"Darter Laden" -> "Das ist ein Teil der Frischen Sümpfe. Dieser Laden gehört der Darter Familie, welcher aber vor Jahren zugrunde ging. Ich denke man findet immer noch ein Mitglieder der Familie dort."
+"Shadow Gate" -> "That is a part of Dewy Swamps. It was once a place for experiments. We tried to open a large permanent portal to distant lands there. But it failed and thus it is a ruin now."
+"Schattentor" -> "Das ist ein Teil der Frischen Sümpfe. Es war einst ein Platz für Experimente. Wir versuchten ein permanentes Portal zu fernen Ländern zu öffnen. Aber wir scheiterten und so ist dort lediglich eine Ruine nun zu finden."
+"Merryglade" -> "It was once the home of a stable hand who disappeared to Galmair after he failed to protect his animals. It is northeast from Yewdale."
+"Fröhliche Lichtung" -> "Es war einst das Haus eines Stalljungen, welcher nach Galmair verschwand nachdem es ihm nicht gelungen ist seine Tiere zu behüten. Es liegt nordöstlich von Eibental."
+"Oldra Tower" -> "It is northeast from Yewdale close at Merryglade. Druids and Alchemists are often traveling there. Ask them for further information."
+"Oldras Turm" -> "Der liegt nordöstlich von Eibental in der Nähe der Fröhlichen Lichtung. Druiden und Alchemisten reisen oft dorthin. Fragt die wenn ihr weitere Information wünscht."
+"Coward last stand" -> "It is northeast from Yewdale on the way to Merryclade. The coward is noone else than Sir Luvwick from Cadomyr. There is rumour that he ran faster than an arrow of Malachin when he was attacked by Galmair supporters."
+"Feiglings letztes Gefecht" -> "Dieser Ort liegt nordöstlich von Eibental am Weg zur Fröhlichen Lichtung. Der angesprochene Feigling ist Sir Luvwick von Cadomyr. Es heißt, er lief schneller als ein Pfeil von Malachin als er dort von Galmair Anhängern angegriffen wurde."
+"Outpost" -> "This outpost is northeast from Yewdale at a bridge. We used it in the past to protect ourselves."
+"Außenposten" -> "Dieser Außernposten liegt nordöstlich von Yewdale an einer Brücke. Wir verwendeten ihn in der Vergangenheit um uns zu schützen."
+"Anthil Brook" -> "Anthil Brook is north of Yewdale. You will find there some sign of our glorious victory during the Halfling-war against Galmair years ago."
+"Ameisenhügelbach" -> "Der Ameisenhügelbach liegt nördlich von Eibental. Du findest dort Hinweise über unseren glorreichen Sieg im Halblingkrieg über Glamair vor einigen Jahren."
+"Bear cave" -> "The Bear cave is north of Anthil Brook. The cave was used by bears until warriors from Galmair killed them. Nowadays you can find some wolfs and other animals there. A good place to practice some combat-skills for unexperienced warriors."
+"Bärenhöhle" -> "Die Bärenhöhle ist nördlich vom Ameisenhügelbach. Die Höhle wurde einst von Bären bewohnt bis sie alle von Kriegern aus Galmair getötet wurden. Nun leben dort Wölfe und andere Tiere. Ein guter Platz für unerfahrene Krieger um sich an ihre Waffe zu gewöhnen."
+"Adron Covert" -> "This place is west of Anthil Brook. A blind and coward person will have troubles to find it."
+"Adron Versteck" -> "Dieser Platz liegt westlich vom Ameisenhügelbach. Eine blinde und feige Person wird Probleme haben ihn zu finden."
+"Yewdale" -> "This place west of Runewick beyond the Lurnord-bridge is a place that offers an opportunity for farmers and to use the ferry."
+"Eibental" -> "Dieser Platz westlich von Runewick am anderen Ende der Lurnord-Brücke ist ein Platz für unsere Bauern und bietet Zugang zu den Fähren."
+
+-- Faction stuff
+"archmage" -> "The archmage owns two stones of power. These are an Emerald and a Ruby. They protect us against Galmair and Cadomyr."
+"Erzmagier" -> "Der Erzmagier besitzt zwei Steine der Macht. Einen Smaragd und einen Rubin. Die beschützen uns vor Galmair und Cadomyr."
+english, "Elvaine", "Morgan" -> "The archmage owns two stones of power. These are an Emerald and a Ruby. They protect us against Galmair and Cadomyr."
+"Elvaine", "Morgan" -> "Der Erzmagier besitzt zwei Steine der Macht. Einen Smaragd und einen Rubin. Die beschützen uns vor Galmair und Cadomyr."
+english, "Runewick" -> "That is here and if you want to know more about it ask Elesil Daelwon for further information."
+"Runewick" -> "Das ist hier und wenn du mehr darüber wissen möchtest, dann frag Elesil Daelwon nach weiterer Information."
+english, "Valerio", "Guilianni", "Don" -> "The Don owns two stones of power. These are a Sapphire and a Obsidian. They protect Galmair to get beaten by our forces."
+"Valerio", "Guilianni", "Don" -> "Der Don besitzt zwei Steine der Macht. Einen Saphir und einen Obsidian. Die beschützen Galmair vor der Übernahme durch unsere Streitkräfte."
+english, "Galmair" -> "Galmair is in the northwest. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway."
+"Galmair" -> "Galmair ist im Nordwesten zu finden. Wenn ihr dumm genug seid, werdet ihr dort hin zu Fuß gehen. Aber orientiert euch wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen."
+"Queen" -> "The Queen owns two stones of power. These are a Topaz and an Amethyst. They protect Cadomyr to get beaten by our forces."
+"Königin" -> "Der Königin besitzt zwei Steine der Macht. Einen Topas und einen Amethyst. Die beschützen Cadomyr vor der Übernahme durch unsere Streitkräfte."
+english, "rosaline", "edwards" -> "The Queen owns two stones of power. These are a Topaz and an Amethyst. They protect Cadomyr to get beaten by our forces."
+"rosaline", "edwards" -> "Der Königin besitzt zwei Steine der Macht. Einen Topas und einen Amethyst. Die beschützen Cadomyr vor der Übernahme durch unsere Streitkräfte."
+english, "Cadomyr" -> "Cadomyr is in the west. If you are stupid enough and like to walk there, look for signposts at least. Smart people are using the teleporter anyway."
+"Cadomyr" -> "Cadomyr ist im Westen zu finden. Wenn ihr dumm genug seid, werdet ihr dort hin zu Fuß gehen. Aber orientiert euch wenigstens nach dne Wegschildern. Schlaue Leute werden ohnehin den Teleportet benützen."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Primarly, we pray to three gods in Runewick. They are Adron, Elara and Oldra of course, my favorite god."
+"Gott", "Götter" -> "Bevorzugt betten wir drei Götter in Runewick an. Die wären Adron, Elara und natürlich Oldra, meine bevorzugte Gottheit."
+english, "Adron" -> "You may find a Temple of him in the North at the behind the Hemp Necktie Inn. You can either use a teleporter or you walk there according the signposts. But you will need companions."
+"Adron" -> "Ihr möget den Tempel von ihm im Norden hinter dem Gasthof zur Hanfschlinge finden. Hierzu könnt ihr entweder einen Teleporter verwenden oder entlang der Wegweiser wandern. Ohne Begleitung werdet ihr ihn aber nicht erlangen."
+english, "Bragon", "Brágon" -> "If you like to know more about this god ask somone else. For example Elesil Daelwon outside at the teleporter."
+"Bragon", "Brágon" -> "Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter."
+english, "Cherga" -> "If you like to know more about this god ask somone else. For example Elesil Daelwon outside at the teleporter."
+"Cherga" -> "Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter."
+english, "Elara" -> "You may find a Temple of her in the Tower of Air. But better ask Elesil Daelwon regarding the Tower of Air and the Shrine of Elara."
+"Elara" -> "Ihr möget den Tempel von ihr im Luftturm finden. Aber fragt besser Elesil Daelwon bezüglich des Luftturms und dem Schrein der E"
+english, "Eldan" -> "If you like to know more about this god ask somone else. For example Elesil Daelwon outside at the teleporter."
+"Eldan" -> "Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter."
+english, "Findari" -> "If you like to know more about this god ask somone else. For example Elesil Daelwon outside at the teleporter."
+"Findari" -> "Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter."
+english, "Irmorom" -> "If you like to know more about this god ask somone else. For example Elesil Daelwon outside at the teleporter."
+"Irmorom" -> "Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter."
+english, "Malachin", "Malachín" -> "If you like to know more about this god ask somone else. For example Elesil Daelwon outside at the teleporter."
+"Malachin", "Malachín" -> "Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter."
+state = 1, english, "Moshran" -> "#me draws a dagger and mumbles: 'I warned you, but you did not listen. Face the consequences now!'", attrib(hitpoints) - 9999, attrib(hitpoints) + 1
+state = 1, "Moshran" -> "#me zieht einen Dolch und murmelt: 'Wer nicht hören will muss fühlen!'", attrib(hitpoints) - 9999, attrib(hitpoints) + 1
+english, "Moshran" -> "One more word about him and you will have to visit the cross! *narrows her eyes*", state = 1
+"Moshran" -> "Ein weiteres Wort über ihn und ihr werdet das Kreuz aufsuchen müssen! *verengt ihre Augen*", state = 1
+english, "Nargun", "Nargún", "Nargùn" -> "If you like to know more about this god ask somone else. For example Elesil Daelwon outside at the teleporter."
+"Nargun", "Nargún", "Nargùn" -> "Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter."
+english, "Oldra" -> "You may find a Temple of her on the other side of the Snakehead Bay in the Northeast of the Sentry Forrest. This place is also known as Oldra's Corner. Follow the signposts, but keep in mind a dangerous journey is waiting for you."
+"Oldra" -> "Ihr möget den Tempel von ihr auf der anderen Seite der Schlagenkopfbucht im Nordosten des Wachewald finden. Der Platz ist auch als Oldra's Eck bekannt. Folgt den Wegweisern, aber beachtet, dass Gefahren auf euch warten."
+english, "Ronagan" -> "If you like to know more about this god ask somone else. For example Elesil Daelwon outside at the teleporter."
+"Ronagan" -> "Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter."
+english, "Sirani" -> "If you like to know more about this god ask somone else. For example Elesil Daelwon outside at the teleporter."
+"Sirani" -> "Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter."
+english, "Tanora", "Zelphia" -> "If you like to know more about this god ask somone else. For example Elesil Daelwon outside at the teleporter."
+"Tanora", "Zelphia" -> "Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter."
+english, "Ushara" -> "If you like to know more about this god ask somone else. For example Elesil Daelwon outside at the teleporter."
+"Ushara" -> "Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter."
+english, "Zhambra" -> "If you like to know more about this god ask somone else. For example Elesil Daelwon outside at the teleporter."
+"Zhambra" -> "Wenn ihr verlangt mehr über diese Gottheit zu wissen, dann fragt jemand anderen. Zum Beispiel Elesil Daelwon draußen beim Teleporter."
+
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
+"my name" -> "Hmm...you want some information? But about what?"
+"mein Name" -> "Hmm...und ihr wünscht nach Information? Aber welche?"
+english, "Numila", "Irunnleh" -> "Yes, that is my name. About which places do you want information?"
+"Numila", "Irunnleh" -> "Ja, das ist mein Name. Über welche Plätze wollt ihr Information?"
+"Yes" -> "A bit more concrete, please!"
+"Ja" -> "Etwas konkreter wenn ich bitten darf!"
+"No" -> "A bit more concrete, please!"
+"Nein" -> "Etwas konkreter wenn ich bitten darf!"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "Huh, about what places shall I give you information? Do you mind just to ask for help as a first step?"
+german, chance(20.0), ".*" -> "Huh, über welche Plätze wünscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places."
+cycletext "#me gähnt.", "#me yawns."
+cycletext "#me blickt herum mit ihren geschlossenen Augen.", "#me looks around with closed eyes."
+cycletext "#me untersucht ihr Kleid.", "#me examines her dress."
+cycletext "#me kämmt ihr Haar.", "#me combs her hair."
+cycletext "#me isst einen Apfel.", "#me eats an apple."

@@ -1,0 +1,157 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Phillibald                                                  None --
+-- NPC Job:  portalbook merchant                                              --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  900, 776, 1            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Zot, Faladron                                                    --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Phillibald"
+race = halfling
+sex = male
+position = 900, 776, 1
+direction = south
+affiliation = "None"
+job = "portalbook merchant"
+
+language = common
+language = halfling
+defaultLanguage = common
+autointroduce = on
+
+author = "Zot, Faladron"
+
+lookatDE = "Dieser NPC ist Phillibald der Portalbuchhändler."
+lookatUS = "This NPC is Phillibald the portalbook merchant"
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Stop touching me!"
+wrongLangDE = "#me blickt dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+hairID = 1
+beardID = 1
+colorSkin = 245, 180, 137
+colorHair = 123, 62, 9
+itemHead = 829
+itemChest = 808
+itemCoat = 2384
+itemMainHand = 1061
+itemHands = 48
+itemTrousers = 824
+itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItem = id(1061), de("Portalbuch nach Cadomyr"), en("portal book to Cadomyr"), price(2000), stack(1), quality(333), data("destinationCoordsY" = "647", "destinationCoordsX" = "127", "destinationCoordsZ" = "0", "descriptionDe" = "Portal nach Cadomyr", "descriptionEn" = "Portal to Cadomyr")
+sellItem = id(1061), de("Portalbuch nach Galmair"), en("portal book to Galmair"), price(2000), stack(1), quality(333), data("destinationCoordsY" = "245", "destinationCoordsX" = "424", "destinationCoordsZ" = "0", "descriptionDe" = "Portal nach Galmair", "descriptionEn" = "Portal to Galmair")
+sellItem = id(1061), de("Portalbuch nach Runewick"), en("portal book to Runewick"), price(2000), stack(1), quality(333), data("destinationCoordsY" = "826", "destinationCoordsX" = "788", "destinationCoordsZ" = "0", "descriptionDe" = "Portal nach Runewick", "descriptionEn" = "Portal to Runewick")
+sellItem = id(1061), de("Portalbuch zum Hemp Necktie Inn"), en("portal book to the Hemp Necktie Inn"), price(2000), stack(1), quality(333), data("destinationCoordsY" = "308", "destinationCoordsX" = "648", "destinationCoordsZ" = "0", "descriptionDe" = "Portal zum Hemp Necktie Inn", "descriptionEn" = "Portal to the Hemp Necktie Inn")
+tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
+tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
+tradeFinishedWithoutTradingMsg "Nichts gefunden was euch gefällt?", "Don't you like my wares?"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
+-- Template Version 1.03 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- NPC by Zot, Faladron
+-- This NPC will sell portal books back to the three major towns and the Wilderland tavern.
+-- S/he and the others of their family will be sprawled across the map, also selling portal books to the location they are at.
+-- Intention of this sort of NPC is to act as a Safepoint to be discovered by players to allow quick travel to certain places in the wilderness (for a heavy price!).
+"handel", "verkauf", "portal" -> "Hiho, lass uns handeln!", trade
+"trade", "sell", "portal" -> "Hiho, let's trade!", trade
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is the portal merchant Phillibald. Keywords: Hello, portal, trade.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Portalbuch Händler Phillibald. Schlüsselwörter: Hallo, Portal, Handel.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Today is a fine day to travel."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Heute ist ein schöner Tag für eine Reise."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Today is a fine day to travel."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Heute ist ein schöner Tag für eine Reise."
+"Farewell", "Bye", "Fare well", "See you" -> "Always keep moving!", "Toodles!", "Farewell."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Immer in Bewegung bleiben!", "Tschüssi!", "Auf wiedersehen."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Always keep moving!", "Toodles!", "Farewell."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Immer in Bewegung bleiben!", "Tschüssi!", "Auf wiedersehen."
+"How are you", "How feel", "How do you do" -> "I feel excited, thinking about all the places to travel to.", "I'm itching to make another journey."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin so aufgeregt, wenn ich nur an all die Orte denke an die man Reisen kann.", "Es juckt mich in den Füßen, eine Reise zu machen."
+"your name", "who are you", "who art thou" -> "Phillibald, portalbook merchant. That's me.", "I am the merchant Phillibald.", "Phillibald is my name, I trade portalbooks."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Phillibald, Portalbuch Händler. Das bin ich.", "Ich bin der Händler Phillibald", "Phillibald mein Name, ich handle mit Portalbüchern"
+
+-- Catching quest triggers
+english, "quest", "mission" -> "I do not issue any quests. But I can sell you books to go to other places."
+"quest", "mission" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
+"task", "adventure", "order" -> "I do not issue any quests. But I can sell you books to go to other places."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich verteile keine Aufgaben. Aber ihr könnt von mir Bücher kaufen, die euch an andere Orte bringen."
+
+-- Easter Egg
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am a merchant of portalbooks."
+"beruf" -> "Ich handle mit Portalbüchern."
+english, "job" -> "I am a merchant of portalbooks."
+"job" -> "Ich handle mit Portalbüchern."
+english, "Gobaith", "Gobiath" -> "With a little luck I can get a book to take you there! Nah, not really just kidding."
+"Gobaith", "Gobiath" -> "Mit etwas Glück kann ich dir ein Buch besorgen, das dich dorthin bringt! Nö, nicht wirklich nur'n Scherz."
+"my name" -> "Nice to meet you. If you want to 'book' a travel just ask me, hihi.", "A nice name, indeed."
+"mein Name" -> "Schön dich kennenzulernen. Wenn du eine Reise 'buch'-en willst, frag mich einfach, hihi.", "Ein netter Name."
+
+-- More small talk; add at least five triggers
+"family", "siblings", "sister", "brother" -> "Me and my family like to hike and explore, I bet you can find my other siblings at other places if you just look closely!"
+"Familie", "Geschwister", "Schwester", "Bruder", "Brüder" -> "Ich und meine Familie wandern und entdecken gern. Ich bin mir sicher du kannst meine anderen Geschwister an anderen Orten finden wenn du nur genau guckst!"
+
+-- Faction stuff
+"archmage" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
+"Erzmagier" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
+english, "Elvaine", "Morgan" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
+"Elvaine", "Morgan" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
+english, "Runewick" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
+"Runewick" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
+english, "Valerio", "Guilianni", "Don" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
+"Valerio", "Guilianni", "Don" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
+english, "Galmair" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
+"Galmair" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
+"Queen" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
+"Königin" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
+english, "rosaline", "edwards" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
+"rosaline", "edwards" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
+english, "Cadomyr" -> "Luckily me and my family stay out of politics. Our services are well saught in all of the three towns."
+"Cadomyr" -> "Glücklicherweise halten sich meine Familie und ich aus der Politik raus. Unsere Dienste werden in allen Städten gerne in Anspruch genommen."
+
+-- Main land factions
+english, "albar" -> "Oh, Albar, I've seen much of it on earlier journeys."
+"albar" -> "Oh, Albar, davon hab ich viel gesehen auf früheren Reisen."
+english, "gynk", "gync" -> "You have to see it for yourself to believe it..."
+"gync", "gynk" -> "Man muss selbst nach Gynk reisen um es zu glauben..."
+english, "salkama" -> "Nice place. They got some very tasty food there too."
+"salkama" -> "Netter Ort. Die haben dort auch ziemlich wohlschmeckendes Essen."
+
+-- Gods; each NPC should at react on at least one god, being a follower of said god
+"god" -> "The gods created this world for us to discover and travel within."
+"Gott", "Götter" -> "Die Götter haben diese Welt für uns erschaffen um sie zu entdecken und darin zu reisen."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I sell various portal books that can take you to places. Handy if you're lost in the wild."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe verschiedene Portalbücher die dich an Orte bringen können. Ziemlich nützlich wenn man sich in der Wildnis verlaufen hat."
+"tell something" -> "Me and my family like to hike and explore, I bet you can find my other siblings at other places if you just look closely!"
+"erzähl was", "erzähl etwas" -> "Ich und meine Familie wandern und entdecken gern. Ich bin mir sicher du kannst meine anderen Geschwister an anderen Orten finden wenn du nur genau guckst!"
+
+-- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Ich kann euch an interessante Orte bringen.", "I can take you to interesting places."

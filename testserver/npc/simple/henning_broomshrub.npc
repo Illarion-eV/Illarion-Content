@@ -1,0 +1,194 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Henning Broomshrub                                          Free --
+-- NPC Job:  Thimblerig                                                       --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  710, 324, 0            --
+-- NPC Sex:  male                       NPC Direction: north                  --
+--                                                                            --
+-- Author:   Estralis Seborian                                                --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Henning Broomshrub"
+race = halfling
+sex = male
+position = 710, 324, 0
+direction = north
+affiliation = "Free"
+job = "Thimblerig"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Estralis Seborian"
+
+lookatDE = "Dieser NPC ist Henning Broomshrub der Hütchenspieler."
+lookatUS = "This NPC is Henning Broomshrub the thimblerig."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 0
+colorHair = 242, 182, 0
+colorSkin = 225, 179, 137
+itemHead = 0
+itemChest = 809
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 2113
+itemShoes = 369
+
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is a thimblerig. You can see him shuffling three nuts over and over again. Say 'I bet.' to play for ten silver coins. Then, say 'right', 'left' or 'middle' to choose a nut.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist ein Hütchenspieler. Er schiebt in einer Tour drei Nüße hin und her. Sag 'Ich wette.' um zehn Silberstücke zu spielen. Sage dann 'rechts', 'links' oder 'mitte' um eine Nuss zu wählen.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hiho! Time for gambling, right?", "Shh, want to play with me?", "Hey, you look like somebody who is used to winning. Want to play?", "Hello. Thimblerig is my business. Want to bet, stranger?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho! Zeit zum Zocken, nicht wahr?", "Shh, willst du mit mir spielen?", "Hey, du siehtst aus wie jemand, der gerne gewinnt. Willst du wetten?", "Hallo. Das Hütchenspiel ist mein Handwerk. Willst du was setzen, Fremder?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Time for gambling, right?", "Shh, want to play with me?", "Hey, you look like somebody who is used to winning. Want to play?", "Hello. Thimblerig is my business. Want to bet, stranger?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho! Zeit zum Zocken, nicht wahr?", "Shh, willst du mit mir spielen?", "Hey, du siehtst aus wie jemand, der gerne gewinnt. Willst du wetten?", "Hallo. Das Hütchenspiel ist mein Handwerk. Willst du was setzen, Fremder?"
+"Farewell", "Bye", "Fare well", "See you" -> "Yes, yes, and come back with more money!", "Bye! May your purse fill again.", "Goodbye and please don't tell what I am doing here.", "Ronagan may bless you."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Ja, ja, und komm mit mehr Geld zurück.", "Auf wiedersehen. Und möge sich deine Börse wieder mit Gold füllen.", "Tschüß! Erzähl bitte nichts von dem, was ich hier mache.", "Möge Ronagan dich segnen."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Yes, yes, and come back with more money!", "Bye! May your purse fill again.", "Goodbye and please don't tell what I am doing here.", "Ronagan may bless you."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ja, ja, und komm mit mehr Geld zurück.", "Auf wiedersehen. Und möge sich deine Börse wieder mit Gold füllen.", "Tschüß! Erzähl bitte nichts von dem, was ich hier mache.", "Möge Ronagan dich segnen."
+"How are you", "How feel", "How do you do" -> "That is none of your business.", "I would feel way better with your money in my purse.", "I feel like playing. Time for some thimblerig?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Das geht dich nichts an.", "Es würde mir weit besser gehen mit deinem Geld in meiner Tasche.", "Mir ist nach Zocken. Zeit für ein kleines Hütchenspiel?"
+"your name", "who are you", "who art thou" -> "Henning, yes, that's me. My friends call me Henni.", "Who wants to know? Nevermind, let's play!", "Well, I am Henning. Are you happy now?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Henning, ja, das bin ich. Meine Freunde nennen mich Henni.", "Wer will das wissen? Ach, was solls, lass uns spielen.", "Also ich bin Henning. Bist du jetzt glücklich?"
+
+-- Catching quest triggers. Modify if the NPC does quests.
+english, "quest", "mission" -> "Let me see... I can send you on an epic quest to choose the right nut! Care to bet?", "No quest today, my money has gone away. The nuts stand forlorn, a symbol of the dawn.", "You are the hero, I am the thimblerig!"
+"quest", "mission" -> "Lass mich mal überlegen... Ich kann dich auf die epische Suche nach der richtigen Nuss schicken. Hast du Lust, zu wetten?", "Leider hab ich keine Abenteuer im Angebot. Wie wärs mit einer kleinen Wette?", "Du bist der Held, ich der Hütchenspieler!"
+"task", "adventure", "order" -> "Let me see... I can send you on an epic quest to choose the right nut! Care to bet?", "No quest today, my money has gone away. The nuts stand forlorn, a symbol of the dawn.", "You are the hero, I am the thimblerig!"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Lass mich mal überlegen... Ich kann dich auf die epische Suche nach der richtigen Nuss schicken. Hast du Lust, zu wetten?", "Leider hab ich keine Abenteuer im Angebot. Wie wärs mit einer kleinen Wette?", "Du bist der Held, ich der Hütchenspieler!"
+
+-- Thimblerig!
+state ~= 0, "bet" -> "You already bet, choose a nut: Left, middle or right?", "You still have to choose a nut. Left, middle or maybe right?", "I await your decision. Under which nut might the ball be hidden?"
+state = 0, money < 1000, "bet" -> "You don't even have ten silver coins.", "You should not bet more than you have. Ten silver coins, c'mon!", "Are you kiddin' me? Count your money!", "Nice try, chap. Get your money before we play, right?"
+state = 0, money > 999, "bet" -> "#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the left one.", "#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the right one.", "#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the one in the middle.", "#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You have no clue where the ball is now.", "#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. The ball might be anywhere, his hands were too fast for you.", state = 1, money - 1000, queststatus(21) + 1
+state = 0, "right", "left", "middle" -> "So, you want to play with me? You have to bet one silver coin.", "First, you have to bet, then I will shuffle the nuts.", "We did not start playing, did we?"
+state ~= 0, chance(33.0), "right", "left", "middle" -> "#me lifts the nut. You see... a ball! You won twice your bet.", "We have a winner! Here, the ball was under your nut. Take your won money.", "#me curses as he lifts the nut and a ball can be seen. You win twice your bet!", state = 0, money + 2000
+state ~= 0, "right", "left", "middle" -> "#me lifts the nut. There is no ball, so you lost your bet.", "Bad luck today, chap. No ball under your nut, sorry. Your bet is mine.", "#me lifts the nut with a grin. No ball is under it, so you've lost your bet.", "Oh, how sad, no ball under this nut. But maybe you'll have more luck next time?", state = 0
+state ~= 0, "setze", "wette", "setz" -> "Du hast doch schon gesetzt. Wähl' eine Nuß: Links, mitte oder vielleicht rechts?", "Ich warte noch auf deine Wahl. Unter welche Nuß verbirgt sich wohl die Kugel?"
+state = 0, money < 1000, "setze", "wette", "setz" -> "Du hast ja nichtmal zehn Silbermünzen.", "Du solltest nicht mehr setzen als du eigentlich hast. Zack, zehn Silbermünzen auf den Tisch!", "Willst du mich veräppeln? Zähl mal dein Geld!", "Netter Versuch. Hol erstmal dein Geld, bevor wir spielen."
+state = 0, money > 999, "setze", "wette", "setz" -> "#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du bist ziemlich sicher, dass die Kugel unter der linken Nuß ist.", "#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du bist ziemlich sicher, dass die Kugel unter der rechten Nuß ist.", "#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du bist ziemlich sicher, dass die Kugel unter der mittleren Nuß ist.", "#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du hast keine Ahnung, wo die Kugel nun ist.", "#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Die Kugel könnte überall sein, so schnell waren seine Hände.", state = 1, money - 1000, queststatus(21) + 1
+state = 0, "rechts", "links", "mitte" -> "So, du willst also mit mir spielen? Wieviel setzt du denn?", "Erst mußt du was setzen. Dann schiebe ich die Nüße hin und her.", "Wir haben noch nicht zu spielen angefangen, oder?"
+state ~= 0, chance(33.0), "rechts", "links", "mitte" -> "#me hebt die Nuß. Du siehst... eine Kugel! Du hast deinen Einsatz verdoppelt.", "Wir haben einen Gewinner! Hier, die Kugel war unter deiner Nuß. Nimm dein gewonnenes Geld.", "#me flucht als er die Nuß anhebt und eine Kugel zum Vorschein kommt. Du gewinnst deinen doppelten Einsatz.", state = 0, money + 2000
+state ~= 0, "rechts", "links", "mitte" -> "#me hebt die Nuß. Es ist keine Kugel drunter, also hast du deinen Einsatz verloren.", "Kein Glück heute, was? Keine Kugel unter dieser Nuß, dein Einsatz ist mein.", "#me hebt die Kugel mit einem Grinsen. Keine Kugel ist drunter, also hast du deinen Einsatz verloren.", "Oh, wie schade, keine Kugel unter dieser Nuß. Vielleicht hast du beim nächsten mal mehr Glück?", state = 0
+
+-- Rules
+"copper" -> "I play for silver coins, only.", "I don't gamble for copper coins, but feel free to bet some silver coins.", "Since you're winning anyway, please bet silver coins."
+"silber" -> "Ich spiele nur um Silbermünzen.", "Ich spiele nicht um Kupfer, aber setz' doch ein paar Silbermünzen.", "Da du ja eh gewinnst, setze bitte Silbermünzen."
+english, "gold" -> "I play for silver coins, only.", "I don't gamble for gold coins, but feel free to bet some silver coins.", "Since you're winning anyway, please bet silver coins."
+"gold" -> "Ich spiele nur um Silbermünzen.", "Ich spiele nicht um Gold, aber setz' doch ein paar Silbermünzen.", "Da du ja eh gewinnst, setze bitte Silbermünzen."
+"rules", "thimblerig", "gamble", "play", "playing", "betting", "gambling", "game", "nuts" -> "Thimblerig is simple. You bet ten silver coins and I place a ball under one of three nuts. I shuffle the nuts and you choose the right one. You get twice the money you bet in case you can follow my hands!"
+"regeln", "Hütchenspiel", "Hütchen", "wetten", "spielen", "zocken", "spiel", "spielchen", "nüsse", "nüße", "Einsatz" -> "Das Hütchenspiel ist eigentlich ganz einfach. Du setzt zehn Silberstücke und ich verstecke eine Kugel unter einer von drei Nüßen. Ich mische dann die Nüße und du wählst einfach die Richtige. Du bekommst deinen doppelten Einsatz, wenn du meinen Händen folgen kannst."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am an... entertainer.", "So, what do you think a halfling with three nuts and a ball does for a living?", "I am a thimblerig!"
+"beruf" -> "Ich bin ein... Unterhaltungskünstler.", "Also, was glaubst du, macht ein Halbling mit drei Nüssen und einer Kugel?", "Ich bin ein Hütchenspieler!"
+english, "job" -> "I am an... entertainer.", "So, what do you think a halfling with three nuts and a ball does for a living?", "I am a thimblerig!"
+"job" -> "Ich bin ein... Unterhaltungskünstler.", "Also, was glaubst du, macht ein Halbling mit drei Nüssen und einer Kugel?", "Ich bin ein Hütchenspieler!"
+english, "Gobaith", "Gobiath" -> "Ah, yes Gobaith, good island, good money. I wonder what happened to good old Brendan... back then."
+"Gobaith", "Gobiath" -> "Ah, ja, Gobaith, eine gute Insel, gutes Geld. Ich frage mich nur, was damals aus dem guten alten Brendan geworden ist."
+"my name" -> "Stranger, do you want to bet or tell me about your entire life?"
+"mein Name" -> "Willst du jetzt wetten oder mir deine ganze Lebensgeschichte erzählen?"
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+english, "Mason", "Brendan" -> "What do you know about good ol' Brandy? Nah, don't tell me, let's play instead."
+"Mason", "Brendan" -> "Was weißt du denn schon vom guten alten Brandy? Nah, erzähls mir gar nicht erst, lass uns spielen."
+"Dwarf", "dwarv" -> "Dwarves have lots of gold, don't they? I wish I'd be a dwarf..."
+"Zwerg" -> "Zwerge haben viel Gold, nicht wahr? Ich wünschte, ich wäre ein Zwerg..."
+"cheater", "cheat" -> "Well, ahm, uhm...", "I swear, I don't cheat! Well, apart from that dwarf back then, he just had too much gold.", "No cheating here, three nuts, one ball."
+"Betrüger", "Betrug" -> "Nunja, äh, öh...", "Ich schwör dir, ich betrüge niemals! Naja, außer diesen einen Zwerg damals, der hatte einfach zu viel Gold.", "Hier geht alles mit rechten Dingen zu. Drei Nüße, eine Kugel."
+"Beer", "Drink", "Food", "Dish" -> "I don't serve here, I am just a guest. A guest with three nuts and a ball.", "Get your food yourself.", "Hmm?", "What do you want from me?"
+"Bier", "Getränk", "Trank", "Speise", "Essen", "Gericht" -> "Ich serviere hier nicht. Ich bin auch nur ein Gast. Ein Gast mit drei Nüßen und einer Kugel.", "Hol dir deinen Fraß alleine.", "Hmm?", "Was willst du von mir?"
+"Halfling" -> "Without a doubt, I am a halfling. And a poor one.", "What is it you want from me?", "Sure, I am a halfling, or do you see me having a beard and wielding an axe?"
+"Halbling" -> "Zweifelsohne bin ich ein Halbling. Und dazu noch ein armer.", "Was genau möchtest du von mir?", "Klar bin ich ein Halbling, oder hab ich etwa einen Bart und trag 'ne Axt?"
+english, "Halfer", "Hobbit" -> "Without a doubt, I am a halfling. And a poor one.", "What is it you want from me?", "Sure, I am a halfling, or do you see me having a beard and wielding an axe?"
+"Halfer", "Hobbit" -> "Zweifelsohne bin ich ein Halbling. Und dazu noch ein armer.", "Was genau möchtest du von mir?", "Klar bin ich ein Halbling, oder hab ich etwa einen Bart und trag 'ne Axt?"
+"Hemp", "Necktie", "inn" -> "Welcome to the Hemp Necktie Inn.", "Indeed, this is a tavern. So, how about we do what is done best in a tavern: Gambling!", "A nice name for a tavern: Hemp Necktie Inn. Why don't you make me happy and do some thimblerig with me?"
+"Gasthof", "Hanfschlinge" -> "Willkommen im Gasthof zur Hanfschlinge.", "In der Tat, dies ist eine Taverne. Also, warum machen wir nicht, was man am besten in einer Taverne macht: Zocken!", "Ein netter Name für eine Taverne: Gasthof zur Hanfschlinge. Warum machst du mich nicht zu einem glücklichem Halbling und spielst das Hütchenspiel mit mir?"
+english, "Tavern", "Bar" -> "Welcome to the Hemp Necktie Inn.", "Indeed, this is a tavern. So, how about we do what is done best in a tavern: Gambling!", "A nice name for a tavern: Hemp Necktie Inn. Why don't you make me happy and do some thimblerig with me?"
+"Tavern", "Bar" -> "Willkommen im Gasthof zur Hanfschlinge.", "In der Tat, dies ist eine Taverne. Also, warum machen wir nicht, was man am besten in einer Taverne macht: Zocken!", "Ein netter Name für eine Taverne: Gasthof zur Hanfschlinge. Warum machst du mich nicht zu einem glücklichem Halbling und spielst das Hütchenspiel mit mir?"
+english, "Wilderland" -> "Wilderland is a nice place for a thimblerig like me. You know, few guards, lots of money...", "There is no place like Wilderland. This tavern is a good place for gambling, isn't it?"
+"Wilderland" -> "Wilderland ist schon ein netter Fleck für einen Hütchenspieler wie mich. Du weißt schon, wenige Wachen, viel Geld...", "Es geht doch nichts über Wilderland. Diese Taverne ist genau der richtige Ort für ein Spielchen, nicht wahr?"
+"townguard", "guard" -> "Guards? Uhm, I better be goin'...", "#me gathers his three nuts and grubs the money, hiding it.", "Oh, a thug just left the tavern, maybe you catch him when you leave now.", "#me whistles innocently."
+"Stadtwache", "Wache", "Wächter" -> "Wachen? Uhm, ich geh dann jetzt besser...", "#me rafft seine drei Nüße und etwas Geld zusammen und versteckt es schnell.", "Oh, ein Dieb ist eben gerade zur Tür heraus, wenn ihr euch beeilt, erwischt ihr ihn noch.", "#me pfeift unschuldig."
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "Who is that supposed to be?"
+"Erzmagier" -> "Wer soll das denn sein?"
+english, "Elvaine", "Morgan" -> "Who is that supposed to be?"
+"Elvaine", "Morgan" -> "Wer soll das denn sein?"
+english, "Runewick" -> "Where is that supposed to be?"
+"Runewick" -> "Wo soll das denn sein?"
+english, "Valerio", "Guilianni", "Don" -> "I prefer not to talk to or about the Don. That's better for my business."
+"Valerio", "Guilianni", "Don" -> "Ich ziehe es vor, nicht mit oder über den Don zu reden. Das ist besser für mein Geschäft."
+english, "Galmair" -> "No, I've never been to Galmair and I do not owe the Don a huge sum... Who sent you!? Groktan?"
+"Galmair" -> "Nein, ich bin natürlich noch nie in Galmair gewesen und ich schulde dem Don auch keine große Summe... Wer schickt dich!? Groktan?"
+"Queen" -> "I was told the fiancée of Don Valerio rules her own pile of sand in the south. Candymore or something."
+"Königin" -> "Ich habe gehört, dass die Verlobte von Don Valerio im Süden über einen Sandhügel herscht. Candymore oder so."
+english, "rosaline", "edwards" -> "I was told the fiancée of Don Valerio rules her own pile of sand in the south. Candymore or something."
+"rosaline", "edwards" -> "Ich habe gehört, dass die Verlobte von Don Valerio im Süden über einen Sandhügel herscht. Candymore oder so."
+english, "Cadomyr", "Candymore" -> "Oh, please, I don't want to talk about a pile of sand. How about you win a pile of money?"
+"Cadomyr", "Candymore" -> "Oh, bitte, ich möchte jetzt nicht über einen Sandhügel reden. Wollt ihr nicht viel lieber ein Berg Geld gewinnen?"
+
+-- Main land factions
+english, "albar" -> "I'll never play with an Albarian again. Last time, one slammed on the table so hard after losing that all three nuts flew around, revealing that there was no ball... uhm, nevermind."
+"albar" -> "Ich spiele nie wieder mit einem Albarier. Das letzte mal hat einer so stark vor Wut über seine Niederlage auf den Tisch geschlagem, dass alle drei Nüße herumgeflogen sind und er festgestellt hat, dass gar keine Kugel... uhm, egal."
+english, "gynk", "gync" -> "I'll never play with an Gynkeesh again. Last time, I lost thirty times in a row! If there is folk that can cheat better than me, it's the Gynkeesh!"
+"gync", "gynk" -> "Ich spiele nie wieder mit einem Gynkeesh. Das letzte mal hat einer dreißig mal in Folge gewonnen! Wenn es ein Volk gibt, dass besser im Schummel ist als ich, dann sind es die Gynkeesh!"
+english, "salkama" -> "I'll never play with an Salkamaerian again. Last time, one argued half an hour with me that he ment the right nut from 'my' point of view, not 'his'..."
+"salkama" -> "Ich spiele nie wieder mit einem Salkamaerier. Das letzte mal hat einer mich eine halbe Stunde damit zugeredet, dass er die rechte Nuss von 'mir aus' gesehen meinte, nicht von 'sich aus'..."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "My religion is called gold."
+"Gott", "Götter" -> "Meine Religion heißt Gold."
+english, "Ronagan" -> "Hail Ronagan!", "My religion is called gold.", "How come Ronagan has no temple on this island? ... He could not lift it as he tried to steal one!"
+"Ronagan" -> "Lobet Ronagan!", "Meine Religion heißt Gold.", "Warum hat Ronagan keinen Tempel auf dieser Insel? ... Er hat ihn nicht anheben können, als er versucht hat einen zu stehlen!"
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Do I look like a trader!?", "Oh, I forgot my vendor's tray at home. Want to play a game instead?", "You must be kidding me. I am not a huckster!"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Sehe ich aus wie ein Händler?", "Oh, gerade heute hab ich meinen Bauchladen zuhause vergessen. Willst du nicht viel lieber ein Spiel spielen?", "Willst du mich veräppeln? Ich bin kein Höker!"
+"tell something" -> "I don't tell no nothing, no!", "Who are you anyway, the town guard?", "I don't cheat! I would never, would I...?"
+"erzähl was", "erzähl etwas" -> "Ich erzähl hier gar nichts.", "Wer bist du, die Stadtwache?", "Ich betrüge nicht! Ich doch nicht..."
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+english, "Henning", "Broomshrub" -> "Henning, yes, that's me. My friends call me Henni.", "Who wants to know? Nevermind, let's play!", "Well, I am Henning. Are you happy now?"
+"Henning", "Broomshrub" -> "Henning, ja, das bin ich. Meine Freunde nennen mich Henni.", "Wer will das wissen? Ach, was solls, lass uns spielen.", "Also ich bin Henning. Bist du jetzt glücklich?"
+"Yes" -> "Yes? Fine, what was the question again? Anyway, if you want to play, say how many coins you want to bet."
+"Ja" -> "Ja? Fein, was war nochmal die Frage? Ach, egal, wenn du wetten willst, sag einfach, wieviele Münzen du setzen willst."
+"No" -> "No... what?", "#me shrugs and replies: I don't quite understand..."
+"Nein" -> "Nein... was?", "#me zuckt mit den Schultern und erwidert: Ich versteh' nicht recht..."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me schiebt gelangweilt drei Nüße hin und her.", "#me shuffels three nuts around, seeming rather bored."
+cycletext "#me pfeift vor sich hin.", "#me whistles innocently."
+cycletext "#me zählt sein Geld nach und grinst", "#me counts his money and grins."
+cycletext "#me sitzt vor einem Brett mit drei Nüßen darauf. Seine Finger spielen mit einer kleinen, grauen Kugel.", "#me is sitting in front of a board. On the board are three nuts. He is playing around with a small, grey ball."
+cycletext "Shh, Lust auf ein Spiel?", "Shh, want to play?"
+cycletext "Psst, du, komm mal her. Ich kann dich reich machen.", "Hush, you, come here. I can make you rich."
+cycletext "Zeit für die Krötenwanderung. Die Kröten wandern von euren in meinen Geldbeutel.", "Time for a coin march from your purse to mine."
+cycletext "#me nimmt ein Schluck aus seinem Krug.", "#me takes a sip from his mug."
+cycletext "Denn Geld regiert die Welt...", "Money makes the world go round, the world go round..."
+cycletext "#me summt vor sich hin.", "#me hums silently."
+cycletext "Finger weg von meinen Nüssen!", "Hands off my nuts!"

@@ -1,0 +1,182 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Zassaria Riverbank                                      Runewick --
+-- NPC Job:  Message quest giver                                             --
+--                                                                            --
+-- NPC Race: lizardman                  NPC Position:  908, 812, 1            --
+-- NPC Sex:  female                     NPC Direction: east                   --
+--                                                                            --
+-- Author:   Miriam                                                           --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Zassaria Riverbank"
+race = lizardman
+sex = female
+position = 908, 812, 1
+direction = east
+affiliation = "Runewick"
+job = "Message quest giver"
+
+language = common
+language = lizard
+defaultLanguage = common
+autointroduce = on
+
+author = "Miriam"
+
+lookatDE = "Dieser NPC ist Zassaria Riverbank von Runewick."
+lookatUS = "This NPC is Zassaria Riverbank of Runewick."
+useMsgDE = "#me zischt verärgert."
+useMsgUS = "#me hisses angrily."
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 5
+hairID = 3
+beardID = 0
+colorHair = 70, 77, 0
+colorSkin = 70, 52, 0
+itemHead = 0
+itemChest = 0
+itemCoat = 196
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 52
+itemTrousers = 0
+itemShoes = 0
+
+-- sellItems = 61, 3076, 3077
+
+-- Template Version 1.06, 08/29/2012 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- TRADING
+-- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Zassaria Riverbank. Keywords: quest, mission, order.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Zassaria Riverbank. Schlüsselwörter: Quest, Mission, Auftrag.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßsst."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss to you.", "me hisses"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßsst.", "#me zischt"
+"Farewell", "Bye", "Fare well", "See you" -> "Ssss. Zzzelphia be with you. Zss."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Ssss. Zzzelphia sssei mit Euch. Zss."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia be with you. Zss."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia sssei mit Euch. Zss."
+"How are you", "How feel", "How do you do" -> "I'm feeling very good. Sss. Exss...Extraordinary."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es sssehr gut. Ausssgezzeichnet. Sss."
+"your name", "who are you", "who art thou" -> "I am called Zassaria Riverbank.Nice so meet you. Sss."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich werde Zassaria Riverbank genannt. Sss."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Trade Hooks, use only for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Tsss! I ate all my fisssch. I'll chatch new fisssch sssoon."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Tsss! Ich aß all meinen Fisssch. Ich werde ssschnellssstmöglich neuen fangen."
+
+-- A Messege Quest
+-- You are asked to talk to someone, then return to the person who gave you the task and you get a reward
+-- Tast given: status = 1
+-- Talked to someone: staus = 2
+-- Talkred to the first person again, Task solved:  staus = 3
+-- Of course there can be more than two persons be involved
+
+-- 1st quest: Talk to someone
+queststatus(701) = 0, english, "quest", "mission" -> inform("[New quest] Ask for me I"), "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?", queststatus(701) = 1
+queststatus(701) = 0, "quest", "mission" -> inform("[Neues Quest] Frag für mich I"), "Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.", queststatus(701) = 1
+queststatus(701) = 0, "task", "adventure", "order" -> inform("[New quest] Frag für mich I"), "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?", queststatus(701) = 1
+queststatus(701) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich I"), "Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.", queststatus(701) = 1
+
+-- 1st quest solved, reward sabre(25)
+queststatus(701) = 2, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the ground of the sea."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
+queststatus(701) = 2, town = Runewick, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat."), "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
+queststatus(701) = 2, english, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the ground of the sea."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
+queststatus(701) = 2, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat."), "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
+
+-- 1st quest not solved, repeat the instructions
+queststatus(701) = 3, english, "quest", "mission" -> "Sss... Jonathan Idler assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
+queststatus(701) = 3, "quest", "mission" -> "Jonathan Idler fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
+queststatus(701) = 3, "task", "adventure", "order" -> "Sss... Jonathan Idler assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
+queststatus(701) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Jonathan Idler fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
+
+-- 2nd quest: Bring some 15 Fish to ??
+queststatus(701) = 3, english, "quest", "mission" -> inform("[New quest] Ask for me II"), "Ssso, you came to help me again? zss. Thatsss very nice of you. Sss. Pleassse bring 10  to an NPC ", queststatus(701) = 4
+queststatus(701) = 3, "quest", "mission" -> inform("[Neues Quest] Frag für mich II"), "...", queststatus(701) = 4
+queststatus(701) = 3, "task", "adventure", "order" -> inform("[New quest] ask for me II"), "...", queststatus(118) = 4
+queststatus(701) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] NAME I"), "....", queststatus(118) = 4
+
+-- 2nd quest solved, Bring some Fish to ?? old hat(1318)
+queststatus(701) = 4, item(1318, all) > 9, english, ".+" -> inform("[Quest solved] INFORM ..."), "...", deleteItem(1318, 1), item(356, 0, 0), queststatus(118) = 2
+queststatus(701) = 4, item(1318, all) > 9, ".+" -> inform("[Quest gelößt] INFORM..."), "...", deleteItem(1318, 1), item(356, 0, 0), queststatus(118) = 2
+
+-- 2nd questc , Bring some Fish to ??, not solved repeat the instructions
+queststatus(118) = 1, english, "quest", "mission" -> "..."
+queststatus(118) = 1, "quest", "mission" -> "..."
+queststatus(118) = 1, "task", "adventure", "order" -> "..."
+queststatus(118) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "..."
+
+-- Final dialogue: No more quests, just nice hints
+queststatus(701) = 2, english, "quest", "mission" -> "Thank you. Zss."
+queststatus(701) = 2, "quest", "mission" -> "Danke ssschön. Zss."
+queststatus(701) = 2, "task", "adventure", "order" -> "Thank you. Zss."
+queststatus(701) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke ssschön. Zss."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I work asss a fisssher. It'sss fun. Zss."
+"beruf" -> "Ich arbeite alsss Fischerin. Esss macht Spaßsss. Zss."
+english, "job" -> "I work asss a fisssher. It'sss fun. Zss."
+"job" -> "Ich arbeite alsss Fischerin. Esss macht Spaßsss. Zss."
+"tell something" -> "Do you know there'sss a diffrentce between Zsss, Tsss and Ssss?", "Usssually marriages between my people are arranged by the partentsss. Sss. Usually."
+"erzähl was", "erzähl etwas", "erzähl mir was", "erzählt mir was" -> "Wissst ihr, dasss es einen Unterschied zzzwischen Zsss, Tss und Ssss?", "Normalerweisse werden Ehen in meinem Volk arrangiert. Ssss. Normalerweissse."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Lizzardsss pray to Zzzelphia. To whom do you pray?"
+"Gott", "Götter" -> "Echsssenmenschen beten zzzu Zzzelphia. Zzzu wem betet Ihr? Sss"
+english, "Tanora", "Zelphia" -> "She'sss to godesss of the water and the sssea.", "You call her Tanora, thisss iss not a word eassy tp pronoucsse for usss."
+"Tanora", "Zelphia" -> "Sssie isssst die Göttin desss Wassers und dess Meereess.", "Ihr nennt sssie Tanora, dasss issst kein Wort ausss unssserer Ssssprache."
+
+-- Optional: Faction stuff
+english, "Runewick" -> "There isss no place like thisss under the sssea. Zss."
+"Runewick" -> "Esss gibt sssolch einen Ort Unterwassser nicht. Zss."
+english, "Galmair" -> "There isss no place like thisss under the sssea. Zss."
+"Galmair" -> "Esss gibt sssolch einen Ort Unterwassser nicht. Zss."
+english, "Cadomyr" -> "There isss no place like thisss under the sssea. Zss."
+"Cadomyr" -> "Esss gibt sssolch einen Ort Unterwassser nicht. Zss."
+
+-- Optional: Main land factions
+english, "albar" -> "There isss no place like thisss under the sssea. Zss."
+"albar" -> "Esss gibt sssolch einen Ort Unterwassser nicht. Zss."
+english, "gynk", "gync" -> "There isss no place like thisss under the sssea. Zss."
+"gync", "gynk" -> "Esss gibt sssolch einen Ort Unterwassser nicht. Zss."
+english, "salkama" -> "There isss no place like thisss under the sssea. Zss."
+"salkama" -> "Esss gibt sssolch einen Ort Unterwassser nicht. Zss."
+
+-- Optional: Gobaith
+english, "Gobaith", "Gobiath" -> "There isss no place like thisss under the sssea. Zss."
+"Gobaith", "Gobiath" -> "Esss gibt sssolch einen Ort Unterwassser nicht. Zss."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Ssss...", "Ssss..."
+cycletext "Ssss?", "Ssss?"
+cycletext "Ssss!", "Ssss!"
+cycletext "#me zischt.", "#me hisses."
+cycletext "Zss!", "Zss!"
+cycletext "Tsss...", "Tsss..."
+cycletext "lässt ihren Schwanz hin und her schnellen.", "#me moves her tail."

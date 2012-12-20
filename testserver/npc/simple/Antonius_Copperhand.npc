@@ -1,0 +1,119 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Antonius Copperhand                                      Galmair --
+-- NPC Job:  Goldsmith NPC                                                    --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  352, 256, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Miriam                                                           --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Antonius Copperhand"
+race = dwarf
+sex = male
+position = 352, 256, 0
+direction = south
+affiliation = "Galmair"
+job = "Goldsmith NPC"
+
+language = common
+language = dwarf
+defaultLanguage = common
+autointroduce = on
+
+author = "Miriam"
+
+lookatDE = "Dieser NPC ist Antonius Copperhand der fleißige Goldschmied."
+lookatUS = "This NPC is Antonius Copperhand the hardworking goldsmith."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 1
+colorHair = 140, 50, 15
+colorSkin = 189, 162, 151
+itemHead = 0
+itemChest = 182
+itemCoat = 195
+itemMainHand = 23
+itemSecondHand = 8
+itemHands = 48
+itemTrousers = 45
+itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 122, 2140, 92, 393, 397, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 225, 336, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282
+buySecondaryItems = 122, 2140, 92, 393, 397, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 225, 336, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- 5% Tools (Finesmith): 122
+-- 5% Tools (Gem grinder): 2140
+-- 5% Copper goods: 92, 393, 397, 399, 1001, 1840, 2031
+-- 5% Gem powder: 446, 447, 448, 449, 450, 451, 452
+-- 5% Gold goods: 224, 225, 336, 465
+-- 5% Gems: 45, 46, 197, 198, 283, 284, 285
+-- 5% Jewellery: 62, 67, 71, 79, 82, 83, 222
+-- 5% Rings: 68, 235, 277, 278, 279, 280, 281, 282
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Antonius Copperhand the smith. Keywords: buy, sell, trade, job, your name.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Antonius Copperhand der Schmied. Schlüsselwörter: kaufe, verkaufe, Handel, Beruf, dein Name.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted in Irmoroms name.", "Greetings.", "Good day."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Zum Gruße.", "Seid gegrüßt in Namen Irmoroms.", "Guten Tach."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Greetings.", "Good day."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tach."
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Goodbye.", "May Irmorom be with you."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf bald.", "Bis bald.", "Möge Irmorom über Euch wachen."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Goodbye."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf bald.", "Bis bald."
+"How are you", "How feel", "How do you do" -> "I'm fine, thanks. And how are ya?", "Good, good."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir jeht ett wunderbar und wie jeht et Euch?", "Jut, jut."
+"your name", "who are you", "who art thou" -> "Me? I'm the goldsmith of Galmair, the hard working Antonius."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ick? Ick bin der Goldchmied von Galmair, der fleißge Antonius."
+
+-- Catching quest triggers. Modify if the NPC does quests.
+english, "quest", "mission" -> "At the moment I have nothing to do for ya. Sorry."
+"quest", "mission" -> "Zur Zeit gibbet für dich nix zu tun. T'schuldigung."
+"task", "adventure" -> "At the moment I have nothing to do for ya. Sorry."
+"Auftrag", "Aufgabe", "Abenteuer" -> "Zur Zeit gibbet für dich nix zu tun. T'schuldigung."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am a smith. Can't ya tell?"
+"beruf" -> "Ich bin 'nen Schmied. Siehste datt nich'?"
+english, "job" -> "I am a smith. Can't ya tell?"
+"job" -> "Ich bin 'nen Schmied. Siehste datt nich'?"
+english, "Gobaith", "Gobiath" -> "Never heard of that place..."
+"Gobaith", "Gobiath" -> "Kenn' ich nich'..."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me pfeift eine Melodie.", "#me whistles a melodie."
+cycletext "#me wischt sich den Schweiß von der Stirn.", "#me whipes the sweat off his forhead."
+cycletext "#me betrachtet zufrieden seine geschmiedeten Werke.", "#me looks at his smithes works with a conten face.."
+cycletext "#me hält ein Amulett gegen das Licht, um es besser zu betrachten.", "#me holds an Amulett against the light, to have a better look at it."
+cycletext "Schmiedewaren! Schöner Schmuck! Kaufste woanders, dann bereustes!", "Smithes goods! Fine Juwelry! Ya buy elsewhere, and ya will regret it!"

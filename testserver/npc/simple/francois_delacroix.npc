@@ -1,0 +1,194 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Francois Delacroix                                      Runewick --
+-- NPC Job:  trader                                                           --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  911, 798, 1            --
+-- NPC Sex:  male                       NPC Direction: north                  --
+--                                                                            --
+-- Author:   Regallo                                                          --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Francois Delacroix"
+race = human
+sex = male
+position = 911, 798, 1
+direction = north
+affiliation = "Runewick"
+job = "trader"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Regallo"
+
+lookatDE = "Dieser NPC ist der Bauer Francois Delacroix."
+lookatUS = "This is NPC is the peasant Francois Delacroix."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+itemHead = 0
+itemChest = 813
+itemCoat = 55
+itemMainHand = 258
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 823
+itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 51, 126, 258, 271, 59, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 291, 534, 728, 773, 779, 2494, 2917, 330, 307, 552, 553, 2934, 15, 80, 81, 147, 151, 199, 302, 388, 72, 73, 355, 455
+buyPrimaryItems = 51, 126, 258, 271, 59, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 291, 534, 728, 773, 779, 2494, 2917, 330, 307, 552, 553, 2934, 15, 80, 81, 147, 151, 199, 302, 388
+buySecondaryItems = 72, 73, 355, 455
+tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
+tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
+tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- NPC by Estralis Seborian
+
+-- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
+
+-- 10% Tools (Farmer): 51, 126, 258, 271
+-- 5% Tools (Fisher): 72
+-- 10% Animal skins: 69, 2547, 2586
+-- 10% Crops: 154, 200, 201, 290, 249, 259, 772, 778, 2493
+-- 5% Fish: 73, 355, 455
+-- 10% Seeds: 259, 291, 534, 728, 773, 779, 2494, 2917
+-- 10% Milk: 330
+-- 10% Raw meat: 307, 552, 553, 2934
+-- 10% Fruits: 15, 80, 81, 147, 151, 199, 302, 388
+
+-- Take this hammer documentary
+-- Names: Francois Delacroix
+-- Race: Human
+-- Sex: Male (really female)
+-- Skin: Pale
+-- Hieght: Tall
+-- Weight: Skinny broad shoulders.
+-- Eyes: Light brown
+-- Hair: Long, blond
+-- Age: 25
+
+-- Background: Francois started out as a girl to a Short and robust merchant father and a mother who was tall and thin. Francois came out as tall and thin with broad shoulders. As she grew she got picked on for her height and then for her very tiny breast.
+-- Her Father's only daughter she was raised to follow him in the merchant guild. From a young age she was given a tutor and received lessons every day. Her father often had visitors, usually old friends and clients. In Francois teens a female warrior was invited to the house. Mr. Delacroix ordered Francois to host the warrior, to show her around town and provide her with anything she needed. On the third night of the warrior's stay she showed François love. Over the week they repeatedly made love until Fancois's mother walked in on them.
+-- The Warrior made a quick escape. Francois was then thrown out of the house. She left the village to shame. Francois got a job working in some field until she mustered enough money to follow be allowed to follow a caravan to Runewick. She did not speak to anyone on her trek. During her travel Francois got the epiphany to become a man. She binded what little breast she had, started speaking in a deeper tone and switched to guy clothes.. As a girl she was ugly, but as a guy she was quite pretty, with a feminine charm.
+-- As a he Francois felt a never before felt wave of confidence. When Francois arrived in Runewick he let it known that he known that he was a skilled merchant. Once his knowledge was demonstrated he had no problem starting a debt to purchase goods.
+-- Money wise Francois is doing good, but his youth is growing thin. He yearns for a mate and passively lingers the thought if she wants to be with a guy or a girl.
+-- Personality: Gentle, sweet, talented sales person, charismatic, outgoing on the outside, but lonely and self-conscious on the inside.
+"kauf", "handel" -> "Lass uns handeln!", trade
+"buy", "sell", "trade" -> "Let's trade!",trade
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Francois Delacroix the Trader. Keywords: Hello, Markets, Buy, Sell, Agriculture, Trade.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Händler Francois Delacroix. Schlüsselwörter: Hallo, Märkte, Handel, Ackerbau.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day.", "How be you?", "It seems to be your lucky day, why? You have found me as your agriculturalr of choice."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag.", "Wie geht es Euch?", "Heute scheint Euer Glückstag zu sein, warum? Ihr habt beschlossen bei mir einzukaufen."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day sir, madam.", "How be you?", "It seems to be your lucky day, why? You have found me as your agriculturalr of choice."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tagder Herr, die Dame.", "Wie geht es Euch?", "Heute scheint Euer Glückstag zu sein, warum? Ihr habt beschlossen bei mir einzukaufen."
+"Farewell", "Bye", "Fare well", "See you" -> "Have a good day today. You are beautiful.", "Smile, see you later.", "Remember to tell your friends to come to Francois Delacroix for all their agricultural needs."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Einen schönen Tag wünsche ich Euch. Ihr seid wunderschön.", "Lächelt, bis später.", "Denkt dran euren Freunden zu sagen, sie sollen Francois Delacroix fragen, wenn sie Produkte aus der Landwirtschaft kaufen wollen."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a good day today. You are beautiful.", "Smile, see you later.", "Remember to tell your friends to come to Francois Delacroix for all their agricultural needs."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Einen schönen Tag wünsche ich Euch. Ihr seid wunderschön.", "Lächelt, bis später.", "Denkt dran euren Freunden zu sagen, sie sollen Francois Delacroix fragen, wenn sie Produkte aus der Landwirtschaft kaufen wollen."
+"How are you", "How feel", "How do you do" -> "I'd feel better if You  brought something.", " I feel a lot better now that you've come.", "It's one of those days, you know?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich würde mich besser fühlen, würdet ihr etwas einkaufen.", "Ich fühle mich viel besser jetzt wo ihr vorbei gekommen seid.", "Es ist einer dieser Tage, Ihr versteht?"
+"your name", "who are you", "who art thou" -> "Francois Delacroix , Agricultural goods", "My name is Francois. It's beyond a pleasure to be acquainted with you", "Francois Delacroix. It still feels weird every time I say it."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Francois Delacroix, Produke aus der Landwirtschaft.", "My Name ist Francois. Es ist mir eine Freude Eure Bekanntschaft zu machen", "Francois Delacroix. Es klingt noch immer jedes Mal seltsam es zu sagen."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I sell goods such as milk and farmer tools", "I sell that which you need.", "I'm a self made agricultural goods trader."
+"beruf" -> "Ich verkaufe Güter wie Milch und Werkzeug für Bauern.", "Ich verkaufe was immer Ihr braucht.", "Ich verkaufe selbstgemachte Landwirtschaftswaren."
+english, "job" -> "I sell goods such as milk and farmer tools.", "I sell that which you need.", "I'm a self made agricultural goods trader."
+"job" -> "Ich verkaufe Güter wie Milch und Werkzeug für Bauern.", "Ich verkaufe was immer Ihr braucht.", "Ich verkaufe selbstgemachte Landwirtschaftswaren."
+english, "Gobaith", "Gobiath" -> "That's like asking what is the sky. Honestly I don't think I could answer it."
+"Gobaith", "Gobiath" -> "Das ist als ob man fragt, was der Himmel sei. Ehrlich gesagt, ich habe keine Ahnung davon."
+"my name" -> "Francois Delacroix , Agricultural goodsr", "My name is Francois. It's beyond a pleasure to be acquainted with you", " Francois Delacroix. It still feels weird every time I say it."
+"mein Name" -> "Francois Delacroix, Produke aus der Landwirtschaft.", "My Name ist Francois. Es ist mir eine Freude Eure Bekanntschaft zu machen", "Francois Delacroix. Es klingt noch immer jedes Mal seltsam es zu sagen."
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his environment
+"Business", "Markets", "Pepper" -> "Recently pepper has been selling at triple its gross estimated volume. It's exciting to see how long this will last before I reap great profits when the price falls again."
+"Geschäft", "Märkte", "Pfeffer" -> ""
+"Agriculture", "Farming", "crops" -> "Harvesting crops and cattle is something that has always been and always will be. It's the most stable of markets."
+"Landwirtschaft", "", "" -> "Der Anbau von Feldfürchten und Viehhaltung ist etwas das es schon immer gegeben hat und das es immer geben wird. Das ist der beständigste Markt von allen."
+"Family" -> "I don't want to talk about them.", "Family is not a fond word in everyone's mind."
+"Familie" -> "Ich möchte darüber nicht sprechen", "Diese Wort erfreut nich jeden von uns."
+"Wife" -> "Hahaha, maybe someday.", "Settle down, me? Hahaha, maybe after I'm done making money."
+"Ehefrau" -> "Hahaha, vielleicht eines Tages.", "Ich? Mich niederlassen? Hahaha, vielleicht wenn ich genug Geld gemacht habe."
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "I don't know much of the man, but I can't help appreciate him for keeping this city safe for all of us who live here."
+"Erzmagier" -> "Ich weiß nicht viel über ihn, aber ich komme nicht umhin diesen Mann zu bewundern, der dafür sorgt das unsere Stadt sicher ist."
+english, "Elvaine", "Morgan" -> "I don't know much of the man, but I can't help appreciate him for keeping this city safe for all of us who live here."
+"Elvaine", "Morgan" -> "Ich weiß nicht viel über ihn, aber ich komme nicht umhin diesen Mann zu bewundern, der dafür sorgt das unsere Stadt sicher ist."
+english, "Runewick" -> "When I was a kid I never thought I would be a city person, but the women here really are prettier."
+"Runewick" -> "As ich kein Kind war, hätte ich nie gedacht einmal in der Stadt zu leben. Die Frauen hier sind wirklich schöner."
+english, "Valerio", "Guilianni", "Don" -> "Of course I heard the name, but I know nothing of Galmair or its people."
+"Valerio", "Guilianni", "Don" -> "Den Namen habe ich natürlich schon gehört, aber ich weiß nichts über Galmair und die Leute dort."
+english, "Galmair" -> "I've never been."
+"Galmair" -> "Da war ich noch nie."
+"Queen" -> "I grew up wanting to be like her."
+"Königin" -> "Als ich jung war wollte ich so sein wie sie."
+english, "rosaline", "edwards" -> "I grew up wanting to be like her."
+"rosaline", "edwards" -> "Als ich jung war wollte ich so sein wie sie."
+english, "Cadomyr" -> "I've been. It's a little too dry and hot. I prefer the Runewick Breeze.", "They have quite a few jewelry makers. I think most of my collection is from Cadomyrian smiths."
+"Cadomyr" -> "Da war ich schon. Es ist zu trocken da. Ich mag das Wetter in Runewick lieber.", "Die haben da einige Schmuckhändler. Ich denke meine Sammlung wurde von Schmiedemeistern aus Cadomyr angefertigt."
+
+-- Main land factions
+english, "albar" -> "On the downside it is dangerously hot in the Albarian deserts. On the upside the Alberian women look dangerously hot."
+"albar" -> "Einerseits ist es in Albarischen Wüste verdammt heiß, andereseits sind Albarische Frauen verdammt heiß."
+english, "gynk", "gync" -> "Never been. I have no idea. People keep asking me about this. Maybe I should go someday."
+"gync", "gynk" -> "Da war ich noch nie. Keine Ahnung, die Leute fragen immer. Vielleicht gehe ich eines Tages dorthin."
+english, "salkama" -> "I have lived in this land all my life. I don't love it, but being anywhere else is just uncomfortable."
+"salkama" -> "Ich habe mein ganzes Leben dort verbracht."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "I follow Irmorom, Of course. What kind of question is that."
+"Göttter" -> "Natürlich folge ich Irmorom. Was ist denn das für eine Frage?"
+english, "Irmorom" -> "He keeps me at the top of my craft, which makes me money, which gets all these girls to look my way. How can I not be content."
+"Irmorom" -> "Er verleiht mir Geschick, dardurch verdiene ich Geld,und durch das Geld möchen mich die Mädchen. Wie könnte ich da unzufrieden sein."
+
+-- Catching typical NPC phrases
+"tell something" -> "What is there to tell? I'm Runewhick's number one agricultural trading pretty boy."
+"erzähl was", "erzähl etwas" -> "Was hätte ich zu erzählen? Ich bin die Nummer Eins unter den hübschen Jungen in Runewick, wenn es um Landwirtschaftserzeugnisse geht."
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+english, "Francois", "Delacroix" -> "Do you need something? Chances are I sell it."
+"Francois", "Delacroix" -> "Bracht Ihr etwas? Ich Chancen stehen gurt, dass ich es verkaufe."
+"Yes" -> "Please be more specific. "
+"Ja" -> "Bitte seid etwas genauer in Euer Wortwahl."
+"No" -> " Please be more specific."
+"Nein" -> "Bitte seid etwas genauer in Euer Wortwahl."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Braucht Ihr Werkzeuge? Ich, Francois Delacoix, verkaufe sowohl Werkzeuge für den Ackerbau als auch für die Fischerrei.", "Are you a farmer and need tools? I, Francois Delacroix carries both farming and fishing tools."
+cycletext "Ihr sucht wunderschöne Felle um dem Winter zu trotzen oder Leder um einem Schwerthieb stand zu halten? Besucht mich, Francois Delacoix!", "Want beautiful furs to last the winter or maybe leather to survive a sword strike? Please visit I, Francois Delacroix."
+cycletext "Habt Ihr Hunger? Leidet ihr an Skorbut? Ich, Francois Delacoix, habe ein gesundes Angebot an Früchten und Gemüse! Kommt vorbei!", "Are you hungry, maybe dying from scurvy? I, Francois Delacroix carry healthy fruits and vegetables. Please visit."
+cycletext "Ich habe Fisch, Ihr wollt Fisch? Kauft bei mir,  Francois Delacoix.", "I have fish, You want fish. Please visit I, Francois Delacroix."
+cycletext "Ich verkaufe Saatgut für alle Jahreszeiten. Plant Ihr einen neuen Hof zu gründen und eine Familie zu Gründen? Kauft zuerst hier ein, bei mir , Francois Delacoix.", "I have seeds from any season. Are you about to settle down and start a new farm and family?  First visit I, Francois Delacroix."
+cycletext "Ihr könnt Euch kein Fleisch leisten? Milch ist das perkte Mittel um Eure Familie ohne Fleisch durch zu bringen. Wenn Ihr das Glück habt Euch Fleisch leisten zu können, es schmeckt auch zu Milch! Kauft bei mirein, kauft bei Francois Delacoix!", "Can't afford meat? Milk is the perfect way to feed a family with little money. Milk even goes great with meat if you are lucky enough to afford both, so visit I, Francois Delacroix."
+cycletext "Wie geht es Euch heute? Werft einen Blick auf die neuesen Waren von mir, Francois Delacroix.", "How are you doing today? Check out the latest wares of I, Francois Delacroix."
+cycletext "Euer liebster Händler für landwirtschaftliche Güter, ich, Francois Delacroix bin für eich da!", "Your favorite agricultural trader, I Francois Delacroix is here for you."
+cycletext "Ihr seid wunderschöne Leute. Habt einen wunderscönen Tag.", "You are all beautiful people. Have a Beautiful day."
+cycletext "Seid Ihr hungrig großer Kerl? Oder wollt ihr einen Mann glücklich machen  hübsches Fräulein? Ich, Francois Delacroix verkaufe rohes Fleisch. Esst und seid glücklich!", "Are you hungry big man? Or do you have a man you want to make happy pretty lady? I, Francois Delacroix sells raw meat. Eat and be merry!"

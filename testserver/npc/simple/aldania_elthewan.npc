@@ -1,0 +1,104 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Aldania Elthewan                                            None --
+-- NPC Job:  Tutor                                                            --
+--                                                                            --
+-- NPC Race: elf                        NPC Position:  52, 24, 100            --
+-- NPC Sex:  female                     NPC Direction: west                   --
+--                                                                            --
+-- Author:   Estralis Seborian                                                --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Aldania Elthewan"
+race = elf
+sex = female
+position = 52, 24, 100
+direction = west
+affiliation = "None"
+job = "Tutor"
+
+language = common
+language = elf
+defaultLanguage = common
+autointroduce = on
+
+author = "Estralis Seborian"
+
+lookatDE = "Das ist deine Tutorin Aldania Elthewan."
+lookatUS = "This is your tutorial guide Aldania Elthewan."
+useMsgDE = "Finger weg!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "Bitte wechsle die Sprache deines Charakters zur Gemeinsprache mit dem Befehl '!l common'."
+wrongLangUS = "Please switch the language of your character to the common tongue with the command '!l common'."
+radius = 0
+hairID = 8
+beardID = 0
+colorHair = 255, 215, 0
+colorSkin = 245, 200, 145
+itemHead = 0
+itemChest = 800
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 0
+itemShoes = 369
+
+-- Queststatus 310
+-- 1: Player arrives at the triggerfield
+-- 2: Player got the task to equip the pick-axe
+-- 3: Player put the pick-axe into his hands. Player gets the job to examine the pick-axe. Set by the pick-axe script.
+-- 4: Player looked at the pick-axe. Player gets a torch and the job to ignite it. Set by the pick-axe script
+-- 5: Player lit the torch. Set by the torch script
+
+-- More dialogs are in the pick-axe script and the torch script! They also set the queststatus to higher values!
+
+-- Debugging
+"reset" -> "Noobia reset!", queststatus(309) = 0, queststatus(310) = 0, queststatus(311) = 0, queststatus(312) = 0, queststatus(313) = 0, queststatus(314) = 0, warp(31, 22, 100)
+
+-- Help
+"Help" -> inform("[Tutorial] This NPC is the tutor Aldania Elthewan. Keywords: Hello, Help, Skip tutorial.")
+"Hilfe" -> inform("[Tutorial] Dieser NPC ist die Tutorin Aldania Elthewan. Schlüsselwörter: Hallo, Hilfe, Tutorial überspringen.")
+
+-- Skipping
+"skip", "cancel", "abort" -> inform("[Tutorial] You have decided to skip the tutorial. Please choose a realm to be the home for your character by stepping through the corresponding portal on one of the three islands to the south."), warp(36, 94, 100)
+"überspring", "abbrech" -> inform("[Tutorial] Du hast entschieden das Tutorial zu überspringen. Bitte wähle ein Reich als Heimat deines Charakters aus, indem du durch das entsprechende Portal auf einer der drei Inseln im Süden trittst."), warp(36, 94, 100)
+
+-- Learn how to equip
+queststatus(310) < 2, english, ".*" -> inform("[Tutorial] Please make sure that your chatbox is deactivated and then press 'I' to open your inventory. Eventually, double click on your backpack to open it. Drag the pick-axe to an empty hand slot in your inventory by holding the left mouse button."), "Be greeted, %CHARNAME. My name is Aldania Elthewan and I am here to teach you how to equip, examine and use items. Let us start with the basics, equipping. I have just given you a pick-axe, hold it in your hands, please.", item(2763, 1, 333), queststatus(310) = 2
+queststatus(310) < 2, ".*" -> inform("[Tutorial] Bitte überprüfe, ob deine Chatbox deaktiviert ist und drücke anschließend 'I', um dein Inventar zu öffnen. Öffne gegebenenfalls deinen Rucksack mit einem Doppelklick. Ziehe die Spitzhacke mit gedrückter linker Maustaste in ein leeres Handfeld in deinem Inventar."), "Seid gegrüßt, %CHARNAME. Mein Name ist Aldania Elthewan und ich bin hier, um Euch beizubringen, wie man sich mit Gegenständen ausrüstet, sie untersucht und benutzt. Lasst uns mit dem wichtigsten anfangen: dem Ausrüsten. Ich habe Euch soeben eine Spitzhacke gegeben, bitte nehmt sie in die Hand.", item(2763, 1, 333), queststatus(310) = 2
+
+-- Player lost his pick-axe. We will remove farmed pick axes at the end of the tutorial.
+queststatus(310) = 2, item(2763, all) = 0, english, ".*" -> "Alas, it looks like you lost the pick-axe I gave you. Do not be so careless with your belongings! Here, have another. Take it into your hands, please.", item(2763, 1, 333)
+queststatus(310) = 2, item(2763, all) = 0, ".*" -> "Ach herrje, es schaut aus, als hättet Ihr die Spitzhacke verloren, die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Nehmt sie bitte in die Hand.", item(2763, 1, 333)
+
+-- Player seems to have a problem with equipping
+queststatus(310) = 2, english, ".*" -> inform("[Tutorial] Make sure that your chatbox is deactivated and then press 'I' to open your inventory. Eventually, double click on your backpack to open it. Drag the pick-axe to an empty hand slot in your inventory by holding the left mouse button."), "Please place the pick-axe into your hands. Learning how to equip items is important, just imagine if you should face a dragon and could not even draw your sword!"
+queststatus(310) = 2, ".*" -> inform("[Tutorial] Bitte überprüfe, ob deine Chatbox deaktiviert ist und drücke anschließend 'I', um dein Inventar zu öffnen. Öffne gegebenenfalls deinen Rucksack mit einem Doppelklick. Ziehe die Spitzhacke mit gedrückter linker Maustaste in ein leeres Handfeld in deinem Inventar."), "Bitte nehmt die Spitzhacke in die Hand. Zu lernen wie man Gegenstände ausrüstet ist wichtig. Stellt Euch nur vor, Ihr würdet auf einen Drachen stoßen und könntet nichtmal Euer Schwert ziehen!"
+
+-- Player lost his pick-axe. Again. We will remove farmed pick axes at the end of the tutorial.
+queststatus(310) = 3, item(2763, all) = 0, english, ".*" -> "Alas, it looks like you lost the pick-axe I gave you. Don't be so careless with your belongings! Here, have another one. Examine it, please.", item(2763, 1, 333)
+queststatus(310) = 3, item(2763, all) = 0, ".*" -> "Ach herrje, es schaut aus als hättet Ihr die Spitzhacke verloren die ich Euch gab. Ihr solltet besser auf Euer Hab und Gut aufpassen! Hier habt ihr eine Neue. Untersucht sie einmal.", item(2763, 1, 333)
+
+-- Player seems to have a problem with examining
+queststatus(310) = 3, english, ".*" -> inform("[Tutorial] Move the mouse cursor over the pick-axe in your inventory in order to examine it."), "In order to examine an item, you simply have to move your mouse cursor over it. Learning about your belongings is as vital as acquiring them."
+queststatus(310) = 3, ".*" -> inform("[Tutorial] Bewege den Mauszeiger über die Spitzhacke in deinem Inventar um sie zu untersuchen."), "Um einen Gegenstand zu untersuchen, müsst Ihr einfach nur den Mauszeiger über ihn platzieren. Etwas über sein Hab und Gut zu lernen, ist mindestens so wichtig, wie es zu erlangen."
+
+-- Player lost his torch. We will remove farmed torches at the end of the tutorial.
+queststatus(310) = 4, item(391, all) = 0, english, ".*" -> "Without a light source, the darkness will engulf you sooner or later. I have given you another torch, be more careful with this one.", item(391, 1, 333)
+queststatus(310) = 4, item(391, all) = 0, ".*" -> "Ohne eine Lichtquelle wird Euch die Dunkelheit früher oder später einhüllen. Ich habe Euch eine neue Fackel gegeben, bitte seid vorsichtiger mit dieser.", item(391, 1, 333)
+
+-- Player seems to have a problem with using items
+queststatus(310) = 4, english, ".*" -> inform("[Tutorial] You can perform a double click on an item to use it. Double click the torch in your inventory to ignite it."), "What is the purpose of owning an item if you cannot use it properly? Ignite the torch I gave you with a double click. Light sources are quite important when travelling by night."
+queststatus(310) = 4, ".*" -> inform("[Tutorial] Du kannst einen Gegenstand mit einem Doppelklick benutzen. Doppelklicke die Fackel in deinem Inventar, um sie zu entzünden."), "Was ist der Nutzen von einem Gegenstand, wenn man ihn nicht richtig benutzen kann? Entzündet die Fackel, welche ich Euch gab, mit einem Doppelklick. Wenn man Nachts unterwegs ist, sind Lichtquellen sehr wichtig."
+
+-- Player did all the lessons
+queststatus(310) = 5, english, ".*" -> "This is where we part company, %CHARNAME. You have done well enough. Run along to that savage, Groknar, further down the road. He will train you in the art of fighting."
+queststatus(310) = 5, ".*" -> "Dies ist der Zeitpunkt, um getrennte Wege zu gehen, %CHARNAME. Ihr habt euch wacker geschlagen. Geht nur weiter die Straße entlang zu diesem Wilden: Groknar. Er wird Euch in der Kunst des Kampfes unterrichten."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Aldania Elthewan zu Euren Diensten. Ich unterrichte das Ausstatten, Untersuchen und Benutzen von Gegenständen.", "Aldania Elthelwan, at your service. Equipping, examining and using items is what I teach."
