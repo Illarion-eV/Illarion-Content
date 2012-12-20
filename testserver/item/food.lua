@@ -295,7 +295,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         local foundAmount, buffAmount = dietEffect:findValue("buffAmount");
         if (foundAmount) then
           -- check if old one is better
-          debug("oldAmount " .. buffAmount .. ", old nextCalled " .. dietEffect.nextCalled);
+          debug("oldAmount " .. buffAmount .. ", old nextCalled " .. dietEffect.nextCalled .. ", lastCalled " .. dietEffect.lastCalled);
           if (buffAmount > newBuffAmount or (buffAmount == newBuffAmount and dietEffect.nextCalled > newDuration)) then
             debug("old is better");
             newIsBetter = false;
