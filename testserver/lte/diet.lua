@@ -19,6 +19,7 @@ GermanAttributes = {
 
 function addEffect(dietEffect,Character)
   InformPlayer(dietEffect,Character);
+  debug("addEffect with nextCalled " .. dietEffect.nextCalled);
 end
 
 function callEffect(dietEffect,Character)
