@@ -1,0 +1,177 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Gavin Northstar 			Galmair                               --
+-- NPC Job:  Guard                                                            --
+--                                                                            --
+-- NPC Race: Dwarf                     NPC Position:   386, 329, 0            --
+-- NPC Sex:  Female                       NPC Direction:    South             --
+--                                                                            --
+-- Author:   Kawan Baxter					                            --
+--                                                                            --
+-- Last parsing: December 19, 2010                       easyNPC Parser v1.02 --
+--------------------------------------------------------------------------------
+
+name = "Gavin Northstar"
+race = Dwarf
+sex = Female
+position = 386, 329, 0
+direction = south
+affiliation = "Galmair"
+job = "Guard"
+
+language = common
+language = Dwarf
+defaultLanguage = common
+autointroduce = on
+
+author = "Kawan Baxter"
+
+lookatDE = ""
+lookatUS = "This NPC is Gavin Daystar the gate guardian, a broad shouldered dawrf"
+useMsgDE = "Zurück!"
+useMsgUS = "Back up!"
+wrongLangDE = "#me schaut verwirrt umher."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 0
+colorHair = 0, 0, 0
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 2359
+itemCoat = 195
+itemMainHand = 2731
+itemSecondHand = 95
+itemHands = 530
+itemTrousers = 367
+itemShoes = 771
+
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- Name: Gavin Northstar
+-- Race: Dwarf
+-- Age: 25: Human Years
+-- Sex: Female
+-- Occupation: Gate Guard
+-- Race: Galmair
+-- Skin: olive, rough, heavily tanned from constant sun exposure
+-- Eyes Brown
+-- Hair: Brown, cut ear length
+-- Height: Tall for a dwarf, taller than most dwarf men
+-- Body: Broad shoulders, heavily muscular
+-- Weapon: Morning Star
+-- Cloth: Grey plate armor, no shine
+
+--Personality: North, straight forward, competitive, outspoken yet thinks with much
+-- deliberation before she speaks, controlled, focused, skilled at fighting and competing with
+--mind, serious, hard ass. Talks little, Tries best to say things that are facts and gives little --opinion.
+
+--Background:
+--“The funny thing about beliefs is that every now and then someone is stupid enough to
+-- believe in them.”
+
+--While Gavin Northstar was a young girl her parents filled her mind with stories of dwarves and
+--dragons, good and evil, right and wrong. Gavin envisioned herself a hero and dedicated her
+--life to being so. There was no choice in her mind but to do what is right. She is always
+--reconsidering her assumptions and carefully molding herself to be a sharp axe for justice. She
+--can’t stand to be in the wrong. In the times she does mess up, she is quick to apologize;
+--though Gavin messing up is a one in 50 year event. Gavin honed her body by working out with
+--the guys. She surpassed them in muscle and in height as if the gods were smiling on her
+--determination.
+
+--She joined the Civil Watch as a foot soldier. In her early days in the watch
+--Gavin saw a girl on the streets. There were a lot of homeless in the area. She had often spared
+--them some pocket copper, however seeing a young girl on the streets broke Gavin’s heart.
+--She invited the girl to her house. The girl sheepishly declined several times. Gavin however did
+--not take no for an answer. She lifted the girl by her arm and led her to Gavin’s house. She fed
+--the girl and told her she can stay there for a while. The two became close friends. Bre, who
+--was more laid back and cheery, joined the Civil Watch in order to follow Gavin. They both rose
+--in the ranks higher than most in the Civil Watch.
+
+--During their friendship Gavin and Bre slit open their wrists till blood wrung out. They tied their
+--arms together and from then on they considered each other sisters.
+
+-- Goals
+-- To fight Evil and protect Good
+-- To find a man strong enough for her
+-- To watch over her little sister Bre
+
+-- Method
+-- Not doing anything wrong and decimating criminals
+-- Hoping in the wind
+-- Being a Galmair gate guard.
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Gavin Northstar the gate guardian. Keyphrases: Hello, Gate, Galmair, Guard.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "If you are in peace come through these doors.", "Good day. You have arrived at the City of Galmair.", "May your walk in justice bring you peace."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "If you are in peace come through these doors.", "Good day. You have arrived at the City of Galmair.", "May your walk in justice bring you peace."
+"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Farewell", "Bye", "Fare well", "See you" -> "Be wary of danger on your travels.", "Alert me if there is any trouble in Galmair.", "The Civil Watch is always watching. Walk in peace and justice."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Be wary of danger on your travels.", "Alert me if there is any trouble in Galmair.", "The Civil Watch is always watching. Walk in peace and justice."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"How are you", "How feel", "How do you do" -> "I relinquished such cares in the pursuit of peace and justice.", "As long as you don’t cause any trouble in Galmair my day is correct", "Galmair is at peace. That is my state of being."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"your name", "who are you", "who art thou" -> "Gavin Northstar.", "Gavin Northstar. Now please move along.", "Gavin Northstar. I guard this gate."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+"quest", "mission", english -> "I am capable of accommodating any of my own needs."
+"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"task", "adventure", "order" -> "I am capable of accommodating any of my own needs."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am guard of Galmair’s south gate.", "I am a Silverstone in the Civil Watch.", "I  Serve this city by being in the Civil Watch."
+"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+english, "job" -> "I am guard of Galmair’s south gate.", "I am a Silverstone in the Civil Watch.", "I  Serve this city by being in the Civil Watch."
+"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"Bre" -> "Why do you want to know?"
+"Civil Watch" -> "They are the people dedicated to keeping people in Galmair safe from criminals, monsters and invaders."
+"Man", "husband", "Family" -> "Please dont ask me personal questions"
+"Sister" -> "Bre of the south gate is my sister."
+"Dwarf" -> "Yes I am tall for being a dwarf. Please move on."
+"Woman","Girl","Female" -> "Being a woman has never deterred me from reaching my goal of being in the Civil Watch because the hate of others has never overshadowed my own fire for justice."
+"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "You have no need to know who I worship."
+"Elara", english -> "Elara the bright once said --Justice is a tree. Wisdom is its leaves, power is its trunk, and love is its roots.-- This is the saying I hold in my mind every day."
+"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+-- Optional: Gobaith
+english, "Gobaith", "Gobiath" -> "I have nothing to say of it."
+"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "GERMAN.", "Move on. Do not clog up the gate."
+cycletext "GERMAN.", "If you bring peace. Galmair will watch over you."
+cycletext "GERMAN.", "Those who stand in evil who dare to pass this gate will die."
+cycletext "GERMAN.", "This is Galmair. Come in peace. "
+cycletext "GERMAN.", "You have just crossed into The Dwarvan gathering of Galmair"
+cycletext "GERMAN.", "My sister is also part of the Civil Watch."
+cycletext "GERMAN.", "Remember. I can see what you are doing."
+cycletext "GERMAN.", "I wonder the last time I’ve seen The Don come through this gate."
+cycletext "GERMAN.", "Anyone who tries to sneak strong drugs into Galmair will be punished."
+cycletext "GERMAN.", "Do not clog up the gate. Pass through."
