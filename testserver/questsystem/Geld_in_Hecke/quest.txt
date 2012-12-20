@@ -1,6 +1,7 @@
 item,513,LookAtItem,trigger1
 item,301,LookAtItem,trigger2
 triggerfield,683,310,0,MoveToField,trigger3
-triggerfield,0,0,0,MoveToField,trigger4
+triggerfield,684,310,0,MoveToField,trigger4
 item,513,LookAtItem,trigger5
 triggerfield,684,310,0,MoveToField,trigger6
+triggerfield,683,310,0,MoveToField,trigger7

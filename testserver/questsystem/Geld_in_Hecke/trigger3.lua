@@ -2,7 +2,7 @@ require("handler.sendmessagetoplayer")
 require("questsystem.base")
 module("questsystem.Geld_in_Hecke.trigger3", package.seeall)
 
-local QUEST_NUMBER = 10000
+local QUEST_NUMBER = 700
 local PRECONDITION_QUESTSTATE = 0
 local POSTCONDITION_QUESTSTATE = 14
 
@@ -22,7 +22,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Irgendetwas ist an dem Fass bei dem Wagen auff‰llig. Vielleicht schaust du es dir mal genauer an?", "Something is diffrent with this barrle at the wagon. Maybe you should take a look?"):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Irgendetwas ist auff√§llig an dem Fass bei dem Wagen. Vielleicht schaust du es dir mal genauer an?", "Something is diffrent with this barrel at the wagon. Maybe you should take a closer look?"):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
