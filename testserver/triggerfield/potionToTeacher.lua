@@ -39,8 +39,7 @@ function getTown(Item)
 end
 
 function PutItemOnField(Item,User)
-    User:inform("my data: "..Item:getData("AdrazinConcentration"))
-	 -- is the char an alchemist?
+    -- is the char an alchemist?
 	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Mir ist nicht bekannt, dass Ihr ein Alchemist sein sollt. Nehmt Euer Zeug wieder weg.","I haven't heard you being an alchemist. Take your stuff from my table.")
 	if not anAlchemist then
 		return
@@ -68,7 +67,9 @@ function PutItemOnField(Item,User)
 				else
                     local dataCheck = true
 					for j=3,#ListTaskItem do
-                        if not (Item:getData(ListTaskItem[i][j][1]) == ListTaskItem[i][j][2]) then
+                        User:inform("wtf1: "..Item:getDataListTaskItem[i][j][1])
+						User:inform("wtf2: "..Item:getDataListTaskItem[i][j][2])
+						if not (Item:getData(ListTaskItem[i][j][1]) == ListTaskItem[i][j][2]) then
                             User:inform("round "..j.." rejecting item")
 							dataCheck = false
 							break
