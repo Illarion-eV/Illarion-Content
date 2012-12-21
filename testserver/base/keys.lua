@@ -18,7 +18,11 @@ function LockDoor(Door)
             world:changeItem(Door);
             world:makeSound(19, Door.pos);
             return true;
+		else
+			return false;			
         end;
+	else
+		return false;
     end;
     return false;
 end;
@@ -39,7 +43,11 @@ function UnlockDoor(Door)
             world:changeItem(Door);
             world:makeSound(20, Door.pos);
             return true;
+		else
+			return false;			
         end;
+	else
+		return false;
     end;
     return false;
 end;
