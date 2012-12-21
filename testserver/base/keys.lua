@@ -24,7 +24,6 @@ function LockDoor(Door)
 	else
 		return false;
     end;
-    return false;
 end;
 
 --[[
@@ -49,7 +48,6 @@ function UnlockDoor(Door)
 	else
 		return false;
     end;
-    return false;
 end;
 
 --[[
