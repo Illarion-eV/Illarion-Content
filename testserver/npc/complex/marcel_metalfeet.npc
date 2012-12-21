@@ -9,7 +9,7 @@
 --                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
-name = "Marcel Metalfeet "
+name = "Marcel Metalfeet"
 race = halfling
 sex = male
 position = 389, 269, 0

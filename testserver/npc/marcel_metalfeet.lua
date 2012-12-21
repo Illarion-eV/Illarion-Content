@@ -2,8 +2,8 @@
 -- NPC Name: Marcel Metalfeet                                         Galmair --
 -- NPC Job:  craftsman                                                        --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  381, 280, 0            --
--- NPC Sex:  male                       NPC Direction: north                  --
+-- NPC Race: halfling                   NPC Position:  389, 269, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 381, 280, 0, 0, 'Marcel Metalfeet', 'npc.marcel_metalfeet', 0, 2, 0, 68, 62, 0, 245, 211, 179);
+VALUES (2, 389, 269, 0, 6, 'Marcel Metalfeet', 'npc.marcel_metalfeet', 0, 2, 0, 68, 62, 0, 245, 211, 179);
 ---]]
 
 require("npc.base.basic")
@@ -29,13 +29,13 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Marcel Metalfeet  the <profession/function>. Keywords: repair, work, Greetings, religion."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Marcel Metalfeet the craftsman. Keywords: Repair, Work, Greetings, Religion."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC istMarcel Metalfeet der <Beruf/Funktion>. Schlüsselwörter: reparieren, arbeiten, Grüße, Religion,."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC istMarcel Metalfeet der Handwerker. Schlüsselwörter: Reparieren, Arbeiten, Grüße, Religion."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -65,7 +65,7 @@ talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegesen?");
-talkEntry:addResponse("Hallo. Du siehst nicht so glücklich aus. Hast du Hunger?");
+talkEntry:addResponse("Hallo. Du siehst nicht so glücklich aus. Hast du hunger?");
 talkEntry:addResponse("Hallo. Wie geht es dir?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -295,7 +295,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("religion");
-talkEntry:addResponse("Halblinge haben ihre eignen Mythen über die Entstehung Illarions.");
+talkEntry:addResponse("Halblinge haben ihre eignen Mythern über die Entstehung Illarions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -307,7 +307,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glaube");
-talkEntry:addResponse("Halblinge haben ihre eignen Mythen über die Entstehung Illarions.");
+talkEntry:addResponse("Halblinge haben ihre eignen Mythern über die Entstehung Illarions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -377,8 +377,8 @@ talkingNPC:addCycleText("Marcel Metalfeet! Ich repariere alles und jeden!", "Mar
 talkingNPC:addCycleText("#me pfeift eine Melodie.", "#me whistles.");
 talkingNPC:addCycleText("#me schaut sich um.", "#me lookes around.");
 talkingNPC:addCycleText("#me leckt sich über die Lippen.", "#me licks his lips.");
-talkingNPC:addCycleText("#me leckt seine Finger ab.", "#me licks his fingers.");
-talkingNPC:addCycleText("#w Ich möchte Kuchen essen... Ich möchte nicht arbeiten.", "#w I want to eat a cake... I do not want to work.");
+talkingNPC:addCycleText("#me lekt seine Finger ab.", "#me licks his fingers.");
+talkingNPC:addCycleText("#w Ich möchte Kuchen essen... Ich möchte nicht arbeiten.", "#w I want to eat Cake... I do not want to work.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
