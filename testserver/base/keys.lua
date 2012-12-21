@@ -34,7 +34,7 @@ end;
 ]]
 function UnlockDoor(Door)
     if base.doors.CheckClosedDoor(Door.id) then
-        if (Door.quality ~= 233 and Door:getData("ockData") ~= nil) then
+        if (Door.quality ~= 233 and Door:getData("lockData") ~= nil) then
             Door.quality = 233;
             world:changeItem(Door);
             world:makeSound(20, Door.pos);
