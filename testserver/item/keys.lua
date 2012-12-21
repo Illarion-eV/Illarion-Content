@@ -18,7 +18,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 	if base.keys.CheckKey(SourceItem,DoorItem) then	
 		local lockDoor = base.keys.LockDoor(DoorItem);
 		local unlockDoor = base.keys.UnlockDoor(DoorItem);
-		debug("lockDoor "..tostring(lockDoor)) 
+
         if lockDoor then
             base.common.InformNLS(User,"Du sperrst die Tür ab.","You lock the door.");
         elseif unlockDoor then            
