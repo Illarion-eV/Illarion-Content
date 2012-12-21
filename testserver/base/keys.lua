@@ -13,7 +13,7 @@ module("base.keys", package.seeall)
 ]]
 function LockDoor(Door)
     if base.doors.CheckClosedDoor(Door.id) then
-        if (Door.quality == 233 and Door.data ~= 0) then
+        if (Door.quality == 233 and Door:getData("lockData") ~= nil) then
             Door.quality = 333;
             world:changeItem(Door);
             world:makeSound(19, Door.pos);
@@ -34,7 +34,7 @@ end;
 ]]
 function UnlockDoor(Door)
     if base.doors.CheckClosedDoor(Door.id) then
-        if (Door.quality ~= 233 and Door.data ~= 0) then
+        if (Door.quality ~= 233 and Door:getData("ockData") ~= nil) then
             Door.quality = 233;
             world:changeItem(Door);
             world:makeSound(20, Door.pos);
@@ -57,7 +57,7 @@ end;
 ]]
 function CheckKey(Key, Door)
     if base.doors.CheckClosedDoor(Door.id) or base.doors.CheckOpenDoor(Door.id) then
-        if (Key.data == Door.data and Door.data ~= 0) then
+        if (Key:getData("lockData") ~= nil == Door:getData("lockData") ~= nil and Door:getData("lockData") ~= nil) then
             return true;
         else
             return false;
