@@ -76,7 +76,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             if perc>19 then
                 perc=19;
             end
-            local itemData = SourceItem:getData("wineData") + math.random( -40 + (perc*2), 40 - (perc*2) );
+            local itemData = tonumber(SourceItem:getData("wineData")) + math.random( -40 + (perc*2), 40 - (perc*2) );
             local wineQual = 0;
             local modv = itemData - math.floor(itemData/10)*10;
             local result = itemData / 10;
