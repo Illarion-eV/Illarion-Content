@@ -467,7 +467,7 @@ function receiveText(npcChar, texttype, message, speaker)
 	                estring=" "..gp.." gold coins, "..sp.." silver coins and "..cp.." copper coins";
 		            gstring=" "..gp.." Goldstücke, "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
 
-                elseif totTax >= 100 then -- at least one silver coin
+                elseif price >= 100 then -- at least one silver coin
 
 		            estring=" "..sp.." silver coins and "..cp.." copper coins";
 		            gstring=" "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
