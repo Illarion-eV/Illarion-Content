@@ -116,7 +116,7 @@ function onLogin( player )
 		messageG[45]="[Tipp] Die besten Brauer leben in Galmair.";
 		messageG[46]="[Tipp] Die besten Fischer leben in Cadomyr.";
 		messageG[47]="[Tipp] Die besten Glasbläser leben in Cadomyr.";
-		messageG[48]="[Tipp] Die besten Gräber leben in Cadomyr.";
+		messageG[48]="[Tipp] Die besten Sandgräber leben in Cadomyr.";
 		messageG[49]="[Tipp] Die besten Kunstschmiede leben in Cadomyr.";
 		messageG[50]="[Tipp] Die besten Edelsteinschleifer leben in Cadomyr.";
 		messageG[51]="[Tipp] Jedes Reich ist auf bestimmte Handwerke spezialisiert. Wenn es das, was du benötigst, nicht auf dem örtlichen Markt gibt, wirst du wohl reisen müssen.";
@@ -185,7 +185,7 @@ function onLogin( player )
 		messageE[45]="[Hint] The best brewers are living in Galmair.";
 		messageE[46]="[Hint] The best fishers are living in Cadomyr.";
 		messageE[47]="[Hint] The best glass blowers are living in Cadomyr.";
-		messageE[48]="[Hint] The best diggers are living in Cadomyr.";
+		messageE[48]="[Hint] The best sand diggers are living in Cadomyr.";
 		messageE[49]="[Hint] The best finesmiths are living in Cadomyr.";
 		messageE[50]="[Hint] The best gem grinders are living in Cadomyr.";
 		messageE[51]="[Hint] Each realm specialises in certain crafts. If you can't find what you are looking for in your home market, you may need to travel abroad.";
