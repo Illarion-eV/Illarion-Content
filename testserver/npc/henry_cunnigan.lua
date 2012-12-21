@@ -29,19 +29,6 @@ mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("reset");
-talkEntry:addResponse("Noobia reset!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(310, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(313, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(314, "=", 0));
-talkEntry:addConsequence(npc.base.consequence.warp.warp(31, 22, 100));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] This NPC is the tutor Henry Cunnigan. Keywords: Hello, Help, Skip tutorial."));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -214,7 +201,7 @@ talkingNPC:addCycleText("Hast du vergessen, wie man sich bewegt? Benutz die link
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist dein Tutor Henry Cunnigan.", "This is your tutorial guide, Henry Cunnigan.");
+mainNPC:setLookat("Das ist dein Tutor Henry Cunnigan.", "This is your tutorial guide Henry Cunnigan.");
 mainNPC:setUseMessage("Finger weg!", "Do not touch me!");
 mainNPC:setConfusedMessage("Bitte wechsle die Sprache deines Charakters zur Gemeinsprache mit dem Befehl '!l common'.", "Please switch the language of your character to the common tongue with the command '!l common'.");
 mainNPC:setEquipment(1, 0);
