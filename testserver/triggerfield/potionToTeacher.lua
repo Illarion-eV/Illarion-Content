@@ -67,6 +67,8 @@ function PutItemOnField(Item,User)
 					break
 				else
                     local dataCheck = true
+					User:inform("debug "..(ListTaskItem[1])
+					User:inform("debug "..(ListTaskItem[3][1]))
 					for i=3,#ListTaskItem do
                         User:inform("debug round "..i.." started")
 						if not (Item:getData(ListTaskItem[i][1]) == ListTaskItem[i][2]) then
