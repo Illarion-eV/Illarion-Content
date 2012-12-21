@@ -26,7 +26,7 @@ autointroduce = on
 author = "Kawan Baxter"
 
 lookatDE = ""
-lookatUS = "This NPC is Gavin Daystar the gate guardian, a broad shouldered dawrf"
+lookatUS = "This NPC is Gavin Daystar the gate guardian, a broad shouldered dwarf"
 useMsgDE = "Zurück!"
 useMsgUS = "Back up!"
 wrongLangDE = "#me schaut verwirrt umher."
@@ -107,71 +107,73 @@ itemShoes = 771
 -- Being a Galmair gate guard.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Gavin Northstar the gate guardian. Keyphrases: Hello, Gate, Galmair, Guard.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist")
+"Help" -> inform("[Game Help] This NPC is Gavin Northstar the bridge guardian. Keyphrases: Hello, Bridge, Galmair, Guard.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Gavin Northstar, die Brückenwächterin. Schlüsselwörter: Hallo, Brücke, Galmair, Wache.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "If you are in peace come through these doors.", "Good day. You have arrived at the City of Galmair.", "May your walk in justice bring you peace."
-"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Good day. You have arrived at the City of Galmair.", "May your walk in justice bring you peace."
+"Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Guten Tag. Ihr seid in Galmair angekommen.", "Betretet Galmair, doch überschreitet nicht die Gesetze."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "If you are in peace come through these doors.", "Good day. You have arrived at the City of Galmair.", "May your walk in justice bring you peace."
-"Hiho", "Hallo", "Hey", "Greeb" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag. Ihr seid in Galmair angekommen.", "Betretet Galmair, doch überschreitet nicht die Gesetze."
 "Farewell", "Bye", "Fare well", "See you" -> "Be wary of danger on your travels.", "Alert me if there is any trouble in Galmair.", "The Civil Watch is always watching. Walk in peace and justice."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Nehm Euch auf Reise vor Gefahren in Acht.", "Die Stadtwache hält immer wacht. Seid friedlich und achtet das Recht."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Be wary of danger on your travels.", "Alert me if there is any trouble in Galmair.", "The Civil Watch is always watching. Walk in peace and justice."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Nehm Euch auf Reise vor Gefahren in Acht.", "Die Stadtwache hält immer wacht. Seid friedlich und achtet das Recht."
 "How are you", "How feel", "How do you do" -> "I relinquished such cares in the pursuit of peace and justice.", "As long as you don’t cause any trouble in Galmair my day is correct", "Galmair is at peace. That is my state of being."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"your name", "who are you", "who art thou" -> "Gavin Northstar.", "Gavin Northstar. Now please move along.", "Gavin Northstar. I guard this gate."
-"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich kümmere mich nicht darum, Frieden und Gerechtigkeit sind weitauf wichtiger", "Solange Ihr mir keinen Ärger macht, ist alles in Ordnung.", "Glamair ist friedlich und mir geht es gut."
+"your name", "who are you", "who art thou" -> "Gavin Northstar.", "Gavin Northstar. Now please move along.", "Gavin Northstar. I guard this bridge."
+"dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Gavin Northstar.", "Gavin Northstar. Bitte geht weiter.", "Gavin Northstar. Ich bewache die Brücke."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 "quest", "mission", english -> "I am capable of accommodating any of my own needs."
-"quest", "mission" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"quest", "mission" -> "Ich kann meine Bedürfnisse unterordnen, wenn es seim muss."
 "task", "adventure", "order" -> "I am capable of accommodating any of my own needs."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich kann meine Bedürfnisse unterordnen, wenn es seim muss."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I am guard of Galmair’s south gate.", "I am a Silverstone in the Civil Watch.", "I  Serve this city by being in the Civil Watch."
-"beruf" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "job" -> "I am guard of Galmair’s south gate.", "I am a Silverstone in the Civil Watch.", "I  Serve this city by being in the Civil Watch."
-"job" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"profession" -> "I am guard of Galmair’s bridge.", "I am a Silverstone in the Civil Watch.", "I serve this city by being in the Civil Watch."
+"beruf" -> "Ich bin die Wache der Brücke von Galmair.", "Ich bin ein Silberstein in der Stadtwache.", "Ich diene in der Stadtwache."
+english, "job" -> "I am guard of Galmair’s bridge.", "I am a Silverstone in the Civil Watch.", "I  Serve this city by being in the Civil Watch."
+"job" -> "Ich bin die Wache der Brücke von Galmair.", "Ich bin ein Silberstein in der Stadtwache.", "Ich diene in der Stadtwache."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "Bre" -> "Why do you want to know?"
 "Civil Watch" -> "They are the people dedicated to keeping people in Galmair safe from criminals, monsters and invaders."
-"Man", "husband", "Family" -> "Please dont ask me personal questions"
+"Man", "husband", "Family" -> "Please dont ask me personal questions."
 "Sister" -> "Bre of the south gate is my sister."
 "Dwarf" -> "Yes I am tall for being a dwarf. Please move on."
 "Woman","Girl","Female" -> "Being a woman has never deterred me from reaching my goal of being in the Civil Watch because the hate of others has never overshadowed my own fire for justice."
-"DEINTRIGGER1" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER2" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER3" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER4" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-"DEINTRIGGER5" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Bre" -> "Warum fragt Ihr?"
+"Stadtwache" -> "Das sind alles Leute die die Bürger von Galmair vor Monstern, Dieben und Angreifer schützt."
+"Mann", "Ehemann","Familie" -> "Stellt mir keine persönliche Fragen."
+"Schwester" -> "Bre vom Südtor ist meine Schwester."
+"Zwerg" -> "Ja, ich bin groß für einen Zwerg. Weiter gehen!"
+"Frau", "Mädchen","weib" -> "Eine Frau zu sein hat mich nicht aufgehalten meine Ziele in der Stadtwache zu erreichen, denn der Hass auf andere hat niemals mein eigenes Feuer der Gerechtigkeit überschattet."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "You have no need to know who I worship."
 "Elara", english -> "Elara the bright once said --Justice is a tree. Wisdom is its leaves, power is its trunk, and love is its roots.-- This is the saying I hold in my mind every day."
-"Gott", "Götter" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gott", "Götter" -> "Ihr bracht nicht wissen, wen ich ehre."
+"Elara" -> "Elara die Erleuchtet sagte einmal folgends: Gerechtigkeit ist ein Baum. Weisheit sind seine Blätter, Macht ist seim Stamm und Liebe die Wurzeln. Diesen Spruch bewahre ich mir."
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "I have nothing to say of it."
-"Gobaith", "Gobiath" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
+"Gobaith", "Gobiath" -> "Dazu habe ich nichts zu sagen."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "GERMAN.", "Move on. Do not clog up the gate."
-cycletext "GERMAN.", "If you bring peace. Galmair will watch over you."
-cycletext "GERMAN.", "Those who stand in evil who dare to pass this gate will die."
-cycletext "GERMAN.", "This is Galmair. Come in peace. "
-cycletext "GERMAN.", "You have just crossed into The Dwarvan gathering of Galmair"
-cycletext "GERMAN.", "My sister is also part of the Civil Watch."
-cycletext "GERMAN.", "Remember. I can see what you are doing."
-cycletext "GERMAN.", "I wonder the last time I’ve seen The Don come through this gate."
-cycletext "GERMAN.", "Anyone who tries to sneak strong drugs into Galmair will be punished."
-cycletext "GERMAN.", "Do not clog up the gate. Pass through."
+cycletext "Weiter gehen!", "Move on!"
+cycletext "Wenn Ihr friedvoll aseid, seid ihr in Galmair willommen.","If you bring peace. Galmair will watch over you."
+cycletext "Die, die mit dem Bösen im Bunde stehen und es wagen die Brücke zu betreten werden sterben!", "Those who stand in evil who dare to pass this gate will die."
+cycletext "Dies ist Galmair. Kommt in Frieden.", "This is Galmair. Come in peace."
+cycletext "Ihr habe jetzt grade die Zwergische Siedlung Galmair betetren.", "You have just crossed into The Dwarvan gathering of Galmair"
+cycletext "Meine Schwester gehört auch zur Stadtwache.", "My sister is also part of the Civil Watch."
+cycletext "Bedenkt, ich sehe was Ihr tut.", "Remember. I can see what you are doing."
+cycletext "Ich frage mich, wann der Don zum letzten Mal über diese Brücke ging.", "I wonder the last time I’ve seen The Don pass this bridge."
+cycletext "Jeder der versucht starke Drogen nach Galmair zu schmuggeln wird bestarft!.", "Anyone who tries to sneak strong drugs into Galmair will be punished."
+cycletext "Fall nicht. Geht weiter!", "Do not fall! Move on!"

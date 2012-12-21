@@ -26,13 +26,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Gavin Northstar the gate guardian. Keyphrases: Hello, Gate, Galmair, Guard."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Gavin Northstar the bridge guardian. Keyphrases: Hello, Bridge, Galmair, Guard."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Gavin Northstar, die Brückenwächterin. Schlüsselwörter: Hallo, Brücke, Galmair, Wache."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -43,7 +43,6 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("If you are in peace come through these doors.");
 talkEntry:addResponse("Good day. You have arrived at the City of Galmair.");
 talkEntry:addResponse("May your walk in justice bring you peace.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -57,9 +56,8 @@ talkEntry:addTrigger("Guten Abend");
 talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Guten Tag. Ihr seid in Galmair angekommen.");
+talkEntry:addResponse("Betretet Galmair, doch überschreitet nicht die Gesetze.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -80,9 +78,8 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Guten Tag. Ihr seid in Galmair angekommen.");
+talkEntry:addResponse("Betretet Galmair, doch überschreitet nicht die Gesetze.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -102,9 +99,8 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Nehm Euch auf Reise vor Gefahren in Acht.");
+talkEntry:addResponse("Die Stadtwache hält immer wacht. Seid friedlich und achtet das Recht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -125,9 +121,8 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Nehm Euch auf Reise vor Gefahren in Acht.");
+talkEntry:addResponse("Die Stadtwache hält immer wacht. Seid friedlich und achtet das Recht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -146,9 +141,9 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich kümmere mich nicht darum, Frieden und Gerechtigkeit sind weitauf wichtiger");
+talkEntry:addResponse("Solange Ihr mir keinen Ärger macht, ist alles in Ordnung.");
+talkEntry:addResponse("Glamair ist friedlich und mir geht es gut.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -158,7 +153,7 @@ talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("Gavin Northstar.");
 talkEntry:addResponse("Gavin Northstar. Now please move along.");
-talkEntry:addResponse("Gavin Northstar. I guard this gate.");
+talkEntry:addResponse("Gavin Northstar. I guard this bridge.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -167,9 +162,9 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Gavin Northstar.");
+talkEntry:addResponse("Gavin Northstar. Bitte geht weiter.");
+talkEntry:addResponse("Gavin Northstar. Ich bewache die Brücke.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -184,9 +179,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich kann meine Bedürfnisse unterordnen, wenn es seim muss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -203,32 +196,30 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich kann meine Bedürfnisse unterordnen, wenn es seim muss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am guard of Galmair?s south gate.");
+talkEntry:addResponse("I am guard of Galmair?s bridge.");
 talkEntry:addResponse("I am a Silverstone in the Civil Watch.");
-talkEntry:addResponse("I  Serve this city by being in the Civil Watch.");
+talkEntry:addResponse("I serve this city by being in the Civil Watch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin die Wache der Brücke von Galmair.");
+talkEntry:addResponse("Ich bin ein Silberstein in der Stadtwache.");
+talkEntry:addResponse("Ich diene in der Stadtwache.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I am guard of Galmair?s south gate.");
+talkEntry:addResponse("I am guard of Galmair?s bridge.");
 talkEntry:addResponse("I am a Silverstone in the Civil Watch.");
 talkEntry:addResponse("I  Serve this city by being in the Civil Watch.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -236,9 +227,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ich bin die Wache der Brücke von Galmair.");
+talkEntry:addResponse("Ich bin ein Silberstein in der Stadtwache.");
+talkEntry:addResponse("Ich diene in der Stadtwache.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -258,7 +249,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Man");
 talkEntry:addTrigger("husband");
 talkEntry:addTrigger("Family");
-talkEntry:addResponse("Please dont ask me personal questions");
+talkEntry:addResponse("Please dont ask me personal questions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -283,42 +274,42 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER1");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Bre");
+talkEntry:addResponse("Warum fragt Ihr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER2");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Stadtwache");
+talkEntry:addResponse("Das sind alles Leute die die Bürger von Galmair vor Monstern, Dieben und Angreifer schützt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER3");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Mann");
+talkEntry:addTrigger("Ehemann");
+talkEntry:addTrigger("Familie");
+talkEntry:addResponse("Stellt mir keine persönliche Fragen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER4");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Schwester");
+talkEntry:addResponse("Bre vom Südtor ist meine Schwester.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("DEINTRIGGER5");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addTrigger("Zwerg");
+talkEntry:addResponse("Ja, ich bin groß für einen Zwerg. Weiter gehen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Frau");
+talkEntry:addTrigger("Mädchen");
+talkEntry:addTrigger("weib");
+talkEntry:addResponse("Eine Frau zu sein hat mich nicht aufgehalten meine Ziele in der Stadtwache zu erreichen, denn der Hass auf andere hat niemals mein eigenes Feuer der Gerechtigkeit überschattet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -338,9 +329,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Ihr bracht nicht wissen, wen ich ehre.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elara");
+talkEntry:addResponse("Elara die Erleuchtet sagte einmal folgends: Gerechtigkeit ist ein Baum. Weisheit sind seine Blätter, Macht ist seim Stamm und Liebe die Wurzeln. Diesen Spruch bewahre ich mir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -355,25 +350,23 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("GERMAN1.");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
+talkEntry:addResponse("Dazu habe ich nichts zu sagen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("GERMAN.", "Move on. Do not clog up the gate.");
-talkingNPC:addCycleText("GERMAN.", "If you bring peace. Galmair will watch over you.");
-talkingNPC:addCycleText("GERMAN.", "Those who stand in evil who dare to pass this gate will die.");
-talkingNPC:addCycleText("GERMAN.", "This is Galmair. Come in peace. ");
-talkingNPC:addCycleText("GERMAN.", "You have just crossed into The Dwarvan gathering of Galmair");
-talkingNPC:addCycleText("GERMAN.", "My sister is also part of the Civil Watch.");
-talkingNPC:addCycleText("GERMAN.", "Remember. I can see what you are doing.");
-talkingNPC:addCycleText("GERMAN.", "I wonder the last time I?ve seen The Don come through this gate.");
-talkingNPC:addCycleText("GERMAN.", "Anyone who tries to sneak strong drugs into Galmair will be punished.");
-talkingNPC:addCycleText("GERMAN.", "Do not clog up the gate. Pass through.");
+talkingNPC:addCycleText("Weiter gehen!", "Move on!");
+talkingNPC:addCycleText("Wenn Ihr friedvoll aseid, seid ihr in Galmair willommen.", "If you bring peace. Galmair will watch over you.");
+talkingNPC:addCycleText("Die, die mit dem Bösen im Bunde stehen und es wagen die Brücke zu betreten werden sterben!", "Those who stand in evil who dare to pass this gate will die.");
+talkingNPC:addCycleText("Dies ist Galmair. Kommt in Frieden.", "This is Galmair. Come in peace.");
+talkingNPC:addCycleText("Ihr habe jetzt grade die Zwergische Siedlung Galmair betetren.", "You have just crossed into The Dwarvan gathering of Galmair");
+talkingNPC:addCycleText("Meine Schwester gehört auch zur Stadtwache.", "My sister is also part of the Civil Watch.");
+talkingNPC:addCycleText("Bedenkt, ich sehe was Ihr tut.", "Remember. I can see what you are doing.");
+talkingNPC:addCycleText("Ich frage mich, wann der Don zum letzten Mal über diese Brücke ging.", "I wonder the last time I?ve seen The Don pass this bridge.");
+talkingNPC:addCycleText("Jeder der versucht starke Drogen nach Galmair zu schmuggeln wird bestarft!.", "Anyone who tries to sneak strong drugs into Galmair will be punished.");
+talkingNPC:addCycleText("Fall nicht. Geht weiter!", "Do not fall! Move on!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("", "This NPC is Gavin Daystar the gate guardian, a broad shouldered dawrf");
+mainNPC:setLookat("", "This NPC is Gavin Daystar the gate guardian, a broad shouldered dwarf");
 mainNPC:setUseMessage("Zurück!", "Back up!");
 mainNPC:setConfusedMessage("#me schaut verwirrt umher.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
