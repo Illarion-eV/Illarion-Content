@@ -14,11 +14,9 @@ module("base.keys", package.seeall)
 function LockDoor(Door)
     if base.doors.CheckClosedDoor(Door.id) then
         if (Door.quality == 233 and Door:getData("lockData") ~= "") then
-			debug("Door Quality before: "..tostring(Door.quality))
 			Door.quality = 333;
 			world:changeItem(Door);
             world:makeSound(19, Door.pos);
-			debug("Door Quality after: "..tostring(Door.quality))
             return true;
 		else
 			return false;			
