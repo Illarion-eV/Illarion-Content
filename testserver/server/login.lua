@@ -300,7 +300,7 @@ function payNow(User)
         base.money.TakeMoneyFromChar(User,tax);
     end
 
-    gp,sp,cp=base.money.MoneyToCoins(totTax)
+    gp,sp,cp=base.money.MoneyToCoins(totTax); --converting to gp, sp and cp
 
 	if totTax >= 10000 then -- at least one gold coin
 

@@ -459,22 +459,41 @@ function receiveText(npcChar, texttype, message, speaker)
 		        npcChar:talk(Character.say, message2[language]); --Message 2
 			
 		    else -- I can repair it!
+			
+			    gp,sp,cp=base.money.MoneyToCoins(price); --converting to gp, sp and cp
+			
+			    if price >= 10000 then -- at least one gold coin
+
+	                estring=" "..gp.." gold coins, "..sp.." silver coins and "..cp.." copper coins";
+		            gstring=" "..gp.." Goldstücke, "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
+
+                elseif totTax >= 100 then -- at least one silver coin
+
+		            estring=" "..sp.." silver coins and "..cp.." copper coins";
+		            gstring=" "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
+
+	            else -- just copper coins
+
+		            estring=" "..cp.." copper coins";
+		            gstring=" "..cp.." Kupferstücke"; --what a name for a variable...
+
+	            end
 	
 	            if string.find(message,"price") or string.find(message,"cost") or  string.find(message,"preis") or string.find(message,"koste") then --player just wants to know the price
 			    
-				    message3={"For repairing this item, I demand "..price.." copper coins.","Die Reparatur dieses Gegenstandes würde "..price.." Kupferstücke kosten."}; --Saying the price
+				    message3={"For repairing this item, I demand"..estring..".","Die Reparatur dieses Gegenstandes würde"..gstring.." kosten."}; --Saying the price
 		            npcChar:talk(Character.say, message3[language]); --Message 3
 				
                 elseif string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand") then --player wants to repair the item
 			
 			        if not base.money.CharHasMoney(speaker,price) then --player is broke
 				
-			            message4={"You don't have enough money I suppose. I demand "..price.." copper coins for repairing this item.","Ihr habt anscheinend nicht genug Geld. Die Reparatur würde "..price.." Kupferstücke kosten."}; --Player is broke
+			            message4={"You don't have enough money I suppose. I demand"..estring.." for repairing this item.","Ihr habt anscheinend nicht genug Geld. Die Reparatur würde"..gstring.." kosten."}; --Player is broke
 		                npcChar:talk(Character.say, message4 [language]); --Message 4
 					
 			        else --he has the money
 				
-			            message5={"#me repairs the item at a cost of "..price.." copper coins.","#me setzt den Gegenstand für "..price.." Kupferstücke in Stand."};	--...
+			            message5={"#me repairs the item at a cost of"..estring..".","#me setzt den Gegenstand für"..gstring.." in Stand."};	--...
                         npcChar:talk(Character.say, message5 [language]); --Message 5
                         base.money.TakeMoneyFromChar(speaker,price); --pay!
                         theItem.quality=theItem.quality+toRepair; --repair!
