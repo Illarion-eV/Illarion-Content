@@ -2,8 +2,8 @@
 -- NPC Name: Laramir Silverwood                                          None --
 -- NPC Job:  Carpenter/Schmied                                                --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  369, 262, 0            --
--- NPC Sex:  male                       NPC Direction: east                   --
+-- NPC Race: elf                        NPC Position:  367, 277, 0            --
+-- NPC Sex:  male                       NPC Direction: south                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
@@ -12,8 +12,8 @@
 name = "Laramir Silverwood"
 race = elf
 sex = male
-position = 369, 262, 0
-direction = east
+position = 367, 277, 0
+direction = south
 affiliation = "None"
 job = "Carpenter/Schmied"
 

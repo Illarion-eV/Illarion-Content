@@ -2,8 +2,8 @@
 -- NPC Name: Snorri                                                   Galmair --
 -- NPC Job:  Ambiente                                                         --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  350, 254, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: dwarf                      NPC Position:  354, 265, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 350, 254, 0, 4, 'Snorri', 'npc.snorri', 0, 1, 1, 119, 56, 3, 217, 154, 123);
+VALUES (1, 354, 265, 0, 6, 'Snorri', 'npc.snorri', 0, 1, 1, 119, 56, 3, 217, 154, 123);
 ---]]
 
 require("npc.base.basic")
