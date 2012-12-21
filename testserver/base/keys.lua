@@ -57,7 +57,7 @@ end;
 ]]
 function CheckKey(Key, Door)
     if base.doors.CheckClosedDoor(Door.id) or base.doors.CheckOpenDoor(Door.id) then
-        if (Key:getData("lockData") ~= nil == Door:getData("lockData") ~= nil and Door:getData("lockData") ~= nil) then
+        if (Key:getData("lockData") == Door:getData("lockData") and Door:getData("lockData") ~= nil) then
             return true;
         else
             return false;
