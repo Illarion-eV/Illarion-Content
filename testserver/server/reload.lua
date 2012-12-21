@@ -70,7 +70,7 @@ function AddDoor(DoorX,DoorY,DoorZ,DoorData,Open)
         doorOOK = base.doors.CheckOpenDoor(thisDoor.id);
         doorCOK = base.doors.CheckClosedDoor(thisDoor.id);
         if (doorOOK or doorCOK) then
-            thisDoor.data=DoorData;
+            thisDoor:setData("lockData", DoorData);
             if Open then
                 if (doorCOK) then
                     thisDoor.quality = 233;
@@ -92,13 +92,13 @@ function AddDepot(DepotX,DepotY,DepotZ,DepotData)
     if world:isItemOnField(DepotPos) then
         thisDepot=world:getItemOnField(DepotPos);
         if (thisDepot.id == 321) then
-            thisDepot.data=DepotData;
+            thisDepot:setData("depot", DepotData);
             world:changeItem(thisDepot);
         else
-            world:createItemFromId(321,1,DepotPos,true,333,DepotData);
+            world:createItemFromId(321,1,DepotPos,true,333,{"depot" = DepotData});
         end
     else
-        world:createItemFromId(321,1,DepotPos,true,333,DepotData);
+        world:createItemFromId(321,1,DepotPos,true,333,{"depot" = DepotData});
     end
 end
 
@@ -107,14 +107,14 @@ function AddExplorerStone(StoneX,StoneY,StoneZ,StoneNumber,StoneValue)
     if world:isItemOnField(StonePos) then
         thisStone=world:getItemOnField(StonePos);
         if (thisStone.id == 1272) then
-            thisStone.data=StoneNumber;
+            thisStone:setData("stonenumber", StoneNumber);
             thisStone.quality=StoneValue;
             world:changeItem(thisStone);
         else
-            world:createItemFromId(1272,1,StonePos,true,StoneValue,StoneNumber);
+            world:createItemFromId(1272,1,StonePos,true,StoneValue,{"stonenumber" = StoneNumber});
         end
     else
-        world:createItemFromId(1272,1,StonePos,true,StoneValue,StoneNumber);
+        world:createItemFromId(1272,1,StonePos,true,StoneValue,{"stonenumber" = StoneNumber});
     end
 end
 
@@ -122,11 +122,11 @@ function AddAltar(AltarX,AltarY,AltarZ,God,Altar)
     AltarPos=position(AltarX,AltarY,AltarZ);
     if world:isItemOnField(AltarPos) then
         thisAltar=world:getItemOnField(AltarPos);
-        thisAltar.data=God;
+        thisAltar:setData("god", God);
         world:changeItem(thisAltar);
     else
         if Altar then
-            world:createItemFromId(Altar,1,AltarPos,false,333,God);
+            world:createItemFromId(Altar,1,AltarPos,false,333,nil);
         end;
     end
 end
@@ -140,11 +140,11 @@ function AddNoobiaPortal( Portal, PortalX, PortalY, PortalZ )
 	local PortalPos = position(PortalX,PortalY,PortalZ);
 	local itemList = base.common.GetItemsOnField(PortalPos);
 	for i,item in pairs(itemList) do
-		if item.id == 10 and item.data == Portal then
+		if item.id == 10 and item:getdata("portal") == Portal then
 			return;
 		end
 	end
-	thePortal = world:createItemFromId(10,1,position(PortalX,PortalY,PortalZ),true,333,Portal);
+	thePortal = world:createItemFromId(10,1,position(PortalX,PortalY,PortalZ),true,333,nil);
 	thePortal.wear = 255;
 	world:changeItem(thePortal);
 end
@@ -154,11 +154,11 @@ function AddMagicalDoor( Portal, PortalX, PortalY, PortalZ )
 	local PortalPos = position(PortalX,PortalY,PortalZ);
 	local itemList = base.common.GetItemsOnField(PortalPos);
 	for i,item in pairs(itemList) do
-		if item.id == 10 and item.data == Portal then
+		if item.id == 10 and item:getdata("portal") == Portal then
 			return;
 		end
 	end
-	thePortal = world:createItemFromId(10,1,position(PortalX,PortalY,PortalZ),true,333,Portal);
+	thePortal = world:createItemFromId(10,1,position(PortalX,PortalY,PortalZ),true,333,nil);
 	thePortal.wear = 255;
 	world:changeItem(thePortal);
 end
