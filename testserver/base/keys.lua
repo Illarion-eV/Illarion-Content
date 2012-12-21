@@ -14,8 +14,7 @@ module("base.keys", package.seeall)
 function LockDoor(Door)
     if base.doors.CheckClosedDoor(Door.id) then
         if (Door.quality == 233 and Door:getData("lockData") ~= "") then
-            Door.quality = 333;
-            world:changeItem(Door);
+			world:changeQuality(Door, 333);
             world:makeSound(19, Door.pos);
             return true;
 		else
@@ -38,8 +37,7 @@ end;
 function UnlockDoor(Door)
     if base.doors.CheckClosedDoor(Door.id) then
         if (Door.quality ~= 233 and Door:getData("lockData") ~= "") then
-            Door.quality = 233;
-            world:changeItem(Door);
+			world:changeQuality(Door, 233);
             world:makeSound(20, Door.pos);
             return true;
 		else
