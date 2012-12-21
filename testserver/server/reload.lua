@@ -95,10 +95,10 @@ function AddDepot(DepotX,DepotY,DepotZ,DepotData)
             thisDepot:setData("depot", DepotData);
             world:changeItem(thisDepot);
         else
-            world:createItemFromId(321,1,DepotPos,true,333,{"depot" = DepotData});
+            world:createItemFromId(321,1,DepotPos,true,333,{["depot"]=DepotData});
         end
     else
-        world:createItemFromId(321,1,DepotPos,true,333,{"depot" = DepotData});
+        world:createItemFromId(321,1,DepotPos,true,333,{["depot"]=DepotData});
     end
 end
 
@@ -111,10 +111,10 @@ function AddExplorerStone(StoneX,StoneY,StoneZ,StoneNumber,StoneValue)
             thisStone.quality=StoneValue;
             world:changeItem(thisStone);
         else
-            world:createItemFromId(1272,1,StonePos,true,StoneValue,{"stonenumber" = StoneNumber});
+            world:createItemFromId(1272,1,StonePos,true,StoneValue,{["stonenumber"] = StoneNumber});
         end
     else
-        world:createItemFromId(1272,1,StonePos,true,StoneValue,{"stonenumber" = StoneNumber});
+        world:createItemFromId(1272,1,StonePos,true,StoneValue,{["stonenumber"] = StoneNumber});
     end
 end
 
