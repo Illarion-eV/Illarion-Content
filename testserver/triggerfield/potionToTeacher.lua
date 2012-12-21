@@ -67,7 +67,9 @@ function PutItemOnField(Item,User)
 				else
                     local dataCheck = true
 					for j=3,#ListTaskItem do
-                        if not (Item:getData(ListTaskItem[i][j][1]) == ListTaskItem[i][j][2]) then
+                        User:inform(ListTaskItem[i][j][1])
+						User:inform(ListTaskItem[i][j][2])
+						if not (Item:getData(ListTaskItem[i][j][1]) == ListTaskItem[i][j][2]) then
                             User:inform("round "..j.." rejecting item")
 							dataCheck = false
 							break
