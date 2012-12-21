@@ -17,8 +17,8 @@ function LockDoor(Door)
 			debug("Door Quality before: "..tostring(Door.quality))
 			Door.quality = 333;
 			world:changeItem(Door);
-			debug("Door Quality after: "..tostring(Door.quality))
             world:makeSound(19, Door.pos);
+			debug("Door Quality after: "..tostring(Door.quality))
             return true;
 		else
 			return false;			
