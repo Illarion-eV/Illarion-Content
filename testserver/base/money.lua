@@ -295,7 +295,7 @@ end;
 
 --- This method takes a certain amount of money from the player. It tries to
 --  take the least amount of coins possible. The method takes nothing in case
---  the player does not have enougth money. Check this before calling this
+--  the player does not have enough money. Check this before calling this
 --  method.
 --
 --  @param char - CharStruct - the char the money is taken from

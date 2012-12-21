@@ -2,7 +2,7 @@
 
 --First, add these require lines, the modules are needed.
 require("base.common")
-require("npc.base.autonpcfunctions")
+require("base.money")
 
 --Then, replace the receiveText function with this one. You are done!
 
@@ -57,7 +57,7 @@ function receiveText(npcChar, texttype, message, speaker)
 				
                 elseif string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand") then --player wants to repair the item
 			
-			        if not npc.base.autonpcfunctions.CheckMoney(speaker,price) then --player is broke
+			        if not base.money.CharHasMoney(speaker,price) then --player is broke
 				
 			            message4={"You don't have enough money I suppose. I demand "..price.." copper coins for repairing this item.","Ihr habt anscheinend nicht genug Geld. Die Reparatur würde "..price.." Kupferstücke kosten."}; --Player is broke
 		                npcChar:talk(Character.say, message4 [language]); --Message 4
@@ -66,7 +66,7 @@ function receiveText(npcChar, texttype, message, speaker)
 				
 			            message5={"#me repairs the item at a cost of "..price.." copper coins.","#me setzt den Gegenstand für "..price.." Kupferstücke in Stand."};	--...
                         npcChar:talk(Character.say, message5 [language]); --Message 5
-                        npc.base.autonpcfunctions.PayTheNPC(speaker,price); --pay!
+                        base.money.TakeMoneyFromChar(speaker,price); --pay!
                         theItem.quality=theItem.quality+toRepair; --repair!
                         world:changeItem(theItem);
 					
