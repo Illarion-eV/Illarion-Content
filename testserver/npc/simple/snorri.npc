@@ -2,8 +2,8 @@
 -- NPC Name: Snorri                                                   Galmair --
 -- NPC Job:  Ambiente                                                         --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  350, 254, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: dwarf                      NPC Position:  354, 265, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                       easyNPC Parser v1.21 --
@@ -12,8 +12,8 @@
 name = "Snorri"
 race = dwarf
 sex = male
-position = 350, 254, 0
-direction = south
+position = 354, 265, 0
+direction = west
 affiliation = "Galmair"
 job = "Ambiente"
 

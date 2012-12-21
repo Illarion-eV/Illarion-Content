@@ -2,7 +2,7 @@
 -- NPC Name: Nik Nilo                                                    None --
 -- NPC Job:  trader                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position:  365, 260, 0            --
+-- NPC Race: human                      NPC Position:  366, 275, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Authors:  Drathe                                                           --
@@ -13,7 +13,7 @@
 name = "Nik Nilo"
 race = human
 sex = male
-position = 365, 260, 0
+position = 366, 275, 0
 direction = west
 affiliation = "None"
 job = "trader"

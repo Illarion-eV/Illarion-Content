@@ -2,8 +2,8 @@
 -- NPC Name: Antonius Copperhand                                      Galmair --
 -- NPC Job:  Goldsmith NPC                                                    --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  352, 256, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: dwarf                      NPC Position:  359, 278, 0            --
+-- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
@@ -12,8 +12,8 @@
 name = "Antonius Copperhand"
 race = dwarf
 sex = male
-position = 352, 256, 0
-direction = south
+position = 359, 278, 0
+direction = north
 affiliation = "Galmair"
 job = "Goldsmith NPC"
 
