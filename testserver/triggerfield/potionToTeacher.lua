@@ -39,7 +39,7 @@ function getTown(Item)
 end
 
 function PutItemOnField(Item,User)
-    
+    User:inform("my data: "..Item:getData("AdrazinConcentration"))
 	 -- is the char an alchemist?
 	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Mir ist nicht bekannt, dass Ihr ein Alchemist sein sollt. Nehmt Euer Zeug wieder weg.","I haven't heard you being an alchemist. Take your stuff from my table.")
 	if not anAlchemist then
