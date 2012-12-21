@@ -140,10 +140,10 @@ end
 function CheckAndPlaceItem(Posi,ItemID)
     if world:isItemOnField(Posi) then
         if ( world:getItemOnField(Posi).id ~= ItemID ) then
-            world:createItemFromId(ItemID,1,Posi,true,333,0);
+            world:createItemFromId(ItemID,1,Posi,true,333,nil);
         end
     else
-        world:createItemFromId(ItemID,1,Posi,true,333,0);
+        world:createItemFromId(ItemID,1,Posi,true,333,nil);
     end
 end
 
