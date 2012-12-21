@@ -160,7 +160,7 @@ end;
 ]]
 function OpenDoor(Door)
     if ClosedDoors[Door.id] then
-        if not (Door:getData("doorLocked") == "true") then
+        if Door.quality == 233 or Door:getData("lockData") == nil then
             world:swap(Door, ClosedDoors[Door.id], 233);
             world:makeSound(21, Door.pos);
             return true, true;
