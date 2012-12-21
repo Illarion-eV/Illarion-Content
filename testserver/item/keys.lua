@@ -27,7 +27,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 	elseif base.keys.CheckKey(SourceItem,DoorItem) then
         if base.keys.LockDoor(DoorItem) then
             base.common.InformNLS(User,"Du sperrst die Tür ab.","You lock the door.");
-        elseif base.keys.UnlockDoor(DoorItem,User) then             -- User eingefuegt
+        elseif base.keys.UnlockDoor(DoorItem) then            
             base.common.InformNLS(User,"Du sperrst die Tür auf.","You unlock the door.");
         end
     else
