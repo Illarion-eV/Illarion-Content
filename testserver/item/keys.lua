@@ -24,10 +24,10 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 			    base.common.InformNLS(User,"Du hörst das Geräusch von sich verschiebendem Gestein.","You hear the sound of moving stone.");
 			end
 		end
-	elseif base.keys.CheckKey(SourceItem,DoorItem) then
-        if base.keys.LockDoor(DoorItem) then
+	elseif base.keys.CheckKey(SourceItem,DoorItem) then	
+        if base.keys.LockDoor(DoorItem) == true then
             base.common.InformNLS(User,"Du sperrst die Tür ab.","You lock the door.");
-        elseif base.keys.UnlockDoor(DoorItem,User) then             -- User eingefuegt
+        elseif base.keys.UnlockDoor(DoorItem) == true then            
             base.common.InformNLS(User,"Du sperrst die Tür auf.","You unlock the door.");
         end
     else
