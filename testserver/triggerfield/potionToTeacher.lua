@@ -68,10 +68,13 @@ function PutItemOnField(Item,User)
 				else
                     local dataCheck = true
 					for i=3,#ListTaskItem do
-                        if not (Item:getData(ListTaskItem[i][1]) == ListTaskItem[i][2]) then
-                            dataCheck = false
+                        User:inform("debug round "..i.." started")
+						if not (Item:getData(ListTaskItem[i][1]) == ListTaskItem[i][2]) then
+                            User:inform("debug round "..i..". item has wrong data. npc will reject.")
+							dataCheck = false
 							break
                         end
+						User:inform("debug round "..i.." success")
                     end
 					if dataCheck == true then
 					    success = true
