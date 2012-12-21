@@ -97,6 +97,7 @@ function AddDepot(DepotX,DepotY,DepotZ,DepotData)
         else
             world:createItemFromId(321,1,DepotPos,true,333,nil);
         end
+	end
 end
 
 function AddExplorerStone(StoneX,StoneY,StoneZ,StoneNumber,StoneValue)
@@ -110,7 +111,7 @@ function AddExplorerStone(StoneX,StoneY,StoneZ,StoneNumber,StoneValue)
         else
             world:createItemFromId(1272,1,StonePos,true,StoneValue,nil);
         end
-
+	end
 end
 
 function AddAltar(AltarX,AltarY,AltarZ,God,Altar)
@@ -135,7 +136,7 @@ function AddNoobiaPortal( Portal, PortalX, PortalY, PortalZ )
 	local PortalPos = position(PortalX,PortalY,PortalZ);
 	local itemList = base.common.GetItemsOnField(PortalPos);
 	for i,item in pairs(itemList) do
-		if item.id == 10 and item:getdata("portal") == Portal then
+		if item.id == 10 and item:getData("portal") == Portal then
 			return;
 		end
 	end
@@ -149,7 +150,7 @@ function AddMagicalDoor( Portal, PortalX, PortalY, PortalZ )
 	local PortalPos = position(PortalX,PortalY,PortalZ);
 	local itemList = base.common.GetItemsOnField(PortalPos);
 	for i,item in pairs(itemList) do
-		if item.id == 10 and item:getdata("portal") == Portal then
+		if item.id == 10 and item:getData("portal") == Portal then
 			return;
 		end
 	end
