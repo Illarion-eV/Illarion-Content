@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 34
 
 local NPC_TRIGGER_DE = "[Kk]önigin|[Rr]osaline|[Ee]dwards"
 local NPC_TRIGGER_EN = "[Qq]ueen|[Rr]osaline|[Ee]dwards"
-local NPC_REPLY_DE = "Richtig! Und wie hei�t die �rtlichkeit an der man sie findet?"
+local NPC_REPLY_DE = "Richtig! Und wie heißt die Örtlichkeit an der man sie findet?"
 local NPC_REPLY_EN = "Right! And what is the name of the place where you can find her?"
 
 function receiveText(npc, type, text, PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 100):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3077, 333, 1):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis, eine Frage über 'Gebäude' mag dir helfen.", "Answer the question to get more money and further questions. Hint: A question about 'building' might be helpful."):execute()
 end
 

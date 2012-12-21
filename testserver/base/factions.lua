@@ -24,7 +24,7 @@ function InitFactionLists()
 	TownJailKey={};
 
 	--A list with the Ranks, Rank 8 and Rank 9 can not be reached with faction points(e.g. npc quests), only with GM help, don't give any normal player rank 9!
-	CadomyrRankList = { {gRank = "Rekrut", eRank = "Recruit"},        	--rank 1
+	CadomyrRankListMale = { {gRank = "Rekrut", eRank = "Recruit"},        	--rank 1
 					 {gRank = "Knappe", eRank = "Squire"},           	--rank 2
 					 {gRank = "Herr", eRank = "Lord"},         	--rank 3
 					 {gRank = "Ritter", eRank = "Knight"},       --rank 4
@@ -34,9 +34,21 @@ function InitFactionLists()
 					 {gRank = "Fürst", eRank = "Earl"},           	--rank 8
 					 {gRank = "Herzog", eRank = "Duke"},				--rank 9
 					 {gRank = "Erzherzog", eRank = "Archduke"},				--rank 10
+					 {gRank = "König", eRank = "King"}};				--rank leader
+	
+	CadomyrRankListFemale = { {gRank = "Rekrutin", eRank = "Recruit"},        	--rank 1
+					 {gRank = "Magd", eRank = "Maid"},           	--rank 2
+					 {gRank = "Herrin", eRank = "Lady"},         	--rank 3
+					 {gRank = "Dame", eRank = "Dame"},       --rank 4
+					 {gRank = "Vogtin", eRank = "Reeve"},         --rank 5
+					 {gRank = "Baronin", eRank = "Baroness"},        		--rank 6
+					 {gRank = "Gräfin", eRank = "Countess"},     			--rank 7
+					 {gRank = "Fürstin", eRank = "Earl"},           	--rank 8
+					 {gRank = "Herzogin", eRank = "Duchess"},				--rank 9
+					 {gRank = "Erzherzogin", eRank = "Archduchess"},				--rank 10
 					 {gRank = "Königin", eRank = "Queen"}};				--rank leader
 
-	RunewickRankList = { {gRank = "Neuling", eRank = "Novice"},    		--rank 1
+	RunewickRankListMale = { {gRank = "Neuling", eRank = "Novice"},    		--rank 1
 					 {gRank = "Anwärter", eRank = "Apprentice"},       	--rank 2
 					 {gRank = "Student", eRank = "Student"},         	--rank 3
 					 {gRank = "Gelehrter", eRank = "Scholar"},       	--rank 4
@@ -47,8 +59,20 @@ function InitFactionLists()
 					 {gRank = "Dekan", eRank = "Dean"},    				--rank 9
 					 {gRank = "Rektor", eRank = "Rector"},    			--rank 10
 					 {gRank = "Erzmagier", eRank = "Archmage"}};		--rank leader
+	
+	RunewickRankListFemale = { {gRank = "Neuling", eRank = "Novice"},    		--rank 1
+					 {gRank = "Anwärterin", eRank = "Apprentice"},       	--rank 2
+					 {gRank = "Studentin", eRank = "Student"},         	--rank 3
+					 {gRank = "Gelehrte", eRank = "Scholar"},       	--rank 4
+					 {gRank = "Magister", eRank = "Master"},          	--rank 5
+					 {gRank = "Doktorin", eRank = "Doctor"},         		--rank 6
+					 {gRank = "Dozentin", eRank = "Docent"},     			--rank 7
+					 {gRank = "Professorin", eRank = "Professor"},        --rank 8
+					 {gRank = "Dekan", eRank = "Dean"},    				--rank 9
+					 {gRank = "Rektorin", eRank = "Rector"},    			--rank 10
+					 {gRank = "Erzmagierin", eRank = "Archmage"}};		--rank leader
 
-	GalmairRankList = { {gRank = "Rumtreiber", eRank = "Tramp"},      	--rank 1
+	GalmairRankListMale = { {gRank = "Rumtreiber", eRank = "Tramp"},      	--rank 1
 					 {gRank = "Gehilfe", eRank = "Assistant"},          --rank 2
 					 {gRank = "Hausierer", eRank = "Pedlar"},         	--rank 3
 					 {gRank = "Krämer", eRank = "Grocer"},       		--rank 4
@@ -59,11 +83,23 @@ function InitFactionLists()
 					 {gRank = "Magnat", eRank = "Magnate"},    			--rank 9
 					 {gRank = "Tycoon", eRank = "Tycoon"},				--rank 10
 					 {gRank = "Don", eRank = "Don"}};					--rank leader
+	
+	GalmairRankListFemale = { {gRank = "Rumtreiberin", eRank = "Tramp"},      	--rank 1
+					 {gRank = "Gehilfin", eRank = "Assistant"},          --rank 2
+					 {gRank = "Hausiererin", eRank = "Pedlar"},         	--rank 3
+					 {gRank = "Krämerin", eRank = "Grocer"},       		--rank 4
+					 {gRank = "Kauffrau", eRank = "Merchant"},          --rank 5
+					 {gRank = "Finanzier", eRank = "Financier"},        --rank 6
+					 {gRank = "Patrizier", eRank = "Patrician"},     	--rank 7
+					 {gRank = "Mogul", eRank = "Mogul"},           		--rank 8
+					 {gRank = "Magnat", eRank = "Magnate"},    			--rank 9
+					 {gRank = "Tycoon", eRank = "Tycoon"},				--rank 10
+					 {gRank = "Don", eRank = "Don"}};					--rank leader
 
 	NoneRankList ={};
 	NoneRankList[0] = {gRank = "Geächteter", eRank = "Outcast"};
 
-	townRanks = {CadomyrRankList, RunewickRankList, GalmairRankList}
+	townRanks = {CadomyrRankListMale, RunewickRankListMale, GalmairRankListMale, CadomyrRankListFemale, RunewickRankListFemale, GalmairRankListFemale}
 	townRanks[0] = NoneRankList;
 end
 
@@ -147,10 +183,18 @@ function getRank(player)
     return "[ERROR: no rank " .. Faction.rankTown .. " in town " .. Faction.tid .. "]";
   end
 
-	if player:getPlayerLanguage() == 0 then
-		return townRanks[Faction.tid][Faction.rankTown].gRank;
+	if (originator:increaseAttrib("sex",0) == 0) then --male Ranks
+		if player:getPlayerLanguage() == 0 then
+			return townRanks[Faction.tid][Faction.rankTown].gRank;
+		else
+			return townRanks[Faction.tid][Faction.rankTown].eRank;
+		end
 	else
-		return townRanks[Faction.tid][Faction.rankTown].eRank;
+		if player:getPlayerLanguage() == 0 then
+			return townRanks[tonumber(Faction.tid)+3][Faction.rankTown].gRank;
+		else
+			return townRanks[tonumber(Faction.tid)+3][Faction.rankTown].eRank;
+		end
 	end
 end
 
@@ -251,7 +295,13 @@ function setRankpoints(originator, rankpoints)
 	Faction.rankTown = checkForRankChange(rankpoints,rank);
 
 	local townName = getTownNameByID(Faction.tid)
-	local rankName = townRanks[Faction.tid][Faction.rankTown]
+	
+	if (originator:increaseAttrib("sex",0) == 0) then --male Ranks
+		rankName = townRanks[Faction.tid][Faction.rankTown]
+	else --female Ranks
+		rankName = townRanks[tonumber(Faction.tid)+3][Faction.rankTown]
+	end
+	
 	if Faction.rankTown>rank then
 		base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in "..townName.." erreicht. Du bist nun "..rankName.gRank..".",
 			"You reached a new town rank in "..townName..". You are now "..rankName.eRank..".")
@@ -286,8 +336,9 @@ function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 		end
 
 		local amountToPay = 1000*(2^fv.towncnt) -- amount in coppercoins
+		local GAmount, SAmount,CAmount = base.money.MoneyToCoins(amountToPay);
+		
 		if not base.money.CharHasMoney(originator,amountToPay) then --not enough money!
-			local GAmount, SAmount,CAmount = base.money.MoneyToCoins(amountToPay);
 		 	gText="Ihr habt nicht genug Geld dabei! Ihr benötigt "..GAmount.." Goldstücke, "..SAmount.." Silberstücke und "..CAmount.." Kupferstücke.";
 			eText="You don't have enough money with you! You'll need "..GAmount.." goldcoins, "..SAmount.." silvercoins and "..CAmount.." coppercoins.";
 			outText=base.common.GetNLS(originator,gText,eText);
@@ -295,6 +346,8 @@ function makeCharMemberOfTown(originator,thisNPC,fv,theRank,theTown)
 			return;
 		end
 
+		originator:inform("Das Wechseln der Stadt hat "..GAmount.." Goldstücke, "..SAmount.." Silberstücke und "..CAmount.." Kupferstücke gekostet.", "It costs "..GAmount.." goldcoins, "..SAmount.." silvercoins and "..CAmount.." coppercoins to change the faction.");
+		
 		fv.rankpoints = 0 -- set default value for rankpoints
 		fv.tid = theTown; --set new Town ID
 		fv.rankTown = theRank -- set the rank of the town

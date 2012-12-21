@@ -15,19 +15,13 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 	    return
 	end	
 
-    if SourceItem.data == 7300 and DoorItem.id == 287 and DoorItem.pos == WALLPOS then
-
-		world:erase(DoorItem,1);
-		local charList = world:getPlayersInRangeOf(WALLPOS,15);
-		for i,char in pairs(charList) do
-			if char.pos.z == WALLPOS.z then
-			    base.common.InformNLS(User,"Du hörst das Geräusch von sich verschiebendem Gestein.","You hear the sound of moving stone.");
-			end
-		end
-	elseif base.keys.CheckKey(SourceItem,DoorItem) then
-        if base.keys.LockDoor(DoorItem) then
+	if base.keys.CheckKey(SourceItem,DoorItem) then	
+		local lockDoor = base.keys.LockDoor(DoorItem);
+		local unlockDoor = base.keys.UnlockDoor(DoorItem);
+		debug("lockDoor "..tostring(lockDoor)) 
+        if lockDoor then
             base.common.InformNLS(User,"Du sperrst die Tür ab.","You lock the door.");
-        elseif base.keys.UnlockDoor(DoorItem,User) then             -- User eingefuegt
+        elseif unlockDoor then            
             base.common.InformNLS(User,"Du sperrst die Tür auf.","You unlock the door.");
         end
     else

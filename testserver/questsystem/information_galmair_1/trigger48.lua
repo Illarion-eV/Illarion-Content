@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Abwasserschacht und suche nach einer Nummer an einem Grabstein dort. Vergi� nicht die Lampe dort zu verwenden.", "Go to the Sewers and look for a number at a tomb stone there. Don't forget to use the lamp there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in den Abwasserschacht und suche nach einer Nummer an einem Grabstein dort. Vergiß nicht die Lampe dort zu verwenden.", "Go to the Sewers and look for a number at a tomb stone there. Don't forget to use the lamp there."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 92, 333, 1):execute()
 end
 

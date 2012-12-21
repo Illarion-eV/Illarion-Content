@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 86
 
 local NPC_TRIGGER_DE = "[Ff]euer"
 local NPC_TRIGGER_EN = "[Ff]ire"
-local NPC_REPLY_DE = "Feuer ist die richtige Antwort und hier gibt es ein Beil um eines zu machen. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei der Holzf�ller H�tte."
+local NPC_REPLY_DE = "Feuer ist die richtige Antwort und hier gibt es ein Beil um eines zu machen. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei der Holzfäller Hütte."
 local NPC_REPLY_EN = "Fire is the right answer and here do have a hutchet to make one. A good place for one is at the firespot at the Woodcutter Hut."
 
 function receiveText(npc, type, text, PLAYER)

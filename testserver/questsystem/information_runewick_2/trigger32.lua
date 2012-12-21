@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 211
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Ich hab schon gehört was Zaida sagte. Lass mich sehen was du für eine Größe hast. Hmm... die hier sollte passen. *reicht eine gelbe Robe*"
+local NPC_REPLY_DE = "Ich hab schon gehÃ¶rt was Zaida sagte. Lass mich sehen was du fÃ¼r eine GrÃ¼ÃŸe hast. Hmm... die hier sollte passen. *reicht eine gelbe Robe*"
 local NPC_REPLY_EN = "I heared what Zaida said. Let me see what size you have. Hmm...this one should fit. *hands a yellow robe* "
 
 function receiveText(npc, type, text, PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Numila.", "Go back to Numila now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurÃ¼ck zu Numila.", "Go back to Numila now."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 195, 999, 1):execute()
 end
 

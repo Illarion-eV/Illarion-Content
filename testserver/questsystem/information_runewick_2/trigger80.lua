@@ -66,7 +66,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Und nun beliefere sie mit zehn Sibanac Bl‰ttern.", "And now supply her with ten sibanac leaves."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Und nun beliefere sie mit zehn Sibanac Bl√§ttern.", "And now supply her with ten sibanac leaves."):execute()
     handler.eraseplayeritem.erasePlayerItem(PLAYER, 2744, 1):execute()
 end
 

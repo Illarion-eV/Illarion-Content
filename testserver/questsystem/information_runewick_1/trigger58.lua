@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 164
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Macht ein Lagerfeuer. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei dem Holzf�ller Lager."
+local NPC_REPLY_DE = "Macht ein Lagerfeuer. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei dem Holzfäller Lager."
 local NPC_REPLY_EN = "Make a campfire. A good place for one is at the firespot at the Woodcutter Camp."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Macht ein Lagerfeuer. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei dem Holzf�ller Lager.", "Make a campfire. A good place for one is at the firespot at the Woodcutter Camp."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Macht ein Lagerfeuer. Ein geeigneter Ort dazu findet sich an einer Feuerstelle bei dem Holzfäller Lager.", "Make a campfire. A good place for one is at the firespot at the Woodcutter Camp."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

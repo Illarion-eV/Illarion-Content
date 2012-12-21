@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 154
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Geht mit dem Horn zur Feurstelle am Nördlichen Außenposten und bläst mal ordentlich rein dort. Ich will etwas hören!"
+local NPC_REPLY_DE = "Geht mit dem Horn zur Feurstelle am NÃ¶rdlichen AuÃŸenposten und blÃ¤st mal ordentlich rein dort. Ich will etwas hÃ¶ren!"
 local NPC_REPLY_EN = "Go with the horn to the campfire at the Northern Outpost and blow into the horn there. I want to hear some noise!"
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zur Feuerstelle am Nördlichen Außenposten und verwende das erhaltene Horn dort.", "Go the campfire at the Northern Outpost and use the horn there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zur Feuerstelle am NÃ¶rdlichen AuÃŸenposten und verwende das erhaltene Horn dort.", "Go the campfire at the Northern Outpost and use the horn there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

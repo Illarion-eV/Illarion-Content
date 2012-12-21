@@ -7,7 +7,7 @@ local POSTCONDITION_QUESTSTATE = 224
 
 local NPC_TRIGGER_DE = "[Gg]almair"
 local NPC_TRIGGER_EN = "[Gg]almair"
-local NPC_REPLY_DE = "War schon schwerer, oder? Vorletzte Frage: Welcher Laden kann in den Frischen Sümpfen gefunden werden?"
+local NPC_REPLY_DE = "War schon schwerer, oder? Vorletzte Frage: Welcher Laden kann in den Frischen SÃ¼mpfen gefunden werden?"
 local NPC_REPLY_EN = "It was a little bit more difficult, wasn't it? Second last question: Which shop can be found in the Dewy Swamps?"
 
 function receiveText(npc, type, text, PLAYER)

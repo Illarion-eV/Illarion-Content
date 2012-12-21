@@ -2,7 +2,7 @@
 -- NPC Name: Linda Rabon                                              Cadomyr --
 -- NPC Job:  Cook                                                             --
 --                                                                            --
--- NPC Race: human                      NPC Position:  116, 577, 0            --
+-- NPC Race: human                      NPC Position:  116, 576, 0            --
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Authors:  Regallo                                                          --
@@ -13,7 +13,7 @@
 name = "Linda Rabon"
 race = human
 sex = female
-position = 116, 577, 0
+position = 116, 576, 0
 direction = west
 affiliation = "Cadomyr"
 job = "Cook"

@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 146
 
 local NPC_TRIGGER_DE = "4|[Vv]ier"
 local NPC_TRIGGER_EN = "4|[Ff]our"
-local NPC_REPLY_DE = "Richtig, vier sind es. Hier habt ihr nun ein Horn. Geht damit zur Feurstelle am Nˆrdlichen Auﬂenposten und bl‰st mal ordentlich rein dort. Ich will etwas hˆren!"
+local NPC_REPLY_DE = "Richtig, vier sind es. Hier habt ihr nun ein Horn. Geht damit zur Feurstelle am N√∂rdlichen Au√üenposten und bl√§st mal ordentlich rein dort. Ich will etwas h√∂ren!"
 local NPC_REPLY_EN = "Right, there are four. There you have a horn. Go with the horn to the campfire at the Northern Outpost and blow into the horn there. I want to hear some noise!"
 
 function receiveText(npc, type, text, PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 333, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zur Feuerstelle am Nˆrdlichen Auﬂenposten und verwende das erhaltene Horn dort. Frage sie nach dem Nˆrdlichen Auﬂenposten wenn du nicht weiﬂt wo er ist!", "Go the campfire at the Northern Outpost and use the horn there. Ask her vor the Northern Outpost if you do not know where it is."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zur Feuerstelle am N√∂rdlichen Au√üenposten und verwende das erhaltene Horn dort. Frage sie nach dem N√∂rdlichen Au√üenposten wenn du nicht wei√üt wo er ist!", "Go the campfire at the Northern Outpost and use the horn there. Ask her vor the Northern Outpost if you do not know where it is."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

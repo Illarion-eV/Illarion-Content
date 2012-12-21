@@ -22,6 +22,7 @@ require("npc.base.condition.state")
 require("npc.base.consequence.attribute")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
+require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
 require("npc.base.talk")
@@ -48,7 +49,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(640, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have a sssilvercoin for that you found me.");
-talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -57,7 +58,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(640, "=", 1));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdiente Münze.");
-talkEntry:addConsequence(npc.base.consequence.item.item(3077, 1, 333, nil));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -212,16 +213,16 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("place");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Tir Draganfod, northeast, northwest, southwest, southeast"));
-talkEntry:addResponse("Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Tir Draganfod?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"));
+talkEntry:addResponse("Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Illarion?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Platz");
 talkEntry:addTrigger("Plätz");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Tir Draganfod, Nordosten, Nordwesten, Südwesten, Südosten"));
-talkEntry:addResponse("Plätze? Welche Plätze meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Tir Draganfod?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"));
+talkEntry:addResponse("Plätze? Welche Plätze meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Illarion?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -242,14 +243,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("IN PROGRESS.");
+talkEntry:addResponse("Nothing to do for you yet but soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("IN ARBEIT.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentant aber bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -257,7 +258,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("IN PROGRESS.");
+talkEntry:addResponse("Nothing to do for you yet but soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,24 +267,22 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("IN ARBEIT.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentant aber bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Tir");
-talkEntry:addTrigger("Draganfod");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Sevenhill Mountains, northeast, northwest, southwest, southeast"));
-talkEntry:addResponse("This region is called Tir Draganfod and I devide it in northeast, northwest, southwest and southeast. Tir Draganfod is furthermore in the east from the Sevenhill Mountains.");
+talkEntry:addTrigger("Illarion");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] northeast, northwest, southwest, southeast"));
+talkEntry:addResponse("This land is called Illarion and I devide it in northeast, northwest, southwest and southeast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tir");
-talkEntry:addTrigger("Draganfod");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Siebenhügel Berge, Nordosten, Nordwesten, Südwesten, Südosten"));
-talkEntry:addResponse("Diese Region wird Tir Draganfod genannt und ich unterteile sie in in Nordost, Nordwest, Südwest und Südost. Tir Draganfod liegt außerdem im Osten von den Siebenhügel Bergen.");
+talkEntry:addTrigger("Illarion");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Nordosten, Nordwesten, Südwesten, Südosten"));
+talkEntry:addResponse("Dieses Land wird Illarion genannt und ich unterteile es in in Nordost, Nordwest, Südwest und Südost.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -340,18 +339,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Südost");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental"));
 talkEntry:addResponse("Ich weiß folgende Plätze: Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sevenhill");
-talkEntry:addResponse("The Sevenhill Mountains are at the eastside of Illarion, our world, as you should know.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Siebenhügel");
-talkEntry:addResponse("Die Siebenhügel Berge sind an der Ostseite von Illarion, unsere Welt, wie ihr wissen solltet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

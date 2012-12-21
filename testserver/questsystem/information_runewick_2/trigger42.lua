@@ -7,7 +7,7 @@ local POSTCONDITION_QUESTSTATE = 214
 
 local NPC_TRIGGER_DE = "[Ee]xperiment"
 local NPC_TRIGGER_EN = "[Ee]xperiment"
-local NPC_REPLY_DE = "Gut, erste Frage w‰re beantwortet. N‰chste Frage: Wer hat den Todes Gestank zudem verwandelt das er nun ist?"
+local NPC_REPLY_DE = "Gut, erste Frage w√§re beantwortet. N√§chste Frage: Wer hat den Todes Gestank zudem verwandelt das er nun ist?"
 local NPC_REPLY_EN = "Good, first question was answered. Next question: Who has turned the Death Stench to the current state?"
 
 function receiveText(npc, type, text, PLAYER)

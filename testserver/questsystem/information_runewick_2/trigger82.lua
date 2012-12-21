@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 310
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Bitte bringt mir zehn Sibanac Bl‰tter!"
+local NPC_REPLY_DE = "Bitte bringt mir zehn Sibanac Bl√§tter!"
 local NPC_REPLY_EN = "Please, bring me ten sibanac leaves."
 
 function receiveText(npc, type, text, PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Und nun beliefere sie mit zehn Sibanac Bl‰ttern.", "And now supply her with ten sibanac leaves."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Und nun beliefere sie mit zehn Sibanac Bl√§ttern.", "And now supply her with ten sibanac leaves."):execute()
     handler.eraseplayeritem.erasePlayerItem(PLAYER, 2744, 1):execute()
 end
 

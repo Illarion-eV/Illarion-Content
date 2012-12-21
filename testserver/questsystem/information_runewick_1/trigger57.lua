@@ -31,7 +31,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur�ck zu Elesil um deine Belohnung zu erhalten, nachdem das Feuer brennt.", " Go back to Elesil to get your reward, since the fire is enlighted now."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zurück zu Elesil um deine Belohnung zu erhalten, nachdem das Feuer brennt.", " Go back to Elesil to get your reward, since the fire is enlighted now."):execute()
     handler.createitem.createItem(position(860, 865, 0), 12, 999, 1):execute()
 end
 

@@ -7,7 +7,7 @@ local POSTCONDITION_QUESTSTATE = 218
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Meine Frage war: Für was haben wir einst das Schattentor verwendet?"
+local NPC_REPLY_DE = "Meine Frage war: FÃ¼r was haben wir einst das Schattentor verwendet?"
 local NPC_REPLY_EN = "My question was: For what purpose did we use the Shadow Gate in the past?"
 
 function receiveText(npc, type, text, PLAYER)

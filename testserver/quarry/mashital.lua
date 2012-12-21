@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Mashital                                                Runewick --
--- NPC Job:  Windsage                                                         --
+-- NPC Job:  Lightningsage                                                    --
 --                                                                            --
 -- NPC Race: elf                        NPC Position:  794, 820, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
@@ -27,7 +27,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: god, noble, lightning, naginata, equality."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Mashital the Lightningsage. Keywords: god, noble, lightning, naginata, equality."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,8 +328,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("<Fo>");
-talkEntry:addTrigger("<Duh Rah>");
+talkEntry:addTrigger("Mashital");
 talkEntry:addResponse("That is me, please state your business.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -355,7 +354,7 @@ talkingNPC:addCycleText("GERMAN.", "I write books and spread them around the wor
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(3);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is <Name> the <profession/function>.");
+mainNPC:setLookat("Dieser NPC ist <Name> der <Beruf/Funktion>.", "This NPC is Mashital the Lightning.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);

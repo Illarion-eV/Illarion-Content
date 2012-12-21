@@ -3,7 +3,7 @@ require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.Geld_in_Hecke.trigger2", package.seeall)
 
-local QUEST_NUMBER = 10000
+local QUEST_NUMBER = 700
 local PRECONDITION_QUESTSTATE = 2
 local POSTCONDITION_QUESTSTATE = 5
 
@@ -38,8 +38,8 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 0, 250):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du findest an einem Zweig ein kleines Beutelchen das einige Kupfermünzen enthält!", "Attached to a twig you find a small bag containing some coppercoins."):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3077, 999, 25):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du findest an einem Zweig ein kleines Beutelchen das einige SilbermÃ¼nzen enthÃ¤lt!", "Attached to a branch, you find a small bag containing some silvercoins."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

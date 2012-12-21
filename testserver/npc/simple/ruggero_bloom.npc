@@ -48,13 +48,6 @@ itemTrousers = 824
 itemShoes = 53
 
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
--- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
--- Valid races: human, elf, dwarf, lizardman, orc, halfling
--- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
--- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
--- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
--- When you are done, please hit the "Rebuild Script" button.
-
 -- questID not necessery, but this NPC is a important part of quest 305.
 
 -- blockade tile: 6,558,0
@@ -74,6 +67,10 @@ itemShoes = 53
 -- 4: Tobis vunu hands you 3 silver.
 -- 5: Secret Message told.
 -- 6: Secret Message delivered. Player earns a Pirate map. And a ace slouch hat. Quest Ends.
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Ruggero Bloom, a scruffy pirate. Keywords: Job, Tobacco, Entrance, Corporal Piero."),"Help? I won't help you. Get out, Jack!"
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Ruggero Bloom, ein lottriger Pirat . Schlüsselwörter: Beruf, Tabak, Zutritt, Corporal Piero."),"Helfen? ich werd dir nich helfen. Verschwinde du Leichtmatrose!"
 
 -- language: human, common
 state = 5, english, ".*" -> "#me swings his fist into your stomach.'Do you have cheese beetween your ears? I don't want to see you again here!'", state = 6, attrib(hitpoints) - 5000, attrib(hitpoints) + 1
@@ -127,10 +124,6 @@ english, "Tobis", "Vunu" -> "Aye Tobis Vunu is my matee! Arr."
 german, "Piero" -> "So ne Landratte! Wie ich se noch nie zuvor gesehn hab. Er ist Corporal von Cadomyr und versucht die Piratebay zu zerschlagen... seit Jahren. har-har."
 english, "Piero" -> "I never saw such a land lubber.. He's Corporal of Cadomyr and has been trying to bash the pirate bay for years. Har-har."
 
--- Help
-"hilfe" -> "Helfen? Ich werd dir nich helfen. Verschwinde Leichtmatrose!", state = 0
-"helfen" -> "Helfen? ich werd dir nich helfen. Verschwinde Leichtmatrose!", state = 0
-"help" -> "Help? I won't help you. Get out, Jack!", state = 0
 
 -- smalltalk
 english, "murgo" -> "Not even Murgo's here to save you land lubber! Get out!", state + 1

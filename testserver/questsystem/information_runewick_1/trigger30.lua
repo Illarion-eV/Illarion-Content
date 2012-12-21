@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 26
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Welcher von diesen drei magischen Steinen geh�rt zu uns: Smaragd, Topas oder Saphir?"
+local NPC_REPLY_DE = "Welcher von diesen drei magischen Steinen gehört zu uns: Smaragd, Topas oder Saphir?"
 local NPC_REPLY_EN = "Which of these three magical stones does belong to us: Emerald, Topaz or Sapphire?"
 
 function receiveText(npc, type, text, PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 100):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3077, 333, 1):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten.", "Answer the question to get more money and further questions."):execute()
 end
 
