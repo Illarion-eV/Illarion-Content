@@ -330,7 +330,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
               User:requestInputDialog(InputDialog("Set rank points", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
             end
           end
-          local infoText = "Town: " .. base.factions.getMemberShipByName(chosenPlayer);
+          local infoText = "Town: " .. base.factions.getMembershipByName(chosenPlayer);
           infoText = infoText .. "\nChanged towns already (town count): " .. faction.towncnt;
           if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
             infoText = infoText .. "\nRank: " .. base.factions.townRanks[faction.tid][faction.rankTown].eRank .. "/" .. base.factions.townRanks[faction.tid][faction.rankTown].gRank;
