@@ -66,7 +66,8 @@ function PutItemOnField(Item,User)
 					break
 				else
                     local dataCheck = true
-					for j=3,#ListTaskItem do
+					User:inform(""..#ListTaskItem[i])
+					for j=3,#ListTaskItem[i] do
                         User:inform(ListTaskItem[i][j][1])
 						User:inform(ListTaskItem[i][j][2])
 						if not (Item:getData(ListTaskItem[i][j][1]) == ListTaskItem[i][j][2]) then
