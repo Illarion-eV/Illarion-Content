@@ -271,7 +271,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("alchemy");
 talkEntry:addTrigger("alchemist");
-talkEntry:addResponse("Alchemists are masters of of potions, have profound knwolegde about the herbs and are keen observer of the world.");
+talkEntry:addResponse("Alchemists are masters of of potions, have profound knwolegde about the herbs, and are keen observer of the world.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
