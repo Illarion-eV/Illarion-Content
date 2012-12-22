@@ -70,14 +70,14 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Findari watch over you.
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Fijanna Spuall, eine wandernde Seherin.", "Ich bin eine reisende Priesterin der Göttin der Luft. Ich heiße Fijanna. Es freut mich dich zu treffen.", "Ich heiße Fijanna. Freut mich dich zu sehen."
 
 -- Fortune telling phrases
-state = 1, money => 100, "Yes" -> "Very well. I shall tell your fortune. What do you want to hear?", state = 2, money - 100
-state = 1, money => 100, "Ja" -> "Gut. Ich werde deine Zukunft lesen. Worüber möchtest du etwas erfahren?", state = 2, money - 100
+state = 1, money => 100, "Yes" -> "Very well. I shall tell your fortune. What do you want to hear?", state = 2, money - 300
+state = 1, money => 100, "Ja" -> "Gut. Ich werde deine Zukunft lesen. Worüber möchtest du etwas erfahren?", state = 2, money - 300
 state = 1, "Yes" -> "Seems like, you didn't brought enough coins with you...", state = 0
 state = 1, "Ja" -> "Sieht so aus als hättest du nicht genügen Münzen mit...", state = 0
 state = 1, "No", "Thanks" -> "Come back, anytime you want to hear about your fortune.", state = 0
 state = 1, "Nein", "Danke" -> "Komm einfach wieder vorbei wenn du etwas über deine Zukunft erfahren möchtest.", state = 0
-state = 1, english, ".*" -> "Do you want to hear your Fortune in exchange for ten silver coins? Say yes or no."
-state = 1, ".*" -> "Willst du deine Zukunft im Tausch für zehn Silberstücke gesagt bekommen? Antwortet einfach mit ja oder nein."
+state = 1, english, ".*" -> "Do you want to hear your Fortune in exchange for three silver coins? Say yes or no."
+state = 1, ".*" -> "Willst du deine Zukunft im Tausch für drei  Silberstücke gesagt bekommen? Antwortet einfach mit ja oder nein."
 
 -- Warnings
 state = 2, english, ".*" -> ". . . run!", "You'll need strong friends", "Take good care of yourself during the next days.", "Stay away from trouble as far as possible.", "Avoiding monsters, will keep you safe.", "In the near future you'll need lots of luck.", "In the near future you'd better be very careful.", "It would be wise to avoid unnecessary danger", "I'm sorry. You will experience a disappointment.", state = 0
@@ -92,8 +92,8 @@ state = 2, english, ".*" -> "Wealth is waiting for you.", "You will receive a pr
 state = 2, ".*" -> "Dich erwartet Reichtum", "Du wirst ein Geschenk bekommen.", "Du wirst Geld finden.", "Du wirst in nächster Zeit großes Glück haben.", "Du wirst positive Erfahrungen machen.", "Du wirst neue Freunde finden.", "Du wirst das Gute in anderen erkennen.", "Du wirst einen neuen Freund finden.", state = 0
 
 -- Fortune telling phrases - starting point
-"fortune" -> "I'll tell you your future, if you give me ten silver coins in return. Do you to hear about your fortune?", state = 1
-"Zukunft" -> "Ich sage dir deine Zukunft voraus, wenn du mir dafür zehn Silberstücke gibst. Möchtest du etwas über deine  Zukunft hören?", state = 1
+"fortune","future" -> "I'll tell you your future, if you give me three silver coins in return. Do you to hear about your fortune?", state = 1
+"Zukunft" -> "Ich sage dir deine Zukunft voraus, wenn du mir dafür drei Silberstücke gibst. Möchtest du etwas über deine  Zukunft hören?", state = 1
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a fortune teller. You know what a fortune teller does?", "I listen to the wind and the people.", "People come and ask me for advice and so I give advice."
