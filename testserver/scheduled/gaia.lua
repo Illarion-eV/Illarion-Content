@@ -51,7 +51,7 @@ function Init()
 	AddPlant(756, {gt.grass,gt.forest})             -- pious berry
 	AddPlant(757, {gt.forest})                        -- tybalt star
 	AddPlant(758, {gt.rocks})                        -- heart blood
-	AddPlant(760, {gt.grass})                        -- ice leaf
+	AddPlant(760, {gt.snow})                        -- ice leaf
 	AddPlant(761, {gt.grass})                        -- rain weed
 	AddPlant(762, {gt.rocks})                        -- gold crack herb
 	AddPlant(764, {gt.forest})                        -- dark moos
