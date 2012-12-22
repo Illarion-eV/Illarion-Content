@@ -175,10 +175,12 @@ function LookAtItem( User, Item )
 ]]
 
     else --uhm, no idea!
+      debug("return");
       return; --bailing out
     end
 
   end --dedicated altar
+  debug("should inform");
   world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 end --function
 
