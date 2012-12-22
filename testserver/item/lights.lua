@@ -226,8 +226,8 @@ function MoveItemAfterMove(User,SourceItem,TargetItem)
 	-- Quest 305: we burn a tabacco plantaion
     
 	if User:getQuestProgress(305) == 2 then
-		if ((3 <= TargetItem.pos.x) or (TargetItem.pos.x <= 6)) and ((565 <= TargetItem.pos.y) or (TargetItem.pos.y <= 571)) and (TargetItem.pos.z == 0) then -- is it the right plantaion?
-			local spawnFire = function(posi) 
+		if (TargetItem.pos.x >= 3) and (TargetItem.pos.x <= 6) and (TargetItem.pos.x >= 565) and (TargetItem.pos.x <= 671) and (TargetItem.pos.z <= 0) then
+		    local spawnFire = function(posi) 
 				world:createItemFromId(359,1,posi,true,333,nil)
 			end
 			world:makeSound(7,position(5,568,0))
