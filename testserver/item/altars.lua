@@ -92,7 +92,6 @@ function LookAtItem( User, Item )
   end
 
   --Tell the user who's altar that is
-  debug("thisGod " .. thisGod);
   if thisGod==content.gods.GOD_NONE  or thisGod>content.gods.GOD_THEFIVE then --undedicated altar
     base.lookat.SetSpecialName(Item, "Ungeweihter Altar","Undedicated altar")
 
@@ -106,8 +105,6 @@ function LookAtItem( User, Item )
 
     devotion=User:getQuestProgress(401);
     priesthood=User:getQuestProgress(402);
-    debug("devotion/priesthood: " .. devotion .. "/" .. priesthood);
-    debug("magic type " .. User:getMagicType());
 
     --Check for corrupted status
 
@@ -118,7 +115,8 @@ function LookAtItem( User, Item )
 
     end
 
-    if priesthood ~= 0 and User:getMagicType()~= 1 then --Error! The character is not a priest, but has a priest quest status!
+    --Error! The character is not a priest, but has a priest quest status! Or player uses priest magic but has no dedicated god!
+    if (priesthood ~= 0 and User:getMagicType()~= 1) or (priesthood == 0 and User:getMagicType()== 1) then
 
       base.common.InformNLS(User,"[Fehler] Bitte informiere einen Entwickler. Der Priesterstatus deines Charakters ist fehlerhaft.","[Error] Please inform a developer, the priest status of your character is flawed.");
       return; --bailing out
@@ -149,7 +147,6 @@ function LookAtItem( User, Item )
       base.common.InformNLS(User,"Der Anblick von "..content.gods.GOD_DE[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.","Beholding the altar of "..content.gods.GOD_DE[thisGod].." makes you feel proud of your devotion.");
 
     elseif devotion == thisGod and priesthood == 0 and User:getMagicType()~= 1 then --a devotee of this god.
-      debug("you are a priest");
       base.common.InformNLS(User,"Der Anblick von "..content.gods.GOD_DE[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.","Beholding the altar of "..content.gods.GOD_EN[thisGod].." makes you feel proud of your devotion.");
 
 --For enabling becoming a priest, use the stuff below. Doesn't make any sense without priest magic, though.
@@ -176,12 +173,11 @@ function LookAtItem( User, Item )
 ]]
 
     else --uhm, no idea!
-      debug("return");
+      User:inform("[ERROR] Your priest and devotee status is corrupted. Please inform a developer.");
       return; --bailing out
     end
 
   end --dedicated altar
-  debug("should inform");
   world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 end --function
 
