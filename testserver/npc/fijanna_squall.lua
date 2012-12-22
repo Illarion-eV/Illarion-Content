@@ -182,7 +182,7 @@ talkEntry:addCondition(npc.base.condition.money.money("=>", 100));
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("Very well. I shall tell your fortune. What do you want to hear?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 300));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -192,7 +192,7 @@ talkEntry:addCondition(npc.base.condition.money.money("=>", 100));
 talkEntry:addTrigger("Ja");
 talkEntry:addResponse("Gut. Ich werde deine Zukunft lesen. Worüber möchtest du etwas erfahren?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 100));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 300));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -234,14 +234,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Do you want to hear your Fortune in exchange for ten silver coins? Say yes or no.");
+talkEntry:addResponse("Do you want to hear your Fortune in exchange for three silver coins? Say yes or no.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Willst du deine Zukunft im Tausch für zehn Silberstücke gesagt bekommen? Antwortet einfach mit ja oder nein.");
+talkEntry:addResponse("Willst du deine Zukunft im Tausch für drei  Silberstücke gesagt bekommen? Antwortet einfach mit ja oder nein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -362,14 +362,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("fortune");
-talkEntry:addResponse("I'll tell you your future, if you give me ten silver coins in return. Do you to hear about your fortune?");
+talkEntry:addTrigger("future");
+talkEntry:addResponse("I'll tell you your future, if you give me three silver coins in return. Do you to hear about your fortune?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zukunft");
-talkEntry:addResponse("Ich sage dir deine Zukunft voraus, wenn du mir dafür zehn Silberstücke gibst. Möchtest du etwas über deine  Zukunft hören?");
+talkEntry:addResponse("Ich sage dir deine Zukunft voraus, wenn du mir dafür drei Silberstücke gibst. Möchtest du etwas über deine  Zukunft hören?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
