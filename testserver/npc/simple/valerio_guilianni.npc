@@ -55,7 +55,7 @@ itemShoes = 697
 -- NPC by Faladron
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Don Valerio Guilianni of Galmair. Keywords: quest, task, gods, or faction.")
+"Help" -> inform("[Game Help] This NPC is Don Valerio Guilianni of Galmair. Keywords: Quest, Task, Gods, Factions.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Don Valerio Guilianni von Galmair. Schlüsselwörter: Quest, Aufgabe, Götter, Fraktionen.")
 
 -- General speech
@@ -101,7 +101,7 @@ queststatus(632) > 0, queststatus(633) = 0, english, chance(100.0), "Mordak", "K
 queststatus(632) > 0, queststatus(633) = 0, german, chance(100.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(283, 1, 999, "gemLevel" = "1"), queststatus(633) = 1
 
 -- Mirarie Bragolin Quest (Writing history V
-queststatus(317) = 12, english, "Mirarie", "Bragolin", "letter", "message" -> "A Letter from Cadomyr? Oh, thank you very much. … What? Ah, I see. I'll take care of that, you may leave now.", queststatus(317) =13
+queststatus(317) = 12, english, "Mirarie", "Bragolin", "letter", "message" -> "A Letter from Cadomyr? Oh, thank you very much. … What? Ah, I see. I'll take care of that, you may leave now.", queststatus(317) = 13
 queststatus(317) = 12, "Mirarie", "Bragolin", "Brief", "Nachricht" -> "Ein Brief aus Cadomyr? Oh, vielen Dank...Was? Ah, ich verstehe. Ich werde mich darum kümmer. Ihr könnt nun gehen.", queststatus(317) = 13
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
@@ -127,8 +127,8 @@ english, "Corleone" -> "Ach, a dazzler from Gynka, no honour. And throaty all th
 "Corleone" -> "Ach, ein Blender aus Gynka, keine Ehre. Und immer heiser, die Götter wissen warum."
 
 -- Faction stuff
-"faction" -> "Ya know I hear people talking about these ‘factions', but all I see is the land of my future wife and a drugged out magician leading halfers.", "Ya, ya Runewick, Cadomyr, and Galmair that's all you newcomers want to talk about. Focus on what's important, getting rich, plain and simple."
-"fraktion" -> "Wisst Ihr, ich höre die Leute immer wieder über die Fraktionen sprechen. - Aber  für mich sind sie nichts weiter als die Länder meiner zukünftigen Frau und des übergeschnappten Magiers der Frauenkleider trägt.", "Aye, Runewick, Cadomyr und Galmair, das ist alles worüber Neuankömmlinge wie ihr sprechen wollt. Konzentriert Euch lieber auf die  wichtigen Dinge! Reichtum und Macht! - Ganz einfach."
+"faction" -> "Ya know I hear people talking about these 'factions', but all I see is the land of my future wife and a drugged out magician leading halfers.", "Ya, ya Runewick, Cadomyr, and Galmair that's all you newcomers want to talk about. Focus on what's important, getting rich, plain and simple."
+"fraktion" -> "Wisst Ihr, ich höre die Leute immer wieder über die 'Fraktionen' sprechen. Aber für mich sind sie nichts weiter als die Länder meiner zukünftigen Frau und des übergeschnappten Magiers, der Frauenkleider trägt.", "Aye, Runewick, Cadomyr und Galmair, das ist alles worüber Neuankömmlinge wie ihr sprechen wollt. Konzentriert Euch lieber auf die  wichtigen Dinge! Reichtum und Macht! - Ganz einfach."
 english, "archmage" -> "Tell me, what should I think of a man who wears women's clothing and enjoys men swooning over his greatness?", "He is said not to leave his tower very often. If you ask me, that's a good thing."
 "Erzmagier" -> "Sagt mir ernsthaft, was soll ich von einem Mann halten der Frauengewänder trägt und sich von Männern anhimmeln lässt?", "Er soll seinen Turm ja nicht oft verlassen, und wenn ihr mich fragt ist das auch gut so."
 english, "Elvaine", "Morgan" -> "Tell me, what should I think of a man who wears women's clothing and enjoys men swooning over his greatness?", "He is said not to leave his tower very often. And if you ask me, that's a good thing."
@@ -210,7 +210,7 @@ english, "Valerio", "Guilianni", "Don" -> "#me bows ever so slightly. 'That's me
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me geht müßig ein paar Schritte auf und ab, dabei lächelt er zufrieden.", "#me walks with at a leisurely pace with a content smile on his face."
+cycletext "#me geht müßig ein paar Schritte auf und ab, dabei lächelt er zufrieden.", "#me walks  at a leisurely pace with a content smile on his face."
 cycletext "Respekt? Wo ist nur der Respekt geblieben? All diese Möchtegerns...", "Respect? Where's the respect? All these wannabes..."
 cycletext "#me dreht sich besorgt um 'Halt! Wer ist da? Es ist noch nicht Zeit für das wöchentliche Attentat!'", "#me turns around concerned, ‘Damn assassination attempts there almost weekly now.'"
 cycletext "#me spuckt angewidert ein paar Trauben aus. 'Ugh. Wer hat das zu verantworten?", "#me spits out some grapes in disgust. 'Ugh. Who's responsible for that?'"
