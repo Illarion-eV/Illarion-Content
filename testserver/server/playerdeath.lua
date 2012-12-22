@@ -31,8 +31,7 @@ function playerDeath(deadPlayer)
 		
 	else --valid death
 	
-		MirrorOfDeathCounter(deadPlayer)
-        world:makeSound(25,deadPlayer.pos);
+		world:makeSound(25,deadPlayer.pos);
         showDeathDialog(deadPlayer);
 		
         for i=Character.head,Character.coat do
@@ -67,20 +66,4 @@ function showDeathDialog(deadPlayer)
 	
 	deadPlayer:requestMessageDialog(dialog); --showing the text
 		
-end
-
-function MirrorOfDeathCounter(deadPlayer)
-    -- see MirrorOfDeath(User) in "item.id_2874_mirror"
-	local deathCounter
-	local getProgress = deadPlayer:getQuestProgress(666)
-	
-	if getProgress < 10000 then
-	    deadPlayer:setQuestProgress(666,10001)
-	else
-        deathCounter = getProgress-((math.floor(getProgress/10))*10)  
-		if deathCounter < 5 then
-		    deathCounter = deathCounter + 1
-			deadPlayer:setQuestProgress(666,deathCounter)
-        end
-    end
 end
