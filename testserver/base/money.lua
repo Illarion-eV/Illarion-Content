@@ -478,4 +478,5 @@ function MoneyToString(money)
 
 	end
 
-return gstring, estring;
+    return gstring, estring;
+end;
