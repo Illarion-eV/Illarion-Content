@@ -427,7 +427,7 @@ talkEntry:addResponse("Das bin ich. Richtig erkannt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me betrachtet eine Flasche.", "#me looks closely at a bottle.");
-talkingNPC:addCycleText("Wo bleibt er nur mit meinem Trank?", "What does him take so long to bring me my potion?");
+talkingNPC:addCycleText("Wo bleibt er nur mit meinem Trank?", "What takes him so long to bring me my potion?");
 talkingNPC:addCycleText("#me hackt Kräuter klein.", "#me chops some herbs.");
 talkingNPC:addCycleText("#me sortiert einige Kräuter.", "#me assorts some herbs.");
 talkingNPC:addCycleText("#me beschriftet eine Flasche.", "#me labels a bottle.");
