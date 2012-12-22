@@ -33,13 +33,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game help] This NPC is Zaida the Apprentice. To learn more about her, your should greet the NPC first."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game help] This NPC is Zaida the Apprentice. Keywords: Be greeted, Profession, Tavern."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist die Anwärterin Zaida. Um mehr über sie zu erfahren, grüße sie zunächst."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist die Anwärterin Zaida. Schlüsselwörter: Seid gegrüßt, Beruf, Taverne."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
