@@ -1,6 +1,7 @@
 -- called after every player login
 require("base.common")
 require("base.money")
+require("base.factions")
 require("content.dailymessage")
 require("npc.aldania_elthewan")
 require("scheduled.factionLeader")
@@ -267,6 +268,12 @@ function payNow(User)
 --Runewick = 102
 --Galmair = 103
 --Hemp Necktie Inn = 104 (not a faction!)
+     
+	 -- no memeber of any town
+	local town = base.factions.getMemberShipByName(User)
+	if town == "" then
+	    return
+	end	
 
     taxHeight=0.05;  -- 5% taxes for testing purposes
     -- *** DEPOT-LIST HAS TO BE CHANGED ACCORDING TO FACTION MEMBERSHIP! ***
@@ -301,29 +308,20 @@ function payNow(User)
 	gstring,estring=base.money.MoneyToString(totTax); --converting money to a string
     
 	local infText = base.common.GetNLS(User, 
-	                                   "Du hast deine monatliche Abgabe gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%", 
-	                                   "You have paid your monthly tribute. This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
+	                                   "Du hast deine monatliche Abgabe an "..town.." gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%", 
+	                                   "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
+	local title = base.common.GetNLS(User,"Abgabenbenachrichtigung","Tribute information")
 	
-	local dialog=MessageDialog("Tribute information",infText,closeTrib);
-    --Please add the information to which town the tribute was paid ~Estralis
-	--German translation is missing
-
-    local closeTrib=function(onClose)
+	local dialog=MessageDialog(title,infText,closeTrib);
+    
+	local closeTrib=function(onClose)
     -- do nothing
     end
 
     User:requestMessageDialog(dialog);
-
-    -- *** TAX-VARIABLE HAS TO BE CHANGED ACCORDING TO FACTION MEMBERSHIP! ***
-    taxFound,taxTotal=ScriptVars:find("taxTotal");
-    if taxFound then
-        taxTotal=taxTotal+tax;
-        ScriptVars:set("taxTotal",taxTotal);
-		ScriptVars:save();
-    else
-        ScriptVars:set("taxTotal",tax);
-		ScriptVars:save();
-    end
+	
+	base.townTreasure.ChangeTownTreasure(town,tax)
+    
 end
 
 -- Function to exchange the faction leader of a town.
