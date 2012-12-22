@@ -268,8 +268,6 @@ function payNow(User)
 --Galmair = 103
 --Hemp Necktie Inn = 104 (not a faction!)
 
--- Use ENGLISH!!! ~Estralis
-
     taxHeight=0.05;  -- 5% taxes for testing purposes
     -- *** DEPOT-LIST HAS TO BE CHANGED ACCORDING TO FACTION MEMBERSHIP! ***
     depNr={101,104};
