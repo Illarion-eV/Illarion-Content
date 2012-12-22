@@ -9,11 +9,9 @@ BLOCKED_ITEM = 228
 
 function playerDeath(deadPlayer)
 
-base.common.InformNLS(deadPlayer,"DEAD","DEAD"); --sending a message
-
     if deadPlayer:isAdmin() then --Admins don't die. Failed, noob!
 	
-	    deadPlayer:increaseAttrib("hitpoints",5000); -- Respawn
+	    deadPlayer:increaseAttrib("hitpoints",10000); -- Respawn
 		base.common.InformNLS(deadPlayer,"[Wiederbelebung] Admins sterben nicht.","[Respawn] Admins don't die."); --sending a message
 		return; --bailing out!
 			
