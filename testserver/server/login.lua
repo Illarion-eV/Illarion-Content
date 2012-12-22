@@ -300,24 +300,7 @@ function payNow(User)
         base.money.TakeMoneyFromChar(User,tax);
     end
 
-    gp,sp,cp=base.money.MoneyToCoins(totTax); --converting to gp, sp and cp
-
-	if totTax >= 10000 then -- at least one gold coin
-
-	    estring=" "..gp.." gold coins, "..sp.." silver coins and "..cp.." copper coins";
-		gstring=" "..gp.." Goldstücke, "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
-
-    elseif totTax >= 100 then -- at least one silver coin
-
-		estring=" "..sp.." silver coins and "..cp.." copper coins";
-		gstring=" "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
-
-	else -- just copper coins
-
-		estring=" "..cp.." copper coins";
-		gstring=" "..cp.." Kupferstücke"; --what a name for a variable...
-
-	end
+	gstring,estring=base.money.MoneyToString(totTax); --converting money to a string
     
 	local infText = base.common.GetNLS(User, 
 	                                   "Du hast deine monatliche Abgabe gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%", 

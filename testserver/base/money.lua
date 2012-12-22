@@ -453,3 +453,29 @@ end;
 function IsCurrency(itemId)
     return itemId == CopperCoinsID or itemId == SilverCoinsID or itemId == GoldCoinsID
 end
+
+--- This method returns a german and an english string, based on the money amount. 
+--  @param money - number - the amount of money to be converted
+
+function MoneyToString(money)
+
+    gp,sp,cp=base.money.MoneyToCoins(money); --converting to gp, sp and cp
+
+	if money >= 10000 then -- at least one gold coin
+
+	    estring=" "..gp.." gold coins, "..sp.." silver coins and "..cp.." copper coins";
+		gstring=" "..gp.." Goldstücke, "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
+
+    elseif money >= 100 then -- at least one silver coin
+
+		estring=" "..sp.." silver coins and "..cp.." copper coins";
+		gstring=" "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
+
+	else -- just copper coins
+
+		estring=" "..cp.." copper coins";
+		gstring=" "..cp.." Kupferstücke"; --what a name for a variable...
+
+	end
+
+return gstring, estring;
