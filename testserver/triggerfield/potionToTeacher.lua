@@ -66,6 +66,7 @@ function PutItemOnField(Item,User)
 					break
 				else
                     local dataCheck = true
+					User:inform(""..#ListTaskItem)
 					for j=3,#ListTaskItem do
                         User:inform(ListTaskItem[i][j][1])
 						User:inform(ListTaskItem[i][j][2])
