@@ -53,7 +53,7 @@ function MoveToField(User)
 		local Faction = base.factions.getFaction(User); -- lookup to which faction the Character belongs to
 		local dest
 		if     Faction.tid == 1 then 
-		       dest = position(140,630,0) --cadomyr
+		       dest = position(127,647,0) --cadomyr
 		elseif Faction.tid == 2 then 
 		       dest = position(788,826,0) --runewick
 		elseif Faction.tid == 3 then 
