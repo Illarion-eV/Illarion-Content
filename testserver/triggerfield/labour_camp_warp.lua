@@ -34,8 +34,8 @@ function MoveToField(User)
 				if myNpc[i].name == "Percy Dryless" then -- check if it is the camp leader  
 					myNpc[i]:talkLanguage(Character.say,Player.german,"#me wendet seinen Blick wütend zum Teleporter und schreit los:")
 					myNpc[i]:talkLanguage(Character.say,Player.english,"#me looks with anger to the teleporter and starts to shout:")
-					myNpc[i]:talkLanguage(Character.yell,Player.german,"Mach gefälligst deine Arbeit zu Ende, du fauler Hund!")
-					myNpc[i]:talkLanguage(Character.yell,Player.english,"Finish your work, you lazy bum!")
+					myNpc[i]:talkLanguage(Character.say,Player.german,"Mach gefälligst deine Arbeit zu Ende, du fauler Hund!")
+					myNpc[i]:talkLanguage(Character.say,Player.english,"Finish your work, you lazy bum!")
 					break
 				end
 			end
