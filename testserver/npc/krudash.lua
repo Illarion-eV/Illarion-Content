@@ -2,8 +2,8 @@
 -- NPC Name: Krudash                                                  Galmair --
 -- NPC Job:  trader                                                           --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  368, 260, 0            --
--- NPC Sex:  female                     NPC Direction: north                  --
+-- NPC Race: orc                        NPC Position:  366, 272, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (4, 368, 260, 0, 0, 'Krudash', 'npc.krudash', 1, 0, 0, 6, 18, 8, 137, 123, 60);
+VALUES (4, 366, 272, 0, 6, 'Krudash', 'npc.krudash', 1, 0, 0, 6, 18, 8, 137, 123, 60);
 ---]]
 
 require("npc.base.basic")
@@ -761,7 +761,6 @@ talkingNPC:addCycleText("#me hebt den Kopf und brüllt zur Werkstätte hinüber. 'A
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2697,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2710,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2748,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2751,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(325,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(326,"sell"));
@@ -868,7 +867,6 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(2778,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2697,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2710,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2748,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2751,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(325,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(326,"buyPrimary"));

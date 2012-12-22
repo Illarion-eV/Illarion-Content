@@ -11,13 +11,13 @@ function deleteBridge:execute()
         item=world:getItemOnField(self.pos);
         if(item.id==618 or item.id==621 or item.id==614 or item.id==617) then
             t=0;
-            if item.data==1 then
+            if tonumber(item:getData("deletebridgeData"))==1 then
                 keepGoing=1;
                 while keepGoing==1 do
                     delPos=position(self.pos.x,self.pos.y-t,self.pos.z)
                     if (world:isItemOnField(delPos)==true) then
                         item=world:getItemOnField(delPos);
-                        if (item.data==1 and (item.id==617 or item.id==615 or item.id==614)) then
+                        if (tonumber(item:getData("deletebridgeData"))==1 and (item.id==617 or item.id==615 or item.id==614)) then
                             world:erase(item,1);
                             t=t+1;
                         else
@@ -27,13 +27,13 @@ function deleteBridge:execute()
                         keepGoing=0;
                     end
                 end
-            elseif item.data==2 then
+            elseif tonumber(item:getData("deletebridgeData"))==2 then
                 keepGoing=1;
                 while keepGoing==1 do
                     delPos=position(self.pos.x+t,self.pos.y,self.pos.z)
                     if (world:isItemOnField(delPos)==true) then
                         item=world:getItemOnField(delPos);
-                        if (item.data==2 and (item.id==621 or item.id==619 or item.id==618)) then
+                        if (tonumber(item:getData("deletebridgeData"))==2 and (item.id==621 or item.id==619 or item.id==618)) then
                             world:erase(item,1);
                             t=t+1;
                         else
@@ -43,13 +43,13 @@ function deleteBridge:execute()
                         keepGoing=0;
                     end
                 end
-            elseif item.data==3 then
+            elseif tonumber(item:getData("deletebridgeData"))==3 then
                 keepGoing=1;
                 while keepGoing==1 do
                     delPos=position(self.pos.x,self.pos.y+t,self.pos.z)
                     if (world:isItemOnField(delPos)==true) then
                         item=world:getItemOnField(delPos);
-                        if (item.data==3 and (item.id==617 or item.id==615 or item.id==614)) then
+                        if (tonumber(item:getData("deletebridgeData"))==3 and (item.id==617 or item.id==615 or item.id==614)) then
                             world:erase(item,1);
                             t=t+1;
                         else
@@ -59,13 +59,13 @@ function deleteBridge:execute()
                         keepGoing=0;
                     end
                 end
-            elseif item.data==4 then
+            elseif tonumber(item:getData("deletebridgeData"))==4 then
                 keepGoing=1;
                 while keepGoing==1 do
                     delPos=position(self.pos.x-t,self.pos.y,self.pos.z)
                     if (world:isItemOnField(delPos)==true) then
                         item=world:getItemOnField(delPos);
-                        if (item.data==4 and (item.id==621 or item.id==619 or item.id==618)) then
+                        if (tonumber(item:getData("deletebridgeData"))==4 and (item.id==621 or item.id==619 or item.id==618)) then
                             world:erase(item,1);
                             t=t+1;
                         else

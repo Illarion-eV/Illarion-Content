@@ -12,7 +12,7 @@
 name = "Advari Stonebog"
 race = dwarf
 sex = male
-position = 361, 251, 0
+position = 361, 266, 0
 direction = south
 affiliation = "Galmair"
 job = "Trader"

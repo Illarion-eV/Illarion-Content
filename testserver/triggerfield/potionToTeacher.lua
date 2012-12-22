@@ -39,8 +39,7 @@ function getTown(Item)
 end
 
 function PutItemOnField(Item,User)
-    
-	 -- is the char an alchemist?
+    -- is the char an alchemist?
 	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Mir ist nicht bekannt, dass Ihr ein Alchemist sein sollt. Nehmt Euer Zeug wieder weg.","I haven't heard you being an alchemist. Take your stuff from my table.")
 	if not anAlchemist then
 		return
@@ -67,12 +66,12 @@ function PutItemOnField(Item,User)
 					break
 				else
                     local dataCheck = true
-					for i=3,#ListTaskItem do
-                        if not (Item:getData(ListTaskItem[i][1]) == ListTaskItem[i][2]) then
+					for j=3,#ListTaskItem[i] do
+                        if not (Item:getData(ListTaskItem[i][j][1]) == ListTaskItem[i][j][2]) then
                             dataCheck = false
 							break
                         end
-                    end
+					end
 					if dataCheck == true then
 					    success = true
                         myListPos = i

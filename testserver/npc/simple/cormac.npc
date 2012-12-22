@@ -66,8 +66,8 @@ itemShoes = 53
 queststatus(74) > 2, ".*" -> "Error! Something went wrong, please inform a developer."
 
 -- Help
-"help" -> inform("[Game help] This NPC is the smuggler Cormac. To learn more about him, your should greet the NPC first.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmuggler Cormac. Um mehr über ihn zu erfahren, grüße ihn zunächst.")
+"help" -> inform("[Game help] This NPC is the smuggler Cormac. Keywords: Be greeted, Profession, Tavern.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmuggler Cormac. Schlüsselwörter: Seid gegrüßt, Beruf, Taverne.")
 
 -- General speech
 queststatus(74) = 0, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> inform("[New quest] Galmair's Gossiper"), "#me flashes you a sparse-toothed grin. 'Eh! If ye want to sit down with me, ye better bring me a mug of beer. Then I'll answer yer questions.'", queststatus(74) = 1

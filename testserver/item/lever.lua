@@ -83,11 +83,11 @@ function init()
 	openDoor:bind(1, handler.sendmessage.sendMessage(position(558,520,-3), "Ich schließe die Türe!","I close the door!", 10));
 	
 	openDoor1 = base.lever.Lever(position(538,557,-3),false);
-	openDoor1:bind(0, handler.unlockdoor.base.keys.UnlockDoor(position(559,556,-6)));
-	openDoor1:bind(0, handler.unlockdoor.base.keys.UnlockDoor(position(558,556,-6)));
+	openDoor1:bind(0, handler.unlockdoor.unlockDoor(position(559,556,-6)));
+	openDoor1:bind(0, handler.unlockdoor.unlockDoor(position(558,556,-6)));
 	openDoor1:bind(0, handler.sendmessage.sendMessage(position(538,557,-3), "Ich schließe die Türe auf!","I unlock the door!", 10));
-	openDoor1:bind(1, handler.lockdoor.base.keys.LockDoor(position(559,556,-6)));
-	openDoor1:bind(1, handler.lockdoor.base.keys.LockDoor(position(558,556,-6)));
+	openDoor1:bind(1, handler.lockdoor.lockDoor(position(559,556,-6)));
+	openDoor1:bind(1, handler.lockdoor.lockDoor(position(558,556,-6)));
 	openDoor1:bind(1, handler.sendmessage.sendMessage(position(538,557,-3), "Ich sperre die Türe zu!","I lock the door!", 10));
 	-- Doors in Halfling Dungeon end -----
 	

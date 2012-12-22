@@ -105,6 +105,7 @@ end
 potionsList = {};
 ingredientsList = {}
 potionName = {}
+idList = {}
 
 -- on reload, this function is called
 -- setPotion(effect id, stock data, gemdust ,Herb1, Herb2, Herb3, Herb4, Herb5, Herb6, Herb7, Herb8)
@@ -208,6 +209,7 @@ end
 
 function setPotion(effect,gemdust,stock,essenceHerb1,essenceHerb2,essenceHerb3,essenceHerb4,essenceHerb5,essenceHerb6,essenceHerb7,essenceHerb8)
 
+    table.insert(idList,effect)
     setPotionEffect(effect,gemdust,stock,essenceHerb1,essenceHerb2,essenceHerb3,essenceHerb4,essenceHerb5,essenceHerb6,essenceHerb7,essenceHerb8)
 	setPotionIngredients(effect,gemdust,stock,essenceHerb1,essenceHerb2,essenceHerb3,essenceHerb4,essenceHerb5,essenceHerb6,essenceHerb7,essenceHerb8)
 
@@ -279,7 +281,7 @@ wirkung_en = {};
 wirkstoff[1] = "Adrazin";
 wirkstoff[2] = "Illidrium";
 wirkstoff[3] = "Caprazin";
-wirkstoff[4] = "Hyperborlium";
+wirkstoff[4] = "Hyperborelium";
 wirkstoff[5] = "Echolon";
 wirkstoff[6] = "Dracolin";
 wirkstoff[7] = "Orcanol";

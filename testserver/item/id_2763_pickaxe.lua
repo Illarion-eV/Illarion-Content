@@ -268,6 +268,40 @@ Radius 15
 	SetResource( 7, 1250,  257,  3); -- topas
 	------- Noobia Mine - FERTIG ------
 
+	----------- Prison Mine -----------
+	AddArea( 8, position(-480,-480,-40), 30 );
+    AddStone( 8, 232 );
+    SetResource( 8, 232, 2536, 40); -- copper
+    SetResource( 8, 232, 234,  10); -- gold nuggets
+	SetResource( 8, 232, 254,  7); -- diamonds
+	SetResource( 8, 232, 251,  3); -- amethysts
+    AddStone( 8, 914 );
+    SetResource( 8, 914,  22, 60); -- iron ore
+	SetResource( 8, 914,  255, 7); -- rubys
+	SetResource( 8, 914,  257, 3); -- topas
+    AddStone( 8, 1273 );
+    SetResource( 8, 1273,  22, 40); -- iron ore
+	SetResource( 8, 1273,  253, 7); -- sapphire
+	SetResource( 8, 1273,  252, 3); -- obsidian
+	AddStone( 8, 1245 );
+    SetResource( 8, 1245,  21, 60); -- coal
+	SetResource( 8, 1245,  252, 7); -- obsidian
+    SetResource( 8, 1245,  255, 3); -- rubys
+    AddStone( 8, 1246 );
+    SetResource( 8, 1246, 21,  40); -- coal
+    SetResource( 8, 1246, 251,  7); -- amethysts
+    SetResource( 8, 1246,  256,  3); -- emerald
+	AddStone( 8, 1276 );
+    SetResource( 8, 1276,  2536, 40); -- copper ore
+	SetResource( 8, 1276,  256, 7); -- emerald
+	SetResource( 8, 1276,  253, 3); -- sapphire
+	AddStone( 8, 1250 );
+    SetResource( 8, 1250, 234,  10); -- gold nuggets
+    SetResource( 8, 1250, 2534,  5); -- merinium ore
+    SetResource( 8, 1250,  254,  7); -- diamonds
+	SetResource( 8, 1250,  257,  3); -- topas
+	------- Prison Mine - FERTIG ------
+	
     InitDone = true;
 end
 

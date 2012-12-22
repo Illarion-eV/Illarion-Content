@@ -23,20 +23,23 @@ function PutItemOnField(Item,User)
 
         local workLoad = User:getQuestProgress(25)
 		if townTreasure ~= "" then -- only if the char as been sent to forced labour by a faction
+		
 			local theItemStats=world:getItemStats(Item)
 			itemNumberPay = base.common.Limit(workLoad-Item.number,0,nil) -- we do only count the items a char has to deliver
 			local payToFaction = itemNumberPay*theItemStats.Worth--*FACTOR ; replace FACTOR with a value, determing what perecentage of the item worth is payed to the faction
+			
 			local foundTreasure, oldTreasure = ScriptVars:find(townTreasure)
+			
 			if not foundTreasure then -- security check
 				oldTreasure = 0
 			else
 				oldTreasure = tonumber(oldTreasure)
 			end	
-			User:inform("old treasure: "..oldTreasure)
+			
 			ScriptVars:set(townTreasure, tostring(oldTreasure+payToFaction)) -- add acquired coins to the treasure	
 			ScriptVars:save()
+			
 			local foundTreasure, newTreasure = ScriptVars:find(townTreasure)
-			User:inform("new treasure: "..newTreasure)
 			
 			-- reduce work load of char
 			if (workLoad - Item.number) <= 0 then

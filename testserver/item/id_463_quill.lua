@@ -18,8 +18,8 @@ function CheckIfBottleInHand(User)
 
 	local bottleList = alchemy.base.alchemy.bottleList
 	for i=1,((#bottleList)+1) do
-		local ItemA = User.getItemAt(5)
-		local ItemB = User.getItemAt(6)
+		local ItemA = User:getItemAt(5)
+		local ItemB = User:getItemAt(6)
 		if (ItemA.id == bottleList[i]) or (ItemA.id == 164) then
 			return ItemA
 		elseif (ItemB.id == bottleList[i]) or (ItemB.id == 164) then

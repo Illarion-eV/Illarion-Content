@@ -2,8 +2,8 @@
 -- NPC Name: Morri                                                    Galmair --
 -- NPC Job:  Trader                                                           --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  353, 254, 0            --
--- NPC Sex:  male                       NPC Direction: southeast              --
+-- NPC Race: dwarf                      NPC Position:  353, 266, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 353, 254, 0, 3, 'Morri', 'npc.morri', 0, 0, 2, 22, 12, 34, 217, 154, 123);
+VALUES (1, 353, 266, 0, 4, 'Morri', 'npc.morri', 0, 0, 2, 22, 12, 34, 217, 154, 123);
 ---]]
 
 require("npc.base.basic")
