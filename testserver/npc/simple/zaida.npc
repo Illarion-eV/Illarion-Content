@@ -64,8 +64,8 @@ itemShoes = 53
 -- 2: NPC is willing to answer PC questions about the ruler, faction and the treacherous neighbours!
 
 -- Help
-"help" -> inform("[Game help] This NPC is Zaida the Apprentice. To learn more about her, your should greet the NPC first.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Anwärterin Zaida. Um mehr über sie zu erfahren, grüße sie zunächst.")
+"help" -> inform("[Game help] This NPC is Zaida the Apprentice. Keywords: Be greeted, Profession, Tavern.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Anwärterin Zaida. Schlüsselwörter: Seid gegrüßt, Beruf, Taverne.")
 
 -- General speech
 queststatus(76) = 0, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> inform("[New quest] Runewick's Gossiper"), "#me nods her head respectfully: 'Be greeted, traveler. Should you wish to join my company, you must first bring me a glass filled with wine. Then, if it still pleases you, we may discuss.'", queststatus(76) = 1

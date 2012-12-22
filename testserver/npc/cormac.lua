@@ -40,13 +40,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game help] This NPC is the smuggler Cormac. To learn more about him, your should greet the NPC first."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game help] This NPC is the smuggler Cormac. Keywords: Be greeted, Profession, Tavern."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Schmuggler Cormac. Um mehr über ihn zu erfahren, grüße ihn zunächst."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Schmuggler Cormac. Schlüsselwörter: Seid gegrüßt, Beruf, Taverne."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

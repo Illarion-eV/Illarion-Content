@@ -1,18 +1,18 @@
-﻿------------------------------------------------------------------------------AC
+------------------------------------------------------------------------------AC
 -- NPC Name: Marcel Metalfeet                                         Galmair --
--- NPC Job: craftsman/ repair NPC                                             --
+-- NPC Job:  craftsman                                                        --
 --                                                                            --
--- NPC Race: halfling                     NPC Position: 389,269, 0            --
--- NPC Sex:  male                       NPC Direction: west                  --
+-- NPC Race: halfling                   NPC Position:  389, 269, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
--- Author: Miriam                                                             --
+-- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
-name = "Marcel Metalfeet "
+name = "Marcel Metalfeet"
 race = halfling
 sex = male
-position = 389,269, 0
+position = 389, 269, 0
 direction = west
 affiliation = "Galmair"
 job = "craftsman"
@@ -37,7 +37,7 @@ colorHair = 68, 62, 0
 colorSkin = 245, 211, 179
 itemHead = 0
 itemChest = 180
-itemCoat =  196
+itemCoat = 196
 itemMainHand = 311
 itemSecondHand = 9
 itemHands = 48
@@ -71,14 +71,14 @@ buySecondaryItems = 2, 3
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Marcel Metalfeet  the <profession/function>. Keywords: repair, work, Greetings, religion.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC istMarcel Metalfeet der <Beruf/Funktion>. Schlüsselwörter: reparieren, arbeiten, Grüße, Religion,.")
+"Help" -> inform("[Game Help] This NPC is Marcel Metalfeet the craftsman. Keywords: Repair, Work, Greetings, Religion.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC istMarcel Metalfeet der Handwerker. Schlüsselwörter: Reparieren, Arbeiten, Grüße, Religion.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello. You look happy today? Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegesen?", "Hallo. Du siehst nicht so glücklich aus. Hast du hunger?", "Hallo. Wie geht es dir?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello. You look happy today? Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
-"Hiho", "Hallo", "Hey", "Greeb" ->  "Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegesen?", "Hallo. Du siehst nicht so glücklich aus. Hast du hunger?", "Hallo. Wie geht es dir?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegesen?", "Hallo. Du siehst nicht so glücklich aus. Hast du hunger?", "Hallo. Wie geht es dir?"
 "Farewell", "Bye", "Fare well", "See you" -> "Save journy. And don't forget to take enough food with you!", "#me waves goodbye.", "Please come again!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gute Reise. Und vergiss nicht genug proviant mit zu nehmen!", "#me winkt zum Abschied", "Komm wieder!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Save journy. And don't forget to take enough food with you!", "#me waves goodbye.", "Please come again!"
@@ -104,7 +104,7 @@ english, "quest", "mission" -> "I don't have anything to do for you."
 "profession" -> "I can repair all kind of things for you."
 "beruf" -> "Ich kann allesmögliche für Euch reparieren."
 english, "job" -> "I can repair all kind of things for you."
-"job" ->  "Ich kann allesmögliche für Euch reparieren."
+"job" -> "Ich kann allesmögliche für Euch reparieren."
 "tell something" -> "I like cake! Everyonelse also likes cake! Nice,eh?"
 "erzähl was", "erzähl etwas" -> "Ich mag Kuchen! Und alle andern mögen auch Kuchen. Nett, oder?"
 
@@ -120,7 +120,7 @@ english, "Oldra" -> "I pray to Ushara. Cake is made of grain."
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Nice to meet you."
-"mein Name" -> "Freu mich."
+"mein Name" -> "Freut mich."
 english, "Marcel", "Metalfeet" -> "You want me to repair something for you?"
 "Metalfeet", "Metalfeet" -> "Ich soll etwas für Euch reparieren?"
 

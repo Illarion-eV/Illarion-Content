@@ -2,8 +2,8 @@
 -- NPC Name: Marcel Metalfeet                                         Galmair --
 -- NPC Job:  craftsman                                                        --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  381, 280, 0            --
--- NPC Sex:  male                       NPC Direction: north                  --
+-- NPC Race: halfling                   NPC Position:  389, 269, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 381, 280, 0, 0, 'Marcel Metalfeet', 'npc.marcel_metalfeet', 0, 2, 0, 68, 62, 0, 245, 211, 179);
+VALUES (2, 389, 269, 0, 6, 'Marcel Metalfeet', 'npc.marcel_metalfeet', 0, 2, 0, 68, 62, 0, 245, 211, 179);
 ---]]
 
 require("npc.base.basic")
@@ -20,6 +20,8 @@ require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
 require("npc.base.trade")
+require("base.common")
+require("base.money")
 module("npc.marcel_metalfeet", package.seeall)
 
 function initNpc()
@@ -29,13 +31,13 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Marcel Metalfeet  the <profession/function>. Keywords: repair, work, Greetings, religion."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Marcel Metalfeet the craftsman. Keywords: Repair, Work, Greetings, Religion."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC istMarcel Metalfeet der <Beruf/Funktion>. Schlüsselwörter: reparieren, arbeiten, Grüße, Religion,."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC istMarcel Metalfeet der Handwerker. Schlüsselwörter: Reparieren, Arbeiten, Grüße, Religion."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -65,7 +67,7 @@ talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegesen?");
-talkEntry:addResponse("Hallo. Du siehst nicht so glücklich aus. Hast du Hunger?");
+talkEntry:addResponse("Hallo. Du siehst nicht so glücklich aus. Hast du hunger?");
 talkEntry:addResponse("Hallo. Wie geht es dir?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -295,7 +297,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("religion");
-talkEntry:addResponse("Halblinge haben ihre eignen Mythen über die Entstehung Illarions.");
+talkEntry:addResponse("Halblinge haben ihre eignen Mythern über die Entstehung Illarions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -307,7 +309,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glaube");
-talkEntry:addResponse("Halblinge haben ihre eignen Mythen über die Entstehung Illarions.");
+talkEntry:addResponse("Halblinge haben ihre eignen Mythern über die Entstehung Illarions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -377,8 +379,8 @@ talkingNPC:addCycleText("Marcel Metalfeet! Ich repariere alles und jeden!", "Mar
 talkingNPC:addCycleText("#me pfeift eine Melodie.", "#me whistles.");
 talkingNPC:addCycleText("#me schaut sich um.", "#me lookes around.");
 talkingNPC:addCycleText("#me leckt sich über die Lippen.", "#me licks his lips.");
-talkingNPC:addCycleText("#me leckt seine Finger ab.", "#me licks his fingers.");
-talkingNPC:addCycleText("#w Ich möchte Kuchen essen... Ich möchte nicht arbeiten.", "#w I want to eat a cake... I do not want to work.");
+talkingNPC:addCycleText("#me lekt seine Finger ab.", "#me licks his fingers.");
+talkingNPC:addCycleText("#w Ich möchte Kuchen essen... Ich möchte nicht arbeiten.", "#w I want to eat Cake... I do not want to work.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
@@ -404,7 +406,98 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function receiveText(npcChar, texttype, message, speaker) 
+
+--ADDITTION BY ESTRALIS
+    message=string.lower(message); --lower case MESSAGE -> message
+	
+    if base.common.BasicNPCChecks(speaker,2,npcChar) and (string.find(message,"price") or string.find(message,"cost") or string.find(message,"preis") or string.find(message,"koste") or string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand")) then --initiate repairing with triggers
+
+		--Full repair is the same as buying half a new one. Just worth it with special (e.g. gemmed) items. Price may change if the players overdo it.
+		--Round prices to prevent prices like "1273 cp" and to prevent exact durability determination via repairing.
+
+		if string.find(message,"price") or string.find(message,"cost") or string.find(message,"repair") or string.find(message,"fix") then --english triggers
+            language = 1; --english
+		else
+		    language = 2; --german
+		end
+ 
+		theItem=base.common.GetFrontItem(npcChar); --What item shall be repaired?
+		
+		if theItem then
+            theItemStats=world:getItemStats(theItem); --reading its stats
+		end
+		
+		if not theItem then --nothing there!
+			message1={"Please put the item I shall repair on the table.","Packt den Gegenstand, den ich instandsetzen soll, einfach auf den Tisch."}; --No item found
+		    npcChar:talk(Character.say, message1[language]); --Message 1
+		end
+		
+		if theItem then
+			durability=theItem.quality-100*math.floor(theItem.quality/100); --calculate the durability
+		    toRepair=99-durability; --the amount of durability points that has to repaired
+		    price=math.ceil(0.5*theItemStats.Worth*toRepair/1000)*10; --Price rounded up in 10 cp steps
+		
+            if theItem.id == 0 or theItem.id == 320 or theItem.id == nil then --there is nothing on the table!
+		
+	            message1={"Please put the item I shall repair on the table.","Packt den Gegenstand, den ich instandsetzen soll, einfach auf den Tisch."}; --No item found
+		        npcChar:talk(Character.say, message1[language]); --Message 1
+			
+		    elseif theItemStats.Worth == 0 or theItemStats.isStackable or durability==99 then --Cannot repair perfect, priceless or stackable items
+		
+	            message2={"I cannot repair this, sorry.","Entschuldigt, aber das kann ich nicht reparieren."}; --Priceless, perfect or stackable item
+		        npcChar:talk(Character.say, message2[language]); --Message 2
+			
+		    else -- I can repair it!
+			
+			    gp,sp,cp=base.money.MoneyToCoins(price); --converting to gp, sp and cp
+			
+			    if price >= 10000 then -- at least one gold coin
+
+	                estring=" "..gp.." gold coins, "..sp.." silver coins and "..cp.." copper coins";
+		            gstring=" "..gp.." Goldstücke, "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
+
+                elseif price >= 100 then -- at least one silver coin
+
+		            estring=" "..sp.." silver coins and "..cp.." copper coins";
+		            gstring=" "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
+
+	            else -- just copper coins
+
+		            estring=" "..cp.." copper coins";
+		            gstring=" "..cp.." Kupferstücke"; --what a name for a variable...
+
+	            end
+	
+	            if string.find(message,"price") or string.find(message,"cost") or  string.find(message,"preis") or string.find(message,"koste") then --player just wants to know the price
+			    
+				    message3={"For repairing this item, I demand"..estring..".","Die Reparatur dieses Gegenstandes würde"..gstring.." kosten."}; --Saying the price
+		            npcChar:talk(Character.say, message3[language]); --Message 3
+				
+                elseif string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand") then --player wants to repair the item
+			
+			        if not base.money.CharHasMoney(speaker,price) then --player is broke
+				
+			            message4={"You don't have enough money I suppose. I demand"..estring.." for repairing this item.","Ihr habt anscheinend nicht genug Geld. Die Reparatur würde"..gstring.." kosten."}; --Player is broke
+		                npcChar:talk(Character.say, message4 [language]); --Message 4
+					
+			        else --he has the money
+				
+			            message5={"#me repairs the item at a cost of"..estring..".","#me setzt den Gegenstand für"..gstring.." in Stand."};	--...
+                        npcChar:talk(Character.say, message5 [language]); --Message 5
+                        base.money.TakeMoneyFromChar(speaker,price); --pay!
+                        theItem.quality=theItem.quality+toRepair; --repair!
+                        world:changeItem(theItem);
+					
+				    end --broke/wealthy	
+			    end --price/repair
+		    end --there is an item
+        end --item exists
+	else
+        mainNPC:receiveText(npcChar, speaker, message); 
+	end
+--ADDITION END
+end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
 function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
