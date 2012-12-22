@@ -107,6 +107,7 @@ function LookAtItem( User, Item )
     devotion=User:getQuestProgress(401);
     priesthood=User:getQuestProgress(402);
     debug("devotion/priesthood: " .. devotion .. "/" .. priesthood);
+    debug("magic type " .. User:getMagicType());
 
     --Check for corrupted status
 
@@ -148,7 +149,7 @@ function LookAtItem( User, Item )
       base.common.InformNLS(User,"Der Anblick von "..content.gods.GOD_DE[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.","Beholding the altar of "..content.gods.GOD_DE[thisGod].." makes you feel proud of your devotion.");
 
     elseif devotion == thisGod and priesthood == 0 and User:getMagicType()~= 1 then --a devotee of this god.
-    
+      debug("you are a priest");
       base.common.InformNLS(User,"Der Anblick von "..content.gods.GOD_DE[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.","Beholding the altar of "..content.gods.GOD_EN[thisGod].." makes you feel proud of your devotion.");
 
 --For enabling becoming a priest, use the stuff below. Doesn't make any sense without priest magic, though.
