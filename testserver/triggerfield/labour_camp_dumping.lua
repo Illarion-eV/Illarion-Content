@@ -60,7 +60,7 @@ function PutItemOnField(Item,User)
 				User:setQuestProgress(26,0)
 			else
 				User:setQuestProgress(25,workLoad-Item.number)
-			    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher sich kurz etwas notiert. Scheinbar noch nicht deine letzte Ladung.","You notice that the guard seems to take a short note. Obviously, not your last charge.")
+			    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher sich kurz etwas notiert. Scheinbar noch nicht deine letzte Ladung. [Du musst noch "..(workLoad - Item.number).." Bodenschätze abliefern.]","You notice that the guard seems to take a short note. Obviously, not your last charge. [You still have to deliver "..(workLoad - Item.number).." resource.")
 			end
 		end
 		world:gfx(46,Item.pos)
