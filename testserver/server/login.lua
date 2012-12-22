@@ -276,9 +276,9 @@ function payNow(User)
 	end	
 
     taxHeight=0.05;  -- 5% taxes for testing purposes
-    -- *** DEPOT-LIST HAS TO BE CHANGED ACCORDING TO FACTION MEMBERSHIP! ***
-    depNr={101,104};
-    valDepot={0,0};
+    
+	depNr={101,102,103,104};
+    valDepot={0,0,0,0};
     for i=1,2 do
         valDepot[i]=base.money.DepotCoinsToMoney(User,depNr[i]);
     end
