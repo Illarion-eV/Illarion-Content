@@ -270,7 +270,7 @@ function payNow(User)
 --Hemp Necktie Inn = 104 (not a faction!)
      
 	 -- no memeber of any town
-	local town = base.factions.getMemberShipByName(User)
+	local town = base.factions.getMembershipByName(User)
 	if town == "" then
 	    return
 	end	

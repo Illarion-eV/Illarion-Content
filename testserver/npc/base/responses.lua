@@ -85,7 +85,7 @@ do
 		end;
 
 		function townNameProcessor:process(playerChar, npc, npcChar, response)
-			local townName = base.factions.getMemberShipByName(playerChar)
+			local townName = base.factions.getMembershipByName(playerChar)
 			return string.gsub(response, "%%TOWN", townName);
 		end;
 		table.insert(processorList, townNameProcessor());
