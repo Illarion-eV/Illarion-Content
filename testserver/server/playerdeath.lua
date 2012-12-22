@@ -9,6 +9,8 @@ BLOCKED_ITEM = 228
 
 function playerDeath(deadPlayer)
 
+base.common.InformNLS(deadPlayer,"DEAD","DEAD"); --sending a message
+
     if deadPlayer:isAdmin() then --Admins don't die. Failed, noob!
 	
 	    deadPlayer:increaseAttrib("hitpoints",5000); -- Respawn
