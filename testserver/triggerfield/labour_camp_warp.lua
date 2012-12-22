@@ -43,7 +43,8 @@ function MoveToField(User)
 		base.common.InformNLS(User,"Der Teleporter scheint dir den Dienster zu verweigern, bis deine Strafe abgearbeitet ist.","The teleporter seems to be not working for you as long as you haven't served your sentence.")
 		
 	else -- the char is allowed to leave
-        local ItemListe = {49,234,2536,22,21,2763};    --delete ores, coal, pickaxe, gold nuggets and bread
+	
+	    local ItemListe = {21, 22, 234, 2534, 2536, 251, 252, 253, 254, 255, 256, 257, 49, 2763};    --delete ores, coal, nuggets, raw gems, pick-axe and bread
 		for i, Item in pairs(ItemListe) do
 			local amount = User:countItem(ItemListe[i]);
 			User:eraseItem( ItemListe[i], amount);
