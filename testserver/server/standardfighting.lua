@@ -476,14 +476,22 @@ end;
 -- @param Defender The character who is attacked
 -- @return true in case the range is fine, else false
 function CheckRange(AttackerStruct, Defender)
-    local distance = AttackerStruct.Char:distanceMetric(Defender);
+    debug("in checkrange");
+	local distance = AttackerStruct.Char:distanceMetric(Defender);
+	
+	debug("range= "..distance)
+	
     if distance > 1 then
         blockList = world:LoS( AttackerStruct.Char.pos, Defender.pos )
+		
+		debug("nach LOS");
         if blockList ~= nil then
             return false;
         end
     end
+	debug("nach if");
     if (distance == 1 and AttackerStruct.AttackKind == 4) then
+	debug("sollte nicht"!);
         return false;
     end
     if AttackerStruct.IsWeapon then
