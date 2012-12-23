@@ -1,4 +1,4 @@
--require("base.common")
+require("base.common")
 
 module("item.id_2620_language_book", package.seeall)
 
