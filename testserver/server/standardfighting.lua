@@ -485,8 +485,12 @@ function CheckRange(AttackerStruct, Defender)
         blockList = world:LoS( AttackerStruct.Char.pos, Defender.pos )
 		
 		debug("nach LOS");
+		
+		
+		
         if blockList ~= nil then
-            return false;
+		debug("blocklist ~= nil")
+            --return false;
         end
     end
 	debug("nach if");
