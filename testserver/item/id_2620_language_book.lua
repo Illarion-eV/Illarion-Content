@@ -5,8 +5,8 @@ module("item.id_2620_language_book", package.seeall)
 -- UPDATE common SET com_script='item.id_2620_language_book' WHERE com_itemid = 2620;
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-    local langcode = math.floor(SourceItem.data/10);
-    local modecode = SourceItem.data - (langcode * 10);
+    local langcode = math.floor(tonumber(SourceItem:getData("langcode"))/10);
+    local modecode = tonumber(SourceItem:getData("langcode")) - (langcode * 10);
     
     if (modecode == 2) then
         if (User:getSkill(Character.ancientLanguage) < 60) then return end
@@ -28,7 +28,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     local Skill=User:getSkill(Skillname);
     if (Skill==0 and modecode==1) then
         User:increaseSkill(Skillname,1);
-        SourceItem.data=SourceItem.data-1;
+        SourceItem:setData("langcode", tonumber(SourceItem:getData("langcode"))-1);
         world:changeItem(SourceItem);
     end
     
@@ -101,12 +101,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	-- obsolet?
 	local TargetItem = base.common.GetTargetItem(User, SourceItem);
-    if (TargetItem.id == 329 and TargetItem.data == 0) then
+    if (TargetItem.id == 329 and tonumber(TargetItem:getData("langcode")) == 0) then
         if ( Skill > 50) then
             if (modecode==0) then
                 base.common.InformNLS(User,"Du schreibst eine Kurze Notiz in das Buch die dem nächsten Lernenden Helfen wird, den Einstieg in die Sprache zu finden",
                 "You write a short note into the book, which will help the next one, who wants to learn, to start learning the language");
-                SourceItem.data=SourceItem.data+1;
+                SourceItem:setData("langcode", tonumber(SourceItem:getData("langcode"))+1);
                 world:changeItem(SourceItem);
                 world:erase(TargetItem,1);
             end
@@ -117,8 +117,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 end
 
 function LookAtItem(User,Item)
-    local langcode = math.floor(Item.data/10);
-    local modecode = Item.data - (langcode * 10);
+    local langcode = math.floor(tonumber(Item:getData("langcode"))/10);
+    local modecode = tonumber(Item:getData("langcode")) - (langcode * 10);
     if (modecode == 2) then
         world:itemInform(User,Item,base.common.GetNLS(User,"Buch des Ephraim","Book of Ephraim"));
     else

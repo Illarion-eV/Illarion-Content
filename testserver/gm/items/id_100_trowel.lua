@@ -189,6 +189,7 @@ function Ini()
 end;
 
 function LookAtItem(User, Item)
+world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 1))
 --[[   
    --base.common.InformNLS(User, "Blablabla", "Bl ablablablabla");
 	--User:inform ("blabla hätte funktionieren müssen!");

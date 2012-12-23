@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 90
 
 local POSITION = position(143, 566, 0)
 local RADIUS = 15
-local LOOKAT_TEXT_DE = "Ein junger, nobler Krieger mit einer gl�nzenden R�stung scheint mit erhobener Faust den Befehl zum Angriff zu geben."
+local LOOKAT_TEXT_DE = "Ein junger, nobler Krieger mit einer glänzenden Rüstung scheint mit erhobener Faust den Befehl zum Angriff zu geben."
 local LOOKAT_TEXT_EN = "A young and noble warrior wears a shiny armour and seems to gave the order to attack while he raises his fists."
 
 function LookAtItem(PLAYER, item)
@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zur�ck zu Frizza und teile ihr mit die Art die Krieger die die Statuen symbolisieren.", "Go to Frizza and tell her the kind of warriors, symbolized by the statues."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Frizza und teile ihr mit die Art die Krieger die die Statuen symbolisieren.", "Go to Frizza and tell her the kind of warriors, symbolized by the statues."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

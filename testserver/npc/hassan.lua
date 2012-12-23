@@ -40,13 +40,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game help] This is the NPC Hassan. To learn more about him, your should greet the NPC first."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game help] This NPC is the royal fan-waver Hassan. Keywords: Greetings, Profession, Tavern."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dies ist der NPC Hassan. Wenn du mehr über ihn erfahren willst, grüße ihn zuerst."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der königliche Fächelwedler Hassan. Schlüsselwörter: Seid gegrüßt, Beruf, Taverne."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

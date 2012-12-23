@@ -66,8 +66,8 @@ itemShoes = 53
 queststatus(75) > 2, ".*" -> "Error! Something went wrong, please inform a developer."
 
 -- Help
-"Help" -> inform("[Game help] This is the NPC Hassan. To learn more about him, your should greet the NPC first.")
-"Hilfe" -> inform("[Spielhilfe] Dies ist der NPC Hassan. Wenn du mehr über ihn erfahren willst, grüße ihn zuerst.")
+"Help" -> inform("[Game help] This NPC is the royal fan-waver Hassan. Keywords: Greetings, Profession, Tavern.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Fächelwedler Hassan. Schlüsselwörter: Seid gegrüßt, Beruf, Taverne.")
 
 -- First part, the gossiper is thirsty--
 queststatus(75) = 0, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> inform("[New Quest] Cadomyr's Gossiper"), "#me stares at you. 'Be greeted, traveler! I am much too thirsty to talk. If you bring me a glass with red wine I will gladly answer your questions.'", queststatus(75) = 1

@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 307
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Bitte bringt mir eine Pfeife und zehn Sibanac Blätter!"
+local NPC_REPLY_DE = "Bitte bringt mir eine Pfeife und zehn Sibanac BlÃ¤tter!"
 local NPC_REPLY_EN = "Please, bring me a pipe and ten sibanac leaves."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde einen Schreiner oder Händler über die du die gewünschten Dinge besorgen kannst, wenn du sie nicht selber erzeugen kannst.", "Look for a carpenter or merchant who can supply you with the requested goods, if you cannot produce them by yourself."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Finde einen Schreiner oder HÃ¤ndler Ã¼ber die du die gewÃ¼nschten Dinge besorgen kannst, wenn du sie nicht selber erzeugen kannst.", "Look for a carpenter or merchant who can supply you with the requested goods, if you cannot produce them by yourself."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

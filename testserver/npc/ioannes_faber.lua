@@ -860,7 +860,7 @@ talkingNPC:addCycleText("Für die Ehre von Cadomyr!", "For the glory of Cadomyr!"
 talkingNPC:addCycleText("Cadomyr, oh Cadomyr, wie lieb ich dir!", "Cadomyr, O Cadomyr, you are my dear!");
 talkingNPC:addCycleText("Rosaline und Cadomyr - Liebe geben sie uns, unschätzbar und unerreicht.", "Rosaline and Cadomyr - Love she gives us, passing measure.");
 talkingNPC:addCycleText("Nur ein toter Hastings ist ein guter Hastings.", "Only a dead Hastings is a good Hastings.");
-talkingNPC:addCycleText("Ein Hobbitgewicht in Gold für den Kopf von Baron Hastings!", "The weight of a hobbit in gold for the head of Baron Hastings!");
+talkingNPC:addCycleText("Ein Halblingsgewicht in Gold für den Kopf von Baron Hastings!", "The weight of a halfling in gold for the head of Baron Hastings!");
 talkingNPC:addCycleText("Vor jedem verborgenen Feind, vor den Anschlägen der Mörder, schütze Malachín die Königin!", "From every latent foe, from the assassins blow, Malachín save the queen!");
 talkingNPC:addCycleText("Und wie ein reißender Strom losbrechen, um rebellische Hastings niederzuwerfen!", "And like a torrent rush, rebellious Hastings to crush.");
 talkingNPC:addCycleText("Malachín schütze die Königin!", "Malachín save the queen!");

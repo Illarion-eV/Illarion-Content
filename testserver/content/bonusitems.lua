@@ -84,13 +84,13 @@ function setBonusAndTitle(item, bonus1, value1, bonus2, value2, title)
         return false;                            
     end;                                         
                                                  
-    item.data = (((title*128 + value2 + 63)*64 + bonus2) * 128 + value1 + 63) * 64 + bonus1;
+    item:setData("bonusitemData", (((title*128 + value2 + 63)*64 + bonus2) * 128 + value1 + 63) * 64 + bonus1);
     world:changeItem(item);
     return true;
 end                                              
                                                  
 function getBonusFromItem(item, bonustype)             
-    local data = item.data;
+    local data = tonumber(item:getData("bonusitemData"));
     local i;
     for i=1,2 do
         if( math.mod( data, 64 ) == bonustype ) then
@@ -116,7 +116,7 @@ function getBonusFromUser(user, bonustype)
 end                      
                                                  
 function getNameWithTitle(item, lang, gender)            
-    local i = math.floor( item.data / 16777216 ); -- 2^30 / 64
+    local i = math.floor( tonumber(item:getData("bonusitemData")) / 16777216 ); -- 2^30 / 64
     if( i == 0 ) then return world:getItemName(item.id, lang); end;
     if( isinit == nil) then                      
         initBonus();                             

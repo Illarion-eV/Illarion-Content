@@ -38,7 +38,15 @@ function InitDrinks()
 		drinkList[1316] = {  400, 1317,  35}; -- bottle of bear slayer
 		drinkList[1318] = {  400, 1317,  35}; -- bottle of elven wine
 		drinkList[1319] = {  400, 1317,  35}; -- bottle of cherry schnapps
-			
+		drinkList[783] = {500, 790, 0}; -- bottle of blackberry juice
+		drinkList[784] = {500, 790, 0}; -- bottle of tangerine juice
+		drinkList[785] = {500, 790, 0}; -- bottle of banana juice		
+		drinkList[786] = {500, 790, 0}; -- bottle of cabbage juice
+		drinkList[787] = {500, 790, 0}; -- bottle of virgings weed tea
+		drinkList[788] = {500, 790, 0}; -- bottle of carrot juice
+		drinkList[789] = {500, 790, 0}; -- bottle of strawberry juice
+		drinkList[791] = {500, 790, 0}; -- bottle of grape juice
+		
     end
 end
 
@@ -76,9 +84,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             if perc>19 then
                 perc=19;
             end
-            User:inform( "part1" );
-            local itemData = SourceItem.data + math.random( -40 + (perc*2), 40 - (perc*2) );
-            User:inform( "data: " .. itemData );
+            local itemData = tonumber(SourceItem:getData("wineData")) + math.random( -40 + (perc*2), 40 - (perc*2) );
             local wineQual = 0;
             local modv = itemData - math.floor(itemData/10)*10;
             local result = itemData / 10;
@@ -87,7 +93,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             else
                 wineQual = math.floor( result )
             end;
-            User:inform( "part3" );
             
 
             if ( wineQual < 1 ) then

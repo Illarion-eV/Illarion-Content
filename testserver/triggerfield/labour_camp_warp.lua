@@ -34,8 +34,8 @@ function MoveToField(User)
 				if myNpc[i].name == "Percy Dryless" then -- check if it is the camp leader  
 					myNpc[i]:talkLanguage(Character.say,Player.german,"#me wendet seinen Blick wütend zum Teleporter und schreit los:")
 					myNpc[i]:talkLanguage(Character.say,Player.english,"#me looks with anger to the teleporter and starts to shout:")
-					myNpc[i]:talkLanguage(Character.yell,Player.german,"Mach gefälligst deine Arbeit zu Ende, du fauler Hund!")
-					myNpc[i]:talkLanguage(Character.yell,Player.english,"Finish your work, you lazy bum!")
+					myNpc[i]:talkLanguage(Character.say,Player.german,"Mach gefälligst deine Arbeit zu Ende, du fauler Hund!")
+					myNpc[i]:talkLanguage(Character.say,Player.english,"Finish your work, you lazy bum!")
 					break
 				end
 			end
@@ -43,7 +43,8 @@ function MoveToField(User)
 		base.common.InformNLS(User,"Der Teleporter scheint dir den Dienster zu verweigern, bis deine Strafe abgearbeitet ist.","The teleporter seems to be not working for you as long as you haven't served your sentence.")
 		
 	else -- the char is allowed to leave
-        local ItemListe = {49,234,2536,22,21,2763};    --delete ores, coal, pickaxe, gold nuggets and bread
+	
+	    local ItemListe = {21, 22, 234, 2534, 2536, 251, 252, 253, 254, 255, 256, 257, 49, 2763};    --delete ores, coal, nuggets, raw gems, pick-axe and bread
 		for i, Item in pairs(ItemListe) do
 			local amount = User:countItem(ItemListe[i]);
 			User:eraseItem( ItemListe[i], amount);
@@ -52,7 +53,7 @@ function MoveToField(User)
 		local Faction = base.factions.getFaction(User); -- lookup to which faction the Character belongs to
 		local dest
 		if     Faction.tid == 1 then 
-		       dest = position(140,630,0) --cadomyr
+		       dest = position(127,647,0) --cadomyr
 		elseif Faction.tid == 2 then 
 		       dest = position(788,826,0) --runewick
 		elseif Faction.tid == 3 then 

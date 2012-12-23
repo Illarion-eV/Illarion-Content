@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 84
 
 local POSITION = position(313, 233, 1)
 local RADIUS = 15
-local LOOKAT_TEXT_DE = "Das Bild zeigt einen reich gekleideten Zwerg mit grauer Haut und Haar, der eine Sch�rze tr�gt und seinen gro�en goldene Axt gegen einen Felsen schwingt."
+local LOOKAT_TEXT_DE = "Das Bild zeigt einen reich gekleideten Zwerg mit grauer Haut und Haar, der eine Schürze trägt und seinen großen goldene Axt gegen einen Felsen schwingt."
 local LOOKAT_TEXT_EN = "The painting shows a rich dressed gray skinned and haired dwarf, who is wearing an apron and swings his big golden axe against a rock."
 
 function LookAtItem(PLAYER, item)
@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zur�ck zu Iradona und teile ihr mit auf was der Zwerg auf dem rechten Bild dort einschl�gt.", "Go to Iradona and tell her against what the dwarf swings his axe at the right painting there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Iradona und teile ihr mit auf was der Zwerg auf dem rechten Bild dort einschlägt.", "Go to Iradona and tell her against what the dwarf swings his axe at the right painting there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -12,7 +12,7 @@
 name = "Advari Stonebog"
 race = dwarf
 sex = male
-position = 361, 251, 0
+position = 361, 266, 0
 direction = south
 affiliation = "Galmair"
 job = "Trader"
@@ -45,7 +45,7 @@ itemShoes = 326
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 51, 126, 258, 271, 69, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 330, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934
+sellItems = 51, 126, 258, 271, 69, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 2502, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934
 buySecondaryItems = 51, 126, 258, 271, 69, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 330, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"

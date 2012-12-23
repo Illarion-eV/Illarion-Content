@@ -7,11 +7,11 @@ module("handler.unlockdoor", package.seeall)
 -- it makes sound 19 (world:makeSound(19, Door.pos);) when the door locks.
 -- A key with the same data than a door lock/unlocks it (not important here).
 
-base.keys.UnlockDoor = base.class.class(function(door, posi)
+unlockDoor = base.class.class(function(door, posi)
     door.pos=posi;
 end);
 
-function base.keys.UnlockDoor:execute()
+function unlockDoor:execute()
     --[[lst=world:getPlayersOnline();
     for i,ply in pairs(lst) do
         if ply.id==42 then

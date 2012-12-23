@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 -- NPC Name: Zassaria Riverbank                                      Runewick --
--- NPC Job:  Messaege quest giver                                             --
+-- NPC Job:  Message quest giver                                              --
 --                                                                            --
 -- NPC Race: lizardman                  NPC Position:  908, 812, 1            --
 -- NPC Sex:  female                     NPC Direction: east                   --
@@ -33,13 +33,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Zassaria Riverbank. Keywords: guest, mission, Order."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Zassaria Riverbank. Keywords: quest, mission, order."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Zassaria Riverbank. Schlüsselwörter: Quest, Misson, Auftrag."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Zassaria Riverbank. Schlüsselwörter: Quest, Mission, Auftrag."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

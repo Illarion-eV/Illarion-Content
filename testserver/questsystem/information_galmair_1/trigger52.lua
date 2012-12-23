@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Nun gehe zur�ck zu Iradona und berichte ihr die Nummer.", "Go back to Iradona and tell her the number."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Nun gehe zurück zu Iradona und berichte ihr die Nummer.", "Go back to Iradona and tell her the number."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -96,7 +96,7 @@ function doubleEffect( rebirthEffect, Reborn )
 	if not foundMulti then
 		multi = 1;
 	end
-	multi = multi * 2;
+	multi = multi +1;
 	rebirthEffect:addValue("multiRes",multi);
 	Reborn:setQuestProgress(20,base.common.GetCurrentTimestamp());
     return true;

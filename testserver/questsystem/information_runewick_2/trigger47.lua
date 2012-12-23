@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 233
 
 local NPC_TRIGGER_DE = "[Tt]urm"
 local NPC_TRIGGER_EN = "[Tt]ower"
-local NPC_REPLY_DE = "Sehr gut! Nun könnt ihr euch eure Belohnung abholen. Ich war so gemein und hab sie für euch verstecken lassen. Geht zur Fröhlichen Lichtung und blickt dort unter einem der Getreidebündel nach. *schmunzelt*"
+local NPC_REPLY_DE = "Sehr gut! Nun kÃ¶nnt ihr euch eure Belohnung abholen. Ich war so gemein und hab sie fÃ¼r euch verstecken lassen. Geht zur FrÃ¶hlichen Lichtung und blickt dort unter einem der GetreidebÃ¼ndel nach. *schmunzelt*"
 local NPC_REPLY_EN = "Very good. Now, you can pick up your reward. I was mean and let it hide for you. Go to Merryglade and look in one of the bundles of grain. *grins*"
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur Fröhlichen Lichtung und suche in den Getreidebündeln in der Scheune nach deiner Belohung.", "Go to Merryglade and search in one of the bundles of grain in the barn there for your reward."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh nun zur FrÃ¤hlichen Lichtung und suche in den GetreidebÃ¼ndeln in der Scheune nach deiner Belohung.", "Go to Merryglade and search in one of the bundles of grain in the barn there for your reward."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

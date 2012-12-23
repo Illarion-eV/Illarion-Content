@@ -5,7 +5,7 @@ require("base.common")
 module("item.id_3105_bookrest", package.seeall)
 
 function LookAtItem(User,Item)
-	if (Item.data == 666) then
+	if (tonumber(Item:getData("bookrestData")) == 666) then
 	    if (Item.pos.z == -6) then
 	        if (User:getPlayerLanguage()==0) then
 	            world:itemInform(User,Item,"Mit arkanen Symbolen verzierter Steinsockel, auf dem eine steinernde Schriftrolle liegt, in der smaragdfarbene Schrift eingelassen ist");
@@ -37,7 +37,7 @@ function LookAtItem(User,Item)
 end
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
-	if (SourceItem.data == 666) then
+	if (tonumber(SourceItem:getData("bookrestData")) == 666) then
 		if (User:getSkill(Character.ancientLanguage) > 59) then
 		    if (SourceItem.pos.z == -6) then
 		        if (User:getPlayerLanguage()==0) then

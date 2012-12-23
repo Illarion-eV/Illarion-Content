@@ -792,7 +792,6 @@ talkingNPC:addCycleText("#me pfeift eine vergnügliche Melodie.", "#me wistles a 
 talkingNPC:addCycleText("#me wiegt ein Beutelchen mit Kräutern.", "#me weighs a small bag of herbs out.");
 talkingNPC:addCycleText("Kräuter! Frische Kräuter mit bester Qualität!", "Herbs! Fresh Herbs wirh best Quality!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(58,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1008,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(429,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(126,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(43,"sell"));
@@ -845,7 +844,6 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(161,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(162,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(163,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(58,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1008,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(429,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(126,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(43,"buyPrimary"));

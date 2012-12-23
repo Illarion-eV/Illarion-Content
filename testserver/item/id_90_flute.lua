@@ -18,7 +18,8 @@ item.base.music.addTalkText("#me plays a wild tune on the flute.","#me spielt ei
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	item.base.music.PlayInstrument(User,SourceItem,skill);
 	
-	--Testing fireball, only activates if flute's data key name is used -Dyluck
+	--Testing fireball, only activates if flute's data key name is used. Does not affect normal flute -Dyluck
+	
 	local targetPos
 	local targetChar
 	local extraPos
@@ -27,9 +28,18 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	local yoff
 	local mylist
 	local last
+	local isChar
+	local totalDmg
+	local testDmg
 	
 	graphicNum = tonumber(SourceItem:getData("spell"));
 	if ( graphicNum ~= nil ) then
+		if (User:increaseAttrib("intelligence", 0) < 10) then 
+			User:talk(Character.say, "INT would be too low. You have "..User:increaseAttrib("intelligence", 0));
+		end
+		if (User:increaseAttrib("mana", 0) < 50)  then
+			User:talk(Character.say, "Mana would be too low. You have "..User:increaseAttrib("mana", 0));
+		end
 		User:talk(Character.say, "#me casts Fireball ");
 		--User facing direction to determine offset numbers for target area
 		if ( User:getFaceTo() == 0) then --north
@@ -58,34 +68,46 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			yoff = -1;
 		end
 		
+		--Set max range and check for line of sight
 		targetPos = position(User.pos.x + 5 * xoff, User.pos.y + 5 * yoff, User.pos.z);
-		
 		mylist = world:LoS(User.pos, targetPos);
 		last = table.getn(mylist);
-		if (mylist[1] == nil) then
-			User:talk(Character.say, "option 1");
+		if (mylist[1] == nil) then --hit max range
 			world:gfx(graphicNum, targetPos);
 			world:makeSound(5, targetPos);
-			if world:isCharacterOnField(targetPos) then
-				User:inform("hit something live");
-				world:makeSound(1, targetPos);
+			if world:isCharacterOnField(targetPos) then --hit char at max range
+				isChar = true;
 				targetChar = world:getCharacterOnField(targetPos);
-				targetChar:increaseAttrib("hitpoints", -2000);
 			end			
-		else
-			User:talk(Character.say, "option 2");
+		else --hit obstacle
+			--[[
 			for key, listEntry in pairs(mylist) do
 				User:inform("Item with the ID: "..listEntry.OBJECT.id);
 			end
 			User:inform("Array size is: "..last);
+			]]--
+			targetPos = mylist[last].OBJECT.pos;
 			world:gfx(graphicNum, mylist[last].OBJECT.pos);
 			world:makeSound(5, mylist[last].OBJECT.pos);
-			if (mylist[last].TYPE == "CHARACTER") then
-				User:inform("hit something live");
-				world:makeSound(1, mylist[last].OBJECT.pos);
-				mylist[last].OBJECT:increaseAttrib("hitpoints", -2000);
+			if (mylist[last].TYPE == "CHARACTER") then --obstacle is a char
+				isChar = true;
+				targetChar = mylist[last].OBJECT;
 			end
 		end
+		--Calculate numbers and damage char
+		if ( (isChar == true) and (targetChar:increaseAttrib("hitpoints", 0) > 0) ) then
+			world:makeSound(1, targetPos);
+			totalDmg = -( (21 + User:increaseAttrib("intelligence", 0) - targetChar:increaseAttrib("essence", 0) ) * 50)
+			testDmg = -2000;
+			targetChar:increaseAttrib("hitpoints", testDmg);
+			if (User:increaseAttrib("mana", 0) >= 50)  then
+				User:increaseAttrib("mana", - 50);
+			end
+			User:talk(Character.say, "Damage is -2000, but would've been "..totalDmg);
+			User:talk(Character.say, "Because your INT was "..User:increaseAttrib("intelligence", 0));				
+		end
+		--User:talk(Character.say, "Mana is now "..User:increaseAttrib("mana", 0));
+		
 			
 		--[[
 		for i = 0, 2, 1 do
@@ -103,7 +125,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				end
 			end
 		end]]--
-	end	--End Test -Dyluck
+	end
+	--End Test -Dyluck
 end
 
 LookAtItem = item.general.wood.LookAtItem

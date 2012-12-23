@@ -51,6 +51,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
 		else
 		    DrinkIt(User, SourceItem)
+			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
 		end
 	end
 end

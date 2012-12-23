@@ -2,7 +2,7 @@
 -- NPC Name: Marcel Metalfeet                                         Galmair --
 -- NPC Job:  craftsman                                                        --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  389, 265, 0            --
+-- NPC Race: halfling                   NPC Position:  389, 269, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 389, 265, 0, 6, 'Marcel Metalfeet', 'npc.marcel_metalfeet', 0, 2, 0, 68, 62, 0, 245, 211, 179);
+VALUES (2, 389, 269, 0, 6, 'Marcel Metalfeet', 'npc.marcel_metalfeet', 0, 2, 0, 68, 62, 0, 245, 211, 179);
 ---]]
 
 require("npc.base.basic")
@@ -21,7 +21,7 @@ require("npc.base.consequence.inform")
 require("npc.base.talk")
 require("npc.base.trade")
 require("base.common")
-require("npc.base.autonpcfunctions")
+require("base.money")
 module("npc.marcel_metalfeet", package.seeall)
 
 function initNpc()
@@ -31,13 +31,13 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Marcel Metalfeet the craftsman. Keywords: repair, work, Greetings, religion."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Marcel Metalfeet the craftsman. Keywords: Repair, Work, Greetings, Religion."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Marcel Metalfeet der Handwerker. Schlüsselwörter: reparieren, arbeiten, Grüße, Religion,."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC istMarcel Metalfeet der Handwerker. Schlüsselwörter: Reparieren, Arbeiten, Grüße, Religion."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -67,7 +67,7 @@ talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegesen?");
-talkEntry:addResponse("Hallo. Du siehst nicht so glücklich aus. Hast du Hunger?");
+talkEntry:addResponse("Hallo. Du siehst nicht so glücklich aus. Hast du hunger?");
 talkEntry:addResponse("Hallo. Wie geht es dir?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -297,7 +297,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("religion");
-talkEntry:addResponse("Halblinge haben ihre eignen Mythen über die Entstehung Illarions.");
+talkEntry:addResponse("Halblinge haben ihre eignen Mythern über die Entstehung Illarions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -309,7 +309,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glaube");
-talkEntry:addResponse("Halblinge haben ihre eignen Mythen über die Entstehung Illarions.");
+talkEntry:addResponse("Halblinge haben ihre eignen Mythern über die Entstehung Illarions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -379,8 +379,8 @@ talkingNPC:addCycleText("Marcel Metalfeet! Ich repariere alles und jeden!", "Mar
 talkingNPC:addCycleText("#me pfeift eine Melodie.", "#me whistles.");
 talkingNPC:addCycleText("#me schaut sich um.", "#me lookes around.");
 talkingNPC:addCycleText("#me leckt sich über die Lippen.", "#me licks his lips.");
-talkingNPC:addCycleText("#me leckt seine Finger ab.", "#me licks his fingers.");
-talkingNPC:addCycleText("#w Ich möchte Kuchen essen... Ich möchte nicht arbeiten.", "#w I want to eat a cake... I do not want to work.");
+talkingNPC:addCycleText("#me lekt seine Finger ab.", "#me licks his fingers.");
+talkingNPC:addCycleText("#w Ich möchte Kuchen essen... Ich möchte nicht arbeiten.", "#w I want to eat Cake... I do not want to work.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
@@ -408,7 +408,7 @@ end;
 
 function receiveText(npcChar, texttype, message, speaker) 
 
---ADDITTION BY ZOT
+--ADDITTION BY ESTRALIS
     message=string.lower(message); --lower case MESSAGE -> message
 	
     if base.common.BasicNPCChecks(speaker,2,npcChar) and (string.find(message,"price") or string.find(message,"cost") or string.find(message,"preis") or string.find(message,"koste") or string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand")) then --initiate repairing with triggers
@@ -449,24 +449,26 @@ function receiveText(npcChar, texttype, message, speaker)
 		        npcChar:talk(Character.say, message2[language]); --Message 2
 			
 		    else -- I can repair it!
+			
+                gstring,estring=base.money.MoneyToString(price); --converting money to a string
 	
 	            if string.find(message,"price") or string.find(message,"cost") or  string.find(message,"preis") or string.find(message,"koste") then --player just wants to know the price
 			    
-				    message3={"For repairing this item, I demand "..price.." copper coins.","Die Reparatur dieses Gegenstandes würde "..price.." Kupferstücke kosten."}; --Saying the price
+				    message3={"For repairing this item, I demand"..estring..".","Die Reparatur dieses Gegenstandes würde"..gstring.." kosten."}; --Saying the price
 		            npcChar:talk(Character.say, message3[language]); --Message 3
 				
                 elseif string.find(message,"repair") or string.find(message,"fix") or string.find(message,"reparier") or string.find(message,"instand") then --player wants to repair the item
 			
-			        if not npc.base.autonpcfunctions.CheckMoney(speaker,price) then --player is broke
+			        if not base.money.CharHasMoney(speaker,price) then --player is broke
 				
-			            message4={"You don't have enough money I suppose. I demand "..price.." copper coins for repairing this item.","Ihr habt anscheinend nicht genug Geld. Die Reparatur würde "..price.." Kupferstücke kosten."}; --Player is broke
+			            message4={"You don't have enough money I suppose. I demand"..estring.." for repairing this item.","Ihr habt anscheinend nicht genug Geld. Die Reparatur würde"..gstring.." kosten."}; --Player is broke
 		                npcChar:talk(Character.say, message4 [language]); --Message 4
 					
 			        else --he has the money
 				
-			            message5={"#me repairs the item at a cost of "..price.." copper coins.","#me setzt den Gegenstand für "..price.." Kupferstücke in Stand."};	--...
+			            message5={"#me repairs the item at a cost of"..estring..".","#me setzt den Gegenstand für"..gstring.." in Stand."};	--...
                         npcChar:talk(Character.say, message5 [language]); --Message 5
-                        npc.base.autonpcfunctions.PayTheNPC(speaker,price); --pay!
+                        base.money.TakeMoneyFromChar(speaker,price); --pay!
                         theItem.quality=theItem.quality+toRepair; --repair!
                         world:changeItem(theItem);
 					

@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 897, 781, 2, 3, 'Neiran el Nyarale', 'npc.neiran_el_nyarale', 0, 2, 5, 128, 255, 255, 245, 230, 197);
+VALUES (3, 897, 781, 2, 3, 'Neiran el Nyarale', 'npc.neiran_el_nyarale', 0, 2, 0, 128, 255, 255, 245, 230, 197);
 ---]]
 
 require("npc.base.basic")
@@ -33,13 +33,13 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Neiran el Nyarale the guard. Keywords: Quest, TRIGGER2, TRIGGER3, rubbish, recycling."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Neiran el Nyarale the guard. Keywords: Quest, greetings, archmage, rubbish, recycling."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Neiran el Nyarale der Wachmann. Schlüsselwörter: Auftrag, TRIGGER2, TRIGGER3, Müll, recycling."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Neiran el Nyarale der Wachmann. Schlüsselwörter: Auftrag, Grüße, Erzmagier, Müll, recycling."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -828,11 +828,11 @@ talkingNPC:addCycleText("Wir in Runewick wollen unsere Straßen sauer halten. Hil
 talkingNPC:addCycleText("#me schaut sich um.", "#me lookes around.");
 talkingNPC:addCycleText("#me lächelt und  lässt einige Münzen auf die magische Oberfläche fallen.", "#me smiles and drops some coins into the magical surface.");
 talkingNPC:addCycleText("Was ist wahrer Reichtum? Wissen oder Münzen?", "What is more of more value? Knowledge or coins?");
-talkingNPC:addCycleText("Münzen, Waffen, Schmuck und Besteck ? alles kann eingeschmolzen werden! Spendet unserer schönen Stadt.", "Coins, weapon, juwely, cutlery - everything can be melted down!");
-talkingNPC:addCycleText("Getreide, Käuter, Küchenabfälle ? Alles kommt auf den Kompst!", "Grain, Herbs, kitchen waste- Everything will be composted.");
-talkingNPC:addCycleText("Spendet Roh- und Baustoffe - Wir bessern die Straßen von Runewick aus!", "Donate building material and ressouces ? We repair the streets of Runewick!");
-talkingNPC:addCycleText("Spendet Papier und Tinte - Die Bibliothek von Runewick wird es Euch danken!", "Donate ink and paper - For the library in Runewick!");
-talkingNPC:addCycleText("Ich werde von euren Einsatz für unsere schöne Stadt beim Erzmagier sprechen - zögert nicht!", "I'll tell the archmage about you supporting for you town! Do not heasitate to donate.");
+talkingNPC:addCycleText("Münzen, Waffen, Schmuck und Besteck, alles kann eingeschmolzen werden! Spendet unserer schönen Stadt.", "Coins, weapon, juwely, cutlery - everything can be melted down!");
+talkingNPC:addCycleText("Getreide, Käuter, Küchenabfälle, alles kommt auf den Kompst!", "Grain, Herbs, kitchen waste, everything will be composted.");
+talkingNPC:addCycleText("Spendet Roh- und Baustoffe, wir bessern die Straßen von Runewick aus!", "Donate building material and ressouces, we repair the streets of Runewick!");
+talkingNPC:addCycleText("Spendet Papier und Tinte, die Bibliothek von Runewick wird es Euch danken!", "Donate ink and paper, for the library in Runewick!");
+talkingNPC:addCycleText("Ich werde von eurem Einsatz für unsere schöne Stadt beim Erzmagier sprechen - zögert nicht!", "I'll tell the archmage about you supporting for you town! Do not heasitate to donate.");
 talkingNPC:addCycleText("#me sieht glücklich aus.", "#me seems to be happy.");
 talkingNPC:addCycleText("#me schreibt eine Liste.", "#me writes a list.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
@@ -852,7 +852,7 @@ mainNPC:setEquipment(3, 181);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 48);
+mainNPC:setEquipment(4, 0);
 mainNPC:setEquipment(9, 825);
 mainNPC:setEquipment(10, 53);
 mainNPC:setAutoIntroduceMode(true);

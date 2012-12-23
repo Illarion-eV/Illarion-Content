@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 169
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Die n�chste Aufgabe findet ihr unter einen der St�hle im Raum unter dem Spielraum in der Schimmersenke."
+local NPC_REPLY_DE = "Die nächste Aufgabe findet ihr unter einen der Stühle im Raum unter dem Spielraum in der Schimmersenke."
 local NPC_REPLY_EN = "You can find your next task under one of the chairs in the room under the Game Room in the Flicker Swale."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in die Schimmersenke und untersuche die St�hle in dem Raum am Ende des Stollen.", "Go into the Flicker Swale and examine the chairs in the room at the end of the shaft."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe in die Schimmersenke und untersuche die Stühle in dem Raum am Ende des Stollen.", "Go into the Flicker Swale and examine the chairs in the room at the end of the shaft."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

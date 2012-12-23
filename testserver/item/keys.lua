@@ -6,7 +6,6 @@ module("item.keys", package.seeall)
 -- UPDATE common SET com_script='item.keys' WHERE com_itemid IN (2121,2122,2123,2124,2141,2144,2145,2161,2556,2558,3054,3055,3056);
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
-    local WALLPOS = position(-470,241,0);
     local DoorItem = base.common.GetFrontItem( User );
     
 	if SourceItem:getData("prisonKeyOf") ~= "" then 
@@ -15,19 +14,10 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 	    return
 	end	
 
-    if SourceItem.data == 7300 and DoorItem.id == 287 and DoorItem.pos == WALLPOS then
-
-		world:erase(DoorItem,1);
-		local charList = world:getPlayersInRangeOf(WALLPOS,15);
-		for i,char in pairs(charList) do
-			if char.pos.z == WALLPOS.z then
-			    base.common.InformNLS(User,"Du hörst das Geräusch von sich verschiebendem Gestein.","You hear the sound of moving stone.");
-			end
-		end
-	elseif base.keys.CheckKey(SourceItem,DoorItem) then
+	if base.keys.CheckKey(SourceItem,DoorItem) then	
         if base.keys.LockDoor(DoorItem) then
             base.common.InformNLS(User,"Du sperrst die Tür ab.","You lock the door.");
-        elseif base.keys.UnlockDoor(DoorItem,User) then             -- User eingefuegt
+        elseif base.keys.UnlockDoor(DoorItem) then            
             base.common.InformNLS(User,"Du sperrst die Tür auf.","You unlock the door.");
         end
     else

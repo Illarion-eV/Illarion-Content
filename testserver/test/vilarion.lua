@@ -36,6 +36,10 @@ function LookAtItem(player, item)
 end
 
 function UseItem(User, SourceItem, TargetItem, counter, Param, ltstate)
+    if (User.lastSpokenText == "take") then
+        User:getBackPack():takeItemNr(1, 1)
+    end
+    
     if (User.lastSpokenText == "anim") then
         User:performAnimation(14)
     end

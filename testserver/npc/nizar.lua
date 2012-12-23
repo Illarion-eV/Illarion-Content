@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 910, 800, 1, 4, 'Nizar', 'npc.nizar', 0, 3, 0, 3, 5, 20, 150, 79, 0);
+VALUES (0, 910, 801, 1, 4, 'Nizar', 'npc.nizar', 0, 3, 0, 150, 79, 0, 3, 5, 20);
 ---]]
 
 require("npc.base.basic")
@@ -30,13 +30,13 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Nizar the <profession/function>. Keywords: gems, smithing, magical smithing, profession, Serinjah, Greetings."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Nizar the magical blacksmith. Keywords: gems, smithing, magical smithing, profession, Serinjah, Greetings."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Nizar der <Beruf/Funktion>. Schlüsselwörter: Edelsteine, Schmieden, magisches Schmieden, Beruf, Serinjah, Grüße."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Nizar der magische Schmied. Schlüsselwörter: Edelsteine, Schmieden, magisches Schmieden, Beruf, Serinjah, Grüße."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -166,7 +166,7 @@ talkEntry:addTrigger("dein name");
 talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
-talkEntry:addResponse("#me verneigt sich. 'Nizar aus der Serin Wüste. Es würde mich freuen, wenn ihr mir Euchen Namen verratet mein Freund.'");
+talkEntry:addResponse("#me verneigt sich. 'Nizar aus der Serin Wüste. Es würde mich freuen, wenn Ihr mir euren Namen verratet, mein Freund.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -858,7 +858,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("nein nein nein");
-talkEntry:addResponse("Nun, I verstehe, doch Eure Antwort füllt mein Herz mit Trauer.");
+talkEntry:addResponse("Nun, Ich verstehe, doch Eure Antwort füllt mein Herz mit Trauer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -888,7 +888,7 @@ talkingNPC:addCycleText("Kommt zu Nizar, wenn Ihr etwas über magische Steine wis
 talkingNPC:addCycleText("Magische Steine: Je magischer desto besser! Ich mache sie besser!", "Magical stones: More magic is better! I make them better!");
 talkingNPC:addCycleText("#me schließt seine Augen.", "#me closes his eyes.");
 talkingNPC:addCycleText("Ihr möchtet Eure magischen Steine aufwerten? Nazir kann Euch Helfen.", "You want to upgrade you magical gems? Nazir can help you!");
-talkingNPC:addCycleText("#w Ich vermisse dich Serinjah-Steppe...", "#w I miss the serin plains...");
+talkingNPC:addCycleText("#w Ich vermisse dich, Serinjah-Steppe...", "#w I miss you, serin plains...");
 talkingNPC:addCycleText("Lasst mich Eure magischen Edelsteine aufbessern!", "Let me upgrade your magical gem stones!");
 talkingNPC:addCycleText("#me breitet die Arme aus.'Egal welche Farbe und welche Qualität Eure magischen Edelsteine sind bei Nizar in guten Händen.'", "#me spreads his arms: 'No matter the colour or the quality Nizar will take care of your magical gems!'.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));

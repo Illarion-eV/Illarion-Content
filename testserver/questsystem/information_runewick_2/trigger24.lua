@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 184
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Ja, das konnte man deutlich hören. Nun zu eurer nächsten Aufgabe. Hier habt ihr eine Firnisblüte. Wenn ihr die bitte an dem Grab auf der zweiten der  beiden Zwillingsaugen Inseln ablegen würdet für mich."
+local NPC_REPLY_DE = "Ja, das konnte man deutlich hÃ¶ren. Nun zu eurer nÃ¤chsten Aufgabe. Hier habt ihr eine FirnisblÃ¼te. Wenn ihr die bitte an dem Grab auf der zweiten der  beiden Zwillingsaugen Inseln ablegen wÃ¼rdet fÃ¼r mich."
 local NPC_REPLY_EN = "Yes, I could hear it. Now, your next task. Here you have a firnis blossom. Please, bring it to a grave on the second of the two Twin Eyes Islands."
 
 function receiveText(npc, type, text, PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 148, 999, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nun zur zweiten Zwillingaugen Insel und lege die erhaltene Blume dort auf das Blumenfeld vor dem Grabstein im Süden ab.", "Go to the second Twin Eyes Island now and lay down the flower on the flower field in front of the grave in the south then."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nun zur zweiten Zwillingaugen Insel und lege die erhaltene Blume dort auf das Blumenfeld vor dem Grabstein im SÃ¼den ab.", "Go to the second Twin Eyes Island now and lay down the flower on the flower field in front of the grave in the south then."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

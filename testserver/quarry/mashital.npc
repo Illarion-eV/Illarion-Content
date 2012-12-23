@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Mashital                                                Runewick --
--- NPC Job:  Windsage                                                         --
+-- NPC Job:  Lightningsage                                                         --
 --                                                                            --
 -- NPC Race: elf                        NPC Position:  794, 820, 0            --
 -- NPC Sex:  female                     NPC Direction: south                  --
@@ -16,7 +16,7 @@ sex = female
 position = 794, 820, 0
 direction = south
 affiliation = "Runewick"
-job = "Windsage"
+job = "Lightningsage"
 
 language = common
 language = elf
@@ -27,7 +27,7 @@ author = "Regallo"
 author = "...with a little help of Estralis Seborian"
 
 lookatDE = "Dieser NPC ist <Name> der <Beruf/Funktion>."
-lookatUS = "This NPC is <Name> the <profession/function>."
+lookatUS = "This NPC is Mashital the Lightning."
 useMsgDE = "Fasst mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut verwirrt."
@@ -57,7 +57,7 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is <Name> the <profession/function>. Keywords: god, noble, lightning, naginata, equality.")
+"Help" -> inform("[Game Help] This NPC is Mashital the Lightningsage. Keywords: god, noble, lightning, naginata, equality.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist <Name> der <Beruf/Funktion>. Schlüsselwörter: TRIGGER1, TRIGGER2, TRIGGER3, TRIGGER4, TRIGGER5.")
 
 -- Mandatory: Help
@@ -116,7 +116,7 @@ english, "job" -> "The standing Lightningsage.", "I am a killer for Runewick; it
 -- Optional: Last catch - Think about keyphrases the player might say and that are not caught until here
 "my name" -> "Mashital Besual Telk Me "
 "mein Name" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
-english, "<Fo>", "<Duh Rah>" -> "That is me, please state your business."
+english, "Mashital" -> "That is me, please state your business."
 "<NPC-Vorname>", "<NPC-Nachname>" -> "GERMAN1.", "GERMAN2.", "GERMAN3."
 
 ------------------------------------------------------------------------------AC

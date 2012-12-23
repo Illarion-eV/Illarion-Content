@@ -31,7 +31,7 @@ wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
 hairID = 2
-beardID = 5
+beardID = 0
 colorHair = 128, 255, 255
 colorSkin = 245, 230, 197
 itemHead = 0
@@ -39,7 +39,7 @@ itemChest = 181
 itemCoat = 0
 itemMainHand = 0
 itemSecondHand = 0
-itemHands = 48
+itemHands = 0
 -- fur trousers
 itemTrousers = 825
 itemShoes = 53
@@ -71,8 +71,8 @@ buySecondaryItems = 2, 3
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Neiran el Nyarale the guard. Keywords: Quest, TRIGGER2, TRIGGER3, rubbish, recycling.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Neiran el Nyarale der Wachmann. Schlüsselwörter: Auftrag, TRIGGER2, TRIGGER3, Müll, recycling.")
+"Help" -> inform("[Game Help] This NPC is Neiran el Nyarale the guard. Keywords: Quest, greetings, archmage, rubbish, recycling.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Neiran el Nyarale der Wachmann. Schlüsselwörter: Auftrag, Grüße, Erzmagier, Müll, recycling.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you!", "#me smiles: 'Greetings'", "Hello! ."
@@ -201,10 +201,10 @@ cycletext "Wir in Runewick wollen unsere Straßen sauer halten. Hilf auch du mit
 cycletext "#me schaut sich um.", "#me lookes around."
 cycletext "#me lächelt und  lässt einige Münzen auf die magische Oberfläche fallen.", "#me smiles and drops some coins into the magical surface."
 cycletext "Was ist wahrer Reichtum? Wissen oder Münzen?", "What is more of more value? Knowledge or coins?"
-cycletext "Münzen, Waffen, Schmuck und Besteck – alles kann eingeschmolzen werden! Spendet unserer schönen Stadt.", "Coins, weapon, juwely, cutlery - everything can be melted down!"
-cycletext "Getreide, Käuter, Küchenabfälle – Alles kommt auf den Kompst!", "Grain, Herbs, kitchen waste- Everything will be composted."
-cycletext "Spendet Roh- und Baustoffe - Wir bessern die Straßen von Runewick aus!", "Donate building material and ressouces – We repair the streets of Runewick!"
-cycletext "Spendet Papier und Tinte - Die Bibliothek von Runewick wird es Euch danken!", "Donate ink and paper - For the library in Runewick!"
-cycletext "Ich werde von euren Einsatz für unsere schöne Stadt beim Erzmagier sprechen - zögert nicht!", "I'll tell the archmage about you supporting for you town! Do not heasitate to donate."
+cycletext "Münzen, Waffen, Schmuck und Besteck, alles kann eingeschmolzen werden! Spendet unserer schönen Stadt.", "Coins, weapon, juwely, cutlery - everything can be melted down!"
+cycletext "Getreide, Käuter, Küchenabfälle, alles kommt auf den Kompst!", "Grain, Herbs, kitchen waste, everything will be composted."
+cycletext "Spendet Roh- und Baustoffe, wir bessern die Straßen von Runewick aus!", "Donate building material and ressouces, we repair the streets of Runewick!"
+cycletext "Spendet Papier und Tinte, die Bibliothek von Runewick wird es Euch danken!", "Donate ink and paper, for the library in Runewick!"
+cycletext "Ich werde von eurem Einsatz für unsere schöne Stadt beim Erzmagier sprechen - zögert nicht!", "I'll tell the archmage about you supporting for you town! Do not heasitate to donate."
 cycletext "#me sieht glücklich aus.", "#me seems to be happy."
 cycletext "#me schreibt eine Liste.", "#me writes a list."

@@ -53,8 +53,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("GrÃ¼Ã?");
-talkEntry:addTrigger("GruÃ?");
+talkEntry:addTrigger("Grüße");
+talkEntry:addTrigger("Gruß");
 talkEntry:addTrigger("Guten Morgen");
 talkEntry:addTrigger("Guten Tag");
 talkEntry:addTrigger("Guten Abend");

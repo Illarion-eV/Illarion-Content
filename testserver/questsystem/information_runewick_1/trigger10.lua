@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 51
 
 local NPC_TRIGGER_DE = "[Gg]almair"
 local NPC_TRIGGER_EN = "[Gg]almair"
-local NPC_REPLY_DE = "Nun eine Frage zu den Lokalit�ten hier, insbesondere dem Hinterland. Wie hei�t die Br�cke die Runewick mit Eibental verbindet?"
+local NPC_REPLY_DE = "Nun eine Frage zu den Lokalitäten hier, insbesondere dem Hinterland. Wie heißt die Brücke die Runewick mit Eibental verbindet?"
 local NPC_REPLY_EN = "Now, a question about locations here. In particular the hinterland. What is the name of the bridge that connects Runewick with Yewdale?"
 
 function receiveText(npc, type, text, PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 100):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3077, 333, 1):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis: Frage nach dem Hinterland", "Answer the question to get more money and further question. Hint: Ask for the hinterland."):execute()
 end
 

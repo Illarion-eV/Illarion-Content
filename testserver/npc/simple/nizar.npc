@@ -12,7 +12,7 @@
 name = "Nizar"
 race = human
 sex = male
-position = 910, 800, 1
+position = 910, 801, 1
 direction = south
 affiliation = "Runewick"
 job = "magical blacksmith"
@@ -33,8 +33,8 @@ wrongLangUS = "#me looks around confused, then he smiles."
 radius = 0
 hairID = 3
 beardID = 0
-colorHair = 03,05,20
-colorSkin = 150, 79, 0
+colorHair = 150, 79, 0
+colorSkin = 03,05,20
 itemHead = 0
 itemChest = 365
 itemCoat = 0
@@ -72,8 +72,8 @@ buySecondaryItems = 2, 3
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Nizar the <profession/function>. Keywords: gems, smithing, magical smithing, profession, Serinjah, Greetings.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Nizar der <Beruf/Funktion>. Schlüsselwörter: Edelsteine, Schmieden, magisches Schmieden, Beruf, Serinjah, Grüße.")
+"Help" -> inform("[Game Help] This NPC is Nizar the magical blacksmith. Keywords: gems, smithing, magical smithing, profession, Serinjah, Greetings.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Nizar der magische Schmied. Schlüsselwörter: Edelsteine, Schmieden, magisches Schmieden, Beruf, Serinjah, Grüße.")
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings. Shall I smith something for you out of gems?.", "Be greeted. Do you want to combine magical gems? This is the right place for that!"
@@ -87,7 +87,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" ->  "Fare well and do not forge
 "How are you", "How feel", "How do you do" -> "#me smiles.'Thank you very much for you concern, my friend. I am fine as I do not leave the save town. But what about you?'"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "#me lächelt: 'Danke für Eure Sorge, mein Freund. Mir geht es gut, da ich die sichere Stadt nicht verlasse. Wie ist es Euch ergangen?'"
 "your name", "who are you", "who art thou" -> "#me bows 'Nazir, from the serin desert. Would you tell me your name, my friend?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#me verneigt sich. 'Nizar aus der Serin Wüste. Es würde mich freuen, wenn ihr mir Euchen Namen verratet mein Freund.'"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#me verneigt sich. 'Nizar aus der Serin Wüste. Es würde mich freuen, wenn Ihr mir euren Namen verratet, mein Freund.'"
 
 -- TRIGGERS for Gemcraft
 "gem", "magical smithing", "smithing" -> "Ah. I like to work for you. Well ...", "Of course I will help you with thoses magical gems.", gemcraft
@@ -203,7 +203,7 @@ english, "Nizar" -> "#me grins.'That would be me! How can I help you?'", "Yes? Y
 "No" -> "#me nods. 'I see...'", "You know, there I come from if you do not say 'No' three times it will count as a 'Yes'.", "Just take you time to consider you answer, while we talk."
 "Nein" -> "#me nickt. 'Ich verstehe...'", "Ihr wisst, das man dort wo ich herkomme drei mal 'Nein' sagen muss, denn sonst heißt es 'Ja'.", "Nehmt Euch Zeit eure Antwort zu bedenken während wir reden."
 "no no no" -> "Ah, I understand, but your answer fills my heart with sadness."
-"nein nein nein" -> "Nun, I verstehe, doch Eure Antwort füllt mein Herz mit Trauer."
+"nein nein nein" -> "Nun, Ich verstehe, doch Eure Antwort füllt mein Herz mit Trauer."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "#me smiles.", "#me listens attentively.", "I see."
@@ -221,6 +221,6 @@ cycletext "Kommt zu Nizar, wenn Ihr etwas über magische Steine wissen wollt!", 
 cycletext "Magische Steine: Je magischer desto besser! Ich mache sie besser!", "Magical stones: More magic is better! I make them better!"
 cycletext "#me schließt seine Augen.", "#me closes his eyes."
 cycletext "Ihr möchtet Eure magischen Steine aufwerten? Nazir kann Euch Helfen.", "You want to upgrade you magical gems? Nazir can help you!"
-cycletext "#w Ich vermisse dich Serinjah-Steppe...", "#w I miss the serin plains..."
+cycletext "#w Ich vermisse dich, Serinjah-Steppe...", "#w I miss you, serin plains..."
 cycletext "Lasst mich Eure magischen Edelsteine aufbessern!", "Let me upgrade your magical gem stones!"
 cycletext "#me breitet die Arme aus.'Egal welche Farbe und welche Qualität Eure magischen Edelsteine sind bei Nizar in guten Händen.'", "#me spreads his arms: 'No matter the colour or the quality Nizar will take care of your magical gems!'."

@@ -2,8 +2,8 @@
 -- NPC Name: Antonius Copperhand                                      Galmair --
 -- NPC Job:  Goldsmith NPC                                                    --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  352, 256, 0            --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: dwarf                      NPC Position:  359, 278, 0            --
+-- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
@@ -12,8 +12,8 @@
 name = "Antonius Copperhand"
 race = dwarf
 sex = male
-position = 352, 256, 0
-direction = south
+position = 359, 278, 0
+direction = north
 affiliation = "Galmair"
 job = "Goldsmith NPC"
 
@@ -49,8 +49,8 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 122, 2747, 2140, 92, 393, 397, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 225, 336, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282
-buySecondaryItems = 122, 2747, 2140, 92, 393, 397, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 225, 336, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282
+sellItems = 122, 2140, 92, 393, 397, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 225, 336, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282
+buySecondaryItems = 122, 2140, 92, 393, 397, 399, 1001, 1840, 2031, 446, 447, 448, 449, 450, 451, 452, 224, 225, 336, 465, 45, 46, 197, 198, 283, 284, 285, 62, 67, 71, 79, 82, 83, 222, 68, 235, 277, 278, 279, 280, 281, 282
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
@@ -64,7 +64,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
 -- When you are done, please hit the "Rebuild Script" button.
 
--- 5% Tools (Finesmith): 122, 2747
+-- 5% Tools (Finesmith): 122
 -- 5% Tools (Gem grinder): 2140
 -- 5% Copper goods: 92, 393, 397, 399, 1001, 1840, 2031
 -- 5% Gem powder: 446, 447, 448, 449, 450, 451, 452

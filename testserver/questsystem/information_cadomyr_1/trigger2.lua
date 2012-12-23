@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 25
 
 local NPC_TRIGGER_DE = "[Cc]adomyr"
 local NPC_TRIGGER_EN = "[Cc]adomyr"
-local NPC_REPLY_DE = "Sehr gut, hier nun die n�chste Aufgabe. Wie hei�t die erste Villa gleich links vom Markt?"
+local NPC_REPLY_DE = "Sehr gut, hier nun die nächste Aufgabe. Wie heißt die erste Villa gleich links vom Markt?"
 local NPC_REPLY_EN = "Very good, now your next task. What is the name of the first villa left of the market?"
 
 function receiveText(npc, type, text, PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 100):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3077, 333, 1):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Frage sie nach 'Villa' um die Antwort zu bekommen.", "Answer the question to get more money and further questions. You may ask her about 'villa' in order to get the answer."):execute()
 end
 

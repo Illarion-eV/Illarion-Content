@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 97
 
 local NPC_TRIGGER_DE = "[Jjung|[Nn]obl|[Nn]obel"
 local NPC_TRIGGER_EN = "[Yy]oung|[Nn]oble"
-local NPC_REPLY_DE = "Genau, Zhambra erscheint oft als eine junger, nobler Krieger und hier ein Spiegel als Belohnung. F�r die n�chste Aufgabe geht in den Palast. Gefragt ist die Jahreszahl des Todes von Sir Reginald."
+local NPC_REPLY_DE = "Genau, Zhambra erscheint oft als eine junger, nobler Krieger und hier ein Spiegel als Belohnung. Für die nächste Aufgabe geht in den Palast. Gefragt ist die Jahreszahl des Todes von Sir Reginald."
 local NPC_REPLY_EN = "Exactly, Zhambra appears often as a young, noble warrior and here is a mirror as your reward. For your next task you have to go the palace and tell me the year of the death of Sir Reginald."
 
 function receiveText(npc, type, text, PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nun in den S�den in das Tollloch und betrachte den Grabstein dort.", "Go south to the Sport Hole. Examine the tombstones there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe nun in den Süden in das Tollloch und betrachte den Grabstein dort.", "Go south to the Sport Hole. Examine the tombstones there."):execute()
     handler.createplayeritem.createPlayerItem(PLAYER, 336, 333, 1):execute()
 end
 

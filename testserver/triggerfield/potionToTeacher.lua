@@ -39,8 +39,7 @@ function getTown(Item)
 end
 
 function PutItemOnField(Item,User)
-    
-	 -- is the char an alchemist?
+    -- is the char an alchemist?
 	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Mir ist nicht bekannt, dass Ihr ein Alchemist sein sollt. Nehmt Euer Zeug wieder weg.","I haven't heard you being an alchemist. Take your stuff from my table.")
 	if not anAlchemist then
 		return
@@ -67,12 +66,12 @@ function PutItemOnField(Item,User)
 					break
 				else
                     local dataCheck = true
-					for i=3,#ListTaskItem do
-                        if not (Item:getData(ListTaskItem[i][1]) == ListTaskItem[i][2]) then
+					for j=3,#ListTaskItem[i] do
+                        if not (Item:getData(ListTaskItem[i][j][1]) == ListTaskItem[i][j][2]) then
                             dataCheck = false
 							break
                         end
-                    end
+					end
 					if dataCheck == true then
 					    success = true
                         myListPos = i
@@ -97,24 +96,47 @@ function PutItemOnField(Item,User)
 			world:erase(Item,1)
 			myNPC:talkLanguage(Character.say,Player.german,"#me beginnt sorgsam und langsam die einzelnen Zutaten vorzubereiten und dann zu verarbeiten, darauf Acht gebend, dass keine Unbefugten es sehen können. \"So geht das richtig.\"")
 			myNPC:talkLanguage(Character.say,Player.english,"#me starts to prepare the ingredients carefully and slowly and then to worken them, while making sure that no unasked eyes have a look at it. \"So geht das richtig.\"")
+			TellRecipe(User,ListEffectId[myListPos])
 			User:setQuestProgress(ListEffectId[myListPos]+1000,1)
-			User:inform("Du bist jetzt in der Lage den Trank zu fertigen.","You are now able to create this potion.")
 		end	
 	end					
 end
 
---[[function TellRecipe(User, effectId)
+function TellRecipe(User, effectId)
     local ingredientList = alchemy.base.alchemy.getIngredients(effectId)
-	local titleEN = "Learned Recipe" 
-	local titleDE = "Erlerntes Rezept"
-	local potionLearnedEN = alchemy.base.alchemy.potionName[effectId][1]
-	local potionLearnedDE = alchemy.base.alchemy.potionName[effectId][2]
-	local stockEN = ""
-	local stockDE = ""
+	local recipeEN = "Potion:\n"..alchemy.base.alchemy.potionName[effectId][1].."\n\nComponents:\n\nStock:\n"
+	local recipeDE = "Trank:\n"..alchemy.base.alchemy.potionName[effectId][2].."\n\nKomponenten:\n\nSud:\n"
 	local dataZList = alchemy.base.alchemy.SplitData(User,ingredientList[2])
 	for i=1,8 do
-	    stockEN = stockEN.. 
-	
+	    recipeEN = recipeEN..alchemy.base.alchemy.wirkung_en[dataZList[i]].." "..alchemy.base.alchemy.wirkstoff[i].."\n"
+		recipeDE = recipeDE..alchemy.base.alchemy.wirkung_de[dataZList[i]].." "..alchemy.base.alchemy.wirkstoff[i].."\n"
+	end
+	recipeEN = recipeEN.."\nEssence brew based on "..world:getItemName(ingredientList[1],Player.english)..":\n"
+	recipeDE = recipeDE.."\nEssenzgebräu auf "..world:getItemName(ingredientList[1],Player.german).."basis:\n"
+    local success = false
+	for i=3,10 do
+	    if ingredientList[i] == false then
+		    break
+		else
+            success = true
+            recipeEN = recipeEN..world:getItemName(ingredientList[i],Player.english).."\n"
+ 			recipeDE = recipeDE..world:getItemName(ingredientList[i],Player.german).."\n"
+		end
+	end
+    if not success then
+        recipeEN = recipeEN.."No essecned herbs" 
+        recipeDE = recipeDE.."Keine essenzierten Kräuter"
+    end
 
-
-end]]
+    if recipeDE and recipeEN then 
+		-- message box for the results
+		local callback = function(dialog) end
+		if User:getPlayerLanguage() == 0 then
+			dialog = MessageDialog("Erlerntes Rezept", recipeDE, callback)
+		else
+			dialog = MessageDialog("Learned Recipe" , recipeEN, callback)
+		end
+		User:requestMessageDialog(dialog)
+	end	
+	    
+end

@@ -1,6 +1,7 @@
 -- called after every player login
 require("base.common")
 require("base.money")
+require("base.factions")
 require("content.dailymessage")
 require("npc.aldania_elthewan")
 require("scheduled.factionLeader")
@@ -24,11 +25,14 @@ function onLogin( player )
 	
 	end
 	
-	-- So let there be taxes!
-	payTaxes(player);
+	--Taxes (has to be redone by "someone")
+    if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes. Not on Noobia!
+	    -- So let there be taxes!
+	    payTaxes(player);
+	end
 
 	--Noobia handling
-	if (player.pos.z == 100) or (player.pos.z == 101) then --On Noobia
+	if (base.common.IsOnNoobia(player.pos)) then --On Noobia
 
 	    if not player:isAdmin() then --non admin chars need help!
 
@@ -61,7 +65,7 @@ function onLogin( player )
 
     end --Noobia end
 
-    if (player.pos.z ~= 100) and (player.pos.z~= 101) then --Not on Noobia, confuses noobs
+    if (not base.common.IsOnNoobia(player.pos)) then --Not on Noobia, confuses noobs
 
 		--Messages of the day
 		--German
@@ -113,7 +117,7 @@ function onLogin( player )
 		messageG[45]="[Tipp] Die besten Brauer leben in Galmair.";
 		messageG[46]="[Tipp] Die besten Fischer leben in Cadomyr.";
 		messageG[47]="[Tipp] Die besten Glasbläser leben in Cadomyr.";
-		messageG[48]="[Tipp] Die besten Gräber leben in Cadomyr.";
+		messageG[48]="[Tipp] Die besten Sandgräber leben in Cadomyr.";
 		messageG[49]="[Tipp] Die besten Kunstschmiede leben in Cadomyr.";
 		messageG[50]="[Tipp] Die besten Edelsteinschleifer leben in Cadomyr.";
 		messageG[51]="[Tipp] Jedes Reich ist auf bestimmte Handwerke spezialisiert. Wenn es das, was du benötigst, nicht auf dem örtlichen Markt gibt, wirst du wohl reisen müssen.";
@@ -182,7 +186,7 @@ function onLogin( player )
 		messageE[45]="[Hint] The best brewers are living in Galmair.";
 		messageE[46]="[Hint] The best fishers are living in Cadomyr.";
 		messageE[47]="[Hint] The best glass blowers are living in Cadomyr.";
-		messageE[48]="[Hint] The best diggers are living in Cadomyr.";
+		messageE[48]="[Hint] The best sand diggers are living in Cadomyr.";
 		messageE[49]="[Hint] The best finesmiths are living in Cadomyr.";
 		messageE[50]="[Hint] The best gem grinders are living in Cadomyr.";
 		messageE[51]="[Hint] Each realm specialises in certain crafts. If you can't find what you are looking for in your home market, you may need to travel abroad.";
@@ -264,13 +268,17 @@ function payNow(User)
 --Runewick = 102
 --Galmair = 103
 --Hemp Necktie Inn = 104 (not a faction!)
-
--- Use ENGLISH!!! ~Estralis
+     
+	 -- no memeber of any town
+	local town = base.factions.getMembershipByName(User)
+	if town == "" then
+	    return
+	end	
 
     taxHeight=0.05;  -- 5% taxes for testing purposes
-    -- *** DEPOT-LIST HAS TO BE CHANGED ACCORDING TO FACTION MEMBERSHIP! ***
-    depNr={101,104};
-    valDepot={0,0};
+    
+	depNr={101,102,103,104};
+    valDepot={0,0,0,0};
     for i=1,2 do
         valDepot[i]=base.money.DepotCoinsToMoney(User,depNr[i]);
     end
@@ -297,49 +305,23 @@ function payNow(User)
         base.money.TakeMoneyFromChar(User,tax);
     end
 
-    gp,sp,cp=base.money.MoneyToCoins(totTax)
-
-	if totTax >= 10000 then -- at least one gold coin
-
-	    estring=" "..gp.." gold coins, "..sp.." silver coins and "..cp.." copper coins";
-		gstring=" "..gp.." Goldstücke, "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
-
-    elseif totTax >= 100 then -- at least one silver coin
-
-		estring=" "..sp.." silver coins and "..cp.." copper coins";
-		gstring=" "..sp.." Silberstücke und "..cp.." Kupferstücke"; --what a name for a variable...
-
-	else -- just copper coins
-
-		estring=" "..cp.." copper coins";
-		gstring=" "..cp.." Kupferstücke"; --what a name for a variable...
-
-	end
+	gstring,estring=base.money.MoneyToString(totTax); --converting money to a string
     
 	local infText = base.common.GetNLS(User, 
-	                                   "Du hast deine monatliche Abgabe gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%", 
-	                                   "You have paid your monthly tribute. This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
+	                                   "Du hast deine monatliche Abgabe an "..town.." gezahlt. Diesen Monat waren es "..gstring..". Die Abgabenhöhe betrug "..(taxHeight*100).."%", 
+	                                   "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
+	local title = base.common.GetNLS(User,"Abgabenbenachrichtigung","Tribute information")
 	
-	local dialog=MessageDialog("Tribute information",infText,closeTrib);
-    --Please add the information to which town the tribute was paid ~Estralis
-	--German translation is missing
-
-    local closeTrib=function(onClose)
+	local dialog=MessageDialog(title,infText,closeTrib);
+    
+	local closeTrib=function(onClose)
     -- do nothing
     end
 
     User:requestMessageDialog(dialog);
-
-    -- *** TAX-VARIABLE HAS TO BE CHANGED ACCORDING TO FACTION MEMBERSHIP! ***
-    taxFound,taxTotal=ScriptVars:find("taxTotal");
-    if taxFound then
-        taxTotal=taxTotal+tax;
-        ScriptVars:set("taxTotal",taxTotal);
-		ScriptVars:save();
-    else
-        ScriptVars:set("taxTotal",tax);
-		ScriptVars:save();
-    end
+	
+	base.townTreasure.ChangeTownTreasure(town,tax)
+    
 end
 
 -- Function to exchange the faction leader of a town.

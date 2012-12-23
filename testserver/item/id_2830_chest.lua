@@ -6,7 +6,7 @@ require("base.treasure")
 module("item.id_2830_chest", package.seeall)
 
 function LookAtItem(User, Item)
-    local TreasureName = base.treasure.GetTreasureName( Item.data, User:getPlayerLanguage(), false );
+    local TreasureName = base.treasure.GetTreasureName(tonumber(Item:getData("trsCat")), User:getPlayerLanguage(), false );
     world:itemInform( User, Item, TreasureName );
 end
 

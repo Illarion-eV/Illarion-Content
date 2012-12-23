@@ -33,13 +33,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game help] This NPC is Zaida the Apprentice. To learn more about her, your should greet the NPC first."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game help] This NPC is Zaida the Apprentice. Keywords: Be greeted, Profession, Tavern."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist die Anwärterin Zaida. Um mehr über sie zu erfahren, grüße sie zunächst."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist die Anwärterin Zaida. Schlüsselwörter: Seid gegrüßt, Beruf, Taverne."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -964,7 +964,7 @@ talkEntry:addResponse("Echt?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Nur in Runewick kann man einer intelligenten Diskussion fröhnen. In Galmair wird man eher ausgeraubt und in Cadomyr haben sie nur Sand im Kopf.", "Only in Runewick it is possible to enjoy the delights of an intelligent discussion. In Galmair they are trying to rob you, and Cadomyrians have... sand for brains.");
-talkingNPC:addCycleText("#me blättert gedankenverloren in einem alten Buch. Sie starrt dabei auf ein leeres Weinglas, das leer erscheint.", "#me absently turns the page of an old journal, while glancing at a glass of wine that seems to be empty.");
+talkingNPC:addCycleText("#me blättert gedankenverloren in einem alten Buch. Sie starrt dabei auf ein Weinglas, das leer erscheint.", "#me absently turns the page of an old journal, while glancing at a glass of wine that seems to be empty.");
 talkingNPC:addCycleText("#me räuspert sich: 'Wirt, etwas mehr Wein, bitte... Wirt? Bei den Göttern!", "#me clears her throat: 'Innkeeper, more wine, please... Innkeeper? Gods.'");
 talkingNPC:addCycleText("#me ist eine junge Dame, gekleidet in der Tracht einer angehenden Magierin. Ihre Kleidung trägt das Wappen Runewicks. 'Ich weiß alles über Runewick.' murmelt sie vor sich hin.", "#me is a young woman, wearing the attire of an aspiring mage. Her clothes bear the colours of Runewick. 'I know everything about Runewick', she mutters.");
 talkingNPC:addCycleText("#me tippt mit ihren langen Fingernägeln gegen ihr leeres Glas, ein hohles, klirrendes Geräusch ist zu vernehmen.", "#me absently taps on the side of her empty glass with her long fingernail, causing a faint, hollow sound to be heard.");

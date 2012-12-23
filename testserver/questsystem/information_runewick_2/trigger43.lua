@@ -7,7 +7,7 @@ local POSTCONDITION_QUESTSTATE = 222
 
 local NPC_TRIGGER_DE = "[Dd]rache"
 local NPC_TRIGGER_EN = "[Dd]ragon"
-local NPC_REPLY_DE = "Ihr kommt euren Preis n‰her. Wem zu Ehren wurde die Statue beim 'Feiglings letztes Gefecht' errichtet?"
+local NPC_REPLY_DE = "Ihr kommt euren Preis n√§her. Wem zu Ehren wurde die Statue beim 'Feiglings letztes Gefecht' errichtet?"
 local NPC_REPLY_EN = "You are coming your reward closer. To whom refers the statue at 'Cowards last stand'?"
 
 function receiveText(npc, type, text, PLAYER)

@@ -1720,3 +1720,13 @@ function GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
   end
   return nil, nil;
 end
+
+-- Checks if a given position is located on the tutorial island Noobia.
+-- @param posStruct Pos  The position to check.
+-- @return bool  True if position is located on Noobia, false otherwise.
+function IsOnNoobia(Pos)
+  if (Pos.z == 100) then
+    return true;
+  end
+  return false;
+end

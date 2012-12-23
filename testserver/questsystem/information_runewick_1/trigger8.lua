@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 46
 
 local NPC_TRIGGER_DE = "[Ee]lara"
 local NPC_TRIGGER_EN = "[Ee]lara"
-local NPC_REPLY_DE = "Richtig. Nun eine Frage zu unseren Gegnern. Welche Fraktion wird von K�nigin Rosaline Edwards beherrscht?"
+local NPC_REPLY_DE = "Richtig. Nun eine Frage zu unseren Gegnern. Welche Fraktion wird von Königin Rosaline Edwards beherrscht?"
 local NPC_REPLY_EN = "Right. Now, a question about our enemies. Which faction is ruled by Queen Rosaline Edwards?"
 
 function receiveText(npc, type, text, PLAYER)
@@ -54,7 +54,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createplayeritem.createPlayerItem(PLAYER, 3076, 333, 100):execute()
+    handler.createplayeritem.createPlayerItem(PLAYER, 3077, 333, 1):execute()
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Beantworte die gestellte Frage um mehr Geld und weitere Fragen zu erhalten. Hinweis: Frage sie nach der Königin.", "Answer the question to get more money and further questions. Hint: Ask her about the Queen."):execute()
 end
 

@@ -9,19 +9,19 @@ module("item.id_235_goldring", package.seeall, package.seeall(content.jewelbonus
 function LookAtItem(User,Item)
 
     --------------------------------- SPIELERRINGE [ Data 100 - 500 ] --------------------------------------------------------------------------------
-    if ( Item.data == 101) then -- Trauring von Roveig
+    if ( tonumber(Item:getData("ringData")) == 101) then -- Trauring von Roveig
         if (User:getPlayerLanguage()==0) then
             world:itemInform(User,Item,"Goldener Trauring mit der Gravur: Katarine und Roveig, 7.Tag des Eldas im 23.Jahr")
         else
             world:itemInform(User,Item,"golden wedding ring with the gravure: Katarine and Roveig, 7.Day of Eldas in the 23.Year")
         end
-    elseif ( Item.data == 102) then -- Trauring von Katarine
+    elseif ( tonumber(Item:getData("ringData")) == 102) then -- Trauring von Katarine
         if (User:getPlayerLanguage()==0) then
             world:itemInform(User,Item,"Goldener Trauring mit der Gravur: Roveig und Katarine, 7.Tag des Eldas im 23.Jahr")
         else
             world:itemInform(User,Item,"golden wedding ring with the gravure: Roveig and Katarine, 7.Day of Eldas in the 23.Year")
         end
-	elseif ( Item.data == 103) then -- Dajmail's Ring
+	elseif ( tonumber(Item:getData("ringData")) == 103) then -- Dajmail's Ring
         if (User:getPlayerLanguage()==0) then
             world:itemInform(User,Item,"Goldener Ring mit der Gravur: Dajmail und Nordwind")
         else
@@ -29,19 +29,19 @@ function LookAtItem(User,Item)
         end
 
         -------------------------------- QUESTRINGE [ Data > 500 ] ------------------------------------------------------------------------------------
-    elseif ( Item.data == 666) then  -- Ring der Akademie
+    elseif ( tonumber(Item:getData("ringData")) == 666) then  -- Ring der Akademie
         if (User:getPlayerLanguage()==0) then
             world:itemInform(User,Item,"Ring mit dem Wappen der magischen Akademie Gobaiths");
         else
             world:itemInform(User,Item,"ring with the emblem of the magical academy of Gobaith");
         end
-    elseif ( Item.data == 10000) then  -- Ring der Akademie
+    elseif ( tonumber(Item:getData("ringData")) == 10000) then  -- Ring der Akademie
         if (User:getPlayerLanguage()==0) then
             world:itemInform(User,Item,"Auffälliger Ring");
         else
             world:itemInform(User,Item,"peculiar ring");
         end
-    elseif (Item.data == 804) then -- Questitem  (Give the crown)
+    elseif (tonumber(Item:getData("ringData")) == 804) then -- Questitem  (Give the crown)
         if (User:isAdmin()) then -- nur für gm
                 world:itemInform(User,Item,"Give the crown! (Krone erscheint auf 370, 134, -10)");
         end
@@ -60,25 +60,25 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
             takeBonus(User,SourceItem,stoneNr,stoneStr);                -- now lower corresponding attribute(s) and remove/change LTE
         end
     else
-        if ( TargetItem:getType() == 4 and (TargetItem.itempos == 7 or TargetItem.itempos == 8) and TargetItem.data == 100 ) then
+        if ( TargetItem:getType() == 4 and (TargetItem.itempos == 7 or TargetItem.itempos == 8) and tonumber(TargetItem:getData("ringData")) == 100 ) then
             --unsichtbarkeitseffekt hinzufuegen
             User.effects:addEffect( LongTimeEffect(11,10) );
             --ablegen des einen rings
-        elseif ( TargetItem.data == 100 ) then
+        elseif ( tonumber(TargetItem:getData("ringData")) == 100 ) then
             fnd, eff = User.effects:find( 11 );
             if ( fnd ) then
                 User.effects:removeEffect( 11 );
             end
             -- Trauring von Roveig und Katarine
-        elseif ( TargetItem:getType() == 4 and (TargetItem.itempos == 7 or TargetItem.itempos == 8) and (TargetItem.data == 101
-            or TargetItem.data == 102) and (User.id==479308490 or User.id==975152582) ) then
+        elseif ( TargetItem:getType() == 4 and (TargetItem.itempos == 7 or TargetItem.itempos == 8) and (tonumber(TargetItem:getData("ringData")) == 101
+            or tonumber(TargetItem:getData("ringData")) == 102) and (User.id==479308490 or User.id==975152582) ) then
                 User:inform("Als du den Ring anlegst, überkommt Dich ein wohliges Gefühl.");
 		end
 	end
 end
 
 function MoveItemBeforeMove( Character, SourceItem, TargetItem)
-	if ( SourceItem.data == 666 ) then
+	if ( tonumber(SourceItem:getData("ringData")) == 666 ) then
 		if ( (TargetItem.itempos == 7) or (TargetItem.itempos == 8) ) then -- Wenn versucht wird den Ring anzulegen.
 			if ((Character:increaseAttrib("essence",0)+Character:increaseAttrib("willpower",0)+Character:increaseAttrib("intelligence",0))>29) then
 				return true;
@@ -87,7 +87,7 @@ function MoveItemBeforeMove( Character, SourceItem, TargetItem)
 				return false;
 			end
 		end
-	elseif ( SourceItem.data == 700 ) then
+	elseif ( tonumber(SourceItem:getData("ringData")) == 700 ) then
 		if ( (TargetItem.itempos == 7) or (TargetItem.itempos == 8) ) then -- Wenn versucht wird den Ring anzulegen.
 			if ( Character.id == 489898022) then
 				return true;
@@ -113,7 +113,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	-----------------------------------------
 	-- Teleportringe
 	-----------------------------------------
-	if (SourceItem.data == 666 ) then    -- Ring der Akademie
+	if (tonumber(SourceItem:getData("ringData")) == 666 ) then    -- Ring der Akademie
 		if ( (SourceItem.itempos == 7) or (SourceItem.itempos == 8) )   	-- am Finger getragen?
 		and (User.activeLanguage == 10) 		-- Ancient aktiv?
 		and ( string.find( User.lastSpokenText, "[Hh][Oo][Nn][Ii][Gg][Kk][Uu][Cc][Hh][Ee][Nn][Pp][Ff][Ee][Rr][Dd]" ) ~= nil ) then  -- Losung ok?
@@ -141,7 +141,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 			User:talkLanguage( Character.say, Player.english, "#me spins the small goldring on "..eText.." finger, but nothing happens.");
 		end
 	end
-	if ( SourceItem.data == 100 ) then
+	if ( tonumber(SourceItem:getData("ringData")) == 100 ) then
 		if ( FrontItem ~= nil and (FrontItem.id == 12 or FrontItem.id == 119 or FrontItem.id == 120 or FrontItem.id == 268 or FrontItem.id == 269 or FrontItem.id == 304 or FrontItem.id == 305 or FrontItem.id == 313 or FrontItem.id == 359) ) then
 			User:inform("you can read on the ring: Ash nazg durbatuluk, Ash nazg gimbatul, Ash nazg thrakatuluk, Agh burzum-ishi krimpatul.");
 		end
@@ -150,7 +150,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	---------------------------------------------------------------
 	-- Questring (Rilduran-quest)
 	---------------------------------------------------------------
-	if (SourceItem.data == 800) then
+	if (tonumber(SourceItem:getData("ringData")) == 800) then
 		if ( (User:isAdmin())  or (User.id==923280786) ) then -- nur für gm!!
 			if ( string.find( User.lastSpokenText, "[Aa][Ss][Tt][Rr][Aa][Ll]" ) ~= nil ) then
 				User:talkLanguage( Character.say, Player.german, "#me's Konturen scheinen für einen kurzen Augenblick zu flimmern, bevor sich seine Gestalt vollständig auflöst.");
@@ -171,12 +171,12 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	-- Questring (Drachen-quest)
 	-----------------------------------------------------------------
 	if (User:isAdmin()) then -- nur für gm!!
-		if (SourceItem.data == 801) then
+		if (tonumber(SourceItem:getData("ringData")) == 801) then
 			if (User:getRace() == 33) then
 				FireBreath(User);
 			end
 		end
-		if (SourceItem.data == 803) then
+		if (tonumber(SourceItem:getData("ringData")) == 803) then
 			if (User:getRace() == 53) then
 				IceBreath(User);
 			end
@@ -186,7 +186,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	-------------------------------------------------------------------
 	-- Questring (Ritual)
 	------------------------------------------------------------------
-	if (SourceItem.data == 802) then
+	if (tonumber(SourceItem:getData("ringData")) == 802) then
 		if (User:isAdmin()) then -- nur für gm!!
 			if ( string.find( User.lastSpokenText, "Stufe1" ) ~= nil ) then
 				world:gfx(37,position(50,-328,-23));	-- wasser
@@ -241,7 +241,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
 	------------------------------------------------------------------
 	-- Questring (Give the crown)
 	------------------------------------------------------------------
-	if (SourceItem.data == 804) then
+	if (tonumber(SourceItem:getData("ringData")) == 804) then
 		if (User:isAdmin()) then -- nur für gm!!
 			world:gfx(7,position(370,134, -10));    -- wind
 			world:gfx(7,position(371,134, -10));    -- wind

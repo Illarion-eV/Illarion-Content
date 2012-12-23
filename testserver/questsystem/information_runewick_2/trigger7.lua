@@ -13,7 +13,7 @@ function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-    --informNLS(PLAYER, TEXT_DE, TEXT_EN)
+    PLAYER:inform(TEXT_DE, TEXT_EN)
     
     HANDLER(PLAYER)
     
@@ -24,20 +24,13 @@ function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
   return false
 end
 
-function informNLS(player, textDe, textEn)
-  if player:getPlayerLanguage() == Player.german then
-    player:inform(player, item, textDe)
-  else
-    player:inform(player, item, textEn)
-  end
-end
 
 -- local TEXT_DE = TEXT -- German Use Text -- Deutscher Text beim Benutzen
 -- local TEXT_EN = TEXT -- English Use Text -- Englischer Text beim Benutzen
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Auf der Pergamentrolle ist das Wort 'Eibental' zulesen. Es scheint nun Zeit zurück zu Numila zu gehen und ihr das genannte Wort zu nennen.", "The word 'Yewdale' appears on the pell. It seems to be time to go back to Numila now and to tell her the noted word."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Auf der Pergamentrolle ist das Wort 'Eibental' zulesen. Es scheint nun Zeit zurÃ¼ck zu Numila zu gehen und ihr das genannte Wort zu nennen.", "The word 'Yewdale' appears on the pell. It seems to be time to go back to Numila now and to tell her the noted word."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

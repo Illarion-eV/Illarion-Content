@@ -147,7 +147,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
             User:requestInputDialog(InputDialog("Set rank points", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
           end
         end
-        local infoText = "Town: " .. base.factions.getMemberShipByName(chosenPlayer);
+        local infoText = "Town: " .. base.factions.getMembershipByName(chosenPlayer);
         infoText = infoText .. "\nChanged towns already (town count): " .. faction.towncnt;
         if (base.factions.townRanks[faction.tid] ~= nil and base.factions.townRanks[faction.tid][faction.rankTown] ~= nil) then
           infoText = infoText .. "\nRank: " .. base.factions.townRanks[faction.tid][faction.rankTown].eRank .. "/" .. base.factions.townRanks[faction.tid][faction.rankTown].gRank;
@@ -179,7 +179,11 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
         end
         local firstFaction = factionIds[dialog:getSelectedIndex()+1];
         local guards = npc.base.guards_static;
-        local modeStrings = {"none", "passive", "hostile", "aggressive"};
+        local modeStrings = {};
+        modeStrings[guards.ACTION_NONE] = "none";
+        modeStrings[guards.ACTION_PASSIVE] = "passive";
+        modeStrings[guards.ACTION_HOSTILE] = "hostile";
+        modeStrings[guards.ACTION_AGGRESSIVE] = "aggressive";
         local modeValues = {guards.ACTION_NONE, guards.ACTION_PASSIVE, guards.ACTION_HOSTILE, guards.ACTION_AGGRESSIVE};
         local cbSecondFaction = function (dialog)
           if (not dialog:getSuccess()) then
@@ -194,14 +198,16 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
             guards.SetMode(firstFaction, secondFaction, mode);
           end
           local sd = SelectionDialog("Set guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to " .. base.factions.getTownNameByID(secondFaction) .. " to ...", cbSetMode);
-          for _,m in ipairs(modeStrings) do 
-            sd:addOption(0,m);
+          for _,m in ipairs(modeValues) do 
+            sd:addOption(0,modeStrings[m]);
           end
+          User:requestSelectionDialog(sd);
         end
         local sd = SelectionDialog("Guard modes", "Set guard modes of " .. base.factions.getTownNameByID(firstFaction) .. " with respect to ...", cbSecondFaction);
         for _,f in ipairs(factionIds) do 
-          sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. guards.GetModeByFaction(firstFaction, f));
+          sd:addOption(0,base.factions.getTownNameByID(f) .. ": " .. modeStrings[guards.GetModeByFaction(firstFaction, f)]);
         end
+        User:requestSelectionDialog(sd);
       end
       local sd = SelectionDialog(possibilities[ind+1], "For which faction do you want to get/set values?", cbFirstFaction);
       for _,f in ipairs(factionIds) do 

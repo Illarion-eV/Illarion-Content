@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 158
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Ich sehe den Rauch. Daf�r gibt es noch einen Ring. Nun, n�chste Aufgabe: Erg�nze: Eine Abmachung mit dem Don, ist eine mit deinem ??? Die Antwortet findest du an einer S�ule unten in der Schlackengrube."
+local NPC_REPLY_DE = "Ich sehe den Rauch. Dafür gibt es noch einen Ring. Nun, nächste Aufgabe: Ergänze: Eine Abmachung mit dem Don, ist eine mit deinem ??? Die Antwortet findest du an einer Säule unten in der Schlackengrube."
 local NPC_REPLY_EN = "I see the smoke, fine. There you have another ring. Now, next task.  Complete: A deal with the Don is a deal with your ??? The answer can be found down in the Scoria Mine."
 
 function receiveText(npc, type, text, PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 278, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe hinunter in die Schlackengrube und finde die S�ule mit dem fehlenden Wort.", "Go down into the Scoria Mine and find the column with the missing word."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe hinunter in die Schlackengrube und finde die Säule mit dem fehlenden Wort.", "Go down into the Scoria Mine and find the column with the missing word."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

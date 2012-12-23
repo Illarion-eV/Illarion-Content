@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Bringe eine Pergamentrolle. Frage deinen Schreiner oder Händler deiner Wahl um Hilfe.", "Bring a pell. Ask a carpenter or trader of choice for help."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Bringe eine Pergamentrolle. Frage deinen Schreiner oder HÃ¤ndler deiner Wahl um Hilfe.", "Bring a pell. Ask a carpenter or trader of choice for help."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

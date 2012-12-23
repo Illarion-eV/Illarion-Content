@@ -9,7 +9,7 @@ local POSTCONDITION_QUESTSTATE = 66
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Ich hoffe ihr habt die Audienz genossen. Hier ein Ring zur Erinnerung an diese Begegnung mit ihm. Die n�chste Aufgabe findet ihr unter einem der St�hle am Dach des Turm der Erde."
+local NPC_REPLY_DE = "Ich hoffe ihr habt die Audienz genossen. Hier ein Ring zur Erinnerung an diese Begegnung mit ihm. Die nächste Aufgabe findet ihr unter einem der Stühle am Dach des Turm der Erde."
 local NPC_REPLY_EN = "I hope you enjoyed the audience. Here a ring in memory of this meeting with him. You can find your next task under one of the chairs on the top of the Tower of Earth."
 
 function receiveText(npc, type, text, PLAYER)
@@ -55,7 +55,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 281, 333, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe auf das Dach des Turm der Erde und untersuche die St�hle dort.", "Go to the top of the Tower of Earth and examine the chairs there."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Gehe auf das Dach des Turm der Erde und untersuche die Stühle dort.", "Go to the top of the Tower of Earth and examine the chairs there."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

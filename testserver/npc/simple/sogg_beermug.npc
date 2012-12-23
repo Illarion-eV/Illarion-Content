@@ -2,8 +2,8 @@
 -- NPC Name: Sogg Beermug                                             Galmair --
 -- NPC Job:  Trader                                                           --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  374, 249, 0            --
--- NPC Sex:  male                       NPC Direction: west                   --
+-- NPC Race: orc                        NPC Position:  353, 276, 0            --
+-- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                       easyNPC Parser v1.21 --
@@ -12,8 +12,8 @@
 name = "Sogg Beermug"
 race = orc
 sex = male
-position = 374, 249, 0
-direction = west
+position = 353, 276, 0
+direction = north
 affiliation = "Galmair"
 job = "Trader"
 
@@ -44,8 +44,8 @@ itemShoes = 369
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 58, 164, 1008, 51, 227, 1909, 1908
-buyPrimaryItems = 58, 164, 1008, 51, 227, 1909, 1908
+sellItems = 58, 164, 51, 227, 1909, 1908
+buyPrimaryItems = 58, 164, 51, 227, 1909, 1908
 tradeNotEnoughMoneyMsg "Du kannst dir das nicht leisten!", "You can't afford that!"
 tradeFinishedMsg "Vielen Dank, komm bald wieder!", "Thank you, come again!"
 tradeFinishedWithoutTradingMsg "Farebaaaa...!", "Farebaaaa...!"

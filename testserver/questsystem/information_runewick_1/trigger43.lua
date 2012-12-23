@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 79
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Ab in den Garten. Dort sind vier S�ulen mit Elementen. Welches ist auf der linken S�ule?"
+local NPC_REPLY_DE = "Ab in den Garten. Dort sind vier Säulen mit Elementen. Welches ist auf der linken Säule?"
 local NPC_REPLY_EN = "Go to the garden and tell me name of the element on the left column there."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Garten nun - nehmt das rote Portal in der Stadt. Am hinteren Ende findest du die S�ulen.", "Go to the garden now - use the red portal in the town. You find the columns at the end of the garden."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zum Garten nun - nehmt das rote Portal in der Stadt. Am hinteren Ende findest du die Säulen.", "Go to the garden now - use the red portal in the town. You find the columns at the end of the garden."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

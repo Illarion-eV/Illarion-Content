@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 287
 
 local NPC_TRIGGER_DE = "."
 local NPC_TRIGGER_EN = "."
-local NPC_REPLY_DE = "Ich kann mich nicht beschweren, sehr gut! Ich habe nun keine Aufgaben mehr für euch, aber wenn ihr Informationen bezüglich Plätze benötigt, so stellt eure Fragen. Für eure Belohnung geht zum Erzmagier und sagt ihm folgenden Namen."
+local NPC_REPLY_DE = "Ich kann mich nicht beschweren, sehr gut! Ich habe nun keine Aufgaben mehr fÃ¼r euch, aber wenn ihr Informationen bezÃ¼glich PlÃ¤tze benÃ¶tigt, so stellt eure Fragen. FÃ¼r eure Belohnung geht zum Erzmagier und sagt ihm folgenden Namen."
 local NPC_REPLY_EN = "I cannot complain, very good! I do not have any further rewards for you, but if you want to have more information about places, please ask. To get your reward go to the Archmage and tell him following name."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Numila steckt dir noch ein Papier zu auf welchem du 'Mordak al Kharud' lesen kannst. Sekunden später löst sich das Stück in Staub auf.", "Numila hands you a piece of paper. You read 'Mordak al Kharud' and seconds later the paper turns to dust."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Numila steckt dir noch ein Papier zu auf welchem du 'Mordak al Kharud' lesen kannst. Sekunden spÃ¤ter lÃ¶st sich das StÃ¼ck in Staub auf.", "Numila hands you a piece of paper. You read 'Mordak al Kharud' and seconds later the paper turns to dust."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

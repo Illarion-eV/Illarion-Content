@@ -89,8 +89,8 @@ english, "inform" -> inform("[Keywords] building, locations, event, people, hist
 "Frage", "Auskunft" -> inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter"), "Ich habe Informationen über Gebäude, Orte, Ereignissse, Leute, Geschichte und Götter von Cadomyr geben. Frag einfach!"
 "building" -> inform("[Keywords] Palace, Tavern Unicorn Lion, Inn Lakeshore, Town wall, Villa, Quartermaster Store, Flat quarter, Sir Reginald Tomb, market, library, temple, census office, teleport, donkey stable"), "We have following buildingsss: Palace, Tavern Unicorn Lion, Inn Lakeshore, Town wall, Villa, Quartermaster's Store, Flat quarter and Sir Reginald Tomb. We have alssso a market, library, temple, census office, teleport and donkey stable."
 "Gebäude" -> inform("[Schlüsselwörter] Palast, Taverne Einhörniger Löwe, Gasthaus Seeufer, Stadtmauer, Villa, Quartiermeister Laden, Wohnungsquartier, Sir Reginald Gruft, Markt, Bibliothek, Tempel, Zensusbüro, Teleporter, Eselstall"), "Wir haben folgende Gebäude: Palast, Taverne Einhörniger Löwe, Gasthaus Seeufer, Stadtmauer, Villa, Quartiermeister Laden, Wohnungsquartier und Sir Reginald Gruft, sowie Markt, Bibliothek, Tempel, Zensusbüro, Teleporter und Eselstall."
-"location" -> inform("[Keywords] Ruzusss"), "If you like to know anything about locationsss outssside, like Katanbi Desert, Western Katanbi Desert, Katanbi Delta, Tir Draganfod or Shadowland just asssk Ruzusss behind the towngate."
-"Ort" -> inform("[Schlüsselwort] Ruzusss"), "Wenn du etwas über die Orte außerhalb wie Katanbi Wüste, Westliche Katanbi Wüste, Katanbi Delta, Tir Draganfod oder Schattenland wisssen möchtessst, dann frage Ruzusss hinter dem Stadttor."
+"location" -> inform("[Keywords] Ruzusss"), "If you like to know anything about locationsss outssside, like Katanbi Desert, Western Katanbi Desert, Katanbi Delta, Illarion or Shadowland just asssk Ruzusss behind the towngate."
+"Ort" -> inform("[Schlüsselwort] Ruzusss"), "Wenn du etwas über die Orte außerhalb wie Katanbi Wüste, Westliche Katanbi Wüste, Katanbi Delta, Illarion oder Schattenland wisssen möchtessst, dann frage Ruzusss hinter dem Stadttor."
 queststatus(640) < 1, english, "Ruzusss" -> inform("[New Quest] Try to find Ruzusss and get your reward."), "You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the North.*", queststatus(640) = 1
 queststatus(640) < 1, "Ruzusss" -> inform("[Neues Quest] Finde Ruzusss und erhalte deine Belohnung."), "Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt auf das Stadttor im Norden.*", queststatus(640) = 1
 english, "Ruzusss" -> "You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the North.*"
@@ -154,12 +154,7 @@ english, "Villa" -> inform("[Keywords] Villa Edward, Villa Rosaline, Villa Regin
 -- "Guild" -> ""
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
--- "quest", "mission", english -> "I have no task for you, but we can play a game!"
--- "quest", "mission" -> "Ich habe keine Aufgabe für dich, aber wir können ein Ssspiel ssspielen!"
--- "task", "adventure", "order" -> "I have no task for you, but we can play a game!"
--- "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe für dich, aber wir können ein Ssspiel ssspielen!"
--- "game" -> "You like to play my quiz-game with me? Sss, let me think...((quest in progress))"
--- "spiel" -> "Du willssst mein Quiz-Ssspiel mit mir ssspielen? Sss, lasss mich denken...(()quest in arbeit))"
+-- quest information_cadomyr_1.quest belongs to this NPC: Quest-ID.: 641
 
 -- Faction stuff
 "faction" -> "There are three factions: Our faction Cadomyr, ruled by our brave Queen Rosaline Edwards. Then the two cowardly factions of Galmair and Runewick, ruled by Don Valerio Guilianni and Archmage Elvaine Morgan."
@@ -222,14 +217,6 @@ english, "Ushara" -> "One of the elder gods, but we do not care about this god h
 "Ushara" -> "Eine der alten Götter, aber wir kümmern uns hier nicht um diese Gottheit. Daher verschwende besser deine Zeit nicht mit dieser Gottheit."
 english, "Zhambra" -> "The followers of Zhambra are righteous and loyal ones who believe in honour and law. They often try to rescue others, and fight against the evil. Zhambra is worshipped by nobles and knights, paladins, and many soldiers."
 "Zhambra" -> "Die Anhänger Zhambras sind geradlinig und ergebene Gefolgsleute, die an Ehre und Recht glauben. Sie versuchen häufig, Andere zu retten und stehen im Kampf gegen das Böse. Zhambra wird gehuldigt von Adligen, Rittern, Höflingen und von vielen Kriegern."
-
--- Optional: Main land factions
--- "albar", english -> "I have never heard that name.."
--- "albar" -> "Ich habe diesssen Namen nie gehört."
--- "gynk", "gync", english -> "I have never heard that name."
--- "gync", "gynk" -> "Ich habe diesssen Namen nie gehört."
--- "salkama", english -> "I have never heard that name."
--- "salkama" ->"Ich habe diesssen Namen nie gehört."
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "I have never heard that name."

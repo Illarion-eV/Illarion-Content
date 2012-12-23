@@ -2,7 +2,7 @@
 -- NPC Name: Advari Stonebog                                          Galmair --
 -- NPC Job:  Trader                                                           --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  361, 251, 0            --
+-- NPC Race: dwarf                      NPC Position:  361, 266, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 361, 251, 0, 4, 'Advari Stonebog', 'npc.advari_stonebog', 0, 1, 1, 189, 182, 164, 217, 154, 123);
+VALUES (1, 361, 266, 0, 4, 'Advari Stonebog', 'npc.advari_stonebog', 0, 1, 1, 189, 182, 164, 217, 154, 123);
 ---]]
 
 require("npc.base.basic")
@@ -696,7 +696,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(151,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(199,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(302,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(388,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(330,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2502,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(259,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(291,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(534,"sell"));

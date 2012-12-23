@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 90
 
 local POSITION = position(905, 824, 2)
 local RADIUS = 8
-local LOOKAT_TEXT_DE = "Eine gro�e, alterslose Frau hebt ihren Finger als g�be sie einen Rat. In ihrer anderen Hand h�lt sie einige B�cher und Schriftrollen."
+local LOOKAT_TEXT_DE = "Eine große, alterslose Frau hebt ihren Finger als gäbe sie einen Rat. In ihrer anderen Hand hält sie einige Bücher und Schriftrollen."
 local LOOKAT_TEXT_EN = "A tall and ageless woman rises one of her fingers as she has to mention her advice. In her other hand she holds some books and scrolls."
 
 function LookAtItem(PLAYER, item)
@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zur�ck zu Elsil und teile ihr mit wie alt die Frau die die Statue symbolisiert wirkt.", "Go to Elesil and tell her the age of the woman, symbolised by the statue."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Elsil und teile ihr mit wie alt die Frau die die Statue symbolisiert wirkt.", "Go to Elesil and tell her the age of the woman, symbolised by the statue."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 107
 
 local NPC_TRIGGER_DE = "cheat"
 local NPC_TRIGGER_EN = "cheat"
-local NPC_REPLY_DE = "W�hrend du im Buch liest, f�llt dir eine Notiz auf: 'Gut, auch dieses hast du gefunden. Komm zur�ck nun. Elesil'."
+local NPC_REPLY_DE = "Während du im Buch liest, fällt dir eine Notiz auf: 'Gut, auch dieses hast du gefunden. Komm zurück nun. Elesil'."
 local NPC_REPLY_EN = "While you are reading the book you see a note: 'Good, you found that too. Come back now. Elesil'."
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "W�hrend du im Buch liest, f�llt dir eine Notiz auf: 'Gut, auch dieses hast du gefunden. Komm zur�ck nun. Frizza'.", "While you are reading the book you see a note: 'Good, you found that too. Come back now. Frizza'."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Während du im Buch liest, fällt dir eine Notiz auf: 'Gut, auch dieses hast du gefunden. Komm zurück nun. Frizza'.", "While you are reading the book you see a note: 'Good, you found that too. Come back now. Frizza'."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

@@ -15,33 +15,53 @@ ACTION_AGGRESSIVE = 3;	-- attack (TO DO)
 function CheckForEnemies(guard)
 
 	-- check for hostile monsters
-  debug("guard id: " .. guard.id);
 	local monsterList = world:getMonstersInRangeOf(guard.pos, content.guards.Guards[guard.name].radius);
+  local warpedMonster = false;
 	for i,mon in pairs(monsterList) do
     if (content.areas.PointInArea(mon.pos,content.guards.Guards[guard.name].areaName)) then
       if ( not base.common.IsMonsterDocile(mon:getMonsterType()) ) then
-        -- kill them and get help
-        -- but warp for now
+        -- TODO call help
+        -- for now only warp
+        warpedMonster = true;
         Warp(guard, mon);
       end
     end
 	end
+  if (warpedMonster) then
+    guard:talkLanguage(Character.say, Player.german, "Weg mit dir, widerliche Kreatur!");
+    guard:talkLanguage(Character.say, Player.english, "Go away, nasty creature!");
+  end
 
 	-- check for player characters
 	local charList = world:getPlayersInRangeOf(guard.pos, content.guards.Guards[guard.name].radius);
+  local warpedPlayers = false;
+  local hittedPlayers = false;
 	for i,char in pairs(charList) do
     if (content.areas.PointInArea(char.pos,content.guards.Guards[guard.name].areaName)) then
       local mode = GetMode(char, content.guards.Guards[guard.name].faction);
       if (mode == ACTION_AGGRESSIVE) then
         -- spawn monster guards
-        -- for now: just warp
+        -- TODO
+        -- for now: just hit and warp
+        local hitValue = -1000;
+        char:increaseAttrib("hitpoints", hitValue);
+        hittedPlayers = true;
+        warpedPlayers = true;
         Warp(guard, char);
       elseif (mode == ACTION_HOSTILE or (mode == ACTION_PASSIVE and char.attackmode)) then
         -- warp
+        warpedPlayers = true;
         Warp(guard, char);
       end
     end
 	end
+  if (warpedPlayers) then
+    guard:talkLanguage(Character.say, Player.german, "Pass bloß auf! Wir brauchen hier kein Gesindel.");
+    guard:talkLanguage(Character.say, Player.english, "You'd better watch out! We don't need such lowlifes here.");
+  end
+  if (hittedPlayers) then
+    world:makeSound(3, guard.pos);
+  end
 end
 
 --- get the mode for this faction depending on the char's faction
@@ -120,76 +140,6 @@ function Warp(guard, char)
 		"You've just been expelled from the town by a guard.");
 end
 
---- checks if an admin wants to change the guard mode. Should be called in receiveText.
--- @param guard The guard character struct
--- @param speaker The speaker character struct
--- @param message The message that the guard received
-function CheckAdminCommand(guard, speaker, message)
-	if guard.id == speaker.id then
-		return;
-	end
-	--if not speaker:isAdmin() then
-		--return;
-	--end
-	if speaker:distanceMetric(guard) > 2 then
-		return;
-	end
-	local msg = string.lower(message);
-	if string.find(msg, "set .*mode") or string.find(msg, "check .*mode") then
-		local faction = -1;
-		local factionString = {};
-		factionString[0] = "outcast";
-		factionString[1] = "cadomyr";
-		factionString[2] = "runewick";
-		factionString[3] = "galmair";
-		for i,s in pairs(factionString) do
-			if string.find(msg, s) then
-				faction = i;
-			end
-		end
-		if faction == -1 then
-			speaker:inform("[Guard Help] no proper faction found. Try cadomyr, galmair, runewick or outcast.",Player.mediumPriority);
-			return;
-		end
-		
-		local mode = -1;
-		local modeString = {};
-		modeString[ACTION_NONE] = "none";
-		modeString[ACTION_PASSIVE] = "passive";
-		modeString[ACTION_HOSTILE] = "hostile";
-		modeString[ACTION_AGGRESSIVE] = "aggressive";
-		-- just print the mode if the admin wants to check a mode
-		if string.find(msg, "check .*mode") then
-			local mode = GetModeByFaction(content.guards.Guards[guard.name].faction,faction);
-			speaker:inform("[Guard Help] Current mode for ".. factionString[faction] ..": ".. modeString[mode],Player.mediumPriority);
-			return;
-		end
-		
-		for i,s in pairs(modeString) do
-			if string.find(msg, s) then
-				mode = i;
-			end
-		end
-		if mode == -1 then
-			speaker:inform("[Guard Help] No proper mode found. Try none, passive, hostile or aggressive.",Player.mediumPriority);
-			return;
-		else
-		end
-		SetMode(content.guards.Guards[guard.name].faction, faction, mode);
-		speaker:inform("[Guard Help] Mode for ".. factionString[faction] .." set to ".. modeString[mode],Player.mediumPriority);
-	elseif string.find(msg, "help") then
-		speaker:inform("[Guard Help] You can set the mode for the guards by: set mode <faction> <mode>",Player.mediumPriority);
-	end
-end
-
-function ReceiveText(NpcChar, Texttype, Message, Speaker)
-  content.guards.InitGuards();
-  CheckAdminCommand(NpcChar,Speaker,Message);
-  if string.find(Message, "checkforenemies") then
-    CheckForEnemies(NpcChar);
-  end
-end
-
 function NextCycle(NpcChar)
   content.guards.InitGuards();
   if (CheckCount == nil) then
@@ -197,7 +147,9 @@ function NextCycle(NpcChar)
   elseif (CheckCount[NpcChar.id] == nil) then
     CheckCount[NpcChar.id] = 0;
   elseif (CheckCount[NpcChar.id] == 5) then
-    CheckForEnemies(NpcChar);
+    if (content.guards.Guards~=nil) then 
+      CheckForEnemies(NpcChar);
+    end
     CheckCount[NpcChar.id] = 0;
   else
     CheckCount[NpcChar.id] = CheckCount[NpcChar.id] + 1;
@@ -205,12 +157,9 @@ function NextCycle(NpcChar)
 end
 
 --[[
--- ## REPLACE THESE FUNCTIONS IN THE LUA CODE OF EACH GUARD ##
+-- ## REPLACE THE nextCycle FUNCTION AND ADD THE REQUIREMENT IN THE LUA CODE OF EACH GUARD ##
+require("npc.base.guards_static")
 
-function receiveText(npcChar, texttype, message, speaker)
-  mainNPC:receiveText(npcChar, speaker, message);
-  npc.base.guards_static.ReceiveText(npcChar, texttype, message, speaker);
-end;
 function nextCycle(npcChar)
   mainNPC:nextCycle(npcChar);
   npc.base.guards_static.NextCycle(npcChar);

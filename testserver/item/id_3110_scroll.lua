@@ -22,20 +22,10 @@ function LookAtItem(User,Item)
     elseif (spell == 102) then -- self-teleport
         
         base.common.InformNLS( User, "Auf der Pergamentrolle ist lediglich das Symbol eines Vogels abgebildet.", "Just the symbol of a bird has been painted on this scroll of parchment." );
-    elseif (Item.data == 600) then -- Summon Creature
+    elseif (tonumber(Item:getData("scrollData")) == 600) then -- Summon Creature
 	base.common.InformNLS( User, "Die Pergamentrolle ist mit einem blutroten Siegel verschlossen.", "The scroll is sealed with a bloody red seal." );
-    elseif ( Item.data== 666 ) then -- quest scroll
+    elseif (tonumber(Item:getData("scrollData")) == 666 ) then -- quest scroll
     	base.common.InformNLS( User, "Auf der Pergamentrolle ist das Symbol eines Drachen abgebildet.", "The symbol of a dragon has been painted on this scroll of parchment." );
-    elseif ( Item.quality== 750) then -- guild membership decree
- 	
-		local rank 	  = math.floor(Item.data/100); -- the rank in the Guild(1 digit)
-		local GuildID = (Item.data - rank*100);-- the Guild ID(2 digits(10-99))	
-    	InformText = base.common.GetNLS( User, "Dekret der Gilde "..GuildNameGList[GuildID][1]..GuildRanklist[rank].gusage, "Decree of the guild "..GuildNameEList[GuildID][1]..GuildRanklist[rank].eusage )
-   	    world:itemInform(User,Item, InformText);
-   	elseif ( Item.quality == 751) then -- unban decree
-    	InformText = base.common.GetNLS( User, "Entbannungsdekret der Stadt "..TownNameGList[Item.data][1],
-									  "Unban decree of the town "..TownNameEList[Item.data][1])
-		world:itemInform(User,Item, InformText);
 	end
 end
 
@@ -57,13 +47,13 @@ function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
 		return;
 	end
 	local spell = SourceItem.quality;
-    if (SourceItem.data == 600) then -- summon creature
+    if (tonumber(SourceItem:getData("scrollData")) == 600) then -- summon creature
         summonCreature( User, SourceItem );
     elseif (spell == 101) then -- teleport
         teleportUseItem( User, SourceItem, ltstate );
     elseif (spell == 102) then -- self-teleport
         selfTeleportUseItem( User, SourceItem );
-    elseif (SourceItem.data == 666) then 
+    elseif (tonumber(SourceItem:getData("scrollData")) == 666) then 
 		world:gfx(51,User.pos);
 		world:gfx(31,User.pos);
 		User:warp(position(48,-327,-23));
@@ -75,7 +65,7 @@ end
 
 function teleportTarget( Item )
     local x, y, z, dat;
-    dat = Item.data;
+    dat = tonumber(Item:getData("scrollData"));
     z = dat - math.floor(dat/1024)*1024 - 500;    
     dat = math.floor(dat / 1024);
     y = dat - math.floor(dat/1024)*1024 - 500;
@@ -86,7 +76,7 @@ end
 
 function teleportLookAt( User, Item )
     
-    dat = Item.data;
+    dat = tonumber(Item:getData("scrollData"));
     dz = dat - math.floor(dat/1024)*1024 - 500 - User.pos.z;
     
     if ( math.abs(dz) > 15) then

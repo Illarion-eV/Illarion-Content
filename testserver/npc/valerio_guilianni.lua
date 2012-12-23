@@ -31,7 +31,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Don Valerio Guilianni of Galmair. Keywords: quest, task, gods, or faction."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Don Valerio Guilianni of Galmair. Keywords: Quest, Task, Gods, Factions."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -616,14 +616,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faction");
-talkEntry:addResponse("Ya know I hear people talking about these ?factions', but all I see is the land of my future wife and a drugged out magician leading halfers.");
+talkEntry:addResponse("Ya know I hear people talking about these 'factions', but all I see is the land of my future wife and a drugged out magician leading halfers.");
 talkEntry:addResponse("Ya, ya Runewick, Cadomyr, and Galmair that's all you newcomers want to talk about. Focus on what's important, getting rich, plain and simple.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("fraktion");
-talkEntry:addResponse("Wisst Ihr, ich höre die Leute immer wieder über die Fraktionen sprechen. - Aber  für mich sind sie nichts weiter als die Länder meiner zukünftigen Frau und des übergeschnappten Magiers der Frauenkleider trägt.");
+talkEntry:addResponse("Wisst Ihr, ich höre die Leute immer wieder über die 'Fraktionen' sprechen. Aber für mich sind sie nichts weiter als die Länder meiner zukünftigen Frau und des übergeschnappten Magiers, der Frauenkleider trägt.");
 talkEntry:addResponse("Aye, Runewick, Cadomyr und Galmair, das ist alles worüber Neuankömmlinge wie ihr sprechen wollt. Konzentriert Euch lieber auf die  wichtigen Dinge! Reichtum und Macht! - Ganz einfach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1090,7 +1090,7 @@ talkEntry:addResponse("'Nein'? Nun gut ihr könnt eure Meinung behalten. Alles an
 talkEntry:addResponse("Und genau diese negative Einstellung entscheidet über Erfolg und Misserfolg. Deswegen seid ihr nur ein Bittsteller vor dem Don.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me geht müßig ein paar Schritte auf und ab, dabei lächelt er zufrieden.", "#me walks with at a leisurely pace with a content smile on his face.");
+talkingNPC:addCycleText("#me geht müßig ein paar Schritte auf und ab, dabei lächelt er zufrieden.", "#me walks  at a leisurely pace with a content smile on his face.");
 talkingNPC:addCycleText("Respekt? Wo ist nur der Respekt geblieben? All diese Möchtegerns...", "Respect? Where's the respect? All these wannabes...");
 talkingNPC:addCycleText("#me dreht sich besorgt um 'Halt! Wer ist da? Es ist noch nicht Zeit für das wöchentliche Attentat!'", "#me turns around concerned, ?Damn assassination attempts there almost weekly now.'");
 talkingNPC:addCycleText("#me spuckt angewidert ein paar Trauben aus. 'Ugh. Wer hat das zu verantworten?", "#me spits out some grapes in disgust. 'Ugh. Who's responsible for that?'");

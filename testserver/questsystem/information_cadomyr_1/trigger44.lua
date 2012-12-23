@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 90
 
 local NPC_TRIGGER_DE = "[Qq]uest|[Mm]ission|[Tt]ask|[Aa]dventure|[Oo]rder|[Gg]ame"
 local NPC_TRIGGER_EN = "[Qq]uest|[Mm]ission|[Aa]uftrag|[Aa]benteuer|[Bb]efehl|[Ss]piel"
-local NPC_REPLY_DE = "Wie alt k�nnte man die Frau die die Statue am Schrein der Elara sympolisiert sch�tzen?"
+local NPC_REPLY_DE = "Wie alt könnte man die Frau die die Statue am Schrein der Elara sympolisiert schätzen?"
 local NPC_REPLY_EN = "How old would you guess is the woman that is symoblized by this statue at Elara's shrine?"
 
 function receiveText(npc, type, text, PLAYER)
@@ -53,7 +53,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zur�ck zu Frizza und teile ihr mit die Art die Krieger die die Statuen symbolisieren.", "Go to Frizza and tell her the kind of warriors, symbolized by the statues."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh zurück zu Frizza und teile ihr mit die Art die Krieger die die Statuen symbolisieren.", "Go to Frizza and tell her the kind of warriors, symbolized by the statues."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)

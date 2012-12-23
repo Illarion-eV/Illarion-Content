@@ -88,10 +88,10 @@ AddToDoorList(3489, 3485);
 AddToDoorList(3490, 3486);
 AddToDoorList(3491, 3487);
 AddToDoorList(3492, 3488);
-AddToDoorList(3285, 3203);
+AddToDoorList(3284, 3200);
+AddToDoorList(3285, 3201);
 AddToDoorList(3202, 3282);
 AddToDoorList(3203, 3283);
-AddToDoorList(3284, 3200);
 
 AddToDoorList = nil;
 
@@ -160,7 +160,7 @@ end;
 ]]
 function OpenDoor(Door)
     if ClosedDoors[Door.id] then
-        if not (Door:getData("doorLocked") == "true") then
+        if Door.quality == 233 or Door:getData("lockData") == "" then
             world:swap(Door, ClosedDoors[Door.id], 233);
             world:makeSound(21, Door.pos);
             return true, true;

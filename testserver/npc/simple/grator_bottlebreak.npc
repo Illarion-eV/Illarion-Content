@@ -79,7 +79,7 @@ english, "job" -> "I am Grator Bottlebreak and I can teach an alchemist some fan
 "erzähl was", "erzähl etwas" -> "Erzhält Ihr mir doch was."
 english, "druid" -> "Druids are actually rather strange people. Most of them are excellent alchemists, true. But well. They indded have some mazy ideas: spirits of natur, will of nature and all those things."
 "druid" -> "Druiden sind schon ein sonderbarer Schlag. Die meisten von ihnen sind zwar exellente Alchemisten, aber nun ja. Sie haben doch schon recht wirre Ideen: Naturgeister, Wille der Natur und all sowas."
-english, "alchemy","alchemist" -> "Alchemists are masters of of potions, have profound knwolegde about the herbs and are keen observer of the world."
+english, "alchemy","alchemist" -> "Alchemists are masters of of potions, have profound knwolegde about the herbs, and are keen observer of the world."
 "alchemie","alchimi","alchemist" -> "Alchemisten sind Meister der Tränke, Kenner der Kräuter und gute Beobachter der Welt."
 "heal","medicine","medical" -> "Medicine. If you know the arte of creating medicine very well, you can fight against all diseases."
 "heil","medizin" -> "Medizin. Wer die Kunst der Medizinherstellung wirklich beherrscht mag alle Krankheiten zu bekämpfen."
@@ -107,7 +107,7 @@ english, "Grator", "Bottlebreak" -> "That's me. Correct."
 ------------------------------------------------------------------------------AC
 -- cycle Texts
 cycletext "#me betrachtet eine Flasche.", "#me looks closely at a bottle."
-cycletext "Wo bleibt er nur mit meinem Trank?", "What does him take so long to bring me my potion?"
+cycletext "Wo bleibt er nur mit meinem Trank?", "What takes him so long to bring me my potion?"
 cycletext "#me hackt Kräuter klein.", "#me chops some herbs."
 cycletext "#me sortiert einige Kräuter.", "#me assorts some herbs."
 cycletext "#me beschriftet eine Flasche.", "#me labels a bottle."
