@@ -491,6 +491,7 @@ function CheckRange(AttackerStruct, Defender)
         if blockList ~= nil then
 			debug("blocklist ~= nil")
 			for key, listEntry in pairs(blockList) do
+				debug("FOUND: "..listEntry.TYPE);
 				if (listEntry.TYPE == "ITEM") then
 					debug("******* Item with the ID: "..listEntry.OBJECT.id);
 				elseif (listEntry.TYPE == "CHARACTER") then
