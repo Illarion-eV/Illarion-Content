@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------------
--- NPC Name: Mirarie Bragolin                                            None --
+-- NPC Name: Mirarie Bragolin                                         Cadomyr --
 -- NPC Job:  none                                                             --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  128, 609, 0            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: dwarf                      NPC Position:  128, 621, 0            --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian + Miriam                                       --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 128, 609, 0, 4, 'Mirarie Bragolin', 'npc.mirarie_bragolin', 1, 2, 5, 166, 58, 21, 198, 153, 82);
+VALUES (1, 128, 621, 0, 6, 'Mirarie Bragolin', 'npc.mirarie_bragolin', 1, 9, 0, 166, 58, 21, 198, 153, 82);
 ---]]
 
 require("npc.base.basic")
@@ -41,7 +41,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Mirarie Bragolin, the dwarven explorer. Keywords: Quest, Mission, Adventure, tell something, profession."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Mirarie Bragolin, the dwarven explorer. Keywords: Quest, Mission, Adventure, Tell something, Profession."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1243,7 +1243,7 @@ talkEntry:addResponse("Hallo mein Freund. Nur dank dir konnte ich das letzte Kap
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me macht sich Notizen.", "#me takes notes.");
-talkingNPC:addCycleText("Das klingt spannend! Moment...wie schreibt man das?", "That sounds fascinating!Wait... how do you spell that?");
+talkingNPC:addCycleText("Das klingt spannend! Moment... wie schreibt man das?", "That sounds fascinating! Wait... how do you spell that?");
 talkingNPC:addCycleText("Ehre der Königin!", "Honor to the Queen!");
 talkingNPC:addCycleText("#me schaut sich neugierig um.", "#me looks around curiously.");
 talkingNPC:addCycleText("#me lächelt freundlich.", "#me smiles brightly.");
@@ -1256,7 +1256,7 @@ mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Das ist ein NPC ist Mirarie Bragolin, die Zwergin.", "This NPC  is Mirarie Bragolin, the dwarfess.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
-mainNPC:setEquipment(1, 358);
+mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 180);
 mainNPC:setEquipment(11, 558);
 mainNPC:setEquipment(5, 3109);
