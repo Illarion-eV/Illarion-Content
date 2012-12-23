@@ -497,11 +497,10 @@ function CheckRange(AttackerStruct, Defender)
 					debug("******* Character with the ID: "..listEntry.OBJECT.id);
 				end
 			end
-			else
-				ebug("Nothing blocks the way!");
-			end
+		else
+			debug("Nothing blocks the way!");
+		end
             --return false;
-        end
     end
 	debug("nach if");
     if (distance == 1 and AttackerStruct.AttackKind == 4) then
