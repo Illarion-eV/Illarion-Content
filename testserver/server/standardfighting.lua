@@ -487,7 +487,6 @@ function CheckRange(AttackerStruct, Defender)
 		debug("nach LOS");
 		
 		local next = next
-		if next(blockList) == nil 
 		
         if (next(blockList)~=nil) then
 			debug("blocklist ~= nil")
