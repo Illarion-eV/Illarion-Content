@@ -60,29 +60,29 @@ module("server.standardfighting", package.seeall)
 -- @param Defender The character who is attacked
 -- @return true in case a attack was performed, else false
 function onAttack(Attacker, Defender)
-	debug("onAttack 1: ");
+
     -- Attacker:talk(Character.say,"Drin in onAttack");
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
     local Globals = {};
-    debug("onAttack 1a: ");
+
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
-    debug("onAttack 2: ");
+
     --Attacker.Char:talk(Character.say,"NI OK");
     -- Load the weapons of the attacker
     LoadWeapons(Attacker);
     
      --   Attacker.Char:talk(Character.say,"WP OK");
     -- Check the range between the both fighting characters
-	debug("onAttack 3: ");
+
     if not CheckRange(Attacker, Defender.Char) then return false; end;
-    debug("onAttack 4: ");
+
     --Attacker.Char:talk(Character.say,"RANGE OK");
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker);
-    debug("onAttack 5: ");
+
     --Attacker.Char:talk(Character.say,"ATT TYPE OK");
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker) then 
@@ -352,7 +352,7 @@ function ChanceToHit(Attacker, Defender)
         chanceMod = 100 + 50*(distance - 1)/(1 - range);    -- reduce chance in %: at distance 1 chance is unmodified, 
                                                             -- at distance=range it is 50%
         chance = chance * chanceMod / 100;
-        Attacker.Char:inform("Chance to hit: "..chance);
+        --Attacker.Char:inform("Chance to hit: "..chance);
     end;
     return base.common.Chance(chance);
 end;
@@ -476,26 +476,17 @@ end;
 -- @param Defender The character who is attacked
 -- @return true in case the range is fine, else false
 function CheckRange(AttackerStruct, Defender)
-    debug("in checkrange");
 	local distance = AttackerStruct.Char:distanceMetric(Defender);
-	
-	debug("range= "..distance)
-	
+
     if distance > 1 then
         blockList = world:LoS( AttackerStruct.Char.pos, Defender.pos )
-		
-		debug("nach LOS");
-		
-		
-		
-        if blockList ~= nil then
-		debug("blocklist ~= nil")
-            --return false;
-        end
+		local next = next	-- make next-iterator local		
+        if (next(blockList)~=nil) then	-- see if there is a "next" (first) object in blockList!
+			return false;				-- something blocks
+		end
     end
-	debug("nach if");
+
     if (distance == 1 and AttackerStruct.AttackKind == 4) then
-	debug("sollte nicht");
         return false;
     end
     if AttackerStruct.IsWeapon then
