@@ -49,8 +49,8 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 58, 1008, 429, 126, 43, 391, 52, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 431, 463, 2745, 158, 159, 160, 161, 162, 163
-buyPrimaryItems = 58, 1008, 429, 126, 43, 391, 52, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 431, 463, 2745, 158, 159, 160, 161, 162, 163
+sellItems = 58, 429, 126, 43, 391, 52, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 431, 463, 2745, 158, 159, 160, 161, 162, 163
+buyPrimaryItems = 58, 429, 126, 43, 391, 52, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 431, 463, 2745, 158, 159, 160, 161, 162, 163
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
@@ -65,7 +65,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
--- 10% Tools (Alchemist): 58, 1008
+-- 10% Tools (Alchemist): 58
 -- 10% Tools (Candle maker): 429
 -- 10% Tools (Herb gatherer): 126
 -- 10% Candles, torches: 43, 391

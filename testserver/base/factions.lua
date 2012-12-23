@@ -166,11 +166,11 @@ function getTownNameByID(TownID)
   return "";
 end
 
-function getMemberShip(player)
+function getMembership(player)
 	return player:getQuestProgress(199);
 end
 
-function getMemberShipByName(player)
+function getMembershipByName(player)
 	return getTownNameByID(player:getQuestProgress(199));
 end
 

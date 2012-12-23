@@ -34,57 +34,57 @@ function Init()
 	AddPotion("Cadomyr", 
 	          301, 
 			  {"a stock containing only highly toxic Adrazin", "einen Sud, der nur nur hoch toxisches Adrazin enthält"},
-			  {331,false,{"AdrazinConcentration","9"},{"IllidriumConcentration","5"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","5"},{"EcholonConcentration","5"},{"DracolinConcentration","5"},{"OrcanolConcentration","5"},{"FenolinConcentration","5"}}
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","9"},{"IllidriumConcentration","5"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","5"},{"EcholonConcentration","5"},{"DracolinConcentration","5"},{"OrcanolConcentration","5"},{"FenolinConcentration","5"}}
 			  )
 	AddPotion("Galmair", 
 	          302, 
 			  {"a small explosion bomb with at least average quality", "eine kleine Explosionsbombe von zumindest durchschnittlicher Qualität"},
-			  {327,5,{"potionEffectId","301"}}
+			  {327,5,{"filledWith","potion"},{"potionEffectId","301"}}
 			  )
 	AddPotion("Runewick", 
 	          304, 
 			  {"a medium explosion bomb with at least average quality", "eine mittlere Explosionsbombe von zumindest durchschnittlicher Qualität"},
-			  {327,5,{"potionEffectId","302"}}
+			  {327,5,{"filledWith","potion"},{"potionEffectId","302"}}
 			  )
     AddPotion("Galmair", 
 	          306, 
 			  {"a stock containing only highly toxic Caprazin", "einen Sud, der nur nur hoch toxisches Caprazin enthält"},
-			  {331,false,{"AdrazinConcentration","5"},{"IllidriumConcentration","5"},{"CaprazinConcentration","9"},{"HyperboreliumConcentration","5"},{"EcholonConcentration","5"},{"DracolinConcentration","5"},{"OrcanolConcentration","5"},{"FenolinConcentration","5"}}
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","5"},{"IllidriumConcentration","5"},{"CaprazinConcentration","9"},{"HyperboreliumConcentration","5"},{"EcholonConcentration","5"},{"DracolinConcentration","5"},{"OrcanolConcentration","5"},{"FenolinConcentration","5"}}
 			  )			  
 	AddPotion("Runewick", 
 	          307, 
 			  {"a small mana annihilator bomb with at least average quality", "einen kleinen Manaannihilator von zumindest durchschnittlicher Qualität"},
-			  {327,5,{"potionEffectId","306"}}
+			  {327,5,{"filledWith","potion"},{"potionEffectId","306"}}
 			  )
 	AddPotion("Cadomyr", 
 	          309, 
 			  {"a medium mana annihilator bomb with at least average quality", "einen mittleren Manaannihilator von zumindest durchschnittlicher Qualität"},
-			  {327,5,{"potionEffectId","307"}}
+			  {327,5,{"filledWith","potion"},{"potionEffectId","307"}}
 			  )
     AddPotion("Runewick", 
 	          311, 
 			  {"a stock containing only highly toxic Illidrium", "einen Sud, der nur nur hoch toxisches Illidrium enthält"},
-			  {331,false,{"AdrazinConcentration","5"},{"IllidriumConcentration","9"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","5"},{"EcholonConcentration","5"},{"DracolinConcentration","5"},{"OrcanolConcentration","5"},{"FenolinConcentration","5"}}
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","5"},{"IllidriumConcentration","9"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","5"},{"EcholonConcentration","5"},{"DracolinConcentration","5"},{"OrcanolConcentration","5"},{"FenolinConcentration","5"}}
 			  )
     AddPotion("Cadomyr", 
 	          312, 
 			  {"a small nutrition annihilator bomb with at least average quality", "einen kleinen Nahrungsannihilator von zumindest durchschnittlicher Qualität"},
-			  {327,5,{"potionEffectId","311"}}
+			  {327,5,{"filledWith","potion"},{"potionEffectId","311"}}
 			  )		
     AddPotion("Galmair", 
 	          314, 
 			  {"a medium nutrition annihilator bomb with at least average quality", "einen kleinen Nahrungsannihilator von zumindest durchschnittlicher Qualität"},
-			  {327,5,{"potionEffectId","312"}}
+			  {327,5,{"filledWith","potion"},{"potionEffectId","312"}}
 			  )
     AddPotion("Galmair", 
 	          316, 
 			  {"a medium mana annihilator bomb with at least average quality", "einen mittleren Manaannihilator von zumindest durchschnittlicher Qualität"},
-			  {327,5,{"potionEffectId","307"}}
+			  {327,5,{"filledWith","potion"},{"potionEffectId","307"}}
 			  )
 	AddPotion("Cadomyr", 
 	          317, 
 			  {"a big explosion bomb with at least average quality", "eine eine große Explosionsbombe von zumindest durchschnittlicher Qualität"},
-			  {327,5,{"potionEffectId","304"}}
+			  {327,5,{"filledWith","potion"},{"potionEffectId","304"}}
 			  )		  
     AddPotion("Runewick",		  
 			  400,
@@ -124,22 +124,22 @@ function Init()
     AddPotion("Cadomyr",		  
 			  605,
 			  {"a stock containing no Adrazin, dominant pronounced Illidrium, no Caprazin, slightly marked Hyperborelium, saturated solution of Echolon, enriched Dracolin, no Orcanol and enriched Fenolin","einen Sud der kein Adrazin, konzentriertes Illidrium, kein Caprazin, schwache Konzentration Hyperborelium, gesättige Anreicherung von Echolon, etwas Dracolin, kein Orcanol und etwas Fenolin enthält"},
-			  {331,false,{"AdrazinConcentration","5"},{"IllidriumConcentration","8"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","4"},{"EcholonConcentration","1"},{"DracolinConcentration","7"},{"OrcanolConcentration","5"},{"FenolinConcentration","7"}}
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","5"},{"IllidriumConcentration","8"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","4"},{"EcholonConcentration","1"},{"DracolinConcentration","7"},{"OrcanolConcentration","5"},{"FenolinConcentration","7"}}
 			  )
     AddPotion("Cadomyr",		  
 			  601,
 			  {"a potion for orc language with at least average quality","ein Orksprachtrank von zumindest durchschnittlicher Qualität"},
-			  {330,5,{"potionEffectId","605"}}
+			  {330,5,{"filledWith","potion"},{"potionEffectId","605"}}
 			  )
     AddPotion("Galmair",		  
 			  606,
 			  {"a stock containing no Adrazin, dominant pronounced Illidrium, no Caprazin, slightly marked Hyperborelium, saturated solution of Echolon, enriched Dracolin, no Orcanol and enriched Fenolin","einen Sud der kein Adrazin, konzentriertes Illidrium, kein Caprazin, schwache Konzentration Hyperborelium, gesättige Anreicherung von Echolon, etwas Dracolin, kein Orcanol und etwas Fenolin enthält"},
-			  {331,false,{"AdrazinConcentration","5"},{"IllidriumConcentration","8"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","4"},{"EcholonConcentration","1"},{"DracolinConcentration","7"},{"OrcanolConcentration","5"},{"FenolinConcentration","7"}}
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","5"},{"IllidriumConcentration","8"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","4"},{"EcholonConcentration","1"},{"DracolinConcentration","7"},{"OrcanolConcentration","5"},{"FenolinConcentration","7"}}
 			  )		
     AddPotion("Galmair",		  
 			  602,
 			  {"a potion for halfling language with at least average quality","ein Halblingssprachtrank von zumindest durchschnittlicher Qualität"},
-			  {330,5,{"potionEffectId","606"}}
+			  {330,5,{"filledWith","potion"},{"potionEffectId","606"}}
 			  )
     AddPotion("Galmair",		  
 			  600,
@@ -149,77 +149,77 @@ function Init()
     AddPotion("Runewick",		  
 			  604,
 			  {"a stock containing no Adrazin, dominant pronounced Illidrium, no Caprazin, slightly marked Hyperborelium, saturated solution of Echolon, enriched Dracolin, no Orcanol and enriched Fenolin","einen Sud der kein Adrazin, konzentriertes Illidrium, kein Caprazin, schwache Konzentration Hyperborelium, gesättige Anreicherung von Echolon, etwas Dracolin, kein Orcanol und etwas Fenolin enthält"},
-			  {331,false,{"AdrazinConcentration","5"},{"IllidriumConcentration","8"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","4"},{"EcholonConcentration","1"},{"DracolinConcentration","7"},{"OrcanolConcentration","5"},{"FenolinConcentration","7"}}
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","5"},{"IllidriumConcentration","8"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","4"},{"EcholonConcentration","1"},{"DracolinConcentration","7"},{"OrcanolConcentration","5"},{"FenolinConcentration","7"}}
 			  )	
     AddPotion("Runewick",		  
 			  603,
 			  {"a potion for lizard language with at least average quality","ein Echsensprachtrank von zumindest durchschnittlicher Qualität"},
-			  {330,5,{"potionEffectId","604"}}
+			  {330,5,{"filledWith","potion"},{"potionEffectId","604"}}
 			  )
     AddPotion("Runewick",		  
 			  607,
 			  {"a potion for the common language with the best quality","einen Trank für die Handelssprache in bester Qualität"},
-			  {330,9,{"potionEffectId","600"}}
+			  {330,9,{"filledWith","potion"},{"potionEffectId","600"}}
 			  )			  
 	AddPotion("Runewick",		  
 			  550,
 			  {"a potion for the lizard language with at least average quality","ein Trank für die Echsensprache mit mindestens durchschnittlicher Qualität"},
-			  {330,5,{"potionEffectId","604"}}
+			  {330,5,{"filledWith","potion"},{"potionEffectId","604"}}
 			  )
     AddPotion("Runewick",		  
 			  501,
 			  {"a shape shifter potion male human with at least average quality","einen Verwandlungstrank männlicher Mensch mit zumindest durchschnittlicher Qualität"},
-			  {329,5,{"potionEffectId","500"}}
+			  {329,5,{"filledWith","potion"},{"potionEffectId","500"}}
 			  )
     AddPotion("Runewick",		  
 			  521,
 			  {"a potion for the halfling language with at least average quality","einen Trank für die Halblingssprache von mindestens durchschnittlicher Qualität"},
-			  {330,5,{"potionEffectId","606"}}
+			  {330,5,{"filledWith","potion"},{"potionEffectId","606"}}
 			  )
     AddPotion("Runewick",		  
 			  530,
 			  {"a shape shifter female elf with at least average quality","einen Verwandlungstrank weiblicher Elf von mindestens durchschnittlicher Qualität"},
-			  {329,5,{"potionEffectId","531"}}
+			  {329,5,{"filledWith","potion"},{"potionEffectId","531"}}
 			  )
 	AddPotion("Cadomyr",		  
 			  500,
 			  {"a potion for the human language with at least average quality","ein Trank für die Menschensprache mit mindestens durchschnittlicher Qualität"},
-			  {330,5,{"potionEffectId","601"}}
+			  {330,5,{"filledWith","potion"},{"potionEffectId","601"}}
 			  )
     AddPotion("Cadomyr",		  
 			  540,
 			  {"a potion for the orc language with at least average quality","ein Trank für die Orksprache mit zumindest durchschnittlicher Qualität"},
-			  {330,5,{"potionEffectId","605"}}
+			  {330,5,{"filledWith","potion"},{"potionEffectId","605"}}
 			  )
     AddPotion("Cadomyr",		  
 			  511,
 			  {"a potion for the dwarf language with at least average quality","einen Trank für die Zwergensprache von mindestens durchschnittlicher Qualität"},
-			  {330,5,{"potionEffectId","602"}}
+			  {330,5,{"filledWith","potion"},{"potionEffectId","602"}}
 			  )
     AddPotion("Cadomyr",		  
 			  531,
 			  {"a potion for the elf language with at least average quality","einen Trank für die Elfensprache von mindestens durchschnittlicher Qualität"},
-			  {330,5,{"potionEffectId","603"}}
+			  {330,5,{"filledWith","potion"},{"potionEffectId","603"}}
 			  )	  
 	AddPotion("Galmair",		  
 			  551,
 			  {"a shape shifter male lizard with at least average quality","einen Verwandlungstrank männlicher Echsenmensch von mindestens durchschnittlicher Qualität"},
-			  {329,5,{"potionEffectId","550"}}
+			  {329,5,{"filledWith","potion"},{"potionEffectId","550"}}
 			  )
     AddPotion("Galmair",		  
 			  520,
 			  {"a shape shifter female halfling with at least average quality","einen Verwandlungstrank weiblicher Halbling von mindestens durchschnittlicher Qualität"},
-			  {329,5,{"potionEffectId","521"}}
+			  {329,5,{"filledWith","potion"},{"potionEffectId","521"}}
 			  )
     AddPotion("Galmair",		  
 			  541,
 			  {"a shape shifter male orc with at least average quality","einen Verwandlungstrank männlicher Ork von mindestens durchschnittlicher Qualität"},
-			  {329,5,{"potionEffectId","540"}}
+			  {329,5,{"filledWith","potion"},{"potionEffectId","540"}}
 			  )
     AddPotion("Galmair",		  
 			  510,
 			  {"a shape shifter female dwarf with at least average quality","einen Verwandlungstrank weiblicher Zwerg von mindestens durchschnittlicher Qualität"},
-			  {329,5,{"potionEffectId","511"}}
+			  {329,5,{"filledWith","potion"},{"potionEffectId","511"}}
 			  )		  
 end
 
@@ -265,7 +265,7 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
 
 	-- is the char an alchemist?
-	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Auf dem Schriftstück steht nur dir unverständliches Alchemistengeschwafel.","Only some for you unintelligibly alchemical gibberish is written on the document.")
+	local anAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Auf dem Schriftstück steht nur dir unverständliches Alchemistengeschwafel.","For you the document only appears to contain unintelligible alchemical gibberish.")
 	if not anAlchemist then
 		return
 	end

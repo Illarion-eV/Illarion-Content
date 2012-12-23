@@ -31,13 +31,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addResponse("[Game Help] This NPC is the prison guard Percy Dryless. Keywords: 'Release me, please','I am hungry' 'Give me a new pick axe' 'How much of my punishment is left?' and 'I want to deliver <resource>'.");
+talkEntry:addResponse("[Game Help] This NPC is the prison guard Percy Dryless. Keywords: 'Release me, please','I am hungry' 'Give me a new pick axe' 'How much of my punishment is left?'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addResponse("[Spielhilfe] Dieser NPC ist der Gefängnisaufseher Percy Dryless. Schlüsselwörter: 'Lass mich bitte frei','Ich bin hungrig','Gib mir bitte eine neue Spitzhacke', 'Wie hoch ist meine übrige Strafe?' und 'Ich möchte <Ressource> abliefern.'");
+talkEntry:addResponse("[Spielhilfe] Dieser NPC ist der Gefängnisaufseher Percy Dryless. Schlüsselwörter: 'Lass mich bitte frei','Ich bin hungrig','Gib mir bitte eine neue Spitzhacke', 'Wie hoch ist meine übrige Strafe?'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -47,6 +47,15 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hunger");
 talkEntry:addResponse("You don't look hungry to me. Work some more!");
 talkEntry:addResponse("No food for lazy scum like you!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", ">", 14999));
+talkEntry:addTrigger("hungrig");
+talkEntry:addTrigger("essen");
+talkEntry:addResponse("Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!");
+talkEntry:addResponse("Kein Futter für faulen Abschaum wie dich!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -93,7 +102,7 @@ talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", "<", 
 talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hunger");
-talkEntry:addResponse("Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche.");
+talkEntry:addResponse("Du glaubst wohl, du bekommst Brot fürs nichts tun, häh? Arbeite oder spüre meine Peitsche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -122,15 +131,6 @@ talkEntry:addCondition(npc.base.condition.item.item(49, "all", "~=", 0, nil));
 talkEntry:addTrigger("hungry");
 talkEntry:addTrigger("food");
 talkEntry:addResponse("You think I'm giving bread away for nothing, eh? Get back to work or feel my whip.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.attribute.attribute("foodlevel", ">", 14999));
-talkEntry:addTrigger("hungrig");
-talkEntry:addTrigger("essen");
-talkEntry:addResponse("Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!");
-talkEntry:addResponse("Kein Futter für faulen Abschaum wie dich!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -176,7 +176,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "~=", 0, nil));
 talkEntry:addTrigger("spitzhacke");
 talkEntry:addTrigger("hacke");
-talkEntry:addResponse("Was willst du mit zwei Spitzhacken? BeidhÃ¤ndig auf die Steine eindreschen?");
+talkEntry:addResponse("Was willst du mit zwei Spitzhacken? Beidhändig auf die Steine eindreschen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -191,35 +191,53 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(25, ">", 0));
-talkEntry:addTrigger("remaining punishment");
-talkEntry:addResponse("Pah! You still have to deliver %QUESTSTATUS shovels of resources.");
-talkEntry:addResponse("Bring me %QUESTSTATUS resources and I'll release you. Maybe.");
-talkEntry:addResponse("Mercy won't come before you bring me %QUESTSTATUS shovels of resources.");
+talkEntry:addTrigger("release");
+talkEntry:addResponse("No way.");
+talkEntry:addResponse("You'd like that, wouldn't you?");
+talkEntry:addResponse("Sure I'll release you. In a hundred years!");
+talkEntry:addResponse("Shut up!");
+talkEntry:addResponse("Hahahahaha!");
+talkEntry:addResponse("Release you? Sure! What next, shall I wipe your boots?");
+talkEntry:addResponse("No way. Work!");
+talkEntry:addResponse("Wait, let me laugh first.");
+talkEntry:addResponse("You want me to release you? You?");
+talkEntry:addResponse("What kind of joker are you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(25, "<", 1));
-talkEntry:addTrigger("remaining punishment");
-talkEntry:addResponse("You are free to go, punk. Ask me to release you.");
-talkEntry:addResponse("That was enough, I think I can release you.");
+talkEntry:addTrigger("release");
+talkEntry:addResponse("Until next time. They all come back! Why are you still here? Use the teleporter and get loest!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(25, ">", 0));
-talkEntry:addTrigger("übrige strafe");
-talkEntry:addResponse("Pah! Du muÃ?t mir noch %QUESTSTATUS Schaufeln voll Ressourcen bringen.");
-talkEntry:addResponse("Bring mir noch %QUESTSTATUS Ressourcen und vielleicht lasse ich dich dann gehen.");
-talkEntry:addResponse("Gnade wird nicht eher gewaltet bevor du mir nicht %QUESTSTATUS Schaufeln voll Ressourcen bringst.");
+talkEntry:addTrigger("freilassen");
+talkEntry:addTrigger("lass mich frei");
+talkEntry:addTrigger("rauslassen");
+talkEntry:addTrigger("lass mich raus");
+talkEntry:addResponse("Nichts da.");
+talkEntry:addResponse("Das hättest du wohl gerne!");
+talkEntry:addResponse("Ohja, klar lass ich dich frei... in hundert Jahren!");
+talkEntry:addResponse("Schnauze!");
+talkEntry:addResponse("Hahahahahaha!");
+talkEntry:addResponse("Freilassen? Klar! Was noch, soll ich deine Stiefel lecken?");
+talkEntry:addResponse("Nichts da. Arbeite!");
+talkEntry:addResponse("Warte, lass mich erstmal darüber lachen.");
+talkEntry:addResponse("Du willst also freigelassen werden? Du?");
+talkEntry:addResponse("Was für ein Narr bist du?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(25, "<", 1));
-talkEntry:addTrigger("übrige strafe");
-talkEntry:addResponse("Du kannst gehen, Gauner. Bitte mich darum, dich freizulassen.");
-talkEntry:addResponse("Das reicht jetzt, ich denke, ich kann dich freilassen.");
+talkEntry:addTrigger("freilassen");
+talkEntry:addTrigger("lass mich frei");
+talkEntry:addTrigger("rauslassen");
+talkEntry:addTrigger("lass mich raus");
+talkEntry:addResponse("Bis zum nächsten mal. Sie kommen alle wieder! Was tust du noch hier? Benutzt den Teleporter und geh mir aus den Augen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -372,7 +390,7 @@ talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Du kannst mich 'Meister' nennen.");
-talkEntry:addResponse("Percy Dryless. Du wirst diesen Namen in deinen Alpträumen schreien.");
+talkEntry:addResponse("Percy Dryless. Du wirst dich an diesen Namen in deinen Alpträumen erinnern.");
 talkEntry:addResponse("Wenigstens habe ich einen Namen, deinen wird man längst vergessen haben, wenn du entlassen wirst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -436,7 +454,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I take care that bastards like you, get punished!");
+talkEntry:addResponse("I take care that scum like you, get punished!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -491,7 +509,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("innocent");
 talkEntry:addResponse("One word: No.");
-talkEntry:addResponse("You innocent? That's about as likely as my whip missing your sorry ass.");
+talkEntry:addResponse("You innocent? That's about as likely as my whip missing you.");
 talkEntry:addResponse("Wake up! You aren't dreaming anymore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -552,7 +570,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Do you come frome Runewick? Seems Archmage Morgans sent you here.");
+talkEntry:addResponse("Do you come frome Runewick? Seems Archmage Morgan sent you here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -566,7 +584,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Do you come frome Runewick? Seems Archmage Morgans sent you here.");
+talkEntry:addResponse("Do you come frome Runewick? Seems Archmage Morgan sent you here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

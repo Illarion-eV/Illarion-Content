@@ -49,55 +49,32 @@ itemShoes = 53
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 
 -- Help
-"Help" -> "[Game Help] This NPC is the prison guard Percy Dryless. Keywords: 'Release me, please','I am hungry' 'Give me a new pick axe' 'How much of my punishment is left?' and 'I want to deliver <resource>'."
-"Hilfe" -> "[Spielhilfe] Dieser NPC ist der Gefängnisaufseher Percy Dryless. Schlüsselwörter: 'Lass mich bitte frei','Ich bin hungrig','Gib mir bitte eine neue Spitzhacke', 'Wie hoch ist meine übrige Strafe?' und 'Ich möchte <Ressource> abliefern.'"
+"Help" -> "[Game Help] This NPC is the prison guard Percy Dryless. Keywords: 'Release me, please','I am hungry' 'Give me a new pick axe' 'How much of my punishment is left?'."
+"Hilfe" -> "[Spielhilfe] Dieser NPC ist der Gefängnisaufseher Percy Dryless. Schlüsselwörter: 'Lass mich bitte frei','Ich bin hungrig','Gib mir bitte eine neue Spitzhacke', 'Wie hoch ist meine übrige Strafe?'."
 
 -- Prison stuff
 attrib(foodlevel) > 14999, english, "hunger" -> "You don't look hungry to me. Work some more!", "No food for lazy scum like you!"
+attrib(foodlevel) > 14999, "hungrig", "essen" -> "Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!", "Kein Futter für faulen Abschaum wie dich!"
 attrib(foodlevel) < 15000, item(49, all) = 0, english, "hunger" -> "Here, have some moldy bread. Back to work!", item(49, 1, 333)
 attrib(foodlevel) < 15000, item(49, all) ~= 0, english, "hunger" -> "You think I'm giving bread away for nothing, eh? Get back to work or feel my whip."
 attrib(foodlevel) > 14999, german, "hunger" -> "Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!", "Kein Futter für faulen Abschaum wie dich!"
 attrib(foodlevel) < 15000, item(49, all) = 0, english, "hunger" -> "Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!", item(49, 1, 333)
-attrib(foodlevel) < 15000, item(49, all) ~= 0, english, "hunger" -> "Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche."
+attrib(foodlevel) < 15000, item(49, all) ~= 0, english, "hunger" -> "Du glaubst wohl, du bekommst Brot fürs nichts tun, häh? Arbeite oder spüre meine Peitsche."
 attrib(foodlevel) > 14999, "hungry", "food" -> "You don't look hungry to me. Work some more!", "No food for lazy scum like you!"
 attrib(foodlevel) < 15000, item(49, all) = 0, "hungry", "food" -> "Here, have some moldy bread. Back to work!", item(49, 1, 333)
 attrib(foodlevel) < 15000, item(49, all) ~= 0, "hungry", "food" -> "You think I'm giving bread away for nothing, eh? Get back to work or feel my whip."
-attrib(foodlevel) > 14999, "hungrig", "essen" -> "Du siehst mir noch nicht hungrig genug aus. Arbeite weiter!", "Kein Futter für faulen Abschaum wie dich!"
 attrib(foodlevel) < 15000, item(49, all) = 0, "hungrig", "essen" -> "Hier etwas verschimmeltes Brot. Jetzt arbeite weiter!", item(49, 1, 333)
 attrib(foodlevel) < 15000, item(49, all) ~= 0, "hungrig", "essen" -> "Du glaubst wohl, du bekommst noch mehr Brot, häh? Arbeite oder spüre meine Peitsche."
 item(2763, all) = 0, "pick axe", "rock pick", "pick" -> "So, you broke my pick? You lost it? Here, have this one, but pay more attention to it or I'll whip you.", item(2763, 1, 333)
 item(2763, all) ~= 0, "pick axe", "rock pick", "pick" -> "What do you want with two picks? Two fisted stone hitting?"
-item(2763, all) ~= 0, "spitzhacke", "hacke" -> "Was willst du mit zwei Spitzhacken? BeidhÃ¤ndig auf die Steine eindreschen?"
+item(2763, all) ~= 0, "spitzhacke", "hacke" -> "Was willst du mit zwei Spitzhacken? Beidhändig auf die Steine eindreschen?"
 item(2763, all) = 0, "spitzhacke", "hacke" -> "So, du hast also meine Spitzhacke kaputt gemacht? Du hast sie verloren? Hier, nimm diese, aber pass besser auf sie auf oder ich peitsche dich aus.", item(2763, 1, 333)
 
--- "release",queststatus(25)>0 ->"No way.","You'd like that, wouldn't you?","Sure I'll release you. In a hundred years!","Shut up!","Hahahahaha!","Release you? Sure! What next, shall I wipe your boots?","No way. Work!","Wait, let me laugh first.","You want me to release you? You?","What kind of joker are you?"
--- "release",queststatus(25)<1->"Until next time. They all come back!",deleteitem(2763,0),deleteitem(49,0),deleteitem(234,0),deleteitem(2536,0),deleteitem(22,0),deleteitem(21,0),state=-1
--- "freilassen","lass mich frei","rauslassen","lass mich raus",queststatus(25)>0->"Nichts da.","Das hättest du wohl gerne!","Ohja, klar lass ich dich frei... in hundert Jahren!","Schnauze!","Hahahahahaha!","Freilassen? Klar! Was noch, soll ich deine Stiefel lecken?","Nichts da. Arbeite!","Warte, lass mich erstmal auslachen.","Du willst also freigelassen werden? Du?","Was für ein Narr bist du?"
--- "freilassen","lass mich frei","rauslassen","lass mich raus",queststatus(25)<1->"Bis zum nächsten mal. Sie kommen alle wieder!",deleteitem(2763,0),deleteitem(49,0),deleteitem(234,0),deleteitem(2536,0),deleteitem(22,0),deleteitem(21,0),state=-1
+"release",queststatus(25)>0 ->"No way.","You'd like that, wouldn't you?","Sure I'll release you. In a hundred years!","Shut up!","Hahahahaha!","Release you? Sure! What next, shall I wipe your boots?","No way. Work!","Wait, let me laugh first.","You want me to release you? You?","What kind of joker are you?"
+"release",queststatus(25)<1->"Until next time. They all come back! Why are you still here? Use the teleporter and get loest!"
 
--- "deliver",queststatus(25)<1->"You don't need to deliver anything. You are free as a bird. Ask me to release you, and maybe I will."
--- "deliver gold",item(234,all)>0->"At least some gold. Unless you deserve to be released - work!",queststatus(25)-expr(item(234,all)),state(expr(item(234,all)),deleteitem(234,0)
--- "deliver gold",item(234,all)=0->"You have no gold. Work on, you lazy scumbag."
--- "deliver copper",item(2536,all)>0->"Copper. Bah. Give it to me and get back to work.",queststatus(25)-expr(item(2536,all)),state(expr(item(2536,all)),deleteitem(2536,0)
--- "deliver copper",item(2536,all)=0->"No copper? Get copper. That is easy enough for you, isn't it?"
--- "deliver iron",item(22,all)>0->"So, you think you're some big shot because you found some iron ore? Thanks, now back to work.",queststatus(25)-expr(item(22,all)), state(expr(item(22,all)),deleteitem(22,0)
--- "deliver iron",item(22,all)=0->"Are you kidding me? You have no iron ore."
--- "deliver coal",item(21,all)>0->"This coal is as filthy as you. And as black as your soul. Bring me more!",queststatus(25)-expr(item(21,all)), state(expr(item(21,all)),deleteitem(21,0)
--- "deliver coal",item(21,all)=0 -> "How for Irmorom's sake do you plan to give me something you don't have?"
-
--- "abliefern","ich liefer ab",queststatus(25)<1->"Du musst hier gar nichts abliefern. Du bist frei wie ein Vogel, frag doch mal, ob ich dich vielleicht freilasse."
--- "gold abliefern","ich liefer gold ab",item(234,all)>0->"Wenigstens etwas Gold. Wenn du es nicht verdienst, freigelassen zu werden - Arbeite!",queststatus(25)-expr(item(234,all)), state(expr(item(234,all)),deleteitem(234,0)
--- "gold abliefern","ich liefer gold ab",item(234,all)=0->"Du hast kein Gold. Weiterarbeiten, Drecksack!"
--- "kupfer abliefern","ich liefer kupfer ab",item(2536,all)>0->"Kupfererz, bäh. Her damit und zurück an die Arbeit.",queststatus(25)-expr(item(2536,all)), state(expr(item(2536,all)),deleteitem(2536,0)
--- "kupfer abliefern","ich liefer kupfer ab",item(2536,all)=0->"Kein Kupfererz? Hol' Kupfererz. So einfach ist das."
--- "eisen abliefern","ich liefer eisen ab",item(22,all)>0->"So, du denkst du bist der Größte, weil du mir etwas Eisenerz gebracht hast? Danke, weiterarbeiten.",queststatus(25)-expr(item(22,all)),state(expr(item(22,all)),deleteitem(22,0)
--- "eisen abliefern","ich liefer eisen ab",item(22,all)=0->"Machst du Witze? Du hast kein Eisenerz."
--- "kohle abliefern","ich liefer kohle ab",item(21,all)>0->"Diese Kohle ist genauso dreckig wie du und so schwarz wie deine Seele. Bring mir mehr!",queststatus(25)-expr(item(21,all)), state(expr(item(21,all)),deleteitem(21,0)
--- "kohle abliefern","ich liefer kohle ab",item(21,all)=0->"Wie zum... gedenkst du, mir etwas zu geben, was du nicht hast?"
-queststatus(25) > 0, "remaining punishment" -> "Pah! You still have to deliver %QUESTSTATUS shovels of resources.", "Bring me %QUESTSTATUS resources and I'll release you. Maybe.", "Mercy won't come before you bring me %QUESTSTATUS shovels of resources."
-queststatus(25) < 1, "remaining punishment" -> "You are free to go, punk. Ask me to release you.", "That was enough, I think I can release you."
-queststatus(25) > 0, "übrige strafe" -> "Pah! Du muÃŸt mir noch %QUESTSTATUS Schaufeln voll Ressourcen bringen.", "Bring mir noch %QUESTSTATUS Ressourcen und vielleicht lasse ich dich dann gehen.", "Gnade wird nicht eher gewaltet bevor du mir nicht %QUESTSTATUS Schaufeln voll Ressourcen bringst."
-queststatus(25) < 1, "übrige strafe" -> "Du kannst gehen, Gauner. Bitte mich darum, dich freizulassen.", "Das reicht jetzt, ich denke, ich kann dich freilassen."
+"freilassen","lass mich frei","rauslassen","lass mich raus",queststatus(25)>0->"Nichts da.","Das hättest du wohl gerne!","Ohja, klar lass ich dich frei... in hundert Jahren!","Schnauze!","Hahahahahaha!","Freilassen? Klar! Was noch, soll ich deine Stiefel lecken?","Nichts da. Arbeite!","Warte, lass mich erstmal darüber lachen.","Du willst also freigelassen werden? Du?","Was für ein Narr bist du?"
+"freilassen","lass mich frei","rauslassen","lass mich raus",queststatus(25)<1->"Bis zum nächsten mal. Sie kommen alle wieder! Was tust du noch hier? Benutzt den Teleporter und geh mir aus den Augen!"
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "What do you want? Ah, I know: You want to feel my whip!", "Welcome to my realm, the realm of work, sweat and tears.", "Work, scum! Criminals deserve nothing more than pain.", "Tell me you are innocent and I will laugh for the rest of the day."
@@ -111,7 +88,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "I don't think you're leavin
 "How are you", "How feel", "How do you do" -> "Mind your business.", "I would feel way better if you'd stop talking and get back to work!", "I feel like whipping you."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Das geht dich nichts an.", "Es würde mir weit besser gehen wenn du die Klappe hieltest und arbeiten würdest.", "Mir ist danach, dich auszupeitschen."
 "your name", "who are you", "who art thou" -> "You can call me 'master'.", "Percy Dryless. You will remember my name in your nightmares.", "At least I have a name, yours will be forgotten when you are released... one distant day."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Du kannst mich 'Meister' nennen.", "Percy Dryless. Du wirst diesen Namen in deinen Alpträumen schreien.", "Wenigstens habe ich einen Namen, deinen wird man längst vergessen haben, wenn du entlassen wirst."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Du kannst mich 'Meister' nennen.", "Percy Dryless. Du wirst dich an diesen Namen in deinen Alpträumen erinnern.", "Wenigstens habe ich einen Namen, deinen wird man längst vergessen haben, wenn du entlassen wirst."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "#me points his finger in your face and laughs out loud.", "Erm, no quest for you.", "My quest is to whip those who are lazy.", "Let me see... your quest is to work!"
@@ -122,7 +99,7 @@ english, "quest", "mission" -> "#me points his finger in your face and laughs ou
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I take care that scum like you gets punished!"
 "beruf" -> "Ich kümmer mich drum, dass Abschaum wie du bestraft wird!"
-english, "job" -> "I take care that bastards like you, get punished!"
+english, "job" -> "I take care that scum like you, get punished!"
 "job" -> "Ich kümmer mich drum, dass Abschaum wie du bestraft wird!"
 english, "Gobaith", "Gobiath" -> "Shut up and keep working."
 "Gobaith", "Gobiath" -> "Halt's Maul und arbeite weiter."
@@ -134,7 +111,7 @@ english, "jingles" -> "If I catch this stupid mouse, I will trample it!"
 "jingles" -> "Wenn ich diese verdammte Maus erwische... zerquetsch ich sie!"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"innocent" -> "One word: No.", "You innocent? That's about as likely as my whip missing your sorry ass.", "Wake up! You aren't dreaming anymore."
+"innocent" -> "One word: No.", "You innocent? That's about as likely as my whip missing you.", "Wake up! You aren't dreaming anymore."
 "unschuldig" -> "Ein Wort: Nein.", "Die Chance, dass du unschuldig bist, ist so groß wie die, dass dich meine Peitsche verfehlt.", "Aufwachen! Du träumst nicht mehr."
 "whip" -> "I call my whip Susi.", "This is my whip. There are many like it but this one is mine. My whip is my best friend. It is my life.", "Wanna feel my whip, punk?"
 "peitsche" -> "Ich nenne meine Peitsche Susi.", "Dies ist meine Peitsche. Es gibt viele wie sie aber diese ist meine. Meine Peitsche ist mein bester Freund. Sie ist mein Leben.", "Willst du meine Peitsche spüren, Gauner?"
@@ -144,9 +121,9 @@ english, "jingles" -> "If I catch this stupid mouse, I will trample it!"
 "meister" -> "Ich bin jetzt dein Herr und Meister. Gehorche oder werde ausgepeitscht. Du hast die Wahl."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "Do you come frome Runewick? Seems Archmage Morgans sent you here."
+"archmage" -> "Do you come frome Runewick? Seems Archmage Morgan sent you here."
 "Erzmagier" -> "Bist du aus Runewick? Dann hat dich vermutlich Erzmagier Morgan hergeschickt."
-english, "Elvaine", "Morgan" -> "Do you come frome Runewick? Seems Archmage Morgans sent you here."
+english, "Elvaine", "Morgan" -> "Do you come frome Runewick? Seems Archmage Morgan sent you here."
 "Elvaine", "Morgan" -> "Bist du aus Runewick? Dann hat dich vermutlich Erzmagier Morgan hergeschickt."
 english, "Runewick" -> "This prison gathers the scum of three nations! And now keep up working."
 "Runewick" -> "Hier versammelt sich der ganze Abschaum aus drei Nationen! Und jetzt arbeite weiter."

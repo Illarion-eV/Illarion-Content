@@ -11,9 +11,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DO
 end
 
 function LookAtItem(User,Item)
-    if (Item.data~=0) then
-        DisplayText = base.common.GetNLS( User, "Ein Markierungsstein der Abenteurer Gilde; er trägt die Nummer "..Item.data,"A marker stone of the Explorers Guild; it has the number "..Item.data);
-        quest.explorersguild.WriteStone(User,Item.data);
+    if (Item:getData("markerstone")~=0) then
+        DisplayText = base.common.GetNLS( User, "Ein Markierungsstein der Abenteurer Gilde; er trägt die Nummer "..Item:getData("markerstone"),"A marker stone of the Explorers Guild; it has the number "..Item:getData("markerstone"));
+        quest.explorersguild.WriteStone(User,tonumber(Item:getData("markerstone")));
     else
         DisplayText = base.common.GetNLS( User, "Stein", "stone");
     end

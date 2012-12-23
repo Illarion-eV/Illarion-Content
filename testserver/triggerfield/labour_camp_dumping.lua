@@ -4,6 +4,7 @@
 -- INSERT INTO triggerfields VALUES (-491,-489,-40,'triggerfield.labour_camp_dumping');
 
 require("base.common")
+require("base.townTreasure")
 
 module("triggerfield.labour_camp_dumping", package.seeall)
 
@@ -12,34 +13,23 @@ function PutItemOnField(Item,User)
     if Item.id == 21 or Item.id == 22 or Item.id == 2536 or Item.id == 234 then
         
 		local FactionImpr = User:getQuestProgress(26) -- faction which imprisoned the char
-		local townTreasure = ""
+		local town
 		if FactionImpr == 1 then 
-		    townTreasure = "TreasureCadomyr"
+		    town = "Cadomyr"
 		elseif FactionImpr == 2 then 
-		    townTreasure = "TreasureRunewick"
+		    town = "Runewick"
 		elseif FactionImpr == 3 then 
-		    townTreasure = "TreasureGalmair"
+		    town = "Galmair"
 		end	
 
         local workLoad = User:getQuestProgress(25)
-		if townTreasure ~= "" then -- only if the char as been sent to forced labour by a faction
+		if town then -- security check: only if the char as been sent to forced labour by a faction
 		
 			local theItemStats=world:getItemStats(Item)
 			itemNumberPay = base.common.Limit(workLoad-Item.number,0,nil) -- we do only count the items a char has to deliver
 			local payToFaction = itemNumberPay*theItemStats.Worth--*FACTOR ; replace FACTOR with a value, determing what perecentage of the item worth is payed to the faction
 			
-			local foundTreasure, oldTreasure = ScriptVars:find(townTreasure)
-			
-			if not foundTreasure then -- security check
-				oldTreasure = 0
-			else
-				oldTreasure = tonumber(oldTreasure)
-			end	
-			
-			ScriptVars:set(townTreasure, tostring(oldTreasure+payToFaction)) -- add acquired coins to the treasure	
-			ScriptVars:save()
-			
-			local foundTreasure, newTreasure = ScriptVars:find(townTreasure)
+			base.townTreasure.ChangeTownTreasure(town,payToFaction) -- add to the town treasure
 			
 			-- reduce work load of char
 			if (workLoad - Item.number) <= 0 then
@@ -60,7 +50,7 @@ function PutItemOnField(Item,User)
 				User:setQuestProgress(26,0)
 			else
 				User:setQuestProgress(25,workLoad-Item.number)
-			    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher sich kurz etwas notiert. Scheinbar noch nicht deine letzte Ladung.","You notice that the guard seems to take a short note. Obviously, not your last charge.")
+			    base.common.InformNLS(User,"Du bemerkt, wie der Aufseher sich kurz etwas notiert. Scheinbar noch nicht deine letzte Ladung. [Du musst noch "..(workLoad - Item.number).." Bodenschätze abliefern.]","You notice that the guard seems to take a short note. Obviously, not your last charge. [You still have to deliver "..(workLoad - Item.number).." resource.")
 			end
 		end
 		world:gfx(46,Item.pos)

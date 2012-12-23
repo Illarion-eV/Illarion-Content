@@ -7,7 +7,7 @@ module("item.id_794_fireportal", package.seeall)
 function CharacterOnField(User)
     local SourceItem = world:getItemOnField(User.pos);
 	
-	if (SourceItem.data == 100) then -- used for THE LIBRARY quest
+	if (SourceItem:getData("fireportalData") == 100) then -- used for THE LIBRARY quest
 	
 	User:warp(position(385,552,0))
 	
