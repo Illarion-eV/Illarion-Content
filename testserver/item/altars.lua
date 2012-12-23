@@ -214,7 +214,8 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 
     end
 
-    if priesthood ~= 0 and User:getMagicType()~= 1 then --Error! The character is not a priest, but has a priest quest status!
+    --Error! The character is not a priest, but has a priest quest status! Or player uses priest magic but has no dedicated god!
+    if (priesthood ~= 0 and User:getMagicType()~= 1) or (priesthood == 0 and User:getMagicType()== 1) then
 
       base.common.InformNLS(User,"[Fehler] Bitte informiere einen Entwickler. Der Priesterstatus deines Charakters ist fehlerhaft.","[Error] Please inform a developer, the priest status of your character is flawed.");
       return; --bailing out        
