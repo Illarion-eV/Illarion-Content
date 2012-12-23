@@ -66,7 +66,7 @@ function onAttack(Attacker, Defender)
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
     local Globals = {};
-    
+    debug("onAttack 1a: ");
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
     debug("onAttack 2: ");
