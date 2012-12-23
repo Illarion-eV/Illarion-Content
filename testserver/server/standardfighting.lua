@@ -60,7 +60,7 @@ module("server.standardfighting", package.seeall)
 -- @param Defender The character who is attacked
 -- @return true in case a attack was performed, else false
 function onAttack(Attacker, Defender)
-	debug("onAttack 1: "..Attacker.name);
+	debug("onAttack 1: ");
     -- Attacker:talk(Character.say,"Drin in onAttack");
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
@@ -69,20 +69,20 @@ function onAttack(Attacker, Defender)
     
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
-    debug("onAttack 2: "..Attacker.name);
+    debug("onAttack 2: ");
     --Attacker.Char:talk(Character.say,"NI OK");
     -- Load the weapons of the attacker
     LoadWeapons(Attacker);
     
      --   Attacker.Char:talk(Character.say,"WP OK");
     -- Check the range between the both fighting characters
-	debug("onAttack 3: "..Attacker.name);
+	debug("onAttack 3: ");
     if not CheckRange(Attacker, Defender.Char) then return false; end;
-    debug("onAttack 4: "..Attacker.name);
+    debug("onAttack 4: ");
     --Attacker.Char:talk(Character.say,"RANGE OK");
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker);
-    debug("onAttack 5: "..Attacker.name);
+    debug("onAttack 5: ");
     --Attacker.Char:talk(Character.say,"ATT TYPE OK");
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker) then 
