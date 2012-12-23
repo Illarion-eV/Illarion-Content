@@ -98,17 +98,17 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Dismissed.", "Best of luck.
 -- Catching quest triggers of other factions' members
 english, town = Galmair, "quest", "mission" -> "I do not issue quests to honourless commoners, sorry."
 town = Galmair, "quest", "mission" -> "Ich vergebe keine Aufgaben an ehrloses Gesindel."
-town = Galmair, "task", "adventure" -> "I do not issue quests to honourless commoners, sorry."
-town = Galmair, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich vergebe keine Aufgaben an ehrloses Gesindel."
+town = Galmair, "task", "adventure", "order" -> "I do not issue quests to honourless commoners, sorry."
+town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben an ehrloses Gesindel."
 english, town = Runewick, "quest", "mission" -> "I do not issue quests to brain-dead wanderers, sorry."
 town = Runewick, "quest", "mission" -> "Ich vergebe keine Aufgaben an hirnverbrannte Idioten."
-town = Runewick, "task", "adventure" -> "I do not issue quests to brain-dead wanderers, sorry."
-town = Runewick, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich vergebe keine Aufgaben an hirnverbrannte Idioten."
+town = Runewick, "task", "adventure", "order" -> "I do not issue quests to brain-dead wanderers, sorry."
+town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Aufgaben an hirnverbrannte Idioten."
 
 -- Quest 1: Read the Cadomyr laws
 queststatus(111) = 0, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] A Question of Honour I"), "You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the Cadomyr laws. Visit Sir Reginald's statue and study the customs thoroughly.", queststatus(111) = 1, queststatus(110) = 0
 queststatus(111) = 0, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Eine Frage der Ehre I"), "Du bist neu hier, richtig? Als braver Rekrut solltest du dich zuerst mit den Gesetzen Cadomyrs vertraut machen. Geh zu Sir Reginalds Statue, dort kannst du sie ausgiebig studieren.", queststatus(111) = 1, queststatus(110) = 0
-queststatus(111) = 0, town = Cadomyr, "task", "adventure" -> inform("[New Quest] A Question of Honour I"), "You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the Cadomyr laws. Visit Sir Reginald's statue and study the customs thoroughly.", queststatus(111) = 1, queststatus(110) = 0
+queststatus(111) = 0, town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] A Question of Honour I"), "You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the Cadomyr laws. Visit Sir Reginald's statue and study the customs thoroughly.", queststatus(111) = 1, queststatus(110) = 0
 queststatus(111) = 0, town = Cadomyr, "Auftrag", "Aufgabe" -> inform("[Neues Quest] Eine Frage der Ehre I"), "Du bist neu hier, richtig? Als braver Rekrut solltest du dich zuerst mit den Gesetzen Cadomyrs vertraut machen. Geh zu Sir Reginalds Statue, dort kannst du sie ausgiebig studieren.", queststatus(111) = 1, queststatus(110) = 0
 
 -- Quest 1 solved, reward: 5 rankpoints
@@ -118,13 +118,13 @@ queststatus(111) = 2, town = Cadomyr, ".*" -> inform("[Quest gelöst] Dein Anseh
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(111) = 1, english, town = Cadomyr, "quest", "mission" -> "You cannot defend Cadomyr's way of life if you do not even know our laws. They are clearly engraved upon Sir Reginald's statue in front of the palace."
 queststatus(111) = 1, town = Cadomyr, "quest", "mission" -> "Wie willst du Cadomyrs Lebensstil verteidigen, wenn du noch nicht einmal die Gesetze kennst? Du findest sie auf Sir Reginalds Statue vor dem Palast."
-queststatus(111) = 1, town = Cadomyr, "task", "adventure" -> "You cannot defend Cadomyr's way of life if you do not even know our laws. They are clearly engraved upon Sir Reginald's statue in front of the palace."
-queststatus(111) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Wie willst du Cadomyrs Lebensstil verteidigen, wenn du noch nicht einmal die Gesetze kennst? Du findest sie auf Sir Reginalds Statue vor dem Palast."
+queststatus(111) = 1, town = Cadomyr, "task", "adventure", "order" -> "You cannot defend Cadomyr's way of life if you do not even know our laws. They are clearly engraved upon Sir Reginald's statue in front of the palace."
+queststatus(111) = 1, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wie willst du Cadomyrs Lebensstil verteidigen, wenn du noch nicht einmal die Gesetze kennst? Du findest sie auf Sir Reginalds Statue vor dem Palast."
 
 -- Quest 2: Patrol the palace, the notary's office and the town gate
 queststatus(111) = 3, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] A Question of Honour II"), "Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the notary's office, the palace and especially the gate.", queststatus(111) = 4
 queststatus(111) = 3, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Eine Frage der Ehre II"), "Stillgestanden, Rekrut! Deine erste Mission besteht darin, in Cadomyr zu patroullieren und besonder Vorkommnisse zu melden. Überprüf das Notarbüro, den Palast und natürlich das Stadttor.", queststatus(111) = 4
-queststatus(111) = 3, town = Cadomyr, "task", "adventure" -> inform("[New Quest] A Question of Honour II"), "Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the notary's office, the palace and especially the gate.", queststatus(111) = 4
+queststatus(111) = 3, town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] A Question of Honour II"), "Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the notary's office, the palace and especially the gate.", queststatus(111) = 4
 queststatus(111) = 3, town = Cadomyr, "Auftrag", "Aufgabe" -> inform("[Neues Quest] Eine Frage der Ehre II"), "Stillgestanden, Rekrut! Deine erste Mission besteht darin, in Cadomyr zu patroullieren und besonder Vorkommnisse zu melden. Überprüf das Notarbüro, den Palast und natürlich das Stadttor.", queststatus(111) = 4
 
 -- Quest 2 solved, reward: Beer (1909), 10 rankpoints
@@ -134,13 +134,13 @@ queststatus(111) = 5, town = Cadomyr, ".*" -> inform("[Quest gelöst] Du erhält
 -- Quest 2 taken but not solved, repeat the instructions
 queststatus(111) = 4, english, town = Cadomyr, "quest", "mission" -> "What are you waiting for? Patrol the notary's office, the palace, and the town gate!"
 queststatus(111) = 4, town = Cadomyr, "quest", "mission" -> "Worauf wartest du!? Überprüfe das Notarbüro, den Palast und das Stadttor!"
-queststatus(111) = 4, town = Cadomyr, "task", "adventure" -> "What are you waiting for? Patrol the notary's office, the palace, and the town gate!"
-queststatus(111) = 4, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Worauf wartest du!? Überprüfe das Notarbüro, den Palast und das Stadttor!"
+queststatus(111) = 4, town = Cadomyr, "task", "adventure", "order" -> "What are you waiting for? Patrol the notary's office, the palace, and the town gate!"
+queststatus(111) = 4, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Worauf wartest du!? Überprüfe das Notarbüro, den Palast und das Stadttor!"
 
 -- Quest 3: Provide 20 bricks (2588)
 queststatus(111) = 6, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] A Question of Honour III"), "Maybe you noticed on your patrol the small breach in the town wall. Glorious deeds sometimes are hard labour; bring me twenty bricks so we fix the breach.", queststatus(111) = 7
 queststatus(111) = 6, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Eine Frage der Ehre III"), "Wahrscheinlich ist dir währender der Patroullie die kleine Bresche in der Stadtmauer aufgefallen. Manchmal bedeuten glorreiche Taten auch harte Arbeit; bring mir bitte zwanzig Ziegel zum Ausbessern der Bresche.", queststatus(111) = 7
-queststatus(111) = 6, town = Cadomyr, "task", "adventure" -> inform("[New Quest] A Question of Honour III"), "Maybe you noticed on your patrol the small breach in the town wall. Glorious deeds sometimes are hard labour; bring me twenty bricks so we fix the breach.", queststatus(111) = 7
+queststatus(111) = 6, town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] A Question of Honour III"), "Maybe you noticed on your patrol the small breach in the town wall. Glorious deeds sometimes are hard labour; bring me twenty bricks so we fix the breach.", queststatus(111) = 7
 queststatus(111) = 6, town = Cadomyr, "Auftrag", "Aufgabe" -> inform("[Neues Quest] Eine Frage der Ehre III"), "Wahrscheinlich ist dir währender der Patroullie die kleine Bresche in der Stadtmauer aufgefallen. Manchmal bedeuten glorreiche Taten auch harte Arbeit; bring mir bitte zwanzig Ziegel zum Ausbessern der Bresche.", queststatus(111) = 7
 
 -- Quest 3 solved, reward: brick mould (734), 10 rankpoints
@@ -150,13 +150,13 @@ queststatus(111) = 7, item(2588, all) > 19, town = Cadomyr, ".*" -> inform("[Que
 -- Quest 3 taken but not solved, repeat the instructions
 queststatus(111) = 7, english, town = Cadomyr, "quest", "mission" -> "Twenty fired bricks are needed at least to fix the town wall. If you need help, ask Robertus at the market place."
 queststatus(111) = 7, town = Cadomyr, "quest", "mission" -> "Zwanzig gebrannte Ziegel werden benötigt, um die Stadtmauer auszubessern. Wenn du Hilfe brauchst, frage auf dem Markt nach Robertus."
-queststatus(111) = 7, town = Cadomyr, "task", "adventure" -> "Twenty fired bricks are needed at least to fix the town wall. If you need help, ask Robertus at the market place."
-queststatus(111) = 7, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Zwanzig gebrannte Ziegel werden benötigt, um die Stadtmauer auszubessern. Wenn du Hilfe brauchst, frage auf dem Markt nach Robertus."
+queststatus(111) = 7, town = Cadomyr, "task", "adventure", "order" -> "Twenty fired bricks are needed at least to fix the town wall. If you need help, ask Robertus at the market place."
+queststatus(111) = 7, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zwanzig gebrannte Ziegel werden benötigt, um die Stadtmauer auszubessern. Wenn du Hilfe brauchst, frage auf dem Markt nach Robertus."
 
 -- Quest 4: Patrol the eastern border, Circle of Blood Arena, Mine Candour Foundation and the northern bridge over the Kantabi River (ambush!)
 queststatus(111) = 8, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] A Question of Honour IV"), "Time for some serious action! Please patrol the Candour Foundation, the Circle of Blood, the northern bridge over the Kantabi River and the eastern border. Make Cadomyr's homeland a safe place!", queststatus(111) = 9
 queststatus(111) = 8, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Eine Frage der Ehre IV"), "Zeit für wahre Heldentaten. Patroulliere bitte den Grundstein der Aufrichtigkeit, den Blutkreis, die nördliche Brücke über den Kantabifluss und die Ostgrenze. Sorge dafür, dass das Hinterland Cadomyrs sicher ist!", queststatus(111) = 9
-queststatus(111) = 8, town = Cadomyr, "task", "adventure" -> inform("[New Quest] A Question of Honour IV"), "Time for some serious action! Please patrol the Candour Foundation, the Circle of Blood, the northern bridge over the Kantabi River and the eastern border. Make Cadomyr's homeland a safe place!", queststatus(111) = 9
+queststatus(111) = 8, town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] A Question of Honour IV"), "Time for some serious action! Please patrol the Candour Foundation, the Circle of Blood, the northern bridge over the Kantabi River and the eastern border. Make Cadomyr's homeland a safe place!", queststatus(111) = 9
 queststatus(111) = 8, town = Cadomyr, "Auftrag", "Aufgabe" -> inform("[Neues Quest] Eine Frage der Ehre IV"), "Zeit für wahre Heldentaten. Patroulliere bitte den Grundstein der Aufrichtigkeit, den Blutkreis, die nördliche Brücke über den Kantabifluss und die Ostgrenze. Sorge dafür, dass das Hinterland Cadomyrs sicher ist!", queststatus(111) = 9
 
 -- Quest 4 solved, reward: Albarian soldier helmet (2287), 15 rankpoints
@@ -166,13 +166,13 @@ queststatus(111) = 10, town = Cadomyr, ".*" -> inform("[Quest gelöst] Du erhäl
 -- Quest 4 taken but not solved, repeat the instructions
 queststatus(111) = 9, english, town = Cadomyr, "quest", "mission" -> "The Candour Foundation is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north and your patrol should also lead you to the eastern border."
 queststatus(111) = 9, town = Cadomyr, "quest", "mission" -> "Der Grundstein der Aufrichtigkeit ist eine Mine im Süden, der Blutkreis die Arena dieses Landes, die nördliche Brücker über den Kantabifluss ist im Norden und deine Patroullie sollte dich auch an die Ostgrenze führen."
-queststatus(111) = 9, town = Cadomyr, "task", "adventure" -> "The Candour Foundation is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north and your patrol should also lead you to the eastern border."
-queststatus(111) = 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Der Grundstein der Aufrichtigkeit ist eine Mine im Süden, der Blutkreis die Arena dieses Landes, die nördliche Brücker über den Kantabifluss ist im Norden und deine Patroullie sollte dich auch an die Ostgrenze führen."
+queststatus(111) = 9, town = Cadomyr, "task", "adventure", "order" -> "The Candour Foundation is a mine to the south, the Circle of Blood is the arena of these lands, the northern bridge over the Kantabi River is in the north and your patrol should also lead you to the eastern border."
+queststatus(111) = 9, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Der Grundstein der Aufrichtigkeit ist eine Mine im Süden, der Blutkreis die Arena dieses Landes, die nördliche Brücker über den Kantabifluss ist im Norden und deine Patroullie sollte dich auch an die Ostgrenze führen."
 
 -- Quest 5: Reconnoitre the other factions and the neutral tavern
 queststatus(111) = 11, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] A Question of Honour V"), "Sometimes, intelligence can be vital for surviving. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick.", queststatus(111) = 12
 queststatus(111) = 11, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Eine Frage der Ehre V"), "Aufklärung sichert manchmal das Überleben. Wir sind keine Spione, wollen aber wissen, wer unser Feind ist. Ich will, du den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und die Kammer des Erzmagiers in Runewick 'aufklärst'.", queststatus(111) = 12
-queststatus(111) = 11, town = Cadomyr, "task", "adventure" -> inform("[New Quest] A Question of Honour V"), "Sometimes, intelligence can be vital for surviving. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick.", queststatus(111) = 12
+queststatus(111) = 11, town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] A Question of Honour V"), "Sometimes, intelligence can be vital for surviving. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick.", queststatus(111) = 12
 queststatus(111) = 11, town = Cadomyr, "Auftrag", "Aufgabe" -> inform("[Neues Quest] Eine Frage der Ehre V"), "Aufklärung sichert manchmal das Überleben. Wir sind keine Spione, wollen aber wissen, wer unser Feind ist. Ich will, du den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und die Kammer des Erzmagiers in Runewick 'aufklärst'.", queststatus(111) = 12
 
 -- Quest 5 solved, reward: albarian steelboots 15 rankpoints
@@ -182,13 +182,13 @@ queststatus(111) = 13, town = Cadomyr, ".*" -> inform("[Quest gelöst] Du erhäl
 -- Quest 5 taken but not solved, repeat the instructions
 queststatus(111) = 12, english, town = Cadomyr, "quest", "mission" -> "Please reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick and see who is friend and who is foe."
 queststatus(111) = 12, town = Cadomyr, "quest", "mission" -> "Bitte besuche den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und die Kammer des Erzmagiers in Runewick und finde heraus, wer Feind und wer Freund ist."
-queststatus(111) = 12, town = Cadomyr, "task", "adventure" -> "Please reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick and see who is friend and who is foe."
-queststatus(111) = 12, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Bitte besuche den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und die Kammer des Erzmagiers in Runewick und finde heraus, wer Feind und wer Freund ist."
+queststatus(111) = 12, town = Cadomyr, "task", "adventure", "order" -> "Please reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick and see who is friend and who is foe."
+queststatus(111) = 12, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte besuche den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und die Kammer des Erzmagiers in Runewick und finde heraus, wer Feind und wer Freund ist."
 
 -- Quest 6: Provide 20 naldor wood boards (546)
 queststatus(111) = 14, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] A Question of Honour VI"), "Being a knight means more than swinging a sword. Fostering one's home requires hard labour, too. Cadomyr is short on wood supply, as you might know. Please provide twenty naldor wood boards for the reconstruction of the Malachín temple.", queststatus(111) = 15
 queststatus(111) = 14, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Eine Frage der Ehre VI"), "Ein Ritter zu sein verlangt mehr als ein Schwert zu schwingen. Die Heimat zu hegen erfordert auch harte Arbeit. Cadomyr mangelt es bekanntermaßen an Holzlieferungen. Bring mir bitte zwanzig Naldorholzbretter für den Umbau des Malachíntempels.", queststatus(111) = 15
-queststatus(111) = 14, town = Cadomyr, "task", "adventure" -> inform("[New Quest] A Question of Honour VI"), "Being a knight means more than swinging a sword. Fostering one's home requires hard labour, too. Cadomyr is short on wood supply, as you might know. Please provide twenty naldor wood boards for the reconstruction of the Malachín temple.", queststatus(111) = 15
+queststatus(111) = 14, town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] A Question of Honour VI"), "Being a knight means more than swinging a sword. Fostering one's home requires hard labour, too. Cadomyr is short on wood supply, as you might know. Please provide twenty naldor wood boards for the reconstruction of the Malachín temple.", queststatus(111) = 15
 queststatus(111) = 14, town = Cadomyr, "Auftrag", "Aufgabe" -> inform("[Neues Quest] Eine Frage der Ehre VI"), "Ein Ritter zu sein verlangt mehr als ein Schwert zu schwingen. Die Heimat zu hegen erfordert auch harte Arbeit. Cadomyr mangelt es bekanntermaßen an Holzlieferungen. Bring mir bitte zwanzig Naldorholzbretter für den Umbau des Malachíntempels.", queststatus(111) = 15
 
 -- Quest 6 solved, reward: coppered dagger (398), 20 rankpoints
@@ -198,13 +198,13 @@ queststatus(111) = 15, item(546, all) > 19, town = Cadomyr, ".*" -> inform("[Que
 -- Quest 6 taken but not solved, repeat the instructions
 queststatus(111) = 15, english, town = Cadomyr, "quest", "mission" -> "Malachín is the patron of all knights and his temple really needs a new panelling. Please fetch twenty naldor wood boards for this holy cause.."
 queststatus(111) = 15, town = Cadomyr, "quest", "mission" -> "Malachín ist der Patron aller Ritter und sein Tempel braucht wirklich eine neue Vertäfelung. Bitte holt zwanzig Naldorholzbretter für diesen heiligen Zweck."
-queststatus(111) = 15, town = Cadomyr, "task", "adventure" -> "Malachín is the patron of all knights and his temple really needs a new panelling. Please fetch twenty naldor wood boards for this holy cause."
-queststatus(111) = 15, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Malachín ist der Patron aller Ritter und sein Tempel braucht wirklich eine neue Vertäfelung. Bitte holt zwanzig Naldorholzbretter für diesen heiligen Zweck."
+queststatus(111) = 15, town = Cadomyr, "task", "adventure", "order" -> "Malachín is the patron of all knights and his temple really needs a new panelling. Please fetch twenty naldor wood boards for this holy cause."
+queststatus(111) = 15, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Malachín ist der Patron aller Ritter und sein Tempel braucht wirklich eine neue Vertäfelung. Bitte holt zwanzig Naldorholzbretter für diesen heiligen Zweck."
 
 -- Quest 7: Provide a charm of the icebird (334), a ring of the archmage (2559) and a vase (315)
 queststatus(111) = 16, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] A Question of Honour VII"), "I have new orders from the queen. She demands precious goods from the best artisans of Cadomyr for impressing an albarian ambassador. Provide a charm of the icebird, a ring of the archmage and a vase. For the glory of Cadomyr!", queststatus(111) = 17
 queststatus(111) = 16, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Eine Frage der Ehre VII"), "Ich habe neue Befehle der Königin. Sie verlangt nach wertvollen Kunstwerken der besten Artisanen Cadomyrs um damit einen albarischen Botschafter zu beeindrucken. Bring mir bitte ein Eisvogelamulett, einen Erzmagierring und eine Vase. Für die Ehre von Cadomyr!", queststatus(111) = 17
-queststatus(111) = 16, town = Cadomyr, "task", "adventure" -> inform("[New Quest] A Question of Honour VII"), "I have new orders from the queen. She demands precious goods from the best artisans of Cadomyr for impressing an albarian ambassador. Provide a charm of the icebird, a ring of the archmage and a vase. For the glory of Cadomyr!", queststatus(111) = 17
+queststatus(111) = 16, town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] A Question of Honour VII"), "I have new orders from the queen. She demands precious goods from the best artisans of Cadomyr for impressing an albarian ambassador. Provide a charm of the icebird, a ring of the archmage and a vase. For the glory of Cadomyr!", queststatus(111) = 17
 queststatus(111) = 16, town = Cadomyr, "Auftrag", "Aufgabe" -> inform("[Neues Quest] Eine Frage der Ehre VII"), "Ich habe neue Befehle der Königin. Sie verlangt nach wertvollen Kunstwerken der besten Artisanen Cadomyrs um damit einen albarischen Botschafter zu beeindrucken. Bring mir bitte ein Eisvogelamulett, einen Erzmagierring und eine Vase. Für die Ehre von Cadomyr!", queststatus(111) = 17
 
 -- Quest 7 solved, reward: knight shield (20), 20 rankpoints
@@ -214,14 +214,14 @@ queststatus(111) = 17, item(334, all) > 0, item(2559, all) > 0, item(315, all) >
 -- Quest 7 taken but not solved, repeat the instructions
 queststatus(111) = 17, english, town = Cadomyr, "quest", "mission" -> "The queen demands a charm of the icebird, a ring of the archmage and a vase. Bring it to me and do not dare to bother herself."
 queststatus(111) = 17, town = Cadomyr, "quest", "mission" -> "Die Königin verlangt nach einem Eisvogelamulett, einem Erzmagierring und einer Vase. Bringt diese Dinge zu mir und wagt es nicht, sie mit dieser Angelegenheit zu behelligen."
-queststatus(111) = 17, town = Cadomyr, "task", "adventure" -> "The queen demands a charm of the icebird, a ring of the archmage and a vase. Bring it to me and do not dare to bother herself."
-queststatus(111) = 17, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Die Königin verlangt nach einem Eisvogelamulett, einem Erzmagierring und einer Vase. Bringt diese Dinge zu mir und wagt es nicht, sie mit dieser Angelegenheit zu behelligen."
+queststatus(111) = 17, town = Cadomyr, "task", "adventure", "order" -> "The queen demands a charm of the icebird, a ring of the archmage and a vase. Bring it to me and do not dare to bother herself."
+queststatus(111) = 17, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Königin verlangt nach einem Eisvogelamulett, einem Erzmagierring und einer Vase. Bringt diese Dinge zu mir und wagt es nicht, sie mit dieser Angelegenheit zu behelligen."
 
 -- No more quests, just nice words of gratitude
 queststatus(111) = 18, english, town = Cadomyr, "quest", "mission" -> "You might become one of Cadomyr's heroes one day. Now set out and do good deeds in the name of the Queen!"
 queststatus(111) = 18, town = Cadomyr, "quest", "mission" -> "Du wirst noch mal ein Held Cadomyrs. Jetzt ziehe aus in die weite Welt und vollbringe ehrenhafte Taten im Namen der Königin!"
-queststatus(111) = 18, town = Cadomyr, "task", "adventure" -> "You might become one of Cadomyr's heroes one day. Now set out and do good deeds in the name of the Queen!"
-queststatus(111) = 18, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer" -> "Du wirst noch mal ein Held Cadomyrs. Jetzt ziehe aus in die weite Welt und vollbringe ehrenhafte Taten im Namen der Königin!"
+queststatus(111) = 18, town = Cadomyr, "task", "adventure", "order" -> "You might become one of Cadomyr's heroes one day. Now set out and do good deeds in the name of the Queen!"
+queststatus(111) = 18, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du wirst noch mal ein Held Cadomyrs. Jetzt ziehe aus in die weite Welt und vollbringe ehrenhafte Taten im Namen der Königin!"
 
 -- Outlaw answer
 english, "quest", "mission" -> "You outcast! Can't you find a home? They accept everyone in Galmair I was told, as long as you have some money."
