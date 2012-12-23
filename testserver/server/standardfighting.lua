@@ -491,7 +491,7 @@ function CheckRange(AttackerStruct, Defender)
     end
 	debug("nach if");
     if (distance == 1 and AttackerStruct.AttackKind == 4) then
-	debug("sollte nicht"!);
+	debug("sollte nicht");
         return false;
     end
     if AttackerStruct.IsWeapon then
