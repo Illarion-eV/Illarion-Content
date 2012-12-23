@@ -152,7 +152,7 @@ queststatus(81) = 8, english, "quest", "mission" -> "Nah, you learned enough fro
 queststatus(81) = 8, german, "quest", "mission" -> "Nay, ich glaub du hast genug von mir gelernt. Alles weitere musst du jetzt selber herausfinden, das macht einen guten Schmied aus!"
 queststatus(81) = 8, "task", "adventure" -> "Nah, you learned enough from me. You have to figure out everything else for yourself. That's what a good smith is all about."
 queststatus(81) = 8, "Auftrag", "Aufgabe", "Abenteuer" -> "Nay, ich glaub du hast genug von mir gelernt. Alles weitere musst du jetzt selber herausfinden, das macht einen guten Schmied aus!"
-english, "quest", "mission" -> "Sorry, I only issue tasks to unexperienced smithes."
+english, "quest", "mission" -> "Sorry, I only issue tasks to unexperienced smiths"
 "quest", "mission" -> "Tut mir Leid, Kumpel. Aber ich geb nur unerfahrenen Schmieden Aufgaben auf."
 "smith", "task", "adventure", "order" -> "Sorry, I only issue tasks to unexperienced smithes."
 "Schmied", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Tut mir Leid, Kumpel. Aber ich geb nur unerfahrenen Schmieden Aufgaben auf."
@@ -216,7 +216,7 @@ english, "Irmorom" -> "Smithing is the craft of the dwarves. Irmorom teached us 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "Do I look like a merchant? I don't think so!", "Nah, I don't buy anything and I won't ever sell something to you!", "Maybe some other time, not today."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Sehe ich aus wie ein Händler, ich denke nicht!", "Nay, ich kauf nix und verkaufen tu ich erst recht nix an dich!", "Ein ander mal vielleicht, heute nich."
-"tell something" -> "Do you know, Gremle Oxenlimb, my sister's husband? He affirms that he beats up a golem with his bare hands. Ga strak ja'ada! Such a fibed tale. ", "They say Eygir Goldmalt brews the best beer, but I prefer Yeseult Bockbrew's.", "Rustbeard Grimhilds-Cousin is a good friend of mine. But he can't bear even a half mug of beer. When drunken he sings bawdy songs and throws hatchets trageting young womens plaits."
+"tell something" -> "Do you know, Gremle Oxenlimb, my sister's husband? He affirms that he beat up a golem with his bare hands. Is 'Ga strak ja'ada! Such a fibbed tale.", "They say Eygir Goldmalt brews the best beer, but I prefer Yeseult Bockbrew's.", "Rustbeard Grimhilds-Cousin is a good friend of mine. But he can't bear even a half mug of beer. When drunken he sings bawdy songs and throws hatchets trageting young womens plaits."
 "erzähl was", "erzähl etwas" -> "Kennt ihr Gremle Ochsenschenkel, meinen Schwager? Er behauptet er würde einem Golem im Faustkampf besiegen. Ga strak ja'ada! So'ne erlogene Geschichte.", "Es heißt Eygir Goldmalz braut das beste Bier, aber mir schmeckt das von Yseult Bockbräu viel besser. ", "Rostbart Grimhilds-Vetter ist ein guter Bekannter von mir. Aber der verträgt kein Bier nicht. Hat der einen halben Humpen drin, fängt er an unflätig zu singen und mit Beilen nach den Zöpfen von jungn' Fraun zu werfn."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
@@ -242,7 +242,7 @@ cycletext "#me nimmt eine Bierflasche aus seiner Tasche und trinkt einen Schluck
 cycletext "#me wischt sich mit dem Handrücken über die Stirn.", "#me wipes with his hand over his forehead."
 cycletext "#me brummt leise etwas in seinen Bart.", "#me grumbles something into his beard."
 cycletext "#me streicht mit zusammengeniffenen Augen über sein Hemd aus Pferdehaar, etwas Staub löst sich daraus und schwebt zu Boden.", "#me pats his shirt made of horse-hair. Some dust gets released and sinks to the ground."
-cycletext "#me grinst breit, ein goldener Zahn blitzt hervor.", "#me shows a broad grin, a golden tooth is shwon for a second."
-cycletext "#me pfeift die Melodie eines alten Bergwerkliedes.", "#me whistles the tune of an old mine song."
+cycletext "#me grinst breit, ein goldener Zahn blitzt hervor.", "#me shows a broad grin, a golden tooth is shown for a second."
+cycletext "#me pfeift die Melodie eines alten Bergwerkliedes.", "#me whistles the tune of an old miner's song."
 cycletext "#me kartzt sich an der knubbeligen Nase.", "#me scratches his knobby nose."
-cycletext "#me blickt mit zusammengeniffenen Augen in den Himmel.", "#me glances the sky with narrowed eyes."
+cycletext "#me blickt mit zusammengeniffenen Augen in den Himmel.", "#me glances to the sky with narrowed eyes."
