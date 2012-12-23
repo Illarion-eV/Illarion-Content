@@ -15,6 +15,8 @@ learnLimit: Maximum skill level the user can reach with the triggering action.
 
 function learn(user, skill, actionPoints, learnLimit)
 
+    
+	
 	leadAttrib = getLeadAttrib(user,skill);
     local skillName = user:getSkillName(skill)
 	
@@ -52,9 +54,14 @@ function learn(user, skill, actionPoints, learnLimit)
                 else
 				    skillValue=user:getSkill(skill); --reading the skill points
      			    user:increaseMinorSkill(skill,realIncrease); --this is why we do all this grinding!
-				    base.common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit '"..skillName.."' steigt von "..skillValue.." auf "..(skillValue+1).."!",
-					"[Level up] Your skill '"..skillName.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
-				    world:gfx(41,user.pos); --swirly!           
+					
+					if user:getType() == 0 then --Only players get informs and swirlies! Strangely, monsters also learn, but meh.
+					
+				        base.common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit '"..skillName.."' steigt von "..skillValue.." auf "..(skillValue+1).."!",
+					    "[Level up] Your skill '"..skillName.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
+				        world:gfx(41,user.pos); --swirly!   
+						
+                    end						
 		        end
 			
 			minorIncrease=minorIncrease-10000;
