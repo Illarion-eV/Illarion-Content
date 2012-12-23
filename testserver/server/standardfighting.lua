@@ -833,7 +833,7 @@ function LoadWeapons(CharStruct)
 		end
 	end
 	
-	if isRWp=0 and isLWp=1 then 	-- switch weapons
+	if isRWp==0 and isLWp==1 then 	-- switch weapons
 		local dItem=rItem;
 		local dAttFound=rAttFound;
 		local dAttWeapon=rAttWeapon;
