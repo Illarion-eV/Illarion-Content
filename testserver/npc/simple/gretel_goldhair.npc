@@ -114,9 +114,9 @@ queststatus(205) =1,"task", "adventure", "order" -> "Yes. Yes! You did figure ou
 queststatus(206) =1,"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ganz genau! Ihr habt heraus gefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
 
 -- Quest 1 solved, reward: +20 rankpoints
-queststatus(205) =2, english, "quest", "mission" -> "Thank you for your donnation!", "#me cakles", rankpoints = 20
+queststatus(205) =2, english, "quest", "mission" -> "Thank you for your donation!", "#me cakles", rankpoints = 20
 queststatus(205) =2,"quest", "mission"  -> "Danke für Eure Spende!", "#me kichert", rankpoints = 20
-queststatus(205) =2,"task", "adventure", "order" ->"Thank you for your donnation!", "#me cakles", rankpoints = 20
+queststatus(205) =2,"task", "adventure", "order" ->"Thank you for your donation!", "#me cakles", rankpoints = 20
 queststatus(205) =2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke für Eure Spende!", "#me kichert", rankpoints = 20
 
 -- Final dialogue: No more quests, just nice hints
@@ -126,10 +126,10 @@ queststatus(205) =2,"task", "adventure", "order" ->  "#me grins showing a pair o
 queststatus(205) =2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald, Schätzchen!"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I am sorting all that rubbish ... I mean, all the donnations to the Don.", "..."
-"beruf" -> "Ich sortiere all diesen Müll... ähm, all diese Spenden an den Don, wollte ich sagen.", "..."
-english, "job" -> "I am sorting all that rubbish ... I mean, all the donnations to the Don."
-"job" -> "Ich sortiere all diesen Müll... ähm, all diese Spenden an den Don, wollte ich sagen."
+"profession" -> "I am sorting all that rubbish...I mean, all the donations to the Don.", "..."
+"beruf" -> "Ich sortiere all diesen Müll...ähm, all diese Spenden an den Don, wollte ich sagen.", "..."
+english, "job" -> "I am sorting all that rubbish...I mean, all the donations to the Don."
+"job" -> "Ich sortiere all diesen Müll...ähm, all diese Spenden an den Don, wollte ich sagen."
 "tell something" -> "I came to Galmair as a young girl. And I am still here now. How long will you stay here?", "I once was a well known, beautiful dancer. But I grew old and ugly. Now I guard this garbage bin.", "When I was young, they called me Gretel Goldhair, but now they call me Gretel Graihair."
 "erzähl was", "erzähl etwas" -> "Ich kam als junges Mädchen nach Galmair. Jetzt bin ich immer noch da. Wie lange werden Ihr bleiben?","Ich war mal eine Stadtbekannt, wunderschöne Tänzerin. Doch ich wurde alt und hässlich. Jetzt beaufsichtige ich diese Müllkippe!" , "Früher nannten sie mich Gertel Goldhair, jetzt nennen sie mich Graue Gretel:"
 
@@ -196,11 +196,11 @@ german, chance(20.0), ".*" ->  "Sprecht lauter, ich kann Euch nicht hören!", "H
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Seht mich an, so werdet auch Ihr aussehen, wenn Ihr alt seid!", "..."
-cycletext "#me kichert irre wie eine alte Hexe.", "#me cakles like an old witch."
+cycletext "#me kichert irre wie eine alte Hexe.", "#me cackles like an old witch."
 cycletext "#me stützt sich auf ihren Stock.", "#me rests her arms on her walking staff."
 cycletext "#me starrt in die Ferne.", "#me stares at the horizon."
-cycletext "#me zieht die Nase hoch. ", "#me snuffels."
-cycletext "#me redet leise mich sich selbst.", "#me talkes to herself silently."
-cycletext "#me schaut sich um.", "#me lookes around."
-cycletext "#me hustet.", "#me coughts."
+cycletext "#me zieht die Nase hoch. ", "#me snuffles."
+cycletext "#me redet leise mich sich selbst.", "#me talks to herself silently."
+cycletext "#me schaut sich um.", "#me looks around."
+cycletext "#me hustet.", "#me coughs."
 cycletext "#me spuckt auf den Boden.", "#me spits on the ground."

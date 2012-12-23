@@ -118,7 +118,7 @@ if (MonID==821) then --Bog Body, Level: 4, Armourtype: light, Weapontype: slashi
         if not done then done=monster.base.drop.AddDropItem(92,1,10,(100*math.random(2,3)+math.random(22,33)),0,1); end --oil lamp
         if not done then done=monster.base.drop.AddDropItem(67,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --rubin amulet
         if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(2,3)+math.random(22,33)),nil,1); end --treasure map
-        if not done then done=monster.base.drop.AddDropItem(314,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --pott ash
+        if not done then done=monster.base.drop.AddDropItem(314,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --potash
 
         --Category 2: Gems
 

@@ -100,7 +100,7 @@ function GenerateLookAt(user, item, material)
 		lookAt.weight = item.number * itemCommon.Weight;
 		
         if not base.money.IsCurrency(item.id) then
-            lookAt.worth = item.number * itemCommon.Worth;
+            lookAt.worth = 20*item.number * itemCommon.Worth;
         end
 		
         if material > NONE then
@@ -179,7 +179,7 @@ function GenerateItemLookAtFromId(user, itemId, stackSize, data)
 
     local itemCommon = world:getItemStatsFromId(itemId)
 	lookAt.weight = stackSize * itemCommon.Weight
-    lookAt.worth = stackSize * itemCommon.Worth
+    lookAt.worth = 20*stackSize * itemCommon.Worth
 
 	return lookAt;
 end;

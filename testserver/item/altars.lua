@@ -41,7 +41,7 @@ function ini()
 
   devoteItems={};
   devoteItems[1]={733,316,2588}; --Ushara: Stone block, Quartz sand, Brick
-  devoteItems[2]={314,236,43}; --Brágon: Pott ash, Gold ignot, Candle
+  devoteItems[2]={314,236,43}; --Brágon: potash, Gold ignot, Candle
   devoteItems[3]={256,2745,155}; --Eldan: Raw diamonds, Parchment, Sibanac leaf
   devoteItems[4]={52,253,72}; --Tanora: Bucket of water, Raw sapphire, Fishing rod
   devoteItems[5]={64,463,65}; --Findari: Arrow, Quill, Short Bow
@@ -69,7 +69,7 @@ function ini()
   priestItems[7]={368,76,397,3110,222}; --Elara: Yellow priest robe, Mage's staff, Oil lamp, Pell, Amulet
   priestItems[8]={2419,224,335,2744,155}; --Adron: Red priest robe, Golden goblet, Lute, Pipe, Sibanac leaf
   priestItems[9]={2416,271,126,2786,249}; --Oldra: Brown priest robe, Scythe, Sickle, Branch, Bundle of grain
-  priestItems[10]={2420,271,138,314,726}; --Cherga: Black priest robe, Scythe, Night angels blossom, Pott ash, Coarse sand
+  priestItems[10]={2420,271,138,314,726}; --Cherga: Black priest robe, Scythe, Night angels blossom, potash, Coarse sand
   priestItems[11]={2421,20,391,2291,78}; --Malachín: White priest robe, Large metal shield, Torch, Salkamaerian Paladin's helmet, Shortsword
   priestItems[12]={2418,226,74,2763,2752}; --Irmorom: Gray priest robe, War Hammer, Hatchet, Pickaxe, Carving tools
   priestItems[13]={2421,40,280,354,222}; --Sirani: White priest robe, Cleric's staff, Diamond ring, Strawberry cake, Amulet
@@ -92,7 +92,6 @@ function LookAtItem( User, Item )
   end
 
   --Tell the user who's altar that is
-  debug("thisGod " .. thisGod);
   if thisGod==content.gods.GOD_NONE  or thisGod>content.gods.GOD_THEFIVE then --undedicated altar
     base.lookat.SetSpecialName(Item, "Ungeweihter Altar","Undedicated altar")
 
@@ -106,8 +105,6 @@ function LookAtItem( User, Item )
 
     devotion=User:getQuestProgress(401);
     priesthood=User:getQuestProgress(402);
-    debug("devotion/priesthood: " .. devotion .. "/" .. priesthood);
-    debug("magic type " .. User:getMagicType());
 
     --Check for corrupted status
 
@@ -118,7 +115,8 @@ function LookAtItem( User, Item )
 
     end
 
-    if priesthood ~= 0 and User:getMagicType()~= 1 then --Error! The character is not a priest, but has a priest quest status!
+    --Error! The character is not a priest, but has a priest quest status! Or player uses priest magic but has no dedicated god!
+    if (priesthood ~= 0 and User:getMagicType()~= 1) or (priesthood == 0 and User:getMagicType()== 1) then
 
       base.common.InformNLS(User,"[Fehler] Bitte informiere einen Entwickler. Der Priesterstatus deines Charakters ist fehlerhaft.","[Error] Please inform a developer, the priest status of your character is flawed.");
       return; --bailing out
@@ -149,7 +147,6 @@ function LookAtItem( User, Item )
       base.common.InformNLS(User,"Der Anblick von "..content.gods.GOD_DE[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.","Beholding the altar of "..content.gods.GOD_DE[thisGod].." makes you feel proud of your devotion.");
 
     elseif devotion == thisGod and priesthood == 0 and User:getMagicType()~= 1 then --a devotee of this god.
-      debug("you are a priest");
       base.common.InformNLS(User,"Der Anblick von "..content.gods.GOD_DE[thisGod].."s Altar erfüllt dich in deiner Ergebenheit mit Stolz.","Beholding the altar of "..content.gods.GOD_EN[thisGod].." makes you feel proud of your devotion.");
 
 --For enabling becoming a priest, use the stuff below. Doesn't make any sense without priest magic, though.
@@ -176,12 +173,11 @@ function LookAtItem( User, Item )
 ]]
 
     else --uhm, no idea!
-      debug("return");
+      User:inform("[ERROR] Your priest and devotee status is corrupted. Please inform a developer.");
       return; --bailing out
     end
 
   end --dedicated altar
-  debug("should inform");
   world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 end --function
 
@@ -218,7 +214,8 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
 
     end
 
-    if priesthood ~= 0 and User:getMagicType()~= 1 then --Error! The character is not a priest, but has a priest quest status!
+    --Error! The character is not a priest, but has a priest quest status! Or player uses priest magic but has no dedicated god!
+    if (priesthood ~= 0 and User:getMagicType()~= 1) or (priesthood == 0 and User:getMagicType()== 1) then
 
       base.common.InformNLS(User,"[Fehler] Bitte informiere einen Entwickler. Der Priesterstatus deines Charakters ist fehlerhaft.","[Error] Please inform a developer, the priest status of your character is flawed.");
       return; --bailing out        

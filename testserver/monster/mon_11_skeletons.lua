@@ -211,7 +211,7 @@ function onDeath(Monster)
 
         --Category 2: Special loot
 
-        local done=monster.base.drop.AddDropItem(314,1,20,(100*math.random(1,2)+math.random(11,22)),0,2); --pot ash
+        local done=monster.base.drop.AddDropItem(314,1,20,(100*math.random(1,2)+math.random(11,22)),0,2); --potash
         if not done then done=monster.base.drop.AddDropItem(251,1,10,(100*math.random(1,2)+math.random(11,22)),0,2); end --raw amethysts
         if not done then done=monster.base.drop.AddDropItem(2647,1,1,(100*math.random(1,2)+math.random(11,22)),0,2); end --curtlery
         if not done then done=monster.base.drop.AddDropItem(222,1,1,(100*math.random(1,2)+math.random(11,22)),0,2); end --amulet

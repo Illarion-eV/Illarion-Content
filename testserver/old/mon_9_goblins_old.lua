@@ -169,7 +169,7 @@ function onDeath(Monster)
         local done=monster.base.drop.AddDropItem(63,1,20,(100*math.random(3,4)+math.random(33,44)),0,2); --insides
         if not done then done=monster.base.drop.AddDropItem(50,1,10,(100*math.random(3,4)+math.random(33,44)),0,2); end --thread
         if not done then done=monster.base.drop.AddDropItem(2935,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --bowl
-        if not done then done=monster.base.drop.AddDropItem(314,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --pot ash
+        if not done then done=monster.base.drop.AddDropItem(314,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --potash
         if not done then done=monster.base.drop.AddDropItem(391,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --torch
 
         --Category 3: Weapon
