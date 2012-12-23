@@ -63,7 +63,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         world:makeSound(7,User.pos);
         logStrg=os.date()..": "..User.name.." tried "..SourceItem.pos.x.."/"..SourceItem.pos.y.."/"..SourceItem.pos.z.."\n";
         logToFile(logStrg);
-        if SourceItem.data==1 then          -- if data=1 then make a fire!!
+        if tonumber(SourceItem:getData("fireData"))==1 then          -- if data=1 then make a fire!!
             logStrg=os.date()..": "..User.name.." started fire at "..SourceItem.pos.x.."/"..SourceItem.pos.y.."/"..SourceItem.pos.z.."(data=1)\n";
             logToFile(logStrg);
             callFireMan(User,SourceItem);
