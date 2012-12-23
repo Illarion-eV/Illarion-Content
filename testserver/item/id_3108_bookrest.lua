@@ -11,7 +11,7 @@ function LookAtItem(User,Item)
     if (Item.pos == position(741,406,-3)) then
 	
 	    lookAt = ItemLookAt();
-		lookAt.rareness = ItemLookAt.epicItem;
+		lookAt.rareness = ItemLookAt.rareItem;
         	
 	    if (User:getPlayerLanguage()==0) then
 	        lookAt.name = "Tagebuch des Abtes Elzechiel";
@@ -31,8 +31,7 @@ end
 function UseItem(User,SourceItem,TargetItem,counter,param)
 
     if (SourceItem.pos == position(741,406,-3)) then
-	    base.common.InformNLS(User,"Bitte hier das Lesen des Salavesh-Buches implementieren!","Please implement reading the Salavesh book here!");
-	    --Please implement reading the Salavesh book here!
+	    User:sendBook(3);
 	end
 	
 end
