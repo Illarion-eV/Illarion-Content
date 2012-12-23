@@ -7,7 +7,7 @@ require("alchemy.base.alchemy")
 module("alchemy.base.gemdust", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-User:inform("debug gemdust 1")
+
     -- infront of a cauldron?
     local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
     if cauldron then
