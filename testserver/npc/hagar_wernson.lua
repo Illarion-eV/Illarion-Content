@@ -129,7 +129,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("G'day, be wellcome in the Winged Sow Tavern!");
+talkEntry:addResponse("G'day, be welcome in the Winged Sow Tavern!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -153,7 +153,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("G'day, be wellcome in the Winged Sow Tavern!");
+talkEntry:addResponse("G'day, be welcome in the Winged Sow Tavern!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
