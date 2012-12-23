@@ -486,9 +486,10 @@ function CheckRange(AttackerStruct, Defender)
 		
 		debug("nach LOS");
 		
+		local next = next
+		if next(blockList) == nil 
 		
-		
-        if blockList ~= nil then
+        if next(blockList) ~= nil then
 			debug("blocklist ~= nil")
 			for key, listEntry in pairs(blockList) do
 			debug("IN FOR BLOCKLIST")
