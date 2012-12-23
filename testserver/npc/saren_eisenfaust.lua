@@ -892,7 +892,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Sorry, I only issue tasks to unexperienced smithes.");
+talkEntry:addResponse("Sorry, I only issue tasks to unexperienced smiths");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1272,7 +1272,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Do you know, Gremle Oxenlimb, my sister's husband? He affirms that he beats up a golem with his bare hands. Ga strak ja'ada! Such a fibed tale. ");
+talkEntry:addResponse("Do you know, Gremle Oxenlimb, my sister's husband? He affirms that he beat up a golem with his bare hands. Is 'Ga strak ja'ada! Such a fibbed tale.");
 talkEntry:addResponse("They say Eygir Goldmalt brews the best beer, but I prefer Yeseult Bockbrew's.");
 talkEntry:addResponse("Rustbeard Grimhilds-Cousin is a good friend of mine. But he can't bear even a half mug of beer. When drunken he sings bawdy songs and throws hatchets trageting young womens plaits.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1363,10 +1363,10 @@ talkingNPC:addCycleText("#me nimmt eine Bierflasche aus seiner Tasche und trinkt
 talkingNPC:addCycleText("#me wischt sich mit dem Handrücken über die Stirn.", "#me wipes with his hand over his forehead.");
 talkingNPC:addCycleText("#me brummt leise etwas in seinen Bart.", "#me grumbles something into his beard.");
 talkingNPC:addCycleText("#me streicht mit zusammengeniffenen Augen über sein Hemd aus Pferdehaar, etwas Staub löst sich daraus und schwebt zu Boden.", "#me pats his shirt made of horse-hair. Some dust gets released and sinks to the ground.");
-talkingNPC:addCycleText("#me grinst breit, ein goldener Zahn blitzt hervor.", "#me shows a broad grin, a golden tooth is shwon for a second.");
-talkingNPC:addCycleText("#me pfeift die Melodie eines alten Bergwerkliedes.", "#me whistles the tune of an old mine song.");
+talkingNPC:addCycleText("#me grinst breit, ein goldener Zahn blitzt hervor.", "#me shows a broad grin, a golden tooth is shown for a second.");
+talkingNPC:addCycleText("#me pfeift die Melodie eines alten Bergwerkliedes.", "#me whistles the tune of an old miner's song.");
 talkingNPC:addCycleText("#me kartzt sich an der knubbeligen Nase.", "#me scratches his knobby nose.");
-talkingNPC:addCycleText("#me blickt mit zusammengeniffenen Augen in den Himmel.", "#me glances the sky with narrowed eyes.");
+talkingNPC:addCycleText("#me blickt mit zusammengeniffenen Augen in den Himmel.", "#me glances to the sky with narrowed eyes.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
