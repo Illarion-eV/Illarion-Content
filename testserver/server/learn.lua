@@ -18,7 +18,6 @@ function learn(user, skill, actionPoints, learnLimit)
 	leadAttrib = getLeadAttrib(user,skill);
     local skillName = user:getSkillName(skill)
 	
-    user:inform("learn called: skill: "..skillName.." AP: "..actionPoints.." learnLimit: "..learnLimit);
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
 	scalingFactor=500; --Here, you can mod the learning speed. Higher value=faster ;-)
 	
