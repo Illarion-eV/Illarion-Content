@@ -87,7 +87,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia be with you
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Tsss! I ate all my fisssch. I'll chatch new fisssch sssoon."
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Tsss! Ich aß all meinen Fisssch. Ich werde ssschnellssstmöglich neuen fangen."
 
--- A Messege Quest
+-- A message Quest
 -- You are asked to talk to someone, then return to the person who gave you the task and you get a reward
 -- Tast given: status = 1
 -- Talked to someone: staus = 2

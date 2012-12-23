@@ -1092,7 +1092,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me geht müßig ein paar Schritte auf und ab, dabei lächelt er zufrieden.", "#me walks  at a leisurely pace with a content smile on his face.");
 talkingNPC:addCycleText("Respekt? Wo ist nur der Respekt geblieben? All diese Möchtegerns...", "Respect? Where's the respect? All these wannabes...");
-talkingNPC:addCycleText("#me dreht sich besorgt um 'Halt! Wer ist da? Es ist noch nicht Zeit für das wöchentliche Attentat!'", "#me turns around concerned, ?Damn assassination attempts there almost weekly now.'");
+talkingNPC:addCycleText("#me dreht sich besorgt um 'Halt! Wer ist da? Es ist noch nicht Zeit für das wöchentliche Attentat!'", "#me turns around concerned: 'Damn assassination attempts, they occur almost weekly now.'");
 talkingNPC:addCycleText("#me spuckt angewidert ein paar Trauben aus. 'Ugh. Wer hat das zu verantworten?", "#me spits out some grapes in disgust. 'Ugh. Who's responsible for that?'");
 talkingNPC:addCycleText("Ich befürchet, dieser Kräuterhandel wird uns noch in den nächsten Jahren viele Sorgen bereiten.", "I believe this herb business is gonna destroy us in the years to come.");
 talkingNPC:addCycleText("Ich war niemals unvorsichtig. Frauen und Kinder dürfen unvorsichtig sein, Männer nicht.", "I spent my life trying not to be careless. Females and children can be careless, but not dwarves or men.");

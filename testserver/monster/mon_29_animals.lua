@@ -119,8 +119,8 @@ function onDeath(Monster)
 		
 	elseif (MonID==621 or MonID==622 or MonID==1061 or MonID==1071 or MonID==1081) then --chicken
 
-        monster.base.drop.AddDropItem(63,1,50,333,0,1); --entrails
-        monster.base.drop.AddDropItem(2696,1,100,333,0,2); --feather
+        monster.base.drop.AddDropItem(259,1,50,333,0,1); --grain
+        monster.base.drop.AddDropItem(63,1,100,333,0,2); --entrails
 		
 		
     end

@@ -30,13 +30,13 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Marianne Forgeron the magical blacksmith. Keywords: gem, magical smithing, smithing , Profession, Greetings."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Marianne Forgeron the magical blacksmith. Keywords: Gem, Smithing, Profession, Greetings."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Marianne Forgeron die magische Schmiedin. Schlüsselwörter: Edelstein, magisches Schmieden, Schmieden, Beruf, Grüße."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Marianne Forgeron die magische Schmiedin. Schlüsselwörter: Edelstein, Schmieden, Beruf, Grüße."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -49,7 +49,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Greetings. Ya want something magical made from gemstones?");
-talkEntry:addResponse("Be greeted. Shall I combine magical gemstones for you? That is my job, ya konw?");
+talkEntry:addResponse("Be greeted. Shall I combine magical gemstones for you? That is my job, ya know?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -64,8 +64,8 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
-talkEntry:addResponse("Grüße. Soll ich dir watt Magisches aus Edelsteinen machen?");
-talkEntry:addResponse("Sei jegrüßt. Willste datt ich deine maagischen Edelsteine kombinieren tue? Datt is nämlich mein Job.");
+talkEntry:addResponse("Grüße. Soll ich dir wat Magisches aus Edelsteinen machen?");
+talkEntry:addResponse("Sei jegrüßt. Willste datt ich deine magischen Edelsteine kombinieren tue? Datt is nämlich mein Job.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -86,7 +86,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Grüße. Soll ich dir watt Magisches aus Edelsteinen machen?");
-talkEntry:addResponse("Seid jegrüßt. Willste datt ich deine maagischen Edelsteine kombinieren tue? Datt is nämlich mein Job.");
+talkEntry:addResponse("Seid jegrüßt. Willste datt ich deine maagischen Edelsteine kombinieren tu? Dat is nämlich mein Job.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -170,9 +170,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gem");
-talkEntry:addTrigger("magical smithing");
 talkEntry:addTrigger("smithing");
-talkEntry:addResponse("Did I hear ya say work?.");
+talkEntry:addResponse("Did I hear ya say work?");
 talkEntry:addResponse("Let's start!");
 talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -180,7 +179,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Edelstein");
-talkEntry:addTrigger("magisches Schmieden");
 talkEntry:addTrigger("Schmieden");
 talkEntry:addResponse("Dann woll'n wir ma!");
 talkEntry:addResponse("Auf ans Werk!");
@@ -651,13 +649,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Humans live there...sounds boring.");
+talkEntry:addResponse("Humans live there... sounds boring.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Da leben Menschen ... wie öde.");
+talkEntry:addResponse("Da leben Menschen... wie öde.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -665,27 +663,27 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("Humans live there...sounds boring.");
+talkEntry:addResponse("Humans live there... sounds boring.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("Da leben Menschen ... wie öde.");
+talkEntry:addResponse("Da leben Menschen... wie öde.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Humans live there...sounds boring.");
+talkEntry:addResponse("Humans live there... sounds boring.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Da leben Menschen ... wie öde.");
+talkEntry:addResponse("Da leben Menschen... wie öde.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

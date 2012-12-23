@@ -271,7 +271,7 @@ function onDeath(Monster)
 
         --Category 2: Special loot
 
-        local done=monster.base.drop.AddDropItem(314,1,20,(100*math.random(3,4)+math.random(33,44)),0,2); --pott ash
+        local done=monster.base.drop.AddDropItem(314,1,20,(100*math.random(3,4)+math.random(33,44)),0,2); --potash
         if not done then done=monster.base.drop.AddDropItem(1840,1,10,(100*math.random(3,4)+math.random(33,44)),0,2); end --copper goblet
         if not done then done=monster.base.drop.AddDropItem(2536,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --copper ore
         if not done then done=monster.base.drop.AddDropItem(2550,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --copper ingot
@@ -304,7 +304,7 @@ function onDeath(Monster)
         local done=monster.base.drop.AddDropItem(2536,1,20,(100*math.random(3,4)+math.random(33,44)),0,2); --copper ore
         if not done then done=monster.base.drop.AddDropItem(2550,1,10,(100*math.random(3,4)+math.random(33,44)),0,2); end --copper ingot
         if not done then done=monster.base.drop.AddDropItem(1840,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --copper goblet
-        if not done then done=monster.base.drop.AddDropItem(314,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --pott ash
+        if not done then done=monster.base.drop.AddDropItem(314,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --potash
         if not done then done=monster.base.drop.AddDropItem(104,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --silver ingot
 
         --Category 3: Weapon
@@ -391,7 +391,7 @@ function onDeath(Monster)
 
         --Category 2: Special loot
 
-        local done=monster.base.drop.AddDropItem(314,1,20,(100*math.random(3,4)+math.random(33,44)),0,2); --pott ash
+        local done=monster.base.drop.AddDropItem(314,1,20,(100*math.random(3,4)+math.random(33,44)),0,2); --potash
         if not done then done=monster.base.drop.AddDropItem(316,1,10,(100*math.random(3,4)+math.random(33,44)),0,2); end --sand
         if not done then done=monster.base.drop.AddDropItem(2055,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --glass
         if not done then done=monster.base.drop.AddDropItem(41,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --glass ingot

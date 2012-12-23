@@ -214,7 +214,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("place");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"));
-talkEntry:addResponse("Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Illarion?");
+talkEntry:addResponse("Places? Which places do you mean? These could be in the northeast, northwest, southwest or southeast of Illarion?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -277,7 +277,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Illarion");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Northeast, northwest, southwest, southeast"));
-talkEntry:addResponse("This land is called Illarion and I devide it in northeast, northwest, southwest and southeast.");
+talkEntry:addResponse("This land is called Illarion and I divide it into northeast, northwest, southwest and southeast.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -304,15 +304,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("northwest");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau, Malachite creek, Malachite Island, Galmair Plateau, Golden Rumil, Fort Schnellbeil, Fortress Hammerfall"));
-talkEntry:addResponse("I know following places: Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau, Malachite creek, Malachite Island, Galmair Plateau, Golden Rumil, Fort Schnellbeil, Fortress Hammerfall.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Lake Syrita, Nargun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau, Malachite creek, Malachite Island, Golden Rumil, Fort Schnellbeil, Fortress Hammerfall"));
+talkEntry:addResponse("I know following places: Lake Syrita, Nargun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau, Malachite creek, Malachite Island, Galmair Plateau, Golden Rumil, Fort Schnellbeil, Fortress Hammerfall.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nordwest");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Galmair Plateau, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall"));
-talkEntry:addResponse("Ich weiß folgende Plätze: See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Galmair Plateau, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] See Syrita, Nargun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall"));
+talkEntry:addResponse("Ich weiß folgende Plätze: See Syrita, Nargun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Galmair Plateau, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -332,7 +332,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("southeast");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Snakehead Bay, Lonely Islands, Death's Stench, Dragon's Lair, Dewy Swamps Yewdale"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Snakehead Bay, Lonely Islands, Death's Stench, Dragon's Lair, Dewy Swamps, Yewdale"));
 talkEntry:addResponse("I know following places: Snakehead Bay, Lonely Islands, Death's Stench, Dragon's Lair, Dewy Swamps, Yewdale.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -418,7 +418,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hemp Necktie Inn");
-talkEntry:addResponse("The Hemp Necktie Inn is a neutral taverne in the Spider's Mouth and many adventurer are resting there. Among others Wulfgorda. You can use the teleporter to get there.");
+talkEntry:addResponse("The Hemp Necktie Inn is a neutral tavern in the Spider's Mouth and many adventurers are resting there. Among others Wulfgorda. You can use the teleporter to get there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -559,13 +559,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nagrun Plain");
+talkEntry:addTrigger("Nargun Plain");
 talkEntry:addResponse("This is the area east after the Copperbridge over the Malachite Creek between Galmair and Spider's Mouth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nagrun Ebene");
+talkEntry:addTrigger("Nargun Ebene");
 talkEntry:addResponse("Das ist das Gebiet östlich der Kupferbrücke über den Malachit Bach zwischen Galmair und dem Spinnen Mund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -620,13 +620,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachite creek");
-talkEntry:addResponse("The Malachite creek is the water between Galmair and Nagrun's Plain. The Copperbridge will help you to cross it.");
+talkEntry:addResponse("The Malachite creek is the water between Galmair and Nargun's Plain. The Copperbridge will help you to cross it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachit Bach");
-talkEntry:addResponse("Der Malachit Bach ist das Gewässer zwischen Galmair und der Nagrun Ebene. Die Kupferbrücke wird dir helfen es zu überqueren.");
+talkEntry:addResponse("Der Malachit Bach ist das Gewässer zwischen Galmair und der Nargun Ebene. Die Kupferbrücke wird dir helfen es zu überqueren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -644,7 +644,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Golden Rumil");
-talkEntry:addResponse("The Golden Rumil found a bad end once. The bandits of Fort Schnellbeil throw the good old Rumil into liquid gold. You can find him on the way to Fort Schnellbeil.");
+talkEntry:addResponse("The Golden Rumil found a bad end once. The bandits of Fort Schnellbeil threw the good old Rumil into liquid gold. You can find him on the way to Fort Schnellbeil.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -657,7 +657,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Fort Schnellbeil");
-talkEntry:addResponse("The home of bandits at the Galmair Plateau, leaded by Uri Schnellbeil. They are interupting our business at the Malachite mine now and then.");
+talkEntry:addResponse("The home of bandits at the Galmair Plateau, led by Uri Schnellbeil. They interrupt our business at the Malachite mine now and then.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -669,7 +669,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fortress Hammerfall");
-talkEntry:addResponse("This fortress has been build by the betrayer Dwyn Axtblatt. You can find it at the north of the Katanbi Desert.");
+talkEntry:addResponse("This fortress has been built by the betrayer Dwyn Axtblatt. You can find it at the north end of the Katanbi Desert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -905,13 +905,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("That's is the southeast. Follow the road through Nagrun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further southeast. Look for signposts. But be careful. Dangerous way, use better the teleporter outside the town.");
+talkEntry:addResponse("That's is the southeast. Follow the road through Nargun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further southeast. Look for signposts. But be careful. Dangerous way, use better the teleporter outside the town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Das liegt im Südosten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südöstlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.");
+talkEntry:addResponse("Das liegt im Südosten. Einfach der Straße entlang durch die Nargun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südöstlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -975,13 +975,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("That's is the southwest. Follow the road trough Nagrun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further southwest. Look for signposts. But be careful. Dangerous way, use better Or use the teleporter outside the town.");
+talkEntry:addResponse("That's is the southwest. Follow the road trough Nargun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further southwest. Look for signposts. But be careful. Dangerous way, use better Or use the teleporter outside the town.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Das liegt im Südwesten. Einfach der Straße entlang durch die Nagrun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südwestlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.");
+talkEntry:addResponse("Das liegt im Südwesten. Einfach der Straße entlang durch die Nargun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südwestlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

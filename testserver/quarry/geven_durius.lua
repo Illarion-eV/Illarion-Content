@@ -639,7 +639,7 @@ if not InitPrices then
 	price [   63   ] =    20   ; --    entrails   ,   Resource   default
 	price [   73   ] =    20   ; --    trout   ,   Resource   default
 	price [   307   ] =    20   ; --    pork   ,   Resource   default
-	price [   314   ] =    20   ; --    pott ash   ,   Resource   default
+	price [   314   ] =    20   ; --    potash   ,   Resource   default
 	price [   355   ] =    20   ; --    salmon   ,   Resource   default
 	price [   552   ] =    20   ; --    deer meat   ,   Resource   default
 	price [   553   ] =    20   ; --    rabbit meat   ,   Resource   default
