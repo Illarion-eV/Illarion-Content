@@ -301,7 +301,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("craft");
-talkEntry:addResponse("About which craft shall I tell you all I know? Alchemist, candle maker, carpenter, lumberjack, cook, baker, farmer, herb gatherer, tailor, tanner, dyer, blacksmith, brick maker, mason, miner, brewer, fisher, glass blower, sand digger, finesmith or gem grinder?");
+talkEntry:addResponse("About which craft shall I tell you all I know? Candle maker, carpenter, lumberjack, cook, baker, farmer, herb gatherer, tailor, tanner, dyer, blacksmith, brick maker, mason, miner, brewer, fisher, glass blower, sand digger, finesmith or gem grinder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -360,7 +360,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Handwerk");
-talkEntry:addResponse("Über welches Handwerk möchtest du etwas wissen? Alchemist, Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Sandgräber, Goldschmied oder Edelsteinschleifer?");
+talkEntry:addResponse("Über welches Handwerk möchtest du etwas wissen? Kerzenmacher, Schreiner, Holzfäller, Koch, Bäcker, Bauer, Kräutersucher, Schneider, Gerber, Färber, Schmied, Ziegelmacher, Steinmetz, Schürfer, Brauer, Fischer, Glasbläser, Sandgräber, Goldschmied oder Edelsteinschleifer?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -432,21 +432,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ehre");
 talkEntry:addResponse("Ehre ist die höchste Prämisse in Cadomyr. Deswegen glauben sie auch an Malachín neben anderen Göttern und ihrer Herrscherin Königin Rosaline Edwards, welche die edelste Person dort ist.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Alchem");
-talkEntry:addTrigger("Druid");
-talkEntry:addResponse("Alchemists and druids alike can be found readily available in Runewick, from the freshest novice to the wisest grandmaster. Galmair won't have nearly the selection, though I have seen a druid or two there before. Cadomyr, on the other hand, doesn't have a single druid or alchemist as far as I remember.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Alchem");
-talkEntry:addTrigger("Druid");
-talkEntry:addResponse("Alchemisten können vor allem in Runewick gefunden werden, weil dort die besten Bedingungen zur Ausübung dieses Berufes bestehen. Auch in Galmair gibt es ein paar wenige. Cadomyr hat zu handeln, wenn es etwas von denen benötigt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
