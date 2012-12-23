@@ -69,7 +69,7 @@ function loadBook(toData)
     
     base.books.AddEnglishBookText("This is a book about druidism",0,0,toData);
     base.books.AddEnglishBookText("Glass blocks are needed for the fabrication of mirrors",0,0,toData);
-    base.books.AddEnglishBookText("The book about glassworks reads: 'You need quartz sand, pott ash, a glass blow pipe, a wooden shovel and a glass oven to create glass items.",0,0,toData);
+    base.books.AddEnglishBookText("The book about glassworks reads: 'You need quartz sand, potash, a glass blow pipe, a wooden shovel and a glass oven to create glass items.",0,0,toData);
     base.books.AddEnglishBookText("Druids are healers, protectors of nature and friend to all mankind.",0,0,toData);
     base.books.AddEnglishBookText("Danger! Beer - particularly those brewed by dwarves - is not digestible to everyone.",0,0,toData);
     base.books.AddEnglishBookText("Some believe, the legendary seer and healer Nifrindarai was the founder of druidism.",0,0,toData);

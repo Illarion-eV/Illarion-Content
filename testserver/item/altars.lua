@@ -41,7 +41,7 @@ function ini()
 
   devoteItems={};
   devoteItems[1]={733,316,2588}; --Ushara: Stone block, Quartz sand, Brick
-  devoteItems[2]={314,236,43}; --Brágon: Pott ash, Gold ignot, Candle
+  devoteItems[2]={314,236,43}; --Brágon: potash, Gold ignot, Candle
   devoteItems[3]={256,2745,155}; --Eldan: Raw diamonds, Parchment, Sibanac leaf
   devoteItems[4]={52,253,72}; --Tanora: Bucket of water, Raw sapphire, Fishing rod
   devoteItems[5]={64,463,65}; --Findari: Arrow, Quill, Short Bow
@@ -69,7 +69,7 @@ function ini()
   priestItems[7]={368,76,397,3110,222}; --Elara: Yellow priest robe, Mage's staff, Oil lamp, Pell, Amulet
   priestItems[8]={2419,224,335,2744,155}; --Adron: Red priest robe, Golden goblet, Lute, Pipe, Sibanac leaf
   priestItems[9]={2416,271,126,2786,249}; --Oldra: Brown priest robe, Scythe, Sickle, Branch, Bundle of grain
-  priestItems[10]={2420,271,138,314,726}; --Cherga: Black priest robe, Scythe, Night angels blossom, Pott ash, Coarse sand
+  priestItems[10]={2420,271,138,314,726}; --Cherga: Black priest robe, Scythe, Night angels blossom, potash, Coarse sand
   priestItems[11]={2421,20,391,2291,78}; --Malachín: White priest robe, Large metal shield, Torch, Salkamaerian Paladin's helmet, Shortsword
   priestItems[12]={2418,226,74,2763,2752}; --Irmorom: Gray priest robe, War Hammer, Hatchet, Pickaxe, Carving tools
   priestItems[13]={2421,40,280,354,222}; --Sirani: White priest robe, Cleric's staff, Diamond ring, Strawberry cake, Amulet

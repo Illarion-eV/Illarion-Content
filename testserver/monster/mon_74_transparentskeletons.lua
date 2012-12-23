@@ -173,7 +173,7 @@ function onDeath(Monster)
 
         local done=monster.base.drop.AddDropItem(280,1,20,(100*math.random(6,7)+math.random(66,77)),0,2); --diamond ring
         if not done then done=monster.base.drop.AddDropItem(279,1,10,(100*math.random(6,7)+math.random(66,77)),0,2); end --sapphire ring
-        if not done then done=monster.base.drop.AddDropItem(314,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --pot ash
+        if not done then done=monster.base.drop.AddDropItem(314,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --potash
         if not done then done=monster.base.drop.AddDropItem(224,1,1,(100*math.random(6,7)+math.random(66,77)),0,2); end --golden goblet
 
         --Category 3: Weapon
