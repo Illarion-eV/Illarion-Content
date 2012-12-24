@@ -26,7 +26,7 @@ function donate(Item,User,FactionName,LeaderName,Treasury)
 		
 		end
 		
-		base.townTreasure.ChangeTownTreasure(town,payToFaction)
+		base.townTreasure.ChangeTownTreasure(FactionName,payToFaction)
 		
 		gstring,estring=base.money.MoneyToString(payToFaction); --converting money to a string
 			
