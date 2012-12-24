@@ -155,10 +155,6 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
   if thisGod==content.gods.GOD_NONE  or thisGod>content.gods.GOD_THEFIVE then --undedicated altar
     base.common.InformNLS(User,"Ihr berührt den Altar, die Abwesenheit göttlichen Wirkens ist offensichtlich.","You touch the altar, the absence of divine blessing is obvious.");
   elseif thisGod > content.gods.GOD_NONE then --dedicated altar
-    base.lookat.SetSpecialName(Item,
-    "Altar "..content.gods.GOD_DE[thisGod].."s, "..content.gods.DESCRIPTION_DE[thisGod]..".",
-    "Altar of "..content.gods.GOD_EN[thisGod]..", the "..content.gods.DESCRIPTION_EN[thisGod]..".");
-    
     if (thisGod > 5) then
       -- anything else is only for the younger gods
       
