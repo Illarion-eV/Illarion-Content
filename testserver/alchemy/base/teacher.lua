@@ -498,9 +498,30 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 					"You feel observed, but nothing else seems to happen."
 					)
 	return
-	end	
+	end
 
-	-- teacher and quest infos 
+    -- check for proper attributes
+    if User:increaseAttrib("perception",0) < 9 then 
+        SendMessage(User, SourceItem,
+		            "You hear a voice you are unable to localise: \"...\"",
+		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"...\""
+	                )
+		return
+    elseif User:increaseAttrib("essence",0) < 9 then 
+        SendMessage(User, SourceItem,
+		            "You hear a voice you are unable to localise: \"...\"",
+		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"...\""
+	                )
+		return			
+    elseif (User:increaseAttrib("perception",0) + User:increaseAttrib("essence",0)) < 22 then
+        SendMessage(User, SourceItem,
+		            "You hear a voice you are unable to localise: \"...\"",
+		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"...\""
+	                )
+		return
+    end		
+ 					
+    -- teacher and quest infos 
 	local questInfos = GetTeacherQuestInfos(User, SourceItem)
 	local qstPrg = questInfos.questPrg
 

@@ -285,21 +285,20 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if myNPC == false then
 	    return
 	end
---User:inform(""..#myListTaskText)
---User:inform(""..#myListTaskText["Galmair"])	
---User:inform(""..#myListTaskText["Galmair"][2])		
-	--User:inform(""..myListTaskText["Galmair"][2][2])
+
 	local originalPos = {}
 	local callback = function(dialog)
 		local success = dialog:getSuccess()
 		if success then
 			selected = dialog:getSelectedIndex()
-			local orgPos = originalPos[selected+1] 
-			User:inform(""..town)
-			User:inform(""..orgPos)
-			User:inform(""..language)
-			myNPC:talkLanguage(Character.say,Player.english,"If you want me to show you how to create this potion properly, bring me "..myListTaskText[orgPos][language]..". Just put it here ony my table so that I can analyse it.")
-			myNPC:talkLanguage(Character.say,Player.german,"Wenn Ihr wollt, dass ich Euch zeige, wie dieser Trank richtig hergestellt wird, bringt mir "..myListTaskText[orgPos][language]..". Einfach hier auf meinen Tisch tun, damit ich meine Analyse vollziehen kann.")
+			local orgPos = originalPos[selected+1]
+            local effectId = myListEffectId[orgPos]
+			if User:getQuestProgress(effectId+1000) == 0 then
+				myNPC:talkLanguage(Character.say,Player.english,"If you want me to show you how to create this potion properly, bring me "..myListTaskText[orgPos][language]..". Just put it here ony my table so that I can analyse it.")
+				myNPC:talkLanguage(Character.say,Player.german,"Wenn Ihr wollt, dass ich Euch zeige, wie dieser Trank richtig hergestellt wird, bringt mir "..myListTaskText[orgPos][language]..". Einfach hier auf meinen Tisch tun, damit ich meine Analyse vollziehen kann.")
+		    else
+			    triggerfield.potionToTeacher.TellRecipe(User, effectId)
+			end	
 		end
 	end
 	local dialog
@@ -308,20 +307,17 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	else
 	    dialog = SelectionDialog("Trankrezepte", "An welchem Rezept bist du interessiert?", callback)
 	end	
-	local success = nil
+	local alreadyLearned = {}
 	for i=1,#myListEffectId do
 		if User:getQuestProgress(myListEffectId[i]+1000) == 0 then
 			dialog:addOption(0, alchemy.base.alchemy.potionName[myListEffectId[i]][language])
-			table.insert(originalPos,i)
-			success = true
+		else
+		    local bottle = alchemy.base.alchemy.getBottleFromEffect(myListEffectId[i])
+		    dialog:addOption(bottle, alchemy.base.alchemy.potionName[myListEffectId[i]][language])
 		end	
+		table.insert(originalPos,i)
 	end
-	if success then
-	    User:requestSelectionDialog(dialog)
-	else	
-	    User:inform("Du beherrscht bereits alle Tränke auf dieser Liste.","You alreadxy are able to create all those potions.")
-	end
-
+	User:requestSelectionDialog(dialog)
 end
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )

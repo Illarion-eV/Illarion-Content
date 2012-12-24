@@ -474,6 +474,26 @@ function CheckIfAlchemist(User,textDE,textEN)
     end		
 end
 
+function getBottleFromEffect(effectId)
+-- won't work with NORMAL primar and secundar attribute potins, since the both have 11111111 - 99999999 as a range for effect ids
+    if (effectId >= 1) and (effectId <= 99) then
+	    return 166
+	elseif (effectId >= 100) and (effectId <= 199) then
+	    return 59
+    elseif (effectId >= 200) and (effectId <= 299) then
+	    return 167
+	elseif (effectId >= 300) and (effectId <= 399) then
+	    return 327
+    elseif (effectId >= 400) and (effectId <= 499) then
+	    return 165		
+    elseif (effectId >= 500) and (effectId <= 599) then
+	    return 329
+	elseif (effectId >= 600) and (effectId <= 699) then
+	    return 330
+    end
+    return	
+end
+
 function RemoveEssenceBrew(Item)
     for i=1,8 do
 	    Item:setData("essenceHerb"..i,"")  
