@@ -310,7 +310,7 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local alreadyLearned = {}
 	for i=1,#myListEffectId do
 		if User:getQuestProgress(myListEffectId[i]+1000) == 0 then
-			dialog:addOption(0, alchemy.base.alchemy.potionName[myListEffectId[i]][language])
+			dialog:addOption(164, alchemy.base.alchemy.potionName[myListEffectId[i]][language])
 		else
 		    local bottle = alchemy.base.alchemy.getBottleFromEffect(myListEffectId[i])
 		    dialog:addOption(bottle, alchemy.base.alchemy.potionName[myListEffectId[i]][language])
