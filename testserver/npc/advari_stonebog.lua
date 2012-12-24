@@ -200,7 +200,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Arr, just mellow dwarves tell thier real name. And someone like you would just yell it out to everyone. But in common language I'm called Advari Stonebog");
+talkEntry:addResponse("Arr, just mellow dwarves tell their real name. And someone like you would just yell it out to everyone. But in common language I'm called Advari Stonebog");
 talkEntry:addResponse("Advari Stonebog. And that's all someone like you need to know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

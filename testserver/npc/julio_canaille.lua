@@ -755,7 +755,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Bragon 'nd his dragons! Ch-ch. Thier fire isn't that funny you may think.");
+talkEntry:addResponse("Bragon 'nd his dragons! Ch-ch. their fire isn't that funny you may think.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
