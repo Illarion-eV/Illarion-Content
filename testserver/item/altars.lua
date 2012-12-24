@@ -190,37 +190,40 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
         base.common.InformNLS(User,
         "Ihr betet zu "..content.gods.GOD_DE[thisGod].." und bekräftigt euren Glauben.",
         "You pray to "..content.gods.GOD_EN[thisGod].." and confirm your faith.");
-        --Below, even more stuff that only makes sense with priest magic. Code makes devotees become priests.			 
-        --[[
         if (priesthood == 0) then
-            if User:getMagicType()== 0 and User:getMagicFlags(0)~= 0 then --a mage! Can't become priest 
-              base.common.InformNLS(User,"Ein Magier kann leider kein Priester werden.","As a magician, you cannot become a priest anymore.");
-            elseif User:getMagicType()== 2 and User:getMagicFlags(2)~= 0 then --a bard! Can't become priest
-              base.common.InformNLS(User,"Ein Barde kann leider kein Priester werden.","As a bard, you cannot become a priest anymore.");
-            elseif User:getMagicType()== 3 and User:getMagicFlags(3)~= 0 then --a druid! Can't become priest
-              base.common.InformNLS(User,"Ein Druide kann leider kein Priester werden.","As a druid, you cannot become a priest anymore.");
-            else --a noob, may become priest
-              if checkAudience(thisGod,User.pos) then
-                if checkStuff(User,priestItems[thisGod]) then
-                  deleteStuff(User,priestItems[thisGod]);
-                  base.common.InformNLS(User,"Ihr empfangt die Weihe eines Priesters "..godName[thisGod].."s. Euer Opfer:","You receive the ordination to the priesthood of "..godName[thisGod]..". Your donation:");
-                  world:gfx(31,User.pos);
-                  world:makeSound(13,User.pos);
-                  User:setQuestProgress(402,thisGod); --become priest of this god
-                  User:setMagicType(1);
-                  User:teachMagic(1,1); --priest runes
-                  User:teachMagic(1,2);
-                  User:teachMagic(1,3); 
-                else --does not have the stuff
-                  base.common.InformNLS(User,"Um ein Priester "..godName[thisGod].."s zu werden, werdet ihr folgendes opfern müssen:","To become a priest of "..godName[thisGod]..", you'll have to donate:");
-                end --item check
-                User:inform(tellStuff(priestItems[thisGod],User:getPlayerLanguage())); --stuff4priest
-              else --not enough devotees around
-                base.common.InformNLS(User,"Um die Priesterweihe zu empfangen müßt ihr wenigstens drei Anhänger "..godName[thisGod].."s zu einer Messe versammeln.","To receive the ordination to the priesthood of "..godName[thisGod]..", you'll have to gather at least three devotees for a mass.");
-              end --audience check
-            end --noob
+          base.common.InformNLS(User,
+          "[INFO] An dieser Stelle könntest du Priester werden, aber Priestermagie ist noch nicht verfügbar.",
+          "[INFO] At this point you could become a priest, but priest magic is not available yet.");
+          --Below, even more stuff that only makes sense with priest magic. Code makes devotees become priests.			 
+          --[[
+          if User:getMagicType()== 0 and User:getMagicFlags(0)~= 0 then --a mage! Can't become priest 
+            base.common.InformNLS(User,"Ein Magier kann leider kein Priester werden.","As a magician, you cannot become a priest anymore.");
+          elseif User:getMagicType()== 2 and User:getMagicFlags(2)~= 0 then --a bard! Can't become priest
+            base.common.InformNLS(User,"Ein Barde kann leider kein Priester werden.","As a bard, you cannot become a priest anymore.");
+          elseif User:getMagicType()== 3 and User:getMagicFlags(3)~= 0 then --a druid! Can't become priest
+            base.common.InformNLS(User,"Ein Druide kann leider kein Priester werden.","As a druid, you cannot become a priest anymore.");
+          else --a noob, may become priest
+            if checkAudience(thisGod,User.pos) then
+              if checkStuff(User,priestItems[thisGod]) then
+                deleteStuff(User,priestItems[thisGod]);
+                base.common.InformNLS(User,"Ihr empfangt die Weihe eines Priesters "..godName[thisGod].."s. Euer Opfer:","You receive the ordination to the priesthood of "..godName[thisGod]..". Your donation:");
+                world:gfx(31,User.pos);
+                world:makeSound(13,User.pos);
+                User:setQuestProgress(402,thisGod); --become priest of this god
+                User:setMagicType(1);
+                User:teachMagic(1,1); --priest runes
+                User:teachMagic(1,2);
+                User:teachMagic(1,3); 
+              else --does not have the stuff
+                base.common.InformNLS(User,"Um ein Priester "..godName[thisGod].."s zu werden, werdet ihr folgendes opfern müssen:","To become a priest of "..godName[thisGod]..", you'll have to donate:");
+              end --item check
+              User:inform(tellStuff(priestItems[thisGod],User:getPlayerLanguage())); --stuff4priest
+            else --not enough devotees around
+              base.common.InformNLS(User,"Um die Priesterweihe zu empfangen müßt ihr wenigstens drei Anhänger "..godName[thisGod].."s zu einer Messe versammeln.","To receive the ordination to the priesthood of "..godName[thisGod]..", you'll have to gather at least three devotees for a mass.");
+            end --audience check
+          end --noob
+          --]]
         end
-        --]]
       elseif devotion ~= thisGod then
         -- devoted to another god
         if (priesthood == 0) then
@@ -235,9 +238,9 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
           end
           User:inform(tellStuff(devoteItems[thisGod],User:getPlayerLanguage())); --stuff4devotee
         else
-        base.common.InformNLS(User,
-        "[INFO] An dieser Stelle könntest du Priester werden, aber Priestermagie ist noch nicht verfügbar.",
-        "[INFO] At this point you could become a priest, but priest magic is not available yet.");
+          base.common.InformNLS(User,
+          "[INFO] An dieser Stelle könntest du Priester werden, aber Priestermagie ist noch nicht verfügbar.",
+          "[INFO] At this point you could become a priest, but priest magic is not available yet.");
         -- useless without priest magic
         --[[
           if checkAudience(thisGod,User.pos) then
