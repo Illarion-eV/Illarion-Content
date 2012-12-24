@@ -1,17 +1,18 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Gretel  Goldhair                                         Galmair --
--- NPC Job: Galmair                                                           --
+-- NPC Name: Gretel Goldhair                                          Galmair --
+-- NPC Job:  Galmair Treasurer                                                --
 --                                                                            --
--- NPC Race: human                     NPC Position:341, 218,0                --
--- NPC Sex:  female                    NPC Direction: southwest               --
+-- NPC Race: human                      NPC Position:  341, 218, 0            --
+-- NPC Sex:  female                     NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
+
 name = "Gretel Goldhair"
 race = human
 sex = female
-position = 341, 218,0
+position = 341, 218, 0
 direction = southwest
 affiliation = "Galmair"
 job = "Galmair Treasurer"
@@ -32,8 +33,8 @@ wrongLangUS = "#me looks around confused."
 radius = 0
 hairID = 2
 beardID = 5
-colorHair = 150,157,164
-colorSkin = 232,214,199
+colorHair = 150, 157, 164
+colorSkin = 232, 214, 199
 itemHead = 1
 itemChest = 802
 itemCoat = 0
@@ -42,9 +43,6 @@ itemSecondHand = 0
 itemHands = 0
 itemTrousers = 0
 itemShoes = 369
-
-------------------------------------------------------------------------------AC
--- Der NPC beaufsichtigt die Spendenabgabe an den Don. Früher als junge Tänzerin nach Galmair gekommmen. Nun ist sie alt, und daher kam ihr der Job an der Spendenabgabe sehr entgegen.
 
 -- Trading
 -- Here are all items the NPCs is able to trade. They will be displayed inside
@@ -79,7 +77,7 @@ itemShoes = 369
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!", "#me nods.", "Speak louder, I can't hear you!"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße!", "#me nickt.'", "Sprecht lauter, ich kann Euch nicht hören."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hm?", "Speak louder, I can't hear you!", "Hello."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hm?","Sprecht lauter, ich kann Euch nicht hören.", "Hallo."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hm?", "Sprecht lauter, ich kann Euch nicht hören.", "Hallo."
 "Farewell", "Bye", "Fare well", "See you" -> "#me nods", "Speak louder, I can't hear you!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "#me nickt.", "Sprecht lauter, ich kann Euch nicht hören."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the five be with you!", "#me bows her head."
@@ -88,7 +86,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the five 
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Sprecht lauter, Ich kann Euch nicht hören."
 "How do you do" -> "Shoe? Just drop your shoe on the field here!"
 "your name", "who are you", "who art thou" -> "I am Gretel. And you are...?", "Gretel Goldhair. I once was famous, maybe you heard of me?"
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Gretel Goldhair. Und Ihr seid?","Gretel Goldhair. Ich war mal berühmt. Vielleicht habt Ihr von mir gehört?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Gretel Goldhair. Und Ihr seid?", "Gretel Goldhair. Ich war mal berühmt. Vielleicht habt Ihr von mir gehört?"
 
 -- OPTIONAL TRIGGERS
 
@@ -97,33 +95,32 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the five 
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich verkaufe nichts. Aber ich nehme Spenden entgegen... nun ja, eigentlich sind es Spenden für den Don. Bringt die Sachen ruhig her und legt sie auf das Feld."
 
 -- Optional: Catching quest triggers. Galmair garbage bin quest (206)
-town = galmair, english, "quest", "mission" -> "Do you want a task? Bring some more donations. And drop it on the field here!", queststatus(206) =1
-town = galmair, "quest", "mission" -> "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her!", queststatus(206) =1
-town = galmair, "task", "adventure", "order" -> "Do you want a task? Bring some more donations. And drop it on the field here!", queststatus(206) =1
-town = galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" ->  "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her!", queststatus(206) =1
-
-english, "quest", "mission"  -> "I have nothing to do for you, darling."
+english, town = Galmair, "quest", "mission" -> "Do you want a task? Bring some more donations. And drop it on the field here!", queststatus(206) = 1
+town = Galmair, "quest", "mission" -> "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her!", queststatus(206) = 1
+town = Galmair, "task", "adventure", "order" -> "Do you want a task? Bring some more donations. And drop it on the field here!", queststatus(206) = 1
+town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her!", queststatus(206) = 1
+english, "quest", "mission" -> "I have nothing to do for you, darling."
 "quest", "mission" -> "I have nothing to do for you, darling."
 "task", "adventure", "order" -> "Ich habe keine Aufgabe für dich, Liebling."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe für dich, Liebling."
 
 -- Quest 1 taken but not solved, repeat the instructions
-queststatus(206) =1, english, "quest", "mission" -> "Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?"
-queststatus(206) =1,"quest", "mission" -> "Ganz genau! Ihr habt heraus gefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
-queststatus(205) =1,"task", "adventure", "order" -> "Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?"
-queststatus(206) =1,"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ganz genau! Ihr habt heraus gefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
+queststatus(206) = 1, english, "quest", "mission" -> "Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?"
+queststatus(206) = 1, "quest", "mission" -> "Ganz genau! Ihr habt heraus gefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
+queststatus(206) = 1, "task", "adventure", "order" -> "Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?"
+queststatus(206) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ganz genau! Ihr habt heraus gefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
 
 -- Quest 1 solved, reward: +20 rankpoints
-queststatus(205) =2, english, "quest", "mission" -> "Thank you for your donation!", "#me cakles", rankpoints = 20
-queststatus(205) =2,"quest", "mission"  -> "Danke für Eure Spende!", "#me kichert", rankpoints = 20
-queststatus(205) =2,"task", "adventure", "order" ->"Thank you for your donation!", "#me cakles", rankpoints = 20
-queststatus(205) =2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke für Eure Spende!", "#me kichert", rankpoints = 20
+queststatus(206) = 2, english, "quest", "mission" -> "Thank you for your donation!", "#me cakles", rankpoints = 20
+queststatus(206) = 2, "quest", "mission" -> "Danke für Eure Spende!", "#me kichert", rankpoints = 20
+queststatus(206) = 2, "task", "adventure", "order" -> "Thank you for your donation!", "#me cakles", rankpoints = 20
+queststatus(206) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke für Eure Spende!", "#me kichert", rankpoints = 20
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(205) =2, english, "quest", "mission" -> "#me grins showing a pair of yellow theeth."," Come back again!"
-queststatus(205) =2,"quest", "mission"  -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald!"
-queststatus(205) =2,"task", "adventure", "order" ->  "#me grins showing a pair of yellow theeth."," Come back again, Sweetheart!"
-queststatus(205) =2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald, Schätzchen!"
+queststatus(206) = 2, english, "quest", "mission" -> "#me grins showing a pair of yellow theeth.", " Come back again!"
+queststatus(206) = 2, "quest", "mission" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald!"
+queststatus(206) = 2, "task", "adventure", "order" -> "#me grins showing a pair of yellow theeth.", " Come back again, Sweetheart!"
+queststatus(206) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald, Schätzchen!"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am sorting all that rubbish...I mean, all the donations to the Don.", "..."
@@ -131,11 +128,11 @@ queststatus(205) =2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me grinst 
 english, "job" -> "I am sorting all that rubbish...I mean, all the donations to the Don."
 "job" -> "Ich sortiere all diesen Müll...ähm, all diese Spenden an den Don, wollte ich sagen."
 "tell something" -> "I came to Galmair as a young girl. And I am still here now. How long will you stay here?", "I once was a well known, beautiful dancer. But I grew old and ugly. Now I guard this garbage bin.", "When I was young, they called me Gretel Goldhair, but now they call me Gretel Graihair."
-"erzähl was", "erzähl etwas" -> "Ich kam als junges Mädchen nach Galmair. Jetzt bin ich immer noch da. Wie lange werden Ihr bleiben?","Ich war mal eine Stadtbekannt, wunderschöne Tänzerin. Doch ich wurde alt und hässlich. Jetzt beaufsichtige ich diese Müllkippe!" , "Früher nannten sie mich Gertel Goldhair, jetzt nennen sie mich Graue Gretel:"
+"erzähl was", "erzähl etwas" -> "Ich kam als junges Mädchen nach Galmair. Jetzt bin ich immer noch da. Wie lange werden Ihr bleiben?", "Ich war mal eine Stadtbekannt, wunderschöne Tänzerin. Doch ich wurde alt und hässlich. Jetzt beaufsichtige ich diese Müllkippe!", "Früher nannten sie mich Gertel Goldhair, jetzt nennen sie mich Graue Gretel:"
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"garbage bin", "rubbish","garbadge", "trash"  -> "You do not doante garbage to the Don, do you?"
-"Müllkippe",  "Müll", "Schrott"-> "..."
+"garbage bin", "rubbish", "garbage", "trash" -> "You do not doante garbage to the Don, do you?"
+"Müllkippe", "Müll", "Schrott" -> "..."
 "magical", "surface" -> "If you drop things on the magical surface they will disppear, and magically regain their value and then be teleportet to Runewicks treasury."
 "magische", "Fläche", "Oberfläche" -> "Wenn Ihr Gegenstände auf die magische Oberfläche legt, werden sie durch Magie ihren Wert zurück erhalten und in die Satzkammer von Runewick transferiert."
 
@@ -152,8 +149,8 @@ english, "religion" -> "If you lost your loved ones you hope the gods keep them 
 "Erzmagier" -> "Ich bin älter als der Erzmagier. Wesentlich älter!", "Sprecht lauter, ich kann Euch nicht hören!"
 english, "Elvaine", "Morgan" -> "I am older than the arch mage. By ages!", "Speak louder, I can't hear you!"
 "Elvaine", "Morgan" -> "Ich bin älter als der Erzmagier. Wesentlich älter!", "Sprecht lauter, ich kann Euch nicht hören!"
-english, "Runewick" -> "Speak louder, I can't hear you!","No. No. This place is Galmair, sweetheart"
-"Runewick" ->"Sprecht lauter, ich kann Euch nicht hören!", "Nein, nein. Dieser Ort ist Galmair, Schätzchen."
+english, "Runewick" -> "Speak louder, I can't hear you!", "No. No. This place is Galmair, sweetheart"
+"Runewick" -> "Sprecht lauter, ich kann Euch nicht hören!", "Nein, nein. Dieser Ort ist Galmair, Schätzchen."
 english, "Valerio", "Guilianni", "Don" -> "That's the Don here. He allowed me to guard the garbage bin."
 "Valerio", "Guilianni", "Don" -> "Das ist der Don. Er erlaubte mir auf die Müllkippe zu wachen."
 english, "Galmair" -> "..."
@@ -163,11 +160,11 @@ english, "Galmair" -> "..."
 english, "rosaline", "edwards" -> "I hate this arogant bart!"
 "rosaline", "edwards" -> "Ich hasse diese arrogante Göre!"
 english, "Cadomyr" -> "Speak louder, I can't hear you!", "Cadomyr ...what's with Cadomyr?"
-"Cadomyr" -> "Sprecht lauter, ich kann Euch nicht hören!" ,"Cadomyr? … Was ist damit?"
+"Cadomyr" -> "Sprecht lauter, ich kann Euch nicht hören!", "Cadomyr? … Was ist damit?"
 
 -- Optional: Main land factions
-english, "albar" ->"Speak louder, I can't hear you!"
-"albar"  -> "Sprecht lauter, ich kann Euch nicht hören!", "Albar...did you say?"
+english, "albar" -> "Speak louder, I can't hear you!"
+"albar" -> "Sprecht lauter, ich kann Euch nicht hören!", "Albar...did you say?"
 english, "gynk", "gync" -> "Speak louder, I can't hear you!", "Albar...had Ihr gesagt?"
 "gync", "gynk" -> "Sprecht lauter, ich kann Euch nicht hören!"
 english, "salkama" -> "Speak louder, I can't hear you!"
@@ -178,10 +175,10 @@ english, "Gobaith", "Gobiath" -> "Speak louder, I can't hear you!"
 "Gobaith", "Gobiath" -> "Sprecht lauter, ich kann Euch nicht hören!"
 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
-"my name" ->  "Speak louder, I can't hear you!", "Haven't I met you before?"
+"my name" -> "Speak louder, I can't hear you!", "Haven't I met you before?"
 "mein Name" -> "Sprecht lauter, ich kann Euch nicht hören!", "Habe ich Euch nicht schon einmal gesehen?"
-english, "Gretel", "Goldhair"  -> "You asked for me?", "Who asked?", "Did you say something?"
-"Gretel", "Goldhair"  -> "Ihr fragt nach mir?", "Wer fragt?", "Habt Ihr was gesagt?"
+english, "Gretel", "Goldhair" -> "You asked for me?", "Who asked?", "Did you say something?"
+"Gretel", "Goldhair" -> "Ihr fragt nach mir?", "Wer fragt?", "Habt Ihr was gesagt?"
 "Yes" -> "#me grins showing a pair of yellow theeth.", "Very well."
 "Ja" -> "#me grinst und zeigt ein paar gelber Zähne.", " Schön. Schön."
 "No" -> "Oh...that's too sad.", "Speak louder, I can't hear you!"
@@ -189,7 +186,8 @@ english, "Gretel", "Goldhair"  -> "You asked for me?", "Who asked?", "Did you sa
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "Speak louder, I can't hear you!", "Did you say something?", "#me lookes around"
-german, chance(20.0), ".*" ->  "Sprecht lauter, ich kann Euch nicht hören!", "Habt Ihr was gesagt?",  "#me schaut sich um."
+german, chance(20.0), ".*" -> "Sprecht lauter, ich kann Euch nicht hören!", "Habt Ihr was gesagt?", "#me schaut sich um."
+
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.

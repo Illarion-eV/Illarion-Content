@@ -405,7 +405,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Spider Mouth");
+talkEntry:addTrigger("Spider's Mouth");
+talkEntry:addTrigger("spiders mouth");
 talkEntry:addResponse("Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -559,7 +560,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nargun Plain");
+talkEntry:addTrigger("Nargun's Plain");
+talkEntry:addTrigger("narguns plain");
 talkEntry:addResponse("This is the area east after the Copperbridge over the Malachite Creek between Galmair and Spider's Mouth.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -813,7 +815,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Death Stench");
+talkEntry:addTrigger("Death's Stench");
+talkEntry:addTrigger("Deaths stench");
 talkEntry:addResponse("Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -825,7 +828,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Dragon Lair");
+talkEntry:addTrigger("Dragon's Lair");
+talkEntry:addTrigger("dragons lair");
 talkEntry:addResponse("Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
