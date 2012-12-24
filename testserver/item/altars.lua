@@ -157,7 +157,6 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
   elseif thisGod > content.gods.GOD_NONE then --dedicated altar
     if (thisGod > 5) then
       -- anything else is only for the younger gods
-      debug("younger gods");
       --Now send the user some infos what he should do if he wants to become a devotee, change dedication or become a priest
       devotion=User:getQuestProgress(401);
       priesthood=User:getQuestProgress(402);
@@ -171,10 +170,8 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
         base.common.InformNLS(User,"[Fehler] Bitte informiere einen Entwickler. Der Priesterstatus deines Charakters ist fehlerhaft.","[Error] Please inform a developer, the priest status of your character is flawed.");
         return; --bailing out
       end
-      debug("checks ok");
       --Check what the User is and send him instructions accordingly
       if (devotion == 0) then
-        debug("noob");
         --a noob without a god
         if checkStuff(User,devoteItems[thisGod]) then
           deleteStuff(User,devoteItems[thisGod]);
@@ -188,7 +185,6 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
         end
         User:inform(tellStuff(devoteItems[thisGod],User:getPlayerLanguage())); --stuff4devotee
       elseif (devotion == thisGod) then
-        debug("same god");
         -- devoted to this god
         base.common.InformNLS(User,
         "Ihr betet zu "..content.gods.GOD_DE[thisGod].." und bekräftigt euren Glauben.",
@@ -229,7 +225,6 @@ function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
         end
       elseif devotion ~= thisGod then
         -- devoted to another god
-        debug("other god");
         if (priesthood == 0) then
           if checkStuff(User,devoteItems[thisGod]) then
             deleteStuff(User,devoteItems[thisGod]);
