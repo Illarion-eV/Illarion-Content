@@ -9,7 +9,7 @@ end
 
 function addEffect (eff, User)
 eff:addValue( "curse", 1)
-      if (User:getItemAt( 8 ).data == User.id) or (User:getItemAt( 7 ).data == User.id) then
+      if (tonumber(User:getItemAt( 8 ):getData("ringData")) == User.id) or (tonumber(User:getItemAt( 7 ):getData("ringData")) == User.id) then
                 User:increaseAttrib ("agility", 3);
                 User:increaseAttrib ("intelligence", 3);
                 User:inform ("You feel a slight pain as the ring tightens arround your finger. A dark energy is released inside the body, making you feel as powerful as you have ever been.");
