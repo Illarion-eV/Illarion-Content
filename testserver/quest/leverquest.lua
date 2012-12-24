@@ -92,7 +92,7 @@ function LeverQuest:resetLevers()           -- resets the levers to initial posi
         if (world:isItemOnField(lvPo)==true) then
         leverItem=world:getItemOnField(lvPo);
         leverItem.id=self.levTyp[i];
-            leverItem.data=0;
+            leverItem:setData("leverData", "");
             world:changeItem(leverItem);
         end
     end

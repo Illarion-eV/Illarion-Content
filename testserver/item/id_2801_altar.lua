@@ -3,7 +3,7 @@
 module("item.id_2801_altar", package.seeall)
 
 function LookAtItem(User,Item)
-if (Item.data==701) then
+if (tonumber(Item:getData("libraryQuest"))==701) then
 	if (User:getPlayerLanguage() == 0) then
             world:itemInform(User,Item,"Merkwürdige Konstruktion in deren Mitte ein Loch gemeißelt wurde. 'Das Schloss' ist darunter eingemeißelt.");
         else
@@ -13,7 +13,7 @@ end;
 
 --for library quest
 
-if (Item.data~=701) then
+if (tonumber(Item:getData("libraryQuest"))~=701) then
 	if (User:getPlayerLanguage() == 0) then
             world:itemInform(User,Item,"Altar");
         else
@@ -28,11 +28,11 @@ function UseItem(User,SourceItem,TargetItem,counter,param,lstate)
 
 -- part of the Library Quest
 
-if (SourceItem.data==701) then
+if (tonumber(SourceItem:getData("libraryQuest"))==701) then
 --check whether full amulet is present
 	local items = User:getItemList(79);
 				for i, item in pairs(items) do
-					if (item.data == 705) then --full amulet
+					if (tonumber(item:getData("libraryQuest")) == 705) then --full amulet
 							if (User:getPlayerLanguage() ==0) then
 								User:inform("Das Amulett passt ins Loch. Du spürst eine schnelle Bewegung.");
 							else

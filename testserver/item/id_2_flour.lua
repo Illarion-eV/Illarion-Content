@@ -5,6 +5,10 @@ require("base.money")
 
 module("item.id_2_flour", package.seeall)
 
+
+--Please move your testing stuff to a test item players cannot be hold of. ~Estralis
+
+--[[
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 
     if 1 then
@@ -138,4 +142,4 @@ function UseItemMartin2( User, SourceItem, TargetItem, counter, Param, ltstate )
     end
     
 
-end
+end]]

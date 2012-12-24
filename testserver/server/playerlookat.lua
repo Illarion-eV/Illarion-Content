@@ -17,7 +17,8 @@ require("item.altars")
 module("server.playerlookat", package.seeall)
 
 function lookAtPlayer( SourceCharacter, TargetCharacter, mode)
-	content.uniquechardescription.InitPlayerDesc();
+	debug(SourceCharacter.name .. " is looking at " .. TargetCharacter.name);
+  content.uniquechardescription.InitPlayerDesc();
     -- here we go the lookat
     -- Generate the looking at value
     LookingAt = mode * 50;
