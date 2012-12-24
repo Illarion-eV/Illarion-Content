@@ -429,3 +429,12 @@ function Init()
 	end
 	InitDone = 1;
 end
+
+function String2Number(str)
+	local _,_,num = string.find(str, "(%d+)");
+	if (num~="") then
+		num = tonumber(num);
+		return num, true;
+	end
+	return 0, false;
+end
