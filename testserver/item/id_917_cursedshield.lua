@@ -33,7 +33,7 @@ function MoveItemAfterMove( User, SourceItem, TargetItem )
         if ( tonumber(SourceItem:getData("cursedShield")) == 2 ) then curseChance = 1; end;
         
         if ( curseChance == 1 ) then
-            tonumber(TargetItem:getData("cursedShield")) = 2;
+            TargetItem:setData("cursedShield",2);
             world:changeItem( TargetItem );
             base.common.InformNLS( User, "Eine plötzliche dunkle Energie strömt aus dem Schild und scheint deine Hand zu packen.", "A sudden dark energy emenates from the shield and seems to clutch to your hand." );
             return true;
