@@ -95,10 +95,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the five 
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich verkaufe nichts. Aber ich nehme Spenden entgegen... nun ja, eigentlich sind es Spenden für den Don. Bringt die Sachen ruhig her und legt sie auf das Feld."
 
 -- Optional: Catching quest triggers. Galmair garbage bin quest (206)
-english, town = Galmair, "quest", "mission" -> "Do you want a task? Bring some more donations. And drop it on the field here!", queststatus(206) = 1
-town = Galmair, "quest", "mission" -> "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her!", queststatus(206) = 1
-town = Galmair, "task", "adventure", "order" -> "Do you want a task? Bring some more donations. And drop it on the field here!", queststatus(206) = 1
-town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her!", queststatus(206) = 1
+english, town = Galmair, queststatus(206) = 0, "quest", "mission" -> "Do you want a task? Bring some more donations. And drop it on the field here!", queststatus(206) = 1
+town = Galmair, queststatus(206) = 0, "quest", "mission" -> "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her!", queststatus(206) = 1
+town = Galmair, queststatus(206) = 0, "task", "adventure", "order" -> "Do you want a task? Bring some more donations. And drop it on the field here!", queststatus(206) = 1
+town = Galmair, queststatus(206) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her!", queststatus(206) = 1
 english, "quest", "mission" -> "I have nothing to do for you, darling."
 "quest", "mission" -> "I have nothing to do for you, darling."
 "task", "adventure", "order" -> "Ich habe keine Aufgabe für dich, Liebling."
