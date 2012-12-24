@@ -111,16 +111,16 @@ queststatus(206) = 1, "task", "adventure", "order" -> "Yes. Yes! You did figure 
 queststatus(206) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ganz genau! Ihr habt heraus gefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
 
 -- Quest 1 solved, reward: +20 rankpoints
-queststatus(206) = 2, english, "quest", "mission" -> "Thank you for your donation!", "#me cakles", rankpoints = 20
-queststatus(206) = 2, "quest", "mission" -> "Danke für Eure Spende!", "#me kichert", rankpoints = 20
-queststatus(206) = 2, "task", "adventure", "order" -> "Thank you for your donation!", "#me cakles", rankpoints = 20
-queststatus(206) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke für Eure Spende!", "#me kichert", rankpoints = 20
+queststatus(205) = 2, english, "quest", "mission" -> "Thank you for your donation!", "#me cakles", rankpoints = 20
+queststatus(205) = 2, "quest", "mission" -> "Danke für Eure Spende!", "#me kichert", rankpoints = 20
+queststatus(205) = 2, "task", "adventure", "order" -> "Thank you for your donation!", "#me cakles", rankpoints = 20
+queststatus(205) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke für Eure Spende!", "#me kichert", rankpoints = 20
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(206) = 2, english, "quest", "mission" -> "#me grins showing a pair of yellow theeth.", " Come back again!"
-queststatus(206) = 2, "quest", "mission" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald!"
-queststatus(206) = 2, "task", "adventure", "order" -> "#me grins showing a pair of yellow theeth.", " Come back again, Sweetheart!"
-queststatus(206) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald, Schätzchen!"
+queststatus(205) = 2, english, "quest", "mission" -> "#me grins showing a pair of yellow theeth.", " Come back again!"
+queststatus(205) = 2, "quest", "mission" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald!"
+queststatus(205) = 2, "task", "adventure", "order" -> "#me grins showing a pair of yellow theeth.", " Come back again, Sweetheart!"
+queststatus(205) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald, Schätzchen!"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am sorting all that rubbish...I mean, all the donations to the Don.", "..."
