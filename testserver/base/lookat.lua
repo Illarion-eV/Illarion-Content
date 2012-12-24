@@ -116,6 +116,13 @@ function GenerateLookAt(user, item, material)
             end
 
             local qualIndex = 10 - itemQual
+			debug("QualIndex: "..qualIndex)
+			
+			if qualIndex < 1 then
+				qualIndex = 1;
+			elseif qualIndex > 10 then
+				qualIndex = 10;
+			end
             
             if (isGerman) then
                 lookAt.qualityText = GenericQualDe[qualIndex];
