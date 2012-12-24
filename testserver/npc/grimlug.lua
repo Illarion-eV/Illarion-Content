@@ -642,7 +642,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("The humanz and thier kingens. Scheschnacks! The strongest one should be the chief! Nub just inherit privileges to decide.");
+talkEntry:addResponse("The humanz and their kingens. Scheschnacks! The strongest one should be the chief! Nub just inherit privileges to decide.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -656,7 +656,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("The humanz and thier kingens. Scheschnacks! The strongest one should be the chief! Nub just inherit privileges to decide.");
+talkEntry:addResponse("The humanz and their kingens. Scheschnacks! The strongest one should be the chief! Nub just inherit privileges to decide.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

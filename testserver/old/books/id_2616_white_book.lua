@@ -131,7 +131,7 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 			base.books.AddEnglishBookText("Parchment 2:\nTo the bareheaded kings under the throne Irmorom.",0,25,2);
 			base.books.AddEnglishBookText("Ignoring the auction of your precious golden circlet, the shadow born demand from you!",0,25,2);
 			base.books.AddEnglishBookText("The King of the halls shall pilgrimage crowned with a smelly pumpkin from the dwarfsland to the harbour of the isle Gobaith. Guarded from his foolish cortege, dressed in nightgown.",0,25,2);
-			base.books.AddEnglishBookText("Loud and wrong, should they play thier Instruments, until the golden crown is given back.",0,25,2);
+			base.books.AddEnglishBookText("Loud and wrong, should they play their Instruments, until the golden crown is given back.",0,25,2);
 			base.books.AddEnglishBookText("Who fights asinity, earns Ronagans smile, they say. So we like to give in optional the question to smith another crown! So you stay anserous, and we don't earn smiles.",0,25,2);
 			base.books.AddEnglishBookText("Same, same in form and profile. Not able to differ from the crown, wich was stolen from your heads. Just an inscription, small, so people are not able to spot it easily. ",0,25,2);
 			base.books.AddEnglishBookText("Grown of the Ging from the Silverland\n\n We want to exchange this Grown with the real crown. Furthermore, we would like to have it flavourful: 47 silver coins and 74 copper coins. ",0,25,2);

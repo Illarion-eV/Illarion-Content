@@ -738,7 +738,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
 talkEntry:addResponse("Queen Rosaline, well she is... a sphinx without mystery. I'm always surprised how little this bloodline learned from the mistakes of the past.");
-talkEntry:addResponse("The short lifespan of mankind may limit their world. On the other hand they suprise me again and again with thier impressive deeds.");
+talkEntry:addResponse("The short lifespan of mankind may limit their world. On the other hand they suprise me again and again with their impressive deeds.");
 talkEntry:addResponse("Well I remember Rosalines grandfather. A noteable human in several aspects - like his son. Now we have to observe the destiny of his daughter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -756,7 +756,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addResponse("Queen Rosaline, well she is... a sphinx without mystery. I'm always surprised how little this bloodline learned from the mistakes of the past.");
-talkEntry:addResponse("The short lifespan of mankind may limit their world. On the other hand they suprise me again and again with thier impressive deeds.");
+talkEntry:addResponse("The short lifespan of mankind may limit their world. On the other hand they suprise me again and again with their impressive deeds.");
 talkEntry:addResponse("Well I remember Rosalines grandfather. A noteable human in several aspects - like his son. Now we have to observe the destiny of his daughter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
