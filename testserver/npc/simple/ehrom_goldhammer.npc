@@ -91,9 +91,9 @@ queststatus(72) = 0, "task", "adventure" -> inform("[New quest] The Smuggler I")
 queststatus(72) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler I"), "Ihr wollt mir also helfen. Einer meiner Klienten benötigt fünf Kupferkelche für ein Bankett. Ich kann allerdings nicht nach Cadomyr gehen, um sie von den Schmieden dort zu besorgen. Ich werde euch großzügig belohnen!", queststatus(72) = 1
 queststatus(72) = 1, item(1840, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 50 silver coins."), "By Ronagan, you brought copper goblets. Take these silver coins as a small appreciation. But I could use your service again for another order.", money + 5000, deleteItem(1840, 5), queststatus(72) = 2
 queststatus(72) = 1, item(1840, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 50 Silberstücke."), "Bei Ronagan, ihr habt tatsächlich die Kupferkelche gebracht. Nehmt diese Silberstücke als kleine Anerkennung. Allerdings könnte ich nochmal Eure Dienste bei einem Auftrag brauchen.", money + 5000, deleteItem(1840, 5), queststatus(72) = 2
-queststatus(72) = 1, english, "quest", "mission" -> "I need at least five copper goblets. Return to be when you have them."
+queststatus(72) = 1, english, "quest", "mission" -> "I need at least five copper goblets. Return to me when you have them."
 queststatus(72) = 1, "quest", "mission" -> "Ich brauche wenigstens fünf Kupferkelche. Kehrt zurück wenn ihr sie habt."
-queststatus(72) = 1, "task", "adventure" -> "I need at least five copper goblets. Return to be when you have them."
+queststatus(72) = 1, "task", "adventure" -> "I need at least five copper goblets. Return to me when you have them."
 queststatus(72) = 1, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich brauche wenigstens fünf Kupferkelche. Kehrt zurück wenn ihr sie habt."
 
 -- 2nd quest: Get two dwarven state armour.

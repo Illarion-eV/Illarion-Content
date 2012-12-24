@@ -231,7 +231,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I need at least five copper goblets. Return to be when you have them.");
+talkEntry:addResponse("I need at least five copper goblets. Return to me when you have them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -247,7 +247,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("I need at least five copper goblets. Return to be when you have them.");
+talkEntry:addResponse("I need at least five copper goblets. Return to me when you have them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -319,7 +319,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2390, "all", ">", 1, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 5 Goldstücke."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünf Goldstücke."));
 talkEntry:addResponse("Aye aye, ich muß schon sagen, Ihr werdet immer besser. Diese Silberstücke gehören nun Euch.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2390, 2, nil));
