@@ -248,6 +248,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -256,6 +257,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("I have nothing to do for you, darling.");
@@ -263,6 +265,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -271,6 +274,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -316,7 +320,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -327,7 +331,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Danke für Eure Spende!");
@@ -337,7 +341,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -348,7 +352,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -360,7 +364,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -370,7 +374,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("#me grinst und entblößt dabei ein paar gelber Zähne.");
@@ -379,7 +383,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -389,7 +393,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
