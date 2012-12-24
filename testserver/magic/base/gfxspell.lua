@@ -336,8 +336,8 @@ function removeItemFromMap( ItemData, Target, CasterVal )
     end
 
     if (data ~= 0 ) then
-        if ( theItem.data + data > -1 ) then
-            theItem.data = theItem.data + data;
+        if ( tonumber(theItem:getData("magicData")) + data > -1 ) then
+            theItem:setData("magicData", tonumber(theItem:getData("magicData")) + data);
         else
             world:erase( theItem, theItem.number );
             return true;
