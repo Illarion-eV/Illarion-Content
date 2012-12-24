@@ -259,7 +259,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("order");
 talkEntry:addResponse("Nothing to do for you yet but soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
