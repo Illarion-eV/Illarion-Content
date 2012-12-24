@@ -20,7 +20,7 @@ function PutItemOnField(Item,User)
 
     if (donated) and (User:getQuestProgress(206) == 1) then
 		User:setQuestProgress(206, 2); --Quest solved!
-		base.common.InformNLS(User,"[Queststatus] Du hast erfolgreich etwas an den Don gespendet. Sprich mit Geretel Goldhair, um deine Belohnung einzufordern.","[Quest status] You successfully made a donnation to the Don. Talk to Gretel Goldhair to claim your reward."); --sending a message
+		base.common.InformNLS(User,"[Queststatus] Du hast erfolgreich etwas an den Don gespendet. Sprich mit Gretel Goldhair, um deine Belohnung einzufordern.","[Quest status] You successfully made a donnation to the Don. Talk to Gretel Goldhair to claim your reward."); --sending a message
 	end
 
 	-- Quest end
