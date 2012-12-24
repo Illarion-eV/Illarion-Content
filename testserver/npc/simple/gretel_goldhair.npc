@@ -99,10 +99,10 @@ queststatus(206) = 0, english, town = Galmair, "quest", "mission" -> "Do you wan
 queststatus(206) = 0, town = Galmair, "quest", "mission" -> "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her!", queststatus(206) = 1
 queststatus(206) = 0, town = Galmair, "task", "adventure", "order" -> "Do you want a task? Bring some more donations. And drop it on the field here!", queststatus(206) = 1
 queststatus(206) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her!", queststatus(206) = 1
-english, "quest", "mission" -> "I have nothing to do for you, darling."
-"quest", "mission" -> "I have nothing to do for you, darling."
-"task", "adventure", "order" -> "Ich habe keine Aufgabe für dich, Liebling."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe für dich, Liebling."
+queststatus(206) = 0, english, "quest", "mission" -> "I have nothing to do for you, darling."
+queststatus(206) = 0, "quest", "mission" -> "I have nothing to do for you, darling."
+queststatus(206) = 0, "task", "adventure", "order" -> "Ich habe keine Aufgabe für dich, Liebling."
+queststatus(206) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe für dich, Liebling."
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(206) = 1, english, "quest", "mission" -> "Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?"
@@ -111,16 +111,16 @@ queststatus(206) = 1, "task", "adventure", "order" -> "Yes. Yes! You did figure 
 queststatus(206) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ganz genau! Ihr habt heraus gefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
 
 -- Quest 1 solved, reward: +20 rankpoints
-queststatus(206) = 2, english, "quest", "mission" -> "Thank you for your donation!", "#me cakles", rankpoints = 20
-queststatus(206) = 2, "quest", "mission" -> "Danke für Eure Spende!", "#me kichert", rankpoints = 20
-queststatus(206) = 2, "task", "adventure", "order" -> "Thank you for your donation!", "#me cakles", rankpoints = 20
-queststatus(206) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke für Eure Spende!", "#me kichert", rankpoints = 20
+queststatus(206) = 2, english, "quest", "mission" -> "Thank you for your donation!", "#me cakles", queststatus(206) = 3, rankpoints = 20
+queststatus(206) = 2, "quest", "mission" -> "Danke für Eure Spende!", "#me kichert", queststatus(206) = 3, rankpoints = 20
+queststatus(206) = 2, "task", "adventure", "order" -> "Thank you for your donation!", "#me cakles", queststatus(206) = 3, rankpoints = 20
+queststatus(206) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke für Eure Spende!", "#me kichert", queststatus(206) = 3, rankpoints = 20
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(206) = 2, english, "quest", "mission" -> "#me grins showing a pair of yellow theeth.", " Come back again!"
-queststatus(206) = 2, "quest", "mission" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald!"
-queststatus(206) = 2, "task", "adventure", "order" -> "#me grins showing a pair of yellow theeth.", " Come back again, Sweetheart!"
-queststatus(206) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald, Schätzchen!"
+queststatus(206) = 3, english, "quest", "mission" -> "#me grins showing a pair of yellow theeth.", " Come back again!"
+queststatus(206) = 3, "quest", "mission" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald!"
+queststatus(206) = 3, "task", "adventure", "order" -> "#me grins showing a pair of yellow theeth.", " Come back again, Sweetheart!"
+queststatus(206) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald, Schätzchen!"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am sorting all that rubbish...I mean, all the donations to the Don.", "..."
