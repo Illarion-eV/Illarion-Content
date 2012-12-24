@@ -272,10 +272,10 @@ function payNow(User)
 	 -- no memeber of any town
 	local town = base.factions.getMembershipByName(User)
 	if town == "" then
-	    return
+	    return;
 	end	
 
-    taxHeight=0.05;  -- 5% taxes for testing purposes
+    taxHeight=0.05;  -- 5% taxes
     
 	depNr={101,102,103,104};
     valDepot={0,0,0,0};
