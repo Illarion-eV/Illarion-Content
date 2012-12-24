@@ -1316,7 +1316,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("The ancestors of the human kings are furious! Mes can feel tha shivering of the desert land from far away. Thier tombs are cursed and their corpses are restless.");
+talkEntry:addResponse("The ancestors of the human kings are furious! Mes can feel tha shivering of the desert land from far away. their tombs are cursed and their corpses are restless.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1330,7 +1330,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("The ancestors of the human kings are furious! Mes can feel tha shivering of the desert land from far away. Thier tombs are cursed and their corpses are restless.");
+talkEntry:addResponse("The ancestors of the human kings are furious! Mes can feel tha shivering of the desert land from far away. their tombs are cursed and their corpses are restless.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -1,4 +1,4 @@
--- quartz sand (316) + pott ash (314) --> glass ingot (41)
+-- quartz sand (316) + potash (314) --> glass ingot (41)
 -- additional tool: glass blow pipe (311)
 
 -- clay (26) --> unfired bricks (736)
@@ -30,8 +30,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
       ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
     else
       base.common.HighInformNLS( User,
-      "Du brauchst Lehm oder 5 ungebrannte Ziegel um mit der Ziegelform hier zu arbeiten.", 
-      "You need clay or 5 unfired bricks to work here with the brick mould." );
+      "Du brauchst Lehm oder fünf ungebrannte Ziegel um mit der Ziegelform hier zu arbeiten.", 
+      "You need clay or five unfired bricks to work here with the brick mould." );
     end
   else
     -- both tools
@@ -43,8 +43,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
       ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltstate );
     else
       base.common.HighInformNLS( User,
-      "Für die Ziegelform brauchst du Lehm oder 5 ungebrannte Ziegel, für das Glasblasrohr brauchst du Quarzsand und Pottasche.", 
-      "For the brick mould you need clay or 5 unfired bricks, for the glass blow pipe you need quartz sand and pott ash." );
+      "Für die Ziegelform brauchst du Lehm oder fünf ungebrannte Ziegel, für das Glasblasrohr brauchst du Quarzsand und Pottasche.", 
+      "For the brick mould you need clay or five unfired bricks, for the glass blow pipe you need quartz sand and potash." );
     end
   end
 end
@@ -107,7 +107,7 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltsta
 	if (User:countItemAt("all",316)==0 or User:countItemAt("all",314)==0) then -- check for items to work on
 		base.common.HighInformNLS( User, 
 		"Du brauchst Quarzsand und Pottasche um Glasblöcke herzustellen.", 
-		"You need quartz sand and pott ash for producing glass ingots." );
+		"You need quartz sand and potash for producing glass ingots." );
     return;
 	end
 	
@@ -142,7 +142,7 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltsta
 		else -- no items left
 			base.common.HighInformNLS(User,
 			"Du brauchst Quarzsand und Pottasche um Glasblöcke herzustellen.", 
-      "You need quartz sand and pott ash for producing glass ingots." );
+      "You need quartz sand and potash for producing glass ingots." );
 		end
 	end
 

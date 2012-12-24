@@ -141,7 +141,7 @@ end
 -- CURRENTLY DEACTIVATED
 -- give something back
 function giveBack(User, Item, this)
-	if Item.data==2 then -- a night watchman has put on that light, give nothing back
+	if tonumber(Item:getData("lightData"))==2 then -- a night watchman has put on that light, give nothing back
 		base.common.InformNLS(User,
 			"Das Licht erlischt in dem Moment, als du danach greifst.",
 			"The light goes off in the very moment you reach out for it.")
@@ -152,7 +152,7 @@ function giveBack(User, Item, this)
 	if User:createItem(this.back,1,333,15734) == 0 then
 		for i=1,17 do
 			myItem = User:getItemAt( i );
-			if ( myItem.id == this.back and myItem.data==15734 ) then
+			if ( myItem.id == this.back and tonumber(myItem:getData("lightData"))==15734 ) then
 				finalItem = myItem;
 				break;
 			end
@@ -169,7 +169,7 @@ function giveBack(User, Item, this)
 					i = i + 1;
 					worked,myItem,thisCont=theBackpack:viewItemNr(i);
 					if worked then
-						if ( myItem.id == this.back and myItem.data==15734 ) then
+						if ( myItem.id == this.back and tonumber(myItem:getData("lightData"))==15734 ) then
 							theBackpack:takeItemNr(i,1);
 							User:createItem(LightsOn[this.back].off,1,333,Item.wear+1000);
 							break;
@@ -182,7 +182,7 @@ function giveBack(User, Item, this)
 		finalItem = world:createItemFromId(this.back,1,User.pos,true,333,1);
 	end
     if finalItem then
-        finalItem.data = 1;
+        finalItem:setData("lightData", 1);
         finalItem.wear = Item.wear;
         world:changeItem(finalItem);
     end

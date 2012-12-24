@@ -31,7 +31,7 @@ end
 function UseItem(User,SourceItem,TargetItem,counter,param)
 
     if (SourceItem.pos == position(741,406,-3)) then
-	    User:sendBook(3);
+	    User:sendBook(201);
 	end
 	
 end

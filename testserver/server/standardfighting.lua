@@ -16,6 +16,21 @@ jeweils nur 1/n der movepoints/FP, weil ja n skills gesteigert werden.
 
 ]]
 
+--[[ Weapontypes:
+1:  1 hd slashing
+2:  1 hd concussion
+3:  1 hd puncture
+4:  2 hd slashing
+5:  2 hd concussion
+6:  2 hd puncture
+7:  (cross-) Bow, sling, spear, throwing star
+10: Arrows
+11: crossbow bolts
+12: stone
+13: staves
+14: shields
+]]
+
 -- Hang in base.common - Some functions of the collection are needed
 require("base.common")
 
@@ -37,35 +52,37 @@ require("base.gems")
 
 module("server.standardfighting", package.seeall)
 
---- Main Attack function. This function is called by the server to start a
--- attack. It is called once for each hand of the attacker. Only the hand with
--- a weapon in it will attack. In case there are weapons in both hands, only the
+--- Main Attack function. This function is called by the server to start an
+-- attack. It is called once for each hand of the attacker. Only the hand holding a
+-- weapon will attack. In case there are weapons in both hands, only the
 -- right hand will be used to perform the attack.
 -- @param Attacker The character who attacks
 -- @param Defender The character who is attacked
 -- @return true in case a attack was performed, else false
 function onAttack(Attacker, Defender)
-    --Attacker:talk(Character.say,"Drin in onAttack");
+
+    -- Attacker:talk(Character.say,"Drin in onAttack");
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
     local Globals = {};
-    
+
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
-    
+
     --Attacker.Char:talk(Character.say,"NI OK");
     -- Load the weapons of the attacker
     LoadWeapons(Attacker);
     
      --   Attacker.Char:talk(Character.say,"WP OK");
     -- Check the range between the both fighting characters
+
     if not CheckRange(Attacker, Defender.Char) then return false; end;
-    
+
     --Attacker.Char:talk(Character.say,"RANGE OK");
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker);
-    
+
     --Attacker.Char:talk(Character.say,"ATT TYPE OK");
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker) then 
@@ -335,7 +352,7 @@ function ChanceToHit(Attacker, Defender)
         chanceMod = 100 + 50*(distance - 1)/(1 - range);    -- reduce chance in %: at distance 1 chance is unmodified, 
                                                             -- at distance=range it is 50%
         chance = chance * chanceMod / 100;
-        Attacker.Char:inform("Chance to hit: "..chance);
+        --Attacker.Char:inform("Chance to hit: "..chance);
     end;
     return base.common.Chance(chance);
 end;
@@ -459,13 +476,16 @@ end;
 -- @param Defender The character who is attacked
 -- @return true in case the range is fine, else false
 function CheckRange(AttackerStruct, Defender)
-    local distance = AttackerStruct.Char:distanceMetric(Defender);
+	local distance = AttackerStruct.Char:distanceMetric(Defender);
+
     if distance > 1 then
         blockList = world:LoS( AttackerStruct.Char.pos, Defender.pos )
-        if blockList ~= nil then
-            return false;
-        end
+		local next = next	-- make next-iterator local		
+        if (next(blockList)~=nil) then	-- see if there is a "next" (first) object in blockList!
+			return false;				-- something blocks
+		end
     end
+
     if (distance == 1 and AttackerStruct.AttackKind == 4) then
         return false;
     end
@@ -613,7 +633,7 @@ function DropMuchBlood(Posi)
 end;
 
 --- Identify the used attack kind and set up identifier values and the skill
--- name This also finds out if a one or a two handed weapoon is used
+-- name. This also finds out if a singlehanded or a two-handed weapon is used.
 -- Possible Values for AttackKind
 -- 0 - wrestling
 -- 1 - slashing
@@ -622,6 +642,7 @@ end;
 -- 4 - distance
 -- @param CharStruct The table of the character the values should be generated
 function GetAttackType(CharStruct)
+	-- No weapon present:
     if not CharStruct.IsWeapon then
         CharStruct["AttackKind"] = 0;
         CharStruct["UsedHands"] = 1;
@@ -629,6 +650,7 @@ function GetAttackType(CharStruct)
         return;
     end;
     
+	-- weapon present:
     local weaponType = CharStruct.Weapon.WeaponType;
     if (weaponType == 1) or (weaponType == 4) then
         CharStruct["AttackKind"] = 1;
@@ -654,7 +676,7 @@ function GetAttackType(CharStruct)
         else
             CharStruct["UsedHands"] = 2;
         end;
-    elseif (weaponType == 7) then
+    elseif (weaponType == 7) or (weaponType == 255) then
         CharStruct["AttackKind"] = 4;
         CharStruct["Skillname"] = Character.distanceWeapons;
         if (weaponType == 255) then
@@ -680,7 +702,7 @@ function HandleAmmunition(Attacker)
     
     if (Attacker.Weapon.AmmunitionType == Attacker.SecWeapon.WeaponType) then
         Attacker.Char:increaseAtPos(Attacker.SecWeaponItem.itempos, -1);
-    elseif (Attacker.Weapon.AmmunitionType == 255) then
+    elseif (Attacker.Weapon.AmmunitionType == 255) then		-- throwing axes, spears and throwing stars, thus they ARE the ammunition!
         Attacker.Char:increaseAtPos(Attacker.WeaponItem.itempos, -1);
     else
         return false;
@@ -797,17 +819,46 @@ function LoadWeapons(CharStruct)
     --CharStruct.Char:inform("R: "..rItem.id .. " L: "..lItem.id);
     
     -- the right item is ALWAYS used as the weapon now!
-    
+    isRWp=1;
+	isLWp=1;
+	
+	if rAttFound then
+		rWType=rAttWeapon.WeaponType;
+		if rWType==10 or rWType==11 or rWType==14 then -- Ammo or shield in right hand: switch r and l hand!
+			isRWp=0;
+		end
+	end
+	
+	if lAttFound then
+		lWType=lAttWeapon.WeaponType;
+		if lWType==10 or lWType==11 or lWType==14 then -- Ammo or shield in right hand: switch r and l hand!
+			isLWp=0;
+		end
+	end
+	
+	if isRWp==0 and isLWp==1 then 	-- switch weapons
+		local dItem=rItem;
+		local dAttFound=rAttFound;
+		local dAttWeapon=rAttWeapon;
+		rItem=lItem;
+		rAttFound=lAttFound;
+		rAttWeapon=lAttWeapon;
+		lItem=dItem;
+		lAttFound=dAttFound;
+		lAttWeapon=dAttWeapon;
+	end
+	
+	-- 1: slash, 2: 
+	
     CharStruct["WeaponItem"] = rItem;
     CharStruct["IsWeapon"] = rAttFound;
     CharStruct["Weapon"] = rAttWeapon;
-    
-    -- the left item is ALWAYS used as shield or ammunition
- 
+
     CharStruct["SecWeaponItem"] = lItem;
     CharStruct["SecIsWeapon"] = lAttFound;
     CharStruct["SecWeapon"] = lAttWeapon;
     
+	-- still  needed? :
     CharStruct["LeftWeaponItem"] = lItem;
     CharStruct["LeftIsWeapon"] = lAttFound;
     CharStruct["LeftWeapon"] = lAttWeapon;

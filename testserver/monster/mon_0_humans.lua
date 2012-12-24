@@ -205,7 +205,7 @@ function onDeath(Monster)
         --Category 2: Special loot
 
         local done=monster.base.drop.AddDropItem(63,1,20,(100*math.random(4,5)+math.random(44,55)),0,2); --insides
-        if not done then done=monster.base.drop.AddDropItem(314,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --pot ash
+        if not done then done=monster.base.drop.AddDropItem(314,1,10,(100*math.random(4,5)+math.random(44,55)),0,2); end --potash
         if not done then done=monster.base.drop.AddDropItem(278,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --obsidian ring
         if not done then done=monster.base.drop.AddDropItem(2746,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --razor blade
         if not done then done=monster.base.drop.AddDropItem(223,1,1,(100*math.random(4,5)+math.random(44,55)),0,2); end --goblet

@@ -157,15 +157,15 @@ queststatus(317) = 4, ".+" -> inform("[Quest gelöst] Du erhältst fünfzig Silb
 
 -- 3rd quest: Bring a message to a NPC somewhere inside the faction home land. (Grakamesh)
 -- Give out quest 3
-queststatus(317) = 5, english, "quest", "mission" -> inform("[New quest]  Writing history III: You received a message for Grakamesh."), "You want to help me? That's good. I need someone to deliver a messege for Grakamesh. He wanted to tell me about the table manners of orcs.", queststatus(317) = 6
+queststatus(317) = 5, english, "quest", "mission" -> inform("[New quest]  Writing history III: You received a message for Grakamesh."), "You want to help me? That's good. I need someone to deliver a message for Grakamesh. He wanted to tell me about the table manners of orcs.", queststatus(317) = 6
 queststatus(317) = 5, "quest", "mission" -> inform("[Neues Quest] Geschichte schreiben III: Du hast eine Nachricht für Grakamesh erhalten."), "Du möchtest mir helfen? Das trifft sich gut. Ich brauche jemanden der eine Nachricht an Grakamesh überbringt. Er wollte mir etwas über orkische Tischsitten erzählen.", queststatus(317) = 6
-queststatus(317) = 5, "Task", "Adventure", "Message" -> inform("[New quest]  Writing history III: You received a message for Grakamesh."), "You want to help me? That's good. I need someone to deliver a messege for Grakamesh. He wanted to tell me about the table manners of orcs.", queststatus(317) = 6
+queststatus(317) = 5, "Task", "Adventure", "Message" -> inform("[New quest]  Writing history III: You received a message for Grakamesh."), "You want to help me? That's good. I need someone to deliver a message for Grakamesh. He wanted to tell me about the table manners of orcs.", queststatus(317) = 6
 queststatus(317) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Geschichte schreiben III: Du hast eine Nachricht für Grakamesh erhalten."), "Du möchtest mir helfen? Das trifft sich gut. Ich brauche jemanden der eine Nachricht an Grakamesh überbringt. Er wollte mir etwas über orkische Tischsitten erzählen.", queststatus(317) = 6
 
 -- Quest 3 taken but not solved, repeat the instructions
-queststatus(317) = 6, english, "quest", "mission" -> "I asked you to deliver a messege for Grakamesh. I really want to write about the tablemanners of orcs."
+queststatus(317) = 6, english, "quest", "mission" -> "I asked you to deliver a message for Grakamesh. I really want to write about the tablemanners of orcs."
 queststatus(317) = 6, "quest", "mission" -> "Ich bat dich eine Nachricht an Grakamesh zu überbringen. Ich möchte unbedingt über orkische Tischsitten schreiben."
-queststatus(317) = 6, "Task", "Adventure", "Message" -> "I asked you to deliver a messege for Grakamesh. I really want to write about the tablemanners of orcs."
+queststatus(317) = 6, "Task", "Adventure", "Message" -> "I asked you to deliver a message for Grakamesh. I really want to write about the tablemanners of orcs."
 queststatus(317) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Ich bat dich eine Nachricht an Grakamesh zu überbringen. Ich möchte unbedingt über orkische Tischsitten schreiben."
 
 -- Quest 3 solved, reward: NICE ITEM (chain mail), +10 rankpoints
@@ -196,15 +196,15 @@ queststatus(317) = 10, ".+" -> inform("[Quest gelöst] Du erhältst achtzig Silb
 -- 5th quest: Bring a message to another faction's leader.
 
 -- Give out quest 5
-queststatus(317) = 11, english, "quest", "mission" -> inform("[New quest]  Writing history V: You received a message for the Don of Galmair, Valerio Guilianni."), "Hello my friend, thanks for your help. This messege is really important. It's for the Don of Galmair. I heard that he did propose to the Queen of Cadomyr. I need to know more about this, this is interesting stuff to write about.", queststatus(317) = 12
+queststatus(317) = 11, english, "quest", "mission" -> inform("[New quest]  Writing history V: You received a message for the Don of Galmair, Valerio Guilianni."), "Hello my friend, thanks for your help. This message is really important. It's for the Don of Galmair. I heard that he did propose to the Queen of Cadomyr. I need to know more about this, this is interesting stuff to write about.", queststatus(317) = 12
 queststatus(317) = 11, "quest", "mission" -> inform("[Neues Quest] Geschichte schreiben V: Du hast eine Nachricht für den Don von Galmair, Valerio Guilianni erhalten."), "Hallo mein Freund. Diese Nachricht ist wirklich wichtig. Sie ist für den Don von Galmair bestimmt. Ich hörte er habe der Königin von Cadomyr den Hof gemacht. Darüber muss ich mehr erfahren, das ist interessanter Stoff um ein Buch zu schreiben.", queststatus(317) = 12
-queststatus(317) = 11, "Task", "Adventure", "Message" -> inform("[New quest]  Writing history V: You received a message for the Don of Galmair, Valerio Guilianni."), "Hello my friend, thanks for your help. This messege is really important. It's for the Don of Galmair. I heard that he did propose to the Queen of Cadomyr. I need to know more about this, this is interesting stuff to write about.", queststatus(317) = 12
+queststatus(317) = 11, "Task", "Adventure", "Message" -> inform("[New quest]  Writing history V: You received a message for the Don of Galmair, Valerio Guilianni."), "Hello my friend, thanks for your help. This message is really important. It's for the Don of Galmair. I heard that he did propose to the Queen of Cadomyr. I need to know more about this, this is interesting stuff to write about.", queststatus(317) = 12
 queststatus(317) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Geschichte schreiben V: Du hast eine Nachricht für den Don von Galmair, Valerio Guilianni erhalten."), "Hallo mein Freund. Diese Nachricht ist wirklich wichtig. Sie ist für den Don von Galmair bestimmt. Ich hörte er habe der Königin von Cadomyr den Hof gemacht. Darüber muss ich mehr erfahren, das ist interessanter Stoff um ein Buch zu schreiben.", queststatus(317) = 12
 
 -- Quest 5 taken but not solved, repeat the instructions
-queststatus(317) = 12, english, "quest", "mission" -> "You forgot about the messege? It is really imtortant. It goes to the Don of Galmair, Valerio Guilianni"
+queststatus(317) = 12, english, "quest", "mission" -> "You forgot about the message? It is really imtortant. It goes to the Don of Galmair, Valerio Guilianni"
 queststatus(317) = 12, "quest", "mission" -> "Du hast die Nachricht vergessen? Sie ist wirklich wichtig. Sie ist an den Don von Galmair Valerio Guilianni bestimmt."
-queststatus(317) = 12, "Task", "Adventure", "Message" -> "You forgot about the messege? It is really imtortant. It goes to the Don of Galmair, Valerio Guilianni."
+queststatus(317) = 12, "Task", "Adventure", "Message" -> "You forgot about the message? It is really imtortant. It goes to the Don of Galmair, Valerio Guilianni."
 queststatus(317) = 12, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Du hast die Nachricht vergessen? Sie ist wirklich wichtig. Sie ist an den Don von Galmair Valerio Guilianni bestimmt."
 
 -- Quest 5 solved, reward: uber item, +20 rankpoints

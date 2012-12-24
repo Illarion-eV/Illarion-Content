@@ -531,6 +531,52 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 21));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a pair of steel gloves. You advance in Don Valerio Guilianni's favour."));
+talkEntry:addResponse("Blasted halfers! You taught them a lesson, very good. To make your punch matter even more, have these steel gloves, har, har.");
+talkEntry:addConsequence(npc.base.consequence.item.item(325, 1, 799, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 22));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 21));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a pair of steel gloves."));
+talkEntry:addResponse("Blasted halfers! You taught them a lesson, very good. To make your punch matter even more, have these steel gloves, har, har.");
+talkEntry:addConsequence(npc.base.consequence.item.item(325, 1, 799, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 22));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 21));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Paar Stahlhandschuhe. Dein Ansehen bei Don Valerio Guilianni steigt."));
+talkEntry:addResponse("Verdammte Halblinge! Denen habt ihr es gezeigt. Damit ihr noch mehr Wumms in den Fäusten kriegt, nehmt diese Stahlhandschuhe, har, har.");
+talkEntry:addConsequence(npc.base.consequence.item.item(325, 1, 799, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 22));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(77, "=", 21));
+talkEntry:addTrigger(".+");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Paar Stahlhandschuhe."));
+talkEntry:addResponse("Verdammte Halblinge! Denen habt ihr es gezeigt. Damit ihr noch mehr Wumms in den Fäusten kriegt, nehmt diese Stahlhandschuhe, har, har.");
+talkEntry:addConsequence(npc.base.consequence.item.item(325, 1, 799, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(77, "=", 22));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(77, ">", 19));
 talkEntry:addCondition(npc.base.condition.quest.quest(77, "<", 21));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
