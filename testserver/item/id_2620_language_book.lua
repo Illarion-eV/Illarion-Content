@@ -6,7 +6,7 @@ module("item.id_2620_language_book", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if SourceItem:getData("langcode") == "" then
-		return;
+		SourceItem:getData("langcode", 11)
 	end	
 
     local langcode = math.floor(tonumber(SourceItem:getData("langcode"))/10);
@@ -15,7 +15,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if (modecode == 2) then
         if (User:getSkill(Character.ancientLanguage) < 60) then return end
         if ( ltstate == nil or ltstate == Action.success ) then
-            User:warp(position(-243,-340,-3));
+            --User:warp(position(-243,-340,-3));
         elseif ( ltstate == Action.none ) then
             User:startAction( 100,53, 4, 0, 0);
             User:talkLanguage( Character.say, Player.german, "#me beginnt in einem Buch zu lesen.");
@@ -104,7 +104,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 	
 	-- obsolet?
-	local TargetItem = base.common.GetTargetItem(User, SourceItem);
+	--[[local TargetItem = base.common.GetTargetItem(User, SourceItem);
     if (TargetItem.id == 329 and tonumber(TargetItem:getData("langcode")) == 0) then
         if ( Skill > 50) then
             if (modecode==0) then
@@ -115,12 +115,16 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
                 world:erase(TargetItem,1);
             end
         end
-    end
+    end]]
     --User:learn(4,"library research",2,100)
 	--Replace with new learn function, see learn.lua 
 end
 
 function LookAtItem(User,Item)
+	if Item:getData("langcode") == "" then
+		Item:getData("langcode", 11)
+	end	
+
     local langcode = math.floor(tonumber(Item:getData("langcode"))/10);
     local modecode = tonumber(Item:getData("langcode")) - (langcode * 10);
     if (modecode == 2) then
