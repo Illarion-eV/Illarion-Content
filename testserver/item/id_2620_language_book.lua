@@ -6,7 +6,7 @@ module("item.id_2620_language_book", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if SourceItem:getData("langcode") == "" then
-		SourceItem:getData("langcode", 11)
+		SourceItem:setData("langcode", 11)
 	end	
 
     local langcode = math.floor(tonumber(SourceItem:getData("langcode"))/10);
@@ -122,7 +122,7 @@ end
 
 function LookAtItem(User,Item)
 	if Item:getData("langcode") == "" then
-		Item:getData("langcode", 11)
+		Item:setData("langcode", 11)
 	end	
 
     local langcode = math.floor(tonumber(Item:getData("langcode"))/10);
