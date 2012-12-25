@@ -829,6 +829,8 @@ function LoadWeapons(CharStruct)
 			isRWp=0;
 		end
 		debug("*** FOUND WP IN R!");
+	else
+		isRWp=0;
 	end
 	
 	if lAttFound then
@@ -837,6 +839,8 @@ function LoadWeapons(CharStruct)
 			isLWp=0;
 		end
 		debug("*** FOUND WP IN L!");
+	else
+		isLWp=0;
 	end
 	
 	if isRWp==0 and isLWp==1 then 	-- switch weapons
