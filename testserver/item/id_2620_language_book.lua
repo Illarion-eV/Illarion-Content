@@ -5,6 +5,9 @@ module("item.id_2620_language_book", package.seeall)
 -- UPDATE common SET com_script='item.id_2620_language_book' WHERE com_itemid = 2620;
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+	if SourceItem:getData("langcode") == "" then
+		
+
     local langcode = math.floor(tonumber(SourceItem:getData("langcode"))/10);
     local modecode = tonumber(SourceItem:getData("langcode")) - (langcode * 10);
     
@@ -120,10 +123,11 @@ function LookAtItem(User,Item)
     local langcode = math.floor(tonumber(Item:getData("langcode"))/10);
     local modecode = tonumber(Item:getData("langcode")) - (langcode * 10);
     if (modecode == 2) then
-        world:itemInform(User,Item,base.common.GetNLS(User,"Buch des Ephraim","Book of Ephraim"));
+		base.lookat.SetSpecialName(Item, "Buch des Ephraim","Book of Ephraim");
     else
-        world:itemInform(User,Item,base.common.GetNLS(User,"Lehrbuch der "..GetLanguage(langcode,false),"textbook of the "..GetLanguage(langcode,true)));
+        base.lookat.SetSpecialName(Item, "Lehrbuch der "..GetLanguage(langcode,false),"Textbook of the "..GetLanguage(langcode,true));
     end
+	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 end
 
 function Learning(User,Value,Skillname)
