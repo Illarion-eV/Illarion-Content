@@ -22,7 +22,7 @@ intensityListEn = {"strongly","noticably","slightly","barely noticably","","bare
 
 function DrinkPotion(User,SourceItem)
     local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
-	User:inform(..potionEffectId)
+	User:inform(""..potionEffectId)
 	if potionEffectId == 0 or potionEffectId == nil  then -- no effect	
 	    base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
 		"You don't have the feeling that something happens.")
