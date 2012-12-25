@@ -21,7 +21,7 @@ function LookAtItem(User,Item)
     elseif ( Item.quality == 211 ) then --Skulls
         base.lookat.SetSpecialName(Item, "Silbrige Asche", "Silverish ash");
     elseif ( Item.quality == 231 ) then --Ghostskeleton
-		base.lookat.SetSpecialName(Item, ,"Bläuliche Asche", "Blueish ash");
+		base.lookat.SetSpecialName(Item, "Bläuliche Asche", "Blueish ash");
     else
 		return;
     end
