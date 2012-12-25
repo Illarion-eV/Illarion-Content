@@ -39,7 +39,7 @@ function DrinkPotion(User,SourceItem)
 		for i=1,8 do
 			-- effects
 			local CaulcularionSetp
-			if (i == 3) or (i == 6) then  -- poison
+			if (i == 4) or (i == 7) then  -- poison
 				CalculationStep = ((10-dataZList[i])-5) -- we need a slightly different calculation for poison
 			else
 				CalculationStep = (dataZList[i]-5) -- for everything else
