@@ -828,6 +828,9 @@ function LoadWeapons(CharStruct)
 		if rWType==10 or rWType==11 or rWType==14 then -- Ammo or shield in right hand: switch r and l hand!
 			isRWp=0;
 		end
+		debug("*** FOUND WP IN R!");
+	else
+		isRWp=0;
 	end
 	
 	if lAttFound then
@@ -835,9 +838,13 @@ function LoadWeapons(CharStruct)
 		if lWType==10 or lWType==11 or lWType==14 then -- Ammo or shield in right hand: switch r and l hand!
 			isLWp=0;
 		end
+		debug("*** FOUND WP IN L!");
+	else
+		isLWp=0;
 	end
 	
 	if isRWp==0 and isLWp==1 then 	-- switch weapons
+	debug("*** SWITCHING WEAPONS NOW!"); 
 		local dItem=rItem;
 		local dAttFound=rAttFound;
 		local dAttWeapon=rAttWeapon;
