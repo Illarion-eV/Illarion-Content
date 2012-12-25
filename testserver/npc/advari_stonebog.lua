@@ -78,7 +78,7 @@ talkEntry:addResponse("Greeted be.");
 talkEntry:addResponse("Wealth and glory, friend.");
 talkEntry:addResponse("Hail Irmorom.");
 talkEntry:addResponse("Great day to be a dwarf!");
-talkEntry:addResponse("This 'ere be me cottage. You want to buy some wares?");
+talkEntry:addResponse("This 'ere be me stall. You want to buy some wares?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -111,7 +111,7 @@ talkEntry:addResponse("Greeted be.");
 talkEntry:addResponse("Wealth and glory, friend.");
 talkEntry:addResponse("Hail Irmorom.");
 talkEntry:addResponse("Great day to be a dwarf!");
-talkEntry:addResponse("This 'ere be me cottage. You want to buy some wares?");
+talkEntry:addResponse("This 'ere be me stall. You want to buy some wares?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

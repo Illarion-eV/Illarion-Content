@@ -2,7 +2,7 @@
 -- NPC Name: Advari Stonebog                                          Galmair --
 -- NPC Job:  Trader                                                           --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  361, 251, 0            --
+-- NPC Race: dwarf                      NPC Position:  361, 266, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Rincewind                                                        --
@@ -69,9 +69,9 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. kaufe, verkaufe, Handel, Zwerg, Bier, Orks, Name.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeted be.", "Wealth and glory, friend.", "Hail Irmorom.", "Great day to be a dwarf!", "This 'ere be me cottage. You want to buy some wares?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeted be.", "Wealth and glory, friend.", "Hail Irmorom.", "Great day to be a dwarf!", "This 'ere be me stall. You want to buy some wares?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greeted be.", "Wealth and glory, friend.", "Hail Irmorom.", "Great day to be a dwarf!", "This 'ere be me cottage. You want to buy some wares?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greeted be.", "Wealth and glory, friend.", "Hail Irmorom.", "Great day to be a dwarf!", "This 'ere be me stall. You want to buy some wares?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
 "Farewell", "Bye", "Fare well", "See you" -> "G'hruk. Farewell.", "Abundance and Wealth, my friend.", "Arr."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt Euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk."

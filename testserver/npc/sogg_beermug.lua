@@ -233,6 +233,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
+talkEntry:addTrigger("occupation");
 talkEntry:addResponse("I'm Sogg Beermug. 'hic' Mes guarding tha barrels an' bottles! Uh!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
