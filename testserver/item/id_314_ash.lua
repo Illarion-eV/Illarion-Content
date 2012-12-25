@@ -23,7 +23,7 @@ function LookAtItem(User,Item)
     elseif ( Item.quality == 231 ) then --Ghostskeleton
 		base.lookat.SetSpecialName(Item, "Bläuliche Asche", "Blueish ash");
     else
-		return;
+		base.lookat.SetSpecialName(Item, "Asche", "Ash");
     end
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 end
