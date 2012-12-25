@@ -118,15 +118,15 @@ town = Cadomyr, english, "give up citizenship","terminating citizen ship", "leav
 town = Cadomyr, "beende Bürgerstatus", "verlassen", "verlasse", "annuliere" -> "Ihr wollt den Status als Bürger Cadomyrs augfeben? Seid Ihr sicher?", queststatus (209)=1
 
 -- saying leave without beeing a citizen
-"give up citizenship","terminating citizen ship", "leave", "leaving" -> "Ah yes. If you'd joind Cadomyr, this would be indeed a pitty."
-"beende Bürgerstatus", "verlassen", "verlasse", "annuliere" -> "Ah ja. Wärest Ihr Cadomyr beigeteten, wäre dies in der Tat schade."
+"give up citizenship","terminating citizen ship", "leave", "leaving" -> "Ehm... you never were a citizen of Cadomyr."
+"beende Bürgerstatus", "verlassen", "verlasse", "annuliere" -> "Ehm... Ihr wart niemals Bürger von Cadomyr."
 -- answer yes
 english, queststatus (209)=1, "yes" -> "You are no longer citizen under the protection of her majesty Queen Rosaline, you no longer belong to Cadomyr. Fare well.", queststatus (209)=0, town = none
 queststatus (209)=1, "ja" -> "Ihr seit nicht länger Büger unter dem Schutz der Königin Rosalines, Ihr gehört nicht mehr zu Cadomyrs. Fare well.",  queststatus (209)=0, town = none
 
 -- answer no
 english, queststatus (209)=1, ".*" -> "I see... Yes, Cadomyr is truly a nice place.", queststatus (209) = 0
-queststatus (209)=1, ".*" -> "Ich verstehe... Ja,Cadomyr ist für wahr ein gut Ort.", queststatus (209) = 0
+queststatus (209)=1, ".*" -> "Ich verstehe... Ja, Cadomyr ist für wahr ein gut Ort.", queststatus (209) = 0
 
 -- Test Question
 "welche Stadt", "welche faktion" -> "Du gehörst nach %TOWN!"
@@ -143,7 +143,7 @@ town = Cadomyr,female, rank > 9, "rang" -> "Erzherzogin %! Hochwohlgeboren, wie 
 --Rank 9
 town = Cadomyr,english, male, rank > 8, "rank" -> "Greetings to you, Duke %CHARNAME!"
 town = Cadomyr,english, female, rank > 8, "rank" -> "Greetings to you, Ducess %CHARNAME!"
-town = Cadomyr,male, rank > 8, "rang" -> "Herzog %CHARNAME! Hochwohlgeboren, wie ist es Euch ergangen?"
+town = Cadomyr,male, rank > 8, "rang" ->  "Herzog %CHARNAME! Hochwohlgeboren, wie ist es Euch ergangen?"
 town = Cadomyr,female, rank > 8, "rang" -> "Herzogin %CHARNAME! Hochwohlgeboren, wie ist es Euch ergangen?"
 
 --Rank 8

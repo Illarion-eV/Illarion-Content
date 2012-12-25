@@ -345,7 +345,7 @@ talkEntry:addTrigger("give up citizenship");
 talkEntry:addTrigger("terminating citizen ship");
 talkEntry:addTrigger("leave");
 talkEntry:addTrigger("leaving");
-talkEntry:addResponse("Ah yes. If you'd joind Cadomyr, this would be indeed a pitty.");
+talkEntry:addResponse("Ehm... you never were a citizen of Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -354,7 +354,7 @@ talkEntry:addTrigger("beende Bürgerstatus");
 talkEntry:addTrigger("verlassen");
 talkEntry:addTrigger("verlasse");
 talkEntry:addTrigger("annuliere");
-talkEntry:addResponse("Ah ja. Wärest Ihr Cadomyr beigeteten, wäre dies in der Tat schade.");
+talkEntry:addResponse("Ehm... Ihr wart niemals Bürger von Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -389,7 +389,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(209, "=", 1));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ich verstehe... Ja,Cadomyr ist für wahr ein gut Ort.");
+talkEntry:addResponse("Ich verstehe... Ja, Cadomyr ist für wahr ein gut Ort.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
