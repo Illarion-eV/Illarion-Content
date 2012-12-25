@@ -6,7 +6,8 @@ module("item.id_2620_language_book", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if SourceItem:getData("langcode") == "" then
-		
+		return;
+	end	
 
     local langcode = math.floor(tonumber(SourceItem:getData("langcode"))/10);
     local modecode = tonumber(SourceItem:getData("langcode")) - (langcode * 10);
