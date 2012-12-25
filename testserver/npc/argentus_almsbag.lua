@@ -244,7 +244,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runwick ist ein sehr schöner ort, man kann hier viel Geld machen.");
+talkEntry:addResponse("Runwick ist ein sehr schöner Ort, man kann hier viel Geld machen.");
 talkEntry:addResponse("Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

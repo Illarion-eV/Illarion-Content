@@ -39,13 +39,13 @@ local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Retret Odohir the Notary of Cadomyr. Keywords: 'join Cadomyr','become citizen', 'leave','give up citizenship', 'rank'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Reret Odohir the Notary of Cadomyr. Keywords: 'join Cadomyr','become citizen', 'leave','give up citizenship', 'rank'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Retret Odohir die Notarin von Cadomyr. Schlüsselwörter: 'Cadomyr beitreten' 'Bürger werden','verlassen','beende Bürgerstatus','Rang'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Reret Odohir die Notarin von Cadomyr. Schlüsselwörter: 'Cadomyr beitreten' 'Bürger werden','verlassen','beende Bürgerstatus','Rang'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -345,7 +345,7 @@ talkEntry:addTrigger("give up citizenship");
 talkEntry:addTrigger("terminating citizen ship");
 talkEntry:addTrigger("leave");
 talkEntry:addTrigger("leaving");
-talkEntry:addResponse("Ah yes. If you'd joind Cadomyr, this would be indeed a pitty.");
+talkEntry:addResponse("Ehm... you never were a citizen of Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -354,7 +354,7 @@ talkEntry:addTrigger("beende Bürgerstatus");
 talkEntry:addTrigger("verlassen");
 talkEntry:addTrigger("verlasse");
 talkEntry:addTrigger("annuliere");
-talkEntry:addResponse("Ah ja. Wärest Ihr Cadomyr beigeteten, wäre dies in der Tat schade.");
+talkEntry:addResponse("Ehm... Ihr wart niemals Bürger von Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -389,7 +389,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(209, "=", 1));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ich verstehe... Ja,Cadomyr ist für wahr ein gut Ort.");
+talkEntry:addResponse("Ich verstehe... Ja, Cadomyr ist für wahr ein gut Ort.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;

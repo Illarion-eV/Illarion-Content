@@ -12,12 +12,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
     if number then
 	    Counter = 1 * number;
 	else
-	counter=1;
-	end
-	
-	if string.find(string.lower(User.lastSpokenText), "setdata (%d+)") then
-		local a,b, value = string.find(string.lower(User.lastSpokenText), "setdata (%d+)");
-		SourceItem:setData("data",value);
+		counter=1;
 	end
 	
 	--Additions end
