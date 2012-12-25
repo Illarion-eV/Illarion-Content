@@ -124,7 +124,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			DrinkPotion(User,SourceItem) -- call effect
 	    end
 	end  
-    alchemy.base.alchemy.EmptyBottle(User,SourceItem)
 end
 
 function LookAtItem(User,Item)
