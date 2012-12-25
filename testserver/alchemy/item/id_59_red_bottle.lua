@@ -21,7 +21,8 @@ intensityListDe = {"stark"   ,"merkbar"  ,"leicht"  ,"kaum merklich"   ,"","kaum
 intensityListEn = {"strongly","noticably","slightly","barely noticably","","barely noticable","slightly","noticably","strongly"}
 
 function DrinkPotion(User,SourceItem)
-    local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
+    User:inform(SourceItem:getData("potionEffectId"))
+	local potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
 	User:inform(""..potionEffectId)
 	if potionEffectId == 0 or potionEffectId == nil  then -- no effect	
 	    base.common.InformNLS(User, "Du hast nicht das Gefühl, dass etwas passiert.", 
@@ -104,7 +105,7 @@ function GenerateEffectMessage(User,dataZList)
 end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
- User:inform(SourceItem:getData("filledWith"));  User:inform(SourceItem:getData("potionEffectId"))
+ User:inform(SourceItem:getData("filledWith"));  
 	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else
 	end
