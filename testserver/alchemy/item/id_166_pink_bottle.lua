@@ -125,9 +125,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		else
 			User:talkLanguage(Character.say, Player.german, "#me trinkt eine rote Flüssigkeit.");
 			User:talkLanguage(Character.say, Player.english, "#me drinks a red liquid.");
-			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
 			User.movepoints=User.movepoints - 20
 			DrinkPotion(User,SourceItem) -- call effect
+			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
 	    end
 	end  
 end
