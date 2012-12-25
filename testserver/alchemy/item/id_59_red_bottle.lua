@@ -36,7 +36,7 @@ function DrinkPotion(User,SourceItem)
 		    base.common.InformNLS(User, "Du spürst, dass der alte Stärkungstrank seine Wirkung verliert und wie der neue zu wirken einsetzt.", 
 		    "You feel that the old strengthening potion looses its effect and how the new one takes effect.")
 		end
-		local myEffectDuration = SourceItem.quality*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
+		local myEffectDuration = math.floor(SourceItem.quality/100)*600*4 -- quality 1 = 4 minutes duration, quality 9 = 36 minutes duration
 		local myEffect=LongTimeEffect(59,myEffectDuration) -- new effect
 		
 		local dataZList = alchemy.base.alchemy.SplitData(User,potionEffectId)
