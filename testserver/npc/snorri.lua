@@ -325,8 +325,6 @@ talkEntry:addTrigger("nose");
 talkEntry:addTrigger("stud");
 talkEntry:addTrigger("spoud");
 talkEntry:addResponse("#me rubs his nose. 'Aye, thats true. I broke it in a fight with an ogre. Now it's crooked, but I'll bet I can still smell an ogre 2 miles up wind!'");
-talkEntry:addResponse("ENGLISH2.");
-talkEntry:addResponse("ENGLISH3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -375,8 +373,6 @@ talkEntry:addTrigger("nase");
 talkEntry:addTrigger("zinken");
 talkEntry:addTrigger("kolben");
 talkEntry:addResponse("#me reibt sich an der Nase. 'Aye, das stimmt. Ich hab sie mir einst beim Kampf mit einem Oger gebrochen. Jetzt ist sie krumm aber ich wette, einen Oger rieche ich noch etliche Längen gegen den Wind!'");
-talkEntry:addResponse("GERMAN2.");
-talkEntry:addResponse("GERMAN3.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
