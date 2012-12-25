@@ -84,7 +84,7 @@ english, "quest", "mission" -> "I havn't any tashks for you."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Isch abe kene Aufgabn für disch."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I'm Sogg Beermug. 'hic' Mes guarding tha barrels an' bottles! Uh!"
+"profession", "occupation" -> "I'm Sogg Beermug. 'hic' Mes guarding tha barrels an' bottles! Uh!"
 "beruf" -> "Isch bin Sogg Beermug. 'hick' Mirr bewacht all die Fässer und Flasch!"
 english, "job" -> "I'm Sogg Beermug. 'hic' Mes guarding tha barrels an' bottles! Uh!"
 "job" -> "Isch bin Sogg Beermug. 'hick' Mirr bewacht all die Fässer und Flasch!"
