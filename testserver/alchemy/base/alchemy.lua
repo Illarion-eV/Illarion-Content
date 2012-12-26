@@ -757,7 +757,8 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 				if check == false then
 				  User:inform("here i am to save the day")
 				  return
-				end	
+				end
+return				
 		else -- nothing in the cauldron, we just fill in the essence brew
 			FillFromTo(SourceItem,cauldron)	
 		end
