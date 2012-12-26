@@ -622,8 +622,7 @@ function GemDustBottleCauldron(gem, gemdust, cauldron, bottle)
 	    myList = cauldronList
 		myValue = cauldron.id
     elseif bottle then
-        User:inform("get id 1")
-		myList = bottleList	
+        myList = bottleList	
 		myValue = bottle.id
     else 
 	    return 
@@ -632,8 +631,7 @@ function GemDustBottleCauldron(gem, gemdust, cauldron, bottle)
 	local reGem, reGemdust, reCauldron, reBottle
 	for i=1,#myList do
 	    if myList[i] == myValue then
-		    User:inform("get id 1; "..i)
-			reGem = gemList[i]
+		    reGem = gemList[i]
 			reGemdust = gemDustList[i]
 	        reCauldron = cauldronList[i]
 			reBottle = bottleList[i]
