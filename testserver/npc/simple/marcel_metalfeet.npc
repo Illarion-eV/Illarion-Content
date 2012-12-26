@@ -3,7 +3,7 @@
 -- NPC Job:  craftsman                                                        --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  381, 280, 0            --
--- NPC Sex:  male                       NPC Direction: north                   --
+-- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
@@ -75,14 +75,14 @@ buySecondaryItems = 2, 3
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC istMarcel Metalfeet der <Beruf/Funktion>. Schlüsselwörter: reparieren, arbeiten, Grüße, Religion,.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello. You look happy today? Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegesen?", "Hallo. Du siehst nicht so glücklich aus. Hast du Hunger?", "Hallo. Wie geht es dir?"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello. You look happy today? Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegesen?", "Hallo. Du siehst nicht so glücklich aus. Hast du hunger?", "Hallo. Wie geht es dir?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hello. You look happy today. Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegessen?", "Hallo. Du siehst nicht so glücklich aus. Hast du Hunger?", "Hallo. Wie geht es dir?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello. You look happy today. Did you eat a nice meal?", "Hello. You do not look too happy today. Are you hungry?", "Hello. How are you today?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo. Du siehst glücklich aus. Hast du grade etwas leckers gegessen?", "Hallo. Du siehst nicht so glücklich aus. Hast du hunger?", "Hallo. Wie geht es dir?"
 "Farewell", "Bye", "Fare well", "See you" -> "Save journy. And don't forget to take enough food with you!", "#me waves goodbye.", "Please come again!"
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gute Reise. Und vergiss nicht genug proviant mit zu nehmen!", "#me winkt zum Abschied", "Komm wieder!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gute Reise. Und vergiss nicht genug Proviant mit zu nehmen!", "#me winkt zum Abschied", "Komm wieder!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Save journy. And don't forget to take enough food with you!", "#me waves goodbye.", "Please come again!"
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gute Reise. Und vergiss nicht genug proviant mit zu nehmen!", "#me winkt zum Abschied", "Komm wieder!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gute Reise. Und vergiss nicht genug Proviant mit zu nehmen!", "#me winkt zum Abschied", "Komm wieder!"
 "How are you", "How feel", "How do you do" -> "I am fine. I just ate my cake.", "I am fine. I'll soon eat my cake.", "I am sad. I ate all my cake."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut. Ich habe eben Kuchen gegessen.", "Mir geht es gut. Ich werde gleich Kuchen essen.", "Ich bin traurig. Ich habe meinen Kuchen aufgegessen."
 "your name", "who are you", "who art thou" -> "Marcel Metalfeet, at your service."
@@ -101,15 +101,15 @@ english, "quest", "mission" -> "I don't have anything to do for you."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für Euch zu tun."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I can repair all kind of things for you."
-"beruf" -> "Ich kann allesmögliche für Euch reparieren."
+"profession", "work" -> "I can repair all kind of things for you."
+"beruf" -> "Ich kann alles mögliche für Euch reparieren."
 english, "job" -> "I can repair all kind of things for you."
-"job" -> "Ich kann allesmögliche für Euch reparieren."
+"job" -> "Ich kann alles mögliche für Euch reparieren."
 "tell something" -> "I like cake! Everyonelse also likes cake! Nice,eh?"
 "erzähl was", "erzähl etwas" -> "Ich mag Kuchen! Und alle andern mögen auch Kuchen. Nett, oder?"
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "We were created by the gods to colltect and eat the fruits in Illarion.", "The gods were created out of cherry seeds.", "One of the gods, the Milkspiller is evil. He ate a bad cake."
+"god" -> "We were created by the gods to collect and eat the fruits in Illarion.", "The gods were created out of cherry seeds.", "One of the gods, the Milkspiller is evil. He ate a bad cake."
 "Gott", "Götter" -> "Wir wurden von den Göttern geschaffen um die Früchte Illarions zu essen.", "Die Götter entstanden aus Kirschkernen.", "Einer der Götter, der Milchversaurer ist böse. Er hat von einem schlechten Kuchen gegessen."
 english, "religion" -> "Halflings have their own myths about how Illarion was created."
 "religion" -> "Halblinge haben ihre eignen Mythen über die Entstehung Illarions."
@@ -135,7 +135,7 @@ german, chance(20.0), ".*" -> "Hast du Kuchen gesagt?.", "Hast du eben Kekse ges
 
 cycletext "#me summt eine Melodie.", "#me hums a melody."
 cycletext "#me grinst.", "#me grins."
-cycletext "#me isst ein Stück Kuchen, welcher er grade aus seiner Tasche hervorholte.", "#me eats a pice of cake, he just took out for his bag."
+cycletext "#me isst ein Stück Kuchen, welchen er grade aus seiner Tasche hervorholte.", "#me eats a piece of cake, he just took out for his bag."
 cycletext "Marcel Metalfeet! Ich repariere alles und jeden!", "Marcel Metalfeet! I repair everything and everyone!"
 cycletext "#me pfeift eine Melodie.", "#me whistles."
 cycletext "#me schaut sich um.", "#me lookes around."
