@@ -550,15 +550,14 @@ function FillFromTo(fromItem,toItem)
 		else
 			toItem.quality = tonumber(fromItem:getData("potionQuality"))
 		end	
-	elseif fromItem:getData("filledWith") == "potion" or fromItem:getData("filledWith") == "essenceBrew" or fromItem:getData("filledWith") == "stock" then
-	    if toItem.id >= 1008 and toItem.id <= 1018 then
-		    local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem)
-			toItem.id = reBottle
-		else
-			local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem, nil)
-			toItem.id = reBottle
-		end	
 	end
+	if toItem.id >= 1008 and toItem.id <= 1018 then
+		local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem)
+		toItem.id = reCauldron
+	else
+		local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem, nil)
+		toItem.id = reBottle
+	end	
 end
 
 function CauldronDestruction(User,cauldron,effectId)
