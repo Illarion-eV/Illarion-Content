@@ -80,7 +80,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Antonius Copperhand der Schmied. Schlüsselwörter: kaufe, verkaufe, Handel, Beruf, dein Name.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted in Irmoroms name.", "Greetings.", "Good day."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Be greeted in Irmorom's name.", "Greetings.", "Good day."
 "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Zum Gruße.", "Seid gegrüßt in Namen Irmoroms.", "Guten Tach."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Greetings.", "Good day."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tach."
@@ -112,8 +112,8 @@ english, "Gobaith", "Gobiath" -> "Never heard of that place..."
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me pfeift eine Melodie.", "#me whistles a melodie."
-cycletext "#me wischt sich den Schweiß von der Stirn.", "#me whipes the sweat off his forhead."
-cycletext "#me betrachtet zufrieden seine geschmiedeten Werke.", "#me looks at his smithes works with a conten face.."
-cycletext "#me hält ein Amulett gegen das Licht, um es besser zu betrachten.", "#me holds an Amulett against the light, to have a better look at it."
-cycletext "Schmiedewaren! Schöner Schmuck! Kaufste woanders, dann bereustes!", "Smithes goods! Fine Juwelry! Ya buy elsewhere, and ya will regret it!"
+cycletext "#me pfeift eine Melodie.", "#me whistles a melody."
+cycletext "#me wischt sich den Schweiß von der Stirn.", "#me wipes the sweat off his forhead."
+cycletext "#me betrachtet zufrieden seine geschmiedeten Werke.", "#me looks at his smithed works with a content face."
+cycletext "#me hält ein Amulett gegen das Licht, um es besser zu betrachten.", "#me holds an amulet against the light to have a better look at it."
+cycletext "Schmiedewaren! Schöner Schmuck! Kaufste woanders, dann bereustes!", "Smithed goods! Fine Jewelry! Ya buy elsewhere, and ya will regret it!"
