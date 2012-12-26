@@ -521,7 +521,7 @@ end
 
 function EmptyBottle(User,Bottle)
     if math.random(1,20) == 1 then
-	   User:eraseItem(SourceItem,1) -- bottle breaks
+	   User:eraseItem(Bottle,1) -- bottle breaks
 	   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
 	else	
 		if Bottle.number > 1 then -- if we empty a bottle (stock, potion or essence brew) it should normally never be a stack! but to be one the safe side, we check anyway
