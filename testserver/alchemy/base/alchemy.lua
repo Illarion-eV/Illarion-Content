@@ -696,7 +696,7 @@ function CombineStockEssence( User, stock, essenceBrew)
         end			
 		-- delte old cauldron datas and add new ones
 		RemoveAll(cauldron)
-		SetQuality(User,cauldron)
+		SetQuality(User,cauldron);User:inform(""..newCauldron)
 		cauldron.id = newCauldron
 		cauldron:setData("potionEffectId", effectID)
 		cauldron:setData("filledWith", "potion")
