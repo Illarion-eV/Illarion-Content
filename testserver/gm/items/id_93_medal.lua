@@ -10,11 +10,11 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 	if (string.find(User.lastSpokenText, "setmode")~=nil) then
 		local modes = {"Monster", "GFX", "SFX", "Avatar changes", "Disasters"}
 		local cbSetMode = function (dialog)
-		if (not dialog:getSuccess()) then
-			return;
-		end
-		SourceItem:setData("mode", modes[dialog:getSelectedIndex()+1]);
-		world:changeItem(SourceItem);
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			SourceItem:setData("mode", modes[dialog:getSelectedIndex()+1]);
+			world:changeItem(SourceItem);
 		end
 		local sd = SelectionDialog("Set the mode of this medal.", "To which mode do you want to change it?", cbSetMode);
 		for _,m in ipairs(modes) do 
@@ -42,7 +42,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
     if (tonumber(SourceItem:getData("data"))==0) then --monster
 	    User:inform("Creating monster with ID "..Counter);
         world:createMonster(Counter+500,TargetPos,20);
-	end	
+	e	
 	if (SourceItem:getData("mode")=="GFX") then
 		world:gfx(Counter,TargetPos);
 		
@@ -66,25 +66,25 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 		end
 			
 		local cbChoosePlayer = function (dialog)
-		if (not dialog:getSuccess()) then
-			return;
-		end
-		local chosenPlayer = players[dialog:getSelectedIndex()+1];
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			local chosenPlayer = players[dialog:getSelectedIndex()+1];
 			
-		local inputString = dialog:getInput();
-		if (string.find(inputString,"(%a+) (%d+)") ~= nil) then
-		    a, b, modifier, id = string.find(inputString,"(%a+) (%d+)");
-			User:setAttrib("racetyp",race);
-		else
-			User:inform("Sorry, I didn't understand you.");
-			User:requestInputDialog(InputDialog("Set the race for the selected Character", "Type in the race ID." ,false, 255, inputStringRace))
-		end
-			User:requestInputDialog(InputDialog("Set the race for the selected Character", "Type in the race ID." ,false, 255, inputStringRace))
+			local inputString = dialog:getInput();
+			if (string.find(inputString,"(%a+) (%d+)") ~= nil) then
+				a, b, modifier, id = string.find(inputString,"(%a+) (%d+)");
+				User:setAttrib("racetyp",race);
+			else
+				User:inform("Sorry, I didn't understand you.");
+				User:requestInputDialog(InputDialog("Set the race for the selected Character", "Type in the race ID." ,false, 255, inputStringRace))
+			end
+				User:requestInputDialog(InputDialog("Set the race for the selected Character", "Type in the race ID." ,false, 255, inputStringRace))
 	
-		--Dialog to choose the player
-		local sdPlayer = SelectionDialog("Change the avatar of ...", "First choose a victim:", cbChoosePlayer);			
-		User:requestSelectionDialog(sdPlayer);
-		
+			--Dialog to choose the player
+			local sdPlayer = SelectionDialog("Change the avatar of ...", "First choose a victim:", cbChoosePlayer);			
+			User:requestSelectionDialog(sdPlayer);
+		end
 	elseif (SourceItem:getData("mode")=="Disasters") then	
 	--Additions for the destruction of Gobaith
 
