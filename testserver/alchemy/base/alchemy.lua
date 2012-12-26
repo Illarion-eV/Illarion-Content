@@ -660,7 +660,7 @@ function CombineStockEssence( User, stock, essenceBrew)
 		User:inform("herere 2")
 		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, essenceBrew)
 		end
-		
+		User:inform(""..newCauldron)
 		-- create our ingredients list
 		local myIngredients = {}
 		-- firstly, the gem dust which has been used (indirectly, that is the potion kind)
