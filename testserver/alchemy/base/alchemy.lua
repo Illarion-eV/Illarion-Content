@@ -758,7 +758,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 				  User:inform("here i am to save the day")
 				  return
 				end
-return				
+				
 		else -- nothing in the cauldron, we just fill in the essence brew
 			FillFromTo(SourceItem,cauldron)	
 		end
@@ -787,6 +787,4 @@ return
                 
     end
 	EmptyBottle(User,SourceItem)
-	world:changeItem(SourceItem)
-	world:changeItem(cauldron)	
 end
