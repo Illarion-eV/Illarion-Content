@@ -74,7 +74,7 @@ talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("#me grins as he waves: 'What can I do for you?'");
 talkEntry:addResponse("#me lifts his head: 'Hello there, you here to buy or sell?'");
-talkEntry:addResponse("Hello, you look like someone who knows a good price for tools, thats why your here, right?");
+talkEntry:addResponse("Hello, you look like someone who knows a good price for tools, that's why you're here, right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -237,7 +237,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("#me grins: 'I buy and sell tools and and building supplies.'");
+talkEntry:addResponse("#me grins: 'I buy and sell tools and building supplies.'");
 talkEntry:addResponse("I'm a builders merchant.");
 talkEntry:addResponse("#me smiles: 'Tools, building supplies, coal, ores and wares I've got it all to buy and sell.'");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -299,14 +299,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Laws");
-talkEntry:addResponse("Haha, what laws, do as you please, just dont get caught!");
+talkEntry:addResponse("Haha, what laws? Do as you please, just don't get caught!");
 talkEntry:addResponse("Treat others as you would be done by, else you will have to pay them compensation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gesetz");
-talkEntry:addResponse("Haha, Gesetze, macht, was ihr wollt, aber lasst euch nicht erwischen!");
+talkEntry:addResponse("Haha, Gesetze? Macht was ihr wollt, aber lasst euch nicht erwischen!");
 talkEntry:addResponse("Behandelt andere so wie sie euch behandeln, sonst müsst ihr nachher noch Schadensersatz bezahlen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -523,7 +523,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Ah, good for trade that place, big harbour town is Ann-Korr and the oldest of the Albarian towns.");
+talkEntry:addResponse("Ah, good for trading that place, big harbour town is Ann-Korr and the oldest of the Albarian towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
