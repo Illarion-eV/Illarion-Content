@@ -87,9 +87,15 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 			end
 				User:requestInputDialog(InputDialog("Change the appearance for the selected character", "Usage: race <id>, beard <id>, hair <id>" ,false, 255, inputStringRace))
 	
-			--Dialog to choose the player
+
 		end
-		local sdPlayer = SelectionDialog("Change the avatar of ...", "First choose a victim:", cbChoosePlayer);			
+		--Dialog to choose the player
+		local sdPlayer = SelectionDialog("Change the avatar of ...", "First choose a victim:", cbChoosePlayer);
+		local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
+        for _,player in ipairs(players) do 
+			local race = math.min(player:getRace()+1, table.getn(raceNames));
+			sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
+        end		
 		User:requestSelectionDialog(sdPlayer);
 		
 	elseif (SourceItem:getData("mode")=="Disasters") then	
