@@ -74,17 +74,24 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 			local inputString = dialog:getInput();
 			if (string.find(inputString,"(%a+) (%d+)") ~= nil) then
 				a, b, modifier, id = string.find(inputString,"(%a+) (%d+)");
-				User:setAttrib("racetyp",race);
+				if modifier == "race" then
+					chosenPlayer:setAttrib("racetyp",id);
+				elseif modifier == "beard" then
+					chosenPlayer:setBeard(id);
+				elseif modifier == "hair" then
+					chosenPlayer:setHair(id);
+				end
 			else
 				User:inform("Sorry, I didn't understand you.");
-				User:requestInputDialog(InputDialog("Set the race for the selected Character", "Type in the race ID." ,false, 255, inputStringRace))
+				User:requestInputDialog(InputDialog("Change the appearance for the selected character", "Usage: race <id>, beard <id>, hair <id>" ,false, 255, inputStringRace))
 			end
-				User:requestInputDialog(InputDialog("Set the race for the selected Character", "Type in the race ID." ,false, 255, inputStringRace))
+				User:requestInputDialog(InputDialog("Change the appearance for the selected character", "Usage: race <id>, beard <id>, hair <id>" ,false, 255, inputStringRace))
 	
 			--Dialog to choose the player
-			local sdPlayer = SelectionDialog("Change the avatar of ...", "First choose a victim:", cbChoosePlayer);			
-			User:requestSelectionDialog(sdPlayer);
 		end
+		local sdPlayer = SelectionDialog("Change the avatar of ...", "First choose a victim:", cbChoosePlayer);			
+		User:requestSelectionDialog(sdPlayer);
+		
 	elseif (SourceItem:getData("mode")=="Disasters") then	
 	--Additions for the destruction of Gobaith
 
