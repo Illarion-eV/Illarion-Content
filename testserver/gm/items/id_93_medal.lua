@@ -38,13 +38,12 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 	end
 	
 	--Additions end
-
-    if (tonumber(SourceItem:getData("data"))==0) then --monster
+	
+	if (SourceItem:getData("mode")=="Monster") then
 	    User:inform("Creating monster with ID "..Counter);
         world:createMonster(Counter+500,TargetPos,20);
-	end	
-	
-	if (SourceItem:getData("mode")=="GFX") then
+		
+	elseif (SourceItem:getData("mode")=="GFX") then
 		world:gfx(Counter,TargetPos);
 		
 	elseif (SourceItem:getData("mode")=="SFX") then		
