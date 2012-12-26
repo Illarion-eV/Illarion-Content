@@ -64,7 +64,7 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
-talkEntry:addResponse("Gr¸ﬂe. Soll ich dir wat Magisches aus Edelsteinen machen?");
+talkEntry:addResponse("Gr¸ﬂe. Soll ich dir wat magisches aus Edelsteinen machen?");
 talkEntry:addResponse("Sei jegr¸ﬂt. Willste datt ich deine magischen Edelsteine kombinieren tue? Datt is n‰mlich mein Job.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -85,8 +85,8 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Gr¸ﬂe. Soll ich dir watt Magisches aus Edelsteinen machen?");
-talkEntry:addResponse("Seid jegr¸ﬂt. Willste datt ich deine maagischen Edelsteine kombinieren tu? Dat is n‰mlich mein Job.");
+talkEntry:addResponse("Gr¸ﬂe. Soll ich dir watt magisches aus Edelsteinen machen?");
+talkEntry:addResponse("Seid jegr¸ﬂt. Willste datt ich deine magischen Edelsteine kombinieren tu? Datt is n‰mlich mein Job.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -95,8 +95,8 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("May Irmorom be with you!");
-talkEntry:addResponse("May Irmorom protect you!");
+talkEntry:addResponse("May Irmorom be with ya!");
+talkEntry:addResponse("May Irmorom protect ya!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -116,8 +116,8 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("May Irmorom be with you!");
-talkEntry:addResponse("May Irmorom protect you!");
+talkEntry:addResponse("May Irmorom be with ya!");
+talkEntry:addResponse("May Irmorom protect ya!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -249,7 +249,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("There are thing ya dont wish to kown. Got it?");
+talkEntry:addResponse("There are thing ya dont wish to know. Got it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -264,7 +264,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("how do");
 talkEntry:addTrigger("how does");
 talkEntry:addTrigger("magical Blacksmith");
-talkEntry:addResponse("That's none of your bussinenss!");
+talkEntry:addResponse("That's none of your business!");
 talkEntry:addResponse("That is a professional secret.");
 talkEntry:addResponse("There are thing ya dont wish to kown. Got it?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -327,7 +327,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("I bete nich' zu dem. Weiﬂ' du datt etwa nich?");
+talkEntry:addResponse("Ich bete nich' zu dem. Weiﬂ' du datt etwa nich'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -342,7 +342,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Br·gon");
-talkEntry:addResponse("I bete nich' zu dem. Weiﬂ' du datt etwa nich?");
+talkEntry:addResponse("Ich bete nich' zu dem. Weiﬂ' du datt etwa nich'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -355,27 +355,27 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("I bete nich' zu dem. Weiﬂ' du datt etwa nich?");
+talkEntry:addResponse("Ich bete nich' zu der. Weiﬂ' du datt etwa nich'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("Ich bete nich' zu dem. Weiﬂ' du datt etwa nich'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("I bete nich' zu dem. Weiﬂ' du datt etwa nich?");
+talkEntry:addResponse("I bete nich' zu der. Weiﬂ' du datt etwa nich?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("I do not pray to this god. Didn't ya know?");
+talkEntry:addResponse("Ich bete nich' zu dem. Weiﬂ' du datt etwa nich'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -394,7 +394,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("I bete nich' zu dem. Weiﬂ' du datt etwa nich?");
+talkEntry:addResponse("Ich bete nich' zu dem. Weiﬂ' du datt etwa nich'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -407,7 +407,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("I bete nur zu dem. Weiﬂ' du datt etwa nich?");
+talkEntry:addResponse("Ich bete nur zu dem. Weiﬂ' du datt etwa nich?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -422,7 +422,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("MalachÌn");
-talkEntry:addResponse("I bete nich' zu dem. Weiﬂ' du datt etwa nich?");
+talkEntry:addResponse("Ich bete nich' zu dem. Weiﬂ' du datt etwa nich'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -435,7 +435,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("I bete nich' zu dem. Weiﬂ' du datt etwa nich?");
+talkEntry:addResponse("Ich bete nich' zu dem. Weiﬂ' du datt etwa nich'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -452,7 +452,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Narg˙n");
 talkEntry:addTrigger("Narg˘n");
-talkEntry:addResponse("I bete nich' zu dem. Weiﬂ' du datt etwa nich?");
+talkEntry:addResponse("Ich bete nich' zu dem. Weiﬂ' du datt etwa nich'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -465,7 +465,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("I bete nich' zu dem. Weiﬂ' du datt etwa nich?");
+talkEntry:addResponse("Ich bete nich' zu dem. Weiﬂ' du datt etwa nich'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -478,7 +478,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("I bete nich' zu dem. Weiﬂ' du datt etwa nich?");
+talkEntry:addResponse("I bete nich' zu der. Weiﬂ' du datt etwa nich?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -491,7 +491,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("I bete nich' zu dem. Weiﬂ' du datt etwa nich?");
+talkEntry:addResponse("Ich bete nich' zu der. Weiﬂ' du datt etwa nich'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -506,7 +506,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("I bete nich' zu dem. Weiﬂ' du datt etwa nich?");
+talkEntry:addResponse("Ich bete nich' zu dem. Weiﬂ' du datt etwa nich'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -519,7 +519,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("I bete nich' zu dem. Weiﬂ' du datt etwa nich?");
+talkEntry:addResponse("Ich bete nich' zu der. Weiﬂ' du datt etwa nich'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -532,7 +532,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("I bete nich' zu dem. Weiﬂ' du datt etwa nich?");
+talkEntry:addResponse("Ich bete nich' zu dem. Weiﬂ' du datt etwa nich'?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -572,7 +572,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Da wohnen magier. Die verstehen nix vom schmieden, ich sag's dir!");
+talkEntry:addResponse("Da wohnen Magier. Die verstehen nix vom Schmieden, ich sag's dir!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,7 +629,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Ich verstewh nicht warum die se  nen Kˆnigin nennen. Ne' zwergische Kˆnigin is jang anders drauf.");
+talkEntry:addResponse("Ich verstewh nicht warum die se' nen Kˆnigin nennen. Ne' zwergische Kˆnigin is janz anders drauf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -710,7 +710,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Nett dich kennen zu leren. Aber sag ma, willst nich was aus magischen Edelsteinen gemacht haben?");
+talkEntry:addResponse("Nett dich kennen zu leren. Aber sach ma', willst nich' was aus magischen Edelsteinen gemacht haben?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -743,7 +743,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("Sag' ich doch!");
+talkEntry:addResponse("Datt sach ich doch!");
 talkEntry:addResponse("Janz jenau!");
 talkEntry:addResponse("#me nickt eifrig.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -768,7 +768,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("What?");
-talkEntry:addResponse("Whst ya wanna say with that?");
+talkEntry:addResponse("What ya wanna say with that?");
 talkEntry:addResponse("I dont understand ya.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
