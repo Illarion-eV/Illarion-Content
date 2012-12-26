@@ -70,24 +70,23 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 				return;
 			end
 			local chosenPlayer = players[dialog:getSelectedIndex()+1];
-			
-			local inputString = dialog:getInput();
-			if (string.find(inputString,"(%a+) (%d+)") ~= nil) then
-				a, b, modifier, id = string.find(inputString,"(%a+) (%d+)");
-				if modifier == "race" then
-					chosenPlayer:setAttrib("racetyp",id);
-				elseif modifier == "beard" then
-					chosenPlayer:setBeard(id);
-				elseif modifier == "hair" then
-					chosenPlayer:setHair(id);
+			local cbInputDialog = function (dialog)
+				local inputString = dialog:getInput();
+				if (string.find(inputString,"(%a+) (%d+)") ~= nil) then
+					a, b, modifier, id = string.find(inputString,"(%a+) (%d+)");
+					if modifier == "race" then
+						chosenPlayer:setAttrib("racetyp",id);
+					elseif modifier == "beard" then
+						chosenPlayer:setBeard(id);
+					elseif modifier == "hair" then
+						chosenPlayer:setHair(id);
+					end
+				else
+					User:inform("Sorry, I didn't understand you.");
+					User:requestInputDialog(InputDialog("Change the appearance for the selected character", "Usage: race <id>, beard <id>, hair <id>" ,false, 255, cbInputDialog))
 				end
-			else
-				User:inform("Sorry, I didn't understand you.");
-				User:requestInputDialog(InputDialog("Change the appearance for the selected character", "Usage: race <id>, beard <id>, hair <id>" ,false, 255, inputStringRace))
 			end
-				User:requestInputDialog(InputDialog("Change the appearance for the selected character", "Usage: race <id>, beard <id>, hair <id>" ,false, 255, inputStringRace))
-	
-
+			User:requestInputDialog(InputDialog("Change the appearance for the selected character", "Usage: race <id>, beard <id>, hair <id>" ,false, 255, cbInputDialog))
 		end
 		--Dialog to choose the player
 		local sdPlayer = SelectionDialog("Change the avatar of ...", "First choose a victim:", cbChoosePlayer);
