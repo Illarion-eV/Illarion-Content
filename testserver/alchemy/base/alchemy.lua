@@ -651,8 +651,10 @@ function CombineStockEssence( User, stock, essenceBrew)
 		-- we get the gem dust used as an ingredient; and the new cauldron id we need later
 		local reGem, ingredientGemdust, newCauldron, reBottle
 		if cauldron:getData("filledWith") == "essenceBrew" then
-		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew, nil)
+		    User:inform("herere")
+			reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew, nil)
 		else
+		User:inform("herere 2")
 		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, essenceBrew)
 		end
 		
