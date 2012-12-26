@@ -753,8 +753,9 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 		    end
 			
 		elseif cauldron:getData("filledWith") == "stock" then -- stock is in the cauldron; we call the combin function
-				local check = CombineStockEssence( User, cauldron, SourceItem, Counter, Param, ltstate )
+				local check = CombineStockEssence( User, cauldron, SourceItem)
 				if check == false then
+				  User:inform("here i am to save the day")
 				  return
 				end	
 		else -- nothing in the cauldron, we just fill in the essence brew
