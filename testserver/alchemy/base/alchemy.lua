@@ -40,8 +40,8 @@ function InitPlantSubstance()
 	setPlantSubstance(761,"Illidrium","")
 	setPlantSubstance(762,"","Orcanol")
 	setPlantSubstance(764,"","Adrazin")
-	setPlantSubstance(765,"Hyperborlium","")
-	setPlantSubstance(766,"","Hyperborlium")
+	setPlantSubstance(765,"Hyperborelium","")
+	setPlantSubstance(766,"","Hyperborelium")
 	setPlantSubstance(768,"Orcanol","")
 	setPlantSubstance(769,"Fenolin","")
 	
@@ -51,24 +51,24 @@ function InitPlantSubstance()
 	setPlantSubstance(135,"Fenolin","Adrazin")
 	setPlantSubstance(136,"Adrazin","Fenolin")
 	setPlantSubstance(137,"Echolon","Illidrium")
-	setPlantSubstance(140,"Fenolin","Hyperborlium")
+	setPlantSubstance(140,"Fenolin","Hyperborelium")
 	setPlantSubstance(141,"Caprazin","Echolon")
 	setPlantSubstance(142,"Hyperborelium","Dracolin")
 	setPlantSubstance(143,"Illidrium","Dracolin")
 	setPlantSubstance(144,"Adrazin","Dracolin")
-	setPlantSubstance(145,"Hyperborlium","Orcanol")
+	setPlantSubstance(145,"Hyperborelium","Orcanol")
 	setPlantSubstance(147,"Echolon","Adrazin")  
 	setPlantSubstance(148,"Echolon","Caprazin")
-	setPlantSubstance(149,"Hyperborlium","Echolon")
+	setPlantSubstance(149,"Hyperborelium","Echolon")
 	setPlantSubstance(151,"Caprazin","Dracolin") 
 	setPlantSubstance(153,"Fenolin","Caprazin")
 	setPlantSubstance(155,"Illidrium","Echolon")
 	setPlantSubstance(156,"Orcanol","Adrazin")     
 	setPlantSubstance(158,"Illidrium","Fenolin")
-	setPlantSubstance(159,"Dracolin","Hyperborlium")
+	setPlantSubstance(159,"Dracolin","Hyperborelium")
 	setPlantSubstance(160,"Adrazin","Echolon")
-	setPlantSubstance(161,"Orcanol","Hyperborlium")
-	setPlantSubstance(162,"Hyperborlium","Fenolin")
+	setPlantSubstance(161,"Orcanol","Hyperborelium")
+	setPlantSubstance(162,"Hyperborelium","Fenolin")
 	setPlantSubstance(163,"Orcanol","Illidrium")
 	setPlantSubstance(199,"Caprazin","Orcanol")
 	setPlantSubstance(388,"Caprazin","Fenolin")
@@ -76,7 +76,7 @@ function InitPlantSubstance()
 	setPlantSubstance(753,"Dracolin","Adrazin")
 	setPlantSubstance(759,"Dracolin","Illidrium")
 	setPlantSubstance(763,"Dracolin","Caprazin")
-	setPlantSubstance(767,"Echolon","Hyperborlium")
+	setPlantSubstance(767,"Echolon","Hyperborelium")
 	
 end
 
@@ -550,15 +550,14 @@ function FillFromTo(fromItem,toItem)
 		else
 			toItem.quality = tonumber(fromItem:getData("potionQuality"))
 		end	
-	elseif fromItem:getData("filledWith") == "potion" or fromItem:getData("filledWith") == "essenceBrew" or fromItem:getData("filledWith") == "stock" then
-	    if toItem.id >= 1008 and toItem.id <= 1018 then
-		    local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem)
-			toItem.id = reBottle
-		else
-			local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem, nil)
-			toItem.id = reBottle
-		end	
 	end
+	if toItem.id >= 1008 and toItem.id <= 1018 then
+		local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem)
+		toItem.id = reCauldron
+	else
+		local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem, nil)
+		toItem.id = reBottle
+	end	
 end
 
 function CauldronDestruction(User,cauldron,effectId)
@@ -645,15 +644,20 @@ end
 -- combine of stock and essence brew to create a potion
 -- function is only called when item 331 is a stock or when a potion-bottle is an essence brew
 function CombineStockEssence( User, stock, essenceBrew)
-   
+   User:inform(""..essenceBrew.id)
+   if essenceBrew == nil then
+        User:inform("is nil")
+	end	
     local cauldron = GetCauldronInfront(User)
     if cauldron then
         
 		-- we get the gem dust used as an ingredient; and the new cauldron id we need later
 		local reGem, ingredientGemdust, newCauldron, reBottle
 		if cauldron:getData("filledWith") == "essenceBrew" then
-		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew, nil)
+		    User:inform("herere")
+			reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew, nil)
 		else
+		User:inform("herere 2")
 		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, essenceBrew)
 		end
 		
@@ -748,7 +752,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 		    end
 			
 		elseif cauldron:getData("filledWith") == "stock" then -- stock is in the cauldron; we call the combin function
-				local check = CombineStockEssence( User, SourceItem, cauldron, Counter, Param, ltstate )
+				local check = CombineStockEssence( User, cauldron, SourceItem, Counter, Param, ltstate )
 				if check == false then
 				    return
 				end	
