@@ -600,9 +600,12 @@ function SetQuality(User,Item)
 -- the mean	
 	local mean =  base.common.Scale(1,9,(attribQuali + skillQuali)) 
 -- normal distribution; mean determined by skill and attributes; fixed standard deviation	
-	local quality = (Random.normal(mean, 4.5)*100) + 99 -- duarability is useless, we set it anway
+	local quality 
+	repeat 
+	    quality = Random.normal(mean, 4.5)
+	until (quality >= 1 and quality <= 9)	
 	
-	Item:setData("potionQuality",quality)
+	Item:setData("potionQuality",quality*100+99)-- duarability is useless, we set it anway
 end
 
 function GemDustBottleCauldron(gem, gemdust, cauldron, bottle)
