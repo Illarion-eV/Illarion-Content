@@ -647,6 +647,9 @@ end
 -- function is only called when item 331 is a stock or when a potion-bottle is an essence brew
 function CombineStockEssence( User, stock, essenceBrew)
    
+   if essenceBrew == nil then
+        User:inform("is nil")
+	end	
     local cauldron = GetCauldronInfront(User)
     if cauldron then
         
