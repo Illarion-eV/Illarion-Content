@@ -710,6 +710,7 @@ function CombineStockEssence( User, stock, essenceBrew)
 		world:gfx(52,cauldron.pos)
 	    -- and learn!
 	    User:learn(Character.alchemy, 80, 100)
+		return true
 	end
 end
 
@@ -754,9 +755,9 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 		elseif cauldron:getData("filledWith") == "stock" then -- stock is in the cauldron; we call the combin function
 				local check = CombineStockEssence( User, cauldron, SourceItem, Counter, Param, ltstate )
 				return
-				if check == false then
-				    return
-				end	
+				--if check == false then
+				  --  return
+				--end	
 		else -- nothing in the cauldron, we just fill in the essence brew
 			FillFromTo(SourceItem,cauldron)	
 		end
