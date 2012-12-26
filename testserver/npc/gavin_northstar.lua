@@ -2,8 +2,8 @@
 -- NPC Name: Gavin Northstar                                          Galmair --
 -- NPC Job:  Guard                                                            --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  386, 329, 0            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: dwarf                      NPC Position:  384, 328, 0            --
+-- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Kawan Baxter                                                     --
 --                                                       easyNPC Parser v1.21 --
@@ -11,13 +11,14 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 386, 329, 0, 4, 'Gavin Northstar', 'npc.gavin_northstar', 1, 2, 0, 0, 0, 0, 245, 180, 137);
+VALUES (1, 384, 328, 0, 2, 'Gavin Northstar', 'npc.gavin_northstar', 1, 2, 0, 0, 0, 0, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
+require("npc.base.guards_static")
 module("npc.gavin_northstar", package.seeall)
 
 function initNpc()
@@ -383,7 +384,10 @@ mainNPC:initDone();
 end;
 
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
-function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function nextCycle(npcChar)
+  mainNPC:nextCycle(npcChar);
+  npc.base.guards_static.NextCycle(npcChar);
+end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
 function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();

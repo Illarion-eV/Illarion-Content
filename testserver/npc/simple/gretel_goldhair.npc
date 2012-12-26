@@ -96,9 +96,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the five 
 
 -- Optional: Catching quest triggers. Galmair garbage bin quest (206)
 queststatus(206) = 0, english, town = Galmair, "quest", "mission" -> "Do you want a task? Bring some more donations. And drop it on the field here!", queststatus(206) = 1
-queststatus(206) = 0, town = Galmair, "quest", "mission" -> "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her!", queststatus(206) = 1
+queststatus(206) = 0, town = Galmair, "quest", "mission" -> "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!", queststatus(206) = 1
 queststatus(206) = 0, town = Galmair, "task", "adventure", "order" -> "Do you want a task? Bring some more donations. And drop it on the field here!", queststatus(206) = 1
-queststatus(206) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her!", queststatus(206) = 1
+queststatus(206) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!", queststatus(206) = 1
 queststatus(206) = 0, english, "quest", "mission" -> "I have nothing to do for you, darling."
 queststatus(206) = 0, "quest", "mission" -> "I have nothing to do for you, darling."
 queststatus(206) = 0, "task", "adventure", "order" -> "Ich habe keine Aufgabe für dich, Liebling."
@@ -106,20 +106,20 @@ queststatus(206) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe k
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(206) = 1, english, "quest", "mission" -> "Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?"
-queststatus(206) = 1, "quest", "mission" -> "Ganz genau! Ihr habt heraus gefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
+queststatus(206) = 1, "quest", "mission" -> "Ganz genau! Ihr habt herausgefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
 queststatus(206) = 1, "task", "adventure", "order" -> "Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?"
-queststatus(206) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ganz genau! Ihr habt heraus gefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
+queststatus(206) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ganz genau! Ihr habt herausgefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
 
 -- Quest 1 solved, reward: +20 rankpoints
-queststatus(206) = 2, english, "quest", "mission" -> "Thank you for your donation!", "#me cakles", queststatus(206) = 3, rankpoints = 20
+queststatus(206) = 2, english, "quest", "mission" -> "Thank you for your donation!", "#me cackles", queststatus(206) = 3, rankpoints = 20
 queststatus(206) = 2, "quest", "mission" -> "Danke für Eure Spende!", "#me kichert", queststatus(206) = 3, rankpoints = 20
-queststatus(206) = 2, "task", "adventure", "order" -> "Thank you for your donation!", "#me cakles", queststatus(206) = 3, rankpoints = 20
+queststatus(206) = 2, "task", "adventure", "order" -> "Thank you for your donation!", "#me cackles", queststatus(206) = 3, rankpoints = 20
 queststatus(206) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke für Eure Spende!", "#me kichert", queststatus(206) = 3, rankpoints = 20
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(206) = 3, english, "quest", "mission" -> "#me grins showing a pair of yellow theeth.", " Come back again!"
+queststatus(206) = 3, english, "quest", "mission" -> "#me grins showing a pair of yellow teeth.", " Come back again!"
 queststatus(206) = 3, "quest", "mission" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald!"
-queststatus(206) = 3, "task", "adventure", "order" -> "#me grins showing a pair of yellow theeth.", " Come back again, Sweetheart!"
+queststatus(206) = 3, "task", "adventure", "order" -> "#me grins showing a pair of yellow teeth.", " Come back again, Sweetheart!"
 queststatus(206) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald, Schätzchen!"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
@@ -127,40 +127,40 @@ queststatus(206) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me grinst
 "beruf" -> "Ich sortiere all diesen Müll...ähm, all diese Spenden an den Don, wollte ich sagen.", "..."
 english, "job" -> "I am sorting all that rubbish...I mean, all the donations to the Don."
 "job" -> "Ich sortiere all diesen Müll...ähm, all diese Spenden an den Don, wollte ich sagen."
-"tell something" -> "I came to Galmair as a young girl. And I am still here now. How long will you stay here?", "I once was a well known, beautiful dancer. But I grew old and ugly. Now I guard this garbage bin.", "When I was young, they called me Gretel Goldhair, but now they call me Gretel Graihair."
-"erzähl was", "erzähl etwas" -> "Ich kam als junges Mädchen nach Galmair. Jetzt bin ich immer noch da. Wie lange werden Ihr bleiben?", "Ich war mal eine Stadtbekannt, wunderschöne Tänzerin. Doch ich wurde alt und hässlich. Jetzt beaufsichtige ich diese Müllkippe!", "Früher nannten sie mich Gertel Goldhair, jetzt nennen sie mich Graue Gretel:"
+"tell something" -> "I came to Galmair as a young girl. And I am still here now. How long will you stay here?", "I once was a well known, beautiful dancer. But I grew old and ugly. Now I guard this garbage bin.", "When I was young, they called me Gretel Goldhair, but now they call me Gretel Grayhair."
+"erzähl was", "erzähl etwas" -> "Ich kam als junges Mädchen nach Galmair. Jetzt bin ich immer noch da. Wie lange werden Ihr bleiben?", "Ich war mal eine Stadtbekannt, wunderschöne Tänzerin. Doch ich wurde alt und hässlich. Jetzt beaufsichtige ich diese Müllkippe!", "Früher nannten sie mich Gertel Goldhair, jetzt nennen sie mich Graue Gretel."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"garbage bin", "rubbish", "garbage", "trash" -> "You do not doante garbage to the Don, do you?"
-"Müllkippe", "Müll", "Schrott" -> "..."
-"magical", "surface" -> "If you drop things on the magical surface they will disppear, and magically regain their value and then be teleportet to Runewicks treasury."
-"magische", "Fläche", "Oberfläche" -> "Wenn Ihr Gegenstände auf die magische Oberfläche legt, werden sie durch Magie ihren Wert zurück erhalten und in die Satzkammer von Runewick transferiert."
+"garbage bin", "rubbish", "garbage", "trash" -> "You do not donate garbage to the Don, do you?"
+"Müllkippe", "Müll", "Schrott" -> "Ihr spendet doch keinen Müll an den Don, oder?"
+"magical", "surface" -> "If you drop things on the magical surface they will disppear, and magically regain their value and then be teleportet to Galmairs treasury."
+"magische", "Fläche", "Oberfläche" -> "Wenn Ihr Gegenstände auf die magische Oberfläche legt, werden sie durch Magie ihren Wert zurück erhalten und in die Schatzkammer von Galmair transferiert."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "The gods created Illarion without rubbish. Most of us produce rubbish everyday."
 "Gott", "Götter" -> "Die Götter erschufen Illarion ohne Müll. Wir erschaffen jeden Tag Müll."
 english, "religion" -> "If you lost your loved ones you hope the gods keep them save in their realms. Maybe you'll understand oneday... or maybe you alredy do?"
-"religion" -> "Wenn du deine Liebsten verloren hast, betest du zu den Göttern, das sie sie sicher in ihrer Spähre verweilen lassen. Eines Tags werdet Ihr das verstehen... oder versteh Ihr das schon?"
-"faith" -> "The elder gods are retuned."
-"Glaube" -> "Die aölten Götter sind zurüch gekehrt."
+"religion" -> "Wenn du deine Liebsten verloren hast, betest du zu den Göttern, dass sie sie sicher in ihrer Spähre verweilen lassen. Eines Tags werdet Ihr das verstehen... oder versteht Ihr das schon?"
+"faith" -> "The elder gods have returned."
+"Glaube" -> "Die alten Götter sind zurüch gekehrt."
 
 -- Optional: Faction stuff
-"archmage" -> "I am older than the arch mage. By ages!", "Speak louder, I can't hear you!"
+"archmage" -> "I am older than the archmage. By ages!", "Speak louder, I can't hear you!"
 "Erzmagier" -> "Ich bin älter als der Erzmagier. Wesentlich älter!", "Sprecht lauter, ich kann Euch nicht hören!"
-english, "Elvaine", "Morgan" -> "I am older than the arch mage. By ages!", "Speak louder, I can't hear you!"
+english, "Elvaine", "Morgan" -> "I am older than the archmage. By ages!", "Speak louder, I can't hear you!"
 "Elvaine", "Morgan" -> "Ich bin älter als der Erzmagier. Wesentlich älter!", "Sprecht lauter, ich kann Euch nicht hören!"
-english, "Runewick" -> "Speak louder, I can't hear you!", "No. No. This place is Galmair, sweetheart"
+english, "Runewick" -> "Speak louder, I can't hear you!", "No, no. This place is Galmair, sweetheart"
 "Runewick" -> "Sprecht lauter, ich kann Euch nicht hören!", "Nein, nein. Dieser Ort ist Galmair, Schätzchen."
 english, "Valerio", "Guilianni", "Don" -> "That's the Don here. He allowed me to guard the garbage bin."
 "Valerio", "Guilianni", "Don" -> "Das ist der Don. Er erlaubte mir auf die Müllkippe zu wachen."
-english, "Galmair" -> "..."
-"Galmair" -> "..."
-"Queen" -> "Even she will be ugly, then she's old. But I'll be dead that day, what a pitty."
+english, "Galmair" -> "Best place to be."
+"Galmair" -> "Der beste Ort zum verweilen."
+"Queen" -> "Even she will be ugly when she's old. But I'll be dead by than, what a pity."
 "Königin" -> "Auch sie wird häßlich, wenn sie alt wird. Aber dann ich schon tot, schade, schade..."
-english, "rosaline", "edwards" -> "I hate this arogant bart!"
+english, "rosaline", "edwards" -> "I hate this arrogant brat!"
 "rosaline", "edwards" -> "Ich hasse diese arrogante Göre!"
 english, "Cadomyr" -> "Speak louder, I can't hear you!", "Cadomyr ...what's with Cadomyr?"
-"Cadomyr" -> "Sprecht lauter, ich kann Euch nicht hören!", "Cadomyr? … Was ist damit?"
+"Cadomyr" -> "Sprecht lauter, ich kann Euch nicht hören!", "Cadomyr?... Was ist damit?"
 
 -- Optional: Main land factions
 english, "albar" -> "Speak louder, I can't hear you!"
@@ -179,10 +179,10 @@ english, "Gobaith", "Gobiath" -> "Speak louder, I can't hear you!"
 "mein Name" -> "Sprecht lauter, ich kann Euch nicht hören!", "Habe ich Euch nicht schon einmal gesehen?"
 english, "Gretel", "Goldhair" -> "You asked for me?", "Who asked?", "Did you say something?"
 "Gretel", "Goldhair" -> "Ihr fragt nach mir?", "Wer fragt?", "Habt Ihr was gesagt?"
-"Yes" -> "#me grins showing a pair of yellow theeth.", "Very well."
+"Yes" -> "#me grins showing a pair of yellow teeth.", "Very well."
 "Ja" -> "#me grinst und zeigt ein paar gelber Zähne.", " Schön. Schön."
 "No" -> "Oh...that's too sad.", "Speak louder, I can't hear you!"
-"Nein" -> "Oh, das ist jammer schade ...", "#me hebt eine Augenbraue.", "Sprecht lauter, ich kann Euch nicht hören!"
+"Nein" -> "Oh, das ist jammerschade ...", "#me hebt eine Augenbraue.", "Sprecht lauter, ich kann Euch nicht hören!"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "Speak louder, I can't hear you!", "Did you say something?", "#me lookes around"
@@ -193,7 +193,7 @@ german, chance(20.0), ".*" -> "Sprecht lauter, ich kann Euch nicht hören!", "Ha
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Seht mich an, so werdet auch Ihr aussehen, wenn Ihr alt seid!", "..."
+cycletext "Seht mich an, so werdet auch Ihr aussehen, wenn Ihr alt seid!", "Look at me. You will look just the same when you're old!"
 cycletext "#me kichert irre wie eine alte Hexe.", "#me cackles like an old witch."
 cycletext "#me stützt sich auf ihren Stock.", "#me rests her arms on her walking staff."
 cycletext "#me starrt in die Ferne.", "#me stares at the horizon."

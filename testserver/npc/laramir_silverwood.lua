@@ -15,6 +15,7 @@ VALUES (3, 367, 277, 0, 4, 'Laramir Silverwood', 'npc.laramir_silverwood', 0, 2,
 ---]]
 
 require("npc.base.basic")
+require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.trade")
@@ -46,7 +47,7 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addResponse("I handle mit hölzernen Waren. Bitte, sieh dir ruhig um mein Freund!");
+talkEntry:addResponse("I handle mit hölzernen Waren. Bitte, sieh dich ruhig um, mein Freund!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -73,7 +74,7 @@ talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Be greeted, my friend. How are you today?");
 talkEntry:addResponse("Greetings my friend. Did you come here for taking a look at my wares?");
-talkEntry:addResponse("#me smiles 'Greetings, my Friend.'");
+talkEntry:addResponse("#me smiles 'Greetings, my friend.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -102,7 +103,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Be greeted, my friend. How are you today?");
 talkEntry:addResponse("Greetings my friend. Did you come here for taking a look at my wares?");
-talkEntry:addResponse("#me smiles 'Greetings, my Friend.'");
+talkEntry:addResponse("#me smiles 'Greetings, my friend.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -124,7 +125,7 @@ talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Fare well, my friend.");
 talkEntry:addResponse("Stay safe, my friend!");
-talkEntry:addResponse("May the gods protect you, my Friend!");
+talkEntry:addResponse("May the gods protect you, my friend!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -147,7 +148,7 @@ talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Fare well, my friend.");
 talkEntry:addResponse("Stay safe, my friend!");
-talkEntry:addResponse("May the gods protect you, my Friend!");
+talkEntry:addResponse("May the gods protect you, my friend!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -195,7 +196,7 @@ talkEntry:addTrigger("wer bist du");
 talkEntry:addTrigger("wer seid ihr");
 talkEntry:addTrigger("wie heißt");
 talkEntry:addResponse("Mein Freund, ich heiße Laramir Silverwood.");
-talkEntry:addResponse("Mewin Name ist Laramir silverwood, my friend.");
+talkEntry:addResponse("Mein Name ist Laramir silverwood, my friend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -203,7 +204,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("My friend, there is nothing I could ask you to do. But I'm thankfull for your concern.");
+talkEntry:addResponse("My friend, there is nothing I could ask you to do. But I'm thankful for your concern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -218,7 +219,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("My friend, there is nothing I could ask you to do. But I'm thankfull for your concern.");
+talkEntry:addResponse("My friend, there is nothing I could ask you to do. But I'm thankful for your concern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -271,7 +272,95 @@ talkEntry:addTrigger("erzähl was");
 talkEntry:addResponse("Magst du nette Plaudereinen, mein Freund? Wir müssen von klein auf lernen mit anderen zu reden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins.");
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addResponse("Hmm...ask someone else if you want know about it.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Gobaith");
+talkEntry:addTrigger("Gobiath");
+talkEntry:addResponse("Hmm...fragt jemand anderen bezüglich dieses Ortes.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("my name");
+talkEntry:addResponse("What a fine name, my friend.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("mein Name");
+talkEntry:addResponse("Was für ein schöner Name, mein Freund.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Laramir");
+talkEntry:addTrigger("Silverwood");
+talkEntry:addResponse("Yes, that is my name.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Laramir");
+talkEntry:addTrigger("Silverwood");
+talkEntry:addResponse("Ja, das ist mein Name.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yes");
+talkEntry:addResponse("A bit more concrete, please!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ja");
+talkEntry:addResponse("Etwas konkreter wenn ich bitten darf!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("No");
+talkEntry:addResponse("A bit more concrete, please!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Nein");
+talkEntry:addResponse("Etwas konkreter wenn ich bitten darf!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("Huh, what are you talking about, my friend?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("Huh, was sagt ihr dort, mein Freund?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+talkingNPC:addCycleText("#me gähnt.", "#me yawns.");
+talkingNPC:addCycleText("#me blickt herum mit geschlossenen Augen.", "#me looks around with closed eyes.");
+talkingNPC:addCycleText("#me untersucht seine Kleidung.", "#me examines his cloths.");
+talkingNPC:addCycleText("#me kämmt sein Haar.", "#me combs his hair.");
+talkingNPC:addCycleText("#me isst einen Apfel.", "#me eats an apple.");
+talkingNPC:addCycleText("#me prüft seine Waren.", "#me examines his wares.");
+tradingNPC:addNotEnoughMoneyMsg("Mein Freund, ich glaube du hast deine Münzen nicht gezählt.", "My friend. I think you forgot counting your coins.");
 tradingNPC:addDialogClosedMsg("Komm wieder, mein Freund.", "Please come again, my friend.");
 tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!");
 tradingNPC:addWrongItemMsg("Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?");

@@ -1,25 +1,24 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Gavin Northstar 			Galmair                               --
+-- NPC Name: Gavin Northstar                                          Galmair --
 -- NPC Job:  Guard                                                            --
 --                                                                            --
--- NPC Race: Dwarf                     NPC Position:   386, 329, 0            --
--- NPC Sex:  Female                       NPC Direction:    South             --
+-- NPC Race: dwarf                      NPC Position:  384, 328, 0            --
+-- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
--- Author:   Kawan Baxter					                            --
---                                                                            --
--- Last parsing: December 19, 2010                       easyNPC Parser v1.02 --
+-- Author:   Kawan Baxter                                                     --
+--                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 name = "Gavin Northstar"
-race = Dwarf
-sex = Female
-position = 386, 329, 0
-direction = south
+race = dwarf
+sex = female
+position = 384, 328, 0
+direction = east
 affiliation = "Galmair"
 job = "Guard"
 
 language = common
-language = Dwarf
+language = dwarf
 defaultLanguage = common
 autointroduce = on
 
@@ -67,34 +66,34 @@ itemShoes = 771
 -- Weapon: Morning Star
 -- Cloth: Grey plate armor, no shine
 
---Personality: North, straight forward, competitive, outspoken yet thinks with much
+-- Personality: North, straight forward, competitive, outspoken yet thinks with much
 -- deliberation before she speaks, controlled, focused, skilled at fighting and competing with
---mind, serious, hard ass. Talks little, Tries best to say things that are facts and gives little --opinion.
+-- mind, serious, hard ass. Talks little, Tries best to say things that are facts and gives little --opinion.
 
---Background:
---“The funny thing about beliefs is that every now and then someone is stupid enough to
+-- Background:
+-- “The funny thing about beliefs is that every now and then someone is stupid enough to
 -- believe in them.”
 
---While Gavin Northstar was a young girl her parents filled her mind with stories of dwarves and
---dragons, good and evil, right and wrong. Gavin envisioned herself a hero and dedicated her
---life to being so. There was no choice in her mind but to do what is right. She is always
---reconsidering her assumptions and carefully molding herself to be a sharp axe for justice. She
---can’t stand to be in the wrong. In the times she does mess up, she is quick to apologize;
---though Gavin messing up is a one in 50 year event. Gavin honed her body by working out with
---the guys. She surpassed them in muscle and in height as if the gods were smiling on her
---determination.
+-- While Gavin Northstar was a young girl her parents filled her mind with stories of dwarves and
+-- dragons, good and evil, right and wrong. Gavin envisioned herself a hero and dedicated her
+-- life to being so. There was no choice in her mind but to do what is right. She is always
+-- reconsidering her assumptions and carefully molding herself to be a sharp axe for justice. She
+-- can’t stand to be in the wrong. In the times she does mess up, she is quick to apologize;
+-- though Gavin messing up is a one in 50 year event. Gavin honed her body by working out with
+-- the guys. She surpassed them in muscle and in height as if the gods were smiling on her
+-- determination.
 
---She joined the Civil Watch as a foot soldier. In her early days in the watch
---Gavin saw a girl on the streets. There were a lot of homeless in the area. She had often spared
---them some pocket copper, however seeing a young girl on the streets broke Gavin’s heart.
---She invited the girl to her house. The girl sheepishly declined several times. Gavin however did
---not take no for an answer. She lifted the girl by her arm and led her to Gavin’s house. She fed
---the girl and told her she can stay there for a while. The two became close friends. Bre, who
---was more laid back and cheery, joined the Civil Watch in order to follow Gavin. They both rose
---in the ranks higher than most in the Civil Watch.
+-- She joined the Civil Watch as a foot soldier. In her early days in the watch
+-- Gavin saw a girl on the streets. There were a lot of homeless in the area. She had often spared
+-- them some pocket copper, however seeing a young girl on the streets broke Gavin’s heart.
+-- She invited the girl to her house. The girl sheepishly declined several times. Gavin however did
+-- not take no for an answer. She lifted the girl by her arm and led her to Gavin’s house. She fed
+-- the girl and told her she can stay there for a while. The two became close friends. Bre, who
+-- was more laid back and cheery, joined the Civil Watch in order to follow Gavin. They both rose
+-- in the ranks higher than most in the Civil Watch.
 
---During their friendship Gavin and Bre slit open their wrists till blood wrung out. They tied their
---arms together and from then on they considered each other sisters.
+-- During their friendship Gavin and Bre slit open their wrists till blood wrung out. They tied their
+-- arms together and from then on they considered each other sisters.
 
 -- Goals
 -- To fight Evil and protect Good
@@ -127,7 +126,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Be wary of danger on your t
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-"quest", "mission", english -> "I am capable of accommodating any of my own needs."
+english, "quest", "mission" -> "I am capable of accommodating any of my own needs."
 "quest", "mission" -> "Ich kann meine Bedürfnisse unterordnen, wenn es seim muss."
 "task", "adventure", "order" -> "I am capable of accommodating any of my own needs."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich kann meine Bedürfnisse unterordnen, wenn es seim muss."
@@ -144,17 +143,17 @@ english, "job" -> "I am guard of Galmair’s bridge.", "I am a Silverstone in th
 "Man", "husband", "Family" -> "Please dont ask me personal questions."
 "Sister" -> "Bre of the south gate is my sister."
 "Dwarf" -> "Yes I am tall for being a dwarf. Please move on."
-"Woman","Girl","Female" -> "Being a woman has never deterred me from reaching my goal of being in the Civil Watch because the hate of others has never overshadowed my own fire for justice."
+"Woman", "Girl", "Female" -> "Being a woman has never deterred me from reaching my goal of being in the Civil Watch because the hate of others has never overshadowed my own fire for justice."
 "Bre" -> "Warum fragt Ihr?"
 "Stadtwache" -> "Das sind alles Leute die die Bürger von Galmair vor Monstern, Dieben und Angreifer schützt."
-"Mann", "Ehemann","Familie" -> "Stellt mir keine persönliche Fragen."
+"Mann", "Ehemann", "Familie" -> "Stellt mir keine persönliche Fragen."
 "Schwester" -> "Bre vom Südtor ist meine Schwester."
 "Zwerg" -> "Ja, ich bin groß für einen Zwerg. Weiter gehen!"
-"Frau", "Mädchen","weib" -> "Eine Frau zu sein hat mich nicht aufgehalten meine Ziele in der Stadtwache zu erreichen, denn der Hass auf andere hat niemals mein eigenes Feuer der Gerechtigkeit überschattet."
+"Frau", "Mädchen", "weib" -> "Eine Frau zu sein hat mich nicht aufgehalten meine Ziele in der Stadtwache zu erreichen, denn der Hass auf andere hat niemals mein eigenes Feuer der Gerechtigkeit überschattet."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "You have no need to know who I worship."
-"Elara", english -> "Elara the bright once said --Justice is a tree. Wisdom is its leaves, power is its trunk, and love is its roots.-- This is the saying I hold in my mind every day."
+english, "Elara" -> "Elara the bright once said --Justice is a tree. Wisdom is its leaves, power is its trunk, and love is its roots.-- This is the saying I hold in my mind every day."
 "Gott", "Götter" -> "Ihr bracht nicht wissen, wen ich ehre."
 "Elara" -> "Elara die Erleuchtet sagte einmal folgends: Gerechtigkeit ist ein Baum. Weisheit sind seine Blätter, Macht ist seim Stamm und Liebe die Wurzeln. Diesen Spruch bewahre ich mir."
 
@@ -168,7 +167,7 @@ english, "Gobaith", "Gobiath" -> "I have nothing to say of it."
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Weiter gehen!", "Move on!"
-cycletext "Wenn Ihr friedvoll aseid, seid ihr in Galmair willommen.","If you bring peace. Galmair will watch over you."
+cycletext "Wenn Ihr friedvoll aseid, seid ihr in Galmair willommen.", "If you bring peace. Galmair will watch over you."
 cycletext "Die, die mit dem Bösen im Bunde stehen und es wagen die Brücke zu betreten werden sterben!", "Those who stand in evil who dare to pass this gate will die."
 cycletext "Dies ist Galmair. Kommt in Frieden.", "This is Galmair. Come in peace."
 cycletext "Ihr habe jetzt grade die Zwergische Siedlung Galmair betetren.", "You have just crossed into The Dwarvan gathering of Galmair"

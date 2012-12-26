@@ -49,7 +49,7 @@ itemShoes = 369
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-tradeNotEnoughMoneyMsg "Mein Freund, ich glaube du hast deine Münzren nicht gezählt.", "My friend. I think you forgot counting you coins."
+tradeNotEnoughMoneyMsg "Mein Freund, ich glaube du hast deine Münzen nicht gezählt.", "My friend. I think you forgot counting your coins."
 tradeFinishedMsg "Komm wieder, mein Freund.", "Please come again, my friend."
 tradeFinishedWithoutTradingMsg "Bis zum nächsten mal, mein Freund.", "Hope to see you again, my friend!"
 tradeWrongItemMsg "Mein Freund, was soll ich mit diesem Gegenstand?", "My friend, what shall I use this thing for?"
@@ -87,7 +87,7 @@ buySecondaryItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 323, 2782, 
 -- 5% Staffs: 39, 40, 57, 76, 207, 208, 209
 -- 5% Throwing weapons: 293, 294, 2645
 "sell", "buy", "wares", "price", "trade", "purchase" -> "I trade with wooden goods. Feel free to take a look my friend.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "I handle mit hölzernen Waren. Bitte, sieh dir ruhig um mein Freund!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "I handle mit hölzernen Waren. Bitte, sieh dich ruhig um, mein Freund!", trade
 
 -- MANDATORY TRIGGERS
 
@@ -96,25 +96,25 @@ buySecondaryItems = 9, 74, 2709, 2715, 2752, 2193, 2194, 2935, 2952, 323, 2782, 
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Laramir Silverwood der Schreiner. Schlüsselwörter: kaufe, verkaufe, Handel.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted, my friend. How are you today?", "Greetings my friend. Did you come here for taking a look at my wares?", "#me smiles 'Greetings, my Friend.'"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted, my friend. How are you today?", "Greetings my friend. Did you come here for taking a look at my wares?", "#me smiles 'Greetings, my friend.'"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid Gegrüßt mein Freund. Wie geht es dir heute?", "Grüße, mein Freund. Bist du gekommen um meine Ware zu bewundern?", "#me lächelt 'Grüße, mein Freund.'"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted, my friend. How are you today?", "Greetings my friend. Did you come here for taking a look at my wares?", "#me smiles 'Greetings, my Friend.'"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted, my friend. How are you today?", "Greetings my friend. Did you come here for taking a look at my wares?", "#me smiles 'Greetings, my friend.'"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid Gegrüßt mein Freund. Wie geht es dir heute?", "Grüße, mein Freund. Bist du gekommen um meine Ware zu bewundern?", "#me lächelt 'Grüße, mein Freund.'"
-"Farewell", "Bye", "Fare well", "See you" -> "Fare well, my friend.", "Stay safe, my friend!", "May the gods protect you, my Friend!"
+"Farewell", "Bye", "Fare well", "See you" -> "Fare well, my friend.", "Stay safe, my friend!", "May the gods protect you, my friend!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl, mein Freund.", "Pass auf dich auf, mein Freund.", "Mögen die Götter dich beschützen, mein Freund."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare well, my friend.", "Stay safe, my friend!", "May the gods protect you, my Friend!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fare well, my friend.", "Stay safe, my friend!", "May the gods protect you, my friend!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Lebt wohl, mein Freund.", "Pass auf dich auf, mein Freund.", "Mögen die Götter dich beschützen, mein Freund."
 "How are you", "How feel", "How do you do" -> "Thank you for asking, my friend. I feel fine. And you?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Danke der Nachfrage, mein Freund. Ich fühle mich gut. Und du?"
 "your name", "who are you", "who art thou" -> "My friend, my name is Laramir Silverwood.", "My name is Laramir Silverwood, my friend."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Freund, ich heiße Laramir Silverwood.", "Mewin Name ist Laramir silverwood, my friend."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Freund, ich heiße Laramir Silverwood.", "Mein Name ist Laramir silverwood, my friend."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-english, "quest", "mission" -> "My friend, there is nothing I could ask you to do. But I'm thankfull for your concern."
+english, "quest", "mission" -> "My friend, there is nothing I could ask you to do. But I'm thankful for your concern."
 "quest", "mission" -> "Mein Freund, es gibt nichts um was ich dich bitten könnte. Aber ich bin dankbar für deine Sorge."
-"task", "adventure", "order" -> "My friend, there is nothing I could ask you to do. But I'm thankfull for your concern."
+"task", "adventure", "order" -> "My friend, there is nothing I could ask you to do. But I'm thankful for your concern."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Mein Freund, es gibt nichts um was ich dich bitten könnte. Aber ich bin dankbar für deine Sorge."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
@@ -124,3 +124,33 @@ english, "job" -> "I'm an elven trader, my friend.", "I'm an elven carpenter, my
 "job" -> "Ich bin ein elfischer Händler, mein Freund.", "Ich bin ein elfischer Schreiner, mein Freund."
 "tell something" -> "Do you like nice conversations, my friend? We have to learn how to talk with others from young age on."
 "erzähl was" -> "Magst du nette Plaudereinen, mein Freund? Wir müssen von klein auf lernen mit anderen zu reden."
+
+-- Optional: Gobaith
+english, "Gobaith", "Gobiath" -> "Hmm...ask someone else if you want know about it."
+"Gobaith", "Gobiath" -> "Hmm...fragt jemand anderen bezüglich dieses Ortes."
+
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
+"my name" -> "What a fine name, my friend."
+"mein Name" -> "Was für ein schöner Name, mein Freund."
+english, "Laramir", "Silverwood" -> "Yes, that is my name."
+"Laramir", "Silverwood" -> "Ja, das ist mein Name."
+"Yes" -> "A bit more concrete, please!"
+"Ja" -> "Etwas konkreter wenn ich bitten darf!"
+"No" -> "A bit more concrete, please!"
+"Nein" -> "Etwas konkreter wenn ich bitten darf!"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "Huh, what are you talking about, my friend?"
+german, chance(20.0), ".*" -> "Huh, was sagt ihr dort, mein Freund?"
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me gähnt.", "#me yawns."
+cycletext "#me blickt herum mit geschlossenen Augen.", "#me looks around with closed eyes."
+cycletext "#me untersucht seine Kleidung.", "#me examines his cloths."
+cycletext "#me kämmt sein Haar.", "#me combs his hair."
+cycletext "#me isst einen Apfel.", "#me eats an apple."
+cycletext "#me prüft seine Waren.", "#me examines his wares."

@@ -90,7 +90,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Werkzeug- und Rohstoffhändler 'Big Nik'. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Beruf, Gesetze.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me grins as he waves: 'What can I do for you?'", "#me lifts his head: 'Hello there, you here to buy or sell?'", "Hello, you look like someone who knows a good price for tools, thats why your here, right?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me grins as he waves: 'What can I do for you?'", "#me lifts his head: 'Hello there, you here to buy or sell?'", "Hello, you look like someone who knows a good price for tools, that's why you're here, right?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me grinst und winkt: 'Was kann ich für euch tun?'", "#me hebt den Kopf: 'Heda, wollt ihr etwas kaufen oder loswerden?'", "Hallo, ihr seht aus wie jemand, dem ich einen guten Preis für Werkzeuge machen kann. Deshalb seid ihr doch hier?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Yeh, yeh you here to buy or sell?", "#me scratches his cheek as he looks over: 'Want to see my wares?'", "Hello and all that, why don't you spend some of that coin you have with me!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Jaja, wollt ihr nun etwas kaufen oder loswerden?", "#me kratzt sich am Kinn und schaut umher: 'Seid ihr wegen meinen Waren hier?'", "Hallo und so, warum gebt ihr nicht einfach etwas Geld bei mir aus!"
@@ -110,7 +110,7 @@ english, "quest", "mission" -> "#me laughs: 'What? I'm a builders merchant, I ha
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me schüttelt den Kopf und lacht: 'Schaut, kauft was oder haut ab, ich habe keine Zeit für Abenteuer."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "#me grins: 'I buy and sell tools and and building supplies.'", "I'm a builders merchant.", "#me smiles: 'Tools, building supplies, coal, ores and wares I've got it all to buy and sell.'"
+"profession" -> "#me grins: 'I buy and sell tools and building supplies.'", "I'm a builders merchant.", "#me smiles: 'Tools, building supplies, coal, ores and wares I've got it all to buy and sell.'"
 "beruf" -> "#me grinst: 'Ich kaufe und verkaufe Werkzeuge und Baumaterial.'", "Ich bin ein Baustoffhändler", "#me lächelt: 'Werkzeuge, Baumaterial, Kohle, Erze und andere Waren, ich hab alles im Angebot.'"
 english, "job" -> "Well I'm a trader, can't you tell.", "I buy and sell tool, building supplies and other things.", "I do a little buying, a lot of selling, why what are you after?"
 "job" -> "Nun, ich bin ein Händler, so viel steht fest.", "Ich kaufe und verkaufe Werkzeuge, Baumaterial und anderes.", "Ich kaufe ein bisschen und verkaufe eine Menge. Was braucht ihr?"
@@ -120,8 +120,8 @@ english, "Gobaith" -> "Wasn't that a little island?", "#me looks up in thought: 
 "mein Name" -> "Ja, wunderbar. Nun kauft endlich was!"
 
 -- More small talk; add at least five triggers
-"Laws" -> "Haha, what laws, do as you please, just dont get caught!", "Treat others as you would be done by, else you will have to pay them compensation."
-"Gesetz" -> "Haha, Gesetze, macht, was ihr wollt, aber lasst euch nicht erwischen!", "Behandelt andere so wie sie euch behandeln, sonst müsst ihr nachher noch Schadensersatz bezahlen."
+"Laws" -> "Haha, what laws? Do as you please, just don't get caught!", "Treat others as you would be done by, else you will have to pay them compensation."
+"Gesetz" -> "Haha, Gesetze? Macht was ihr wollt, aber lasst euch nicht erwischen!", "Behandelt andere so wie sie euch behandeln, sonst müsst ihr nachher noch Schadensersatz bezahlen."
 "Tool" -> "My tools will help you build whatever you want in no time!", "Yes for this thing called 'work', have a look at my stock."
 "Werkzeug" -> "Mein Werkzeug wird dir helfen zu bauen, was immer du möchtest!", "Ja, Werkzeug für diese Sache, die man 'Arbeit' nennt, schaut sie euch an."
 english, "Big Nik" -> "#me scratches his knee casually: 'Well, Big Nik is my maiden's name. If you know what I mean.'"
@@ -150,7 +150,7 @@ english, "Cadomyr" -> "It's a nice place, but too many laws for me, I'm a free m
 "Cadomyr" -> "Ein netter Ort, aber zuviele Gesetze für meinen Geschmack. Ich bin ein freier Mann und kein Sklave der Bräuche und Adeligen.", "#me zeigt auf den Boden: 'Seht, hier kann ein Mann sein, was er will, in Cadomyr kriegt jeder einen Platz zugewiesen und das für das ganze Leben. Wer im Dreck lebt, stirbt dort.", "Eigentlich ein guter Ort, wer Ärger macht, stirbt oder wird in den Kerker geworfen."
 
 -- Main land factions
-english, "albar" -> "Ah, good for trade that place, big harbour town is Ann-Korr and the oldest of the Albarian towns."
+english, "albar" -> "Ah, good for trading that place, big harbour town is Ann-Korr and the oldest of the Albarian towns."
 "albar" -> "Ah, ein guter Platz zum Handeln, ein großer Hafen dort ist Ann-Korr, die älteste albarische Stadt."
 english, "gynk", "gync" -> "If you're looking for gods, they are the towns to find. It is said the Gynkeesh have a temple for every god you can think of."
 "gync", "gynk" -> "Wenn ihr nach den Göttern sucht, schaut bei den Gynkeesh. Sie haben einen Tempel für jeden erdenklichen Gott."

@@ -3,7 +3,7 @@
 -- NPC Job:  trader                                                           --
 --                                                                            --
 -- NPC Race: orc                        NPC Position:  366, 272, 0            --
--- NPC Sex:  female                     NPC Direction: west                  --
+-- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
 --                                                       easyNPC Parser v1.21 --
@@ -183,7 +183,7 @@ cycletext "Uh, ich bin so stolz auf meine kleine Ol'hja und meine kleine Er'hja!
 cycletext "Gnahrr! Wo ist mein fauler Sack von Mann?", "Gnahrr! Where is my lazy husband?"
 cycletext "#me stochert mit ihrem Finger an einem der beiden Kieferzähnen herum. ", "#me digs with one of her fingers between her tusks."
 cycletext "#me schnaubt ein wenig.", "#me snorts quietly."
-cycletext "#me rubbelt mit den Fingernägeln an einem rostendem Eisenteil. Doch der Rost scheint sich hartnäckig darauf zu halten.", "#me scratches at a rusty pice of iron without making any change in the rust."
+cycletext "#me rubbelt mit den Fingernägeln an einem rostendem Eisenteil. Doch der Rost scheint sich hartnäckig darauf zu halten.", "#me scratches at a rusty piece of iron without making any change in the rust."
 cycletext "#me kichert und nuschelt: 'Snu-snu...'", "#me chuckles and mumbles: 'Snu-Snu...'"
 cycletext "#me krazt sich knurrend am Kopf.", "#me scratches her head with an annoyed snarl."
 cycletext "#me nimmt einen Schluck aus einer kleinen schmuddeligen Flasche. Scharfer alkoholischer Dunst steigt in die Luft.", "#me takes a gulp from a grubby little bottle. A strong stench of alcohol fills the air."

@@ -238,6 +238,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     SetNewFoodLevel(User, 50000);
     return;
   end
+  -- everything is okay, so fill the foodlevel
+  SetNewFoodLevel(User, foodLevel);
   
   -- inform the player about the food level
   if  (foodLevel > 55000) then
