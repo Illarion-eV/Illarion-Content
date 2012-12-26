@@ -596,7 +596,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
             end;
 			local dataValue = AmmoItem:getData("ammoData");
             world:createItemFromId(AmmoItem.id, 1, dropPos, true,
-            AmmoItem.quality, {["ammoData"] = dataValue});
+            AmmoItem.quality, {ammoData = dataValue});
         end;
     end;
 end;
