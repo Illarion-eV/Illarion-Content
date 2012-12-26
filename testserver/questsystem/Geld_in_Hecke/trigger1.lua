@@ -17,7 +17,7 @@ function LookAtItem(PLAYER, item)
       and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
 	
 	base.lookat.SetSpecialName(item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
-	world:itemInform(PLAYER,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
+	world:itemInform(PLAYER,Item,base.lookat.GenerateLookAt(PLAYER, Item, base.lookat.NONE));
     
     HANDLER(PLAYER)
     
