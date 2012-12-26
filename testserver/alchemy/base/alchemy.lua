@@ -646,7 +646,7 @@ end
 -- combine of stock and essence brew to create a potion
 -- function is only called when item 331 is a stock or when a potion-bottle is an essence brew
 function CombineStockEssence( User, stock, essenceBrew)
-   
+   User:inform(""..essenceBrew.id)
    if essenceBrew == nil then
         User:inform("is nil")
 	end	
