@@ -753,6 +753,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 			
 		elseif cauldron:getData("filledWith") == "stock" then -- stock is in the cauldron; we call the combin function
 				local check = CombineStockEssence( User, cauldron, SourceItem, Counter, Param, ltstate )
+				return
 				if check == false then
 				    return
 				end	
