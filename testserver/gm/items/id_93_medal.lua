@@ -98,7 +98,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 				return;
             end
             local index = dialog:getSelectedIndex();
-			if (index == 1) then --flood
+			if (index == 0) then --flood
 
 				world:makeSound(27,TargetPos); --SFX 27 (wind)
 
@@ -140,7 +140,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 				end --all tiles affected
 				world:sendMapUpdate(TargetPos,30);
 				
-			elseif (index == 2) then --earthquake
+			elseif (index == 1) then --earthquake
 
 				world:makeSound(5,TargetPos); --SFX 5 (BOOOM)
 
@@ -174,7 +174,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 
 				end --all tiles affected
 
-			elseif (index == 3) then --thunderstorm
+			elseif (index == 2) then --thunderstorm
 
 				world:makeSound(4,TargetPos); --SFX 4 (Thunder)
 
@@ -205,7 +205,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 					end
 				end --all tiles affected
 
-			elseif (index == 4) then --meteor shower
+			elseif (index == 3) then --meteor shower
 
 				world:makeSound(5,TargetPos); --SFX 5 (BOOOM)
 				world:gfx(9,TargetPos);
@@ -274,8 +274,8 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 						end
 					end
 				end --all tiles affected
-			elseif(index == 5) then
-				User:inform("index 5 called successfully!")
+			elseif(index == 4) then
+				User:inform("index 4 called successfully!")
 			end
 		end
 		infoText = "Used for destroying Gobiath, so use with caution!"		
