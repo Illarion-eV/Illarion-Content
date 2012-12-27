@@ -132,6 +132,7 @@ function DrinkPotion(User,SourceItem)
 	   if (newSex) == 0 then
 		  newHair = ListHairMale[newRace][math.random(1,#ListHairMale[newRace])]
 	   else
+		  User:inform(""..#ListHairFemale[newRace])
 		  newHair = ListHairFemale[newRace][math.random(1,#ListHairFemale[newRace])]
 	   end
 	   local HairColorRandomPosition = ((math.random(1,(#ListHairColor[newRace]/3)))*3)
