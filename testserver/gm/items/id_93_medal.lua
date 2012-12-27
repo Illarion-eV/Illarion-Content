@@ -65,7 +65,17 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 			local chosenPlayer = players[dialog:getSelectedIndex()+1];
 			local cbInputDialog = function (dialog)
 				local inputString = dialog:getInput();
-				if (string.find(inputString,"(%a+) (%d+)") ~= nil) then
+				if (string.find(inputString,"(%a+) (%d+) (%d+) (%d+)") ~= nil) then
+					a, b, modifier, red, green, blue = string.find(inputString,"(%a+) (%d+) (%d+) (%d+)");
+					red = tonumber(red);
+					green = tonumber(green);
+					blue = tonumber(blue);
+					if modifier == "haircolor" then
+						chosenPlayer:setHairColor(red, green, blue);
+					elseif modifier == "skincolor" then
+						chosenPlayer:setSkinColor(red, green, blue);
+					end
+				elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
 					a, b, modifier, id = string.find(inputString,"(%a+) (%d+)");
 					id = tonumber(id);
 					if modifier == "race" then
@@ -77,7 +87,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 					end
 				else
 					User:inform("Sorry, I didn't understand you.");
-					User:requestInputDialog(InputDialog("Change the appearance for the selected character.", "Usage: race <id>, beard <id>, hair <id>" ,false, 255, cbInputDialog))
+					User:requestInputDialog(InputDialog("Change the appearance for the selected character.", "Usage: race <id>, beard <id>, hair <id>, haircolor <red> <green> <blue>, skincolor <red> <green> <blue>" ,false, 255, cbInputDialog))
 				end
 			end
 			User:requestInputDialog(InputDialog("Change the appearance for the selected character.", "Usage: race <id>, beard <id>, hair <id>" ,false, 255, cbInputDialog))
