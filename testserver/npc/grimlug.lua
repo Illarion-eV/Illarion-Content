@@ -266,8 +266,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Creation");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'continue' to progress the tale or 'stop'."));
-talkEntry:addResponse("Long tiem ago, dha gods become bored. So Bragon, dha older broddher ob Moshran, our Faddha, walked to him and let cut obb dha Bragon's arm. Bodh collectad Bragon's blood and modeled dha sun....");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
+talkEntry:addResponse("...Und so, er hilft kranke Orks. Und tut sein Wirken als Schamane.  So ist es wichtig, das die Stärke des Orkes Geist, ist groß. Er wird gesund und stark sein wenn....");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 16));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -339,8 +339,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 4));
 talkEntry:addTrigger("weiter");
-talkEntry:addResponse("...Aber manche Völker vergaßet er. Sie sind kalt gebliebigt. Als Moshran, seinem damaligen Weib Cherga dazulag, der eisigen Hexe, verzauberte sie G'rak. Den Moshran immerstets mit sich trug...");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 5));
+talkEntry:addResponse("He iss the Don. That means he's the mightiest dwarf arround. Grockthâ.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -383,12 +382,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grak");
-talkEntry:addTrigger("Href");
-talkEntry:addTrigger("G'rak");
-talkEntry:addTrigger("H'ref");
-talkEntry:addTrigger("G rak");
-talkEntry:addTrigger("H ref");
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
 talkEntry:addResponse("G'rak warig sehr schön und stark. Und H'ref aussuchte ihn. Sie wurdigte sein Weib. Nie gehen sie weg von einander. Und in der Nacht, wenn H'ref ihren Mann nicht ansehen kann...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 7));
@@ -412,16 +406,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grüß");
-talkEntry:addTrigger("Gruß");
-talkEntry:addTrigger("Guten Morgen");
-talkEntry:addTrigger("Guten Tag");
-talkEntry:addTrigger("Guten Abend");
-talkEntry:addTrigger("Gute Nacht");
-talkEntry:addTrigger("Mahlzeit");
-talkEntry:addTrigger("Tach");
-talkEntry:addTrigger("Moin");
-talkEntry:addTrigger("Mohltied");
+talkEntry:addTrigger("spirit");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'continue' to progress the tale or 'stop'."));
 talkEntry:addResponse("Nub all spirit be dha same. Most beh mixed. In Orc, dhea beh spirit of his ancestor. It is Moshrans spirit. It helps and protects broddhas and sistahs. It beh mighte, ib our skin honour and...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 10));
@@ -513,7 +498,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 15));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("Gobaith! Hurr, the isle made the gods angry, now it have to bear it's desteny. Tagtha.");
+talkEntry:addResponse("...But onleh shamans beh able contact mighte and unkonwn spirits, so he helps ill broddhas and sisthas and dheafore shamans beh fulfilling his predestiantion...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 16));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -586,7 +572,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Er dieser Zauberer ist, von den Elfen... Hurr! Ich spühre seine Kräfte von weit weg, noch. Gâsh.");
+talkEntry:addResponse("Cherga, dha iceh witch, escorts dha ghost drough dha nubbing, the eternal rift between dha worlds, into dha land ob dha ancestors...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 18));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -601,9 +588,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("...Die Völker waren kalt und lebloßig. Wie G'rak. Aber Moshran behatte noch ein wenig von Bragons Blut übrig. Er verschüttete alles über G'rak. Darauf hinig wurde den Völkern wohlwarm in den Körpern...");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 4));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 4));
+talkEntry:addResponse("Er dieser Zauberer ist, von den Elfen... Hurr! Ich spühre seine Kräfte von weit weg, noch. Gâsh.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -646,7 +631,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair! Eign'tlich das die Häuser ober uns sind, an der frischigen Luft. Dies - hier unten einfach nur eine alte Miene ist. Die Schlackengrube.");
+talkEntry:addResponse("...Er bekommt viele Diener und Sklaven. Die Weiber werden ihn lieben.  Wenn er schwach und feige war, wird er dort selbst dienen.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -678,17 +664,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("There're Orks in Cadomyr. But hurr, they are weaklings! They nub worth to be called Ork. Mes hate them. Gôsch!");
+talkEntry:addTrigger("continue");
+talkEntry:addResponse("...Cause it beh dha Faddha's blood, inherited, which strengthen dha Orc and fortify dha spirit, his spirit beh in dha Orc, dha tie to ancestors...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 22));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
-talkEntry:addResponse("G'rak warig sehr schön und stark. Und H'ref aussuchte ihn. Sie wurdigte sein Weib. Nie gehen sie weg von einander. Und in der Nacht, wenn H'ref ihren Mann nicht ansehen kann...");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 7));
+talkEntry:addResponse("...He will provide untamable blood frenzy in battle but he become also quick angreh, dhat reason for onle Shamans using his name.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -716,7 +701,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("Scheschnacks! S' heißt dort sind Orkse in Gynk. Aber ich sag, diese Affen sind keine echten Orks, solang sie nichtmal das Norbuk Plateau gesehn habn.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
+talkEntry:addResponse("Moshran. Er ist der Schlachtenwüterich. Der Knochenbrecher. Der Blutgott. Er ist der Vater von jedem Ork, gleich wie der Ork der die Mutter belegen hat...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 21));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -738,10 +725,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("wo her");
 talkEntry:addTrigger("kroch gurak");
 talkEntry:addTrigger("Kroch'Gurak");
-talkEntry:addResponse("Kroch'gurak! Is where most ob us orcs come from. This be the big wintercamp at Norbuk Plateau be!");
-talkEntry:addResponse("Kroch'Gurak is located in the West of the Plateau and in winter a lot of tribes gather there to camp. It's a big town of natural and diged caves, filled with many flocks and ressources.");
-talkEntry:addResponse("The winter's good time for the young orclings. They do pigshunt and wrestling and choose females! He-he!");
-talkEntry:addResponse("Kroch'Gurak! This is THE Ork twon! Filled with orcs and orcs and goats and pigs and much more orcs! You should here the 'Bragg-Thu' And the drums!");
+talkEntry:addResponse("Ich nix verkauf irgendwas, Schwachkopf!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -913,16 +897,18 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
-talkEntry:addResponse("Das is Menschnzland... Orks sich nicht kümmern darum. Du besser fragst nach Kroch'Gurak! Wo Orks herkommen!");
+talkEntry:addResponse("Moshran. Er ist der Schlachtenwüterich. Der Knochenbrecher. Der Blutgott. Er ist der Vater von jedem Ork, gleich wie der Ork der die Mutter belegen hat...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 21));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("gync");
-talkEntry:addTrigger("gynk");
+talkEntry:addTrigger("Knochbrecher");
+talkEntry:addTrigger("Schlachtenwüter");
+talkEntry:addTrigger("Blutgott");
+talkEntry:addTrigger("Vater");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
 talkEntry:addResponse("Moshran. Er ist der Schlachtenwüterich. Der Knochenbrecher. Der Blutgott. Er ist der Vater von jedem Ork, gleich wie der Ork der die Mutter belegen hat...");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 21));
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 21));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -930,7 +916,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 21));
 talkEntry:addTrigger("weiter");
-talkEntry:addResponse("This is land of Oomies... -humanz. Orcs don't have to care about such stuff. Better ask mes about Kroch'Gurak! Where Orcs come frome!");
+talkEntry:addResponse("...Denn es issigt Moshrans Blut, das ererbt, dem Ork stärkt und den Geist kräftiget. Sein Geist ist im Ork. Er, ist das Seil zu den Ahnen...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 22));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1080,11 +1067,11 @@ talkingNPC:addCycleText("#me streicht mit vernarbten Fingern über die Klinge sei
 talkingNPC:addCycleText("#me steckt seine Hand in einen Beutel voll Asche. Er lässt ein wenig Asche in den schwachen Luftzug der Höhle davon riseln.", "#me puts his hand inot a bag with ash. Next he allowes weak draft inside of the cave to blow a little bit ash out of his hand.");
 talkingNPC:addCycleText("#me nimmt einen Schluck aus einer kleinen schmuddeligen Flasche. Scharfer alkoholischer Dunst steigt in die Luft.", "#me takes a gulp from a grubby little bottle. A strong stench of alcohol fills the air.");
 talkingNPC:addCycleText("#me steckt sich etwas Krraut zwischen die Zähne und kaut darauf herum.", "#me puts some herb into his mouth and champs on it.");
-talkingNPC:addCycleText("#me fummelt etwas trockenes Baumharz aus seiner Manteltasche. Er reibt es zwischen den Fingern un dfür einen Moment ist dir als würde eine Flamme lodern. Dann macht sich ein wohliger, benebelnder Geruch breit.", "#me fumbles some dried tree gum out of his robe. He rubs it beetwen his fingers and for a moment you think you saw a flame there. Then a welfare dazing odour appears.");
+talkingNPC:addCycleText("#me fummelt etwas trockenes Baumharz aus seiner Manteltasche. Er reibt es zwischen den Fingern un dfür einen Moment ist dir als würde eine Flamme lodern. Dann macht sich ein wohliger, benebelnder Geruch breit.", "#me fumbles some dried tree gum out of his robe. He rubs it between his fingers and for a moment you think you saw a flame there. Then a welfare dazing haze appears.");
 talkingNPC:addCycleText("#me rückt seine Kutte zurecht.", "#me adjusts his cowl.");
 talkingNPC:addCycleText("#me bleckt seine Zähne und leckt sich schmatzend über die Lippen.", "#me bares his teeth and licks with a smack of his lips.");
-talkingNPC:addCycleText("Ehre die Götter. Ehre den Vatha.", "Honor the gods. Honour the father.");
-talkingNPC:addCycleText("#me streckt die Hand aus:'Ich fühlige mächtige Geister... um uns herum.'.", "#me holds his hand out:'I feel migthy spirits...surrounding us.'");
+talkingNPC:addCycleText("Ehre die Götter. Ehre den Vatha.", "Honour dha gods. Honour dha Faddha.");
+talkingNPC:addCycleText("#me streckt die Hand aus:'Ich fühlige mächtige Geister... um uns herum.'.", "#me holds his hand out:'I feel migthe spirits...surrounding us.'");
 talkingNPC:addCycleText("#me hält seine Hand über die Opferschale am Altar, diese beginnt augenblicklich merkwürdig zu leuchten.", "#me places his hand upon the sacrificial basin. In the next moment it starts to glow in a strange way.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
