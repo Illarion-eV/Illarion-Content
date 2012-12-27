@@ -971,14 +971,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Thud collect trophy! Collect fur! Horn! Salkish... paladin helmet! Ornate dagger! Dwarven axe! Elven composite longbow!");
+talkEntry:addResponse("Thud collect trophy! Collect fur! Horn! Salkish... paladin helmet! Ornate dagger! Dwarven axe! Elven composite longbow! Bring to Thud and get reward!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("troph");
-talkEntry:addResponse("Thud sammeln Trophäe! Sammelt Fell! Horn! Salkamarischer Paladinhelm! Dolch, verziert! Zwergenaxt! Elben-Kompositlangbogen!");
+talkEntry:addResponse("Thud sammeln Trophäe! Sammelt Fell! Horn! Salkamarischer Paladinhelm! Dolch, verziert! Zwergenaxt! Elben-Kompositlangbogen! Brings Thud und du kriegen Belohnung!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
