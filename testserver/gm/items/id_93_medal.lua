@@ -50,13 +50,6 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
         world:makeSound(Counter,TargetPos);
 		
 	elseif (SourceItem:getData("mode")=="Avatar changes") then			
-		--if (tonumber(SourceItem:getData("data"))==5) then --Avatar change
-			--User:setAttrib("racetyp",Counter);
-		--elseif (tonumber(SourceItem:getData("data"))==6) then
-			--User:setHair(Counter);
-		--elseif (tonumber(SourceItem:getData("data"))==7) then
-			--User:setBeard(Counter);	
-		
 		local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
 		local players = {User};
 		for _,player in pairs(playersTmp) do 
@@ -74,6 +67,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 				local inputString = dialog:getInput();
 				if (string.find(inputString,"(%a+) (%d+)") ~= nil) then
 					a, b, modifier, id = string.find(inputString,"(%a+) (%d+)");
+					id = tonumber(id);
 					if modifier == "race" then
 						debug("Change for "..chosenPlayer.name)
 						chosenPlayer:setAttrib("racetyp",id);
@@ -281,7 +275,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 	--Additions end
 		end
 	else
-        User:inform("Data 0;1;2 : Monsters - Data 3 : GFX - Data 4: SFX - Data 5: Race change - Data 6: hair change - Data 7: beard change - Data 8-11: Disasters");
+        User:inform("To set a mode type 'setmode' and use the medal.");
     end
 end 
 
