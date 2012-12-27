@@ -219,10 +219,8 @@ english, "Gobaith", "Gobiath" -> "#me thuds your head with his big club. 'Shut u
 "mein Name" -> "#me grinst blöde: 'Und ich Thud...'."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-race = orc, english, "orc", "murgo", "krudash", "grimlug", "olokwa", "Er'hja", "erhja", "mo'rurt", "morurt" -> "You good orc! Orc be Thud's friends. Orc be strong. Make biggest thuds."
 english, "orc", "murgo", "krudash", "grimlug", "olokwa", "Er'hja", "erhja", "mo'rurt", "morurt" -> "I'm orc. You orc? Noo! You stupid!"
 english, "Alice", "alize", "thom", "thomas", "berryard", "berry", "stout", "jack" -> "Thud be proud orc! Honour! Mes not talk with Snaga! Dirty scheschnak-monkeys!"
-race = orc, "ork", "orc", "murgo", "krudash", "grimlug", "olokwa", "Er'hja", "erhja", "mo'rurt", "morurt" -> "Du guter Ork. Orks sind Thud's Freunde. Orks sind stark. Machen größte Kabums."
 "ork", "orc", "murgo", "krudash", "grimlug", "olokwa", "Er'hja", "erhja", "mo'rurt", "morurt" -> "Ich bin Ork. Bist du Ork? Nöö! Du dumm."
 "Alice", "alize", "thom", "thomas", "berryard", "berry", "stout", "jack" -> "Thud stolzer Ork. Ehre! Ich nix sprech mit Snaga! Dreckige Scheschnak-Affen!"
 
