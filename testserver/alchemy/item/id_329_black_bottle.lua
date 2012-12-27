@@ -156,6 +156,7 @@ function DrinkPotion(User,SourceItem)
 		  
 		  -- saving of the old values
 		  if isMonster ~= 1 then -- we transform him into an other memeber of on of the six races, so we need to save those old values
+				User:inform("check 1")
 				myEffect:addValue("oldSex",oldSex)
 			    myEffect:addValue("oldHair",oldHair)
 				myEffect:addValue("oldBeard",oldBeard)
@@ -177,6 +178,7 @@ function DrinkPotion(User,SourceItem)
 			    myEffect:addValue("newHaircolor3",newHaircolor3)      
 		  
 		  end
+		  User:inform("oldrace: "..oldRace)
 		    myEffect:addValue("oldRace",oldRace)
 		    myEffect:addValue("oldHeight",oldHeight)
 		    myEffect:addValue("newRace",newRace)
