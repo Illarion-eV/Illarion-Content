@@ -75,7 +75,7 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
-talkEntry:addResponse("Seid grüßt.");
+talkEntry:addResponse("Seid gegrüßt.");
 talkEntry:addResponse("Grüße.");
 talkEntry:addResponse("Grüße, schön Euch mal wieder hier zu sehen.");
 talkEntry:addResponse("Zum Gruße, ich bin die Notarin dieser Stadt.");
@@ -100,9 +100,10 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Seid grüßt.");
+talkEntry:addResponse("Seid gegrüßt.");
 talkEntry:addResponse("Grüße.");
-talkEntry:addResponse("Be greeted, I am the notary of this town.");
+talkEntry:addResponse("Grüße, schön Euch mal wieder hier zu sehen.");
+talkEntry:addResponse("Zum Gruße, ich bin die Notarin dieser Stadt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -123,8 +124,8 @@ talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
 talkEntry:addResponse("Auf bald!");
-talkEntry:addResponse("Bis bald");
-talkEntry:addResponse("#me lächelt dich an und winkt zum Abschied");
+talkEntry:addResponse("Bis bald!");
+talkEntry:addResponse("#me lächelt dich an und winkt zum Abschied.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -145,7 +146,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Auf bald!");
-talkEntry:addResponse("#me lächelt dich an und winkt zum Abschied");
+talkEntry:addResponse("#me lächelt dich an und winkt zum Abschied.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -202,7 +203,7 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addResponse("Ick verkauf nichts, aber ich kann Euch als Bürger eintragen. Sag mir einfach wenn Ihr Bürger dieser Stadt werden möchtet.");
+talkEntry:addResponse("Ick verkauf nichts, aber ich kann Euch als Bürger eintragen. Sagt mir einfach wenn Ihr Bürger dieser Stadt werden möchtet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -324,7 +325,7 @@ talkEntry:addTrigger("give up citizenship");
 talkEntry:addTrigger("terminating citizen ship");
 talkEntry:addTrigger("leave");
 talkEntry:addTrigger("leaving");
-talkEntry:addResponse("You want to give up citizen ship in Cadomyr. Are you sure?");
+talkEntry:addResponse("You want to give up citizenship in Cadomyr. Are you sure?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -371,7 +372,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(209, "=", 1));
 talkEntry:addTrigger("ja");
-talkEntry:addResponse("Ihr seit nicht länger Büger unter dem Schutz der Königin Rosalines, Ihr gehört nicht mehr zu Cadomyrs. Fare well.");
+talkEntry:addResponse("Ihr seid nun nicht länger Büger unter dem Schutz Königin Rosalines, Ihr gehört nicht mehr zu Cadomyr. Auf bald.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "0"));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -442,7 +443,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 9));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Erzherzogin %! Hochwohlgeboren, wie ist es Euch ergangen?");
+talkEntry:addResponse("Erzherzogin %CHARNAME! Hochwohlgeboren, wie ist es Euch ergangen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,7 +463,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Ducess %CHARNAME!");
+talkEntry:addResponse("Greetings to you, Duchess %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -566,7 +567,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Baroness!");
+talkEntry:addResponse("Greetings to you, Baron!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -576,7 +577,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Baron!");
+talkEntry:addResponse("Greetings to you, Baroness!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -746,7 +747,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Ah! Du bist ein Knappin?");
+talkEntry:addResponse("Ah! Du bist eine Knappin?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -791,7 +792,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rank");
 talkEntry:addResponse("I do not know about other towns ranks.");
-talkEntry:addResponse("I am not interested in other systems of status than the Cadomyran one.");
+talkEntry:addResponse("I am not interested in other systems than the Cadomyran one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -799,38 +800,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("rang");
 talkEntry:addResponse(" Ich weiß nichts über Ränge in anderen Städten.");
 talkEntry:addResponse("Ich interessiere mich nur für das cadomyrische Statussystem.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("No, sorry. I have nothing to do for you. Why don't you just enjoy your stay in Cadomyr?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Nein, tut mir leid. Ich habe keinen Auftrag für Euch. Warum genießt Ihr nicht einfach Eure Aufenthalt in Cadomyr?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("order");
-talkEntry:addResponse("No, sorry. I have nothing to do for you. Why don't you just enjoy your stay in Cadomyr?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Nein, tut mir leid. Ich habe keinen Auftrag für Euch. Warum genießt Ihr nicht einfach Eure Aufenthalt in Cadomyr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -852,7 +821,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschenk aus Cadomyr"));
-talkEntry:addResponse("Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüsenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?");
+talkEntry:addResponse("Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -877,7 +846,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Geschenk aus Cadomyr"));
-talkEntry:addResponse("Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüsenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?");
+talkEntry:addResponse("Ich möchte meinen Großeltern in Salkamar ein Geschenk aus Cadomyr schicken. Sie mögen beiden Gartenarbeit, daher dachte ich daran ihnen fünf Wüstenhimmelskapseln zu schicken. Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten einige Wüstenhimmelskapseln für mich zu finden?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -893,7 +862,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved]  You are awarded with a dagger."));
-talkEntry:addResponse("Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it s shall be your rewand for your troubles.");
+talkEntry:addResponse("Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it shall be your reward for your troubles.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 433, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 2));
@@ -960,7 +929,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Be carefull, not only the desert os full of dangers. Most places are.");
+talkEntry:addResponse("Be carefull, not only the desert is full of dangers. Most places are.");
 talkEntry:addResponse("Thanks again for your help.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -969,7 +938,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Seid vorsichtig, nicht nur die Wüste wird von Monstern bevölkert. Sondern auch die meisten abderen Orte.");
+talkEntry:addResponse("Seid vorsichtig, nicht nur die Wüste wird von Monstern bevölkert. Sondern auch die meisten anderen Orte.");
 talkEntry:addResponse("Danke nochmals für Eure Hilfe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -979,7 +948,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Be carefull, not only the desert os full of dangers. Most places are.");
+talkEntry:addResponse("Be carefull, not only the desert is full of dangers. Most places are.");
 talkEntry:addResponse("Thanks again for your help.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -990,8 +959,40 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Seid vorsichtig, nicht nur die Wüste wird von Monstern bevölkert. Sondern auch die meisten abderen Orte.");
+talkEntry:addResponse("Seid vorsichtig, nicht nur die Wüste wird von Monstern bevölkert. Sondern auch die meisten anderen Orte.");
 talkEntry:addResponse("Danke nochmals für Eure Hilfe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("No, sorry. I have nothing to do for you. Why don't you just enjoy your stay in Cadomyr?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Nein, tut mir leid. Ich habe keinen Auftrag für Euch. Warum genießt Ihr nicht einfach Eure Aufenthalt in Cadomyr?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("No, sorry. I have nothing to do for you. Why don't you just enjoy your stay in Cadomyr?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Nein, tut mir leid. Ich habe keinen Auftrag für Euch. Warum genießt Ihr nicht einfach Eure Aufenthalt in Cadomyr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1003,7 +1004,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Hier könnt Ihr Euch bei mir als Bürger eintragen lassen.");
+talkEntry:addResponse("Hier könnt Ihr Euch als Bürger eintragen lassen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1016,21 +1017,21 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Hier könnt Ihr bei Euch als Bürger eintragen lassen.");
+talkEntry:addResponse("Hier könnt Ihr Euch als Bürger eintragen lassen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("Sand can be used to make glass, but I like it just the way it is. This place is full of sand, it is on the streets, inside my shoes, even the air is filled with sand if the wind is blowing. If you don't like sand, don't go to the desert.");
-talkEntry:addResponse("I really like sand. Especially quarz sand ");
+talkEntry:addResponse("I really like sand. Especially quarz sand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Sand kann man nutzen um Glas daraus zu machen, aber ich mag Sand so wie er ist. Dieser Ort ist voll von Sand, er ist auf den Straßen, in meinen Schuhen, selbst in der Luft ist Sand, wenn der Wind weht. Wer keinen Sand mag, sollte nicht in die Wüste gehen. ");
+talkEntry:addResponse("Sand kann man nutzen um Glas daraus zu machen, aber ich mag Sand so wie er ist. Dieser Ort ist voll von Sand, er ist auf den Straßen, in meinen Schuhen, selbst in der Luft ist Sand, wenn der Wind weht. Wer keinen Sand mag, sollte nicht in die Wüste gehen.");
 talkEntry:addResponse("Ich mag Sand sehr gerne, besonders Quartzsand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1268,7 +1269,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("I heard the archmage does nothing but reading books and studying the arcane arts. If it's true he must be amlost dead of stavation.");
+talkEntry:addResponse("I heard the archmage does nothing but reading books and studying the arcane arts. If it's true he must be almost dead of starvation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1372,8 +1373,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("I really love hot weather here, and you?");
-talkEntry:addResponse("Each Town has power germs, but ours, the ones of Cadomyr are the most beautifull of all!");
+talkEntry:addResponse("I really love the hot weather here, and you?");
+talkEntry:addResponse("Each Town has magical gems, but ours, the ones of Cadomyr, are the most beautifull of them all!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1442,13 +1443,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("A pleasure, I am Redet Odohir. And who are you?");
+talkEntry:addResponse("A pleasure, I am Redet Odohir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
-talkEntry:addResponse("Freut mich, ich bin Redet Odohir. Und wer seid Ihr?");
+talkEntry:addResponse("Freut mich, ich bin Redet Odohir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1470,14 +1471,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("#me smiles.");
-talkEntry:addResponse("That what I expected to hear from you.");
+talkEntry:addResponse("That's what I expected to hear from you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
 talkEntry:addResponse("#me lächelt.");
-talkEntry:addResponse("Das habe ich von Euch zu hören erwartet");
+talkEntry:addResponse("Das habe ich von Euch zu hören erwartet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1490,8 +1491,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("No. That's sad.");
-talkEntry:addResponse("No? well, You'll have a reason for saying so.");
+talkEntry:addResponse("No? That's sad.");
+talkEntry:addResponse("No? well, you'll have a reason for saying so.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1512,7 +1513,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me unterzeichnet ein Dokument.", "#me signs a document.");
 talkingNPC:addCycleText("#me befestigt ein Siegel an einem Brief.", "#me puts a seal under a letter.");
-talkingNPC:addCycleText("#me lächelt", "#me smilies");
+talkingNPC:addCycleText("#me lächelt.", "#me smilies.");
 talkingNPC:addCycleText("#me macht sich ein paar Notizen.", "#me takes some notes.");
 talkingNPC:addCycleText("#me summt eine Melodie.", "#me hums a melody.");
 tradingNPC:addNotEnoughMoneyMsg("Ihr habt nicht genug Geld.", "You don't have enought Money.");
