@@ -134,7 +134,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 					
 					if math.random(1,20)==1 then --5% chance for a rock
 						zufall=math.random(1,table.getn(rocks));
-						world:createItemFromId(rocks[zufall],1,location[i],true,333,0);
+						world:createItemFromId(rocks[zufall],1,location[i],true,333,nil);
 					end
 
 				end --all tiles affected
@@ -169,7 +169,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 
 					if not world:isItemOnField(location[i]) then --empty tile?
 						zufall=math.random(1,table.getn(rocks));
-						world:createItemFromId(rocks[zufall],1,location[i],true,333,0); --spawn a rock
+						world:createItemFromId(rocks[zufall],1,location[i],true,333,nil); --spawn a rock
 					end
 
 				end --all tiles affected
@@ -244,7 +244,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 
 				world:changeTile(2,TargetPos); --change to rock
 				zufall=math.random(1,table.getn(rocks));
-				world:createItemFromId(rocks[zufall],1,TargetPos,true,333,0); --spawn a rock
+				world:createItemFromId(rocks[zufall],1,TargetPos,true,333,nil); --spawn a rock
 				world:sendMapUpdate(TargetPos,30);
 				
 				flames={}; --Affected positions
@@ -263,7 +263,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 
 					if not world:isItemOnField(flames[i]) then --only empty "outside" tiles!
 
-						world:createItemFromId(359,1,flames[i],true,999,0); --spawn a flame
+						world:createItemFromId(359,1,flames[i],true,999,nil); --spawn a flame
 						theItem=world:getItemOnField(flames[i]);
 
 						if theItem.id==359 then --only flames!
@@ -274,8 +274,6 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 						end
 					end
 				end --all tiles affected
-			elseif(index == 4) then
-				User:inform("index 4 called successfully!")
 			end
 		end
 		infoText = "Used for destroying Gobiath, so use with caution!"		
@@ -284,7 +282,6 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 		sd:addOption(0, "Earthquake");
 		sd:addOption(0, "Thunderstorm");
 		sd:addOption(0, "Meteor Shower");
-		sd:addOption(0, "Test");
 		User:requestSelectionDialog(sd);		
 	else
         User:inform("To set a mode type 'setmode' and use the medal.");
