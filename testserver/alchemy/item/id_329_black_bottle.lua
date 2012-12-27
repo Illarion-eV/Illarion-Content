@@ -78,7 +78,7 @@ function DrinkPotion(User,SourceItem)
 		local isMonster = 0
 		
 		-- our old value to change the char later back
-		local oldRace = User:getRace()
+		local oldRace = User:getRace(); User:inform("just defined "..oldRace)
 	    local oldSkincolor1,oldSkincolor2,oldSkincolor3 = User:getSkinColor()
 	    local oldHaircolor1,oldHaircolor2,oldHaircolor3 = User:getHairColor()
 	    local oldSex = User:increaseAttrib("sex",0)
@@ -88,7 +88,7 @@ function DrinkPotion(User,SourceItem)
 		
 		-- check if there is already a an effect
 		local  find, myEffect = User.effects:find(329)
-		local oldRace, oldHeight, findOldRace, findOldHeight
+		local findOldRace, findOldHeight
 		if find then
 		    local  findNewRace, LteNewRace = myEffect:findValue("newRace")
 			local findCounter,counterBlack = myEffect:findValue("counterBlack")
@@ -112,7 +112,9 @@ function DrinkPotion(User,SourceItem)
 						findOldBeard, oldBeard = myEffect:findValue("oldBeard")
 					    findOldSex, oldSex = myEffect:findValue("oldSex")
 					end	
+					User:inform("here 1 "..oldRace)
 					findOldRace, oldRace = myEffect:findValue("oldRace")
+					User:inform("here 2 "..oldRace)
 			        findOldHeight, oldHeight = myEffect:findValue("oldHeight")
 					-- and remove the old effect
 					local effectRemoved = User.effects:removeEffect(329)
