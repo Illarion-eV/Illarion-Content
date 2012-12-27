@@ -75,6 +75,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 				if (string.find(inputString,"(%a+) (%d+)") ~= nil) then
 					a, b, modifier, id = string.find(inputString,"(%a+) (%d+)");
 					if modifier == "race" then
+						debug("Change for "..chosenPlayer.name)
 						chosenPlayer:setAttrib("racetyp",id);
 					elseif modifier == "beard" then
 						chosenPlayer:setBeard(id);
@@ -83,10 +84,10 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 					end
 				else
 					User:inform("Sorry, I didn't understand you.");
-					User:requestInputDialog(InputDialog("Change the appearance for the selected character", "Usage: race <id>, beard <id>, hair <id>" ,false, 255, cbInputDialog))
+					User:requestInputDialog(InputDialog("Change the appearance for the selected character.", "Usage: race <id>, beard <id>, hair <id>" ,false, 255, cbInputDialog))
 				end
 			end
-			User:requestInputDialog(InputDialog("Change the appearance for the selected character", "Usage: race <id>, beard <id>, hair <id>" ,false, 255, cbInputDialog))
+			User:requestInputDialog(InputDialog("Change the appearance for the selected character.", "Usage: race <id>, beard <id>, hair <id>" ,false, 255, cbInputDialog))
 		end
 		--Dialog to choose the player
 		local sdPlayer = SelectionDialog("Change the avatar of ...", "First choose a victim:", cbChoosePlayer);
@@ -286,4 +287,36 @@ end
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
     UseItemWithField(User,SourceItem,base.common.GetFrontPosition(User),Counter,Param);
+end
+
+function LookAtItem(User,Item)
+    if (Item:getData("mode")=="Monster") then
+		base.lookat.SetSpecialName(Item, "Medallie (Monster)","Medal (Monster)")
+		base.lookat.SetSpecialDescription(Item, "Sag die Monster ID und lass den Spaß beginnen.", "Say the monster ID and let the fun begin.");
+    elseif (Item:getData("mode")=="GFX") then
+        base.lookat.SetSpecialName(Item, "Medallie (GFX)","Medal (GFX)");
+		base.lookat.SetSpecialDescription(Item, "Sag die GFX ID und lass den Spaß beginnen.", "Say the GFX ID and let the fun begin.");
+	elseif (Item:getData("mode")=="SFX") then
+        base.lookat.SetSpecialName(Item, "Medallie (SFX)","Medal (SFX)");
+		base.lookat.SetSpecialDescription(Item, "Sag die SFX ID und lass den Spaß beginnen.", "Say the SFX ID and let the fun begin.");
+	elseif (Item:getData("mode")=="Avatar changes") then
+        base.lookat.SetSpecialName(Item, "Medallie (Avatar Änderungen)","Medal (Avatar changes)");
+		base.lookat.SetSpecialDescription(Item, "Ändert das Aussehen eines Charakters. Benutze die Medaille.", "Changes appearance of a character. Use the medal.");	
+	elseif (Item:getData("mode")=="Disasters") then
+        base.lookat.SetSpecialName(Item, "Medallie (Disaster)","Medal (Disasters)");
+		base.lookat.SetSpecialDescription(Item, "Disaster!! Benutze die Medaille.", "Disasters!! Use the medal.");	
+	else
+		base.lookat.SetSpecialDescription(Item, "Um einen Modus zu setzen sage 'setmode' und benutzt die Medaille.", "To set a mode type 'setmode' and use the medal.");
+        base.lookat.SetSpecialName(Item, "Medaille", "Medal");
+    end
+	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
+	
+    for intx=User.pos.x-5,User.pos.x+5 do
+        for inty=User.pos.y-5,User.pos.y+5 do
+            if (world:isCharacterOnField(position(intx,inty,User.pos.z))==true) then
+                TargetChar=world:getCharacterOnField(position(intx,inty,User.pos.z));
+                User:introduce(TargetChar);
+            end
+        end
+    end
 end
