@@ -72,8 +72,8 @@ skill(distanceWeapons) => 40, queststatus(301) => 25, queststatus(301) =< 29, en
 skill(distanceWeapons) => 40, queststatus(301) => 25, queststatus(301) =< 29, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(333, 1, 999), queststatus(301) + 5
 skill(distanceWeapons) => 40, queststatus(301) => 50, queststatus(301) =< 54, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(62, 1, 999), queststatus(301) + 5
 skill(distanceWeapons) => 40, queststatus(301) => 50, queststatus(301) =< 54, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(62, 1, 999), queststatus(301) + 5
-skill(distanceWeapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(2445, 1, 999, "gravur" = "1073741826"), queststatus(301) + 5
-skill(distanceWeapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2445, 1, 999, "gravur" = "1073741826"), queststatus(301) + 5
+skill(distanceWeapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(2445, 1, 999, "gravur" = "thud"), queststatus(301) + 5
+skill(distanceWeapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2445, 1, 999, "gravur" = "thud"), queststatus(301) + 5
 skill(distanceWeapons) => 40, queststatus(301) => 120, queststatus(301) =< 124, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(364, 1, 999), queststatus(301) + 5
 skill(distanceWeapons) => 40, queststatus(301) => 120, queststatus(301) =< 124, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(364, 1, 999), queststatus(301) + 5
 skill(distanceWeapons) => 40, queststatus(301) => 165, queststatus(301) =< 169, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(322, 50, 333), queststatus(301) + 5
@@ -97,8 +97,8 @@ skill(slashingWeapons) => 40, queststatus(301) => 50, queststatus(301) =< 54, en
 skill(slashingWeapons) => 40, queststatus(301) => 50, queststatus(301) =< 54, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(97, 1, 999), queststatus(301) + 5
 skill(slashingWeapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(333, 1, 999), queststatus(301) + 5
 skill(slashingWeapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(333, 1, 999), queststatus(301) + 5
-skill(slashingWeapons) => 40, queststatus(301) => 120, queststatus(301) =< 124, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(2448, 1, 999, "gravur" = "1073741826"), queststatus(301) + 5
-skill(slashingWeapons) => 40, queststatus(301) => 120, queststatus(301) =< 124, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2448, 1, 999, "gravur" = "1073741826"), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 120, queststatus(301) =< 124, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(2448, 1, 999, "gravur" = "thud"), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 120, queststatus(301) =< 124, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2448, 1, 999, "gravur" = "thud"), queststatus(301) + 5
 skill(slashingWeapons) => 40, queststatus(301) => 165, queststatus(301) =< 169, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(2286, 1, 999), queststatus(301) + 5
 skill(slashingWeapons) => 40, queststatus(301) => 165, queststatus(301) =< 169, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2286, 1, 999), queststatus(301) + 5
 skill(slashingWeapons) => 40, queststatus(301) => 250, queststatus(301) =< 254, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(2627, 1, 999), queststatus(301) = 1
@@ -121,8 +121,8 @@ queststatus(301) => 75, queststatus(301) =< 79, english, "troph" -> "Hurr, Thud 
 queststatus(301) => 75, queststatus(301) =< 79, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(67, 1, 999), queststatus(301) + 5
 queststatus(301) => 120, queststatus(301) =< 124, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(39, 1, 999), queststatus(301) + 5
 queststatus(301) => 120, queststatus(301) =< 124, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(39, 1, 999), queststatus(301) + 5
-queststatus(301) => 165, queststatus(301) =< 169, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(95, 1, 999, "gravur" = "1073741826"), queststatus(301) + 5
-queststatus(301) => 165, queststatus(301) =< 169, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(95, 1, 999, "gravur" = "1073741826"), queststatus(301) + 5
+queststatus(301) => 165, queststatus(301) =< 169, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(95, 1, 999, "gravur" = "thud"), queststatus(301) + 5
+queststatus(301) => 165, queststatus(301) =< 169, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(95, 1, 999, "gravur" = "thud"), queststatus(301) + 5
 queststatus(301) => 250, queststatus(301) =< 254, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(2742, 1, 999), queststatus(301) = 1
 queststatus(301) => 250, queststatus(301) =< 254, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2742, 1, 999), queststatus(301) = 1
 
