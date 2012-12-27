@@ -74,7 +74,7 @@ function DrinkPotion(User,SourceItem)
 		
 		-- new apperance
 		local newSex = potionEffectId - ((math.floor(potionEffectId/10))*10) -- example 551: race id 5 (lizard), sex 1 (female)
-		local newRace = ((potionEffectId - newSex - 200)/10)
+		local newRace = math.floor(((potionEffectId - newSex - 500)/10))
 		local isMonster = 0
 		
 		-- our old value to change the char later back
