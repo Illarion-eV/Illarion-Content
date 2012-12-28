@@ -58,11 +58,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		User:inform("To change the mode of these lockpicks, say \"setmode\" and use it.");
 	end
 
-	local frontChar = base.common.GetFrontCharacter(User);
-	if frontChar then
-		ShowCharInfo(User,frontChar);
-	end
-	
 	if (SourceItem:getData("mode")=="Eraser") then	
 	
 		--get all the items the char has on him, with the stuff in the backpack
