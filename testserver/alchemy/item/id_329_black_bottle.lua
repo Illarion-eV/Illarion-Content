@@ -76,7 +76,7 @@ function DrinkPotion(User,SourceItem)
 		local newSex = potionEffectId - ((math.floor(potionEffectId/10))*10) -- example 551: race id 5 (lizard), sex 1 (female)
 		local newRace = math.floor(((potionEffectId - newSex - 500)/10))
 		local isMonster = 0
-		
+		User:inform("newrace: "..newRace);User:inform("newsex: "..newSex)
 		-- our old value to change the char later back
 		local oldRace = User:getRace(); User:inform("just defined "..oldRace)
 	    local oldSkincolor1,oldSkincolor2,oldSkincolor3 = User:getSkinColor()
@@ -89,6 +89,7 @@ function DrinkPotion(User,SourceItem)
 		-- check if there is already a an effect
 		local  find, myEffect = User.effects:find(329)
 		local findOldRace, findOldHeight
+		local oldValues = false
 		if find then
 		    local  findNewRace, LteNewRace = myEffect:findValue("newRace")
 			local findCounter,counterBlack = myEffect:findValue("counterBlack")
@@ -101,7 +102,7 @@ function DrinkPotion(User,SourceItem)
 					end
 				else -- not the same transformation; we need to get the old apperance values from the LTE
 			       local findIsMonster, isMonster = myEffect:findValue("isMonster")
-					if isMonster == 1 then
+					if isMonster ~= 1 then
 					    findOldSkincolor1, oldSkincolor1 = myEffect:findValue("oldSkincolor1")
 						findOldSkincolor2, oldSkincolor2 = myEffect:findValue("oldSkincolor2")
 						findOldSkincolor3, oldSkincolor3 = myEffect:findValue("oldSkincolor3")
@@ -116,6 +117,7 @@ function DrinkPotion(User,SourceItem)
 					findOldRace, oldRace = myEffect:findValue("oldRace")
 					User:inform("here 2 "..oldRace)
 			        findOldHeight, oldHeight = myEffect:findValue("oldHeight")
+					oldValues = true
 					-- and remove the old effect
 					local effectRemoved = User.effects:removeEffect(329)
 					if not effectRemove then
@@ -155,38 +157,40 @@ function DrinkPotion(User,SourceItem)
 	   if not find then
 		  
 		 local myEffect = LongTimeEffect(329,1)
-		  
-		  -- saving of the old values
-		  if isMonster ~= 1 then -- we transform him into an other memeber of on of the six races, so we need to save those old values
-				User:inform("check 1")
-				myEffect:addValue("oldSex",oldSex)
-			    myEffect:addValue("oldHair",oldHair)
-				myEffect:addValue("oldBeard",oldBeard)
-				myEffect:addValue("oldSkincolor1",oldSkincolor1)
-				myEffect:addValue("oldSkincolor2",oldSkincolor2)
-				myEffect:addValue("oldSkincolor3",oldSkincolor3)
-				myEffect:addValue("oldHaircolor1",oldHaircolor1)
-				myEffect:addValue("oldHaircolor2",oldHaircolor2)
-				myEffect:addValue("oldHaircolor3",oldHaircolor3)
-		  
-		        myEffect:addValue("newSex",newSex)
-			    myEffect:addValue("newHair",newHair)
-			    myEffect:addValue("newBeard",newBeard)
-			    myEffect:addValue("newSkincolor1",newSkincolor1)
-			    myEffect:addValue("newSkincolor2",newSkincolor2)
-			    myEffect:addValue("newSkincolor3",newSkincolor3)
-			    myEffect:addValue("newHaircolor1",newHaircolor1)
-			    myEffect:addValue("newHaircolor2",newHaircolor2)
-			    myEffect:addValue("newHaircolor3",newHaircolor3)      
-		  
-		  end
-		  User:inform("oldrace: "..oldRace)
-		    myEffect:addValue("oldRace",oldRace)
-		    myEffect:addValue("oldHeight",oldHeight)
-		    myEffect:addValue("newRace",newRace)
-		    myEffect:addValue("newHeight",newHeight)
-            myEffect:addValue("isMonster",isMonster)
-		  
+		     
+			if oldValues == false then 
+			 -- saving of the old values
+			  if isMonster ~= 1 then -- we transform him into an other memeber of on of the six races, so we need to save those old values
+					User:inform("check 1")
+					myEffect:addValue("oldSex",oldSex)
+					myEffect:addValue("oldHair",oldHair)
+					myEffect:addValue("oldBeard",oldBeard)
+					myEffect:addValue("oldSkincolor1",oldSkincolor1)
+					myEffect:addValue("oldSkincolor2",oldSkincolor2)
+					myEffect:addValue("oldSkincolor3",oldSkincolor3)
+					myEffect:addValue("oldHaircolor1",oldHaircolor1)
+					myEffect:addValue("oldHaircolor2",oldHaircolor2)
+					myEffect:addValue("oldHaircolor3",oldHaircolor3)
+			  
+					myEffect:addValue("newSex",newSex)
+					myEffect:addValue("newHair",newHair)
+					myEffect:addValue("newBeard",newBeard)
+					myEffect:addValue("newSkincolor1",newSkincolor1)
+					myEffect:addValue("newSkincolor2",newSkincolor2)
+					myEffect:addValue("newSkincolor3",newSkincolor3)
+					myEffect:addValue("newHaircolor1",newHaircolor1)
+					myEffect:addValue("newHaircolor2",newHaircolor2)
+					myEffect:addValue("newHaircolor3",newHaircolor3)      
+			  
+			  end
+			  User:inform("oldrace: "..oldRace)
+				myEffect:addValue("oldRace",oldRace)
+				myEffect:addValue("oldHeight",oldHeight)
+				myEffect:addValue("newRace",newRace)
+				myEffect:addValue("newHeight",newHeight)
+				myEffect:addValue("isMonster",isMonster)
+		    end
+			
 		  -- transformation
 		  if isMonster ~= 1 then
 			 User:setAttrib("sex",newSex)

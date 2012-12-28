@@ -8,6 +8,10 @@ require("item.id_x_tinderbox")
 
 module("gm.items.id_99_lockpicks", package.seeall)
 
+itemPos = {"Head","Neck","Breast","Hands","Left Tool","Right Tool",
+	"Left Finger","Right Finger","Legs","Feet","Coat","Belt 1",
+	"Belt 2","Belt 3","Belt 4","Belt 5","Belt 6"}
+itemPos[0] = "Backpack"
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
@@ -67,19 +71,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	if (SourceItem:getData("mode")=="Eraser") then	
 	
-    --[[if (string.find(User.lastSpokenText,"remove id 0")~=nil) then
-        world:erase(base.common.GetFrontItem(User),1);
-	elseif (string.find(User.lastSpokenText,"remove")~=nil) then
-    	local TargetItem = base.common.GetTargetItem(User, SourceItem);
-		if TargetItem then
-			world:erase(TargetItem,TargetItem.number);
-		else
-			local frontitem = base.common.GetFrontItem(User);
-			if frontitem~=nil then
-				world:erase(frontitem,frontitem.number);
-			end
-		end]]
-		
 		--get all the items the char has on him, with the stuff in the backpack
 		local itemsOnChar = {};
 		for i=0, 17 do 
@@ -97,7 +88,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 					world:erase(frontitem,frontitem.number);
 				end
 			else
-				local chosenItem = itemsOnChar[dialog:getSelectedIndex()+1]
+				local chosenItem = itemsOnChar[dialog:getSelectedIndex()]
 				world:erase(chosenItem,chosenItem.number);
 			end
 		end			
@@ -105,7 +96,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		sdItems:addOption(0,"Front of char");
         for _,item in ipairs(itemsOnChar) do 
 			local itemName = world:getItemName(item.id,1) -- only english names folks
-			sdItems:addOption(0,itemName .. " (" .. item.itempos .. ") Count: ".. item.number);
+			sdItems:addOption(0,itemName .. " (" .. itemPos[item.itempos] .. ") Count: ".. item.number);
         end	
 		User:requestSelectionDialog(sdItems);
 		
