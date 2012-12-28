@@ -30,7 +30,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 	
 	if (string.find(User.lastSpokenText, "help")) then
-		User:inform("To change the mode of this medal, say \"setmode\" and use it.");
+		User:inform("To change the mode of these lockpicks, say \"setmode\" and use it.");
 	end
 
 	-- Initializing Lockpicks
@@ -340,4 +340,30 @@ end
 function ShowPosition(User) 
     InfoText="x="..User.pos.x..", y="..User.pos.y.. ", z="..User.pos.z;
     User:inform(InfoText);
+end
+
+function LookAtItem(User,Item)
+    if (Item:getData("mode")=="Eraser") then
+		base.lookat.SetSpecialName(Item, "Dietriche (Eraser)","Lockpicks (Eraser)")
+		base.lookat.SetSpecialDescription(Item, "Aufräumzeit!! Benutze die Dietriche.", "Clean up time! Use the lockpicks.");
+    elseif (Item:getData("mode")=="Teleport") then
+        base.lookat.SetSpecialName(Item, "Dietriche (Teleport)","Lockpicks (Teleport)");
+		base.lookat.SetSpecialDescription(Item, "Teleport", "Teleport");
+	elseif (Item:getData("mode")=="Char Info") then
+        base.lookat.SetSpecialName(Item, "Dietriche(Char Info)","Lockpicks (Char Info)");
+		base.lookat.SetSpecialDescription(Item, "Char Info. Benutze die Dietriche.", "Char Info. Use the lockpicks.");
+	else
+		base.lookat.SetSpecialDescription(Item, "Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "To set a mode type 'setmode' and use the lockpicks.");
+        base.lookat.SetSpecialName(Item, "Dietriche", "Lockpicks");
+    end
+	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
+	
+    for intx=User.pos.x-5,User.pos.x+5 do
+        for inty=User.pos.y-5,User.pos.y+5 do
+            if (world:isCharacterOnField(position(intx,inty,User.pos.z))==true) then
+                TargetChar=world:getCharacterOnField(position(intx,inty,User.pos.z));
+                User:introduce(TargetChar);
+            end
+        end
+    end
 end
