@@ -14,11 +14,10 @@ learnLimit: Maximum skill level the user can reach with the triggering action.
 ]]
 
 function learn(user, skill, actionPoints, learnLimit)
-
-    
 	
-	leadAttrib = getLeadAttrib(user,skill);
-    local skillName = user:getSkillName(skill)
+	leadAttrib = getLeadAttrib(user,skill); --reading the lead attribute
+	user:inform("Attr: "..leadAttrib.."!");
+    local skillName = user:getSkillName(skill) --reading the skill
 	
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
 	scalingFactor=500; --Here, you can mod the learning speed. Higher value=faster ;-)
