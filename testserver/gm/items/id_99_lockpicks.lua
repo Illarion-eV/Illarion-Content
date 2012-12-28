@@ -13,6 +13,27 @@ itemPos = {"Head","Neck","Breast","Hands","Left Tool","Right Tool",
 	"Belt 2","Belt 3","Belt 4","Belt 5","Belt 6"}
 itemPos[0] = "Backpack"
 
+Location={};
+Coordina={};
+Location[1]="Cadomyr Market";
+Coordina[1]={130,600,0};
+Location[2]="Galmair Castle";
+Coordina[2]={360,230,0};
+Location[3]="Galmair Town";
+Coordina[3]={400,250,0};
+Location[4]="Galmair South";
+Coordina[4]={400,355,0};
+Location[5]="Runewick Bridge";
+Coordina[5]={844,822,0};
+Location[6] = "Cadomyr Throne";
+Coordina[6] = {120,545,0};
+Location[7] = "Cadomyr Mine";
+Coordina[7] = {130,700,0};
+Location[8] = "Arena";
+Coordina[8] = {600,400,0};
+Location[9]="Runewick Market";
+Coordina[9]={900,800,1};
+
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	-- First check for mode change
@@ -37,33 +58,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		User:inform("To change the mode of these lockpicks, say \"setmode\" and use it.");
 	end
 
-	-- Initializing Lockpicks
-    if (firsttime==nil) then
-        firsttime=1;
-        
-        Location={};
-        Coordina={};
-        Location[1]="[cC]adomyr [mM]arket";
-        Coordina[1]={130,600,0};
-        Location[2]="[gG]almair [cC]astle";
-        Coordina[2]={360,230,0};
-        Location[3]="[gG]almair [tT]own";
-        Coordina[3]={400,250,0};
-        Location[4]="[Gg]almair [sS]outh";
-        Coordina[4]={400,355,0};
-        Location[5]="[rR]unewick [bB]ridge";
-        Coordina[5]={844,822,0};
-        Location[6] = "[cC]adomyr [tT]hrone";
-        Coordina[6] = {120,545,0};
-		Location[7] = "[cC]adomyr [mM]ine";
-        Coordina[7] = {130,700,0};
-		Location[8] = "[aA]rena";
-        Coordina[8] = {600,400,0};
-		Location[9]="[rR]unewick [mM]arket";
-        Coordina[9]={900,800,1};
-    end
-	
-	
 	local frontChar = base.common.GetFrontCharacter(User);
 	if frontChar then
 		ShowCharInfo(User,frontChar);
@@ -100,9 +94,22 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         end	
 		User:requestSelectionDialog(sdItems);
 		
-	end	
+	elseif (SourceItem:getData("mode")=="Teleport") then 	
+		local cbChooseLocation = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+            end
+            local index = dialog:getSelectedIndex();
+			User:warp(position(Coordina[i][1],Coordina[i][2],Coordina[i][3]))
+		end
+		local sdTeleport = SelectionDialog("Erase items.", "Choose the item you wish to erase:", cbChooseLocation);
+        for i=1, #(Location) do 
+			sdTeleport:addOption(0,Location[i] .. " (" .. Coordina[i][1]..", "..Coordina[i][2]..", "..Coordina[i][3] .. ")");
+        end	
+		User:requestSelectionDialog(sdTeleport);
+	end	-- end of modes
 		
-	if (string.find(User.lastSpokenText,"show position")~=nil) then
+	--[[if (string.find(User.lastSpokenText,"show position")~=nil) then
 		ShowPosition(User);
 	elseif (string.find(User.lastSpokenText,"show locations")~=nil) then
 		local out = "";
@@ -320,7 +327,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             acHP=User:increaseAttrib("hitpoints",0);
             User:increaseAttrib("hitpoints",10000-acHP);
         end
-    end
+    end]]
 end
 
 function ShowCharInfo(User,TargetCharakter)

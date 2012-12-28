@@ -118,7 +118,7 @@ function DrinkPotion(User,SourceItem)
 			        findOldHeight, oldHeight = myEffect:findValue("oldHeight")
 					-- and remove the old effect
 					local effectRemoved = User.effects:removeEffect(329)
-					if not effectRemove then
+					if not effectRemoved then
 					    base.common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. black bottle script", "Error: inform dev. Lte not removed. black bottle script.")
 			            return
 					end	
@@ -203,7 +203,7 @@ function DrinkPotion(User,SourceItem)
 		  User:increaseAttrib("hitpoints",10)
 
 		  -- duration depends on the potion's quality
-		 local duration = math.floor(SourceItem.quality/100)*10 -- effect is called every minute. quality 1 = 10 minutes; quality 9 = 90
+		 local duration = 5 --math.floor(SourceItem.quality/100)*10 -- effect is called every minute. quality 1 = 10 minutes; quality 9 = 90
 		  myEffect:addValue("counterBlack",duration)
 		  User.effects:addEffect(myEffect)
         end
