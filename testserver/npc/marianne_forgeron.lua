@@ -153,7 +153,7 @@ talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse(" Marianne Forgeron, that's my name.");
-talkEntry:addResponse(" Marianne Forgeron.");
+talkEntry:addResponse("Marianne Forgeron.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -197,7 +197,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich hab nix für dich zu tun.");
+talkEntry:addResponse("Ich hab nichts für dich zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -214,13 +214,13 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich hab nix für dich zu tun.");
+talkEntry:addResponse("Ich hab nichts für dich zu tun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am a magical Blacksmith. How one becomes a magical blacksmith is none of your bussinens.");
+talkEntry:addResponse("I am a magical Blacksmith. How one becomes a magical blacksmith is none of your business.");
 talkEntry:addResponse("I am a magical Blacksmith. The rest is a professional secret.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -235,7 +235,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I am a magical Blacksmith. How one becomes a magical blacksmith is none of your bussinens.");
+talkEntry:addResponse("I am a magical blacksmith. How one becomes a magical blacksmith is none of your business.");
 talkEntry:addResponse("I am a magical Blacksmith. The rest is a professional secret.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -751,15 +751,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("What? No?...");
+talkEntry:addResponse("What? No?");
 talkEntry:addResponse("That not nice of ya.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("Wie? Nich'...?");
-talkEntry:addResponse("Datt is jez aber nicht nett.");
+talkEntry:addResponse("Wie? Nicht?");
+talkEntry:addResponse("Dat is jez aber nicht nett.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -784,9 +784,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me streicht sich eine Haarsträhne aus dem Gesicht.", "#me wipes some hair off her face.");
 talkingNPC:addCycleText("#me schaut in den Himmel.", "#me lookes into the sky.");
-talkingNPC:addCycleText("Magischer Schmied, Marinne Forgeron!", "Magical Blacksmith, Marinne Forgeron!");
+talkingNPC:addCycleText("Magischer Schmied, Marianne Forgeron!", "Magical Blacksmith, Marianne Forgeron!");
 talkingNPC:addCycleText("#me winkt, einen Hammer in der Hand haltend.", "#me waves with the hammer in her hand.");
-talkingNPC:addCycleText("Magische Edelseine sind janz nett. Aber ich kann se noch mehr veredelen!", "Magical gems are nice. I can make yours even nicer!");
+talkingNPC:addCycleText("Magische Edelseine sind janz nett. Aber ich kann se noch mehr veredeln!", "Magical gems are nice. I can make yours even nicer!");
 talkingNPC:addCycleText("#me summt eine rhytmische Melodie.", "#me humms a rhytmic melodie.");
 talkingNPC:addCycleText("#me schaut sich um.", "#me lookes abound.");
 talkingNPC:addCycleText("Schönes Wetter heute.", "Nice weather today!");
