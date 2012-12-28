@@ -10,7 +10,30 @@ module("gm.items.id_99_lockpicks", package.seeall)
 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-	-- Hello World
+	
+	-- First check for mode change
+	if (string.find(User.lastSpokenText, "setmode")~=nil) then
+		local modes = {"Eraser", "Teleport", "Char Info"}
+		local cbSetMode = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			SourceItem:setData("mode", modes[dialog:getSelectedIndex()+1]);
+			world:changeItem(SourceItem);
+		end
+		local sd = SelectionDialog("Set the mode of this medal.", "To which mode do you want to change it?", cbSetMode);
+		for _,m in ipairs(modes) do 
+			sd:addOption(0,m);
+		end
+		User:requestSelectionDialog(sd);
+		return;
+	end
+	
+	if (string.find(User.lastSpokenText, "help")) then
+		User:inform("To change the mode of this medal, say \"setmode\" and use it.");
+	end
+
+	-- Initializing Lockpicks
     if (firsttime==nil) then
         firsttime=1;
         
@@ -35,11 +58,16 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		Location[9]="[rR]unewick [mM]arket";
         Coordina[9]={900,800,1};
     end
+	
+	
 	local frontChar = base.common.GetFrontCharacter(User);
 	if frontChar then
 		ShowCharInfo(User,frontChar);
 	end
-    if (string.find(User.lastSpokenText,"remove id 0")~=nil) then
+	
+	if (SourceItem:getData("mode")=="Eraser") then	
+	
+    --[[if (string.find(User.lastSpokenText,"remove id 0")~=nil) then
         world:erase(base.common.GetFrontItem(User),1);
 	elseif (string.find(User.lastSpokenText,"remove")~=nil) then
     	local TargetItem = base.common.GetTargetItem(User, SourceItem);
@@ -50,8 +78,40 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			if frontitem~=nil then
 				world:erase(frontitem,frontitem.number);
 			end
+		end]]
+		
+		--get all the items the char has on him, with the stuff in the backpack
+		local itemsOnChar = {};
+		for i=0, #17 do 
+			table.insert(itemsOnChar, User:getItemAt(i));
 		end
-	elseif (string.find(User.lastSpokenText,"show position")~=nil) then
+					
+		local cbChooseItem = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+            end
+            local index = dialog:getSelectedIndex();
+			if (index == 0) then 
+				local frontitem = base.common.GetFrontItem(User);
+				if frontitem~=nil then
+					world:erase(frontitem,frontitem.number);
+				end
+			else
+				local chosenItem = itemsOnChar[dialog:getSelectedIndex()+1]
+				world:erase(chosenItem,chosenItem.number);
+			end
+		end			
+		local sdItems = SelectionDialog("Erase items.", "Choose the item you wish to erase:", cbChooseItem);
+		sdItems:addOption(0,"Front of char");
+        for _,item in ipairs(itemsOnChar) do 
+			local itemName = world:getItemName(item.id,1) -- only english names folks
+			sdItems:addOption(0,itemName .. " (" .. item.itempos .. ") Count: ".. item.number);
+        end	
+		User:requestSelectionDialog(sdItems);
+		
+	end	
+		
+	if (string.find(User.lastSpokenText,"show position")~=nil) then
 		ShowPosition(User);
 	elseif (string.find(User.lastSpokenText,"show locations")~=nil) then
 		local out = "";
