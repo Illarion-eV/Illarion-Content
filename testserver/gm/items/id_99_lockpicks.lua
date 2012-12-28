@@ -122,7 +122,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 				return;
 			end
 			local chosenPlayer = players[dialog:getSelectedIndex()+1];
-			local mDialog = MessageDialog("Character Info for "..chosenPlayer.name, "HP: "..chosenPlayer:increaseAttrib("hitpoints", 0).."MP: "..chosenPlayer:increaseAttrib("mana", 0)..
+			local mDialog = MessageDialog("Character Info for "..chosenPlayer.name, "HP: "..chosenPlayer:increaseAttrib("hitpoints", 0).." MP: "..chosenPlayer:increaseAttrib("mana", 0)..
 							"\nSTR: "..chosenPlayer:increaseAttrib("strength", 0).." CONST: "..chosenPlayer:increaseAttrib("constitution", 0).." DEX: "..chosenPlayer:increaseAttrib("dexterity", 0)..
 							"\nAGI: "..chosenPlayer:increaseAttrib("agility", 0).." WIL: "..chosenPlayer:increaseAttrib("willpower", 0).." PERC: "..chosenPlayer:increaseAttrib("perception", 0).." ESS: "..User:increaseAttrib("essence", 0)..
 							"\nMental Capacity: "..tostring(chosenPlayer:getMentalCapacity())..
