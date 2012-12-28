@@ -71,19 +71,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	if (SourceItem:getData("mode")=="Eraser") then	
 	
-    --[[if (string.find(User.lastSpokenText,"remove id 0")~=nil) then
-        world:erase(base.common.GetFrontItem(User),1);
-	elseif (string.find(User.lastSpokenText,"remove")~=nil) then
-    	local TargetItem = base.common.GetTargetItem(User, SourceItem);
-		if TargetItem then
-			world:erase(TargetItem,TargetItem.number);
-		else
-			local frontitem = base.common.GetFrontItem(User);
-			if frontitem~=nil then
-				world:erase(frontitem,frontitem.number);
-			end
-		end]]
-		
 		--get all the items the char has on him, with the stuff in the backpack
 		local itemsOnChar = {};
 		for i=0, 17 do 
@@ -102,7 +89,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 				end
 			else
 				local chosenItem = itemsOnChar[dialog:getSelectedIndex()]
-				debug("Item "..chosenItem.." at pos "..itemPos[chosenItem.itempos])
 				world:erase(chosenItem,chosenItem.number);
 			end
 		end			
