@@ -42,9 +42,7 @@ function learn(user, skill, actionPoints, learnLimit)
             attributeFactor=math.min(1.5,(0.5+0.5*(leadAttrib/10))); --0.5 to 1.5, depending on attribute, limited to 1.5 (no bonus for insane attributes, balancing!)
 			actionpointFactor=(actionPoints/normalAP); --An action with 50AP is "normal"
 			minorIncrease=math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor);
-			
-			user:inform("Incr: "..minorIncrease.."!");
-			
+
 			while minorIncrease>0 do --for the rare case that an action results in two swirlies, we have this loop
 			
                 realIncrease=math.min(minorIncrease,10000) -- to prevent overflow, we cannot gain more than one level per action anyway

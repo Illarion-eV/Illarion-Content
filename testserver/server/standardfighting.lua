@@ -261,8 +261,8 @@ function CauseDamage(Attacker, Defender, Globals)
 	
 	Globals.Damage=math.floor(Globals.Damage); --Hitpoints are an integer
 	
-    --Attacker.Char:inform("Dealt damage: ".. Globals.Damage .. " HP."); --Debugging
-	--Defender.Char:inform("Received damage: ".. Globals.Damage .. " HP."); --Debugging
+    Attacker.Char:inform("Dealt damage: ".. Globals.Damage .. " HP."); --Debugging
+	Defender.Char:inform("Received damage: ".. Globals.Damage .. " HP."); --Debugging
 	
     if base.character.IsPlayer(Defender.Char) 
         and base.character.WouldDie(Defender.Char, Globals.Damage + 1)
