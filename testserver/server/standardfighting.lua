@@ -340,9 +340,7 @@ end;
 -- @param Defender The table that stores the values of the defender
 -- @return true in case the target receives the hit
 function ChanceToHit(Attacker, Defender)
-    local chance = (20 + Attacker.skill)
-        / ((20 + Defender.dodge)
-            * 2);
+    local chance = (20 + Attacker.skill)/((20 + Defender.dodge)* 2);
     if (Attacker.isWeapon) then
         chance = chance * (40 + Attacker.Weapon.Accuracy) / 100;
     else
