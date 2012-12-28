@@ -158,6 +158,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			User:requestSelectionDialog(killDialog)
 			
 			local index = killDialog:getSelectedIndex()
+			debug("selected index:"..index)
 			if index == 0 then --let's kill it
 				chosenPlayer:increaseAttrib("hitpoints", -10000)
 			elseif index == 1 then --let's revive it
