@@ -8,9 +8,13 @@ ALCHEMY = 0
 CRAFTING = 1
 FAIRYTALES = 2
 
-function addBook(id, germanTitle, englishTitle)
+GODS1 = 10
+GODS2 = 11
+GODS3 = 12
+
+function addBook(id, germanTitle, englishTitle, bookItemId)
     books = books or {}
-    books[id] = {german = germanTitle, english = englishTitle}
+    books[id] = {["german"] = germanTitle, ["english"] = englishTitle, ["itemId"] = ((bookItemId~=nil) and bookItemId or 116) }
 end
 
 function addBookshelf(pos, containedBooks)
@@ -28,9 +32,13 @@ end
 addBook(ALCHEMY, "Alchemie", "Alchemy")
 addBook(CRAFTING, "Handwerk", "Crafting")
 addBook(FAIRYTALES, "Märchen", "Fairy Tales")
+addBook(GODS1, "Götterkunde", "Lore of the Gods", 111)
+addBook(GODS2, "Illarions Götterwelt", "Gods of Illarion", 113)
+addBook(GODS3, "Götterkunde", "Lore of the Gods", 3114)
 
 addBookshelf(position(10, 10, 0), {CRAFTING, FAIRYTALES})
 addBookshelf(position(7, 7, 0), {CRAFTING})
+addBookshelf(position(897, 833, 1), {GODS1, GODS2, GODS3})
 
 
 function LookAtItem(user, item)
@@ -91,7 +99,8 @@ function UseItem(user, item, target, counter, param, ltstate)
             local dialog = SelectionDialog(title, description, callback)
             
             for i=1, bookCount do
-                dialog:addOption(116, base.common.GetNLS(user, books[bookshelf[i]].german, books[bookshelf[i]].english))
+				local book = books[bookshelf[i]];
+                dialog:addOption(book.itemId, base.common.GetNLS(user, book.german, book.english))
             end
             
             user:requestSelectionDialog(dialog)
