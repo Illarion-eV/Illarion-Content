@@ -261,8 +261,8 @@ function CauseDamage(Attacker, Defender, Globals)
 	
 	Globals.Damage=math.floor(Globals.Damage); --Hitpoints are an integer
 	
-    --Attacker.Char:inform("Dealt damage: ".. Globals.Damage .. " HP."); --Debugging
-	--Defender.Char:inform("Received damage: ".. Globals.Damage .. " HP."); --Debugging
+    Attacker.Char:inform("Dealt damage: ".. Globals.Damage .. " HP."); --Debugging
+	Defender.Char:inform("Received damage: ".. Globals.Damage .. " HP."); --Debugging
 	
     if base.character.IsPlayer(Defender.Char) 
         and base.character.WouldDie(Defender.Char, Globals.Damage + 1)
@@ -313,9 +313,12 @@ function CauseDamage(Attacker, Defender, Globals)
             "#me stolpert zurück und geht zu Boden.",
             "#me stumbles back and falls to the ground.");
 
-        base.common.ParalyseCharacter(Defender.Char, 7, false, true);
-
-        lte.chr_reg.stallRegeneration(Defender.Char, 20);
+		if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
+		
+            base.common.ParalyseCharacter(Defender.Char, 7, false, true);
+            lte.chr_reg.stallRegeneration(Defender.Char, 20);
+			
+		end
 
         return true;
     else
@@ -337,9 +340,7 @@ end;
 -- @param Defender The table that stores the values of the defender
 -- @return true in case the target receives the hit
 function ChanceToHit(Attacker, Defender)
-    local chance = (20 + Attacker.skill)
-        / ((20 + Defender.dodge)
-            * 2);
+    local chance = (20 + Attacker.skill)/((20 + Defender.dodge)* 2);
     if (Attacker.isWeapon) then
         chance = chance * (40 + Attacker.Weapon.Accuracy) / 100;
     else
