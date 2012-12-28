@@ -51,7 +51,7 @@ talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Greebas! How, the shaman 's able to help you?");
 talkEntry:addResponse("Hurr! What's your desire?");
-talkEntry:addResponse("Hullo! - Greets to you.");
+talkEntry:addResponse("Hullo! Greets to you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -68,7 +68,7 @@ talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
 talkEntry:addResponse("Greebas! Wie kann dir der Schamane helfigen?");
 talkEntry:addResponse("Hurr! Was issigt dein Begehr?");
-talkEntry:addResponse("Hullo! - Sei gegrüßigt.");
+talkEntry:addResponse("Hullo! Sei gegrüßigt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -80,7 +80,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Greebas! How, the shaman 's able to help you?");
 talkEntry:addResponse("Hurr! What's your desire?");
-talkEntry:addResponse("Hullo! - Greets to you.");
+talkEntry:addResponse("Hullo! Greets to you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -91,7 +91,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Greebas! Wie kann dir der Schamane helfigen?");
 talkEntry:addResponse("Hurr! Was issigt dein Begehr?");
-talkEntry:addResponse("Hullo! - Sei gegrüßigt.");
+talkEntry:addResponse("Hullo! Sei gegrüßigt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -237,7 +237,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("stop");
-talkEntry:addResponse("Hrm, Grimlug should tell anoter tale?");
+talkEntry:addResponse("Hrm, Grimlug should tell another tale?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -266,15 +266,15 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Creation");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'continue' to progress the tale or 'stop'."));
-talkEntry:addResponse("Long tiem ago, dha gods become bored. So Bragon, dha older broddher ob Moshran our Faddha walked to him and let cut obb dha Bragons arm. Bodh collectad Bragons blood and modeled dha sun....");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
+talkEntry:addResponse("...Und so, er hilft kranke Orks. Und tut sein Wirken als Schamane.  So ist es wichtig, das die Stärke des Orkes Geist, ist groß. Er wird gesund und stark sein wenn....");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 16));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 1));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("...Dha arm droped down, and become land. Wibh dha hand ob Bragon dhat beh left, Bragon took H'ref, the sun, and whipped it ober dha Arm, G'rak like it beh child...");
+talkEntry:addResponse("...Dha arm dropped down, and become land. Wibh dha hand ob Bragon dhat beh left, Bragon took H'ref, the sun, and whipped it ober dha arm, G'rak like it beh child...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 2));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -282,7 +282,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 2));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("...Furthermore dha odha gods took parts of dham and creatad dha folk. Dheh dhrew dham on G'rak to see, ib dheh beh worthe to be. The folk beh cold and lifeless beh. Like G'rak...");
+talkEntry:addResponse("...Furthermore dha odha gods took parts of dham and creatad dha folk. Dheh dhrew dham on G'rak to see ib dheh beh worthy. The folk beh cold and lifeless like G'rak...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 3));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -290,7 +290,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 3));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("...But dha Faddha hub some of Bragons blood left. So he spilled all ob it ober G'rak. Dhen dha folk become warm in dhea bodehs. But some folk he forgat, so dheh beh still cold...");
+talkEntry:addResponse("...But dha Faddha hub some of Bragon's blood left, so he spilled all ob it ober G'rak. Dhen dha folk become warm in dhea bodehs. But some folk he forgat, so dheh beh still cold...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 4));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -298,7 +298,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 4));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("...When dha Faddha slept his former female Cherga, dha iceh witch, she bewitched G'rak. Whub Moshran alwahs took whib him. G'rak budges and strains. Dha iceh witch received him. So dha spirit infest dha folk.");
+talkEntry:addResponse("...When dha Faddha slept his former female Cherga, dha iceh witch, she bewitched G'rak, whub Moshran alwahs took whib him. G'rak budges and strains and dha iceh witch received him so dha spirit infest dha folk.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -339,8 +339,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 4));
 talkEntry:addTrigger("weiter");
-talkEntry:addResponse("...Aber manche Völker vergaßet er. Sie sind kalt gebliebigt. Als Moshran, seinem damaligen Weib Cherga dazulag, der eisigen Hexe, verzauberte sie G'rak. Den Moshran immerstets mit sich trug...");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 5));
+talkEntry:addResponse("He iss the Don. That means he's the mightiest dwarf arround. Grockthâ.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -369,7 +368,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 7));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("...she huse shineh mirror ob ore to hub a eye at G'rak. Dhat beh dha Moon. It rains when H'ref and G'rak lie dogetha. Ofta you hear dham gasp and yell. Dhat beh dha dhunda...");
+talkEntry:addResponse("...she use shineh mirror ob ore to hub a eye at G'rak. Dhat beh dha Moon. It rains when H'ref and G'rak lie dogetha. Ofta you hear dham gasp and yell. Dhat beh dha dhunda...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 8));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -377,18 +376,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 8));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("...In dhat way dheh beget spirits. Whub beh here, from now on. Dhat beh dha bolts. And bolts beh dhea, whea dha power ob dha spirits beh bereh mighte.");
+talkEntry:addResponse("...In dhat way dheh beget spirits whub beh here, from now on. Dhat beh dha lightning bolts. And bolts beh dhea, whea dha power ob dha spirits beh bereh mighte.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grak");
-talkEntry:addTrigger("Href");
-talkEntry:addTrigger("G'rak");
-talkEntry:addTrigger("H'ref");
-talkEntry:addTrigger("G rak");
-talkEntry:addTrigger("H ref");
+talkEntry:addTrigger("Cadomyr");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
 talkEntry:addResponse("G'rak warig sehr schön und stark. Und H'ref aussuchte ihn. Sie wurdigte sein Weib. Nie gehen sie weg von einander. Und in der Nacht, wenn H'ref ihren Mann nicht ansehen kann...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 7));
@@ -422,7 +416,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 10));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("...worship thea ancestors and dha Faddha. Ib it beh weak as Ommies, green skin earn resentment and bad luck. Furtha, in dha Orcs beh dha spirit ob Bragon. He makes dha bodeh warm...");
+talkEntry:addResponse("...worship thea ancestors and dha Faddha. Ib it beh weak as Oomies, green skin earn resentment and bad luck. Furtha, in dha Orcs beh dha spirit ob Bragon. He makes dha bodeh warm...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 11));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -430,7 +424,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 11));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("...Ib broddha or sistah dies, dha spirit beh brought ober dha eternal rift between G'rak and dha land ob dha ancestors. Dha Faddhas spirit beh leaved at G'rak, as long dha descendant praise dhea ancestors...");
+talkEntry:addResponse("...Ib broddha or sistah dies, dha spirit beh brought ober dha eternal rift between G'rak and dha land ob dha ancestors. Dha Faddha's spirit beh leaved at G'rak, as long dha descendant praise dhea ancestors...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 12));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -438,7 +432,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 12));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("...And in dhat waeh dha tie beh bind. Beh broddha or sistha calling ancestors, dham beh able to hear and help. Broddhas and sisthas also hub dha Chergas spirit. It beh dha voices yoo hear whispering in yoo...");
+talkEntry:addResponse("...And in dhat waeh dha tie beh bindin. Beh broddha or sistha calling ancestors, dham beh able to hear and help. Broddhas and sisthas also hub dha Cherga's spirit. It beh dha voices yoo hear whispering in yoo...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -504,7 +498,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 15));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("...But onleh shamans beh able contact mighte and unkonwn spirits. So he helps ill broddhas and sisthas. And dheafore shamans beh fulfill his predestiantion...");
+talkEntry:addResponse("...But onleh shamans beh able contact mighte and unkonwn spirits, so he helps ill broddhas and sisthas and dheafore shamans beh fulfilling his predestiantion...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 16));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -512,7 +506,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 16));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("...It beh important, dhat dha green skin spirit beh strong, big. And dha green skin will beh healthe and strong ib he praise dha ancestors and spirits beh surround.");
+talkEntry:addResponse("...It beh important, dhat dha green skin spirit beh strong and big, and dha green skin will beh healthe and strong ib he praise dha ancestors and spirits beh surrounding us.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -578,7 +572,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Er dieser Zauberer ist, von den Elfen... Hurr! Ich spühre seine Kräfte von weit weg, noch. Gâsh.");
+talkEntry:addResponse("Cherga, dha iceh witch, escorts dha ghost drough dha nubbing, the eternal rift between dha worlds, into dha land ob dha ancestors...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 18));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -636,13 +631,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair! Eign'tlich das die Häuser ober uns sind, an der frischigen Luft. Dies - hier unten einfach nur eine alte Miene ist. Die Schlackengrube.");
+talkEntry:addResponse("...Er bekommt viele Diener und Sklaven. Die Weiber werden ihn lieben.  Wenn er schwach und feige war, wird er dort selbst dienen.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("The humanz and thier kingens. Scheschnacks! The strongest one should be the chief! Nub just inherit privileges to decide.");
+talkEntry:addResponse("The humanz and their kingens. Scheschnacks! The strongest one should be the chief! Nub just inherit privileges to decide.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -656,7 +652,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("The humanz and thier kingens. Scheschnacks! The strongest one should be the chief! Nub just inherit privileges to decide.");
+talkEntry:addResponse("The humanz and their kingens. Scheschnacks! The strongest one should be the chief! Nub just inherit privileges to decide.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -668,15 +664,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("There're Orks in Cadomyr. But hurr, they are weaklings! They nub worth to be called Ork. Mes hate them. Gôsch!");
+talkEntry:addTrigger("continue");
+talkEntry:addResponse("...Cause it beh dha Faddha's blood, inherited, which strengthen dha Orc and fortify dha spirit, his spirit beh in dha Orc, dha tie to ancestors...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 22));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Es gibt Orks in Cadomyr. Aber sie Schwächlinge sind! Sie es nicht Wert sind, genannt werden - Ork. Ich hassen sie alle, gôsch!");
+talkEntry:addResponse("...He will provide untamable blood frenzy in battle but he become also quick angreh, dhat reason for onle Shamans using his name.");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -704,7 +701,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("Scheschnacks! S' heißt dort sind Orkse in Gynk. Aber ich sag, diese Affen sind keine echten Orks, solang sie nichtmal das Norbuk Plateau gesehn habn.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Sage 'weiter' um die Erzählung fortzusetzen oder 'Stop'."));
+talkEntry:addResponse("Moshran. Er ist der Schlachtenwüterich. Der Knochenbrecher. Der Blutgott. Er ist der Vater von jedem Ork, gleich wie der Ork der die Mutter belegen hat...");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 21));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -726,10 +725,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("wo her");
 talkEntry:addTrigger("kroch gurak");
 talkEntry:addTrigger("Kroch'Gurak");
-talkEntry:addResponse("Kroch'gurak! Is where most ob us orcs come from. This be the big wintercamp at Norbuk Plateau be!");
-talkEntry:addResponse("Kroch'Gurak is located in the West of the Plateau and in winter a lot of tribes gather there to camp. It's a big town of natural and diged caves, filled with many flocks and ressources.");
-talkEntry:addResponse("The winter's good time for the young orclings. They do pigshunt and wrestling and choose females! He-he!");
-talkEntry:addResponse("Kroch'Gurak! This is THE Ork twon! Filled with orcs and orcs and goats and pigs and much more orcs! You should here the 'Bragg-Thu' And the drums!");
+talkEntry:addResponse("Ich nix verkauf irgendwas, Schwachkopf!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -814,7 +810,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 18));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("...Ib a broddha or sistha hub smashed maneh enemies in dha battle and beh strong in his lifetime, his reputation dhea will be vast. And his ancestors will honour him...");
+talkEntry:addResponse("...Ib a broddha or sistha hub smashed maneh enemies in dha battle and beh strong in dhea lifetime, dhea reputation dhea will be vast. And dhea ancestors will honour dham...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 19));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -822,7 +818,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 19));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("...Like he honoured dham before. He will hub maneh servants and slaves, and dha women will love him. Ib broddha or sistah beh weak and cowardly, dha broddha or sistha will serve.");
+talkEntry:addResponse("...Like dhea honoured dham before. He will hub maneh servants and slaves, and dha women will love him. Ib broddha or sistah beh weak and cowardly, dha broddha or sistha will serve.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -865,7 +861,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'continue' to progress the tale or 'stop'."));
-talkEntry:addResponse("Moshran. He beh dha war bringer. Dha bone crusher. Dha blood lord. He beh dha Faddher ob ebbreh Orc...");
+talkEntry:addResponse("Moshran. He beh dha war bringer, dha bone crusher, dha blood lord. He beh dha Faddher ob ebbreh Orc...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 21));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -885,7 +881,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 21));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("...Cause it beh dha Faddhas blood, inherited, which strengthen dha Orc and fortify dha spirit. His spirit beh in dha Orc, dha tie to ancestor...");
+talkEntry:addResponse("...Cause it beh dha Faddha's blood, inherited, which strengthen dha Orc and fortify dha spirit, his spirit beh in dha Orc, dha tie to ancestors...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 22));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -893,7 +889,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 22));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("...He will provide untamable blood frenzy in battle. But he become also quick angreh. Dhat for onle Shamans use his name.");
+talkEntry:addResponse("...He will provide untamable blood frenzy in battle but he become also quick angreh, dhat reason for onle Shamans using his name.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -937,7 +933,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Say 'continue' to progress the tale or 'stop'."));
-talkEntry:addResponse("Bragon, beh dha sun bringer, dha life provida. He Stong-in-Summer beh. He rules ober dha strong and weak, he provide dha beautiful and precious...");
+talkEntry:addResponse("Bragon, beh dha sun bringer, dha life provida. He beh strong in dummer, he rules ober dha strong and weak, he provide dha beautiful and precious...");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 24));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -945,7 +941,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 24));
 talkEntry:addTrigger("continue");
-talkEntry:addResponse("... Bragon beh god of holeh flames. His childdren beh dha dragons. Dragons standing whib green skin. Or burst and burn the cureless on dhea bodies.");
+talkEntry:addResponse("... Bragon beh god of holeh flames. His childdren beh dha dragons. Dragons standing whib green skin or burst and burn the cureless on dhea bodies.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1067,16 +1063,16 @@ talkEntry:addResponse("#me grunzt und nickt. 'Mh-hm'");
 talkEntry:addResponse("Tagtha. - Erzähl mehr davon, tja-ha?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me streicht mit vernarbten Fingern über die Klinge seines Dolches.", "#me fondles his dagger with scared fingers.");
+talkingNPC:addCycleText("#me streicht mit vernarbten Fingern über die Klinge seines Dolches.", "#me fondles his dagger with scarred fingers.");
 talkingNPC:addCycleText("#me steckt seine Hand in einen Beutel voll Asche. Er lässt ein wenig Asche in den schwachen Luftzug der Höhle davon riseln.", "#me puts his hand inot a bag with ash. Next he allowes weak draft inside of the cave to blow a little bit ash out of his hand.");
 talkingNPC:addCycleText("#me nimmt einen Schluck aus einer kleinen schmuddeligen Flasche. Scharfer alkoholischer Dunst steigt in die Luft.", "#me takes a gulp from a grubby little bottle. A strong stench of alcohol fills the air.");
-talkingNPC:addCycleText("#me steckt sich etwas Krraut zwischen die Zähne und kaut darauf herum.", "#me puts some herb into his mouth and champs it.");
-talkingNPC:addCycleText("#me fummelt etwas trockenes Baumharz aus seiner Manteltasche. Er reibt es zwischen den Fingern un dfür einen Moment ist dir als würde eine Flamme lodern. Dann macht sich ein wohliger, benebelnder Geruch breit.", "#me fumbles some dried tree gum out of his robe. He rubs it beetwen his fingers and for a moment you think you saw a flame there. Then a welfare dazing odour appears.");
+talkingNPC:addCycleText("#me steckt sich etwas Krraut zwischen die Zähne und kaut darauf herum.", "#me puts some herb into his mouth and champs on it.");
+talkingNPC:addCycleText("#me fummelt etwas trockenes Baumharz aus seiner Manteltasche. Er reibt es zwischen den Fingern un dfür einen Moment ist dir als würde eine Flamme lodern. Dann macht sich ein wohliger, benebelnder Geruch breit.", "#me fumbles some dried tree gum out of his robe. He rubs it between his fingers and for a moment you think you saw a flame there. Then a welfare dazing haze appears.");
 talkingNPC:addCycleText("#me rückt seine Kutte zurecht.", "#me adjusts his cowl.");
-talkingNPC:addCycleText("#me bleckt seine Zähne und leckt sich schmatzend über die Lippen.", "#me bares his teeth and licks with a smack his lips.");
-talkingNPC:addCycleText("Ehre die Götter. Ehre den Vatha.", "Honor the gods. Honour the father.");
-talkingNPC:addCycleText("#me streckt die Hand aus:'Ich fühlige mächtige Geister... um uns herum.'.", "#me holds his hand out:'I feel migthy spirits...surrounding us.'");
-talkingNPC:addCycleText("#me hält seine Hand über die Opferschale am Altar, diese beginnt augenblicklich merkwürdig zu leuchten.", "#me places his hand upon the sacrificial. In the next moment it starts to glow in a strange way.");
+talkingNPC:addCycleText("#me bleckt seine Zähne und leckt sich schmatzend über die Lippen.", "#me bares his teeth and licks with a smack of his lips.");
+talkingNPC:addCycleText("Ehre die Götter. Ehre den Vatha.", "Honour dha gods. Honour dha Faddha.");
+talkingNPC:addCycleText("#me streckt die Hand aus:'Ich fühlige mächtige Geister... um uns herum.'.", "#me holds his hand out: 'I feel mighte spirits...surrounding us.'");
+talkingNPC:addCycleText("#me hält seine Hand über die Opferschale am Altar, diese beginnt augenblicklich merkwürdig zu leuchten.", "#me places his hand upon the sacrificial basin. In the next moment it starts to glow in a strange way.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);

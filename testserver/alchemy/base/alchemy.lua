@@ -40,8 +40,8 @@ function InitPlantSubstance()
 	setPlantSubstance(761,"Illidrium","")
 	setPlantSubstance(762,"","Orcanol")
 	setPlantSubstance(764,"","Adrazin")
-	setPlantSubstance(765,"Hyperborlium","")
-	setPlantSubstance(766,"","Hyperborlium")
+	setPlantSubstance(765,"Hyperborelium","")
+	setPlantSubstance(766,"","Hyperborelium")
 	setPlantSubstance(768,"Orcanol","")
 	setPlantSubstance(769,"Fenolin","")
 	
@@ -51,24 +51,24 @@ function InitPlantSubstance()
 	setPlantSubstance(135,"Fenolin","Adrazin")
 	setPlantSubstance(136,"Adrazin","Fenolin")
 	setPlantSubstance(137,"Echolon","Illidrium")
-	setPlantSubstance(140,"Fenolin","Hyperborlium")
+	setPlantSubstance(140,"Fenolin","Hyperborelium")
 	setPlantSubstance(141,"Caprazin","Echolon")
 	setPlantSubstance(142,"Hyperborelium","Dracolin")
 	setPlantSubstance(143,"Illidrium","Dracolin")
 	setPlantSubstance(144,"Adrazin","Dracolin")
-	setPlantSubstance(145,"Hyperborlium","Orcanol")
+	setPlantSubstance(145,"Hyperborelium","Orcanol")
 	setPlantSubstance(147,"Echolon","Adrazin")  
 	setPlantSubstance(148,"Echolon","Caprazin")
-	setPlantSubstance(149,"Hyperborlium","Echolon")
+	setPlantSubstance(149,"Hyperborelium","Echolon")
 	setPlantSubstance(151,"Caprazin","Dracolin") 
 	setPlantSubstance(153,"Fenolin","Caprazin")
 	setPlantSubstance(155,"Illidrium","Echolon")
 	setPlantSubstance(156,"Orcanol","Adrazin")     
 	setPlantSubstance(158,"Illidrium","Fenolin")
-	setPlantSubstance(159,"Dracolin","Hyperborlium")
+	setPlantSubstance(159,"Dracolin","Hyperborelium")
 	setPlantSubstance(160,"Adrazin","Echolon")
-	setPlantSubstance(161,"Orcanol","Hyperborlium")
-	setPlantSubstance(162,"Hyperborlium","Fenolin")
+	setPlantSubstance(161,"Orcanol","Hyperborelium")
+	setPlantSubstance(162,"Hyperborelium","Fenolin")
 	setPlantSubstance(163,"Orcanol","Illidrium")
 	setPlantSubstance(199,"Caprazin","Orcanol")
 	setPlantSubstance(388,"Caprazin","Fenolin")
@@ -76,7 +76,7 @@ function InitPlantSubstance()
 	setPlantSubstance(753,"Dracolin","Adrazin")
 	setPlantSubstance(759,"Dracolin","Illidrium")
 	setPlantSubstance(763,"Dracolin","Caprazin")
-	setPlantSubstance(767,"Echolon","Hyperborlium")
+	setPlantSubstance(767,"Echolon","Hyperborelium")
 	
 end
 
@@ -474,6 +474,26 @@ function CheckIfAlchemist(User,textDE,textEN)
     end		
 end
 
+function getBottleFromEffect(effectId)
+-- won't work with NORMAL primar and secundar attribute potins, since the both have 11111111 - 99999999 as a range for effect ids
+    if (effectId >= 1) and (effectId <= 99) then
+	    return 166
+	elseif (effectId >= 100) and (effectId <= 199) then
+	    return 59
+    elseif (effectId >= 200) and (effectId <= 299) then
+	    return 167
+	elseif (effectId >= 300) and (effectId <= 399) then
+	    return 327
+    elseif (effectId >= 400) and (effectId <= 499) then
+	    return 165		
+    elseif (effectId >= 500) and (effectId <= 599) then
+	    return 329
+	elseif (effectId >= 600) and (effectId <= 699) then
+	    return 330
+    end
+    return	
+end
+
 function RemoveEssenceBrew(Item)
     for i=1,8 do
 	    Item:setData("essenceHerb"..i,"")  
@@ -501,7 +521,7 @@ end
 
 function EmptyBottle(User,Bottle)
     if math.random(1,20) == 1 then
-	   User:eraseItem(SourceItem,1) -- bottle breaks
+	   User:eraseItem(Bottle,1) -- bottle breaks
 	   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
 	else	
 		if Bottle.number > 1 then -- if we empty a bottle (stock, potion or essence brew) it should normally never be a stack! but to be one the safe side, we check anyway
@@ -530,15 +550,14 @@ function FillFromTo(fromItem,toItem)
 		else
 			toItem.quality = tonumber(fromItem:getData("potionQuality"))
 		end	
-	elseif fromItem:getData("filledWith") == "potion" or fromItem:getData("filledWith") == "essenceBrew" or fromItem:getData("filledWith") == "stock" then
-	    if toItem.id >= 1008 and toItem.id <= 1018 then
-		    local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem)
-			toItem.id = reBottle
-		else
-			local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem, nil)
-			toItem.id = reBottle
-		end	
 	end
+	if toItem.id >= 1008 and toItem.id <= 1018 then
+		local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem)
+		toItem.id = reCauldron
+	else
+		local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem, nil)
+		toItem.id = reBottle
+	end	
 end
 
 function CauldronDestruction(User,cauldron,effectId)
@@ -574,15 +593,18 @@ end
 function SetQuality(User,Item)
 -- skill has an influence of 75% on the mean
     local skillQuali = User:getSkill(Character.alchemy)*0.75 
--- attributes have an influence of 25% on the mean (if the sum of the attributes is 40 or higher, we reach the maixmum influence)	
-	local attribCalc = (((User:increaseAttrib("essence",0) + User:increaseAttrib("perception",0))/2))*5 
+-- attributes have an influence of 25% on the mean (if the sum of the attributes is 54 or higher, we reach the maixmum influence)	
+	local attribCalc = (((User:increaseAttrib("essence",0) + User:increaseAttrib("perception",0) + User:increaseAttrib("intelligence",0) )/3))*5 
 	local attribQuali = base.common.Scale(0,25,attribCalc)
 -- the mean	
 	local mean =  base.common.Scale(1,9,(attribQuali + skillQuali)) 
 -- normal distribution; mean determined by skill and attributes; fixed standard deviation	
-	local quality = (Random.normal(mean, 4.5)*100) + 99 -- duarability is useless, we set it anway
+	local quality 
+	repeat 
+	    quality = Random.normal(mean, 4.5)
+	until (quality >= 1 and quality <= 9)	
 	
-	Item:setData("potionQuality",quality)
+	Item:setData("potionQuality",quality*100+99)-- duarability is useless, we set it anway
 end
 
 function GemDustBottleCauldron(gem, gemdust, cauldron, bottle)
@@ -622,18 +644,23 @@ end
 -- combine of stock and essence brew to create a potion
 -- function is only called when item 331 is a stock or when a potion-bottle is an essence brew
 function CombineStockEssence( User, stock, essenceBrew)
-   
+   User:inform(""..essenceBrew.id)
+   if essenceBrew == nil then
+        User:inform("is nil")
+	end	
     local cauldron = GetCauldronInfront(User)
     if cauldron then
         
 		-- we get the gem dust used as an ingredient; and the new cauldron id we need later
 		local reGem, ingredientGemdust, newCauldron, reBottle
 		if cauldron:getData("filledWith") == "essenceBrew" then
-		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew, nil)
+		    User:inform("herere")
+			reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew, nil)
 		else
+		User:inform("herere 2")
 		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, essenceBrew)
 		end
-		
+		User:inform(""..newCauldron)
 		-- create our ingredients list
 		local myIngredients = {}
 		-- firstly, the gem dust which has been used (indirectly, that is the potion kind)
@@ -683,6 +710,7 @@ function CombineStockEssence( User, stock, essenceBrew)
 		world:gfx(52,cauldron.pos)
 	    -- and learn!
 	    User:learn(Character.alchemy, 80, 100)
+		return true
 	end
 end
 
@@ -725,10 +753,12 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 		    end
 			
 		elseif cauldron:getData("filledWith") == "stock" then -- stock is in the cauldron; we call the combin function
-				local check = CombineStockEssence( User, SourceItem, cauldron, Counter, Param, ltstate )
+				local check = CombineStockEssence( User, cauldron, SourceItem)
 				if check == false then
-				    return
-				end	
+				  User:inform("here i am to save the day")
+				  return
+				end
+				
 		else -- nothing in the cauldron, we just fill in the essence brew
 			FillFromTo(SourceItem,cauldron)	
 		end
@@ -757,6 +787,4 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
                 
     end
 	EmptyBottle(User,SourceItem)
-	world:changeItem(SourceItem)
-	world:changeItem(cauldron)	
 end

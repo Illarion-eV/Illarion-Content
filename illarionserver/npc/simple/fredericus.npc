@@ -1,0 +1,200 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Fredericus                                               Cadomyr --
+-- NPC Job:  Fisherman                                                        --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  117, 618, 0            --
+-- NPC Sex:  male                       NPC Direction: east                   --
+--                                                                            --
+-- Authors:  Estralis Seborian                                                --
+--           Martin Karing                                                    --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Fredericus"
+race = human
+sex = male
+position = 117, 618, 0
+direction = east
+affiliation = "Cadomyr"
+job = "Fisherman"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Estralis Seborian"
+author = "Martin Karing"
+
+lookatDE = "Dieser NPC ist der Fischer Fredericus."
+lookatUS = "This NPC is the fisherman Fredericus."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt umher."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 1
+beardID = 1
+colorHair = 192, 107, 5
+colorSkin = 180, 126, 84
+itemHead = 0
+itemChest = 182
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 183
+itemShoes = 369
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 72, 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 73, 355, 455
+buyPrimaryItems = 72, 73, 355, 455
+buySecondaryItems = 126, 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
+-- Template Version 1.03 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- NPC by Estralis Seborian
+
+-- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bough/sold):
+
+-- 10% Tools (Fisher): 72
+-- 5% Tools (Herb gatherer): 126
+-- 5% Herbs II: 752, 753, 754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769
+-- 5% Herbs: 133, 134, 135, 136, 137, 138, 140, 141, 142, 143, 144, 145, 146, 148, 152, 153, 154, 155, 156, 157
+-- 5% Mushrooms: 158, 159, 160, 161, 162, 163
+-- 10% Fish: 73, 355, 455
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is the fisherman Fredericus. Keyphrases: Hello, fisherman, Tanora, trade.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Fischer Fredericus. Schlüsselwörter: Hallo, Fischer, Tanora, Handel.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ahoy! Fresh fish!", "G'day. I just came ashore.", "Only the best fish, only today, only for you!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ahoi! Frischer Fisch!", "Tag. Bin gerade von großer Fahrt zurück.", "Nur der beste Fisch, nur heute, nur für euch!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ahoy! Fresh fish!", "G'day. I just came ashore.", "Only the best fish, only today, only for you!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Ahoi! Frischer Fisch!", "Tag. Bin gerade von großer Fahrt zurück.", "Nur der beste Fisch, nur heute, nur für euch!"
+"Farewell", "Bye", "Fare well", "See you" -> "Good trip.", "Until next time, remember, a fish a day keeps the medico away.", "Farewell."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gute Fahrt.", "Bis zum nächesten Mal, denkt daran, ein Fisch am Tag hält den Medizinmann fern.", "Auf wiedersehen."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Good trip.", "Until next time, remember, a fish a day keeps the medico away.", "Farewell."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gute Fahrt.", "Bis zum nächesten Mal, denkt daran, ein Fisch am Tag hält den Medizinmann fern.", "Auf wiedersehen."
+"How are you", "How feel", "How do you do" -> "I feel good, not a wonder, I had fish today.", "I'd feel much better if you buy some fish.", "Fine, thank you."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut, ist auch kein Wunder, ich habe heute Fisch gegessen.", "Mir würde es weit besser gehen, wenn ihr Fisch kaufen würdet.", "Gut, danke der Nachfrage."
+"your name", "who are you", "who art thou" -> "Fredericus. That's me.", "I am the fisherman Fredericus.", "Fredericus is my name, I trade fish."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Fredericus. Das bin ich.", "Ich bin der Fischer Fredericus.", "Fredericus ist mein Name, ich handel mit Fischen."
+
+-- Optional: Trade Hooks, use only for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Fish, fish, fish. I trade fish. And also herbs, if you need any to spice up your dishes.", "I trade fish, do you need any?", "I trade what you need to catch fish and I even buy the fish you caught.", "Ya want to trade? Aye, have a look!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.", "Ich handel Fische, braucht ihr welche?", "Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.", "Du willst handeln? Da schau her was ich hab!", trade
+
+-- Catching quest triggers
+english, "quest", "mission" -> "I do not issue any quests. But you can bring me fish and I'll pay you for your work."
+"quest", "mission" -> "Ich verteile keine Aufgaben. Aber ihr könnt mir Fisch bringen und ich bezahle eure Arbeit."
+"task", "adventure", "order" -> "I do not issue any quests. But you can bring me fish and I'll pay you for your work."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich verteile keine Aufgaben. Aber ihr könnt mir Fisch bringen und ich bezahle eure Arbeit."
+
+-- Easter Egg
+"fischers fritze" -> "Fischt frische Fische!"
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I'm a fisherman. A hard job, but a honest and honourable job."
+"beruf" -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
+english, "job" -> "I'm a fisherman. A hard job, but a honest and honourable job."
+"job" -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
+english, "Gobaith", "Gobiath" -> "I once sailed to Gobaith, the natives tossed onions at each other!"
+"Gobaith", "Gobiath" -> "Ich bin einmal nach Gobaith gesegelt, die Eingeborenen dort haben mit Zwiebeln aufeinander geworfen!"
+"my name" -> "Oh, interesting, and do you want to become a fisherman like me?", "A nice name, indeed."
+"mein Name" -> "Oh, interessant, wollt ihr auch ein Fischer wie ich werden?", "Ein netter Name."
+
+-- More small talk; add at least five triggers
+english, "Zerarisa" -> "I think Zerarisa is one of the lizards, living at Cape Farewell."
+"Zerarisa" -> "Ich meine, Zerarisa ist eine der Echsen, die am Kap des Abschiedes wohnen."
+"Cape", "Farewell" -> "Cape Farewell is to the south and west, land's end one could say."
+"Kap", "Abschied" -> "Das Kap des Abschiedes ist im Südwesten, am Ende der Welt könnte man sagen."
+"boat", "ship", "vessle" -> "No, I will not lend you my boat. Take a fishing rod and go to the shore."
+"Boot", "Schiff" -> "Ich kann euch mein Boot nicht leihen. Nehmt eine Angelrute und geht zur Küste."
+"Fischer" -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
+"fisherman" -> "I'm a fisherman. A hard job, but a honest and honourable job."
+"trader", "merchant", "collegue", "vendor", "market" -> "Here, at the marketplace, there are many traders. You can buy many goods here in Cadomyr."
+"händler", "kollege", "höker", "markt" -> "Hier auf dem Marktplatz gibt es einige Händler. Man kann viele Waren hier in Cadomyr kaufen."
+
+-- Faction stuff
+"archmage" -> "#me snorts angrily.", "Better avoid Runewick's leader. Whatever you say, it is wrong. Whatever you do, it is wrong."
+"Erzmagier" -> "#me schnaubt wütend.", "Vermeidet den Herren von Runewick. Was immer ihr sagt, es ist falsch. Was immer ihr tut, es ist falsch."
+english, "Elvaine", "Morgan" -> "#me snorts angrily.", "Better avoid Runewick's leader. Whatever you say, it is wrong. Whatever you do, it is wrong."
+"Elvaine", "Morgan" -> "#me schnaubt wütend.", "Vermeidet den Herren von Runewick. Was immer ihr sagt, es ist falsch. Was immer ihr tut, es ist falsch."
+english, "Runewick" -> "If I were you, I'd never go to Runewick. They might be nice, but also, false and not honest."
+"Runewick" -> "Wenn ich an eurer Stelle wäre, würde ich nie nach Runewick gehen. Sie mögen nett dort sein, aber auch unehrlich und falsch. "
+english, "Valerio", "Guilianni", "Don" -> "I'd like to toss some smelly fish at the Don. I will never understand how such a... villain can become leader of a community."
+"Valerio", "Guilianni", "Don" -> "Ich würd' gerne mal ein paar stinkige Fische auf den Don werfen. Ich werde nie verstehen, wie so ein... Rabauke der Anführer einer Gemeinschaft werden konnte."
+english, "Galmair" -> "Galmair is not a safe place. The Don does not want it to be, so he can demand money for protection."
+"Galmair" -> "Galmair ist kein sicherer Ort. Aber der Don will es nicht anders, denn nur so kann er Schutzgeld erpressen."
+"Queen" -> "Queen Rosaline, well, she is the best thing that could happen to Cadomyr. I say that and I mean it, the best woman is better than the worst man."
+"Königin" -> "Königin Rosaline ist das beste, was Cadomyr geschehen konnte. Ich sage es, weil ich es meine; die beste Frau ist immernoch besser als der schlechteste Mann."
+english, "rosaline", "edwards" -> "Queen Rosaline, well, she is the best thing that could happen to Cadomyr. I say that and I mean it, the best woman is better than the worst man."
+"rosaline", "edwards" -> "Königin Rosaline ist das beste, was Cadomyr geschehen konnte. Ich sage es, weil ich es meine; die beste Frau ist immernoch besser als der schlechteste Mann."
+english, "Cadomyr" -> "Cadomyr is my home, where I return to after setting sails.", "I love Cadomyr as I love the sea.", "Cadomyr's best, forget the rest!"
+"Cadomyr" -> "Cadomyr ist meine Heimat, in die ich mit vollen Segeln zurückkehre.", "Ich liebe Cadomyr wie das weite, offene Meer.", "Cadomyr kriegt das beste, für die anderen bleiben nur Reste."
+
+-- Main land factions
+english, "albar" -> "Oh, Albar, how much I desire to sail there. A land of justice and honour"
+"albar" -> "Oh, Albar, wie sehr wünschte ich, ich könnte dorthin segeln. Ein Land der Gerechtigkeit und der Ehre."
+english, "gynk", "gync" -> "What did you say?", "I did not understand you.", "Pardon me?", "Shh, do not talk about this too loud."
+"gync", "gynk" -> "Was habt ihr gesagt?", "Ich habe euch nicht verstanden.", "Entschuldigung?", "Psst, sprecht darüber nicht so laut."
+english, "salkama" -> "Arrogant wisenheimers they are. And a hard working fisherman does not matter to the oh-so-noble people there."
+"salkama" -> "Arrogante Besserwisser sind das. Und ein hart arbeitender Fischer zählt nichts für die ach-so-noblen Leute dort."
+
+-- Gods; each NPC should at react on at least one god, being a follower of said god
+"god" -> "Goddesses aren't prayed to in Cadomyr, they say. But when you are at sea, you'll pray to Tanora and Findari, that's for sure."
+"Gott", "Götter" -> "In Cadomyr betet man keinen Göttinnen an, so heißt es. Aber wenn ihr mal auf See seid, dann werdet ihr sicherlich Tanora und Findari anflehen."
+english, "Tanora", "Zelphia" -> "Tanora guides my boat, Tanora protects my boat, Tanora causes the waves that crash my boat.", "Hail the goddess!", "I obey Tanora, but if you want to meet perons who adore her, go to Cape Farewell."
+"Tanora", "Zelphia" -> "Tanora lenkt mein Boot, Tanora schützt mein Boot, Tanora schickt die Wellen, die mein Boot zermalmen.", "Huldigt Tanora!", "Ich gehorche Tanora, aber wenn ihr Leute treffen wollt, die sie verehren, geht zum Kap des Abschiedes."
+english, "Findari" -> "Findari grants the devastating storm or the wind that blows the sail; depending on her mood."
+"Findari" -> "Findari bringt den vernichtenden Sturm oder den Wind, der die Segel aufbläht, je nach ihrer Stimmungslage."
+english, "Irmorom" -> "Irmorom helps me doing good business, but my fate is in the hand of Tanora and Findari."
+"Irmorom" -> "Irmorom verhilft mir manches mal zu guten Geschäften, aber mein Leben liegt in Tanoras und Findaris Händen."
+
+-- Catching typical NPC phrases
+"tell something" -> "I swear I saw a sea serpent!", "If an evil spirit haunts a ship, all is lost."
+"erzähl was", "erzähl etwas" -> "Ich schwöre, ich habe ein Seeungeheuer gesehen!", "Wenn ein böser Geist auf einem Schiff sein Unwesen treibt, dann ist es meist bald verloren."
+
+-- Last catch: Think about keyphrases the player might say and that are not caught until here
+english, "Fredericus" -> "I am merely a humble fisherman. But I could tell you about the gods, shall I?"
+"Fredericus" -> "Ich bin nur ein einfacher Fischer, aber ich könnte euch etwas über die Götter erzählen, wenn ihr Zeit habt."
+"Yes" -> "Aye, aye, and a flounder in addition.", "Well, maybe a herring?", "That's good."
+"Ja" -> "Aye, aye, und eine Flunder dazu.", "Vielleicht einen Hering?", "Das ist gut auch so."
+"No" -> "Do you prefer salmon perhaps?", "Will bloaters make you content?", "Mackerels?"
+"Nein" -> "Mögt ihr lieber Lachs?", "Würde euch ein Bückling zufriedenstellen?", "Makrelen?"
+"stinkt" -> "Das stimmt nicht.", "Mein Fisch ist lecker!"
+"stinks" -> "It does not!", "My fish is tasty!"
+
+-- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Mein Fisch stinkt nicht!", "My fish does not stink!"
+cycletext "Frischer Fisch!", "Fresh Fish!"
+cycletext "Fisch, Kräuter, alles, was ihr braucht für das Festmahl!", "Fish, herbs, all you need for dinner!"
+cycletext "#me riecht an den Fischen in seiner Auslage und verzieht das Gesicht.", "#me sniffes on the fish on his cart and wrinkles his nose."
+cycletext "Fangfrischer Lachs!", "Fresh salmon!"
+cycletext "Komm, kauf jetzt und pack dir noch einen Aal drauf!", "C'mon, buy now and you get an eel for free!"
+cycletext "Kauft noch einen Bückling, der schmeckt zwar nicht, hält aber die Ratten fern.", "Buy this bloater, it is not tasty, but it keeps the rats at bay."
+cycletext "Beste Forellen!", "Best trouts!"
+cycletext "Leckere Heringe!", "Tasty herrings!"
+cycletext "Ein Pfund Makrelen, nur jetzt, nur für euch!", "A pound mackerels, only now, only for you!"

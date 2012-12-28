@@ -34,8 +34,8 @@ function DrinkPotion(User,SourceItem)
 			findOS,oldSkill = myEffect:findValue( "oldSkill")
 			findNS,newSkill = myEffect:findValue( "newSkill")
 			User:increaseSkill(skillName,(-(newSkill-oldSkill))) -- old skill level restored
-		    effectRemoved = User.effects:removeEffect(329)
-			if not effectRemove then
+		    effectRemoved = User.effects:removeEffect(330)
+			if not effectRemoved then
 				base.common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. white bottle script", "Error: inform dev. Lte not removed. white bottle script.")
 				return
 			end
@@ -46,12 +46,12 @@ function DrinkPotion(User,SourceItem)
 		   oldSkill = 0
 		end
 		newSkill = 100
-   
-        myEffect=LongTimeEffect(330,1)
+        
+		duration = math.floor(SourceItem.quality/10)*600*10 
+        myEffect=LongTimeEffect(330,duration)
 		myEffect:addValue( "oldSkill",oldSkill )
 		myEffect:addValue( "newSkill",newSkill )
 	    myEffect:addValue( "languageId",potionEffectId-599)
-        duration = SourceItem.quality*600*10 
         myEffect:addValue("counterWhite",10)
 	  
 	    User:increaseSkill(ListLanguages[potionEffectId-599],newSkill)
@@ -75,12 +75,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		else
 			User:talkLanguage(Character.say, Player.german, "#me trinkt eine weiße Flüssigkeit.");
 			User:talkLanguage(Character.say, Player.english, "#me drinks a white liquid.");
-			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
 			User.movepoints=User.movepoints - 20
 			DrinkPotion(User,SourceItem) -- call effect
+			alchemy.base.alchemy.EmptyBottle(User,SourceItem)
 	    end
 	end  
-    EmptyBottle(User,SourceItem)
 end
 
 function LookAtItem(User,Item)

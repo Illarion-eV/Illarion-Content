@@ -1,0 +1,164 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Morri                                                    Galmair --
+-- NPC Job:  Trader                                                           --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  356, 266, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Rincewind                                                        --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Morri"
+race = dwarf
+sex = male
+position = 353, 266, 0
+direction = south
+affiliation = "Galmair"
+job = "Trader"
+
+language = common
+language = dwarf
+defaultLanguage = common
+autointroduce = on
+
+author = "Rincewind"
+
+lookatDE = "Ein grimmiger Zwerg mit einem prächtigen schwarzen Bart und einem kahlem Kopf."
+lookatUS = "A serious looking dwarf with an impressive black beard and a bald head."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 0
+beardID = 2
+colorHair = 22, 12, 34
+colorSkin = 217, 154, 123
+itemChest = 101
+itemTrousers = 2111
+itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 51, 118, 121, 227, 2495, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051, 2, 5, 2529, 49, 191, 303, 353, 354, 453, 454
+buySecondaryItems = 51, 118, 121, 227, 2495, 306, 554, 555, 556, 557, 559, 2276, 2277, 2278, 2456, 2459, 2922, 2923, 2940, 3051, 2, 5, 2529, 49, 191, 303, 353, 354, 453, 454
+tradeNotEnoughMoneyMsg "Du kannst dir das nicht leisten!", "You can not afford that!"
+tradeFinishedMsg "Danke, komm bald wieder!", "Thanks, come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I am selling different meals, just have a look!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich verkaufe verschiedenstes Essen schau dich nur um!", trade
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Morri the cook. Keywords: buy, sell, trade, Profession.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Morri der Koch. Schlüsselwörter: kaufe, verkaufe, Handel, Beruf.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hrm...Greetings. How can I help you?", "#me grumbles moodily: 'Good day'.", "Hail Irmorom. Do you want to buy something?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hrm...Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag.'", "Heil Irmorom. Wollt ihr was kaufen?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hrm...Greetings. How can I help you?", "#me grumbles moodily: 'Good day'.", "Hail Irmorom. Do you want to buy something?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hrm...Grüße. Wie kann ich Euch helfen?", "#me brummt schlecht gelaunt: 'Guten Tag.'", "Heil Irmorom. Wollt ihr was kaufen?"
+"Farewell", "Bye", "Fare well", "See you" -> "Bye and enjoy your meal.", "Arr... See you soon.", "Fare thee well and come again soon!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Tschüss und guten Appetit.", "Arr... Bis bald.", "Gehabt Euch wohl und kommt wieder mal bei mir vorbei!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Bye and enjoy your meal.", "Arr... See you soon.", "Fare thee well and come again soon!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Tschüss und guten Appetit.", "Arr... Bis bald.", "Gehabt Euch wohl und kommt wieder mal bei mir vorbei!"
+"How are you", "How feel", "How do you do" -> "Great and how are you?", "I'm fine, thanks!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Großartig und wie gehts dir?", "Mir gehts gut, dankie!"
+"your name", "who are you", "who art thou" -> "I am Morri the cook.", "The best cook in Galmair, that's me Morri!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Morri der Koch.", "Der beste Koch in Galmair, das bin ich Morri!"
+
+-- Catching quest triggers. Modify if the NPC does quests.
+english, "quest", "mission" -> "I don't employ anyone, ask someone else!"
+"quest", "mission" -> "Ich stelle niemanden ein, fragt jemand anderen!"
+"task", "adventure", "order" -> "I don't employ anyone, ask someone else"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich stelle niemanden ein, fragt jemand anderen!"
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "Actually, I am a cook. For a few years I have cooked at my cousin's tavern. But now I am dealing with all kinds of food here in Galmair. What is your daily task?"
+"beruf" -> "Eigentlich bin ich Koch. Hab einige Jahre groß und fein in meines Vettern Taverne gekocht. Nun handle ich mit allerlei Essbarem hier in Galmair. Was ist Euer Tagwerk?"
+english, "job" -> "Actually, I am a cook. For a few years I have cooked at my cousin's tavern. But now I am dealing with all kinds of food here in Galmair. What is your daily task?"
+"job" -> "Eigentlich bin ich Koch. Hab einige Jahre groß und fein in meines Vettern Taverne gekocht. Nun handle ich mit allerlei Essbarem hier in Galmair. Was ist Euer Tagwerk?"
+english, "Gobaith", "Gobiath" -> "There is nothing but bad news about Gobaith. What do you say to that?"
+"Gobaith", "Gobiath" -> "Über Gobaith gibts immer nur schlechte Nachricht. Was habt ihr darüber zu sagen?"
+"my name" -> "Well, what can I sell you?", "Arr. Do you want to buy some food?"
+"mein Name" -> "Is' recht. Was darf ich Euch verkaufen?", "Arr. Wollt ihr Essen einkaufen?"
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"orc" -> "Arr. Those greennoses are annyoing. - Every last one of them. Actually, we merchants have to stick together. It is all about business!", "These orcs are smarter than you think. Particularly Krudash! But Sogg, I haven't ever seen him sober.", "Arrr.... I don't know. I think it looks like the entire orc pack here in Galmair belongs to the same clan. But on the other hand,well... I don't know whether that's important."
+"dwarf" -> "What is important to a dwarf? Gold, business and sin-...no. Relatives. Therefore, the clan.", "What does a dwarf like? His craft, his wife and his beer.", "We dwarves are a proud folk. I have to warn you, never insult a dwarf! He will remember even after his sons have grown up."
+"ork" -> "Arr. Die Grünschnauzen sind ein Ärgernis. - Nicht's weiter. Im Grunde müssen wir Händler zusammen stehen. Es geht ums Geschäft, das ist was zählt!", "Diese Orks sind klüger als Ihr denkt. Im besonderen diese Krudash! Aber dieser Sogg, den hab ich noch nie nüchtern gesehen...", "Arrr... ich weiß nicht. Aber für mich sieht's so aus als wären die alle, die Ganze Orkmeute in Galmair von der selben Sippe. Andererseits muss das bei Orks ja auch nichts heißen."
+"zwerg" -> "Was ist einem Zwerg von Wert? Gold, Geschäfte und Ge-...nein. Verwandte. Also sprich, der Klan.", "Was darf ein Zwerg lieben? Sein Handwerk, seine Frau und Bier.", "Wir Zwerge sind ein stolzes Folk. Ich will euch warnen, beleidigt ihr einen Zwerg wird er sich noch daran erinnern wenn Eure Söhne erwachsen sind."
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "Ha-ha! I've heard that archmage wears women's clothes! Wool under the chain mail undies and so on! *laughs*"
+"Erzmagier" -> "Ha-h! Man sagt sich bei uns Zwergen dieser Erzmagier trägt Weiber-Gewand! Wolle unterm Kettenhemd und so nen Kram! *lacht*"
+english, "Elvaine", "Morgan" -> "Ha-ha! I've heard that archmage wears women's clothes! Wool under the chain mail undies and so on! *laughs*"
+"Elvaine", "Morgan" -> "Ha-h! Man sagt sich bei uns Zwergen dieser Erzmagier trägt Weiber-Gewand! Wolle unterm Kettenhemd und so nen Kram! *lacht*"
+english, "Runewick" -> "Runewick? Aren't those the farmers who bungle with magic? They should cultivate bigger tomatoes instead. That is more useful."
+"Runewick" -> "Runewick? Sind das nicht diese Bauern, die glauben mit Magie herum murksen zu müssen?. Die sollten lieber größere Tomaten züchten. Damit wäre allen geholfen."
+english, "Valerio", "Guilianni", "Don" -> "Don Guilianni is a nasty fellow. We merchants cut our deals with him carefully."
+"Valerio", "Guilianni", "Don" -> "Don Guilianni ist ein abgebrühter Geschäftsmann. Und wir Händler versuchen uns so gut es geht mit ihm zu arrangieren."
+english, "Galmair" -> "I want to say, my brother and I could not find a better place than this except for all the riff-raff. Well, and the buildings are falling down, but the business is great."
+"Galmair" -> "Ich möchte sagen, an einen besseren Ort hätte es mich und meinen Bruder nicht verschlagen können. Nun gut, hier treibt sich einiges Gesindel herum, und die Mauern sehen ziemlich zerbrechlich aus, aber das Geschäft geht ausgezeichnet!"
+"Queen" -> "Blue blood! Pah! - Bring the human royalty under my axe and I'll show you how blue it is. I tell you, they die just like anyone else! I have seen too many fools on the throne!"
+"Königin" -> "Blaues Blut! Pha! - Bringt mir diese Könige der Menschen vor meine Axt und ich demonstriere Euch wie blau es ist. Ich sage Euch, beim sterben ist jeder der Erste! Zu viele Narren hab ich auf dem Thron gesehn!"
+english, "rosaline", "edwards" -> "Blue blood! Pah! - Bring the human royalty under my axe and I'll show you how blue it is. I tell you, they die just like anyone else! I have seen too many fools on the throne!"
+"rosaline", "edwards" -> "Blaues Blut! Pha! - Bringt mir diese Könige der Menschen vor meine Axt und ich demonstriere Euch wie blau es ist. Ich sage Euch, beim sterben ist jeder der Erste! Zu viele Narren hab ich auf dem Thron gesehn!"
+english, "Cadomyr" -> "They give their wealth and belongings to the dead in Cadomyr. Bury their gold in their crypts! Every dwarf knows that gold is an element for the living. How is it of any use to the dead?"
+"Cadomyr" -> "Cadomyrs Reichtum geben sie den Toten. Vergraben das Gold in den Krypten! Jeder Zwerg weiß natürlich, das Gold das Element der Lebenden ist. Wie sollte es den verstorbenen schon von Nutzen sein?"
+
+-- Main land factions
+english, "albar" -> "Albar! A terrible county. Ruled by jesters. The people are weak and their kings treat them like livestock."
+"albar" -> "Albar! Ein schreckliches Land. Regiert von Narren. Das Volk ist schwach, es ist den Königen kaum mehr wert als die Schweine die sie fressen."
+english, "gynk", "gync" -> "Gynk! Everyone meets there. What a market! You can find anything there! If only dwarves would not waste their money on drinks and games... *sighs*"
+"gync", "gynk" -> "Gynk! Hier trifft sich alles Volk, das der Sprache mächtig ist. Sicher, da kann viel passieren, aber einen Markt gibt es dort! Würden die Zwerge dort nicht alles Geld versaufen und verspielen... *seufzt*"
+english, "salkama" -> "Salkamar? In Salkamar 4 out of 5 people claim to be smarter than everyone else. Smart, isn't it? *laughs*"
+"salkama" -> "Salkamar? In Salkamar behaupten 4 von 5 Leuten, sie sind klüger als der durchschnittliche Bürger. Clever nicht war? *lacht*"
+english, "Ironsiege" -> "Listen to me, Ironsiege is an impregnable fortress. Saying the gates in the mountain are 'impressive' is an understatement. They are gigantic!", "Well, you can find mainly three clans in Ironsiege. The Goldaxeclan, the Ironaxeclan, and last but not least my clan. The Flinthammer! Arr!"
+"Ironsiege" -> "Last Euch sagen, Ironsiege ist eine uneinnehmbare Festung. Allein die Tore im Berg als 'imposant' zu bezeichnen reicht nicht aus. So gigantisch, erscheinen sie.", "Nun, in Ironsiege findet ihr hauptsächlich drei Klans. Den Goldaxtklan, den Eisenherzklan und zu guter letzt meinen Klan. Die Flinthämmer! Arr!"
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Listen to me, Irmorom created the dwarves out of a rock. He got this rock as a gift from Ushara. I don't want to know more about gods. Except...well, Adron should be praised for cheese and beer!"
+"Gott", "Götter" -> "Last Euch sagen, Irmorom schuf einst die Zwerge aus einem Stück Felsen. Jenen hatte er von Ushara zum Geschenk bekommen. Und viel mehr möchte ich von den Göttern nicht wissen müssen. Außer...nun ja Adron sei's gedankt für Käse und Bier!"
+english, "Adron" -> "Toast! Toast to Adron. Praised be his beer and cheese."
+"Adron" -> "Trinkt! Trinken wir auf Adron. Gepriesen sein Bier und Käse."
+english, "Irmorom" -> "Hail Irmorom. Protect my brother and his clan. Be praised, the creator of the dwarfs."
+"Irmorom" -> "Heil Irmorom. Schütze meinen Bruder und unseren Klan. Gedankt sei dir, denn du bist der Zwergen Schöpfer."
+english, "Ushara" -> "Honor to you, mother of the rock, stone and soil."
+"Ushara" -> "Ehre dir, Mutter der Felsen, Steine und Erde."
+
+-- Catching typical NPC phrases
+"tell something" -> "I could tell you a lot about cooking, but sadly I'm really busy right now."
+"erzähl was", "erzähl etwas" -> "Ich könnte dir eine Menge über das Kochen erzählen, aber ich bin im Moment leider sehr beschäftigt."
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+"morri" -> "Arr. Bura'zak-ka! - Welches Essen wollt Ihr mir abkaufen?"
+english, "morri" -> "Arr. Bura'zak-ka! - What meal would you like to buy?"
+"Yes" -> "Arr. It's good.", "D'kraga...so, and not otherwise!", "It should be fine by me."
+"Ja" -> "Arr. Ist gut!", "D'kraga... so, und nicht anders!", "Mir soll's auch recht sein."
+"No" -> "Hrm, is this your last word?", "Arr. If that's what you want..", "Of course."
+"Nein" -> "Hrm, ist das Euer letztes Wort?", "Arr. Wenn Ihr's so wollt.", "Natürlich."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "Arr.", "#me wrinkles his nose and shows his tongue in disgust: 'Do you smell that too?'"
+german, chance(20.0), ".*" -> "Arr.", "#me rümpft die Nase und streckt angewidert die Zunge heraus: 'Riecht ihr das auch?'"
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me brummt schlecht gelaunt und wirft einen missmutigen Blick auf die Straße.", "#me grumbles moodily and looks at the street with a discontented glance."
+cycletext "#me knurrt kopfschüttelnd: 'Dieser Fisch ist niemals frisch...'", "#me grumbles and shakes his head: 'This fish is not fresh...'"
+cycletext "#me rümpft die Nase.", "#me wrinkles his nose."
+cycletext "#me hält sich die Nase zu und streckt die Zunge heraus: 'Igittigitt!'", "#me covers his nose and shows his tongue: 'Igittigitt!'"
+cycletext "#me fasst sich mit einer verzweifelt wirkenden Geste, beidhändig in den langen schwarzen Bart und zieht daran. Dabei gibt er ein lautes Grunzen von sich.", "#me pulls his long black beard with both hands despairingly and grunts loudly."
+cycletext "Essen! Feinste Gerichte aller Art! Tretet näher und deckt Euch ein!", "Food! Finest dishes of every kind! Come closer and buy ahead!"
+cycletext "Frisches Brot! Schmackhafte Kuchen! Unverwüstliche Kekse!", "Fresh bread! Tasty cakes! Inedible cookies!"
+cycletext "Wurst mit Zwiebeln, Kohlsuppe, Hasenbraten! Bei mir könnt ihr alles kaufen!", "Sausages with onion, cabbage soup, rabbit dishes! You find everything here!"

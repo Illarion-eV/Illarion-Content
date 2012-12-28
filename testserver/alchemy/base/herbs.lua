@@ -18,6 +18,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		if not anAlchemist then
 		    return
 	    end
+		
+		if ( User:increaseAttrib("perception",0) + User:increaseAttrib("essence",0) + User:increaseAttrib("intelligence",0) ) < 30 then 
+		SendMessage(User, SourceItem,            
+					"Mind, good eyes and a feeling for the world of fine matter - with your lack of those, you are unable to work here. \"",
+		            "Verstand, ein gutes Auge und ein Gespühr für die feinstofflichen Dinge - die fehlt es daran, als dass du hier arbeiten könntest.\""
+	                )
+		    return
+        end
 
         if ( ltstate == Action.abort ) then
 		    base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")

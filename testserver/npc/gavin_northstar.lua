@@ -2,8 +2,8 @@
 -- NPC Name: Gavin Northstar                                          Galmair --
 -- NPC Job:  Guard                                                            --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  386, 329, 0            --
--- NPC Sex:  female                     NPC Direction: south                  --
+-- NPC Race: dwarf                      NPC Position:  384, 328, 0            --
+-- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Kawan Baxter                                                     --
 --                                                       easyNPC Parser v1.21 --
@@ -11,13 +11,15 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 386, 329, 0, 4, 'Gavin Northstar', 'npc.gavin_northstar', 1, 2, 0, 0, 0, 0, 245, 180, 137);
+VALUES (1, 384, 328, 0, 2, 'Gavin Northstar', 'npc.gavin_northstar', 1, 2, 0, 0, 0, 0, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
+require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
+require("npc.base.guards_static")
 module("npc.gavin_northstar", package.seeall)
 
 function initNpc()
@@ -314,6 +316,118 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Bre");
+talkEntry:addResponse("She is the prettiest, strongest, smartest person I know.");
+talkEntry:addResponse("I rescued her from being homeless.");
+talkEntry:addResponse("Bre of the other gate is my sister.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sister");
+talkEntry:addResponse("She is the prettiest, strongest, smartest person I know.");
+talkEntry:addResponse("I rescued her from being homeless.");
+talkEntry:addResponse("Bre of the other gate is my sister.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Homeless");
+talkEntry:addResponse("It is no place for a girl... I can tell you that.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Peace");
+talkEntry:addTrigger("Justice");
+talkEntry:addResponse("One should do everything in peace and justice.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("guard");
+talkEntry:addTrigger("Civil Watch");
+talkEntry:addTrigger("bridge");
+talkEntry:addResponse("It is my job to protect the city and its citizen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Drugs");
+talkEntry:addResponse("#me looks at you bemused.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("men");
+talkEntry:addResponse("Men are the counterpart to women.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Weapon");
+talkEntry:addResponse("Weapons are the guards best friend.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bre");
+talkEntry:addResponse("Sie ist die schönste, stärkste und schlauste Person, die ich kenne.");
+talkEntry:addResponse("Ich hab sie aus der Obdachlosigkeit geholt.");
+talkEntry:addResponse("Bre am anderen Tor, das ist meine Schwester.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Schwester");
+talkEntry:addResponse("Sie ist die schönste, stärkste und schlauste Person, die ich kenne.");
+talkEntry:addResponse("Ich hab sie aus der Obdachlosigkeit geholt.");
+talkEntry:addResponse("Bre am anderen Tor, das ist meine Schwester.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("obdachlos");
+talkEntry:addResponse("Das ist nichts für ein Mädchen, glaubt mir.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Frieden");
+talkEntry:addTrigger("Gerechtigkeit");
+talkEntry:addResponse("Man sollte alles für Frieden und Gerechtigkeit tun.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Wache");
+talkEntry:addTrigger("Bürgerwehr");
+talkEntry:addTrigger("Brücke");
+talkEntry:addResponse("Meine Aufgabe ist es die Stadt und ihre Bürger zu bewachen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Drogen");
+talkEntry:addTrigger("Rauschgift");
+talkEntry:addResponse("#me schaut dich irritiert an.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Männer");
+talkEntry:addResponse("Männer sind das Gegenteil von Frauen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Waffe");
+talkEntry:addResponse("Waffen sind der beste Freund einer Wache.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
 talkEntry:addResponse("You have no need to know who I worship.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -336,6 +450,116 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addResponse("Elara die Erleuchtet sagte einmal folgends: Gerechtigkeit ist ein Baum. Weisheit sind seine Blätter, Macht ist seim Stamm und Liebe die Wurzeln. Diesen Spruch bewahre ich mir.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("There is an enormous bridge that stretches across a large sea.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Runewick");
+talkEntry:addResponse("Die Stadt ist mit einer riesigen Brücke über das Meer mit dem Festland verbunden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addResponse("I hear he is a strong mage. Magic is nothing compared to a strong blow from a dwarven great axe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Elvaine");
+talkEntry:addTrigger("Morgan");
+talkEntry:addResponse("Ich hörte, er weiß, mit der Magie umzugehen. Aber mal im Ernst: Was ist schon Magie gegen den Hieb einer Zwergenaxt?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Archmage");
+talkEntry:addResponse("I hear he is a strong mage. Magic is nothing compared to a strong blow from a dwarven great axe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Erzmagier");
+talkEntry:addResponse("Ich hörte, er weiß, mit der Magie umzugehen. Aber mal im Ernst: Was ist schon Magie gegen den Hieb einer Zwergenaxt?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("I work for him.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valerio");
+talkEntry:addTrigger("Guilianni");
+talkEntry:addTrigger("Don");
+talkEntry:addResponse("Ich arbeite für ihn.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("The streets are cold, the men are rude, but this is where my sister is and my job.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmair");
+talkEntry:addResponse("Die Straßen sind kalt, die Leute ungehobelt aber hier ist meine Schwester und meine Aufgabe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("Bre wants to go there. I will take her on my next day off.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Cadomyr");
+talkEntry:addResponse("Bre möchte dort hin gehen. Ich werde sie an meinem nächsten freien Tag dort hinbringen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("I don't know her personally.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("rosaline");
+talkEntry:addTrigger("edwards");
+talkEntry:addResponse("Ich kenne sie nicht persönlich.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen");
+talkEntry:addResponse("I don't know her personally.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Königin");
+talkEntry:addResponse("Ich kenne sie nicht persönlich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -383,7 +607,10 @@ mainNPC:initDone();
 end;
 
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
-function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
+function nextCycle(npcChar)
+  mainNPC:nextCycle(npcChar);
+  npc.base.guards_static.NextCycle(npcChar);
+end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
 function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();

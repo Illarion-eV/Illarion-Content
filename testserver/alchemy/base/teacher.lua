@@ -15,13 +15,13 @@ HerbsTaskOneId["Knowing Tree"] =   {133  ,  81, 140}
 HerbsTaskOneNameEN["Knowing Tree"] = {"sunherbs","berries","donf blades"}
 HerbsTaskOneNameDE["Knowing Tree"] = {"Sonnenkräuter","Beeren","Donfblätter"}
 
-HerbsTaskOneId["Thinking Stone"] =   {133  ,  81, 140}
-HerbsTaskOneNameEN["Thinking Stone"] = {"sunherbs","berries","donf blades"}
-HerbsTaskOneNameDE["Thinking Stone"] = {"Sonnenkräuter","Beeren","Donfblätter"}
+HerbsTaskOneId["Thinking Stone"] =   {142  ,  137, 156}
+HerbsTaskOneNameEN["Thinking Stone"] = {"sandberries","flamegoblet blossom","steppe fern"}
+HerbsTaskOneNameDE["Thinking Stone"] = {"Sandbeere","Flammenkelchblüte","Steppenfarn"}
 
-HerbsTaskOneId["Recognizing Spring"] =  {133  ,  81, 140}
-HerbsTaskOneNameEN["Recognizing Spring"] = {"sunherbs","berries","donf blades"}
-HerbsTaskOneNameDE["Recognizing Spring"] = {"Sonnenkräuter","Beeren","Donfblätter"}
+HerbsTaskOneId["Recognizing Spring"] =  {144  ,  151, 135}
+HerbsTaskOneNameEN["Recognizing Spring"] = {"virgin's weed","strawberries","yellow weed"}
+HerbsTaskOneNameDE["Recognizing Spring"] = {"Jungfernkraut","Erdbeeren","Gelbkraut"}
 -- TASK ONE END --
 
 -- TASK TWO: two normal herbs 
@@ -29,17 +29,17 @@ HerbsTaskTwoId = {}
 HerbsTaskTwoNameEN = {}
 HerbsTaskTwoNameDE = {}
 
-HerbsTaskTwoId["Knowing Tree"] =   {756,755}
-HerbsTaskTwoNameEN["Knowing Tree"] = {"pious berry","fire root"}
-HerbsTaskTwoNameDE["Knowing Tree"] = {"Frommbeere","Feuerwurz"}
+HerbsTaskTwoId["Knowing Tree"] =   {761,766}
+HerbsTaskTwoNameEN["Knowing Tree"] = {"rain weed","con blossom"}
+HerbsTaskTwoNameDE["Knowing Tree"] = {"Regenkraut","Trugblüte"}
 
-HerbsTaskTwoId["Thinking Stone"] =   {756,755}
-HerbsTaskTwoNameEN["Thinking Stone"] = {"pious berry","fire root"}
-HerbsTaskTwoNameDE["Thinking Stone"] = {"Frommbeere","Feuerwurz"}
+HerbsTaskTwoId["Thinking Stone"] =   {769,146}
+HerbsTaskTwoNameEN["Thinking Stone"] = {"desert berry","desert sky capsule"}
+HerbsTaskTwoNameDE["Thinking Stone"] = {"Wüstenbeere","Wüstenhimmelskapsel"}
 
-HerbsTaskTwoId["Recognizing Spring"] = {756,755}
-HerbsTaskTwoNameEN["Recognizing Spring"] = {"pious berry","fire root"}
-HerbsTaskTwoNameDE["Recognizing Spring"] = {"Frommbeere","Feuerwurz"}
+HerbsTaskTwoId["Recognizing Spring"] = {756,765}
+HerbsTaskTwoNameEN["Recognizing Spring"] = {"pious berry","day dream"}
+HerbsTaskTwoNameDE["Recognizing Spring"] = {"Frommbeere","Tagtraum"}
 -- TASK TWO END --
 
 -- deleting the herbs --
@@ -498,9 +498,18 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 					"You feel observed, but nothing else seems to happen."
 					)
 	return
-	end	
+	end
 
-	-- teacher and quest infos 
+    -- check for proper attributes
+    if ( User:increaseAttrib("perception",0) + User:increaseAttrib("essence",0) + User:increaseAttrib("intelligence",0) ) < 30 then 
+		SendMessage(User, SourceItem,            
+					"You hear a voice you are unable to localise: \"I can only tell those who are mindful, good observer and have a certain feeling for fine matter the secret of alchemy. Go away!\"",
+		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"Nur jenen, die einen klaren Verstand, ein gutes Augen und ein Gespühr für Feinstoffliche haben, kann ich das Geheimnis der Alchmie erzählen. Geh weh!\""
+	                )
+		return
+    end		
+ 					
+    -- teacher and quest infos 
 	local questInfos = GetTeacherQuestInfos(User, SourceItem)
 	local qstPrg = questInfos.questPrg
 

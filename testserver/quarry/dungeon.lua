@@ -113,7 +113,7 @@ function nextCycle()
         end
     end
     SaveItem=world:getItemOnField(PosOfSaveItem);
-    local CurrentMon=SaveItem.data;
+    local CurrentMon=tonumber(SaveItem:getData("dungeonData"));
     local MaxMon=LiveSettings("get","spawn_nr",nil);
     local Debugging=LiveSettings("get","debug",nil);
     local Spawning=LiveSettings("get","spawn",nil);
@@ -129,7 +129,7 @@ function nextCycle()
                         MonID=SelectMonster();
                     end
                     world:createMonster(MonID,SpawnLocation,10)
-                    SaveItem.data=CurrentMon+1;
+                    SaveItem:setData("dungeonData",CurrentMon+1);
                     world:changeItem(SaveItem);
                     if Debugging then thisNPC:talk(Character.say,"spawn monster with ID "..MonID.." at position "..SpawnLocation.x..","..SpawnLocation.y..","..SpawnLocation.z.." successfully") end
                 else

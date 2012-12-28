@@ -1,0 +1,208 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Jonny Smith                                             Runwick --
+-- NPC Job:  Carftsman                                                        --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  0, 0, 0                --
+-- NPC Sex:  man                          NPC Direction: south                   --
+--                                                                            --
+-- Author: Miriam                                                             --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Jonny Smith"
+race = human
+sex = male
+position = 0, 0, 0
+direction = south
+affiliation = "None"
+job = "Carftsman"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Miriam"
+
+lookatDE = "Dieser NPC ist Jonny Smith der Schmied."
+lookatUS = "This NPC is Jonny Smith the smith."
+useMsgDE = "Hey! Fasst mich nicht an!"
+useMsgUS = "Hey! Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 1
+beardID = 6
+colorHair = 178, 34, 34
+colorSkin = 255, 228, 196
+itemHead = 0
+itemChest = 458
+itemCoat = 0
+itemMainHand = 23
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 34
+itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 1, 2, 3
+buyPrimaryItems = 1
+buySecondaryItems = 2, 3
+
+-- Template Version 1.08, 10/18/2012 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- TRADING
+-- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Jonny Smith the smith. Keywords: Greetings, buy, TRIGGER3, TRIGGER4, TRIGGER5.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Jonny Smith der Schmied. Schlüsselwörter: Grüße, kaufe, TRIGGER3, TRIGGER4, TRIGGER5.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. How are you today?", "Greetings in the name of Irmorom."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt. Wie geht es Euch?","Grüße im Namen Irmoroms."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted. How are you today?", "Greetings in the name of Irmorom."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt. Wie geht es Euch?","Grüße im Namen Irmoroms."
+"Farewell", "Bye", "Fare well", "See you" -> "Have a good day!", "Fare well!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Einen schönen Tag noch!", "Auf Bald!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a good day!", "Fare well!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Einen schönen Tag noch!", "Auf Bald!"
+"How are you", "How feel", "How do you do" -> "Good. Good. It's a nice day.", "I'm fine. Thanks."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut. Gut. Es ist ein schöner Tag.", "Mir geht es gut. Danke."
+"your name", "who are you", "who art thou" -> "Jonny Smith. How can I help you?", "Hey, you're kidding me? You do not know my name?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Jonny Smith. Wie kann ich Euch helfen?", "Hey, scherzt Ihr? Ihr kennt mich nicht?"
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Trade Hooks, use only for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I do not sell weapons or amoury, but I can reprair them. Interested?"
+--repair
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich verkaufe keine Waffen und Rüstung, aber ich kann sie reparieren. Interesse?"
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I do not have something to do for you."
+"quest", "mission" -> "Ich habe nichts für Euch zu tun."
+"task", "adventure", "order" -> "I do not have something to do for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für Euch zu tun."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am a smith. I repair things."
+"beruf" -> "Ich bin ein Schmied. Ich repariere Sachen."
+english, "job" -> "Smithing is my job."
+"job" -> "Schmieden ist mein Beruf."
+"tell something" -> "What shall I tell you? I'm just a smith. We have lots of books in Runewick, if you want to hear a story, you should go and read a book."
+"erzähl was", "erzähl etwas" -> "Was sollte ich Euch erzählen? Ich bin ein Schmied. wir haben viele Bücher in Runewick, wenn Ihr eine Geschichte wollt, geht doch etwas lesen."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Craftsman and traders pray to Irmorom.", "Irmorom keeps me save from accident while working."
+"Gott", "Götter" -> "Handwerker und Händler beten zu Irmorom.", "Irmorom schützt mich vor Arbeitsunfällen."
+english, "religion" -> "I belive in the 16 gods"
+"religion" -> "Ich glaube an die 16 Götter."
+"faith" -> "I belive in the 16 gods"
+"Glaube" -> "Ich glaube an die 16 Götter."
+english, "Adron" -> "I do not pray to this god."
+"Adron" -> "Ich bete nicht zu diesem Gott."
+english, "Bragon", "Brágon" -> "I do not pray to this god."
+"Bragon", "Brágon" -> "Ich bete nicht zu diesem Gott."
+english, "Cherga" -> "I do not pray to thid god."
+"Cherga" -> "Ich bete nicht zu diesem Gott."
+english, "Elara" -> "I do not pray to this god."
+"Elara" -> "Ich bete nicht zu diesem Gott."
+english, "Eldan" -> "I do not pray to this god."
+"Eldan" -> "Ich bete nicht zu diesem Gott."
+english, "Findari" -> "I do not pray to this god."
+"Findari" -> "Ich bete nicht zu diesem Gott."
+english, "Irmorom" -> "I do not pray to this god."
+"Irmorom" -> "Ich bete nicht zu diesem Gott."
+english, "Malachin", "Malachín" -> "I do not pray to this god."
+"Malachin", "Malachín" -> "Ich bete nicht zu diesem Gott."
+english, "Moshran" -> "I do not pray to this god."
+"Moshran" -> "Ich bete nicht zu diesem Gott."
+english, "Nargun", "Nargún", "Nargùn" -> "I do not pray to this god."
+"Nargun", "Nargún", "Nargùn" -> "Ich bete nicht zu diesem Gott."
+english, "Oldra" -> "I do not pray to this god."
+"Oldra" -> "Ich bete nicht zu diesem Gott."
+english, "Ronagan" -> "I do not pray to this god."
+"Ronagan" -> "Ich bete nicht zu diesem Gott."
+english, "Sirani" -> "I do not pray to this god."
+"Sirani" -> "Ich bete nicht zu diesem Gott."
+english, "Tanora", "Zelphia" -> "I do not pray to this god."
+"Tanora", "Zelphia" -> "Ich bete nicht zu diesem Gott."
+english, "Ushara" -> "I do not pray to this god."
+"Ushara" -> "Ich bete nicht zu diesem Gott."
+english, "Zhambra" -> "I do not pray to this god."
+"Zhambra" -> "Ich bete nicht zu diesem Gott."
+
+-- Optional: Faction stuff
+"archmage" -> "The Archmage is our ruler.", "He is very wise. I admire him."
+"Erzmagier" -> "Der Erzmagier ist unser Herrscher.", "Er ist sehr weise. Ich bewundere ihn."
+english, "Elvaine", "Morgan" -> "He is very wise. I admire him."
+"Elvaine", "Morgan" -> "Er ist sehr weise. Ich bewundere ihn."
+english, "Runewick" -> "Runewick is what I call my home."
+"Runewick" -> "Runewick nenne ich meine Heimat."
+english, "Valerio", "Guilianni", "Don" -> "The Don lives in Galmair."
+"Valerio", "Guilianni", "Don" -> "Der Don lebt in Galmair."
+english, "Galmair" -> "The Don lives in Galmair."
+"Galmair" -> "Der Don lebt in Galmair."
+"Queen" -> "I do not care about the Queen's words."
+"Königin" -> "Mich interessieren die Worte dieser Königin nicht."
+english, "rosaline", "edwards" -> "I do not care about this Rosaline Edwards."
+"rosaline", "edwards" -> "Mich interessiert diese Rosaline Edwards nicht."
+english, "Cadomyr" -> "Cadomyr is Cadomyr, ... what ever this means."
+"Cadomyr" -> "Cadomyr ist Cadomyr, ... was auch immer das heißt."
+
+-- Optional: Main land factions
+english, "albar" -> "Albar? It is a far away place, right?"
+"albar" -> "Albar? Das ist weit weg, oder?"
+english, "gynk", "gync" -> "Gync...gync... I've heard that word before..."
+"gync", "gynk" -> "Gynk...Gynk... Das hab ich schobmal gehört.."
+english, "salkama" -> "#me shrugs his shoulders."
+"salkama" -> "#me zuckt mit den Schultern."
+
+-- Optional: Gobaith
+english, "Gobaith", "Gobiath" -> "Ehm...?", "Really?", "Sorry, I never heard about that."
+"Gobaith", "Gobiath" -> "Ähm...?", "Wirklich?.", "'Tschuldigung, davon habe ich noch gehört."
+
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
+"my name" -> "Nice to meet you.","A pleasure.", "Welcome. How can I help you?"
+"mein Name" -> "Freut mich.", "Ganz meinerseits.", "Wilkommen. Wie kann ich Euch helfen?"
+english,"Jonny", "Smith" -> "That's me!", "Yes?", "#me waves."
+"Jonny", "Smith" -> "Das bin ich!", "Ja?", "#me winkt."
+"Yes" -> "#me nods.", "Exactly!"
+"Ja" -> "#me nickt.", "Genau!"
+"No" -> "Oh no!", "...but why?"
+"Nein" -> "Oh nein!", "...aber warum?"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "#me nods.","Welcome. How can I help you?", "Ehm...?", "Really?", "#me shrugs his shoulders."
+german, chance(20.0), ".*" ->"#me nickt.", "Wilkommen. Wie kann ich Euch helfen?", "Ähm...?", "Wirklich?", "#me zuckt mit den Schultern."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me pfeift eine Melodie.", "#me whistles a melody."
+cycletext "#me prüft sein Werkzeug.", "#me cheks his tools."
+cycletext "#me schaut sich um.", "#me lookes around."
+cycletext "Ich reparieren alles - !", "I repair everything."
+cycletext "#me klopft mit einem Hammer auf ein Stück Eisen.", "#me hits a pices of iron with a hammer."
+cycletext "#me schaut aus dem Fenster","#me lookes out of the window."
+cycletext "#me isst einen Apfel.","#me eats an apple."
+cycletext "#me spuck einen Apfelkarn auf den Boden.","#me spits a apple seed to the ground."

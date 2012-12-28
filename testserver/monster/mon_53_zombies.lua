@@ -12,7 +12,8 @@ monster.base.quests.iniQuests();
 killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
-
+msgs = base.messages.Messages();
+msgs:addMessage("#me atmet laut ein und aus.", "#me takes deep breaths.");
 end
 
 function enemyNear(Monster,Enemy)
@@ -88,7 +89,7 @@ if (MonID==531) then --Walking Dead, Level: 5, Armourtype: heavy, Weapontype: pu
         if not done then done=monster.base.drop.AddDropItem(92,1,10,(100*math.random(4,5)+math.random(44,55)),0,1); end --oil lamp
         if not done then done=monster.base.drop.AddDropItem(67,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --rubin amulet
         if not done then done=monster.base.drop.AddDropItem(505,1,1,(100*math.random(4,5)+math.random(44,55)),nil,1); end --treasure map
-        if not done then done=monster.base.drop.AddDropItem(314,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --pott ash
+        if not done then done=monster.base.drop.AddDropItem(314,1,1,(100*math.random(4,5)+math.random(44,55)),0,1); end --potash
 
         --Category 2: Gems
 

@@ -1,0 +1,218 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Cormac                                                   Galmair --
+-- NPC Job:  Smuggler                                                         --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  392, 327, -6           --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Authors:  Cromwell                                                         --
+--           Estralis                                                         --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Cormac"
+race = dwarf
+sex = male
+position = 392, 327, -6
+direction = west
+affiliation = "Galmair"
+job = "Smuggler"
+
+language = common
+language = dwarf
+defaultLanguage = common
+autointroduce = on
+
+author = "Cromwell"
+author = "Estralis"
+
+lookatDE = "Dieser NPC ist der Schmuggler Cormac."
+lookatUS = "This NPC is the smuggler Cormac."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 1
+beardID = 1
+colorHair = 28, 28, 28
+colorSkin = 208, 159, 117
+itemHead = 0
+itemChest = 809
+itemCoat = 193
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 2113
+itemShoes = 53
+
+-- Template Version 1.03 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- NPC by PO Edward Cromwell, translated by Estralis Seborian
+
+-- queststatus(74) Overview
+-- QuestID=74
+-- 0: No Quest taken / Quest reset
+-- 1: NPC tells player to bring him some beer
+-- 2: NPC is willing to answer PC questions about the ruler, faction and the treacherous neighbours!
+
+-- Debugging
+queststatus(74) > 2, ".*" -> "Error! Something went wrong, please inform a developer."
+
+-- Help
+"help" -> inform("[Game help] This NPC is the smuggler Cormac. Keywords: Be greeted, Profession, Tavern.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schmuggler Cormac. Schlüsselwörter: Seid gegrüßt, Beruf, Taverne.")
+
+-- General speech
+queststatus(74) = 0, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> inform("[New quest] Galmair's Gossiper"), "#me flashes you a sparse-toothed grin. 'Eh! If ye want to sit down with me, ye better bring me a mug of beer. Then I'll answer yer questions.'", queststatus(74) = 1
+queststatus(74) = 1, item(1909, all) < 1, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty."
+queststatus(74) = 2, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "If that isn't mah good ol' buddy! Come, sit down and drink with meh!"
+queststatus(74) = 0, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> inform("[Neues Quest] Der Schwätzer von Galmair"), "#me zeigt ein zahnloses Grinsen. 'Eh! Wenn du dich hier hinsetzen willst, bring mir besser ein Bier. Dann beantworte ich deine Fragen.'", queststatus(74) = 1
+queststatus(74) = 1, item(1909, all) < 1, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
+queststatus(74) = 2, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Wenn das nicht mein guter Kumpel ist! Komm, setz dich und trink mit mir!"
+queststatus(74) = 0, english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[New quest] Galmair's Gossiper"), "#me strokes his beard and grins: 'Arr, Greetings! If ye want to talk, then ye better quench my thirst first!'", queststatus(74) = 1
+queststatus(74) = 1, item(1909, all) < 1, english, "Hiho", "Hallo", "Hey", "Greeb" -> "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty."
+queststatus(74) = 2, english, "Hiho", "Hallo", "Hey", "Greeb" -> "What! Haven't seen ya since last time."
+queststatus(74) = 0, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Neues Quest] Der Schwätzer von Galmair"), "#me streicht seinen Bart zurecht: 'Arr, grüß dich. Wenn du mit mir reden willst, dann lösch erstmal meinen Durst mit einem Bier.", queststatus(74) = 1
+queststatus(74) = 1, item(1909, all) < 1, "Hiho", "Hallo", "Hey", "Greeb" -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
+queststatus(74) = 2, "Hiho", "Hallo", "Hey", "Greeb" -> "Was! Dich hab ich ja seit dem letzten mal nicht mehr gesehen!"
+"Farewell", "Bye", "Fare well", "See you" -> "Until next time, traveller!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Bis zum nächsten mal, Reisender."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See ye around, traveller! Stay safe."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Man sieht sich, Fremder. Gib auf dich acht."
+queststatus(74) = 0, "How are you", "How feel", "How do you do" -> inform("[New quest] Galmair's Gossiper"), "Arr! My throat is dry as tha desert! When ye want tha talk, ye need to bring me a beer first.", queststatus(74) = 1
+queststatus(74) = 1, item(1909, all) < 1, "How are you", "How feel", "How do you do" -> "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty."
+queststatus(74) = 2, "How are you", "How feel", "How do you do" -> "A beer in the morning drives away the sorrows. And I have none anymore."
+queststatus(74) = 0, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> inform("[Neues Quest] Der Schwätzer von Galmair"), "Arr! Meine Kehle ist so trocken wie die Wüste. Wenn du reden willst, bring mir erstmal ein Bier.", queststatus(74) = 1
+queststatus(74) = 1, item(1909, all) < 1, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
+queststatus(74) = 2, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ein Bier am Morgen vertreibt Kummer und Sorgen. Und ich hab keine mehr."
+"your name", "who are you", "who art thou" -> "Cormac, the... river transportation entrepreneur."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cormac, der... Flussschiffahrtstransportunternehmer."
+
+-- Catching quest triggers. Modify if the NPC does quests.
+-- First part, the gossiper is thirsty--
+queststatus(74) = 0, english, "quest", "mission" -> inform("[New quest] Galmair's Gossiper"), "A task? Bring mah meh beer, ye bum!", queststatus(74) = 1
+queststatus(74) = 1, item(1909, all) < 1, english, "quest", "mission" -> "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty."
+queststatus(74) = 2, english, "quest", "mission" -> "What is it ya want to know? I know the latest gossip. The Don, Galmair and its neighbours, everything!"
+queststatus(74) = 0, "quest", "mission" -> inform("[Neues Quest] Der Schwätzer von Galmair"), "Hol' mir mal 'ne Flasche Bier sonst streik ich hier!", queststatus(74) = 1
+queststatus(74) = 1, item(1909, all) < 1, "quest", "mission" -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
+queststatus(74) = 2, "quest", "mission" -> "Was willst du wissen? Ich kenne alle Gerüchte. Der Don, Galmair und seine Nachbarn, alles!"
+queststatus(74) = 0, "task", "adventure", "question" -> inform("[New quest] Galmair's Gossiper"), "A task? Bring mah meh beer, ye bum!", queststatus(74) = 1
+queststatus(74) = 1, item(1909, all) < 1, "task", "adventure", "question" -> "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty."
+queststatus(74) = 2, "task", "adventure", "question" -> "What is it ya want to know? I know the latest gossip. The Don, Galmair and its neighbours, everything!"
+queststatus(74) = 0, "Aufgabe", "Abenteuer", "Frage" -> inform("[Neues Quest] Der Schwätzer von Galmair"), "Hol' mir mal 'ne Flasche Bier sonst streik ich hier!", queststatus(74) = 1
+queststatus(74) = 1, item(1909, all) < 1, "Aufgabe", "Abenteuer", "Frage" -> "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig."
+queststatus(74) = 2, "Aufgabe", "Abenteuer", "Frage" -> "Was willst du wissen? Ich kenne alle Gerüchte. Der Don, Galmair und seine Nachbarn, alles!"
+
+-- bringing the beer--
+queststatus(74) = 1, item(1909, all) > 0, english, town = Galmair, ".+" -> inform("[Quest solved] Cormac will now answer your questions. You advance in Don Valerio Guilianni's favour."), "#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'", deleteItem(1909, 1), queststatus(74) = 2, rankpoints + 20
+queststatus(74) = 1, item(1909, all) > 0, english, ".+" -> inform("[Quest solved] Cormac will now answer your questions."), "#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'", deleteItem(1909, 1), queststatus(74) = 2
+queststatus(74) = 1, item(1909, all) > 0, town = Galmair, ".+" -> inform("[Quest gelöst] Cormac wird nun deine Fragen beantworten. Dein Ansehen bei Don Valerio Guilianni steigt."), "#me nimmt den Krug und grinst: 'Arr! Du bist gar nicht so schlecht, wie du aussiehst. Ich bin schon überall gewesen, du kannst mich alles über die Stadt, den Don, Galmair oder sogar unsere dummen Nachbarn fragen.'", deleteItem(1909, 1), queststatus(74) = 2, rankpoints + 20
+queststatus(74) = 1, item(1909, all) > 0, ".+" -> inform("[Quest gelöst] Cormac wird nun deine Fragen beantworten."), "#me nimmt den Krug und grinst: 'Arr! Du bist gar nicht so schlecht, wie du aussiehst. Ich bin schon überall gewesen, du kannst mich alles über die Stadt, den Don, Galmair oder sogar unsere dummen Nachbarn fragen.'", deleteItem(1909, 1), queststatus(74) = 2
+queststatus(74) = 1, item(1909, all) < 1, english, ".+" -> "Beer here, now! A real sip.", "Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty.", "Beer here now!"
+queststatus(74) = 1, item(1909, all) < 1, ".+" -> "Bier her! So einen richtigen Schluck.", "Hast du Wachs in den Ohren oder was? Wenn du mit mir reden willst, musst du mir ein Bier bringen. Ich bin verdammt nochmal durstig.", "Bier her, jetzt!"
+
+-- Questions (english)
+queststatus(74) = 2, "town" -> "#me chuckles: 'This town is a bloody fine place fer a man or woman with coin. Ye can live free and mind yer business, as long as ye let others mind theirs.'"
+queststatus(74) = 2, english, "Urbano", "Dorian" -> "#me frowns: 'Dorian Urbano, he called himself. A former bigshot in these parts... a no-good thief and scoundrel whom Don Guillianni booted out. Haha!'"
+queststatus(74) = 2, "money" -> "Ha! Money is a fine way o' measuring everything. When ye got more money, yer o' course more powerful too."
+queststatus(74) = 2, "like[s]" -> "Tha Don likes expensive and and rare weapons or armours. He's a bit o' a collector, I hear. Hah... n' o' course money."
+queststatus(74) = 2, "gift" -> "Gifts? Arr! I heard tha Don likes expensive weapons n' armour... very prudent, don't ye think? Money is good too..."
+queststatus(74) = 2, "beer" -> "#me flashes you a sparse-toothed grin: 'Thank ye fer tha beer, traveller! What ye want to know now?'"
+queststatus(74) = 2, "neighbo" -> "#me scowls: 'May tha plague visit those bastards, Runewick and Cadomyr! This is 'our' bloody land n' they're just enroaching.'"
+queststatus(74) = 2, "smuggle", "smuggling" -> "By Ron... moron... I am a... Arr... 'river transportation entrepreneur', aye.. that's what I do fer living.", "#me scowls: 'ARR! I know nothing 'bout such things! I'm a decent n' hardworking... arr... river transportation entrepreneur.'"
+
+-- Questions (german)
+queststatus(74) = 2, "Stadt" -> "Diese Stadt ist ein guter Ort für einen Mann oder ein Frau mit dem nötigen Kleingeld. Man kann hier frei schalten und walten und niemand funkt dir dazwischen."
+queststatus(74) = 2, "Urbano", "Dorian" -> "#me grummelt: 'Dorian Urbano, so schimpft er sich. Früher mal ein mächtiges Tier hier, jetzt eher ein gemeiner Schurk, den Don Guillianni aus dem Geschäft gedrängt hat. Haha!'"
+queststatus(74) = 2, "geld" -> "Ha! Geld ist gut, um Dingen einen Wert zu geben. Aber Geld bedeutet auch Macht, lass dir das gesagt sein."
+queststatus(74) = 2, "Vorliebe" -> "Der Don liebt Teures und Seltenes, wie Waffen und Rüstungen. Er ist ein Sammler, so sagt man. Ein Geldeinsammler, ha!"
+queststatus(74) = 2, "geschenk", "präsent" -> "Geschenke? Arr! Ich hab gehört, der Don mag seltene Waffen und Rüstungen. Ziemlich prahlerisch, nicht? Geld ist aber auch eine gute Wahl."
+queststatus(74) = 2, "Bier" -> "#me grinst: 'Danke für das Bier, Fremder. Was willst du jetzt wirklich wissen?'"
+queststatus(74) = 2, "Nachbar" -> "#me bellt: 'Möge die Pest über diese Bastarde kommen, Runewick und Cadomyr! Dies ist unser Land, die lungern hier nur rum.'"
+queststatus(74) = 2, "schmugg" -> "Bei Ron... moron... Ich bin ein... Arr... 'Flussschiffahrtstransportunternehmer', ja, das ist, was ich mache.", "#me faucht: 'ARR! Ich weiß nichts über solche Machenschaften. Ich bin ein ehrlicher, hart arbeitender... Flussschiffahrtstransportunternehmer!'"
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "My profession? Well, I am in tha... transportation business, sorta."
+"beruf" -> "Mein Beruf? Ich bin im... Fuhrgewerbe."
+english, "job" -> "My profession? Well, I am in tha... transportation business, sorta."
+"job" -> "Mein Beruf? Ich bin im... Fuhrgewerbe."
+english, "Gobaith", "Gobiath" -> "Leave me alone with that!"
+"Gobaith", "Gobiath" -> "Lasst mich doch damit in Frieden!"
+"my name" -> "That information is to vital to me I'll write it down immediatly... after my next beer."
+"mein Name" -> "Diese Information ist so weltbewegend für mich, dass ich sie sofort niederschreiben werde... nach meinem nächsten Bier."
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+english, "tavern" -> "Did you ever wonder where all this booze comes from? No? Good!"
+"tavern" -> "Hast du dich nie gefragt, wo all der Schnaps hier herkommt? Nein? Gut so!"
+
+-- Faction stuff
+queststatus(74) = 2, "archmage" -> "Some say the archmage Morgan of Runewick was once a woman but some mysterious, failed spell turned her in a man... partially, har, har."
+queststatus(74) = 2, "Erzmagier" -> "Manche behaupten, der Erzmagier Morgan von Runwick war einst eine Frau, aber ein geheimnisvoller, fehlgeschlagener Zauber hat sie in einen Mann verwandelt... zumindestens teilweise, har, har."
+queststatus(74) = 2, english, "Elvaine", "Morgan" -> "Some say the archmage Morgan of Runewick was once a woman but some mysterious, failed spell turned him in a man... partially, har, har."
+queststatus(74) = 2, "Elvaine", "Morgan" -> "Manche behaupten, der Erzmagier Morgan von Runwick war einst eine Frau, aber ein geheimnisvoller, fehlgeschlagener Zauber hat sie in einen Mann verwandelt... zumindestens teilweise, har, har."
+queststatus(74) = 2, english, "Runewick" -> "Runewick! Hah! They're a nation o' folks who sat on a bloody broomstick in tha morning, ruled by a bloody lass who waves a magic wand around."
+queststatus(74) = 2, "Runewick" -> "Runewick! Hah! Ein Land von Knilchen, die morgens erstmal auf einem Besen reiten, regiert von einem Kerl, der mit seinem Zauberstab rumfuchtelt."
+queststatus(74) = 2, english, "Don", "Lord" -> "Arr! Don Valerio Guilianni is in charge around here! He's tha richest n' most powerful man in tha land, or so they say! A fine leader!"
+queststatus(74) = 2, english, "Valerio", "Guilianni" -> "Ye've been keeping yer ears open, good! Aye, he's the man in charge. He keeps us free from tha oppressing neighbours and that bastard Urbano.'"
+queststatus(74) = 2, "Don", "Lord" -> "Arr! Don Valerio Guilianni ist hier der Boss! Er ist der mächtigste und reichste Mann weit und breit, so sagt man. Ein guter Anführer!"
+queststatus(74) = 2, "Valerio", "Guilianni" -> "Ich sehe, du hast dich schlau gemacht. Ja, das ist hier der Boss. Er hält uns den Rücken von unseren kontrollwütigen Nachbarn und diesem Bastard Urbano frei."
+queststatus(74) = 2, english, "Galmair" -> "#me grins: 'Welcome to tha land o' tha free, traveller! When ye got enough coins and show loyalty tha Don, yer free to mind yer own business as ye please.'", "Galmair, home o' tha free, land o' those who can take care o' themselves. Ha!"
+queststatus(74) = 2, "Galmair" -> "Willkommen im Land der Freien, Reisender. Wenn du genug Gold hast und dem Don nicht in die Quere kommst, kannst du machen, was du willst.'", "Galmair, Heimat der Freien, Land derer, die für sich selbst sorgen können."
+queststatus(74) = 2, "Queen" -> "The princess, erm, queen of Cadomyr is quite a fittie. She would fit as the Don's wife. And rumour says he got quite a crash on her."
+queststatus(74) = 2, "Königin" -> "Die Prinzessin, äh, Königin von Cadomyr ist ein ziemlich heißer Feger. Sie sollte mal die Küche vom Don fegen. Und es spricht sich herum, dass er ganz schön wild nach ihr ist."
+queststatus(74) = 2, english, "rosaline", "edwards" -> "The princess, erm, queen of Cadomyr is quite a fittie. She would fit as the Don's wife. And rumour says he got quite a crash on her."
+queststatus(74) = 2, "rosaline", "edwards" -> "Die Prinzessin, äh, Königin von Cadomyr ist ein ziemlich heißer Feger. Sie sollte mal die Küche vom Don fegen. Und es spricht sich herum, dass er ganz schön wild nach ihr ist."
+queststatus(74) = 2, english, "Cadomyr" -> "They make a big fuss 'bout honour, bending over backwards to kiss arse and look down on people who like coins. Hehe... Ye know what they say, a man fights fer what he lacks tha most."
+queststatus(74) = 2, "Cadomyr" -> "Die machen einen riesen Aufstand über ihre Ehre, kriechen einander in den Allerwertesten und spucken auf geschäftstüchtige Leute. Aber wie sagt man, man kämpft am stärksten für etwas, was man gar nicht hat."
+
+-- Main land factions
+english, "albar" -> "Talking about anything abroad, eh? No way. I know so much about these lands, everything!"
+"albar" -> "Du willst über irgendwas in Weitwegland reden? Nichts da! Ich weiß so viel über diese Region, alles!"
+english, "gynk", "gync" -> "So, you think I'm from Gynk? Pah! Then I should think you come from a badger's burrow or what?"
+"gync", "gynk" -> "So, du denkst also, ich komme aus Gynk? Pah! Dann müßte ich ja glauben, du kommst aus einem Dachsbau oder wie?"
+english, "salkama" -> "Talking about anything abroad, eh? No way. I know so much about these lands, everything!"
+"salkama" -> "Du willst über irgendwas in Weitwegland reden? Nichts da! Ich weiß so viel über diese Region, alles!"
+
+-- Gods - use the triggers of the god the NPC worships or fights
+queststatus(74) = 2, "Irmorom" -> "Blah.", "Bleh.", "Blubb.", "Moep."
+queststatus(74) = 2, "Ronagan" -> "Eh?", "Hmm?", "Shh!"
+queststatus(74) = 2, "god" -> "#me nods and strokes his beard: 'We're all pious folks down here, though we mind our own business with this like with other stuff.'", "Gods are overrated.", "Do I look like I want to talk about faith and devotion?", "Go... to a temple if you want to talk about gods. Or just go... elsewhere."
+queststatus(74) = 2, "Gott", "Götter" -> "#me nickt und streicht durch seinen Bart: 'Wir sind alle fromme Leute hier, auch wenn wir das niemanden auf die Nase binden, wie wir uns auch sonst aus anderer Leute Angelegenheiten raushalten.", "Die Götter werden überschätzt.", "Sehe ich wie jemand aus, der über Glaube und Hingabe reden will?", "Geh doch in einen Tempel, wenn du über die Götter reden wollt. Oder geh... einfach weg!"
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Business, eh? Not here! Meet me... wait... Nevermind!"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Geschäfte, häh? Nicht hier! Triff mich... Moment mal... Vergiss es!"
+"tell something" -> "Moep."
+"erzähl was", "erzähl etwas" -> "Moep."
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+english, "Cormac" -> "So, you think you know my name? Did I tell it to you? Did I!?"
+"Cormac" -> "So, du denkst also, du kennst meinen Namen? Hab ich ihn dir gesagt? Hab ich etwas!?"
+"Yes" -> "Pardon?", "Fine.", "Moep.", "Got beer?"
+"Ja" -> "Pardon?", "Fein.", "Moep.", "Haste Bier?"
+"No" -> "Pardon?", "Fine.", "Moep.", "Got beer?"
+"Nein" -> "Pardon?", "Fein.", "Moep.", "Haste Bier?"
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Ich war schon überall und woanders, aber verdammt nochmal, nichts ist schöner als das gute, alte Galmair.", "I've been all over the place and more, but damn... there's no place like good ol' Galmair!"
+cycletext "#me schnattert: 'Wie viele Cadomyrer braucht man, um eine Kerze anzuzünden? Einen, um die Kerze anzuzünden und eine Brigade, um das brennende Haus zu löschen!'", "#me cackles: 'How many Cadomyrians do you need to light a candle? One to light tha candle and a brigade to extinguish tha burning house!'"
+cycletext "Verdammt! Wirt, meine Kehle ist so leer und trocken wie der Schädel eines Runewickers!", "Damn! Oy, bartender! My throat is as empty and dry as a Runewickian skull!"
+cycletext "#me ist ein Zwerg mit einem schwarzen, buschigem Bart, gekleidet in grober, zerschlissener Kleidung.", "#me is a dwarf with a black bushy beard, dressed in ragged and coarse clothes."
+cycletext "#me scheint bester Laune zu sein, auch wenn sein Bierkrug leer erscheint.", "#me seems to be in jubilant mood, though his beer-mug is empty."
+cycletext "Hey! Füll meinen Krug und wir können reden.", "Oy, fill my mug with beer n' we can talk."
+cycletext "#me summt: Fässer voll Schnaps, fließen den Fluss entlang. Der Zollmann weiß von nichts, die Nacht beschützt meine Fracht. Mein Profit ist recht und Steuern gibts von mir nicht.'", "#me hums: 'Barrels o' booze, downstream they go! That tha bailiff don't know! The night protects my cargo n' coins, n' tha taxman can kiss my loins! Haha!'"
+cycletext "Borps!", "Burp!"
+cycletext "Ist der Krug leer, dann muss ein neuer her!", "An empty mug is not good!"
+cycletext "Sagt ein Mütterchen zum Wachtmeister: Können sie mir über den Fluss helfen? Der Wachtmeister: Ja, ich bringe euch zur Brücke dort. Das Mütterchen: Pah, da komm ich alleine rüber!", "An hag to the constable: Could you help me cross the river? The constable replies: Sure, I'll guide you to the bridge. The hag: Pah! There, I can do it on my own!"
+cycletext "Ein Bauer zum Wachtmeister: Man hat mir meinen Karren gestohlen! Der Wachtmeister: Hatte der Wagen eine Laterne und eine Tröte? Der Bauer: Nein, warum? Der Wachtmeister: Das macht dann dreißig Kupferstücke Strafe!", "A peasant to the constable: Someone stole my cart! The constable: Did the cart have a lantern and a horn? The peasant. No, why? The constable: That's thirty copper fine then!"

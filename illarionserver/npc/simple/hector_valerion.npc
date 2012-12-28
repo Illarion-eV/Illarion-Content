@@ -1,0 +1,335 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Hector Valerion                                          Cadomyr --
+-- NPC Job:  Ambassador                                                       --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  139, 553, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Estralis Seborian                                                --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Hector Valerion"
+race = human
+sex = male
+position = 139, 553, 0
+direction = south
+affiliation = "Cadomyr"
+job = "Ambassador"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Estralis Seborian"
+
+lookatDE = "Dieser NPC ist der königliche Botschafter Hector Valerion."
+lookatUS = "This NPC is the royal ambassador Hector Valerion."
+useMsgDE = "Ihr werdet die Finger von einem Mann ihrer Majestät lassen."
+useMsgUS = "You won't lay hand on a man of the queen, will you?"
+wrongLangDE = "Pardon?"
+wrongLangUS = "Pardon?"
+radius = 0
+hairID = 1
+beardID = 1
+colorHair = 200, 130, 40
+colorSkin = 139, 90, 43
+itemHead = 0
+itemChest = 815
+itemCoat = 195
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 827
+itemShoes = 369
+
+-- Template Version 1.03 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- QuestID=108
+
+-- Template by Estralis Seborian
+
+-- Instructions: Replace all CAPITAL WORDS with fitting dialogues or words.
+-- Attention: Replace 1337 with a fitting quest ID, 391 with fitting item IDs and cadomyr with the name of the faction
+
+-- Queststatus Overview
+
+-- 0: No quest taken
+-- 1: Quest 1: Deliver 5 quills (463)
+-- 2: Quest 1 solved, reward: 200cp, (5 rankpoints)
+-- 3: Quest 2: Bring a message to Robertus. Needs edit of the NPC script!
+-- 4: Message delivered
+-- 5: Quest 2 solved, reward: 50cp, large metal shield (20), (10 rankpoints)
+-- 6: Quest 3: Bring a message to Arenius Batavius. Needs edit of the NPC script!
+-- 7: Message delivered
+-- 8: Quest 3 solved, reward: merinium plated dagger (444), (10 rankpoints)
+-- 9: Quest 4: Bring a message to Daerbur Wimbert. Needs edit of the NPC script!
+-- 10: Message delivered
+-- 11: Quest 4 solved, reward: 400cp, (15 rankpoints)
+-- 12: Quest 5: Bring a message to Archmage Morgan. Needs edit of the NPC script!
+-- 13: Message delivered
+-- 14: Quest 5 solved, reward: magical topaz ring (282), (20 rankpoints)
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Hector Valerion the royal ambassador. Keywords: Ambassador, quest, despatch, seal, orders.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Hector Valerion der königliche Botschafter. Schlüsselwörter: Botschafter, Quest, Depesche, Siegel, Befehle.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. You interrupt me, so it has to be important.", "#me closes a book and grumbles: 'What is it again?'", "Speak or be quiet. The latter is preferred."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid mir gegrüßt. Ihr unterbrecht mich beim Lesen, also muss es wichtig sein.", "#me legt ein Buch beiseite und grummelt: 'Was ist denn jetzt schon wieder?'", "Sprecht oder schweigt, letzteres wäre mir lieber."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted. You interrupt me, so it has to be important.", "#me closes a book and grumbles: 'What is it again?'", "Speak or be quiet. The latter is preferred."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid mir gegrüßt. Ihr unterbrecht mich beim Lesen, also muss es wichtig sein.", "#me legt ein Buch beiseite und grummelt: 'Was ist denn jetzt schon wieder?'", "Sprecht oder schweigt, letzteres wäre mir lieber."
+"Farewell", "Bye", "Fare well", "See you" -> "Can I continue reading now? Undisturbed? Thank you!", "Go and don't come back too early.", "There is the door."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Kann ich jetzt weiterlesen? Ungestört? Danke!", "Auf wiedersehen und beehrt mich wieder. Aber nicht allzu bald.", "Da ist die Tür."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Can I continue reading now? Undisturbed? Thank you!", "Go and don't come back too early.", "There is the door."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Kann ich jetzt weiterlesen? Ungestört? Danke!", "Auf wiedersehen und beehrt mich wieder. Aber nicht allzu bald.", "Da ist die Tür."
+"How are you", "How feel", "How do you do" -> "Just work! But what do I say, you look like somebody with lost of esteem. How about you fulfill a royal mission?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Immer diese Arbeit! Aber was sage ich, ihr seht aus, als wenn ihr voller Tatendrang wäret. Werdet ihr auf eine königliche Mission gehen?"
+"your name", "who are you", "who art thou" -> "My name is Hector, Hector Valerion. I am the royal ambassador and you are...?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Hector, Hector Valerion. Ich bin der königliche Botschafter und ihr seid...?"
+
+-- Catching quest triggers. Modify if the NPC does quests.
+-- 1st quest: Bring 5 quills (463), reward 200cp
+
+-- Give out quest 1
+queststatus(108) = 0, english, "quest", "mission" -> inform("[New quest] Delayed Mail I"), "I see you are a loyal minion of her queen and want to help one of her officials. I have to write down the queen's latest order. Could you bring me five quills?", queststatus(108) = 1
+queststatus(108) = 0, "quest", "mission" -> inform("[Neues Quest] Späte Post I"), "Wunderbar, ihr wollt als treuer Diener einem Beamten der Königin helfen. Holt mir bitte fünf Federkiele, ich muss noch die neuesten Befehle der Königin in Worte fassen.", queststatus(108) = 1
+queststatus(108) = 0, "task", "adventure", "message" -> inform("[New quest] Delayed Mail I"), "I see you are a loyal minion of her queen and want to help one of her officials. I have to write down the queen's latest order. Could you bring me five quills?", queststatus(108) = 1
+queststatus(108) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Späte Post I"), "Wunderbar, ihr wollt als treuer Diener einem Beamten der Königin helfen. Holt mir bitte fünf Federkiele, ich muss noch die neuesten Befehle der Königin in Worte fassen.", queststatus(108) = 1
+
+-- Quest 1 taken but not solved, repeat the instructions
+queststatus(108) = 1, item(463, all) < 5, english, "quest", "mission" -> "How am I supposed to write down the latest orders of her majesty without quills? Bring me at least five if you are loyal."
+queststatus(108) = 1, item(463, all) < 5, "quest", "mission" -> "Wie soll ich ohne Federkiele die neuesten Befehle der Königin niederschreiben? Bring mit wenigstens fünf, wenn ihr loyal seid."
+queststatus(108) = 1, item(463, all) < 5, "task", "adventure", "message" -> "How am I supposed to write down the latest orders of her majesty without quills? Bring me at least five if you are loyal."
+queststatus(108) = 1, item(463, all) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Wie soll ich ohne Federkiele die neuesten Befehle der Königin niederschreiben? Bring mit wenigstens fünf, wenn ihr loyal seid."
+
+-- Quest 1 solved, reward: 200cp, +5 rankpoints
+queststatus(108) = 1, item(463, all) > 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins. You advance in Queen Rosaline Edwards' favour."), "Very good! With those quills, I can write down today's orders. If you wait a brief moment, you could go on a mission to issue the orders.", money + 2000, deleteItem(463, 5), queststatus(108) = 2, rankpoints + 5
+queststatus(108) = 1, item(463, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), "Very good! With those quills, I can write down today's orders. If you wait a brief moment, you could go on a mission to issue the orders.", money + 2000, deleteItem(463, 5), queststatus(108) = 2
+queststatus(108) = 1, item(463, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Sehr gut! Mit diesen Federkielen kann ich die Tagesbefehle niederschreiben. Wenn ihr kurz wartet, könnt ihr auf die Mission gehen, die Befehle auszuteilen.", money + 2000, deleteItem(463, 5), queststatus(108) = 2, rankpoints + 5
+queststatus(108) = 1, item(463, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), "Sehr gut! Mit diesen Federkielen kann ich die Tagesbefehle niederschreiben. Wenn ihr kurz wartet, könnt ihr auf die Mission gehen, die Befehle auszuteilen.", money + 2000, deleteItem(463, 5), queststatus(108) = 2
+
+-- 2nd quest: Bring a message to Robertus
+
+-- Give out quest 2
+queststatus(108) = 2, english, "quest", "mission" -> inform("[New quest] Delayed Mail II: You received a message for Robertus."), "The queen has important orders for her royal builder, Robertus is his name. It is about his latest project. Rush to Robertus at once!", queststatus(108) = 3
+queststatus(108) = 2, "quest", "mission" -> inform("[Neues Quest] Späte Post II: Du hast eine Nachricht für Robertus erhalten."), "Die Königin hat wichtige Befehle für Robertus, der königlichen Baumeister. Es geht um sein derzeitiges Bauprojekt. Lauft sofort zu Robertus!", queststatus(108) = 3
+queststatus(108) = 2, "Task", "Adventure", "Message" -> inform("[New quest] Delayed Mail II: You received a message for Robertus."), "The queen has important orders for her royal builder, Robertus is his name. It is about his latest project. Rush to Robertus at once!", queststatus(108) = 3
+queststatus(108) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Späte Post II: Du hast eine Nachricht für Robertus erhalten."), "Die Königin hat wichtige Befehle für Robertus, der königlichen Baumeister. Es geht um sein derzeitiges Bauprojekt. Lauft sofort zu Robertus!", queststatus(108) = 3
+
+-- Quest 2 taken but not solved, repeat the instructions
+queststatus(108) = 3, english, "quest", "mission" -> "Maybe you did not understand: Important orders means: 'Deliver them now!'. Run to Robertus at once!"
+queststatus(108) = 3, "quest", "mission" -> "Vielleicht habt ihr nicht recht verstanden: Wichtige Befehle bedeutet: 'Überbring sie sofort!'. Lauft also sofort zu Robertus."
+queststatus(108) = 3, "Task", "Adventure", "Message" -> "Maybe you did not understand: Important orders means: 'Deliver them now!'. Run to Robertus at once!"
+queststatus(108) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Vielleicht habt ihr nicht recht verstanden: Wichtige Befehle bedeutet: 'Überbring sie sofort!'. Lauft also sofort zu Robertus."
+
+-- Quest 2 solved, reward: 50cp, large metal shield (20), +10 rankpoints
+queststatus(108) = 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded five silver coins and a large metal shield. You advance in Queen Rosaline Edwards' favour."), "Very good, now Robertus has the sketch the queen drew. As messenger of the queen, you deserve this shield with her crest.", money + 500, item(20, 1, 599), queststatus(108) = 5, rankpoints + 10
+queststatus(108) = 4, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and a large metal shield."), "Very good, now Robertus has the sketch the queen drew. As messenger of the queen, you deserve this shield with her crest.", money + 500, item(20, 1, 599), queststatus(108) = 5
+queststatus(108) = 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und einen großen Metallschild. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Sehr gut, nun hat Robertus die Skizze der Königin. Als Bote der Königin verdient ihr diesen Schild mit ihrem Wappen.", money + 500, item(20, 1, 599), queststatus(108) = 5, rankpoints + 10
+queststatus(108) = 4, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und einen großen Metallschild."), "Sehr gut, nun hat Robertus die Skizze der Königin. Als Bote der Königin verdient ihr diesen Schild mit ihrem Wappen.", money + 500, item(20, 1, 599), queststatus(108) = 5
+
+-- 3rd quest: Bring a message to Arenius Batavius.
+
+-- Give out quest 3
+queststatus(108) = 5, english, "quest", "mission" -> inform("[New quest] Delayed Mail III: You received a message for Arenius Batavius."), "Ah, I almost forgot. Arenius Batavius, a self proclaimed hero, asked for information from the library. Please, bring him this scroll.", queststatus(108) = 6
+queststatus(108) = 5, "quest", "mission" -> inform("[Neues Quest] Späte Post III: Du hast eine Nachricht für Arenius Batavius erhalten."), "Ah, ich hab da noch was. Arenius Batavius, ein selbsternannter Held, fragte nach Informationen aus der Bibliothek. Überbringt ihm bitte diese Schriftrolle.", queststatus(108) = 6
+queststatus(108) = 5, "Task", "Adventure", "Message" -> inform("[New quest] Delayed Mail III: You received a message for Arenius Batavius."), "Ah, I almost forgot. Arenius Batavius, a self proclaimed hero, asked for information from the library. Please, bring him this scroll.", queststatus(108) = 6
+queststatus(108) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Späte Post III: Du hast eine Nachricht für Arenius Batavius erhalten."), "Ah, ich hab da noch was. Arenius Batavius, ein selbsternannter Held, fragte nach Informationen aus der Bibliothek. Überbringt ihm bitte diese Schriftrolle.", queststatus(108) = 6
+
+-- Quest 3 taken but not solved, repeat the instructions
+queststatus(108) = 6, english, "quest", "mission" -> "Don't hurry too much, that hurts your heart. But I think Arenius Batavius eagerly awaits the information you have."
+queststatus(108) = 6, "quest", "mission" -> "Hetzt euch nicht zu sehr, das ist nicht gut für das Herz. Aber ich glaube, Arenius Batavius wartet sehnsüchtig auf die Informationen, die ihr habt."
+queststatus(108) = 6, "Task", "Adventure", "Message" -> "Don't hurry too much, that hurts your heart. But I think Arenius Batavius eagerly awaits the information you have."
+queststatus(108) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Hetzt euch nicht zu sehr, das ist nicht gut für das Herz. Aber ich glaube, Arenius Batavius wartet sehnsüchtig auf die Informationen, die ihr habt."
+
+-- Quest 3 solved, reward: merinium plated dagger (444), +10 rankpoints
+queststatus(108) = 7, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded a merinium plated dagger. You advance in Queen Rosaline Edwards' favour."), "Thank you for delivering the information to Arenius Batavius. Whoever those Salavesh are - after rereading the books about them, I guess you might need a good dagger for self defense.", item(444, 1, 699), queststatus(108) = 8, rankpoints + 10
+queststatus(108) = 7, english, ".+" -> inform("[Quest solved] You are awarded a merinium plated dagger."), "Thank you for delivering the information to Arenius Batavius. Whoever those Salavesh are - after rereading the books about them, I guess you might need a good dagger for self defense.", item(444, 1, 699), queststatus(108) = 8
+queststatus(108) = 7, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst einen meriniumbeschichteten Dolch. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ich danke für das Überbringen der Informationen an Arenius Batavius. Wer auch immer diese Salavesh sind; nach einem erneutem Studium denke ich, dass ihr einen guten Dolch zur Selbstverteidigung braucht.", item(444, 1, 699), queststatus(108) = 8, rankpoints + 10
+queststatus(108) = 7, ".+" -> inform("[Quest gelöst] Du erhältst einen meriniumbeschichteten Dolch."), "Ich danke für das Überbringen der Informationen an Arenius Batavius. Wer auch immer diese Salavesh sind; nach einem erneutem Studium denke ich, dass ihr einen guten Dolch zur Selbstverteidigung braucht.", item(444, 1, 699), queststatus(108) = 8
+
+-- 4th quest: Bring a message to Daerbur Wimbert.
+
+-- Give out quest 4
+queststatus(108) = 8, english, "quest", "mission" -> inform("[New quest] Delayed Mail IV: You received a message for Daerbur Wimbert."), "So, the queen once again needs your help as messenger. Venture to Daerbur Wimbert, the queen has an order for sparkling gems from the dark hole mine.", queststatus(108) = 9
+queststatus(108) = 8, "quest", "mission" -> inform("[Neues Quest] Späte Post IV: Du hast eine Nachricht für Daerbur Wimbert erhalten."), "Nun, die Königin braucht ein weiteres mal eure Botendienste. Geht zu Daerbur Wimbert, die Königin hat eine Order über funkelnde Edelsteine aus der Dunkellochmine.", queststatus(108) = 9
+queststatus(108) = 8, "Task", "Adventure", "Message" -> inform("[New quest] Delayed Mail IV: You received a message for Daerbur Wimbert."), "So, the queen once again needs your help as messenger. Venture to Daerbur Wimbert, the queen has an order for sparkling gems from the dark hole mine.", queststatus(108) = 9
+queststatus(108) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Späte Post IV: Du hast eine Nachricht für Daerbur Wimbert erhalten."), "Nun, die Königin braucht ein weiteres mal eure Botendienste. Geht zu Daerbur Wimbert, die Königin hat eine Order über funkelnde Edelsteine aus der Dunkellochmine.", queststatus(108) = 9
+
+-- Quest 4 taken but not solved, repeat the instructions
+queststatus(108) = 9, english, "quest", "mission" -> "The queen does not appreciate to wait. And she'll get word soon that you are responsible if her gems won't come from dark hole mine in time."
+queststatus(108) = 9, "quest", "mission" -> "Die Königin wartet nicht gerne. Bald wird sie erfahren, dass ihr dafür verantwortlich seid, dass ihre Edelsteine aus der Dunkellochmine nicht ankommen."
+queststatus(108) = 9, "Task", "Adventure", "Message" -> "The queen does not appreciate to wait. And she'll get word soon that you are responsible if her gems won't come from dark hole mine in time."
+queststatus(108) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Die Königin wartet nicht gerne. Bald wird sie erfahren, dass ihr dafür verantwortlich seid, dass ihre Edelsteine aus der Dunkellochmine nicht ankommen."
+
+-- Quest 4 solved, reward: 400cp, +15 rankpoints
+queststatus(108) = 10, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 40 silver coins. You advance in Queen Rosaline Edwards' favour."), "Great! Now the treasury of Cadomyr will have more trumpery. Here is your reward.", money + 4000, queststatus(108) = 11, rankpoints + 15
+queststatus(108) = 10, english, ".+" -> inform("[Quest solved] You are awarded 40 silver coins."), "Great! Now the treasury of Cadomyr will have more trumpery. Here is your reward.", money + 4000, queststatus(108) = 11
+queststatus(108) = 10, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 40 Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Großartig! Nun wird noch mehr Kitsch die Schatzkammer Cadomyrs überfluten. Hier, eure Belohnung.", money + 4000, queststatus(108) = 11, rankpoints + 15
+queststatus(108) = 10, ".+" -> inform("[Quest gelöst] Du erhältst 40 Silberstücke."), "Großartig! Nun wird noch mehr Kitsch die Schatzkammer Cadomyrs überfluten. Hier, eure Belohnung.", money + 4000, queststatus(108) = 11
+
+-- 5th quest: Bring a message to Archmage Elvaine Morgan.
+
+-- Give out quest 5
+queststatus(108) = 11, english, "quest", "mission" -> inform("[New quest] Delayed Mail V: You received a message for Archmage Elvaine Morgan."), "Are you ready for a secret diplomatic mission? Deliver this royal despatch to Archmage Morgan of Runewick. Do not even think about breaking its seal!", queststatus(108) = 12
+queststatus(108) = 11, "quest", "mission" -> inform("[Neues Quest] Späte Post V: Du hast eine Nachricht für Erzmagier Elvaine Morgan erhalten."), "Seid ihr bereit für eine geheime diplomatische Mission? Bringt diese königliche Depesche zu Erzmagier Morgan von Runewick. Und denkt nichtmal dran, das Siegel zu brechen!", queststatus(108) = 12
+queststatus(108) = 11, "Task", "Adventure", "Message" -> inform("[New quest] Delayed Mail V: You received a message for Archmage Elvaine Morgan."), "Are you ready for a secret diplomatic mission? Deliver this royal despatch to Archmage Morgan of Runewick. Do not even think about breaking its seal!", queststatus(108) = 12
+queststatus(108) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Späte Post V: Du hast eine Nachricht für Erzmagier Elvaine Morgan erhalten."), "Seid ihr bereit für eine geheime diplomatische Mission? Bringt diese königliche Depesche zu Erzmagier Morgan von Runewick. Und denkt nichtmal dran, das Siegel zu brechen!", queststatus(108) = 12
+
+-- Quest 5 taken but not solved, repeat the instructions
+queststatus(108) = 12, english, "quest", "mission" -> "Aren't you on a secret mission to deliver a diplomatic despatch to the Archmage of Runewick? Or did I send someone else?"
+queststatus(108) = 12, "quest", "mission" -> "Seid ihr nicht auf einer geheimen Mission und habt eine diplomatische Depesche zum Erzmagier nach Runewick zu bringen? Oder schickte ich jemand anderes...?"
+queststatus(108) = 12, "Task", "Adventure", "Message" -> "Aren't you on a secret mission to deliver a diplomatic despatch to the Archmage of Runewick? Or did I send someone else?"
+queststatus(108) = 12, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Seid ihr nicht auf einer geheimen Mission und habt eine diplomatische Depesche zum Erzmagier nach Runewick zu bringen? Oder schickte ich jemand anderes...?"
+
+-- Quest 5 solved, reward: magical topaz (198), topaz ring (282), +20 rankpoints
+queststatus(108) = 13, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded a magical topaz and a topaz ring. You advance in Queen Rosaline Edwards' favour."), "You helped her majesty a lot. Please maintain silence about your journey. Your silence is worth your life and for me, it is worth this ring.", item(198, 1, 333, "gemLevel" = "1"), item(282, 1, 999), queststatus(108) = 14, rankpoints + 20
+queststatus(108) = 13, english, ".+" -> inform("[Quest solved] You are awarded a magical topaz and a topaz ring."), "You helped her majesty a lot. Please maintain silence about your journey. Your silence is worth your life and for me, it is worth this ring.", item(198, 1, 333, "gemLevel" = "1"), item(282, 1, 999), queststatus(108) = 14
+queststatus(108) = 13, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst einen magischen Topas und einen Topasring. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ihr habt ihrer Majestät sehr geholfen. Bitte bewahrt Stillschweigen über eure Reise. Euer Schweigen ist euch euer Leben und mir diesen Ring wert.", item(198, 1, 333, "gemLevel" = "1"), item(282, 1, 999), queststatus(108) = 14, rankpoints + 20
+queststatus(108) = 13, ".+" -> inform("[Quest gelöst] Du erhältst einen magischen Topas und einen Topasring."), "Ihr habt ihrer Majestät sehr geholfen. Bitte bewahrt Stillschweigen über eure Reise. Euer Schweigen ist euch euer Leben und mir diesen Ring wert.", item(198, 1, 333, "gemLevel" = "1"), item(282, 1, 999), queststatus(108) = 14
+
+-- No more quests, just nice words of gratitude
+queststatus(108) = 14, english, "quest", "mission" -> "At this moment, you cannot help me anymore. I guess the both of us should do what we can do best again. For me, that is reading my book."
+queststatus(108) = 14, "quest", "mission" -> "Mir ist nicht mehr zu helfen. Wir beide sollten tun, was wir am besten können. Bei mir ist das Bücher lesen."
+queststatus(108) = 14, "Task", "Adventure", "Message" -> "At this moment, you cannot help me anymore. I guess the both of us should do what we can do best again. For me, that is reading my book."
+queststatus(108) = 14, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Mir ist nicht mehr zu helfen. Wir beide sollten tun, was wir am besten können. Bei mir ist das Bücher lesen."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am the royal ambassador. That means I issue the orders of the queen and diplomatic despatches."
+"beruf" -> "Ich bin der königliche Botschafter. Das bedeutet, dass ich die Befehle und die diplomatischen Depeschen der Königin kund tue."
+english, "job" -> "I am the royal ambassador. That means I issue the orders of the queen and diplomatic despatches."
+"job" -> "Ich bin der königliche Botschafter. Das bedeutet, dass ich die Befehle und die diplomatischen Depeschen der Königin kund tue."
+english, "Gobaith", "Gobiath" -> "You aren't from Gobaith, are you? If so, my condolescence."
+"Gobaith", "Gobiath" -> "Ihr seid nicht von Gobaith, richtig? Falls doch, mein Beileid."
+"my name" -> "You are none of the officals, right? So, what do you require - orders?"
+"mein Name" -> "Ihr seid keine Amtsperson, richtig? Nun, was gibt es - braucht ihr Befehle?"
+
+-- More small talk; add at least five triggers
+"seal" -> "Never ever even think about breaking the queen's seal. You'll regret it..."
+"ambassador", "embassador" -> "Did you ever wonder why ambassador sits in an embassy and not an ambassy? Or why he isn't called embassador?", "Indeed, I am the royal ambassador. That means that you receive orders from the queen by my hand.", "I used to travel a lot in diplomatic mission, but now I prefer to read a good book."
+"lazy" -> "Lazy, hah. If you had travelled as much as me, you'd understand that I deserve an extended rest now."
+"Order" -> "The orders of the queen all cross my desk. Except for those she yells right in the faces of her lackeys. That makes me somehow... special, no?"
+"despatch", "dispatch" -> "Whenever there is an issue with Galmair or Runewick, the queen issues despatches. She rarely leaves her palace to deal with our neighbours."
+english, "Hastings", "Baron" -> "Let me see... yes, I have orders for the Baron, it reads: 'Drop dead!'"
+english, "diplomat" -> "The fine art of diplomacy isn't a strength of Cadomyr; but for such things, there is me!"
+"siegel" -> "Brecht niemals ein königliches Siegel. Ihr würdet es bereuen..."
+"Botschafter" -> "Habt ihr euch gefragt, was einen Botschafter von einem Boten unterscheidet? Die Königin hält mich manchmal für zweiteres...", "Fürwahr, ich bin der Botschafter der Königin. Also, ihre Befehle werden duch mich kund getan.", "Dafür war ich oft und gerne in diplomatischer Mission unterwegs. Jetzt ziehe ich es vor, lieber mal ein gutes Buch zu lesen."
+"faul" -> "Faul, hah. Wenn ihr so viel gereist wäret wie ich, würdet ihr verstehen, dass ich nun eine längere Rast verdient habe."
+"Befehl" -> "Die Befehle der Königin gehen alle über meinen Schreibtisch. Außer die, die sie ihren Lakaien direkt ins Gesicht schreit. Das macht mich doch irgendwie... wichtig, oder?"
+"Depesche" -> "Wenn es ein Problem mit Galmair oder Runewick gibt sendet die Königin Depeschen aus. Sie verlässt nur ungerne ihren Palast, um sich mit unseren Nachbarn rumzuplagen."
+"Hastings", "Baron" -> "Lasst mich mal nachsehen... ja, ich habe hier einen Befehl für den Baron: 'Stirb'"
+"Diplomat" -> "Die hohe Kunst der Diplomatie ist eigentlich keine Stärke Cadomyrs. Aber dafür gibt es ja mich!"
+english, "Daerbur", "Wimbert" -> "You might want to search for Daerbur Wimbert in the darkhole mine. That is very far to the north. Better ask in Galmair, they are familiar with... dark holes."
+"Daerbur", "Wimbert" -> "Ihr sucht Daerbur Wimbert am besten in der Dunkellochmine. Diese ist weit im Norden. Fragt besser mal in Galmair nach, die kennen sich mit dunklen Löchern bestens aus."
+english, "Robertus" -> "Oh, if you are looking for the royal builder Robertus, just head for the market place. He usually corrects his plans there. I wonder what he is building currently."
+"Robertus" -> "Oh, wenn ihr nach dem königlichen Baumeister Robertus sucht, dann geht einfach zu Marktplatz. Dort arbeitet er zumeist an seinen Plänen. Ich frag mich, was er jetzt wieder bauen will."
+english, "Arenius", "Batavius" -> "A fallen crusader lurks in front of the gates of Cadomyr. His name is Arenius Batavius. He is rather thirsty for information I overheard."
+"Arenius", "Batavius" -> "Ein gescheiterter Kreuzritter lungert vor dem Tor Cadomyrs herum. Sein Name ist Arenius Batavius. Er ist sehr darauf erpicht, an Informationen zu kommen."
+
+-- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
+english, "Duplo" -> "They are pretty long, aren't they?"
+"Duplo" -> "Die sind verdammt lang, nicht wahr?"
+
+-- Faction stuff
+"archmage" -> "The archmage is, indeed, intelligent. But he has problems deriving the right deeds from his thoughts."
+"Erzmagier" -> "Der Erzmagier ist fürwahr intelligent. Allerdings fällt es ihm schwer, aus seinen Gedanken die richtigen Taten abzuleiten."
+english, "Elvaine", "Morgan" -> "The archmage is, indeed, intelligent. But he has problems deriving the right deeds from his thoughts."
+"Elvaine", "Morgan" -> "Der Erzmagier ist fürwahr intelligent. Allerdings fällt es ihm schwer, aus seinen Gedanken die richtigen Taten abzuleiten."
+english, "Runewick" -> "Runewick is far to the east. There is a secret passage under the mountains but it is a dangerous path. But the travel is worth it."
+"Runewick" -> "Runewick ist weit im Osten. Es gibt eine geheime Passage unter den Bergen hindurch, aber es ist ein gefährlicher Weg. Die Reise ist es jedoch wert."
+english, "Valerio", "Guilianni", "Don" -> "Negotiations with the Don used to be difficult in the past. But strangely, since Queen Rosaline inherited the throne, his behaviour changed."
+"Valerio", "Guilianni", "Don" -> "Verhandlungen mit dem Don waren früher immer recht ermüdend. Merkwürdigerweise hat sich sein Verhalten drastisch verändert, seit Königin Rosaline den Thron bestiegen hat."
+english, "Galmair" -> "Galmair you can find when travelling far to the north. But don't take to much money with you, you will return without it."
+"Galmair" -> "Ihr gelangt nach Galmair, wenn ihr weit in den Norden reist. Aber nehmt nicht zu viel Geld mit, ihr werdet ohne es wiederkommen."
+"Queen" -> "I obey her orders like I obeyed King Reginald's. You better do likewise or you'll be treated like Baron Hastings."
+"Königin" -> "Ich gehorche ihren Befehlen wie ich König Reginalds Befehlen gehorcht habe. Ihr macht besser das gleiche oder es ergeht euch wie Baron Hastings."
+english, "rosaline", "edwards" -> "I obey her orders like I obeyed King Reginald's. You better do likewise or you'll be treated like Baron Hastings."
+"rosaline", "edwards" -> "Ich gehorche ihren Befehlen wie ich König Reginalds Befehlen gehorcht habe. Ihr macht besser das gleiche oder es ergeht euch wie Baron Hastings."
+english, "Cadomyr" -> "Cadomyr is my home and I do my share to make it prosper. Maybe not every day, but once in a while."
+"Cadomyr" -> "Cadomyr ist meine Heimat und ich trage meinen Teil dazu bei, es gedeihen zu lassen. Vielleicht nicht jeden Tag, aber immer mal wieder."
+
+-- Main land factions
+english, "albar" -> "Back in my youth, I once travelled in diplomatic mission to Albar. It was... I think we sent a host to there afterwards."
+"albar" -> "Während meiner Jugend bin ich einst in diplomatischer Mission nach Albar gereist. Es ging um... Ich meine, wir haben hinterher eine Streitmacht dorthin entsandt."
+english, "gynk", "gync" -> "Diplomacy is not a skill of the Gynkeesh. They have many, but not that one."
+"gync", "gynk" -> "Diplomatie ist keine Stärke der Gynkeesh. Sie mögen einige andere haben, aber nicht diese."
+english, "salkama" -> "I was once to Salkamar. My ears bleeded after I had to listen all their awkward points of view. Horrible realm!"
+"salkama" -> "Ich war ein einziges mal in Salkamar. Meine Ohren haben geblutet nachdem ich mir all die komischen Standpunkte dort angehört habe. Ein schreckliches Land!"
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Gott", "Götter" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+english, "Adron" -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Adron" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+english, "Bragon", "Brágon" -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Bragon", "Brágon" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+english, "Cherga" -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Cherga" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+english, "Elara" -> "You think I worship Elara because I read books? I worship books, isn't that obvious?"
+"Elara" -> "Ihr denkt also, ich bin ein Anbete Elaras, weil ich Bücher lese? Ich bin ein Anbeter guter Literatur, ist das nicht offensichtlich?"
+english, "Eldan" -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Eldan" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+english, "Findari" -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Findari" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+english, "Irmorom" -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Irmorom" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+english, "Malachin", "Malachín" -> "Malachín is the patron of Cadomyr... But I doubt I have to tell you that."
+"Malachin", "Malachín" -> "Malachín ist der Schutzgott Cadomyrs... Aber wem erzähle ich das?"
+english, "Moshran" -> "Out of my embassy!"
+"Moshran" -> "Raus aus meiner Botschaft!"
+english, "Nargun", "Nargún", "Nargùn" -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Nargun", "Nargún", "Nargùn" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+english, "Oldra" -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Oldra" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+english, "Ronagan" -> "Ronagan is the god of travellers, don't you know? So, why don't you travel a bit for me with Ronagan's blessing?"
+"Ronagan" -> "Ronagan ist der Gott der Reisenden, wußtet ihr das nicht? Nun, warum tut ihr nicht eine Reise für mich mit Ronagans Segen?"
+english, "Sirani" -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Sirani" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+english, "Tanora", "Zelphia" -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Tanora", "Zelphia" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+english, "Ushara" -> "My faith in the gods is strong, but I prefer not to talk about something as private as this."
+"Ushara" -> "Mein Glaube an die Götter ist stark, aber ich ziehe es vor, nicht über solch persönliche Dinge zu reden."
+english, "Zhambra" -> "I am loyal, for Zhambra smiled upon me. I wouldn't do anything without an explicite, written order of her majesty."
+"Zhambra" -> "Ich bin loyal, Zhambra meint es gut mit mir. Ich würde nichts ohne einen ausdrücklichen und schriftlichen Befehl ihrer Majestät tun."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "The only thing I'd buy is my peace. Sometimes, I wish I'd be a less important man."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Das einzige, was ich erkaufen würde, wäre meine Ruhe. Ich wünschte manchmal, ich wäre nicht so ein wichtiger Mann."
+"tell something" -> "Let's be honest, you disturb me and I am an important person. So, if you do a royal mission for me, both of us would be happy."
+"erzähl was", "erzähl etwas" -> "Mal ehrlich, ihr stört mich und ich bin eine wichtige Persönlichkeit. Also würdet ihr uns beide glücklich machen, wenn ihr euch auf eine Mission für die Königin begeben würdet."
+
+-- Last catch: Think about keywords the player might say and that are not caught until here.
+english, "Hector", "Valerion" -> "I am proud of being a Valerion. Are you proud to be a...?", "Hector Valerion, at your service.", "I am the royal ambassador and my name is indeed Hector Valerion."
+"Hector", "Valerion" -> "Ich bin stolz darauf, ein Valerion zu sein. Seid ihr stolz darauf ein... was genau nochmal... zu sein?", "Hector Valerion, stets zu Diensten.", "Ich bin der königliche Botschafter und meine Name ist in der Tat Hector Valerion."
+"Yes" -> "Well, no.", "Alright, indeed.", "Who said this?", "#me shrugs.", "I am trying to read!", "#me sighs."
+"Ja" -> "Ja, ne.", "Sicherlich, klar!", "Wer sagt denn sowas?", "#me zuckt mit den Schultern.", "Ich versuche hier zu lesen!", "#me seufzt."
+"No" -> "I guess I forgot on which page I was.", "My book is really interesting. Does the same hold for what you just said?", "Shh!", "Pardon?"
+"Nein" -> "Ich fürchte, ich hab vergessen, auf welcher Seite ich war.", "Mein Buch ist wirklich spannend. Gilt das auch für das, was ihr gerade gesagt habt?", "Psst!", "Pardon?"
+
+-- Cycletext: Add as many random messages as possible
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Ups, die Post ist da!", "Ups, I have mail."
+cycletext "#me gähnt gelangweilt.", "#me yawns lazily."
+cycletext "#me blättert in einem Buch.", "#me browses a book."
+cycletext "Ich hoffe nur, ich muss nicht schon wieder irgendwelche Depeschen überbringen.", "I just hope I don't have to deliver any despatches."
+cycletext "Wann soll ich hier eigentlich mal ungestört zum Lesen kommen?", "When do I get to read my way?"
+cycletext "Ob das Volk heute oder morgen seine Befehle bekommt, was macht das für einen Unterschied? Cadomyr wird es ewig geben!", "Does it make a difference whether the people get their orders today or tomorrow? Cadomyr will last forever!"
+cycletext "Gut, gut, gut...", "Good, good, good..."
+cycletext "Eindeutig zu viel Arbeit. Ich sollte erstmal ein wenig lesen, wahrscheinlich überlegt sie es sich nochmal.", "Simply too much work. I should read a bit, most probably, she'll reconsider anyway."
+cycletext "Ich hätte heiraten sollen als noch die Zeit dafür war.", "I should have merried when I still had the time."
+cycletext "Wenn das Leben nicht so läuft, wie man will, sollte man was dagegen tun.", "If life does not turn out how you'd like it to be one should do something about this."
+cycletext "Ruhe! Ich lese!", "Silence! I am reading!"
+cycletext "#me betrachtet missmutig eine Schriftrolle, die das königliche Siegel Cadomyrs trägt.", "#me stares morosely at a scroll that bears the royal seal of Cadomyr."
