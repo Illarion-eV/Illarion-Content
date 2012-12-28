@@ -125,9 +125,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			local mDialog = MessageDialog("Character Info for "..chosenPlayer.name, "HP: "..chosenPlayer:increaseAttrib("hitpoints", 0).."MP: "..chosenPlayer:increaseAttrib("mana", 0)..
 							"\nSTR: "..User:increaseAttrib("strength", 0).." CONST: "..User:increaseAttrib("constitution", 0).." DEX: "..User:increaseAttrib("dexterity", 0)..
 							"\nAGI: "..User:increaseAttrib("agility", 0).." WIL: "..User:increaseAttrib("willpower", 0).." PERC: "..User:increaseAttrib("perception", 0).." ESS: "..User:increaseAttrib("essence", 0)
-							"\nMental Capacity: "..chosenPlayer:getMentalCapacity()..
-							"\nIdle for [s]: "..chosenPlayer:idleTime())
-			User:requestMessageDialog(mDialog, cbChoosePlayer)
+							"\nMental Capacity: "..tostring(chosenPlayer:getMentalCapacity())..
+							"\nIdle for [s]: "..tostring(chosenPlayer:idleTime()), cbChoosePlayer)
+			User:requestMessageDialog(mDialog)
 		end
 			--Dialog to choose the player
 		local sdPlayer = SelectionDialog("Change the avatar of ...", "First choose a victim:", cbChoosePlayer);
