@@ -46,7 +46,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			SourceItem:setData("mode", modes[dialog:getSelectedIndex()+1]);
 			world:changeItem(SourceItem);
 		end
-		local sd = SelectionDialog("Set the mode of this medal.", "To which mode do you want to change it?", cbSetMode);
+		local sd = SelectionDialog("Set the mode of this lockpicks.", "To which mode do you want to change it?", cbSetMode);
 		for _,m in ipairs(modes) do 
 			sd:addOption(0,m);
 		end
@@ -358,16 +358,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             User:increaseAttrib("hitpoints",10000-acHP);
         end
     end]]
-end
-
-function ShowCharInfo(User,TargetCharakter)
-    TargetHP=TargetCharakter:increaseAttrib("hitpoints",0);
-    User:inform("Target Charakter HP: "..TargetHP.." - Race: "..TargetCharakter:getRace().." - Sex: "..TargetCharakter:increaseAttrib("sex",0));
-end
-
-function ShowPosition(User) 
-    InfoText="x="..User.pos.x..", y="..User.pos.y.. ", z="..User.pos.z;
-    User:inform(InfoText);
 end
 
 function LookAtItem(User,Item)
