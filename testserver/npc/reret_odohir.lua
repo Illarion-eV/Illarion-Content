@@ -3,15 +3,15 @@
 -- NPC Job:  Notary                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  106, 553, 0            --
--- NPC Sex:  female                     NPC Direction: north                  --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
--- Author:   ?? + Miriam                                                      --
+-- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 106, 553, 0, 0, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 0, 68, 63, 58, 255, 210, 204);
+VALUES (0, 106, 553, 0, 4, 'Reret Odohir', 'npc.reret_odohir', 1, 8, 0, 255, 215, 58, 205, 133, 63);
 ---]]
 
 require("npc.base.basic")
@@ -29,23 +29,21 @@ require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.town")
 require("npc.base.talk")
-require("npc.base.trade")
 module("npc.reret_odohir", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Reret Odohir the Notary of Cadomyr. Keywords: 'join Cadomyr','become citizen', 'leave','give up citizenship', 'rank'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Reret Odohir the Notary of Cadomyr. Keywords: 'join Cadomyr','become citizen', 'leave', 'give up citizenship', 'rank'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Reret Odohir die Notarin von Cadomyr. Schlüsselwörter: 'Cadomyr beitreten' 'Bürger werden','verlassen','beende Bürgerstatus','Rang'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Reret Odohir die Notarin von Cadomyr. Schlüsselwörter: 'Cadomyr beitreten' 'Bürger werden','verlassen','beende Bürgerschaft', 'Rang'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -213,7 +211,6 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("join Cadomyr");
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
-talkEntry:addResponse("You are now a citizen of Cadomyr");
 talkEntry:addResponse("Welcome to Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -224,7 +221,6 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Cadomyr beitreten");
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Ihr seid jetzt Bürger von Cadomyr");
 talkEntry:addResponse("Willkommen in Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -236,7 +232,6 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("join Cadomyr");
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
-talkEntry:addResponse("You are now a citizen of Cadomyr");
 talkEntry:addResponse("Welcome to Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -247,7 +242,6 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Cadomyr beitreten");
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Ihr seidt jetzt Bürger von Cadomyr");
 talkEntry:addResponse("Willkommen in Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -259,7 +253,6 @@ talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("join Cadomyr");
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
-talkEntry:addResponse("You are now a citizen of Cadomyr");
 talkEntry:addResponse("Welcome to Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -270,7 +263,6 @@ talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("Cadomyr beitreten");
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Ihr seid jetzt Bürger von Cadomyr");
 talkEntry:addResponse("Willkommen in Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -281,7 +273,6 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("join Cadomyr");
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
-talkEntry:addResponse("You are now a citizen of Cadomyr");
 talkEntry:addResponse("Welcome to Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -291,7 +282,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr beitreten");
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Ihr seid jetzt Bürger von Cadomyr");
 talkEntry:addResponse("Willkommen in Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -332,7 +322,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(1));
-talkEntry:addTrigger("beende Bürgerstatus");
+talkEntry:addTrigger("beende Bürgerschaft");
 talkEntry:addTrigger("verlassen");
 talkEntry:addTrigger("verlasse");
 talkEntry:addTrigger("annuliere");
@@ -1513,26 +1503,22 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me unterzeichnet ein Dokument.", "#me signs a document.");
 talkingNPC:addCycleText("#me befestigt ein Siegel an einem Brief.", "#me puts a seal under a letter.");
-talkingNPC:addCycleText("#me lächelt.", "#me smilies.");
+talkingNPC:addCycleText("#me lächelt.", "#me smiles.");
 talkingNPC:addCycleText("#me macht sich ein paar Notizen.", "#me takes some notes.");
 talkingNPC:addCycleText("#me summt eine Melodie.", "#me hums a melody.");
-tradingNPC:addNotEnoughMoneyMsg("Ihr habt nicht genug Geld.", "You don't have enought Money.");
-tradingNPC:addDialogClosedMsg("Danke euch.", "Thank you.");
-tradingNPC:addDialogClosedNoTradeMsg("Bis zum nächsten mal.", "Hope to see you again!");
-tradingNPC:addWrongItemMsg("Oh, Das kaufe ich nicht. Tut mir leid.", "Oh, I don't buy that. Sorry.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Reret Odohir die Notarin.", "This NPC is Reret Odohir the Notary.");
 mainNPC:setUseMessage("Lasst mich in Ruhe!", "Don't you touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
-mainNPC:setEquipment(1, 257);
-mainNPC:setEquipment(3, 181);
-mainNPC:setEquipment(11, 558);
+mainNPC:setEquipment(1, 0);
+mainNPC:setEquipment(3, 845);
+mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
-mainNPC:setEquipment(4, 48);
-mainNPC:setEquipment(9, 34);
+mainNPC:setEquipment(4, 2295);
+mainNPC:setEquipment(9, 0);
 mainNPC:setEquipment(10, 45);
 mainNPC:setAutoIntroduceMode(true);
 

@@ -151,11 +151,47 @@ english, "job" -> "I am guard of Galmair’s bridge.", "I am a Silverstone in th
 "Zwerg" -> "Ja, ich bin groß für einen Zwerg. Weiter gehen!"
 "Frau", "Mädchen", "weib" -> "Eine Frau zu sein hat mich nicht aufgehalten meine Ziele in der Stadtwache zu erreichen, denn der Hass auf andere hat niemals mein eigenes Feuer der Gerechtigkeit überschattet."
 
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+english, "Bre" -> "She is the prettiest, strongest, smartest person I know.", "I rescued her from being homeless.", "Bre of the other gate is my sister."
+"Sister" -> "She is the prettiest, strongest, smartest person I know.", "I rescued her from being homeless.", "Bre of the other gate is my sister."
+"Homeless" -> "It is no place for a girl... I can tell you that."
+"Peace", "Justice" -> "One should do everything in peace and justice."
+"guard", "Civil Watch", "bridge" -> "It is my job to protect the city and its citizen."
+"Drugs" -> "#me looks at you bemused."
+"men" -> "Men are the counterpart to women."
+"Weapon" -> "Weapons are the guards best friend."
+"Bre" -> "Sie ist die schönste, stärkste und schlauste Person, die ich kenne.", "Ich hab sie aus der Obdachlosigkeit geholt.", "Bre am anderen Tor, das ist meine Schwester."
+"Schwester" -> "Sie ist die schönste, stärkste und schlauste Person, die ich kenne.", "Ich hab sie aus der Obdachlosigkeit geholt.", "Bre am anderen Tor, das ist meine Schwester."
+"obdachlos" -> "Das ist nichts für ein Mädchen, glaubt mir."
+"Frieden", "Gerechtigkeit" -> "Man sollte alles für Frieden und Gerechtigkeit tun."
+"Wache", "Bürgerwehr", "Brücke" -> "Meine Aufgabe ist es die Stadt und ihre Bürger zu bewachen."
+"Drogen", "Rauschgift" -> "#me schaut dich irritiert an."
+"Männer" -> "Männer sind das Gegenteil von Frauen."
+"Waffe" -> "Waffen sind der beste Freund einer Wache."
+
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "You have no need to know who I worship."
 english, "Elara" -> "Elara the bright once said --Justice is a tree. Wisdom is its leaves, power is its trunk, and love is its roots.-- This is the saying I hold in my mind every day."
 "Gott", "Götter" -> "Ihr bracht nicht wissen, wen ich ehre."
 "Elara" -> "Elara die Erleuchtet sagte einmal folgends: Gerechtigkeit ist ein Baum. Weisheit sind seine Blätter, Macht ist seim Stamm und Liebe die Wurzeln. Diesen Spruch bewahre ich mir."
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+english, "Runewick" -> "There is an enormous bridge that stretches across a large sea."
+"Runewick" -> "Die Stadt ist mit einer riesigen Brücke über das Meer mit dem Festland verbunden."
+english, "Elvaine", "Morgan" -> "I hear he is a strong mage. Magic is nothing compared to a strong blow from a dwarven great axe."
+"Elvaine", "Morgan" -> "Ich hörte, er weiß, mit der Magie umzugehen. Aber mal im Ernst: Was ist schon Magie gegen den Hieb einer Zwergenaxt?"
+"Archmage" -> "I hear he is a strong mage. Magic is nothing compared to a strong blow from a dwarven great axe."
+"Erzmagier" -> "Ich hörte, er weiß, mit der Magie umzugehen. Aber mal im Ernst: Was ist schon Magie gegen den Hieb einer Zwergenaxt?"
+english, "Valerio", "Guilianni", "Don" -> "I work for him."
+"Valerio", "Guilianni", "Don" -> "Ich arbeite für ihn."
+english, "Galmair" -> "The streets are cold, the men are rude, but this is where my sister is and my job."
+"Galmair" -> "Die Straßen sind kalt, die Leute ungehobelt aber hier ist meine Schwester und meine Aufgabe."
+english, "Cadomyr" -> "Bre wants to go there. I will take her on my next day off."
+"Cadomyr" -> "Bre möchte dort hin gehen. Ich werde sie an meinem nächsten freien Tag dort hinbringen."
+english, "rosaline", "edwards" -> "I don't know her personally."
+"rosaline", "edwards" -> "Ich kenne sie nicht persönlich."
+"Queen" -> "I don't know her personally."
+"Königin" -> "Ich kenne sie nicht persönlich."
 
 -- Optional: Gobaith
 english, "Gobaith", "Gobiath" -> "I have nothing to say of it."
