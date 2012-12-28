@@ -46,7 +46,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			SourceItem:setData("mode", modes[dialog:getSelectedIndex()+1]);
 			world:changeItem(SourceItem);
 		end
-		local sd = SelectionDialog("Set the mode of this medal.", "To which mode do you want to change it?", cbSetMode);
+		local sd = SelectionDialog("Set the mode of this lockpicks.", "To which mode do you want to change it?", cbSetMode);
 		for _,m in ipairs(modes) do 
 			sd:addOption(0,m);
 		end
@@ -67,7 +67,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 		--get all the items the char has on him, with the stuff in the backpack
 		local itemsOnChar = {};
-		for i=0, 17 do 
+		for i=17,0,-1 do 
 			table.insert(itemsOnChar, User:getItemAt(i));
 		end
 					
@@ -122,9 +122,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 				return;
 			end
 			local chosenPlayer = players[dialog:getSelectedIndex()+1];
-			local mDialog = MessageDialog("Character Info for "..chosenPlayer.name, "HP: "..chosenPlayer:increaseAttrib("hitpoints", 0).."MP: "..chosenPlayer:increaseAttrib("mana", 0)..
-							"\nSTR: "..User:increaseAttrib("strength", 0).." CONST: "..User:increaseAttrib("constitution", 0).." DEX: "..User:increaseAttrib("dexterity", 0)..
-							"\nAGI: "..User:increaseAttrib("agility", 0).." WIL: "..User:increaseAttrib("willpower", 0).." PERC: "..User:increaseAttrib("perception", 0).." ESS: "..User:increaseAttrib("essence", 0)
+			local mDialog = MessageDialog("Character Info for "..chosenPlayer.name, "HP: "..chosenPlayer:increaseAttrib("hitpoints", 0).." MP: "..chosenPlayer:increaseAttrib("mana", 0)..
+							"\nSTR: "..chosenPlayer:increaseAttrib("strength", 0).." CONST: "..chosenPlayer:increaseAttrib("constitution", 0).." DEX: "..chosenPlayer:increaseAttrib("dexterity", 0)..
+							"\nAGI: "..chosenPlayer:increaseAttrib("agility", 0).." WIL: "..chosenPlayer:increaseAttrib("willpower", 0).." PERC: "..chosenPlayer:increaseAttrib("perception", 0).." ESS: "..User:increaseAttrib("essence", 0)..
 							"\nMental Capacity: "..tostring(chosenPlayer:getMentalCapacity())..
 							"\nIdle for [s]: "..tostring(chosenPlayer:idleTime()), cbChoosePlayer)
 			User:requestMessageDialog(mDialog)
@@ -360,23 +360,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end]]
 end
 
-function ShowCharInfo(User,TargetCharakter)
-    TargetHP=TargetCharakter:increaseAttrib("hitpoints",0);
-    User:inform("Target Charakter HP: "..TargetHP.." - Race: "..TargetCharakter:getRace().." - Sex: "..TargetCharakter:increaseAttrib("sex",0));
-end
-
-function ShowPosition(User) 
-    InfoText="x="..User.pos.x..", y="..User.pos.y.. ", z="..User.pos.z;
-    User:inform(InfoText);
-end
-
 function LookAtItem(User,Item)
     if (Item:getData("mode")=="Eraser") then
 		base.lookat.SetSpecialName(Item, "Dietriche (Eraser)","Lockpicks (Eraser)")
-		base.lookat.SetSpecialDescription(Item, "Aufräumzeit!! Benutze die Dietriche.", "Clean up time! Use the lockpicks.");
+		base.lookat.SetSpecialDescription(Item, "Aufräumzeit!! Benutze die Dietriche.", "Clean up time!! Use the lockpicks.");
     elseif (Item:getData("mode")=="Teleport") then
         base.lookat.SetSpecialName(Item, "Dietriche (Teleport)","Lockpicks (Teleport)");
-		base.lookat.SetSpecialDescription(Item, "Teleport", "Teleport");
+		base.lookat.SetSpecialDescription(Item, "Ich  bin hier weg. Benutze die Dietriche. ", "I'm out of here. Use the lockpicks.");
 	elseif (Item:getData("mode")=="Char Info") then
         base.lookat.SetSpecialName(Item, "Dietriche(Char Info)","Lockpicks (Char Info)");
 		base.lookat.SetSpecialDescription(Item, "Char Info. Benutze die Dietriche.", "Char Info. Use the lockpicks.");
