@@ -58,33 +58,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		User:inform("To change the mode of these lockpicks, say \"setmode\" and use it.");
 	end
 
-	-- Initializing Lockpicks
-    if (firsttime==nil) then
-        firsttime=1;
-        
-        Location={};
-        Coordina={};
-        Location[1]="Cadomyr Market";
-        Coordina[1]={130,600,0};
-        Location[2]="Galmair Castle";
-        Coordina[2]={360,230,0};
-        Location[3]="Galmair Town";
-        Coordina[3]={400,250,0};
-        Location[4]="Galmair South";
-        Coordina[4]={400,355,0};
-        Location[5]="Runewick Bridge";
-        Coordina[5]={844,822,0};
-        Location[6] = "Cadomyr Throne";
-        Coordina[6] = {120,545,0};
-		Location[7] = "Cadomyr Mine";
-        Coordina[7] = {130,700,0};
-		Location[8] = "Arena";
-        Coordina[8] = {600,400,0};
-		Location[9]="Runewick Market";
-        Coordina[9]={900,800,1};
-    end
-	
-	
 	local frontChar = base.common.GetFrontCharacter(User);
 	if frontChar then
 		ShowCharInfo(User,frontChar);
@@ -130,8 +103,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			User:warp(position(Coordina[i][1],Coordina[i][2],Coordina[i][3]))
 		end
 		local sdTeleport = SelectionDialog("Erase items.", "Choose the item you wish to erase:", cbChooseLocation);
-        for _,location in ipairs(Location) do 
-			sdTeleport:addOption(0,Location[location] .. " (" .. Coordina[location][1]..", "..Coordina[location][2]..", "..Coordina[location][3] .. ")");
+        for i=1, #(Location) do 
+			sdTeleport:addOption(0,Location[i] .. " (" .. Coordina[i][1]..", "..Coordina[i][2]..", "..Coordina[i][3] .. ")");
         end	
 		User:requestSelectionDialog(sdTeleport);
 	end	-- end of modes
