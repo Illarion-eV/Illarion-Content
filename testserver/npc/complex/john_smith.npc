@@ -1,9 +1,9 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: John Smith                                                  None --
+-- NPC Name: John Smith                                              Runewick --
 -- NPC Job:  Craftsman                                                        --
 --                                                                            --
--- NPC Race: human                      NPC Position:  0, 0, 0                --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: human                      NPC Position:  907, 770, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
@@ -12,9 +12,9 @@
 name = "John Smith"
 race = human
 sex = male
-position = 0, 0, 0
-direction = south
-affiliation = "None"
+position = 907, 770, 0
+direction = west
+affiliation = "Runewick"
 job = "Craftsman"
 
 language = common

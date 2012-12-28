@@ -1,9 +1,9 @@
 --------------------------------------------------------------------------------
--- NPC Name: John Smith                                                  None --
+-- NPC Name: John Smith                                              Runewick --
 -- NPC Job:  Craftsman                                                        --
 --                                                                            --
--- NPC Race: human                      NPC Position:  0, 0, 0                --
--- NPC Sex:  male                       NPC Direction: south                  --
+-- NPC Race: human                      NPC Position:  907, 770, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 0, 0, 0, 4, 'John Smith', 'npc.john_smith', 0, 1, 6, 178, 34, 34, 255, 228, 196);
+VALUES (0, 907, 770, 0, 6, 'John Smith', 'npc.john_smith', 0, 1, 6, 178, 34, 34, 255, 228, 196);
 ---]]
 
 require("npc.base.basic")
