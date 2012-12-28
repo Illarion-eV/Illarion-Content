@@ -1,0 +1,220 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Valerio Guilianni                                        Galmair --
+-- NPC Job:  Don                                                              --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  337, 215, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Faladron                                                         --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Valerio Guilianni"
+race = dwarf
+sex = male
+position = 337, 215, 0
+direction = south
+affiliation = "Galmair"
+job = "Don"
+
+language = common
+language = dwarf
+defaultLanguage = common
+autointroduce = on
+
+author = "Faladron"
+
+lookatDE = "Aufgrund seines noblen Gebahrens und Auftretens muss dies Don Valerio Guilianni höchst persönlich sein."
+lookatUS = "Judging by his noble attire and overall demeanor this must be Don Valerio Guilianni."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 1
+beardID = 1
+colorHair = 180, 180, 180
+colorSkin = 210, 162, 120
+itemHead = 0
+itemChest = 2390
+itemCoat = 2384
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 526
+itemTrousers = 2172
+itemShoes = 697
+
+-- Template Version 1.03 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- NPC by Faladron
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Don Valerio Guilianni of Galmair. Keywords: Quest, Task, Gods, Factions.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Don Valerio Guilianni von Galmair. Schlüsselwörter: Quest, Aufgabe, Götter, Fraktionen.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "The Don greets you.", "Greetings, greetings. The Don is busy right now but he always has an open ear for the pleas of his protégés.", "Hm? State your cause to the Don but make it brief or one of my associates might have to cut you off."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Der Don grüßt euch. Ihr seid also gekommen um euch um euer Schicksal zu kümmern?", "Grüße, Grüße. Der Don ist zwar beschäftigt aber für die Anliegen seiner Schützlinge hat er immer ein offenes Ohr.", "Hm? Tragt eure Sache dem Don vor aber fasst es kurz oder ich mache euch ein Angebot, das ihr nicht ablehnen könnt."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "The Don greets you. Now tell me what you can do for me.", "Greetings, greetings. The Don is busy right now but he always has an open ear for the pleas of his protégés.", " Hm? State your cause to the Don but make it brief or one of my associates might have to cut you off."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Der Don grüßt euch. Ihr seid also gekommen um euch um euer Schicksal zu kümmern?", "Grüße, Grüße. Der Don ist zwar beschäftigt aber für die Anliegen seiner Schützlinge hat er immer ein offenes Ohr.", "Hm? Tragt eure Sache dem Don vor aber fasst es kurz oder ich mache euch ein Angebot, das ihr nicht ablehnen könnt."
+"Farewell", "Bye", "Fare well", "See you" -> "#me rubs his chin looking contemplative, 'Eh, you may leave. Probably not worth it to send someone to keep an eye on ya.'", "May Ronagan keep ya safe in the shadows but not too safe, and be sure to give my regards to the family!", "#me gives a brief nod and then turns away, 'Hm, an interesting person, gonna get good one day, maybe too good. Hope I don't have to send Miggs to keep an eye on him."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "#me fährt sich nachdenklich übers Kinn 'Eh, ihr könnt gehen. Wohl nicht wert euch im Auge behalten zu lassen.'", "Ronagan breite seinen schützenden Mantel über euch aus. Und Grüße an die Familie!", "#me nickt nur knapp und wendet sich dann ab 'Hm. Eine interessante Person, könnte es weit bringen, zu weit. Miggs soll ihn beschatten lassen.'"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me rubs his chin looking contemplative, 'Eh, you may leave. Probably not worth it to send someone to keep an eye on ya.'", "May Ronagan keep ya safe in the shadows but not too safe, and be sure to give my regards to the family!", "#me gives a brief nod and then turns away, 'Hm, an interesting person, gonna get good one day, maybe too good. Hope I don't have to send Miggs to keep an eye on him."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "#me fährt sich nachdenklich übers Kinn 'Eh, ihr könnt gehen. Wohl nicht wert euch im Auge behalten zu lassen.'", "Ronagan breite seinen schützenden Mantel über euch aus. Und Grüße an die Familie!", "#me nickt nur knapp und wendet sich dann ab 'Hm. Eine interessante Person, könnte es weit bringen, zu weit. Miggs soll ihn beschatten lassen.'"
+"How are you", "How feel", "How do you do" -> "Excellent. But that's of no concern right now. Tell me, %CHARNAME, what can the Don do for you?", "#me waves dismissively 'Oh still a little shaken from the weekly assassination attempt.'", "How? One could say: Like the leader of a pack of wolves that has to guard his position at all times."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ausgezeichnet. Aber das tut nichts zur Sache. Sagt was kann der Don für euch tun, %CHARNAME?", "#me winkt ab 'Oh noch etwas aufgeregt vom allwöchentlichen Anschlag auf mein Leben.'", "Wie? Ein treffender Vergleich wäre dies: Wie der einsame Leitwolf, der seine Stellung im Rudel verteidigen muss."
+"your name", "who are you", "who art thou" -> "#me makes a broad welcoming gesture with his hands. 'Ah forgive my manners. Valerio Guilianni is my name but call me 'The Don'.", "Hm, you're not too bright are ya? I thought my residence and hoards of servants would have given you a hint.", "#me sighs, '%CHARNAME, how can one be so naive? Where's the respect? I am the Don.'"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#me macht eine ausladende willkommende Geste 'Ah meine Manieren. Valerio Guilianni ist mein Name aber nennt mich 'Mein Don'.", "Hm, der hellste Blitz scheint ihr nicht zu sein. Und ich dachte die Residenz und Dienerschaft wären Hinweis genug.", "#me seufzt '%CHARNAME, wie kann man nur so blauäugig sein? Wo bleibt der Respekt? Ich bin der Don.'"
+
+-- Catching quest triggers
+english, "quest", "mission" -> "The day will come, when the Don will ask you for a favor. Ask Miggs if that day is today."
+"quest", "mission" -> "Es wird der Tag kommen, an dem dich der Don um einen Gefallen bittet. Frage Miggs, ob heute dieser Tag ist."
+"task", "adventure", "order" -> "You know, the Don likes you for some reason, ya gotta look about ya. Maybe I gotta task for ya; go and ask Miggs how you can earn the Don's favor."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Weißt du, der Don mag dich. Und der Don wird dir auch eine Arbeit verschaffen. Frage Miggs, wie du in der Gunst des Don steigen kannst."
+
+-- Reward for quest 622
+queststatus(632) > 0, queststatus(633) = 0, english, chance(10.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(1)
+queststatus(632) > 0, queststatus(633) = 0, german, chance(10.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(1)
+queststatus(632) > 0, queststatus(633) = 0, english, chance(11.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(2)
+queststatus(632) > 0, queststatus(633) = 0, german, chance(11.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(2)
+queststatus(632) > 0, queststatus(633) = 0, english, chance(13.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(3)
+queststatus(632) > 0, queststatus(633) = 0, german, chance(13.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(3)
+queststatus(632) > 0, queststatus(633) = 0, english, chance(14.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(4)
+queststatus(632) > 0, queststatus(633) = 0, german, chance(14.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(4)
+queststatus(632) > 0, queststatus(633) = 0, english, chance(17.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(5)
+queststatus(632) > 0, queststatus(633) = 0, german, chance(17.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(5)
+queststatus(632) > 0, queststatus(633) = 0, english, chance(20.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(6)
+queststatus(632) > 0, queststatus(633) = 0, german, chance(20.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(6)
+queststatus(632) > 0, queststatus(633) = 0, english, chance(25.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(7)
+queststatus(632) > 0, queststatus(633) = 0, german, chance(25.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(7)
+queststatus(632) > 0, queststatus(633) = 0, english, chance(34.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(8)
+queststatus(632) > 0, queststatus(633) = 0, german, chance(34.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(8)
+queststatus(632) > 0, queststatus(633) = 0, english, chance(51.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", item(284, 1, 999, "gemLevel" = "1"), queststatus(633) = 1
+queststatus(632) > 0, queststatus(633) = 0, german, chance(51.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(284, 1, 999, "gemLevel" = "1"), queststatus(633) = 1
+queststatus(632) > 0, queststatus(633) = 0, english, chance(100.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", item(283, 1, 999, "gemLevel" = "1"), queststatus(633) = 1
+queststatus(632) > 0, queststatus(633) = 0, german, chance(100.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(283, 1, 999, "gemLevel" = "1"), queststatus(633) = 1
+
+-- Mirarie Bragolin Quest (Writing history V
+queststatus(317) = 12, english, "Mirarie", "Bragolin", "letter", "message" -> "A Letter from Cadomyr? Oh, thank you very much. … What? Ah, I see. I'll take care of that, you may leave now.", queststatus(317) = 13
+queststatus(317) = 12, "Mirarie", "Bragolin", "Brief", "Nachricht" -> "Ein Brief aus Cadomyr? Oh, vielen Dank...Was? Ah, ich verstehe. Ich werde mich darum kümmer. Ihr könnt nun gehen.", queststatus(317) = 13
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "Well, I provide for myself and my family. Ah and I rule Galmair of course."
+"beruf" -> "Nun, ich sorge für mich, meine Familie und meine Freunde. Ach und Galmair beherrsche ich natürlich."
+english, "job" -> "Well, I provide for myself and my family. Ah and I rule Galmair of course."
+"job" -> "Nun, ich sorge für mich, meine Familie und meine Freunde. Ach und Galmair beherrsche ich natürlich."
+english, "Gobaith", "Gobiath" -> "Ja, eine Schande. Tragisch, furchtbar. Und dabei herrschten ideale Bedingungen um ein zweites Galmair zu errichten.", "As far as I heard, Troll's Bane could easily compete with Galmair in terms of security, quality of life and civil rights."
+"Gobaith", "Gobiath" -> "Ja, eine Schande. Tragisch, furchtbar. Und dabei herrschten ideale Bedingungen um ein zweites Galmair zu errichten.", "Soweit ich gehört habe, stand Troll's Bane Galmair in Sicherheit, Lebensqualität und politischer Mitsprache um nichts nach."
+"my name" -> "I got deep pockets if ya know what I mean, %CHARNAME. It's my business to know people and what happens in Galmair."
+"mein Name" -> "Ich zahle gutes Geld um zu wissen was in meiner Stadt passiert, %CHARNAME. Euer Aufenthalt hier war mir bekannt."
+
+-- More small talk; add at least five triggers
+english, "Rosie" -> "She doesn't like the name, what can I say? Prefers Rosaline and her fancy title o' Queen.", "Believe me, it is my privilege alone to call her that. Best ta keep it outya mouth."
+"Rosie" -> "Sie mag den Namen nicht, ihr werdet sie eher als Königin Rosaline kennen.", "Glaubt mir, das Privileg sie so zu nennen ist allein mir vorbestimmt. Versucht es erst gar nicht."
+english, "Miggs" -> "Every successful businessman need two things: A supportive wife and a muscle to do his biding. If only I had Rosie, I'd have both in one person.", "Miggs is like a second left hand for me, but enough jokes. See him if you need a task."
+"Miggs" -> "Jeder erfolgreiche Geschäftsmann braucht zwei Dinge: Eine unterstützende Frau und einen Mann fürs Grobe. Ach, mit Rosie hätte ich beides in einem.", "Miggs ist wie eine zweite linke Hand, aber genug gescherzt. Geh zu ihm wenn du eine Aufgabe suchst."
+"protection", "fee" -> "You wanna be in the know? So do about a thousand other people. Don't talk about things that don't concern you.", "You talking about protection fees? You need some protection? You might if you keep talking about things that don't concern you.", "A business has to have protection from a lot things. Also, has to pay a lot fees. That's about all you need to know."
+"Protektionsgebühr", "Schutz", "Protekt", "Gebühr" -> " Was wollt Ihr wissen? - Sprecht nicht über Dinge die Euch nichts angehen.", "Sprecht Ihr über die Protektionsgebühren? Braucht ihr etwa Schutz? Vermutlich schon... sprecht Ihr immerhin über Dinge die Euch nicht im gerningsten zu interessieren haben.", "Ein Laden muss vor vielen Dingen geschützt werden. - Und muss viele Gebühren zahlen. Das ist alles was Ihr wissen müsst."
+
+-- Easter egg
+english, "Corleone" -> "Ach, a dazzler from Gynka, no honour. And throaty all the time, only the gods know why."
+"Corleone" -> "Ach, ein Blender aus Gynka, keine Ehre. Und immer heiser, die Götter wissen warum."
+
+-- Faction stuff
+"faction" -> "Ya know I hear people talking about these 'factions', but all I see is the land of my future wife and a drugged out magician leading halfers.", "Ya, ya Runewick, Cadomyr, and Galmair that's all you newcomers want to talk about. Focus on what's important, getting rich, plain and simple."
+"fraktion" -> "Wisst Ihr, ich höre die Leute immer wieder über die 'Fraktionen' sprechen. Aber für mich sind sie nichts weiter als die Länder meiner zukünftigen Frau und des übergeschnappten Magiers, der Frauenkleider trägt.", "Aye, Runewick, Cadomyr und Galmair, das ist alles worüber Neuankömmlinge wie ihr sprechen wollt. Konzentriert Euch lieber auf die  wichtigen Dinge! Reichtum und Macht! - Ganz einfach."
+english, "archmage" -> "Tell me, what should I think of a man who wears women's clothing and enjoys men swooning over his greatness?", "He is said not to leave his tower very often. If you ask me, that's a good thing."
+"Erzmagier" -> "Sagt mir ernsthaft, was soll ich von einem Mann halten der Frauengewänder trägt und sich von Männern anhimmeln lässt?", "Er soll seinen Turm ja nicht oft verlassen, und wenn ihr mich fragt ist das auch gut so."
+english, "Elvaine", "Morgan" -> "Tell me, what should I think of a man who wears women's clothing and enjoys men swooning over his greatness?", "He is said not to leave his tower very often. And if you ask me, that's a good thing."
+"Elvaine", "Morgan" -> "Sagt mir ernsthaft, was soll ich von einem Mann halten der Frauengewänder trägt und sich von Männern anhimmeln lässt?", "Er soll seinen Turm ja nicht oft verlassen, und wenn ihr mich fragt ist das auch gut so."
+english, "Runewick" -> "Sadly, the tide never rises high enough for a wave to wash away all those bookworms into the sea.", "Some suspect me of blackmail, but do you know how much a mage from Runewick charges for his services? Now that's a crime!"
+"Runewick" -> "Leider steigt die Flut nie hoch genug, um diese ganzen Bücherwürmer mit einer Welle ins Meer zu spülen.", "Man warf mir schon einmal Erpressung vor, aber wisst ihr, wieviel die Magier Runewicks für ihre Dienste verlangen? Das ist ein Verbrechen."
+english, "Galmair" -> "Galmair is like a mountain flower, enchanting every wanderer with its beauty.", "Sometimes, if I am up early and look down from the battlement I can almost smell the success and profit of Galmair."
+"Galmair" -> "Galmair ist eine wilde Gebirgsblume, die jeden Wanderer mit ihrer Schönheit in ihren Bann zieht.", "Manchmal, wenn ich früh aufstehe und von den Zinnen hinabblicke kann ich den Erfolg und Profit von Galmair fast riechen."
+english, "Queen" -> "Oh Rosie! That's my kind of woman. Such fire, such a fierce temper!", "She fell for me completely! Sadly, she would never show her true feelings openly."
+"Königin" -> "Oh Rosie! Das ist eine richtige Frau! Voll Feuer, voll Temperament!", "Sie ist mir vollkommen verfallen! Leider würde sie ihre wahren Gefühle für mich nie offen zeigen."
+english, "rosaline", "edwards" -> "Oh Rosie! That's my kind of woman. Such fire, such a fierce temper!", "She fell for me completely! Sadly, she would never show her true feelings openly."
+"rosaline", "edwards" -> "Oh Rosie! Das ist eine richtige Frau! Voll Feuer, voll Temperament!", "Sie ist mir vollkommen verfallen! Leider würde sie ihre wahren Gefühle für mich nie offen zeigen."
+english, "Cadomyr" -> "A nice place. Maybe it lacks the proper nightlife, but Rosie does a good job overall."
+"Cadomyr" -> "Ein hübscher Ort. Das Nachtleben lässt vielleicht etwas zu wünschen übrig, aber Rosie macht ihre Sache gut."
+
+-- Main land factions
+english, "albar" -> "Proud people. I find their way of dealing with weakness appealing."
+"albar" -> "Ein stolzes Volk. Und ihre Art, wie sie mit Schwäche umgehen, gefällt mir ebenfalls."
+english, "gynk", "gync" -> "Honorable former 'business partners' of my father lived there. Until we had to terminate them, the business relationships o'course."
+"gync", "gynk" -> "Ehrenwerte ehemalige 'Geschäftspartner' meines Vaters wohnten dort. Wir mussten sie leider terminieren. Die Geschäftsbeziehungen meine ich."
+english, "salkama" -> "Even though they like to act all noble, many of them visit Galmair to entertain themselves. Their vice pays our dice, see whatta mean?"
+"salkama" -> "Auch wenn sie sich gerne nobel geben, viele kommen zu uns nach Galmair um sich zu amüsieren. Ihr Laster bringt uns Zaster, hehe."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+-- Gods; gods are relevant, so the faction leader has to have an opinion on ALL gods
+english, "god" -> "You got faith, %CHARNAME? Don't let the priests and zealots fool ya, if you're looking for practical words about the gods just ask me about one."
+"gott", "götter" -> "Glaubt Ihr, %CHARNAME? Habt Ihr vertrauen? - Lasst Euch von den Priestern und Mönchen nicht an der Nase herumführen, wenn ihr nach ein paar aufrichtige Worte über die Götter sucht, seid Ihr bei mit genau an den Richtigen geraten."
+english, "Adron" -> "Ahh, what would a tavern be without him? How could tempers run high over a game of cards if not due to Adron's gifts?"
+"Adron" -> "Ahh, was wäre eine Taverne ohne ihn? Wie könnten sich sonst die Gemüter so beim Kartenspiel erhitzen wenn nicht durch Adrons Gaben?"
+english, "Bragon", "Brágon" -> "I wonder if he takes offense to my dragon hide boots, but didn't he leave this world already? If you can't stand the heat, stay outta the hearth, I always say."
+"Bragon", "Brágon" -> "Ich frage mich ob er meine Stiefel aus Drachenleder anstößig findet. Aber hat er diese Welt nicht schon verlassen? Und was er nicht weiß macht ihn nicht heiß."
+english, "Cherga" -> "If you had to wake up with a dagger poking your throat every other night you'd also respect the lady in black."
+"Cherga" -> "Würdet ihr jede zweite Nacht mit einem Messer an der Kehle aufwachen, ihr hättet auch Respekt vor der schwarzen Dame."
+english, "Elara" -> "Books might teach ya a lot, but everything I had to learn to become successful I've experienced through action."
+"Elara" -> "Bücher mögen einem viel beibringen können. Aber alles, was ich lernen musste um erfolgreich zu sein, habe ich durch Taten erfahren."
+english, "Eldan" -> "I don't believe Eldan shows any interest in Galmair or myself. The mountains are pretty secluded however, maybe he'd like those."
+"Eldan" -> "Ich glaube kaum, dass Eldan sich für Galmair und mich interessiert. Obwohl das Gebirge doch sehr abgeschieden ist, vielleicht würde ihm das gefallen."
+english, "Findari" -> "Sometimes, when the temperature becomes unbearable in winter, I think to myself 'One can overdo in fulfilling his tasks'."
+"Findari" -> "Manchmal, wenn die Temperaturen im Winter unerträglich werden, denke ich mir 'Man kann seine Aufgaben auch zu gründlich erfüllen.'"
+english, "Irmorom" -> "As Galmair's wealth comes from the mining and processing of ore it would be foolish not to drink a mug of beer regularly in honour of the great craftsman, right?"
+"Irmorom" -> "Da Galmair vorallem vom Bergbau und Weiterverarbeitung von Metallen lebt, wäre es töricht, nicht regelmäßig einen Krug Bier für den großen Handwerker mitzutrinken, nicht?"
+english, "Malachin", "Malachín" -> "Hah, noble that one, jumping in front of an arrow to save a comrade in battle. Doesn't he know how much that hurts!?"
+"Malachin", "Malachín" -> "Hah, ehrenhaft ist, wer einen Pfeil abfängt um seinen Kameraden in der Schlacht zu retten. Weiß er nicht wie weh sowas tut!?"
+english, "Moshran" -> "Maybe not all of my decisions in life were 'right', but I do know the thin line between twilight and eternal darkness. You cross that line and your just a foolish bastard."
+"Moshran" -> "Ich mag nicht immer das 'Richtige' getan haben, aber ich kenne die feine Linie zwischen dem Zwielicht und der ewigen Dunkelheit. Ich werde diese Linie nicht übertreten."
+english, "Nargun", "Nargún" -> "Nargún blessed me many a times when I had to play my cards right. On the other hand there's no reason not to tip luck into your favor, he's pretty unreliable after all."
+"Nargun", "Nargún" -> "Schon oft war mir Nargún hold, als es darum ging auf die richtige Karte zu setzen. Anderenseits spricht nichts dagegen dem Glück auch nachzuhelfen, immerhin ist er nicht sehr verlässlich."
+english, "Oldra" -> "We live amidst a scarce mountain range and I shall pay reverence to Oldra? Forget about it..."
+"Oldra" -> "Wir leben inmitten eines kargen Gebirges, und da soll ich Oldra Respekt erweisen? Pfft... also bitte."
+english, "Ronagan" -> "No coins, no wares leave my possession without being blessed in the face of Ronagan. You can figure out why I'd do that ya'self."
+"Ronagan" -> "Kein Geldstück, keine Ware verlässt meinen Besitz bevor sie nicht in Gebete zu Ronagan mit eingeschlossen wurde. Spekulationen, warum ich das mache, seien euch selbst überlassen."
+english, "Sirani" -> "I would have the most beautiful temple carved into the mountains, if only Rosie wouldn't be so abrasive. Sirani is gunna to have to settle for less until that happens."
+"Sirani" -> "Den schönsten Tempel würde ich in das Gebirge hauen lassen, wenn nur Rosie nicht immer so abweisend zu mir wäre. Bis dahin muss Sirani sich mit weniger begnügen."
+english, "Tanora" -> "In spring after the snow has melted I sometimes think we don't pay enough respect to her. Then after the floods are under control I disregard those thoughts again."
+"Tanora" -> "Nach der Schneeschmelze im Frühling glaube ich manchmal dass wir Tanora nicht genug huldigen. Wenn die Überschwemmungen aber beseitigt sind, verdränge ich diese Gedanken wieder."
+english, "Ushara" -> "Some of the dwarves pray to her. They say if we don't, the mountain will collapse upon us. Whatever, let the superstitious believe what they wanna."
+"Ushara" -> "Einige der Zwerge beten zu ihr. Sie sagen sonst stürzt uns der Berg auf den Kopf, was auch immer."
+english, "Zhambra" -> "Family is all that matters, you remember that. You rely on friends and best believe your pockets will be empty and a knife will be in your back."
+"Zhambra" -> "Wenn man lacht, lacht die Welt mit einem mit, aber weine und du weinst allein. Ich hatte nie eine Verwendung für Freunde."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "I don't sell anything, I grant favors."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe nichts, ich gewähre Gefälligkeiten."
+"tell something" -> "Money gets you everywhere in Galmair. Even those places you probably shouldn't be.", "My father once said: 'Son, stay honest and upright, you'll be rewarded.' Oh how we laughed that day.", "#me winks knowingly, 'If there's one habit I broke out of doing, it's telling others about something.'"
+"erzähl was", "erzähl etwas" -> "In Galmair bringt Geld euch überall hin. Wohl auch an Orte die ihr meiden solltet.", "Mein Vater sagte einmal: 'Sohn, bleib ehrbar und anständig, es wird dir gelohnt.' Oh was haben wir an diesem Tag gelacht.", "#me zwinkert wissend. 'Wenn es eine Sache gibt die ich mir abgewöhnt habe, dann anderen Dinge zu erzählen."
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+english, "Valerio", "Guilianni", "Don" -> "#me bows ever so slightly. 'That's me. How can I help you, %CHARNAME ?'", "You've heard about me I see very good, very good. Ask and the Don will help you.", "What do you want from him? Who sent you? Guards! Has this meat bag been searched for weapons?"
+"Valerio", "Guilianni", "Don" -> "#me deutet eine Verbeugung an. 'Das bin ich. Wie kann ich euch helfen, %CHARNAME ?'", "Ihr habt also von mir gehört. Sehr schön, sehr schön. Bittet und der Don wird euch helfen.", "Was wollt ihr von ihm? Wer hat euch geschickt? Wache! Wurde diese Person auf Waffen untersucht?"
+"Yes" -> "Good to hear, Good to hear.", "The Don approves."
+"Ja" -> "In der Tat.", "Der Don stimmt zu.", "Der Don heißt dies gut."
+"No" -> "'No'? Don't force the Don to make the impossible possible.", "'No'? Well, you may keep your opinion. One can sell everything else with a profit anyway.", "And this negative attitude divides success from failure. That's why you're just a petitioner before the Don."
+"Nein" -> "'Nein'? Zwingt den Don nicht das unmögliche möglich zu machen.", "'Nein'? Nun gut ihr könnt eure Meinung behalten. Alles andere kann man ja mit Gewinn verkaufen.", "Und genau diese negative Einstellung entscheidet über Erfolg und Misserfolg. Deswegen seid ihr nur ein Bittsteller vor dem Don."
+
+-- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me geht müßig ein paar Schritte auf und ab, dabei lächelt er zufrieden.", "#me walks  at a leisurely pace with a content smile on his face."
+cycletext "Respekt? Wo ist nur der Respekt geblieben? All diese Möchtegerns...", "Respect? Where's the respect? All these wannabes..."
+cycletext "#me dreht sich besorgt um 'Halt! Wer ist da? Es ist noch nicht Zeit für das wöchentliche Attentat!'", "#me turns around concerned: 'Damn assassination attempts, they occur almost weekly now.'"
+cycletext "#me spuckt angewidert ein paar Trauben aus. 'Ugh. Wer hat das zu verantworten?", "#me spits out some grapes in disgust. 'Ugh. Who's responsible for that?'"
+cycletext "Ich befürchet, dieser Kräuterhandel wird uns noch in den nächsten Jahren viele Sorgen bereiten.", "I believe this herb business is gonna destroy us in the years to come."
+cycletext "Ich war niemals unvorsichtig. Frauen und Kinder dürfen unvorsichtig sein, Männer nicht.", "I spent my life trying not to be careless. Females and children can be careless, but not dwarves or men."
+cycletext "Ich glaube an Gold, Reichtümer und Macht. Wer an sie nicht ehrt, hat sie wohl schlichtweg nicht!", "I have faith in gold, wealth and power. Those who don't honour such meaningful things simply don't have either."
+cycletext "Miggs! Wo ist Miggs schon wieder! Einige Händler haben ihre 'Protektionsgebühr' diesen Monat noch nicht entrichtet.", "Miggs! Where is Miggs again? Some traders haven't paid their 'protection fee' this month."

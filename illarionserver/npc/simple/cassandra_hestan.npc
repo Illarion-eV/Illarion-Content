@@ -1,0 +1,139 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Cassandra Hestan                                         Cadomyr --
+-- NPC Job:  money changer                                                    --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  98, 567, 0             --
+-- NPC Sex:  female                     NPC Direction: south                  --
+--                                                                            --
+-- Author:   Estralis Seborian                                                --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Cassandra Hestan"
+race = human
+sex = female
+position = 98, 567, 0
+direction = south
+affiliation = "Cadomyr"
+job = "money changer"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Estralis Seborian"
+
+lookatDE = "Dieser NPC ist Cassandra Hestan die Geldwechslerin."
+lookatUS = "This NPC is Cassandra Hestan the money changer."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 7
+beardID = 0
+colorHair = 238, 118, 0
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 852
+itemCoat = 852
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 0
+itemShoes = 369
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+sellItems = 61, 3076, 3077
+
+-- Template Version 1.04, 07/12/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Cassandra Hestan the money changer. Keywords: buy, sell, trade, Hello, money, Cadomyr, profession, Ronagan.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Cassandra Hestan die Geldwechslerin. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Geld, Cadomyr, Beruf, Ronagan.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings. You came to me to change money, am I not right?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße. Ihr seid zu mir gekommen, um Geld zu wechseln, hab ich nicht recht?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings. You came to me to change money, am I not right?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüße. Ihr seid zu mir gekommen, um Geld zu wechseln, hab ich nicht recht?"
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell and come back with more money."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Einen guten Tag wünsche ich und kommt mir mehr Geld zurück."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell and come back with more money."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Einen guten Tag wünsche ich und kommt mir mehr Geld zurück."
+"How are you", "How feel", "How do you do" -> "Let's skip this and get straight to business."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Überspringen wir die Höflichkeiten und lasst uns zum Geschäft kommen."
+"your name", "who are you", "who art thou" -> "Cassandra."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cassandra."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "I am just a humble servant of her majesty. I do not have orders for you."
+"quest", "mission" -> "Ich bin auch nur eine Dienerin ihrer Majestät. Ich vermag euch keine Befehle zu erteilen."
+"task", "adventure", "order" -> "I am just a humble servant of her majesty. I do not have orders for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin auch nur eine Dienerin ihrer Majestät. Ich vermag euch keine Befehle zu erteilen."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I change money. That is not a honourable profession, I am aware of that. However, my services are needed and my hands are not able to do more honourable deeds."
+"beruf" -> "Ich wechsle Geld. Das ist kein ehrbarer Beruf, dem bin ich mir bewußt. Dennoch sind meine Dienste von Nöten und meine Hände sind nicht geschickt genug für ehrbare Tätigkeiten."
+english, "job" -> "I change money. That is not a honourable profession, I am aware of that. However, my services are needed and my hands are not able to do more honourable deeds."
+"job" -> "Ich wechsle Geld. Das ist kein ehrbarer Beruf, dem bin ich mir bewußt. Dennoch sind meine Dienste von Nöten und meine Hände sind nicht geschickt genug für ehrbare Tätigkeiten."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"money" -> "In Cadomyr, we know three types of coins: Copper, silver and gold."
+"silver" -> "A silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin."
+"copper" -> "One hundred copper coins equal a silver coin."
+english, "gold" -> "A gold coin equals a hundred silver coins."
+"Geld" -> "In Cadomyr kennt man drei Sorten Münzen: Kupfer, Silber und Gold."
+"Silber" -> "Ein Silberstück entspricht einhundert Kupferstücken. Einhundert Silberstücke entsprechen einem Goldstück."
+"Kupfer" -> "Einhundert Kupferstücke entsprechen einem Silberstück."
+"Gold" -> "Ein Goldstück entspricht einhundert Silberstücken."
+
+-- Optional: Catching typical NPC phrases
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I just change money. I do not offer any other services.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich wechsle einfach nur Geld. Ich biete keine anderen Dienste an.", trade
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+english, "Ronagan" -> "You don't think that Ronagan is one of the evil guys, do you? If so, you have to learn a lot about the nature of the gods."
+"Ronagan" -> "Ihr denkt doch nicht etwa auch, dass Ronagan einer der bösen Jungs ist, oder? Falls doch, dann müßt ihr noch viel über das Wesen der Götter lernen."
+
+-- Optional: Faction stuff
+"Queen" -> "Queen Rosaline just tolerates my profession - changing money isn't very honourable."
+"Königin" -> "Königin Rosaline toleriert lediglich meine Tätigkeit - Geld zu wechseln ist nicht sonderlich ehrbar."
+english, "rosaline", "edwards" -> "Queen Rosaline just tolerates my profession - changing money isn't very honourable."
+"rosaline", "edwards" -> "Königin Rosaline toleriert lediglich meine Tätigkeit - Geld zu wechseln ist nicht sonderlich ehrbar."
+english, "Cadomyr" -> "Cadomyr is my home and I love it. Whether Cadomyr loves me or not - I do not know."
+"Cadomyr" -> "Cadomyr ist meine Heimat und ich liebe es. Ob nun Cadomyr mich auch liebt oder nicht - das weiß ich nicht."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Psst! Wollt ihr etwas Geld wechseln?", "Shh! Want to change some money?"
+cycletext "Hast mal 'nen Silberling?", "Got some change?"
+cycletext "Wollt ihr mehr Geld? Wechselt eure Goldstücke in Kupferstücke ein!", "Do you want more money? Change your gold coins to copper coins!"
+cycletext "Ihr da. Ja, genau ihr. Kommt doch mal näher.", "You there. Yes, you. Come a little closer."
+cycletext "#me stellt einen kleinen Becher vor sich auf die Straße.", "#me places a small mug on the street."
+cycletext "#me klimpert mit ein paar Münzen.", "#me rattles the coins."
+cycletext "#me betrachtet eine Münze und sagt: 'Königin Rosalines Porträt ist wirklich schmeichelhaft.'.", "#me beholds a coin and says: 'Queen Rosaline's potrait is charming.'."
+cycletext "Geld macht nicht glücklich, aber kein Geld macht unglücklich!", "Money doesn't make you happy, but no money makes you sad!"
+cycletext "Ich wechsle Geld!", "I change money!"

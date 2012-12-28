@@ -1,0 +1,202 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Nik Nilo                                                    None --
+-- NPC Job:  trader                                                           --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  366, 275, 0            --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Authors:  Drathe                                                           --
+--           Estralis Seborian                                                --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Nik Nilo"
+race = human
+sex = male
+position = 366, 275, 0
+direction = west
+affiliation = "None"
+job = "trader"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Drathe"
+author = "Estralis Seborian"
+
+lookatDE = "Ein hoch gewachsener Mensch. Seine Haare sind staubig und verschmutzt durch Kohle und Steine."
+lookatUS = "A tall human. His hair are scummy and dusty by dust and coal."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 1
+beardID = 1
+colorHair = 193, 96, 28
+colorSkin = 217, 154, 123
+itemHead = 0
+itemChest = 812
+itemCoat = 193
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 366
+itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 734, 23, 24, 737, 736, 2588, 733, 735, 1266, 21, 22, 234, 2534, 2536, 26, 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+buyPrimaryItems = 734, 23, 24, 737, 736, 2588, 733, 735, 1266, 21, 22, 234, 2534, 2536
+buySecondaryItems = 26, 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- NPC by Drathe
+-- Translation and revision by Estralis Seborian & Faladron
+
+-- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
+
+-- 10% Tools (Brick maker): 734
+-- 10% Tools (Mason): 23, 737
+-- 10% Tools (Miner): 24, 736
+-- 5% Tools (Digger): 24
+-- 5% Clay: 26
+-- 10% Bricks: 736, 2588
+-- 10% Stones: 733, 735, 1266
+-- 10% Coal, Ores, Nuggets: 21, 22, 234, 2534, 2536
+-- 10% Raw gems: 251, 252, 253, 254, 255, 256, 257
+-- 5% Stuff: 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I trade with rocks and stones that are as hard as my muscles!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich handel mit Felsen und Steinen, die so hart sind wie meine Muskeln!", trade
+
+-- Help
+"Help" -> inform("[Game Help] This is 'Big Nik', he is a tool and supply trader. Keywords: sell, buy, trade, Hello, profession, laws.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Werkzeug- und Rohstoffhändler 'Big Nik'. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Beruf, Gesetze.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me grins as he waves: 'What can I do for you?'", "#me lifts his head: 'Hello there, you here to buy or sell?'", "Hello, you look like someone who knows a good price for tools, that's why you're here, right?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me grinst und winkt: 'Was kann ich für euch tun?'", "#me hebt den Kopf: 'Heda, wollt ihr etwas kaufen oder loswerden?'", "Hallo, ihr seht aus wie jemand, dem ich einen guten Preis für Werkzeuge machen kann. Deshalb seid ihr doch hier?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Yeh, yeh you here to buy or sell?", "#me scratches his cheek as he looks over: 'Want to see my wares?'", "Hello and all that, why don't you spend some of that coin you have with me!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Jaja, wollt ihr nun etwas kaufen oder loswerden?", "#me kratzt sich am Kinn und schaut umher: 'Seid ihr wegen meinen Waren hier?'", "Hallo und so, warum gebt ihr nicht einfach etwas Geld bei mir aus!"
+"Farewell", "Bye", "Fare well", "See you" -> "Aye... another time.", "Come back again now!", "#me chuckles: 'I'll be seeing you again I hope.'"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Ja, bis zum nächsten mal.", "Kommt schon zurück!", "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher."
+english, "Ciao", "Adieu", "Au revoir" -> "Aye... another time.", "Come back again now!", "#me chuckles: 'I'll be seeing you again.'"
+"Ciao", "Adieu", "Au revoir" -> "Ja, bis zum nächsten mal.", "Kommt schon zurück!", "#me lacht: 'Wir werden uns wiedersehen, da bin ich mir sicher."
+"How are you", "How feel", "How do you do" -> "I do alright, I would do better if you bought something!", "Why do you ask, you wont get a better price for small talk.", "I'm good, all the better for making a trade with you."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es gut und es würde mir noch besser gehen, wenn ihr etwas kaufen würdet.", "Warum fragt ihr, denkt ihr, dass ihr durch Geschwätz einen besseren Preis bekommt?", "Gut, genau richtig, um mit euch zu handeln."
+"your name", "who are you", "who art thou" -> "#me chuckles: 'Nik Nilo, but people call me Big Nik.", "Big Nik and don't you forget it!", "You mean you never heard of me, I'm Big Nik Nilo!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#me lacht auf: 'Nik Nilo, aber die Leute nennen mich Big Nik.", "Big Nik, vergesst das besser nicht.", "Ihr habt also noch nie von mir gehört? Ich bin Big Nik Nilo!"
+
+-- Catching quest triggers
+english, "quest", "mission" -> "#me laughs: 'What? I'm a builders merchant, I have tools not quests."
+"quest", "mission" -> "#me lacht: 'Was? Ich bin ein Baustoffhändler. Ich habe Werkzeuge, keine Abenteuer.'"
+"task", "adventure", "order" -> "#me shakes his head as he laughs: 'Look, buy or sell or move on, I don't have time for quests.'"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me schüttelt den Kopf und lacht: 'Schaut, kauft was oder haut ab, ich habe keine Zeit für Abenteuer."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "#me grins: 'I buy and sell tools and building supplies.'", "I'm a builders merchant.", "#me smiles: 'Tools, building supplies, coal, ores and wares I've got it all to buy and sell.'"
+"beruf" -> "#me grinst: 'Ich kaufe und verkaufe Werkzeuge und Baumaterial.'", "Ich bin ein Baustoffhändler", "#me lächelt: 'Werkzeuge, Baumaterial, Kohle, Erze und andere Waren, ich hab alles im Angebot.'"
+english, "job" -> "Well I'm a trader, can't you tell.", "I buy and sell tool, building supplies and other things.", "I do a little buying, a lot of selling, why what are you after?"
+"job" -> "Nun, ich bin ein Händler, so viel steht fest.", "Ich kaufe und verkaufe Werkzeuge, Baumaterial und anderes.", "Ich kaufe ein bisschen und verkaufe eine Menge. Was braucht ihr?"
+english, "Gobaith" -> "Wasn't that a little island?", "#me looks up in thought: 'I've heard of that place, can't think where it is though.'", "Gobaith, don't know where it is, I don't care."
+"Gobaith" -> "War das nicht irgendsoeine Insel?", "#me schaut gedankenverloren hoch: 'Ich habe von diesem Ort gehört, aber nicht, wo er ist.", "Gobaith, wen kümmerts?"
+"my name" -> "Ah, yes. Now buy something!"
+"mein Name" -> "Ja, wunderbar. Nun kauft endlich was!"
+
+-- More small talk; add at least five triggers
+"Laws" -> "Haha, what laws? Do as you please, just don't get caught!", "Treat others as you would be done by, else you will have to pay them compensation."
+"Gesetz" -> "Haha, Gesetze? Macht was ihr wollt, aber lasst euch nicht erwischen!", "Behandelt andere so wie sie euch behandeln, sonst müsst ihr nachher noch Schadensersatz bezahlen."
+"Tool" -> "My tools will help you build whatever you want in no time!", "Yes for this thing called 'work', have a look at my stock."
+"Werkzeug" -> "Mein Werkzeug wird dir helfen zu bauen, was immer du möchtest!", "Ja, Werkzeug für diese Sache, die man 'Arbeit' nennt, schaut sie euch an."
+english, "Big Nik" -> "#me scratches his knee casually: 'Well, Big Nik is my maiden's name. If you know what I mean.'"
+"Big Nik", "Groß Nik" -> "#me kratzt sich gelassen am Knie 'Nun, Big Nik ist mein Mädchenname. Wenn ihr versteht, was ich meine.'"
+"location", "town", "village" -> "I'm right in front of you, here in Galmair!", "Galmair, where else!", "Only the best town around these parts, Galmair!"
+"Ort", "Stadt", "Dorf" -> "Ich bin genau hier, hier in Galmair!", "Galmair, was sonst!", "Die beste Stadt in diesen Landen, Galmair!"
+"trader", "merchant", "collegue", "vendor", "market" -> "Need anything? Ask around. In Galmair, you can get anything. And when I say 'anything', I mean anything!"
+"händler", "kollege", "höker", "markt" -> "Ihr sucht etwas? Fragt herum. In Galmair bekommt man alles. Und wenn ich 'alles' sage, meine ich alles!"
+
+-- Faction stuff
+"archmage" -> "All light and wisdome, load of dung. He is just like any other pompus mage at Runewick.", "The archmage of Runewick, thinks the light shines out of his bum!", "Just another mage at Runwick with a big title, thinks he is something special, pah, same as all the others."
+"Erzmagier" -> "Wissen und Licht, was für ein Unfug. Er ist einfach nur ein Scharlatan aus Runewick.", "Der Erzmagier von Runewick, er denkt, das Licht würde aus seinem Hinter strahlen!", "Nur noch ein Magier in Runewick mit großem Titel, er denkt, er ist etwas besondere. Pah! Genausoein Versager wie die anderen."
+english, "Elvaine", "Morgan" -> "All light and wisdome, load of dung. He is just like any other pompus mage at Runewick.", "The archmage of Runewick, thinks the light shines out of his bum!", "Just another mage at Runwick with a big title, thinks he is something special, pah, same as all the others."
+"Elvaine", "Morgan" -> "Wissen und Licht, was für ein Unfug. Er ist einfach nur ein Scharlatan aus Runewick.", "Der Erzmagier von Runewick, er denkt, das Licht würde aus seinem Hinter strahlen!", "Nur noch ein Magier in Runewick mit großem Titel, er denkt, er ist etwas besondere. Pah! Genausoein Versager wie die anderen."
+english, "Runewick" -> "What a horrible place, full of scribes, mages and learned. Supposed to be a place of wisdom, arrogance more like.", "Nice place to look at but wouldn't want to live there.", "#me grins, motioning a hand to the surrounding area: 'Pah! Runewick, you don't want to know about that place when you've got Galmair!'"
+"Runewick" -> "Was für ein ekliger Ort voll von Schreiberlingen, Magiern und Gelehrten. Eigentlich ein Ort der Weisheit, ist es mehr ein Ort der Hochnäsigkeit.", "Sieht schick aus, aber ich würde da nicht leben wollen.", "#me grinst und zeigt mit seiner Hand auf die Umgebung: 'Pah! Runewick, wen interessiert das schon, wenn man Galmair sieht!"
+english, "Valerio", "Guilianni", "Don" -> "Aye, he is alright as long as you stay on his good side, he runs this place.", "Some people say he killed his father to rule this place, me, I recon it's probably true.", "#me chuckles: 'He is firm but fair if you stay on his good side, he keeps this town in free order. That is just how I like it, its good for trade.'"
+"Valerio", "Guilianni", "Don" -> "Er ist in Ordnung, solange man es sich mit ihm nicht verscherzt. Er hat hier das sagen.", "Manche sagen, er hätte seinen Vater umgebracht um hier das Kommando zu übernehmen, mag was wahres dran sein.", "#me lacht: 'Er ist hart aber fair, wenn man es sich nicht mit ihm verscherzt. Er hält die Zügel locker, so mag ich das; ist gut für das Geschäft."
+english, "Galmair" -> "#me takes in a deep breath: 'Smell that, no place smells like that. I love this town its all for the free man.'", "It can be a little rough around here some nights, but every man and some of the women need to let off a little steam.", "If you live around here, you are a free man. Around here do as you want just don't upset anyone bigger than you. And I am pretty big."
+"Galmair" -> "#me atmet tief durch: 'Riecht ihr das, kein Ort riecht so gut. Ich liebe diesen Geruch der Freiheit.'", "Es kann hier nachts schonmal ruppig zugehen, aber jeder Mann und einige Frauen müssen auch einfach mal Dampf ablassen dürfen.", "Wenn ihr hier lebt, seid ihr freier Mann. Macht, was ihr wollt, solange ihr niemanden gegen euch aufbringt, der stärker ist als ihr. Und ich bin ziemlich stark."
+"queen" -> "Don't know much about her, ain't she the Queen at Cadomyr?", "I hear she is a right witch, that Queen of Cadomyr.", "From what I hear she is quite the woman, bit of a witch though but some men like that."
+"königin" -> "Viel weiß ich nicht über sie, ist sie nicht die Königin von Cadomyr?", "Ich hab gehört, sie ist ein ziemliches Biest, die Königin von Cadomyr.", "Von dem, was ich gehört habe, ist sie ein echtes Weibsbild, aber auch ein Biest. Manche Männer mögen das..."
+english, "rosaline", "edwards" -> "Don't know much about her, ain't she the Queen at Cadomyr?", "I hear she is a right witch, that Queen of Cadomyr.", "From what I hear she is quite the woman, bit of a witch though but some men like that."
+"rosaline", "edwards" -> "Viel weiß ich nicht über sie, ist sie nicht die Königin von Cadomyr?", "Ich hab gehört, sie ist ein ziemliches Biest, die Königin von Cadomyr.", "Von dem, was ich gehört habe, ist sie ein echtes Weibsbild, aber auch ein Biest. Manche Männer mögen das..."
+english, "Cadomyr" -> "It's a nice place, but too many laws for me, I'm a free man not a slave to laws and Royals.", "#me points to the ground: 'See, here a man can be what he wants, in Cadomyr you have a place and that's it for life. You live in the gutter, you die there.", "Good place, if you get into trouble, you will end up dead or in jail."
+"Cadomyr" -> "Ein netter Ort, aber zuviele Gesetze für meinen Geschmack. Ich bin ein freier Mann und kein Sklave der Bräuche und Adeligen.", "#me zeigt auf den Boden: 'Seht, hier kann ein Mann sein, was er will, in Cadomyr kriegt jeder einen Platz zugewiesen und das für das ganze Leben. Wer im Dreck lebt, stirbt dort.", "Eigentlich ein guter Ort, wer Ärger macht, stirbt oder wird in den Kerker geworfen."
+
+-- Main land factions
+english, "albar" -> "Ah, good for trading that place, big harbour town is Ann-Korr and the oldest of the Albarian towns."
+"albar" -> "Ah, ein guter Platz zum Handeln, ein großer Hafen dort ist Ann-Korr, die älteste albarische Stadt."
+english, "gynk", "gync" -> "If you're looking for gods, they are the towns to find. It is said the Gynkeesh have a temple for every god you can think of."
+"gync", "gynk" -> "Wenn ihr nach den Göttern sucht, schaut bei den Gynkeesh. Sie haben einen Tempel für jeden erdenklichen Gott."
+english, "salkama" -> "Ah the town of the sun as it is called. Used to be just a fishing village now its a place of poets, art and a world known academy."
+"salkama" -> "Ah, die Stadt an der Sonne, so sagt man. War mal ein Fischerdorf, jetzt soll das ein Ort der Poeten, Künstler und Magier sein."
+
+-- Gods; each NPC should react on AT LEAST one god, being a follower of said god
+"god" -> "I thank Irmorom for good business every day."
+"Gott", "Götter" -> "Ich danke Irmorom jeden Tag für mein erfolgreiches Geschäft."
+english, "Irmorom" -> "Irmorom be your best bet if you want good business.", "Aye I have trust in the gods, Irmorom has always been good to me.", "Best save a coin and offer it to Irmorom if you want to prosper in this life."
+"Irmorom" -> "Irmorom, der Gott der Wahl, wenn man ein gutes Geschäft haben will.", "Ja, ich vertraue den Göttern, Irmorom hat es immer gut mit mir gemeint.", "Spart einen Groschen und opfert ihn Irmorom, wenn ihr Erfolg haben wollt."
+
+-- Catching typical NPC phrases
+"tell something" -> "#me makes an inviting gesture and lowers his voice: 'I'll tell you something, buy something or go away!'"
+"erzähl was", "erzähl etwas" -> "#me winkt einladend und senkt dann die Stimme: 'Ich sag dir was, kauf was oder verschwinde!'"
+
+-- Easter egg
+english, "obi" -> "What did you say?"
+"obi" -> "Was habt ihr gesagt?"
+"animal food" -> "No discount on that!"
+"tiernahrung" -> "Darauf gibt es hier keinen Rabatt!"
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+english, "Nik", "Nilo" -> "Everyone calls me Big Nik. Well, my friends do. Everyone is my friend here in Galmair."
+"Nik", "Nilo" -> "Jeder nennt mich Big Nik. Jedenfalls tun das meine Freunde. Und hier in Galmair ist jeder mein Freund."
+"Yes" -> "Aye, now come and buy my wares!"
+"Ja" -> "Richtig, und jetzt kauf meine Waren!"
+"Nein" -> "Na dann nicht. Kauft trotzdem meine Waren."
+"No" -> "Well, whatever. Want to buy my wares?"
+
+-- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Auf diese Steine können sie bauen!", "Build yourself a fortune, buy your bricks here!"
+cycletext "Auch mit wenig Schotter bekommst du deine Steine hier billig!", "My prices are cheap as rock, get your stone here!"
+cycletext "Wenn ihr anderen eine Grube graben wollt, hier gibt es die Schaufeln dafür!", "Don't dig around, get your shovel here!"
+cycletext "Mein Erz ist was dein Herz begehrt!", "Need some ore? I've got it and more!"
+cycletext "Edelsteine so günstig, dass eure Augen funkeln werden.", "Raw gems at a price that will make your eyes sparkle!"
+cycletext "Meine Spitzhacken gleiten durch den Stein wie durch Butter!", "Want a pick, mine cut through stone as if it was butter!"
+cycletext "#me winkt aufgeregt mit der Hand: 'Kommt her, kommt alle, hier gibt es Werkzeuge und Baumaterial.'", "#me waves his hand up: 'Come on, come all, get your tools and trade supplies here!'"
+cycletext "#me wischt sich die Stirn ab.", "#me wipes his forehead with the back of an arm."
+cycletext "#me spielt mit einem Goldnugget, er wirft es hoch und fängt es anschließend.", "#me plays with a nugget, tossing it up then catching it"
+cycletext "#me formt mit seinen Händen einen Trichter und ruft: 'Nur keine Scheu, ich hab Geld wie Heu!'", "#me holds a hand to the side of his mouth as he calls: 'Don't be shy, come and buy!'"
+cycletext "Wir geben ihrer Zukunft ein Zuhause!", "We give your future a home!"
+cycletext "Wie, wo, was, weiß... Big Nik!", "How, where, what, knows... Big Nik!"

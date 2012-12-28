@@ -1,0 +1,66 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Teleporter (Runewick)                                   Runewick --
+-- NPC Job:  Teleporter                                                       --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  788, 826, 0            --
+-- NPC Sex:  male                       NPC Direction: north                  --
+--                                                                            --
+-- Author:   Estralis Seborian                                                --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Teleporter (Runewick)"
+race = human
+sex = male
+position = 788, 826, 0
+direction = north
+affiliation = "Runewick"
+job = "Teleporter"
+
+language = common
+language = human
+language = dwarf
+language = elf
+language = lizard
+language = halfling
+language = orc
+defaultLanguage = common
+autointroduce = on
+
+author = "Estralis Seborian"
+
+lookatDE = "[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Wilderland, Galmair, Cadomyr."
+lookatUS = "[Teleporter] Say the name of the realm you want to travel to: Wilderland, Galmair, Cadomyr."
+useMsgDE = "[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Wilderland, Galmair, Cadomyr."
+useMsgUS = "[Teleporter] Say the name of the realm you want to travel to: Wilderland, Galmair, Cadomyr."
+wrongLangDE = "[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Wilderland, Galmair, Cadomyr."
+wrongLangUS = "[Teleporter] Say the name of the realm you want to travel to: Wilderland, Galmair, Cadomyr."
+
+-- Cadomyr: 127 647 0
+-- Runewick: 788 826 0
+-- Galmair: 424 245 0
+-- Wilderland: 684 307 0
+
+-- Help
+"Help" -> inform("[Game Help] This is the teleporter of Runewick. A journey costs ten silver coins. Destinations: Wilderland, Cadomyr, Galmair.")
+"Hilfe" -> inform("[Spielhilfe] Dies ist der Teleporter Runewicks. Die Reise kostet ein Silberstück. Ziele: Wilderland, Cadomyr, Galmair.")
+
+-- Already there
+english, "Runewick" -> inform("[Teleporter] You are already in Runewick.")
+"Runewick" -> inform("[Teleporter] Ihr seid bereits in Runewick.")
+
+-- Not enough money
+money < 1000, english, "Wilderland", "Cadomyr", "Galmair" -> inform("[Teleporter] You don't have enough money for this journey. The journey costs ten silver coins.")
+money < 1000, "Wilderland", "Cadomyr", "Galmair" -> inform("[Teleporter] Ihr habt nicht genug Geld für diese Reise. Die Reise kostet zehn Silberstücke.")
+
+-- Warping
+english, "Wilderland" -> inform("[Teleporter] You make the teleporter open a portal to Wilderland at a cost of ten silver pieces."), money - 1000, warp(684, 307, 0)
+"Wilderland" -> inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Wilderland zu einem Preis von zehn Silberstücken öffnen."), money - 1000, warp(684, 307, 0)
+english, "Cadomyr" -> inform("[Teleporter] You make the teleporter open a portal to Cadomyr at a cost of ten silver pieces."), money - 1000, warp(127, 647, 0)
+"Cadomyr" -> inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Cadomyr zu einem Preis von zehn Silberstücken öffnen."), money - 1000, warp(127, 647, 0)
+english, "Galmair" -> inform("[Teleporter] You make the teleporter open a portal to Galmair at a cost of ten silver pieces."), money - 1000, warp(424, 245, 0)
+"Galmair" -> inform("[Teleporter] Ihr lasst den Teleporter ein Tor nach Galmair zu einem Preis von zehn Silberstücken öffnen."), money - 1000, warp(424, 245, 0)
+
+-- Default
+english, ".*" -> inform("[Teleporter] Say the name of the realm you want to travel to: Wilderland, Cadomyr, Galmair.")
+".*" -> inform("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Wilderland, Cadomyr, Galmair.")

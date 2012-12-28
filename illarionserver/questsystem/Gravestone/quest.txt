@@ -1,0 +1,14 @@
+item,519,LookAtItem,trigger1
+item,174,UseItem,trigger2
+item,175,UseItem,trigger3
+item,176,UseItem,trigger4
+item,177,UseItem,trigger5
+item,178,UseItem,trigger6
+item,179,UseItem,trigger7
+item,519,LookAtItem,trigger8
+npc,217,receiveText,trigger9
+item,148,UseItem,trigger10
+item,519,LookAtItem,trigger11
+npc,217,receiveText,trigger12
+npc,217,receiveText,trigger13
+npc,217,receiveText,trigger14

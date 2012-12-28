@@ -1,0 +1,183 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Advari Stonebog                                          Galmair --
+-- NPC Job:  Trader                                                           --
+--                                                                            --
+-- NPC Race: dwarf                      NPC Position:  361, 266, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Rincewind                                                        --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Advari Stonebog"
+race = dwarf
+sex = male
+position = 361, 266, 0
+direction = south
+affiliation = "Galmair"
+job = "Trader"
+
+language = common
+language = dwarf
+defaultLanguage = common
+autointroduce = on
+
+author = "Rincewind"
+
+lookatDE = "Ein ergrauter Zwerg. In seinem Mundwinkel steckt eine verzierte Pfeife und kleine Rauchwölkchen umgeben ihn."
+lookatUS = "A gnarled old dwarf. He puffs away at an ornate pipe, shrouding him in a small cloud of smoke."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Hands off!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me glances around obliviously."
+radius = 0
+hairID = 1
+beardID = 1
+colorHair = 189, 182, 164
+colorSkin = 217, 154, 123
+itemChest = 2390
+itemHands = 48
+itemTrousers = 2116
+itemShoes = 326
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 51, 126, 258, 271, 69, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 2502, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934
+buySecondaryItems = 51, 126, 258, 271, 69, 2547, 2586, 154, 200, 201, 290, 249, 259, 772, 778, 2493, 15, 80, 81, 147, 151, 199, 302, 388, 330, 259, 291, 534, 728, 773, 779, 2494, 2917, 307, 552, 553, 2934
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
+-- Trader Stock
+-- Tools (Farmer): 51, 126, 258, 271
+-- Animal skins: 69, 2547, 2586
+-- Crops: 154, 200, 201, 290, 249, 259, 772, 778, 2493
+-- Fruits: 15, 80, 81, 147, 151, 199, 302, 388
+-- Milk: 330
+-- Seeds: 259, 291, 534, 728, 773, 779, 2494, 2917
+-- Raw meat: 307, 552, 553, 2934
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Advari Stonebog the trader. Buy, sell, trade, Dwarf, Beer, Orcs, Name.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Advari Stonebog der Händler. kaufe, verkaufe, Handel, Zwerg, Bier, Orks, Name.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeted be.", "Wealth and glory, friend.", "Hail Irmorom.", "Great day to be a dwarf!", "This 'ere be me stall. You want to buy some wares?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greeted be.", "Wealth and glory, friend.", "Hail Irmorom.", "Great day to be a dwarf!", "This 'ere be me stall. You want to buy some wares?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hiho, Reisender.", "Wohlstand und profitable Geschäfte, mein Freund.", "Heil Irmorom.", "Gr'duzk. - würde ich sagen und heißt so viel wie guten Tag.", "H'druk g'har. Dies ist mein Schuppen. Wollt ihr was kaufen?"
+"Farewell", "Bye", "Fare well", "See you" -> "G'hruk. Farewell.", "Abundance and Wealth, my friend.", "Arr."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt Euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "G'hruk. Farewell.", "Abundance and Wealth, my friend.", "Arr."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehabt Euch wohl.", "Wohlstand und profitable Geschäfte, mein Freund.", "Arr. N' schönen Tag noch.", "G'hruk."
+"How are you", "How feel", "How do you do" -> "Aye, the business is well. And the Greennoses behave properly.", "Arr, as soon as I'm able to leave my shop, I am going to drink beer at Hagar's Inn. He is a Longleg, but the stuff is brewed by us dwarves!", "Gold. Tha'ts what a dwarf aspire. And I got a huge amount of it."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Aye, das Geschäft geht gut, und die Grünschnauzen benehmen sich einigermaßen.", "Arr, wenn ich einmal hier wegkomm, geh ich sofort zu Hagar! Der ist zwar ein Langbein, aber das Bier, das haben wir Zwerge ihm gebraut!", "Gold. Das ist was ein Zwerg will. Und ich hab eine Menge davon."
+"your name", "who are you", "who art thou" -> "Arr, just mellow dwarves tell their real name. And someone like you would just yell it out to everyone. But in common language I'm called Advari Stonebog", "Advari Stonebog. And that's all someone like you need to know."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Arr, nur Weichzwerge verraten ihren wahren Namen. Wer weiß wem, einer wie du, ihn erzählen würde! Aber in der allgemeinen Sprache heiße ich Advari Stonebog.", "Advari Stonebog. Und mehr braucht einer wie du, nicht zu wissen."
+
+-- Catching quest triggers
+english, "quest", "mission" -> "I don't got no tasks for yer. Better ask the Don, aye?"
+"quest", "mission" -> "Ich hab keine Arbeit für dich, frag lieber den Don. Aye?"
+"task", "adventure", "order" -> "I don't got no tasks for yer. Better ask the Don, aye?"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich hab keine Arbeit für dich, frag lieber den Don. Aye?"
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "Seeds're my business. If ye be a farmer, I'm your dwarf; I've got everythin' ye need! On top o' that, I keep an eye on these pignoses over there."
+"beruf" -> "Ich handle mit Saatgut. Wenn du ein Bauer bist, bist du bei mir richtig. Ich verkauf dir alles was du brauchst. Aye. Und außerdem pass ich auf, dass die Grünschnauzen dort drüben keinen Unsinn treiben."
+english, "job" -> "I trade with seeds. If you're n'farmer, I'm the fitting man for you - I'll sell you everything you need!"
+"job" -> "Ich handle mit Saatgut. Wenn du ein Bauer bist, bist du bei mir richtig. Ich verkauf dir alles was du brauchst. Aye. Und außerdem pass ich auf, dass die Grünschnauzen dort drüben keinen Unsinn treiben."
+english, "Gobaith", "Gobiath" -> "Gobaith? No idea what you're chattin'!"
+"Gobaith", "Gobiath" -> "Gobaith? Drhg'hgin! So spricht niemand über meine Großmutter! Verzieh dich!"
+"my name" -> "Aye, ye pillownosed pillock.", "A true dwarf never shares 'is name!", "I'll remember that, we dwarves've got an great memories, as long as there's money involved."
+"mein Name" -> "Aye, du Weichnase.", "Schön für Euch. Aber ein ordentlicher Zwerg würde nie seinen wahren Namen verraten.", "Sehr genehm. Werd ich mir merken! Wie Zwerge haben ein ausgezeichnetes Gedächtnis. Und ich werd's nicht vergessen solltest du versuchen mich übers Ohr zu hauen!"
+
+-- More small talk; add at least five triggers
+"Dwar[vf]" -> "Dwarves are the proudest people! Formidable fighters! Masterful masons! Seasoned Smiths! The most breathtaking of bards!", "Hi dwarf, hey dwarf - hi dwarf ho! Hi dwarf, hey dwarf go-go-go!"
+english, "or[ck]" -> "Arr the don gave two market stalls to the pignoses. Now I 'ave to keep an eye on 'em.", "You see that orc over there? Tha's J'uk. He slacks off all day, guzzling up his own goods. The beer tastes like piss; can't think where he got it - not from any dwarf, that's for sure."
+english, "name" -> "A true dwarf like me... doesn't tell his name to everybody. This defends us dwarves against dark curses an' other nancy magic hexes."
+english, "hagar", "wernson" -> "Dwarves brew his beer. Lucky for him, otherwise noone'd go to the Winged Sow."
+english, "gold" -> "#me starts to sing with a deep throaty voice.'Gooold! Gold, Gold, Gold. Gold... Gold, Gold, Gold!'"
+"beer" -> "Aye, the best beer is sold at Hagar Wernson Inn - The Winged Sow . Go there before you try the piss that orc sells. I wouldn't touch his stuff if they were healing potions and I 'ad an axe in me shoulder!"
+"zwerg" -> "Wir Zwergenvolk habens ganz dicke hinter den Ohren. Furchteinflößende Krieger! Meisterhafte Steinmätze! Die großartigsten Schmiede! Die berühmtesten Poeten und Barden!", "Hey Zwerge, hey Zwerge - hey Zwerge ho! Hey Zwerge, hey Zwerge go-go-go!"
+"or[ck]" -> "Arr, der Don hat ganze zwei Marktstände an die Schweineschnauzen verpachtet! Jetzt darf ich aufpassen, was sie treiben.", "Siehste den Ork, gegenüber? J'uk, der lümmelt den ganzen Tag rum und säuft die eigene Wahre weg. Das Bier schmeckt wie Pisse, frag mich nicht wo er das her hat. Jedenfalls nicht von uns Zwergen."
+"name" -> "N' ordentlicher Zwerg wie ich, isses nich so, der verrät seinen wahren Namen keinem. Das schützt uns Zwerge vor bösem Zauber-Firlefanz. Und so Schnik-Schnak, verstehste?"
+"hagar", "wernson" -> "Arr, Hager hat ne gute Taverne. Gut für ein Langbein, natürlich. Er wird von uns Zwergen mit Getränken beliefert. Glück für ihn, sonst würde wohl niemand beim ihm saufen!"
+"gold" -> "#me fängt mit kehliger tiefer Stimme an zu singen. 'Gooold! Gold, Gold, Gold. Gold... Gold, Gold, Gold!'"
+"Bier" -> "Aye, das beste Bier in Galmair verkauft Hagar Wernson in der Taverne zur geflügelten Sau. Die Pisse die der Ork gegenüber verkauft würd ich nicht mal trinken, wenns nen heilender Trunk wär und mir ne Axt in der Schulter steckt!"
+
+-- Faction stuff
+"archmage" -> "Arr. As every dwarf knows, magic is nonsense and it's a danger t' public safety! This Elvaine Morgan should listen to us dwarves!"
+"Erzmagier" -> "Arr. Jeder Zwerg weiß natürlich, daß Magie gemeingefährlicher Firlefanz ist! Und dieser Elvaine Morgan täte gut daran auf uns Zwerge zu hören!"
+english, "Elvaine", "Morgan" -> "Arr. As every dwarf knows, magic is nonsense and it's a danger t' public safety! This Elvaine Morgan should listen to us dwarves!"
+"Elvaine", "Morgan" -> "Arr. Jeder Zwerg weiß natürlich, daß Magie gemeingefährlicher Firlefanz ist! Und dieser Elvaine Morgan täte gut daran auf uns Zwerge zu hören!"
+english, "Runewick" -> "A cesspool of sin how I see it! They toy around with magic there. Can't take that lightly! Hopefully they blow themselves up, the fools."
+"Runewick" -> "Drhg'hgin! Ein Sündenpfuhl wenn ihr mich fragt. Dort spielen sie mit Magie herum. Da versteh ich keine Scherze! Sollen sie sich selbst in die Luft sprengen, D'rkza...Narren."
+english, "Valerio", "Guilianni", "Don" -> "Aye the Don is Law. Don't try and mess with 'im, he's the richest dwarf 'ere... could be the last thing you ever do."
+"Valerio", "Guilianni", "Don" -> "Aye, der Don ist das Gesetz hier. Leg dich besser nicht mit ihm an. Er ist der reichste Zwerg hier... könnte das letzte sein was ihr getan habt."
+english, "Galmair" -> "Galmair, Galmair! That's the name. Here's we 'ave best stone and rich dwarves are respected properly. What a life! Praise Irmorom!"
+"Galmair" -> "Galmair, Galmair! So ist der Nam. Hier gibst die größten Schätze im Boden. Und ein reicher Zwerg ist wohl angesehn. So läst's sich leben. Gedankt sei's Irmorom!"
+"queen" -> "Dwarves don't care about 'blue' blood! Wealth is what brings you prestige. Big rich empires are the ones who truly rule!"
+"königin" -> "Kra'gstuck! Wir Zwerge halten nichts vom 'blauen' Blut! Wohlstand ist's was Ansehen bringt. Große reiche Clans, die haben bei uns das Sagen!"
+english, "Rosaline", "Edwards" -> "Dwarves don't care about 'blue' blood! Wealth is what brings you prestige. Big rich empires are the ones who truly rule!"
+"rosaline", "edwards" -> "Kra'gstuck! Wir Zwerge halten nichts vom 'blauen' Blut! Wohlstand ist's was Ansehen bringt. Große reiche Clans, die haben bei uns das Sagen!"
+english, "Cadomyr" -> "Cadomyr? They're ruled by that underbred brat, aren't they? She doesn't 'ave the foggiest idea about business. Aye, in dwarven society only the cleverest brains rule the land."
+"Cadomyr" -> "Cadomyr? Die werden doch von so einer verzogenen Göre regiert. Wenn ihr mich fragt, hat die keine Ahnung von Geschäften. Bei uns Zwergen, ja-ja, da haben nur die klügsten Köpfe was zu sagen!"
+
+-- Main land factions
+english, "albar" -> "You want to chat about Albar? A well placed dwarf has no busniess over there."
+"albar" -> "Über Albar wollt ihr sprechen? Ich bitte Euch, ich bin ein angesehener Zwerg und hab dort tunlichst, nichts zu tun."
+english, "gynk", "gync" -> "Gynk, aye! There are mines there! Not ones comparable to the mines of the dwarves, mind and they're filled with swindlers, but what else would you expect from longlegs?"
+"gync", "gynk" -> "Gynk, ja-ja! Dort gibt's Minen! Natürlich nicht mit unseren zu vergleichen und alles voll mit Betrügern, aber was soll man von den Menschen schon besseres erwarten?"
+english, "salkama" -> "Sunny, shiny Salkamar. Too many wizards there for my liking! Even thinkin' about it makes me eyes sore. That place ain't made for us dwarves."
+"salkama" -> "Sonniges, leuchtendes Salkamar. Überfüllt mit Magier-Pöbel. Wenn ich nur daran denke, reibt's mir in den Augen. Für so ein Land hat uns Irmorom nicht geschaffen. Nein."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Irmorom, father of dwarves - and Ronagan protect my pocket against larcenous halblings and treacherous humans."
+"Gott", "Götter" -> "Irmorom, der Vater der Zwerge und ihr Ronagan, schützt mich vor langfingrigen Halblingen und betrügerischen Menschen."
+english, "Irmorom" -> "Hail Irmorom! Respect my clan, deep down in our stone halls. They may be far away, but noone could ever seperate us."
+"Irmorom" -> "Heil Irmorom. Schütze meinen Clan, in seinen Hallen aus Stein. Weit sind sie weg, doch kann man uns niemals trennen."
+english, "Ronagan" -> "Aye, I give a good chunk of what I earn to the Lord of shadows. Should keep me untroubled by thieving scum! Arr."
+"Ronagan" -> "Aye, ich opfere einen guten Teil meiner Einkünfte dem Schattengott. So sorgt er dafür, dass ich vom diebischen Gesindel verschont bleibe! Arr."
+
+-- Catching typical NPC phrases
+"tell something" -> "I'm in charge of the seeds of Galmair. A very important task, reserved only for the best man!", "Arr. I make sure those damned pigfaces don't mess the market. They ain't that clever are they?", " Praise Irmorom and thank Ronagan the past week went so will. Not a single thief around. Arr."
+"erzähl was", "erzähl etwas" -> "Ich verwalte das Saatgut von Galmair. Eine äußerst wichtige Aufgabe. Die der Don, nur den fähigsten Männern anvertraut.", "Arr. Ich pass auf das die Schweineschnauzen, hier am Markt, keinen Unsinn treiben! Sind ja so wie so nicht die klügsten, nicht wahr?", "Gepriesen sei Irmorom, und gedankt sei's Ronagan. Die letzte Woche lief ausgezeichnet, und kein einziger Langfinger in der Nähe. Arr."
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+english, "advari", "stonebog" -> "Arr, pillownose! You think that's my real name? Whatever... you want to sell somethin'?"
+"advari", "stonebog" -> "Arr, Weichzwerg! So denkt Ihr das ich heiß, nicht war? Wie auch immer. Was wollt Ihr handeln?"
+"Yes" -> "Aye. I agree!", "Arr, that's the way I like it!", "Arrr! Tell me about it!"
+"Ja" -> "Aye. Da stimm ich zu!", "Arr, so gefällt mir das!", "Aargk... - sprich was ist's?"
+"No" -> "Well, well. An old dwarf like meself 'as to take one for the team.", "If that's the way you want it...", "I can bear it. Hopefully you can too."
+"Nein" -> "Fein-fein. Ein alter Zwerg wie ich findet sich einfach damit ab.", "Wenn's ihr so wollt.", "Damit kann ich leben. Ich hoffe, ihr auch."
+
+-- Absolutely last catch: Everything a player says and is not caught earlier
+english, chance(20.0), ".*" -> "Aye, is that so? Never heard about it.", "#me gives a throaty chuckle, running his fingers through his beard.", "Well, well!", "Arrr!"
+german, chance(20.0), ".*" -> "Aye, ist das so? Das ist mir neu.", "#me lacht kehlig und streicht sich über den Bart. 'Na gut, ist ja gut.'", "Arr!"
+
+-- Cycletext: Please add at least(!) ten cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me singt mit kehliger Stimme. 'Hai-hie! Hai-hoh. Hai-hi! Hai-ho! Hai-ho-ho! Hai-hi! Hai-ho!'", "#me starts to sing with a throaty voice. 'Hi ho! Hi hah! Hi ho! Hi Hah!'"
+cycletext "#me streicht sich zufrieden lächelnd über den langen buschigen Bart.", "#me runs his fingers through his long, fluffy beard, grinning quietly."
+cycletext "#me kaut auf seiner Pfeife herum. Gelegentlich stopft er etwas Kraut nach.", "#me chews the tip of his pipe. Once every so often he stuffs some more tobacco in."
+cycletext "#me bläst einen großen Rauchring in die Luft, und gluckst glücklich.", "#me releases a large smoke ring into the air and chuckles in high spirits."
+cycletext "Langfinger fressen die Galgenvögel! Last's Euch sagen! Aye.", "Let thieves be eaten by giant demonic birds! Aye!"
+cycletext "#me knurrt etwas Unverständliches in seinen Bart, indessen funkelt er die Orkfrau beim Schuppen mit verärgertem Blick an.", "#me mumbles and snarls into his beard, sternly glancing towards the orcess at the next market stall."
+cycletext "Arr...", "Arr..."
+cycletext "Ich verkauf die schönsten Fälle zu den besten Preisen!", "I sell the finest fur at the best prices!"
+cycletext "Frische Schafsmilch! Leute, kommt her und kauft bei mir ein!", "Fresh milk from sheep, come closer have a look!"
+cycletext "Dort, edle Dame! Kauft mir leckere Früchte ab! Die besten Früchte Galmairs verkaufe ich.", "Over there, good maiden! Buy tasty fruit! The best fruit in all of Galmair are sold at this stall!"
+cycletext "#me verengt die Augen und betrachtet einen Moment lang misstrauisch den Ork gegenüber.", "#me narrows his eyes towards the orc at the opposite market stall."
+cycletext "Ha'ak! Ga strak ja'ada! Arr.", "Ha'ak! Ga strak ja'ada! Arr."

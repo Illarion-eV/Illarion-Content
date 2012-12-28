@@ -1,0 +1,295 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Thud                                                     Galmair --
+-- NPC Job:  circle quest - trophydeeler                                      --
+--                                                                            --
+-- NPC Race: orc                        NPC Position:  394, 188, -6           --
+-- NPC Sex:  male                       NPC Direction: west                   --
+--                                                                            --
+-- Author:   Rincewind                                                        --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Thud"
+race = orc
+sex = male
+position = 394, 188, -6
+direction = west
+affiliation = "Galmair"
+job = "circle quest - trophydeeler"
+
+language = common
+language = orc
+defaultLanguage = common
+autointroduce = on
+
+author = "Rincewind"
+
+lookatDE = "Ein dümmlicher aber kräftiger Ork, der etwas abwesend umher glotzt."
+lookatUS = "A stupid but strong orc. He stares absently at the cave walls."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 1
+beardID = 3
+colorHair = 108, 62, 46
+colorSkin = 137, 123, 60
+itemHead = 7
+itemChest = 101
+itemMainHand = 2664
+itemSecondHand = 17
+itemTrousers = 2112
+itemShoes = 53
+
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
+-- QuestID=301
+-- Thud sammelt verschiedene Trophäen und belohnt dich mit besonderen Items, nachdem du genügend gebracht hast.
+-- queststatus(301) Overview (endlessquest)
+-- queststatus(301) 9- 13 - kleine belohnung +5 (12)
+-- queststatus(301)= 25-29 - kleine belohnung +5 (21)
+-- queststatus(301)= 50-54 mittel belohnung+5 (21)
+-- queststatus(301)= 75-79 mittel belohnung+5 (41)
+-- queststatus(301)= 120-124 große belohnung+5 (41)
+-- queststatus(301)= 165-169 große belohnung +5 (81)
+-- queststatus(301)= 250-254 sehr große belohnung >>queststate=1
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Thud the trophy collector. Keywords: trophy - answer with 'yes' or 'no'.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Thud der Trophäensammler. Schlüsselwörter: Trophäe - Antworte mit 'Ja' oder 'Nein'.")
+
+-- skill(distance weapons)>=40
+-- queststatus(301) 9- 13 - kleine belohnung +5 (12) ~ 5x Flasche Rum (1319)
+-- queststatus(301)= 25-29 - kleine belohnung +5 (21) ~ Horn (333)
+-- queststatus(301)= 50-54 mittel belohnung+5 (21) ~ Smaragdamulett (62)
+-- queststatus(301)= 75-79 mittel belohnung+5 (41) ~ kleiner Holzschild, graviert (2445)
+-- queststatus(301)= 120-124 große belohnung+5 (41) ~ leichte Jagdrüstung (364)
+-- queststatus(301)= 165-169 große belohnung +5 (81) ~ 50x Windpfeile (322) 333
+-- queststatus(301)= 250-254 sehr große belohnung >>qstate=1 ~ Ebenholzbogen (2780)
+skill(distanceWeapons) => 40, queststatus(301) => 9, queststatus(301) =< 13, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(1319, 5, 333), queststatus(301) + 5
+skill(distanceWeapons) => 40, queststatus(301) => 9, queststatus(301) =< 13, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(1319, 5, 333), queststatus(301) + 5
+skill(distanceWeapons) => 40, queststatus(301) => 25, queststatus(301) =< 29, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(333, 1, 999), queststatus(301) + 5
+skill(distanceWeapons) => 40, queststatus(301) => 25, queststatus(301) =< 29, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(333, 1, 999), queststatus(301) + 5
+skill(distanceWeapons) => 40, queststatus(301) => 50, queststatus(301) =< 54, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(62, 1, 999), queststatus(301) + 5
+skill(distanceWeapons) => 40, queststatus(301) => 50, queststatus(301) =< 54, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(62, 1, 999), queststatus(301) + 5
+skill(distanceWeapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(2445, 1, 999, "gravur" = "thud"), queststatus(301) + 5
+skill(distanceWeapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2445, 1, 999, "gravur" = "thud"), queststatus(301) + 5
+skill(distanceWeapons) => 40, queststatus(301) => 120, queststatus(301) =< 124, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(364, 1, 999), queststatus(301) + 5
+skill(distanceWeapons) => 40, queststatus(301) => 120, queststatus(301) =< 124, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(364, 1, 999), queststatus(301) + 5
+skill(distanceWeapons) => 40, queststatus(301) => 165, queststatus(301) =< 169, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(322, 50, 333), queststatus(301) + 5
+skill(distanceWeapons) => 40, queststatus(301) => 165, queststatus(301) =< 169, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(322, 50, 333), queststatus(301) + 5
+skill(distanceWeapons) => 40, queststatus(301) => 250, queststatus(301) =< 254, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(2780, 1, 999), queststatus(301) = 1
+skill(distanceWeapons) => 40, queststatus(301) => 250, queststatus(301) =< 254, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2780, 1, 999), queststatus(301) = 1
+
+-- skill(slashing weapons)>=40
+-- queststatus(301) 9- 13 - kleine belohnung +5 (12) ~ volle Flasche (517)
+-- queststatus(301)= 25-29 - kleine belohnung +5 (21) ~ 5x Lamm mit Beilage (559)
+-- queststatus(301)= 50-54 mittel belohnung+5 (21) ~ Amethystkette (97)
+-- queststatus(301)= 75-79 mittel belohnung+5 (41) ~ Horn (333)
+-- queststatus(301)= 120-124 große belohnung+5 (41) ~ Legionästrumschild, graviert (2448)
+-- queststatus(301)= 165-169 große belohnung +5 (81) ~ Flammen-Helm (2286)
+-- queststatus(301)= 250-254 sehr große belohnung >>qstate=1 ~ Feuer-Kriegsaxt (2627)
+skill(slashingWeapons) => 40, queststatus(301) => 9, queststatus(301) =< 13, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(517, 1, 333), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 9, queststatus(301) =< 13, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(517, 1, 333), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 25, queststatus(301) =< 29, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(559, 5, 333), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 25, queststatus(301) =< 29, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(559, 5, 333), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 50, queststatus(301) =< 54, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(97, 1, 999), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 50, queststatus(301) =< 54, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(97, 1, 999), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(333, 1, 999), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 75, queststatus(301) =< 79, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(333, 1, 999), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 120, queststatus(301) =< 124, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(2448, 1, 999, "gravur" = "thud"), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 120, queststatus(301) =< 124, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2448, 1, 999, "gravur" = "thud"), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 165, queststatus(301) =< 169, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(2286, 1, 999), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 165, queststatus(301) =< 169, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2286, 1, 999), queststatus(301) + 5
+skill(slashingWeapons) => 40, queststatus(301) => 250, queststatus(301) =< 254, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(2627, 1, 999), queststatus(301) = 1
+skill(slashingWeapons) => 40, queststatus(301) => 250, queststatus(301) =< 254, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2627, 1, 999), queststatus(301) = 1
+
+-- queststatus(301) 9- 13 - kleine belohnung +5 (12) ~ Keule (2664)
+-- queststatus(301)= 25-29 - kleine belohnung +5 (21) ~ 5x Lamm mit Beilage (559)
+-- queststatus(301)= 50-54 mittel belohnung+5 (21) ~ Horn (333)
+-- queststatus(301)= 75-79 mittel belohnung+5 (41) ~ Rubinkette (67)
+-- queststatus(301)= 120-124 große belohnung+5 (41) ~ Schädelstab (39)
+-- queststatus(301)= 165-169 große belohnung +5 (81) ~ Wappenschild, graviert (95)
+-- queststatus(301)= 250-254 sehr große belohnung >>qstate=1 ~ roter Feuerdolch (2742)
+queststatus(301) => 9, queststatus(301) =< 13, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(2664, 1, 999), queststatus(301) + 5
+queststatus(301) => 9, queststatus(301) =< 13, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2664, 1, 999), queststatus(301) + 5
+queststatus(301) => 25, queststatus(301) =< 29, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(559, 5, 999), queststatus(301) + 5
+queststatus(301) => 25, queststatus(301) =< 29, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(559, 5, 999), queststatus(301) + 5
+queststatus(301) => 50, queststatus(301) =< 54, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(333, 1, 999), queststatus(301) + 5
+queststatus(301) => 50, queststatus(301) =< 54, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(333, 1, 999), queststatus(301) + 5
+queststatus(301) => 75, queststatus(301) =< 79, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(67, 1, 999), queststatus(301) + 5
+queststatus(301) => 75, queststatus(301) =< 79, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(67, 1, 999), queststatus(301) + 5
+queststatus(301) => 120, queststatus(301) =< 124, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(39, 1, 999), queststatus(301) + 5
+queststatus(301) => 120, queststatus(301) =< 124, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(39, 1, 999), queststatus(301) + 5
+queststatus(301) => 165, queststatus(301) =< 169, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(95, 1, 999, "gravur" = "thud"), queststatus(301) + 5
+queststatus(301) => 165, queststatus(301) =< 169, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(95, 1, 999, "gravur" = "thud"), queststatus(301) + 5
+queststatus(301) => 250, queststatus(301) =< 254, english, "troph" -> "Hurr, Thud like you. Take this stuff here!", item(2742, 1, 999), queststatus(301) = 1
+queststatus(301) => 250, queststatus(301) =< 254, german, "troph" -> "Hurr, Thud mögen dich! Nimmst du diese Zeug!", item(2742, 1, 999), queststatus(301) = 1
+
+-- Horn +2
+item(333, belt) => 1, english, "troph" -> "#me peeks at your belt: 'Wanna give Thud your horn?'", state = 1
+item(333, belt) => 1, german, "troph" -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben Horn, das?'", state = 1
+state = 1, item(333, belt) => 1, "Ja" -> "Dancke für Horn, das!", state = 0, deleteItem(333, 1), queststatus(301) + 2
+state = 1, "Nein" -> "So'n Mist!", state = 0
+state = 1, "Ja" -> "Ich nix dumm! Du nix hast.", state = 0
+state = 1, item(333, belt) => 1, "Yes" -> "Thanks for tha horn!", state = 0, deleteItem(333, 1), queststatus(301) + 2
+state = 1, "No" -> "What a bummer!", state = 0
+state = 1, "Yes" -> "Me no fool. You don't have one!", state = 0
+
+-- Fell +1
+item(2586, belt) => 1, english, "troph" -> "#me peeks at your belt: 'Wanna give Thud your fur?'", state = 2
+item(2586, belt) => 1, german, "troph" -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben die Felle?'", state = 2
+state = 2, item(2586, belt) => 1, "Ja" -> "Dancke für die Felle!", state = 0, deleteItem(2586, 1), queststatus(301) + 1
+state = 2, "Nein" -> "So'n Mist!", state = 0
+state = 2, "Ja" -> "Ich nix dumm! Du nix hast.", state = 0
+state = 2, item(2586, belt) => 1, "Yes" -> "Thanks for tha fur!", state = 0, deleteItem(2586, 1), queststatus(301) + 1
+state = 2, "No" -> "What a bummer!", state = 0
+state = 2, "Yes" -> "Me no fool. You don't have one!", state = 0
+
+-- Salk Paladinhelm +2
+item(2291, belt) => 1, english, "troph" -> "#me peeks at your belt: 'Wanna give Thud your salkish paladin helmet?'", state = 3
+item(2291, belt) => 1, german, "troph" -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein salkamarischer Paladinhelm?'", state = 3
+state = 3, item(2291, belt) => 1, "Ja" -> "Dancke für den Helm!", state = 0, deleteItem(2291, 1), queststatus(301) + 2
+state = 3, "Nein" -> "So'n Mist!", state = 0
+state = 3, "Ja" -> "Ich nix dumm! Du nix hast.", state = 0
+state = 3, item(2291, belt) => 1, "Yes" -> "Thanks for tha helmet!", state = 0, deleteItem(2291, 1), queststatus(301) + 2
+state = 3, "No" -> "What a bummer!", state = 0
+state = 3, "Yes" -> "Me no fool. You don't have one!", state = 0
+
+-- verziehrter Dolch +1
+item(190, belt) => 1, english, "troph" -> "#me peeks at your belt: 'Wanna give Thud your ornate dagger?'", state = 4
+item(190, belt) => 1, german, "troph" -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein verzierhrte Dolch?'", state = 4
+state = 4, item(190, belt) => 1, "Ja" -> "Dancke für den Dolch!", state = 0, deleteItem(190, 1), queststatus(301) + 1
+state = 4, "Nein" -> "So'n Mist!", state = 0
+state = 4, "Ja" -> "Ich nix dumm! Du nix hast.", state = 0
+state = 4, item(190, belt) => 1, "Yes" -> "Thanks for tha dagger!", state = 0, deleteItem(190, 1), queststatus(301) + 1
+state = 4, "No" -> "What a bummer!", state = 0
+state = 4, "Yes" -> "Me no fool. You don't have one!", state = 0
+
+-- zwergenaxt +3
+item(2660, belt) => 1, english, "troph" -> "#me peeks at your belt: 'Wanna give Thud your dwarven axe?'", state = 5
+item(2660, belt) => 1, german, "troph" -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein Zwergenaxt?'", state = 5
+state = 5, item(2660, belt) => 1, "Ja" -> "Dancke für d'Axt!", state = 0, deleteItem(2660, 1), queststatus(301) + 3
+state = 5, "Nein" -> "So'n Mist!", state = 0
+state = 5, "Ja" -> "Ich nix dumm! Du nix hast.", state = 0
+state = 5, item(2660, belt) => 1, "Yes" -> "Thanks for tha axe!", state = 0, deleteItem(2660, 1), queststatus(301) + 3
+state = 5, "No" -> "What a bummer!", state = 0
+state = 5, "Yes" -> "Me no fool. You don't have one!", state = 0
+
+-- Elben-K.Lanbogen +3
+item(2718, belt) => 1, english, "troph" -> "#me peeks at your belt: 'Wanna give Thud your elven composite longbow?'", state = 6
+item(2718, belt) => 1, german, "troph" -> "#me blickt vertohlen auf deinen Gürtel. 'Wilsste Thud geben dein Elben-Kompositlangbogen?'", state = 6
+state = 6, item(2718, belt) => 1, "Ja" -> "Dancke für d'Bogen!", state = 0, deleteItem(2718, 1), queststatus(301) + 3
+state = 6, "Nein" -> "So'n Mist!", state = 0
+state = 6, "Ja" -> "Ich nix dumm! Du nix hast.", state = 0
+state = 6, item(2718, belt) => 1, "Yes" -> "Thanks for tha bow!", state = 0, deleteItem(2718, 1), queststatus(301) + 3
+state = 6, "No" -> "What a bummer!", state = 0
+state = 6, "Yes" -> "Me no fool. You don't have one!", state = 0
+english, "troph" -> "Thud collect trophy! Collect fur! Horn! Salkish... paladin helmet! Ornate dagger! Dwarven axe! Elven composite longbow! Bring to Thud and get reward!"
+german, "troph" -> "Thud sammeln Trophäe! Sammelt Fell! Horn! Salkamarischer Paladinhelm! Dolch, verziert! Zwergenaxt! Elben-Kompositlangbogen! Brings Thud und du kriegen Belohnung!"
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas!", "Hurr!", "Hullo!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas!", "Hurr!", "Hullo!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas!", "Hurr!", "Hullo!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Greebas!", "Hurr!", "Hullo!"
+"Farewell", "Bye", "Fare well", "See you" -> "Farebba!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Farebba!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebba!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebba!"
+"How are you", "How feel", "How do you do" -> "I Thud! I collect! Trophy!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "I Thud! I collect! Trophy!"
+"your name", "who are you", "who art thou" -> "I Thud. Who youb?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich Thud. Wer du?"
+
+-- Catching quest triggers. Modify if the NPC does quests.
+english, "quest", "mission" -> inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. - If you bring him enough trophies, he will reward you."), "You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr."
+"quest", "mission" -> inform("Quest: Der Trophäensammler. Thud sammelt Felle, Hörner, Salkamarische Paladinhelme, verzierte Dolche, Zwergenäxte und Elben-Kompositlangbögen. - Wenn du ihm genügend Trophäen gebrachst hast wird er dich belohnen."), "Du bringst Thud alle Trophäe du hast! Yubba?"
+"task", "adventure", "order" -> inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. - If you bring him enough trophies, he will reward you."), "You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("Quest: Der Trophäensammler. Thud sammelt Felle, Hörner, Salkamarische Paladinhelme, verzierte Dolche, Zwergenäxte und Elben-Kompositlangbögen. - Wenn du ihm genügend Trophäen gebrachst hast wird er dich belohnen."), "Du bringst Thud alle Trophäe du hast! Yubba?"
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I thud things. - With my club.", "I collect trophy. Bring all of them here."
+"beruf" -> "Thud haut mit Keule fest zu!", "Ich sameln Trophäe. Bring alle davon hier her."
+english, "job" -> "I thud things. - With my club.", "I collect trophy. Bring all of them here."
+"job" -> "Thud haut mit Keule fest zu!", "Ich sameln Trophäe. Bring alle davon hier her."
+english, "Gobaith", "Gobiath" -> "#me thuds your head with his big club. 'Shut up!'", attrib(hitpoints) - 2000, attrib(hitpoints) + 1
+"Gobaith", "Gobiath" -> "#me haut dir mit seiner Keule auf den Kopf. 'Halts Maul!'", attrib(hitpoints) - 2000, attrib(hitpoints) + 1
+"my name" -> "#me makes a stupid grin: 'And I Thud...'."
+"mein Name" -> "#me grinst blöde: 'Und ich Thud...'."
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+english, "orc", "murgo", "krudash", "grimlug", "olokwa", "Er'hja", "erhja", "mo'rurt", "morurt" -> "I'm orc. You orc? Noo! You stupid!"
+english, "Alice", "alize", "thom", "thomas", "berryard", "berry", "stout", "jack" -> "Thud be proud orc! Honour! Mes not talk with Snaga! Dirty scheschnak-monkeys!"
+"ork", "orc", "murgo", "krudash", "grimlug", "olokwa", "Er'hja", "erhja", "mo'rurt", "morurt" -> "Ich bin Ork. Bist du Ork? Nöö! Du dumm."
+"Alice", "alize", "thom", "thomas", "berryard", "berry", "stout", "jack" -> "Thud stolzer Ork. Ehre! Ich nix sprech mit Snaga! Dreckige Scheschnak-Affen!"
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+"archmage" -> "Silly elves. Silly-silly-silly-silly-silly..."
+"Erzmagier" -> "Elfen dumm. Dummi-dummi-dummi-dummi-dummi..."
+english, "Elvaine", "Morgan" -> "Silly elves. Silly-silly-silly-silly-silly..."
+"Elvaine", "Morgan" -> "Elfen dumm. Dummi-dummi-dummi-dummi-dummi..."
+english, "Runewick" -> "Wicked Runetown. Gâsh! I no go there. Never."
+"Runewick" -> "Böse Stadt, ist. Gâsh! Ich nix geh hin. Nie, nicht."
+english, "Valerio", "Guilianni", "Don" -> "Dwarves! Nothing but lawn gnomes. *laughs* They should lick my boots!"
+"Valerio", "Guilianni", "Don" -> "Alle Zwerge könne Thud's Staub fressen. Yubba. Weil sie sind niedrig. Sie Staubfresser sind."
+english, "Galmair" -> "Hurr! Big big town! Much trouble here. Good place for big orcs!"
+"Galmair" -> "Hurr! Groß groß Stadt! Viel los hier. Gute Platz für große Orks!"
+"Queen" -> "This is the queen? Thud's craps are more noble! He-he."
+"Königin" -> "Das Königin sein? Thud's Kacke mehr königlich. He-he!"
+english, "rosaline", "edwards" -> "This is the queen? Thud's craps are more noble! He-he."
+"rosaline", "edwards" -> "Das Königin sein? Thud's Kacke mehr königlich. He-he!"
+english, "Cadomyr" -> "Cadomyr have big Orcs. But Galmair have biggest Axes!"
+"Cadomyr" -> "Cadomyr hat große Orks. Aber Galmair hat größte Äxte!"
+
+-- Main land factions
+english, "albar" -> "Thud dont't know. Not know town of human. Is human's town. You ask human about, uh!?"
+"albar" -> "Thud nix kennt Stadt von Menschen. Du fragst Menschen. Menschen wissen davon. Uh!?"
+english, "gynk", "gync" -> "Thud dont't know. Not know town of human. Is human's town. You ask human about, uh!?"
+"gync", "gynk" -> "Thud nix kennt Stadt von Menschen. Du fragst Menschen. Menschen wissen davon. Uh!?"
+english, "salkama" -> "Thud dont't know. Not know town of human. Is human's town. You ask human about, uh!?"
+"salkama" -> "Thud nix kennt Stadt von Menschen. Du fragst Menschen. Menschen wissen davon. Uh!?"
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Bonelord, be mes god! He father ob all orcs! Hurr. Ib Thud like know about god, he ask Grimlug. Grimlug is shaman! Shaman be wise."
+"Gott", "Götter" -> "Schädelgott, sein mein Gott. Er Vater von alle Ork. Hurr! Wenn Thud spricht über Götter, er fragt Grimlug. Grimlug Schamane ist. Sehr weise. Yubba."
+english, "Moshran", "bonelord" -> "Bonelord, be mes god! He father ob all orcs! Hurr. Ib Thud like know about god, he ask Grimlug. Grimlug is shaman! Shaman be wise."
+"Moshran", "bonelord", "schädelgott" -> "Schädelgott, sein mein Gott. Er Vater von alle Ork. Hurr! Wenn Thud spricht über Götter, er fragt Grimlug. Grimlug Schamane ist. Sehr weise. Yubba."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Thud no trade. Thud collect. Trophy! Uh. You got Trophy?"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Thud nicht handelt. Thud sammelt. Trophäe! Uh. Du hast Trophäe?"
+"tell something" -> "Thud like to thud things! With big club."
+"erzähl was", "erzähl etwas" -> "Ich bin Thud. Ich mögen wenn, große Kabums mit Keule.", "Thud ist neue Sprache. Heißt 'der große Kabums.' Das mein Name. Thud mag große Kabums!"
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+english, "thud" -> "#me grunts. 'I thud! That me be. Yubba."
+"thud" -> "#me grunzt. 'Ich Thud! Das ich bin. Yubba.'"
+"Yes" -> "Uh? What you mean?", "Huh? What you talking about?", "Yubba. There we go."
+"Ja" -> "Uh? Was wollen du?", "Hä? Du sprechen worüber?", "Yubba. So wir machn."
+"No" -> "What that mean?", "`No? Uh sure?", "Whatever... Thud don't care!"
+"Nein" -> "Was das zu bedeuten hat?", "Nein? Du sicher?", "Was immer auch... Thud es nix interessiert."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "#me thuds your head with his big club. 'Shut up!'", attrib(hitpoints) - 2000, attrib(hitpoints) + 1
+german, chance(20.0), ".*" -> "#me haut dir mit seiner Keule auf den Kopf. 'Halts Maul!'", attrib(hitpoints) - 2000, attrib(hitpoints) + 1
+english, chance(40.0), ".*" -> "Oh! Mes never thought about in that way!", "Is that so? Sound's silly.", "You mouth be filled with garbage and it falls out every time you open it."
+german, chance(40.0), ".*" -> "Oh! So hat Thud das noch nie betrachtet.", "Das ist so? Klingt bekloppt. In meine Ohren.", "Dein Maul, voll mit Müll. Und er fällt heraus, jedesmal du machst auf."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me streckt seine Zunge heraus und versucht seine Nase anzustupsen.", "#me tries to touch his nose with his tongue."
+cycletext "#me bohrt in der Nase", "#me digs around in his nose."
+cycletext "#me kratzt sich kurz zwischen den Beinen.", "#me has a quick scratch between his legs."
+cycletext "#me wischt seine Nase am Hemdärmel ab.", "#me sneezes into his shirt sleeve."
+cycletext "#me grinst dümmlich. 'Ich Thud ist!'", "#me makes a silly grin. 'I be Thud!'"
+cycletext "#me gluckst ein wenig.", "#me chuckles a little."
+cycletext "Mirr mag grosse Kabumms.", "I like to thud!"
+cycletext "#me blickt mit leeren Blick an eine nichtssagende Stelle.", "#me stares blankly at nothing."
+cycletext "#me klappt den Mund auf und ein Speichelfaden rinnt am Kinn herunter. Mit einem schmatzenden Laut wischt er ihn mit dem Handrücken weg.", "#me's mouth hangs open and a thread of drool trickles out. With a smacking noise, he wipes it away with his hand."
+cycletext "#me krazt sich knurrend am Kopf.", "#me scratches his head and makes an annoyed snarl."
+cycletext "#me rülpst, Duft von schalem Bier und gebratenen Fleisch entschwebt in die Nasen der Umgebung.", "#me burps, the scent of stale beer and roasted meat floats into the noses of anyone in the surrounding area."
+cycletext "#me klappert in einem einfachen ansteckenden Rythmus auf einem Holzstück.", "#me drums a simple, catchy rhythm on a piece of wood."

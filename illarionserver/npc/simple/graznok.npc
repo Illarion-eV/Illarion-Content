@@ -1,0 +1,261 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Graznok                                                     Free --
+-- NPC Job:  explorer                                                         --
+--                                                                            --
+-- NPC Race: orc                        NPC Position:  672, 449, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Estralis Seborian                                                --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Graznok"
+race = orc
+sex = male
+position = 672, 449, 0
+direction = south
+affiliation = "Free"
+job = "explorer"
+
+language = common
+language = orc
+defaultLanguage = common
+autointroduce = on
+
+author = "Estralis Seborian"
+
+lookatDE = "Dieser NPC ist der orkische Kundschafter Graznok."
+lookatUS = "This NPC is the orcish explorer Graznok."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 2
+beardID = 0
+colorHair = 240, 50, 10
+colorSkin = 248, 228, 95
+itemHead = 7
+itemChest = 362
+itemCoat = 0
+itemMainHand = 2664
+itemSecondHand = 2445
+itemHands = 48
+itemTrousers = 2114
+itemShoes = 697
+
+-- Template Version 1.03 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- NPC by Estralis Seborian
+-- German translation by Rincewind
+
+-- queststatus(3) Overview
+-- QuestID=3
+
+-- 0: No Quest taken
+-- 1: Quest 1 taken - bring the orc a torch
+-- 2: Quest 2 solved, reward: Pork
+-- 3: Quest 2 taken - kill 5 mummies
+-- 4-8: Killing 5 mummies
+-- 9: Quest 2 solved, reward: steak, leather, horn
+-- 10: Quest 3 taken - kill 10 skeletons
+-- 11-20: Killing 10 skeletons
+-- 21: Quest 3 solved, reward: warhammer, orc helmet, full leather armour
+
+-- Debugging
+queststatus(3) > 21, ".+" -> inform("[Error] Something went wrong, please inform a developer.")
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is the orcish explorer Graznok. Keywords: Hello, quest, profession, explorer, clan, darkness, cave.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der orkische Kundschafter Graznok. Schlüsselwörter: Hallo, Quest, Beruf, Kundschafter, Clan, Dunkelheit, Höhle.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas! Yoos be lookin' like yoos could help mes in mes mission."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Greebas! Du sehen aus. Wie helfen mirr, bei Aufgabs meine."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greebas! Yoos be lookin' like yoos could help mes in mes mission."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Greebas! Du sehen aus. Wie helfen mirr, bei Aufgabs meine."
+"Farewell", "Bye", "Fare well", "See you" -> "Go wid dat Moshi. And when come back, den bring lotsa shinies fer mes, hurr, hurr."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehn mit Moschi. Und wenn komme zurück, du bringt viele Glitzazeug. Hurr, hurr."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go wid dat Moshi. And when come back, den bring lotsa shinies fer mes, hurr, hurr."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehn mit Moschi. Und wenn komme zurück, du bringt viele Glitzazeug. Hurr, hurr."
+"How are you", "How feel", "How do you do" -> "Mes be feelin' gud, mes be on important mission fer clan. Mes be radur sure yoos can do task fer mes."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir gutt! Mir Gutt. Mirr auf wichtige Mission. Yubba. Für mein Klan! Fallleicht du machst Aufgabe, mirr?"
+"your name", "who are you", "who art thou" -> "Mes be mighty Graznok, explorer op dem Clan op dem Bonegnawers. Dat mes."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mirr mächtig Graznok sein! Kundschafter von Klan d' Knochenbeißer. Mirr ist."
+
+-- Catching quest triggers. Modify if the NPC does quests.
+-- 1st quest: Provide a torch.
+
+-- Give out quest 1
+queststatus(3) = 0, english, "quest", "mission" -> inform("[New quest] The Craven Orc I"), "Yoos gottur help mes. Mes want explore dat cave over dere, but nub hab torch fer light. Gimme torch so mes can find place fer clan fer dwellin'.", queststatus(3) = 1
+queststatus(3) = 0, "quest", "mission" -> inform("[Neues Quest] Der feige Ork I"), "Du mirr hilfst. Mirr wolle erkunden Höhle drüben dort. Aber nix hab Fackl für Licht. Gibst mirr Fackl. Mir findet Platz fürr Klan. Beißn Knochn.", queststatus(3) = 1
+queststatus(3) = 0, "task", "adventure" -> inform("[New quest] The Craven Orc I"), "Yoos gottur help mes. Mes want explore dat cave over dere, but nub hab torch fer light. Gimme torch so mes can find place fer clan fer dwellin'.", queststatus(3) = 1
+queststatus(3) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der feige Ork I"), "Du mirr hilfst. Mirr wolle erkunden Höhle drüben dort. Aber nix hab Fackl für Licht. Gibst mirr Fackl. Mir findet Platz fürr Klan. Beißn Knochn.", queststatus(3) = 1
+
+-- Quest 1 taken but not solved, repeat the instructions
+queststatus(3) = 1, item(391, all) < 1, item(392, all) < 1, english, "quest", "mission" -> "Shuddup and bring mes torch! Hurr!"
+queststatus(3) = 1, item(391, all) < 1, item(392, all) < 1, "quest", "mission" -> "Maul halt und gibst mir Fackl! Hurr!"
+queststatus(3) = 1, item(391, all) < 1, item(392, all) < 1, "task", "adventure" -> "Shuddup and bring mes torch! Hurr!"
+queststatus(3) = 1, item(391, all) < 1, item(392, all) < 1, "Auftrag", "Aufgabe", "Abenteuer" -> "Maul halt und gibst mir Fackl! Hurr!"
+
+-- Quest 1 solved, reward: pork
+queststatus(3) = 1, item(391, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a piece of pork. Tasty..."), "Hurr! Danks fer dat torch. Now mes can go explorin' again. Hab dat pork, dat be tasty.", deleteItem(391, 1), item(307, 1, 333), queststatus(3) = 2
+queststatus(3) = 1, item(391, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst ein Stück Schweinefleich. Lecker..."), "Hurr! Dancke für d' Fackl. Jetz mirr kann gehn, Erkundung. Du nimmst Fleisch, das lecker!", deleteItem(391, 1), item(307, 1, 333), queststatus(3) = 2
+queststatus(3) = 1, item(392, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a piece of pork. Tasty..."), "Hurr! Danks fer dat burnin' torch. Now mes can go explorin' again. Hab dat pork, dat be tasty.", deleteItem(392, 1), item(307, 1, 333), queststatus(3) = 2
+queststatus(3) = 1, item(392, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst ein Stück Schweinefleich. Lecker..."), "Hurr! Dancke für d' Fackl. Jetz mirr kann gehn, Erkundung. Du nimmst Fleisch, das lecker!", deleteItem(392, 1), item(307, 1, 333), queststatus(3) = 2
+
+-- 2nd quest: Kill 5 mummies
+
+-- Give out quest 2
+queststatus(3) = 2, english, "quest", "mission" -> inform("[New quest] The Craven Orc II"), "Hurr! Last time mes hab been explorin' cave, dere be lotsa ragmen. Mes nub like dem ragmen, dey like be spook. Smash dem!", queststatus(3) = 3
+queststatus(3) = 2, "quest", "mission" -> inform("[Neues Quest] Der feige Ork II"), "Hurr. Letzte mal mir erkundet Höhle dort gewesen Lumpenmanns. Mirr nix mag, sie wie Spuk. Du zermatschn! Verjagn Lumpenmanns!", queststatus(3) = 3
+queststatus(3) = 2, "task", "adventure" -> inform("[New quest] The Craven Orc II"), "Hurr! Last time mes hab been explorin' cave, dere be lotsa ragmen. Mes nub like dem ragmen, dey like be spook. Smash dem!", queststatus(3) = 3
+queststatus(3) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der feige Ork II"), "Hurr. Letzte mal mir erkundet Höhle dort gewesen Lumpenmanns. Mirr nix mag, sie wie Spuk. Du zermatschn! Verjagn Lumpenmanns!", queststatus(3) = 3
+
+-- Quest 2 taken but not solved, repeat the instructions
+queststatus(3) > 2, queststatus(3) < 8, english, "quest", "mission" -> "Smash more op dem ragmen. Smash one fer each op mes finger on mes rite hand, den cave be save mes be dinkin'."
+queststatus(3) > 2, queststatus(3) < 8, "quest", "mission" -> "Du zerhaust mehr Lumpenmanns! Zerhaust einen für jede Finger auf mein rechte hand. Dann Höhle sicher ist mirr denkens."
+queststatus(3) > 2, queststatus(3) < 8, "task", "adventure" -> "Smash more op dem ragmen. Smash one fer each op mes finger on mes rite hand, den cave be save mes be dinkin'."
+queststatus(3) > 2, queststatus(3) < 8, "Auftrag", "Aufgabe", "Abenteuer" -> "Du zerhaust mehr Lumpenmanns! Zerhaust einen für jede Finger auf mein rechte hand. Dann Höhle sicher ist mirr denkens."
+
+-- Quest 2 solved, reward: steak, leather, horn
+queststatus(3) = 8, english, ".+" -> inform("[Quest solved] You are awarded a steak, a piece of leather and a horn. How useful..."), "Yoos hab smash dem ragmen? Gud! Mes gib yoos stuff mes hab hunt in dat meantime, tasty and gud stuff.", item(2547, 1, 333), item(2940, 1, 333), item(333, 1, 533), queststatus(3) = 9
+queststatus(3) = 8, ".+" -> inform("[Quest gelöst] Du erhältst ein Steak, ein Stück Leder und ein Horn. Wie praktisch..."), "Du zermatscht hast die Lumpenmanns? Gutt! Mir gibt dir Zeug, mir erbeutet hat. Lecker und gutt Zeug.", item(2547, 1, 333), item(2940, 1, 333), item(333, 1, 533), queststatus(3) = 9
+
+-- 3rd quest: Kill 10 skeletons
+
+-- Give out quest 3
+queststatus(3) = 9, english, "quest", "mission" -> inform("[New quest] The Craven Orc III"), "Cave be much more cozy widout ragmen. But dere sum bonemen, deep in cave. Nub want dwell in same cave as bonemen. Smash as many as yoos can count wid yoos hands!", queststatus(3) = 10
+queststatus(3) = 9, "quest", "mission" -> inform("[Neues Quest] Der feige Ork III"), "Höhle viel mehr gemütlich, ohne Lumpenmanns. Aber dort Knochenmanns sind. Tief in Höhle. Mir nix nagn Knochen in selbe Höhle wie Knochnman. Du zerhaust Knochenmans, so viel zu abzählst auf dein Hände.", queststatus(3) = 10
+queststatus(3) = 9, "task", "adventure" -> inform("[New quest] The Craven Orc III"), "Cave be much more cozy widout ragmen. But dere sum bonemen, deep in cave. Nub want dwell in same cave as bonemen. Smash as many as yoos can count wid yoos hands!", queststatus(3) = 10
+queststatus(3) = 9, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der feige Ork III"), "Höhle viel mehr gemütlich, ohne Lumpenmanns. Aber dort Knochenmanns sind. Tief in Höhle. Mir nix nagn Knochen in selbe Höhle wie Knochnman. Du zerhaust Knochenmans, so viel zu abzählst auf dein Hände.", queststatus(3) = 10
+
+-- Quest 3 taken but not solved, repeat the instructions
+queststatus(3) > 9, queststatus(3) < 20, english, "quest", "mission" -> "Smash dem bones, split dem skulls. One fer each finga op yoos hands. Den clan can move to dat cave, yubba!"
+queststatus(3) > 9, queststatus(3) < 20, "quest", "mission" -> "Zerschlagn da Knochns! Brechn sein Schädls. Eina für jeda Finger auf dein beide Hände. Dann Klan zieht in d' Höhle, yubba!"
+queststatus(3) > 9, queststatus(3) < 20, "task", "adventure" -> "Smash dem bones, split dem skulls. One fer each finga op yoos hands. Den clan can move to dat cave, yubba!"
+queststatus(3) > 9, queststatus(3) < 20, "Auftrag", "Aufgabe", "Abenteuer" -> "Zerschlagn da Knochns! Brechn sein Schädls. Eina für jeda Finger auf dein beide Hände. Dann Klan zieht in d' Höhle, yubba!"
+
+-- Quest 3 solved, reward:
+queststatus(3) = 20, english, ".+" -> inform("[Quest solved] You are awarded a warhammer, an orc helmet and a full leather armour. Nice..."), "Hurr! Victor-dingy! Clan be save now, yoos hab smash dem bonemen. In dat name op dat chief op dem bonegnawers, mes be makin' yoos friend op clan. Hab dat weapon and armour op clan, yoos deserve dat.", item(226, 1, 644), item(16, 1, 644), item(362, 1, 644), queststatus(3) = 21
+queststatus(3) = 20, ".+" -> inform("[Quest gelöst] Du erhältst einen Kriegshammer, einen Orkhelm und eine volle Lederrüstung. Nett..."), "Hurr! Sieg-ding! Klan sicher jetzt ist, du zerschlagn d' Knochenmanns. In Name von Häuptling von Knochenbeißer, mirr machen dich zu Freund. Von ganze Klan. Nimmst Waffe und Rüsta von Klan, du verdienen es.", item(226, 1, 644), item(16, 1, 644), item(362, 1, 644), queststatus(3) = 21
+
+-- No more quests, just nice words of gratitude
+queststatus(3) = 21, english, "quest", "mission" -> "Nub can help mes, yoos. Hab done enuff. Mes gonna bring clan to cave, danks."
+queststatus(3) = 21, "quest", "mission" -> "Nix mehr helfn kannst. Getan genug, hast du! Jetz mirr zeigen Klan Weg zu Höhle. Dancke."
+queststatus(3) = 21, "task", "adventure" -> "Nub can help mes, yoos. Hab done enuff. Mes gonna bring clan to cave, danks."
+queststatus(3) = 21, "Auftrag", "Aufgabe", "Abenteuer" -> "Nix mehr helfn kannst. Getan genug, hast du! Jetz mirr zeigen Klan Weg zu Höhle. Dancke."
+
+-- Link to Salavesh quest
+english, "Salavesh" -> "Mes nub know anyding about cult. Dere be sum oomies, hab walk in cave, nub come out again!"
+"Salavesh" -> "Mirr nix wiss über Kult. Da sein Oomies, in Höhle gegangt, nix mehr rauskommen!"
+"Cult" -> "Mes nub know anyding about cult. Dere be sum oomies, hab walk in cave, nub come out again!"
+"Kult" -> "Mirr nix wiss über Kult. Da sein Oomies, in Höhle gegangt, nix mehr rauskommen!"
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"orc" -> "Dem orcis be chief op all dings. Bedda predator den wolf, smarter den leafeater and more mighty den red stomper."
+"ork" -> "Orks große Häuptling von Alles. Besser Jäger als Wolf. Mehr klugg als Blattfressa und mächtiga als rote Stampfer!"
+"profession" -> "Mes be explorer op clan op dem bonegnawers. Dem bonegnawers be searchin' fer new cave fer dwellin'. Dere be cave, but mes need help in mes mission."
+"beruf" -> "Mirr ist Kundschafter. Von Klan d' Knochenbeißer. Knochenbeißer suchen, neu Höhle für beißn Knochen! Höhle dort ist eine, aber mir Hilfe braucht... für Mission."
+english, "job" -> "Mes be explorer op clan op dem bonegnawers. Dem bonegnawers be searchin' fer new cave fer dwellin'. Dere be cave, but mes need help in mes mission."
+"job" -> "Mirr ist Kundschafter. Von Klan d' Knochenbeißer. Knochenbeißer suchen, neu Höhle für beißn Knochen! Höhle dort ist eine, aber mir Hilfe braucht... für Mission."
+"my name" -> "Hurr!"
+"mein Name" -> "Hurr!"
+
+-- More small talk; add at least five triggers
+"tribe" -> "Nub hab tribe, hab clan. Bonegnawers, dey mes clan. Clan mighty, but widout cave."
+english, "clan" -> "Mes clan be dat clan op dem bonegnawers. Gnawin' bone all day, hurr, hurr. Clan be searchin' fer new cave fer dwellin'."
+"bonegnaw" -> "Dem bones, dey tasty. Gnaw dem, den yoos be knowin', yubba."
+"cave" -> "Mes be on important mission, yubba. Mes be searchin' new cave fer clan. Dere be cave; help mes wid dat mission!"
+"ragmen", "ragman" -> "Mes nub like dem ragmen. Dey all go like 'Brrraaaaiiiins!'. Nub know whub dem want from mes."
+"bonemen", "boneman" -> "Dem bonemen! Hurr! Dey like dead and still walkin'. Dat simply nub rite, dat be scary!"
+"fear", "afraid", "scared", "frightened", "craven" -> "Mes nub afraid op anyding! Mes just... cautious. Patient. Hurr!"
+"dark", "shadow" -> "Stoopid sun, why nub shine all dat day? And why nub shine in cave?! Mes nub like dat dark, dat be dark and nub gud."
+"ghost", "spectre", "spook" -> "Spook! Evil oomies and leafeaters make dat spook. Mes nub like spook, spook so... spooky!"
+"dialect", "accent", "language" -> "Nub hab dialect, groar! Mes be speakin' perfect common, yubba!"
+"Stamm" -> "Mirr nix Stamm hat. Hat Klan. Knochenbeißer, das mein Klan ist. Mächtig Klan aber nix Höhle haben."
+"Klan" -> "Mirr Klan ist Klan 'd Knochenbeißer. Beißn Knochn ganze Tag, hurr, hurr. Klan suchn neu Höhle. Zum beißn Knochn!"
+"Clan" -> "Mirr Klan ist Klan 'd Knochenbeißer. Beißn Knochn ganze Tag, hurr, hurr. Klan suchn neu Höhle. Zum beißn Knochn!"
+"Knochenbei" -> "Knochen gutt! Schmeckt gutt. Du beißt, nagen! Du siehst schmeckt gutt! Yubba."
+"Höhle" -> "Mirr on Mission, wichtig yubba. Mirr suchn neu Höhle, für Klan. Höhle dort ist, du hilfst mit Mission!"
+"Lump" -> "Mirr nix mag Lumpenmann. Alle machen wie 'Geehiieerne!'... Kein Ahnung was wolle von mir."
+"Knochen" -> "Dort Knochenmanns! Hurr! Sie tot. Aber laufen rum trotzdem. Nix richtig is. Unheimelig ist. Uh!"
+"Furcht", "Angst", "ängstlich", "erschreck", "feig" -> "Mir nix Angst nix und nixmand. Mirr Geduld. Vorsichtig. Hurr!"
+"dunkel", "Schatten" -> "Dummig Sonne. Warum nix scheint imma? Warum nix scheint in Höhle?! Mirr nix mag Dunkelheit. Dann es dunkel ist. Dunkel nix gutt."
+"geist", "Gespenst", "Spuk" -> "Spuk und Geist. Hurr. Böß Menschz und Blattfressa machen Spukh. Mirr nix mögen Spukh, Spukh ist uh... spukhig!"
+"Dialekt", "Akzent", "Sprache" -> "Mirr nix Akzent, groar! Mirr spricht gemeinsam Sprach perfekt, yubba!"
+"salavesh", "cult", "kult", "silver dragon", "silberdrache", "crusade", "ritter", "dragon", "drache", "blutmagie", "blood magic", "blood mage", "necro", "totenbeschwör" -> "Whub?!"
+"explorer" -> "Mes be explorer op clan op dem bonegnawers. Dem bonegnawers be searchin' fer new cave fer dwellin'. Dere be cave, but mes need help in mes mission."
+"Kundschaft" -> "Mirr ist Kundschafter. Von Klan d' Knochenbeißer. Knochenbeißer suchen, neu Höhle für beißn Knochen! Höhle dort ist eine, aber mir Hilfe braucht... für Mission."
+
+-- Faction stuff
+"archmage" -> "Stoopid majik oomie! Dat be makin' spook, mes be sure. Bedda smash, dat mes say."
+"Erzmagier" -> "Dummig Zauberleuts! Machen Spukh, mirr sein sicher. Zermatsch besser, die!"
+english, "Elvaine", "Morgan" -> "Stoopid majik oomie! Dat be makin' spook, mes be sure. Bedda smash, dat mes say."
+"Elvaine", "Morgan" -> "Dummig Zauberleuts! Machen Spukh, mirr sein sicher. Zermatsch besser, die!"
+english, "Runewick" -> "Bedda stay away from dat tree town wid lotsa tower. Nub gud dere, nub gud fer orcis fer dwellin'."
+"Runewick" -> "Bleibs weg von Baumdorf mit lauters Turms. Nix gutt da, nix gutt für Orks."
+english, "Valerio", "Guilianni", "Don" -> "Dat Don be mighty, rich and fat. Mes want become like dat Don, yubba!"
+"Valerio", "Guilianni", "Don" -> "Das Don mächtig, reich und fett. Mirr wollen werden wie das Don, yubba!"
+english, "Galmair" -> "Sum orcis hab say, dat dat be old tent op stumpies. Urgs! Neva gonna dwell in tent op stumpies."
+"Galmair" -> "Manchens Orks sagen, da alt Zelt von Stumpfies. Urgs! Nix wollen leben in Stumpfiezelt!"
+"Queen" -> "Dere be girl in dat dry land, dat be rulin' dere. Stoopid oomies, nub hab chief, hab chieftess, hurr, hurr!"
+"Königin" -> "Da sein Weib in trocken Land, das da mächtig. Dummig Leudz, nix Häuptling, hab Häuptlingline, hurr, hurr!"
+english, "rosaline", "edwards" -> "Dere be girl in dat dry land, dat be rulin' dere. Stoopid oomies, nub hab chief, hab chieftess, hurr, hurr!"
+"rosaline", "edwards" -> "Da sein Weib in trocken Land, das da mächtig. Dummig Leudz, nix Häuptling, hab Häuptlingline, hurr, hurr!"
+english, "Cadomyr" -> "Dey nub like orcis dere in Cado-dingy. Hurr, dem like dem, but fer work and stuff."
+"Cadomyr" -> "Nix mögen Orks in Cadom-dings. Hurr, die mögen, aber für machen Arbeit und Zeugs!"
+
+-- Main land factions
+english, "albar" -> "#me screams: 'Next time yoos be sayin' dat, mes nub listen! Dey treat orcis like orcis treat piggies!'"
+"albar" -> "#me brüllt: 'Wenn du wieder sagst so, mir nix hört zu! Die behandlen Ork wie Ork behandelt Schweins!'"
+english, "gynk", "gync" -> "Dey hab gud heads dere in Gynk. Hab invent boom bottle. Toss at stumpies and dey burn!"
+"gync", "gynk" -> "Klug Köpfe dort in Gynk. Gebaut hat, erste Bumm-Flasch. Du werfen auf Stumpfie, dann sie brenn'n!"
+english, "salkama" -> "Blah, bleh, blubb. Dem oomies in dat Salka-dingy, dey nub can do anyding but talk. And dat nub even gud."
+"salkama" -> "Blah, bleh, blubb. Diese Menschz in Salk-zeug. Sie nix mache als sprechen. Nix mal gutt sprechen."
+
+-- Gods; each NPC should react on AT LEAST one god, being a follower of said god
+"god" -> "Mes be minion op dat mighty Moshi!"
+"Gott", "Götter" -> "Mirr Diener von große Moshi!"
+english, "Moshran", "Moshi" -> "Big Moshi, dat be mighty god. Moshi nub evil, Moshi power. Moshi gib mes power!"
+"Moshran", "Moshi" -> "Große Moshi, er mächtig Gott. Nix böß, er Kraft! Moshi geben mirr Kraft!"
+english, "Malachin" -> "Mala-dingy guide mes smasher. When hunt, den Mala-dingy bring gud game. Praise dat Mala-dingy!"
+"Malachin" -> "Mala-dings helfen mir matschn! Wenn jagen, Mala-dings machen gutt! Ehre fürr Mala-dings!"
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Lemme dink... Nub want yoos stuff, nub hab stuff fer yoos. So get lost."
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Uh?!... Nix wolle dein Zeug, nix hab Zeug für dirr. Zieh Leinen!"
+"tell something" -> "Dere once was orci. And dere was dragon. Dat orci hab smash dat dragon! Gud story, eh?"
+"erzähl was", "erzähl etwas" -> "Es gewesen Ork. Und gewesen Drache. Ork zermatscht Drache! Gutt Geschicht, eh?"
+
+-- Last catch: Think about keywords the player might say and that are not caught until here.
+english, "Graznok" -> "Hurr? Whub want!?"
+"Graznok" -> "Hurr? Wat woll?"
+"Yes", "yub" -> "Whub want, yoos?", "Whubeva.", "Mes nub understand whub yoos be meanin'."
+"Ja" -> "Wat woll, yoos?", "Watauchimma.", "Mir nix versteh wat yoos meinen."
+"No", "nub" -> "Nub?", "Why nub?", "Whubeva."
+"Nein" -> "Nub?", "Wieso nub?", "Watauchimma."
+
+-- Cycletext: Add as many random messages as possible
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Hurr!", "Hurr!"
+cycletext "Maul halt! Mir nix Angst nix und nixmand!", "Shuddup! Mes nub fear anyding!"
+cycletext "Gibst, gibst, gibst ne fackel bis nach Mitternacht.", "Gimme, gimme, gimme a torch aftur midnight!"
+cycletext "Mirr nix früchtet nix Geist!", "Mes nub afraid op no ghost!"
+cycletext "Mir nix Hilfe braucht. Verjagen Schatten allein!", "Want nubbody help mes chase dem shadows away!"
+cycletext "Bringen mirr durch Dunkelheit, bis Tag kommt.", "Take mes thru dat darkness to dat break op dat day."
+cycletext "Dat Jagdgrund fürr ne Fackl!", "A huntin' ground fer a torch!"
+cycletext "#me schnüffelt und rotzt auf den Boden.", "#me sniffes and spits on the ground."
+cycletext "#me knurrt und bleckt die Zähne.", "#me growls and snarls."
+cycletext "#me schlägt zwei Steine gegeneinander und flucht: 'Dat werd Licht!'", "#me strikes two stones together and curses: 'Let dere be light!'"

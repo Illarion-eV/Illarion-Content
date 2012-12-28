@@ -1,0 +1,251 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Hassan                                                   Cadomyr --
+-- NPC Job:  royal fan waver                                                  --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  110, 574, 0            --
+-- NPC Sex:  male                       NPC Direction: east                   --
+--                                                                            --
+-- Authors:  Cromwell                                                         --
+--           Estralis Seborian                                                --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Hassan"
+race = human
+sex = male
+position = 110, 574, 0
+direction = east
+affiliation = "Cadomyr"
+job = "royal fan waver"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Cromwell"
+author = "Estralis Seborian"
+
+lookatDE = "Dies ist der königliche Fechelwedler Hassan."
+lookatUS = "This is the royal fan waver Hassan."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 3
+beardID = 4
+colorHair = 218, 165, 32
+colorSkin = 182, 128, 86
+itemHead = 0
+itemChest = 807
+itemCoat = 2419
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 34
+itemShoes = 53
+
+-- Template Version 1.03 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- NPC by PO Edward Cromwell, translated by Estralis Seborian
+-- QuestID=75
+-- queststatus(75) Overview
+
+-- 0: No Quest taken / Quest reset
+-- 1: NPC tells player to bring him some wine
+-- 2: NPC is willing to answer PC questions about the ruler, faction and the treacherous neighbours!
+
+-- Debugging
+queststatus(75) > 2, ".*" -> "Error! Something went wrong, please inform a developer."
+
+-- Help
+"Help" -> inform("[Game help] This NPC is the royal fan-waver Hassan. Keywords: Greetings, Profession, Tavern.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Fächelwedler Hassan. Schlüsselwörter: Seid gegrüßt, Beruf, Taverne.")
+
+-- First part, the gossiper is thirsty--
+queststatus(75) = 0, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> inform("[New Quest] Cadomyr's Gossiper"), "#me stares at you. 'Be greeted, traveler! I am much too thirsty to talk. If you bring me a glass with red wine I will gladly answer your questions.'", queststatus(75) = 1
+queststatus(75) = 1, item(2057, all) < 1, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Wine! I told you to bring me wine! You want to hear my stories don't you?"
+queststatus(75) = 2, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
+queststatus(75) = 0, english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[New Quest] Cadomyr's Gossiper"), "#me frowns: ‘Mere peasant you dare greet me in such a way! Make up for you lack of consideration by giving me an offering of red wine so I may quench my thirst.'", queststatus(75) = 1
+queststatus(75) = 1, item(2057, all) < 1, english, "Hiho", "Hallo", "Hey", "Greeb" -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
+queststatus(75) = 2, english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hah! My friend, come, let us talk about important things, we're important people, aren't we?"
+queststatus(75) = 0, "How are you", "How feel", "How do you do" -> inform("[New Quest] Cadomyr's Gossiper"), "I am thirsty! If you bring me a glass of red wine, I will answer your questions... and trust me I know many things!", queststatus(75) = 1
+queststatus(75) = 1, item(2057, all) < 1, "How are you", "How feel", "How do you do" -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
+queststatus(75) = 2, "How are you", "How feel", "How do you do" -> "Now that you've brought me wine, splendid."
+queststatus(75) = 0, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), "#me starrt dich an. 'Seid gegrüßt, Reisender. Meine Kehle ist zu trocken zum Reden. Bringt mir ein Glas Wein, wenn ihr was erfahren wollt.", queststatus(75) = 1
+queststatus(75) = 1, item(2057, all) < 1, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
+queststatus(75) = 2, "Grüß", "Gruß", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin" -> "Ah, hallo nochmal. Nun, da mein Durst gestillt ist, fragt was immer ihr wollt."
+queststatus(75) = 0, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), "#me knurrt: 'Was für eine bäuerliche Art, einen Mann meines Ranges zu grüßen. Wenn ihr was wissen wollt, bringt mir erstmal ein Glas Wein, um meinen Durst zu stillen.", queststatus(75) = 1
+queststatus(75) = 1, item(2057, all) < 1, "Hiho", "Hallo", "Hey", "Greeb" -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
+queststatus(75) = 2, "Hiho", "Hallo", "Hey", "Greeb" -> "Hah! Mein Freund, lasst uns über wichtige Dinge Reden, denn wir sind wichtige Leute, nicht wahr?"
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell, traveller!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gute Reise."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell, traveller!"
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Gute Reise."
+queststatus(75) = 0, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), "Ich bin durstig! Wenn ihr mir ein Glas Wein bringt, beantworte ich eure Fragen... und ich weiß eine Menge!", queststatus(75) = 1
+queststatus(75) = 1, item(2057, all) < 1, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
+queststatus(75) = 2, "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Nun, da ihr mir Wein gebracht habt: Fein."
+"your name", "who are you", "who art thou" -> "Hassan, the royal fan-waver."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Hassan, der königliche Fächelwedler."
+
+-- Catching quest triggers. Modify if the NPC does quests.
+queststatus(75) = 0, english, "quest", "mission" -> inform("[New Quest] Cadomyr's Gossiper"), "Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!", queststatus(75) = 1
+queststatus(75) = 1, item(2057, all) < 1, english, "quest", "mission" -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
+queststatus(75) = 2, english, "quest", "mission" -> "Just ask me and I will share my vast knowledge about the palace with you."
+queststatus(75) = 0, "quest", "mission" -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), "Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.", queststatus(75) = 1
+queststatus(75) = 1, item(2057, all) < 1, "quest", "mission" -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
+queststatus(75) = 2, "quest", "mission" -> "Fragt einfach, wonach auch immer und ich werde mein Wissen über den Palast mit euch teilen."
+queststatus(75) = 0, "task", "adventure", "question" -> inform("[New Quest] Cadomyr's Gossiper"), "Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!", queststatus(75) = 1
+queststatus(75) = 1, item(2057, all) < 1, "task", "adventure", "question" -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
+queststatus(75) = 2, "task", "adventure", "question" -> "Just ask me and I will share my vast knowledge about the palace with you."
+queststatus(75) = 0, "Aufgabe", "Abenteuer", "Frage" -> inform("[Neues Quest] Der Schwätzer von Cadomyr"), "Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.", queststatus(75) = 1
+queststatus(75) = 1, item(2057, all) < 1, "Aufgabe", "Abenteuer", "Frage" -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
+queststatus(75) = 2, "Aufgabe", "Abenteuer", "Frage" -> "Fragt einfach, wonach auch immer und ich werde mein Wissen über den Palast mit euch teilen."
+
+-- bringing the wine--
+queststatus(75) = 1, item(2057, all) > 0, english, town = Cadomyr, ".+" -> inform("[Quest solved] Hassan will now answer your questions. You advance in Queen Rosaline Edward's favour."), "#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'", deleteItem(2057, 1), queststatus(75) = 2, rankpoints + 20
+queststatus(75) = 1, item(2057, all) > 0, english, ".+" -> inform("[Quest solved] Hassan will now answer your questions."), "#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'", deleteItem(2057, 1), queststatus(75) = 2
+queststatus(75) = 1, item(2057, all) > 0, town = Cadomyr, ".+" -> inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten. Dein Ansehen bei Königin Rosaline Edwards steigt."), "#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'", deleteItem(2057, 1), queststatus(75) = 2, rankpoints + 20
+queststatus(75) = 1, item(2057, all) > 0, ".+" -> inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten."), "#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'", deleteItem(2057, 1), queststatus(75) = 2
+queststatus(75) = 1, item(2057, all) < 1, english, ".+" -> "Wine! I told you to bring me wine! You want to hear my stories, so grease my throat."
+queststatus(75) = 1, item(2057, all) < 1, ".+" -> "Wein! Ich hab gesagt, ich will Wein! Wer meine Geschichten hören will, muss erst meine Stimme ölen."
+
+-- questions--
+queststatus(75) = 2, "town" -> "Cadomyr is the most civilized and advanced community! I hear the others live in pitiful clay huts."
+queststatus(75) = 2, "nobles" -> "Like any proper nation, below the Queen are her nobles, just like the men are below the Gods... just as the Gods themselves have intended!"
+queststatus(75) = 2, "hono[u]+r" -> "We value honour above all in Cadomyr. If you have no honour, then you have nothing and will be nothing."
+queststatus(75) = 2, "like[s]" -> "The Queen likes the shine of gold and the sparkle of precious gemstones."
+queststatus(75) = 2, "gift" -> "Gifts? Of course our Queen likes gifts! Expensive jewelry and shiny gemstones, especially diamonds, is what she fancies."
+queststatus(75) = 2, english, "baron", "hastings" -> "Baron Hastings? He was not at all happy about Queen Rosaline finding a clause that enabled her to succeed her father on the throne, but now he has gone missing..."
+queststatus(75) = 2, "wine" -> "#me sips from the glass, smiling 'The wine is very good, thank you...'"
+queststatus(75) = 2, "neighbor" -> "#me grumbles. 'Oh! Galmair and Runewick! Pox on them! The ancient histories make it clear that the people of Cadomyr are the rightful lords of the land!"
+queststatus(75) = 2, "palace" -> "If Cadomyr is the crown of the land, than the palace is certainly its most magnificent crown jewel! Sadly not all the servants in the palace are as reliable and loyal as I am."
+queststatus(75) = 2, "Edel" -> "Wie in jeder gute Nation bedient sich die Königin ihrer Edelleute, wie die Götter sich den Menschen bedienen. Genauso wollen es die Götter."
+queststatus(75) = 2, "Ehre" -> "Die Ehre steht über allem hier in Cadomyr. Wenn man keine Ehre hat, hat man gar nichts mehr. Und dann ist man auch ein Nichts."
+queststatus(75) = 2, "Vorliebe" -> "Die Königin hat eine Vorliebe für Gold und funkelnde Edelsteine."
+queststatus(75) = 2, "Geschenk" -> "Geschenke? Na klar liebt unsere Königin Geschenke. Teure Juwelen und Edelsteine, besonders Diamanten, das erfreut sie."
+queststatus(75) = 2, "Baron", "hastings" -> "Baron Hastings? Er war nicht sonderlich begeistert, als Königin Rosaline eine Klausel gefunden hat, die ihr ermöglichte, das Erbe ihres Vaters anzutreten. Nun ist er verschwunden..."
+queststatus(75) = 2, "Wein" -> "#me schlürft etwas Wein: 'Danke für den Wein, der ist wirklich gut.'"
+queststatus(75) = 2, "Nachbar" -> "#me knurrt: 'Oh! Galmair und Runewick, die Pest soll über sie kommen. Die Geschichte lehrt uns, dass die Herren von Cadomyr die Herren der Ländereien sind.'"
+queststatus(75) = 2, "Palast" -> "Wenn Cadomyr die Krone des Landes ist, dann ist der Palast das funkelnste Kronjuwel. Leider sind nicht alle Palastdiener so loyal und verlässlich wie ich."
+
+-- Small talk--
+"profession" -> "I am a servant of the Queen herself!", "I am a royal fan-waver! A glorious task!"
+"beruf" -> "Ich ein Diener der Königin.", "Ich bin der königliche Fächelwedler. Eine ehrenhafte Tätigkeit!"
+english, "job" -> "I am a servant of the Queen herself!", "I am a royal fan-waver! A glorious task!"
+"job" -> "Ich ein Diener der Königin.", "Ich bin der königliche Fächelwedler. Eine ehrenhafte Tätigkeit!"
+english, "Gobaith", "Gobiath" -> "It is a shame what happened to the Gobaithians, but blasphemous deeds need to be punished!"
+"Gobaith", "Gobiath" -> "Es ist traurig, was den Gobaithianern widerfahren ist. Aber blasphemische Taten müssen bestraft werden!"
+"my name" -> "And what makes you think a person as important as me would like to talk to you?"
+"mein Name" -> "Und was bringt euch dazu zu denken, dass eine so wichtige Person wie ich mit euch sprechen möchte?"
+
+-- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
+english, "tavern" -> "A lousy tavern, in the glorious Kingdom of Cadomyr!"
+"tavern" -> "Eine einfache Taverne im prächtigen Königreich Cadomyr."
+
+-- Faction stuff. Please remove if you send the template to outsiders!
+queststatus(75) = 2, "queen" -> "We are ruled by the Queen in Cadomyr! She can trace her ancestry back a millennia or more, having the bluest of blue blood in all the land."
+queststatus(75) = 2, english, "Rosaline" -> "Oh, so you have heard about our Queen? Of course, not everyone thought that a woman should rule. Baron Hastings was quite vocal about that, but then he... disappeared."
+queststatus(75) = 2, english, "Edwards" -> "Cadomyr has been ruled by the House of Edwards since its inception. Finest stock of Albarian bluebloods! The queen's father, King Reginald, ruled the town with a firm grip."
+queststatus(75) = 2, english, "Cadomyr" -> "#me sighs. 'Cadomyr, oh Cadomyr! We are the most honourable and magnificent nation in all the land, held back only by the treachery of our cursed neighbors.'"
+queststatus(75) = 2, "stadt" -> "Cadomyr ist die zivilisierteste und fortschrittlichste Gesellschaft. Ich hörte, unsere Nachbarn wohnen in erbärmlichen Lehmhütten."
+queststatus(75) = 2, "Königin" -> "Wir werden von der Königin von Cadomyr regiert. Sie kann ihre Ahnen tausend Jahre zurückverfolgen und hat das blauste Blut von allen."
+queststatus(75) = 2, "Rosaline" -> "Nun, was habt ihr über unsere Königin gehört? Nicht jeder stimmt damit überein, dass eine Frau die Macht hat. Baron Hastings war ihr Redelsführer, aber dann verschwand er..."
+queststatus(75) = 2, "Edwards" -> "Cadomyr wird seit seiner Gründung von den Edwards regiert. Feinstes albarisches Blut! Der Vater der Königin, König Reginald, regierte mit harter Hand."
+queststatus(75) = 2, "Cadomyr" -> "#me seufzt: 'Cadomyr, oh Cadomyr! Wir sind die ehrenhafteste und großartigste Nation in der Gegend, nur behindert durch unsere verräterischen Nachbarn.'"
+queststatus(75) = 2, english, "Runewick" -> "A false 'mage' rules them. Bah I say! They speak about wisdom, yet they have only lies to offer! They are nothing but cheap charlatans who try to twist the truth to justify their vile customs!"
+queststatus(75) = 2, english, "Galmair" -> "Galmair! That treacherous pit! Filled by the most despicable scum imaginable. Any decent person should steer clear of the place! Of course, I was lucky to never visit it myself."
+queststatus(75) = 2, "Runewick" -> "Ein falscher Magier regiert dort. Bah, sag ich! Sie reden über Weisheit, meinen aber Lügen. Sie sind nichts als Scharlatane welche die Wahrheit verdrehen, um ihre widerlichen Sitten zu rechtfertigen."
+queststatus(75) = 2, "Galmair" -> "Galmair! Eine Schlangengrube! Gefüllt mit dem widerlichsten Abschaum. Jeder ehrbare Mann sollte Galmair fern bleiben. Zum Glück war ich noch nie dort."
+queststatus(75) = 2, "archmage" -> "If the archmage of Runewick promises you something, do the exact opposite to get the truth. He's a liar!"
+queststatus(75) = 2, "Erzmagier" -> "Wenn euch der Erzmagier Runewicks etwas versprecht, dann dreht den Sinn der Worte herum und ihr erhaltet die Wahrheit. Er ist ein Lügner!"
+queststatus(75) = 2, english, "Elvaine", "Morgan" -> "If the archmage of Runewick promises you something, do the exact opposite to get the truth. He's a liar!"
+queststatus(75) = 2, "Elvaine", "Morgan" -> "Wenn euch der Erzmagier Runewicks etwas versprecht, dann dreht den Sinn der Worte herum und ihr erhaltet die Wahrheit. Er ist ein Lügner!"
+queststatus(75) = 2, english, "Valerio", "Guilianni", "Don" -> "Let him try and touch my Queen and I shall smack him soundly with my fan!"
+queststatus(75) = 2, "Valerio", "Guilianni", "Don" -> "Wenn ich diesen Bastard jemals dabei erwische, wie er meine Königin betatscht, zieh' ich ihm eins mit meinem Fächel über!"
+
+-- Main land factions
+queststatus(75) = 2, english, "albar" -> "Did you ever realise Albar reads Rabla, spelled backwards?"
+queststatus(75) = 2, "albar" -> "Habt ihr jemals bemerkt, dass Albar rückwärts gesprochen zu Rabla wird?"
+queststatus(75) = 2, english, "gynk", "gync" -> "Blasted Gynk-people! They have no honour and no enchanting queen either."
+queststatus(75) = 2, "gync", "gynk" -> "Verdammte Gynk-Leute! Sie haben weder Ehre, noch eine Königin."
+queststatus(75) = 2, english, "salkama" -> "I heard many people talking about Salkamar being similar to the realm of Albar. They must be kidding."
+queststatus(75) = 2, "salkama" -> "Manche Leute sagen, dass Salkamar so ähnlich wie das albarische Reich wäre. Selten so gelacht!"
+
+-- Gods - use the triggers of the god the NPC worships or fights
+queststatus(75) = 2, "gods" -> "#me nods eagerly, spilling some wine on the table. 'We are proper, honourable, and Gods-fearing people in Cadomyr, unlike our wretched neighbors!'"
+queststatus(75) = 2, "Gott", "Götter" -> "#me nickt heftig, etwas Wein verschüttend: 'Wir sind gute, ehrenhaft, götterfürchtige Leute hier in Cadomyr, nicht so unsere verdorbenen Nachbarn.'"
+queststatus(75) = 2, english, "Zhambra" -> "Zhambra, Zhambra, what shall I say! I am his minion, well actually, I am the queen's royal fan waver, that's beyond being a humble minion I guess."
+queststatus(75) = 2, "Zhambra" -> "Zhambra, Zhambra, was soll ich sagen - ich bin sein Diener. Nun, genau genommen bin ich der königliche Fächelwedler ihrer Majestät, das macht mich zu mehr als einen Diener."
+queststatus(75) = 2, english, "Malachin", "Malachín" -> "All this talking about Malachín makes me... silent."
+queststatus(75) = 2, "Malachin", "Malachín" -> "All dieses Gerede über Malachín macht mich... verschwiegen."
+queststatus(75) = 2, english, "Ushara" -> "Ushara... is that suppose to mean something?"
+queststatus(75) = 2, "Ushara" -> "Ushara... wollt ihr irgendwas andeuten?"
+queststatus(75) = 2, english, "Bragon" -> "Did I hear right? Brágon? Wine must be stronger than I thought."
+queststatus(75) = 2, "Bragon" -> "Habe ich richtig gehört? Brágon? Im Wein liegt die Wahrheit, mein Freund!"
+queststatus(75) = 2, english, "Eldan" -> "Pretty sure that is a type of tree, but they don't grow around here."
+queststatus(75) = 2, "Eldan" -> "Ich bin mir ziemlich sicher... das ist eine Art Baum. Aber davon gibts nicht wirklich viele hier."
+queststatus(75) = 2, english, "Tanora" -> "Tanora, sounds familiar but I can't place where I've heard the name."
+queststatus(75) = 2, "Tanora" -> "Tanora, kommt mir bekannt vor, aber ich kann mich einfach nicht erinnern..."
+queststatus(75) = 2, english, "Zelphia" -> "If you're looking for answers about Zelphia go find the lizardfolks, they're always blabbing on and on about her."
+queststatus(75) = 2, "Zelphia" -> "Wenn du fragen über Zelphia hast, geh und such dir ne verdammte Echse, die brabbeln nämlich die ganze Zeit über sie."
+queststatus(75) = 2, english, "Findari" -> "#me hiccups: 'Huh? I think you need to lay off the wine traveler; you're talking gibberish.'"
+queststatus(75) = 2, "Findari" -> "#me stößt leise auf. 'Huh? Du solltest nicht so viel Wein trinken, mein Freund! Dein Lallen ist ja kaum noch zu verstehn.'"
+queststatus(75) = 2, english, "Nargun" -> "Do yourself a favour and forget that name. Only the filth from Galmair dares to mention his name."
+queststatus(75) = 2, "Nargun" -> "Tuhe dir selbst einen Gefallen und vergiss seinen Namen. Nur diese Idoten in Galmair sprechen von ihm."
+queststatus(75) = 2, english, "Elara" -> "#me yawns. 'Boring, let's talk about something else.'"
+queststatus(75) = 2, "Elara" -> "#me gähnt herzhaft. 'Wie langweilig! Lass uns über etwas anderes sprechen.'"
+queststatus(75) = 2, english, "Adron" -> "#me raises his glass of wine: 'This is all anyone needs to know about Adron.'"
+queststatus(75) = 2, "Adron" -> "#me hebt sein Weinglas: 'Darum! Darum, sollen wir Adron ehren.'"
+queststatus(75) = 2, english, "Oldra" -> "#me sighs in mild agitation. 'Ask me something relevant please.'"
+queststatus(75) = 2, "Oldra" -> "#me seufzt langezogen: 'Sprechen wir lieber über irgendetwas wichtiges. Ich bitte euch.'"
+queststatus(75) = 2, english, "Cherga" -> "Mmh... this wine is delicious. Sorry did you say something about Cherga? If you did that is probably why I wasn't listening."
+queststatus(75) = 2, "Cherga" -> "Mmh... dieser Wein schmeckt vorzüglich. Entschuldigt, habt ihr über Cherga gesprochen? - Vermutlich habe ich desshalb nicht zugehört."
+queststatus(75) = 2, english, "Irmorom" -> "#me stifles a yawn halfheartedly: 'I suggest asking the greedy swines in Galmair about Irmorom, not me.'"
+queststatus(75) = 2, "Irmorom" -> "Ha! Fragt die Rattenfresser in Galmair nach Irmorom - nicht mich."
+queststatus(75) = 2, english, "Sirani" -> "The goddess of Love and Pleasure? If you don't know her name than you have no business in Cadomyr!"
+queststatus(75) = 2, "Sirani" -> "Die Göttin der Liebe - und des Vergnügens! *Er grinst anzüglich.*"
+queststatus(75) = 2, english, "Ronagan" -> "#me blinks: 'One word of advice, never mention that name ever again in Cadomyr!'"
+queststatus(75) = 2, "Ronagan" -> "#me blinzelt. 'Besser du sprichst diesen Namen hier, in Gadomyr, nicht laut aus, mein Freund.'"
+queststatus(75) = 2, english, "Moshran" -> "#me nearly drops his wine, clearly in shock: 'Do not mention the Unspoken One here traveler... You may find yourself behind bars or worse.'"
+queststatus(75) = 2, "Moshran" -> "#me lässt beinahe sein Glas fallen, sichtlich erschrocken: 'Diesen Namen spricht niemand laut aus, nimm dir besser ein Beispeil daran!'"
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Do I look like the barkeeper!? Do not belittle my importance with your imprudent questioning!"
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Sehe ich aus wie der Schankwirt? Ich bin eine äußerst wichtige Persönlichkeit!"
+english, "Gobaith", "Gobiath" -> "It is a shame what happened to the Gobaithians. But blasphemous deeds need to be punished!"
+"Gobaith", "Gobiath" -> "Es ist traurig, was den Gobaithianern widerfahren ist. Aber blasphemische Taten müssen bestraft werden!"
+"tell something" -> "Wine is divine."
+"erzähl was", "erzähl etwas" -> "Wein ist fein."
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+english, "Hassan" -> "So, who sent you?", "Yes, yes, I know, I should be in the palace.", "No."
+"Hassan" -> "So, wer schickt euch?", "Ja, ja, ich weiß, ich sollte im Palast sein.", "Nein."
+"Yes" -> "No.", "Not really.", "Peon!"
+"Ja" -> "Nein.", "Nicht wirklich.", "Peon!"
+"No" -> "Oh, I could tell you so many secrets of the queen, but I am loyal to her.", "Did I mention that I am thirsty?", "Wine is divine."
+"Nein" -> "Oh, ich könnte so viele Geheimnisse der Königin ausplaudern, aber ich bin ihr treu ergeben.", "Erwähnte ich, dass ich Durst habe?", "Wein ist fein."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me schwingt ein Weinglas und riecht daran.", "#me swings a wine glass and sniffles."
+cycletext "Ich hab mal von einer Taverne gehört, die 'Happy Halfling' hieß. 'Happy Hassan', das wäre mal ein Name!", "I heard there's a tavern called 'Happy Halfling'. I'd prefer Happy Hassan personally."
+cycletext "Oh ja, ich bin wirklich wichtig. Ohne meine Dienste würde die Königin schwitzen! Und das wäre nicht gut...", "Oh yes, I am indeed an important man. Without my service, the queen would sweat, and we couldn't have that could we?"
+cycletext "#me knallt seine Faust auf den Tresen: 'Bedienung!'", "#me bangs his fist on the counter: 'I demand service!'"
+cycletext "#me tippt sich mit seinem Zeigefinger auf die Brust: 'Ich kenne die Königin! Ich bin eine sehr wichtige Person.'", "#me pokes his own chest with his index finger 'I know the Queen! I am a very important person!'"
+cycletext "Wie, ich soll für meine Getränke zahlen? Ihr solltet mich dafür bezahlen, dass ich hier trinke. Wißt ihr nicht, wer ich bin?", "What do you mean I have to pay for my drinks? You should be paying 'me' to drink here! Do you have any idea who I am?"
+cycletext "#me ist ein Mann in feiner, aber weingetränkten Kleidung. Sein glattgeschorener Kopf glänzt durch ein wohlriechendes Öl.", "#me is a man in expensive, albeit wine-stained clothes. His shaven head gleams with fine-smelling oil."
+cycletext "Ich arbeite im königlichen Palast. Nichts geschieht dort, ohne das ich davon erfahre.", "I work in the Royal Palace. Nothing happens here without my knowledge."
+cycletext "#me knurrt beim Anblick seines leeren Glases: 'Warum erfreu ich euch Bauern mit meiner Anwesenheit? Ich, der Liebling der Königin! Sie hat mich gestern sogar angesehen.'", "#me frowns at the empty glass of wine 'Why do I bless you peasants with my presence? I, who am the Queen's favourite! She even looked at me two days ago!'"
+cycletext "Ich fächere der Königin Luft, damit sie einen ruhigen Kopf bewahren kann. Das nenn' ich eine wichtige Tätigkeit.", "I wave my fan over the Queen, keeping her blue blood cool in this dessert heat. Now 'that' is an important duty!"
+cycletext "Wein ist fein.", "Wine is divine."

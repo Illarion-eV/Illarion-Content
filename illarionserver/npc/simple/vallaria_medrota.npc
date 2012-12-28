@@ -1,0 +1,118 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Vallaria Medrota                                        Runewick --
+-- NPC Job:  Insert profession here                                           --
+--                                                                            --
+-- NPC Race: elf                        NPC Position:  953, 766, 5            --
+-- NPC Sex:  femal                      NPC Direction: west                   --
+--                                                                            --
+-- Author:   merung                                            --
+--                                                                            --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Vallaria Medrota"
+race = elf
+sex = female
+position = 953, 766, 5
+direction = west
+affiliation = "Runewick"
+job = "alchemy teacher"
+
+language = common
+language = elf
+defaultLanguage = common
+autointroduce = on
+
+author = "merung"
+
+lookatDE = "Dieser NPC ist Vallaria Medrota der Heilerin und Alchemielehrerin."
+lookatUS = "This NPC is Vallaria Medrota the healer and alchemy teacher."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 7
+beardID = 0
+colorHair = 123, 62, 9
+colorSkin = 245, 180, 137
+itemHead = 0
+itemChest = 182
+itemCoat = 837
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 34
+itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- help
+"Help" -> inform("[Game Help] This NPC is Vallaria Medrota the healer an alchemy teacher. Keywords: recipes, alchemy")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Vallaria Medrota die Heilerin und Alchemielehrerin. Schlüsselwörter: Rezepte, Alchemie")
+
+-- general speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!", "Hello.", "Be greeted!"
+"Grüß", "Gruß","Gruss","Grüss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße.", "Hallo.", "Seid gegrüßt!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings!", "Hello.", "Be greeted!"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Grüße.", "Hallo.", "Seid gegrüßt!"
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell", "Goodbye.", "Have a nice day."
+"Tschüss", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf bald.", "Wiedersehen.", "Schönen Tag noch."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell", "Goodbye.", "Have a nice day."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf bald.", "Wiedersehen.", "Schönen Tag noch."
+"How are you", "How feel", "How do you do" -> "I was doing better. I was doing worse.", "I am fine.", "Thanks for asking. I am doing well."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut.", "Danke der Nachfrage. Ich kann nicht klagen.", "Es ging mir schon besser."
+"your name", "who are you", "who art thou" -> "I am Vallaria Medrota."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Vallaria Medrota."
+
+-- tasks-- leraning recipes
+english, "quest", "mission" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
+"quest", "mission" -> "Wenn Ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
+"task", "adventure", "order","recipe","leran","lesson" -> "If you want to learn the proper creation of a certain potion, have a look at my list here."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl","Rezept","lernen","Unterricht" -> "Wenn Ihr ein die richtige Herstellung eines Trankes lernen wollt, schaut hier auf die Liste auf meinem Tisch."
+
+-- small talk
+"profession" -> "I am a healer and I can teach you some helpful alchemical recipes, if you are also an alchemist."
+"beruf" -> "Ich bin Heilerin und kann Euch einige nützliche Rezepzte lehren, wenn Ihr auch ein Alchemist seid."
+english, "job" -> "I am a healer and I can teach you some helpful alchemical recipes, if you are one of us."
+"job" -> "Ich bin Heilerin und kann Euch einige nützliche Rezepzte lehren, wenn Ihr auch ein Alchemist seid."
+"tell something" -> "How about you tell me something?"
+"erzähl was", "erzähl etwas" -> "Erzhält Ihr mir doch was."
+english, "druid" -> "Druids are actually rather strange people. Most of them are excellent alchemists, true. But well. They indded have some mazy ideas: spirits of natur, will of nature and all those things."
+"druid" -> "Druiden sind schon ein sonderbarer Schlag. Die meisten von ihnen sind zwar exellente Alchemisten, aber nun ja. Sie haben doch schon recht wirre Ideen: Naturgeister, Wille der Natur und all sowas."
+english, "alchemy","alchemist" -> "Alchemists are masters of of potions, have profound knwolegde about the herbs, and are keen observer of the world."
+"alchemie","alchimi","alchemist" -> "Alchemisten sind Meister der Tränke, Kenner der Kräuter und gute Beobachter der Welt."
+"heal","medicine","medical" -> "Medicine. If you know the arte of creating medicine very well, you can fight against all diseases."
+"heil","medizin" -> "Medizin. Wer die Kunst der Medizinherstellung wirklich beherrscht mag alle Krankheiten zu bekämpfen."
+"potion" -> "Potions are true wonders. They may cause great benefaction or great disaster."
+"trank","tränk" -> "Tränke sind wahre Wunderwerke. Sie gehen große Wohltaten oder großes Unheil bewirken."
+"herb" -> "Herbs are the foundation of alchemy. More powerful than any sword or spell."
+"kraut", "kräuter" -> "Kräuter sind die Grundlage der Alchemie. Mächtiger als jedes Schwert und jeder Zauber."
+"dust" -> "O, what would be a potion without gem dust - a stock! Right!"
+"staub" -> "O, was wäre ein Trank doch ohne den Edelsteinstaub - ein Sud! Genau!"
+english,"adrazin","echolon","hyperborelium","dracolin","orcanol","fenolin","caprazin","illidrium" -> "Active ingredients! Magnificent. Fantastic."
+"adrazin","echolon","hyperborelium","dracolin","orcanol","fenolin","caprazin","illidrium" -> "Wirkstoffe! Herrlich. Fantastisch."
+"active ingredient","active agent","active substance" -> "Active ingredients! Magnificent. Fantastic."
+"wirkstoff" -> "Wirkstoffe! Herrlich. Fantastisch."
+"sickle" -> "The way you treat it, the way will the sickel treat you."
+"sichel" -> "So wie du sie behandelst, wird die Sichel dich behandeln."
+"magic","mage" -> "Mages! Always up to no good."
+"magie" -> "Magier! Nichts als Schindluder im Kopf."
+
+-- last catch
+"my name" -> "Glad to meet you."
+"mein Name" -> "Freut mich, Eure Bekanntschaft zu machen."
+english, "Vallaria", "Medrota" -> "That's me. Correct."
+"Vallaria", "Medrota" -> "Das bin ich. Richtig erkannt."
+
+------------------------------------------------------------------------------AC
+-- cycle Texts
+cycletext "#me betrachtet eine Flasche.", "#me looks closely at a bottle."
+cycletext "Wo bleibt er nur mit meinem Trank?", "What takes him so long to bring me my potion?"
+cycletext "#me hackt Kräuter klein.", "#me chops some herbs."
+cycletext "#me sortiert einige Kräuter.", "#me assorts some herbs."
+cycletext "#me beschriftet eine Flasche.", "#me labels a bottle."
+cycletext "#me füllt einen Trank ab.", "#me fills a potion into a bottle."
+cycletext "#me lässt einen Rubin fallen und hebt ihn seufzend wieder auf.", "#me drops a ruby and picks it up with a sigh."
+cycletext "Adrazin...Adrazin...immwer wieder Adrazin!", "Adrazin...Adrazin...and again: Adrazin!"
+cycletext "Das nächste mal sollte ich darauf achten, was ich in den Kessel tue.", "Next time, I should take care what I fill into the cauldron."
+cycletext "Jemand, der noch nie was zum explodieren gebracht hat, ist kein richtiger Alchemist.", "Someone who never have caused and explosion can hardly be called an alchemist."

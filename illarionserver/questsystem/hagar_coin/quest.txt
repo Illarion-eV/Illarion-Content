@@ -1,0 +1,7 @@
+npc,102,receiveText,trigger1
+item,1817,LookAtItem,trigger2
+item,308,LookAtItem,trigger3
+item,1817,LookAtItem,trigger4
+item,1817,LookAtItem,trigger5
+item,308,LookAtItem,trigger6
+npc,102,receiveText,trigger7
