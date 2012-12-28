@@ -107,6 +107,36 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			sdTeleport:addOption(0,Location[i] .. " (" .. Coordina[i][1]..", "..Coordina[i][2]..", "..Coordina[i][3] .. ")");
         end	
 		User:requestSelectionDialog(sdTeleport);
+		
+	elseif (SourceItem:getData("mode")=="Char Info") then
+	local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
+		local players = {User};
+		for _,player in pairs(playersTmp) do 
+			if (player.id ~= User.id) then 
+				table.insert(players, player);
+			end
+		end
+			
+		local cbChoosePlayer = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			local chosenPlayer = players[dialog:getSelectedIndex()+1];
+			local mDialog = MessageDialog("Character Info for "..chosenPlayer.name, "HP: "..chosenPlayer:increaseAttrib("hitpoints", 0).."MP: "..chosenPlayer:increaseAttrib("mana", 0)..
+							"\nSTR: "..User:increaseAttrib("strength", 0).." CONST: "..User:increaseAttrib("constitution", 0).." DEX: "..User:increaseAttrib("dexterity", 0)..
+							"\nAGI: "..User:increaseAttrib("agility", 0).." WIL: "..User:increaseAttrib("willpower", 0).." PERC: "..User:increaseAttrib("perception", 0).." ESS: "..User:increaseAttrib("essence", 0)
+							"\nMental Capacity: "..chosenPlayer:getMentalCapacity()..
+							"\nIdle for [s]: "..chosenPlayer:idleTime())
+			User:requestMessageDialog(mDialog, cbChoosePlayer)
+		end
+			--Dialog to choose the player
+		local sdPlayer = SelectionDialog("Change the avatar of ...", "First choose a victim:", cbChoosePlayer);
+		local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
+        for _,player in ipairs(players) do 
+			local race = math.min(player:getRace()+1, table.getn(raceNames));
+			sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
+        end		
+		User:requestSelectionDialog(sdPlayer);
 	end	-- end of modes
 		
 	--[[if (string.find(User.lastSpokenText,"show position")~=nil) then
