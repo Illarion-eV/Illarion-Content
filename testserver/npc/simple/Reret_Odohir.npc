@@ -34,7 +34,7 @@ radius = 0
 hairID = 8
 beardID = 0
 colorHair = 255, 215, 58
-colorSkin = 140, 70, 20
+colorSkin = 205, 133, 63
 itemHead = 0
 itemChest = 847
 itemCoat = 0
@@ -184,16 +184,6 @@ rank > 0, town = Cadomyr, sex = female, "rang" -> "Du bist noch ganz neu hier. D
 -- saying Rank without beeing a member of Cadomyr
 "rank" -> "I do not know about other towns ranks.", "I am not interested in other systems than the Cadomyran one."
 "rang" -> " Ich weiß nichts über Ränge in anderen Städten.", "Ich interessiere mich nur für das cadomyrische Statussystem."
-
--- "Danke nein, ich habe bereits alles, was ich brauche."
--- "Habt Ihr ein Dekret für mich oder wollt ihr vielleicht ein Dekret oder Schlüßel kaufen?"
--- "Gut, ich trage euch als neuen Anführer dieser Stadt ein."/ "Good, I will enregister you as new leader of this town."
--- "Ihr seid aus der Stadt verbannt, kommt mit einem Entbannungsdekret des Anfïürers wieder wenn ihr Bürger werden wollt."/"You're outcasted from this town, come back with a unban decree from the leader if you want to become a citizen."
--- "Diese Eintragung wird "..PriceListForTownChange[Factionvalues.towncnt].." Silberstücke kosten, wenn Ihr nach eurem Beitritt zu einer anderen Stadt wechseln wollt verdoppeln sich die Kosten dafür. Seid Ihr sicher, dass Ihr dieser Stadt beitreten wollt?"
--- "Adding you to the citizenlist will cost "..PriceListForTownChange[Factionvalues.towncnt].." silver coins. If you decide to become a citizen of another town after joining the fee will double. Do you really wish to join this town?"
--- --
--- "join cadomyr" -> "OK!", rankpoints(Cadomyr)=0, rank(Cadomyr)=1, town=cadomyr
--- "join cadomyr", town != Cadomyr -> "OK!", rankpoints=0, rank=1, town=cadomyr
 
 -- 1st quest: bring Item 146 + desert sky capsule, for citizens of Cadomyr
 queststatus(150) = 0, english, town = Cadomyr, "quest", "mission" -> inform("[New quest] Present from Cadomyr"), "I'd like to send my Grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?", queststatus(0) = 1
