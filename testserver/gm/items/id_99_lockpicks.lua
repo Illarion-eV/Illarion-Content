@@ -165,7 +165,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			end			
 		end
 		--Dialog to choose the player
-		local sdPlayer = SelectionDialog("Get the stats of ...", "First choose a character:", cbChoosePlayer);
+		local sdPlayer = SelectionDialog("Kill or revive...", "First choose a character:", cbChoosePlayer);
 		local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
         for _,player in ipairs(players) do 
 			local race = math.min(player:getRace()+1, table.getn(raceNames));
