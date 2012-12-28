@@ -12,7 +12,8 @@ monster.base.quests.iniQuests();
 killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
-
+msgs = base.messages.Messages();
+msgs:addMessage("#me knurrt.", "#me growls.");
 
 end
 
@@ -94,7 +95,7 @@ function enemyNear(Monster,Enemy)
     if math.random(1,10) == 1 then
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
-	
+	return false;
     --return ( FireBreath(Monster,Enemy) == true );
 end
 

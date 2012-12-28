@@ -12,7 +12,8 @@ monster.base.quests.iniQuests();
 killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
-
+msgs = base.messages.Messages();
+msgs:addMessage("#me knurrt.", "#me growls.");
 
 end
 
@@ -34,7 +35,8 @@ function enemyNear(Monster,Enemy)
         monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
     end
 	
-    return ( FireBreath(Monster,Enemy) == true );
+	return false;
+    --return ( FireBreath(Monster,Enemy) == true );
 end
 
 function enemyOnSight(Monster,Enemy)
@@ -48,8 +50,8 @@ function enemyOnSight(Monster,Enemy)
 
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
-    else
-        return ( FireBreath(Monster,Enemy) == true );
+    --else
+       -- return ( FireBreath(Monster,Enemy) == true );
     end
 end
 
