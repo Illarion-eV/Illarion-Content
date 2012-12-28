@@ -501,22 +501,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 
     -- check for proper attributes
-    if User:increaseAttrib("perception",0) < 9 then 
-        SendMessage(User, SourceItem,
-		            "You hear a voice you are unable to localise: \"...\"",
-		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"...\""
-	                )
-		return
-    elseif User:increaseAttrib("essence",0) < 9 then 
-        SendMessage(User, SourceItem,
-		            "You hear a voice you are unable to localise: \"...\"",
-		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"...\""
-	                )
-		return			
-    elseif (User:increaseAttrib("perception",0) + User:increaseAttrib("essence",0)) < 22 then
-        SendMessage(User, SourceItem,
-		            "You hear a voice you are unable to localise: \"...\"",
-		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"...\""
+    if ( User:increaseAttrib("perception",0) + User:increaseAttrib("essence",0) + User:increaseAttrib("intelligence",0) ) < 30 then 
+		SendMessage(User, SourceItem,            
+					"You hear a voice you are unable to localise: \"I can only tell those who are mindful, good observer and have a certain feeling for the normally unobservable the secret of alchemy. Go away!\"",
+		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"Nur jenen, die einen klaren Verstand, ein gutes Augen und ein Gespühr für das sonst nicht Sichtbare haben, kann ich das Geheimnis der Alchmie erzählen. Geh weh!\""
 	                )
 		return
     end		

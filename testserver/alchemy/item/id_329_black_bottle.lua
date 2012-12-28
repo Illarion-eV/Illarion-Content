@@ -16,24 +16,24 @@ module("alchemy.item.id_329_black_bottle",package.seeall); --, package.seeall(dr
 -- 0 = human; 1 = dwarf; 2 = halfling; 3 = elf; 4 = orc; 5 = lizard
 -- the color sets are seperated by ; while the three values of each set are seperated by ,
 ListSkinColor = {}
-ListSkinColor[0] = {248,198,137;108,64,35;244,231,139;39,23,10;247,207,156}
-ListSkinColor[1] = {248,198,137;108,64,35;244,231,139;39,23,10;247,207,156}
-ListSkinColor[2] = {248,198,137;108,64,35;244,231,139;39,23,10;247,207,156}
-ListSkinColor[3] = {250,238,238;179,138,110;245,230,139}
-ListSkinColor[4] = {153,136,67;80,126,38;39,39,39}
-ListSkinColor[5] = {79,98,42;20,54,92;242,76,62}
+ListSkinColor[0] = {246, 218, 181;243, 185, 111; 210, 146, 110;172, 116, 59;69, 42, 21;250, 199, 168}
+ListSkinColor[1] = {246, 218, 181;243, 185, 111; 210, 146, 110;172, 116, 59;69, 42, 21;250, 199, 168}
+ListSkinColor[2] = {246, 218, 181;243, 185, 111; 210, 146, 110;172, 116, 59;69, 42, 21;250, 199, 168}
+ListSkinColor[3] = {227, 217, 213;239, 188, 137;215, 172, 134;188, 124, 95;196, 197, 157;221, 181, 145}
+ListSkinColor[4] = {139, 123, 63;84, 134, 37;99, 132, 53;169, 144, 51;125, 92, 49;84, 101, 56}
+ListSkinColor[5] = {104, 128, 52;235, 173, 0;159, 59, 59;82, 181, 138;21, 53, 91;184, 135, 214}
 
 ListHairColor = {}
-ListHairColor[0] = {255,204,0;128,128,128;162,77,0;205,51,1;126,59,14}
-ListHairColor[1] = {255,204,0;128,128,128;162,77,0;205,51,1;126,59,14}
-ListHairColor[2] = {255,204,0;128,128,128;162,77,0;205,51,1;126,59,14}
-ListHairColor[3] = {2,19,0;255,249,7;205,51,1}
-ListHairColor[4] = {153,1,0;222,217,195;72,36,0}
-ListHairColor[5] = {103,17,2;1,1,0;157,88,197}
+ListHairColor[0] = {255, 249, 7;162, 77, 0;95, 23, 0;216, 216, 216;39, 39, 39;119, 56, 3}
+ListHairColor[1] = {255, 249, 7;162, 77, 0;95, 23, 0;216, 216, 216;39, 39, 39;119, 56, 3}
+ListHairColor[2] = {255, 249, 7;162, 77, 0;95, 23, 0;216, 216, 216;39, 39, 39;119, 56, 3}
+ListHairColor[3] = {255, 249, 7;104, 128, 52;108, 64, 35;108, 62, 46;216, 216, 216;21, 53, 91}
+ListHairColor[4] = {162, 76, 0;116, 1, 4;139, 123, 61;39, 39, 39;166, 166, 166;58, 28, 4}
+ListHairColor[5] = {239, 231, 0;154, 0, 0;72, 36, 0;28, 26, 48;44, 115, 133;96, 153, 46}
 
 ListBeard = {}
 ListBeard[0] = {0,1,3,4,5,6}
-ListBeard[1] = {0,1,1,2,2,4,4} -- 0 means no beard, therefore there is a double chance for the other possibilities;a dwarf without a beard?
+ListBeard[1] = {1,2,4}
 ListBeard[2] = {0}
 ListBeard[3] = {0}
 ListBeard[4] = {0}
@@ -203,7 +203,7 @@ function DrinkPotion(User,SourceItem)
 		  User:increaseAttrib("hitpoints",10)
 
 		  -- duration depends on the potion's quality
-		 local duration = SourceItem.quality*10 -- effect is called every minute. quality 1 = 10 minutes; quality 9 = 90
+		 local duration = math.floor(SourceItem.quality/100)*10 -- effect is called every minute. quality 1 = 10 minutes; quality 9 = 90
 		  myEffect:addValue("counterBlack",duration)
 		  User.effects:addEffect(myEffect)
         end

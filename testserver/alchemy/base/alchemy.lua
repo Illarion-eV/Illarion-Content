@@ -593,8 +593,8 @@ end
 function SetQuality(User,Item)
 -- skill has an influence of 75% on the mean
     local skillQuali = User:getSkill(Character.alchemy)*0.75 
--- attributes have an influence of 25% on the mean (if the sum of the attributes is 40 or higher, we reach the maixmum influence)	
-	local attribCalc = (((User:increaseAttrib("essence",0) + User:increaseAttrib("perception",0))/2))*5 
+-- attributes have an influence of 25% on the mean (if the sum of the attributes is 54 or higher, we reach the maixmum influence)	
+	local attribCalc = (((User:increaseAttrib("essence",0) + User:increaseAttrib("perception",0) + User:increaseAttrib("intelligence",0) )/3))*5 
 	local attribQuali = base.common.Scale(0,25,attribCalc)
 -- the mean	
 	local mean =  base.common.Scale(1,9,(attribQuali + skillQuali)) 
