@@ -163,11 +163,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 				elseif index == 1 then --let's revive it
 					chosenPlayer:increaseAttrib("hitpoints", 10000)
 				end
+			end
 			local sdKill = SelectionDialog("Play god", "What do you wish to do to "..chosenPlayer.name.."?", killDialog)
 			sdKill:addOption(0, "Instant kill")
 			sdKill:addOption(0, "Instant revive")
 			User:requestSelectionDialog(sdKill)	
-			end
 		end
 		--Dialog to choose the player
 		local sdPlayer = SelectionDialog("Kill or revive...", "First choose a character:", cbChoosePlayer);
