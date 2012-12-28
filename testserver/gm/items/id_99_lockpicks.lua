@@ -82,7 +82,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		
 		--get all the items the char has on him, with the stuff in the backpack
 		local itemsOnChar = {};
-		for i=0, #17 do 
+		for i=0, 17 do 
 			table.insert(itemsOnChar, User:getItemAt(i));
 		end
 					
