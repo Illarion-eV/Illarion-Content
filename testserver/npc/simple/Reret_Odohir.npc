@@ -3,7 +3,7 @@
 -- NPC Job:  Notary                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  106, 553, 0            --
--- NPC Sex:  female                     NPC Direction: north                  --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
@@ -13,7 +13,7 @@ name = "Reret Odohir"
 race = human
 sex = female
 position = 106, 553, 0
-direction = north
+direction = south
 affiliation = "Cadomyr"
 job = "Notary"
 
@@ -31,13 +31,13 @@ useMsgUS = "Don't you touch me!"
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
-hairID = 2
+hairID = 8
 beardID = 0
 colorHair = 255, 215, 58
 colorSkin = 140, 70, 20
 itemHead = 0
-itemChest = 0
-itemCoat = 833
+itemChest = 847
+itemCoat = 0
 itemMainHand = 0
 itemSecondHand = 0
 itemHands = 2295

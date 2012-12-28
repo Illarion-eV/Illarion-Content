@@ -3,7 +3,7 @@
 -- NPC Job:  Notary                                                           --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  106, 553, 0            --
--- NPC Sex:  female                     NPC Direction: north                  --
+-- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
 --                                                       easyNPC Parser v1.21 --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 106, 553, 0, 0, 'Reret Odohir', 'npc.reret_odohir', 1, 2, 0, 255, 215, 58, 140, 70, 20);
+VALUES (0, 106, 553, 0, 4, 'Reret Odohir', 'npc.reret_odohir', 1, 8, 0, 255, 215, 58, 140, 70, 20);
 ---]]
 
 require("npc.base.basic")
@@ -1513,8 +1513,8 @@ mainNPC:setLookat("Dieser NPC ist Reret Odohir die Notarin.", "This NPC is Reret
 mainNPC:setUseMessage("Lasst mich in Ruhe!", "Don't you touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 0);
-mainNPC:setEquipment(11, 833);
+mainNPC:setEquipment(3, 847);
+mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
 mainNPC:setEquipment(4, 2295);
