@@ -51,7 +51,7 @@ function DrinkPotion(User,SourceItem)
 		myEffect:addValue( "oldSkill",oldSkill )
 		myEffect:addValue( "newSkill",newSkill )
 	    myEffect:addValue( "languageId",potionEffectId-599)
-        duration = SourceItem.quality*600*10 
+        duration = math.floor(SourceItem.quality/10)*600*10 
         myEffect:addValue("counterWhite",10)
 	  
 	    User:increaseSkill(ListLanguages[potionEffectId-599],newSkill)
