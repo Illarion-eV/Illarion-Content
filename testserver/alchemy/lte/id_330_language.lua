@@ -16,7 +16,7 @@ function addEffect(Effect, User)
 end
 
 function callEffect(Effect,User)                  			
-	base.common.InformNLS( User, "Du fühlst, dass der Stärkungsrank seine Wirkung verliert.", "You feel that the strengthening potion looses its effect.")
+	base.common.InformNLS( User, "Du fühlst, dass der Sprachtrank seine Wirkung verliert.", "You feel that the language potion looses its effect.")
 	return false
 end
 
