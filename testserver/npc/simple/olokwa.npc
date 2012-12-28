@@ -51,8 +51,8 @@ state = 3, ".*" -> inform("Er grabscht die Gedärme und reißt sie auseinander. 
 "suche rat" -> "Türlich! Aber Rat von Ahnen und mirr braucht Kupfermünzen... 20! Gedärm und Asche von Lagerfeuer... uhm 'nd ja, ja ne Wurst brauchen wir auch, he he!"
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Olokwa the Seer. Keywords: ancestor, seek advice, blindfold, Bragg-Thu, Kroch'Gurak, Norbuk Plateau."), "Ask Olokwa for tale about 'ancestor', or 'seek advice'.", state = 0
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Olokwa der Seher. Schlüsselwörter: Ahnen, suche Rat, Augenbinde, Bragg-Thu, Kroch'Gurak, Norbuk Plateau."), "Frage Olokwa nach Geschichte von 'Ahnen' oder 'suche Rat'.", state = 0
+"Help" -> inform("[Game Help] This NPC is Olokwa the Seer. Keywords: ancestor, seek advice, blindfold, Bragg Thu, Kroch'Gurak, Norbuk Plateau."), "Ask Olokwa for tale about 'ancestor', or 'seek advice'.", state = 0
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Olokwa der Seher. Schlüsselwörter: Ahnen, suche Rat, Augenbinde, Bragg Thu, Kroch'Gurak, Norbuk Plateau."), "Frage Olokwa nach Geschichte von 'Ahnen' oder 'suche Rat'.", state = 0
 
 -- tales and storys of the ancestors
 english, "stop" -> "Hrm, mes should tell another tale?", state = 0
