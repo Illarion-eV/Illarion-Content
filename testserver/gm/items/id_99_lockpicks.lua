@@ -151,27 +151,36 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			if (not dialog:getSuccess()) then
 				return;
 			end
-			chosenPlayer = players[dialog:getSelectedIndex()+1];
-			local killDialog = function (dialog)
-				if (not dialog:getSuccess()) then
-					return;
-				end			
-				local index = dialog:getSelectedIndex()
-				debug("selected index:"..index)
-				if index == 0 then --let's kill it
-					chosenPlayer:increaseAttrib("hitpoints", -10000)
-				elseif index == 1 then --let's revive it
-					chosenPlayer:increaseAttrib("hitpoints", 10000)
+			local index = dialog:getSelectedIndex();
+			if index == 0 then
+				local monsters = world:getMonstersInRangeOf(User.pos, 3);
+				for _,monster in ipairs(monsters) do
+					monster:increaseAttrib("hitpoints", -10000)
 				end
+			else
+				chosenPlayer = players[dialog:getSelectedIndex()];
+				local killDialog = function (dialog)
+					if (not dialog:getSuccess()) then
+						return;
+					end			
+					local index = dialog:getSelectedIndex()
+					debug("selected index:"..index)
+					if index == 0 then --let's kill it
+						chosenPlayer:increaseAttrib("hitpoints", -10000)
+					elseif index == 1 then --let's revive it
+						chosenPlayer:increaseAttrib("hitpoints", 10000)
+					end
+				end
+				local sdKill = SelectionDialog("Play god", "What do you wish to do to "..chosenPlayer.name.."?", killDialog)
+				sdKill:addOption(0, "Instant kill")
+				sdKill:addOption(0, "Instant revive")
+				User:requestSelectionDialog(sdKill)	
 			end
-			local sdKill = SelectionDialog("Play god", "What do you wish to do to "..chosenPlayer.name.."?", killDialog)
-			sdKill:addOption(0, "Instant kill")
-			sdKill:addOption(0, "Instant revive")
-			User:requestSelectionDialog(sdKill)	
 		end
 		--Dialog to choose the player
 		local sdPlayer = SelectionDialog("Kill or revive...", "First choose a character:", cbChoosePlayer);
 		local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
+		sdPlayer:addOption(0, "Kill all Monster in a 3 tile radius")
         for _,player in ipairs(players) do 
 			local race = math.min(player:getRace()+1, table.getn(raceNames));
 			sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
