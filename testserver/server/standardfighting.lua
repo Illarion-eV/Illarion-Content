@@ -313,9 +313,12 @@ function CauseDamage(Attacker, Defender, Globals)
             "#me stolpert zurück und geht zu Boden.",
             "#me stumbles back and falls to the ground.");
 
-        base.common.ParalyseCharacter(Defender.Char, 7, false, true);
-
-        lte.chr_reg.stallRegeneration(Defender.Char, 20);
+		if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
+		
+            base.common.ParalyseCharacter(Defender.Char, 7, false, true);
+            lte.chr_reg.stallRegeneration(Defender.Char, 20);
+			
+		end
 
         return true;
     else
