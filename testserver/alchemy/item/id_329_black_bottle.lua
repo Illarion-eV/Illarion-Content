@@ -118,7 +118,7 @@ function DrinkPotion(User,SourceItem)
 			        findOldHeight, oldHeight = myEffect:findValue("oldHeight")
 					-- and remove the old effect
 					local effectRemoved = User.effects:removeEffect(329)
-					if not effectRemove then
+					if not effectRemoved then
 					    base.common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. black bottle script", "Error: inform dev. Lte not removed. black bottle script.")
 			            return
 					end	
