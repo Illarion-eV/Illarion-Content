@@ -1513,7 +1513,7 @@ mainNPC:setLookat("Dieser NPC ist Reret Odohir die Notarin.", "This NPC is Reret
 mainNPC:setUseMessage("Lasst mich in Ruhe!", "Don't you touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
-mainNPC:setEquipment(3, 847);
+mainNPC:setEquipment(3, 845);
 mainNPC:setEquipment(11, 0);
 mainNPC:setEquipment(5, 0);
 mainNPC:setEquipment(6, 0);
