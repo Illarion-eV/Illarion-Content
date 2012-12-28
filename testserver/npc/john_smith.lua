@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
--- NPC Name: Jonny Smith                                                 None --
--- NPC Job:  Carftsman                                                        --
+-- NPC Name: John Smith                                                  None --
+-- NPC Job:  Craftsman                                                        --
 --                                                                            --
 -- NPC Race: human                      NPC Position:  0, 0, 0                --
 -- NPC Sex:  male                       NPC Direction: south                  --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 0, 0, 0, 4, 'Jonny Smith', 'npc.jonny_smith', 0, 1, 6, 178, 34, 34, 255, 228, 196);
+VALUES (0, 0, 0, 0, 4, 'John Smith', 'npc.john_smith', 0, 1, 6, 178, 34, 34, 255, 228, 196);
 ---]]
 
 require("npc.base.basic")
@@ -19,23 +19,21 @@ require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
 require("npc.base.talk")
-require("npc.base.trade")
-module("npc.jonny_smith", package.seeall)
+module("npc.john_smith", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
-local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Jonny Smith the smith. Keywords: Greetings, buy, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is John Smith the smith. Keywords: Greetings, repair, cost."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Jonny Smith der Schmied. Schlüsselwörter: Grüße, kaufe, TRIGGER3, TRIGGER4, TRIGGER5."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist John Smith der Schmied. Schlüsselwörter: Grüße, kaufe, reparieren, Kosten."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -153,7 +151,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Jonny Smith. How can I help you?");
+talkEntry:addResponse("John Smith. How can I help you?");
 talkEntry:addResponse("Hey, you're kidding me? You do not know my name?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -173,7 +171,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sell");
 talkEntry:addTrigger("buy");
 talkEntry:addTrigger("wares");
-talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
 talkEntry:addResponse("I do not sell weapons or amoury, but I can reprair them. Interested?");
@@ -183,7 +180,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("kauf");
 talkEntry:addTrigger("waren");
-talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
@@ -279,7 +275,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("religion");
-talkEntry:addResponse("I belive in the 16 gods");
+talkEntry:addResponse("I believe in the 16 gods");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -291,7 +287,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faith");
-talkEntry:addResponse("I belive in the 16 gods");
+talkEntry:addResponse("I believe in the 16 gods");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -384,13 +380,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("I do not pray to this god.");
+talkEntry:addResponse("Irmorom keeps me save from accident while working.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Ich bete nicht zu diesem Gott.");
+talkEntry:addResponse("Irmorom schützt mich vor Arbeitsunfällen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -621,13 +617,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr is Cadomyr, ... what ever this means.");
+talkEntry:addResponse("Cadomyr is Cadomyr,... what ever this means.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr ist Cadomyr, ... was auch immer das heißt.");
+talkEntry:addResponse("Cadomyr ist Cadomyr,... was auch immer das heißt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -648,14 +644,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("Gync...gync... I've heard that word before...");
+talkEntry:addResponse("Gynk... I've heard that word before.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gync");
 talkEntry:addTrigger("gynk");
-talkEntry:addResponse("Gynk...Gynk... Das hab ich schobmal gehört..");
+talkEntry:addResponse("Gynk... Das hab ich schonmal gehört.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -709,7 +705,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Jonny");
+talkEntry:addTrigger("John");
 talkEntry:addTrigger("Smith");
 talkEntry:addResponse("That's me!");
 talkEntry:addResponse("Yes?");
@@ -718,7 +714,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Jonny");
+talkEntry:addTrigger("John");
 talkEntry:addTrigger("Smith");
 talkEntry:addResponse("Das bin ich!");
 talkEntry:addResponse("Ja?");
@@ -778,23 +774,17 @@ talkEntry:addResponse("#me zuckt mit den Schultern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me pfeift eine Melodie.", "#me whistles a melody.");
-talkingNPC:addCycleText("#me prüft sein Werkzeug.", "#me cheks his tools.");
+talkingNPC:addCycleText("#me prüft sein Werkzeug.", "#me checks his tools.");
 talkingNPC:addCycleText("#me schaut sich um.", "#me lookes around.");
-talkingNPC:addCycleText("Ich reparieren alles - !", "I repair everything.");
-talkingNPC:addCycleText("#me klopft mit einem Hammer auf ein Stück Eisen.", "#me hits a pices of iron with a hammer.");
+talkingNPC:addCycleText("Ich repariere alles!", "I repair everything.");
+talkingNPC:addCycleText("#me klopft mit einem Hammer auf ein Stück Eisen.", "#me hits a piece of iron with a hammer.");
 talkingNPC:addCycleText("#me schaut aus dem Fenster", "#me lookes out of the window.");
 talkingNPC:addCycleText("#me isst einen Apfel.", "#me eats an apple.");
-talkingNPC:addCycleText("#me spuck einen Apfelkarn auf den Boden.", "#me spits a apple seed to the ground.");
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"buySecondary"));
+talkingNPC:addCycleText("#me spuck einen Apfelkern auf den Boden.", "#me spits an apple seed to the ground.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Jonny Smith der Schmied.", "This NPC is Jonny Smith the smith.");
+mainNPC:setLookat("Dieser NPC ist John Smith der Schmied.", "This NPC is John Smith the smith.");
 mainNPC:setUseMessage("Hey! Fasst mich nicht an!", "Hey! Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
