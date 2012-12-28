@@ -152,18 +152,22 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 				return;
 			end
 			local chosenPlayer = players[dialog:getSelectedIndex()+1];
-			local killDialog = SelectionDialog("Play god", "What do you wish to do to "..chosenPlayer.name.."?", cbChoosePlayer)
-			killDialog:addOption(0, "Instant kill")
-			killDialog:addOption(0, "Instant revive")
-			User:requestSelectionDialog(killDialog)
-			
-			local index = killDialog:getSelectedIndex()
-			debug("selected index:"..index)
-			if index == 0 then --let's kill it
-				chosenPlayer:increaseAttrib("hitpoints", -10000)
-			elseif index == 1 then --let's revive it
-				chosenPlayer:increaseAttrib("hitpoints", 10000)
-			end			
+			local killDialog = function (dialog)
+				if (not dialog:getSuccess()) then
+					return;
+				end			
+				local index = dialog:getSelectedIndex()
+				debug("selected index:"..index)
+				if index == 0 then --let's kill it
+					chosenPlayer:increaseAttrib("hitpoints", -10000)
+				elseif index == 1 then --let's revive it
+					chosenPlayer:increaseAttrib("hitpoints", 10000)
+				end
+			local sdKill = SelectionDialog("Play god", "What do you wish to do to "..chosenPlayer.name.."?", killDialog)
+			sdKill:addOption(0, "Instant kill")
+			sdKill:addOption(0, "Instant revive")
+			User:requestSelectionDialog(sdKill)	
+			end
 		end
 		--Dialog to choose the player
 		local sdPlayer = SelectionDialog("Kill or revive...", "First choose a character:", cbChoosePlayer);
