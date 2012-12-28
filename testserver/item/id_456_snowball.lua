@@ -24,4 +24,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if (User.lastSpokenText == "food") then
 	    User:increaseAttrib("foodlevel",60000)
 	end	
+	if (User.lastSpokenText == "lte") then
+	    local  find, myEffect = User.effects:find(329)
+		if find then
+		    local effectRemoved = User.effects:removeEffect(329)
+			if effectRemove then
+				User:inform("removed")
+			end	
+	    end     
+	end	
 end
