@@ -151,7 +151,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			if (not dialog:getSuccess()) then
 				return;
 			end
-			local chosenPlayer = players[dialog:getSelectedIndex()+1];
+			chosenPlayer = players[dialog:getSelectedIndex()+1];
 			local killDialog = function (dialog)
 				if (not dialog:getSuccess()) then
 					return;
