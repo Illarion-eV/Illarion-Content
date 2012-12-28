@@ -76,7 +76,6 @@ function DrinkPotion(User,SourceItem)
 		local newSex = potionEffectId - ((math.floor(potionEffectId/10))*10) -- example 551: race id 5 (lizard), sex 1 (female)
 		local newRace = math.floor(((potionEffectId - newSex - 500)/10))
 		local isMonster = 0
-		User:inform("newrace: "..newRace);User:inform("newsex: "..newSex)
 		-- our old value to change the char later back
 		local oldRace = User:getRace(); User:inform("just defined "..oldRace)
 	    local oldSkincolor1,oldSkincolor2,oldSkincolor3 = User:getSkinColor()
@@ -112,10 +111,8 @@ function DrinkPotion(User,SourceItem)
 						findOldBeard, oldBeard = myEffect:findValue("oldBeard")
 					    findOldSex, oldSex = myEffect:findValue("oldSex")
 					end	
-					User:inform("here 1 "..oldRace)
 					findOldRace, oldRace = myEffect:findValue("oldRace")
-					User:inform("here 2 "..oldRace)
-			        findOldHeight, oldHeight = myEffect:findValue("oldHeight")
+					findOldHeight, oldHeight = myEffect:findValue("oldHeight")
 					-- and remove the old effect
 					local effectRemoved = User.effects:removeEffect(329)
 					if not effectRemoved then
