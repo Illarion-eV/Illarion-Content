@@ -13,6 +13,27 @@ itemPos = {"Head","Neck","Breast","Hands","Left Tool","Right Tool",
 	"Belt 2","Belt 3","Belt 4","Belt 5","Belt 6"}
 itemPos[0] = "Backpack"
 
+Location={};
+Coordina={};
+Location[1]="Cadomyr Market";
+Coordina[1]={130,600,0};
+Location[2]="Galmair Castle";
+Coordina[2]={360,230,0};
+Location[3]="Galmair Town";
+Coordina[3]={400,250,0};
+Location[4]="Galmair South";
+Coordina[4]={400,355,0};
+Location[5]="Runewick Bridge";
+Coordina[5]={844,822,0};
+Location[6] = "Cadomyr Throne";
+Coordina[6] = {120,545,0};
+Location[7] = "Cadomyr Mine";
+Coordina[7] = {130,700,0};
+Location[8] = "Arena";
+Coordina[8] = {600,400,0};
+Location[9]="Runewick Market";
+Coordina[9]={900,800,1};
+
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	-- First check for mode change
