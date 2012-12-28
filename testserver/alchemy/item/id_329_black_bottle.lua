@@ -76,7 +76,7 @@ function DrinkPotion(User,SourceItem)
 		local newSex = potionEffectId - ((math.floor(potionEffectId/10))*10) -- example 551: race id 5 (lizard), sex 1 (female)
 		local newRace = math.floor(((potionEffectId - newSex - 500)/10))
 		local isMonster = 0
-		
+		User:inform("newrace: "..newRace);User:inform("newsex: "..newSex)
 		-- our old value to change the char later back
 		local oldRace = User:getRace(); User:inform("just defined "..oldRace)
 	    local oldSkincolor1,oldSkincolor2,oldSkincolor3 = User:getSkinColor()
