@@ -99,7 +99,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			if (not dialog:getSuccess()) then
 				return;
             end
-            local index = dialog:getSelectedIndex();
+            local index = dialog:getSelectedIndex()+1;
 			User:warp(position(Coordina[index][1],Coordina[index][2],Coordina[index][3]))
 		end
 		local sdTeleport = SelectionDialog("Erase items.", "Choose the item you wish to erase:", cbChooseLocation);
