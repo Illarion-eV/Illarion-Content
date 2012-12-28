@@ -89,7 +89,6 @@ function DrinkPotion(User,SourceItem)
 		-- check if there is already a an effect
 		local  find, myEffect = User.effects:find(329)
 		local findOldRace, findOldHeight
-		local oldValues = false
 		if find then
 		    local  findNewRace, LteNewRace = myEffect:findValue("newRace")
 			local findCounter,counterBlack = myEffect:findValue("counterBlack")
@@ -117,7 +116,6 @@ function DrinkPotion(User,SourceItem)
 					findOldRace, oldRace = myEffect:findValue("oldRace")
 					User:inform("here 2 "..oldRace)
 			        findOldHeight, oldHeight = myEffect:findValue("oldHeight")
-					oldValues = true
 					-- and remove the old effect
 					local effectRemoved = User.effects:removeEffect(329)
 					if not effectRemove then
@@ -158,8 +156,7 @@ function DrinkPotion(User,SourceItem)
 		  
 		 local myEffect = LongTimeEffect(329,1)
 		     
-			if oldValues == false then 
-			 -- saving of the old values
+			-- saving of the old values
 			  if isMonster ~= 1 then -- we transform him into an other memeber of on of the six races, so we need to save those old values
 					User:inform("check 1")
 					myEffect:addValue("oldSex",oldSex)
@@ -189,8 +186,7 @@ function DrinkPotion(User,SourceItem)
 				myEffect:addValue("newRace",newRace)
 				myEffect:addValue("newHeight",newHeight)
 				myEffect:addValue("isMonster",isMonster)
-		    end
-			
+		    
 		  -- transformation
 		  if isMonster ~= 1 then
 			 User:setAttrib("sex",newSex)
