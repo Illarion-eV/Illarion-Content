@@ -2,7 +2,7 @@
 -- NPC Name: Flori                                                   Runewick --
 -- NPC Job:  Beast of burden                                                  --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  883, 632, 0            --
+-- NPC Race: halfling                   NPC Position:  883, 633, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Nanuk                                                            --
@@ -13,7 +13,7 @@
 name = "Flori"
 race = halfling
 sex = male
-position = 883, 632, 0
+position = 883, 633, 0
 direction = south
 affiliation = "Runewick"
 job = "Beast of burden"
