@@ -20,9 +20,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    end
 		
 		if ( User:increaseAttrib("perception",0) + User:increaseAttrib("essence",0) + User:increaseAttrib("intelligence",0) ) < 30 then 
-		SendMessage(User, SourceItem,            
-					"Mind, good eyes and a feeling for the world of fine matter - with your lack of those, you are unable to work here. \"",
-		            "Verstand, ein gutes Auge und ein Gespühr für die feinstofflichen Dinge - die fehlt es daran, als dass du hier arbeiten könntest.\""
+		User:inform("Verstand, ein gutes Auge und ein Gespühr für die feinstofflichen Dinge - die fehlt es daran, als dass du hier arbeiten könntest.",
+		            "Mind, good eyes and a feeling for the world of fine matter - with your lack of those, you are unable to work here."
 	                )
 		    return
         end

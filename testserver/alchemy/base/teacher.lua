@@ -3,7 +3,7 @@ module("alchemy.base.teacher", package.seeall)
 
 -- This script turns a character into an alchemist. 
 -- Three 'beings' can do that: Knowing Tree (Galmair), Thinking Stone (Cadomyr), Recognizing Spring(Runewick)
--- Three tasks have to be fullfilled: Bring 5*3 normal herbs; bring 1*2 rar herbs; answer three questions
+-- Three tasks have to be fullfilled: Bring 5*3 normal herbs; bring 1*2 rare herbs; answer three questions
 
 ------------------------------------------- LISTS ------------------------------------------------------
 -- TASK ONE: three normal herbs
@@ -88,7 +88,7 @@ questionAnswerList["english"]["answer"][1][2] = {"Platanat","Adrazin","Orcanol"}
 questionAnswerList["german"]["question"][1][3]  = {"Was verwenden wir zum Filtern eines Sudes?"}
 questionAnswerList["english"]["question"][1][3] = {"What do we use to filter a stock?"}
 questionAnswerList["german"]["answer"][1][3]  = {"Faulbaumrinde","Fliegenpilz","Sumpfblume"} 
-questionAnswerList["english"]["answer"][1][3] = {"Rotten Tree Bark","Toad Stool","a3"} --- !!!!
+questionAnswerList["english"]["answer"][1][3] = {"Rotten Tree Bark","Toad Stool","Mash Flower"} --- !!!!
 
 questionAnswerList["german"]["question"][1][4]  = {"Wieviele Wirkstoffe gibt es?"}
 questionAnswerList["english"]["question"][1][4] = {"How many active substances do we know?"}
@@ -101,7 +101,7 @@ questionAnswerList["german"]["answer"][1][5]  = {"Edelsteine","Spiegel","Elfenoh
 questionAnswerList["english"]["answer"][1][5] = {"Gems","Mirror","Elf Ears"}
 
 questionAnswerList["german"]["question"][1][6]  = {"Welche Pflanze enthält Wirkstoffe?"}
-questionAnswerList["english"]["question"][1][6] = {"Wich plant contains activ substances?"}
+questionAnswerList["english"]["question"][1][6] = {"Which plant contains activ substances?"}
 questionAnswerList["german"]["answer"][1][6]  = {"Mandarine","Apfel","Tomate"} 
 questionAnswerList["english"]["answer"][1][6] = {"Tangerine","Apple","Tomato"}
 
@@ -123,7 +123,7 @@ questionAnswerList["english"]["answer"][1][9] = {"Desert Berry","Virgins Weed","
 questionAnswerList["german"]["question"][1][10]  = {"Welche Pflanze ist im Wald zu finden?"}
 questionAnswerList["english"]["question"][1][10] = {"Which plant can be found in the woods?"}
 questionAnswerList["german"]["answer"][1][10]  = {"Firnisblüte","Flammenkelchblüte","Steppenfarn"} 
-questionAnswerList["english"]["answer"][1][10] = {"Firnis Blossom","","Steppe Farn"}
+questionAnswerList["english"]["answer"][1][10] = {"Firnis Blossom","Flamegoblet Blossom","Steppe Farn"}
 
 -- difficulty 2:
 questionAnswerList["german"]["question"][2][1]  = {"Wie bezeichnen wir die höchste positive Konzentration eines Wirkstoffes?"}
@@ -172,9 +172,9 @@ questionAnswerList["german"]["answer"][2][9]  = {"Dracolin","Echolon","Hyperbore
 questionAnswerList["english"]["answer"][2][9] = {"Dracolin","Echolon","Hyperborelium"}
 
 questionAnswerList["german"]["question"][2][10]  = {"Von welcher Pflanze heißt es, dass sie in jeder Medizin, die erfolgreich sein soll, entahlten sein muss?"}
-questionAnswerList["english"]["question"][2][10] = {"What plant is to be said to be a necessary ingredient for every successfull medicine?"}
+questionAnswerList["english"]["question"][2][10] = {"What plant is to be said to be a necessary ingredient for every successful medicine?"}
 questionAnswerList["german"]["answer"][2][10]  = {"Firnisblüte","Heideblüte","Brombeere"} 
-questionAnswerList["english"]["answer"][2][10] = {"Firnisblüte","Heath Flower","Black Berry"}
+questionAnswerList["english"]["answer"][2][10] = {"Firnis Blossom","Heath Flower","Black Berry"}
 
 --difficulty 3:
 questionAnswerList["german"]["question"][3][1]  = {"Was passiert, wenn wir einen Sud in einen anderen Sud zu füllen versuchen?"}
@@ -284,7 +284,7 @@ function IsCharSure(User,SourceItem)
 	else
         answerYes = "Yes."
 		answerNo = "No."
-		askChar = "\"You've done all your tasks. Are you ready and willing to enter the world of fine matter and to learn the secret of alchemy? But keep in mind that the illusions of magic an alike won't be accessible for you and once you've chosen this way, there is no turning back! Are you ready?\""
+		askChar = "\"You've done all your tasks. Are you ready and willing to enter the world of fine matter and to learn the secret of alchemy? But keep in mind that the illusions of magic and alike won't be accessible for you and once you've chosen this way, there is no turning back! Are you ready?\""
 		title = questInfos.teacherDE1
 		abortTextEN = "\"Well, that's a shame. Come back, when you are ready!\""
     end
@@ -416,7 +416,7 @@ function FirstTask(User, SourceItem)
 end
 
 function SecondTask(User, SourceItem)
-    -- second task: bring to rar herbs from the region
+    -- second task: bring to rare herbs from the region
     local questInfos = GetTeacherQuestInfos(User, SourceItem)
 	
     -- first, we check if the char has fullfilled the first task
@@ -430,7 +430,7 @@ function SecondTask(User, SourceItem)
 	else
 	    -- he has finished the first task; delete herbs; tell him his second task
 		SendMessage(User, SourceItem,
-			        HerbsDeleteTextEN[questInfos.teacherEN2][1].." For a short amount fo time it seems as if someone would smack their lips, then the voice says: \"Good, very good. But there is an other task for you left. Now bring me two rar herbs - "..HerbsTaskTwoNameEN[questInfos.teacherEN2][1].." and "..HerbsTaskTwoNameEN[questInfos.teacherEN2][2]..". Be successfull and you are a step closer to your goal.", 
+			        HerbsDeleteTextEN[questInfos.teacherEN2][1].." For a short amount of time it seems as if someone would smack their lips, then the voice says: \"Good, very good. But there is an other task for you left. Now bring me two rare herbs - "..HerbsTaskTwoNameEN[questInfos.teacherEN2][1].." and "..HerbsTaskTwoNameEN[questInfos.teacherEN2][2]..". Be successful and you are a step closer to your goal.", 
 					HerbsDeleteTextDE[questInfos.teacherEN2][1].." Für einen Moment glaubst du etwas wie ein Schmatzen zu hören, bevor die Stimme erklingt: \"Sehr gut, sehr gut. Aber es erwartet dich noch eine Aufgabe. Nun sollst du mir zwei seltene Kräuter bringen und zwar "..HerbsTaskTwoNameDE[questInfos.teacherEN2][1].." und "..HerbsTaskTwoNameDE[questInfos.teacherEN2][2]..". Sei erfolgreich und du bist deinem Ziel ein Stück näher."
 					);
 		User:eraseItem(HerbsTaskOneId[questInfos.teacherEN2][1],5)
@@ -494,9 +494,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	local noMagicCheck = NoMagicCheck(User)
 	if not noMagicCheck then
 	    SendMessage(User, SourceItem,
-			        "Du fühlst dich beobachtet, jedoch scheint nichts weiter zu passieren.", 
-					"You feel observed, but nothing else seems to happen."
-					)
+		            "You hear a voice you are unable to localise: \"You already know the great secret of alchemy. I am not allowed to help you further. Go away!\"",
+		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"Du kennst das große Geheimnis der Alchemie schon. Ich darf dir nicht weiter helfen. Geh weg!\""
+	                )
+	return
 	return
 	end
 
@@ -516,7 +517,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if qstPrg == 1 then
 	    FirstTask(User, SourceItem) -- bring 15 normal herbs
 	elseif qstPrg == 2 then
-	    SecondTask(User, SourceItem) -- bring two rar herbs
+	    SecondTask(User, SourceItem) -- bring two rare herbs
 	elseif qstPrg >= 3 and qstPrg <= 6 then
 	    ThirdTask(User, SourceItem) -- answer three questions
     elseif qstPrg == 7 then
