@@ -1653,7 +1653,7 @@ function GetLeadAttributeName(Skill)
   if leadAttribTable==nil then
     leadAttribTable={};
     leadAttribTable[Character.tailoring]="dexterity"
-    leadAttribTable[Character.alchemy]="perception"
+    leadAttribTable[Character.alchemy]="essence"
     leadAttribTable[Character.tactics]="perception"
     leadAttribTable[Character.farming]="constitution"
     leadAttribTable[Character.poisoning]="perception"
