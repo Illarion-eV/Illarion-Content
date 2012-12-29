@@ -321,7 +321,7 @@ function ChanceToHit(Attacker, Defender)
 	--local chance = (20 + Attacker.skill)/((20 + Defender.dodge)* 2);
 	
 	--PROPOSAL BY ESTRALIS & FLUX
-	local chance = (40 + Attacker.skill)/((50 + Defender.dodge)* 1.4);
+	local chance = (40 + Attacker.skill)/((45 + Defender.dodge)* 1.4);
 		
 	--Reason: Higher base chance, higher overall chance, reduced impact of low skill levels (one cannot even hit an unarmed pig as noob!)
 	
