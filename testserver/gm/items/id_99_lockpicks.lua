@@ -63,7 +63,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		User:increaseAttrib("hitpoints", 10000)
 		User:increaseAttrib("mana", 10000)
 		User:increaseAttrib("foodlevel", 10000)
-		User:Inform("All healed")
+		User:inform("All healed")
 	end
 
 	if (SourceItem:getData("mode")=="Eraser") then	
@@ -155,21 +155,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 				return;
 			end
 			local index = dialog:getSelectedIndex();
-			if index == 0 then
-				local monsters = world:getMonstersInRangeOf(User.pos, 3);
-				for _,monster in ipairs(monsters) do
-					monster:increaseAttrib("hitpoints", -10000)
-				end
-			else
 				chosenPlayer = players[dialog:getSelectedIndex()];
 				local changeDialog = function (dialog)	
 					local inputString = dialog:getInput()
 					if (string.find(inputString,"(%d+)") ~= nil) then
 						a, b, value = string.find(inputString,"(%d+)");
 						
-						            
-					
-				end
+						           
 				local sdChange = InputDialog("Play god", "What do you wish to do to "..chosenPlayer.name.."?", changeDialog)
 				User:requestInputDialog(sdChange)	
 			end
