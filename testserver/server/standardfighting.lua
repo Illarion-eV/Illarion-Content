@@ -313,9 +313,12 @@ function CauseDamage(Attacker, Defender, Globals)
             "#me stolpert zurück und geht zu Boden.",
             "#me stumbles back and falls to the ground.");
 
-        base.common.ParalyseCharacter(Defender.Char, 7, false, true);
-
-        lte.chr_reg.stallRegeneration(Defender.Char, 20);
+		if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
+		
+            base.common.ParalyseCharacter(Defender.Char, 7, false, true);
+            lte.chr_reg.stallRegeneration(Defender.Char, 20);
+			
+		end
 
         return true;
     else
@@ -337,9 +340,17 @@ end;
 -- @param Defender The table that stores the values of the defender
 -- @return true in case the target receives the hit
 function ChanceToHit(Attacker, Defender)
-    local chance = (20 + Attacker.skill)
-        / ((20 + Defender.dodge)
-            * 2);
+    
+	--OLD
+	--local chance = (20 + Attacker.skill)/((20 + Defender.dodge)* 2);
+	
+	--PROPOSAL BY ESTRALIS
+	local chance = (40 + Attacker.skill)/((40 + Defender.dodge)* 1.5);
+		
+	--Reason: Higher base chance, higher overall chance, reduced impact of low skill levels (one cannot even hit an unarmed pig as noob!)
+	
+	--PROPOSAL END
+	
     if (Attacker.isWeapon) then
         chance = chance * (40 + Attacker.Weapon.Accuracy) / 100;
     else
@@ -354,6 +365,12 @@ function ChanceToHit(Attacker, Defender)
         chance = chance * chanceMod / 100;
         --Attacker.Char:inform("Chance to hit: "..chance);
     end;
+	
+	--PROPOSAL BY ESTRALIS
+	chance = math.max(chance,10); --raising to 10% no matter what (should not occur with normal values)
+    chance = math.min(chance,95); --capping at 95%, no one hits all the time
+    --PROPOSAL END
+
     return base.common.Chance(chance);
 end;
 
@@ -418,6 +435,9 @@ function ChanceToParry(Defender)
         end;
     end;
     
+	--OLD
+	--[[
+    	
     local chance;
     if (parryType == 3) then -- shield parry
         chance = (Defender.parry / 4);
@@ -433,8 +453,22 @@ function ChanceToParry(Defender)
         chance = chance + (66 - parryWeapon.Defence) / 1.5;
     else
         return false;
+    end;]]
+	
+	--PROPOSAL BY ESTRALIS: Sorry, this calculation makes no sense to me. Either, I am stupid or in the latter two cases, a higher parryWeapon.Defence DECREASES the chance to parry. This makes absolutely no sense. Also, why are all cases treated differently? The values were designed to make weapons comparable! Shields rule at parry, one handed weapons suck and two handed weapons suck a little. Now you basically ignore the database value's ratios and calculate around... Please note that normal players get negative chances to parry and will NEVER EVER parry. How shall they increase that skill!?
+	--Also: Agility is the lead attribute of parry
+	
+	local chance;
+    if (parryType == 1) or (parryType == 2) or (parryType == 3) then -- shield/weapon parry
+        chance = (Defender.parry / 5); --0-20% by the skill
+        chance = chance * (0.5 + (Defender.agility) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
+        chance = chance + (parryWeapon.Defence) / 10; --0-20% bonus by the weapon/shield
+    else
+        return false;
     end;
     
+	--PROPOSAL END
+	
     return base.common.Chance(chance, 100);
 end;
 
@@ -604,15 +638,15 @@ end;
 --- Drop a blood spot on the ground at a specified location.
 -- @param Posi The location where the blood spot is placed
 function DropBlood(Posi)
+
     if world:isItemOnField(Posi) then
-        local item = world:getItemOnField(Posi);
-        if (item.id == 3101 or item.wear ~= 255) then
-            return;
-        end;
+        return; --no blood on tiles with items on them!
     end;
+	
     Blood = world:createItemFromId(3101, 1, Posi, true, 333, nil);
     Blood.wear = 2;
     world:changeItem(Blood);
+	
 end;
 
 --- Drop alot of blood. This function drops blood on every tile around the
@@ -715,6 +749,7 @@ end;
 -- movepoints by the fitting value.
 -- @param Attacker The table that stores the values of the attacker
 function HandleMovepoints(Attacker)
+
     local weaponFightpoints;
     if Attacker.IsWeapon then
         weaponFightpoints = Attacker.Weapon.ActionPoints;
@@ -724,9 +759,10 @@ function HandleMovepoints(Attacker)
     end;
     
     local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
-    base.character.ChangeFightingpoints(Attacker.Char,
-        -math.floor(reduceFightpoints));
+	
+	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints));
     Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints); 
+	
     return reduceFightpoints;
 end;
 
@@ -736,13 +772,21 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnDodge(Attacker, Defender, AP)
-    -- Devide AP by four, since you can learn four skills with one AP reduction while fighting
-    Defender.Char:learn(Character.dodge, AP/4, Attacker.skill + 10)
-    Attacker.Char:learn(Attacker.Skillname, AP/4, Defender.dodge + 10)
-    
+
+    -- Devide AP by three, since you can learn three skills with one AP reduction while fighting
+    Defender.Char:learn(Character.dodge, AP/3, Attacker.skill + 10)
+    Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.dodge + 10)
+	
+	--PROPOSAL BY ESTRALIS: 
+    Attacker.Char:learn(Character.tactics, AP/3, Defender.dodge + 10);
+	--PROPOSAL END
+	
+	--OLD
+	--[[
     if base.common.Chance(0.25) then
         Attacker.Char:learn(Character.tactics, AP/4, 100);
-    end;
+    end;]]
+	
 end;
 
 --- Learning function called when ever the attacked character fails to avoid the
@@ -751,11 +795,20 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnSuccess(Attacker, Defender, AP)
-    Attacker.Char:learn(Attacker.Skillname, AP/4, math.max(Defender.dodge, Defender.parry) + 10)
+
+    Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.dodge, Defender.parry) + 10)
     
+	--OLD
+	--[[
     if base.common.Chance(0.33) then
         Attacker.Char:learn(Character.tactics, AP/4, 100)
-    end;
+    end;]]
+	
+	--PROPOSAL BY ESTRALIS: 
+	
+	Attacker.Char:learn(Character.tactics, AP/3, Defender.parry + 10);
+	
+	--PROPOSAL END
 end;
 
 --- Learning function called when ever the attacked character parries the
@@ -764,12 +817,22 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnParry(Attacker, Defender, AP)
-    Defender.Char:learn(Character.parry, AP/4, Attacker.skill + 10)
-    Attacker.Char:learn(Attacker.Skillname, AP/4, Defender.parry + 10)
-        
+
+    Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 10)
+    Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.parry + 10)
+      
+	--PROPOSAL BY ESTRALIS: 
+	
+	Attacker.Char:learn(Character.tactics, AP/3, Defender.parry + 10);
+	
+	--PROPOSAL END
+	
+	--OLD
+	--[[
     if base.common.Chance(0.25) then
-        Attacker.Char:learn(Character.tactics, AP/4, 100)
-    end;
+        Attacker.Char:learn(Character.tactics, AP/4, 100);
+    end;]]
+	
 end;
 
 function NotNil(val)

@@ -55,7 +55,7 @@ function InitPennant()
     AddPennant({130,530,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 2,0); --palace
     AddPennant({109,551,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --registration
     AddPennant({104,552,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --registration
-    --[[--Cherassë Citadel
+    --[[--Cherass Citadel
     AddPennant({596,383,2},"","", 7,5); --outpost
     AddPennant({601,383,2},"","", 7,5); --outpost
     --Craven cave
@@ -143,7 +143,7 @@ function InitPennant()
 	AddPennant({323,632,0},"","", 6,5);
 	AddPennant({323,634,0},"","", 6,5);]]--
 	--Sentry Outpost
-	AddPennant({641,706,3},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 3,0);
+	AddPennant({641,706,2},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 3,0);
 	--[[--Snakehead Coast
     AddPennant({609,462,2},"","", 7,5); --Mt. Snakehead
     --Spider's Mouth

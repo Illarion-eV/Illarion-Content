@@ -14,11 +14,9 @@ learnLimit: Maximum skill level the user can reach with the triggering action.
 ]]
 
 function learn(user, skill, actionPoints, learnLimit)
-
-    
 	
-	leadAttrib = getLeadAttrib(user,skill);
-    local skillName = user:getSkillName(skill)
+	leadAttrib = getLeadAttrib(user,skill); --reading the lead attribute
+	local skillName = user:getSkillName(skill) --reading the skill
 	
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
 	scalingFactor=500; --Here, you can mod the learning speed. Higher value=faster ;-)
@@ -44,7 +42,7 @@ function learn(user, skill, actionPoints, learnLimit)
             attributeFactor=math.min(1.5,(0.5+0.5*(leadAttrib/10))); --0.5 to 1.5, depending on attribute, limited to 1.5 (no bonus for insane attributes, balancing!)
 			actionpointFactor=(actionPoints/normalAP); --An action with 50AP is "normal"
 			minorIncrease=math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor);
-			
+
 			while minorIncrease>0 do --for the rare case that an action results in two swirlies, we have this loop
 			
                 realIncrease=math.min(minorIncrease,10000) -- to prevent overflow, we cannot gain more than one level per action anyway

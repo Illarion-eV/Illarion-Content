@@ -93,6 +93,9 @@ function onDeath(Monster)
         end
     end
 
+	monster.base.drop.ClearDropping();
+    local MonID=Monster:getMonsterType();
+	
    if (MonID==401) then --Ghostwolf, Level: 4, Armourtype: heavy, Weapontype: distance
 
         --Category 1: Special Loot

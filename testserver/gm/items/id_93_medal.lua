@@ -8,7 +8,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 
 	-- First check for mode change
 	if (string.find(User.lastSpokenText, "setmode")~=nil) then
-		local modes = {"Monster", "GFX", "SFX", "Avatar changes", "Disasters"}
+		local modes = {"Monster", "GFX", "SFX", "Avatar changes"}
 		local cbSetMode = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
@@ -40,9 +40,8 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 	--Additions end
 	
 	if (SourceItem:getData("mode")=="Monster") then
-	    User:inform("Creating monster with ID "..Counter);
-        world:createMonster(Counter,TargetPos,20);
-		
+        local monster = world:createMonster(Counter,TargetPos,20);
+		User:inform("Creating monster with ID "..Counter);
 	elseif (SourceItem:getData("mode")=="GFX") then
 		world:gfx(Counter,TargetPos);
 		
@@ -99,200 +98,7 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 			local race = math.min(player:getRace()+1, table.getn(raceNames));
 			sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end		
-		User:requestSelectionDialog(sdPlayer);
-		
-	elseif (SourceItem:getData("mode")=="Disasters") then	
-	--Additions for the destruction of Gobaith
-		local cbDisasters = function (dialog)
-			if (not dialog:getSuccess()) then
-				return;
-            end
-            local index = dialog:getSelectedIndex();
-			if (index == 0) then --flood
-
-				world:makeSound(27,TargetPos); --SFX 27 (wind)
-
-				location={}; --Affected positions
-				location[1]=position(TargetPos.x-1,TargetPos.y-1,TargetPos.z);
-				location[2]=position(TargetPos.x-1,TargetPos.y,TargetPos.z);
-				location[3]=position(TargetPos.x-1,TargetPos.y+1,TargetPos.z);
-				location[4]=position(TargetPos.x,TargetPos.y-1,TargetPos.z);
-				location[5]=position(TargetPos.x,TargetPos.y,TargetPos.z);
-				location[6]=position(TargetPos.x,TargetPos.y+1,TargetPos.z);
-				location[7]=position(TargetPos.x+1,TargetPos.y-1,TargetPos.z);
-				location[8]=position(TargetPos.x+1,TargetPos.y,TargetPos.z);
-				location[9]=position(TargetPos.x+1,TargetPos.y+1,TargetPos.z);
-
-				rocks={1246, 915, 1245, 1254, 232, 233, 914, 1265, 1273, 1257, 1276, 1278, 1250, 1251};
-
-				for i=1,table.getn(location) do
-
-					if world:isCharacterOnField(location[i]) then --Is there a char on the field?
-						theChar=world:getCharacterOnField(location[i]);
-						if not theChar:isAdmin() then --GMs remain where they are
-							theChar:increaseAttrib("hitpoints",-10000); -- PWNED
-							theChar:warp(position(0,0,0)); -- Warp him to the origin
-						end
-					end
-
-					while world:isItemOnField(location[i]) do --delete all items
-						theItem=world:getItemOnField(location[i]);
-						world:erase(theItem,1);
-					end
-
-					world:changeTile(6,location[i]); --change to water
-					
-					if math.random(1,20)==1 then --5% chance for a rock
-						zufall=math.random(1,table.getn(rocks));
-						world:createItemFromId(rocks[zufall],1,location[i],true,333,nil);
-					end
-
-				end --all tiles affected
-				world:sendMapUpdate(TargetPos,30);
-				
-			elseif (index == 1) then --earthquake
-
-				world:makeSound(5,TargetPos); --SFX 5 (BOOOM)
-
-				location={}; --Affected positions
-				location[1]=position(TargetPos.x-1,TargetPos.y-1,TargetPos.z);
-				location[2]=position(TargetPos.x-1,TargetPos.y,TargetPos.z);
-				location[3]=position(TargetPos.x-1,TargetPos.y+1,TargetPos.z);
-				location[4]=position(TargetPos.x,TargetPos.y-1,TargetPos.z);
-				location[5]=position(TargetPos.x,TargetPos.y,TargetPos.z);
-				location[6]=position(TargetPos.x,TargetPos.y+1,TargetPos.z);
-				location[7]=position(TargetPos.x+1,TargetPos.y-1,TargetPos.z);
-				location[8]=position(TargetPos.x+1,TargetPos.y,TargetPos.z);
-				location[9]=position(TargetPos.x+1,TargetPos.y+1,TargetPos.z);
-
-				rocks={1246, 915, 1245, 1254, 232, 233, 914, 1265, 1273, 1257, 1276, 1278, 1250, 1251};
-
-				for i=1,table.getn(location) do
-
-					if world:isCharacterOnField(location[i]) then --Is there a char on the field?
-						theChar=world:getCharacterOnField(location[i]);
-						if not theChar:isAdmin() then --GMs remain where they are
-							theChar:increaseAttrib("hitpoints",-10000); -- PWNED
-							theChar:warp(position(0,0,0)); -- Warp him to the origin
-						end
-					end
-
-					if not world:isItemOnField(location[i]) then --empty tile?
-						zufall=math.random(1,table.getn(rocks));
-						world:createItemFromId(rocks[zufall],1,location[i],true,333,nil); --spawn a rock
-					end
-
-				end --all tiles affected
-
-			elseif (index == 2) then --thunderstorm
-
-				world:makeSound(4,TargetPos); --SFX 4 (Thunder)
-
-				location={}; --Affected positions
-				location[1]=position(TargetPos.x-9,TargetPos.y-1,TargetPos.z);
-				location[2]=position(TargetPos.x-7,TargetPos.y+7,TargetPos.z);
-				location[3]=position(TargetPos.x-5,TargetPos.y+3,TargetPos.z);
-				location[4]=position(TargetPos.x-3,TargetPos.y-5,TargetPos.z);
-				location[5]=position(TargetPos.x-1,TargetPos.y-1,TargetPos.z);
-				location[6]=position(TargetPos.x+2,TargetPos.y+4,TargetPos.z);
-				location[7]=position(TargetPos.x+4,TargetPos.y-3,TargetPos.z);
-				location[8]=position(TargetPos.x+6,TargetPos.y-8,TargetPos.z);
-				location[9]=position(TargetPos.x+8,TargetPos.y+5,TargetPos.z);
-				location[10]=position(TargetPos.x+10,TargetPos.y+7,TargetPos.z);
-
-				for i=1,table.getn(location) do
-
-					if not world:isItemOnField(location[i]) then --only empty "outside" tiles!
-
-						world:gfx(2,location[i]); --FLASH, ahaaaa...
-
-						if world:isCharacterOnField(location[i]) then --Is there a char on the field?
-							theChar=world:getCharacterOnField(location[i]);
-							if not theChar:isAdmin() then --GMs are unaffected
-								theChar:increaseAttrib("hitpoints",-4999); -- 4999 damage OMG LOL
-							end
-						end
-					end
-				end --all tiles affected
-
-			elseif (index == 3) then --meteor shower
-
-				world:makeSound(5,TargetPos); --SFX 5 (BOOOM)
-				world:gfx(9,TargetPos);
-						
-				location={}; --Affected positions
-				location[1]=position(TargetPos.x-1,TargetPos.y-1,TargetPos.z);
-				location[2]=position(TargetPos.x-1,TargetPos.y,TargetPos.z);
-				location[3]=position(TargetPos.x-1,TargetPos.y+1,TargetPos.z);
-				location[4]=position(TargetPos.x,TargetPos.y-1,TargetPos.z);
-				location[5]=position(TargetPos.x,TargetPos.y,TargetPos.z);
-				location[6]=position(TargetPos.x,TargetPos.y+1,TargetPos.z);
-				location[7]=position(TargetPos.x+1,TargetPos.y-1,TargetPos.z);
-				location[8]=position(TargetPos.x+1,TargetPos.y,TargetPos.z);
-				location[9]=position(TargetPos.x+1,TargetPos.y+1,TargetPos.z);
-
-				rocks={1246, 915, 1245, 1254, 232, 233, 914, 1265, 1273, 1257, 1276, 1278, 1250, 1251};
-
-				for i=1,table.getn(location) do
-
-					if world:isCharacterOnField(location[i]) then --Is there a char on the field?
-						theChar=world:getCharacterOnField(location[i]);
-						if not theChar:isAdmin() then --GMs remain where they are
-							theChar:increaseAttrib("hitpoints",-10000); -- PWNED
-							theChar:warp(position(0,0,0)); -- Warp him to the origin
-						end
-					end
-
-					while world:isItemOnField(location[i]) do --delete all items
-						theItem=world:getItemOnField(location[i]);
-						world:erase(theItem,1);
-					end
-
-					world:changeTile(5,location[i]); --change to lava
-
-				end --all tiles affected
-
-				world:changeTile(2,TargetPos); --change to rock
-				zufall=math.random(1,table.getn(rocks));
-				world:createItemFromId(rocks[zufall],1,TargetPos,true,333,nil); --spawn a rock
-				world:sendMapUpdate(TargetPos,30);
-				
-				flames={}; --Affected positions
-				flames[1]=position(TargetPos.x-10,TargetPos.y-2,TargetPos.z);
-				flames[2]=position(TargetPos.x-8,TargetPos.y+6,TargetPos.z);
-				flames[3]=position(TargetPos.x-6,TargetPos.y+4,TargetPos.z);
-				flames[4]=position(TargetPos.x-4,TargetPos.y-7,TargetPos.z);
-				flames[5]=position(TargetPos.x-2,TargetPos.y-3,TargetPos.z);
-				flames[6]=position(TargetPos.x+1,TargetPos.y+4,TargetPos.z);
-				flames[7]=position(TargetPos.x+3,TargetPos.y-5,TargetPos.z);
-				flames[8]=position(TargetPos.x+5,TargetPos.y-9,TargetPos.z);
-				flames[9]=position(TargetPos.x+7,TargetPos.y+6,TargetPos.z);
-				flames[10]=position(TargetPos.x+9,TargetPos.y+8,TargetPos.z);
-
-				for i=1,table.getn(flames) do
-
-					if not world:isItemOnField(flames[i]) then --only empty "outside" tiles!
-
-						world:createItemFromId(359,1,flames[i],true,999,nil); --spawn a flame
-						theItem=world:getItemOnField(flames[i]);
-
-						if theItem.id==359 then --only flames!
-
-							theItem.wear = 254; --last, like, forever
-							world:changeItem(theItem); --changing!
-
-						end
-					end
-				end --all tiles affected
-			end
-		end
-		infoText = "Used for destroying Gobiath, so use with caution!"		
-		local sd = SelectionDialog("Select Disaster:", infoText, cbDisasters);
-		sd:addOption(0, "Flood");
-		sd:addOption(0, "Earthquake");
-		sd:addOption(0, "Thunderstorm");
-		sd:addOption(0, "Meteor Shower");
-		User:requestSelectionDialog(sd);		
+		User:requestSelectionDialog(sdPlayer);		
 	else
         User:inform("To set a mode type 'setmode' and use the medal.");
     end
@@ -315,9 +121,6 @@ function LookAtItem(User,Item)
 	elseif (Item:getData("mode")=="Avatar changes") then
         base.lookat.SetSpecialName(Item, "Medallie (Avatar Änderungen)","Medal (Avatar changes)");
 		base.lookat.SetSpecialDescription(Item, "Ändert das Aussehen eines Charakters. Benutze die Medaille.", "Changes appearance of a character. Use the medal.");	
-	elseif (Item:getData("mode")=="Disasters") then
-        base.lookat.SetSpecialName(Item, "Medallie (Disaster)","Medal (Disasters)");
-		base.lookat.SetSpecialDescription(Item, "Disaster!! Benutze die Medaille.", "Disasters!! Use the medal.");	
 	else
 		base.lookat.SetSpecialDescription(Item, "Um einen Modus zu setzen sage 'setmode' und benutzt die Medaille.", "To set a mode type 'setmode' and use the medal.");
         base.lookat.SetSpecialName(Item, "Medaille", "Medal");
