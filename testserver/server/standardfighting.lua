@@ -753,12 +753,14 @@ function HandleMovepoints(Attacker)
     
     local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
 	
-   	base.common.TalkNLS( Attacker, Character.say,"MP reduction: "..reduceFightpoints.."!","MP reduction: "..reduceFightpoints.."!"); --Debug
+	text1="MP reduction: "..reduceFightpoints.."!";
+   	base.common.TalkNLS( Attacker, Character.say,text1,text1); --Debug
 	
 	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints));
     Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints); 
 	
-	base.common.TalkNLS( Attacker, Character.say,"MP left: "..Attacker.Char.movepoints.."!","MP left: "..Attacker.Char.movepoints.."!"); --Debug
+	text2="MP left: "..Attacker.Char.movepoints.."!";
+	base.common.TalkNLS( Attacker, Character.say,text2,text2); --Debug
 	
     return reduceFightpoints;
 end;
