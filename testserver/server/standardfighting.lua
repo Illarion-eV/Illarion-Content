@@ -474,7 +474,7 @@ function ChanceToParry(Defender)
         return false;
     end;
 	
-	Defender:inform("Parrying chance = " .. chance);
+	Defender.char:inform("Parrying chance = " .. chance);
 	
 	--PROPOSAL BY ESTRALIS & FLUX
 	chance = math.max(chance,5); --raising to 5% no matter what (should not occur with normal values)
