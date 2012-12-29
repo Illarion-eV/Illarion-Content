@@ -346,7 +346,7 @@ function ChanceToHit(Attacker, Defender)
 	
 	--PROPOSAL BY ESTRALIS
 	local chance = (40 + Attacker.skill)/((40 + Defender.dodge)* 1.5);
-	
+		
 	--Reason: Higher base chance, higher overall chance, reduced impact of low skill levels (one cannot even hit an unarmed pig as noob!)
 	
 	--PROPOSAL END
@@ -365,6 +365,12 @@ function ChanceToHit(Attacker, Defender)
         chance = chance * chanceMod / 100;
         --Attacker.Char:inform("Chance to hit: "..chance);
     end;
+	
+	--PROPOSAL BY ESTRALIS
+	chance = math.max(chance,10); --raising to 10% no matter what (should not occur with normal values)
+    chance = math.min(chance,95); --capping at 95%, no one hits all the time
+    --PROPOSAL END
+
     return base.common.Chance(chance);
 end;
 
