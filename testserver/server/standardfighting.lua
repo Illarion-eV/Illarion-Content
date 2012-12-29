@@ -742,6 +742,7 @@ end;
 -- movepoints by the fitting value.
 -- @param Attacker The table that stores the values of the attacker
 function HandleMovepoints(Attacker)
+
     local weaponFightpoints;
     if Attacker.IsWeapon then
         weaponFightpoints = Attacker.Weapon.ActionPoints;
@@ -751,9 +752,10 @@ function HandleMovepoints(Attacker)
     end;
     
     local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
-    base.character.ChangeFightingpoints(Attacker.Char,
-        -math.floor(reduceFightpoints));
+    Attacker:talk(Character.say,"MP reduction: "..reduceFightpoints.."!"); --Debug
+	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints));
     Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints); 
+	Attacker:talk(Character.say,"MP left: "..Attacker.Char.movepoints.."!"); --Debug
     return reduceFightpoints;
 end;
 
