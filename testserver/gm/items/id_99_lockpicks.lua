@@ -62,7 +62,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if User:increaseAttrib("hitpoints",0)<10000 or User:increaseAttrib("mana",0)<10000 then
 		User:increaseAttrib("hitpoints", 10000)
 		User:increaseAttrib("mana", 10000)
-		User:increaseAttrib("foodlevel", 10000)
+		User:increaseAttrib("foodlevel", 100000)
 		User:inform("All healed")
 	end
 
