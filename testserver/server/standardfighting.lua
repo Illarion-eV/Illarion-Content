@@ -231,7 +231,7 @@ function CalculateDamage(Attacker, Globals)
     StrengthBonus = (Attacker.strength - 6) * 3;
     PerceptionBonus = (Attacker.perception - 6) * 1;
     DexterityBonus = (Attacker.dexterity - 6) * 1;
-    SkillBonus = (Attacker.skill - 20) * 1;
+    SkillBonus = (Attacker.skill - 20) * 1.5;
     --TacticsBonus = (Attacker.tactics - 20) * 0.5;
     GemBonus = base.gems.getGemBonus(Attacker.WeaponItem);
 
