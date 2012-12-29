@@ -34,6 +34,10 @@ Coordina[8] = {600,400,0};
 Location[9]="Runewick Market";
 Coordina[9]={900,800,1};
 
+skillNames = {"alchemy","carpentry","concussionWeapons","cookingAndBaking","distanceWeapons","dodge","farming","firingBricks","fishing","flute",
+			"gemcutting","glassBlowing","goldsmithing","harp","herblore","horn","lute","mining","parry","punctureWeapons","slashingWeapons",
+			"smithing","tailoring","woodcutting","wrestling"}
+
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	-- First check for mode change
@@ -63,7 +67,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		User:increaseAttrib("hitpoints", 10000)
 		User:increaseAttrib("mana", 10000)
 		User:increaseAttrib("foodlevel", 100000)
-		User:inform("All healed")
 	end
 
 	if (SourceItem:getData("mode")=="Eraser") then	
@@ -142,7 +145,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		User:requestSelectionDialog(sdPlayer);
 		
 	elseif (SourceItem:getData("mode")=="Change skills") then
-	--[[local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
+		local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
 		local players = {User};
 		for _,player in pairs(playersTmp) do 
 			if (player.id ~= User.id) then 
@@ -155,26 +158,33 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 				return;
 			end
 			local index = dialog:getSelectedIndex();
-				chosenPlayer = players[dialog:getSelectedIndex()];
-				local changeDialog = function (dialog)	
-					local inputString = dialog:getInput()
-					if (string.find(inputString,"(%d+)") ~= nil) then
-						a, b, value = string.find(inputString,"(%d+)");
-						
-						           
-				local sdChange = InputDialog("Play god", "What do you wish to do to "..chosenPlayer.name.."?", changeDialog)
-				User:requestInputDialog(sdChange)	
+			chosenPlayer = players[dialog:getSelectedIndex()+1];
+				local skillDialog = function (dialog)					
+					chosenSkill = skillNames[dialog:getSelectedIndex()+1]
+					local changeDialog = function (dialog)	
+						local inputString = dialog:getInput()
+						if (string.find(inputString,"(%d+)") ~= nil) then
+							a, b, value = string.find(inputString,"(%d+)");
+							chosenPlayer:setSkill(chosenSkill, value, chosenPlayer:getSkillValue().minor);
+						end
+					local sdChange = InputDialog("Change skill for "..chosenPlayer.name, "Type in the new value for "..selectedSkill, changeDialog)
+					User:requestInputDialog(sdChange)	
+				end
+				local sdSkill = SelectionDialog("Select skill", "What skill do you wish to change for "..chosenPlayer.name.."?", skillDialog)
+				for _,skill in ipairs(skillNames) do 
+					sdSkill:addOption(0,User:getSkillName(skill).." value: "..chosenPlayer:getSkillValue().major);
+				end		
+				User:requestSelectionDialog(sdSkill)
 			end
 		end
 		--Dialog to choose the player
 		local sdPlayer = SelectionDialog("Kill or revive...", "First choose a character:", cbChoosePlayer);
 		local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
-		sdPlayer:addOption(0, "Kill all Monster in a 3 tile radius")
         for _,player in ipairs(players) do 
 			local race = math.min(player:getRace()+1, table.getn(raceNames));
 			sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end		
-		User:requestSelectionDialog(sdPlayer);	]]
+		User:requestSelectionDialog(sdPlayer);	
 		
 	elseif (SourceItem:getData("mode")=="Instant kill/ revive") then		
 		local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
