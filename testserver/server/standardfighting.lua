@@ -1,6 +1,7 @@
 -- Fighting System
 -- All fights are handled with this script
 -- Written by martin, Nitram and Xandrina
+-- Rebalanced by Estralis and Flux
 
 
 --[[ Weapontypes:
@@ -80,9 +81,11 @@ function onAttack(Attacker, Defender)
     -- Load weapon data, skills and attributes of the attacked character
     LoadWeapons(Defender);
     LoadAttribsSkills(Defender, false);
-    -- Calculate and reduce the required movepoints ******************* NEW **********************
+	
+    -- Calculate and reduce the required movepoints
     APreduction=HandleMovepoints(Attacker);
 
+	-- Turning the attacker to his victim
     base.common.TurnTo(Attacker.Char,Defender.Char.pos);
 
     -- Show the attacking animation
@@ -117,16 +120,12 @@ function onAttack(Attacker, Defender)
     -- Calculate the damage caused by the attack
     CalculateDamage(Attacker, Globals);
 
---Defender.Char:inform("BaseDamage: "..Globals.Damage);
-    
     -- Reduce the damage due the absorbtion of the armor
     ArmorAbsorbtion(Attacker, Defender, Globals);
-    
---Defender.Char:inform("BaseDamage after Armor: "..Globals.Damage);    
+
     -- The effect of the constitution. After this the final damage is avaiable.
     ConstitutionEffect(Defender, Globals);
 
---Defender.Char:inform("BaseDamage after Consti: "..Globals.Damage);     
     -- Cause the finally calculated damage to the player
     CauseDamage(Attacker, Defender, Globals);
     
