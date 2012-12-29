@@ -866,6 +866,7 @@ function LoadAttribsSkills(CharStruct, Offensive)
             = NotNil(CharStruct.Char:increaseAttrib("constitution", 0));
         CharStruct["parry"] = NotNil(CharStruct.Char:getSkill(Character.parry));
         CharStruct["dodge"] = NotNil(CharStruct.Char:getSkill(Character.dodge));
+		CharStruct["agility"] = NotNil(CharStruct.Char:increaseAttrib("agility", 0));
     end;
     CharStruct["Race"] = CharStruct.Char:getRace();
 end;
