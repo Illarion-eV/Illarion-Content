@@ -429,16 +429,13 @@ function ChanceToParry(Defender)
     
     if Defender.LeftIsWeapon then
         parryWeapon = Defender.LeftWeapon;
-        Defender.Char:inform("Left weapon has Defence " .. parryWeapon.Defence );
     end;
     
     if Defender.RightIsWeapon then
-        Defender.Char:inform("Right weapon has Defence " .. Defender.RightWeapon.Defence );
         if not parryWeapon then
             parryWeapon = Defender.RightWeapon;
         elseif (parryWeapon.Defence < Defender.RightWeapon.Defence) then
             parryWeapon = Defender.RightWeapon;
-            Defender.Char:inform("chosen weapon is right");
         end;
     end;
     
@@ -476,7 +473,6 @@ function ChanceToParry(Defender)
         return false;
     end;
 	
-	Defender.Char:inform("Parrying chance = " .. chance);
 	
 	--PROPOSAL BY ESTRALIS & FLUX
 	chance = math.max(chance,5); --raising to 5% no matter what (should not occur with normal values)
@@ -828,6 +824,8 @@ end;
 -- @param Defender The table containing the defender data
 function LearnParry(Attacker, Defender, AP)
 
+    Defender.Char:inform("Learning parry");
+    
     Defender.Char:learn(Character.parry, AP/2, Attacker.skill + 10)
 		
 	--OLD - No more tactics, no more learning attacking
