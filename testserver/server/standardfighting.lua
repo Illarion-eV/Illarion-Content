@@ -631,15 +631,15 @@ end;
 --- Drop a blood spot on the ground at a specified location.
 -- @param Posi The location where the blood spot is placed
 function DropBlood(Posi)
+
     if world:isItemOnField(Posi) then
-        local item = world:getItemOnField(Posi);
-        if (item.id == 3101 or item.wear ~= 255) then
-            return;
-        end;
+        return; --no blood on tiles with items on them!
     end;
+	
     Blood = world:createItemFromId(3101, 1, Posi, true, 333, nil);
     Blood.wear = 2;
     world:changeItem(Blood);
+	
 end;
 
 --- Drop alot of blood. This function drops blood on every tile around the
