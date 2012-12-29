@@ -40,9 +40,12 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
 	--Additions end
 	
 	if (SourceItem:getData("mode")=="Monster") then
-	    User:inform("Creating monster with ID "..Counter);
-        world:createMonster(Counter,TargetPos,20);
-		
+        local monster = world:createMonster(Counter,TargetPos,20);
+		if monster ~=nil then
+			User:inform("Creating monster with ID "..Counter);
+		else
+			User:inform("No such monster. Check the log for details.")
+		end
 	elseif (SourceItem:getData("mode")=="GFX") then
 		world:gfx(Counter,TargetPos);
 		
