@@ -340,7 +340,17 @@ end;
 -- @param Defender The table that stores the values of the defender
 -- @return true in case the target receives the hit
 function ChanceToHit(Attacker, Defender)
-    local chance = (20 + Attacker.skill)/((20 + Defender.dodge)* 2);
+    
+	--OLD
+	--local chance = (20 + Attacker.skill)/((20 + Defender.dodge)* 2);
+	
+	--PROPOSAL BY ESTRALIS
+	local chance = (30 + Attacker.skill)/((30 + Defender.dodge)* 1.5);
+	
+	--Reason: Higher base chance, higher overall chance, reduced impact of low skill levels (one cannot even hit an unarmed pig as noob!)
+	
+	--PROPOSAL END
+	
     if (Attacker.isWeapon) then
         chance = chance * (40 + Attacker.Weapon.Accuracy) / 100;
     else
@@ -741,9 +751,13 @@ function LearnDodge(Attacker, Defender, AP)
     Defender.Char:learn(Character.dodge, AP/4, Attacker.skill + 10)
     Attacker.Char:learn(Attacker.Skillname, AP/4, Defender.dodge + 10)
     
+	--OLD
+	--[[
     if base.common.Chance(0.25) then
         Attacker.Char:learn(Character.tactics, AP/4, 100);
-    end;
+    end;]]
+	
+	--PROPOSAL BY ESTRALIS: Removed. It makes no sense to learn tactics during defending. Tacticts only affects the attack. And: Now you learn two skills during attack and two during defending. Reasonable, eh? The random check here is not reasonable, too.
 end;
 
 --- Learning function called when ever the attacked character fails to avoid the
@@ -754,9 +768,18 @@ end;
 function LearnSuccess(Attacker, Defender, AP)
     Attacker.Char:learn(Attacker.Skillname, AP/4, math.max(Defender.dodge, Defender.parry) + 10)
     
+	--OLD
+	--[[
     if base.common.Chance(0.33) then
         Attacker.Char:learn(Character.tactics, AP/4, 100)
-    end;
+    end;]]
+	
+	--PROPOSAL BY ESTRALIS: 
+	
+	Attacker.Char:learn(Character.tactics, AP/4, 100);
+	
+	--Reason: Tactics is a normal skill, the random check makes no sense. You trigger this skill once each fighting round now, not twice, so no need for an artifical slow down. Also: Mastering tactics should not require more than mastering dodge. This is not in compliance with the general conception of the skill system.
+	--PROPOSAL END
 end;
 
 --- Learning function called when ever the attacked character parries the
