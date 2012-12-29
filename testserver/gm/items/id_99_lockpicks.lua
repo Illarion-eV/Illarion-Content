@@ -174,7 +174,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 					end
 					chosenPlayer:increaseSkill(chosenSkill, skillValue - chosenPlayer:getSkill(skill));
 				end
-				local sdChange = InputDialog("Change skill for "..chosenPlayer.name, "Type in the new value for "..chosenSkill, changeDialog)
+				local sdChange = InputDialog("Change skill for "..chosenPlayer.name, "Type in the new value for "..User:getSkillName(chosenSkill), changeDialog)
 				User:requestInputDialog(sdChange)	
 			end
 			local sdSkill = SelectionDialog("Select skill", "What skill do you wish to change for "..chosenPlayer.name.."?", skillDialog)
