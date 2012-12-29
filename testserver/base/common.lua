@@ -1665,7 +1665,7 @@ function GetLeadAttributeName(Skill)
     leadAttribTable[Character.distanceWeapons]="perception"
     leadAttribTable[Character.gemcutting]="dexterity"
     leadAttribTable[Character.slashingWeapons]="strength"
-    --leadAttribTable[Character.magicResistance]="essence"
+    --leadAttribTable[Character.magicResistance]="essence" --please reconsider once you work on magic
     leadAttribTable[Character.carpentry]="dexterity"
     leadAttribTable[Character.cookingAndBaking]="dexterity"
     leadAttribTable[Character.goldsmithing]="dexterity"
