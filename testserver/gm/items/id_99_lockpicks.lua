@@ -173,7 +173,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			end
 			local sdSkill = SelectionDialog("Select skill", "What skill do you wish to change for "..chosenPlayer.name.."?", skillDialog)
 			for _,skill in ipairs(skillNames) do 
-				sdSkill:addOption(0,User:getSkillName(skill)) --" .." value: "..chosenPlayer:getSkillValue().major);
+				sdSkill:addOption(0,User:getSkillName(User.skill).." value: "..chosenPlayer:getSkillValue(User.skill).major);
 			end		
 			User:requestSelectionDialog(sdSkill)
 		end
