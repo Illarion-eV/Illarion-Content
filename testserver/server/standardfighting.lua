@@ -220,7 +220,7 @@ function CalculateDamage(Attacker, Globals)
     local PerceptionBonus;
     local DexterityBonus;
     local SkillBonus;
-    local TacticsBonus;
+    --local TacticsBonus;
     
     if Attacker.IsWeapon then
         BaseDamage = Attacker.Weapon.Attack * 10;
@@ -232,10 +232,10 @@ function CalculateDamage(Attacker, Globals)
     PerceptionBonus = (Attacker.perception - 6) * 1;
     DexterityBonus = (Attacker.dexterity - 6) * 1;
     SkillBonus = (Attacker.skill - 20) * 1;
-    TacticsBonus = (Attacker.tactics - 20) * 0.5;
+    --TacticsBonus = (Attacker.tactics - 20) * 0.5;
     GemBonus = base.gems.getGemBonus(Attacker.WeaponItem);
 
-    Globals["Damage"] = BaseDamage * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + TacticsBonus + GemBonus)/100;
+    Globals["Damage"] = BaseDamage * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus)/100;
     
 end;
 
@@ -766,7 +766,7 @@ end;
 function LearnDodge(Attacker, Defender, AP)
 
     -- Devide AP by three, since you can learn three skills with one AP reduction while fighting
-    Defender.Char:learn(Character.dodge, AP/3, Attacker.skill + 10)
+    Defender.Char:learn(Character.dodge, AP/2, Attacker.skill + 10)
 	
 	--OLD
 	--[[	
@@ -784,7 +784,7 @@ end;
 -- @param Defender The table containing the defender data
 function LearnSuccess(Attacker, Defender, AP)
 
-    Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.dodge, Defender.parry) + 10)
+    Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.dodge, Defender.parry) + 10)
     
 	--OLD
 	--[[
@@ -794,7 +794,7 @@ function LearnSuccess(Attacker, Defender, AP)
 	
 	--PROPOSAL BY ESTRALIS: 
 	
-	Attacker.Char:learn(Character.tactics, AP/3, math.max(Defender.dodge, Defender.parry) + 10);
+	--Attacker.Char:learn(Character.tactics, AP/3, math.max(Defender.dodge, Defender.parry) + 10);
 	
 	--PROPOSAL END
 end;
@@ -806,7 +806,7 @@ end;
 -- @param Defender The table containing the defender data
 function LearnParry(Attacker, Defender, AP)
 
-    Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 10)
+    Defender.Char:learn(Character.parry, AP/2, Attacker.skill + 10)
 		
 	--OLD
 	--[[
@@ -839,7 +839,7 @@ function LoadAttribsSkills(CharStruct, Offensive)
             = NotNil(CharStruct.Char:increaseAttrib("perception", 0));
         CharStruct["skill"] = NotNil(CharStruct.Char:getSkill(CharStruct.Skillname));
         CharStruct["natpoison"] = 0;
-        CharStruct["tactics"] = NotNil(CharStruct.Char:getSkill(Character.tactics));
+        --CharStruct["tactics"] = NotNil(CharStruct.Char:getSkill(Character.tactics));
         CharStruct["dexterity"]
             = NotNil(CharStruct.Char:increaseAttrib("dexterity", 0));
     else
