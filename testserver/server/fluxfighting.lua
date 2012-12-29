@@ -381,12 +381,12 @@ end;
 
 
 function ChanceToParry(Defender)
---  This function ASSUMES that each weapon's "Defence" is the important factor.
---  it does not descriminate between what is a shield and what is a sword.
---  That is to be done in the weapon's WeaponDefence for simplicity's sake.
---  So a shield has a high defence and a sword has a lower one.
---  So a human can actually understand it.
-
+--[[This function ASSUMES that each weapon's "Defence" is the important factor.
+    it does not descriminate between what is a shield and what is a sword.
+    That is to be done in the weapon's WeaponDefence for simplicity's sake.
+    So a shield has a high defence and a sword has a lower one.
+    So a human can actually understand it.]]
+    
 -- If the defender has no weapon, he cannot parry versus a weapon
     if not Defender.LeftIsWeapon and not Defender.RightIsWeapon then
         return false;
