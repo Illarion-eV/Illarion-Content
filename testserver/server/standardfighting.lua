@@ -213,7 +213,7 @@ function CalculateDamage(Attacker, Globals)
     else
         BaseDamage = content.fighting.GetWrestlingAttack( Attacker.Race ) * 10;
     end;
-  --Defender.Char:inform("Base Damage 1 "..BaseDamage);  
+ 
     StrengthBonus = (Attacker.strength - 6) * 3;
     PerceptionBonus = (Attacker.perception - 6) * 1;
     DexterityBonus = (Attacker.dexterity - 6) * 1;
@@ -344,8 +344,8 @@ function ChanceToHit(Attacker, Defender)
     end;
 	
 	--PROPOSAL BY ESTRALIS
-	chance = math.max(chance,10); --raising to 10% no matter what (should not occur with normal values)
-    chance = math.min(chance,95); --capping at 95%, no one hits all the time
+	chance = math.max(chance,0.1); --raising to 10% no matter what (should not occur with normal values)
+    chance = math.min(chance,0.95); --capping at 95%, no one hits all the time
     --PROPOSAL END
 
     return base.common.Chance(chance);
@@ -443,6 +443,11 @@ function ChanceToParry(Defender)
     else
         return false;
     end;
+	
+	--PROPOSAL BY ESTRALIS
+	chance = math.max(chance,10); --raising to 10% no matter what (should not occur with normal values)
+    chance = math.min(chance,95); --capping at 95%, no one hits all the time
+    --PROPOSAL END
     
 	--PROPOSAL END
 	
