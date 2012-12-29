@@ -15,3 +15,12 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
 		Round=nil;
 	end
 end
+
+
+function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+if (User.lastSpokenText == "attribute") then -- testing
+    User:increaseAttrib("perception",10)
+	User:increaseAttrib("intelligence",10)
+	User:increaseAttrib("essence",10)
+end
+end
