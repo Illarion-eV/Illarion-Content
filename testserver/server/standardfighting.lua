@@ -450,11 +450,12 @@ function ChanceToParry(Defender)
     end;]]
 	
 	--PROPOSAL BY ESTRALIS: Sorry, this calculation makes no sense to me. Either, I am stupid or in the latter two cases, a higher parryWeapon.Defence DECREASES the chance to parry. This makes absolutely no sense. Also, why are all cases treated differently? The values were designed to make weapons comparable! Shields rule at parry, one handed weapons suck and two handed weapons suck a little. Now you basically ignore the database value's ratios and calculate around... Please note that normal players get negative chances to parry and will NEVER EVER parry. How shall they increase that skill!?
+	--Also: Agility is the lead attribute of parry
 	
 	local chance;
     if (parryType == 1) or (parryType == 2) or (parryType == 3) then -- shield/weapon parry
         chance = (Defender.parry / 5); --0-20% by the skill
-        chance = chance * (0.5 + (Defender.dexterity) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by dexterity
+        chance = chance * (0.5 + (Defender.agility) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
         chance = chance + (parryWeapon.Defence) / 10; --0-20% bonus by the weapon/shield
     else
         return false;
