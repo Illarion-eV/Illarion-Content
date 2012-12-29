@@ -824,7 +824,7 @@ end;
 -- @param Defender The table containing the defender data
 function LearnParry(Attacker, Defender, AP)
 
-    Defender.Char:inform("Learning parry");
+    Defender.Char:inform("Learn limit is " .. Attacker.skill + 10);
     
     Defender.Char:learn(Character.parry, AP/2, Attacker.skill + 10)
 		
