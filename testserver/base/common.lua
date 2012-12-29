@@ -1654,7 +1654,7 @@ function GetLeadAttributeName(Skill)
     leadAttribTable={};
     leadAttribTable[Character.tailoring]="dexterity"
     leadAttribTable[Character.alchemy]="essence"
-    leadAttribTable[Character.tactics]="perception"
+    --leadAttribTable[Character.tactics]="perception"
     leadAttribTable[Character.farming]="constitution"
     leadAttribTable[Character.poisoning]="perception"
     leadAttribTable[Character.harp]="dexterity"
