@@ -172,7 +172,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 						User:inform("Value has to be between 0 and 100.");
 						return;
 					end
-					chosenPlayer:increaseSkill(chosenSkill, skillValue - chosenPlayer:getSkill(skill));
+					chosenPlayer:increaseSkill(chosenSkill, skillValue - chosenPlayer:getSkill(chosenSkill));
 				end
 				local sdChange = InputDialog("Change skill for "..chosenPlayer.name, "Type in the new value for "..User:getSkillName(chosenSkill).."\nCurrent value: " .. chosenPlayer:getSkill(chosenSkill),false,255, changeDialog)
 				User:requestInputDialog(sdChange)	
@@ -184,7 +184,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			User:requestSelectionDialog(sdSkill)
 		end
 		--Dialog to choose the player
-		local sdPlayer = SelectionDialog("Kill or revive...", "First choose a character:", cbChoosePlayer);
+		local sdPlayer = SelectionDialog("Change a skill.", "First choose a character:", cbChoosePlayer);
 		local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
         for _,player in ipairs(players) do 
 			local race = math.min(player:getRace()+1, table.getn(raceNames));
@@ -253,6 +253,9 @@ function LookAtItem(User,Item)
 	elseif (Item:getData("mode")=="Char Info") then
         base.lookat.SetSpecialName(Item, "Dietriche (Char Info)","Lockpicks (Char Info)");
 		base.lookat.SetSpecialDescription(Item, "Char Info. Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Char Info. Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
+	elseif (Item:getData("mode")=="Change skills") then
+		base.lookat.SetSpecialDescription(Item, "Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
+        base.lookat.SetSpecialName(Item, "Dietriche (Skills ändern)", "Lockpicks (Change skills)");
 	elseif (Item:getData("mode")=="Instant kill/ revive") then
         base.lookat.SetSpecialName(Item, "Dietriche (Godmode)","Lockpicks (Godmode)");
 		base.lookat.SetSpecialDescription(Item, "Instant kill/ revive. Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Instant kill/ revive. Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
