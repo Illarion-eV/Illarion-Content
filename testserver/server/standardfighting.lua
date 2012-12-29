@@ -61,7 +61,6 @@ module("server.standardfighting", package.seeall)
 -- @return true in case a attack was performed, else false
 function onAttack(Attacker, Defender)
 
-    -- Attacker:talk(Character.say,"Drin in onAttack");
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
@@ -70,32 +69,25 @@ function onAttack(Attacker, Defender)
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
 
-    --Attacker.Char:talk(Character.say,"NI OK");
     -- Load the weapons of the attacker
     LoadWeapons(Attacker);
     
-     --   Attacker.Char:talk(Character.say,"WP OK");
     -- Check the range between the both fighting characters
 
     if not CheckRange(Attacker, Defender.Char) then return false; end;
 
-    --Attacker.Char:talk(Character.say,"RANGE OK");
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker);
 
-    --Attacker.Char:talk(Character.say,"ATT TYPE OK");
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker) then 
-       -- Attacker.Char:talk(Character.say,"ATTER NOT OK");
         return false; 
     end;
     
-    --    Attacker.Char:talk(Character.say,"ATTER OK");
     -- Check if ammunition is needed and use it
     if not HandleAmmunition(Attacker) then return false; end;
     
     
-    --    Attacker.Char:talk(Character.say,"AMMO OK");
     -- Load Skills and Attributes of the attacking character
     LoadAttribsSkills(Attacker, true);
     
@@ -775,14 +767,10 @@ function LearnDodge(Attacker, Defender, AP)
 
     -- Devide AP by three, since you can learn three skills with one AP reduction while fighting
     Defender.Char:learn(Character.dodge, AP/3, Attacker.skill + 10)
-    Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.dodge + 10)
-	
-	--PROPOSAL BY ESTRALIS: 
-    Attacker.Char:learn(Character.tactics, AP/3, Defender.dodge + 10);
-	--PROPOSAL END
 	
 	--OLD
-	--[[
+	--[[	
+	Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.dodge + 10)
     if base.common.Chance(0.25) then
         Attacker.Char:learn(Character.tactics, AP/4, 100);
     end;]]
@@ -806,7 +794,7 @@ function LearnSuccess(Attacker, Defender, AP)
 	
 	--PROPOSAL BY ESTRALIS: 
 	
-	Attacker.Char:learn(Character.tactics, AP/3, Defender.parry + 10);
+	Attacker.Char:learn(Character.tactics, AP/3, math.max(Defender.dodge, Defender.parry) + 10);
 	
 	--PROPOSAL END
 end;
@@ -819,16 +807,11 @@ end;
 function LearnParry(Attacker, Defender, AP)
 
     Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 10)
-    Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.parry + 10)
-      
-	--PROPOSAL BY ESTRALIS: 
-	
-	Attacker.Char:learn(Character.tactics, AP/3, Defender.parry + 10);
-	
-	--PROPOSAL END
-	
+		
 	--OLD
 	--[[
+	
+	Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.parry + 10)
     if base.common.Chance(0.25) then
         Attacker.Char:learn(Character.tactics, AP/4, 100);
     end;]]
