@@ -429,16 +429,18 @@ function ChanceToParry(Defender)
     
     if Defender.LeftIsWeapon then
         parryWeapon = Defender.LeftWeapon;
+        Defender.Char:inform("Left weapon has Defence " .. parryWeapon.Defence );
     end;
     
     if Defender.RightIsWeapon then
+        Defender.Char:inform("Right weapon has Defence " .. Defender.RightWeapon.Defence );
         if not parryWeapon then
             parryWeapon = Defender.RightWeapon;
         elseif (parryWeapon.Defence < Defender.RightWeapon.Defence) then
             parryWeapon = Defender.RightWeapon;
+            Defender.Char:inform("chosen weapon is right");
         end;
     end;
-    
     
     
     
