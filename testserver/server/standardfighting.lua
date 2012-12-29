@@ -763,17 +763,21 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnDodge(Attacker, Defender, AP)
-    -- Devide AP by four, since you can learn four skills with one AP reduction while fighting
-    Defender.Char:learn(Character.dodge, AP/4, Attacker.skill + 10)
-    Attacker.Char:learn(Attacker.Skillname, AP/4, Defender.dodge + 10)
-    
+
+    -- Devide AP by three, since you can learn three skills with one AP reduction while fighting
+    Defender.Char:learn(Character.dodge, AP/3, Attacker.skill + 10)
+    Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.dodge + 10)
+	
+	--PROPOSAL BY ESTRALIS: 
+    Attacker.Char:learn(Character.tactics, AP/3, Defender.dodge + 10);
+	--PROPOSAL END
+	
 	--OLD
 	--[[
     if base.common.Chance(0.25) then
         Attacker.Char:learn(Character.tactics, AP/4, 100);
     end;]]
 	
-	--PROPOSAL BY ESTRALIS: Removed. It makes no sense to learn tactics during defending. Tacticts only affects the attack. And: Now you learn two skills during attack and two during defending. Reasonable, eh? The random check here is not reasonable, too.
 end;
 
 --- Learning function called when ever the attacked character fails to avoid the
@@ -782,7 +786,8 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnSuccess(Attacker, Defender, AP)
-    Attacker.Char:learn(Attacker.Skillname, AP/4, math.max(Defender.dodge, Defender.parry) + 10)
+
+    Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.dodge, Defender.parry) + 10)
     
 	--OLD
 	--[[
@@ -792,9 +797,8 @@ function LearnSuccess(Attacker, Defender, AP)
 	
 	--PROPOSAL BY ESTRALIS: 
 	
-	Attacker.Char:learn(Character.tactics, AP/4, 100);
+	Attacker.Char:learn(Character.tactics, AP/3, Defender.parry + 10);
 	
-	--Reason: Tactics is a normal skill, the random check makes no sense. You trigger this skill once each fighting round now, not twice, so no need for an artifical slow down. Also: Mastering tactics should not require more than mastering dodge. This is not in compliance with the general conception of the skill system.
 	--PROPOSAL END
 end;
 
@@ -805,17 +809,21 @@ end;
 -- @param Defender The table containing the defender data
 function LearnParry(Attacker, Defender, AP)
 
-    Defender.Char:learn(Character.parry, AP/4, Attacker.skill + 10)
-    Attacker.Char:learn(Attacker.Skillname, AP/4, Defender.parry + 10)
-           
+    Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 10)
+    Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.parry + 10)
+      
+	--PROPOSAL BY ESTRALIS: 
+	
+	Attacker.Char:learn(Character.tactics, AP/3, Defender.parry + 10);
+	
+	--PROPOSAL END
+	
 	--OLD
 	--[[
     if base.common.Chance(0.25) then
         Attacker.Char:learn(Character.tactics, AP/4, 100);
     end;]]
 	
-	--PROPOSAL BY ESTRALIS: Removed. It makes no sense to learn tactics during defending. Tacticts only affects the attack. And: Now you learn two skills during attack and two during defending. Reasonable, eh? The random check here is not reasonable, too.
-
 end;
 
 function NotNil(val)
