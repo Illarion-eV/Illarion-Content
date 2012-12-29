@@ -736,8 +736,7 @@ function HandleMovepoints(Attacker)
     if Attacker.IsWeapon then
         weaponFightpoints = Attacker.Weapon.ActionPoints;
     else
-        weaponFightpoints = content.fighting.GetWrestlingMovepoints(
-            Attacker.Race);
+        weaponFightpoints = content.fighting.GetWrestlingMovepoints(Attacker.Race);
     end;
     
     local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
