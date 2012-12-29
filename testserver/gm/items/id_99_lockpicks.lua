@@ -159,23 +159,23 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			end
 			local index = dialog:getSelectedIndex();
 			chosenPlayer = players[dialog:getSelectedIndex()+1];
-				local skillDialog = function (dialog)					
-					chosenSkill = skillNames[dialog:getSelectedIndex()+1]
-					local changeDialog = function (dialog)	
-						local inputString = dialog:getInput()
-						if (string.find(inputString,"(%d+)") ~= nil) then
-							a, b, value = string.find(inputString,"(%d+)");
-							chosenPlayer:setSkill(chosenSkill, value, chosenPlayer:getSkillValue().minor);
-						end
-					local sdChange = InputDialog("Change skill for "..chosenPlayer.name, "Type in the new value for "..selectedSkill, changeDialog)
-					User:requestInputDialog(sdChange)	
+			local skillDialog = function (dialog)					
+				chosenSkill = skillNames[dialog:getSelectedIndex()+1]
+				local changeDialog = function (dialog)	
+					local inputString = dialog:getInput()
+					if (string.find(inputString,"(%d+)") ~= nil) then
+						a, b, value = string.find(inputString,"(%d+)");
+						chosenPlayer:setSkill(chosenSkill, value, chosenPlayer:getSkillValue().minor);
+					end
 				end
-				local sdSkill = SelectionDialog("Select skill", "What skill do you wish to change for "..chosenPlayer.name.."?", skillDialog)
-				for _,skill in ipairs(skillNames) do 
-					sdSkill:addOption(0,User:getSkillName(skill)) --" .." value: "..chosenPlayer:getSkillValue().major);
-				end		
-				User:requestSelectionDialog(sdSkill)
+				local sdChange = InputDialog("Change skill for "..chosenPlayer.name, "Type in the new value for "..selectedSkill, changeDialog)
+				User:requestInputDialog(sdChange)	
 			end
+			local sdSkill = SelectionDialog("Select skill", "What skill do you wish to change for "..chosenPlayer.name.."?", skillDialog)
+			for _,skill in ipairs(skillNames) do 
+				sdSkill:addOption(0,User:getSkillName(skill)) --" .." value: "..chosenPlayer:getSkillValue().major);
+			end		
+			User:requestSelectionDialog(sdSkill)
 		end
 		--Dialog to choose the player
 		local sdPlayer = SelectionDialog("Kill or revive...", "First choose a character:", cbChoosePlayer);
