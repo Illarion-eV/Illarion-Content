@@ -429,6 +429,9 @@ function ChanceToParry(Defender)
         end;
     end;
     
+	--OLD
+	--[[
+    	
     local chance;
     if (parryType == 3) then -- shield parry
         chance = (Defender.parry / 4);
@@ -444,8 +447,21 @@ function ChanceToParry(Defender)
         chance = chance + (66 - parryWeapon.Defence) / 1.5;
     else
         return false;
+    end;]]
+	
+	--PROPOSAL BY ESTRALIS: Sorry, this calculation makes no sense to me. Either, I am stupid or in the latter two cases, a higher parryWeapon.Defence DECREASES the chance to parry. This makes absolutely no sense. Also, why are all cases treated differently? The values were designed to make weapons comparable! Shields rule at parry, one handed weapons suck and two handed weapons suck a little. Now you basically ignore the database value's ratios and calculate around... Please note that normal players get negative chances to parry and will NEVER EVER parry. How shall they increase that skill!?
+	
+	local chance;
+    if (parryType == 1) or (parryType == 2) or (parryType == 3) then -- shield/weapon parry
+        chance = (Defender.parry / 5); --0-20% by the skill
+        chance = chance * (0.5 + (Defender.dexterity) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by dexterity
+        chance = chance + (parryWeapon.Defence) / 10; --0-20% bonus by the weapon/shield
+    else
+        return false;
     end;
     
+	--PROPOSAL END
+	
     return base.common.Chance(chance, 100);
 end;
 
@@ -788,12 +804,18 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnParry(Attacker, Defender, AP)
+
     Defender.Char:learn(Character.parry, AP/4, Attacker.skill + 10)
     Attacker.Char:learn(Attacker.Skillname, AP/4, Defender.parry + 10)
-        
+           
+	--OLD
+	--[[
     if base.common.Chance(0.25) then
-        Attacker.Char:learn(Character.tactics, AP/4, 100)
-    end;
+        Attacker.Char:learn(Character.tactics, AP/4, 100);
+    end;]]
+	
+	--PROPOSAL BY ESTRALIS: Removed. It makes no sense to learn tactics during defending. Tacticts only affects the attack. And: Now you learn two skills during attack and two during defending. Reasonable, eh? The random check here is not reasonable, too.
+
 end;
 
 function NotNil(val)
