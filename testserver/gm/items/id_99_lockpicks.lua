@@ -172,7 +172,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 						User:inform("Value has to be between 0 and 100.");
 						return;
 					end
-					chosenPlayer:increaseSkill(chosenSkill, skillValue - chosenPlayer:getSkill(skill));
+					chosenPlayer:increaseSkill(chosenSkill, skillValue - chosenPlayer:getSkill(chosenSkill));
 				end
 				local sdChange = InputDialog("Change skill for "..chosenPlayer.name, "Type in the new value for "..User:getSkillName(chosenSkill).."\nCurrent value: " .. chosenPlayer:getSkill(chosenSkill),false,255, changeDialog)
 				User:requestInputDialog(sdChange)	
@@ -184,7 +184,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			User:requestSelectionDialog(sdSkill)
 		end
 		--Dialog to choose the player
-		local sdPlayer = SelectionDialog("Kill or revive...", "First choose a character:", cbChoosePlayer);
+		local sdPlayer = SelectionDialog("Change a skill.", "First choose a character:", cbChoosePlayer);
 		local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
         for _,player in ipairs(players) do 
 			local race = math.min(player:getRace()+1, table.getn(raceNames));
