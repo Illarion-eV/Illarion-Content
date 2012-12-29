@@ -342,7 +342,7 @@ function ChanceToHit(Attacker, Defender)
         --Attacker.Char:inform("Chance to hit: "..chance);
     end;
 	
-	--PROPOSAL BY ESTRALIS
+	--PROPOSAL BY ESTRALIS & FLUX
 	chance = math.max(chance,0.1); --raising to 10% no matter what (should not occur with normal values)
     chance = math.min(chance,0.95); --capping at 95%, no one hits all the time
     --PROPOSAL END
@@ -355,12 +355,24 @@ end;
 -- @param Defender The table that stores all data of the defender
 -- @return true in case the hit was parried
 function ChanceToParry(Defender)
+
+--[[This function now ASSUMES that each weapon's "Defence" is the important factor.
+    it does not descriminate between what is a shield and what is a sword.
+    That is to be done in the weapon's WeaponDefence for simplicity's sake.
+    So a shield has a high defence and a sword has a lower one.
+    So a human can actually understand it. - Flux]]
+
     if not Defender.LeftIsWeapon and not Defender.RightIsWeapon then
         return false;
     end;
     
-    local parryType = -1;
+     -- Check which weapon has the best defense. The one with the highest is used for parrying
+    
     local parryWeapon;
+    
+    --OLD - This differentiated between shields and swords. Needlessly complicated.
+    --[[
+    local parryType = -1;
     if Defender.LeftIsWeapon then
         local weaponType = Defender.LeftWeapon.WeaponType;
         if (weaponType == 14) then -- shield
@@ -411,6 +423,24 @@ function ChanceToParry(Defender)
         end;
     end;
     
+    ]]
+    
+    -- New, by Flux. Checks which weapon is better for parrying.
+    
+    if Defender.LeftIsWeapon then
+        parryWeapon = Defender.LeftWeapon;
+    end;
+    
+    if Defender.RightIsWeapon then
+        if not parryWeapon then
+            parryWeapon = Defender.RightWeapon;
+        elseif (parryWeapon.Defence < Defender.RightWeapon.Defence) then
+            parryWeapon = Defender.RightWeapon;
+        end;
+    end;
+    
+    
+    
 	--OLD
 	--[[
     	
@@ -443,8 +473,8 @@ function ChanceToParry(Defender)
         return false;
     end;
 	
-	--PROPOSAL BY ESTRALIS
-	chance = math.max(chance,10); --raising to 10% no matter what (should not occur with normal values)
+	--PROPOSAL BY ESTRALIS & FLUX
+	chance = math.max(chance,5); --raising to 5% no matter what (should not occur with normal values)
     chance = math.min(chance,95); --capping at 95%, no one hits all the time
     --PROPOSAL END
     
@@ -747,16 +777,15 @@ function HandleMovepoints(Attacker)
 end;
 
 --- Learning function called when ever the attacked character dodges the attack.
--- The defender learns dodge skill in this case, the attacker learns his
--- attack skill as well as the tactics skill.
+-- The defender learns dodge skill in this case
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnDodge(Attacker, Defender, AP)
 
-    -- Devide AP by three, since you can learn three skills with one AP reduction while fighting
+    -- Divide AP by three, since you can learn three skills with one AP reduction while fighting
     Defender.Char:learn(Character.dodge, AP/2, Attacker.skill + 10)
 	
-	--OLD
+	--OLD. Tactics is redundant. No more attackers learning when attacking
 	--[[	
 	Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.dodge + 10)
     if base.common.Chance(0.25) then
@@ -780,7 +809,7 @@ function LearnSuccess(Attacker, Defender, AP)
         Attacker.Char:learn(Character.tactics, AP/4, 100)
     end;]]
 	
-	--PROPOSAL BY ESTRALIS: 
+	-- Tactics is redundant
 	
 	--Attacker.Char:learn(Character.tactics, AP/3, math.max(Defender.dodge, Defender.parry) + 10);
 	
@@ -796,7 +825,7 @@ function LearnParry(Attacker, Defender, AP)
 
     Defender.Char:learn(Character.parry, AP/2, Attacker.skill + 10)
 		
-	--OLD
+	--OLD - No more tactics, no more learning attacking
 	--[[
 	
 	Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.parry + 10)
