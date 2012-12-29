@@ -342,6 +342,12 @@ function ChanceToHit(Attacker, Defender)
         --Attacker.Char:inform("Chance to hit: "..chance);
     end;
 	
+	
+	--Stiffness mod
+	local Stiff = base.common.GetStiffness( Defender.Char );
+    Defender.Char:inform("Stiffness: " .. Stiff);
+	
+	
 	--PROPOSAL BY ESTRALIS & FLUX
 	chance = math.max(chance,0.1); --raising to 10% no matter what (should not occur with normal values)
     chance = math.min(chance,0.95); --capping at 95%, no one hits all the time
