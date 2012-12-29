@@ -34,9 +34,10 @@ Coordina[8] = {600,400,0};
 Location[9]="Runewick Market";
 Coordina[9]={900,800,1};
 
-skillNames = {"alchemy","carpentry","concussionWeapons","cookingAndBaking","distanceWeapons","dodge","farming","firingBricks","fishing","flute",
-			"gemcutting","glassBlowing","goldsmithing","harp","herblore","horn","lute","mining","parry","punctureWeapons","slashingWeapons",
-			"smithing","tailoring","woodcutting","wrestling"}
+skillNames = {Character.alchemy,Character.carpentry,Character.concussionWeapons,Character.cookingAndBaking,Character.distanceWeapons,Character.dodge,
+			Character.farming,Character.firingBricks,Character.fishing,Character.flute,Character.gemcutting,Character.glassBlowing,Character.goldsmithing,
+			Character.harp,Character.herblore,Character.horn,Character.lute,Character.mining,Character.parry,Character.punctureWeapons,Character.slashingWeapons,
+			Character.smithing,Character.tailoring,Character.woodcutting,Character.wrestling}
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
@@ -173,7 +174,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			end
 			local sdSkill = SelectionDialog("Select skill", "What skill do you wish to change for "..chosenPlayer.name.."?", skillDialog)
 			for _,skill in ipairs(skillNames) do 
-				sdSkill:addOption(0,User:getSkillName(dodge).." value: "..chosenPlayer:getSkillValue(dodge).major);
+				sdSkill:addOption(0,User:getSkillName(skill).." value: "..chosenPlayer:getSkillValue(skill).major);
 			end		
 			User:requestSelectionDialog(sdSkill)
 		end
