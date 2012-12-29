@@ -497,8 +497,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		            "You hear a voice you are unable to localise: \"You already know the great secret of alchemy. I am not allowed to help you further. Go away!\"",
 		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"Du kennst das große Geheimnis der Alchemie schon. Ich darf dir nicht weiter helfen. Geh weg!\""
 	                )
-	return
-	return
+	    return
 	end
 
     -- check for proper attributes
