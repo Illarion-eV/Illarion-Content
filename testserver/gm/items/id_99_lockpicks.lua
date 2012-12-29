@@ -253,6 +253,9 @@ function LookAtItem(User,Item)
 	elseif (Item:getData("mode")=="Char Info") then
         base.lookat.SetSpecialName(Item, "Dietriche (Char Info)","Lockpicks (Char Info)");
 		base.lookat.SetSpecialDescription(Item, "Char Info. Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Char Info. Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
+	elseif (Item:getData("mode")=="Change skills") then
+		base.lookat.SetSpecialDescription(Item, "Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
+        base.lookat.SetSpecialName(Item, "Dietriche (Skills ändern)", "Lockpicks (Change skills)");
 	elseif (Item:getData("mode")=="Instant kill/ revive") then
         base.lookat.SetSpecialName(Item, "Dietriche (Godmode)","Lockpicks (Godmode)");
 		base.lookat.SetSpecialDescription(Item, "Instant kill/ revive. Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Instant kill/ revive. Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
