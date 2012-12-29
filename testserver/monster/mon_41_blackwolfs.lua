@@ -93,6 +93,9 @@ function onDeath(Monster)
         end
     end
 
+	monster.base.drop.ClearDropping();
+    local MonID=Monster:getMonsterType();
+	
    if (MonID==411) then --Lambslaughterer, Level: 5, Armourtype: heavy, Weapontype: puncture
 
         --Category 1: Special Loot
