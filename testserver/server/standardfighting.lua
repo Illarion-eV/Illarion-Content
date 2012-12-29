@@ -439,6 +439,7 @@ function ChanceToParry(Defender)
         end;
     end;
     
+    Defender:inform("Parrying chance = " .. chance);
     
     
 	--OLD
