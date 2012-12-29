@@ -34,9 +34,10 @@ Coordina[8] = {600,400,0};
 Location[9]="Runewick Market";
 Coordina[9]={900,800,1};
 
-skillNames = {"alchemy","carpentry","concussionWeapons","cookingAndBaking","distanceWeapons","dodge","farming","firingBricks","fishing","flute",
-			"gemcutting","glassBlowing","goldsmithing","harp","herblore","horn","lute","mining","parry","punctureWeapons","slashingWeapons",
-			"smithing","tailoring","woodcutting","wrestling"}
+skillNames = {Character.alchemy,Character.carpentry,Character.concussionWeapons,Character.cookingAndBaking,Character.distanceWeapons,Character.dodge,
+			Character.farming,Character.firingBricks,Character.fishing,Character.flute,Character.gemcutting,Character.glassBlowing,Character.goldsmithing,
+			Character.harp,Character.herblore,Character.horn,Character.lute,Character.mining,Character.parry,Character.punctureWeapons,Character.slashingWeapons,
+			Character.smithing,Character.tailoring,Character.woodcutting,Character.wrestling}
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
@@ -162,18 +163,23 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			local skillDialog = function (dialog)					
 				chosenSkill = skillNames[dialog:getSelectedIndex()+1]
 				local changeDialog = function (dialog)	
-					local inputString = dialog:getInput()
-					if (string.find(inputString,"(%d+)") ~= nil) then
-						a, b, value = string.find(inputString,"(%d+)");
-						chosenPlayer:setSkill(chosenSkill, value, chosenPlayer:getSkillValue().minor);
+					local skillValue, okay = String2Number(dialog:getInput());
+					if (not okay) then
+						User:inform("no number");
+						return;
 					end
+					if (skillValue < 0 or skillValue > 100) then
+						User:inform("Value has to be between 0 and 100.");
+						return;
+					end
+					chosenPlayer:increaseSkill(chosenSkill, skillValue - chosenPlayer:getSkill(skill));
 				end
-				local sdChange = InputDialog("Change skill for "..chosenPlayer.name, "Type in the new value for "..selectedSkill, changeDialog)
+				local sdChange = InputDialog("Change skill for "..chosenPlayer.name, "Type in the new value for "..User:getSkillName(chosenSkill).."\nCurrent value: " .. chosenPlayer:getSkill(chosenSkill),false,255, changeDialog)
 				User:requestInputDialog(sdChange)	
 			end
 			local sdSkill = SelectionDialog("Select skill", "What skill do you wish to change for "..chosenPlayer.name.."?", skillDialog)
 			for _,skill in ipairs(skillNames) do 
-				sdSkill:addOption(0,User:getSkillName(User.skill).." value: "..chosenPlayer:getSkillValue(User.skill).major);
+				sdSkill:addOption(0,User:getSkillName(skill).." value: "..chosenPlayer:getSkill(skill));
 			end		
 			User:requestSelectionDialog(sdSkill)
 		end
@@ -264,4 +270,13 @@ function LookAtItem(User,Item)
             end
         end
     end
+end
+
+function String2Number(str)
+	local _,_,num = string.find(str, "(%d+)");
+	if (num~="") then
+		num = tonumber(num);
+		return num, true;
+	end
+	return 0, false;
 end
