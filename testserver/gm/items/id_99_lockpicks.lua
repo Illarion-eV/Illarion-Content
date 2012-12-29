@@ -38,7 +38,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	-- First check for mode change
 	if (string.find(User.lastSpokenText, "setmode")~=nil) then
-		local modes = {"Eraser", "Teleport", "Char Info", "Instant kill/ revive"}
+		local modes = {"Eraser", "Teleport", "Char Info", "Change skills", "Instant kill/ revive"}
 		local cbSetMode = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
@@ -56,6 +56,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	if (string.find(User.lastSpokenText, "help")) then
 		User:inform("To change the mode of these lockpicks, say \"setmode\" and use it.");
+	end
+	
+	--if injured, heal!
+	if User:increaseAttrib("hitpoints",0)<10000 or User:increaseAttrib("mana",0)<10000 then
+		User:increaseAttrib("hitpoints", 10000)
+		User:increaseAttrib("mana", 10000)
+		User:increaseAttrib("foodlevel", 10000)
+		User:Inform("All healed")
 	end
 
 	if (SourceItem:getData("mode")=="Eraser") then	
@@ -132,6 +140,49 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end		
 		User:requestSelectionDialog(sdPlayer);
+		
+	elseif (SourceItem:getData("mode")=="Change skills") then
+	--[[local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
+		local players = {User};
+		for _,player in pairs(playersTmp) do 
+			if (player.id ~= User.id) then 
+				table.insert(players, player);
+			end
+		end
+			
+		local cbChoosePlayer = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			local index = dialog:getSelectedIndex();
+			if index == 0 then
+				local monsters = world:getMonstersInRangeOf(User.pos, 3);
+				for _,monster in ipairs(monsters) do
+					monster:increaseAttrib("hitpoints", -10000)
+				end
+			else
+				chosenPlayer = players[dialog:getSelectedIndex()];
+				local changeDialog = function (dialog)	
+					local inputString = dialog:getInput()
+					if (string.find(inputString,"(%d+)") ~= nil) then
+						a, b, value = string.find(inputString,"(%d+)");
+						
+						            
+					
+				end
+				local sdChange = InputDialog("Play god", "What do you wish to do to "..chosenPlayer.name.."?", changeDialog)
+				User:requestInputDialog(sdChange)	
+			end
+		end
+		--Dialog to choose the player
+		local sdPlayer = SelectionDialog("Kill or revive...", "First choose a character:", cbChoosePlayer);
+		local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
+		sdPlayer:addOption(0, "Kill all Monster in a 3 tile radius")
+        for _,player in ipairs(players) do 
+			local race = math.min(player:getRace()+1, table.getn(raceNames));
+			sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
+        end		
+		User:requestSelectionDialog(sdPlayer);	]]
 		
 	elseif (SourceItem:getData("mode")=="Instant kill/ revive") then		
 		local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
