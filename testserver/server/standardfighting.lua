@@ -465,7 +465,7 @@ function ChanceToParry(Defender)
 	--Also: Agility is the lead attribute of parry
 	
 	local chance;
-    if (parryType == 1) or (parryType == 2) or (parryType == 3) then -- shield/weapon parry
+    if parryWeapon then
         chance = (Defender.parry / 5); --0-20% by the skill
         chance = chance * (0.5 + (Defender.agility) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
         chance = chance + (parryWeapon.Defence) / 10; --0-20% bonus by the weapon/shield
