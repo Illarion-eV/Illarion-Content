@@ -1,20 +1,7 @@
 -- Fighting System
 -- All fights are handled with this script
 -- Written by martin, Nitram and Xandrina
--- $Id$
 
---[[
-Call: Character:learn(skill,skillGroup,movePoints,opponent,leadAttribute);
-skill: Name of the skill as string, e.g. "mining"
-skillGroup: Group of the skill as integer (e.g. 2 for crafting).  
-movePoints: The amount of movePoints or time (1/10s), required by the action, as integer. Do NOT fill in 0, every action relevant for skillgain HAS TO take some time.
-opponent: In case the action requires a minimum skill, fill it in here as integer. If the action should only yield skillgain up to a certain level, fill in this level-20. Otherwise, fill in 100.
-leadAttribute: The value of the lead attribute as integer. You find the mandatory(!) definition of lead attributes here: http://illarion.org/community/forums/viewtopic.php?p=643700#p643700
-Example: Character:learn("mining",2,20,100);
-
-jeweils nur 1/n der movepoints/FP, weil ja n skills gesteigert werden.
-
-]]
 
 --[[ Weapontypes:
 1:  1 hd slashing
@@ -34,8 +21,7 @@ jeweils nur 1/n der movepoints/FP, weil ja n skills gesteigert werden.
 -- Hang in base.common - Some functions of the collection are needed
 require("base.common")
 
--- Include base.character to use the methods changing some attributes of the
--- character properly there
+-- Include base.character to use the methods changing some attributes of the character properly there
 require("base.character")
 
 -- For learning skills...
@@ -335,8 +321,8 @@ function ChanceToHit(Attacker, Defender)
 	--OLD
 	--local chance = (20 + Attacker.skill)/((20 + Defender.dodge)* 2);
 	
-	--PROPOSAL BY ESTRALIS
-	local chance = (40 + Attacker.skill)/((40 + Defender.dodge)* 1.5);
+	--PROPOSAL BY ESTRALIS & FLUX
+	local chance = (40 + Attacker.skill)/((50 + Defender.dodge)* 1.4);
 		
 	--Reason: Higher base chance, higher overall chance, reduced impact of low skill levels (one cannot even hit an unarmed pig as noob!)
 	
