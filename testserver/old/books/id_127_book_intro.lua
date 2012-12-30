@@ -72,7 +72,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	base.books.AddEnglishBookText("Only who is devoted as druid with such herbal brew, by the way a really unspectacular act, will have the ability to read the secret recipes, which are also placed at this book rest.",0,0,0);
 	base.books.AddEnglishBookText("But attention: All of these very old scrolls are inherented by an ineffaceable curse, that ready caused, that druids did not lost their mind, but are mulcted by it of the success of their hard work.",0,0,0);
 	base.books.AddEnglishBookText("Sometimes I want to say: Even if the way might be longer and full of privations, in the end the own research results will pay off. Those who only search for the quick win and easy solutions to get the potion recipes, will leave in frustration",0,0,0);
-	base.books.AddEnglishBookText("Let be my words a warning for you, the nonbeliver have payed for their impatience.",0,0,0);
+	base.books.AddEnglishBookText("Let be my words a warning for you, the nonbeliver have paid for their impatience.",0,0,0);
 
     end
 	base.books.SendBookPage(User,SourceItem.data,Counter);

@@ -944,7 +944,7 @@ end
 --[[
 - PayTheNPC
 - @param User CharStruct User who has to pay
-- @param Copper int amount of money thats payed
+- @param Copper int amount of money thats paid
 - Takes away the amount of copper from the player inventory
 ]]
 function PayTheNPC(User,Copper)
