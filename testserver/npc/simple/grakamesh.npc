@@ -2,7 +2,7 @@
 -- NPC Name: Grakamesh                                                Cadomyr --
 -- NPC Job:  Shaman                                                           --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  136, 625, 0            --
+-- NPC Race: orc                        NPC Position:  133, 638, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -12,7 +12,7 @@
 name = "Grakamesh"
 race = orc
 sex = male
-position = 136, 625, 0
+position = 133, 638, 0
 direction = south
 affiliation = "Cadomyr"
 job = "Shaman"
