@@ -873,30 +873,38 @@ function HandleMovepoints(Attacker)
     
     --Proposal by Flux: Make stiffness affect attack speed.
     
-    local Stiffmod = base.common.GetStiffness( Attacker.Char )/80;
-    --Stiffmod varies between 0 for clothes, 0.6 to leather 1.8 for heavyish armour
-    --3 for very heavy armour
+    --[[  
+    Proposal is that 1+stiffness/1000 will be multiplied by the final AP gain.
+    This means that those in extremely heavy armour will be 25% slower.
+    Those in medium armour will be 15% slower.
+    Those in leather armour will be 5% slower.
+    And those in cloth will not be affected.
+    ]]
+    
+    local Stiffmod = 1+base.common.GetStiffness( Attacker.Char )/800;
     
     
         -- Subproposal by Flux: Make having a shield affect attack speed too.
         -- As a price for the huge advantage of being able to parry 25% of the time
-            
-            local shieldmalus = 0;
+        -- 7% increase in time between hits
+        
+            local Shieldmod = 1;
             
             if Attacker.LeftIsWeapon then
               if(Attacker.LeftWeapon.WeaponType == 14) then
-                  shieldmalus= 2;
+                  shieldmalus= 1.07;
               end;
             end;
             
             if Attacker.RightIsWeapon then
               if(Attacker.RightWeapon.WeaponType == 14) then
-                  shieldmalus= 2;
+                  shieldmalus= 1.07;
               end;
             end;
             
-          local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-5.8-Stiffmod-shieldmalus)*2.5) / 100 );
-          Attacker.Char:inform("Weapon Fight points = " .. weaponFightpoints);
+          local reduceFightpoints = Stiffmod*Shieldmod*math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
+          
+          
         -- End of subproposal
         
     -- End of proposal
