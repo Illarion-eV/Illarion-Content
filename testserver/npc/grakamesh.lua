@@ -2,7 +2,7 @@
 -- NPC Name: Grakamesh                                                Cadomyr --
 -- NPC Job:  Shaman                                                           --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  136, 625, 0            --
+-- NPC Race: orc                        NPC Position:  133, 638, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (4, 136, 625, 0, 4, 'Grakamesh', 'npc.grakamesh', 0, 3, 0, 20, 80, 200, 131, 140, 84);
+VALUES (4, 133, 638, 0, 4, 'Grakamesh', 'npc.grakamesh', 0, 3, 0, 20, 80, 200, 131, 140, 84);
 ---]]
 
 require("npc.base.basic")
@@ -327,7 +327,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Sir Reginald's Tomb II"));
-talkEntry:addResponse("Hab seen dem skeletons in dat tomb? Dey be evil ghosts dat desecrate grave ob honourable chiefy. Crush one hand ob finger ob dem!");
+talkEntry:addResponse("Hab seen dem slimes in dat tomb? Dey be evil ghosts dat desecrate grave ob honourable chiefy. Crush one hand ob finger ob dem!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -337,7 +337,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 12));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Sir Reginalds Gruft II"));
-talkEntry:addResponse("Sahst du die Skelette in der Gruft? Dies sinned böse Geister, entheiligen das Grab des ehrenvollen alten Oomie-Häuptlings. Brich die Knochen! Eine Hand voll Fingern.");
+talkEntry:addResponse("Sahst du die Schleime in der Gruft? Dies sinned böse Geister, entheiligen das Grab des ehrenvollen alten Oomie-Häuptlings. Brich die Knochen! Eine Hand voll Fingern.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -347,7 +347,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 12));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Sir Reginald's Tomb II"));
-talkEntry:addResponse("Hab seen dem skeletons in dat tomb? Dey be evil ghosts dat desecrate grave ob honourable chiefy. Crush one hand ob finger ob dem!");
+talkEntry:addResponse("Hab seen dem slimes in dat tomb? Dey be evil ghosts dat desecrate grave ob honourable chiefy. Crush one hand ob finger ob dem!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -358,7 +358,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Sir Reginalds Gruft II"));
-talkEntry:addResponse("Sahst du die Skelette in der Gruft? Dies sinned böse Geister, entheiligen das Grab des ehrenvollen alten Oomie-Häuptlings. Brich die Knochen! Eine Hand voll Fingern.");
+talkEntry:addResponse("Sahst du die Schleime in der Gruft? Dies sinned böse Geister, entheiligen das Grab des ehrenvollen alten Oomie-Häuptlings. Brich die Knochen! Eine Hand voll Fingern.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 13));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -369,7 +369,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and a skull staff. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Great! Yoos hab split evil bones, dem nub gonna haunt anymore. Here, hab dis staff fer more bone smashin'!");
+talkEntry:addResponse("Great! Yoos hab smash evil slimes, dem nub gonna haunt anymore. Here, hab dis staff fer more smashin'!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.item.item(39, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 19));
@@ -382,7 +382,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 18));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and a skull staff."));
-talkEntry:addResponse("Great! Yoos hab split evil bones, dem nub gonna haunt anymore. Here, hab dis staff fer more bone smashin'!");
+talkEntry:addResponse("Great! Yoos hab smash evil slimes, dem nub gonna haunt anymore. Here, hab dis staff fer more smashin'!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.item.item(39, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 19));
@@ -394,7 +394,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 18));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke und einen Schädelstab. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Großartig! Die Splitter der bösen Knochen übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.");
+talkEntry:addResponse("Großartig! Zermatschte Schleime übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.item.item(39, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 19));
@@ -406,7 +406,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "=", 18));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke und einen Schädelstab."));
-talkEntry:addResponse("Großartig! Die Splitter der bösen Knochen übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.");
+talkEntry:addResponse("Großartig! Zermatschte Schleime übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.item.item(39, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(78, "=", 19));
@@ -419,7 +419,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "<", 18));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Dem ebil skeletons still haunt dat tomb ob old oomie chief. Dat be... blasphemy! Bring peace to tomb, smash 'em.");
+talkEntry:addResponse("Dem ebil slimes still haunt dat tomb ob old oomie chief. Dat be... blasphemy! Bring peace to tomb, smash 'em.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -428,7 +428,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, ">", 12));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "<", 18));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Die bösen Skelette spuken weiternoch. Das ist... Ketzerei! Befriede die Gruft, zerhau sie!");
+talkEntry:addResponse("Die bösen Schleime spuken weiternoch. Das ist... Ketzerei! Befriede die Gruft, zerhau sie!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -437,7 +437,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, ">", 12));
 talkEntry:addCondition(npc.base.condition.quest.quest(78, "<", 18));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Dem evil skeletons still haunt dat tomb op old oomie chief. Dat be... blasphemy! Bring peace to tomb, smash 'em.");
+talkEntry:addResponse("Dem evil slimes still haunt dat tomb op old oomie chief. Dat be... blasphemy! Bring peace to tomb, smash 'em.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -447,7 +447,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(78, "<", 18));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Die bösen Skelette spuken weiternoch. Das ist... Ketzerei! Befriede die Gruft, zerhau sie!");
+talkEntry:addResponse("Die bösen Schleime spuken weiternoch. Das ist... Ketzerei! Befriede die Gruft, zerhau sie!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -987,7 +987,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Brágon is dat Lord and dat everyding. Brágon is creator! Look around, creator op whub yoos see, dat be Brágon.");
+talkEntry:addResponse("Brágon is dat Lord and dat everyding. Brágon is creator! Look around, creator ob whub yoos see, dat be Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1115,7 +1115,7 @@ talkEntry:addResponse("Ich werdige tanzen, weiter für alte Oomie Häuptling.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schüttelt eine Rassel und beginnt zu singen.", "#me starts to rattle and sings.");
-talkingNPC:addCycleText("#me beginnt unrhythmisch zu tanzen.", "#me starts to dance unrhythmically.");
+talkingNPC:addCycleText("#me beginnt unrhythmisch zu tanzen.", "#me starts to dance arhythmically.");
 talkingNPC:addCycleText("#me schlägt seine Hände auf eine Trommel und singt: 'Heya, heya! Heya, heya!'", "#me slams his hands on a drum, singing: 'Heya, heya! Heya, heya!'");
 talkingNPC:addCycleText("Hurrda, hurrda! Hurrda, hurrda!", "Hurrda, hurrda! Hurrda, hurrda!");
 talkingNPC:addCycleText("Waka, waka, eh, eh!", "Waka, waka, eh, eh!");
