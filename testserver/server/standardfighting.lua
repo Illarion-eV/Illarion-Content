@@ -347,10 +347,9 @@ function ChanceToHit(Attacker, Defender)
 	--And added a stiffness mod - Flux
 
 	local Stiffmod = base.common.GetStiffness( Defender.Char );
-	Defender.Char:inform("Stiffmod: " .. Stiff);
-	Stiffmod = 1-Stiffmod/100;
 	
-	Defender.Char:inform("Stiffmod: " .. Stiff);
+	--Now for the modifier
+	Stiffmod = 1-Stiffmod/100;
 	
 	if (Stiffmod<=0) then
     chance = 0.05;
@@ -358,10 +357,9 @@ function ChanceToHit(Attacker, Defender)
     chance = chance*Stiffmod;
 	end;
 	
-    
+   Defender.Char:inform("Stiffmod: " .. Stiffmod); 
   Defender.Char:inform("chance: " .. chance);
     
-	
 	
 	--PROPOSAL BY ESTRALIS & FLUX
 	chance = math.max(chance,0.05); --raising to 10% no matter what (should not occur with normal values)
