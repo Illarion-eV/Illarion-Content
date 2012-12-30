@@ -105,7 +105,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("May Findari and Elara bless you! Do you want to have a look at my wares?");
-talkEntry:addResponse("Welcome. If you're looking for goods made of glass I can definately help you out.");
+talkEntry:addResponse("Welcome. If you're looking for goods made of glass I can definitely help you out.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -126,7 +126,7 @@ talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Fair winds and clear sight to you!");
 talkEntry:addResponse("May Elara enlighten your path.");
-talkEntry:addResponse("Farewell. Don't forget about me, as glass is pretty frail!");
+talkEntry:addResponse("Farewell. Don't forget about me, as glass is pretty fragile!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -149,7 +149,7 @@ talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Fair winds and clear sight to you!");
 talkEntry:addResponse("May Elara enlighten your path.");
-talkEntry:addResponse("Farewell. Don't forget about me, as glass is pretty frail!");
+talkEntry:addResponse("Farewell. Don't forget about me, as glass is pretty fragile!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -168,8 +168,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I am very well. Look at this bottle here. If you hold it against the light it sparkles in every color imaginable.");
-talkEntry:addResponse("I am a little short of breath and there's blisters from all the glass I polished, but that's to expect from my work.");
+talkEntry:addResponse("I am very well. Look at this bottle here. If you hold it against the light it sparkles in every colour imaginable.");
+talkEntry:addResponse("I'm a little short of breath and there's blisters from all the glass I polished, but that's to be expected from my work.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -187,7 +187,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I'm Fronita. I am a glassblower and I sell my wares here.");
+talkEntry:addResponse("I'm Fronita. I'm a glassblower and I sell my wares here.");
 talkEntry:addResponse("My name? Fronita Emery, I deal in glass goods.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -265,7 +265,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I do not issue any quests, sorry.");
+talkEntry:addResponse("I don't really need any help, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -280,7 +280,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I do not issue any quests, sorry.");
+talkEntry:addResponse("I don't really need any help, sorry.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -295,8 +295,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("Well, why should I stand around here between all this glass? I'm selling it!");
-talkEntry:addResponse("I'm a glassblower and I sell my wares here");
+talkEntry:addResponse("Well, why might I stand around here between all this glass? I'm selling it!");
+talkEntry:addResponse("I'm a glassblower and I sell my wares here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -310,8 +310,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Well, why should I stand around here between all this glass? I'm selling it!");
-talkEntry:addResponse("I'm a glassblower and I sell my wares here");
+talkEntry:addResponse("Well, why might I stand around here between all this glass? I'm selling it!");
+talkEntry:addResponse("I'm a glassblower and I sell my wares here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -353,14 +353,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("glass");
-talkEntry:addResponse("To work with glass is challenging. It becomes frail very fast");
+talkEntry:addResponse("To work with glass is challenging. It becomes fragile very quickly.");
 talkEntry:addResponse("The slender hands of a lady like myself are just right for that kind of work, har har.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sand");
-talkEntry:addResponse("You may think there's enough sand in the desert, still Cadomyr troubles the supply.");
+talkEntry:addResponse("You may think there's enough sand in the desert. Still, Cadomyr troubles the supply.");
 talkEntry:addResponse("Aye, lots of sand in the west. But Cadomyr guards it tightly. That's a problem.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -430,8 +430,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("LOCATION");
-talkEntry:addResponse("You're in Runewick, enjoy the marvellous sight!");
-talkEntry:addResponse("#me smirks and winks: 'I'm taking a wild guess here, but you might be on the market.'");
+talkEntry:addResponse("You're in Runewick, enjoy the marvellous sights!");
+talkEntry:addResponse("#me grins and winks: 'I'm taking a wild guess here, but you might be on the market.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -449,7 +449,7 @@ talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
 talkEntry:addResponse("Speak right up. Just ask around and you'll find the wares you're looking for.");
-talkEntry:addResponse("I am sure it won't be hard for you to find the other merchants of Runewick.");
+talkEntry:addResponse("I'm sure it won't be hard for you to find the other merchants of Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -466,7 +466,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
 talkEntry:addResponse("It's a great comfort to have such a smart man rule over Runewick.");
-talkEntry:addResponse("I have given him wine glasses as a present. Enough for many guests, eventhough he never has guests.");
+talkEntry:addResponse("I've given him wine glasses as a present. Enough for many guests, even though he never has any.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -482,7 +482,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addResponse("It's a great comfort to have such a smart man rule over Runewick.");
-talkEntry:addResponse("I have given him wine glasses as a present. Enough for many guests, eventhough he never has guests.");
+talkEntry:addResponse("I have given him wine glasses as a present. Enough for many guests, even though he never has any.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -497,8 +497,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("What a wonderful town! You take some steps away from the furnace and the cool sea air refreshes you.");
-talkEntry:addResponse("We have the greenest meadows, the tastiest food and the best beer here in Rnewick!");
+talkEntry:addResponse("What a wonderful town! You take a few steps away from the furnace and the cool sea air refreshes you.");
+talkEntry:addResponse("We have the greenest meadows, the tastiest food and the best beer here in Runewick!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -545,7 +545,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("They say she can tell glass jewelry and real jewelry apart. By their smell!");
+talkEntry:addResponse("They say she can tell glass jewelry and real jewelry apart... by their smell!");
 talkEntry:addResponse("Two big childhood dreams combined: Queen of her own enormous sandbox.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -561,7 +561,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("They say she can tell glass jewelry and real jewelry apart. By their smell!");
+talkEntry:addResponse("They say she can tell glass jewelry and real jewelry apart... by their smell!");
 talkEntry:addResponse("Two big childhood dreams combined: Queen of her own enormous sandbox.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -578,7 +578,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("I have to admit, there's better glassblowers than me there. But what else do you expect with all the sand there?");
-talkEntry:addResponse("I don't like them. There's always troubles everytime I try to gather sand from the dessert.");
+talkEntry:addResponse("I don't like them. There's always trouble everytime I try to gather sand from the desert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -592,8 +592,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("I'm glad I don't have to live there. They certainly wouldn't have let me learn glassblowing, as I am a woman.");
-talkEntry:addResponse("Brutal and agressive people, all of their culture is based on war and opression.");
+talkEntry:addResponse("I'm glad I don't have to live there. They certainly wouldn't have let me learn glassblowing, as I'm a woman.");
+talkEntry:addResponse("Brutal and aggressive people, all of their culture is based on war and oppression.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -623,7 +623,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
 talkEntry:addResponse("Once I've earned enough money I want to visit Salkamar.");
-talkEntry:addResponse("I once heard that they have colourful windows there with pictures made of glas that tell stories.");
+talkEntry:addResponse("I once heard that they have colourful windows there with pictures made of glass that tell stories.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -693,7 +693,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("You have a lot of time to think about the important things of life when you stare at the furnace..");
+talkEntry:addResponse("You have a lot of time to think about the important things in life when you stare at the furnace..");
 talkEntry:addResponse("My faith in Elara gives me peace of mind. Waiting for the glass to cool off is a form of meditation for me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -973,13 +973,13 @@ talkEntry:addResponse("Ja. Aye. Absolut. Und jetzt kauf mir was ab!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me poliert ein fein gearbeitetes Weinglas.", "#me polishes a well crafted wine glass.");
-talkingNPC:addCycleText("Genieﬂt die feinen Getr‰nke Runewicks in Runewicks besten Gl‰sern.", "Enjoy the best of Runewicks beverages in Runewicks best glasses.");
+talkingNPC:addCycleText("Genieﬂt die feinen Getr‰nke Runewicks in Runewicks besten Gl‰sern.", "Enjoy the best of Runewick's beverages in Runewicks best glasses.");
 talkingNPC:addCycleText("In meinen Glaswaren funkelt die Ewigkeit!", "Eternity sparkles in my glass wares!");
 talkingNPC:addCycleText("#me spielt mit ein paar Glasmurmeln.", "#me plays with some glass pebbles.");
 talkingNPC:addCycleText("Kauft euren Bierkrug bei mir, ich kenn mich damit aus.", "Buy your beer mugs here, trust my expertise about them.");
 talkingNPC:addCycleText("Feinstes Glas aus kundiger Zwergenhand!", "Finest glass made by knowledgable dwarven hands!");
 talkingNPC:addCycleText("Seht was ihr trinkt! Benutzt meine Gl‰ser anstatt Holzbechern.", "See what you drink! Use my glasses instead of wooden mugs.");
-talkingNPC:addCycleText("Beste Glaswaren!", "Best glas goods!");
+talkingNPC:addCycleText("Beste Glaswaren!", "Best glass goods around!");
 talkingNPC:addCycleText("Ich verkaufe Tr‰ume aus Glas und Kristall!", "I sell dreams of glass and crystal!");
 talkingNPC:addCycleText("Shh! Ich habe ein Sonderangebot!", "Shh! I have special offers!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(311,"sell"));
