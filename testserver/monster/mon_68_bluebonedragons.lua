@@ -57,7 +57,7 @@ function FireBreath(Monster,Enemy)
                     if (BreathShape[i][k]~=0) then
                         world:gfx(BreathShape[i][k],BreathPos);
                         if (math.random(1,5)==1) then
-                            world:createItemFromId(560,1,BreathPos,true,math.random(200,600),0);
+                            world:createItemFromId(560,1,BreathPos,true,math.random(200,600),nil);
                             world:makeSound(5,BreathPos);
                         end
                         if world:isCharacterOnField(BreathPos) then
