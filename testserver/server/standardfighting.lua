@@ -323,7 +323,12 @@ function ChanceToHit(Attacker, Defender)
 	--PROPOSAL BY ESTRALIS & FLUX
 	local chance = (40 + Attacker.skill)/((45 + Defender.dodge)* 1.4);
 		
-	--Reason: Higher base chance, higher overall chance, reduced impact of low skill levels (one cannot even hit an unarmed pig as noob!)
+	--Reason: Higher base chance, higher overall chance, reduced impact of low skill levels
+	-- (one could even hit an unarmed pig as noob!)
+	-- There is a graph in the documentation that shows exactly why this graph was chosen.
+	-- I plotted >20 graphs to arrive at this one.
+	-- We tried adding constants, changing both the top and bottom value etc.
+	-- Eventually we arrived at this being the best to fit all purposes - Flux
 	
 	--PROPOSAL END
 	
@@ -350,7 +355,69 @@ function ChanceToHit(Attacker, Defender)
 	
 	--Now for the modifier
 	
-	chance = chance+Stiffmod/386;
+	chance = chance+Stiffmod/500;
+	--[[
+	Just a side note here.
+	
+	500 may seem like a "magic number" because it is so round. It is not a magic number.
+	It has been calculated.
+	
+	This value was arrived at by examination of the graph and thinking about what warrants
+	midplate and fullplate etc.
+	
+	The graph I refer to is in the documentation, and is a 3 dimensional contour graph.
+	
+	So, say you're fighting a monster who is equally skilled or up to 10 skillpoints more
+	skilled than you, you'd expect around the 58% hit range before stiffness.
+	
+	Someone with a leather set of armour will have around 50 stiffness.
+	Someone with a mid set of armour will have around.. 150 stiffness.
+	Someone with a heavy set of armour will have like 220 stiffness or more.
+	
+	The heavy person has to live with the consequences of their actions. They will pretty much
+	never be able to dodge. They'll dodge with the 5% chance cap though.
+	
+	So if we say that the mid setter should feel a slight benefit from going mid.
+	Therefore the stiffness should only push up the hit chance to 90% for them at things
+	around their level.
+	
+	So 150 should translate into a 30% increase.
+	That's why I propose division by 500 and addition to the hit chance.
+	
+	This would mean that it adds >50% to the chance of hitting against a defender in heavy
+	armour, 10% onto someone in leather armour, 0% onto someone who is wearing plain clothes.
+	And to a mid armour user it would add around 30% as we modelled it.
+	
+	So let's look at what these numbers mean in real world terms:
+	
+  FOR HEAVY USERS:
+  People with fighting skill 60 levels lower than you will hit you 75-85% of the time.
+	
+	People with skill at your level will push you above the upper bound, where you will
+	dodge the standard 5% of the time. No more.
+	
+	FOR MIDHEAVY USERS:
+	People with fighting skill 60 levels lower than you will only hit you 55-70% of the time.
+	
+	People with skill around yours will hit you around 90% of the time.
+	
+	People with skill above you by 10 levels will always push you above the upper bound.
+	
+	FOR LIGHT USERS:
+	Someone 60 skill levels below you would hit 50% of the time.
+	
+	Someone at your skill level would hit you ~70% of the time.
+	
+	Someone 10 skill levels higher than you would hit you 80% of the time.
+	
+	Someone 20 skill levels higher than you would push you above the upper bound.
+	
+	This seems very reasonable and balances the different types of class, while pushing dodge
+	chance into the same region as parry chance, which is good because they'll skill up at the
+	same time.
+	
+	- Flux
+	]]
 	
    Defender.Char:inform("Stiffmod: " .. Stiffmod); 
   Defender.Char:inform("chance: " .. chance);
