@@ -104,7 +104,7 @@ function Init()
     AddPotion("Galmair",		  
 			  403,
 			  {"a con blossom","eine Trugblüte"},
-			  {766}
+			  {766,false}
 			  )
 	AddPotion("Cadomyr",		  
 			  404,
