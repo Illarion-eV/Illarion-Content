@@ -434,8 +434,8 @@ function ChanceToHit(Attacker, Defender)
     --PROPOSAL END
 
 
-   local dodgechance = 100*(1-chance);
-  Defender.Char:inform("Dodge percent chance: " .. dodgechance);
+   --local dodgechance = 100*(1-chance);
+  --Defender.Char:inform("Dodge percent chance: " .. dodgechance);
 
     return base.common.Chance(chance);
 end;
@@ -563,14 +563,20 @@ function ChanceToParry(Attacker, Defender)
         return false;
     end;
 	
-	--PROPOSAL BY FLUX: You cannot parry someone who stands behind you.
+	--PROPOSAL BY FLUX: You cannot parry someone who stands outside of your front quadrant
+	-- As in.. people behind you, people sideways of you
 	-- That would be silly.
-	-- Since they must be facing you if they're attacking you, if they face in the same
+	-- Since they must be facing  if they're attacking you, if they face in the same
 	-- direction then they must be hitting your back.
 	
 	local DirectionDifference = math.abs(Defender.Char:getFaceTo()-Attacker.Char:getFaceTo());
 	
-	if (DirectionDifference<=1) or (DirectionDifference==7) then
+	-- If you wish to change it to only people from behind get a free hit, change line to:
+	-- if (DirectionDifference<=1) or (DirectionDifference==7) then
+	-- Right now it also covers people attacking from sideways on
+	
+	end;
+	if (DirectionDifference<=2) or (DirectionDifference>=6) then
       return false;
 	end;
 	
@@ -583,7 +589,7 @@ function ChanceToParry(Attacker, Defender)
     --PROPOSAL END
     
 	
-	Defender.Char:inform("Parry percent chance: " .. chance);
+	--Defender.Char:inform("Parry percent chance: " .. chance);
 	
     return base.common.Chance(chance, 100);
 end;
@@ -967,7 +973,7 @@ end;
 -- @param Defender The table containing the defender data
 function LearnParry(Attacker, Defender, AP)
 
-    Defender.Char:inform("Learn limit is 10 above" .. Attacker.skill);
+    --Defender.Char:inform("Learn limit is 10 above" .. Attacker.skill);
     
     Defender.Char:learn(Character.parry, AP/2, Attacker.skill + 10)
 		
