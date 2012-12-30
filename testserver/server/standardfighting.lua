@@ -868,7 +868,7 @@ function HandleMovepoints(Attacker)
     -- End of proposal
     
     -- Old
-    --[[local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
+    --local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
 	
 	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints));
     Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints); 
