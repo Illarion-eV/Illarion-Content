@@ -33,7 +33,6 @@ function Init()
     AddPlant(145, {gt.grass})                         -- heath flower
     AddPlant(151, {gt.forest})                        -- strawberry
     AddPlant(141, {gt.rocks})                         -- black thistle
-    AddPlant(145, {gt.grass})                         -- heath flower
     AddPlant(133, {gt.grass})                         -- sun herb
     AddPlant(753, {gt.grass,gt.forest})              -- blue bird's berry
     AddPlant(159, {gt.forest})						-- toadstool

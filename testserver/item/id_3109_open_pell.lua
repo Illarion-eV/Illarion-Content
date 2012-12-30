@@ -73,7 +73,7 @@ function Init()
 			  )		
     AddPotion("Galmair", 
 	          314, 
-			  {"a medium nutrition annihilator bomb with at least average quality", "einen kleinen Nahrungsannihilator von zumindest durchschnittlicher Qualität"},
+			  {"a medium nutrition annihilator bomb with at least average quality", "einen mittleren Nahrungsannihilator von zumindest durchschnittlicher Qualität"},
 			  {327,5,{"filledWith","potion"},{"potionEffectId","312"}}
 			  )
     AddPotion("Galmair", 
