@@ -141,7 +141,7 @@ if (MonID==1041) then --Wandering Garbage, Level: 2, Armourtype: light, Weaponty
 
     elseif (MonID==1043) then --Corpsebile, Level: 4, Armourtype: light, Weapontype: slashing
 
-        --Category 1: Raw gens
+        --Category 1: Raw gems
 
         local done=monster.base.drop.AddDropItem(256,1,20,(100*math.random(3,4)+math.random(33,44)),0,1); --raw emerald
         if not done then done=monster.base.drop.AddDropItem(252,1,10,(100*math.random(3,4)+math.random(33,44)),0,1); end --raw obsidian

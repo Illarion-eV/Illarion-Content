@@ -117,14 +117,14 @@ queststatus(78) > 0, queststatus(78) < 11, "Auftrag", "Aufgabe", "Abenteuer" -> 
 
 -- Give out quest 2
 queststatus(78) = 12, english, "quest", "mission" -> inform("[New quest] Sir Reginald's Tomb II"), "Hab seen dem skeletons in dat tomb? Dey be evil ghosts dat desecrate grave ob honourable chiefy. Crush one hand ob finger ob dem!", queststatus(78) = 13
-queststatus(78) = 12, "quest", "mission" -> inform("[Neues Quest] Sir Reginalds Gruft II"), "Sahst du die Skelette in der Gruft? Dies sinned böße geister, entheiligen das Grab des ehrenvollen alten Oomie Häuptlings. Brich die Knochen! Eine Hand voll Fingern.", queststatus(78) = 13
+queststatus(78) = 12, "quest", "mission" -> inform("[Neues Quest] Sir Reginalds Gruft II"), "Sahst du die Skelette in der Gruft? Dies sinned böse Geister, entheiligen das Grab des ehrenvollen alten Oomie-Häuptlings. Brich die Knochen! Eine Hand voll Fingern.", queststatus(78) = 13
 queststatus(78) = 12, "task", "adventure" -> inform("[New quest] Sir Reginald's Tomb II"), "Hab seen dem skeletons in dat tomb? Dey be evil ghosts dat desecrate grave ob honourable chiefy. Crush one hand ob finger ob dem!", queststatus(78) = 13
-queststatus(78) = 12, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Sir Reginalds Gruft II"), "Sahst du die Skelette in der Gruft? Dies sinned böse geister, entheiligen das Grab des ehrenvollen alten Oomie Häuptlings. Brich die Knochen! Eine Hand voll Fingern.", queststatus(78) = 13
+queststatus(78) = 12, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Sir Reginalds Gruft II"), "Sahst du die Skelette in der Gruft? Dies sinned böse Geister, entheiligen das Grab des ehrenvollen alten Oomie-Häuptlings. Brich die Knochen! Eine Hand voll Fingern.", queststatus(78) = 13
 
 -- Quest 2 solved, reward: 100cp, skull staff, +10 rankpoints
 queststatus(78) = 18, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded ten silver coins and a skull staff. You advance in Queen Rosaline Edwards' favour."), "Great! Yoos hab split evil bones, dem nub gonna haunt anymore. Here, hab dis staff fer more bone smashin'!", money + 1000, item(39, 1, 599), queststatus(78) = 19, rankpoints + 10
 queststatus(78) = 18, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and a skull staff."), "Great! Yoos hab split evil bones, dem nub gonna haunt anymore. Here, hab dis staff fer more bone smashin'!", money + 1000, item(39, 1, 599), queststatus(78) = 19
-queststatus(78) = 18, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und einen Schädelstab. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Großartig! Die Splitter der bößen Knochen übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.", money + 1000, item(39, 1, 599), queststatus(78) = 19, rankpoints + 10
+queststatus(78) = 18, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und einen Schädelstab. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Großartig! Die Splitter der bösen Knochen übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.", money + 1000, item(39, 1, 599), queststatus(78) = 19, rankpoints + 10
 queststatus(78) = 18, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und einen Schädelstab."), "Großartig! Die Splitter der bösen Knochen übersähigen den heiligen Boden! Dein Lohn seis, dieser Stab.", money + 1000, item(39, 1, 599), queststatus(78) = 19
 
 -- Quest 2 taken but not solved, repeat the instructions
@@ -160,8 +160,8 @@ queststatus(78) = 22, "task", "adventure" -> "Danks fer everyding yoos hab do. R
 queststatus(78) = 22, "Auftrag", "Aufgabe", "Abenteuer" -> "Sei gedankt, für alle deine Taten. Reginald wird liegen in Friede, solange bis Oomie Hastings tut nächste Misstat!"
 
 -- Quest by NPC mirarie Bragolin (Writing history III)
-queststatus(317) = 6, english, "Mirarie", "Bragolin", "letter", "message" -> "Meh need to think about table manners. Hurr Hurr. Yoos go and tell Mirarie?", queststatus(317) =7
-queststatus(317) = 6,"Mirarie", "Bragolin", "Brief", "Nachricht" -> "Ich musse nachdenken übers die Tischsitten. Hurr Hurr. Geh und sagst Mirarie, ja?", queststatus(317) = 7
+queststatus(317) = 6, english, "Mirarie", "Bragolin", "letter", "message" -> "Meh need to think about table manners. Hurr, hurr. Yoos go and tell Mirarie?", queststatus(317) = 7
+queststatus(317) = 6, "Mirarie", "Bragolin", "Brief", "Nachricht" -> "Ich musse nachdenken übers die Tischsitten. Hurr, hurr. Geh und sagst Mirarie, ja?", queststatus(317) = 7
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Me be Grakamesh, da shaman ob Cadomyr. Mes dance fer fallen ones."
@@ -171,7 +171,7 @@ english, "job" -> "Me be Grakamesh, da shaman ob Cadomyr. Mes dance fer fallen o
 english, "Gobaith", "Gobiath" -> "Neva hab hear ob dat place, sorries."
 "Gobaith", "Gobiath" -> "Hab nie gehört von solche Ort. Nie, nicht."
 "my name" -> "And meh be Grakamesh. Mes shaman ob tribe ob Cadomyr orcis. Dancin' fer fallen, dat mes be doin'."
-"mein Name" -> "Und mir ist Grakamesh. Der Schamane von Cadomyrs Orks. Tanzen für die Toten, das ist meine Aufgabe."
+"mein Name" -> "Und mir ist Grakamesh. Der Schamane von Cadomyrs-Orks. Tanzen für die Toten, das ist meine Aufgabe."
 
 -- More small talk; add at least five triggers
 "shaman" -> "Yubba, meh beh shaman. Mes prayin' fer der fallen oomies so dem can rest in peace.", "Shaman beh important member ob orc society. Shaman beh religious leader! Meh beh shaman!", "Whub want know about shamans? Meh be shaman. Meh can answer, meh dink."
