@@ -2,7 +2,7 @@
 -- NPC Name: Grakamesh                                                Cadomyr --
 -- NPC Job:  Shaman                                                           --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  136, 625, 0            --
+-- NPC Race: orc                        NPC Position:  133, 638, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -12,7 +12,7 @@
 name = "Grakamesh"
 race = orc
 sex = male
-position = 136, 625, 0
+position = 133, 638, 0
 direction = south
 affiliation = "Cadomyr"
 job = "Shaman"
@@ -224,7 +224,7 @@ english, "salkama" -> "Ah, mes hab hear lots bout Salkamar. Proud realm, dat be.
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Dere be lotsa gods, more den Grakamesh hab fingers. Mes honour dem all, but mes heart beats fer Brágon, god op fire, alone."
 "Gott", "Götter" -> "Mehr als Grakamesh Finger hat, es Götter gibt. Aber mein Herz schlägt für Brágon alleine, dem Gott der Feuer."
-english, "Bragon", "Brágon" -> "Brágon is dat Lord and dat everyding. Brágon is creator! Look around, creator op whub yoos see, dat be Brágon."
+english, "Bragon", "Brágon" -> "Brágon is dat Lord and dat everyding. Brágon is creator! Look around, creator ob whub yoos see, dat be Brágon."
 "Bragon", "Brágon" -> "Brágon ist der Herr. Der Erschaffer! Blick dich umher, der Erschaffer von alles was sehbar ist. Das ist Brágon."
 english, "Cherga" -> "Mes dance fer pleasin' Cherga, dat mes be doin'. Cherga beh lady ob afterlife. And yoos and mes both go afterlife one day, nub? Nub mess wib Cherga!"
 "Cherga" -> "Ich tanze um Cherga zu bittigen, das tuh ich. Cherga ist die Herrin des Nachlebens. Und du und ich, beide wollen wir eines Tages das Nachleben erleben, nicht wahr? Verärgere die eisige Hexe, Cherga nicht!"
@@ -255,7 +255,7 @@ english, "Grakamesh" -> "Dat be mes, yubba!"
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me schüttelt eine Rassel und beginnt zu singen.", "#me starts to rattle and sings."
-cycletext "#me beginnt unrhythmisch zu tanzen.", "#me starts to dance unrhythmically."
+cycletext "#me beginnt unrhythmisch zu tanzen.", "#me starts to dance arhythmically."
 cycletext "#me schlägt seine Hände auf eine Trommel und singt: 'Heya, heya! Heya, heya!'", "#me slams his hands on a drum, singing: 'Heya, heya! Heya, heya!'"
 cycletext "Hurrda, hurrda! Hurrda, hurrda!", "Hurrda, hurrda! Hurrda, hurrda!"
 cycletext "Waka, waka, eh, eh!", "Waka, waka, eh, eh!"

@@ -368,6 +368,9 @@ function baseNPC:initDone()
     self["initDone"] = nil;
 end;
 
+function baseNPC:setAutoIntroduceMode(autointroduce)
+end;
+
 --- This function learns the NPC the languages skills needed to work properly.
 --- Check if this function is not nil before you call it, because it destructs
 --- itself after it was called once.

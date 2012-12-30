@@ -2,7 +2,7 @@
 -- NPC Name: Grakamesh                                                Cadomyr --
 -- NPC Job:  Shaman                                                           --
 --                                                                            --
--- NPC Race: orc                        NPC Position:  136, 625, 0            --
+-- NPC Race: orc                        NPC Position:  133, 638, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (4, 136, 625, 0, 4, 'Grakamesh', 'npc.grakamesh', 0, 3, 0, 20, 80, 200, 131, 140, 84);
+VALUES (4, 133, 638, 0, 4, 'Grakamesh', 'npc.grakamesh', 0, 3, 0, 20, 80, 200, 131, 140, 84);
 ---]]
 
 require("npc.base.basic")
@@ -987,7 +987,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Brágon is dat Lord and dat everyding. Brágon is creator! Look around, creator op whub yoos see, dat be Brágon.");
+talkEntry:addResponse("Brágon is dat Lord and dat everyding. Brágon is creator! Look around, creator ob whub yoos see, dat be Brágon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1115,7 +1115,7 @@ talkEntry:addResponse("Ich werdige tanzen, weiter für alte Oomie Häuptling.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schüttelt eine Rassel und beginnt zu singen.", "#me starts to rattle and sings.");
-talkingNPC:addCycleText("#me beginnt unrhythmisch zu tanzen.", "#me starts to dance unrhythmically.");
+talkingNPC:addCycleText("#me beginnt unrhythmisch zu tanzen.", "#me starts to dance arhythmically.");
 talkingNPC:addCycleText("#me schlägt seine Hände auf eine Trommel und singt: 'Heya, heya! Heya, heya!'", "#me slams his hands on a drum, singing: 'Heya, heya! Heya, heya!'");
 talkingNPC:addCycleText("Hurrda, hurrda! Hurrda, hurrda!", "Hurrda, hurrda! Hurrda, hurrda!");
 talkingNPC:addCycleText("Waka, waka, eh, eh!", "Waka, waka, eh, eh!");
