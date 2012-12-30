@@ -77,7 +77,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Laura Pepperbags die Geldwechslerin von Galmair. Schlüsselwörter: Hallo, verkaufe, kaufe, Handel, Beruf.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeting to you. Did you come here for exchanging money?", "Greetings. Do you need money?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greeting to you. Did you come here to exchange money?", "Greetings. Do you need money?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt. Seid ihr hier um Geld zu wechseln?", "Grüße. Braucht ihr Geld?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings.", "Hello."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüße.", "Hallo."
@@ -87,8 +87,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Save Paths.", "Fare well."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sichere Pfade.", "Lebt Wohl."
 "How are you", "How feel", "How do you do" -> "I'm fine. Thank you. Do you want to change money?"
 "Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage. Möchtet Ihr Geld eintauchen?"
-"your name", "who are you", "who art thou" -> "My name is Laura Pepperbags, I'm the best money changer in Galmair.", "My name is Laura Pfeffersack, I'm the the only money changer in Galmair."
-"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Laura Pepperbags, ich bin die beste Geldwechslerin in Galmair.", "Ich heiße Laura Pfeffersack, ich bin die einzige Geldwechslerin in Galmair."
+"your name", "who are you", "who art thou" -> "My name is Laura Pepperbags, I'm the best money changer in Galmair.", "My name is Laura Pepperbags, I'm the the only money changer in Galmair."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Laura Pepperbags, ich bin die beste Geldwechslerin in Galmair.", "Ich heiße Laura Pepperbags, ich bin die einzige Geldwechslerin in Galmair."
 
 -- OPTIONAL TRIGGERS
 
@@ -107,7 +107,7 @@ english, "job" -> "I like my job. I like money."
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Most people do only pray to one or two gods."
 "Gott", "Götter" -> "Die meisten Leute beten zu einem oder zwei Göttern."
-english, "Ronagan" -> "Ronagan is almost as evil as the Unnamed one, but that's just my personal opinion."
+english, "Ronagan" -> "Ronagan is almost as evil as the unnamed one, but that's just my personal opinion."
 "Ronagan" -> "Ronagan ist fast so schlimm wie der Ungenannte, aber das ist bloß meine Meinung."
 
 -- Optional: Faction stuff
@@ -123,7 +123,7 @@ english, "gynk", "gync" -> "I was born in Gynk. It's nice there."
 "gync", "gynk" -> "I wurde in Gync geboren. Dort ist es hübsch."
 
 -- Optional: Gobaith
-english, "Gobaith", "Gobiath" -> "Where shall this place be?", "I've never heard of that place."
+english, "Gobaith", "Gobiath" -> "Where is this place supposed to be?", "I've never heard of that place."
 "Gobaith", "Gobiath" -> "Wo soll das denn sein?", "Davon hab ich noch nie gehört."
 
 ------------------------------------------------------------------------------AC
@@ -131,6 +131,6 @@ english, "Gobaith", "Gobiath" -> "Where shall this place be?", "I've never heard
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me zählt emsig Münzen.", "#me counts assiduously money."
-cycletext "#me betrachtet ihr Spiegelbild in einer Silbermünze.", "#me looks at her refelction in a silver coin."
+cycletext "#me zählt emsig Münzen.", "#me assiduously counts money."
+cycletext "#me betrachtet ihr Spiegelbild in einer Silbermünze.", "#me looks at her reflection in a silver coin."
 cycletext "Wenn ihn euer Kupfer gegen funkelndes Silber tauschen möchtet, so sprecht mich ruhig an.", "If you want to change your copper to some nice shining silver coins, just talk to me!"

@@ -95,10 +95,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		end			
 		local sdItems = SelectionDialog("Erase items.", "Choose the item you wish to erase:", cbChooseItem);
 		sdItems:addOption(0,"Front of char");
-        for _,item in ipairs(itemsOnChar) do 
-			local itemName = world:getItemName(item.id,1) -- only english names folks
-			sdItems:addOption(0,itemName .. " (" .. itemPos[item.itempos] .. ") Count: ".. item.number);
-        end	
+    for _,item in ipairs(itemsOnChar) do 
+			if (item.id > 0) then
+        local itemName = world:getItemName(item.id,1) -- only english names folks
+        sdItems:addOption(item.id,itemName .. " (" .. itemPos[item.itempos] .. ") Count: ".. item.number);
+      end
+    end	
 		User:requestSelectionDialog(sdItems);
 		
 	elseif (SourceItem:getData("mode")=="Teleport") then 	
@@ -264,22 +266,15 @@ function LookAtItem(User,Item)
         base.lookat.SetSpecialName(Item, "Dietriche", "Lockpicks");
     end
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
-	
-    for intx=User.pos.x-5,User.pos.x+5 do
-        for inty=User.pos.y-5,User.pos.y+5 do
-            if (world:isCharacterOnField(position(intx,inty,User.pos.z))==true) then
-                TargetChar=world:getCharacterOnField(position(intx,inty,User.pos.z));
-                User:introduce(TargetChar);
-            end
-        end
-    end
 end
 
 function String2Number(str)
-	local _,_,num = string.find(str, "(%d+)");
-	if (num~="") then
-		num = tonumber(num);
-		return num, true;
-	end
+	if (string.find(str, "(%d+)") ~= nil) then
+    local _,_,num = string.find(str, "(%d+)");
+    if (num~="") then
+      num = tonumber(num);
+      return num, true;
+    end
+  end
 	return 0, false;
 end
