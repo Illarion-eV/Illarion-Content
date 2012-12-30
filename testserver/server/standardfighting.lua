@@ -105,7 +105,7 @@ function onAttack(Attacker, Defender)
     end;
     
     -- Calculate the chance to parry
-    if ChanceToParry(Defender) then
+    if ChanceToParry(Attacker, Defender) then
         -- Hit was parried
         LearnParry(Attacker, Defender, APreduction);
         
@@ -220,7 +220,8 @@ function CalculateDamage(Attacker, Globals)
     --TacticsBonus = (Attacker.tactics - 20) * 0.5;
     GemBonus = base.gems.getGemBonus(Attacker.WeaponItem);
 
-    Globals["Damage"] = BaseDamage * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus)/100;
+    -- Base damage was far too high for the new combat speed, you could get murked too fast.
+    Globals["Damage"] = 0.6 * BaseDamage * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus)/100;
     
 end;
 
@@ -323,7 +324,12 @@ function ChanceToHit(Attacker, Defender)
 	--PROPOSAL BY ESTRALIS & FLUX
 	local chance = (40 + Attacker.skill)/((45 + Defender.dodge)* 1.4);
 		
-	--Reason: Higher base chance, higher overall chance, reduced impact of low skill levels (one cannot even hit an unarmed pig as noob!)
+	--Reason: Higher base chance, higher overall chance, reduced impact of low skill levels
+	-- (one could even hit an unarmed pig as noob!)
+	-- There is a graph in the documentation that shows exactly why this graph was chosen.
+	-- I plotted >20 graphs to arrive at this one.
+	-- We tried adding constants, changing both the top and bottom value etc.
+	-- Eventually we arrived at this being the best to fit all purposes - Flux
 	
 	--PROPOSAL END
 	
@@ -343,15 +349,94 @@ function ChanceToHit(Attacker, Defender)
     end;
 	
 	
-	--Stiffness mod
-	local Stiff = base.common.GetStiffness( Defender.Char );
-    Defender.Char:inform("Stiffness: " .. Stiff);
+	--Stiffness wasn't taken into account? Rewrote base.common.Getstiffness
+	--And added a stiffness mod - Flux
+
+	local Stiffmod = base.common.GetStiffness( Defender.Char );
 	
+	--Now for the modifier
+	
+	chance = chance+Stiffmod/500;
+	--[[
+	Just a side note here.
+	
+	500 may seem like a "magic number" because it is so round. It is not a magic number.
+	It has been calculated.
+	
+	This value was arrived at by examination of the graph and thinking about what warrants
+	midplate and fullplate etc.
+	
+	The graph I refer to is in the documentation, and is a 3 dimensional contour graph.
+	
+	So, say you're fighting a monster who is equally skilled or up to 10 skillpoints more
+	skilled than you, you'd expect around the 58% hit range before stiffness.
+	
+	Someone with a leather set of armour will have around 50 stiffness.
+	Someone with a mid set of armour will have around.. 150 stiffness.
+	Someone with a heavy set of armour will have like 220 stiffness or more.
+	
+	The heavy person has to live with the consequences of their actions. They will pretty much
+	never be able to dodge. They'll dodge with the 5% chance cap though.
+	
+	So if we say that the mid setter should feel a slight benefit from going mid.
+	Therefore the stiffness should only push up the hit chance to 90% for them at things
+	around their level.
+	
+	So 150 should translate into a 30% increase.
+	That's why I propose division by 500 and addition to the hit chance.
+	
+	This would mean that it adds >50% to the chance of hitting against a defender in heavy
+	armour, 10% onto someone in leather armour, 0% onto someone who is wearing plain clothes.
+	And to a mid armour user it would add around 30% as we modelled it.
+	
+	So let's look at what these numbers mean in real world terms:
+	
+  FOR HEAVY USERS:
+  People with fighting skill 60 levels lower than you will hit you 75-85% of the time.
+	
+	People with skill at your level will push you above the upper bound, where you will
+	dodge the standard 5% of the time. No more.
+	
+	FOR MIDHEAVY USERS:
+	People with fighting skill 60 levels lower than you will only hit you 55-70% of the time.
+	
+	People with skill around yours will hit you around 90% of the time.
+	
+	People with skill above you by 10 levels will always push you above the upper bound.
+	
+	FOR LIGHT USERS:
+	Someone 60 skill levels below you would hit 50% of the time.
+	
+	Someone at your skill level would hit you ~70% of the time.
+	
+	Someone 10 skill levels higher than you would hit you 80% of the time.
+	
+	Someone 20 skill levels higher than you would push you above the upper bound.
+	
+	This seems very reasonable and balances the different types of class, while pushing dodge
+	chance into the same region as parry chance, which is good because they'll skill up at the
+	same time.
+	
+	tl;dr - stiffness is properly balanced to fit with parry chance
+	
+	- Flux
+	]]
+	
+  
+    
 	
 	--PROPOSAL BY ESTRALIS & FLUX
 	chance = math.max(chance,0.1); --raising to 10% no matter what (should not occur with normal values)
-    chance = math.min(chance,0.95); --capping at 95%, no one hits all the time
+	
+	
+	local maximumhitchance = 0.95;
+
+    chance = math.min(chance,maximumhitchance); --capping at 95%, no one hits all the time
     --PROPOSAL END
+
+
+   --local dodgechance = 100*(1-chance);
+  --Defender.Char:inform("Dodge percent chance: " .. dodgechance);
 
     return base.common.Chance(chance);
 end;
@@ -360,7 +445,7 @@ end;
 -- carries and seaches for the fest item to parry with.
 -- @param Defender The table that stores all data of the defender
 -- @return true in case the hit was parried
-function ChanceToParry(Defender)
+function ChanceToParry(Attacker, Defender)
 
 --[[This function now ASSUMES that each weapon's "Defence" is the important factor.
     it does not descriminate between what is a shield and what is a sword.
@@ -479,13 +564,33 @@ function ChanceToParry(Defender)
         return false;
     end;
 	
+	--PROPOSAL BY FLUX: You cannot parry someone who stands outside of your front quadrant
+	-- As in.. people behind you, people sideways of you
+	-- That would be silly.
+	-- Since they must be facing  if they're attacking you, if they face in the same
+	-- direction then they must be hitting your back.
+	
+	local DirectionDifference = math.abs(Defender.Char:getFaceTo()-Attacker.Char:getFaceTo());
+	
+	-- If you wish to change it to only people from behind get a free hit, change line to:
+	-- if (DirectionDifference<=1) or (DirectionDifference==7) then
+	-- Right now it also covers people attacking from sideways on
+	
+	
+	if (DirectionDifference<=2) or (DirectionDifference>=6) then
+      return false;
+	end;
+	
+	-- PROPOSAL END
+	
 	
 	--PROPOSAL BY ESTRALIS & FLUX
 	chance = math.max(chance,5); --raising to 5% no matter what (should not occur with normal values)
     chance = math.min(chance,95); --capping at 95%, no one hits all the time
     --PROPOSAL END
     
-	--PROPOSAL END
+	
+	--Defender.Char:inform("Parry percent chance: " .. chance);
 	
     return base.common.Chance(chance, 100);
 end;
@@ -775,7 +880,46 @@ function HandleMovepoints(Attacker)
         weaponFightpoints = content.fighting.GetWrestlingMovepoints(Attacker.Race);
     end;
     
-    local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
+    --Proposal by Flux: Make stiffness affect attack speed.
+    
+    --[[  
+    Proposal is that 1+stiffness/1000 will be multiplied by the final AP gain.
+    This means that those in extremely heavy armour will be 25% slower.
+    Those in medium armour will be 15% slower.
+    Those in leather armour will be 5% slower.
+    And those in cloth will not be affected.
+    ]]
+    
+    local Stiffmod = 1+base.common.GetStiffness( Attacker.Char )/800;
+    
+    
+        -- Subproposal by Flux: Make having a shield affect attack speed too.
+        -- As a price for the huge advantage of being able to parry 25% of the time
+        -- 7% increase in time between hits
+        
+            local Shieldmod = 1;
+            
+            if Attacker.LeftIsWeapon then
+              if(Attacker.LeftWeapon.WeaponType == 14) then
+                  shieldmalus= 1.07;
+              end;
+            end;
+            
+            if Attacker.RightIsWeapon then
+              if(Attacker.RightWeapon.WeaponType == 14) then
+                  shieldmalus= 1.07;
+              end;
+            end;
+            
+          local reduceFightpoints = Stiffmod*Shieldmod*math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
+          
+          
+        -- End of subproposal
+        
+    -- End of proposal
+    
+    -- Old
+    --local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
 	
 	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints));
     Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints); 
@@ -830,7 +974,7 @@ end;
 -- @param Defender The table containing the defender data
 function LearnParry(Attacker, Defender, AP)
 
-    Defender.Char:inform("Learn limit is 10 above" .. Attacker.skill);
+    --Defender.Char:inform("Learn limit is 10 above" .. Attacker.skill);
     
     Defender.Char:learn(Character.parry, AP/2, Attacker.skill + 10)
 		

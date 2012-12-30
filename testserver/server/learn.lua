@@ -55,7 +55,7 @@ function learn(user, skill, actionPoints, learnLimit)
 					
 					if user:getType() == 0 then --Only players get informs and swirlies! Strangely, monsters also learn, but meh.
 					
-				        base.common.InformNLS(user,"[Levelaufstieg] Deine Fertigkeit '"..skillName.."' steigt von "..skillValue.." auf "..(skillValue+1).."!",
+				        base.common.HighInformNLS(user,"[Levelaufstieg] Deine Fertigkeit '"..skillName.."' steigt von "..skillValue.." auf "..(skillValue+1).."!",
 					    "[Level up] Your skill '"..skillName.."' advanced from "..skillValue.." to "..(skillValue+1).."!");
 				        world:gfx(41,user.pos); --swirly!   
 						

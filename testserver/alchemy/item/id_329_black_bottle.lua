@@ -200,7 +200,7 @@ function DrinkPotion(User,SourceItem)
 		  User:increaseAttrib("hitpoints",10)
 
 		  -- duration depends on the potion's quality
-		 local duration = 5 --math.floor(SourceItem.quality/100)*10 -- effect is called every minute. quality 1 = 10 minutes; quality 9 = 90
+		 local duration = math.floor(SourceItem.quality/100)*10 -- effect is called every minute. quality 1 = 10 minutes; quality 9 = 90
 		  myEffect:addValue("counterBlack",duration)
 		  User.effects:addEffect(myEffect)
         end
