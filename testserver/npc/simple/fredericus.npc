@@ -127,7 +127,7 @@ english, "Zerarisa" -> "I think Zerarisa is one of the lizards, living at Cape F
 "boat", "ship", "vessle" -> "No, I will not lend you my boat. Take a fishing rod and go to the shore."
 "Boot", "Schiff" -> "Ich kann euch mein Boot nicht leihen. Nehmt eine Angelrute und geht zur Küste."
 "Fischer" -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
-"fisherman" -> "I'm a fisherman. A hard job, but a honest and honourable job."
+"fisherman" -> "I'm a fisherman. A hard job, but an honest and honourable job."
 "trader", "merchant", "collegue", "vendor", "market" -> "Here, at the marketplace, there are many traders. You can buy many goods here in Cadomyr."
 "händler", "kollege", "höker", "markt" -> "Hier auf dem Marktplatz gibt es einige Händler. Man kann viele Waren hier in Cadomyr kaufen."
 
@@ -159,8 +159,8 @@ english, "salkama" -> "Arrogant wisenheimers they are. And a hard working fisher
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
 "god" -> "Goddesses aren't prayed to in Cadomyr, they say. But when you are at sea, you'll pray to Tanora and Findari, that's for sure."
-"Gott", "Götter" -> "In Cadomyr betet man keinen Göttinnen an, so heißt es. Aber wenn ihr mal auf See seid, dann werdet ihr sicherlich Tanora und Findari anflehen."
-english, "Tanora", "Zelphia" -> "Tanora guides my boat, Tanora protects my boat, Tanora causes the waves that crash my boat.", "Hail the goddess!", "I obey Tanora, but if you want to meet perons who adore her, go to Cape Farewell."
+"Gott", "Götter" -> "In Cadomyr betet man keine Göttinnen an, so heißt es. Aber wenn ihr mal auf See seid, dann werdet ihr sicherlich Tanora und Findari anflehen."
+english, "Tanora", "Zelphia" -> "Tanora guides my boat, Tanora protects my boat, Tanora causes the waves that crash my boat.", "Hail Tanora!", "I obey Tanora, but if you want to meet people who adore her, go to Cape Farewell."
 "Tanora", "Zelphia" -> "Tanora lenkt mein Boot, Tanora schützt mein Boot, Tanora schickt die Wellen, die mein Boot zermalmen.", "Huldigt Tanora!", "Ich gehorche Tanora, aber wenn ihr Leute treffen wollt, die sie verehren, geht zum Kap des Abschiedes."
 english, "Findari" -> "Findari grants the devastating storm or the wind that blows the sail; depending on her mood."
 "Findari" -> "Findari bringt den vernichtenden Sturm oder den Wind, der die Segel aufbläht, je nach ihrer Stimmungslage."
@@ -189,7 +189,7 @@ english, "Fredericus" -> "I am merely a humble fisherman. But I could tell you a
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Mein Fisch stinkt nicht!", "My fish does not stink!"
-cycletext "Frischer Fisch!", "Fresh Fish!"
+cycletext "Frischer Fisch!", "Fresh fish!"
 cycletext "Fisch, Kräuter, alles, was ihr braucht für das Festmahl!", "Fish, herbs, all you need for dinner!"
 cycletext "#me riecht an den Fischen in seiner Auslage und verzieht das Gesicht.", "#me sniffes on the fish on his cart and wrinkles his nose."
 cycletext "Fangfrischer Lachs!", "Fresh salmon!"

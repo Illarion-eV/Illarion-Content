@@ -353,7 +353,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("fisherman");
-talkEntry:addResponse("I'm a fisherman. A hard job, but a honest and honourable job.");
+talkEntry:addResponse("I'm a fisherman. A hard job, but an honest and honourable job.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -550,7 +550,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
-talkEntry:addResponse("In Cadomyr betet man keinen Göttinnen an, so heißt es. Aber wenn ihr mal auf See seid, dann werdet ihr sicherlich Tanora und Findari anflehen.");
+talkEntry:addResponse("In Cadomyr betet man keine Göttinnen an, so heißt es. Aber wenn ihr mal auf See seid, dann werdet ihr sicherlich Tanora und Findari anflehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -559,8 +559,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addResponse("Tanora guides my boat, Tanora protects my boat, Tanora causes the waves that crash my boat.");
-talkEntry:addResponse("Hail the goddess!");
-talkEntry:addResponse("I obey Tanora, but if you want to meet perons who adore her, go to Cape Farewell.");
+talkEntry:addResponse("Hail Tanora!");
+talkEntry:addResponse("I obey Tanora, but if you want to meet people who adore her, go to Cape Farewell.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -673,7 +673,7 @@ talkEntry:addResponse("My fish is tasty!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Mein Fisch stinkt nicht!", "My fish does not stink!");
-talkingNPC:addCycleText("Frischer Fisch!", "Fresh Fish!");
+talkingNPC:addCycleText("Frischer Fisch!", "Fresh fish!");
 talkingNPC:addCycleText("Fisch, Kräuter, alles, was ihr braucht für das Festmahl!", "Fish, herbs, all you need for dinner!");
 talkingNPC:addCycleText("#me riecht an den Fischen in seiner Auslage und verzieht das Gesicht.", "#me sniffes on the fish on his cart and wrinkles his nose.");
 talkingNPC:addCycleText("Fangfrischer Lachs!", "Fresh salmon!");
