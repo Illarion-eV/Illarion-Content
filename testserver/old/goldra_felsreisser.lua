@@ -975,7 +975,7 @@ function drinkGame()
 					if self.player~=nil then
 						if self.outcome2<=0 and self.outcome1>0 then
 			
-							gText="#me blickt "..self.player.name.." an - ihr Blick wirkt starr. Eine Fontäne schießt plötzlich aus ihrem Mund und das Essen der letzen Stunde verteilt sich auf Gesicht des Gewinners.";
+							gText="#me blickt "..self.player.name.." an - ihr Blick wirkt starr. Eine Fontäne schießt plötzlich aus ihrem Mund und das Essen der letzten Stunde verteilt sich auf Gesicht des Gewinners.";
 							eText="#me looks to "..self.player.name..", her gaze seems fixed. Suddenly a fountain gushes out of her mouth and the last hour's meal spreads on the face of the winner.";
 							outText=base.common.npc.base.npcautofunction.GetNLS(self.player,gText,eText);
 							npc.base.autonpcfunctions.NPCTalking(thisNPC,outText);

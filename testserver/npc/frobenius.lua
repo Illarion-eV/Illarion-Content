@@ -611,7 +611,7 @@ talkingNPC:addCycleText("Hört auf zu glotzen, kauft, oder geht weiter!", "Stop l
 talkingNPC:addCycleText("Scharfe Klingen, beste Helme für die Schlacht!", "Sharp blades, best helmets for battle!");
 talkingNPC:addCycleText("Meine Klingen sind zum Töten da, nicht zum Holzschnitzen.", "My swords are made to kill, not to carve wood.");
 talkingNPC:addCycleText("Hier gibt es die besten Waffen zum Töten von Orks, Goblins und Galmairern!", "Best weapons for killing orcs, goblins and Galmairians!");
-talkingNPC:addCycleText("Ihr da! Eure Waffe ist der letze Schrott. Ich hätte da was im Angebot für euch.", "Hey you! Your weapon is scrap. I'd have something for you.");
+talkingNPC:addCycleText("Ihr da! Eure Waffe ist der letzte Schrott. Ich hätte da was im Angebot für euch.", "Hey you! Your weapon is scrap. I'd have something for you.");
 talkingNPC:addCycleText("#me poliert eine Schwertklinge.", "#me polishes the blade of a sword.");
 talkingNPC:addCycleText("Jeden Tag eine gute Tat.", "An axe a day keeps the raptor away.");
 talkingNPC:addCycleText("Heute ist ein guter Tag zum Sterben... für die Feinde der Königin!", "Today is a good day to die for the foes of the queen.");
