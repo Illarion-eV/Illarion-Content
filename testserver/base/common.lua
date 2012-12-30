@@ -1555,7 +1555,6 @@ function BasicNPCChecks(originator,NPCRange, npc)
         return false;
     end
 
-    originator:introduce(npc);
     return true;
 end
 
