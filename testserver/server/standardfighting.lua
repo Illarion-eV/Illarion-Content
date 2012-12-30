@@ -873,9 +873,9 @@ function HandleMovepoints(Attacker)
     
     --Proposal by Flux: Make stiffness affect attack speed.
     
-    local Stiffmod = base.common.GetStiffness( Attacker.Char )/100;
-    --Stiffmod varies between 0 for clothes, 0.5 to leather 1.5 for heavyish armour
-    --2.5 for very heavy armour
+    local Stiffmod = base.common.GetStiffness( Attacker.Char )/80;
+    --Stiffmod varies between 0 for clothes, 0.6 to leather 1.8 for heavyish armour
+    --3 for very heavy armour
     
     
         -- Subproposal by Flux: Make having a shield affect attack speed too.
