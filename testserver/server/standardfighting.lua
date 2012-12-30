@@ -857,7 +857,18 @@ function HandleMovepoints(Attacker)
         weaponFightpoints = content.fighting.GetWrestlingMovepoints(Attacker.Race);
     end;
     
-    local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
+    --Proposal by Flux: Make stiffness affect attack speed.
+    
+    local Stiffmod = base.common.GetStiffness( Attacker.Char )/100;
+    --Stiffmod varies between 0 for clothes, 0.5 to leather 1.5 for heavyish armour
+    --2.5 for very heavy armour
+    
+    local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-5.8-Stiffmod)*2.5) / 100 );
+    
+    -- End of proposal
+    
+    -- Old
+    --[[local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
 	
 	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints));
     Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints); 
