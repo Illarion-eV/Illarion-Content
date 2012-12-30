@@ -525,7 +525,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         	
 end
 
-function getTestLookAt(player,item)
+function getLookAt(player,item)
     local lookAt = ItemLookAt()
     local infos = GetTeacherQuestInfos(player,item)
 	local teacherName, teacherDescription
@@ -555,7 +555,7 @@ end
 
 function LookAtItem(player, item)
     if item.pos == position(432,238,0) or item.pos == position(75,651,0) or item.pos == position(873,878,0) then
-	    world:itemInform(player, item, getTestLookAt(player,item))
+	    world:itemInform(player, item, getLookAt(player,item))
 	else
 	    world:itemInform(player, item, base.lookat.GenerateLookAt(User, Item, 0))
 	end	
