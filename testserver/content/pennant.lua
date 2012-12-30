@@ -48,13 +48,13 @@ function InitPennant()
     AddPennant({200,487,0},"","", 7,5);
     AddPennant({204,487,0},"","", 7,5);]]--
     --Cadomyr
-    AddPennant({121,519,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --palace
-	AddPennant({122,519,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --palace
-    AddPennant({123,519,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --palace
-    AddPennant({130,528,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 2,0); --palace
-    AddPennant({130,530,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 2,0); --palace
-    AddPennant({109,551,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --registration
-    AddPennant({104,552,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 1,0); --registration
+    AddPennant({121,519,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
+	AddPennant({122,519,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
+    AddPennant({123,519,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --palace
+    AddPennant({130,528,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 2,0); --palace
+    AddPennant({130,530,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 2,0); --palace
+    AddPennant({109,551,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --registration
+    AddPennant({104,552,0},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 1,0); --registration
     --[[--Cherass Citadel
     AddPennant({596,383,2},"","", 7,5); --outpost
     AddPennant({601,383,2},"","", 7,5); --outpost
@@ -116,9 +116,9 @@ function InitPennant()
     AddPennant({260,419,0},"","", 3,5);
 	AddPennant({261,419,0},"","", 1,5);]]--
 	--Moshran's Brood
-    AddPennant({391,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of the Moshran's Brood.", 1,5);
-    AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of the Moshran's Brood.", 1,5);
-    AddPennant({398,743,0},"Lauf, so lange du noch Beine hast!","Run, as long you have still your legs!", 7,5);
+    AddPennant({391,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,5);
+    AddPennant({393,743,0},"Dies ist das Hoheitsgebiet der Moshran's Brood.","This is the sovereign territory of Moshran's Brood.", 1,5);
+    AddPennant({398,743,0},"Lauf, so lange du noch Beine hast!","Run, as long you still have your legs!", 7,5);
     --Mount Zotmore
     AddPennant({365,497,0},"Sei vorsichtig, hier kˆnnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 6,0);
     AddPennant({359,506,0},"Sei vorsichtig, hier kˆnnte ein Zot zufinden sein.","Be careful, there could be a Zot around.", 6,0);
@@ -131,8 +131,8 @@ function InitPennant()
     AddPennant({290,474,0},"","", 5,5);
     AddPennant({262,488,0},"","", 6,5);]]--
 	--Lumpskrums Band
-	AddPennant({361,752,0},"Tritt ein, bring Geld herein! Lumpskrum wird es dir danken.","Plese enter and leave your coins! Lumpskrum will be grateful.", 1,5);
-    AddPennant({357,752,0},"Tritt ein, bring Geld herein! Lumpskrum wird es dir danken.","Plese enter and leave your coins! Lumpskrum will be grateful.", 1,5);
+	AddPennant({361,752,0},"Tritt ein, bring Geld herein! Lumpskrum wird es dir danken.","Please enter and leave your coins! Lumpskrum will be grateful.", 1,5);
+    AddPennant({357,752,0},"Tritt ein, bring Geld herein! Lumpskrum wird es dir danken.","Please enter and leave your coins! Lumpskrum will be grateful.", 1,5);
     --[[--Royal Slave Market
 	AddPennant({325,627,0},"","", 5,5);
 	AddPennant({325,629,0},"","", 5,5);
@@ -143,7 +143,7 @@ function InitPennant()
 	AddPennant({323,632,0},"","", 6,5);
 	AddPennant({323,634,0},"","", 6,5);]]--
 	--Sentry Outpost
-	AddPennant({641,706,2},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns in shimmering red and white the banner.", 3,0);
+	AddPennant({641,706,2},"In schimmernden Rot und Weiﬂ ziert das Wappen von Cadomyr den Banner.","The crest of Cadomyr adorns the banner in shimmering red and white.", 3,0);
 	--[[--Snakehead Coast
     AddPennant({609,462,2},"","", 7,5); --Mt. Snakehead
     --Spider's Mouth
