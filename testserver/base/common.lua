@@ -738,7 +738,7 @@ function GetStiffness(Character)
     local counter;
     
     for counter = 1, #Equipmentposition do
-				Item = Character:getItemAt(Equipmentposition(counter));
+				Item = Character:getItemAt(Equipmentposition[counter]);
 				if Item and (Item.id ~= 0 ) then
 						found, Armor=world:getArmorStruct(Item.id);
 						if found then
