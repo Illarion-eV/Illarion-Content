@@ -416,11 +416,13 @@ function ChanceToHit(Attacker, Defender)
 	chance into the same region as parry chance, which is good because they'll skill up at the
 	same time.
 	
+	tl;dr - stiffness should be balanced
+	
 	- Flux
 	]]
 	
-   --Defender.Char:inform("Stiffmod: " .. Stiffmod); 
-  --Defender.Char:inform("chance: " .. chance);
+  Defender.Char:inform("Stiffmod: " .. Stiffmod); 
+  Defender.Char:inform("chance: " .. chance);
     
 	
 	--PROPOSAL BY ESTRALIS & FLUX
