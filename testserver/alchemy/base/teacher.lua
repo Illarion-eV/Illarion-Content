@@ -539,7 +539,7 @@ function getTestLookAt(player,item)
 	descriptionEN["The Recognizing Spring"] = "The sputtering spring is surrounded by a strange atmosphere and sometimes one may hear a damped whispering."
 	
 	
-	if User:getPlayerLanguage() == 0 then
+	if player:getPlayerLanguage() == 0 then
 	    teacherName = infos.teacherDE1
 		teacherDescription = descriptionDE[teacherName]
 	else
