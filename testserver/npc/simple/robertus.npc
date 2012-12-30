@@ -70,17 +70,23 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 5% Bricks: 736, 2588
 -- 5% Stones: 733, 735, 1266
 -- 10% Clay: 26
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I trade with building materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.", "Bricks, stone blocks, marble... Iall the workers need.", "I can sell you the tools you need to serve the queen. On, on!", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.", "Ziegelsteine, Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.", "Ich kann euch die Werkzeuge verkaufen, die ihr braucht, um Königin Rosaline zu dienen. Los, los!", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I trade with building materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.", "Bricks, stone blocks, marble... Is all the workers need.", "I can sell you the tools you need to serve the queen. Go on!", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.", "Ziegelsteine, Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.", "Ich kann euch die Werkzeuge verkaufen die ihr braucht, um Königin Rosaline zu dienen. Los, los!", trade
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the royal builder Robertus. Keywords: buy, sell, trade, Hello, builder.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der königliche Baumeister Robertus. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Baumeister.")
 
 -- General speech
+<<<<<<< HEAD
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ah, you must be the marble deliverer. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building material for me?", "Be greeted, in the name of the queen."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, ihr müßt der Marmorlieferant sein. Lagert es neben den Ziegelsteinen.", "Willkommen, Fremdling. Habt ihr Baumaterial für mich?", "Seid im Namen der Königin gegrüßt."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, you must be the marble deliverer. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building material for me?", "Be greeted, in the name of the queen."
+=======
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, ihr müsst der Marmorlieferant sein. Lagert es neben den Ziegelsteinen.", "Willkommen, Fremdling. Habt ihr Baumaterial für mich?", "Seid im Namen der Königin gegrüßt."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building materials for me?", "Be greeted, in the name of the queen."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.", "Welcome, stranger. Do you have any building materials for me?", "Be greeted, in the name of the queen."
+>>>>>>> a0abfba7cf62ebce9733e3841bafcc71fba28ec1
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, ihr müßt der Marmorlieferant sein. Lagert es neben den Ziegelsteinen.", "Willkommen, Fremdling. Habt ihr Baumaterial für mich?", "Seid im Namen der Königin gegrüßt."
 "Farewell", "Good bye", "Bye", "Fare well", "see you" -> "Farewell.", "Goodbye.", "Until next time!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf wiedersehen.", "Bis zum nächsten mal.", "Gehet in Frieden."
@@ -114,15 +120,27 @@ english, "Gobaith" -> "I've never heard of that place. Cadomyr is my home and I 
 "mein Name" -> "Tut euch selbst einen Gefallen: Wenn ihr wollt, dass euer Name Gewicht bekommt, so macht euch bei der Königin beliebt, in dem ihr ihre Befehle ausführt."
 
 -- More small talk; add at least five triggers
+<<<<<<< HEAD
 "builder" -> "I am Robertus, the royal builder. The queen depends on me to build her a grave that will last for aeons.", "Construction is my business. Behold the tavern - My work for the queen. I am not proud of it, but proud to serve queen Rosaline.", "I am the builder of Cadomyr."
 "baumeister" -> "Ich bin Robertus, der königliche Baumeister. Die Königin vertraute mir an, ihr ein Grab zu bauen, welches die Zeiten übersteht.", "Bauwerke sind mein Geschäft. Seht euch die Taverne an: Meine Tat für die Königin. Ich bin nicht stolz auf die Taverne, ich bin stolz, der Königin zu dienen.", "Ich bin der Baumeister von Cadomyr."
 "trader", "merchant", "collegue", "vendor", "market" -> "You can buy many goods here in the marketplace. Garments to dress for the next festival, weapons to repel Cadomyr's enemies and the finest jewels around.", "This market has it all and Cadomyr is proud of it!", "The only thing you can't buy on this market are slaves, but Cadomyr really needs hands."
 "händler", "kollege", "höker", "markt" -> "Ihr könnt allerlei Dinge auf diesem Markt kaufen. Gewänder für das nächste Fest, Waffen um die Feinde Cadomyrs zurückzuschlagen oder feinste Juwelen.", "Auf diesem Markt bekommt ihr alles und Cadomyr ist stolz darauf.", "Das einzige, was ihr auf diesem Markt nicht bekommen werdet, das sind Sklaven. Cadomyr braucht aber dringend Arbeiter."
 "queendom", "kingdom" -> "Cadomyr is indeed a queendom. Never will the queen chose a husband; she serves her people only."
+=======
+"builder" -> "I am Robertus, the royal builder. The queen relies on me to build her a grave that will last for ages.", "Construction is my business. Behold the tavern: My work for the queen. I am not proud of it, but proud to serve queen Rosaline.", "I am the builder of Cadomyr."
+"baumeister" -> "Ich bin Robertus, der königliche Baumeister. Die Königin vertraute mir an ihr ein Grab zu bauen, welches die Zeiten übersteht.", "Bauwerke sind mein Geschäft. Seht euch die Taverne an: Meine Tat für die Königin. Ich bin nicht stolz auf die Taverne, ich bin stolz, der Königin zu dienen.", "Ich bin der Baumeister von Cadomyr."
+"trader", "merchant", "collegue", "vendor", "market" -> "You can buy many goods here on the marketplace. Garments to dress for the next festival, weapons to repell Cadomyr's enemies and finest jewels.", "This market has it all and Cadomyr is proud of it.", "The only thing you cannot buy on this market are slaves. But Cadomyr really needs hands."
+"händler", "kollege", "höker", "markt" -> "Ihr könnt allerlei Dinge auf diesem Markt kaufen. Gewänder für das nächste Fest, Waffen um die Feinde Cadomyrs zurückzuschlagen oder feinste Juwelen.", "Auf diesem Markt bekommt ihr alles und Cadomyr ist stolz darauf.", "Das Einzige, was ihr auf diesem Markt nicht bekommen werdet sind Sklaven. Cadomyr braucht aber dringend Arbeiter."
+"queendom", "kingdom" -> "Cadomyr is indeed a queendom. Never will the queen chose a husband, she serves her people only."
+>>>>>>> a0abfba7cf62ebce9733e3841bafcc71fba28ec1
 "königinreich", "königreich" -> "Cadomyr ist wirklich ein Königinreich. Nie wird die Königin einen Gemahl nehmen, sie dient nur ihrem Volke."
 "grave" -> "I am the one whose service for queen Rosaline will stand the test of time, for I build her grave.", "The grave is taking progress. We need more marble, though.", "I think I should let the workers clad her majesty's grave chamber with gold."
 "grab" -> "Ich bin derjenige, dessen Dienst für Königin Rosaline die Zeiten überstehen wird, denn ich baue ihr Grab.", "Das Grab macht Fortschritte, wir brauchen nur mehr Marmor.", "Ich denke, ich sollte die Arbeiter anweisen, die Grabkammer ihrer Majestät mit Gold auszukleiden."
+<<<<<<< HEAD
 english, "pyramid" -> "A pyramid as a grave? Who would do such a foolish thing?", "The queen prefers a cube, but the drawing is not done yet."
+=======
+english, "pyramid" -> "A pyramid as grave? Who would do such a folish thing?", "The queen prefers a cube, but the drawing is not done yet."
+>>>>>>> a0abfba7cf62ebce9733e3841bafcc71fba28ec1
 "pyramid" -> "Eine Pyramide als Grabmal? Wer würde denn so etwas törichtes tun?", "Die Königin bevorzugt einen Kubus, denke ich. Aber der Bauplan ist noch nicht fertig."
 english, "hastings" -> "Baron Hastings? A traitor, he is, indeed!", "The head of the baron will soon thrown on a pike!", "A bastard, he is, the baron Hastings! The queen will judge him."
 "hastings" -> "Baron Hastings? Ein Verräter ist er, jawohl.", "Der Kopf des Barons wird bald auf einem Spieß stecken.", "Ein Unmensch ist er, der Baron Hastings! Doch die Königin wird über ihn richten."
@@ -152,7 +170,7 @@ english, "Cadomyr" -> "Cadomyr is my home, my everything. All of us must work to
 "Cadomyr" -> "Cadomyr ist meine Heimat, mein ein und alles. Wir alle müssen zusammen arbeiten, um es gedeihen zu lassen, vereint unter der Führung unserer Königin.", "Cadomyr ist stark!", "Ich habe einen Eid geschworen und ich hoffe, dass auch ihr alles tun werdet, um Cadomyr und Königin Rosaline zu dienen."
 
 -- Main land factions
-english, "albar" -> "We remember our roots, our ancestors. Cadomyr stands alone, but this is not a reason to forget about the old customs.", "Albar... ages ago, the people of Cadomyr set out from Albar.", "I wish I could visit an albarian slave market. There is so much work that need to be done."
+english, "albar" -> "We remember our roots, our ancestors. Cadomyr stands alone, but this is not a reason to forget about the old customs.", "Albar... ages ago, the people of Cadomyr set out from Albar.", "I wish I could visit an albarian slave market. There is so much work that needs to be done."
 "albar" -> "Wir halten unsere Wurzeln und Ahnen in Ehren. Cadomyr steht nun alleine dar, aber dies ist kein Grund, die alten Sitten zu vergessen.", "Albar... vor langer Zeit zog das Volk von Cadomyr aus, um Albar zu verlassen.", "Ich wünschte, ich könnte einen albarischen Sklavenmarkt aufsuchen. So viel Arbeit ist hier zu tun."
 english, "gynk", "gync" -> "#me spits on the ground.", "Gync?! A pool of sins! No habits! Just like Galmair... Coincidence?"
 "gync", "gynk" -> "#me spuckt auf den Boden.", "Gynk? Ein Sündenpfuhl! Keine Sitten! Fast wie Galmair... welch Zufall!"
@@ -196,7 +214,7 @@ english, "Robertus" -> "Indeed, I am Robertus, the royal builder. And no, I don'
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Hoch lebe die Königin!", "Hail the Queen!"
+cycletext "Hoch lebe die Königin!", "Hail the queen!"
 cycletext "#me beugt sich über eine große Zeichnung und macht sorgfältig Korrekturen an einzelnen Linien.", "#me leans over a huge drawing and corrects individual lines carefully."
 cycletext "#me schlägt mit seiner Faust auf eine auf dem Tisch liegende Zeichnung. 'Nein! So nicht!'", "#me slams his fist on a drawing, lying on the table. 'No! Not this way!'"
 cycletext "#me murmelt vor sich hin und streicht mit einem Federkiel an seinem Kinn entlang.", "#me murmurs to himself and strokes his chin with the feather of a quill."

@@ -314,7 +314,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("jewel");
 talkEntry:addResponse("My jewels are the best you can get within a thousand miles and I have never travelled beyond that.");
-talkEntry:addResponse("I can sell you any kinds of jewels, and if you have any gems, I'll gladly purchase them.");
+talkEntry:addResponse("I can sell you any kind of jewels, and if you have any gems, I'll gladly purchase them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -389,7 +389,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("I once had to craft a ring for the Don. It was such a horrifying experience to give to this filthy man.");
+talkEntry:addResponse("I once had to craft a ring for the Don. It was such a horrifying experience to give the ring to this filthy man.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -463,7 +463,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Ich höre nur das beste über Albar, aber ich war noch nie selbst dort.");
+talkEntry:addResponse("Ich höre nur das Beste über Albar, aber ich war noch nie selbst dort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -603,12 +603,12 @@ talkingNPC:addCycleText("Feinste Juwelen!", "Finest jewellery!");
 talkingNPC:addCycleText("Habt ihr eure Frau enttäuscht? Kauft ihr einen Diamantring!", "Have you upset your wife? Buy her a diamond ring!");
 talkingNPC:addCycleText("Diamanten sind der beste Freund des Mannes.", "Diamonds are a man's best friend.");
 talkingNPC:addCycleText("Funkelnde Edelsteine im Angebot!", "Sparkling gem stones on special offer!");
-talkingNPC:addCycleText("Goldener Schmuck, genau das richtige für einen Damenhals.", "Gold jewellery, just the right thing for a maiden's neck.");
+talkingNPC:addCycleText("Goldener Schmuck, genau das Richtige für einen Damenhals.", "Gold jewellery, just the right thing for a maiden's neck.");
 talkingNPC:addCycleText("Braucht ihr ein besonderes Geschenk? Eine Kette soll es sein!", "Need a special gift? A necklace it should be!");
 talkingNPC:addCycleText("Ein Ring sie zu finden, ein Ring sie ins Licht zu treiben...", "One Ring to bring them all and in the light bind them.");
 talkingNPC:addCycleText("Ein Edelstein hält ein Leben lang.", "A gem stone lasts for a lifetime.");
 talkingNPC:addCycleText("Goldringe mit Inschriften und magischen Kräften für wenige Silberstücke!", "Gold rings with inscriptions and magical powers for a few silver coins!");
-talkingNPC:addCycleText("Habt ihr Edelsteine?", "Have you gem stones?");
+talkingNPC:addCycleText("Habt ihr Edelsteine?", "Do you have gem stones?");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(122,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(21,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(22,"sell"));
