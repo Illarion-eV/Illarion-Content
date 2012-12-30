@@ -220,7 +220,8 @@ function CalculateDamage(Attacker, Globals)
     --TacticsBonus = (Attacker.tactics - 20) * 0.5;
     GemBonus = base.gems.getGemBonus(Attacker.WeaponItem);
 
-    Globals["Damage"] = BaseDamage * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus)/100;
+    -- Base damage was far too high for the new combat speed, you could get murked too fast.
+    Globals["Damage"] = 0.6 * BaseDamage * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus)/100;
     
 end;
 
