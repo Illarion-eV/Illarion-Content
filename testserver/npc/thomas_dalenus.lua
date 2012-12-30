@@ -490,7 +490,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Once, the lords of Albar ordered a shipment of clothes. But somehow, they never payed me. I suspect Galmairian thugs are behind this!");
+talkEntry:addResponse("Once, the lords of Albar ordered a shipment of clothes. But somehow, they never paid me. I suspect Galmairian thugs are behind this!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
