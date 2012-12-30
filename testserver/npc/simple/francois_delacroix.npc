@@ -100,17 +100,17 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Händler Francois Delacroix. Schlüsselwörter: Hallo, Märkte, Handel, Ackerbau.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day.", "How be you?", "It seems to be your lucky day, why? You have found me as your agriculturalr of choice."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day.", "Greeted be.", "It's your lucky day! You've found the best farmer in town!"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag.", "Wie geht es Euch?", "Heute scheint Euer Glückstag zu sein, warum? Ihr habt beschlossen bei mir einzukaufen."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day sir, madam.", "How be you?", "It seems to be your lucky day, why? You have found me as your agriculturalr of choice."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day there.", "How fare you?", "It's your lucky day! You've found the best farmer in town!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tagder Herr, die Dame.", "Wie geht es Euch?", "Heute scheint Euer Glückstag zu sein, warum? Ihr habt beschlossen bei mir einzukaufen."
-"Farewell", "Bye", "Fare well", "See you" -> "Have a good day today. You are beautiful.", "Smile, see you later.", "Remember to tell your friends to come to Francois Delacroix for all their agricultural needs."
+"Farewell", "Bye", "Fare well", "See you" -> "Have a magnificent day today. Remember you are beautiful.", "Great tidings, friend! See you later.", "Remember to tell your friends to come see Francois Delacroix for all their agricultural needs!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Einen schönen Tag wünsche ich Euch. Ihr seid wunderschön.", "Lächelt, bis später.", "Denkt dran euren Freunden zu sagen, sie sollen Francois Delacroix fragen, wenn sie Produkte aus der Landwirtschaft kaufen wollen."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a good day today. You are beautiful.", "Smile, see you later.", "Remember to tell your friends to come to Francois Delacroix for all their agricultural needs."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a great day today! You deserve it!", "Great tidings! See you later.", "Remember to tell your friends to come see Francois Delacroix for all their agricultural needs!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Einen schönen Tag wünsche ich Euch. Ihr seid wunderschön.", "Lächelt, bis später.", "Denkt dran euren Freunden zu sagen, sie sollen Francois Delacroix fragen, wenn sie Produkte aus der Landwirtschaft kaufen wollen."
-"How are you", "How feel", "How do you do" -> "I'd feel better if You  brought something.", " I feel a lot better now that you've come.", "It's one of those days, you know?"
+"How are you", "How feel", "How do you do" -> "I'd feel better if you  brought something.", " I feel a lot better now that you've come!", "It's just one of those days, you know?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich würde mich besser fühlen, würdet ihr etwas einkaufen.", "Ich fühle mich viel besser jetzt wo ihr vorbei gekommen seid.", "Es ist einer dieser Tage, Ihr versteht?"
-"your name", "who are you", "who art thou" -> "Francois Delacroix , Agricultural goods", "My name is Francois. It's beyond a pleasure to be acquainted with you", "Francois Delacroix. It still feels weird every time I say it."
+"your name", "who are you", "who art thou" -> "Francois Delacroix , Agricultural goods.", "My name is Francois. It's beyond a pleasure to be acquainted with you", "Francois Delacroix. It still feels weird every time I say it."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Francois Delacroix, Produke aus der Landwirtschaft.", "My Name ist Francois. Es ist mir eine Freude Eure Bekanntschaft zu machen", "Francois Delacroix. Es klingt noch immer jedes Mal seltsam es zu sagen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
@@ -118,29 +118,29 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a good day today. You 
 "beruf" -> "Ich verkaufe Güter wie Milch und Werkzeug für Bauern.", "Ich verkaufe was immer Ihr braucht.", "Ich verkaufe selbstgemachte Landwirtschaftswaren."
 english, "job" -> "I sell goods such as milk and farmer tools.", "I sell that which you need.", "I'm a self made agricultural goods trader."
 "job" -> "Ich verkaufe Güter wie Milch und Werkzeug für Bauern.", "Ich verkaufe was immer Ihr braucht.", "Ich verkaufe selbstgemachte Landwirtschaftswaren."
-english, "Gobaith", "Gobiath" -> "That's like asking what is the sky. Honestly I don't think I could answer it."
+english, "Gobaith", "Gobiath" -> "That's like asking what the sky is. Honestly, I don't think I could answer it."
 "Gobaith", "Gobiath" -> "Das ist als ob man fragt, was der Himmel sei. Ehrlich gesagt, ich habe keine Ahnung davon."
-"my name" -> "Francois Delacroix , Agricultural goodsr", "My name is Francois. It's beyond a pleasure to be acquainted with you", " Francois Delacroix. It still feels weird every time I say it."
+"my name" -> "Francois Delacroix, agricultural goods trader.", "My name is Francois. It's beyond a pleasure to be acquainted with you", " Francois Delacroix. It still feels weird every time I say it."
 "mein Name" -> "Francois Delacroix, Produke aus der Landwirtschaft.", "My Name ist Francois. Es ist mir eine Freude Eure Bekanntschaft zu machen", "Francois Delacroix. Es klingt noch immer jedes Mal seltsam es zu sagen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his environment
-"Business", "Markets", "Pepper" -> "Recently pepper has been selling at triple its gross estimated volume. It's exciting to see how long this will last before I reap great profits when the price falls again."
+"Business", "Markets", "Pepper" -> "Recently, pepper has been selling at triple its gross estimated volume. It's exciting to see how long this will last before I reap great profits when the price falls again."
 "Geschäft", "Märkte", "Pfeffer" -> ""
 "Agriculture", "Farming", "crops" -> "Harvesting crops and cattle is something that has always been and always will be. It's the most stable of markets."
 "Landwirtschaft", "", "" -> "Der Anbau von Feldfürchten und Viehhaltung ist etwas das es schon immer gegeben hat und das es immer geben wird. Das ist der beständigste Markt von allen."
-"Family" -> "I don't want to talk about them.", "Family is not a fond word in everyone's mind."
+"Family" -> "I don't want to talk about them.", "Family is not a word that everyone is fond of."
 "Familie" -> "Ich möchte darüber nicht sprechen", "Diese Wort erfreut nich jeden von uns."
-"Wife" -> "Hahaha, maybe someday.", "Settle down, me? Hahaha, maybe after I'm done making money."
+"Wife" -> "Hahaha, perhaps someday.", "Settle down? Me? Ha, maybe after I'm done making money."
 "Ehefrau" -> "Hahaha, vielleicht eines Tages.", "Ich? Mich niederlassen? Hahaha, vielleicht wenn ich genug Geld gemacht habe."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "I don't know much of the man, but I can't help appreciate him for keeping this city safe for all of us who live here."
+"archmage" -> "I don't know much of the man, but I can't help but appreciate him for keeping this city safe for all of us who live here."
 "Erzmagier" -> "Ich weiß nicht viel über ihn, aber ich komme nicht umhin diesen Mann zu bewundern, der dafür sorgt das unsere Stadt sicher ist."
-english, "Elvaine", "Morgan" -> "I don't know much of the man, but I can't help appreciate him for keeping this city safe for all of us who live here."
+english, "Elvaine", "Morgan" -> "I don't know much of the man, but I can't help but appreciate him for keeping this city safe for all of us who live here."
 "Elvaine", "Morgan" -> "Ich weiß nicht viel über ihn, aber ich komme nicht umhin diesen Mann zu bewundern, der dafür sorgt das unsere Stadt sicher ist."
-english, "Runewick" -> "When I was a kid I never thought I would be a city person, but the women here really are prettier."
+english, "Runewick" -> "When I was a child I never thought I'd be a city person, but the women here sure are prettier."
 "Runewick" -> "As ich kein Kind war, hätte ich nie gedacht einmal in der Stadt zu leben. Die Frauen hier sind wirklich schöner."
-english, "Valerio", "Guilianni", "Don" -> "Of course I heard the name, but I know nothing of Galmair or its people."
+english, "Valerio", "Guilianni", "Don" -> "Of course I've heard the name, but I know nothing of Galmair or its people."
 "Valerio", "Guilianni", "Don" -> "Den Namen habe ich natürlich schon gehört, aber ich weiß nichts über Galmair und die Leute dort."
 english, "Galmair" -> "I've never been."
 "Galmair" -> "Da war ich noch nie."
@@ -152,21 +152,21 @@ english, "Cadomyr" -> "I've been. It's a little too dry and hot. I prefer the Ru
 "Cadomyr" -> "Da war ich schon. Es ist zu trocken da. Ich mag das Wetter in Runewick lieber.", "Die haben da einige Schmuckhändler. Ich denke meine Sammlung wurde von Schmiedemeistern aus Cadomyr angefertigt."
 
 -- Main land factions
-english, "albar" -> "On the downside it is dangerously hot in the Albarian deserts. On the upside the Alberian women look dangerously hot."
+english, "albar" -> "On the downside it's dangerously hot in the Albarian deserts. The upshot, of course, is that the Alberian women are also dangerously hot."
 "albar" -> "Einerseits ist es in Albarischen Wüste verdammt heiß, andereseits sind Albarische Frauen verdammt heiß."
-english, "gynk", "gync" -> "Never been. I have no idea. People keep asking me about this. Maybe I should go someday."
+english, "gynk", "gync" -> "Never been. I have no idea. Everyone keeps asking me about it though. Maybe I should go someday."
 "gync", "gynk" -> "Da war ich noch nie. Keine Ahnung, die Leute fragen immer. Vielleicht gehe ich eines Tages dorthin."
-english, "salkama" -> "I have lived in this land all my life. I don't love it, but being anywhere else is just uncomfortable."
+english, "salkama" -> "I've lived in this land all my life. I don't love it, but being anywhere else is just uncomfortable."
 "salkama" -> "Ich habe mein ganzes Leben dort verbracht."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "I follow Irmorom, Of course. What kind of question is that."
+"god" -> "I follow Irmorom, obviously. What kind of question is that."
 "Göttter" -> "Natürlich folge ich Irmorom. Was ist denn das für eine Frage?"
-english, "Irmorom" -> "He keeps me at the top of my craft, which makes me money, which gets all these girls to look my way. How can I not be content."
+english, "Irmorom" -> "He keeps me at the top of my craft, which makes me money, which gets all these girls to look my way. How could I be malcontent?"
 "Irmorom" -> "Er verleiht mir Geschick, dardurch verdiene ich Geld,und durch das Geld möchen mich die Mädchen. Wie könnte ich da unzufrieden sein."
 
 -- Catching typical NPC phrases
-"tell something" -> "What is there to tell? I'm Runewhick's number one agricultural trading pretty boy."
+"tell something" -> "What is there to tell? I'm Runewick's number one agricultural trading pretty boy."
 "erzähl was", "erzähl etwas" -> "Was hätte ich zu erzählen? Ich bin die Nummer Eins unter den hübschen Jungen in Runewick, wenn es um Landwirtschaftserzeugnisse geht."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
@@ -182,13 +182,13 @@ english, "Francois", "Delacroix" -> "Do you need something? Chances are I sell i
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Braucht Ihr Werkzeuge? Ich, Francois Delacoix, verkaufe sowohl Werkzeuge für den Ackerbau als auch für die Fischerrei.", "Are you a farmer and need tools? I, Francois Delacroix carries both farming and fishing tools."
-cycletext "Ihr sucht wunderschöne Felle um dem Winter zu trotzen oder Leder um einem Schwerthieb stand zu halten? Besucht mich, Francois Delacoix!", "Want beautiful furs to last the winter or maybe leather to survive a sword strike? Please visit I, Francois Delacroix."
-cycletext "Habt Ihr Hunger? Leidet ihr an Skorbut? Ich, Francois Delacoix, habe ein gesundes Angebot an Früchten und Gemüse! Kommt vorbei!", "Are you hungry, maybe dying from scurvy? I, Francois Delacroix carry healthy fruits and vegetables. Please visit."
-cycletext "Ich habe Fisch, Ihr wollt Fisch? Kauft bei mir,  Francois Delacoix.", "I have fish, You want fish. Please visit I, Francois Delacroix."
-cycletext "Ich verkaufe Saatgut für alle Jahreszeiten. Plant Ihr einen neuen Hof zu gründen und eine Familie zu Gründen? Kauft zuerst hier ein, bei mir , Francois Delacoix.", "I have seeds from any season. Are you about to settle down and start a new farm and family?  First visit I, Francois Delacroix."
-cycletext "Ihr könnt Euch kein Fleisch leisten? Milch ist das perkte Mittel um Eure Familie ohne Fleisch durch zu bringen. Wenn Ihr das Glück habt Euch Fleisch leisten zu können, es schmeckt auch zu Milch! Kauft bei mirein, kauft bei Francois Delacoix!", "Can't afford meat? Milk is the perfect way to feed a family with little money. Milk even goes great with meat if you are lucky enough to afford both, so visit I, Francois Delacroix."
+cycletext "Braucht Ihr Werkzeuge? Ich, Francois Delacoix, verkaufe sowohl Werkzeuge für den Ackerbau als auch für die Fischerrei.", "Are you a farmer and need tools? I, Francois Delacroix, carry both farming and fishing tools."
+cycletext "Ihr sucht wunderschöne Felle um dem Winter zu trotzen oder Leder um einem Schwerthieb stand zu halten? Besucht mich, Francois Delacoix!", "Want beautiful furs to last the winter? Or perhaps leather to survive a sword strike! Francois Delacroix is your man!."
+cycletext "Habt Ihr Hunger? Leidet ihr an Skorbut? Ich, Francois Delacoix, habe ein gesundes Angebot an Früchten und Gemüse! Kommt vorbei!", "Are you hungry? Perhaps you're dying from scurvy! With fresh fruit and veg from Francois Delacroix , your gums'll never drop off!"
+cycletext "Ich habe Fisch, Ihr wollt Fisch? Kauft bei mir,  Francois Delacoix.", "You want fish, I have fish. It's a no brainer! Come see Francois Delacroix!"
+cycletext "Ich verkaufe Saatgut für alle Jahreszeiten. Plant Ihr einen neuen Hof zu gründen und eine Familie zu Gründen? Kauft zuerst hier ein, bei mir , Francois Delacoix.", "I have seeds from any season! Are you about to settle down and start a new farm and family?  First visit moi - Francois Delacroix!"
+cycletext "Ihr könnt Euch kein Fleisch leisten? Milch ist das perkte Mittel um Eure Familie ohne Fleisch durch zu bringen. Wenn Ihr das Glück habt Euch Fleisch leisten zu können, es schmeckt auch zu Milch! Kauft bei mirein, kauft bei Francois Delacoix!", "Can't afford meat? Milk is the perfect way to feed a family on no money! For your babies healthy bones, if you can't produce your own, come to Francois Delacroix."
 cycletext "Wie geht es Euch heute? Werft einen Blick auf die neuesen Waren von mir, Francois Delacroix.", "How are you doing today? Check out the latest wares of I, Francois Delacroix."
-cycletext "Euer liebster Händler für landwirtschaftliche Güter, ich, Francois Delacroix bin für eich da!", "Your favorite agricultural trader, I Francois Delacroix is here for you."
-cycletext "Ihr seid wunderschöne Leute. Habt einen wunderscönen Tag.", "You are all beautiful people. Have a Beautiful day."
-cycletext "Seid Ihr hungrig großer Kerl? Oder wollt ihr einen Mann glücklich machen  hübsches Fräulein? Ich, Francois Delacroix verkaufe rohes Fleisch. Esst und seid glücklich!", "Are you hungry big man? Or do you have a man you want to make happy pretty lady? I, Francois Delacroix sells raw meat. Eat and be merry!"
+cycletext "Euer liebster Händler für landwirtschaftliche Güter, ich, Francois Delacroix bin für eich da!", "Your favourite agricultural trader, Francois Delacroix is here to server your needs!"
+cycletext "Ihr seid wunderschöne Leute. Habt einen wunderscönen Tag.", "You're all beautiful people! Have a gorgeous day!"
+cycletext "Seid Ihr hungrig großer Kerl? Oder wollt ihr einen Mann glücklich machen  hübsches Fräulein? Ich, Francois Delacroix verkaufe rohes Fleisch. Esst und seid glücklich!", "Are you hungry big man? Or do you have a man you want to make happy, pretty lady? I, Francois Delacroix, sell meat raw! For the untamed man!"
