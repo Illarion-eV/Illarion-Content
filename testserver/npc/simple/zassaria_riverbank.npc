@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Zassaria Riverbank                                      Runewick --
--- NPC Job:  Message quest giver                                             --
+-- NPC Job:  Message quest giver                                              --
 --                                                                            --
 -- NPC Race: lizardman                  NPC Position:  908, 812, 1            --
 -- NPC Sex:  female                     NPC Direction: east                   --
@@ -70,21 +70,21 @@ itemShoes = 0
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßsst."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss to you.", "me hisses"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss to you.", "#me hisses."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßsst.", "#me zischt"
 "Farewell", "Bye", "Fare well", "See you" -> "Ssss. Zzzelphia be with you. Zss."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Ssss. Zzzelphia sssei mit Euch. Zss."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia be with you. Zss."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia sssei mit Euch. Zss."
-"How are you", "How feel", "How do you do" -> "I'm feeling very good. Sss. Exss...Extraordinary."
+"How are you", "How feel", "How do you do" -> "I'm feeling very good. Sss. Exssstraordinary."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es sssehr gut. Ausssgezzeichnet. Sss."
-"your name", "who are you", "who art thou" -> "I am called Zassaria Riverbank.Nice so meet you. Sss."
+"your name", "who are you", "who art thou" -> "I am the one called Zassaria Riverbank.Nice to meet you. Sss."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich werde Zassaria Riverbank genannt. Sss."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Tsss! I ate all my fisssch. I'll chatch new fisssch sssoon."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Tsss! I ate all my fisssh. I'll catch new fishiesss sssoon."
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Tsss! Ich aß all meinen Fisssch. Ich werde ssschnellssstmöglich neuen fangen."
 
 -- A message Quest
@@ -95,21 +95,21 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia be with you
 -- Of course there can be more than two persons be involved
 
 -- 1st quest: Talk to someone
-queststatus(701) = 0, english, "quest", "mission" -> inform("[New quest] Ask for me I"), "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?", queststatus(701) = 1
+queststatus(701) = 0, english, "quest", "mission" -> inform("[New quest] Ask for me I"), "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oil lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?", queststatus(701) = 1
 queststatus(701) = 0, "quest", "mission" -> inform("[Neues Quest] Frag für mich I"), "Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.", queststatus(701) = 1
-queststatus(701) = 0, "task", "adventure", "order" -> inform("[New quest] Frag für mich I"), "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?", queststatus(701) = 1
+queststatus(701) = 0, "task", "adventure", "order" -> inform("[New quest] Frag für mich I"), "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oil lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?", queststatus(701) = 1
 queststatus(701) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich I"), "Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.", queststatus(701) = 1
 
 -- 1st quest solved, reward sabre(25)
-queststatus(701) = 2, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the ground of the sea."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
+queststatus(701) = 2, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the seabed."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for your help... Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
 queststatus(701) = 2, town = Runewick, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat."), "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
-queststatus(701) = 2, english, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the ground of the sea."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
+queststatus(701) = 2, english, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the seabed."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for your help... Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
 queststatus(701) = 2, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat."), "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
 
 -- 1st quest not solved, repeat the instructions
-queststatus(701) = 3, english, "quest", "mission" -> "Sss... Jonathan Idler assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
+queststatus(701) = 3, english, "quest", "mission" -> "Sss... Jonathan Idler assked me for an oil lamp some time ago. Can you tell him he ssshould talk to me?"
 queststatus(701) = 3, "quest", "mission" -> "Jonathan Idler fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
-queststatus(701) = 3, "task", "adventure", "order" -> "Sss... Jonathan Idler assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
+queststatus(701) = 3, "task", "adventure", "order" -> "Sss... Jonathan Idler assked me for an oil lamp some time ago. Can you tell him he ssshould talk to me?"
 queststatus(701) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Jonathan Idler fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
 
 -- 2nd quest: Bring some 15 Fish to ??
@@ -139,13 +139,13 @@ queststatus(701) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke sssc
 "beruf" -> "Ich arbeite alsss Fischerin. Esss macht Spaßsss. Zss."
 english, "job" -> "I work asss a fisssher. It'sss fun. Zss."
 "job" -> "Ich arbeite alsss Fischerin. Esss macht Spaßsss. Zss."
-"tell something" -> "Do you know there'sss a diffrentce between Zsss, Tsss and Ssss?", "Usssually marriages between my people are arranged by the partentsss. Sss. Usually."
+"tell something" -> "Do you know there'sss a difference between Zsss, Tsss and Ssss?", "Usssually marriages between my people are arranged by the parentsss. Sss. Usually."
 "erzähl was", "erzähl etwas", "erzähl mir was", "erzählt mir was" -> "Wissst ihr, dasss es einen Unterschied zzzwischen Zsss, Tss und Ssss?", "Normalerweisse werden Ehen in meinem Volk arrangiert. Ssss. Normalerweissse."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Lizzardsss pray to Zzzelphia. To whom do you pray?"
 "Gott", "Götter" -> "Echsssenmenschen beten zzzu Zzzelphia. Zzzu wem betet Ihr? Sss"
-english, "Tanora", "Zelphia" -> "She'sss to godesss of the water and the sssea.", "You call her Tanora, thisss iss not a word eassy tp pronoucsse for usss."
+english, "Tanora", "Zelphia" -> "She'sss to godesss of the water and the sssea.", "You call her Tanora, thisss iss not a word eassy to pronoucsse for usss."
 "Tanora", "Zelphia" -> "Sssie isssst die Göttin desss Wassers und dess Meereess.", "Ihr nennt sssie Tanora, dasss issst kein Wort ausss unssserer Ssssprache."
 
 -- Optional: Faction stuff
@@ -179,4 +179,4 @@ cycletext "Ssss!", "Ssss!"
 cycletext "#me zischt.", "#me hisses."
 cycletext "Zss!", "Zss!"
 cycletext "Tsss...", "Tsss..."
-cycletext "lässt ihren Schwanz hin und her schnellen.", "#me moves her tail."
+cycletext "lässt ihren Schwanz hin und her schnellen.", "#me wags her tail back and forth."
