@@ -430,8 +430,8 @@ function ChanceToHit(Attacker, Defender)
     --PROPOSAL END
 
 
-   local dodgechance = 1-chance;
-  Defender.Char:inform("Dodge chance: " .. dodgechance);
+   local dodgechance = 100*(1-chance);
+  Defender.Char:inform("Dodge percent chance: " .. dodgechance);
 
     return base.common.Chance(chance);
 end;
