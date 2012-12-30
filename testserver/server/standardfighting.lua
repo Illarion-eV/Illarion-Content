@@ -565,10 +565,12 @@ function ChanceToParry(Attacker, Defender)
 	
 	--PROPOSAL BY FLUX: You cannot parry someone who stands behind you.
 	-- That would be silly.
+	-- Since they must be facing you if they're attacking you, if they face in the same
+	-- direction then they must be hitting your back.
 	
 	local DirectionDifference = math.abs(Defender.Char:getFaceTo()-Attacker.Char:getFaceTo());
 	
-	if (DirectionDifference>=3) and (DirectionDifference<=5) then
+	if (DirectionDifference<=1) or (DirectionDifference==7) then
       return false;
 	end;
 	
