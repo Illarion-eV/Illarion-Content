@@ -351,7 +351,7 @@ function ChanceToHit(Attacker, Defender)
 	--Now for the modifier
 	
 	
-	chance = chance+Stiffmod/150;
+	chance = chance+Stiffmod/400;
 	
    Defender.Char:inform("Stiffmod: " .. Stiffmod); 
   Defender.Char:inform("chance: " .. chance);
