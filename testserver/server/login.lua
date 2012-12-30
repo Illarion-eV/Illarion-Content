@@ -136,7 +136,8 @@ function onLogin( player )
 		messageG[64]="[Tipp] Die meisten NPCs reagieren auf 'Hilfe' mit der Ausgabe einer Liste ihrer wichtigsten Schlüsselwörter."
 		messageG[65]="[Tipp] Die Fertigkeiten deines Charakters kannst du aufrufen, indem du 'C' drückst."
         messageG[66]="[Tipp] Ein Stapel von Gegenständen läßt sich durch Halten der Shift-Taste beim Bewegen auflösen."
-
+		messageG[67]="[Tipp] Wenn du auf Reisen gehst, nimm stets Proviant mit. Deine Lebenspunkte regenerieren sich nicht, wenn dein Charakter hungrig ist."
+		
 		--English
 		messageE={};
 		messageE[1]="[Hint] Light armours, such as those made of leather, offer good protection against blunt weapons but perform poorly against slashing weapons.";
@@ -205,6 +206,7 @@ function onLogin( player )
         messageE[64]="[Hint] Most NPCs react on 'help' with a list of their most important keywords.";
         messageE[65]="[Hint] You can review the skills of your character by hitting 'C'.";
 		messageE[66]="[Hint] To split a stack of items, hold shift while moving it.";
+		messageE[67]="[Hint] If you go on a journey, always have some rations with you. Your character's hitpoints won't regenerate if your character is hungry.";
 
 	    dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	    base.common.InformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message

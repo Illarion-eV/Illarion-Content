@@ -42,7 +42,7 @@ function callEffect(Effect,User)
 	   end   
    end
 
-   Effect.nextCalled = 600
+   Effect.nextCalled = 60
    return true
 end
 

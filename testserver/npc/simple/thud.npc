@@ -203,18 +203,16 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farebba!"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich Thud. Wer du?"
 
 -- Catching quest triggers. Modify if the NPC does quests.
-english, "quest", "mission" -> inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. - If you bring him enough trophies, he will reward you."), "You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr."
-"quest", "mission" -> inform("Quest: Der Trophäensammler. Thud sammelt Felle, Hörner, Salkamarische Paladinhelme, verzierte Dolche, Zwergenäxte und Elben-Kompositlangbögen. - Wenn du ihm genügend Trophäen gebrachst hast wird er dich belohnen."), "Du bringst Thud alle Trophäe du hast! Yubba?"
-"task", "adventure", "order" -> inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. - If you bring him enough trophies, he will reward you."), "You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("Quest: Der Trophäensammler. Thud sammelt Felle, Hörner, Salkamarische Paladinhelme, verzierte Dolche, Zwergenäxte und Elben-Kompositlangbögen. - Wenn du ihm genügend Trophäen gebrachst hast wird er dich belohnen."), "Du bringst Thud alle Trophäe du hast! Yubba?"
+english, "quest", "mission" -> inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. If you bring him enough trophies, he will reward you."), "You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr."
+"quest", "mission" -> inform("Quest: Der Trophäensammler. Thud sammelt Felle, Hörner, Salkamarische Paladinhelme, verzierte Dolche, Zwergenäxte und Elben-Kompositlangbögen. Wenn du ihm genügend Trophäen gebrachst hast wird er dich belohnen."), "Du bringst Thud alle Trophäe du hast! Yubba?"
+"task", "adventure", "order" -> inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. If you bring him enough trophies, he will reward you."), "You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("Quest: Der Trophäensammler. Thud sammelt Felle, Hörner, Salkamarische Paladinhelme, verzierte Dolche, Zwergenäxte und Elben-Kompositlangbögen. Wenn du ihm genügend Trophäen gebrachst hast wird er dich belohnen."), "Du bringst Thud alle Trophäe du hast! Yubba?"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I thud things. - With my club.", "I collect trophy. Bring all of them here."
 "beruf" -> "Thud haut mit Keule fest zu!", "Ich sameln Trophäe. Bring alle davon hier her."
 english, "job" -> "I thud things. - With my club.", "I collect trophy. Bring all of them here."
 "job" -> "Thud haut mit Keule fest zu!", "Ich sameln Trophäe. Bring alle davon hier her."
-english, "Gobaith", "Gobiath" -> "#me thuds your head with his big club. 'Shut up!'", attrib(hitpoints) - 2000, attrib(hitpoints) + 1
-"Gobaith", "Gobiath" -> "#me haut dir mit seiner Keule auf den Kopf. 'Halts Maul!'", attrib(hitpoints) - 2000, attrib(hitpoints) + 1
 "my name" -> "#me makes a stupid grin: 'And I Thud...'."
 "mein Name" -> "#me grinst blöde: 'Und ich Thud...'."
 
@@ -271,8 +269,6 @@ english, "thud" -> "#me grunts. 'I thud! That me be. Yubba."
 "Nein" -> "Was das zu bedeuten hat?", "Nein? Du sicher?", "Was immer auch... Thud es nix interessiert."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "#me thuds your head with his big club. 'Shut up!'", attrib(hitpoints) - 2000, attrib(hitpoints) + 1
-german, chance(20.0), ".*" -> "#me haut dir mit seiner Keule auf den Kopf. 'Halts Maul!'", attrib(hitpoints) - 2000, attrib(hitpoints) + 1
 english, chance(40.0), ".*" -> "Oh! Mes never thought about in that way!", "Is that so? Sound's silly.", "You mouth be filled with garbage and it falls out every time you open it."
 german, chance(40.0), ".*" -> "Oh! So hat Thud das noch nie betrachtet.", "Das ist so? Klingt bekloppt. In meine Ohren.", "Dein Maul, voll mit Müll. Und er fällt heraus, jedesmal du machst auf."
 

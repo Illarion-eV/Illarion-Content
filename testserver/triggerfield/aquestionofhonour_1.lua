@@ -15,11 +15,11 @@ function Init()
       waypoint[3]=position(114,634,0); --3: Gate
       messageG={};
       messageG[1]="[Queststatus] Im Palast scheint alles in Ordnung zu sein.";
-      messageG[2]="[Queststatus] Torina Scibrim scheint es gut zu gehen.";
+      messageG[2]="[Queststatus] Reret Odohir scheint es gut zu gehen.";
       messageG[3]="[Queststatus] Horatio Milenus bewacht das Tor wie eh und je.";
       messageE={};
       messageE[1]="[Quest status] All is quiet in the palace.";
-      messageE[2]="[Quest status] Torina Scibrim seems to be doing well.";
+      messageE[2]="[Quest status] Reret Odohir seems to be doing well.";
       messageE[3]="[Quest status] Horatio Milenus guards the gate just like he should be doing.";
       InitDone = true;
     

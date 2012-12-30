@@ -59,6 +59,7 @@ function CharacterOnField( User )
 	    destCoordY = tonumber(destCoordY)		
  	    destCoordZ = tonumber(destCoordZ)
 		dest = position(destCoordX,destCoordY,destCoordZ)
+        debug("Portal: " .. destCoordX .. ", " .. destCoordY .. ", " .. destCoordZ)
 	    destFound = true
 	end	
 	
@@ -66,6 +67,7 @@ function CharacterOnField( User )
 	local PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
 	if (PlayerInCave) then
 		dest = t_dest;
+        debug("QuestPortal: " .. dest.x .. ", " .. dest.y .. ", " .. dest.z)
 	    destFound = true
 	end
 

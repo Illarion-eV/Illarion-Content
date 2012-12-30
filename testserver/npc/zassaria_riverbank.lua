@@ -75,7 +75,7 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Greetingsss to you.");
-talkEntry:addResponse("me hisses");
+talkEntry:addResponse("#me hisses.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -130,7 +130,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I'm feeling very good. Sss. Exss...Extraordinary.");
+talkEntry:addResponse("I'm feeling very good. Sss. Exssstraordinary.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -147,7 +147,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am called Zassaria Riverbank.Nice so meet you. Sss.");
+talkEntry:addResponse("I am the one called Zassaria Riverbank.Nice to meet you. Sss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -167,7 +167,7 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("Tsss! I ate all my fisssch. I'll chatch new fisssch sssoon.");
+talkEntry:addResponse("Tsss! I ate all my fisssh. I'll catch new fishiesss sssoon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -790,8 +790,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Do you know there'sss a diffrentce between Zsss, Tsss and Ssss?");
-talkEntry:addResponse("Usssually marriages between my people are arranged by the partentsss. Sss. Usually.");
+talkEntry:addResponse("Do you know there'sss a difference between Zsss, Tsss and Ssss?");
+talkEntry:addResponse("Usssually marriages between my people are arranged by the parentsss. Sss. Usually.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -800,7 +800,7 @@ talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
 talkEntry:addTrigger("erzähl mir was");
 talkEntry:addTrigger("erzählt mir was");
-talkEntry:addResponse("Wissst Ihr, dasss es einen Unterschied zzzwischen Zsss, Tss und Ssss?");
+talkEntry:addResponse("Wissst ihr, dasss es einen Unterschied zzzwischen Zsss, Tss und Ssss?");
 talkEntry:addResponse("Normalerweisse werden Ehen in meinem Volk arrangiert. Ssss. Normalerweissse.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -823,7 +823,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addResponse("She'sss to godesss of the water and the sssea.");
-talkEntry:addResponse("You call her Tanora, thisss iss not a word eassy tp pronoucsse for usss.");
+talkEntry:addResponse("You call her Tanora, thisss iss not a word eassy to pronoucsse for usss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -935,7 +935,7 @@ talkingNPC:addCycleText("Ssss!", "Ssss!");
 talkingNPC:addCycleText("#me zischt.", "#me hisses.");
 talkingNPC:addCycleText("Zss!", "Zss!");
 talkingNPC:addCycleText("Tsss...", "Tsss...");
-talkingNPC:addCycleText("lässt ihren Schwanz hin und her schnellen.", "#me moves her tail.");
+talkingNPC:addCycleText("lässt ihren Schwanz hin und her schnellen.", "#me wags her tail back and forth.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(4);
 mainNPC:setDefaultLanguage(0);

@@ -1,4 +1,3 @@
-require("base.orders")
 require("base.common")
 require("base.factions")
 
@@ -7,13 +6,7 @@ module("item.id_3110_scroll", package.seeall)
 -- UPDATE common SET com_script = 'item.id_3110_scroll' WHERE com_itemid = 3110;
 
 function LookAtItem(User,Item)
-    --abarbeitung der Aufträge
-    local order = base.orders.Order:fromItem(Item);
-    if ( order ~= nil ) then
-        world:itemInform(User,Item,order:lookAt(User));
-        return;
-    end
-    --ende der Aufträge
+
     local spell = Item.quality;
     if (spell == 101) then -- teleport
         
@@ -29,23 +22,8 @@ function LookAtItem(User,Item)
 	end
 end
 
-function CheckOrderNpc(User, SourceItem, Character)
-	fnd, ordernpc = getNPCFromGlobalList(Character.id,User);
-	if ( fnd ) then
-		--wenn funktion true zurück gibt dann war es ein auftrag
-		--daher restliche funktion abbrechen
-		if (ordernpc:checkOrder(SourceItem,User) ) then 
-			return;
-		end
-	end
-end
-
 function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
-    local FrontChar = base.common.GetFrontCharacter(User);
-	if FrontChar and FrontChar:getType() == Character.npc then
-		CheckOrderNpc(User, SourceItem, FrontChar);
-		return;
-	end
+
 	local spell = SourceItem.quality;
     if (tonumber(SourceItem:getData("scrollData")) == 600) then -- summon creature
         summonCreature( User, SourceItem );
@@ -56,7 +34,7 @@ function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
     elseif (tonumber(SourceItem:getData("scrollData")) == 666) then 
 		world:gfx(51,User.pos);
 		world:gfx(31,User.pos);
-		User:warp(position(48,-327,-23));
+		User:warp(position(48,-327,-23)); --WTF is there!? Start to use comments, for fuck's sake.
 		world:gfx(51,User.pos);
 		world:gfx(31,User.pos);
 		world:erase(SourceItem,1);

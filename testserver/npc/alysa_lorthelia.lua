@@ -2,7 +2,7 @@
 -- NPC Name: Alysa Lorthelia                                         Runewick --
 -- NPC Job:  Baker                                                            --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  907, 794, 1            --
+-- NPC Race: human                      NPC Position:  907, 794, 1            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Regallo                                                          --
@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (1, 907, 794, 1, 4, 'Alysa Lorthelia', 'npc.alysa_lorthelia', 1, 2, 5, 123, 62, 9, 245, 180, 137);
+VALUES (0, 907, 794, 1, 4, 'Alysa Lorthelia', 'npc.alysa_lorthelia', 1, 2, 5, 123, 62, 9, 245, 180, 137);
 ---]]
 
 require("npc.base.basic")
@@ -64,9 +64,9 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good Evening");
-talkEntry:addResponse("Hello, would you like some something to eat? I think the stuff I made is good.");
-talkEntry:addResponse(" Nice to meet you, I am Alysa Lorthelia.");
-talkEntry:addResponse("Ah! You startled me, Hello, I'm sorry.");
+talkEntry:addResponse("Hello, would you like something to eat? My wares are pretty tasty!");
+talkEntry:addResponse(" Nice to meet you, I'm Alysa Lorthelia.");
+talkEntry:addResponse("Ah, you startled me! Hello, my apologies.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -93,9 +93,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hello, would you like some something to eat? I think the stuff I made is good.");
-talkEntry:addResponse(" Nice to meet you, I am Alysa Lorthelia.");
-talkEntry:addResponse("Ah! You startled me, Hello, I'm sorry.");
+talkEntry:addResponse("Hello, would you like something to eat? My wares are pretty tasty!");
+talkEntry:addResponse(" Nice to meet you, I'm Alysa Lorthelia.");
+talkEntry:addResponse("Ah, you startled me! Hello, my apologies.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -116,7 +116,7 @@ talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Will I ever see you again? ");
-talkEntry:addResponse("Thank you so, so, so much for talking to me.");
+talkEntry:addResponse("Thank you so, so much for talking to me.");
 talkEntry:addResponse("Please have a good day. Can you visit again please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -139,7 +139,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Will I ever see you again? ");
-talkEntry:addResponse("Thank you so, so, so much for talking to me.");
+talkEntry:addResponse("Thank you so, so much for talking to me.");
 talkEntry:addResponse("Please have a good day. Can you visit again please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -150,7 +150,7 @@ talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Will I ever see you again? ");
-talkEntry:addResponse("Thank you so, so, so much for talking to me.");
+talkEntry:addResponse("Thank you so, so much for talking to me.");
 talkEntry:addResponse("Please have a good day. Can you visit again please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -170,9 +170,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I don't feel so good today. My stomach hurts. But it's not because of my food! Please don't think my food is bad!");
-talkEntry:addResponse("My head is dizzy.");
-talkEntry:addResponse("I think I ate too much. I shouldn't eat for another two days.");
+talkEntry:addResponse("I don't feel great today. My stomach hurts. But it's not because of my food! Please don't think my food is bad!");
+talkEntry:addResponse("My head's all dizzy.");
+talkEntry:addResponse("I think I ate too much. I shouldn't eat for another few days.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -191,9 +191,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am the daughter of the sword crafter Asha Lorthelia.");
-talkEntry:addResponse("I am the oldest Lorthelia daughter, but no I cannot craft ornate weapons like my mother. Instead I bake.");
-talkEntry:addResponse("I am Alysa Lorthelia, the baker, at least for now.");
+talkEntry:addResponse("I'm the daughter of the sword crafter Asha Lorthelia.");
+talkEntry:addResponse("I'm the oldest Lorthelia daughter, but no: I can't craft ornate weapons like my mother. Instead I bake.");
+talkEntry:addResponse("I am Alysa Lorthelia, the baker... at least for now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -211,9 +211,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I bake all kinds of foods.");
-talkEntry:addResponse("I sell people the food that I and old man John Sights bake.");
-talkEntry:addResponse("I started working as a baker a several moons ago.");
+talkEntry:addResponse("I bake all kinds of fresh goods.");
+talkEntry:addResponse("I sell people the food that myself and old John Sights bake.");
+talkEntry:addResponse("I started working as a bakery many moons ago.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -228,9 +228,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I bake all kinds of foods.");
-talkEntry:addResponse("I sell people the food that I and old man John Sights bake.");
-talkEntry:addResponse("I started working as a baker a several moons ago.");
+talkEntry:addResponse("I bake all kinds of fresh goods.");
+talkEntry:addResponse("I sell people the food that myself and old John Sights bake.");
+talkEntry:addResponse("I started working as a bakery many moons ago.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -248,7 +248,7 @@ talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
 talkEntry:addResponse("There were fairies somewhere in that world.");
 talkEntry:addResponse("I would love to meet a fairy. I know they lived there.");
-talkEntry:addResponse("Maybe a fairy can cast a spell on me, one that would make me a fairy.");
+talkEntry:addResponse("Maybe a fairy can cast a spell on me, so I could join them in their world.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -277,7 +277,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cook");
 talkEntry:addTrigger("Food");
 talkEntry:addTrigger("Bake");
-talkEntry:addResponse("I did not think I would love cooking so much. It's because I was born to be fat. That's why now I don't eat anything I make.");
+talkEntry:addResponse("I didn't think I'd love cooking so much. I was born to become fat. That's why now I never eat anything I make.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -293,7 +293,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Boob");
 talkEntry:addTrigger("Breast");
 talkEntry:addTrigger("Tit");
-talkEntry:addResponse("I can see you staring at my boobs, but I don't mind. When you stare at them it makes me feel pretty. Just don't stare at my stomach.");
+talkEntry:addResponse("Last person who tried that on with me died of syphilis. Not that I had anything to do with it!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -309,7 +309,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fat");
 talkEntry:addTrigger("Weight");
 talkEntry:addTrigger("Heavy");
-talkEntry:addResponse("I met Ce, the cook there. She's so cute and talented. We're going to have a bake off soon.");
+talkEntry:addResponse("I met Ce, the cook there. She's so talented. We're going to have a bake off soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -324,7 +324,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glass Spiegel");
 talkEntry:addTrigger("Ce");
-talkEntry:addResponse("I met Ce, the cook there. She's so cute and talented. We're going to have a bake off soon.");
+talkEntry:addResponse("I met Ce, the cook there. She's so talented. We're going to have a bake off soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -337,7 +337,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("John Sights");
-talkEntry:addResponse("He's an old man. He's nice and he gave me this job. He looks at my boobs sometimes.");
+talkEntry:addResponse("He's an old man. He's nice and he gave me this job. Though he does look at me a funny way sometimes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -351,7 +351,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mother");
 talkEntry:addTrigger("Mom");
 talkEntry:addTrigger("Aysha");
-talkEntry:addResponse("Mom is never not working. I don't think I even see her sleep.");
+talkEntry:addResponse("Mum constantly works. I don't think I've ever seen her sleep.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -366,7 +366,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Father");
 talkEntry:addTrigger("Dad");
-talkEntry:addResponse("Dad only works several hours a week, but he is always out of the house and home is always messy.");
+talkEntry:addResponse("Dad only works a few hours a week, but he's always out of the house, and the house is always messy.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -391,7 +391,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("The Arch Mage only uses enchanted weapons made by Asha Lorthelia, my mother.");
+talkEntry:addResponse("The Archmage only uses enchanted weapons made by Asha Lorthelia, my mother.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -405,7 +405,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Who?");
+talkEntry:addResponse("Who? Oh.. right, that guy.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -419,7 +419,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("I live here. I don't think anything else about it.");
+talkEntry:addResponse("I live here. I don't really dwell on it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -434,7 +434,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("My mother does not care for him. I don't know why.");
+talkEntry:addResponse("My mother doesn't care for him. No idea why.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -449,7 +449,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("I've been several times with my mother and father. It's a dirty place and that's a lot coming from a dwarf.");
+talkEntry:addResponse("I've been there a few times with my mother and father. It's a dirty place, you wouldn't find my wares anywhere near that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -461,7 +461,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("She's too pretty. The gods were a lot more fare to her than to me.");
+talkEntry:addResponse("She's too pretty. The gods were a lot fairer to her than to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -475,7 +475,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("She's too pretty. The gods were a lot more fare to her than to me.");
+talkEntry:addResponse("She's too pretty. The gods were a lot fairer to her than to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -489,7 +489,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Too much sun for a dwarf like me, but I enjoyed visiting Glass Spiegel.");
+talkEntry:addResponse("Too much sun for my liking, but I enjoyed visiting the tavern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -502,7 +502,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("My father says that only the stupid care about faction related strife.");
+talkEntry:addResponse("My father says that they only care about faction related drivel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -516,7 +516,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("My father says that only the stupid care about faction related strife.");
+talkEntry:addResponse("My father says that they only care about faction related drivel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -530,7 +530,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("My father says that only the stupid care about faction related strife.");
+talkEntry:addResponse("My father says that they only care about faction related drivel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -582,7 +582,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("Ok");
+talkEntry:addResponse("Okay");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -594,7 +594,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("Oh no");
+talkEntry:addResponse("Oh no!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -619,16 +619,16 @@ talkEntry:addTrigger(".*");
 talkEntry:addResponse("Das hat nichts mit mir zu tun, entschuldigt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Diess Mädchen ist so dünn.", "That girl is so skinny.");
-talkingNPC:addCycleText("Ich habe hunger. Ich meine, ich habe keinem Hunger.", "I'm hungry. I mean I'm not hungry.");
-talkingNPC:addCycleText("Kommt, esst mein Brot, schmeckt besser als cadomyrische Sandratte!", "Come eat my bread. It's better than a Cadomyrian sand rat.");
-talkingNPC:addCycleText("Der alte John Sights sagte mir, ich soll Euch sagen, dass ich Alysa Lorthelia bin, die Tochter der Waffenschmiedein Asha Lorthelia.", "Old Man John Sights told me to tell you that I am Alysa Lorthelia, daughter of Aysha. The famous Weopons smith.");
-talkingNPC:addCycleText("Ich backe Brot so gut, wie meine Mutter Waffen herstellt.", "I bake bread as good as my mother crafts weapons.");
+talkingNPC:addCycleText("Diess Mädchen ist so dünn.", "That girl's far too skinny.");
+talkingNPC:addCycleText("Ich habe hunger. Ich meine, ich habe keinem Hunger.", "Ugh.. I'm hungry. No I'm not! Mind over matter!");
+talkingNPC:addCycleText("Kommt, esst mein Brot, schmeckt besser als cadomyrische Sandratte!", "Come eat my bread! It's better than a Cadomyrian sand rat. At least.. I hope so.");
+talkingNPC:addCycleText("Der alte John Sights sagte mir, ich soll Euch sagen, dass ich Alysa Lorthelia bin, die Tochter der Waffenschmiedein Asha Lorthelia.", "Hey everyone, look at me, I'm Alysa Lorthelia, daughter of Aysha. The famous Weapon smith!");
+talkingNPC:addCycleText("Ich backe Brot so gut, wie meine Mutter Waffen herstellt.", "I bake bread as well as my mother crafts weapons!");
 talkingNPC:addCycleText("Mein Magen schmerzt. Diese Brot um mich herum. Das ist Folter.", "My stomach hurts. All this bread sitting around me. It's torture.");
-talkingNPC:addCycleText("Calthors kurze Abhandlung üder die Geschichte der Feen ist das beste Buch was ich jemals gelesen habe.", "The Calthor digest on the history of fairies is the best book I've ever read.");
-talkingNPC:addCycleText("Wo ist Papa schon wieder hin verschwunden? Er ist ständig weg.", "Where did dad wonder off too? He's always disappearing.");
-talkingNPC:addCycleText("Ich werde Ce im Kochwettbewerb schlagen.", "I will destroy Ce in our bake off.");
-talkingNPC:addCycleText("Ich frage mich ob Mutter sich jemals einen Tag frei nimmt.", "I wonder if my mother will ever take a day off.");
+talkingNPC:addCycleText("Calthors kurze Abhandlung üder die Geschichte der Feen ist das beste Buch was ich jemals gelesen habe.", "The Calthor Digest on the history of fairies is the best book I've ever read!");
+talkingNPC:addCycleText("Wo ist Papa schon wieder hin verschwunden? Er ist ständig weg.", "Where did dad wonder off to? He's always disappearing.");
+talkingNPC:addCycleText("Ich werde Ce im Kochwettbewerb schlagen.", "I will destroy Ce-Ce in our bake off.");
+talkingNPC:addCycleText("Ich frage mich ob Mutter sich jemals einen Tag frei nimmt.", "I wonder if mum'll ever take a day off.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(51,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(118,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(121,"sell"));
@@ -696,10 +696,10 @@ tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come bac
 tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was dir gefällt?", "Don't you like my wares?");
 tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(2);
+mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "This is an NPC who's developer was too lazy to type in a description.");
-mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
+mainNPC:setLookat("Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen.", "A tall, proud woman stands behind the counter, preparing food quickly.");
+mainNPC:setUseMessage("Fass mich nicht an!", "Hands off!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 847);

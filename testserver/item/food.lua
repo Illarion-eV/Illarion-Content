@@ -270,7 +270,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
   
   -- check for buffs
   if (foodItem.buffType ~= nil) then
-    debug("check buff");
     -- calculate how long the buff will last, at least 5min, maximal 30min
     local newDuration = 3000;
     -- grant even easy craftable items a good chance by adding 5
@@ -286,20 +285,16 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if (math.random(1,105) <= raceDifficulty) then
       newBuffAmount = 2;
     end
-    debug("diff " .. foodItem.difficulty .. ", raceDiff " .. raceDifficulty .. ", newDuration " .. newDuration .. ", newBuffAmount " .. newBuffAmount);
     -- add buff, if it is better than the previous one
     local newIsBetter = true;
     local foundEffect,dietEffect=User.effects:find(12);
     if (foundEffect) then
-      debug("found dietEffect");
       local foundType, buffType = dietEffect:findValue("buffType");
       if (foundType) then
         local foundAmount, buffAmount = dietEffect:findValue("buffAmount");
         if (foundAmount) then
           -- check if old one is better
-          debug("oldAmount " .. buffAmount .. ", old nextCalled " .. dietEffect.nextCalled .. ", lastCalled " .. dietEffect.lastCalled);
           if (buffAmount > newBuffAmount or (buffAmount == newBuffAmount and dietEffect.nextCalled > newDuration)) then
-            debug("old is better");
             newIsBetter = false;
           else
             dietEffect:addValue("buffType", foodItem.buffType);
@@ -313,7 +308,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         User:inform("[ERROR] Found diet effect without buffType. Adding new buff. Please inform a developer.");
       end
     else
-      debug("adding effect 12 with " .. newDuration);
       local dietEffect=LongTimeEffect(12, newDuration);
       dietEffect:addValue("buffType", foodItem.buffType);
       dietEffect:addValue("buffAmount", newBuffAmount);

@@ -1,20 +1,8 @@
 -- Fighting System
 -- All fights are handled with this script
 -- Written by martin, Nitram and Xandrina
--- $Id$
+-- Rebalanced by Estralis and Flux
 
---[[
-Call: Character:learn(skill,skillGroup,movePoints,opponent,leadAttribute);
-skill: Name of the skill as string, e.g. "mining"
-skillGroup: Group of the skill as integer (e.g. 2 for crafting).  
-movePoints: The amount of movePoints or time (1/10s), required by the action, as integer. Do NOT fill in 0, every action relevant for skillgain HAS TO take some time.
-opponent: In case the action requires a minimum skill, fill it in here as integer. If the action should only yield skillgain up to a certain level, fill in this level-20. Otherwise, fill in 100.
-leadAttribute: The value of the lead attribute as integer. You find the mandatory(!) definition of lead attributes here: http://illarion.org/community/forums/viewtopic.php?p=643700#p643700
-Example: Character:learn("mining",2,20,100);
-
-jeweils nur 1/n der movepoints/FP, weil ja n skills gesteigert werden.
-
-]]
 
 --[[ Weapontypes:
 1:  1 hd slashing
@@ -34,8 +22,7 @@ jeweils nur 1/n der movepoints/FP, weil ja n skills gesteigert werden.
 -- Hang in base.common - Some functions of the collection are needed
 require("base.common")
 
--- Include base.character to use the methods changing some attributes of the
--- character properly there
+-- Include base.character to use the methods changing some attributes of the character properly there
 require("base.character")
 
 -- For learning skills...
@@ -61,7 +48,6 @@ module("server.standardfighting", package.seeall)
 -- @return true in case a attack was performed, else false
 function onAttack(Attacker, Defender)
 
-    -- Attacker:talk(Character.say,"Drin in onAttack");
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
@@ -70,41 +56,36 @@ function onAttack(Attacker, Defender)
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
 
-    --Attacker.Char:talk(Character.say,"NI OK");
     -- Load the weapons of the attacker
     LoadWeapons(Attacker);
     
-     --   Attacker.Char:talk(Character.say,"WP OK");
     -- Check the range between the both fighting characters
 
     if not CheckRange(Attacker, Defender.Char) then return false; end;
 
-    --Attacker.Char:talk(Character.say,"RANGE OK");
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker);
 
-    --Attacker.Char:talk(Character.say,"ATT TYPE OK");
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker) then 
-       -- Attacker.Char:talk(Character.say,"ATTER NOT OK");
         return false; 
     end;
     
-    --    Attacker.Char:talk(Character.say,"ATTER OK");
     -- Check if ammunition is needed and use it
     if not HandleAmmunition(Attacker) then return false; end;
     
     
-    --    Attacker.Char:talk(Character.say,"AMMO OK");
     -- Load Skills and Attributes of the attacking character
     LoadAttribsSkills(Attacker, true);
     
     -- Load weapon data, skills and attributes of the attacked character
     LoadWeapons(Defender);
     LoadAttribsSkills(Defender, false);
-    -- Calculate and reduce the required movepoints ******************* NEW **********************
+	
+    -- Calculate and reduce the required movepoints
     APreduction=HandleMovepoints(Attacker);
 
+	-- Turning the attacker to his victim
     base.common.TurnTo(Attacker.Char,Defender.Char.pos);
 
     -- Show the attacking animation
@@ -124,7 +105,7 @@ function onAttack(Attacker, Defender)
     end;
     
     -- Calculate the chance to parry
-    if ChanceToParry(Defender) then
+    if ChanceToParry(Attacker, Defender) then
         -- Hit was parried
         LearnParry(Attacker, Defender, APreduction);
         
@@ -139,16 +120,12 @@ function onAttack(Attacker, Defender)
     -- Calculate the damage caused by the attack
     CalculateDamage(Attacker, Globals);
 
---Defender.Char:inform("BaseDamage: "..Globals.Damage);
-    
     -- Reduce the damage due the absorbtion of the armor
     ArmorAbsorbtion(Attacker, Defender, Globals);
-    
---Defender.Char:inform("BaseDamage after Armor: "..Globals.Damage);    
+
     -- The effect of the constitution. After this the final damage is avaiable.
     ConstitutionEffect(Defender, Globals);
 
---Defender.Char:inform("BaseDamage after Consti: "..Globals.Damage);     
     -- Cause the finally calculated damage to the player
     CauseDamage(Attacker, Defender, Globals);
     
@@ -228,22 +205,23 @@ function CalculateDamage(Attacker, Globals)
     local PerceptionBonus;
     local DexterityBonus;
     local SkillBonus;
-    local TacticsBonus;
+    --local TacticsBonus;
     
     if Attacker.IsWeapon then
         BaseDamage = Attacker.Weapon.Attack * 10;
     else
         BaseDamage = content.fighting.GetWrestlingAttack( Attacker.Race ) * 10;
     end;
-  --Defender.Char:inform("Base Damage 1 "..BaseDamage);  
+ 
     StrengthBonus = (Attacker.strength - 6) * 3;
     PerceptionBonus = (Attacker.perception - 6) * 1;
     DexterityBonus = (Attacker.dexterity - 6) * 1;
-    SkillBonus = (Attacker.skill - 20) * 1;
-    TacticsBonus = (Attacker.tactics - 20) * 0.5;
+    SkillBonus = (Attacker.skill - 20) * 1.5;
+    --TacticsBonus = (Attacker.tactics - 20) * 0.5;
     GemBonus = base.gems.getGemBonus(Attacker.WeaponItem);
 
-    Globals["Damage"] = BaseDamage * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + TacticsBonus + GemBonus)/100;
+    -- Base damage was far too high for the new combat speed, you could get murked too fast.
+    Globals["Damage"] = 0.6 * BaseDamage * (100 + StrengthBonus + PerceptionBonus + DexterityBonus + SkillBonus + GemBonus)/100;
     
 end;
 
@@ -268,8 +246,7 @@ function CauseDamage(Attacker, Defender, Globals)
         and base.character.WouldDie(Defender.Char, Globals.Damage + 1)
         and (Attacker.AttackKind ~= 4)
         and not base.character.AtBrinkOfDeath(Defender.Char) then
-        -- Character would die. Nearly killing him and moving him back in case
-        -- its possible
+        -- Character would die. Nearly killing him and moving him back in case it's possible
         base.character.ToBrinkOfDeath(Defender.Char);
 
         local CharOffsetX = Attacker.Char.pos.x - Defender.Char.pos.x;
@@ -313,9 +290,12 @@ function CauseDamage(Attacker, Defender, Globals)
             "#me stolpert zurück und geht zu Boden.",
             "#me stumbles back and falls to the ground.");
 
-        base.common.ParalyseCharacter(Defender.Char, 7, false, true);
-
-        lte.chr_reg.stallRegeneration(Defender.Char, 20);
+		if not Defender.Char:isAdmin() then --Admins don't want to get paralysed!
+		
+            base.common.ParalyseCharacter(Defender.Char, 7, false, true);
+            lte.chr_reg.stallRegeneration(Defender.Char, 20);
+			
+		end
 
         return true;
     else
@@ -337,9 +317,22 @@ end;
 -- @param Defender The table that stores the values of the defender
 -- @return true in case the target receives the hit
 function ChanceToHit(Attacker, Defender)
-    local chance = (20 + Attacker.skill)
-        / ((20 + Defender.dodge)
-            * 2);
+    
+	--OLD
+	--local chance = (20 + Attacker.skill)/((20 + Defender.dodge)* 2);
+	
+	--PROPOSAL BY ESTRALIS & FLUX
+	local chance = (40 + Attacker.skill)/((45 + Defender.dodge)* 1.4);
+		
+	--Reason: Higher base chance, higher overall chance, reduced impact of low skill levels
+	-- (one could even hit an unarmed pig as noob!)
+	-- There is a graph in the documentation that shows exactly why this graph was chosen.
+	-- I plotted >20 graphs to arrive at this one.
+	-- We tried adding constants, changing both the top and bottom value etc.
+	-- Eventually we arrived at this being the best to fit all purposes - Flux
+	
+	--PROPOSAL END
+	
     if (Attacker.isWeapon) then
         chance = chance * (40 + Attacker.Weapon.Accuracy) / 100;
     else
@@ -354,6 +347,97 @@ function ChanceToHit(Attacker, Defender)
         chance = chance * chanceMod / 100;
         --Attacker.Char:inform("Chance to hit: "..chance);
     end;
+	
+	
+	--Stiffness wasn't taken into account? Rewrote base.common.Getstiffness
+	--And added a stiffness mod - Flux
+
+	local Stiffmod = base.common.GetStiffness( Defender.Char );
+	
+	--Now for the modifier
+	
+	chance = chance+Stiffmod/500;
+	--[[
+	Just a side note here.
+	
+	500 may seem like a "magic number" because it is so round. It is not a magic number.
+	It has been calculated.
+	
+	This value was arrived at by examination of the graph and thinking about what warrants
+	midplate and fullplate etc.
+	
+	The graph I refer to is in the documentation, and is a 3 dimensional contour graph.
+	
+	So, say you're fighting a monster who is equally skilled or up to 10 skillpoints more
+	skilled than you, you'd expect around the 58% hit range before stiffness.
+	
+	Someone with a leather set of armour will have around 50 stiffness.
+	Someone with a mid set of armour will have around.. 150 stiffness.
+	Someone with a heavy set of armour will have like 220 stiffness or more.
+	
+	The heavy person has to live with the consequences of their actions. They will pretty much
+	never be able to dodge. They'll dodge with the 5% chance cap though.
+	
+	So if we say that the mid setter should feel a slight benefit from going mid.
+	Therefore the stiffness should only push up the hit chance to 90% for them at things
+	around their level.
+	
+	So 150 should translate into a 30% increase.
+	That's why I propose division by 500 and addition to the hit chance.
+	
+	This would mean that it adds >50% to the chance of hitting against a defender in heavy
+	armour, 10% onto someone in leather armour, 0% onto someone who is wearing plain clothes.
+	And to a mid armour user it would add around 30% as we modelled it.
+	
+	So let's look at what these numbers mean in real world terms:
+	
+  FOR HEAVY USERS:
+  People with fighting skill 60 levels lower than you will hit you 75-85% of the time.
+	
+	People with skill at your level will push you above the upper bound, where you will
+	dodge the standard 5% of the time. No more.
+	
+	FOR MIDHEAVY USERS:
+	People with fighting skill 60 levels lower than you will only hit you 55-70% of the time.
+	
+	People with skill around yours will hit you around 90% of the time.
+	
+	People with skill above you by 10 levels will always push you above the upper bound.
+	
+	FOR LIGHT USERS:
+	Someone 60 skill levels below you would hit 50% of the time.
+	
+	Someone at your skill level would hit you ~70% of the time.
+	
+	Someone 10 skill levels higher than you would hit you 80% of the time.
+	
+	Someone 20 skill levels higher than you would push you above the upper bound.
+	
+	This seems very reasonable and balances the different types of class, while pushing dodge
+	chance into the same region as parry chance, which is good because they'll skill up at the
+	same time.
+	
+	tl;dr - stiffness is properly balanced to fit with parry chance
+	
+	- Flux
+	]]
+	
+  
+    
+	
+	--PROPOSAL BY ESTRALIS & FLUX
+	chance = math.max(chance,0.1); --raising to 10% no matter what (should not occur with normal values)
+	
+	
+	local maximumhitchance = 0.95;
+
+    chance = math.min(chance,maximumhitchance); --capping at 95%, no one hits all the time
+    --PROPOSAL END
+
+
+   --local dodgechance = 100*(1-chance);
+  --Defender.Char:inform("Dodge percent chance: " .. dodgechance);
+
     return base.common.Chance(chance);
 end;
 
@@ -361,13 +445,25 @@ end;
 -- carries and seaches for the fest item to parry with.
 -- @param Defender The table that stores all data of the defender
 -- @return true in case the hit was parried
-function ChanceToParry(Defender)
+function ChanceToParry(Attacker, Defender)
+
+--[[This function now ASSUMES that each weapon's "Defence" is the important factor.
+    it does not descriminate between what is a shield and what is a sword.
+    That is to be done in the weapon's WeaponDefence for simplicity's sake.
+    So a shield has a high defence and a sword has a lower one.
+    So a human can actually understand it. - Flux]]
+
     if not Defender.LeftIsWeapon and not Defender.RightIsWeapon then
         return false;
     end;
     
-    local parryType = -1;
+     -- Check which weapon has the best defense. The one with the highest is used for parrying
+    
     local parryWeapon;
+    
+    --OLD - This differentiated between shields and swords. Needlessly complicated.
+    --[[
+    local parryType = -1;
     if Defender.LeftIsWeapon then
         local weaponType = Defender.LeftWeapon.WeaponType;
         if (weaponType == 14) then -- shield
@@ -418,6 +514,27 @@ function ChanceToParry(Defender)
         end;
     end;
     
+    ]]
+    
+    -- New, by Flux. Checks which weapon is better for parrying.
+    
+    if Defender.LeftIsWeapon then
+        parryWeapon = Defender.LeftWeapon;
+    end;
+    
+    if Defender.RightIsWeapon then
+        if not parryWeapon then
+            parryWeapon = Defender.RightWeapon;
+        elseif (parryWeapon.Defence < Defender.RightWeapon.Defence) then
+            parryWeapon = Defender.RightWeapon;
+        end;
+    end;
+    
+    
+    
+	--OLD
+	--[[
+    	
     local chance;
     if (parryType == 3) then -- shield parry
         chance = (Defender.parry / 4);
@@ -433,8 +550,48 @@ function ChanceToParry(Defender)
         chance = chance + (66 - parryWeapon.Defence) / 1.5;
     else
         return false;
+    end;]]
+	
+	--PROPOSAL BY ESTRALIS: Sorry, this calculation makes no sense to me. Either, I am stupid or in the latter two cases, a higher parryWeapon.Defence DECREASES the chance to parry. This makes absolutely no sense. Also, why are all cases treated differently? The values were designed to make weapons comparable! Shields rule at parry, one handed weapons suck and two handed weapons suck a little. Now you basically ignore the database value's ratios and calculate around... Please note that normal players get negative chances to parry and will NEVER EVER parry. How shall they increase that skill!?
+	--Also: Agility is the lead attribute of parry
+	
+	local chance;
+    if parryWeapon then
+        chance = (Defender.parry / 5); --0-20% by the skill
+        chance = chance * (0.5 + (Defender.agility) / 20); --Skill value gets multiplied by 0.5-1.5 (+/-50% of a normal player) scaled by agility
+        chance = chance + (parryWeapon.Defence) / 10; --0-20% bonus by the weapon/shield
+    else
+        return false;
     end;
+	
+	--PROPOSAL BY FLUX: You cannot parry someone who stands outside of your front quadrant
+	-- As in.. people behind you, people sideways of you
+	-- That would be silly.
+	-- Since they must be facing  if they're attacking you, if they face in the same
+	-- direction then they must be hitting your back.
+	
+	local DirectionDifference = math.abs(Defender.Char:getFaceTo()-Attacker.Char:getFaceTo());
+	
+	-- If you wish to change it to only people from behind get a free hit, change line to:
+	-- if (DirectionDifference<=1) or (DirectionDifference==7) then
+	-- Right now it also covers people attacking from sideways on
+	
+	
+	if (DirectionDifference<=2) or (DirectionDifference>=6) then
+      return false;
+	end;
+	
+	-- PROPOSAL END
+	
+	
+	--PROPOSAL BY ESTRALIS & FLUX
+	chance = math.max(chance,5); --raising to 5% no matter what (should not occur with normal values)
+    chance = math.min(chance,95); --capping at 95%, no one hits all the time
+    --PROPOSAL END
     
+	
+	--Defender.Char:inform("Parry percent chance: " .. chance);
+	
     return base.common.Chance(chance, 100);
 end;
 
@@ -578,7 +735,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
         if not GroundOnly and (Defender:getType() == 1) then -- monsters get 
             -- the ammo into the inventory
             Defender:createItem(AmmoItem.id, 1, AmmoItem.quality,
-                AmmoItem:getData("ammoData"));
+                {["ammoData"] = AmmoItem:getData("ammoData")});
         else
             if world:isItemOnField(Defender.pos) then
                 local oldItem = world:getItemOnField(Defender.pos);
@@ -594,9 +751,8 @@ function DropAmmo(Attacker, Defender, GroundOnly)
                     return;
                 end;
             end;
-			local dataValue = AmmoItem:getData("ammoData");
             world:createItemFromId(AmmoItem.id, 1, dropPos, true,
-            AmmoItem.quality, {ammoData = dataValue});
+            AmmoItem.quality, {["ammoData"] = AmmoItem:getData("ammoData")});
         end;
     end;
 end;
@@ -604,15 +760,15 @@ end;
 --- Drop a blood spot on the ground at a specified location.
 -- @param Posi The location where the blood spot is placed
 function DropBlood(Posi)
+
     if world:isItemOnField(Posi) then
-        local item = world:getItemOnField(Posi);
-        if (item.id == 3101 or item.wear ~= 255) then
-            return;
-        end;
+        return; --no blood on tiles with items on them!
     end;
+	
     Blood = world:createItemFromId(3101, 1, Posi, true, 333, nil);
     Blood.wear = 2;
     world:changeItem(Blood);
+	
 end;
 
 --- Drop alot of blood. This function drops blood on every tile around the
@@ -715,34 +871,77 @@ end;
 -- movepoints by the fitting value.
 -- @param Attacker The table that stores the values of the attacker
 function HandleMovepoints(Attacker)
+
     local weaponFightpoints;
     if Attacker.IsWeapon then
         weaponFightpoints = Attacker.Weapon.ActionPoints;
     else
-        weaponFightpoints = content.fighting.GetWrestlingMovepoints(
-            Attacker.Race);
+        weaponFightpoints = content.fighting.GetWrestlingMovepoints(Attacker.Race);
     end;
     
-    local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
-    base.character.ChangeFightingpoints(Attacker.Char,
-        -math.floor(reduceFightpoints));
+    --Proposal by Flux: Make stiffness affect attack speed.
+    
+    --[[  
+    Proposal is that 1+stiffness/1000 will be multiplied by the final AP gain.
+    This means that those in extremely heavy armour will be 25% slower.
+    Those in medium armour will be 15% slower.
+    Those in leather armour will be 5% slower.
+    And those in cloth will not be affected.
+    ]]
+    
+    local Stiffmod = 1+base.common.GetStiffness( Attacker.Char )/800;
+    
+    
+        -- Subproposal by Flux: Make having a shield affect attack speed too.
+        -- As a price for the huge advantage of being able to parry 25% of the time
+        -- 7% increase in time between hits
+        
+            local Shieldmod = 1;
+            
+            if Attacker.LeftIsWeapon then
+              if(Attacker.LeftWeapon.WeaponType == 14) then
+                  shieldmalus= 1.07;
+              end;
+            end;
+            
+            if Attacker.RightIsWeapon then
+              if(Attacker.RightWeapon.WeaponType == 14) then
+                  shieldmalus= 1.07;
+              end;
+            end;
+            
+          local reduceFightpoints = Stiffmod*Shieldmod*math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
+          
+          
+        -- End of subproposal
+        
+    -- End of proposal
+    
+    -- Old
+    --local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-6)*2.5) / 100 );
+	
+	base.character.ChangeFightingpoints(Attacker.Char,-math.floor(reduceFightpoints));
     Attacker.Char.movepoints=Attacker.Char.movepoints-math.floor(reduceFightpoints); 
+	
     return reduceFightpoints;
 end;
 
 --- Learning function called when ever the attacked character dodges the attack.
--- The defender learns dodge skill in this case, the attacker learns his
--- attack skill as well as the tactics skill.
+-- The defender learns dodge skill in this case
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnDodge(Attacker, Defender, AP)
-    -- Devide AP by four, since you can learn four skills with one AP reduction while fighting
-    Defender.Char:learn(Character.dodge, AP/4, Attacker.skill + 10)
-    Attacker.Char:learn(Attacker.Skillname, AP/4, Defender.dodge + 10)
-    
+
+    -- Divide AP by three, since you can learn three skills with one AP reduction while fighting
+    Defender.Char:learn(Character.dodge, AP/2, Attacker.skill + 10)
+	
+	--OLD. Tactics is redundant. No more attackers learning when attacking
+	--[[	
+	Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.dodge + 10)
     if base.common.Chance(0.25) then
         Attacker.Char:learn(Character.tactics, AP/4, 100);
-    end;
+    end;]]
+	
 end;
 
 --- Learning function called when ever the attacked character fails to avoid the
@@ -751,11 +950,20 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnSuccess(Attacker, Defender, AP)
-    Attacker.Char:learn(Attacker.Skillname, AP/4, math.max(Defender.dodge, Defender.parry) + 10)
+
+    Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.dodge, Defender.parry) + 10)
     
+	--OLD
+	--[[
     if base.common.Chance(0.33) then
         Attacker.Char:learn(Character.tactics, AP/4, 100)
-    end;
+    end;]]
+	
+	-- Tactics is redundant
+	
+	--Attacker.Char:learn(Character.tactics, AP/3, math.max(Defender.dodge, Defender.parry) + 10);
+	
+	--PROPOSAL END
 end;
 
 --- Learning function called when ever the attacked character parries the
@@ -764,12 +972,19 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnParry(Attacker, Defender, AP)
-    Defender.Char:learn(Character.parry, AP/4, Attacker.skill + 10)
-    Attacker.Char:learn(Attacker.Skillname, AP/4, Defender.parry + 10)
-        
+
+    --Defender.Char:inform("Learn limit is 10 above" .. Attacker.skill);
+    
+    Defender.Char:learn(Character.parry, AP/2, Attacker.skill + 10)
+		
+	--OLD - No more tactics, no more learning attacking
+	--[[
+	
+	Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.parry + 10)
     if base.common.Chance(0.25) then
-        Attacker.Char:learn(Character.tactics, AP/4, 100)
-    end;
+        Attacker.Char:learn(Character.tactics, AP/4, 100);
+    end;]]
+	
 end;
 
 function NotNil(val)
@@ -793,7 +1008,7 @@ function LoadAttribsSkills(CharStruct, Offensive)
             = NotNil(CharStruct.Char:increaseAttrib("perception", 0));
         CharStruct["skill"] = NotNil(CharStruct.Char:getSkill(CharStruct.Skillname));
         CharStruct["natpoison"] = 0;
-        CharStruct["tactics"] = NotNil(CharStruct.Char:getSkill(Character.tactics));
+        --CharStruct["tactics"] = NotNil(CharStruct.Char:getSkill(Character.tactics));
         CharStruct["dexterity"]
             = NotNil(CharStruct.Char:increaseAttrib("dexterity", 0));
     else
@@ -803,6 +1018,7 @@ function LoadAttribsSkills(CharStruct, Offensive)
             = NotNil(CharStruct.Char:increaseAttrib("constitution", 0));
         CharStruct["parry"] = NotNil(CharStruct.Char:getSkill(Character.parry));
         CharStruct["dodge"] = NotNil(CharStruct.Char:getSkill(Character.dodge));
+		CharStruct["agility"] = NotNil(CharStruct.Char:increaseAttrib("agility", 0));
     end;
     CharStruct["Race"] = CharStruct.Char:getRace();
 end;

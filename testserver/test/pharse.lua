@@ -23,11 +23,13 @@ wMirror = false;
 testPos = position(0,0,0)
 
 function String2Number(str)
-	local _,_,num = string.find(str, "(%d+)");
-	if (num~="") then
-		num = tonumber(num);
-		return num, true;
-	end
+	if (string.find(str, "(%d+)") ~= nil) then
+    local _,_,num = string.find(str, "(%d+)");
+    if (num~="") then
+      num = tonumber(num);
+      return num, true;
+    end
+  end
 	return 0, false;
 end
 
@@ -60,8 +62,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
       local skillList = {
         Character.carpentry,Character.tailoring,Character.smithing,Character.cookingAndBaking,Character.goldsmithing,Character.glassBlowing,
         Character.farming,Character.mining,Character.woodcutting,Character.firingBricks,Character.fishing,Character.gemcutting,
-        Character.herblore,Character.alchemy,Character.poisoning,
-        Character.tactics,Character.dodge,Character.parry,Character.slashingWeapons,Character.concussionWeapons,Character.punctureWeapons,Character.distanceWeapons,Character.wrestling,
+        Character.herblore,Character.alchemy,Character.poisoning,Character.dodge,Character.parry,Character.slashingWeapons,Character.concussionWeapons,Character.punctureWeapons,Character.distanceWeapons,Character.wrestling,
         Character.harp,Character.horn,Character.flute,Character.lute
       };
       local cbGetSetSkill = function(dialog)

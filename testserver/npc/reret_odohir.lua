@@ -15,7 +15,6 @@ VALUES (0, 106, 553, 0, 4, 'Reret Odohir', 'npc.reret_odohir', 1, 8, 0, 255, 215
 ---]]
 
 require("npc.base.basic")
-require("npc.base.condition.chance")
 require("npc.base.condition.item")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
@@ -37,13 +36,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Reret Odohir the Notary of Cadomyr. Keywords: 'join Cadomyr','become citizen', 'leave', 'give up citizenship', 'rank'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Reret Odohir the Notary of Cadomyr. Keywords: 'Join Cadomyr', 'Leave Cadomyr', 'rank'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Reret Odohir die Notarin von Cadomyr. Schlüsselwörter: 'Cadomyr beitreten' 'Bürger werden','verlassen','beende Bürgerschaft', 'Rang'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Reret Odohir die Notarin von Cadomyr. Schlüsselwörter: 'Cadomyr beitreten', 'Cadomyr verlassen', 'Rang'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -211,7 +210,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("join Cadomyr");
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
-talkEntry:addResponse("Welcome to Cadomyr!");
+talkEntry:addResponse("Let me prepare the documents...");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -221,7 +220,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Cadomyr beitreten");
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Willkommen in Cadomyr!");
+talkEntry:addResponse("Lasst mich die Urkunde vorbereiten...");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -232,7 +231,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("join Cadomyr");
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
-talkEntry:addResponse("Welcome to Cadomyr!");
+talkEntry:addResponse("Let me prepare the documents...");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -242,7 +241,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Cadomyr beitreten");
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Willkommen in Cadomyr!");
+talkEntry:addResponse("Lasst mich die Urkunde vorbereiten...");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -253,7 +252,7 @@ talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("join Cadomyr");
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
-talkEntry:addResponse("Welcome to Cadomyr!");
+talkEntry:addResponse("Let me prepare the documents...");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -263,26 +262,7 @@ talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("Cadomyr beitreten");
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Willkommen in Cadomyr!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("join Cadomyr");
-talkEntry:addTrigger("become citizen");
-talkEntry:addTrigger("gain citizenship");
-talkEntry:addResponse("Welcome to Cadomyr!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cadomyr beitreten");
-talkEntry:addTrigger("Bürger werden");
-talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Willkommen in Cadomyr!");
+talkEntry:addResponse("Lasst mich die Urkunde vorbereiten...");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "1"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -312,7 +292,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("give up citizenship");
-talkEntry:addTrigger("terminating citizen ship");
+talkEntry:addTrigger("terminate");
 talkEntry:addTrigger("leave");
 talkEntry:addTrigger("leaving");
 talkEntry:addResponse("You want to give up citizenship in Cadomyr. Are you sure?");
@@ -323,9 +303,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("beende Bürgerschaft");
-talkEntry:addTrigger("verlassen");
 talkEntry:addTrigger("verlasse");
-talkEntry:addTrigger("annuliere");
+talkEntry:addTrigger("annulier");
 talkEntry:addResponse("Ihr wollt den Status als Bürger Cadomyrs augfeben? Seid Ihr sicher?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
@@ -333,19 +312,18 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("give up citizenship");
-talkEntry:addTrigger("terminating citizen ship");
+talkEntry:addTrigger("terminate");
 talkEntry:addTrigger("leave");
 talkEntry:addTrigger("leaving");
-talkEntry:addResponse("Ehm... you never were a citizen of Cadomyr.");
+talkEntry:addResponse("Ehm... are not a citizen of Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("beende Bürgerstatus");
-talkEntry:addTrigger("verlassen");
+talkEntry:addTrigger("beende Bürgerschaft");
 talkEntry:addTrigger("verlasse");
-talkEntry:addTrigger("annuliere");
-talkEntry:addResponse("Ehm... Ihr wart niemals Bürger von Cadomyr.");
+talkEntry:addTrigger("annulier");
+talkEntry:addResponse("Ehm... Ihr seid kein Bürger Cadomyrs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -372,7 +350,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(209, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I see... Yes, Cadomyr is truly a nice place.");
+talkEntry:addResponse("I see... Yes, Cadomyr is truly a nice place. I am glad you stay with us.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -380,22 +358,62 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(209, "=", 1));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ich verstehe... Ja, Cadomyr ist für wahr ein gut Ort.");
+talkEntry:addResponse("Ich verstehe... Ja, Cadomyr ist für wahr ein gut Ort. Es freut mich, dass ihr hier bei uns bleibt.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(209, "=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("welche Stadt");
-talkEntry:addTrigger("welche faktion");
+talkEntry:addTrigger("fraktion");
+talkEntry:addTrigger("Reich");
 talkEntry:addResponse("Du gehörst nach %TOWN!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("which town");
-talkEntry:addTrigger("wich faction");
+talkEntry:addTrigger("faction");
+talkEntry:addTrigger("realm");
 talkEntry:addResponse("You belong to %TOWN!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 10));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("#me bows deeply.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 10));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rank");
+talkEntry:addResponse("#me bows deeply.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 10));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.sex.sex(0));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("#me verbeut sich erfürchtig.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.rank.rank(">", 10));
+talkEntry:addCondition(npc.base.condition.town.town(1));
+talkEntry:addCondition(npc.base.condition.sex.sex(1));
+talkEntry:addTrigger("rang");
+talkEntry:addResponse("#me verbeut sich erfürchtig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -719,7 +737,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Ah! So you are a squire?");
+talkEntry:addResponse("Ah! So you are a maid?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -728,7 +746,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Ah! Du bist ein Knappe?");
+talkEntry:addResponse("Ah! Ihr seid ein Knappe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -737,7 +755,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Ah! Du bist eine Knappin?");
+talkEntry:addResponse("Ah! Ihr seid eine Magd.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -766,7 +784,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und mach dir einen Namen, Rekrut!");
+talkEntry:addResponse("Ihr seid noch ganz neu hier. Euch kennt kaum jemand. Strengt Euch mehr an und mach Euch einen Namen, Rekrut!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -775,7 +793,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 0));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und mach dir einen Namen, Rekrutin!");
+talkEntry:addResponse("Ihr seid noch ganz neu hier. Euch kennt kaum jemand. Strengt Euch mehr an und mach Euch einen Namen, Rekrutin!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -801,7 +819,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
 talkEntry:addResponse("I'd like to send my Grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -824,7 +842,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Present from Cadomyr"));
 talkEntry:addResponse("I'd like to send my Grandparents in Salkamar a present from Cadomyr. The both like gardening, so I'd like to send them five desert sky capsules. But I'm still busy working, so could I ask you to go and find some for me, please?");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 1));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -842,38 +860,39 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(0, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 16, nil));
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved]  You are awarded with a dagger."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded with a dagger. You advance in Queen Rosaline Edwards' favour."));
 talkEntry:addResponse("Oh, you found the desert sky capsules? Thank you, that is very kind of you. Here, please take this, it shall be your reward for your troubles.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 15, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 433, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 466, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(0, "=", 1));
-talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 16, nil));
+talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 1));
+talkEntry:addCondition(npc.base.condition.item.item(146, "all", ">", 14, nil));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] Du erhälst als Belohnung einen Dolch."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] Du erhälst als Belohnung einen Dolch. Euer Ansehen bei Königin Rosaline Edwards steigt."));
 talkEntry:addResponse("Oh, ihr habt die Wüstenhimmelskapseln gefunden? Danke, das ist sehr freundlich von Euch. Hier, bitte nehmt dies, betrachtet es als Belohung für eure Mühen.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(146, 15, nil));
-talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 433, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(0, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 466, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(150, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 7));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -881,6 +900,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("I'm still busy working, so could I ask you to go and find fifteen desert sky capsule for me, please?");
@@ -889,14 +909,16 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten fünfzehn Wüstenhimmelskapseln für mich zu finden?");
+talkEntry:addResponse("Ich bin mit der Arbeit sehr beschäftigt, könntet ich Euch bitten, fünfzehn Wüstenhimmelskapseln für mich zu finden?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -906,17 +928,19 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich bin mit der Arbeit sehr beschäftigt, könnte ich Euch bitten fünfzehn Wüstenhimmelskapseln für mich zu finden?");
+talkEntry:addResponse("Ich bin mit der Arbeit sehr beschäftigt, könntet ich Euch bitten, fünfzehn Wüstenhimmelskapseln für mich zu finden?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Be carefull, not only the desert is full of dangers. Most places are.");
@@ -926,6 +950,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Seid vorsichtig, nicht nur die Wüste wird von Monstern bevölkert. Sondern auch die meisten anderen Orte.");
@@ -935,6 +960,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -945,6 +971,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(150, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -1040,224 +1067,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Adron");
-talkEntry:addResponse("People who pray to this god are welcome to the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Bragon");
-talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("People who pray to this god are welcome in the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bragon");
-talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("People who pray to this god are welcome in the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Elara");
-talkEntry:addResponse("People who pray to this god are welcome in the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("People who pray to this god are welcome in the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Findari");
-talkEntry:addResponse("People who pray to this god are welcome in the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Findari");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("People who pray to this god are welcome in the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("People who pray to this god are welcome in the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Malachin");
-talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("People who pray to this god are not welcome in the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt nicht willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Nargun");
-talkEntry:addTrigger("Nargùn");
-talkEntry:addTrigger("Nargún");
-talkEntry:addResponse("People who pray to this god are welcome in the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nargun");
-talkEntry:addTrigger("Nargùn");
-talkEntry:addTrigger("Nargún");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("People who pray to this god are welcome in the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("People who pray to this god are welcome in the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("People who pray to this god are welcome in the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Tanora");
-talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("People who pray to this god are welcome in the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tanora");
-talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("People who pray to this god are welcome in the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("People who pray to this god are welcome in the town.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Anhänger dieser Gottheit sind in der Stadt willkommen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
 talkEntry:addResponse("I heard the archmage does nothing but reading books and studying the arcane arts. If it's true he must be almost dead of starvation.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1348,7 +1157,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addResponse("She is the noble and rightful rule of Cadomyr.");
-talkEntry:addResponse("Honor to our Queen!");
+talkEntry:addResponse("Honour to our Queen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1364,7 +1173,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("I really love the hot weather here, and you?");
-talkEntry:addResponse("Each Town has magical gems, but ours, the ones of Cadomyr, are the most beautifull of them all!");
+talkEntry:addResponse("Each town has magical gems, but ours, the ones of Cadomyr, are the most beautifull of them all!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1420,7 +1229,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("I don't know this town, do they have notarys there?");
+talkEntry:addResponse("I don't know this town, do they have notaries there?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1482,23 +1291,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
 talkEntry:addResponse("No? That's sad.");
-talkEntry:addResponse("No? well, you'll have a reason for saying so.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
-talkEntry:addTrigger(".*");
-talkEntry:addResponse("Welcome to Cadomyr. Do you want to become a citizen?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
-talkEntry:addTrigger(".*");
-talkEntry:addResponse("Willkommen in Cadomyr. Möchtet Ihr hier Bürger werden?");
+talkEntry:addResponse("No? Well, you'll have a reason for saying so.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me unterzeichnet ein Dokument.", "#me signs a document.");

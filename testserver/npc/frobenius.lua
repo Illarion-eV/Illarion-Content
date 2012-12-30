@@ -245,7 +245,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("That reminds me on a story I once heard... a very sad story.");
+talkEntry:addResponse("That reminds me of a story I once heard... a very sad story.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -335,7 +335,7 @@ talkEntry:addTrigger("händler");
 talkEntry:addTrigger("kollege");
 talkEntry:addTrigger("höker");
 talkEntry:addTrigger("markt");
-talkEntry:addResponse("Kauft, was immer ihr wollt auf diesem Marktplatz, aber am Ende werden nur Waffen Cadomyr vorran bringen.");
+talkEntry:addResponse("Kauft, was immer ihr wollt auf diesem Marktplatz, aber am Ende werden nur Waffen Cadomyr voran bringen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -411,7 +411,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Any weapon I craft is ment to protect the queen. So, raise you hand against the queen and hundreds of swords will chop it off.");
+talkEntry:addResponse("Any weapon I craft is ment to protect the queen. So, raise your hand against the queen and hundreds of swords will chop it off.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -425,7 +425,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Any weapon I craft is ment to protect the queen. So, raise you hand against the queen and hundreds of swords will chop it off.");
+talkEntry:addResponse("Any weapon I craft is ment to protect the queen. So, raise your hand against the queen and hundreds of swords will chop it off.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -480,7 +480,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Salkamaerian armour might look brightly shining, but it is ineffective.");
+talkEntry:addResponse("Salkamaerian armour might shine brightly, but it is ineffective.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -521,7 +521,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Irmorom would be proud if he beheld my art. I'm his most hard working scholar.");
+talkEntry:addResponse("Irmorom would be proud if he saw my art. I'm his most hard working scholar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -534,13 +534,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("Oh, come on, you don't want to talk to a person like me about Sirani, do you!");
+talkEntry:addResponse("Oh, come on, you don't want to talk to a person like me about Sirani, do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("Oh, ich denkt doch nicht etwas, dass ein Kerl wie ich gerne mit euch über Sirani reden will!");
+talkEntry:addResponse("Oh, ich denkt doch nicht etwa, dass ein Kerl wie ich gerne mit euch über Sirani reden will!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -611,7 +611,7 @@ talkingNPC:addCycleText("Hört auf zu glotzen, kauft, oder geht weiter!", "Stop l
 talkingNPC:addCycleText("Scharfe Klingen, beste Helme für die Schlacht!", "Sharp blades, best helmets for battle!");
 talkingNPC:addCycleText("Meine Klingen sind zum Töten da, nicht zum Holzschnitzen.", "My swords are made to kill, not to carve wood.");
 talkingNPC:addCycleText("Hier gibt es die besten Waffen zum Töten von Orks, Goblins und Galmairern!", "Best weapons for killing orcs, goblins and Galmairians!");
-talkingNPC:addCycleText("Ihr da! Eure Waffe ist der letze Schrott. Ich hätte das was im Angebot für euch.", "Lo! Your weapon is scrap. I'd have something for you.");
+talkingNPC:addCycleText("Ihr da! Eure Waffe ist der letzte Schrott. Ich hätte da was im Angebot für euch.", "Hey you! Your weapon is scrap. I'd have something for you.");
 talkingNPC:addCycleText("#me poliert eine Schwertklinge.", "#me polishes the blade of a sword.");
 talkingNPC:addCycleText("Jeden Tag eine gute Tat.", "An axe a day keeps the raptor away.");
 talkingNPC:addCycleText("Heute ist ein guter Tag zum Sterben... für die Feinde der Königin!", "Today is a good day to die for the foes of the queen.");
