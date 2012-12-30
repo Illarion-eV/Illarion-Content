@@ -346,18 +346,20 @@ function ChanceToHit(Attacker, Defender)
 	--Stiffness wasn't taken into account? Rewrote base.common.Getstiffness
 	--And added a stiffness mod - Flux
 
-	local Stiffmod = 1-base.common.GetStiffness( Defender.Char )/100;
+	local Stiffmod = base.common.GetStiffness( Defender.Char );
 	
-	if (Stiffmod<0) then
+	--Now for the modifier
+	Stiffmod = 1-Stiffmod/100;
+	
+	if (Stiffmod<=0) then
     chance = 0.05;
 	else
     chance = chance*Stiffmod;
 	end;
 	
-    Defender.Char:inform("Stiffmod: " .. Stiff);
-    Defender.Char:inform("chance: " .. chance);
+   Defender.Char:inform("Stiffmod: " .. Stiffmod); 
+  Defender.Char:inform("chance: " .. chance);
     
-	
 	
 	--PROPOSAL BY ESTRALIS & FLUX
 	chance = math.max(chance,0.05); --raising to 10% no matter what (should not occur with normal values)
