@@ -200,7 +200,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help.");
+talkEntry:addResponse("If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are people who need your help.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -215,7 +215,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help.");
+talkEntry:addResponse("If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are people who need your help.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -305,7 +305,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tailor");
-talkEntry:addResponse("When I made the dress of queen Rosaline, I worked all day and night. It was such a honour! Is there anything I can tailor for you?");
+talkEntry:addResponse("When I made the dress of queen Rosaline, I worked all day and night. It was such an honour! Is there anything I can tailor for you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,7 +321,7 @@ talkEntry:addTrigger("merchant");
 talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
-talkEntry:addResponse("The amount of goods, traded on this marketplace, is magnificient. We're not a people of traders, but everyone needs something sometimes.");
+talkEntry:addResponse("The amount of goods, traded on this marketplace, is magnificient. We're not traders by heart, but everyone needs something sometimes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -437,7 +437,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("I am honest; I do not like Galmair. I prefer to trade with honourable men.");
+talkEntry:addResponse("I am honest, I do not like Galmair. I prefer to trade with honourable men.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -449,7 +449,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Did you notice the blue dress the queen wears from time to mine? My work!");
+talkEntry:addResponse("Did you notice the blue dress the queen wears from time to time? My masterpiece!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -463,7 +463,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Did you notice the blue dress the queen wears from time to mine? My work!");
+talkEntry:addResponse("Did you notice the blue dress the queen wears from time to time? My masterpiece!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -530,7 +530,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("When I don't work, I sometimes pray to Irmorom; but with little effects as it seems.");
+talkEntry:addResponse("When I don't work, I sometimes pray to Irmorom but with little effects as it seems.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -631,8 +631,8 @@ end;
 talkingNPC:addCycleText("Autsch!", "Ouch!");
 talkingNPC:addCycleText("#me zerschneidet einige Stoffbahnen.", "#me cuts some clothes.");
 talkingNPC:addCycleText("#me stickt ein Muster in ein Stoffstück.", "#me stitches a pattern into a piece of cloth.");
-talkingNPC:addCycleText("Maßgeschneiderte Kleider für die Frau, Hüte für euch und Röcke für die Töchter!", "Tailored dresses for you wife, hats for you and a skirt for your daughter!");
-talkingNPC:addCycleText("Kommt herein und findet heraus... was ich anzubieten habe!", "Come in and find out... what I have!");
+talkingNPC:addCycleText("Maßgeschneiderte Kleider für die Frau, Hüte für euch und Röcke für die Töchter!", "Tailored dresses for you wife, hats for you and a skirts for your daughter!");
+talkingNPC:addCycleText("Kommt herein und findet heraus... was ich anzubieten habe!", "Come in and find out... what I have to offer!");
 talkingNPC:addCycleText("Kundschaft!", "Customers!");
 talkingNPC:addCycleText("Einmal gekleidet sein wie Königin Rosaline - beste Kleider im Angebot.", "Once dressed like Queen Rosaline - I offer best dresses.");
 talkingNPC:addCycleText("Thomas Dalenus ist euer Mann, wenn es um Stickereien geht!", "Thomas Dalenus is your man for stitching!");
