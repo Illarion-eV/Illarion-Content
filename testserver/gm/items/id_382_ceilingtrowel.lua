@@ -431,10 +431,12 @@ function Init()
 end
 
 function String2Number(str)
-	local _,_,num = string.find(str, "(%d+)");
-	if (num~="") then
-		num = tonumber(num);
-		return num, true;
-	end
+	if (string.find(str, "(%d+)") ~= nil) then
+    local _,_,num = string.find(str, "(%d+)");
+    if (num~="") then
+      num = tonumber(num);
+      return num, true;
+    end
+  end
 	return 0, false;
 end
