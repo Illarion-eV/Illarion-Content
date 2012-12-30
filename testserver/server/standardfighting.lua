@@ -105,7 +105,7 @@ function onAttack(Attacker, Defender)
     end;
     
     -- Calculate the chance to parry
-    if ChanceToParry(Defender) then
+    if ChanceToParry(Attacker, Defender) then
         -- Hit was parried
         LearnParry(Attacker, Defender, APreduction);
         
@@ -426,7 +426,11 @@ function ChanceToHit(Attacker, Defender)
 	
 	--PROPOSAL BY ESTRALIS & FLUX
 	chance = math.max(chance,0.1); --raising to 10% no matter what (should not occur with normal values)
-    chance = math.min(chance,0.95); --capping at 95%, no one hits all the time
+	
+	
+	local maximumhitchance = 0.95;
+
+    chance = math.min(chance,maximumhitchance); --capping at 95%, no one hits all the time
     --PROPOSAL END
 
 
@@ -440,7 +444,7 @@ end;
 -- carries and seaches for the fest item to parry with.
 -- @param Defender The table that stores all data of the defender
 -- @return true in case the hit was parried
-function ChanceToParry(Defender)
+function ChanceToParry(Attacker, Defender)
 
 --[[This function now ASSUMES that each weapon's "Defence" is the important factor.
     it does not descriminate between what is a shield and what is a sword.
@@ -559,13 +563,23 @@ function ChanceToParry(Defender)
         return false;
     end;
 	
+	--PROPOSAL BY FLUX: You cannot parry someone who stands behind you.
+	-- That would be silly.
+	
+	local DirectionDifference = math.abs(Defender.Char:getFaceTo()-Attacker.Char:getFaceTo());
+	
+	if (DirectionDifference>=3) and (DirectionDifference<=5) then
+      return false;
+	end;
+	
+	-- PROPOSAL END
+	
 	
 	--PROPOSAL BY ESTRALIS & FLUX
 	chance = math.max(chance,5); --raising to 5% no matter what (should not occur with normal values)
     chance = math.min(chance,95); --capping at 95%, no one hits all the time
     --PROPOSAL END
     
-	--PROPOSAL END
 	
 	Defender.Char:inform("Parry percent chance: " .. chance);
 	
@@ -863,8 +877,28 @@ function HandleMovepoints(Attacker)
     --Stiffmod varies between 0 for clothes, 0.5 to leather 1.5 for heavyish armour
     --2.5 for very heavy armour
     
-    local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-5.8-Stiffmod)*2.5) / 100 );
     
+        -- Subproposal by Flux: Make having a shield affect attack speed too.
+        -- As a price for the huge advantage of being able to parry 25% of the time
+            
+            local shieldmalus = 0;
+            
+            if Attacker.LeftIsWeapon then
+              if(Attacker.LeftWeapon.WeaponType == 14) then
+                  shieldmalus= 2;
+              end;
+            end;
+            
+            if Attacker.RightIsWeapon then
+              if(Attacker.RightWeapon.WeaponType == 14) then
+                  shieldmalus= 2;
+              end;
+            end;
+            
+          local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-5.8-Stiffmod-shieldmalus)*2.5) / 100 );
+ 
+        -- End of subproposal
+        
     -- End of proposal
     
     -- Old
