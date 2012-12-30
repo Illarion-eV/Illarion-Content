@@ -736,6 +736,8 @@ function GetStiffness(Character)
 
     local Equipmentposition = {1, 3, 4, 9, 10, 11};
     local counter;
+    
+    Character:inform("Works to here");
     for counter = 1, 6, 1 do
 				Item = Character:getItemAt(Equipmentposition(counter));
 				if Item and (Item.id ~= 0 ) then
@@ -746,6 +748,8 @@ function GetStiffness(Character)
 				end;
     
     end;
+    
+    Character:inform("Stiffness should be " .. StiffnessVal);
     
     --Old system
 --[[
