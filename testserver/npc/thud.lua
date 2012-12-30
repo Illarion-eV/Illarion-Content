@@ -21,7 +21,6 @@ require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.condition.skill")
 require("npc.base.condition.state")
-require("npc.base.consequence.attribute")
 require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
@@ -1112,7 +1111,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. - If you bring him enough trophies, he will reward you."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. If you bring him enough trophies, he will reward you."));
 talkEntry:addResponse("You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1120,7 +1119,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Der Trophäensammler. Thud sammelt Felle, Hörner, Salkamarische Paladinhelme, verzierte Dolche, Zwergenäxte und Elben-Kompositlangbögen. - Wenn du ihm genügend Trophäen gebrachst hast wird er dich belohnen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Der Trophäensammler. Thud sammelt Felle, Hörner, Salkamarische Paladinhelme, verzierte Dolche, Zwergenäxte und Elben-Kompositlangbögen. Wenn du ihm genügend Trophäen gebrachst hast wird er dich belohnen."));
 talkEntry:addResponse("Du bringst Thud alle Trophäe du hast! Yubba?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1129,7 +1128,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. - If you bring him enough trophies, he will reward you."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: The Trophy Collector. Thud collects fur, horns, salkamarian pladin helmets, ornated daggers, dwarven axes and elven composite longbows. If you bring him enough trophies, he will reward you."));
 talkEntry:addResponse("You bring all trophy to Thud. Tagtha? Mes collect it. Hurr-hurr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1139,7 +1138,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Der Trophäensammler. Thud sammelt Felle, Hörner, Salkamarische Paladinhelme, verzierte Dolche, Zwergenäxte und Elben-Kompositlangbögen. - Wenn du ihm genügend Trophäen gebrachst hast wird er dich belohnen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Quest: Der Trophäensammler. Thud sammelt Felle, Hörner, Salkamarische Paladinhelme, verzierte Dolche, Zwergenäxte und Elben-Kompositlangbögen. Wenn du ihm genügend Trophäen gebrachst hast wird er dich belohnen."));
 talkEntry:addResponse("Du bringst Thud alle Trophäe du hast! Yubba?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1170,25 +1169,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
 talkEntry:addResponse("Thud haut mit Keule fest zu!");
 talkEntry:addResponse("Ich sameln Trophäe. Bring alle davon hier her.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Gobaith");
-talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("#me thuds your head with his big club. 'Shut up!'");
-talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 2000));
-talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("#me haut dir mit seiner Keule auf den Kopf. 'Halts Maul!'");
-talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 2000));
-talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1515,26 +1495,6 @@ talkEntry:addTrigger("Nein");
 talkEntry:addResponse("Was das zu bedeuten hat?");
 talkEntry:addResponse("Nein? Du sicher?");
 talkEntry:addResponse("Was immer auch... Thud es nix interessiert.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
-talkEntry:addTrigger(".*");
-talkEntry:addResponse("#me thuds your head with his big club. 'Shut up!'");
-talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 2000));
-talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("german"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
-talkEntry:addTrigger(".*");
-talkEntry:addResponse("#me haut dir mit seiner Keule auf den Kopf. 'Halts Maul!'");
-talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 2000));
-talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
