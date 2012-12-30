@@ -12,7 +12,8 @@ monster.base.quests.iniQuests();
 killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
-
+msgs = base.messages.Messages();
+msgs:addMessage("#me knurrt.", "#me growls.");
 
 end
 
