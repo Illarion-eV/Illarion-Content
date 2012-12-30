@@ -575,7 +575,7 @@ function ChanceToParry(Attacker, Defender)
 	-- if (DirectionDifference<=1) or (DirectionDifference==7) then
 	-- Right now it also covers people attacking from sideways on
 	
-	end;
+	
 	if (DirectionDifference<=2) or (DirectionDifference>=6) then
       return false;
 	end;
