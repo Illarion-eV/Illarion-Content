@@ -126,13 +126,4 @@ function LookAtItem(User,Item)
         base.lookat.SetSpecialName(Item, "Medaille", "Medal");
     end
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
-	
-    for intx=User.pos.x-5,User.pos.x+5 do
-        for inty=User.pos.y-5,User.pos.y+5 do
-            if (world:isCharacterOnField(position(intx,inty,User.pos.z))==true) then
-                TargetChar=world:getCharacterOnField(position(intx,inty,User.pos.z));
-                User:introduce(TargetChar);
-            end
-        end
-    end
 end
