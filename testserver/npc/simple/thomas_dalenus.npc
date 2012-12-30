@@ -104,13 +104,14 @@ english, "Ciao", "Adieu", "Au revoir" -> "Farewell, go with the gods.", "Good by
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Thomas, Thomas Dalenus. Ich bin ein Schneider.", "Dalenus Schneiderwaren - das ist mein Geschäft.", "Thomas Dalenus. Und nennt mich nicht Tom, sonst stech ich euch die Augen mit meiner Nadel aus."
 
 -- Catching quest triggers
-english, "quest", "mission" -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help."
+english, "quest", "mission" -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are people who need your help."
 "quest", "mission" -> "Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht."
-"task", "adventure", "order" -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are persons who need your help."
+"task", "adventure", "order" -> "If you are searching for a quest, go to Cape Farewell or the Oasis of Stars. There are people who need your help."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wenn ihr nach einem Abenteuer sucht, geht zum Kap des Abschiedes oder der Sternenoase. Dort wird eure Hilfe gebraucht."
+
 -- Quest by NPC mirarie Bragolin (Writing history )
-queststatus(317) = 3, english, "Mirarie", "Bragolin", "letter", "message"  -> "I'm sorry, I don't have time. I still needed to finish that dress. Please tell Lady Bragolin that I'll notify her soon.", queststatus(317) = 4
-queststatus(317) = 3,"Mirarie", "Bragolin", "Brief", "Nachricht"-> "Tut mei leid. Ich habe grade keine Zeit, ich muss noch ein Kleid fertig nähen. Sagst doch bitte Fräulein Bragolin, dass ich mich bei ihr melden werde.", queststatus(317) = 4
+queststatus(317) = 3, english, "Mirarie", "Bragolin", "letter", "message" -> "I'm sorry, I don't have time. I still needed to finish that dress. Please tell Lady Bragolin that I'll notify her soon.", queststatus(317) = 4
+queststatus(317) = 3, "Mirarie", "Bragolin", "Brief", "Nachricht" -> "Tut mei leid. Ich habe grade keine Zeit, ich muss noch ein Kleid fertig nähen. Sagst doch bitte Fräulein Bragolin, dass ich mich bei ihr melden werde.", queststatus(317) = 4
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a tailor, I even made a dress for the queen once."
@@ -123,9 +124,9 @@ english, "Gobaith", "Gobiath" -> "Let's not talk about sad things, please."
 "mein Name" -> "Und ich bin Thomas Dalenus; ihr könntet einen neuen Mantel vertragen."
 
 -- More small talk; add at least five triggers
-"tailor" -> "When I made the dress of queen Rosaline, I worked all day and night. It was such a honour! Is there anything I can tailor for you?"
+"tailor" -> "When I made the dress of queen Rosaline, I worked all day and night. It was such an honour! Is there anything I can tailor for you?"
 "Schneider" -> "Als ich das Kleid der Königin Rosaline gefertigt habe, hab ich den ganzen Tag und die ganze Nacht gearbeitet. Es war so eine Ehre! Gibt es etwas, was ich für dich schneidern kann?"
-"trader", "merchant", "collegue", "vendor", "market" -> "The amount of goods, traded on this marketplace, is magnificient. We're not a people of traders, but everyone needs something sometimes."
+"trader", "merchant", "collegue", "vendor", "market" -> "The amount of goods, traded on this marketplace, is magnificient. We're not traders by heart, but everyone needs something sometimes."
 "händler", "kollege", "höker", "markt" -> "Die Menge an Waren, die auf diesem Markt gehandelt werden, sind schon beeindruckend. Wir sind zwar kein Volk von Händlern, aber jeder braucht mal etwas."
 "dye" -> "To dye clothes is tricky. You need various ingredients like herbs. Better buy dyed clothes from me instead of wasting your time."
 "färbe", "farbe" -> "Stoffe zu Färben ist aufwändig. Man braucht eine Reihe von Wirkstoffen, so wie Kräuter. Kauft besser gefärbte Stoffe direkt bei mir."
@@ -143,11 +144,11 @@ english, "Runewick" -> "I was told they prefer silk in Runewick.", "Runewick, we
 "Runewick" -> "Mir wurde erzählt, dass man in Runewick Seide bevorzugt.", "Runewick, nun, ein Handel mit Runewick dauert immer so lange, immer dieses Gelaber."
 english, "Valerio", "Guilianni", "Don" -> "The Don once ordered trousers for his ruffians from me. I refused, of course."
 "Valerio", "Guilianni", "Don" -> "Der Don hat einst Hosen für seine Schlägertrupps bei mir bestellt. Ich hab abgelehnt, wie sich von selbst versteht."
-english, "Galmair" -> "I am honest; I do not like Galmair. I prefer to trade with honourable men."
+english, "Galmair" -> "I am honest, I do not like Galmair. I prefer to trade with honourable men."
 "Galmair" -> "Ich bin ganz ehrlich; ich mag Galmair nicht. Ich ziehe es vor, mit ehrbahren Leuten zu handeln."
-"Queen" -> "Did you notice the blue dress the queen wears from time to mine? My work!"
+"Queen" -> "Did you notice the blue dress the queen wears from time to time? My masterpiece!"
 "Königin" -> "Habt ihr das blaue Kleid bemerkt, welches die Königin manchmal trägt? Mein Meisterwerk!"
-english, "rosaline", "edwards" -> "Did you notice the blue dress the queen wears from time to mine? My work!"
+english, "rosaline", "edwards" -> "Did you notice the blue dress the queen wears from time to time? My masterpiece!"
 "rosaline", "edwards" -> "Habt ihr das blaue Kleid bemerkt, welches die Königin manchmal trägt? Mein Meisterwerk!"
 english, "Cadomyr" -> "I tailor for the queen, I tailor for every noble man of Cadomyr. And for every woman, of course."
 "Cadomyr" -> "Ich schneidere für die Königin, ich schneider für jeden Edelmann von Cadomyr. Und für jede Dame, wie sich von selbst versteht."
@@ -161,7 +162,7 @@ english, "salkama" -> "The women of Salkamar are too thin, I was told. Who can t
 "salkama" -> "Die Damen aus Salkamar sind alle zu dünn, sagt man. Wie soll man für einen Strich in der Landschaft ein Kleid schneidern?"
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
-"god" -> "When I don't work, I sometimes pray to Irmorom; but with little effects as it seems."
+"god" -> "When I don't work, I sometimes pray to Irmorom but with little effects as it seems."
 "Gott", "Götter" -> "Wenn ich mal nicht arbeite, bete ich manchmal zu Irmorom; viel hats bis jetzt nicht gebracht."
 english, "Irmorom" -> "Irmorom guides my hands while stitching. I wonder why I sting myself that often with the needle!"
 "Irmorom" -> "Irmorom führt meine Hand, wenn ich sticke. Ich frag mich, warum ich mich trotzdem so oft mit der Nadel steche."
@@ -190,8 +191,8 @@ english, "Thomas", "Dalenus" -> "There are many by the name of Thomas, but few o
 cycletext "Autsch!", "Ouch!"
 cycletext "#me zerschneidet einige Stoffbahnen.", "#me cuts some clothes."
 cycletext "#me stickt ein Muster in ein Stoffstück.", "#me stitches a pattern into a piece of cloth."
-cycletext "Maßgeschneiderte Kleider für die Frau, Hüte für euch und Röcke für die Töchter!", "Tailored dresses for you wife, hats for you and a skirt for your daughter!"
-cycletext "Kommt herein und findet heraus... was ich anzubieten habe!", "Come in and find out... what I have!"
+cycletext "Maßgeschneiderte Kleider für die Frau, Hüte für euch und Röcke für die Töchter!", "Tailored dresses for you wife, hats for you and a skirts for your daughter!"
+cycletext "Kommt herein und findet heraus... was ich anzubieten habe!", "Come in and find out... what I have to offer!"
 cycletext "Kundschaft!", "Customers!"
 cycletext "Einmal gekleidet sein wie Königin Rosaline - beste Kleider im Angebot.", "Once dressed like Queen Rosaline - I offer best dresses."
 cycletext "Thomas Dalenus ist euer Mann, wenn es um Stickereien geht!", "Thomas Dalenus is your man for stitching!"
