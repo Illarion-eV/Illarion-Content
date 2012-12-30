@@ -1,4 +1,4 @@
-﻿------------------------------------------------------------------------------AC
+------------------------------------------------------------------------------AC
 -- NPC Name: Argentus Almsbag                                        Runewick --
 -- NPC Job:  Money changer                                                    --
 --                                                                            --
@@ -78,7 +78,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you.", "Be greeted. Would you like to change your copper coins into silver coins?"
-"Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt.", "Grüße. Mögt ihre euren Kupfer nicht gegen Silber eintauschen?"
+"Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt.", "Grüße. Mögt Ihr Euren Kupfer nicht gegen Silber eintauschen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, hello!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, hallo!"
 "Farewell", "Bye", "Fare well", "See you" -> "Fare well."
@@ -89,6 +89,11 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es immer gut, wenn ich mit jemandem handeln kann."
 "your name", "who are you", "who art thou" -> "I am Argentus Almsbag. Don't you know me?"
 "ihr name",   "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Argentus Almsbag. Kennt Ihr mich etwa nicht?"
+
+-- Quest
+-- Quest by Zassaria Riverbank (Ask for me II)
+queststatus(701) = 4, english, "Zassaria", "lizzard", "fish","order", "riverbank" -> "Zassaria? A fish order? What do you say? The fish already started to smell? No, thanks. I want fresh fish, please tell Lady Zassaria that.", queststatus(701) = 5
+queststatus(701) = 4, english, "Zassaria", "lizzard", "fisch", "Bestellung", "riverbank" -> "Zassaria?  Eine Fischbestellung? Was höre da der Fisch beginnt bereits zu stinken? Nein, danke! Ich möchte frischen Fisch, bitte sagt das Lady Riverbank.", queststatus(701) = 5
 
 -- OPTIONAL TRIGGERS
 

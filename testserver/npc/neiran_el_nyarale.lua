@@ -398,6 +398,32 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Zassaria");
+talkEntry:addTrigger("lizzard");
+talkEntry:addTrigger("lamp");
+talkEntry:addTrigger("collection");
+talkEntry:addTrigger("riverbank");
+talkEntry:addResponse("Oil lamp collection? I threw away some oil lamps a few days ago... they did not belong to Lady Zassaria, did they?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 7));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Zassaria");
+talkEntry:addTrigger("lizzard");
+talkEntry:addTrigger("Lampe");
+talkEntry:addTrigger("");
+talkEntry:addTrigger("Sammlung");
+talkEntry:addResponse("Öllampensammlung? Ich habe da eine ganze Mengen Öllampen entsorgt... aber, das war doch nicht Lady Zassarias Öllampensammlung, oder?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 8));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I am the guard here. I guard the magical surface.");
 talkEntry:addResponse("I tell newcomers how to use the how to use recycle mechanism.");

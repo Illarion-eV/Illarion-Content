@@ -16,7 +16,9 @@ VALUES (0, 908, 812, 1, 4, 'Argentus Almsbag', 'npc.argentus_almsbag', 0, 2, 6, 
 
 require("npc.base.basic")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
@@ -63,7 +65,7 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addResponse("Seid gegrüßt.");
-talkEntry:addResponse("Grüße. Mögt ihre euren Kupfer nicht gegen Silber eintauschen?");
+talkEntry:addResponse("Grüße. Mögt Ihr Euren Kupfer nicht gegen Silber eintauschen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -128,7 +130,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I'm always happy when I can trade.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I'm always happy when I can.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -160,14 +163,40 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Zassaria");
+talkEntry:addTrigger("lizzard");
+talkEntry:addTrigger("fish");
+talkEntry:addTrigger("order");
+talkEntry:addTrigger("riverbank");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 5));
+talkEntry:addResponse("Zassaria? A fish order? What do you say? The fish already started to smell? No, thanks. I want fresh fish, please tell Lady Zassaria that.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 4));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Zassaria");
+talkEntry:addTrigger("lizzard");
+talkEntry:addTrigger("fisch");
+talkEntry:addTrigger("Bestellung");
+talkEntry:addTrigger("riverbank");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 5));
+talkEntry:addResponse("Zassaria?  Eine Fischbestellung? Was höre da der Fisch beginnt bereits zu stinken? Nein, danke! Ich möchte frischen Fisch, bitte sagt das Lady Riverbank.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sell");
 talkEntry:addTrigger("buy");
 talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("Ah, A costumer, be welcomned.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Ah, A costumer, be welcomned.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -178,8 +207,8 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addResponse("Ah, werte Kundschaft, seid willkommen.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Ah, werte Kundschaft, seid willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
