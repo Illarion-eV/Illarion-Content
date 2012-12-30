@@ -416,19 +416,20 @@ function ChanceToHit(Attacker, Defender)
 	chance into the same region as parry chance, which is good because they'll skill up at the
 	same time.
 	
-	tl;dr - stiffness should be balanced
+	tl;dr - stiffness is properly balanced to fit with parry chance
 	
 	- Flux
 	]]
 	
-  Defender.Char:inform("Stiffmod: " .. Stiffmod); 
-  Defender.Char:inform("chance: " .. chance);
+  
     
 	
 	--PROPOSAL BY ESTRALIS & FLUX
 	chance = math.max(chance,0.1); --raising to 10% no matter what (should not occur with normal values)
     chance = math.min(chance,0.95); --capping at 95%, no one hits all the time
     --PROPOSAL END
+
+  Defender.Char:inform("Dodge chance: " .. chance);
 
     return base.common.Chance(chance);
 end;
@@ -563,6 +564,8 @@ function ChanceToParry(Defender)
     --PROPOSAL END
     
 	--PROPOSAL END
+	
+	Defender.Char:inform("Parry percent chance: " .. chance);
 	
     return base.common.Chance(chance, 100);
 end;
