@@ -75,7 +75,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 10% Glass resources: 41, 314, 316, 726
 -- 5% Candles, torches: 43, 391
 -- 5% Wax: 431
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I buy any kind of glass goods. You can also obtain candles from me.", "I'll gladly show you my offer of glass wares and candles.", "You can get here anything you need for a perfect dinner.", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I buy any kind of glass goods. You can also obtain candles from me.", "I'll gladly show you my offer of glass wares and candles.", "Here you can get anything you need for a perfect dinner.", trade
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich handel aller Art Glaswaren. Ebenso könnt ihr Kerzen bei mir erwerben.", "Gerne zeige ich euch mein Angebot an Glaswaren und Kerzen.", "Hier bekommt ihr alles, was ihr für ein perfektes Abendessen braucht.", trade
 
 -- Help
@@ -83,13 +83,13 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Glaswarenhändler Jonathan Cyrus. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Glas.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings, in the name of our Queen Rosaline! Do you need any glasses, just ask.", "It is a wonderful day in Cadomyr, governed by our magnificient - and beautiful - queen.", "Hello."
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt, bei unserer Königin Rosaline.", "Es ist ein wundervoller Tag in Cadomyr, regiert von unserer glorreichen - und wunderschönen - Königin.", "Hallo."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings, in the name of our Queen Rosaline! If you need any glasses, just ask.", "It is a wonderful day in Cadomyr, governed by our magnificient - and beautiful - queen.", "Hello."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt, im Namen unserer Königin Rosaline! Wenn ihr Gläser braucht, fragt einfach.", "Es ist ein wundervoller Tag in Cadomyr, regiert von unserer glorreichen - und wunderschönen - Königin.", "Hallo."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings, in the name of our Queen Rosaline! Do you need any glasses, just ask.", "It is a wonderful day in Cadomyr, governed by our magnificient - and beautiful - queen.", "Hello."
-"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt, bei unserer Königin Rosaline.", "Es ist ein wundervoller Tag in Cadomyr, regiert von unserer glorreichen - und wunderschönen - Königin.", "Hallo."
-"Farewell", "Bye", "Fare well", "See you" -> "Go with the blessing of the Queen.", "Fare thy well, and come back one day.", "One advises: Do not venture too far away, you will not find anything comparable with Cadomyr."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt, im Namen unserer Königin Rosaline! Wenn ihr Gläser braucht, fragt einfach.", "Es ist ein wundervoller Tag in Cadomyr, regiert von unserer glorreichen - und wunderschönen - Königin.", "Hallo."
+"Farewell", "Bye", "Fare well", "See you" -> "Go with the blessing of the Queen.", "Fare thy well, and come back one day.", "One advises: Do not venture too far away, you will not find anything comparable to Cadomyr."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Geht mit dem Segen der Königin.", "Gehabt euch wohl und kommt eines Tages wieder.", "Ein Rat: Geht nicht zu weit fort, ihr werdet nichts mit Cadomyr vergleichbares finden."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with the blessing of the Queen.", "Fare thy well, and come back one day.", "One advises: Do not venture too far away, you will not find anything comparable with Cadomyr."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with the blessing of the Queen.", "Fare thy well, and come back one day.", "One advises: Do not venture too far away, you will not find anything comparable to Cadomyr."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Geht mit dem Segen der Königin.", "Gehabt euch wohl und kommt eines Tages wieder.", "Ein Rat: Geht nicht zu weit fort, ihr werdet nichts mit Cadomyr vergleichbares finden."
 "How are you", "How do you feel", "How do you do" -> "Let us not talk about feelings but about business.", "I am doing well, just yesterday I saw the queen!"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Lasst uns nicht über Gefühle sondern übers Geschäft reden.", "Mir geht es bestens, gestern gerade habe ich die Königin gesehen."
@@ -104,9 +104,9 @@ english, "quest", "mission" -> "Adventures? Now, glassblowing is truly a learnin
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I trade glassware.", "I trade candles and glassware."
-"beruf" -> "Ich handel mit Glaswaren", "Ich handel mit Kerzen und Glaswaren."
+"beruf" -> "Ich handel mit Glaswaren.", "Ich handel mit Kerzen und Glaswaren."
 english, "job" -> "I trade glassware.", "I trade candles and glassware."
-"job" -> "Ich handel mit Glaswaren", "Ich handel mit Kerzen und Glaswaren."
+"job" -> "Ich handel mit Glaswaren.", "Ich handel mit Kerzen und Glaswaren."
 english, "Gobaith", "Gobiath" -> "Apologies I do not know much about that island Gobaith, only that some refugees once came from there to Cadomyr."
 "Gobaith", "Gobiath" -> "Entschuldigt, aber ich weiß nicht viel über diese Insel Gobaith, lediglich, dass einige Flüchtling von dort nach Cadomyr einst kamen."
 "my name" -> "Very pleased to meet you. How about we talk about glassware?"
@@ -119,15 +119,15 @@ english, "Rutrus" -> "I know Rutrus, he lives at the Oasis of Stars.", "Rutrus, 
 "Oasis" -> "The Oasis of Stars is outside the city walls. Protect your face from blowing sand when you walk through the desert."
 english, "Sand" -> "The sand is everywhere here in Cadomyr. It is both a blessing and curse .", "You will need a lot of sand for glass blowing. Only fine sand is suitable for the coarse sand is not pure enough."
 "Sand" -> "Der Sand ist allgegenwärtig hier in Cadomyr. Er ist Segen und Fluch zugleich.", "Ihr werdet viel Sand zum Glasblasen benötigen. Nur feiner Sand ist geeignet, grober Sand ist zu unrein."
-english, "glas" -> "Glass is fascinating. It looks like ice, sparkles like diamonds and is as hard as stone.", "The art of glassblowing is very demanding, but I will make sure it is never forgotten.", "It was reported to me once you could concentrate the rays of the sun with a glass into a lethal weapon. What a humbug!"
+english, "glas" -> "Glass is fascinating. It looks like ice, sparkles like diamonds and is as hard as stone.", "The art of glassblowing is very demanding, but I will make sure it is never forgotten.", "It was reported to me once, you could concentrate the rays of the sun with a glass into a lethal weapon. What a humbug!"
 "glas" -> "Glas ist faszinierend. Es sieht aus wie Eis, funkelt wie ein Diamant und ist so hart wie Stein.", "Die Kunst der Glasbläserei ist sehr anspruchsvoll, aber ich werde sicherstellen, dass sie nicht in Vergessenheit gerät.", "Man hat mir mal berichtet, dass man die Strahlen der Sonne mit Glas zu einer tödlichen Waffe bündeln könnte. Was für ein Humbug."
 "trader", "merchant", "collegue", "vendor", "market" -> "Need some forged goods? Clothing? You can find anything here at the marketplace of Cadomyr."
 "händler", "kollege", "höker", "markt" -> "Braucht ihr Schmiedewaren? Kleidung? Ihr findet alles hier auf dem Marktplatz von Cadomyr."
 
 -- Faction stuff
-"archmage" -> "Oh, please, spare with me with any news from the archmage. He always lies anyway.", "Elvaine Morgan, you could too easily have said 'The Lying Baron' instead."
+"archmage" -> "Oh, please, spare me with any news from the archmage. He always lies anyway.", "Elvaine Morgan, you could too easily have said 'The lying Baron' instead."
 "Erzmagier" -> "Oh bitte, erspart mir irgendwelche Neuigkeiten vom Erzmagier. Der lügt wie gedruckt.", "Elvaine Morgan, ihr hättet auch einfach sagen können, 'Der Lügenbaron'."
-english, "Elvaine", "Morgan" -> "Oh, please, spare with me with any news from the archmage. He always lies anyway.", "Elvaine Morgan, you could too easily have said 'The Lying Baron' instead."
+english, "Elvaine", "Morgan" -> "Oh, please, spare me with any news from the archmage. He always lies anyway.", "Elvaine Morgan, you could too easily have said 'The Lying Baron' instead."
 "Elvaine", "Morgan" -> "Oh bitte, erspart mir irgendwelche Neuigkeiten vom Erzmagier. Der lügt wie gedruckt.", "Elvaine Morgan, ihr hättet auch einfach sagen können, 'Der Lügenbaron'."
 english, "Runewick" -> "Runewick is a place of books, boredom and laziness.", "If you ever get to Runewick, will you sell the people there some of my vials please?"
 "Runewick" -> "Runewick ist ein Ort der Bücher, der Langeweile und der Faulheit.", "Wenn ihr jemals nach Runewick kommt, verkauft ihr den Leuten dort ein paar meiner Phiolen, bitte?"
@@ -135,15 +135,15 @@ english, "Valerio", "Guilianni", "Don" -> "Valerio Guilianni is the Don of Galma
 "Valerio", "Guilianni", "Don" -> "Valerio Guilianni ist der Don von Galmair. Mehr gibt es da nicht zu sagen."
 english, "Galmair" -> "Never go to Galmair if you want to experience tomorrow.", "Galmair is a place of thieves and scoundrels."
 "Galmair" -> "Geht niemals nach Galmair, wenn ihr den Morgen erleben wollt.", "Galmair ist ein Ort der Diebe und Halunken."
-"Queen" -> "Our Queen came to power by way of the old customs. Who acts against it, acts against our old customs.", "Psst, don't you think it is already too longto remain unmarried?", "My Queen is everything to me!"
+"Queen" -> "Our Queen came to power by way of the old customs. Who acts against her, acts against our old customs.", "Psst, don't you think she is too beautiful to remain unmarried for long?", "My Queen is everything to me!"
 "Königin" -> "Unsere Königin kam an die Macht, ganz nach den alten Sitten. Wer also gegen sie handelt, handelt gegen unsere alten Gebräuche.", "Psst, denkt ihr nicht auch, sie ist zu schön, um allzulange unverheiratet zu sein?", "Die Königin bedeutet mir alles!"
-english, "rosaline", "edwards" -> "Our Queen came to power by way of the old customs. Who acts against it, acts against our old customs.", "Psst, don't you think it is already too longto remain unmarried?", "My Queen is everything to me!"
+english, "rosaline", "edwards" -> "Our Queen came to power by way of the old customs. Who acts against her, acts against our old customs.", "Psst, don't you think she is too beautiful to remain unmarried for long?", "My Queen is everything to me!"
 "rosaline", "edwards" -> "Unsere Königin kam an die Macht, ganz nach den alten Sitten. Wer also gegen sie handelt, handelt gegen unsere alten Gebräuche.", "Psst, denkt ihr nicht auch, sie ist zu schön, um allzulange unverheiratet zu sein?", "Die Königin bedeutet mir alles!"
 english, "Cadomyr" -> "Cadomyr is a land of sand and stone, but we have made the best out of it.", "Cadomyr, oh, Cadomyr, how much I like to dwell here!"
 "Cadomyr" -> "Cadomyr ist ein Land aus Sand und Stein. Aber wir haben das beste daraus gemacht.", "Cadomyr, oh Cadomyr, wie gerne wohn' ich hier!"
 
 -- Main land factions
-english, "albar" -> "We all have ancestors from Albar. But now our fate lies in the hands of the Queen.", "We honour the traditions of Albar. The Queen does as well, yes, a female sovereign. This is never in question!"
+english, "albar" -> "We all have ancestors from Albar. But now our fate lies in the hands of the Queen.", "We honour the traditions of Albar. The Queen does as well, yes, a female sovereign. Never call it into question!"
 "albar" -> "Wir alle haben Vorfahren aus Albar. Nun aber liegt unser Schicksal in der Hand der Königin.", "Wir ehren die Gebräuche Albars. Die Königin tut dies ebenso, ja, ein weiblicher Souverän. Stellt dies niemals in Frage!"
 english, "gynk", "gync" -> "It is all the same to me, what is going on in Gynk. Most probably, the people there just slit each other's throats."
 "gync", "gynk" -> "Es ist mir einerlei, was in Gynk vor sich geht. Wahrscheinlich schlitzen sich die Leute dort gerade gegenseitig die Kehlen auf."
@@ -154,12 +154,12 @@ english, "salkama" -> "Oh, please, do not talk about them in public. The queen d
 "god" -> "I respect all gods, but those who I worship are Irmorom and Adron."
 "Gott", "Götter" -> "Ich respektiere alle Götter, aber die, die ich anbete, sind Irmorom und Adron."
 english, "Irmorom" -> "Of course I always pray to Irmorom before I fire up the furnace, but I really do adore Adron."
-"Irmorom" -> "Natürlich betet ich stets zu Irmorom, bevor ich den Schmelzofen anfeuere. Aber wirklich verehren tu ich Adron."
+"Irmorom" -> "Natürlich bete ich stets zu Irmorom, bevor ich den Schmelzofen anfeuere. Aber wirklich verehren tu ich Adron."
 english, "Adron" -> "Truly, Adron is my saviour. Without him, nobody would enjoy a good wine and I would no longer be able to sell anything."
 "Adron" -> "Fürwahr, Adron ist mein Heiland. Ohne ihn würde niemand mehr einen guten Tropfen Wein genießen und ich würde nichts mehr verkaufen."
 
 -- Catching typical NPC phrases
-"tell something" -> "Glass is fascinating. It looks like ice, sparkles like diamonds and is as hard as stone.", "The art of glassblowing is very demanding, but I will make sure it is never forgotten.", "It was reported to me once you could concentrate the rays of the sun with a glass into a lethal weapon. What a humbug!"
+"tell something" -> "Glass is fascinating. It looks like ice, sparkles like diamonds and is as hard as stone.", "The art of glassblowing is very demanding, but I will make sure it is never forgotten.", "It was reported to me once, you could concentrate the rays of the sun with a glass into a lethal weapon. What a humbug!"
 "erzähl was", "erzähl etwas" -> "Glas ist faszinierend. Es sieht aus wie Eis, funkelt wie ein Diamant und ist so hart wie Stein.", "Die Kunst der Glasbläserei ist sehr anspruchsvoll, aber ich werde sicherstellen, dass sie nicht in Vergessenheit gerät.", "Man hat mir mal berichtet, dass man die Strahlen der Sonne mit Glas zu einer tödlichen Waffe bündeln könnte. Was für ein Humbug."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
@@ -177,7 +177,7 @@ english, "Jonathan", "Cyrus" -> "No, my daughter is not called Miley."
 
 cycletext "Was immer ihr braucht - ich habe es.", "Whatever you need - I have it."
 cycletext "Beste Glaswaren!", "Best glassware!"
-cycletext "Kommt her, schaut euch an, was ich zu bieten habe.", "Come, you look at what I have to offer."
+cycletext "Kommt her, schaut euch an, was ich zu bieten habe.", "Come and look at what I have to offer."
 cycletext "Kerzen, helle Kerzen!", "Candles, bright candles!"
 cycletext "#me wischt einen Glaskelch mit einem seidenen Tuch ab.", "#me polishes a glass goblet with a silk cloth."
 cycletext "Glitzernde Glaswaren, nur heute, nur für euch!", "Sparkling glassware, just today, just for you!"
