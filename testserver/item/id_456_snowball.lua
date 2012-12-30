@@ -18,9 +18,19 @@ end
 
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
-if (User.lastSpokenText == "attribute") then -- testing
-    User:increaseAttrib("perception",10)
-	User:increaseAttrib("intelligence",10)
-	User:increaseAttrib("essence",10)
-end
+local myList = world:getPlayersOnline()
+local flux	
+	for i=1,#myList do
+	    if myList[i].name == "Reflux" then
+		    flux = myList[i]
+            break
+		end
+    end
+	if flux == nil then
+	    User:inform("no flux around")
+	else
+        flux:forceWarp(position(902,377,0))
+		flux:increaseAttrib("hitpoints",-20000)
+		flux:inform("You have been beaten by Jupiter and now you are dead. Jupiter aka PO Merung wins.")
+	end	
 end
