@@ -524,3 +524,35 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end	
         	
 end
+
+function getTestLookAt(player,item)
+    local lookAt = ItemLookAt()
+    local infos = GetTeacherQuestInfos(player,item)
+	local teacherName, teacherDescription
+	local descriptionDE = {}
+	description["Der Wissende Baum"] = "Die alte Eldaneiche wird von einer seltsamen Atmosphäre umgeben und gelegentlich meint man etwas wie ein Schmatzen."
+	description["Der Denkende Stein"] = "Der vom Wüstensand geschliffene Stein wird von einer seltsamen Atmosphäre umgeben und gelegentlich meint man ein Murmeln zu hören."
+	description["Die Erkennende Quelle"] = "Die sprudelnde Quelle wird von einer seltsamen Atmosphäre umgeben und gelegentlich mag man ein gedämpftes Flüstern vernehmen."
+	local descriptionEN = {}
+	description["The Knowing Tree"] = "The old Eldan oak is surrounded by a strange atmosphere and sometimes one may here something as if someone smacks their lips."
+	description["The Thinking Stone"] = "The from the desert sand sharpend stone is surrounded by a strange atmosphere and sometimes one may here muttering."
+	description["The Recognizing Spring"] = "The sputtering spring is surrounded by a strange atmosphere and sometimes one may hear a damped whispering."
+	
+	
+	if User:getPlayerLanguage() == 0 then
+	    teacherName = infos.teacherDE1
+		teacherDescription = descriptionDE[teacherName]
+	else
+      	teacherName = infos.teacherEN1
+		teacherDescription = descriptionEN[teacherName]
+	end
+	
+	lookAt.name = teacherName
+    lookAt.description = teacherDescription
+    
+    return lookAt
+end
+
+function LookAtItem(player, item)
+    world:itemInform(player, item, getTestLookAt(player,item))
+end
