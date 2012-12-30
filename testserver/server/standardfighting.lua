@@ -419,8 +419,8 @@ function ChanceToHit(Attacker, Defender)
 	- Flux
 	]]
 	
-   Defender.Char:inform("Stiffmod: " .. Stiffmod); 
-  Defender.Char:inform("chance: " .. chance);
+   --Defender.Char:inform("Stiffmod: " .. Stiffmod); 
+  --Defender.Char:inform("chance: " .. chance);
     
 	
 	--PROPOSAL BY ESTRALIS & FLUX
