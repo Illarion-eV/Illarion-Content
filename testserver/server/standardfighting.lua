@@ -347,6 +347,7 @@ function ChanceToHit(Attacker, Defender)
 	--And added a stiffness mod - Flux
 
 	local Stiffmod = base.common.GetStiffness( Defender.Char );
+	Defender.Char:inform("Stiffmod: " .. Stiff);
 	Stiffmod = 1-Stiffmod/100;
 	
 	Defender.Char:inform("Stiffmod: " .. Stiff);
