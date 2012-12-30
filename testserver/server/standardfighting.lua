@@ -429,7 +429,9 @@ function ChanceToHit(Attacker, Defender)
     chance = math.min(chance,0.95); --capping at 95%, no one hits all the time
     --PROPOSAL END
 
-  Defender.Char:inform("Dodge chance: " .. chance);
+
+   local dodgechance = 1-chance;
+  Defender.Char:inform("Dodge chance: " .. dodgechance);
 
     return base.common.Chance(chance);
 end;
