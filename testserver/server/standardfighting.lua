@@ -349,20 +349,15 @@ function ChanceToHit(Attacker, Defender)
 	local Stiffmod = base.common.GetStiffness( Defender.Char );
 	
 	--Now for the modifier
-	Stiffmod = 1-Stiffmod/100;
 	
-	if (Stiffmod<=0) then
-    chance = 0.05;
-	else
-    chance = chance*Stiffmod;
-	end;
+	chance = chance+Stiffmod/386;
 	
    Defender.Char:inform("Stiffmod: " .. Stiffmod); 
   Defender.Char:inform("chance: " .. chance);
     
 	
 	--PROPOSAL BY ESTRALIS & FLUX
-	chance = math.max(chance,0.05); --raising to 10% no matter what (should not occur with normal values)
+	chance = math.max(chance,0.1); --raising to 10% no matter what (should not occur with normal values)
     chance = math.min(chance,0.95); --capping at 95%, no one hits all the time
     --PROPOSAL END
 
