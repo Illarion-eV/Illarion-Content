@@ -37,8 +37,8 @@ talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
 talkEntry:addResponse("I trade with building materials. I'll purchase anything that can help building her majesty's... place of peaceful rest.");
-talkEntry:addResponse("Bricks, stone blocks, marble... Is all the workers need.");
-talkEntry:addResponse("I can sell you the tools you need to serve the queen. Go on!");
+talkEntry:addResponse("Bricks, stone blocks, marble... Iall the workers need.");
+talkEntry:addResponse("I can sell you the tools you need to serve the queen. On, on!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -52,7 +52,7 @@ talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
 talkEntry:addResponse("Ich handele mit Baumaterialien. Ich werde alles erwerben, was benötigt wird um für ihre Majestät... einen Ort der letzten Ruhe zu bauen.");
 talkEntry:addResponse("Ziegelsteine, Steinblöcke, Marmor... Ich handele mit allem, was die Arbeiter brauchen.");
-talkEntry:addResponse("Ich kann euch die Werkzeuge verkaufen die ihr braucht, um Königin Rosaline zu dienen. Los, los!");
+talkEntry:addResponse("Ich kann euch die Werkzeuge verkaufen, die ihr braucht, um Königin Rosaline zu dienen. Los, los!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -70,7 +70,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-<<<<<<< HEAD
 talkEntry:addTrigger("Hello");
 talkEntry:addTrigger("Greet");
 talkEntry:addTrigger("Hail");
@@ -85,8 +84,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-=======
->>>>>>> a0abfba7cf62ebce9733e3841bafcc71fba28ec1
 talkEntry:addTrigger("Grüß");
 talkEntry:addTrigger("Gruß");
 talkEntry:addTrigger("Guten Morgen");
@@ -97,23 +94,9 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
-talkEntry:addResponse("Ah, ihr müsst der Marmorlieferant sein. Lagert es neben den Ziegelsteinen.");
+talkEntry:addResponse("Ah, ihr müßt der Marmorlieferant sein. Lagert es neben den Ziegelsteinen.");
 talkEntry:addResponse("Willkommen, Fremdling. Habt ihr Baumaterial für mich?");
 talkEntry:addResponse("Seid im Namen der Königin gegrüßt.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hello");
-talkEntry:addTrigger("Greet");
-talkEntry:addTrigger("Hail");
-talkEntry:addTrigger("Good day");
-talkEntry:addTrigger("Good morning");
-talkEntry:addTrigger("Good evening");
-talkEntry:addTrigger("Good night");
-talkEntry:addResponse("Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.");
-talkEntry:addResponse("Welcome, stranger. Do you have any building materials for me?");
-talkEntry:addResponse("Be greeted, in the name of the queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -123,13 +106,8 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-<<<<<<< HEAD
 talkEntry:addResponse("Ah, you must be the marble deliverer. Put it just next to the stack of bricks.");
 talkEntry:addResponse("Welcome, stranger. Do you have any building material for me?");
-=======
-talkEntry:addResponse("Ah, you must be the deliverer of marble. Put it just next to the stack of bricks.");
-talkEntry:addResponse("Welcome, stranger. Do you have any building materials for me?");
->>>>>>> a0abfba7cf62ebce9733e3841bafcc71fba28ec1
 talkEntry:addResponse("Be greeted, in the name of the queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -393,7 +371,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("baumeister");
-talkEntry:addResponse("Ich bin Robertus, der königliche Baumeister. Die Königin vertraute mir an ihr ein Grab zu bauen, welches die Zeiten übersteht.");
+talkEntry:addResponse("Ich bin Robertus, der königliche Baumeister. Die Königin vertraute mir an, ihr ein Grab zu bauen, welches die Zeiten übersteht.");
 talkEntry:addResponse("Bauwerke sind mein Geschäft. Seht euch die Taverne an: Meine Tat für die Königin. Ich bin nicht stolz auf die Taverne, ich bin stolz, der Königin zu dienen.");
 talkEntry:addResponse("Ich bin der Baumeister von Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -405,15 +383,9 @@ talkEntry:addTrigger("merchant");
 talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
-<<<<<<< HEAD
 talkEntry:addResponse("You can buy many goods here in the marketplace. Garments to dress for the next festival, weapons to repel Cadomyr's enemies and the finest jewels around.");
 talkEntry:addResponse("This market has it all and Cadomyr is proud of it!");
 talkEntry:addResponse("The only thing you can't buy on this market are slaves, but Cadomyr really needs hands.");
-=======
-talkEntry:addResponse("You can buy many goods here on the marketplace. Garments to dress for the next festival, weapons to repell Cadomyr's enemies and finest jewels.");
-talkEntry:addResponse("This market has it all and Cadomyr is proud of it.");
-talkEntry:addResponse("The only thing you cannot buy on this market are slaves. But Cadomyr really needs hands.");
->>>>>>> a0abfba7cf62ebce9733e3841bafcc71fba28ec1
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -424,18 +396,14 @@ talkEntry:addTrigger("höker");
 talkEntry:addTrigger("markt");
 talkEntry:addResponse("Ihr könnt allerlei Dinge auf diesem Markt kaufen. Gewänder für das nächste Fest, Waffen um die Feinde Cadomyrs zurückzuschlagen oder feinste Juwelen.");
 talkEntry:addResponse("Auf diesem Markt bekommt ihr alles und Cadomyr ist stolz darauf.");
-talkEntry:addResponse("Das Einzige, was ihr auf diesem Markt nicht bekommen werdet sind Sklaven. Cadomyr braucht aber dringend Arbeiter.");
+talkEntry:addResponse("Das einzige, was ihr auf diesem Markt nicht bekommen werdet, das sind Sklaven. Cadomyr braucht aber dringend Arbeiter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("queendom");
 talkEntry:addTrigger("kingdom");
-<<<<<<< HEAD
 talkEntry:addResponse("Cadomyr is indeed a queendom. Never will the queen chose a husband; she serves her people only.");
-=======
-talkEntry:addResponse("Cadomyr is indeed a queendom. Never will the queen chose a husband, she serves her people only.");
->>>>>>> a0abfba7cf62ebce9733e3841bafcc71fba28ec1
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -465,11 +433,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("pyramid");
-<<<<<<< HEAD
 talkEntry:addResponse("A pyramid as a grave? Who would do such a foolish thing?");
-=======
-talkEntry:addResponse("A pyramid as grave? Who would do such a folish thing?");
->>>>>>> a0abfba7cf62ebce9733e3841bafcc71fba28ec1
 talkEntry:addResponse("The queen prefers a cube, but the drawing is not done yet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -684,7 +648,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
 talkEntry:addResponse("We remember our roots, our ancestors. Cadomyr stands alone, but this is not a reason to forget about the old customs.");
 talkEntry:addResponse("Albar... ages ago, the people of Cadomyr set out from Albar.");
-talkEntry:addResponse("I wish I could visit an albarian slave market. There is so much work that needs to be done.");
+talkEntry:addResponse("I wish I could visit an albarian slave market. There is so much work that need to be done.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -875,7 +839,7 @@ talkEntry:addTrigger("Robertus");
 talkEntry:addResponse("Fürwahr, ich bin Robertus, der königliche Baumeister. Und nein, ich habe keinen Spitznamen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Hoch lebe die Königin!", "Hail the queen!");
+talkingNPC:addCycleText("Hoch lebe die Königin!", "Hail the Queen!");
 talkingNPC:addCycleText("#me beugt sich über eine große Zeichnung und macht sorgfältig Korrekturen an einzelnen Linien.", "#me leans over a huge drawing and corrects individual lines carefully.");
 talkingNPC:addCycleText("#me schlägt mit seiner Faust auf eine auf dem Tisch liegende Zeichnung. 'Nein! So nicht!'", "#me slams his fist on a drawing, lying on the table. 'No! Not this way!'");
 talkingNPC:addCycleText("#me murmelt vor sich hin und streicht mit einem Federkiel an seinem Kinn entlang.", "#me murmurs to himself and strokes his chin with the feather of a quill.");
