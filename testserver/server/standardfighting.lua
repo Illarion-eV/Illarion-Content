@@ -896,7 +896,7 @@ function HandleMovepoints(Attacker)
             end;
             
           local reduceFightpoints = math.max( 7 , weaponFightpoints*(100 - (Attacker.agility-5.8-Stiffmod-shieldmalus)*2.5) / 100 );
- 
+          Attacker.Char:Inform(weaponFightpoints);
         -- End of subproposal
         
     -- End of proposal
