@@ -349,7 +349,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("welche Stadt");
 talkEntry:addTrigger("welche faktion");
-talkEntry:addResponse("Du gehöerst nach %TOWN!");
+talkEntry:addResponse("Du gehörst nach %TOWN!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

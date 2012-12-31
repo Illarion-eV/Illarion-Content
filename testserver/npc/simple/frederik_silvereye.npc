@@ -97,7 +97,7 @@ queststatus(208) = 1, english, ".*" -> queststatus(208) = 0, "Mhm... The Don wil
 queststatus(208) = 1, ".*" -> queststatus(208) = 0, "Mhm, ... Der Don wird sich freuen, dies zu hören."
 
 -- Test Question
-"welche Stadt", "welche faktion" -> "Du gehöerst nach %TOWN!"
+"welche Stadt", "welche faktion" -> "Du gehörst nach %TOWN!"
 "which town", "which faction" -> "You belong to %TOWN!"
 
 -- RANK informations
