@@ -50,7 +50,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Greetings to you.");
-talkEntry:addResponse("Be greeted. Would you like to change your copper coins into silver coins?");
+talkEntry:addResponse("Be greeted. Would you like to change your coppers into silvers?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -93,7 +93,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Fare well.");
+talkEntry:addResponse("Farewell.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -130,8 +130,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("I'm always happy when I can.");
+talkEntry:addResponse("I'm always happy when I'm trading.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -148,7 +147,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am Argentus Almsbag. Don't you know me?");
+talkEntry:addResponse("I am Argentus Almsbag! Don't you know me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -170,8 +169,8 @@ talkEntry:addTrigger("lizzard");
 talkEntry:addTrigger("fish");
 talkEntry:addTrigger("order");
 talkEntry:addTrigger("riverbank");
+talkEntry:addResponse("Zassaria? A fish order? What now? The fish already started to smell? No, thanks. I want fresh fish, please tell Lady Zassaria that.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 5));
-talkEntry:addResponse("Zassaria? A fish order? What do you say? The fish already started to smell? No, thanks. I want fresh fish, please tell Lady Zassaria that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -183,8 +182,8 @@ talkEntry:addTrigger("lizzard");
 talkEntry:addTrigger("fisch");
 talkEntry:addTrigger("Bestellung");
 talkEntry:addTrigger("riverbank");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 5));
 talkEntry:addResponse("Zassaria?  Eine Fischbestellung? Was höre da der Fisch beginnt bereits zu stinken? Nein, danke! Ich möchte frischen Fisch, bitte sagt das Lady Riverbank.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -195,8 +194,8 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
+talkEntry:addResponse("Ah, A customer, welcome!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Ah, A costumer, be welcomned.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -207,14 +206,14 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ah, werte Kundschaft, seid willkommen.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I like money. But I don't like my job.");
+talkEntry:addResponse("I love money, but I hate my job.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -227,7 +226,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I like money. But I don't like my job.");
+talkEntry:addResponse("I love money, but I hate my job.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -239,7 +238,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Do you want to change your coin or do you want to keep me from working by gossiping?");
+talkEntry:addResponse("Sometimes I wonder why I change money for free. Perhaps I should start to take a percentage..");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -252,7 +251,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Do you want to change your coin or do you want to keep me from working by gossiping?");
+talkEntry:addResponse("Do you want to change your coins or do you just want to distract me from counting mine?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,8 +265,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick is such a nice place. You can make lots of money here.");
-talkEntry:addResponse("Do you want to change your coin or do you want to keep me from working by gossiping?");
+talkEntry:addResponse("Runewick is such a lovely place. There's a lot of scope for making money here.");
+talkEntry:addResponse("Look, are you going to change coins or just gossip?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -281,8 +280,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair is full of corruption and dirt.");
-talkEntry:addResponse("Do you want to change your coin or do you want to keep me from working by gossiping?");
+talkEntry:addResponse("Galmair is full of corruption and grime. Only thieves make money there.");
+talkEntry:addResponse("Look, are you going to change coins or just gossip?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -296,8 +295,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr is Cadomyr.");
-talkEntry:addResponse("Do you want to change your coin or do you want to keep me from working by gossiping?");
+talkEntry:addResponse("You don't need money in Cadomyr, I hear they all use slaves.");
+talkEntry:addResponse("Look, are you going to change coins or just gossip?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -311,7 +310,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Salkamar was my home. But I never liked it there.");
+talkEntry:addResponse("Salkamar was my home, but I hated it there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -325,7 +324,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Do you want to change your coin or do you want to keep me from working by gossiping?");
+talkEntry:addResponse("Unless it's stamped on a coin I don't care.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -335,9 +334,9 @@ talkEntry:addTrigger("Gobiath");
 talkEntry:addResponse("Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me betrachtet eine Goldmünze.", "#me looks at a gold coin.");
-talkingNPC:addCycleText("#me's Augen funklen gierig.", "#me's eyes sprakle greedily.");
-talkingNPC:addCycleText("#me murmelt verärgert:'Wenn dir meine Preise nicht passen, dann geh doch woanders hin.'", "#me mumbles angrily:'If you don't like my prices, then just go elsethere.'");
+talkingNPC:addCycleText("#me betrachtet eine Goldmünze.", "#me glances lovingly over a gold coin.");
+talkingNPC:addCycleText("#me's Augen funklen gierig.", "#me's eyes sparkle greedily as he rubs a coin between his fingers.");
+talkingNPC:addCycleText("#me murmelt verärgert:'Wenn dir meine Preise nicht passen, dann geh doch woanders hin.'", "#me mumbles quietly: 'I wish I got to keep the money.'");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(61,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3076,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3077,"sell"));
@@ -348,8 +347,8 @@ tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Argentus Almsbag der Geldwechsler von Runewick.", "This NPC is Argentus Almsbag the money changer of Runewick.");
-mainNPC:setUseMessage("Fasst mich nicht an!", "Do not touch me!");
+mainNPC:setLookat("Dieser NPC ist Argentus Almsbag der Geldwechsler von Runewick.", "This NPC is Argentus Almsbag, the money changer of Runewick.");
+mainNPC:setUseMessage("Fasst mich nicht an!", "Hands off me!");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 181);

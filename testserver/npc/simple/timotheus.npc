@@ -53,7 +53,7 @@ itemShoes = 369
 
 sellItems = 6, 47, 51, 58, 2659, 2746, 2781, 384, 2295, 54, 174, 175, 176, 177, 178, 179, 807, 808, 809, 810, 811, 812, 813, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 845, 846, 847, 848, 849, 850, 851, 852, 2678, 2679, 2680, 2681, 2682, 2683, 180, 181, 182, 457, 458, 839, 840, 841, 842, 843, 50, 63, 168, 170, 34, 183, 459, 460, 461, 821, 822, 823, 824, 825, 826, 827, 814, 815, 816, 817, 818, 819, 820, 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421, 357, 358, 370, 371, 828, 829, 830, 831, 832, 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114
 buyPrimaryItems = 6, 47, 51, 58, 2659, 2746, 2781, 384, 2295, 54, 174, 175, 176, 177, 178, 179, 807, 808, 809, 810, 811, 812, 813, 385, 800, 801, 802, 803, 804, 805, 806, 833, 834, 835, 836, 837, 838, 845, 846, 847, 848, 849, 850, 851, 852, 2678, 2679, 2680, 2681, 2682, 2683, 180, 181, 182, 457, 458, 839, 840, 841, 842, 843, 50, 63, 168, 170, 34, 183, 459, 460, 461, 821, 822, 823, 824, 825, 826, 827, 814, 815, 816, 817, 818, 819, 820, 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421, 357, 358, 370, 371, 828, 829, 830, 831, 832, 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114
-tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
 tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
@@ -85,7 +85,7 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 10% Robes: 55, 193, 194, 195, 196, 368, 547, 548, 558, 2377, 2378, 2380, 2384, 2416, 2418, 2419, 2420, 2421
 -- 10% Hats: 357, 358, 370, 371, 828, 829, 830, 831, 832
 -- 10% Leather goods: 48, 53, 89, 97, 356, 362, 363, 364, 365, 366, 367, 369, 526, 527, 697, 698, 2113, 2114
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you're interested in my wares.", "Take your time to look around.", trade
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
 
 -- Help
@@ -93,13 +93,13 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Schneider Timotheus. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Schneider.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome wise one.", "Why greetings to you!", "Greetings elevated one."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Welcome wise one.", "Why, greetings to you!", "Greetings elevated one."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Willkommen, mein weiser Freund.", "Wie jetzt, seid gegrüßt!", "Grüße, mein Großer."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Not so informal!", "Well... Greetings.", "Is that the way they talk on the street nowadays?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Please don't be so informal!", "Well.. Greetings.", "Is that the way people talk on the street nowadays?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Na, nicht so schnodderig.", "Nun... seid gegrüßt.", "Redet man heutzutage so auf der Straße?"
 "Farewell", "Bye", "Fare well", "See you" -> "May Elara protect your knowledge!", "Insightful journey to you!", "Farewell now!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge Elara eure Weisheit bewahren.", "Eine aufschlussreiche Reise wünsche ich.", "Gehabt euch wohl."
-english, "Ciao", "Adieu", "Au revoir" -> "Charming me huh? Farewell then!", "The courtesies certainly haven't left you."
+english, "Ciao", "Adieu", "Au revoir" -> "Trying to charming me, eh? Farewell then!", "The courtesies certainly haven't left you!"
 "Ciao", "Adieu", "Au revoir" -> "Ihr wollt mir wohl schmeicheln. Gute Reise!", "Eure Anstandsformen haben euch offensichtlich noch nicht verlassen."
 "How are you", "How feel", "How do you do" -> "I'm feeling wonderful, thank you.", "Great! Did you know the library has books about famous tailors? Amazing literature."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Mir geht es wunderbar, danke.", "Großartig! Wußtet ihr, dass es in der Bibliothek Bücher über berühmte Schneider gibt? Spannende Lektüre, muss ich sagen."
@@ -107,7 +107,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Charming me huh? Farewell then!", "The
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Timotheus.", "Wie jetzt, Timotheus natürlich!"
 
 -- Catching quest triggers
-english, "quest" -> "I only sell goods, my apologies. Quests are for the courageous and the air-heads."
+english, "quest" -> "I only sell goods, my apologies. Quests are for the courageous and the empty headed."
 "quest" -> "Ich bin nur ein Händler, entschuldigt. Abenteuer sind für die mutigen und törichten."
 "task", "adventure", "order" -> "Adventures? I'm pretty happy with my robes thank you."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Abenteuer? Ich bin ziemlich glücklich mit meinen Roben, danke."
@@ -185,13 +185,13 @@ english, "Timotheus" -> "Yes, I am Timotheus. Ti-mo-the-us."
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Die feinsten Roben, Westen und Hemden! Niemals mehr wie ein Landstreicher herumlaufen!", "The finest robes, vests, shirts! Do not ever walk around like a bum again."
+cycletext "Die feinsten Roben, Westen und Hemden! Niemals mehr wie ein Landstreicher herumlaufen!", "The finest robes, vests, shirts! Never walk around like a tramp again!"
 cycletext "#me streicht seine blaue Satinrobe glatt. Orangene Stickereien zieren die Ärmel.", "#me straightens his blue satin robes. They are adorned with orange filigree on the sleeves."
 cycletext "#me schaut sich kurz um und wendet sich dann wieder einem Buch zu.", "#me looks around for a moment before returning to his book."
 cycletext "#me blättert die Seiten eines Buches um.", "#me turns the page of his book."
 cycletext "#me kichert auf einmal: 'Oh, entschuldigt. Der Mann, der dies hier schrieb, ist einfach brilliant.", "#me suddenly giggles: 'Oh, my apologies. The man who wrote this is simply brilliant.'"
 cycletext "#me murmelt vor sich hin: '...und so verließ Mesha Gobblesworth den Rat nach seinem Wutanfall. Er würde nicht mehr sehen, wie...'. Er verstummt anschließend.", "#me begins to mumble: '...and so Mesha Gobblesworth left the council after an outburst of aggression. He wouldn't see...'. He turns silent again."
-cycletext "Heda! Eure Kleidung sieht schäbig aus, ich hätte da was passendes.", "Lo! Your clothes look ugly. I have something fitting for you."
-cycletext "Ich habe die besten Umhänge weit und breit. Kauft oder seht häßlich aus.", "I have the best cloaks around. Buy or look ugly, your decision."
+cycletext "Heda! Eure Kleidung sieht schäbig aus, ich hätte da was passendes.", "Lo! Your clothes look ugly! I have something fitting for you."
+cycletext "Ich habe die besten Umhänge weit und breit. Kauft oder seht häßlich aus.", "I have the best cloaks around. Buy them or look ugly, your decision."
 cycletext "Satin! Brokat! Seide! Leinen!", "Satin! Brocade! Silk! Linen!"
 cycletext "Ihr da! Ein Hut würde eurem Kopf gut tun. Schlimmer kanns ja nicht mehr werden...", "You! A hat would suit your head well. Can't become any worse..."
