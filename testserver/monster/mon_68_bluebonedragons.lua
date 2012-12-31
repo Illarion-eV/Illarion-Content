@@ -68,7 +68,7 @@ function FireBreath(Monster,Enemy)
                 end
             end
         else
-            monster.base.drop.CastMonMagic(Monster,Enemy,1,{2500,2500},{{6,5}},{},0,1)
+            monster.base.drop.CastMonMagic(Monster,Enemy,1,{2500,2500},{{6,5}},{},0,1,{50,100})
         end
     end
     growltry=math.random(1,8);
