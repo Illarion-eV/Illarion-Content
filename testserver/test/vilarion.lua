@@ -36,6 +36,11 @@ function LookAtItem(player, item)
 end
 
 function UseItem(User, SourceItem, TargetItem, counter, Param, ltstate)
+    local found, _, book = string.find(User.lastSpokenText, "book (%d+)")
+    if found then
+        User:sendBook(book)
+    end
+
     if (User.lastSpokenText == "take") then
         User:getBackPack():takeItemNr(1, 1)
     end
