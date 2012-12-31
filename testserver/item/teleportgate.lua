@@ -1,13 +1,16 @@
 -- teleporter gate
 -- Nop
 
--- UPDATE common SET com_script='item.id_10_teleportgate' WHERE com_itemid = 10;
+-- UPDATE common SET com_script='item.teleportgate' WHERE com_itemid = 10;
+-- UPDATE common SET com_script='item.teleportgate' WHERE com_itemid = 792;
+-- UPDATE common SET com_script='item.teleportgate' WHERE com_itemid = 794;
+-- UPDATE common SET com_script='item.teleportgate' WHERE com_itemid = 795;
 
 require("base.common")
 require("base.factions")
 require("quest.enduranceCave")
 
-module("item.id_10_teleportgate", package.seeall)
+module("item.teleportgate", package.seeall)
 
 --[[
         --TargetName[ 1 ]="Galmair";
