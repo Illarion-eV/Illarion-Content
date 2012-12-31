@@ -167,8 +167,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("Thank you for asking. Since I stay away from smoking Sibanac I feel great!");
-talkEntry:addResponse(" I drank some tea agains my headache, now I feel better.");
+talkEntry:addResponse("Thank you for asking. Since I stopped smoking Sibanac I feel great!");
+talkEntry:addResponse(" I drank some herbal tea for my headache, now I feel better.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -206,7 +206,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I don't sell that... Ehm, i wanted to say, I do not have any quest for you.");
+talkEntry:addResponse("Nah I don't sell quests. I mean.. sorry.. I don't *have any* quests for you, rather.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -221,7 +221,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I don't sell that... Ehm, i wanted to say, I do not have any quest for you.");
+talkEntry:addResponse("Nah I don't sell quests. I mean.. sorry.. I don't *have any* quests for you, rather.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -241,7 +241,7 @@ talkEntry:addTrigger("Mirarie");
 talkEntry:addTrigger("Bragolin");
 talkEntry:addTrigger("letter");
 talkEntry:addTrigger("message");
-talkEntry:addResponse("Oh? ... A letter for me? ... Ah, I see. Please tell Miss Bragolin I'll send her a letter to answer her questions.");
+talkEntry:addResponse("Oh? A letter for me? Hrm... Ah, I see. Please tell Miss Bragolin I'll send her a letter to answer her question.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 10));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -258,34 +258,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 1));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Zassaria");
-talkEntry:addTrigger("lizzard");
-talkEntry:addTrigger("lamp");
-talkEntry:addTrigger("riverbank");
-talkEntry:addResponse("Zassaria? An oli lamp? I totaly forgot. I'll get back to lady Riverbank soon. Thank you for reminding me.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 2));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 1));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Zassaria");
-talkEntry:addTrigger("lizzard");
-talkEntry:addTrigger("lampe");
-talkEntry:addTrigger("riverbank");
-talkEntry:addResponse("Zassaria? Eine Öllampe? Das habe ich total vergessen. Ich werde mich bei Lady Riverbank melden. Danke für die Erinnerung.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 2));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I'm a herbaslist, that means I sell herbs. Want to take a look?");
-talkEntry:addResponse("I do not only sell herbs but also some very usefull tooles. Want to take a look?");
-talkEntry:addResponse("I sell herbs ans some tools aswell, want to take a look?");
+talkEntry:addResponse("I'm a herbalist, so as you might expect: I sell herbs. Want to take a look?");
+talkEntry:addResponse("I don't just sell herbs: I also sell useful tools. Come have a look.");
+talkEntry:addResponse("I sell herbs and tools too. Want to see?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -300,9 +276,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I'm a herbaslist, that means I sell herbs. Want to take a look?");
-talkEntry:addResponse("I do not only sell herbs but also some very usefull tooles. Want to take a look?");
-talkEntry:addResponse("I sell herbs ans some tools aswell, want to take a look?");
+talkEntry:addResponse("I'm a herbalist, so as you might expect: I sell herbs. Want to take a look?");
+talkEntry:addResponse("I don't just sell herbs: I also sell useful tools. Come have a look.");
+talkEntry:addResponse("I sell herbs and tools too. Want to see?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,9 +292,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Smoking Sibanac is not good for your health.");
-talkEntry:addResponse("There a some herbs wich you can only find ih the desert.");
-talkEntry:addResponse("Herbs can have very diffent qualities, a Druid can tell you more about it.");
+talkEntry:addResponse("Smoking sibanac isn't good for your health.");
+talkEntry:addResponse("There are some herbs which you can only find in the desert.");
+talkEntry:addResponse("Herbs can have very different qualities. Druids can tell you more that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -334,7 +310,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
 talkEntry:addResponse("The elder gods gave their power to the new ones before they left this world.");
-talkEntry:addResponse("The old gods aren't worshiped alot theses days.");
+talkEntry:addResponse("The old gods aren't worshipped often nowadays.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -349,7 +325,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("I do not pray to this god. Do you?");
+talkEntry:addResponse("I don't pray to him. Do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -363,7 +339,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Bràgon");
-talkEntry:addResponse("I do not pray to this god. Do you?");
+talkEntry:addResponse("I don't pray to him. Do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -377,7 +353,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("I do not pray to this god. Do you?");
+talkEntry:addResponse("I don't pray to her. Do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -390,7 +366,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("I do not pray to this god. Do you?");
+talkEntry:addResponse("I don't pray to her. Do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -403,7 +379,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("I do not pray to this god. Do you?");
+talkEntry:addResponse("I don't pray to him. Do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -416,7 +392,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("I do not pray to this god. Do you?");
+talkEntry:addResponse("I don't pray to her. Do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -429,7 +405,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("I do not pray to this god. Do you?");
+talkEntry:addResponse("I don't pray to him. Do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -443,7 +419,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("I do not pray to this god. Do you?");
+talkEntry:addResponse("I don't pray to him. Do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -457,7 +433,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("I do not pray to this evil god. Do you?");
+talkEntry:addResponse("I do not pray to that evil fiend. Do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -472,7 +448,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addTrigger("Nargún");
-talkEntry:addResponse("I do not pray to this god. Do you?");
+talkEntry:addResponse("I don't pray to him. Do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -487,7 +463,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Ushara is the godess of earth, while Oldra is the godess of life.");
+talkEntry:addResponse("Ushara is the goddess of earth, while Oldra is the goddess of life.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -500,7 +476,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("I do not pray to this god. Do you?");
+talkEntry:addResponse("I don't pray to him. Do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -513,7 +489,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("I do not pray to this god. Do you?");
+talkEntry:addResponse("I don't pray to her. Do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -527,7 +503,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("I do not pray to this god. Do you?");
+talkEntry:addResponse("I don't pray to her. Do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -541,7 +517,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Ushara is the godess of earth, while Oldra is the godess of life.");
+talkEntry:addResponse("Ushara is the goddess of earth, while Oldra is the goddess of life.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -554,7 +530,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("I do not pray to this god. Do you?");
+talkEntry:addResponse("I don't pray to him. Do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -566,8 +542,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("What does a herbalist concern the archmage? Right, he dosen't.");
-talkEntry:addResponse("I know nothing about that.");
+talkEntry:addResponse("I hear that he secretly takes pride in his plants.");
+talkEntry:addResponse("He's a man who knows his stuff, at least. Even if it isn't herbs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -582,8 +558,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("What does a herbalist concern Elvaine Morgan? Right, he dosen't.");
-talkEntry:addResponse("I know nothing about that.");
+talkEntry:addResponse("I hear that he secretly takes pride in his plants.");
+talkEntry:addResponse("He's a man who knows his stuff, at least. Even if it isn't herbs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -598,7 +574,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Even there you'll find herbs. Plants grow almost everywhere.");
+talkEntry:addResponse("Even in a magical town you find good herbs. Plants grow almost everywhere.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -613,7 +589,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("The Don likes good whine better than tea made from herbs.");
+talkEntry:addResponse("I think the Don prefers a good 'whine' to tea.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -628,7 +604,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Even there you'll find herbs. Plants grow almost everywhere.");
+talkEntry:addResponse("Even underground you'll find herbs. Plants grow almost everywhere.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -640,8 +616,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("What does a herbalist concern the queen? Right, he dosen't.");
-talkEntry:addResponse("I know nothing about that.");
+talkEntry:addResponse("Why would a herbalist concern the queen? Right, I don't.");
+talkEntry:addResponse("I don't think we have anything in common.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -656,8 +632,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("What does a herbalist concern the queen? Right, he dosen't.");
-talkEntry:addResponse("I know nothing about that.");
+talkEntry:addResponse("Why would a herbalist concern the queen? Right, I don't.");
+talkEntry:addResponse("I don't think we have anything in common.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -672,7 +648,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Even there you'll find herbs. Plants grow almost everywhere.");
+talkEntry:addResponse("Even in the desert you find herbs. Plants grow almost everywhere.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -685,7 +661,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Even there you'll find herbs. Plants grow almost everywhere.");
+talkEntry:addResponse("Place sounds like a wasteland. Perhaps it's the only place herbs won't grow.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -699,7 +675,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("Even there you'll find herbs. Plants grow almost everywhere.");
+talkEntry:addResponse("You can even find herbs there! As I always say: plants grow almost everywhere.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -713,7 +689,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Even there you'll find herbs. Plants grow almost everywhere.");
+talkEntry:addResponse("Herbs are plentiful there. Plants grow almost everywhere.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -727,7 +703,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Goba...Gobi-what?...What kind of herb is that?");
+talkEntry:addResponse("Goba.. Gobi-what? I've never heard of that herb.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -740,7 +716,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("A plesure to meet you,%CHARNAME.");
+talkEntry:addResponse("A pleasure to meet you,%CHARNAME.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -754,7 +730,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("William");
 talkEntry:addTrigger("Deloire");
-talkEntry:addResponse("Yes,that's me. I am William Deloire, at you service.");
+talkEntry:addResponse("Yes, that's me. I'm William Deloire: at you service.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -767,8 +743,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("That's how I'd say it.");
-talkEntry:addResponse("Well...");
+talkEntry:addResponse("I should think so too!");
+talkEntry:addResponse("Perhaps...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -781,8 +757,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("Ah. I understand ...");
-talkEntry:addResponse("Well...");
+talkEntry:addResponse("Ah. Alright, I suppose.");
+talkEntry:addResponse("Ah..");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -797,7 +773,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("I fear, I didn't understand you.");
+talkEntry:addResponse("I fear I didn't catch your drift.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -808,13 +784,13 @@ talkEntry:addTrigger(".*");
 talkEntry:addResponse("Ich fürchte, ich habe Euch nicht verstanden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me duftet nach Kräutern.", "#me smells like herbs.");
-talkingNPC:addCycleText("#me wischt ein paar alte Blätter vom Tisch.", "#me wipes some old leaves from the table");
-talkingNPC:addCycleText("#me blickt nach draußen.", "#me lookes outside.");
-talkingNPC:addCycleText("#me zwinkert der Verkäuferin am anderen Tisch zu.", "#me winks at the merchant behind the other table.");
-talkingNPC:addCycleText("#me pfeift eine vergnügliche Melodie.", "#me wistles a happy melodie.");
-talkingNPC:addCycleText("#me wiegt ein Beutelchen mit Kräutern.", "#me weighs a small bag of herbs out.");
-talkingNPC:addCycleText("Kräuter! Frische Kräuter mit bester Qualität!", "Herbs! Fresh Herbs wirh best Quality!");
+talkingNPC:addCycleText("#me duftet nach Kräutern.", "#me's scent fills the air thickly, a cocktail of herbal smells.");
+talkingNPC:addCycleText("#me wischt ein paar alte Blätter vom Tisch.", "#me quickly brushes some old leaves from the tabletop.");
+talkingNPC:addCycleText("#me blickt nach draußen.", "#me glances outside, deep in thought.");
+talkingNPC:addCycleText("#me zwinkert der Verkäuferin am anderen Tisch zu.", "#me winks suggestively at the merchant behind the other table.");
+talkingNPC:addCycleText("#me pfeift eine vergnügliche Melodie.", "#me whistles a happy melody in a rather shrill tone.");
+talkingNPC:addCycleText("#me wiegt ein Beutelchen mit Kräutern.", "#me weighs a small bag of herbs out carefully on the counter.");
+talkingNPC:addCycleText("Kräuter! Frische Kräuter mit bester Qualität!", "Herbs! Fresh herbs of the finest quality!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(58,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(429,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(126,"sell"));
