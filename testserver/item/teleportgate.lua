@@ -1,10 +1,7 @@
 -- teleporter gate
 -- Nop
 
--- UPDATE common SET com_script='item.teleportgate' WHERE com_itemid = 10;
--- UPDATE common SET com_script='item.teleportgate' WHERE com_itemid = 792;
--- UPDATE common SET com_script='item.teleportgate' WHERE com_itemid = 794;
--- UPDATE common SET com_script='item.teleportgate' WHERE com_itemid = 795;
+-- UPDATE common SET com_script='item.teleportgate' WHERE com_itemid IN (10,792,794,795)
 
 require("base.common")
 require("base.factions")
