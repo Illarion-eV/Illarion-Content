@@ -25,9 +25,9 @@ autointroduce = on
 author = "Miriam"
 
 lookatDE = "Dieser NPC ist Argentus Almsbag der Geldwechsler von Runewick."
-lookatUS = "This NPC is Argentus Almsbag the money changer of Runewick."
+lookatUS = "This NPC is Argentus Almsbag, the money changer of Runewick."
 useMsgDE = "Fasst mich nicht an!"
-useMsgUS = "Do not touch me!"
+useMsgUS = "Hands off me!"
 wrongLangDE = "#me schaut verwirrt."
 wrongLangUS = "#me looks around confused."
 radius = 0
@@ -77,56 +77,56 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Argentus Almsbag der Geldwechsler von Runewick. Schlüsselwörter: kaufe, verkaufe, Handel, Salkamar.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you.", "Be greeted. Would you like to change your copper coins into silver coins?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you.", "Be greeted. Would you like to change your coppers into silvers?"
 "Grüße", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt.", "Grüße. Mögt Ihr Euren Kupfer nicht gegen Silber eintauschen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, hello!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, hallo!"
-"Farewell", "Bye", "Fare well", "See you" -> "Fare well."
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl.", "Auf Bald!"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
-"How are you", "How feel", "How do you do" -> "I'm always happy when I can trade."
+"How are you", "How feel", "How do you do" -> "I'm always happy when I'm trading."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es immer gut, wenn ich mit jemandem handeln kann."
-"your name", "who are you", "who art thou" -> "I am Argentus Almsbag. Don't you know me?"
-"ihr name",   "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Argentus Almsbag. Kennt Ihr mich etwa nicht?"
+"your name", "who are you", "who art thou" -> "I am Argentus Almsbag! Don't you know me?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Argentus Almsbag. Kennt Ihr mich etwa nicht?"
 
 -- Quest
 -- Quest by Zassaria Riverbank (Ask for me II)
-queststatus(701) = 4, english, "Zassaria", "lizzard", "fish","order", "riverbank" -> "Zassaria? A fish order? What do you say? The fish already started to smell? No, thanks. I want fresh fish, please tell Lady Zassaria that.", queststatus(701) = 5
+queststatus(701) = 4, english, "Zassaria", "lizzard", "fish", "order", "riverbank" -> "Zassaria? A fish order? What now? The fish already started to smell? No, thanks. I want fresh fish, please tell Lady Zassaria that.", queststatus(701) = 5
 queststatus(701) = 4, english, "Zassaria", "lizzard", "fisch", "Bestellung", "riverbank" -> "Zassaria?  Eine Fischbestellung? Was höre da der Fisch beginnt bereits zu stinken? Nein, danke! Ich möchte frischen Fisch, bitte sagt das Lady Riverbank.", queststatus(701) = 5
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, A costumer, be welcomned.", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, A customer, welcome!", trade
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, werte Kundschaft, seid willkommen.", trade
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I like money. But I don't like my job."
+"profession" -> "I love money, but I hate my job."
 "beruf" -> "Ich mag Geld, aber ich mag meinen Beruf nicht."
-english, "job" -> "I like money. But I don't like my job."
+english, "job" -> "I love money, but I hate my job."
 "job" -> "Ich mag Geld, aber ich mag meinen Beruf nicht."
-"tell something" -> "Do you want to change your coin or do you want to keep me from working by gossiping?"
+"tell something" -> "Sometimes I wonder why I change money for free. Perhaps I should start to take a percentage.."
 "erzähl was", "erzähl etwas" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Do you want to change your coin or do you want to keep me from working by gossiping?"
+"god" -> "Do you want to change your coins or do you just want to distract me from counting mine?"
 "Gott", "Götter" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Faction stuff
-english, "Runewick" -> "Runewick is such a nice place. You can make lots of money here.", "Do you want to change your coin or do you want to keep me from working by gossiping?"
+english, "Runewick" -> "Runewick is such a lovely place. There's a lot of scope for making money here.", "Look, are you going to change coins or just gossip?"
 "Runewick" -> "Runwick ist ein sehr schöner Ort, man kann hier viel Geld machen.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
-english, "Galmair" -> "Galmair is full of corruption and dirt.", "Do you want to change your coin or do you want to keep me from working by gossiping?"
+english, "Galmair" -> "Galmair is full of corruption and grime. Only thieves make money there.", "Look, are you going to change coins or just gossip?"
 "Galmair" -> "Galmair ist voll von Korruption und Dreck.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
-english, "Cadomyr" -> "Cadomyr is Cadomyr.", "Do you want to change your coin or do you want to keep me from working by gossiping?"
+english, "Cadomyr" -> "You don't need money in Cadomyr, I hear they all use slaves.", "Look, are you going to change coins or just gossip?"
 "Cadomyr" -> "Cadomyr ist Cadomyr.", "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 -- Optional: Main land factions
-english, "salkama" -> "Salkamar was my home. But I never liked it there."
+english, "salkama" -> "Salkamar was my home, but I hated it there."
 "salkama" -> "Salkamar war meine Heimat. Aber dort hat es mir nicht gefallen."
 
 -- Optional: Gobaith
-english, "Gobaith", "Gobiath" -> "Do you want to change your coin or do you want to keep me from working by gossiping?"
+english, "Gobaith", "Gobiath" -> "Unless it's stamped on a coin I don't care."
 "Gobaith", "Gobiath" -> "Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?"
 
 ------------------------------------------------------------------------------AC
@@ -134,6 +134,6 @@ english, "Gobaith", "Gobiath" -> "Do you want to change your coin or do you want
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me betrachtet eine Goldmünze.", "#me looks at a gold coin."
-cycletext "#me's Augen funklen gierig.", "#me's eyes sprakle greedily."
-cycletext "#me murmelt verärgert:'Wenn dir meine Preise nicht passen, dann geh doch woanders hin.'", "#me mumbles angrily:'If you don't like my prices, then just go elsethere.'"
+cycletext "#me betrachtet eine Goldmünze.", "#me glances lovingly over a gold coin."
+cycletext "#me's Augen funklen gierig.", "#me's eyes sparkle greedily as he rubs a coin between his fingers."
+cycletext "#me murmelt verärgert:'Wenn dir meine Preise nicht passen, dann geh doch woanders hin.'", "#me mumbles quietly: 'I wish I got to keep the money.'"
