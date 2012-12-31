@@ -1,5 +1,5 @@
 -- UPDATE common SET com_script='item.id_1061_teleport' WHERE com_itemid=1061;
-require("item.id_10_teleportgate")
+
 require("base.common")
 
 module("item.id_1061_teleport", package.seeall)
