@@ -86,7 +86,7 @@ english, "Ciao", "Adieu", "Au revoir" -> "Goodbye", "Farewell", "#me nods slowly
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich sindss Zerarisa, machenss du Aufgabe für michss?"
 
 -- Tool hints
-queststatus(71) = 0, "rod" -> "You'll need a fissshing rod, you can get one from Fredericus, if the line breakss, you need thread to fix."
+queststatus(71) = 0, "rod" -> "You'll need a fissshing rod, you can get one from Fredericus, if the line breakss, you need thread to fix it."
 queststatus(71) = 0, "rute", "angel" -> "Brauchenss Angelrute, gehenss Fredericuss. Wennss Sschnur reißenss, brauchensss Fadensss."
 "rod" -> "Broke your rod? If itss jusst the line, you can usse thread to fix it. If itss the wood, assk a carpenter for a new one."
 "rute", "angel" -> "Habenss gebrochen die Rute? Wennss die Schnur, brauchenss Faden. Wennss das Holzss, brauchenss Ssschreiner."

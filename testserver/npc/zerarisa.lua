@@ -181,7 +181,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(71, "=", 0));
 talkEntry:addTrigger("rod");
-talkEntry:addResponse("You'll need a fissshing rod, you can get one from Fredericus, if the line breakss, you need thread to fix.");
+talkEntry:addResponse("You'll need a fissshing rod, you can get one from Fredericus, if the line breakss, you need thread to fix it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
