@@ -258,6 +258,30 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Zassaria");
+talkEntry:addTrigger("lizzard");
+talkEntry:addTrigger("lamp");
+talkEntry:addTrigger("riverbank");
+talkEntry:addResponse("Zassaria? An oli lamp? I totaly forgot. I'll get back to lady Riverbank soon. Thank you for reminding me.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Zassaria");
+talkEntry:addTrigger("lizzard");
+talkEntry:addTrigger("lampe");
+talkEntry:addTrigger("riverbank");
+talkEntry:addResponse("Zassaria? Eine Öllampe? Das habe ich total vergessen. Ich werde mich bei Lady Riverbank melden. Danke für die Erinnerung.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 2));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I'm a herbaslist, that means I sell herbs. Want to take a look?");
 talkEntry:addResponse("I do not only sell herbs but also some very usefull tooles. Want to take a look?");

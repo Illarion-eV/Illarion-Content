@@ -105,6 +105,10 @@ english, "quest", "mission" -> "I don't sell that... Ehm, i wanted to say, I do 
 queststatus(317) = 9, english, "Mirarie", "Bragolin", "letter", "message" -> "Oh? ... A letter for me? ... Ah, I see. Please tell Miss Bragolin I'll send her a letter to answer her questions.", queststatus(317) = 10
 queststatus(317) = 9, "Mirarie", "Bragolin", "Brief", "Nachricht" -> "Oh?... ein Brief für mich? ... Ah, ich verstehe. Bitte sagt Fräulein Bragolin ich werde ihr einen Brief schreiben um ihre Fragen zu beantworten.", queststatus(317) = 10
 
+-- Quest by Zassaria Riverbank (Ask for me I)
+queststatus(701) = 1, english, "Zassaria", "lizzard", "lamp", "riverbank" -> "Zassaria? An oli lamp? I totaly forgot. I'll get back to lady Riverbank soon. Thank you for reminding me.", queststatus(701) = 2
+queststatus(701) = 1, english, "Zassaria", "lizzard", "lampe", "riverbank" -> "Zassaria? Eine Öllampe? Das habe ich total vergessen. Ich werde mich bei Lady Riverbank melden. Danke für die Erinnerung.", queststatus(701) = 2
+
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I'm a herbaslist, that means I sell herbs. Want to take a look?", "I do not only sell herbs but also some very usefull tooles. Want to take a look?", "I sell herbs ans some tools aswell, want to take a look?"
 "beruf" -> "Ich bin ein Kräuterhändler, das heißt ich handle mit Kräutern. Möchtet Ihr das Angebot sehen?", "I verkaufe nicht nur Kräuter, sondern auch sehr nützliche Werkzeuge. Möchtet Ihr das Angebot sehen?", "Ich verkaufe Kräuter und einige Werkzeuge. Möchtet Ihr das Angebot sehen?"

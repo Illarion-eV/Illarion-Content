@@ -32,13 +32,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Torina Scibrim the notary. Keywords: 'become citizen','leave','give up citizenship', 'rank'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Torina Scibrim the notary. Keywords: 'become citizen', 'leave', 'give up citizenship', 'rank'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Bürger werden','verlassen','beende Bürgerstatus','Rang'."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Bürger werden', 'verlassen', 'beende Bürgerstatus','Rang'."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -101,7 +101,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Malachin with you.");
+talkEntry:addResponse("Zhambra with you.");
 talkEntry:addResponse("Farewell.");
 talkEntry:addResponse("Goodbye.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -112,7 +112,7 @@ talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
 talkEntry:addTrigger("Gehab wohl");
-talkEntry:addResponse("Malachin mit Euch.");
+talkEntry:addResponse("Zhambra mit Euch.");
 talkEntry:addResponse("Auf bald.");
 talkEntry:addResponse("Bis bald.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -124,7 +124,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Malachin with you.");
+talkEntry:addResponse("Zhambra with you.");
 talkEntry:addResponse("Farewell.");
 talkEntry:addResponse("Goodbye.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -135,7 +135,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Malachin mit Euch.");
+talkEntry:addResponse("Zhambra mit Euch.");
 talkEntry:addResponse("Auf bald.");
 talkEntry:addResponse("Bis bald.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -189,9 +189,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkEntry:addResponse("You are now a citizen of Runewick");
 talkEntry:addResponse("Welcome to Runewick!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -199,9 +199,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkEntry:addResponse("Du bist jetzt Bürger von Runewick");
 talkEntry:addResponse("Willkommen in Runewick!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -210,9 +210,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkEntry:addResponse("You are now a citizen of Runewick");
 talkEntry:addResponse("Welcome to Runewick!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -220,9 +220,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkEntry:addResponse("Du bist jetzt Bürger von Runewick");
 talkEntry:addResponse("Willkommen in Runewick!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -231,9 +231,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkEntry:addResponse("You are now a citizen of Runewick");
 talkEntry:addResponse("Welcome to Runewick!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -241,9 +241,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkEntry:addResponse("Ihr seid jetzt Bürger von Runewick");
 talkEntry:addResponse("Willkommen in Runewick!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -251,18 +251,18 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkEntry:addResponse("You are now a citizen of Runewick");
 talkEntry:addResponse("Welcome to Runewick!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkEntry:addResponse("Ihr seid jetzt Bürger von Runewick");
 talkEntry:addResponse("Willkommen in Runewick!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "2"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -290,8 +290,8 @@ talkEntry:addTrigger("give up citizenship");
 talkEntry:addTrigger("terminating citizen ship");
 talkEntry:addTrigger("leave");
 talkEntry:addTrigger("leaving");
-talkEntry:addResponse("So, you realy want to leave Runewick and live elsewhere? Are you sure?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(207, "=", 1));
+talkEntry:addResponse("So, you realy want to leave Runewick and live elsewhere? Are you sure?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -301,8 +301,8 @@ talkEntry:addTrigger("beende Bürgerstatus");
 talkEntry:addTrigger("verlassen");
 talkEntry:addTrigger("verlasse");
 talkEntry:addTrigger("annuliere");
-talkEntry:addResponse("So, ihr möchtet Runwick wirklich verlassen und woanders leben? Seid Ihr sicher?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(207, "=", 1));
+talkEntry:addResponse("So, ihr möchtet Runwick wirklich verlassen und woanders leben? Seid Ihr sicher?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -310,18 +310,18 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(207, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("yes");
-talkEntry:addResponse("You are no longer a citizen of Runewick, Fare well.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(207, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "0"));
+talkEntry:addResponse("You are no longer a citizen of Runewick. Fare well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(207, "=", 1));
 talkEntry:addTrigger("ja");
-talkEntry:addResponse("Nun seid Ihr nicht länger Bürger Runewicks. Fare well.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(207, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "0"));
+talkEntry:addResponse("Nun seid Ihr nicht länger Bürger Runewicks. Auf bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -329,23 +329,23 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(207, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ah, good. You stay here, a wise decision.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(207, "=", 0));
+talkEntry:addResponse("Ah, good. You stay here, a wise decision.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(207, "=", 1));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Ah, gut. Ihr bleibt hier, eine weise Entscheidung.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(207, "=", 0));
+talkEntry:addResponse("Ah, gut. Ihr bleibt hier, eine weise Entscheidung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("welche Stadt");
 talkEntry:addTrigger("welche Faktion");
-talkEntry:addResponse("Du gehöerst nach %TOWN!");
+talkEntry:addResponse("Du gehörst nach %TOWN!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -390,7 +390,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 9));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Ah! Rektorin %! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen.");
+talkEntry:addResponse("Ah! Rektorin %CHARNAME! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -438,7 +438,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Oh! Professor  %CHARNAME! How can I help you?");
+talkEntry:addResponse("Oh! Professor %CHARNAME! How can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -448,7 +448,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Oh! Professort %CHARNAME! How can I help you?");
+talkEntry:addResponse("Oh! Professor %CHARNAME! How can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -457,7 +457,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 7));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Oh!Professor %CHARNAME! Was kann ich für Euch tun?");
+talkEntry:addResponse("Oh! Professor %CHARNAME! Was kann ich für Euch tun?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -476,7 +476,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Good to see you, Docent %CHARNAME! How are you?");
+talkEntry:addResponse("Good to see you, docent %CHARNAME! How are you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -486,7 +486,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse(" Good to see you, Docent %CHARNAME! How are you?");
+talkEntry:addResponse(" Good to see you, docent %CHARNAME! How are you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -514,7 +514,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Doctor %CHARNAME!");
+talkEntry:addResponse("Greetings to you, doctor %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -524,7 +524,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Doctor %CHARNAME!");
+talkEntry:addResponse("Greetings to you, doctor %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -533,7 +533,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 5));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Seid gegrüß, Doktort %CHARNAME!");
+talkEntry:addResponse("Seid gegrüß, Doktor %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -552,7 +552,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Master!");
+talkEntry:addResponse("Greetings to you, master!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -562,7 +562,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Master!");
+talkEntry:addResponse("Greetings to you, master!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -590,7 +590,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Scolar, how are you today?");
+talkEntry:addResponse("Scholar, how are you today?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -600,7 +600,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse(" Scolar, how are you today?");
+talkEntry:addResponse(" Scholar, how are you today?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -628,7 +628,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Student, what are you here? Do you need help?");
+talkEntry:addResponse("Student, what are you here for? Do you need help?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -638,7 +638,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Student, what are you here? Do you need help?");
+talkEntry:addResponse("Student, what are you here for? Do you need help?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -666,7 +666,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("You are an assistat. Please set a good example for the Novices.");
+talkEntry:addResponse("You are an assistat. Please set a good example for the novices.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -676,7 +676,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("You are an assistant. Please set a good example for the Novices.");
+talkEntry:addResponse("You are an assistant. Please set a good example for the novices.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -704,7 +704,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("You are new here. You are not well known. Feel free to stay in Runewick and gain more knowledge, Novice!");
+talkEntry:addResponse("You are new here. You are not well known. Feel free to stay in Runewick and gain more knowledge, novice!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -714,7 +714,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("You are new here. You are not well known.  Feel free to stay in Runewick and gain more knowledge, Novice!");
+talkEntry:addResponse("You are new here. You are not well known.  Feel free to stay in Runewick and gain more knowledge, novice!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -741,7 +741,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("At the moment I have everything, but thanks for asking.");
-talkEntry:addResponse("Maybe another time, I have already everything I need.");
+talkEntry:addResponse("Maybe another time, I already have everything I need.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -829,14 +829,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
 talkEntry:addResponse("He's the best mage in Runewick.");
-talkEntry:addResponse("I head he likes drinking tea.");
+talkEntry:addResponse("I heard he likes drinking tea.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
 talkEntry:addResponse("Er ist der beste Magier in Runewick.");
-talkEntry:addResponse("Ich hörte sagen, dass er gern Tee trinkt.");
+talkEntry:addResponse("Ich hörte, dass er gerne Tee trinkt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -845,7 +845,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addResponse("He's the best mage in Runewick.");
-talkEntry:addResponse("I head he likes drinking tea.");
+talkEntry:addResponse("I heard he likes drinking tea.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -853,15 +853,15 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addResponse("Er ist der beste Magier in Runewick.");
-talkEntry:addResponse("Ich hörte sagen, dass er gern Tee trinkt.");
+talkEntry:addResponse("Ich hörte, dass er gerne Tee trinkt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("We people of Runewick think of wisdom as more important than honour.");
-talkEntry:addResponse("That's there the Achmage lives, of couse!");
+talkEntry:addResponse("We people of Runewick think wisdom is more important than honour.");
+talkEntry:addResponse("That's where the Achmage lives, of couse!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -878,7 +878,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addResponse("Go to Galmair, if you want to see him!");
-talkEntry:addResponse("He's the greedy Lord of Galmair.");
+talkEntry:addResponse("He's the greedy don of Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -887,7 +887,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addResponse("Geht nach Galmair, wenn Ihr den sehen wollt!");
-talkEntry:addResponse("Das ist der gierige Herrscher von Galmair.");
+talkEntry:addResponse("Das ist der gierige Don von Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -922,7 +922,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Does she live in Runewick? I think I've head that name before.");
+talkEntry:addResponse("Does she live in Runewick? I think I've heard that name before.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -949,7 +949,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Albar is a nice country. But oder is important there.");
+talkEntry:addResponse("Albar is a nice country. But order is important there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -993,7 +993,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("The month were named after the 16 Gods, we should name one month after the arch mage!");
+talkEntry:addResponse("The month were named after the 16 Gods, we should name one month after the archmage!");
 talkEntry:addResponse("I pray to Zhambra. To which god do you pray?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1015,7 +1015,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("I don't worship this god.");
+talkEntry:addResponse("Ich verehre diesen Gott nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1051,7 +1051,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
 talkEntry:addResponse("I don't worship this god.");
-talkEntry:addResponse("Some people pay to her.");
+talkEntry:addResponse("Some people pray to her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1066,7 +1066,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
 talkEntry:addResponse("I don't worship this god.");
-talkEntry:addResponse("Some people pay to him.");
+talkEntry:addResponse("Some people pray to him.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1224,7 +1224,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Betet zu Zhambar damit er eure Freunde im Kampf schützt.");
+talkEntry:addResponse("Betet zu Zhambra damit er eure Freunde im Kampf schützt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1257,7 +1257,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Es tut mir leid, ich bin gerade beschäftigt.Ihr sollte mit jemand anderem reden, wenn Euch der Sinn nach einer netten Plauerdei steht.");
+talkEntry:addResponse("Es tut mir leid, ich bin gerade beschäftigt. Ihr sollte mit jemand anderem reden, wenn Euch der Sinn nach einer netten Plauderei steht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1306,7 +1306,7 @@ end;
 talkingNPC:addCycleText("#me blättert durch einen Stapel Pergamente.", "#me skims through a pile of parchments.");
 talkingNPC:addCycleText("#me betrachtet die Schreibfeder in ihrer Hand.", "#me looks at the quill, she's holding in her hand.");
 talkingNPC:addCycleText("#me liest einen Brief.", "#me reads a letter.");
-talkingNPC:addCycleText("#me summt leise eine Melodie.", "#me hums a little melodie silently.");
+talkingNPC:addCycleText("#me summt leise eine Melodie.", "#me hums a little melody.");
 talkingNPC:addCycleText("#me bringt ein Siegel unter einem Brief an.", "#me affixes a seal under a letter.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);

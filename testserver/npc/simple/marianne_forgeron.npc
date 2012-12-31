@@ -100,6 +100,10 @@ english, "quest", "mission" -> "I have nothing to do for ya."
 "task", "adventure", "order" -> "I have nothing to do for ya."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich hab nichts für dich zu tun."
 
+-- Quest by Zassaria Riverbank (Ask for me IV)
+item(73,all,"nameDe"="Echt großer Fisch")> 0,queststatus(701) = 10, english, "Zassaria", "lizzard", "fish", "trout", "salmon", "riverbank" -> "Unbelivable! This tout is as large as a slamon! Please, tell Miss Riverbank I'm soory, I called her a liar.", queststatus(701) = 11
+item(73,all,"nameDe"="Echt großer Fisch")>0, queststatus(701) = 10, english, "Zassaria", "lizzard", "fisch", "Forelle", "Lachs", "riverbank" -> "Nee, datt glaub' ich nich'. Der Fisch is' ja tatsächlich riesig. Bitte sagt der Dame Riverbank, es tut mir leid, datt ich sie 'nen Lügner nannte.", queststatus(701) =11
+
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am a magical Blacksmith. How one becomes a magical blacksmith is none of your business.", "I am a magical Blacksmith. The rest is a professional secret."
 "beruf" -> "Ich bin 'nen magischer Schmied. Wie man datt wird jeht dich 'ne feuchten Dreck an!", "Ich bin 'nen magischer Schmied. Der Rest is 'nen Berufsjeheimnis!"

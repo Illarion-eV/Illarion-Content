@@ -104,6 +104,10 @@ queststatus(642) > 0, queststatus(643) = 0, german, chance(51.0), "Mordak", "Kha
 queststatus(642) > 0, queststatus(643) = 0, english, chance(100.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", item(197, 1, 999, "gemLevel" = "1"), queststatus(643) = 1
 queststatus(642) > 0, queststatus(643) = 0, german, chance(100.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(197, 1, 999, "gemLevel" = "1"), queststatus(643) = 1
 
+---- Quest by Zassaria Riverbank (Ask for me II)
+queststatus(701) = 13, item(225,all,"descriptionDe"="Diese Krone gehört Rosaline Edwarts.","descriptionEn"="This crown belongs to Rosaline Edwarts.")>0, "Zassaria", "lizzard", "crown","missing", "belong", "porperty", "riverbank" -> "What? This is not my crown! Can't you read? It says Rosaline Edwarts spelled with t. This is not my name! This was not a good joke, and I am not in the mood for jokes. You may leave. Now!", queststatus (701) = 13
+queststatus(701) = 13, item(225,all,"descriptionDe"="Diese Krone gehört Rosaline Edwarts.","descriptionEn"="This crown belongs to Rosaline Edwarts.")>0, "Zassaria", "Echsenmensch", "Krone","verloren", "gehören", "Eigentum", "riverbank" -> "Was? Dies ist nicht meine Krone! Kannst du nicht lesen? Da steht Rosaline Edwarts mit t. Das ist nicht mein Name! Dies ist ein schlechter Scherz, und mir ist nicht zum Schrzen zu mute. Ihr könnt gehen. Jetzt!", queststatus (701) = 13
+
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Profession? Foolish traveler, I am the Queen, my profession is to rule this kingdom!"
 "beruf" -> "Lasst mich nachdenken... ich regiere hier, so weit das Auge reicht."
