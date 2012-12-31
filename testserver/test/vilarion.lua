@@ -38,7 +38,7 @@ end
 function UseItem(User, SourceItem, TargetItem, counter, Param, ltstate)
     local found, _, book = string.find(User.lastSpokenText, "book (%d+)")
     if found then
-        User:sendBook(book)
+        User:sendBook(tonumber(book))
     end
 
     if (User.lastSpokenText == "take") then
