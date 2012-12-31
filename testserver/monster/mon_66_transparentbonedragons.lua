@@ -12,16 +12,9 @@ monster.base.quests.iniQuests();
 killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
+msgs = base.messages.Messages();
+msgs:addMessage("#me knurrt.", "#me growls.");
 
-
-end
-
-function ShapeDrehen(Shape)
-    retShape={};
-    for i=1,5 do
-        retShape[i]={Shape[5][i],Shape[4][i],Shape[3][i],Shape[2][i],Shape[1][i]};
-    end
-    return retShape
 end
 
 function enemyNear(Monster,Enemy)
@@ -35,7 +28,6 @@ function enemyNear(Monster,Enemy)
     end
 	
 	return false;
-    --return ( FireBreath(Monster,Enemy) == true );
 end
 
 function enemyOnSight(Monster,Enemy)
@@ -49,8 +41,6 @@ function enemyOnSight(Monster,Enemy)
 
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
-    --else
-        --return ( FireBreath(Monster,Enemy) == true );
     end
 end
 

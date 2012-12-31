@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Zassaria Riverbank                                      Runewick --
--- NPC Job:  Message quest giver                                             --
+-- NPC Job:  Message quest giver                                              --
 --                                                                            --
 -- NPC Race: lizardman                  NPC Position:  908, 812, 1            --
 -- NPC Sex:  female                     NPC Direction: east                   --
@@ -70,82 +70,123 @@ itemShoes = 0
 -- Mandatory: General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßsst."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss to you.", "me hisses"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss to you.", "#me hisses."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßsst.", "#me zischt"
 "Farewell", "Bye", "Fare well", "See you" -> "Ssss. Zzzelphia be with you. Zss."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Ssss. Zzzelphia sssei mit Euch. Zss."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia be with you. Zss."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia sssei mit Euch. Zss."
-"How are you", "How feel", "How do you do" -> "I'm feeling very good. Sss. Exss...Extraordinary."
+"How are you", "How feel", "How do you do" -> "I'm feeling very good. Sss. Exssstraordinary."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es sssehr gut. Ausssgezzeichnet. Sss."
-"your name", "who are you", "who art thou" -> "I am called Zassaria Riverbank.Nice so meet you. Sss."
+"your name", "who are you", "who art thou" -> "I am the one called Zassaria Riverbank.Nice to meet you. Sss."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich werde Zassaria Riverbank genannt. Sss."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Tsss! I ate all my fisssch. I'll chatch new fisssch sssoon."
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Tsss! I ate all my fisssh. I'll catch new fishiesss sssoon."
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Tsss! Ich aß all meinen Fisssch. Ich werde ssschnellssstmöglich neuen fangen."
 
 -- A message Quest
--- You are asked to talk to someone, then return to the person who gave you the task and you get a reward
--- Tast given: status = 1
--- Talked to someone: staus = 2
--- Talkred to the first person again, Task solved:  staus = 3
--- Of course there can be more than two persons be involved
-
--- 1st quest: Talk to someone
-queststatus(701) = 0, english, "quest", "mission" -> inform("[New quest] Ask for me I"), "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?", queststatus(701) = 1
-queststatus(701) = 0, "quest", "mission" -> inform("[Neues Quest] Frag für mich I"), "Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.", queststatus(701) = 1
-queststatus(701) = 0, "task", "adventure", "order" -> inform("[New quest] Frag für mich I"), "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?", queststatus(701) = 1
-queststatus(701) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich I"), "Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.", queststatus(701) = 1
-
--- 1st quest solved, reward sabre(25)
-queststatus(701) = 2, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the ground of the sea."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
-queststatus(701) = 2, town = Runewick, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat."), "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
-queststatus(701) = 2, english, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with an old sabre from the ground of the sea."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
-queststatus(701) = 2, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat."), "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für eure Hilfe..Zss...", item(25, 1, 345), queststatus(701) = 3, rankpoints + 3
+-- 1st quest starts, if you are citizen of Runewick
+queststatus(701) = 0,  town = Runewick, english, "quest", "mission" -> inform("[New quest] Ask for me I"), "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?", queststatus(701) = 3
+queststatus(701) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag für mich I"), "Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.", queststatus(701) = 3
+queststatus(701) = 0, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Frag für mich I"), "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?", queststatus(701) = 3
+queststatus(701) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich I"), "Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.", queststatus(701) = 3
 
 -- 1st quest not solved, repeat the instructions
-queststatus(701) = 3, english, "quest", "mission" -> "Sss... Jonathan Idler assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
-queststatus(701) = 3, "quest", "mission" -> "Jonathan Idler fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
-queststatus(701) = 3, "task", "adventure", "order" -> "Sss... Jonathan Idler assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
-queststatus(701) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Jonathan Idler fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
+queststatus(701) = 1, english, "quest", "mission" -> "Sss... William Daloire   assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
+queststatus(701) = 1, "quest", "mission" -> "William Daloire fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
+queststatus(701) = 1, "task", "adventure", "order" -> "Sss... William Daloire assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
+queststatus(701) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "William Daloire fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
 
--- 2nd quest: Bring some 15 Fish to ??
-queststatus(701) = 3, english, "quest", "mission" -> inform("[New quest] Ask for me II"), "Ssso, you came to help me again? zss. Thatsss very nice of you. Sss. Pleassse bring 10  to an NPC ", queststatus(701) = 4
-queststatus(701) = 3, "quest", "mission" -> inform("[Neues Quest] Frag für mich II"), "...", queststatus(701) = 4
-queststatus(701) = 3, "task", "adventure", "order" -> inform("[New quest] ask for me II"), "...", queststatus(118) = 4
-queststatus(701) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] NAME I"), "....", queststatus(118) = 4
+--1st quest solved, reward sabre,boots, rankpoints +3
+queststatus(701) = 2, english, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with some coins, an old sabre from the ground of the sea and a pair of new boots."), "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...", item(0, 0, 0), queststatus(701) = 3, rankpoints + 0,  money + 600
+queststatus(701) = 2, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank etwas Geld, einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat und ein Paar neue Stiefel."), "Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für Eure Hilfe..Zss...", item(0, 0, 0), queststatus(701) = 3, rankpoints + 0, money + 600
 
--- 2nd quest solved, Bring some Fish to ?? old hat(1318)
-queststatus(701) = 4, item(1318, all) > 9, english, ".+" -> inform("[Quest solved] INFORM ..."), "...", deleteItem(1318, 1), item(356, 0, 0), queststatus(118) = 2
-queststatus(701) = 4, item(1318, all) > 9, ".+" -> inform("[Quest gelößt] INFORM..."), "...", deleteItem(1318, 1), item(356, 0, 0), queststatus(118) = 2
+-- 2nd quest: Talk to Argentus Almsbag
+queststatus(701) = 3, english,  "quest", "mission" -> inform("[New quest] Ask for me II"), "Ssso, you came to help me again? Zss. Thatsss very nice of you. Sss. I haven't sssseen Argentusss Almbag for a while. Zzz. Pleassse, asssk him if he still wantsss to have thisss fisssh. It's ssstarting to sssmell.", queststatus(701) = 4
+queststatus(701) = 3, "quest", "mission" -> inform("[Neues Quest] Frag für mich II"), "Sssso, du kommssst um mir zzzu helfen? Wie nett. Zss. Argenutsss Almsbag hat sssich ssschon lange nicht mehr bei mir blicken lassssen. Ffragt ihn, ob er noch Fisssch kaufen möchter. Zss. Der Fisssch beginnt zzzu riechen.", queststatus(701) = 4
+queststatus(701) = 3, "task", "adventure", "order" -> inform("[New quest] ask for me II"), "Ssso, you came to help me again? Zss. Thatsss very nice of you. Sss. I haven't sssseen Argentusss Almbag for a while. Zzz. Pleassse, asssk him if he still wantsss to have thisss fisssh. It's ssstarting to sssmell.", queststatus(118) = 4
+queststatus(701) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich II"), "Sssso, du kommssst um mir zzzu helfen? Wie nett. Zss. Argenutsss Almsbag hat sssich ssschon lange nicht mehr bei mir blicken lassssen. Fragt ihn, ob er noch Fisssch kaufen möchte. Zss. Der Fisssch beginnt zzzu riechen.", queststatus(701) = 4
 
--- 2nd questc , Bring some Fish to ??, not solved repeat the instructions
-queststatus(118) = 1, english, "quest", "mission" -> "..."
-queststatus(118) = 1, "quest", "mission" -> "..."
-queststatus(118) = 1, "task", "adventure", "order" -> "..."
-queststatus(118) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "..."
+-- 2nd quest,  not solved repeat the instructions = Talk to Argentus Almsbag
+queststatus(701) = 4, english, "quest", "mission" -> "Pleassse asssk Argentusss Almsssbag about hisss fisssh order. Zsss."
+queststatus(701) = 4, "quest", "mission" -> "Bitte fragt bei Argentuss Almsssbag wegen ssseiner Fisschbestellung nach. Sss."
+queststatus(701) = 4, "task", "adventure", "order" -> "Pleassse asssk Argentusss Almsssbag about hisss fisssh order. Zsss."
+queststatus(701) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte fragt bei Argentuss Almsssbag wegen ssseiner Fisschbestellung nach. Sss."
+
+-- 2nd quest solved, Talk to Argentus Almsbag, reward 10 Silber, old wizzard hat, + 4 rankpoints
+queststatus(701) = 5, english, ".+" -> inform("[Quest solved] You solved the quest. You are awarded 10 silver coins, and an old wizard hat."), "Thank you. Zzzs. Take thisss.", item(357, 1,277), queststatus(701) = 6, rankpoints + 4, money + 1000
+queststatus(701) = 5, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst. Du wirst mit 10 Silbermünzen und einem alten Zauberhut belohnt."), "Danke sssehr. Nehmt diesss.", item(357, 1, 277), queststatus(701) = 6, rankpoints + 4, money + 1000
+
+-- 3nd quest talk to Neiran el Nyarale
+-- 3nd , talk to Neiran el Nyarale
+queststatus(701) = 6, english, "quest", "mission" ->  inform("[New quest] Ask for me III"),"Pleassse asssk Neiran el Nyarale what happend to my colcction of oil lampsss. I sssaw him carring them away. Zss Zss.", queststatus(701) = 7
+queststatus(701) = 6, "quest", "mission" ->inform ("[Neues Quest] Frag für mich III"), "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Zss Zss.", queststatus(701) = 7
+queststatus(701) = 6, "task", "adventure", "order" ->  inform("[New quest] Ask for me III"),"Pleassse asssk Neiran el Nyarale what happend to my colcction of oil lampsss. I sssaw him carring them away. Zss Zss.", queststatus(701) = 7
+queststatus(701) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich III"),"Pleassse asssk Neiran el Nyarale what happend to my colcction of oil lampsss. I sssaw him carring them away. Zss Zss.", queststatus(701) = 7
+
+-- 3dr quest not solved, repeat instruction, talk to Neiran el Nyarale
+queststatus(701) = 7, english, "quest", "mission" -> "Pleassse asssk Neiran el Nyarale what happend to my colcction of oil lampsss. I sssaw him carring them away. Zss Zss.", queststatus(701) = 7
+queststatus(701) = 7, "quest", "mission" -> "Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Zss Zss.", queststatus(701) = 7
+queststatus(701) = 7, "task", "adventure", "order" -> "Pleassse asssk Neiran el Nyarale what happend to my collection of oil lampsss. I sssaw him carring them away. Zss Zss.", queststatus(701) = 7
+queststatus(701) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Pleassse asssk Neiran el Nyarale what happend to my colcction of oil lampsss. I sssaw him carring them away. Zss Zss.", queststatus(701) = 7
+
+-- 3rd quest solved, Talk to Neiran el Nyarale, reward  robe (green), robe (blue), 12 silver, + 5 rankpoints
+queststatus(701) = 8, english, ".+" -> inform("[Quest solved] You solved the quest. You are awarded 12 silver coins, and two new robes in the colors of the ocean."), "What? He saisss he threw them away? Zss! Zss! Firssst I ssshall thank you for assking Neiran el Nyarale. Zzzs. Take thisss as a present. Then I will talk to him! Zss... ", item(193, 1, 277), queststatus(701) = 9, rankpoints + 5, money + 1200
+queststatus(701) = 8, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst. Du wirst mit 12 Silbermünzen und zwei neuen Roben in den Farben des Ozeans belohnt."), "Wasss? Veggeworfen hat er sssie? Zss! Zss! Zzzuerssst will ich Euch danken, dassss Ihr mit Neiran el Nyarale spracht. Nehmt diesss alsss Gessschenk. Dann werde ich mir ihm ssssprechen! Zss...", item(193, 1, 277,"descriptionDe"="Diese Robe hat die Farbe des Meers.","descriptionEn"="This robe has the colour of the sea."),item(55, 1, 277,"descriptionDe"="Diese Robe hat die Farbe des Meers.","descriptionEn"="This robe has the colour of the sea."), queststatus(701) = 9, rankpoints + 5, money + 1200
+
+-- 4th quest talk to Marinanne Forgeron
+queststatus(701) = 9, english, "quest", "mission" ->  inform("[New quest] Ask for me IV"),"...", queststatus(701) = 10
+queststatus(701) = 9, "quest", "mission" ->inform("[Neues Quest] Frag für mich II"), "Zss! Zss! Ssschaut, ich habe eine Forelle gefangen, die issst ssso großsss wie ein Lachssss. Aber, zss, Marianne Forgeron, magisssche Ssschmied auss Galmair sssagt, ich lüge! Zss! Zzzeigt ihr diesssen Fisssch!", queststatus(701) = 10, item(73,1,440,"rareness"="2","nameDe"="Echt großer Fisch","nameEn"="Really big fish","descriptionDe"="Dieser Forelle ist so groß wie ein Lachs!","descriptionEn"="This trout is as large as a salmon.")
+queststatus(701) = 9, "task", "adventure", "order" ->  inform("[New quest] Ask for me IV"),"....", queststatus(701) = 10
+queststatus(701) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich II"),"...", queststatus(701) = 10
+
+-- 4th quest,  not solved repeat the instructions = Talk to Marianne Forgeron
+queststatus(701) = 10, english, "quest", "mission" -> "Pleassse, ssshow thiss fischss to Marinanne Forgeron in Galmair."
+queststatus(701) = 10, "quest", "mission" -> "Zzzeigt Marianne Forgeron auss Galmair diesssen großssen Fisssch!"
+queststatus(701) = 10, "task", "adventure", "order" -> "Pleassse, ssshow thiss fischss to Marinanne Forgeron in Galmair."
+queststatus(701) = 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zzzeigt Marianne Forgeron auss Galmair diesssen großssen Fisssch!"
+
+-- 4th quest solved, reward
+english, queststatus(701) = 11, english, ".+" -> inform("[Quest solved] You solved the quest. You are awarded with some coins and jewlry."), "Thank you. Please take thisss asss reward. And keep the fissch as souvenir, I caught a lager one than thisss.", item(71, 1, 277,"rareness"="1"),item(62, 1, 877,"rareness"="1", "craftedBy"= "Zassaria Riverbank"), queststatus(701) = 12, rankpoints + 9, money + 3000
+queststatus(701) = 11, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst. Du wirst mit Münzen und Schmuck belohnt."), "Danke ssschön. Bitte nehmt diess. Und behaltet den Fisssch als Suvernir, ich habe bereits einen größeren gefangen. Zss.", item(71, 1, 877,"rareness"="1","craftedBy"= "Zassaria Riverbank"),item(62, 1, 877,"rareness"="1","craftedBy"= "Zassaria Riverbank" ),money + 2500, queststatus(701) = 12, rankpoints + 9, money + 3000
+
+-- 5th quest talk to Rosaline Edwards
+queststatus(701) = 12, english, "quest", "mission" ->  inform("[New quest] Ask for me V"),"I was lucky today. Zss! Zss! I found the crown of Rosaline Edwards. She will sssurely misss it, please go and bring her cown back.",queststatus(701) = 13, item(0,0,0,"descriptionDe"="Diese Krone gehört Rosaline Edwarts.","descriptionEn"="This crown belongs to Rosaline Edwarts.")
+queststatus(701) = 12, "quest", "mission" -> inform ("[Neues Quest] Frag für mich V"),"Ich habe wirklich Anglerglück. Zss! Zss! Ich habe die Krone von Rosaline Edwards gefissscht. Sicher vermisst sie ihren Kopfssschuck ssschon. Geht und birngt ihr die Krone zurück. Zss! Zss!", queststatus(701) = 13, item(0,0,0,"descriptionDe"="Diese Krone gehört Rosaline Edwarts.","descriptionEn"="This crown belongs to Rosaline Edwarts.")
+queststatus(701) = 12, "task", "adventure", "order" ->  inform("[New quest] Ask for me V"),"I was lucky today. Zss! Zss! I found the crown of Rosaline Edwards. She will sssurely misss it, please go and bring her cown back.", queststatus(701) = 13, item(0,0,0,"descriptionDe"="Diese Krone gehört Rosaline Edwarts.","descriptionEn"="This crown belongs to Rosaline Edwarts.")
+queststatus(701) = 12, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" ->inform ("[Neues Quest] Frag für mich V"),"Ich habe wirklich Anglerglück. Zss! Zss! Ich habe die Krone von Rosaline Edwards gefissscht. Sicher vermisst sie ihren Kopfssschuck ssschon. Geht und birngt ihr die Krone zurück. Zss! Zss!", queststatus(701) = 13, item(0,0,0,"descriptionDe"="Diese Krone gehört Rosaline Edwarts.","descriptionEn"="This crown belongs to Rosaline Edwarts.")
+
+-- 5th quest,  not solved repeat the instructions = Talk to Rosaline Edwards
+queststatus(701) = 13, english, "quest", "mission" -> "Pleassse bring the crown back to Rosaline Edwards. Ssshe will misss it."
+queststatus(701) = 13, "quest", "mission" -> "Bitte bringt Rosaline Edwards ihre Krone zzzurück. Ssssie wird sie vermisssen."
+queststatus(701) = 13, "task", "adventure", "order" -> "Pleassse bring the crown back to Rosaline Edwards. Ssshe will misss it."
+queststatus(701) = 13, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte bringt Rosaline Edwards ihre Krone zzzurück. Ssssie wird sie vermisssen."
+
+-- 5th quest solved, reward Stab des Wassers 2784, magisches Breitschwert, 15 rankpoints, 40 Silber
+queststatus(701) = 14, english, ".+" -> inform("[Quest solved] You solved the quest. You are awarded a wand of water, a old magical broadsword, and some coins."), "It'sss not her crown? Then, keep it. and take thisss as reward.", item(2784, 1, 987,"rareness"="1", "magicalRuby" ="2","magicalEmerald"="4","descriptionDe"="Dieser Zauberstab war ein Geschenk von Zassaria Riverbank.","descriptionEn"="This wand was a present by Zassaria Riverbank" ),item (2654, 1, 222,"rareness"="1","descriptionDe"="Dieses Schwert war ein Geschenk von Zassaria Riverbank.","descriptionEn"="This sword was a present by Zassaria Riverbank"),queststatus(701) = 15, rankpoints + 12, money +50000
+queststatus(701) = 14, ".+" -> inform("[Quest gelößt] Du hast den Quest gelöst. Du wirst mit einem Stab des Wassers, einem alten magischen Breitschwert und ein paar Silbermünzen belohnt."), "Esss issst nicht ihre Krone. Dann behaltet sssie doch. Und nehmt diess als Belohung.", item(2784, 1, 987,"rareness"="1", "magicalRuby" ="2","magicalEmerald"="4","descriptionDe"="Dieser Zauberstab war ein Geschenk von Zassaria Riverbank.","descriptionEn"="This sword was a present by Zassaria Riverbank" ),item (2654, 1, 222,"rareness"="1","descriptionDe"="Dieses Schwert war ein Geschenk von Zassaria Riverbank.","descriptionEn"="This wand was a present by Zassaria Riverbank"),queststatus(701) = 15, rankpoints + 12, money +50000
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(701) = 2, english, "quest", "mission" -> "Thank you. Zss."
-queststatus(701) = 2, "quest", "mission" -> "Danke ssschön. Zss."
-queststatus(701) = 2, "task", "adventure", "order" -> "Thank you. Zss."
-queststatus(701) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke ssschön. Zss."
+queststatus(701) = 15, english, "quest", "mission" -> "Thank you. Zss."
+queststatus(701) = 15, "quest", "mission" -> "Danke ssschön. Zss."
+queststatus(701) = 15, "task", "adventure", "order" -> "Thank you. Zss."
+queststatus(701) = 15, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Danke ssschön. Zss."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I work asss a fisssher. It'sss fun. Zss."
 "beruf" -> "Ich arbeite alsss Fischerin. Esss macht Spaßsss. Zss."
 english, "job" -> "I work asss a fisssher. It'sss fun. Zss."
 "job" -> "Ich arbeite alsss Fischerin. Esss macht Spaßsss. Zss."
-"tell something" -> "Do you know there'sss a diffrentce between Zsss, Tsss and Ssss?", "Usssually marriages between my people are arranged by the partentsss. Sss. Usually."
+"tell something" -> "Do you know there'sss a difference between Zsss, Tsss and Ssss?", "Usssually marriages between my people are arranged by the parentsss. Sss. Usually."
 "erzähl was", "erzähl etwas", "erzähl mir was", "erzählt mir was" -> "Wissst ihr, dasss es einen Unterschied zzzwischen Zsss, Tss und Ssss?", "Normalerweisse werden Ehen in meinem Volk arrangiert. Ssss. Normalerweissse."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Lizzardsss pray to Zzzelphia. To whom do you pray?"
 "Gott", "Götter" -> "Echsssenmenschen beten zzzu Zzzelphia. Zzzu wem betet Ihr? Sss"
-english, "Tanora", "Zelphia" -> "She'sss to godesss of the water and the sssea.", "You call her Tanora, thisss iss not a word eassy tp pronoucsse for usss."
+english, "Tanora", "Zelphia" -> "She'sss to godesss of the water and the sssea.", "You call her Tanora, thisss iss not a word eassy to pronoucsse for usss."
 "Tanora", "Zelphia" -> "Sssie isssst die Göttin desss Wassers und dess Meereess.", "Ihr nennt sssie Tanora, dasss issst kein Wort ausss unssserer Ssssprache."
 
 -- Optional: Faction stuff
@@ -179,4 +220,4 @@ cycletext "Ssss!", "Ssss!"
 cycletext "#me zischt.", "#me hisses."
 cycletext "Zss!", "Zss!"
 cycletext "Tsss...", "Tsss..."
-cycletext "lässt ihren Schwanz hin und her schnellen.", "#me moves her tail."
+cycletext "lässt ihren Schwanz hin und her schnellen.", "#me wags her tail back and forth."

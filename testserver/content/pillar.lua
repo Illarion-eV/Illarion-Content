@@ -54,17 +54,17 @@ function InitPillar()
     AddPillar({84,619,0},"","", 9,5); --guardtower
     AddPillar({91,623,0},"","", 3,5); --guardtower
     AddPillar({90,623,0},"","", 3,5); --guardtower   ]]--
-    AddPillar({128,631,0},"Ein großer Krieger hält in einer Hand eine brennende Piratenflagge und in der anderen Hand eine entzündende Fackel. Sein von Asche geschwärztes Gesicht wirkt furchteinflößend und entschlossen.","A tall warrior holds a burning pirate flag in his one and an lighted torch in his other hand. His by ashes dark coloured face appears scary and determined.", 6,0); --townwall
-    AddPillar({128,634,0},"Ein als Seefahrer aber immer noch nobel gekleideter Mann hält in einer Hand einen Anker und ein Fernglas in der anderen. Er steht stolz mit einem seiner Füße auf einem Bierfass, welches das Bild eines einhörnigen Löwen zeigt. ","An as an mariner but still noble dressed man holds an anchor and a spyglass in his hands. He stands proudly with one of his feet on a beer barrel with the image of single horned lion.", 6,0); --townwall
-    AddPillar({132,619,1},"Ein stolzer und mutiger Ritter reitet einen einhörnigen Löwen in einem Angriff. Sein erhobenes, glänzendes Breitschwert spiegelt das Licht.","A proud and brave knight is riding on a single horned lion into an attack. His raised shiny broadsword reflects the light. The big red white banner in his other hand seems to be used as a lance.", 9,0); --
-    AddPillar({136,619,1},"Ein Mann trägt eine glänzende Rüstung während er auf einem großen, stolzen Pferd sitzt. Sein dunkler Bart ist erkennbar unter seinem luxuriös dekorierten Albarischen Helm. Er trägt einen Banner auf welchem zu lesen ist: 'In Malachin vertrauen wir'.","A man is wearing a shiny armour while he is sitting at a tall and proud black horse. His dark beard is recognizable under his luxuriant decorated albarian helmet. He carries also a banner. It's reading 'In Malachin we trust'.", 9,0); --
-    AddPillar({129,619,1},"Ein Ritter mit einer scheinenden goldenen Rüstung schwenkt einen weißen Banner mit beiden Händen während er zu schreien scheint.","A knight with a shiny golden armour waves a white banner with both hands while he seems to yell. On the banner are following words written in red: 'In friendship and loyalty'.", 6,0); --
-    AddPillar({129,628,1},"Ein nobel gekleideter Mann sitzt auf einen goldenen Thron. Er trägt eine glänzende Krone auf seinem dunklen langen Haar und eine rot-weiße Robe mit glitzerten Edelsteinen. Er hält eine große goldene Kiste und ein goldenes Schwert in seinen Händen.","A noble dressed man is sitting at a golden throne. He wears a bright crown at his dark long hear and red white robe with several glittering gems. He holds a huge golden box and a golden blade in his hands.", 6,0); --
-    AddPillar({139,626,1},"Ein junger König sitzt auf einen Thron. Sein linker Ellbogen ruht auf seinen Beinen. Seine rechte Hand hält ein Langschwert. Er wirkt ruhelos und gelangweilt.","A young knight is sitting at a throne. His left elbow is resting on his legs. His right hand holds a long-sword. He seems restless and bored.", 4,0); --
-    AddPillar({139,629,1},"Ein großer starker Mann mit verengten Augen. Sein langes schwarzes Haar weht durch den Wind. Seine Rüstung trägt einen einhörnigen rot-weißen Löwen. Seine Stiefeln sind im Blut gedrängt.","A tall and strong man with narrowed eyes. His long black hear is flowing through the wind. His armour bears a portrayal of a single horned red white lion. His boots are covered in blood.", 4,0); --
-    AddPillar({139,632,1},"Ein stark wirkender Mann ist als Gladiator gekleidet. Er trägt ein Netz und einen Dreizack. Er scheint verletzt aber sein Gesicht wirkt schmerzlos.","A strong looking man is dressed as a gladiator. He carries a net and a trident which is coloured in red. He seems wounded but his face appears painless.", 4,0); --
-    AddPillar({139,636,1},"Ein in Weiß bekleideter Man mit übergezogener roter Kaputze hält einen Bogen. Zu seinen Füssen liegt ein Golem. Der Mann hält in seiner linken Hand den Kopf des Golem.","A white dressed man with a red hooded cloak holds a bow. The body of a golem is lying at his feet. The head of golem rests in the left hand of the man.", 5,0); --
-    AddPillar({136,636,1},"Ein stolz und mutig wirkender Mann präsentiert einen verbrannten Zaubererhut und einen zerbrochenen Zauberstab. Auf einer Tafel zu seinen Füssen steht: 'Gedenke, gedenke, des Königs Schwert, dass des bösen Zauberer Mordak al Kharuds Herz entfernte'.","A proudly and brave looking knight presents a burned wizard hat and a broken mage staff. A tablet rests at his legs with the inscription: 'Remember, remember, our king's sword which cut out the heart of the evil sorcerer 'Mordak al Kharud'.", 5,0); --
+    AddPillar({128,631,0},"Ein großer Krieger hält in einer Hand eine brennende Piratenflagge und in der anderen Hand eine entzündende Fackel. Sein von Asche geschwärztes Gesicht wirkt furchteinflößend und entschlossen.","A tall warrior holds a burning pirate flag in one hand and a lit torch in the other hand. His face blackened by ash appears scary and determined.", 6,0); --townwall
+    AddPillar({128,634,0},"Ein als Seefahrer aber immer noch nobel gekleideter Mann hält in einer Hand einen Anker und ein Fernglas in der anderen. Er steht stolz mit einem seiner Füße auf einem Bierfass, welches das Bild eines einhörnigen Löwen zeigt. ","A mariner, but still nobly dressed man, holds an anchor and spyglass in his hands. He stands proudly with one foot on a beer barrel bearing the image of a single horned lion.", 6,0); --townwall
+    AddPillar({132,619,1},"Ein stolzer und mutiger Ritter reitet einen einhörnigen Löwen in einem Angriff. Sein erhobenes, glänzendes Breitschwert spiegelt das Licht.","A proud and brave knight is riding a single horned lion into an attack. His raised broadsword shines, reflecting the light. The big red-white banner in his other hand seems to be used as a lance.", 9,0); --
+    AddPillar({136,619,1},"Ein Mann trägt eine glänzende Rüstung während er auf einem großen, stolzen Pferd sitzt. Sein dunkler Bart ist erkennbar unter seinem luxuriös dekorierten Albarischen Helm. Er trägt einen Banner auf welchem zu lesen ist: 'In Malachin vertrauen wir'.","A man is wearing shiny armour whilst sitting on a tall and proud black horse. His dark beard can be seen under his luxuriantly decorated Albarian helmet. He carries a banner that reads 'In Malachin we trust'.", 9,0); --
+    AddPillar({129,619,1},"Ein Ritter mit einer scheinenden goldenen Rüstung schwenkt einen weißen Banner mit beiden Händen während er zu schreien scheint.","A knight with shiny golden armour waves a white banner with both hands while he seems to yell. The words, 'In friendship and loyalty' are written on the banner.", 6,0); --
+    AddPillar({129,628,1},"Ein nobel gekleideter Mann sitzt auf einen goldenen Thron. Er trägt eine glänzende Krone auf seinem dunklen langen Haar und eine rot-weiße Robe mit glitzerten Edelsteinen. Er hält eine große goldene Kiste und ein goldenes Schwert in seinen Händen.","A nobly dressed man is sitting on a golden throne. He wears a bright crown over his long dark hair and wears a red and white robe with several glittering gems. He holds a huge golden box and a golden blade in his hands.", 6,0); --
+    AddPillar({139,626,1},"Ein junger König sitzt auf einen Thron. Sein linker Ellbogen ruht auf seinen Beinen. Seine rechte Hand hält ein Langschwert. Er wirkt ruhelos und gelangweilt.","A young king is sitting on a throne, his left elbow resting on his legs. His right hand holds a longsword. He seems restless and bored.", 4,0); --
+    AddPillar({139,629,1},"Ein großer starker Mann mit verengten Augen. Sein langes schwarzes Haar weht durch den Wind. Seine Rüstung trägt einen einhörnigen rot-weißen Löwen. Seine Stiefeln sind im Blut gedrängt.","A tall, strong man with narrowed eyes has long black hair blowing in the wind. His armour portrays a single horned red-white lion and his boots are covered in blood.", 4,0); --
+    AddPillar({139,632,1},"Ein stark wirkender Mann ist als Gladiator gekleidet. Er trägt ein Netz und einen Dreizack. Er scheint verletzt aber sein Gesicht wirkt schmerzlos.","A strong looking man is dressed as a gladiator. He carries a net and a red trident. He seems wounded but his face shows no pain.", 4,0); --
+    AddPillar({139,636,1},"Ein in Weiß bekleideter Man mit übergezogener roter Kaputze hält einen Bogen. Zu seinen Füssen liegt ein Golem. Der Mann hält in seiner linken Hand den Kopf des Golem.","A man dressed in white with a red hooded cloak holds a bow. The body of a golem is lying at his feet and the head of the golem rests in the left hand of the man.", 5,0); --
+    AddPillar({136,636,1},"Ein stolz und mutig wirkender Mann präsentiert einen verbrannten Zaubererhut und einen zerbrochenen Zauberstab. Auf einer Tafel zu seinen Füssen steht: 'Gedenke, gedenke, des Königs Schwert, dass des bösen Zauberer Mordak al Kharuds Herz entfernte'.","A proud and brave looking knight presents a burnt wizard hat and broken mage staff. A tablet rests at his legs with the inscription: 'Remember, remember, our king's sword which cut out the heart of the evil sorcerer 'Mordak al Kharud'.", 5,0); --
   	--[[AddPillar({132,566,0},"","", 11,5); --temple
     AddPillar({132,562,0},"","", 11,5); --temple
     AddPillar({136,560,0},"","", 11,5); --temple
@@ -77,16 +77,16 @@ function InitPillar()
 	AddPillar({138,568,0},"","", 8,5); --temple
 	AddPillar({139,568,0},"","", 8,5); --temple
 	AddPillar({140,568,0},"","", 8,5); --temple ]]--
-    AddPillar({143,566,0},"Ein junger, nobler Krieger mit einer glänzenden aber mit Blut befleckter Rüstung trägt furchtlos einen verwundeten Soldaten auf seinen Schultern.","A young and noble warrior wears a shiny armour covered in blood while he carries fearless a wounded soldier at his shoulders.", 6,0); --temple
-    AddPillar({143,562,0},"Ein junger, nobler Krieger mit einer glänzenden Rüstung scheint mit erhobener Faust den Befehl zum Angriff zu geben.","A young and noble warrior wears a shiny armour and seems to gave the order to attack while he raises his fists.", 6,0); --temple
+    AddPillar({143,566,0},"Ein junger, nobler Krieger mit einer glänzenden aber mit Blut befleckter Rüstung trägt furchtlos einen verwundeten Soldaten auf seinen Schultern.","A young, noble warrior wearing shiny armour covered in blood fearlessly carries a wounded soldier on his shoulders.", 6,0); --temple
+    AddPillar({143,562,0},"Ein junger, nobler Krieger mit einer glänzenden Rüstung scheint mit erhobener Faust den Befehl zum Angriff zu geben.","A young, noble warrior wearing shiny armour seems to give an order to attack with a raised fist.", 6,0); --temple
     --[[AddPillar({144,566,0},"","", 11,5); --temple
     AddPillar({144,562,0},"","", 11,5); --temple ]]--
-    AddPillar({124,548,0},"Auf der Säule steht geschrieben: 'In Ruhm und Ehre marschieren wir!'","At the column is written: 'In glory and honour we march.", 11,0); --palace
-    AddPillar({118,548,0},"Auf der Säule steht geschrieben: 'Gebaut mit der Tapferkeit von Malachin, der Loyalität von Zhambra, und der Liebe von Sirani'.","At the column is written: 'Build with the braveness of Malachin, the loyalty of Zhambra, and the love of Sirani'.", 11,0); --palace
-    AddPillar({122,547,1},"Eine junge, attraktive Frau blickt entschlossen in die Ferne. Siehält tapfer einen goldenen Schlüssel in ihrer linken und einen goldenen Zepter in ihrer rechten Hand. Ihr majestätisches Kleid trägt einen einhörnigen Löwen auf ihrer Brust.","A young and attractive woman looks determined into the distance. She holds brave a golden key in her left and a golden sceptre in her right hand. Her majestically dress bears a single horned lion on the chest.", 2,0); --palace
-    AddPillar({119,528,0},"Ein sehr alter, schwacher aber stolzer, entschlossener Mann sitzt auf einem Thron. Seine Augen, Haare und Bard sind leuchtend Silber. Seine Kleider sind rot, weiß und gold. Sein Schwert ruht auf den Knien und ist bedeckt mit dunkelroter Flüssigkeit.","An very old and frail but proud and determined looking man is sitting at a throne. His eyes, hair and beard are bright silver. His clothes are red, white and golden. His sword rests on his knees and is covered with a dark red liquid.", 5,0); --palace
-    AddPillar({124,528,0},"Ein nobel gekleideter Mann mit einer Krone am Kopf. Sein langes Haar und Bard reichen bis zu seiner Robe mit einem einhörnigen Löwe an seiner Brust. Er hält einen Schlüssel und eine Tafel mit der Gravur: 'Cadomyr'.","A very noble dressed man with a crown at his head. His long hear and beard are reaching his red robe with a single horned lion at his chest. He holds a key and a tablet with the engraving 'Cadomyr - 137 BS'.", 5,0); --palace
-    AddPillar({130,529,0},"Ein gutaussehender Mann trägt eine reichlich dekorierte rote Robe. Zu seiner Seite steht eine junge, sehr attraktive Frau in einem weißen langen Kleid. Sie halten zusammen einen Schild, verziert mit einem einhörnigen Löwen.","An handsome looking man wears a rich decorated red robe. He is flanked by a young and very attractive woman in a long white dress. They are holding together a shield with an image of a single horned lion.", 2,0); --palace
+    AddPillar({124,548,0},"Auf der Säule steht geschrieben: 'In Ruhm und Ehre marschieren wir!'","On the column it is written: 'In glory and honour we march.", 11,0); --palace
+    AddPillar({118,548,0},"Auf der Säule steht geschrieben: 'Gebaut mit der Tapferkeit von Malachin, der Loyalität von Zhambra, und der Liebe von Sirani'.","On the column it is written: 'Built with the braveness of Malachin, the loyalty of Zhambra, and the love of Sirani'.", 11,0); --palace
+    AddPillar({122,547,1},"Eine junge, attraktive Frau blickt entschlossen in die Ferne. Siehält tapfer einen goldenen Schlüssel in ihrer linken und einen goldenen Zepter in ihrer rechten Hand. Ihr majestätisches Kleid trägt einen einhörnigen Löwen auf ihrer Brust.","A young, attractive woman looks resolutely into the distance. She holds a golden key in her left hand and a golden sceptre in her right hand. Her majestic dress bears a single horned lion on the chest.", 2,0); --palace
+    AddPillar({119,528,0},"Ein sehr alter, schwacher aber stolzer, entschlossener Mann sitzt auf einem Thron. Seine Augen, Haare und Bard sind leuchtend Silber. Seine Kleider sind rot, weiß und gold. Sein Schwert ruht auf den Knien und ist bedeckt mit dunkelroter Flüssigkeit.","A very old, frail man sits proud and determined on a throne. His eyes, hair and beard are bright silver and his clothes red, white and golden. His sword rests on his knees and is covered with a dark red liquid.", 5,0); --palace
+    AddPillar({124,528,0},"Ein nobel gekleideter Mann mit einer Krone am Kopf. Sein langes Haar und Bard reichen bis zu seiner Robe mit einem einhörnigen Löwe an seiner Brust. Er hält einen Schlüssel und eine Tafel mit der Gravur: 'Cadomyr'.","A nobly dressed man wears a crown on his head. His long hair and beard reach his red robe that bears a single horned lion on the chest. He holds a key and a tablet with the engraving: 'Cadomyr - 137 BS'.", 5,0); --palace
+    AddPillar({130,529,0},"Ein gutaussehender Mann trägt eine reichlich dekorierte rote Robe. Zu seiner Seite steht eine junge, sehr attraktive Frau in einem weißen langen Kleid. Sie halten zusammen einen Schild, verziert mit einem einhörnigen Löwen.","A handsome looking man wears a richly decorated red robe. He is flanked by a young and very attractive woman in a long white dress. Together they hold a shield with the image of a single horned lion.", 2,0); --palace
     --[[AddPillar({149,512,-3},"","", 5,5); --tresuray
     AddPillar({153,516,-3},"","", 9,5); --tresuray
     AddPillar({150,516,-3},"","", 9,5); --tresuray
@@ -111,10 +111,10 @@ function InitPillar()
     AddPillar({155,670,-3},"","", 8,5); --dungeon
     AddPillar({159,670,-3},"","", 8,5); --dungeon]]--
 	--Chapel of the Five
-	AddPillar({476,800,0},"Die Statue entspricht einer zeitlosen und ruhigen Frau mit blondem Haar in einem hell-blauen Kleid, die als Tänzerin posiert.","The statue looks like an ageless and quite woman with blond hair and a light blue dress that postures as dancer.", 6,0);
-    AddPillar({476,791,0},"Die Statue entspricht einer ungeschmückten Schönheit. Sie wirkt ruhig, geduldig und etwas traurig.","The statue looks like an unadorned beauty. She appears quite, patient and a little sad.", 6,0);
-	AddPillar({470,793,0},"Die Statue entspricht einem dunkelhaarigen Ritter mit seiner Rüstung in Flammen stehen. Er wirkt stark, nobel und hübsch.","The statue looks like a dark-haired knight with his armor on fire. He appears strong, noble and handsome.", 4,0);
-    AddPillar({470,798,0},"Die Statue entspricht einer jungen, dunkelhäutigen Frau mit schwarzem Haar und einem schwarzen Kleid. Sie wirkt weise und ruhig.","The statue looks like a young, dark-skinned woman with dark hairs and a dark dress, She appears wise and calm.", 4,0);
+	AddPillar({476,800,0},"Die Statue entspricht einer zeitlosen und ruhigen Frau mit blondem Haar in einem hell-blauen Kleid, die als Tänzerin posiert.","The statue portrays an ageless and peaceful woman with blond hair, dressed in a light blue dress and posing as a dancer.", 6,0);
+    AddPillar({476,791,0},"Die Statue entspricht einer ungeschmückten Schönheit. Sie wirkt ruhig, geduldig und etwas traurig.","The statue portrays an unadorned beauty. She appears peaceful, patient and a little sad.", 6,0);
+	AddPillar({470,793,0},"Die Statue entspricht einem dunkelhaarigen Ritter mit seiner Rüstung in Flammen stehen. Er wirkt stark, nobel und hübsch.","The statue portrays a dark-haired knight with his armour on fire. He appears strong, noble and handsome.", 4,0);
+    AddPillar({470,798,0},"Die Statue entspricht einer jungen, dunkelhäutigen Frau mit schwarzem Haar und einem schwarzen Kleid. Sie wirkt weise und ruhig.","The statue portrays a young, dark-skinned woman with dark hair and wearing a dark dress. She appears wise and calm.", 4,0);
     --[[--Cherass‘ Citadel
     AddPillar({568,314,0},"","", 1,5);
     AddPillar({568,319,0},"","", 1,5);
@@ -209,10 +209,10 @@ function InitPillar()
     AddPillar({514,589,0},"","", 1,5);
     AddPillar({514,590,0},"","", 1,5);]]--
     --Galmair
-	AddPillar({311,229,1},"Die Statue gleicht einem reich gekleideten Zwerg mit grauer Haut und Haar, der eine Schürze trägt und einen goldenen Hammer und ein schmackhaft aussehendes Bier hält. ","The statue looks like a rich dressed gray skinned and haired dwarf, who is wearing an apron and is holding a golden hammer and tasteful looking beer.", 4,0); --Irmoroms Temple
-	AddPillar({311,235,1},"Die Statue gleicht einem reich gekleideten Zwerg mit grauer Haut und Haar, der eine Schürze trägt und einen goldenen Hammer und ein schmackhaft aussehendes Bier hält. ","The statue looks like a rich dressed gray skinned and haired dwarf, who is wearing an apron and is holding a golden hammer and tasteful looking beer.", 4,0); --Irmoroms Temple
-    AddPillar({310,255,1},"Die Statue gleicht einem reich gekleideten Mann mit grauer Haut und Haar, der eine Schürze trägt und seinen großen goldenen Hammer gegen einen Ambos schwingt.","The statue looks like a rich dressed gray skinned and haired man who is wearing an apron and swings his big golden hammer at an anvil.", 4,0); --Irmoroms Temple
-    AddPillar({310,256,1},"Die Statue gleicht einem reich gekleideten Mann mit grauer Haut und Haar, der eine Schürze trägt und seinen großen goldenen Hammer gegen einen Ambos schwingt.","The statue looks like a rich dressed gray skinned and haired man who is wearing an apron and swings his big golden hammer at an anvil.", 4,0); --Irmoroms Temple
+	AddPillar({311,229,1},"Die Statue gleicht einem reich gekleideten Zwerg mit grauer Haut und Haar, der eine Schürze trägt und einen goldenen Hammer und ein schmackhaft aussehendes Bier hält. ","The statue portrays a richly dressed dwarf with grey skin and hair, who is wearing an apron and holds a golden hammer and tasty looking beer.", 4,0); --Irmoroms Temple
+	AddPillar({311,235,1},"Die Statue gleicht einem reich gekleideten Zwerg mit grauer Haut und Haar, der eine Schürze trägt und einen goldenen Hammer und ein schmackhaft aussehendes Bier hält. ","The statue portrays a richly dressed dwarf with grey skin and hair, who is wearing an apron and is holds a golden hammer and tasty looking beer.", 4,0); --Irmoroms Temple
+    AddPillar({310,255,1},"Die Statue gleicht einem reich gekleideten Mann mit grauer Haut und Haar, der eine Schürze trägt und seinen großen goldenen Hammer gegen einen Ambos schwingt.","The statue portrays a richly dressed man with grey skin and hair, who is wearing an apron and swings a big golden hammer at an anvil.", 4,0); --Irmoroms Temple
+    AddPillar({310,256,1},"Die Statue gleicht einem reich gekleideten Mann mit grauer Haut und Haar, der eine Schürze trägt und seinen großen goldenen Hammer gegen einen Ambos schwingt.","The statue portrays a richly dressed man with grey skin and hair, who is wearing an apron and swings a big golden hammer at an anvil.", 4,0); --Irmoroms Temple
 	--[[AddPillar({340,283,1},"","", 1,5); --Nagrun Temple
     AddPillar({340,281,1},"","", 1,5); --Nagrun Temple
     AddPillar({334,277,0},"","", 1, 5); --Nagrun Temple
@@ -249,25 +249,25 @@ function InitPillar()
     AddPillar({360,190,-3},"","", 3, 5); --Treasury
     AddPillar({364,190,-3},"","", 3, 5); --Treasury  ]]--
     AddPillar({384,207,-6},"1. Der Don beschützt dich wenn du die Gebühr bezahlst.","1. The Don protects you if you pay the fee.", 1, 5); --Hog Dens
-	AddPillar({385,207,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 3, 0); --Hog Dens
+	AddPillar({385,207,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue portrays the Don pointing to the two dark columns beside him.", 3, 0); --Hog Dens
     AddPillar({386,207,-6},"1. Der Don beschützt dich wenn du die Gebühr bezahlst.","1. The Don protects you if you pay the fee.", 1, 5); --Hog Dens
-    AddPillar({389,208,-6},"2. Zahl die Abgaben und die Zinsen, und kein Leid soll dir widerfahren.","2. Pay the toll and the interest and no harm will be done.", 1, 5); --Hog Dens
-	AddPillar({390,208,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 3, 0); --Hog Dens
-    AddPillar({391,208,-6},"2. Zahl die Abgaben und die Zinsen, und kein Leid soll dir widerfahren.","2. Pay the toll and the interest and no harm will be done.", 1, 5); --Hog Dens
+    AddPillar({389,208,-6},"2. Zahl die Abgaben und die Zinsen, und kein Leid soll dir widerfahren.","2. Pay the toll, and the interest, and no harm will be done.", 1, 5); --Hog Dens
+	AddPillar({390,208,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue portrays the Don pointing to the two dark columns beside him.", 3, 0); --Hog Dens
+    AddPillar({391,208,-6},"2. Zahl die Abgaben und die Zinsen, und kein Leid soll dir widerfahren.","2. Pay the toll, and the interest, and no harm will be done.", 1, 5); --Hog Dens
     AddPillar({394,211,-6},"3. Handle frei, bleibe und gehe wie es dir beliebt.","3. Trade freely, stay and depart as you wish.", 1, 5); --Hog Dens
-	AddPillar({394,212,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 0); --Hog Dens
+	AddPillar({394,212,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue portrays the Don pointing to the two dark columns beside him.", 4, 0); --Hog Dens
     AddPillar({394,213,-6},"3. Handle frei, bleibe und gehe wie es dir beliebt.","3. Trade freely, stay and depart as you wish.", 1, 5); --Hog Dens
     AddPillar({387,246,-6},"4. Komm zum Don wenn du Hilfe benötigst. Er ist dein Pate.","4. Come to the Don if you need help. He is your godfather.", 1, 5); --Ronagans Altar
-	AddPillar({387,247,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 0); --Ronagans Altar
+	AddPillar({387,247,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue portrays the Don pointing to the two dark columns beside him.", 4, 0); --Ronagans Altar
     AddPillar({387,248,-6},"4. Komm zum Don wenn du Hilfe benötigst. Er ist dein Pate.","4. Come to the Don if you need help. He is your godfather.", 1, 5); --Ronagans Altar
     AddPillar({385,254,-6},"5. Eine Abmachung mit dem Don, ist eine mit deinem Schicksal.","5. A deal with the Don is a deal with your fate.", 1, 5); --Ronagans Altar
-	AddPillar({385,255,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 0); --Ronagans Altar
+	AddPillar({385,255,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue portrays the Don pointing to the two dark columns beside him.", 4, 0); --Ronagans Altar
     AddPillar({385,256,-6},"5. Eine Abmachung mit dem Don, ist eine mit deinem Schicksal.","5. A deal with the Don is a deal with your fate.", 1, 5); --Ronagans Altar
     AddPillar({387,284,-6},"6. Hast du Schaden angerichtet, so kompensiere ihn großzügig mit der zweifachen Menge des Schadens.","6. If you did harm, compensate generously, twice the damage.", 1, 5); --Ronagans Altar
-	AddPillar({387,285,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 4, 0); --Ronagans Altar
+	AddPillar({387,285,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue portrays the Don pointing to the two dark columns beside him.", 4, 0); --Ronagans Altar
     AddPillar({387,286,-6},"6. Hast du Schaden angerichtet, so kompensiere ihn großzügig mit der zweifachen Menge des Schadens.","6. If you did harm, compensate generously, twice the damage.", 1, 5); --Ronagans Altar
     AddPillar({378,292,-6},"Folge diesen sechs einfachen Regeln des Don, und du kannst tun und lassen was immer du möchtest.","Follow the simple rules of the Don and you can do whatever you like.", 1, 5); --Ronagans Altar
-	AddPillar({377,292,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue is a representation of the Don as a statue which points the two dark columns next to it.", 3, 0); --Ronagans Altar
+	AddPillar({377,292,-6},"Die Statue entspricht dem Abbild des Don und ziegt auf die beiden dunklen Säulen neben ihr.","The statue portrays the Don pointing to the two dark columns beside him.", 3, 0); --Ronagans Altar
     AddPillar({376,292,-6},"Folge diesen sechs einfachen Regeln des Don, und du kannst tun und lassen was immer du möchtest.","Follow the simple rules of the Don and you can do whatever you like.", 1, 5); --Ronagans Altar
     --[[AddPillar({384,337,-6},"","", 4, 5); --The Winged Sow Tavern
     AddPillar({384,339,-6},"","", 4, 5); --The Winged Sow Tavern
@@ -282,8 +282,8 @@ function InitPillar()
     AddPillar({331,241,-6},"","", 4, 5); --Scoria Mine
     AddPillar({332,242,-6},"","", 3, 5); --Scoria Mine ]]--
     AddPillar({255,292,-5},"Auf der Spitze der Säule starrt ein großer schwarzer Rabe in die Ferne. Der Rabe hält einen Ohrring in seinem Schnabel und der Schatten von Flammen erscheint in seinen Augen.","At the top of the column a huge black raven peers into distance. The raven holds an earring in his beak and the shade of flames appears in the eyes.", 1, 0); --Flicker Swale
-    AddPillar({255,294,-5},"Auf der Spitze der Säule starrt ein großer schwarzer Rabe in die Ferne. Der Rabe hält einen Ohrring in seinem Schnabel und der Schatten von Flammen erscheint in seinen Augen.","At the top of the column a huge black raven peers into distance. The raven holds an earring in his beak and the shade of flames appears in the eyes.", 1, 0); --Flicker Swale
-    AddPillar({252,288,-5},"Ein schwarz gekleideter Mann, noble, geschmacksvolle Kleider tragend, blickt auf seinen Dietrich in seiner linken Hand. Er grinst hämisch während er einen seiner Ohrring mit der anderen Hand kratzt.","A black dressed man, wearing noble and tasteful clothing, looks at a picklock in his left hand. He grins sardonic while scratches one of his earrings with his other hand.", 3, 0); --Flicker Swale
+    AddPillar({255,294,-5},"Auf der Spitze der Säule starrt ein großer schwarzer Rabe in die Ferne. Der Rabe hält einen Ohrring in seinem Schnabel und der Schatten von Flammen erscheint in seinen Augen.","On top of the column, a huge black raven stares into the distance. The raven holds an earring in his beak and the shadows of flames appear in his eyes.", 1, 0); --Flicker Swale
+    AddPillar({252,288,-5},"Ein schwarz gekleideter Mann, noble, geschmacksvolle Kleider tragend, blickt auf seinen Dietrich in seiner linken Hand. Er grinst hämisch während er einen seiner Ohrring mit der anderen Hand kratzt.","A man dressed in black, wearing noble, tasteful clothing, looks at a picklock in his left hand. He grins gleefully as he scratches one of his earrings with his other hand.", 3, 0); --Flicker Swale
 	--[[AddPillar({255,292,-6},"","", 4, 5); --Flicker Swale
     AddPillar({255,294,-6},"","", 4, 5); --Flicker Swale
     AddPillar({248,298,-5},"","", 3, 5); --Flicker Swale
@@ -320,10 +320,10 @@ function InitPillar()
     AddPillar({524,692,2},"","", 1,5);
 	AddPillar({524,696,2},"","", 1,5);]]--
 	--Igruk's Cave
-	AddPillar({656,388,2},"Auf der Säule steht mit Blut geschrieben 'Macht'.","The word 'power' is written with blood at the column.", 1,5);
-    AddPillar({661,388,2},"Auf der Säule steht mit Blut geschrieben 'Furcht'.","The word 'fear' is written with blood at the column.", 1,5);
-    AddPillar({661,393,2},"Auf der Säule steht mit Blut geschrieben 'Stärke'.","The word 'strength' is written with blood at the column.", 1,5);
-    AddPillar({656,393,2},"Auf der Säule steht mit Blut geschrieben 'Blut'.","The word 'blood' is written with blood at the column.", 1,5);
+	AddPillar({656,388,2},"Auf der Säule steht mit Blut geschrieben 'Macht'.","The word 'power' is written with blood on the column.", 1,5);
+    AddPillar({661,388,2},"Auf der Säule steht mit Blut geschrieben 'Furcht'.","The word 'fear' is written with blood on the column.", 1,5);
+    AddPillar({661,393,2},"Auf der Säule steht mit Blut geschrieben 'Stärke'.","The word 'strength' is written with blood on the column.", 1,5);
+    AddPillar({656,393,2},"Auf der Säule steht mit Blut geschrieben 'Blut'.","The word 'blood' is written with blood on the column.", 1,5);
 	--Kata Island
 	--[[AddPillar({169,834,0},"","", 2,5);
     --Lighthouse
@@ -347,10 +347,10 @@ function InitPillar()
 	AddPillar({401,733,0},"Was ist klein und stinkt? - Ein Zwerg. Was ist groß und stinkt? - Ein Elf. Was ist dumm und stinkt? - Ein Mensch.","What is small and smells? - A Dwarf. What is tall and smells? - An Elf. What is dumb and smells? - A Human.", 1,5);
     AddPillar({389,727,0},"Wer das liest stirbt gleich!","Read this line and die!", 1,5);
 	--Mount Zotmore
-	AddPillar({361,495,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,0);
-	AddPillar({357,495,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,0);
-	AddPillar({366,497,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,0);
-	AddPillar({366,501,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","It is written with big letters at the column:'Mount Zotmore'.", 1,0);
+	AddPillar({361,495,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","'Mount Zotmore' is written with big letters on the column.", 1,0);
+	AddPillar({357,495,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","'Mount Zotmore' is written with big letters on the column.", 1,0);
+	AddPillar({366,497,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","'Mount Zotmore' is written with big letters on the column.", 1,0);
+	AddPillar({366,501,0},"Auf der Säule steht mit großen Buchstaben geschrieben:'Mount Zotmore'.","'Mount Zotmore' is written with big letters on the column.", 1,0);
 	--[[--Nagrun's Plain
 	AddPillar({522,240,0},"","", 2,5);
 	AddPillar({534,259,0},"","", 6,5);
@@ -367,11 +367,11 @@ function InitPillar()
 	AddPillar({483,248,0},"","", 6,5);
 	AddPillar({483,251,0},"","", 6,5);]]--
     --Oldra's Corner
-	AddPillar({645,679,0},"Eine blau gekleidete, kräftige, ältere Frau füttert einen ein Hasen während sie einen Wolf streichelt und zwei Vogeln auf ihren Schultern sitzen.","A blue dressed, stout and elder woman is feeding a rabbit while she pets a wolf and two birds are sitting at her shoulders.", 2,0);
-	AddPillar({645,683,0},"Eine blau gekleidete, kräftige, ältere Frau  hält einen Korb gefüllt mit Äpfeln und anderen Früchten in ihren Händen.","A blue dressed, stout and elder woman holds a basket filled with apples and other fruits in her hands.", 2,0);
+	AddPillar({645,679,0},"Eine blau gekleidete, kräftige, ältere Frau füttert einen ein Hasen während sie einen Wolf streichelt und zwei Vogeln auf ihren Schultern sitzen.","A stout, elderly woman, dressed in blue, feeds a rabbit whilst she pets a wolf and two birds sit on her shoulders.", 2,0);
+	AddPillar({645,683,0},"Eine blau gekleidete, kräftige, ältere Frau  hält einen Korb gefüllt mit Äpfeln und anderen Früchten in ihren Händen.","A stout, elderly woman, dressed in blue, holds a basket filled with apples and other fruits.", 2,0);
 	--Pauldron Isle
-	AddPillar({892,387,0},"Auf der Säule steht mit Blut geschrieben 'Cherga bringt Balance'.","The words 'Cherga brings balance' are written with blood at the column.", 1,5); --Temple of Cherga
-	AddPillar({892,389,0},"Auf der Säule steht mit Blut geschrieben 'Cherga bringt Gerechtigkeit'.","The words 'Cherga brings justice' are written with blood at the column.", 1,5); --Temple of Cherga
+	AddPillar({892,387,0},"Auf der Säule steht mit Blut geschrieben 'Cherga bringt Balance'.","The words 'Cherga brings balance' are written with blood on the column.", 1,5); --Temple of Cherga
+	AddPillar({892,389,0},"Auf der Säule steht mit Blut geschrieben 'Cherga bringt Gerechtigkeit'.","The words 'Cherga brings justice' are written with blood on the column.", 1,5); --Temple of Cherga
 	--Pyramide of Chaos
     --[[AddPillar({227,581,0},"","", 1,5);
     AddPillar({237,590,0},"","", 1,5);
@@ -407,8 +407,8 @@ function InitPillar()
 	--Runewick Hinterland
 	AddPillar({920,929,0},"","", 2,5); --Twin Eyes Islands
 	AddPillar({860,931,0},"","", 1,5); --Twin Eyes Islands        ]]
-	AddPillar({833,864,0},"Eine junge, sehr attraktive Frau tanzt in einem weißen Kleid. Ihr Haar leuchtet im ihr umgebenden Licht und Wasser.","A young and very attractive woman dances in her long white dress. His hair shines in the surrounding light and water.", 2,0); --Mermaid
-	AddPillar({839,845,0},"~Oldra - Göttin des Lebens und der Fruchtbarkeit - segne unsere Gärten, Felder und Zuchttiere; neugeborene Kinder, gebärende Frauen, und der Geburt als solches.~","~Oldra - Goddess of Life and Fertility - blesses our gardens, fields and domestic animals; newborn children, bearing women and birth itself.~", 1,5); --Oldra's Column
+	AddPillar({833,864,0},"Eine junge, sehr attraktive Frau tanzt in einem weißen Kleid. Ihr Haar leuchtet im ihr umgebenden Licht und Wasser.","A young and very attractive woman dances in her long white dress. Her hair shines in the surrounding light and water.", 2,0); --Mermaid
+	AddPillar({839,845,0},"~Oldra - Göttin des Lebens und der Fruchtbarkeit - segne unsere Gärten, Felder und Zuchttiere; neugeborene Kinder, gebärende Frauen, und der Geburt als solches.~","~Oldra - Goddess of life and fertility - bless our gardens, fields and farm animals, newborn children, women giving birth, and birth itself.~", 1,5); --Oldra's Column
 	--[[AddPillar({866,847,0},"","", 2,5); --Woodcutter's Hut
 	AddPillar({866,848,0},"","", 2,5); --Woodcutter's Hut
 	AddPillar({864,813,0},"","", 1,5); --Entrance
@@ -418,7 +418,7 @@ function InitPillar()
 	AddPillar({901,824,4},"","", 2, 5);
 	AddPillar({910,827,4},"","", 2, 5);
     AddPillar({909,826,3},"","", 2, 5); ]]--
-    AddPillar({905,824,2},"Eine große, alterslose Frau hebt ihren Finger als gäbe sie einen Rat. In ihrer anderen Hand hält sie einige Bücher und Schriftrollen.","A tall and ageless woman rises one of her fingers as she has to mention her advice. In her other hand she holds some books and scrolls.", 2, 0); --elara shrine
+    AddPillar({905,824,2},"Eine große, alterslose Frau hebt ihren Finger als gäbe sie einen Rat. In ihrer anderen Hand hält sie einige Bücher und Schriftrollen.","A tall, ageless woman raises one of her fingers as she advises. In her other hand she holds some books and scrolls.", 2, 0); --elara shrine
     --[[AddPillar({910,828,2},"","", 1, 5); --elara shrine
     AddPillar({910,830,2},"","", 1, 5); --elara shrine
     AddPillar({910,827,1},"","", 2, 5);
@@ -446,20 +446,20 @@ function InitPillar()
 	AddPillar({649,492,0},"","", 8, 5);
 	AddPillar({644,487,0},"","", 7, 5);]]--
 	--Spider's Mouth
-	AddPillar({733,310,0},"Ein alter, betrunkener Mann der zerlumpte Kleider trägt und scheinbar für ein Münzen bettelt während er eine Flasche Wein hinter sich versteckt.","An old and drunken man who wears ragged clothes and seems to beg for some coins while he hides a bottle of wine behind himself.", 2, 0);--Temple of Adron
-	AddPillar({733,314,0},"Eine in Braun gekleideter junger, attraktiver Mann singt und tanzt mit einigen Weintrauben und einer Flasche Wein in seinen Händen.","A brown dressed young and attractive man sings and dances around with some grapes and a bottle of wine in his hands.", 2, 0); --Temple of Adron
+	AddPillar({733,310,0},"Ein alter, betrunkener Mann der zerlumpte Kleider trägt und scheinbar für ein Münzen bettelt während er eine Flasche Wein hinter sich versteckt.","An old, drunken man wearing ragged clothes begs for some coins whilst hiding a bottle of wine behind his back.", 2, 0);--Temple of Adron
+	AddPillar({733,314,0},"Eine in Braun gekleideter junger, attraktiver Mann singt und tanzt mit einigen Weintrauben und einer Flasche Wein in seinen Händen.","A young, attractive man dressed in brown sings and dances around with some grapes and a bottle of wine in his hands.", 2, 0); --Temple of Adron
 	--[[AddPillar({696,316,0},"","", 2, 5); --The Hemp Necktie Inn
 	AddPillar({696,320,0},"","", 2, 5); --The Hemp Necktie Inn
 	AddPillar({698,315,1},"","", 2, 5); --The Hemp Necktie Inn
 	AddPillar({698,319,1},"","", 2, 5); --The Hemp Necktie Inn ]]--
 	--Tempel of Malachin
-	AddPillar({140,684,1},"Ein braunhaariger, grüngekleideter großer Waldläufer spannt seinen Bogen um sein Ziel anzuvisieren. Sein Pfeil hat Wörter wie Recht, Gerechtigkeit und gute Manieren eingraviert.","A brown haired and green clothed tall ranger bends a bow to aim his target. His arrow has engraved words like law, justice and good manners.", 5,0);
-	AddPillar({144,684,1},"Ein braunhaariger, grüngekleideter großer Waldläufer spannt seinen Bogen um sein Ziel anzuvisieren. Sein Pfeil hat Wörter wie Recht, Gerechtigkeit und gute Manieren eingraviert.","A brown haired and green clothed tall ranger bends a bow to aim his target. His arrow has engraved words like law, justice and good manners.", 5,0);
-	AddPillar({148,675,1},"Ein grauhaariger großer Ritter in scheinender Rüstung erhebt sein Schwert während er sich selbst mit einem großen Schild beschützt. Das Schild ist geziert mit den Wörtern Recht, Gerechtigkeit und gute Manieren.","A gray haired strong tall knight in shiny armour rises his sword while he covers himself behind a big shield, which has engraved words like law, justice and good manners.", 6,0);
-	AddPillar({148,680,1},"Ein grauhaariger großer Ritter in scheinender Rüstung erhebt sein Schwert während er sich selbst mit einem großen Schild beschützt. Das Schild ist geziert mit den Wörtern Recht, Gerechtigkeit und gute Manieren.","A gray haired strong tall knight in shiny armour rises his sword while he covers himself behind a big shield, which has engraved words like law, justice and good manners.", 6,0);
+	AddPillar({140,684,1},"Ein braunhaariger, grüngekleideter großer Waldläufer spannt seinen Bogen um sein Ziel anzuvisieren. Sein Pfeil hat Wörter wie Recht, Gerechtigkeit und gute Manieren eingraviert.","A tall ranger with brown hair and dressed in green, draws a bow to aim at his target. His arrow is engraved with the words 'law, justice and good manners'.", 5,0);
+	AddPillar({144,684,1},"Ein braunhaariger, grüngekleideter großer Waldläufer spannt seinen Bogen um sein Ziel anzuvisieren. Sein Pfeil hat Wörter wie Recht, Gerechtigkeit und gute Manieren eingraviert.","A tall ranger with brown hair and dressed in green, draws a bow to aim at his target. His arrow is engraved with the words 'law, justice and good manners'.", 5,0);
+	AddPillar({148,675,1},"Ein grauhaariger großer Ritter in scheinender Rüstung erhebt sein Schwert während er sich selbst mit einem großen Schild beschützt. Das Schild ist geziert mit den Wörtern Recht, Gerechtigkeit und gute Manieren.","A grey haired, great knight in shining armour raises his sword whist he protects himself with a large shield. The shield is engraved with the words 'law, justice and good manners'.", 6,0);
+	AddPillar({148,680,1},"Ein grauhaariger großer Ritter in scheinender Rüstung erhebt sein Schwert während er sich selbst mit einem großen Schild beschützt. Das Schild ist geziert mit den Wörtern Recht, Gerechtigkeit und gute Manieren.","A grey haired, great knight in shining armour raises his sword whist he protects himself with a large shield. The shield is engraved with the words 'law, justice and good manners'.", 6,0);
  	--Tempel of Sirani
-    AddPillar({176,759,0},"Eine junge, sehr attraktive Frau tanzt in einem langen weißen Kleid. Ihr Haar scheint im umgebenden Licht.","A young and very attractive woman dances in her long white dress. His hair shines in the surrounding light.", 2,0);
-    AddPillar({176,764,0},"Eine junge, sehr attraktive FRau scheint sehr aufgebracht zu sein als sie auf ein Pergamentstück mit dem Wort 'Zicke'.","A young and very attractive woman seems to be very furious while she looks at parchment with the insulting word 'bitch'.", 2,0);
+    AddPillar({176,759,0},"Eine junge, sehr attraktive Frau tanzt in einem langen weißen Kleid. Ihr Haar scheint im umgebenden Licht.","A young and very attractive woman dances in her long white dress. Her hair shines in the surrounding light.", 2,0);
+    AddPillar({176,764,0},"Eine junge, sehr attraktive Frau scheint sehr aufgebracht zu sein als sie auf ein Pergamentstück mit dem Wort 'Zicke'.","A young and very attractive woman seems to be very angry as she looks at parchment with the word 'bitch' written across it.", 2,0);
     --Tempel of Tanora
     --[[AddPillar({621,590,0},"","", 1,5);
     AddPillar({621,599,0},"","", 1,5);

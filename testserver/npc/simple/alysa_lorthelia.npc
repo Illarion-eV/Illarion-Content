@@ -2,7 +2,7 @@
 -- NPC Name: Alysa Lorthelia                                         Runewick --
 -- NPC Job:  Baker                                                            --
 --                                                                            --
--- NPC Race: dwarf                      NPC Position:  907, 794, 1            --
+-- NPC Race: human                      NPC Position:  907, 794, 1            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Regallo                                                          --
@@ -10,7 +10,7 @@
 --------------------------------------------------------------------------------
 
 name = "Alysa Lorthelia"
-race = dwarf
+race = human
 sex = female
 position = 907, 794, 1
 direction = south
@@ -18,16 +18,16 @@ affiliation = "Runewick"
 job = "Baker"
 
 language = common
-language = dwarf
+language = human
 defaultLanguage = common
 autointroduce = on
 
 author = "Regallo"
 
 lookatDE = "Das ist ein NPC dessen Entwickler zu faul war eine Beschreibung einzutragen."
-lookatUS = "This is an NPC who's developer was too lazy to type in a description."
+lookatUS = "A tall, proud woman stands behind the counter, preparing food quickly."
 useMsgDE = "Fass mich nicht an!"
-useMsgUS = "Do not touch me!"
+useMsgUS = "Hands off!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
 radius = 0
@@ -103,74 +103,74 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alysa Lorthelia der Bäcker. Schlüsselwörter: Handel, kaufe, verkaufe.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, would you like some something to eat? I think the stuff I made is good.", " Nice to meet you, I am Alysa Lorthelia.", "Ah! You startled me, Hello, I'm sorry."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, would you like something to eat? My wares are pretty tasty!", " Nice to meet you, I'm Alysa Lorthelia.", "Ah, you startled me! Hello, my apologies."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Hallo, mögt Ihr etwas essen?Ich finde das Essen welches ich hergestellt habe schmeckt.", "Freut mich euch zu treffen. Ich bin Alysa Lorthelia.", "Ah! Ihr habt mich erschreckt, Hallo, tut mir leid."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, would you like some something to eat? I think the stuff I made is good.", " Nice to meet you, I am Alysa Lorthelia.", "Ah! You startled me, Hello, I'm sorry."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello, would you like something to eat? My wares are pretty tasty!", " Nice to meet you, I'm Alysa Lorthelia.", "Ah, you startled me! Hello, my apologies."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Hallo, mögt Ihr etwas essen?Ich finde das Essen welches ich hergestellt habe schmeckt.", "Freut mich euch zu treffen. Ich bin Alysa Lorthelia.", "Ah! Ihr habt mich erschreckt, Hallo, tut mir leid."
-"Farewell", "Bye", "Fare well", "See you" -> "Will I ever see you again? ", "Thank you so, so, so much for talking to me.", "Please have a good day. Can you visit again please?"
+"Farewell", "Bye", "Fare well", "See you" -> "Will I ever see you again? ", "Thank you so, so much for talking to me.", "Please have a good day. Can you visit again please?"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Werde ich Euch wiedersehen?", "Vielen, vielen, vielen Dank, dass Ihr mit mir gesprochen habt.", "Ich wünsche Euch einen schönen Tag. Bitte kommt mal wieder vorbei."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Will I ever see you again? ", "Thank you so, so, so much for talking to me.", "Please have a good day. Can you visit again please?"
-"Farewell", "Bye", "Fare well", "See you" -> "Will I ever see you again? ", "Thank you so, so, so much for talking to me.", "Please have a good day. Can you visit again please?"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Will I ever see you again? ", "Thank you so, so much for talking to me.", "Please have a good day. Can you visit again please?"
+"Farewell", "Bye", "Fare well", "See you" -> "Will I ever see you again? ", "Thank you so, so much for talking to me.", "Please have a good day. Can you visit again please?"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Werde ich Euch wiedersehen?", "Vielen, vielen, vielen Dank, dass Ihr mit mir gesprochen habt.", "Ich wünsche Euch einen schönen Tag. Bitte kommt mal wieder vorbei."
-"How are you", "How feel", "How do you do" -> "I don't feel so good today. My stomach hurts. But it's not because of my food! Please don't think my food is bad!", "My head is dizzy.", "I think I ate too much. I shouldn't eat for another two days."
+"How are you", "How feel", "How do you do" -> "I don't feel great today. My stomach hurts. But it's not because of my food! Please don't think my food is bad!", "My head's all dizzy.", "I think I ate too much. I shouldn't eat for another few days."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich fühle mich heute nicht gut. Ich habe Magenschmerzen. Aber das liegt nicht an meinem Essen. Bitte denkt nicht, es läge an meinem Essen!", "Mir ist schwindelig.", "Ich habe zuviel gegessen. Ich sollte die nächsten zwei Tage nichts Essen."
-"your name", "who are you", "who art thou" -> "I am the daughter of the sword crafter Asha Lorthelia.", "I am the oldest Lorthelia daughter, but no I cannot craft ornate weapons like my mother. Instead I bake.", "I am Alysa Lorthelia, the baker, at least for now."
+"your name", "who are you", "who art thou" -> "I'm the daughter of the sword crafter Asha Lorthelia.", "I'm the oldest Lorthelia daughter, but no: I can't craft ornate weapons like my mother. Instead I bake.", "I am Alysa Lorthelia, the baker... at least for now."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin die Tochter der Waffenschmiedin Asha Lorthelai.", "Ich bin die älteste Tochter der Lotheila, aber ich kann keine verzierten Waffen herstellen. Daher backe ich.", "Ich bin Alysa Lothelia, die Bäckerin, zumondest zur Zeit noch."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I bake all kinds of foods.", "I sell people the food that I and old man John Sights bake.", "I started working as a baker a several moons ago."
+"profession" -> "I bake all kinds of fresh goods.", "I sell people the food that myself and old John Sights bake.", "I started working as a bakery many moons ago."
 "beruf" -> "Ich backe die verschiedensten Waren.", "Ich verkaufe das Essen, dass ich und  John Sighs backen.", "Ich arbeite seit ein paar Monaten als Bäckerin."
-english, "job" -> "I bake all kinds of foods.", "I sell people the food that I and old man John Sights bake.", "I started working as a baker a several moons ago."
+english, "job" -> "I bake all kinds of fresh goods.", "I sell people the food that myself and old John Sights bake.", "I started working as a bakery many moons ago."
 "job" -> "Ich backe die verschiedensten Waren.", "Ich verkaufe das Essen, dass ich und  John Sighs backen.", "Ich arbeite seit ein paar Monaten als Bäckerin."
-english, "Gobaith", "Gobiath" -> "There were fairies somewhere in that world.", "I would love to meet a fairy. I know they lived there.", "Maybe a fairy can cast a spell on me, one that would make me a fairy."
+english, "Gobaith", "Gobiath" -> "There were fairies somewhere in that world.", "I would love to meet a fairy. I know they lived there.", "Maybe a fairy can cast a spell on me, so I could join them in their world."
 "Gobaith", "Gobiath" -> "Da waren Feen irgendwo in dieser Welt.", "Ich würde soo gern mal eine Fee sehen. Ich weiß sie leben dort.", "Vielleicht kann eine Fee einen Zauberspruch sprechen, der mich in eine Fee verwandelt?"
 "my name" -> "Alysa Lorthelia, a regular baker I guess?"
 "mein Name" -> "Alysa Lorthelia, eine gewöhnlicher Bäckerin, oder?"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"Cook", "Food", "Bake" -> "I did not think I would love cooking so much. It's because I was born to be fat. That's why now I don't eat anything I make."
+"Cook", "Food", "Bake" -> "I didn't think I'd love cooking so much. I was born to become fat. That's why now I never eat anything I make."
 "Kochen", "Essen", "backen" -> "Ich denke nicht, dass Kochen Spaß macht. Ich kam schon fett auf die Welt. Daher esse ich nichts was ich koche."
-"Boob", "Breast", "Tit" -> "I can see you staring at my boobs, but I don't mind. When you stare at them it makes me feel pretty. Just don't stare at my stomach."
+"Boob", "Breast", "Tit" -> "Last person who tried that on with me died of syphilis. Not that I had anything to do with it!"
 "Busen", "Brust", "Titten" -> "Ich sehe, dass Ihr meinen Busen anstarrt, aber das stört mich nicht. Ich fühle mich hübsch, wenn Ihr starrt. Aber wagt es nicht meinen Bauch anzustarren."
-"Fat", "Weight", "Heavy" -> "I met Ce, the cook there. She's so cute and talented. We're going to have a bake off soon."
+"Fat", "Weight", "Heavy" -> "I met Ce, the cook there. She's so talented. We're going to have a bake off soon."
 "Fett", "Gewicht", "Schwer" -> "Ich traft Ce, die Köchin hier. sie ist so hübsch und talentiert. Wir machen bald einen Kochwettbewerb."
-"Glass Spiegel", "Ce" -> "I met Ce, the cook there. She's so cute and talented. We're going to have a bake off soon."
+"Glass Spiegel", "Ce" -> "I met Ce, the cook there. She's so talented. We're going to have a bake off soon."
 "Glass Spiegel", "Ce" -> "Ich traft Ce, die Köchin hier. sie ist so hübsch und talentiert. Wir machen bald einen Kochwettbewerb."
-"John Sights" -> "He's an old man. He's nice and he gave me this job. He looks at my boobs sometimes."
+"John Sights" -> "He's an old man. He's nice and he gave me this job. Though he does look at me a funny way sometimes."
 "John Sights" -> "Er ist ein alter Mann. Er ist nett und gab mir den Job hier. Manchmal starrt er auf meinen Busen."
-"Mother", "Mom", "Aysha" -> "Mom is never not working. I don't think I even see her sleep."
+"Mother", "Mom", "Aysha" -> "Mum constantly works. I don't think I've ever seen her sleep."
 "Mutter", "Mama", "Aysha" -> "Mutti arbeiter immer. Immer. Ich glaube ich habe sie noch nie schlafend gesehen."
-"Father", "Dad" -> "Dad only works several hours a week, but he is always out of the house and home is always messy."
+"Father", "Dad" -> "Dad only works a few hours a week, but he's always out of the house, and the house is always messy."
 "Vater", "Papa" -> "Vater arbeitet nur ein paar Stunden in der Woche, aber er ist ständig unterwegs und zu Hause herrscht Unordnung."
 "Sister" -> "I'm glad I don't have to watch her. She's annoying."
 "Schwester" -> "Ich bin froh, dass ich nicht auf sie aufpassen muss. Diese Nervensäge."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "The Arch Mage only uses enchanted weapons made by Asha Lorthelia, my mother."
+"archmage" -> "The Archmage only uses enchanted weapons made by Asha Lorthelia, my mother."
 "Erzmagier" -> "Der Erzmagier nutzt nichts außer den verzauberten Waffen, welche meine Mutter, Asha Lorthelia, hergestellt hat."
-english, "Elvaine", "Morgan" -> "Who?"
+english, "Elvaine", "Morgan" -> "Who? Oh.. right, that guy."
 "Elvaine", "Morgan" -> "Wer?"
-english, "Runewick" -> "I live here. I don't think anything else about it."
+english, "Runewick" -> "I live here. I don't really dwell on it."
 "Runewick" -> "Ich lebe hier. Ich denke nichts anderes über diesen Ort."
-english, "Valerio", "Guilianni", "Don" -> "My mother does not care for him. I don't know why."
+english, "Valerio", "Guilianni", "Don" -> "My mother doesn't care for him. No idea why."
 "Valerio", "Guilianni", "Don" -> "Meine Mutter sagt, er sei ihr egal. Ich verstehe das nicht."
-english, "Galmair" -> "I've been several times with my mother and father. It's a dirty place and that's a lot coming from a dwarf."
+english, "Galmair" -> "I've been there a few times with my mother and father. It's a dirty place, you wouldn't find my wares anywhere near that."
 
 -- a dwarf?! Isn't she an elfess?
 "Galmair" -> "Ich war da mehere Male mit meiner Mutte und meinem Vater. Es ist ein dreckiger Ort, und wenn das ein Zerg sagt, will das was heißen!"
-"Queen" -> "She's too pretty. The gods were a lot more fare to her than to me."
+"Queen" -> "She's too pretty. The gods were a lot fairer to her than to me."
 "Königin" -> "Sie ist einfach zu hübsch. Die Götter waren ihr besser gesonnen als mir."
-english, "rosaline", "edwards" -> "She's too pretty. The gods were a lot more fare to her than to me."
+english, "rosaline", "edwards" -> "She's too pretty. The gods were a lot fairer to her than to me."
 "rosaline", "edwards" -> "Sie ist einfach zu hübsch. Die Götter waren ihr besser gesonnen als mir."
-english, "Cadomyr" -> "Too much sun for a dwarf like me, but I enjoyed visiting Glass Spiegel."
+english, "Cadomyr" -> "Too much sun for my liking, but I enjoyed visiting the tavern."
 "Cadomyr" -> "Da ist es mir zu sonnig. Aber ich möchte den Besuch am Glass Spiegel."
 
 -- Main land factions
-english, "albar" -> "My father says that only the stupid care about faction related strife."
+english, "albar" -> "My father says that they only care about faction related drivel."
 "albar" -> "Mein Vater sagt nur dumme Leute kümmern sich um den Streit zwischen den Faktionen."
-english, "gynk", "gync" -> "My father says that only the stupid care about faction related strife."
+english, "gynk", "gync" -> "My father says that they only care about faction related drivel."
 "gync", "gynk" -> "Mein Vater sagt nur dumme Leute kümmern sich um den Streit zwischen den Faktionen."
-english, "salkama" -> "My father says that only the stupid care about faction related strife."
+english, "salkama" -> "My father says that they only care about faction related drivel."
 "salkama" -> "Mein Vater sagt nur dumme Leute kümmern sich um den Streit zwischen den Faktionen."
 
 -- Gods - use the triggers of the god the NPC worships or fights
@@ -184,9 +184,9 @@ english, "salkama" -> "My father says that only the stupid care about faction re
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Alysa ", "Lorthelia" -> "That's me, Alysa Lorthelia"
 "Alysa", "Lorthelia" -> "Fas bin ich, Alysa Lorthelia."
-"Yes" -> "Ok"
+"Yes" -> "Okay"
 "Ja" -> "In Ordnung."
-"No" -> "Oh no"
+"No" -> "Oh no!"
 "Nein" -> "Oh..nein!"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
@@ -198,13 +198,13 @@ german, chance(20.0), ".*" -> "Das hat nichts mit mir zu tun, entschuldigt."
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Diess Mädchen ist so dünn.", "That girl is so skinny."
-cycletext "Ich habe hunger. Ich meine, ich habe keinem Hunger.", "I'm hungry. I mean I'm not hungry."
-cycletext "Kommt, esst mein Brot, schmeckt besser als cadomyrische Sandratte!", "Come eat my bread. It's better than a Cadomyrian sand rat."
-cycletext "Der alte John Sights sagte mir, ich soll Euch sagen, dass ich Alysa Lorthelia bin, die Tochter der Waffenschmiedein Asha Lorthelia.", "Old Man John Sights told me to tell you that I am Alysa Lorthelia, daughter of Aysha. The famous Weopons smith."
-cycletext "Ich backe Brot so gut, wie meine Mutter Waffen herstellt.", "I bake bread as good as my mother crafts weapons."
+cycletext "Diess Mädchen ist so dünn.", "That girl's far too skinny."
+cycletext "Ich habe hunger. Ich meine, ich habe keinem Hunger.", "Ugh.. I'm hungry. No I'm not! Mind over matter!"
+cycletext "Kommt, esst mein Brot, schmeckt besser als cadomyrische Sandratte!", "Come eat my bread! It's better than a Cadomyrian sand rat. At least.. I hope so."
+cycletext "Der alte John Sights sagte mir, ich soll Euch sagen, dass ich Alysa Lorthelia bin, die Tochter der Waffenschmiedein Asha Lorthelia.", "Hey everyone, look at me, I'm Alysa Lorthelia, daughter of Aysha. The famous Weapon smith!"
+cycletext "Ich backe Brot so gut, wie meine Mutter Waffen herstellt.", "I bake bread as well as my mother crafts weapons!"
 cycletext "Mein Magen schmerzt. Diese Brot um mich herum. Das ist Folter.", "My stomach hurts. All this bread sitting around me. It's torture."
-cycletext "Calthors kurze Abhandlung üder die Geschichte der Feen ist das beste Buch was ich jemals gelesen habe.", "The Calthor digest on the history of fairies is the best book I've ever read."
-cycletext "Wo ist Papa schon wieder hin verschwunden? Er ist ständig weg.", "Where did dad wonder off too? He's always disappearing."
-cycletext "Ich werde Ce im Kochwettbewerb schlagen.", "I will destroy Ce in our bake off."
-cycletext "Ich frage mich ob Mutter sich jemals einen Tag frei nimmt.", "I wonder if my mother will ever take a day off."
+cycletext "Calthors kurze Abhandlung üder die Geschichte der Feen ist das beste Buch was ich jemals gelesen habe.", "The Calthor Digest on the history of fairies is the best book I've ever read!"
+cycletext "Wo ist Papa schon wieder hin verschwunden? Er ist ständig weg.", "Where did dad wonder off to? He's always disappearing."
+cycletext "Ich werde Ce im Kochwettbewerb schlagen.", "I will destroy Ce-Ce in our bake off."
+cycletext "Ich frage mich ob Mutter sich jemals einen Tag frei nimmt.", "I wonder if mum'll ever take a day off."

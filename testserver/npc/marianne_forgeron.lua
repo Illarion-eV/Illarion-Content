@@ -16,9 +16,12 @@ VALUES (1, 382, 249, 0, 4, 'Marianne Forgeron', 'npc.marianne_forgeron', 1, 7, 0
 
 require("npc.base.basic")
 require("npc.base.condition.chance")
+require("npc.base.condition.item")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.consequence.gemcraft")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.talk")
 require("npc.base.trade")
 module("npc.marianne_forgeron", package.seeall)
@@ -171,18 +174,18 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gem");
 talkEntry:addTrigger("smithing");
+talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkEntry:addResponse("Did I hear ya say work?");
 talkEntry:addResponse("Let's start!");
-talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Edelstein");
 talkEntry:addTrigger("Schmieden");
+talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkEntry:addResponse("Dann woll'n wir ma!");
 talkEntry:addResponse("Auf ans Werk!");
-talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -215,6 +218,36 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Ich hab nichts für dich zu tun.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 0, {["nameDe"] = "Echt großer Fisch"}));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Zassaria");
+talkEntry:addTrigger("lizzard");
+talkEntry:addTrigger("fish");
+talkEntry:addTrigger("trout");
+talkEntry:addTrigger("salmon");
+talkEntry:addTrigger("riverbank");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 11));
+talkEntry:addResponse("Unbelivable! This tout is as large as a slamon! Please, tell Miss Riverbank I'm soory, I called her a liar.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 0, {["nameDe"] = "Echt großer Fisch"}));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Zassaria");
+talkEntry:addTrigger("lizzard");
+talkEntry:addTrigger("fisch");
+talkEntry:addTrigger("Forelle");
+talkEntry:addTrigger("Lachs");
+talkEntry:addTrigger("riverbank");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 11));
+talkEntry:addResponse("Nee, datt glaub' ich nich'. Der Fisch is' ja tatsächlich riesig. Bitte sagt der Dame Riverbank, es tut mir leid, datt ich sie 'nen Lügner nannte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

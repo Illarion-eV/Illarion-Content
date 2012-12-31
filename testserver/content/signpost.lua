@@ -33,7 +33,7 @@ function InitWegweiser()
     AddWeg({50,640,0},"Fabers Wache","Faber's Guardhouse",6,0); -- <Name hier> Zerstˆrter Auﬂenposten -- <name here> ruin of a outpost
     AddWeg({110,659,0},"Kap des Abschieds; Fabers Wache","Cape Farewell; Faber's Guardhouse",6,0);
 	AddWeg({112,659,0},"Grundstein der Aufrichtigkeit; MalachÌntempel; Rosaline-Kubus; Hafen","Cornerstone of Candour; Temple of MalachÌn; Rosaline Cube; Harbour",4,0);
-	AddWeg({114,659,0},"Katanbi Desert; Freiheitsbruch; Arena; Gladiatoren; Sklavenmarkt; Galmair; Runewick","Katanbi Desert; Liberty Quarry; Arena; Gladiatoren; Slave Market; Galmair; Runewick",2,0);
+	AddWeg({114,659,0},"Katanbi Desert; Freiheitsbruch; Arena; Gladiatoren; Sklavenmarkt; Galmair; Runewick","Katanbi Desert; Liberty Quarry; Arena; Gladiatorium; Slave Market; Galmair; Runewick",2,0);
 	AddWeg({87,642,0},"Cadomyr","Cadomyr",0,0);
     AddWeg({137,633,0},"Cadomyr","Cadomyr",0,0);
     AddWeg({126,611,0},"Marktplatz","Marketplace",0,0);
@@ -43,7 +43,7 @@ function InitWegweiser()
     AddWeg({123,568,0},"Palast Ihrer Majest‰t","Palace of Her Majesty",0,0);
     AddWeg({120,568,0},"Palast Ihrer Majest‰t","Palace of Her Majesty",0,0);
     AddWeg({129,563,0},"Zhambratempel","Temple of Zhambra",2,0);
-    AddWeg({129,699,0},"Grundstein der Aufrichtigkeit; dar¸ber Malachintempel","Cornerstone of Candour; Tempel of Malachin is above",2,0);  --<coal mine>
+    AddWeg({129,699,0},"Grundstein der Aufrichtigkeit; dar¸ber Malachintempel","Cornerstone of Candour; Temple of Malachin is above",2,0);  --<coal mine>
     AddWeg({176,612,0},"Freiheitsbruch","Liberty Quarry",6,0); --<copper/gold/iron mine>
     AddWeg({174,635,0},"Freiheitsbruch","Liberty Quarry",0,0); --<copper/gold/iron mine>
 	AddWeg({209,552,0},"Grugmutzs Hˆhle","Grugmutz's cave",6,0); -- <Name hier> Ogerversteck -- <name here> ogre hideout
@@ -130,12 +130,12 @@ function InitWegweiser()
     AddWeg({887,639,0},"Runewick","Runewick",4,0);
     AddWeg({725,559,0},"Gasthof zur Hanfschlinge; Cadomyr; Galmair","The Hemp Necktie Inn; Cadomyr; Galmair",0,0);
     AddWeg({725,559,0},"Gasthof zur Hanfschlinge; Cadomyr; Galmair - Achtung! Diebe!","The Hemp Necktie Inn; Cadomyr; Galmair - Attention! Thieves!",2,0);
-    AddWeg({758,669,0},"Drachenbau! Achtung heiﬂ!","Dragon Lair! Dangerous heat!",0,0);
-    AddWeg({755,669,0},"Drachenbau! Achtung heiﬂ!","Dragon Lair! Dangerous heat!",0,0);
-    AddWeg({749,669,0},"Drachenbau! Achtung heiﬂ!","Dragon Lair! Dangerous heat!",0,0);
-    AddWeg({746,669,0},"Drachenbau! Achtung heiﬂ!","Dragon Lair! Dangerous heat!",0,0);
-    AddWeg({743,669,0},"Drachenbau! Achtung heiﬂ!","Dragon Lair! Dangerous heat!",0,0);
-    AddWeg({760,632,0},"Drachenbau! Achtung heiﬂ!","Dragon Lair! Dangerous heat!",2,0);
+    AddWeg({758,669,0},"Drachenbau! Achtung heiﬂ!","Dragon Lair! Caution hot!",0,0);
+    AddWeg({755,669,0},"Drachenbau! Achtung heiﬂ!","Dragon Lair! Caution hot!",0,0);
+    AddWeg({749,669,0},"Drachenbau! Achtung heiﬂ!","Dragon Lair! Caution hot!",0,0);
+    AddWeg({746,669,0},"Drachenbau! Achtung heiﬂ!","Dragon Lair! Caution hot!",0,0);
+    AddWeg({743,669,0},"Drachenbau! Achtung heiﬂ!","Dragon Lair! Caution hot!",0,0);
+    AddWeg({760,632,0},"Drachenbau! Achtung heiﬂ!","Dragon Lair! Caution hot!",2,0);
     AddWeg({790,687,0},"Runewick - Viel Gl¸ck!","Runewick - Good luck!",4,0);
     AddWeg({789,681,0},"Schlechte Wahl!","Bad choice!",6,0);
     AddWeg({790,681,0},"Sehr schlechte Wahl!","Very bad choice!",2,0);
