@@ -112,6 +112,9 @@ function onAttack(Attacker, Defender)
         -- Play the parry sound
         PlayParrySound(Attacker, Defender);
         
+        -- Play Parry Animation
+        Defender.Char:performAnimation(9);
+        
         -- Place some ammo on the ground in case ammo was used
         DropAmmo(Attacker, Defender.Char, true);
         return;
@@ -735,7 +738,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
         if not GroundOnly and (Defender:getType() == 1) then -- monsters get 
             -- the ammo into the inventory
             Defender:createItem(AmmoItem.id, 1, AmmoItem.quality,
-                {["ammoData"] = AmmoItem:getData("ammoData")});
+                AmmoItem:getData("ammoData"));
         else
             if world:isItemOnField(Defender.pos) then
                 local oldItem = world:getItemOnField(Defender.pos);
@@ -751,8 +754,9 @@ function DropAmmo(Attacker, Defender, GroundOnly)
                     return;
                 end;
             end;
+			local dataValue = AmmoItem:getData("ammoData");
             world:createItemFromId(AmmoItem.id, 1, dropPos, true,
-            AmmoItem.quality, {["ammoData"] = AmmoItem:getData("ammoData")});
+            AmmoItem.quality, {ammoData = dataValue});
         end;
     end;
 end;
@@ -1200,6 +1204,7 @@ end;
 function ShowEffects(Attacker, Defender, Globals)
     if (Globals.Damage > 0) then
         world:gfx(13, Defender.Char.pos); -- Blood effect, remove maybe?
+        Defender.Char:performAnimation(10); -- Hit animation
         if Globals.criticalHit then
             InformAboutCritical(Attacker.Char, Defender.Char, Globals.HittedArea);
             --[[ Wounds Script - Disabled for now
