@@ -180,7 +180,7 @@ function InitPotions()
 	setPotion(540, 449, 53415955, 766, 161, 764, false, false, false, false, false)
 	potionName[541] = {"Shape Shifter Female Orc","Verwandler Weiblicher Ork"}
 	setPotion(541, 449, 53415955, 766, 162, 764, false, false, false, false, false)
-	potionName[550] = {"Shape Shifter Male Lizardman","Verwandler Männlicher Lizardman"}
+	potionName[550] = {"Shape Shifter Male Lizardman","Verwandler Männlicher Echsenmensch"}
 	setPotion(550, 449, 53415955, 766, 161, 761, false, false, false, false, false)
 	potionName[551] = {"Shape Shifter Female Echsenmensch","Verwandler Weiblicher Echsenmensch"}
 	setPotion(551, 449, 53415955, 766, 162, 761, false, false, false, false, false)
@@ -644,7 +644,6 @@ end
 -- combine of stock and essence brew to create a potion
 -- function is only called when item 331 is a stock or when a potion-bottle is an essence brew
 function CombineStockEssence( User, stock, essenceBrew)
-   User:inform(""..essenceBrew.id)
    if essenceBrew == nil then
         User:inform("is nil")
 	end	
@@ -654,13 +653,10 @@ function CombineStockEssence( User, stock, essenceBrew)
 		-- we get the gem dust used as an ingredient; and the new cauldron id we need later
 		local reGem, ingredientGemdust, newCauldron, reBottle
 		if cauldron:getData("filledWith") == "essenceBrew" then
-		    User:inform("herere")
-			reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew, nil)
+		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew, nil)
 		else
-		User:inform("herere 2")
-		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, essenceBrew)
+			reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, essenceBrew)
 		end
-		User:inform(""..newCauldron)
 		-- create our ingredients list
 		local myIngredients = {}
 		-- firstly, the gem dust which has been used (indirectly, that is the potion kind)
