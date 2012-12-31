@@ -736,8 +736,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
         end;
     
         if not GroundOnly and (Defender:getType() == 1) then -- monsters get the ammo into the inventory
-            Defender:createItem(AmmoItem.id, 1, AmmoItem.quality,
-                nil);
+            Defender:createItem(AmmoItem.id, 1, AmmoItem.quality, nil);
         else
             if world:isItemOnField(Defender.pos) then
                 local oldItem = world:getItemOnField(Defender.pos);
@@ -754,8 +753,7 @@ function DropAmmo(Attacker, Defender, GroundOnly)
                 end;
             end;
 
-            tmpItem = world:createItemFromId(AmmoItem.id, 1, dropPos, true,
-            nil);
+            tmpItem = world:createItemFromId(AmmoItem.id, 1, dropPos, true, AmmoItem.quality, nil);
 			tmpItem:setData("ammoData",AmmoItem:getData("ammoData"));
         end;
     end;
