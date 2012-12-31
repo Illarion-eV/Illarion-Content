@@ -46,8 +46,7 @@ function CharacterOnField( User )
     end
 
     local SourceItem = world:getItemOnField( User.pos );
-	local destString
-	local destCoordX; local destCoordY; local destCoordZ
+	local destCoordX, destCoordY, destCoordZ
 	local des
 	local destFround = false
 
