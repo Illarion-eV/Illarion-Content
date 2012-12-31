@@ -134,7 +134,7 @@ function tradeNPC:sellItemToPlayer(npcChar, player, itemIndex, amount)
         base.money.TakeMoneyFromChar(player, item._price * amount);
         local notCreated = player:createItem(item._itemId, amount, item._quality, item._data);
         if (notCreated > 0) then
-            world:createItemFromId(item._itemId, amount, player.pos, true, item._quality, item._data);
+            world:createItemFromId(item._itemId, notCreated, player.pos, true, item._quality, item._data);
         end;
     elseif (self._notEnoughMoneyMsg:hasMessages()) then
         local msgGerman, msgEnglish = self._notEnoughMoneyMsg:getRandomMessage();
