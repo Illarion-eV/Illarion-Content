@@ -5,7 +5,7 @@
 -- NPC Race: human                      NPC Position:  404, 263, 1            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
--- Author:  Miriam+Ardian                                                           --
+-- Author:   Ardian                                                           --
 --                                                       easyNPC Parser v1.21 --
 --------------------------------------------------------------------------------
 
@@ -72,97 +72,98 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin with you.", "Farew
 
 -- Becoming citizen in Galmair
 english, town = Cadomyr, "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
-town = Cadomyr, "Bürger werden","Bürgerschaft beantragen" -> town =  Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
-english, town = Runewick, "become citizen", "gain citizenship" -> town =  Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
-town = Runewick, "Bürger werden","Bürgerschaft beantragen" -> town =  Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
-town = none, english, "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
-town = none, "Bürger werden","Bürgerschaft beantragen" -> town =  Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
+town = Cadomyr, "Bürger werden", "Bürgerschaft beantragen" -> town = Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
+english, town = Runewick, "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
+town = Runewick, "Bürger werden", "Bürgerschaft beantragen" -> town = Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
+english, town = None, "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
+town = None, "Bürger werden", "Bürgerschaft beantragen" -> town = Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
 english, "become citizen", "gain citizenship" -> town = Galmair, "You are now a citizen of Galmair!", "Welcome to Galmair!"
 "Bürger werden", "Bürgerschaft beantragen" -> town = Galmair, "Ihr seid jetzt Bürger von Galmair!", "Willkommen in Galmair!"
 
 -- Player is already citizen
-english, town = Galmair, "become citizen", "gain citizenship" -> town =  Galmair, "You are already a citizen of Galmair!",
-town = Galmair, "Bürger werden", "Bürgerschaft beantragen" -> town =  Galmair, "Ihr seid bereits Bürger von Galmair!"
+english, town = Galmair, "become citizen", "gain citizenship" -> town = Galmair, "You are already a citizen of Galmair!"
+town = Galmair, "Bürger werden", "Bürgerschaft beantragen" -> town = Galmair, "Ihr seid bereits Bürger von Galmair!"
 
 -- terminating citizenship, leaving Galmair (208)
-town = Galmair, english, "give up citizenship", "terminating citizen ship", "leave", "leaving" ->  "Oh, you no longer want to be citizen in Galmair?", queststatus (208) = 1
-town = Galmair, "beende Bürgerstatus", "verlassen", "verlasse", "annuliere" -> "Oh, Ihr wollt kein Büger in Galmair mehr sein?",  queststatus (208) = 1
+english, town = Galmair, "give up citizenship", "terminating citizen ship", "leave", "leaving" -> queststatus(208) = 1, "Oh, you no longer want to be citizen in Galmair?"
+town = Galmair, "beende Bürgerstatus", "verlassen", "verlasse", "annuliere" -> queststatus(208) = 1, "Oh, Ihr wollt kein Büger in Galmair mehr sein?"
 
 -- answer yes
-english, queststatus (208) = 1, "yes" -> "You are no longer citizen of Galmair. Go elsewhere.", queststatus (208) = 1, town = none
-queststatus (208) = 1, "ja" ->  "Ihr seid nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders.", queststatus (208) = 1, town = none
+queststatus(208) = 1, english, "yes" -> queststatus(208) = 1, town = None, "You are no longer citizen of Galmair. Go elsewhere."
+queststatus(208) = 1, "ja" -> queststatus(208) = 1, town = None, "Ihr seid nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders."
 
---answer no
-english, queststatus (208)=1, ".*" -> "Mhm... The Don will be pleased to hear that.", queststatus (208) = 0
-queststatus (208)=1, ".*" -> "Mhm, ... Der Don wird sich freuen, dies zu hören.", queststatus (208) = 0
+-- answer no
+queststatus(208) = 1, english, ".*" -> queststatus(208) = 0, "Mhm... The Don will be pleased to hear that."
+queststatus(208) = 1, ".*" -> queststatus(208) = 0, "Mhm, ... Der Don wird sich freuen, dies zu hören."
+
 -- Test Question
 "welche Stadt", "welche faktion" -> "Du gehöerst nach %TOWN!"
-"wich town", "wich faction" -> "You belong to %TOWN!"
+"which town", "which faction" -> "You belong to %TOWN!"
 
 -- RANK informations
 
 -- Rank 10
-town = Galmair,english, male, rank > 9, "rank" -> "Tycoon %CHARNAME, be welcome. Is is truly a honour to see you!"
-town = Galmair,english, female, rank > 9, "rank" -> "Tyconn %CHARNAME, be welcome. Is is truly a honour to see you.!"
-town = Galmair,male, rank > 9, "rang" -> " Tycoon %CHARNAME! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
-town = Galmair,female, rank > 9, "rang" -> "Baronin %! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
+rank > 9, english, town = Galmair, sex = male, "rank" -> "Tycoon %CHARNAME, be welcome. Is is truly a honour to see you!"
+rank > 9, english, town = Galmair, sex = female, "rank" -> "Tycoon %CHARNAME, be welcome. Is is truly a honour to see you.!"
+rank > 9, town = Galmair, sex = male, "rang" -> " Tycoon %CHARNAME! Seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
+rank > 9, town = Galmair, sex = female, "rang" -> "Tycoon %CHARNAME! Seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
 
---Rank 9
-town = Galmair,english, male, rank > 8, "rank" -> "Magnate, be welcome. Is is a honour to see you."
-town = Galmair,english, female, rank > 8, "rank" -> "Magnate, be welcome. Is is a honour to see you."
-town = Galmair,male, rank > 8, "rang" -> "Magnat, seid willkommen. Welch eine Ehre Euch zu sehen."
-town = Galmair,female, rank > 8, "rang" -> "Magnatin, seid wilokmmen.Welch eine Ehre Euch zu sehen."
+-- Rank 9
+rank > 8, english, town = Galmair, sex = male, "rank" -> "Magnate, be welcome. Is is a honour to see you."
+rank > 8, english, town = Galmair, sex = female, "rank" -> "Magnate, be welcome. Is is a honour to see you."
+rank > 8, town = Galmair, sex = male, "rang" -> "Magnat, seid willkommen. Welch eine Ehre Euch zu sehen."
+rank > 8, town = Galmair, sex = female, "rang" -> "Magnatin, seid wilokmmen.Welch eine Ehre Euch zu sehen."
 
---Rank 8
-town = Galmair,english, male, rank > 7,"rank" -> "Mogul %CHARNAME! How can I help you?"
-town = Galmair,english, female, rank > 7, "rank" -> "Mogul %CHARNAME! How can I help you?"
-town = Galmair,male, rank > 7,"rang" -> "Mogul %CHARNAME! Was kann ich für Euch tun?"
-town = Galmair,female, rank > 7, "rang" -> "Mogulin %CHARNAME! Was kann ich für Euch tun?"
+-- Rank 8
+rank > 7, english, town = Galmair, sex = male, "rank" -> "Mogul %CHARNAME! How can I help you?"
+rank > 7, english, town = Galmair, sex = female, "rank" -> "Mogul %CHARNAME! How can I help you?"
+rank > 7, town = Galmair, sex = male, "rang" -> "Mogul %CHARNAME! Was kann ich für Euch tun?"
+rank > 7, town = Galmair, sex = female, "rang" -> "Mogulin %CHARNAME! Was kann ich für Euch tun?"
 
---Rank 7
-town = Galmair,english, male, rank > 6,"rank" ->  "Greetings to you, Patrician %CHARNAME!"
-town = Galmair,english, female, rank > 6, "rank" ->  "Greetings to you, Patrician %CHARNAME!"
-town = Galmair,male, rank > 6,"rang" -> "Seid gegrüßt, Patrizier %CHARNAME!"
-town = Galmair,female, rank > 6, "rang" -> "Seid gegrüßt, Patrizierin %CHARNAME!"
+-- Rank 7
+rank > 6, english, town = Galmair, sex = male, "rank" -> "Greetings to you, patrician %CHARNAME!"
+rank > 6, english, town = Galmair, sex = female, "rank" -> "Greetings to you, patrician %CHARNAME!"
+rank > 6, town = Galmair, sex = male, "rang" -> "Seid gegrüßt, Patrizier %CHARNAME!"
+rank > 6, town = Galmair, sex = female, "rang" -> "Seid gegrüßt, Patrizierin %CHARNAME!"
 
---Rank 6
-town = Galmair,english, male, rank > 5,"rank" -> "Greetings to you, Financier %CHARNAME!"
-town = Galmair,english, female, rank > 5, "rank" -> "Greetings to you, Financier %CHARNAME!"
-town = Galmair,male, rank > 5,"rang" -> "Seid gegrüßt, Finanzier %CHARNAME!"
-town = Galmair,female, rank > 5, "rang" ->"Seid gegrüßt, Finanzier %CHARNAME!"
+-- Rank 6
+rank > 5, english, town = Galmair, sex = male, "rank" -> "Greetings to you, financier %CHARNAME!"
+rank > 5, english, town = Galmair, sex = female, "rank" -> "Greetings to you, financier %CHARNAME!"
+rank > 5, town = Galmair, sex = male, "rang" -> "Seid gegrüßt, Finanzier %CHARNAME!"
+rank > 5, town = Galmair, sex = female, "rang" -> "Seid gegrüßt, Finanzier %CHARNAME!"
 
 -- Rank 5
-town = Galmair,english, male, rank > 4,"rank" -> "Greetings to you, Merchant!"
-town = Galmair,english, female, rank > 4, "rank" -> "Greetings to you, Merchant!"
-town = Galmair,male, rank > 4,"rang" -> "Kaufmann, seid gegrüßt!"
-town = Galmair,female, rank > 4, "rang" -> "Kauffrau, seid gegrüßt!"
+rank > 4, english, town = Galmair, sex = male, "rank" -> "Greetings to you, merchant!"
+rank > 4, english, town = Galmair, sex = female, "rank" -> "Greetings to you, merchant!"
+rank > 4, town = Galmair, sex = male, "rang" -> "Kaufmann, seid gegrüßt!"
+rank > 4, town = Galmair, sex = female, "rang" -> "Kauffrau, seid gegrüßt!"
 
 -- Rank 4
-town = Galmair,english, male, rank > 3,"rank" ->  "Grocer is whast I'd call you folks like you!"
-town = Galmair,english, female, rank > 3, "rank" ->  "Grocer is whast I'd call you folks like you!"
-town = Galmair,male, rank > 3,"rang" -> "Leute wie dich würde ich Krämer nennen!"
-town = Galmair,female, rank > 3, "rang" -> "Leute wie dich würde ich Krämer nennen!"
+rank > 3, english, town = Galmair, sex = male, "rank" -> "Grocer is what I'd call folks like you!"
+rank > 3, english, town = Galmair, sex = female, "rank" -> "Grocer is what I'd call folks like you!"
+rank > 3, town = Galmair, sex = male, "rang" -> "Leute wie dich würde ich Krämer nennen!"
+rank > 3, town = Galmair, sex = female, "rang" -> "Leute wie dich würde ich Krämerin nennen!"
 
 -- Rank 3
-town = Galmair,english, male, rank > 2,"rank" ->"What do you want, Pedlar?"
-town = Galmair,english, female, rank > 2, "rank" -> "What do you want, Pedlar?"
-town = Galmair,male, rank > 2,"rang" -> "Hausierer, was gibt’s?"
-town = Galmair,female, rank > 2, "rang" ->"Hausierer, was gibt’s?"
+rank > 2, english, town = Galmair, sex = male, "rank" -> "What do you want, pedlar?"
+rank > 2, english, town = Galmair, sex = female, "rank" -> "What do you want, pedlar?"
+rank > 2, town = Galmair, sex = male, "rang" -> "Hausierer, was gibt’s?"
+rank > 2, town = Galmair, sex = female, "rang" -> "Hausiererin, was gibt’s?"
 
 -- Rank 2
-town = Galmair,english, male, rank > 1, "rank" -> "You are just an assistant. Got it?"
-town = Galmair,english, female, rank > 1, "rank" -> "You are just a assistant. Got it?"
-town = Galmair, male, rank > 1, "rang" ->  "Du bist bloss ein Gehilfe. Kapiert?"
-town = Galmair, female, rank > 1, "rang" -> "Du bist bloss eine Gehilfin. Kapiert?"
+rank > 1, english, town = Galmair, sex = male, "rank" -> "You are just an assistant. Got it?"
+rank > 1, english, town = Galmair, sex = female, "rank" -> "You are just a assistant. Got it?"
+rank > 1, town = Galmair, sex = male, "rang" -> "Du bist bloß ein Gehilfe. Kapiert?"
+rank > 1, town = Galmair, sex = female, "rang" -> "Du bist bloß eine Gehilfin. Kapiert?"
 
---Rank 1
-town = Galmair, english, male, rank > 0, "rank" -> "You are new here. You are not well known. Make an effort and become rich, Tramp!"
-town = Galmair, english, female, rank > 0, "rank" -> "You are new here. You are not well known. Make an effort and become rich, Tramp!"
-town = Galmair, male, rank > 0, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und werde reich, du Rumtreiber!"
-town = Galmair, female, rank > 0, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und werde reich Rumtreiber!"
+-- Rank 1
+rank > 0, english, town = Galmair, sex = male, "rank" -> "You are new here. You are not well known. Make an effort and become rich, tramp!"
+rank > 0, english, town = Galmair, sex = female, "rank" -> "You are new here. You are not well known. Make an effort and become rich, tramp!"
+rank > 0, town = Galmair, sex = male, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und werde reich, du Rumtreiber!"
+rank > 0, town = Galmair, sex = female, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Streng dich mehr an und werde reich Rumtreiber!"
 
 -- Catching quest triggers. Modify if the NPC does quests.
-english, "quest", "mission" -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."
+english, "quest", "mission" -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I already have everything I need."
 "quest", "mission" -> "Derzeit habe ich alles, aber danke für eure Sorge.", "Vielleicht ein anderes mal, derzeit habe ich alles was ich brauche."
 "task", "adventure", "order" -> "I have no tasks for you right now, maybe another time."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe derzeit keine Aufgaben für Euch, vielleicht aber wann anders."
@@ -174,7 +175,7 @@ english, "job" -> "I am the notary of Galmair and do all the stuff a notary does
 "job" -> "Ich bin der Notar Galmairs und tu all das was ein Notar so tut.", "Ich kümmere mich um die Neuankömmlinge in Galmair, ich bin hier der Notar."
 english, "Gobaith", "Gobiath" -> "Never heard of that. Is it something to eat?"
 "Gobaith", "Gobiath" -> "Nie davon gehört. Ist es etwas zu Essen?"
-"my name" -> "I'm pleasured to meet you."
+"my name" -> "It's a pleasure to meet you."
 "mein Name" -> "Ich freu mich Euch kennenzulernen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
@@ -202,49 +203,49 @@ english, "Cadomyr" -> "I won't comment on that."
 "Cadomyr" -> "Dazu sage ich jetzt nichts."
 
 -- Main land factions
-english, "albar" -> "I head this is place far away, right?"
+english, "albar" -> "I heard this is a place far away, right?"
 "albar" -> "Der Ort soll recht weit weg sein."
-english, "gynk", "gync" -> "I head this is place far away, right?"
+english, "gynk", "gync" -> "I heard this is a place far away, right?"
 "gync", "gynk" -> "Der Ort soll recht weit weg sein."
-english, "salkama" -> "I head this is place far away, right?"
+english, "salkama" -> "I heard this is a place far away, right?"
 "salkama" -> "Der Ort soll recht weit weg sein."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
-"Gott", "Götter" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
-english, "Adron" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
-"Adron" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
-english, "Bragon", "Brágon" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
-"Bragon", "Brágon" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+"god" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Gott", "Götter" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
+english, "Adron" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Adron" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
+english, "Bragon", "Brágon" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Bragon", "Brágon" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
 english, "Cherga" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
-"Cherga" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
-english, "Elara" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
-"Elara" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
-english, "Eldan" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
-"Eldan" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
-english, "Findari" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
-"Findari" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
-english, "Irmorom" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
-"Irmorom" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
-english, "Moshran" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
-"Moshran" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
-english, "Nargun", "Nargún", "Nargùn" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
-"Nargun", "Nargún", "Nargùn" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
-english, "Oldra" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
-"Oldra" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
-english, "Ronagan" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
-"Ronagan" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
-english, "Sirani" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
-"Sirani" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
-english, "Tanora", "Zelphia" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods.I'm just a noraty."
-"Tanora", "Zelphia" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+"Cherga" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
+english, "Elara" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Elara" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
+english, "Eldan" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Eldan" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
+english, "Findari" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Findari" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
+english, "Irmorom" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Irmorom" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
+english, "Moshran" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Moshran" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
+english, "Nargun", "Nargún", "Nargùn" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Nargun", "Nargún", "Nargùn" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
+english, "Oldra" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Oldra" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
+english, "Ronagan" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Ronagan" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
+english, "Sirani" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Sirani" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
+english, "Tanora", "Zelphia" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
+"Tanora", "Zelphia" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
 english, "Ushara" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
-"Ushara" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+"Ushara" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
 english, "Zhambra" -> "There are 16 gods. Five created Illarion. One god is evil.", "Ask a priest if you want to know more about the gods. I'm just a noraty."
-"Zhambra" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar."
+"Zhambra" -> "Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.", "Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I am not trader. But if you give me money, you can become citizen of Galmair."
+"what sell", "what buy", "list wares", "price of" -> trade, "I am not ar. But if you give me money, you can become a citizen of Galmair."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin kein Händler. Wenn du mir Geld gibst, kannst du Bürger von Galmair werden."
 "tell something" -> "Everyone should become a citizen of Galmair. That way I can make lots of money!"
 "erzähl was", "erzähl etwas" -> "Jeder sollte Bürger Glamairs werden, so kann ich viel Geld verdienen!"
@@ -269,11 +270,11 @@ german, chance(20.0), ".*" -> "...bitte?", "Mhm....", "#me schaut sich um."
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me schüttelt den Kopf während er einen Brief liest", "#me shakes his head while reading a letter."
-cycletext "#me zählt einige Münzen.", "#me counts some coints."
+cycletext "#me zählt einige Münzen.", "#me counts some coins."
 cycletext "#me starrt vor sich hin.", "#me stares into thin air."
 cycletext "#me schreibt einen Brief.", " #me writes a letter."
-cycletext "#me grummelt:'Arbeit, nichts ale Arbeit!'", "#me mubles: 'Work, nothing but work.'"
+cycletext "#me grummelt: 'Arbeit, nichts ale Arbeit!'", "#me mubles: 'Work, nothing but work.'"
 cycletext "Werdet Bürger von Galmair! Macht mich reich!...äh ich meine, werdet reich in Galmair!", "Become a citzen of Galmair! Make me rich...ehm, I mean become rich in Galmair."
-cycletext "#me niest.", "#me snoozes."
+cycletext "#me niest.", "#me sneezes."
 cycletext "#me kratzt sich am Kopf.", "#me scratches his head."
 cycletext "#me putzt seine Nase.", "#me blows his nose."

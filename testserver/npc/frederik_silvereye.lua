@@ -24,6 +24,7 @@ require("npc.base.condition.town")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.town")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.frederik_silvereye", package.seeall)
 
@@ -190,9 +191,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkEntry:addResponse("You are now a citizen of Galmair!");
 talkEntry:addResponse("Welcome to Galmair!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -200,9 +201,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkEntry:addResponse("Ihr seid jetzt Bürger von Galmair!");
 talkEntry:addResponse("Willkommen in Galmair!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -211,9 +212,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkEntry:addResponse("You are now a citizen of Galmair!");
 talkEntry:addResponse("Welcome to Galmair!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -221,9 +222,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkEntry:addResponse("Ihr seid jetzt Bürger von Galmair!");
 talkEntry:addResponse("Willkommen in Galmair!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -232,9 +233,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkEntry:addResponse("You are now a citizen of Galmair!");
 talkEntry:addResponse("Welcome to Galmair!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -242,9 +243,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(0));
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkEntry:addResponse("Ihr seid jetzt Bürger von Galmair!");
 talkEntry:addResponse("Willkommen in Galmair!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -252,18 +253,18 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkEntry:addResponse("You are now a citizen of Galmair!");
 talkEntry:addResponse("Welcome to Galmair!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkEntry:addResponse("Ihr seid jetzt Bürger von Galmair!");
 talkEntry:addResponse("Willkommen in Galmair!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -272,8 +273,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("become citizen");
 talkEntry:addTrigger("gain citizenship");
+talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkEntry:addResponse("You are already a citizen of Galmair!");
-talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -281,8 +282,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("Bürger werden");
 talkEntry:addTrigger("Bürgerschaft beantragen");
-talkEntry:addResponse("Ihr seid bereits Bürger von Galmair!");
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "3"));
+talkEntry:addResponse("Ihr seid bereits Bürger von Galmair!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -293,8 +294,8 @@ talkEntry:addTrigger("give up citizenship");
 talkEntry:addTrigger("terminating citizen ship");
 talkEntry:addTrigger("leave");
 talkEntry:addTrigger("leaving");
-talkEntry:addResponse("Oh, you no longer want to be citizen in Galmair?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 1));
+talkEntry:addResponse("Oh, you no longer want to be citizen in Galmair?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -304,8 +305,8 @@ talkEntry:addTrigger("beende Bürgerstatus");
 talkEntry:addTrigger("verlassen");
 talkEntry:addTrigger("verlasse");
 talkEntry:addTrigger("annuliere");
-talkEntry:addResponse("Oh, Ihr wollt kein Büger in Galmair mehr sein?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 1));
+talkEntry:addResponse("Oh, Ihr wollt kein Büger in Galmair mehr sein?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -313,18 +314,18 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(208, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("yes");
-talkEntry:addResponse("You are no longer citizen of Galmair. Go elsewhere.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "0"));
+talkEntry:addResponse("You are no longer citizen of Galmair. Go elsewhere.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(208, "=", 1));
 talkEntry:addTrigger("ja");
-talkEntry:addResponse("Ihr seid nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.town.town("=", "0"));
+talkEntry:addResponse("Ihr seid nun kein Bürger Galmairs mehr. Sucht Euer Glück woanders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -332,16 +333,16 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(208, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Mhm... The Don will be pleased to hear that.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 0));
+talkEntry:addResponse("Mhm... The Don will be pleased to hear that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(208, "=", 1));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Mhm, ... Der Don wird sich freuen, dies zu hören.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(208, "=", 0));
+talkEntry:addResponse("Mhm, ... Der Don wird sich freuen, dies zu hören.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -353,8 +354,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("wich town");
-talkEntry:addTrigger("wich faction");
+talkEntry:addTrigger("which town");
+talkEntry:addTrigger("which faction");
 talkEntry:addResponse("You belong to %TOWN!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -375,7 +376,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Tyconn %CHARNAME, be welcome. Is is truly a honour to see you.!");
+talkEntry:addResponse("Tycoon %CHARNAME, be welcome. Is is truly a honour to see you.!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -384,7 +385,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 9));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse(" Tycoon %CHARNAME! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen.");
+talkEntry:addResponse(" Tycoon %CHARNAME! Seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -393,7 +394,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 9));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Baronin %! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen.");
+talkEntry:addResponse("Tycoon %CHARNAME! Seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -479,7 +480,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Patrician %CHARNAME!");
+talkEntry:addResponse("Greetings to you, patrician %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -489,7 +490,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Patrician %CHARNAME!");
+talkEntry:addResponse("Greetings to you, patrician %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -517,7 +518,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Financier %CHARNAME!");
+talkEntry:addResponse("Greetings to you, financier %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -527,7 +528,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Financier %CHARNAME!");
+talkEntry:addResponse("Greetings to you, financier %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -555,7 +556,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Merchant!");
+talkEntry:addResponse("Greetings to you, merchant!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -565,7 +566,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Greetings to you, Merchant!");
+talkEntry:addResponse("Greetings to you, merchant!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -593,7 +594,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Grocer is whast I'd call you folks like you!");
+talkEntry:addResponse("Grocer is what I'd call folks like you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -603,7 +604,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("Grocer is whast I'd call you folks like you!");
+talkEntry:addResponse("Grocer is what I'd call folks like you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -621,7 +622,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 3));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Leute wie dich würde ich Krämer nennen!");
+talkEntry:addResponse("Leute wie dich würde ich Krämerin nennen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -631,7 +632,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("What do you want, Pedlar?");
+talkEntry:addResponse("What do you want, pedlar?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -641,7 +642,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("What do you want, Pedlar?");
+talkEntry:addResponse("What do you want, pedlar?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -659,7 +660,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 2));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Hausierer, was gibt?s?");
+talkEntry:addResponse("Hausiererin, was gibt?s?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -688,7 +689,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Du bist bloss ein Gehilfe. Kapiert?");
+talkEntry:addResponse("Du bist bloß ein Gehilfe. Kapiert?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -697,7 +698,7 @@ talkEntry:addCondition(npc.base.condition.rank.rank(">", 1));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rang");
-talkEntry:addResponse("Du bist bloss eine Gehilfin. Kapiert?");
+talkEntry:addResponse("Du bist bloß eine Gehilfin. Kapiert?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -707,7 +708,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(0));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("You are new here. You are not well known. Make an effort and become rich, Tramp!");
+talkEntry:addResponse("You are new here. You are not well known. Make an effort and become rich, tramp!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -717,7 +718,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addCondition(npc.base.condition.sex.sex(1));
 talkEntry:addTrigger("rank");
-talkEntry:addResponse("You are new here. You are not well known. Make an effort and become rich, Tramp!");
+talkEntry:addResponse("You are new here. You are not well known. Make an effort and become rich, tramp!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -744,7 +745,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("At the moment I have everything, but thanks for asking.");
-talkEntry:addResponse("Maybe another time, I have already everything I need.");
+talkEntry:addResponse("Maybe another time, I already have everything I need.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -819,7 +820,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("I'm pleasured to meet you.");
+talkEntry:addResponse("It's a pleasure to meet you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -976,7 +977,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("I head this is place far away, right?");
+talkEntry:addResponse("I heard this is a place far away, right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -990,7 +991,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("I head this is place far away, right?");
+talkEntry:addResponse("I heard this is a place far away, right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1004,7 +1005,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("I head this is place far away, right?");
+talkEntry:addResponse("I heard this is a place far away, right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1017,7 +1018,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1025,7 +1026,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gott");
 talkEntry:addTrigger("Götter");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1033,14 +1034,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Adron");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1049,7 +1050,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1057,7 +1058,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1072,7 +1073,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cherga");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1080,14 +1081,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elara");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1095,14 +1096,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eldan");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1110,14 +1111,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Findari");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1125,14 +1126,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1140,14 +1141,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1157,7 +1158,7 @@ talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1166,7 +1167,7 @@ talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1174,14 +1175,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1189,14 +1190,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ronagan");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1204,14 +1205,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sirani");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1220,7 +1221,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addResponse("There are 16 gods. Five created Illarion. One god is evil.");
-talkEntry:addResponse("Ask a priest if you want to know more about the gods.I'm just a noraty.");
+talkEntry:addResponse("Ask a priest if you want to know more about the gods. I'm just a noraty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1228,7 +1229,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1243,7 +1244,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ushara");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1258,7 +1259,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zhambra");
 talkEntry:addResponse("Es gibt 16 Götter. Fünf schufen Illarion. Einer ist böse.");
-talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloss ein Notar.");
+talkEntry:addResponse("Fragt einen Priester wenn Ihr mehr wissen wollt. Ich bin bloß ein Notar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1267,7 +1268,8 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I am not trader. But if you give me money, you can become citizen of Galmair.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I am not ar. But if you give me money, you can become a citizen of Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1368,12 +1370,12 @@ talkEntry:addResponse("#me schaut sich um.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schüttelt den Kopf während er einen Brief liest", "#me shakes his head while reading a letter.");
-talkingNPC:addCycleText("#me zählt einige Münzen.", "#me counts some coints.");
+talkingNPC:addCycleText("#me zählt einige Münzen.", "#me counts some coins.");
 talkingNPC:addCycleText("#me starrt vor sich hin.", "#me stares into thin air.");
 talkingNPC:addCycleText("#me schreibt einen Brief.", " #me writes a letter.");
-talkingNPC:addCycleText("#me grummelt:'Arbeit, nichts ale Arbeit!'", "#me mubles: 'Work, nothing but work.'");
+talkingNPC:addCycleText("#me grummelt: 'Arbeit, nichts ale Arbeit!'", "#me mubles: 'Work, nothing but work.'");
 talkingNPC:addCycleText("Werdet Bürger von Galmair! Macht mich reich!...äh ich meine, werdet reich in Galmair!", "Become a citzen of Galmair! Make me rich...ehm, I mean become rich in Galmair.");
-talkingNPC:addCycleText("#me niest.", "#me snoozes.");
+talkingNPC:addCycleText("#me niest.", "#me sneezes.");
 talkingNPC:addCycleText("#me kratzt sich am Kopf.", "#me scratches his head.");
 talkingNPC:addCycleText("#me putzt seine Nase.", "#me blows his nose.");
 mainNPC:addLanguage(0);
