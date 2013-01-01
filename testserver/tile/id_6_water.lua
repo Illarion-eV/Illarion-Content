@@ -53,13 +53,6 @@ function useTile(User,Position,counter,param,ltstate)
 	    return
     end
 
-    if base.common.Encumbrence(User) then -- Durch Steife Rüstung behindert
-        base.common.InformNLS( User,
-        "Deine Rüstung behindert dich beim Fischen.",
-        "Your armour disturbes you while fishing." );
-        return
-    end
-
     if not base.common.IsLookingAt( User, TargetPos ) then
         base.common.TurnTo( User, TargetPos );
     end
