@@ -95,7 +95,7 @@ function SupportStock(User,support,stock)
 	alchemy.base.alchemy.FillFromTo(stock,cauldron)
 	world:changeItem(cauldron)
 	world:gfx(1,cauldron.pos)
-    
+    alchemy.base.alchemy.EmptyBottle(User,bottle)
 end
 
 function SupportEssenceBrew(User,support,essenceBrew)
@@ -109,7 +109,7 @@ function SupportEssenceBrew(User,support,essenceBrew)
 	alchemy.base.alchemy.FillFromTo(essenceBrew,cauldron)
 	world:changeItem(cauldron)
 	world:gfx(1,cauldron.pos)
-    return cauldron -- we have to give the cauldron back to keep our changes
+    ralchemy.base.alchemy.EmptyBottle(User,bottle)
 end
 
 function SupportPotion(User,support,potion)
@@ -154,7 +154,7 @@ function SupportPotion(User,support,potion)
 	User:inform("potionQuality: "..potionQuality)
 	cauldron:setData("potionQuality",potionQuality) -- here we set the new quality, in case the quality raiser was successfull
 	world:changeItem(cauldron)
-	EmptyBottle(User,bottle)
+	alchemy.base.alchemy.EmptyBottle(User,bottle)
 end
 
 function LookAtItem(User,Item)
