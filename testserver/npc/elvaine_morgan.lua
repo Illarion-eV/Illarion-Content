@@ -21,6 +21,7 @@ require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.trade")
 require("npc.base.consequence.treasure")
 require("npc.base.talk")
 module("npc.elvaine_morgan", package.seeall)
@@ -49,9 +50,9 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("Elara may be with you. Do you have a  request?");
-talkEntry:addResponse("Be greeted. What concern leads you to me?");
-talkEntry:addResponse("Good day. Why this desire to speak to me?");
+talkEntry:addResponse("Elara may be with you. Is something urgent?");
+talkEntry:addResponse("Be greeted. What brings you here?");
+talkEntry:addResponse("Greeted be. Why do you wish to see me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -78,9 +79,9 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Elara may be with you. Do you have a  request?");
-talkEntry:addResponse("Be greeted. What concern leads you to me?");
-talkEntry:addResponse("Good day. Why this desire to speak to me?");
+talkEntry:addResponse("Elara may be with you. Is something urgent?");
+talkEntry:addResponse("Be greeted. What brings you here?");
+talkEntry:addResponse("Greeted be. Why do you wish to see me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -100,9 +101,9 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Farewell. I hope you found this conversation satisfying.");
-talkEntry:addResponse("Elara shall guard your way. May it be directed by wisdom and perspicuity");
-talkEntry:addResponse("See you soon! For sure the gods have woven our destinies together. Although it is just a thin thread.");
+talkEntry:addResponse("Farewell. I hope you found this discussion illuminating.");
+talkEntry:addResponse("Elara shall guard your path. May it be led by wisdom and reason.");
+talkEntry:addResponse("See you soon. The gods have woven our destinies together. Though it may be a thin thread.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -123,9 +124,9 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Farewell. I hope you found this conversation satisfying.");
-talkEntry:addResponse("Elara shall guard your way. May it be directed by wisdom and perspicuity");
-talkEntry:addResponse("See you soon! For sure the gods have woven our destinies together. Although it is just a thin thread.");
+talkEntry:addResponse("Farewell. I hope you found this discussion illuminating.");
+talkEntry:addResponse("Elara shall guard your path. May it be led by wisdom and reason.");
+talkEntry:addResponse("See you soon. The gods have woven our destinies together. Though it may be a thin thread.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -144,9 +145,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("All in all, your question is noble but not very important.");
-talkEntry:addResponse("I'm pleased to see you care about my welfare. Although I like to affirm, that there are only few problems a man of my abilities isn't able to handle.");
-talkEntry:addResponse("#me opens his hands in a welcoming gesture. 'Runewick is my child and I worry about it, like every parents worry about their children.'");
+talkEntry:addResponse("There are plenty of things far more important than my own grievances.");
+talkEntry:addResponse("I'm flattered that you care about my welfare, though there's very few problems that I can't solve.");
+talkEntry:addResponse("#me glances out of the window, briefly. 'Runewick is my child and I worry about it, as all parents do.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -165,9 +166,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("The tales of old speak my name, 'Elvaine Morgan', founder and lord of this town.");
-talkEntry:addResponse("Morgan... Elvaine Morgan. Archmage of the four towers - Runewick's. What do you desire to speak about?");
-talkEntry:addResponse("I'm archmage Morgan. - I hope your request is worth my time?");
+talkEntry:addResponse("The tales of old speak my name, 'Elvaine Morgan', founder and leader of this town.");
+talkEntry:addResponse("Elvaine Morgan. Archmage of the four towers. What do you wish to know?");
+talkEntry:addResponse("I'm Elvaine Morgan, the archmage of this town. Is there something you require?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -194,8 +195,8 @@ talkEntry:addTrigger("despatch");
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail V: You deliver the message from Hector Valerion to Archmage Elvaine Morgan."));
-talkEntry:addResponse("#me opens the seal of the despatch and reads it: 'Interesting, Rosaline always surprises me. I guess I will decline, though.'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 13));
+talkEntry:addResponse("#me opens the seal of the despatch and reads it: 'Interesting, Rosaline always surprises me. I suppose I'll have to decline, though.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -211,8 +212,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post V: Du überbringst Erzmagier Elvaine Morgan die Nachricht von Hector Valerion."));
-talkEntry:addResponse("#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 13));
+talkEntry:addResponse("#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -224,8 +225,8 @@ talkEntry:addTrigger("Valerion");
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail V: You deliver the message from Hector Valerion to Archmage Elvaine Morgan."));
-talkEntry:addResponse("#me opens the seal of the despatch and reads it: 'Interesting, Rosaline always surprises me. I guess I will decline, though.'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 13));
+talkEntry:addResponse("#me opens the seal of the despatch and reads it: 'Interesting, Rosaline always surprises me. I suppose I'll have to decline, though.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -236,8 +237,8 @@ talkEntry:addTrigger("Valerion");
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post V: Du überbringst Erzmagier Elvaine Morgan die Nachricht von Hector Valerion."));
-talkEntry:addResponse("#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 13));
+talkEntry:addResponse("#me öffnet das Siegel der Depesche und ließt sie: 'Interessant, Rosaline überrascht mich ein ums andere mal. Ich muss aber wohl ablehnen.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -245,9 +246,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Regretfully, at the moment I don't feel like committing any tasks to you.");
-talkEntry:addResponse("For sure there are many things to be done, altough I won't assign any to you right now.");
-talkEntry:addResponse("Understand that there are many tasks to perform, but without any doubt you will fail at each single one of them. I have to take handle them in person.");
+talkEntry:addResponse("Fortunately, there's nothing I need doing for me right now. But I do require quiet for my research.");
+talkEntry:addResponse("There are tasks to do, but tasks I will undergo myself.");
+talkEntry:addResponse("There's many things to be done, but they're probably beyond your grasp. I have to handle them personally.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -264,9 +265,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Regretfully, at the moment I don't feel like committing any tasks to you.");
-talkEntry:addResponse("For sure there are many things to be done, altough I won't assign any to you right now.");
-talkEntry:addResponse("Understand that there are many tasks to perform, but without any doubt you will fail at each single one of them. I have to take handle them in person.");
+talkEntry:addResponse("Fortunately, there's nothing I need doing for me right now. But I do require quiet for my research.");
+talkEntry:addResponse("There are tasks to do, but tasks I will undergo myself.");
+talkEntry:addResponse("There's many things to be done, but they're probably beyond your grasp. I have to handle them personally.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -288,9 +289,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(10.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(1));
+talkEntry:addResponse("#me nods and hands over an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -301,9 +302,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(10.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(1));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -314,9 +315,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(11.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(2));
+talkEntry:addResponse("#me nods and hands over an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -327,9 +328,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(11.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(2));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -340,9 +341,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(13.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(3));
+talkEntry:addResponse("#me nods and hands over an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -353,9 +354,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(13.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(3));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -366,9 +367,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(14.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(4));
+talkEntry:addResponse("#me nods and hands over an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -379,9 +380,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(14.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(4));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -392,9 +393,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(17.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(5));
+talkEntry:addResponse("#me nods and hands over an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -405,9 +406,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(17.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(5));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -418,9 +419,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(6));
+talkEntry:addResponse("#me nods and hands over an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -431,9 +432,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(6));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -444,9 +445,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(25.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(7));
+talkEntry:addResponse("#me nods and hands over an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -457,9 +458,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(25.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(7));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -470,9 +471,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(34.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(8));
+talkEntry:addResponse("#me nods and hands over an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -483,9 +484,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(34.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(8));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -496,9 +497,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(51.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.item.item(45, 1, 999, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
+talkEntry:addResponse("#me nods and hands over an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -509,9 +510,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(51.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.item.item(45, 1, 999, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -522,9 +523,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(100.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 999, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
+talkEntry:addResponse("#me nods and hands over an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -535,16 +536,16 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(100.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 999, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(623, "=", 1));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am the archmage. My person bears the responsibility for the four towers of Runewick and their properties");
-talkEntry:addResponse("It's my duty to advise Runewick with my most prudent advice. - Now and again with concrete deeds.");
+talkEntry:addResponse("I am the archmage. I bear the responsibility for the four towers of Runewick and their inhabitants.");
+talkEntry:addResponse("It's my duty to advise Runewick with knowledge and reason, and now and again with concrete acts.");
 talkEntry:addResponse("I'm the archmage, therefore I'm very busy. I advise you to ask a novice for details of my position.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -560,8 +561,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I am the archmage. My person bears the responsibility for the four towers of Runewick and their properties");
-talkEntry:addResponse("It's my duty to advise Runewick with my most prudent advice. - Now and again with concrete deeds.");
+talkEntry:addResponse("I am the archmage. I bear the responsibility for the four towers of Runewick and their inhabitants.");
+talkEntry:addResponse("It's my duty to advise Runewick with knowledge and reason, and now and again with concrete acts.");
 talkEntry:addResponse("I'm the archmage, therefore I'm very busy. I advise you to ask a novice for details of my position.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -578,9 +579,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Indeed, I am aware of Gobaith. But don't let us waste time and words beside the point.");
-talkEntry:addResponse("I know about Gobaith. An archipelago far away from the mainland. I'm sure you understand that it couldn't be interesting for me by any metric.");
-talkEntry:addResponse("They told me, there are people who lived on Gobaith once. You should seek those, if you're that interested in this topic.");
+talkEntry:addResponse("Indeed, I am well aware of Gobaith's plight, but don't let's not waste time dwelling on what has become.");
+talkEntry:addResponse("I know about Gobaith. A tiny island far away from the mainland. I'm sure you understand now that there is a much greater world out here.");
+talkEntry:addResponse("Some from Gobaith still remain. You should head to them if you want to know more about this.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -614,15 +615,15 @@ talkEntry:addTrigger("holy");
 talkEntry:addTrigger("ancestors");
 talkEntry:addTrigger("path");
 talkEntry:addTrigger("seeker");
-talkEntry:addResponse("The traditional belief of the elven folk. - 'The Path of the Seeker'");
-talkEntry:addResponse("Motivated by years of meditation and a lifespan which exceeds the life of menkind several times, most elven folk view circumstances and happenings from a diffrent point of view.");
+talkEntry:addResponse("The traditional belief of the elven folk - 'The Path of the Seeker'");
+talkEntry:addResponse("After by years of meditation and lifespans which exceeds the lives of men several times, most elves view circumstances and events in a different light");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tower");
 talkEntry:addTrigger("four");
-talkEntry:addResponse("The four towers of Runewick. The tower of earth. The tower of water. The tower of fire and the tower of air. Together they form a mighty arcane structure which towers impressively over these lands");
+talkEntry:addResponse("The four towers of Runewick: The tower of earth, The tower of water, The tower of fire and the tower of air. Together they form a mighty arcane structure, which towers impressively over these lands");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -631,26 +632,26 @@ talkEntry:addTrigger("mage");
 talkEntry:addTrigger("magic");
 talkEntry:addTrigger("wizard");
 talkEntry:addTrigger("theurgy");
-talkEntry:addResponse("The air is full of magic and many scholars pretend to feel it in the top of their fingers. *he winks*");
-talkEntry:addResponse("Magic and Wizardry. Since the beginning those are the tools of Runewick's growth. There is a reason why the archmage is the leader of the four towers.");
-talkEntry:addResponse("Magic is omnipresent in the towers of Runewick. Do not touch anything, otherwise you will end up as a toad.");
+talkEntry:addResponse("The mana stream fills the air. Many scholars pretend to feel it in the tip of their fingers.");
+talkEntry:addResponse("Magic and Wizardry. Since our foundation, these have been the tools of Runewick's growth. There is a reason why the archmage is the leader of the four towers.");
+talkEntry:addResponse("Magic is isotropic throughout Runewick, as it is through the entire world. Do not touch anything strange artifices, or you may not leave in the same form you entered.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lor Angur");
-talkEntry:addResponse("Yes, you asked arround allredy I assume? Some time ago I moved here and laid down the first stone of the four towers.");
-talkEntry:addResponse("Indeed, long time ago I spend my time in Lor Angur. But this is the past and there are few reasons to invest my time thinking of it.");
-talkEntry:addResponse("You are well aware, once I lived in Lor Angur. But actually I will not bother to talk about it at the moment.");
+talkEntry:addResponse("Yes, you asked around already I assume? A long while ago I moved here and laid down the first foundations of the four towers.");
+talkEntry:addResponse("Indeed, long time ago I spend my time in Lor Angur. But those times are long past and there are few reasons to invest my time thinking about them.");
+talkEntry:addResponse("You are well aware that I once I lived in Lor Angur. There's not much more to say than that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("This is Runewick. each of the four towers represents an elemet. Earth. Water. Fire. Air. Here wisdom is the most precious good.");
-talkEntry:addResponse("Runewick isn't just a town, you must understand. Runewick's name symbols wisdom and the power of mind.");
-talkEntry:addResponse("I thank Elara every day for the powerful mind she awards the citizens of the four towers.");
+talkEntry:addResponse("This is Runewick. Each of the four towers represents an element. Here, wisdom is the most precious good.");
+talkEntry:addResponse("Runewick isn't just a town, you must understand. Runewick's name symbolises wisdom and the power of mind.");
+talkEntry:addResponse("I thank Elara every day for the powerful minds she awards the citizens of the four towers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -702,9 +703,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("I won't pretend not to dislike Valerio, although this does not concern you.");
-talkEntry:addResponse("Well... I think you would know these things alredy, if you were meant to. You won't be receiving any information concering the leader of Galmair.");
-talkEntry:addResponse("You will understand that my opimion on Don Guilianni is to be kept between me and him.");
+talkEntry:addResponse("I won't pretend to be overly fond of the man, but to each his own.");
+talkEntry:addResponse("I wouldn't be very diplomatic of me to talk about a leader of a faction leader behind their back.");
+talkEntry:addResponse("He's.. an interesting character, but it's not of any real importance.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -721,9 +722,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("The metal and the coal in the mines of Galmair have fed the egoism of the citizens for years. When the mines become empty they will see that wisdom is the only worthwhile good.");
-talkEntry:addResponse("Galmair attempts to collect wealth and abundance since its founding. Rationality and prudence are unknown. Dissoluteness and Greedy decisions will put the town to an end once and for all.");
-talkEntry:addResponse("I don't take the citizens of Galmair for blind fools. But their aims and plans are always dominated by greed, are unpredictable.");
+talkEntry:addResponse("They possess some important resources. But I fear their metal and the coal reserves in simply feed their egos. Once the resources are gone, they will be left with nothing.");
+talkEntry:addResponse("A city based on greed cannot sustain itself. If every man is trying to manipulate and scam each other for money, they will lose everything they have.");
+talkEntry:addResponse("I would never typecast a whole town as fools, but when your plans are entirely based on greed, you're always rather predictable.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -737,9 +738,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Queen Rosaline, well she is... a sphinx without mystery. I'm always surprised how little this bloodline learned from the mistakes of the past.");
-talkEntry:addResponse("The short lifespan of mankind may limit their world. On the other hand they suprise me again and again with their impressive deeds.");
-talkEntry:addResponse("Well I remember Rosalines grandfather. A noteable human in several aspects - like his son. Now we have to observe the destiny of his daughter.");
+talkEntry:addResponse("Queen Rosaline is exactly what it says on the tin. I was never entirely convinced that the right to lead should be determined by blood, and not personal competence.");
+talkEntry:addResponse("The short lifespan of mankind limits their existence, but sometimes I have to admit: they impress me with how much they can achieve.");
+talkEntry:addResponse("Well, I have observed all of Rosaline's lineage. I thought that choosing leaders based on blood would be a foolish option, but I must admit: it's worked very well for their family.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -755,9 +756,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Queen Rosaline, well she is... a sphinx without mystery. I'm always surprised how little this bloodline learned from the mistakes of the past.");
-talkEntry:addResponse("The short lifespan of mankind may limit their world. On the other hand they suprise me again and again with their impressive deeds.");
-talkEntry:addResponse("Well I remember Rosalines grandfather. A noteable human in several aspects - like his son. Now we have to observe the destiny of his daughter.");
+talkEntry:addResponse("Queen Rosaline is exactly what it says on the tin. I was never entirely convinced that the right to lead should be determined by blood, and not personal competence.");
+talkEntry:addResponse("The short lifespan of mankind limits their existence, but sometimes I have to admit: they impress me with how much they can achieve.");
+talkEntry:addResponse("Well, I have observed all of Rosaline's lineage. I thought that choosing leaders based on blood would be a foolish option, but I must admit: it's worked very well for their family.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -773,9 +774,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("If an enemy knows about somones honourable code, may this be a dangerous barrier for those who perceive honour as godly good.");
-talkEntry:addResponse("Cadomyrs code of honour slows it down and makes their army predictable. A smart man will always be able to figure out the town's plan. Change occurs slowly, or not at all.");
-talkEntry:addResponse("Cadomyr may possess strong men. But the line between courage and foolery is too thin. Cadomyr's nobility is divided by Rosaline Edwards muliebrity - making the town even weaker.");
+talkEntry:addResponse("Honour is nice, but occasionally having a very firm moral code based on honour can have extremely negative consequences, if your enemies are willing to exploit it.");
+talkEntry:addResponse("Cadomyrs code of honour makes their actions extremely predictable. Even someone of basic intellect will figure out their plans nine times out of ten.");
+talkEntry:addResponse("Cadomyr may possess strong men, but these people are brainwashed into thinking that courage is the most important quality, and that makes them extremely dangerous. A man who values some code more than his own life is a force to be reckoned with.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -790,9 +791,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Albars principals stand against mine since I can remember, as well when I was mage of Lor Angur.");
-talkEntry:addResponse("All things I belive in, all my opinion seems to unheard of in Albar. Do you not agree?");
-talkEntry:addResponse("The nobility in Albar governs against his own folk. Well the current King seems to be less strict, but humans are fickle and not even I am able to predict his future path.");
+talkEntry:addResponse("Albar's principles have been the polar opposite of mine since I was a child, and especially so when I was mage of Lor Angur.");
+talkEntry:addResponse("Everything that Runewick was founded on is of little importance in Albar.");
+talkEntry:addResponse("The nobility in Albar govern against their own people. The current king appears less strict than previous monarchs, but even I can't sense his true motives.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -808,9 +809,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("A heterogeneous folk like Gynk differs in many views. It's difficult to make a precise statement. Espeacially for this reason, it's my opinion that an organised government would be at a disadvantage.");
-talkEntry:addResponse("At first glance Gynk seems chaotic. Observed it appears complex. When precisely studied - a self designed and unlimited system.");
-talkEntry:addResponse("The foolish and simple instinct-driven mind which is dominating Gynk is disgusting from my point of view.");
+talkEntry:addResponse("The people of Gynk differ to us in many views. When you're run by councils and the like, it's difficult to pass a definitive law or decision. This just confirms by belief that a shared government would be at a disadvantage.");
+talkEntry:addResponse("At first glance Gynk seems chaotic. If you observe it better, it simply appears complex. But it's so complex that all the factors don't mean anything tangible to a person.");
+talkEntry:addResponse("The instinct driven mindset which dominates Gynk is foolhardy as far as I'm concerned.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -826,9 +827,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("I like to call Salkamar the enlighted Realm of mankind. It is not surprising that Runewick is related to this country.");
-talkEntry:addResponse("The beliefs of Salkamarian Empire represent those which I have held for hundrets of years.");
-talkEntry:addResponse("Should you ever visit Salkamar, I advise you to visit the library. It's a well known famous building and holds precious books and parchments.");
+talkEntry:addResponse("Salkamar is one of the more enlightened realms of men. With that in mind, it won't surprise you to know that they have links with Runewick.");
+talkEntry:addResponse("The beliefs of Salkamaerian Empire have correlated well with mine for centuries.");
+talkEntry:addResponse("Should you ever visit Salkamar, I advise you to visit the library. It's an incredible piece of architecture, and holds extremely rare and precious books and scriptures. You would be foolish to overlook the wisdom you can learn there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -842,9 +843,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Blood God");
-talkEntry:addResponse("The enitre world order of the Blood Good is determined by violence and pain. He is mighty, powerful, war-loving");
-talkEntry:addResponse("He is the 'Blood God' of several blood-thirsty orcish war tribes, who takes living sacrifices. His altars are often drenched in blood. His followers are few, evil beings.");
-talkEntry:addResponse("The Blood God shows some hidden wisdom and sometimes rough humor. If you like to call this behaviour humour at all... ");
+talkEntry:addResponse("All the Blood God knows is influenced by violence and pain. He is mighty, but his actions are not responsible.");
+talkEntry:addResponse("He is the 'Blood God' of many barbaric orcish war tribes, who take living sacrifices. His altars are often drenched in blood. His followers are malicious, but low in number.");
+talkEntry:addResponse("The Blood God shows some hidden wisdom and dark humour. I can appreciate his intellect, but our views do not align.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -858,9 +859,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("The gods of the four towers are easy to guess. Elara gifts us Wisdom and others get blessed at Sirani's altars. And naturally, many halfings prefer Oldra.");
-talkEntry:addResponse("The younger deities are worshiped, but generally not as deities. Elves often dub the younger Gods 'holy ancestors'.");
-talkEntry:addResponse("Overall, the center of the 'Path of the Seeker' seems to be comprised of tolerance, personal development of the individual, an all-encompassing balance, meditation, and principal spirituality.");
+talkEntry:addResponse("The gods who watch over the four towers are easy to guess. Elara gives us wisdom, and many are blessed at Sirani's altars. Naturally, many halfings prefer Oldra.");
+talkEntry:addResponse("The younger gods are worshiped, but generally not as deities. Elves often dub them the 'holy ancestors'.");
+talkEntry:addResponse("Overall, the 'Path of the Seeker' seems to be comprised of tolerance, self awareness, balance, meditation, and personal spirituality.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -876,9 +877,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("Adron, the housegod of almost every tavern and inn. Young people especially get inspired by his style.");
-talkEntry:addResponse("Many young folk get into Adron's way of living as well as some bards. But most of them change their beliefs when they become older.");
-talkEntry:addResponse("So - ask yourself, is the truth found in wine?");
+talkEntry:addResponse("Adron is the housegod of almost every tavern and inn. Young people especially hand their lives over to him. Older people drink in moderation.");
+talkEntry:addResponse("Many young folk enjoy Adron's way of living, as well as some bards. But most of them alter their views when they become older.");
+talkEntry:addResponse("Is the truth found in wine? Regret both fuels and is fuelled by heavy drinking.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -894,9 +895,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("They say Brágon was the first god, who left Illarion. But from time to time he still visits it and walks unknown in the guise of a mortal.");
-talkEntry:addResponse("Brágon is the god of fire. Some dwarves and orcs dedicate their lives to honour him. So they try to become as prudent and strong like the god himself.");
-talkEntry:addResponse("when Brágon left Illarion he gave Malachín the power over his former worshippers. But this happened long ago, and nowadays you may meet followers of Brágon again.");
+talkEntry:addResponse("They say Brágon was the first god to leave Illarion. Now, though, from time to time he still visits us and walks unknown in the guise of a mortal.");
+talkEntry:addResponse("Brágon is the god of fire. Some dwarves and orcs dedicate their lives to honour him. They try to become as strong and passionate as the god himself.");
+talkEntry:addResponse("when Brágon left Illarion he gave Malachín the power over his former worshippers. But these followers still passed on the teachings of Brágon, so his followers still remain.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -913,10 +914,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
 talkEntry:addTrigger("Cheerga");
-talkEntry:addResponse("Once her name was written 'Cheerga' but the time moves and Illarion changes. She is the Goddess of spirits and the realm of the afterlife.");
-talkEntry:addResponse("There are not many followers of Cherga. Cherga is the one who collects the dead ones, and brings them to the realms they belong to.");
+talkEntry:addResponse("Once her name was written with two 'e's, but time moves on and Illarion changes. She is the goddess of spirits and the realm of the afterlife.");
+talkEntry:addResponse("There are not many followers of Cherga. Cherga is the one who collects the dead, and brings them to the realms they belong to. No mortal can truly understand or relate to this.");
 talkEntry:addResponse("Some people pray to Cherga to give eternal rest to the restless, others to use the undead for a purpose.");
-talkEntry:addResponse("Many necromancers are followers of Cheerga, but many fortune tellers too. Cherga does not care what the mortals do with the knowledge, and most of this knowledge has a high price.");
+talkEntry:addResponse("Many necromancers are followers of Cherga, but this is scorned upon in Runewick. Our dead should stay dead, and respected, so we cremate our mages.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -932,9 +933,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Elara is the Goddess of wisdom and knowledge. Many scholars inside of the four towers pray to her to learn and achieve knowledge.");
-talkEntry:addResponse("The three big questions: The reason for greed, the reason for violence, and the reason for suffering. Most followers who claim to have come close to a suitable answer, have become very peaceful, righteous, pensive persons.");
-talkEntry:addResponse("We - the worshippers of Elara believe in the power of wisdom, believe that everything follows a great plan, the Goddess helps us with ideas and grants a better understanding.");
+talkEntry:addResponse("Elara is the Goddess of wisdom and knowledge. Many scholars inside of the four towers pray to her to for intellect and knowledge.");
+talkEntry:addResponse("The three big questions: The reason for greed, the reason for violence, and the reason for suffering. Most followers who claim to have come close to a suitable answer, have become very peaceful, righteous people.");
+talkEntry:addResponse("We, the worshippers of Elara, believe in the power of wisdom and that all actions have a reason. The Goddess helps us with ideas and grants us better understanding.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -949,9 +950,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("Eldan has never been active amongst mortals. Very few people pray to him. But since he was never heard or seen in public, no one knows how to identify him");
-talkEntry:addResponse("Eldan, one of the five 'older' gods. Not much is known about their origin, and they seldom let others know something about their past. Most have left Illairon but sometimes, they return and take action.");
-talkEntry:addResponse("People who follow him are often hermits, or people who love drinks and long philosophical talks");
+talkEntry:addResponse("Eldan has never been active amongst mortals. Very few people pray to him. Since he was never heard or seen in public, noone knows how to identify him");
+talkEntry:addResponse("Eldan is one of the five elder gods. Not much is known about their origin, and they seldom let others know something about their past. They left Illarion for a long time, but recently returned.");
+talkEntry:addResponse("People who follow him are often hermits, or people who love a good drink and a long philosophical discussion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -966,9 +967,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("Findari's believers were always few, since she did never care much about temples and being worshipped.");
+talkEntry:addResponse("Findari's believers were always few and far apart, since she never cared for temples and worship.");
 talkEntry:addResponse("It is said that she still chooses some rare followers by herself, who then become visionaries or wandering prophets, or even great bards and artists.");
-talkEntry:addResponse("Findari, one of the five 'older' gods. Not much is known about their origin, and they seldom let others know something about their past. Most have left Illairon but sometimes, they return and take action.");
+talkEntry:addResponse("Findari is one of the five elder gods. Not much is known about their origin, and they seldom let others know something about their past. They left Illarion for a long time, but recently returned.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -983,9 +984,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Irmorom...God of trade and craftsmanship. Talkative, good natured and sociable like the man of this craft.");
-talkEntry:addResponse("Not only dwarves pray to Irmorom, also businessmen and crafters. They try to gather wealth, in life as well as in afterlife.");
-talkEntry:addResponse("For sure you will find a temple of Irmorom, hollowed out of the mountain behind the gates of Galmair.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Irmorom is the god ofand craftsmanship. Talkative, good natured and sociable like the man of this craft.");
+talkEntry:addResponse("Not only do dwarves pray to Irmorom, but businessmen and crafters. They try to gather wealth, in life as well as in the afterlife.");
+talkEntry:addResponse("You can find a temple of Irmorom, hollowed out of the mountain behind the gates of Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1001,9 +1003,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Malachín the God of battle and hunting. So the people try to pray to him for a successful hunt.");
-talkEntry:addResponse("Malachín the patron of Warriors and mercenaries. Often they hear Malachín howling in form of a big Black wolf, before a heavy battle starts. ");
-talkEntry:addResponse("Many follow the honourable Malachín. Soldiers and Knights pray to him. Paladins and clergyman join crusaders against demonic minions of the Bloodlord, in his name...");
+talkEntry:addResponse("Malachín the God of battle and hunting. So people try to pray to him for a successful hunt.");
+talkEntry:addResponse("Malachín the patron of warriors and mercenaries. Often they hear Malachín howling in form of a big black wolf, before a heavy battle starts. ");
+talkEntry:addResponse("Many follow the honourable Malachín. Soldiers and knights pray to him. Paladins and clergyman join crusaders against demonic minions of the Blood God, in his name.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1019,9 +1021,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("The enitre world order of the Blood Good is determined by violence and pain. He is mighty, powerful, war-loving");
-talkEntry:addResponse("He is the 'Blood God' of several blood-thirsty orcish war tribes, who takes living sacrifices. His altars are often drenched in blood. His followers are few, evil beings.");
-talkEntry:addResponse("The Blood God shows some hidden wisdom and sometimes rough humor. If you like to call this behaviour humour at all... ");
+talkEntry:addResponse("All the Blood God knows is influenced by violence and pain. He is mighty, but his actions are not responsible.");
+talkEntry:addResponse("He is the 'Blood God' of many barbaric orcish war tribes, who take living sacrifices. His altars are often drenched in blood. His followers are malicious, but low in number.");
+talkEntry:addResponse("The Blood God shows some hidden wisdom and dark humour. I can appreciate his intellect, but our views do not align.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1038,10 +1040,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("Nargùn... - likes to play mean tricks on some people. He posses black humour. By his hand everything becomes possible, with a good or bad outcome.");
-talkEntry:addResponse("Intrigues, mean or funny tricks are Nargùn's elements. Sometimes just helps people, sometimes destroys them, often makes a big show of it.");
-talkEntry:addResponse("Many gamblers pray to Nargùn, and some mad people claim to be chaos priests. But most of these people seem quite insane to me...");
-talkEntry:addResponse("The believes of Nargùn's followers are totally varying, for example the mad prophet who wrote the 'Very Sacred Book of MOO' and the 'Unbelievable Stuff of BOO' did believe that when people die, they will end up in places with 'funny mushrooms'.");
+talkEntry:addResponse("Nargùn likes to play mean tricks on people. He enjoys dark humour. By his hand, anything can happen, good or bad.");
+talkEntry:addResponse("Strange and astounding tricks, whether malicious or benevolent are Nargùn's elements. Sometimes he helps people, sometimes he destroys them, but he always makes a big show of it.");
+talkEntry:addResponse("Many gamblers pray to Nargùn, and some people claim to be chaos priests. Most of these people are just deluded.");
+talkEntry:addResponse("The beliefs of Nargùn's followers are totally varying. One prophet wrote the famous, 'Very Sacred Book of MOO'. I'm sure you can imagine what it contains.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1058,9 +1060,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("For the growing of grain and food, birth of children. - Many halflings pray to Oldra the Goddess of life and fertility.");
-talkEntry:addResponse("Oldra dislikes greedy and selfish persons, rather she prefers a good meal and gardens and domestic animals. Understandably, many halflings pray to her.");
-talkEntry:addResponse("Oldra the mother figure under the gods. Her advise is wise and helpful. She protects all kind of living beings.");
+talkEntry:addResponse("For the growing of grain and food, and healthy childbirth, many halflings pray to Oldra, the Goddess of life and fertility.");
+talkEntry:addResponse("Oldra dislikes greed and selfishness. Rather she prefers a good meal, a beautiful gardens and the company of animals.");
+talkEntry:addResponse("Oldra is the motherly figure of the Eleven. Her advise is wise and helpful. She protects all kind of living beings.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1075,9 +1077,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("Ronagan the patron of all those who live in the shadow of life. Thieves, beggars, prostitutes... tramps.");
-talkEntry:addResponse("I know merchants who pray and donate money to Ronagan to avoid being robbed.");
-talkEntry:addResponse("Altough Ronagan plays jokes on those representing the authorities, he dislikes betrayal between accomplices as much as any kind of authority or law abiding system.");
+talkEntry:addResponse("Ronagan the patron of all those who live in the shadows. Thieves, beggars and harlots pray to him.");
+talkEntry:addResponse("I know merchants who pray, and donate money to Ronagan to avoid being robbed.");
+talkEntry:addResponse("Although Ronagan plays jokes on those in a position of authority, he dislikes betrayal between accomplices much more than any kind of authority.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1092,10 +1094,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("Oh, several young women pray to Sirani. Asking for love or to pay attention to loved ones.");
-talkEntry:addResponse("Most Sirani priests are good healers. Her followers believe in peace and harmony, and most of them don't like weapons or violence. ");
-talkEntry:addResponse("In the Sirani temples, poor people are healed and given food, and a place to sleep, and work if they can. Some of those become Sirani priests as well - after all is done.");
-talkEntry:addResponse("Sirani dislikes rough or very selfish people. The word 'bitch' - can make her furious when someone uses it near her, or when insulted.");
+talkEntry:addResponse("Several young women pray to Sirani, asking for love or to pay attention to their loved ones.");
+talkEntry:addResponse("Most Sirani priests are good healers. Her followers believe in peace and harmony, and most of them oppose weapons and violence. ");
+talkEntry:addResponse("In the Sirani temples, poor people are healed and given food, and a place to sleep, and work if they can. Some of those become Sirani priests as well, after they are stable.");
+talkEntry:addResponse("Sirani dislikes rough or very selfish people. Strong insults can make her furious when someone uses it to demean her followers or herself.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1111,9 +1113,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("Tanora is the only still active Elder God in Illarion. Her religion dominates the lizard society. Many of her temples lie under water, and most are located at the centre of the lizardmen's under water towns.");
-talkEntry:addResponse("Some legends say that when the Elder Gods left, Tanora gave her believers to Zelphia; but both Tanora and Zelphia are the same person. She herself had been assuring this to several mortal beings.");
-talkEntry:addResponse("Most Zelphia believers are Lizards, sailors, or even elves. Many healers pray to her too. Her followers believe that she is a very powerful righteous goddess.");
+talkEntry:addResponse("Tanora was the only Elder God who remained active throughout Illarion. Her religion dominates the lizard society. Many of her temples lie under water, and most are located at the centre of the lizardmen's under water towns.");
+talkEntry:addResponse("Some strange legends say that when the Elder Gods left, Tanora gave her believers to Zelphia. This is nonsense: Tanora and Zelphia are one and the same. She herself has assured this to many mortals.");
+talkEntry:addResponse("Most of her believers are lizards, sailors, or even elves. Many healers pray to her too. Her followers believe that she is a very powerful and righteous goddess.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1129,8 +1131,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Ushara believers are very few, most are female old druids or old elves who met Ushara personally. Since the departure of the Elder Gods, she has put Oldra in charge, who is now being worshipped in new temples.");
-talkEntry:addResponse("Ushara, one of the five 'older' gods. Not much is known about their origin, and they seldom let others know something about their past. Most have left Illarion but sometimes, they return and take action.");
+talkEntry:addResponse("Ushara's believers are very few. Most are old female druids, or elves who met her personally. At the departure of the Elder Gods, she put Oldra in charge, but now she has returned.");
+talkEntry:addResponse("Ushara is one of the five elder gods. Not much is known about their origin, and they seldom let others know something about their past. They left Illarion for a long time, but recently returned.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1145,9 +1147,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Friendship and Loyalty are the most precious traits of Zhambra the 'Brother God.' Never he would tolerate 'dirty' behaviour, rather he rewards loyality and honourable persons.");
-talkEntry:addResponse("The followers of Zhambra are righteous and loyal ones who believe in honour and law. There should be a Temple located in Cadomyr.");
-talkEntry:addResponse("Zhambra is worshipped by nobles and knights, paladins, and many soldiers in Cadomyr. During battle friendship is a percious soucre of Power.");
+talkEntry:addResponse("Friendship and Loyalty are the most precious traits of Zhambra the 'Brother God'. He would never tolerate 'dirty' behaviour. He rewards loyalty and honour.");
+talkEntry:addResponse("The followers of Zhambra are righteous and loyal, believing in honour and law. There should be a temple located in Cadomyr.");
+talkEntry:addResponse("Zhambra is worshipped by nobles and knights, paladins, and many soldiers in Cadomyr. During battle, friendship is a precious resource.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1164,9 +1166,10 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Forgive me, I don't trade with you.");
-talkEntry:addResponse("The business of an archmage is, well - business which only concerns the archmage himself.");
-talkEntry:addResponse("The market is located next to the entrance portals to the town. It should be impossible to miss it.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I'm a leader, not ar.");
+talkEntry:addResponse("I care more about theory and experiments than exchanging objects.");
+talkEntry:addResponse("The market is located next to the entrance portals to the town. It should be impossible to miss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1183,9 +1186,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("The signs I observed are clear, soon they will be omens everywhere else.");
-talkEntry:addResponse("Only a fool ignores implausible possibilities and stays with only obvious facts.");
-talkEntry:addResponse("Sometimes I think... - If people could put rainbows in zoos, they'd do it.");
+talkEntry:addResponse("Magic is gone from these lands, but one day it will return.");
+talkEntry:addResponse("Only a fool ignores the hypothetical and uses only what they already know.");
+talkEntry:addResponse("I could tell you many things. The problem is whether you'd understand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1200,7 +1203,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("A word?");
+talkEntry:addResponse("You want a word?");
 talkEntry:addResponse("You desire to speak?");
 talkEntry:addResponse("Please make it short.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1218,7 +1221,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("A word?");
+talkEntry:addResponse("You want a word?");
 talkEntry:addResponse("You desire to speak?");
 talkEntry:addResponse("Please make it short.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1235,9 +1238,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("#me gives you a gentle, serious nod.");
-talkEntry:addResponse("Are we done?");
-talkEntry:addResponse("Elara's Wisdom may enlight you.");
+talkEntry:addResponse("#me gives a gentle, but serious nod.");
+talkEntry:addResponse("Good. Are we done?");
+talkEntry:addResponse("May Elara's wisdom enlighten you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1251,8 +1254,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("#me smiles a little bit and remains silent.");
-talkEntry:addResponse("Things someone think they want, often are not the things he or she needs.");
+talkEntry:addResponse("#me smiles a slightly and remains silent.");
+talkEntry:addResponse("Often, when someone thinks they want something, that is not something they require.");
 talkEntry:addResponse("Why not?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1269,10 +1272,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Why? What is your reasoning?");
+talkEntry:addResponse("And why do you think that?");
 talkEntry:addResponse("I see.");
-talkEntry:addResponse("If you prefer to say it this way...");
-talkEntry:addResponse("Virtue needs some cheaper thrills");
+talkEntry:addResponse("If you prefer to say put it like that.");
+talkEntry:addResponse("Virtue needs some cheaper thrills.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1287,24 +1290,24 @@ talkEntry:addResponse("Tugend bedarf einiger billigerer Vergnügen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#mes leuchtend graue Augen mustern achtsam die Umgebung.", "#me's gloomy grey eyes glance across the surrounding area carefully.");
-talkingNPC:addCycleText("#me atmet langsam und leise aus, für einen Moment scheint er einem Gedanken nachzuhängen.", "#me breathes out slowly and quietly, for a moment he seems to reflect upon a theory, concerning a difficult topic.");
+talkingNPC:addCycleText("#me atmet langsam und leise aus, für einen Moment scheint er einem Gedanken nachzuhängen.", "#me breathes slowly and quietly. He appears to reflect upon a theory, concerning a difficult topic.");
 talkingNPC:addCycleText("#me streicht mit den Fingern über die Seiten seines Buches.", "#me moves his fingers over the pages of his book.");
-talkingNPC:addCycleText("#mes Augen überfliegen einige Zeilen des Textes innerhalb seines Buches.", "#me eyes some sentences written down in his book.");
-talkingNPC:addCycleText("#me fährt mit der Fingerspitze an eine bestimmte Stelle der Buchseiten und schlägt diese auf.", "#me places his fingertip on a certain place at the side of a closed book and opens it.");
-talkingNPC:addCycleText("#me nickt sachte. Dann wirft er einen Blick zur Seite.", "#me nods and glances for a moment at his side.");
-talkingNPC:addCycleText("#me greift sich kruz an den Kopf und seine Stirn legt sich in sanften Falten.", "#me grabs the back of his head and for a second his forehead shows kindly wrinkles.");
-talkingNPC:addCycleText("#me reibt sich mit dem Zeigefigner an der Nase. Im nächsten Moment schnippst er mit den Fingern und ruft 'Ich habs!'.", "#me rubs his nose with his finger. In the next moment he clicks his fingers and call's out 'Got it!'.");
+talkingNPC:addCycleText("#mes Augen überfliegen einige Zeilen des Textes innerhalb seines Buches.", "#me's eyes dart quicky over something written in his book.");
+talkingNPC:addCycleText("#me fährt mit der Fingerspitze an eine bestimmte Stelle der Buchseiten und schlägt diese auf.", "#me places his fingertip at a precise page in his book and turns right to it.");
+talkingNPC:addCycleText("#me nickt sachte. Dann wirft er einen Blick zur Seite.", "#me glances out of the window, observing the sky for a few moments.");
+talkingNPC:addCycleText("#me greift sich kruz an den Kopf und seine Stirn legt sich in sanften Falten.", "#me runs his hand over his fringe, adjusting his hair from his line of sight.");
+talkingNPC:addCycleText("#me reibt sich mit dem Zeigefigner an der Nase. Im nächsten Moment schnippst er mit den Fingern und ruft 'Ich habs!'.", "#me rubs his nose with his fingers, before clicking his fingers excitedly, proclaiming 'Got it!'.");
 talkingNPC:addCycleText("#mes graue Augen scheinen für einen Moment hell auf zu leuchten.", "#me's grey eyes seems to be more gloomy than usual for a couple of seconds.");
-talkingNPC:addCycleText("#mes lächelt gutmütig und für einen Augenblick ist ein merkwürdiges Glitzern in seinen Pupillen zu sehen.", "#me smiles well-tempered, for a moment a shiny sparkle appers in his eyes.");
-talkingNPC:addCycleText("#me dreht seinen Kopf ein wenig und für kurze Zeit scheinen seine Gedanken in der Ferne zu verweilen.", "#me turns his head, for a short ammount of time his thoughts seem far away.");
+talkingNPC:addCycleText("#mes lächelt gutmütig und für einen Augenblick ist ein merkwürdiges Glitzern in seinen Pupillen zu sehen.", "#me smiles contently. For a brief a moment a shiny sparkle appears in his eyes.");
+talkingNPC:addCycleText("#me dreht seinen Kopf ein wenig und für kurze Zeit scheinen seine Gedanken in der Ferne zu verweilen.", "#me turns his head. For a short while, his thoughts seem distant.");
 talkingNPC:addCycleText("#me murmelt leise. 'Das Problem mit der Zukunft ist, dass sie zur Gegenwart wird...'", "#me mumbles quietly. 'The problem with the future is that it keeps turning into the present.'");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(3);
 mainNPC:addLanguage(10);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein galanter Elf, mit langem geflochtenen Haar und leuchtenden grauen Augen. Ihn umgibt eine Aura von Klarheit und Einsicht die jedem in seiner Nähe mit zu reißen scheint.  Sein Gesicht wirkt gelassen und gewandt erscheinen seine Bewegungen.", "A gallant elf, long plaited Hair and gloomy grey eyes. A aura of insight and perspicuity surrounds him, affecting all people close to him. His face seems calm and his moves graceful.");
-mainNPC:setUseMessage("Macht Euch doch keine Mühe, ihr verletzt Euch noch selbst.", "Do not try, you might get hurt");
-mainNPC:setConfusedMessage("#me schaut dich ausdruckslos an. 'Wie bitte?'", "#me looks at you motionless. 'Excuse me?'");
+mainNPC:setLookat("Ein galanter Elf, mit langem geflochtenen Haar und leuchtenden grauen Augen. Ihn umgibt eine Aura von Klarheit und Einsicht die jedem in seiner Nähe mit zu reißen scheint.  Sein Gesicht wirkt gelassen und gewandt erscheinen seine Bewegungen.", "A proud elf adorned in the finest of clothing. By his side, he carries an encrusted wand, and expensive rings adorn his fingers. His sophisticated mannerisms evince his intelligence.");
+mainNPC:setUseMessage("Macht Euch doch keine Mühe, ihr verletzt Euch noch selbst.", "It would be wise to keep your hands off me.");
+mainNPC:setConfusedMessage("#me schaut dich ausdruckslos an. 'Wie bitte?'", "#me glances motionlessly. 'Excuse me?'");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 807);
 mainNPC:setEquipment(11, 558);
