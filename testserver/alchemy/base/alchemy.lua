@@ -779,6 +779,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 			
 		else -- nothing in the cauldron, we just fill in the potion
             FillFromTo(SourceItem,cauldron)	
+		    world:changeItem(cauldron)
 		end
                 
     end
