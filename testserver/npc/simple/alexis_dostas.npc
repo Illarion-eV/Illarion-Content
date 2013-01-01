@@ -59,13 +59,13 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Alexis Dostas der Stallmeister. Schlüsselwörter: Hallo, Quest, Cadomyr, Beruf, Stallungen.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. You came here for a mount I suppose.", "Welcome to the stables.", "If you need a mount, you came to the right place."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted. You came here for a mount I suppose?", "Welcome to the stables.", "If you need a mount, you came to the right place."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt. Ihr seid hier eines Reittiers wegen, nehme ich an.", "Willkommen in den Stallungen.", "Falls ihr ein Lasttier benötigt seid ihr hier richtig."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted. You came here for a mount I suppose.", "Welcome to the stables.", "If you need a beast of burden, you came to the right place."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted. You came here for a mount I suppose?", "Welcome to the stables.", "If you need a beast of burden, you came to the right place."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Seid gegrüßt. Ihr seid hier eines Reittiers wegen, nehme ich an.", "Willkommen in den Stallungen.", "Falls ihr ein Reittier benötigt seid ihr hier richtig."
-"Farewell", "Bye", "Fare well", "See you" -> "Farewell. And come back alive."
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell... and come back alive."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehabt euch wohl und kommt gesund zurück."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell. And come back alive."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell... and come back alive."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehabt euch wohl und kommt gesund zurück."
 "How are you", "How feel", "How do you do" -> "This is none of your business, sorry."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Entschuldigt, aber das tut jetzt nichts zur Sache."
@@ -75,15 +75,15 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell. And come back ali
 -- OPTIONAL TRIGGERS
 
 -- 1st quest: Gather 10 bundles of grain (249)
-queststatus(125) = 0, english, "quest", "mission" -> inform("[New quest] The Royal Stables I"), "As you might know, Cadomyr is not blessed with much fertile farmland. Hence, the stables always lack hay. Could you please bring ten bundles of grain? My gratitude is guaranteed.", queststatus(125) = 1
+queststatus(125) = 0, english, "quest", "mission" -> inform("[New quest] The Royal Stables I"), "As you may know, Cadomyr is not blessed with much fertile farmland, hence the stables always lack hay. Could you please bring ten bundles of grain? My gratitude is guaranteed.", queststatus(125) = 1
 queststatus(125) = 0, "quest", "mission" -> inform("[Neues Quest] Die königlichen Stallungen I"), "Wie euch bekannt sein dürfte, ist Cadomyr nicht gerade mit fruchtbarem Ackerland gesegnet. Somit fehlt es in den Stallungen immer an Heu. Bringt ihr mir bitte zehn Bündel Getreide? Mein Dank ist euch gewiss.", queststatus(125) = 1
-queststatus(125) = 0, "task", "adventure", "order" -> inform("[New quest] The Royal Stables I"), "As you might know, Cadomyr is not blessed with much fertile farmland. Hence, the stables always lack hay. Could you please bring ten bundles of grain? My gratitude is guaranteed.", queststatus(125) = 1
+queststatus(125) = 0, "task", "adventure", "order" -> inform("[New quest] The Royal Stables I"), "As you may know, Cadomyr is not blessed with much fertile farmland, hence the stables always lack hay. Could you please bring ten bundles of grain? My gratitude is guaranteed.", queststatus(125) = 1
 queststatus(125) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die königlichen Stallungen I"), "Wie euch bekannt sein dürfte, ist Cadomyr nicht gerade mit fruchtbarem Ackerland gesegnet. Somit fehlt es in den Stallungen immer an Heu. Bringt ihr mir bitte zehn Bündel Getreide? Mein Dank ist euch gewiss.", queststatus(125) = 1
 
 -- 1st quest solved, reward: gold nugget (234), +5 rankpoints if Cadomyr
-queststatus(125) = 1, item(249, all) > 9, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded a gold nugget. You advance in Queen Rosaline Edwards' favour."), "Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but long ago, a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...", deleteItem(249, 10), item(234, 1, 699), queststatus(125) = 2, rankpoints + 5
+queststatus(125) = 1, item(249, all) > 9, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded a gold nugget. You advance in Queen Rosaline Edwards' favour."), "Ah, the hay, thank you very much. Bette and the other mounts will be pleased! I do not have much I can give you, but long ago, a weird dwarf dropped a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...", deleteItem(249, 10), item(234, 1, 699), queststatus(125) = 2, rankpoints + 5
 queststatus(125) = 1, item(249, all) > 9, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst ein Goldnugget. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Ah, das Heu, vielen lieben Dank. Bette und die anderen Reittiere wird es freuen. Ich kann euch nicht viel geben, aber ein verrückter Zwerg hat vor langer Zeit ein Goldnugget im Stall vergessen. Irgendwie werde ich das Gefühl nicht los, dass er etwas mit unserem Heumangel zu tun hat...", deleteItem(249, 10), item(234, 1, 699), queststatus(125) = 2, rankpoints + 5
-queststatus(125) = 1, item(249, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded a gold nugget."), "Ah, the hay, thank you very much. Bette and the other mounts will be amused! I have not much I can give you, but long ago, a weird dwarf forgot a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...", deleteItem(249, 10), item(234, 1, 699), queststatus(125) = 2
+queststatus(125) = 1, item(249, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded a gold nugget."), "Ah, the hay, thank you very much. Bette and the other mounts will be pleased! I do not have much I can give you, but long ago, a weird dwarf dropped a gold nugget in the stables. I cannot shake the feeling that he is somehow responsible for our lack of hay...", deleteItem(249, 10), item(234, 1, 699), queststatus(125) = 2
 queststatus(125) = 1, item(249, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst ein Goldnugget."), "Ah, das Heu, vielen lieben Dank. Bette und die anderen Reittiere wird es freuen. Ich kann euch nicht viel geben, aber ein verrückter Zwerg hat vor langer Zeit ein Goldnugget im Stall vergessen. Irgendwie werde ich das Gefühl nicht los, dass er etwas mit unserem Heumangel zu tun hat...", deleteItem(249, 10), item(234, 1, 699), queststatus(125) = 2
 
 -- 1st quest not solved, repeat the instructions
@@ -111,9 +111,9 @@ queststatus(125) = 3, "task", "adventure", "order" -> "The horses become nervous
 queststatus(125) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Pferde wiehern aufgeregt wenn ich nur das Wort 'Karotte' erwähne. Vielleicht findet ihr ja die Zeit, zehn Karotten für sie besorgen?"
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(125) = 4, english, "quest", "mission" -> "Well, there nothing I need at this moment. Perhaps you ask Anthar Vilicon, the chancellor for services you could do to Cadomyr?"
+queststatus(125) = 4, english, "quest", "mission" -> "Well, there is nothing I need at this moment. Perhaps you should ask Anthar Vilicon, the chancellor, about services you could do for Cadomyr?"
 queststatus(125) = 4, "quest", "mission" -> "Nun, es gibt nichts, was ich derzeit bräuchte. Vielleicht fragt ihr den Kanzler Anthar Vilicon nach Diensten, die ihr Cadomyr leisten könntet?"
-queststatus(125) = 4, "task", "adventure", "order" -> "Well, there nothing I need at this moment. Perhaps you ask Anthar Vilicon, the chancellor for services you could do to Cadomyr?"
+queststatus(125) = 4, "task", "adventure", "order" -> "Well, there is nothing I need at this moment. Perhaps you should ask Anthar Vilicon, the chancellor, about services you could do for Cadomyr?"
 queststatus(125) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun, es gibt nichts, was ich derzeit bräuchte. Vielleicht fragt ihr den Kanzler Anthar Vilicon nach Diensten, die ihr Cadomyr leisten könntet?"
 
 -- Easter egg
@@ -127,10 +127,10 @@ english, "job" -> "I feed the mounts. I care for them, I lend them to anyone who
 "job" -> "Ich füttere die Reittiere hier. Ich kümmere mich um sie und leihe sie jedem, der verspricht, sie gut zu behandeln."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"mule", "donkey", "burden" -> "Mules are rather frugal animals. They just need a little oat from time to time."
-"feed", "food", "oat" -> "Mules love oat! No wonder, they're related to horses."
-"Stable" -> "Sometimes, I may care for proud destriers of noble knights, the other day for Bette and the other mules. I treat all of them well, all of them work hard for Cadomyr's honour."
-"horse", "destrier" -> "There are two differences between horses and mules: Longer legs and even more hunger for oat!"
+"mule", "donkey", "burden" -> "Mules are rather frugal animals. They just need a little oats from time to time."
+"feed", "food", "oat" -> "Mules love oats! No wonder, they're related to horses."
+"Stable" -> "Sometimes, I may care for the proud destriers of noble knights, the other day for Bette and the other mules. I treat all of them well, all of them work hard for Cadomyr's honour."
+"horse", "destrier" -> "There are two differences between horses and mules: Longer legs and even more hunger for oats!"
 "Maultier", "Muli", "Esel", "Lasttier" -> "Maultiere sind recht genügsame Tiere. Sie brauchen nur hin und wieder etwas Hafer."
 "Futter", "Fütter", "Hafer" -> "Maultiere lieben Hafer! Kein Wunder, sind sie doch mit Pferden verwandt."
 "Stall" -> "Manchmal darf ich mich um stolze Schlachrösser edler Ritter kümmern, an anderen Tagen um Bette und die anderen Maultiere. Ich behandle alle gleich gut, denn alle tragen ihren Teil zu Cadomyrs Ehre bei."
@@ -150,12 +150,12 @@ english, "Cadomyr" -> "I have to admit: When Sir Reginald... passed away, I was 
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "Willkommen in den Stallungen.", "Welcome to the stables."
-cycletext "Die Götter mögen die Königin schützen.", "Gods, save the queen."
+cycletext "Die Götter mögen die Königin schützen.", "Gods, save the Queen."
 cycletext "#me hakt etwas Heu zusammen.", "#me rakes hay."
 cycletext "#me schüttet etwas Wasser in eine Tränke.", "#me pours some water into a water trough."
-cycletext "Meine kleine Schwester ist ein hübsches Mädchen.", "My little sister is a pretty pretty girl."
+cycletext "Meine kleine Schwester ist ein hübsches Mädchen.", "My little sister is a pretty, pretty girl."
 cycletext "Seid ihr weit gereist und tun euch eure Füße weh?", "Have you walked for miles, are your feet hurting?"
 cycletext "#me pfeift vor sich hin.", "#me whistles a song."
 cycletext "Cadomyr, oh Cadomyr, wie lieb ich dir!", "Cadomyr, O Cadomyr, how much I love you!"
 cycletext "Bette? Wo ist denn Bette?", "Bette? Where is Bette?"
-cycletext "#me öffnet einen Hafersack.", "#me opens a bag of oat."
+cycletext "#me öffnet einen Hafersack.", "#me opens a bag of oats."
