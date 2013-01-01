@@ -58,16 +58,14 @@ function CharacterOnField( User )
 	    destCoordY = tonumber(destCoordY)		
  	    destCoordZ = tonumber(destCoordZ)
 		dest = position(destCoordX,destCoordY,destCoordZ)
-        debug("Portal: " .. destCoordX .. ", " .. destCoordY .. ", " .. destCoordZ)
-	    destFound = true
+        destFound = true
 	end	
 	
     --check if we are in the endurance cave and change the destination if needed
 	local PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
 	if (PlayerInCave) then
 		dest = t_dest;
-        debug("QuestPortal: " .. dest.x .. ", " .. dest.y .. ", " .. dest.z)
-	    destFound = true
+        destFound = true
 	end
 
 	if destFound then -- destination was defined
