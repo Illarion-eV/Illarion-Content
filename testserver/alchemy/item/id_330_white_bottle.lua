@@ -33,7 +33,7 @@ function DrinkPotion(User,SourceItem)
 			skillName = ListLanguages[languageId]
 			findOS,oldSkill = myEffect:findValue( "oldSkill")
 			findNS,newSkill = myEffect:findValue( "newSkill")
-			User:increaseSkill(skillName,(-(newSkill-oldSkill))) -- old skill level restored
+			--User:increaseSkill(skillName,(-(newSkill-oldSkill))) -- old skill level restored
 		    effectRemoved = User.effects:removeEffect(330)
 			if not effectRemoved then
 				base.common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. white bottle script", "Error: inform dev. Lte not removed. white bottle script.")
