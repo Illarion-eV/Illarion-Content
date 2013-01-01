@@ -748,7 +748,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 			CauldronDestruction(User,cauldron,2)
 			
 		elseif cauldron:getData("filledWith") == "potion" then
-			if cauldron.id == 1011 then -- support potion
+			if cauldron.id == 1013 then -- support potion
 				alchemy.item.id_165_blue_bottle.SupportEssencebrew(User,cauldron,SourceItem)
 			else
 				CauldronDestruction(User,cauldron,2)
@@ -774,7 +774,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 			CauldronDestruction(User,cauldron,2)
 			
 		elseif cauldron:getData("filledWith") == "potion" then
-			if cauldron.id == 1011 then -- support potion
+			if cauldron.id == 1013 then -- support potion
 			    alchemy.item.id_165_blue_bottle.SupportPotion(User,cauldron,SourceItem)
 			else
 				CauldronDestruction(User,cauldron,2)
