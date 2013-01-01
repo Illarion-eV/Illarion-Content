@@ -121,9 +121,11 @@ function SupportPotion(User,support,potion)
 	if support.id >= 1008 and support.id <= 1018 then
 		supportQuality = tonumber(support:getData("potionQuality"))
 		potionQuality = potion.quality
+		User:inform("support is cauldron")
 	else
 		supportQuality = support.quality
 		potionQuality = tonumber(support:getData("potionQuality"))
+		User:inform("support is bottle")
 	end	
 	if (supportEffectId >= 400) and (supportEffectId <= 406) then -- quality raiser
 	    -- list with potions in cauldron and bottle
@@ -150,6 +152,7 @@ function SupportPotion(User,support,potion)
 	end	
     alchemy.base.alchemy.RemoveAll(cauldron)
 	alchemy.base.alchemy.FillFromTo(potion,cauldron)
+	User:inform("potionQuality: "..potionQuality)
 	cauldron:setData("potionQuality",potionQuality) -- here we set the new quality, in case the quality raiser was successfull
 end
 
