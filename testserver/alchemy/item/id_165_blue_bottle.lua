@@ -62,7 +62,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			
 			else
 			    alchemy.base.alchemy.FillFromTo(SourceItem,cauldron)
-				EmptyBottle(User,SourceItem)
+				alchemy.base.alchemy.EmptyBottle(User,SourceItem)
 			end    
             
 		elseif (SourceItem:getData("filledWith") =="essenceBrew") then -- essence brew should be filled into the cauldron
