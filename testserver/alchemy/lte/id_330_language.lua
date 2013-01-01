@@ -27,7 +27,7 @@ function removeEffect(Effect,User)
 	local find,newSkill = Effect:findValue( "newSkill")
 
 	--original skill level
-	User:increaseSkill(1,skillName,(-(newSkill-oldSkill))) -- ergibt wahrscheinlich noch falsche Werte
+	User:increaseSkill(skillName,(-(newSkill-oldSkill))) 
 end
 
 function loadEffect(Effect,User)                  			

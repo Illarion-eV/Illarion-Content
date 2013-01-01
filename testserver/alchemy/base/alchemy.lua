@@ -544,18 +544,24 @@ function FillFromTo(fromItem,toItem)
 	end	
     toItem:setData("filledWith",fromItem:getData("filledWith")) 
 	toItem:setData("potionEffectId",fromItem:getData("potionEffectId"))
-	if fromItem:getData("filledWith") == "potion" then
-		if toItem.id >= 1008 and toItem.id <= 1018 then
-		    toItem:setData("potionQuality",fromItem.quality) 
-		else
-			toItem.quality = tonumber(fromItem:getData("potionQuality"))
-		end	
-	end
+	local quality = tonumber(fromItem:getData("potionQuality"))
+	if quality == nil then
+	    quality = fromItem.quality
+	end	
 	if toItem.id >= 1008 and toItem.id <= 1018 then
-		local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem)
+		toItem:setData("potionQuality",quality) 
+	else
+		toItem.quality = quality
+	end
+    local reGem, reDust, reCauldron, reBottle	
+	if fromItem.id >= 1008 and fromItem.id <= 1018 then
+	   reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem, nil)
+	else
+	    reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem)
+	end	
+	if toItem.id >= 1008 and toItem.id <= 1018 then
 		toItem.id = reCauldron
 	else
-		local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem, nil)
 		toItem.id = reBottle
 	end	
 end
@@ -742,7 +748,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 			CauldronDestruction(User,cauldron,2)
 			
 		elseif cauldron:getData("filledWith") == "potion" then
-			if cauldron.id == 1011 then -- support potion
+			if cauldron.id == 1013 then -- support potion
 				alchemy.item.id_165_blue_bottle.SupportEssencebrew(User,cauldron,SourceItem)
 			else
 				CauldronDestruction(User,cauldron,2)
@@ -768,7 +774,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 			CauldronDestruction(User,cauldron,2)
 			
 		elseif cauldron:getData("filledWith") == "potion" then
-			if cauldron.id == 1011 then -- support potion
+			if cauldron.id == 1013 then -- support potion
 			    alchemy.item.id_165_blue_bottle.SupportPotion(User,cauldron,SourceItem)
 			else
 				CauldronDestruction(User,cauldron,2)
@@ -779,6 +785,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 			
 		else -- nothing in the cauldron, we just fill in the potion
             FillFromTo(SourceItem,cauldron)	
+		    world:changeItem(cauldron)
 		end
                 
     end

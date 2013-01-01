@@ -62,10 +62,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			
 			else
 			    alchemy.base.alchemy.FillFromTo(SourceItem,cauldron)
+				world:changeItem(cauldron)
+				alchemy.base.alchemy.EmptyBottle(User,SourceItem)
 			end    
-            alchemy.base.alchemy.EmptyBottle(User,SourceItem)
-			world:changeItem(cauldron)
-		
+            
 		elseif (SourceItem:getData("filledWith") =="essenceBrew") then -- essence brew should be filled into the cauldron
 		    -- unlike the support potion itself, the essence brew of it has no specail effects when filled in
 			-- therefore we call the ordinary fill-function; note that we call it after checking for potion in this script
@@ -96,7 +96,7 @@ function SupportStock(User,support,stock)
 	alchemy.base.alchemy.FillFromTo(stock,cauldron)
 	world:changeItem(cauldron)
 	world:gfx(1,cauldron.pos)
-    
+    alchemy.base.alchemy.EmptyBottle(User,bottle)
 end
 
 function SupportEssenceBrew(User,support,essenceBrew)
@@ -110,20 +110,22 @@ function SupportEssenceBrew(User,support,essenceBrew)
 	alchemy.base.alchemy.FillFromTo(essenceBrew,cauldron)
 	world:changeItem(cauldron)
 	world:gfx(1,cauldron.pos)
-    return cauldron -- we have to give the cauldron back to keep our changes
+    ralchemy.base.alchemy.EmptyBottle(User,bottle)
 end
 
 function SupportPotion(User,support,potion)
     local cauldron = base.common.GetFrontItem( User )
 	local supportEffectId = tonumber(support:getData("potionEffectId"))
 	
-	local supportQuality, potionQuality
+	local supportQuality, potionQuality, bottle
 	if support.id >= 1008 and support.id <= 1018 then
 		supportQuality = tonumber(support:getData("potionQuality"))
 		potionQuality = potion.quality
+		bottle = potion
 	else
 		supportQuality = support.quality
-		potionQuality = tonumber(support:getData("potionQuality"))
+		potionQuality = tonumber(potion:getData("potionQuality"))
+		bottle = support
 	end	
 	if (supportEffectId >= 400) and (supportEffectId <= 406) then -- quality raiser
 	    -- list with potions in cauldron and bottle
@@ -151,6 +153,8 @@ function SupportPotion(User,support,potion)
     alchemy.base.alchemy.RemoveAll(cauldron)
 	alchemy.base.alchemy.FillFromTo(potion,cauldron)
 	cauldron:setData("potionQuality",potionQuality) -- here we set the new quality, in case the quality raiser was successfull
+	world:changeItem(cauldron)
+	alchemy.base.alchemy.EmptyBottle(User,bottle)
 end
 
 function LookAtItem(User,Item)
