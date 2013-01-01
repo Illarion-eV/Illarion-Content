@@ -62,10 +62,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			
 			else
 			    alchemy.base.alchemy.FillFromTo(SourceItem,cauldron)
+				EmptyBottle(User,SourceItem)
 			end    
-            alchemy.base.alchemy.EmptyBottle(User,SourceItem)
-			world:changeItem(cauldron)
-		
+            
 		elseif (SourceItem:getData("filledWith") =="essenceBrew") then -- essence brew should be filled into the cauldron
 		    -- unlike the support potion itself, the essence brew of it has no specail effects when filled in
 			-- therefore we call the ordinary fill-function; note that we call it after checking for potion in this script
@@ -154,6 +153,7 @@ function SupportPotion(User,support,potion)
 	alchemy.base.alchemy.FillFromTo(potion,cauldron)
 	User:inform("potionQuality: "..potionQuality)
 	cauldron:setData("potionQuality",potionQuality) -- here we set the new quality, in case the quality raiser was successfull
+	world:changeItem(cauldron)
 end
 
 function LookAtItem(User,Item)
