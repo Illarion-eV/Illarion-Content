@@ -47,7 +47,7 @@ function DrinkPotion(User,SourceItem)
 		end
 		newSkill = 100
         
-		local duration = 25--math.floor(SourceItem.quality/100)*600*10 
+		local duration = 250--math.floor(SourceItem.quality/100)*600*10 
         myEffect=LongTimeEffect(330,duration)
 		myEffect:addValue( "oldSkill",oldSkill )
 		myEffect:addValue( "newSkill",newSkill )
