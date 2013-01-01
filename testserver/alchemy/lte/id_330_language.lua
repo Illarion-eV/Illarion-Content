@@ -21,14 +21,14 @@ function callEffect(Effect,User)
 end
 
 function removeEffect(Effect,User)
-	User:inform("Debug message: lte 330 has been removed")
+	--[[
 	local find,languageId = Effect:findValue("languageId")
 	local skillName = ListLanguages[languageId]
 	local find,oldSkill = Effect:findValue( "oldSkill")          
 	local find,newSkill = Effect:findValue( "newSkill")
 
 	--original skill level
-	User:increaseSkill(skillName,(-(newSkill-oldSkill))) 
+	User:increaseSkill(skillName,(-(newSkill-oldSkill))) ]]
 end
 
 function loadEffect(Effect,User)                  			

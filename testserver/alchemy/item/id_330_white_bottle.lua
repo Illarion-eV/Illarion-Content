@@ -2,7 +2,7 @@
 --Druidensystem in Arbeit
 --Temporäre Einzelwirkungen
 --Falk
--- reworked by Merung
+-- reworked by Merung 
 require("base.common")
 require("alchemy.base.alchemy")
 require("alchemy.item.id_165_blue_bottle")
@@ -11,6 +11,8 @@ module("alchemy.item.id_330_white_bottle",package.seeall)
 
 -- UPDATE common SET com_script='alchemy.item.id_330_white_bottle' WHERE com_itemid = 330;
 
+
+--- NO EFFECT 
 function DrinkPotion(User,SourceItem)
 
     potionEffectId = tonumber(SourceItem:getData("potionEffectId"))
@@ -28,19 +30,19 @@ function DrinkPotion(User,SourceItem)
 		
 		local findLID,languageId,skillName,findOS,oldSkill,findNS,newSkill,effectRemoved
 		if find then --  there is already an effect, we remove it, only one language at a time
-            
+            --[[
 			findLID,languageId = myEffect:findValue("languageId")
 			skillName = ListLanguages[languageId]
 			findOS,oldSkill = myEffect:findValue( "oldSkill")
 			findNS,newSkill = myEffect:findValue( "newSkill")
-			--User:increaseSkill(skillName,(-(newSkill-oldSkill))) -- old skill level restored
+			--User:increaseSkill(skillName,(-(newSkill-oldSkill))) -- old skill level restored]]
 		    effectRemoved = User.effects:removeEffect(330)
 			if not effectRemoved then
 				base.common.InformNLS( User,"Fehler: informiere einen dev. lte nicht entfernt. white bottle script", "Error: inform dev. Lte not removed. white bottle script.")
 				return
 			end
 		end
-		
+		--[[
 		oldSkill = User:getSkill(ListLanguages[potionEffectId-599])
 		if oldSkill == nil then
 		   oldSkill = 0
@@ -54,7 +56,7 @@ function DrinkPotion(User,SourceItem)
 	    myEffect:addValue( "languageId",potionEffectId-599)
         myEffect:addValue("counterWhite",10)
 	  
-	    User:increaseSkill(ListLanguages[potionEffectId-599],newSkill)
+	    User:increaseSkill(ListLanguages[potionEffectId-599],newSkill)]]
  		User.effects:addEffect(myEffect);
     end
   end
