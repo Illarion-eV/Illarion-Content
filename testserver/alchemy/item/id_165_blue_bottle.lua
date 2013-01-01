@@ -116,15 +116,15 @@ function SupportPotion(User,support,potion)
     local cauldron = base.common.GetFrontItem( User )
 	local supportEffectId = tonumber(support:getData("potionEffectId"))
 	
-	local supportQuality, potionQuality
+	local supportQuality, potionQuality, bottle
 	if support.id >= 1008 and support.id <= 1018 then
 		supportQuality = tonumber(support:getData("potionQuality"))
 		potionQuality = potion.quality
-		User:inform("support is cauldron")
+		bottle = potion
 	else
 		supportQuality = support.quality
 		potionQuality = tonumber(potion:getData("potionQuality"))
-		User:inform("support is bottle and potion quality is "..potionQuality)
+		bottle = support
 	end	
 	if (supportEffectId >= 400) and (supportEffectId <= 406) then -- quality raiser
 	    -- list with potions in cauldron and bottle
@@ -154,6 +154,7 @@ function SupportPotion(User,support,potion)
 	User:inform("potionQuality: "..potionQuality)
 	cauldron:setData("potionQuality",potionQuality) -- here we set the new quality, in case the quality raiser was successfull
 	world:changeItem(cauldron)
+	EmptyBottle(User,bottle)
 end
 
 function LookAtItem(User,Item)
