@@ -21,6 +21,7 @@ function callEffect(Effect,User)
 end
 
 function removeEffect(Effect,User)
+	User:inform("Debug message: lte 330 has been removed")
 	local find,languageId = Effect:findValue("languageId")
 	local skillName = ListLanguages[languageId]
 	local find,oldSkill = Effect:findValue( "oldSkill")          
