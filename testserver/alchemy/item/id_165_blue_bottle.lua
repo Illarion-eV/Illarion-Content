@@ -125,7 +125,7 @@ function SupportPotion(User,support,potion)
 	else
 		supportQuality = support.quality
 		potionQuality = tonumber(potion:getData("potionQuality"))
-		User:inform("support is bottle and potion quality is ")..potionQuality
+		User:inform("support is bottle and potion quality is "..potionQuality)
 	end	
 	if (supportEffectId >= 400) and (supportEffectId <= 406) then -- quality raiser
 	    -- list with potions in cauldron and bottle
