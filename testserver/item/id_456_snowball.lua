@@ -30,4 +30,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		    User:increaseSkill(ListLanguages[i],(-100))
 		end
     end
+	
+	if (User.lastSpokenText == "set") then 
+	    User:increaseSkill(Character.lizardLanguage,100)
+	end
+    local a,b,change = string.find(User.lastSpokenText,"change (%d+)")
+    if a ~= nil then
+        change = tonumber(change)
+        User:increaseSkill(Character.lizardLanguage,change)
+    end		
 end
