@@ -21,6 +21,7 @@ require("npc.base.condition.language")
 require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.talkstate")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
@@ -38,9 +39,9 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ah, so you are interested in my wares.");
 talkEntry:addResponse("Take your time to look around.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -51,9 +52,9 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ah, dann interessiert Ihr Euch also für meine Waren.");
 talkEntry:addResponse("Schaut Euch ruhig in Ruhe um.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -78,7 +79,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("May Findari and Elara bless you! Do you want to have a look at my wares?");
-talkEntry:addResponse("Welcome. If you're looking for goods made of glass I can definately help you out.");
+talkEntry:addResponse("Welcome. If you're looking for goods made of glass I can definitely help you out.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -214,8 +215,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."));
-talkEntry:addResponse("#me shrieks as she reads the scroll: 'I thought I'd be safe here from the Don! I'm ruined if I have to pay what he demands.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
+talkEntry:addResponse("#me shrieks as she reads the scroll: 'I thought I'd be safe here from the Don! I'm ruined if I have to pay what he demands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -231,8 +232,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."));
-talkEntry:addResponse("#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
+talkEntry:addResponse("#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -244,8 +245,8 @@ talkEntry:addTrigger("Flintsplit");
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."));
-talkEntry:addResponse("#me shrieks as she reads the scroll: 'I thought I'd be safe here from the Don! I'm ruined if I have to pay what he demands.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
+talkEntry:addResponse("#me shrieks as she reads the scroll: 'I thought I'd be safe here from the Don! I'm ruined if I have to pay what he demands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -256,8 +257,8 @@ talkEntry:addTrigger("Flintsplit");
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."));
-talkEntry:addResponse("#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(107, "=", 10));
+talkEntry:addResponse("#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -472,7 +473,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier");
-talkEntry:addResponse("Ich finde es beruhigend, dass so ein schlauer Mann über Runewick bestimmt.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.");
 talkEntry:addResponse("Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -489,7 +491,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Ich finde es beruhigend, dass so ein schlauer Mann über Runewick bestimmt.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.");
 talkEntry:addResponse("Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
