@@ -62,6 +62,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			
 			else
 			    alchemy.base.alchemy.FillFromTo(SourceItem,cauldron)
+				world:changeItem(cauldron)
 				alchemy.base.alchemy.EmptyBottle(User,SourceItem)
 			end    
             
@@ -151,7 +152,6 @@ function SupportPotion(User,support,potion)
 	end	
     alchemy.base.alchemy.RemoveAll(cauldron)
 	alchemy.base.alchemy.FillFromTo(potion,cauldron)
-	User:inform("potionQuality: "..potionQuality)
 	cauldron:setData("potionQuality",potionQuality) -- here we set the new quality, in case the quality raiser was successfull
 	world:changeItem(cauldron)
 	alchemy.base.alchemy.EmptyBottle(User,bottle)
