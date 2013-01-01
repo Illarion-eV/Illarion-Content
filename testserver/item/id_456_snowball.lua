@@ -29,6 +29,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	    for i=1,#ListLanguages do
 		    User:increaseSkill(ListLanguages[i],(-100))
 		end
-    	User:inform("sprache "..i..": "..User:getSkill(ListLanguages[i])
+    	User:inform("sprache "..i..": "..User:getSkill(ListLanguages[i]))
     end
 end
