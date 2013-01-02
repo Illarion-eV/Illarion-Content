@@ -24,8 +24,9 @@ MAX_DIFFICULTY = 0;
 MIN_CRAFTED_FOODVALUE = 5000;
 MAX_CRAFTED_FOODVALUE = 45000;
 
-VALUE_SMALL = 0.25;
-VALUE_LARGE = 0.5
+VALUE_SMALL = 875;
+VALUE_MEDIUM = 1687,5;
+VALUE_LARGE = 2500;
 
 --[[ create FoodList
 FoodList:add() adds an element
@@ -57,19 +58,19 @@ FoodList = { add = function (self,id,Value,Leftover,BuffType,RacialFactor,UnEata
 -- Free Food
 FoodList:add(  15,	 VALUE_LARGE,	   0); -- apple
 FoodList:add(  80,	 VALUE_LARGE,	   0); -- banana
-FoodList:add(  81,	 VALUE_SMALL,	   0); -- berries
-FoodList:add( 142,	 VALUE_SMALL,	   0); -- sand berry
+FoodList:add(  81,	 VALUE_MEDIUM,	   0); -- berries
+FoodList:add( 142,	 VALUE_MEDIUM,	   0); -- sand berry
 FoodList:add( 143,	 VALUE_SMALL,	   0); -- red elder
-FoodList:add( 147,	 VALUE_SMALL,	   0); -- black berry
-FoodList:add( 151,	 VALUE_SMALL,	   0); -- strawberries
+FoodList:add( 147,	 VALUE_MEDIUM,	   0); -- black berry
+FoodList:add( 151,	 VALUE_MEDIUM,	   0); -- strawberries
 FoodList:add( 160,	 VALUE_SMALL,	   0); -- redhead
 FoodList:add( 161,	 VALUE_SMALL,	   0); -- herders mushroom
 FoodList:add( 163,	 VALUE_SMALL,	   0); -- champignon
 FoodList:add( 199,	 VALUE_SMALL,	   0); -- tangerine
-FoodList:add( 200,	 VALUE_SMALL,	   0); -- tomato
+FoodList:add( 200,	 VALUE_MEDIUM,	   0); -- tomato
 FoodList:add( 201,	 VALUE_SMALL,	   0); -- onion
 FoodList:add( 302,	 VALUE_SMALL,	   0); -- cherry
-FoodList:add( 388,	 VALUE_SMALL,	   0); -- grapes
+FoodList:add( 388,	 VALUE_MEDIUM,	   0); -- grapes
 FoodList:add( 759,	 VALUE_LARGE,	   0); -- nuts
 FoodList:add(2493,	 VALUE_LARGE,	   0); -- carrots
 
@@ -109,9 +110,9 @@ FoodList:add( 559,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- lamb dish
 FoodList:add( 554,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- venison dish
 
 -- Poisoned Food
-FoodList:add( 162,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 600); -- birth mushroom
-FoodList:add( 158,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 400); -- bulbsponge mushroom
-FoodList:add( 159,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	1000); -- toadstool
+FoodList:add( 162,	 -VALUE_SMALL,	   0,	nil,	nil,	nil,	 600); -- birth mushroom
+FoodList:add( 158,	 -VALUE_SMALL,	   0,	nil,	nil,	nil,	 400); -- bulbsponge mushroom
+FoodList:add( 159,	 -VALUE_SMALL,	   0,	nil,	nil,	nil,	1000); -- toadstool
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if (Init == nil) then
@@ -319,7 +320,6 @@ end
 function SetNewFoodLevel(User, NewFoodLevel)
   NewFoodLevel = base.common.Limit(NewFoodLevel, 0, 60000);
   local foodToAdd = NewFoodLevel - User:increaseAttrib("foodlevel",0);
-  debug("NewFoodLevel: "..NewFoodLevel.." foodToAdd: "..foodToAdd);
   while true do
     User:increaseAttrib("foodlevel",math.min(10000,foodToAdd));
     foodToAdd = foodToAdd - math.min(10000,foodToAdd);
