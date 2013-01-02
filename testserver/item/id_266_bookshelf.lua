@@ -41,6 +41,7 @@ CANDLES = 313
 ORCMAGES = 314
 JOKES = 315
 MONROK_CHRONIC = 316
+ONE = 317
 
 function addBook(id, germanTitle, englishTitle, bookItemId)
     books = books or {}
@@ -96,9 +97,10 @@ addBook(CANDLES, "Kerzenherstellung", "Making Candles", 3112)
 addBook(ORCMAGES, "Blut und Feuer, orkische Magie", "Blud an Fiar, Ork Magik", 130)
 addBook(JOKES, "Das Buch der Witze", "The book of jokes", 2616)
 addBook(MONROK_CHRONIC, "Fragment der Manrok-Chroniken", "Fragment of the Manrok Chronicles", 128)
+addBook(ONE, "Der Eine!", "The One!", 3110)
 
-addBookshelf(position(390, 185, -6), {CALENDAR, C_ORC, ORCMAGES, MONROK_CHRONIC})
-addBookshelf(position(549, 547, -6), {ORCMAGES})
+addBookshelf(position(390, 185, -6), {CALENDAR, C_ORC, ORCMAGES, MONROK_CHRONIC, ONE})
+addBookshelf(position(548, 547, -6), {ORCMAGES, ONE})
 addBookshelf(position(136, 548, 0), {CODOMYR_ON_C, CODOMYR_ON_G})
 addBookshelf(position(138, 548, 0), {CODOMYR_ON_R})
 addBookshelf(position(140, 548, 0), {CALENDAR})
