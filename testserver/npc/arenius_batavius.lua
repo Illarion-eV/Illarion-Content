@@ -25,6 +25,7 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.arenius_batavius", package.seeall)
 
@@ -114,7 +115,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Go with godspeed. And spread the old customs where you can.");
+talkEntry:addResponse("God speed and spread the old customs where you can.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -169,8 +170,8 @@ talkEntry:addTrigger("letter");
 talkEntry:addTrigger("scroll");
 talkEntry:addTrigger("parchment");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail III: You deliver the message from Hector Valerion to Arenius Batavius."));
-talkEntry:addResponse("#me reads the scroll: 'This is even worse than I thought. The Cult of Salavesh has committed more sins than I thought. Thank you for the information.'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 7));
+talkEntry:addResponse("#me reads the scroll: 'This is even worse than I thought. The Cult of Salavesh has committed more sins than I thought. Thank you for the information.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -182,8 +183,8 @@ talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Schriftrolle");
 talkEntry:addTrigger("Pergament");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post III: Du überbringst Arenius Batavius die Nachricht von Hector Valerion."));
-talkEntry:addResponse("#me ließt die Schriftrolle: 'Es ist schlimmer, als ich dachte. Der Kult der Salavesh hat noch mehr gesündigt, als ich dachte. Danke für die Informationen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 7));
+talkEntry:addResponse("#me ließt die Schriftrolle: 'Es ist schlimmer, als ich dachte. Der Kult der Salavesh hat noch mehr gesündigt, als ich dachte. Danke für die Informationen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -193,8 +194,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hector");
 talkEntry:addTrigger("Valerion");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail III: You deliver the message from Hector Valerion to Arenius Batavius."));
-talkEntry:addResponse("#me reads the scroll: 'This is even worse than I thought. The Cult of Salavesh has committed more sins than I thought. Thank you for the information.'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 7));
+talkEntry:addResponse("#me reads the scroll: 'This is even worse than I thought. The Cult of Salavesh has committed more sins than I thought. Thank you for the information.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -203,8 +204,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 6));
 talkEntry:addTrigger("Hector");
 talkEntry:addTrigger("Valerion");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post III: Du überbringst Arenius Batavius die Nachricht von Hector Valerion."));
-talkEntry:addResponse("#me ließt die Schriftrolle: 'Es ist schlimmer, als ich dachte. Der Kult der Salavesh hat noch mehr gesündigt, als ich dachte. Danke für die Informationen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 7));
+talkEntry:addResponse("#me ließt die Schriftrolle: 'Es ist schlimmer, als ich dachte. Der Kult der Salavesh hat noch mehr gesündigt, als ich dachte. Danke für die Informationen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -214,8 +215,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade I"));
-talkEntry:addResponse("Stranger, before I can tell you about the evil Cult of Salavesh, please bring me half a dozen panels of white cloth so I can tend the wounds I received from my recent battle with the cultists.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 1));
+talkEntry:addResponse("Stranger, before I can tell you about the evil Cult of Salavesh, please bring me half a dozen bolts of white cloth so I can tend to the wounds I received from my recent battle with the cultists.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -224,8 +225,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug I"));
-talkEntry:addResponse("Fremder, bevor ich euch über den bösen Kult der Salavesh berichten kann, bringt mir bitte ein halbes Dutzend weiße Stoffbahnen, damit ich meine Wunden vom letzten Kampf mit den Kultisten versorgen kann.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 1));
+talkEntry:addResponse("Fremder, bevor ich euch über den bösen Kult der Salavesh berichten kann, bringt mir bitte ein halbes Dutzend weiße Stoffbahnen, damit ich meine Wunden vom letzten Kampf mit den Kultisten versorgen kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -234,8 +235,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade I"));
-talkEntry:addResponse("Stranger, before I can tell you about the evil Cult of Salavesh, please bring me half a dozen panels of white cloth so I can tend the wounds I received from my recent battle with the cultists.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 1));
+talkEntry:addResponse("Stranger, before I can tell you about the evil Cult of Salavesh, please bring me half a dozen bolts of white cloth so I can tend to the wounds I received from my recent battle with the cultists.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -245,8 +246,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug I"));
-talkEntry:addResponse("Fremder, bevor ich euch über den bösen Kult der Salavesh berichten kann, bringt mir bitte ein halbes Dutzend weiße Stoffbahnen, damit ich meine Wunden vom letzten Kampf mit den Kultisten versorgen kann.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 1));
+talkEntry:addResponse("Fremder, bevor ich euch über den bösen Kult der Salavesh berichten kann, bringt mir bitte ein halbes Dutzend weiße Stoffbahnen, damit ich meine Wunden vom letzten Kampf mit den Kultisten versorgen kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -257,11 +258,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded six silver coins. You advance in Queen Rosaline Edwards's favour."));
-talkEntry:addResponse("Thank you for the bandages. Here, this should cover your expenses. Now I can tell you about the mission that I failed in.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(178, 6, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Thank you for the bandages. Here, this should cover your expenses. Now I can tell you about the mission that I failed in.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -271,11 +272,11 @@ talkEntry:addCondition(npc.base.condition.item.item(178, "all", ">", 5, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst sechs Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Danke für die Bandagen. Hier, nehmt dies als Aufwandsentschädigung. Nun kann ich euch über die Mission berichten, auf der ich so kläglich versagte.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(178, 6, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Danke für die Bandagen. Hier, nehmt dies als Aufwandsentschädigung. Nun kann ich euch über die Mission berichten, auf der ich so kläglich versagte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -285,10 +286,10 @@ talkEntry:addCondition(npc.base.condition.item.item(178, "all", ">", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded six silver coins."));
-talkEntry:addResponse("Thank you for the bandages. Here, this should cover your expenses. Now I can tell you about the mission that I failed in.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(178, 6, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 2));
+talkEntry:addResponse("Thank you for the bandages. Here, this should cover your expenses. Now I can tell you about the mission that I failed in.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -297,10 +298,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(178, "all", ">", 5, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst sechs Silberstücke."));
-talkEntry:addResponse("Danke für die Bandagen. Hier, nehmt dies als Aufwandsentschädigung. Nun kann ich euch über die Mission berichten, auf der ich so kläglich versagte.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(178, 6, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 2));
+talkEntry:addResponse("Danke für die Bandagen. Hier, nehmt dies als Aufwandsentschädigung. Nun kann ich euch über die Mission berichten, auf der ich so kläglich versagte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -325,7 +326,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("My wounds continue to bleed, please bring me half a dozen panels of white cloth to tend them.");
+talkEntry:addResponse("My wounds continue to bleed, please bring me half a dozen bolts of white cloth to tend to them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -344,8 +345,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade II"));
-talkEntry:addResponse("In order to stop the foul deeds of the Cult of Salavesh, intelligence is needed. Set out and find the stronghold! If you find it, slay half a dozen of its undead minions and bring back exemplary remains for investigation.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 3));
+talkEntry:addResponse("In order to stop the foul deeds of the Cult of Salavesh, intelligence is needed. Set out and find the stronghold! If you find it, slay half a dozen of the undead minions there and bring back exemplary remains for investigation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -354,8 +355,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug II"));
-talkEntry:addResponse("Um dem Kult der Salavesh das Handwerk zu legen ist zunächst Aufklärung erforderlich. Gehet hin und findet den Unterschlupf! Streckt dort wenigstens ein halbes Dutzend der untoten Diener nieder und bringt mir ihre Überreste, damit ich sie untersuchen kann.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 3));
+talkEntry:addResponse("Um dem Kult der Salavesh das Handwerk zu legen ist zunächst Aufklärung erforderlich. Gehet hin und findet den Unterschlupf! Streckt dort wenigstens ein halbes Dutzend der untoten Diener nieder und bringt mir ihre Überreste, damit ich sie untersuchen kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -364,8 +365,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade II"));
-talkEntry:addResponse("In order to stop the foul deeds of the Cult of Salavesh, intelligence is needed. Set out and find the stronghold! If you find it, slay half a dozen of its undead minions and bring back exemplary remains for investigation.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 3));
+talkEntry:addResponse("In order to stop the foul deeds of the Cult of Salavesh, intelligence is needed. Set out and find the stronghold! If you find it, slay half a dozen of the undead minions there and bring back exemplary remains for investigation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -375,8 +376,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug II"));
-talkEntry:addResponse("Um dem Kult der Salavesh das Handwerk zu legen ist zunächst Aufklärung erforderlich. Gehet hin und findet den Unterschlupf! Streckt dort wenigstens ein halbes Dutzend der untoten Diener nieder und bringt mir ihre Überreste, damit ich sie untersuchen kann.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 3));
+talkEntry:addResponse("Um dem Kult der Salavesh das Handwerk zu legen ist zunächst Aufklärung erforderlich. Gehet hin und findet den Unterschlupf! Streckt dort wenigstens ein halbes Dutzend der untoten Diener nieder und bringt mir ihre Überreste, damit ich sie untersuchen kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -387,12 +388,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded six silver coins and a mace. You advance in Queen Rosaline Edwards's favour."));
-talkEntry:addResponse("#me inspects the entrails: 'Just what I assumed - blood magic! Here, have this mace, it will help you on the next part of the mission.'");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(230, 1, 588, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 10));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("#me inspects the entrails: 'Just what I assumed - blood magic! Here, have this mace, it will help you on the next part of the mission.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -402,12 +403,12 @@ talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst sechs Silberstücke und einen Streitkolben. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("#me untersucht die Eingeweide: 'Hab ich es mir doch gedacht! Blutmagie! Hier, nehmt diesen Streitkolben, er wird euch auf der nächsten Mission gute Dienste erweisen.'");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(230, 1, 588, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 10));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("#me untersucht die Eingeweide: 'Hab ich es mir doch gedacht! Blutmagie! Hier, nehmt diesen Streitkolben, er wird euch auf der nächsten Mission gute Dienste erweisen.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -417,11 +418,11 @@ talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded six silver coins and a mace."));
-talkEntry:addResponse("#me inspects the entrails: 'Just what I assumed - blood magic! Here, have this mace, it will help you on the next part of the mission'.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(230, 1, 588, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 10));
+talkEntry:addResponse("#me inspects the entrails: 'Just what I assumed - blood magic! Here, have this mace, it will help you on the next part of the mission'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -430,11 +431,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 9));
 talkEntry:addCondition(npc.base.condition.item.item(63, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst sechs Silberstücke und einen Streitkolben."));
-talkEntry:addResponse("#me untersucht die Eingeweide: 'Hab ich es mir doch gedacht! Blutmagie! Hier, nehmt diesen Streitkolben, er wird euch auf der nächsten Mission gute Dienste erweisen.'");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(63, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(230, 1, 588, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 10));
+talkEntry:addResponse("#me untersucht die Eingeweide: 'Hab ich es mir doch gedacht! Blutmagie! Hier, nehmt diesen Streitkolben, er wird euch auf der nächsten Mission gute Dienste erweisen.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -520,8 +521,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade III"));
-talkEntry:addResponse("It is about time to land a strike against the Cult of Salavesh. Head for its stronghold again and smite a dozen of the animated skeletons to teach them a lesson not to mess with the Order of the Silver Dragon!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 11));
+talkEntry:addResponse("It is about time to land a strike against the Cult of Salavesh. Head for its stronghold again and smite a dozen of the animated skeletons to teach them a lesson not to mess with the Order of the Silver Dragon!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -530,8 +531,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 10));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug III"));
-talkEntry:addResponse("Es wird Zeit, dem Kult der Salavesh klarzumachen, dass man sich nicht mit dem Orden der Silberdrachen anlegt. Zieht aus und zerschlagt ein Dutzend ihrer wiederbelebten Skelette.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 11));
+talkEntry:addResponse("Es wird Zeit, dem Kult der Salavesh klarzumachen, dass man sich nicht mit dem Orden der Silberdrachen anlegt. Zieht aus und zerschlagt ein Dutzend ihrer wiederbelebten Skelette.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -540,8 +541,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 10));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade III"));
-talkEntry:addResponse("It is about time to land a strike against the Cult of Salavesh. Head for its stronghold again and smite a dozen of the animated skeletons to teach them a lesson not to mess with the Order of the Silver Dragon!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 11));
+talkEntry:addResponse("It is about time to land a strike against the Cult of Salavesh. Head for its stronghold again and smite a dozen of the animated skeletons to teach them a lesson not to mess with the Order of the Silver Dragon!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -551,8 +552,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug III"));
-talkEntry:addResponse("Es wird Zeit, dem Kult der Salavesh klarzumachen, dass man sich nicht mit dem Orden der Silberdrachen anlegt. Zieht aus und zerschlagt ein Dutzend ihrer wiederbelebten Skelette.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 11));
+talkEntry:addResponse("Es wird Zeit, dem Kult der Salavesh klarzumachen, dass man sich nicht mit dem Orden der Silberdrachen anlegt. Zieht aus und zerschlagt ein Dutzend ihrer wiederbelebten Skelette.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -562,11 +563,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 12 silver coins and a silvered longsword. You advance in Queen Rosaline Edwards's favour."));
-talkEntry:addResponse("I hope you taught the cultists a lesson they won't forget any time soon. I am glad that I can trust you and give you my sword. Use it wisely during the next mission.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
 talkEntry:addConsequence(npc.base.consequence.item.item(98, 1, 688, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 25));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("I hope you taught the cultists a lesson they won't forget any time soon. I am glad that I can trust you and give you my sword. Use it wisely during the next mission.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -575,11 +576,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 23));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 12 Silberstücke und ein versilbertes Langschwert. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Ich hoffe ihr habt diesen Kultisten eine Lektion erteilt, die sie so schnell nicht vergessen werden. Ich freue mich, dass ich euch vertrauen kann. Nehmt mein Schwert und nutzt es weise während der nächsten Mission.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
 talkEntry:addConsequence(npc.base.consequence.item.item(98, 1, 688, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 25));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Ich hoffe ihr habt diesen Kultisten eine Lektion erteilt, die sie so schnell nicht vergessen werden. Ich freue mich, dass ich euch vertrauen kann. Nehmt mein Schwert und nutzt es weise während der nächsten Mission.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -588,10 +589,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 23));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 12 silver coins and a silvered longsword."));
-talkEntry:addResponse("I hope you taught the cultists a lesson they won't forget any time soon. I am glad that I can trust you and give you my sword. Use it wisely during the next mission.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
 talkEntry:addConsequence(npc.base.consequence.item.item(98, 1, 688, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 25));
+talkEntry:addResponse("I hope you taught the cultists a lesson they won't forget any time soon. I am glad that I can trust you and give you my sword. Use it wisely during the next mission.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -599,10 +600,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 23));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 12 Silberstücke und ein versilbertes Langschwert."));
-talkEntry:addResponse("Ich hoffe ihr habt diesen Kultisten eine Lektion erteilt, die sie so schnell nicht vergessen werden. Ich freue mich, dass ich euch vertrauen kann. Nehmt mein Schwert und nutzt es weise während der nächsten Mission.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
 talkEntry:addConsequence(npc.base.consequence.item.item(98, 1, 688, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 25));
+talkEntry:addResponse("Ich hoffe ihr habt diesen Kultisten eine Lektion erteilt, die sie so schnell nicht vergessen werden. Ich freue mich, dass ich euch vertrauen kann. Nehmt mein Schwert und nutzt es weise während der nächsten Mission.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -650,8 +651,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade IV"));
-talkEntry:addResponse("While you were slaying the undead minions, I got word from a traveller that the Cult of Salavesh is preparing a foul ritual. Stop the blood mages who prepare the ritual, commonly, these cultists work as couples.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 26));
+talkEntry:addResponse("While you were slaying the undead minions, I got word from a traveller that the Cult of Salavesh is preparing a foul ritual. Stop the blood mages who prepare the ritual, commonly, these cultists work as a pair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -660,8 +661,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 25));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug IV"));
-talkEntry:addResponse("Während ihr den Untoten Dienern den Garaus machtet, verriet mir ein Reisender, dass der Kult der Salavesh wohl ein dunkles Ritual vorbereitet. Stoppt die Blutmagier, die dieses Ritual durchführen wollen - meist arbeiten sie zu zweit.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 26));
+talkEntry:addResponse("Während ihr den Untoten Dienern den Garaus machtet, verriet mir ein Reisender, dass der Kult der Salavesh wohl ein dunkles Ritual vorbereitet. Stoppt die Blutmagier, die dieses Ritual durchführen wollen - meist arbeiten sie zu zweit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -670,8 +671,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 25));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade IV"));
-talkEntry:addResponse("While you were slaying the undead minions, I got word from a traveller that the Cult of Salavesh is preparing a foul ritual. Stop the blood mages who prepare the ritual, commonly, these cultists work as couples.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 26));
+talkEntry:addResponse("While you were slaying the undead minions, I got word from a traveller that the Cult of Salavesh is preparing a foul ritual. Stop the blood mages who prepare the ritual, commonly, these cultists work as a pair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -681,8 +682,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug IV"));
-talkEntry:addResponse("Während ihr den Untoten Dienern den Garaus machtet, verriet mir ein Reisender, dass der Kult der Salavesh wohl ein dunkles Ritual vorbereitet. Stoppt die Blutmagier, die dieses Ritual durchführen wollen - meist arbeiten sie zu zweit.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 26));
+talkEntry:addResponse("Während ihr den Untoten Dienern den Garaus machtet, verriet mir ein Reisender, dass der Kult der Salavesh wohl ein dunkles Ritual vorbereitet. Stoppt die Blutmagier, die dieses Ritual durchführen wollen - meist arbeiten sie zu zweit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -692,11 +693,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins and an Albarian soldier's helmet. You advance in Queen Rosaline Edwards's favour."));
-talkEntry:addResponse("#me nods briefly while listening to the report of the events in the cave and replies: 'One good day for all of us. Here, have my helmet, you'll need it more than me during your next mission.'");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.item.item(2287, 1, 788, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 29));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("#me nods briefly while listening to the report of the events in the cave and replies: 'One good day for all of us. Here, have my helmet, you'll need it more than me during your next mission.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -705,11 +706,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 28));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke und einen albarischen Soldatenhelm. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("#me nickt knapp während er dem Bericht über die Ereignisse in der Höhle lauscht und antwortet: 'Ein guter Tag für uns alle. Hier, nehmt meinen Helm, er wird euch mehr nützen als mir während eurer nächsten Mission.'");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.item.item(2287, 1, 788, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 29));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("#me nickt knapp während er dem Bericht über die Ereignisse in der Höhle lauscht und antwortet: 'Ein guter Tag für uns alle. Hier, nehmt meinen Helm, er wird euch mehr nützen als mir während eurer nächsten Mission.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -718,10 +719,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 28));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins and an Albarian soldier's helmet."));
-talkEntry:addResponse("#me nods briefly while listening to the report of the events in the cave and replies: 'One good day for all of us. Here, have my helmet, you'll need it more than me during your next mission.'");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.item.item(2287, 1, 788, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 29));
+talkEntry:addResponse("#me nods briefly while listening to the report of the events in the cave and replies: 'One good day for all of us. Here, have my helmet, you'll need it more than me during your next mission.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -729,10 +730,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 28));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke und einen albarischen Soldatenhelm."));
-talkEntry:addResponse("#me nickt knapp während er dem Bericht über die Ereignisse in der Höhle lauscht und antwortet: 'Ein guter Tag für uns alle. Hier, nehmt meinen Helm, er wird euch mehr nützen als mir während eurer nächsten Mission.'");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.item.item(2287, 1, 788, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 29));
+talkEntry:addResponse("#me nickt knapp während er dem Bericht über die Ereignisse in der Höhle lauscht und antwortet: 'Ein guter Tag für uns alle. Hier, nehmt meinen Helm, er wird euch mehr nützen als mir während eurer nächsten Mission.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -780,8 +781,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade V"));
-talkEntry:addResponse("I sent a boy to the library; he found a shocking scroll. According to this, the Cult of Salavesh once awakened a demonic skeleton to serve them. Return to the cave and if you find this beast, end its existance.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 30));
+talkEntry:addResponse("I sent a boy to the library; he found a shocking scroll. According to this, the Cult of Salavesh once awakened a demonic skeleton to serve them. Return to the cave and if you find this beast, end its existance.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -790,8 +791,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 29));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug V"));
-talkEntry:addResponse("Ich habe einen Jungen in die Bibliothek geschickt; er kam mit einer schockierenden Schriftrolle zurück. Darin steht geschrieben, dass der Kult der Salavesh einst ein dämonisches Skelett erwecket, um ihnen zu dienen. Kehrt in in die Höhle zurück und wenn ihr dieses Unwesen findet, beendet sein Dasein.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 30));
+talkEntry:addResponse("Ich habe einen Jungen in die Bibliothek geschickt; er kam mit einer schockierenden Schriftrolle zurück. Darin steht geschrieben, dass der Kult der Salavesh einst ein dämonisches Skelett erwecket, um ihnen zu dienen. Kehrt in in die Höhle zurück und wenn ihr dieses Unwesen findet, beendet sein Dasein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -800,8 +801,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 29));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade V"));
-talkEntry:addResponse("I sent a boy to the library; he found a shocking scroll. According to this, the Cult of Salavesh once awakened a demonic skeleton to serve them. Return to the cave and if you find this beast, end its existance.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 30));
+talkEntry:addResponse("I sent a boy to the library; he found a shocking scroll. According to this, the Cult of Salavesh once awakened a demonic skeleton to serve them. Return to the cave and if you find this beast, end its existance.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -811,8 +812,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug V"));
-talkEntry:addResponse("Ich habe einen Jungen in die Bibliothek geschickt; er kam mit einer schockierenden Schriftrolle zurück. Darin steht geschrieben, dass der Kult der Salavesh einst ein dämonisches Skelett erwecket, um ihnen zu dienen. Kehrt in in die Höhle zurück und wenn ihr dieses Unwesen findet, beendet sein Dasein.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 30));
+talkEntry:addResponse("Ich habe einen Jungen in die Bibliothek geschickt; er kam mit einer schockierenden Schriftrolle zurück. Darin steht geschrieben, dass der Kult der Salavesh einst ein dämonisches Skelett erwecket, um ihnen zu dienen. Kehrt in in die Höhle zurück und wenn ihr dieses Unwesen findet, beendet sein Dasein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -822,12 +823,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 silver coins, a magical sapphire and a steel tower shield. You advance in Queen Rosaline Edwards's favour."));
-talkEntry:addResponse("Great! How much I love it when evil falls! I give you my shield; bear it with honour. But I give it to you for a reason; to complete my mission.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.item.item(96, 1, 888, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 333, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 32));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Great! How much I love it when evil falls! I give you my shield, bear it with honour, but I give it to you for a reason... to complete my mission.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -836,12 +837,12 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 31));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Silberstücke, einen magischen Saphir und einen Stahlturmschild. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Großartig! Ich liebe es, wenn das Böse daniederliegt. Ich gebe euch meinen Schild, tragt ihn mit Würde. Aber ich gebe ihn euch nicht grundlos, sondern um meine Mission zu vollenden.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.item.item(96, 1, 888, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 333, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 32));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Großartig! Ich liebe es, wenn das Böse daniederliegt. Ich gebe euch meinen Schild, tragt ihn mit Würde. Aber ich gebe ihn euch nicht grundlos, sondern um meine Mission zu vollenden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -850,11 +851,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 31));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 50 silver coins, a magical sapphire and a steel tower shield."));
-talkEntry:addResponse("Great! How much I love it when evil falls! I give you my shield; bear it with honour. But I give it to you for a reason; to complete my mission.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.item.item(96, 1, 888, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 333, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 32));
+talkEntry:addResponse("Great! How much I love it when evil falls! I give you my shield, bear it with honour, but I give it to you for a reason... to complete my mission.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -862,11 +863,11 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 31));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Silberstücke, einen magischen Saphir und einen Stahlturmschild."));
-talkEntry:addResponse("Großartig! Ich liebe es, wenn das Böse daniederliegt. Ich gebe euch meinen Schild, tragt ihn mit Würde. Aber ich gebe ihn euch nicht grundlos, sondern um meine Mission zu vollenden.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 5000));
 talkEntry:addConsequence(npc.base.consequence.item.item(96, 1, 888, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 333, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 32));
+talkEntry:addResponse("Großartig! Ich liebe es, wenn das Böse daniederliegt. Ich gebe euch meinen Schild, tragt ihn mit Würde. Aber ich gebe ihn euch nicht grundlos, sondern um meine Mission zu vollenden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -876,7 +877,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 31));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Demon skeletons are powerful beings; I understand you hesitate to face it. But if the Cult of Salavesh hosts such a monster, it has to be slain!");
+talkEntry:addResponse("Demon skeletons are powerful beings; I understand you hesitate to face it but if the Cult of Salavesh hosts such a monster, it has to be slain!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -894,7 +895,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, ">", 29));
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "<", 31));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Demon skeletons are powerful beings; I understand you hesitate to face it. But if the Cult of Salavesh hosts such a monster, it has to be slain!");
+talkEntry:addResponse("Demon skeletons are powerful beings; I understand you hesitate to face it but if the Cult of Salavesh hosts such a monster, it has to be slain!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -914,8 +915,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade VI"));
-talkEntry:addResponse("I studied the scroll the boy found thoroughly; and I came to the conclusion that the demon skeleton must have been guarding something. May it be the source of all evil? Set out and eliminate it!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 33));
+talkEntry:addResponse("I studied the scroll the boy found thoroughly and I came to the conclusion that the demon skeleton must have been guarding something. Might it be the source of all evil? Set out and eliminate it!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -924,8 +925,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 32));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug VI"));
-talkEntry:addResponse("Ich habe die Schriftrolle, die der Junge gefunden hat, gründlichst studiert und bin zu dem Schluss gekommen, dass das Dämonenskelett etwas bewacht haben muss. Etwas die Quelle allen Übels? Zieht aus und eleminiert sie!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 33));
+talkEntry:addResponse("Ich habe die Schriftrolle, die der Junge gefunden hat, gründlichst studiert und bin zu dem Schluss gekommen, dass das Dämonenskelett etwas bewacht haben muss. Etwas die Quelle allen Übels? Zieht aus und eleminiert sie!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -934,8 +935,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 32));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Errant Crusade VI"));
-talkEntry:addResponse("I studied the scroll the boy found thoroughly; and I came to the conclusion that the demon skeleton must have been guarding something. May it be the source of all evil? Set out and eliminate it!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 33));
+talkEntry:addResponse("I studied the scroll the boy found thoroughly and I came to the conclusion that the demon skeleton must have been guarding something. Might it be the source of all evil? Set out and eliminate it!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -945,8 +946,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der fehlgeleitete Kreuzzug VI"));
-talkEntry:addResponse("Ich habe die Schriftrolle, die der Junge gefunden hat, gründlichst studiert und bin zu dem Schluss gekommen, dass das Dämonenskelett etwas bewacht haben muss. Etwas die Quelle allen Übels? Zieht aus und eleminiert sie!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 33));
+talkEntry:addResponse("Ich habe die Schriftrolle, die der Junge gefunden hat, gründlichst studiert und bin zu dem Schluss gekommen, dass das Dämonenskelett etwas bewacht haben muss. Etwas die Quelle allen Übels? Zieht aus und eleminiert sie!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -956,12 +957,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded two gold coins, a magical topaz and an albarian noble's armour. You advance in Queen Rosaline Edwards's favour."));
-talkEntry:addResponse("You did what! You ended the life of one of the most noble creatures of Illarion? How you dare! How... did I dare to send you on this mission. I have to resign as knight of the Order of the Silver Dragon - I surrender my armour and my belongings to you.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20000));
 talkEntry:addConsequence(npc.base.consequence.item.item(2367, 1, 988, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(198, 1, 333, {["gemLevel"] = "2"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 35));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("You did what? You ended the life of one of the most noble creatures of Illarion? How dare you? How... did I dare to send you on this mission? I have to resign as knight of the Order of the Silver Dragon - I surrender my armour and my belongings to you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -970,12 +971,12 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 34));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zwei Goldstücke, einen magischen Topas und eine albarische Adeligenrüstung. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Ihr habt was getan? Ihr habt das Leben eines der edelsten Kreaturen von ganz Illarion beendet? Was fällt euch ein! Was... fiel mir ein, euch auf diese Mission zu schicken. Ich werde als Ritter des Ordens der Silberdrachen abdanken müssen. Ich überantworte euch meine Rüstung und meinen weltlichen Besitz.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20000));
 talkEntry:addConsequence(npc.base.consequence.item.item(2367, 1, 988, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(198, 1, 333, {["gemLevel"] = "2"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 35));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Ihr habt was getan? Ihr habt das Leben eines der edelsten Kreaturen von ganz Illarion beendet? Was fällt euch ein! Was... fiel mir ein, euch auf diese Mission zu schicken. Ich werde als Ritter des Ordens der Silberdrachen abdanken müssen. Ich überantworte euch meine Rüstung und meinen weltlichen Besitz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -984,23 +985,23 @@ talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 34));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded two gold coins, a magical topaz and an albarian noble's armour."));
-talkEntry:addResponse("You did what! You ended the life of one of the most noble creatures of Illarion? How you dare! How... did I dare to send you on this mission. I have to resign as knight of the Order of the Silver Dragon - I surrender my armour and my belongings to you.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20000));
 talkEntry:addConsequence(npc.base.consequence.item.item(2367, 1, 988, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(198, 1, 333, {["gemLevel"] = "2"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 35));
+talkEntry:addResponse("You did what? You ended the life of one of the most noble creatures of Illarion? How dare you? How... did I dare to send you on this mission? I have to resign as knight of the Order of the Silver Dragon - I surrender my armour and my belongings to you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(104, "=", 34));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zwei Silberstücke, einen magischen Topas und eine albarische Adeligenrüstung."));
-talkEntry:addResponse("Ihr habt was getan? Ihr habt das Leben eines der edelsten Kreaturen von ganz Illarion beendet? Was fällt euch ein! Was... fiel mir ein, euch auf diese Mission zu schicken. Ich werde als Ritter des Ordens der Silberdrachen abdanken müssen. Ich überantworte euch meine Rüstung und meinen weltlichen Besitz.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zwei Goldstücke, einen magischen Topas und eine albarische Adeligenrüstung."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 20000));
 talkEntry:addConsequence(npc.base.consequence.item.item(2367, 1, 988, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(198, 1, 333, {["gemLevel"] = "2"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(104, "=", 35));
+talkEntry:addResponse("Ihr habt was getan? Ihr habt das Leben eines der edelsten Kreaturen von ganz Illarion beendet? Was fällt euch ein! Was... fiel mir ein, euch auf diese Mission zu schicken. Ich werde als Ritter des Ordens der Silberdrachen abdanken müssen. Ich überantworte euch meine Rüstung und meinen weltlichen Besitz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1104,7 +1105,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("crusade");
 talkEntry:addTrigger("knight");
-talkEntry:addResponse("Us knights of the Order of the Silver Dragon fight what is not according to the old customs where we find it. And in these lands, there is plenty opportunity to do so.");
+talkEntry:addResponse("Us knights of the Order of the Silver Dragon fight what is not in accordance to the old customs wherever we find it, and in these lands, there is plenty of opportunity to do so.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1119,7 +1120,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("I do not like to sail ashore, so I have never been to Gobaith.");
+talkEntry:addResponse("I do not like to sail so I have never been to Gobaith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1248,7 +1249,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("wound");
-talkEntry:addResponse("Minions of the Cult of Salavesh wounded me like this. But I won't surrender; help me in my deed for the old customs.");
+talkEntry:addResponse("Minions of the Cult of Salavesh wounded me like this but I won't surrender; help me in my deed for the old customs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1425,7 +1426,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("Moshran is commonly underestimated; the evil thug they say. That is far away from the truth, for Moshran is much more than 'evil' or 'good'.");
+talkEntry:addResponse("Moshran is commonly underestimated, the evil thug they say. That is far from the truth, for Moshran is much more than 'evil' or 'good'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1439,7 +1440,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Many knights pray to Malachin prior to a battle; but do they really have faith in his guidance? Or are they just cowards?");
+talkEntry:addResponse("Many knights pray to Malachin prior to a battle but do they really have faith in his guidance? Or are they just cowards?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1466,7 +1467,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("Cherga! The goddess of death! What is dead is dead and rots; all beyond is just evil!");
+talkEntry:addResponse("Cherga! The goddess of death! What is dead is dead and rots, all beyond is just evil!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1480,7 +1481,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("Did you know that Brágon is the father of all dragons? No? I thought so.");
+talkEntry:addResponse("Did you know that Brágon is the father of all dragons? No? I thought not.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1496,7 +1497,8 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("The code of my order forbids me from pursuing mudane wealth; thus, I do not trade things with you.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("The code of my order forbids me from pursuing mudane wealth, thus I do notthings with you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

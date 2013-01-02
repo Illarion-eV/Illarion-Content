@@ -26,6 +26,7 @@ require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.anthar_vilicon", package.seeall)
 
@@ -54,8 +55,8 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Be greeted. A good day for a good deed - maybe I have a mission for you.");
-talkEntry:addResponse("Hail! Welcome to the palace of the Edwards. Do not dare to disrespect the queen and you life will be a long one.");
-talkEntry:addResponse("Chancellor Vilicon greets you. You came here for your orders, I assume. The administration of Cadomyr appreciates your assistance.");
+talkEntry:addResponse("Hail! Welcome to the Palace of the Edwards. Do not dare to disrespect the Queen and you life will be a long one.");
+talkEntry:addResponse("Chancellor Vilicon greets you. You came here for your orders, I assume? The administration of Cadomyr appreciates your assistance.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -83,8 +84,8 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Be greeted. A good day for a good deed - maybe I have a mission for you.");
-talkEntry:addResponse("Hail! Welcome to the palace of the Edwards. Do not dare to disrespect the queen and you life will be a long one.");
-talkEntry:addResponse("Chancellor Vilicon greets you. You came here for your orders, I assume. The administration of Cadomyr appreciates your assistance.");
+talkEntry:addResponse("Hail! Welcome to the Palace of the Edwards. Do not dare to disrespect the Queen and you life will be a long one.");
+talkEntry:addResponse("Chancellor Vilicon greets you. You came here for your orders, I assume? The administration of Cadomyr appreciates your assistance.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -105,7 +106,7 @@ talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Go with the gods' blessing.");
-talkEntry:addResponse("May the gods protect you as they protect her majesty.");
+talkEntry:addResponse("May the gods protect you as they protect her Majesty.");
 talkEntry:addResponse("Farewell and best of luck.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -128,7 +129,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Go with the gods' blessing.");
-talkEntry:addResponse("May the gods protect you as they protect her majesty.");
+talkEntry:addResponse("May the gods protect you as they protect her Majesty.");
 talkEntry:addResponse("Farewell and best of luck.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -259,8 +260,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("I don't have a mission for you at this moment. Please come back later.");
-talkEntry:addResponse("I appreciate that you want to do deeds in the name of her majesty, but currently, there are no orders for you.");
-talkEntry:addResponse("Your words honour you and the day will come when you can prove your loyality to the throne by deeds. But this day is not today. Please come back later.");
+talkEntry:addResponse("I appreciate that you want to do deeds in the name of her Majesty, but currently, there are no orders for you.");
+talkEntry:addResponse("Your words honour you and the day will come when you can prove your loyality to the throne by deeds, but this day is not today. Please come back later.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -283,7 +284,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addResponse("I don't have a mission for you at this moment. Please come back later.");
 talkEntry:addResponse("I appreciate that you want to do deeds in the name of her majesty, but currently, there are no orders for you.");
-talkEntry:addResponse("Your words honour you and the day will come when you can prove your loyality to the throne by deeds. But this day is not today. Please come back later.");
+talkEntry:addResponse("Your words honour you and the day will come when you can prove your loyality to the throne by deeds, but this day is not today. Please come back later.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -308,8 +309,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Your mission today: The queen desires sweet fruit and I will not dissapoint her. Bring me five strawberries as fast as possible and I'll mention your name infront of her.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 1));
+talkEntry:addResponse("Your mission today: The Queen desires sweet fruit and I will not disappoint her. Bring me five strawberries as fast as possible and I'll mention your name in front of her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,8 +322,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Eure heutige Mission: Die Königin verlang nach süßen Früchten und ich werde sie nicht enttäuschen. Bringt mir fünf Erdbeeren und ich werde euren Namen ihr gegenüber lobend erwähnen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 1));
+talkEntry:addResponse("Eure heutige Mission: Die Königin verlang nach süßen Früchten und ich werde sie nicht enttäuschen. Bringt mir fünf Erdbeeren und ich werde euren Namen ihr gegenüber lobend erwähnen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -334,8 +335,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Your mission today: The queen desires sweet fruit and I will not dissapoint her. Bring five strawberries as fast as possible and I'll mention your name infront of her.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 1));
+talkEntry:addResponse("Your mission today: The Queen desires sweet fruit and I will not disappoint her. Bring five strawberries as fast as possible and I'll mention your name in front of her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -348,8 +349,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Eure heutige Mission: Die Königin verlang nach süßen Früchten und ich werde sie nicht enttäuschen. Bringt mir fünf Erdbeeren und ich werde euren Namen ihr gegenüber lobend erwähnen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 1));
+talkEntry:addResponse("Eure heutige Mission: Die Königin verlang nach süßen Früchten und ich werde sie nicht enttäuschen. Bringt mir fünf Erdbeeren und ich werde euren Namen ihr gegenüber lobend erwähnen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -360,12 +361,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded two silver coins. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Very good. I am authorised to grant you a small reward. The queen will enjoy these fruits!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(151, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Very good. I am authorised to grant you a small reward. The Queen will enjoy these fruits!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -375,12 +376,12 @@ talkEntry:addCondition(npc.base.condition.item.item(151, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zwei Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Sehr gut. Ich bin berechtigt, euch eine kleine Belohnung zu zahlen. Die Königin wird sich über diese Früchte sicher freuen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(151, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Sehr gut. Ich bin berechtigt, euch eine kleine Belohnung zu zahlen. Die Königin wird sich über diese Früchte sicher freuen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -391,7 +392,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I told you to bring five strawberries. Her majesty has to rule a whole realm and you fail in such a simple task?");
+talkEntry:addResponse("I told you to bring five strawberries. Her Majesty has to rule a whole realm and you fail in such a simple task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -412,7 +413,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I told you to bring five strawberries. Her majesty has to rule a whole realm and you fail in such a simple task?");
+talkEntry:addResponse("I told you to bring five strawberries. Her Majesty has to rule a whole realm and you fail in such a simple task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -436,8 +437,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Cadomyr's economy is based on sand. Very funny, I know - but take a look at the treasury and you won't laugh anymore. A shipment of quartz sand to abroad lacks twenty piles. Please provide them anytime soon.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 2));
+talkEntry:addResponse("Cadomyr's economy is based on sand. Very funny, I know - but take a look at the treasury and you won't laugh anymore. A shipment of quartz sand abroad lacks twenty piles. Please provide them sometime soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -449,8 +450,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Cadomyrs Wirtschaft ist auf Sand gebaut. Sehr witzig, ich weiß - aber wenn ihr einen Blick in die Schatzkammer werfen dürftet, würde euch das Lachen vergehen. Einer Lieferung Quartzsand ins Ausland fehlen noch zwanzig Haufen. Beschafft sie bitte möglichst bald.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 2));
+talkEntry:addResponse("Cadomyrs Wirtschaft ist auf Sand gebaut. Sehr witzig, ich weiß - aber wenn ihr einen Blick in die Schatzkammer werfen dürftet, würde euch das Lachen vergehen. Einer Lieferung Quartzsand ins Ausland fehlen noch zwanzig Haufen. Beschafft sie bitte möglichst bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,8 +463,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Cadomyr's economy is based on sand. Very funny, I know - but take a look at the treasury and you won't laugh anymore. A shipment of quartz sand to abroad lacks twenty piles. Please provide them anytime soon.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 2));
+talkEntry:addResponse("Cadomyr's economy is based on sand. Very funny, I know - but take a look at the treasury and you won't laugh anymore. A shipment of quartz sand abroad lacks twenty piles. Please provide them sometime soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -476,8 +477,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Cadomyrs Wirtschaft ist auf Sand gebaut. Sehr witzig, ich weiß - aber wenn ihr einen Blick in die Schatzkammer werfen dürftet, würde euch das Lachen vergehen. Einer Lieferung Quartzsand ins Ausland fehlen noch zwanzig Haufen. Beschafft sie bitte möglichst bald.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 2));
+talkEntry:addResponse("Cadomyrs Wirtschaft ist auf Sand gebaut. Sehr witzig, ich weiß - aber wenn ihr einen Blick in die Schatzkammer werfen dürftet, würde euch das Lachen vergehen. Einer Lieferung Quartzsand ins Ausland fehlen noch zwanzig Haufen. Beschafft sie bitte möglichst bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -488,12 +489,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a shovel. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Very good! The shipment can leave Cadomyr in time. Next time: Be a bit faster. Here you have a shovel that might be helpful.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Very good! The shipment can leave Cadomyr in time. Next time, be a bit faster. Here you have a shovel, that might be helpful.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -503,12 +504,12 @@ talkEntry:addCondition(npc.base.condition.item.item(316, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Schaufel. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Sehr gut! Die Lieferung kann Cadomyr pünktlich verlassen. Aber nächstes mal: Seid noch schneller. Hier, nehmt diese Schaufel, sie dürfte euch helfen.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(316, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(24, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Sehr gut! Die Lieferung kann Cadomyr pünktlich verlassen. Aber nächstes mal: Seid noch schneller. Hier, nehmt diese Schaufel, sie dürfte euch helfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -564,8 +565,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("I have a special assignement for you. Queen Rosaline wants to send a diadem to her grand aunt in Albar as present. For that diadem, three cut rubies are needed. You are the one who will get them!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 3));
+talkEntry:addResponse("I have a special assignement for you. Queen Rosaline wants to send a diadem to her grand aunt in Albar as present. For that diadem, three cut rubies are needed. You are the one who will get them!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -577,8 +578,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Ich habe eine besondere Aufgabe für euch. Königin Rosaline möchte ein Diadem als Geschenk an ihre Großtante in Albar senden. Für dieses Diadem werden noch drei geschliffene Rubine benötigt. Ihr werdet derjenige sein, der sie besorgt!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 3));
+talkEntry:addResponse("Ich habe eine besondere Aufgabe für euch. Königin Rosaline möchte ein Diadem als Geschenk an ihre Großtante in Albar senden. Für dieses Diadem werden noch drei geschliffene Rubine benötigt. Ihr werdet derjenige sein, der sie besorgt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -590,8 +591,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("I have a special assignement for you. Queen Rosaline wants to send a diadem to her grand nice in Albar as present. For that diadem, three cut rubies are needed. You are the one who will get them!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 3));
+talkEntry:addResponse("I have a special assignement for you. Queen Rosaline wants to send a diadem to her grand nice in Albar as present. For that diadem, three cut rubies are needed. You are the one who will get them!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -604,8 +605,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Ich habe eine besondere Aufgabe für euch. Königin Rosaline möchte ein Diadem als Geschenk an ihre Großtante in Albar senden. Für dieses Diadem werden noch drei geschliffene Rubine benötigt. Ihr werdet derjenige sein, der sie besorgt!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 3));
+talkEntry:addResponse("Ich habe eine besondere Aufgabe für euch. Königin Rosaline möchte ein Diadem als Geschenk an ihre Großtante in Albar senden. Für dieses Diadem werden noch drei geschliffene Rubine benötigt. Ihr werdet derjenige sein, der sie besorgt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -616,12 +617,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded six silver coins. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("I thank you. The diadem, albeit not the first present this year, will reduce the tensions between Cadomyr and Albar. Here, have this little compensation.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(46, 3, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 24));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("I thank you. The diadem, albeit not the first present this year, will reduce the tensions between Cadomyr and Albar. Here, have this little compensation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -631,12 +632,12 @@ talkEntry:addCondition(npc.base.condition.item.item(46, "all", ">", 2, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst sechs Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Ich danke euch. Das Diadem, auch wenn es nicht das erste Geschenk in diesem Jahr ist, wird die Spannung zwischen Cadomyr und Albar reduzieren. Hier, nehmt diese Entlohnung.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(46, 3, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 24));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Ich danke euch. Das Diadem, auch wenn es nicht das erste Geschenk in diesem Jahr ist, wird die Spannung zwischen Cadomyr und Albar reduzieren. Hier, nehmt diese Entlohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -647,7 +648,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Just imagine what happens when the queen finds out you did not bring the three cut rubies for her grand aunt's diadem in time... better hurry!");
+talkEntry:addResponse("Just imagine what happens when the Queen finds out you did not bring the three cut rubies for her grand aunt's diadem in time... better hurry!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -668,7 +669,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Just imagine what happens when the queen finds out you did not bring the three cut rubies for her grand aunt's diadem in time... better hurry!");
+talkEntry:addResponse("Just imagine what happens when the Queen finds out you did not bring the three cut rubies for her grand aunt's diadem in time... better hurry!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -692,8 +693,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("#me points at the ceiling: 'As administrator of the palace, I even have to care for leaks in the ceiling. Did you see that hole? For fixing it, the artisans need ten cherry wood boards. Please provide them and the queen will be grateful.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 4));
+talkEntry:addResponse("#me points at the ceiling: 'As administrator of the palace, I even have to take care of leaks in the ceiling. Did you see that hole? To fix it, the artisans need ten cherry wood boards. Please provide them and the Queen will be grateful.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -705,8 +706,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("#me deutet zur Decke: 'Als Verwalter des Palastes muss ich mich sogar um Löcher in der Decke kümmern, habt ihr jenes gesehen? Die Artisanen brauchen zehn Kirschholzbretter, um es auszubessern. Bitte besorgt diese und der Dank der Königin ist euch gewiss.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 4));
+talkEntry:addResponse("#me deutet zur Decke: 'Als Verwalter des Palastes muss ich mich sogar um Löcher in der Decke kümmern, habt ihr jenes gesehen? Die Artisanen brauchen zehn Kirschholzbretter, um es auszubessern. Bitte besorgt diese und der Dank der Königin ist euch gewiss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -718,8 +719,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("#me points at the ceiling: 'As administrator of the palace, I even have to care for leaks in the ceiling. Did you see that hole? For fixing it, the artisans need ten cherry wood boards. Please provide them and the queen will be grateful.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 4));
+talkEntry:addResponse("#me points at the ceiling: 'As administrator of the palace, I even have to take care of leaks in the ceiling. Did you see that hole? To fix it, the artisans need ten cherry wood boards. Please provide them and the Queen will be grateful.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -732,8 +733,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("#me deutet zur Decke: 'Als Verwalter des Palastes muss ich mich sogar um Löcher in der Decke kümmern, habt ihr jenes gesehen? Die Artisanen brauchen zehn Kirschholzbretter, um es auszubessern. Bitte besorgt diese und der Dank der Königin ist euch gewiss.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 4));
+talkEntry:addResponse("#me deutet zur Decke: 'Als Verwalter des Palastes muss ich mich sogar um Löcher in der Decke kümmern, habt ihr jenes gesehen? Die Artisanen brauchen zehn Kirschholzbretter, um es auszubessern. Bitte besorgt diese und der Dank der Königin ist euch gewiss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -744,12 +745,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("With that cherry wood, the artisans can fix the ceiling. I don't want to think about what could have happened when it rains the next time...");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(545, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("With that cherry wood, the artisans can fix the ceiling. I don't want to think about what could have happened when it rains the next time...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -759,12 +760,12 @@ talkEntry:addCondition(npc.base.condition.item.item(545, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Mit diesem Kirschholz können die Artisanen die Decke ausbessern. Ich möchte mir gar nicht ausmalen, was geschehen wäre, wenn es das nächste mal geregnet hätte...");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(545, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Mit diesem Kirschholz können die Artisanen die Decke ausbessern. Ich möchte mir gar nicht ausmalen, was geschehen wäre, wenn es das nächste mal geregnet hätte...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -775,7 +776,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("If there is one thing the queen hates, then it is a water drop falling from the ceiling and hitting her hair. Bring ten cherry wood boards to fix the ceiling before next rainfall.");
+talkEntry:addResponse("If there is one thing the Queen hates, it is a water drop falling from the ceiling and hitting her hair. Bring ten cherry wood boards to fix the ceiling before next rainfall.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -796,7 +797,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("If there is one thing the queen hates, then it is a water drop falling from the ceiling and hitting her hair. Bring ten cherry wood boards to fix the ceiling before next rainfall.");
+talkEntry:addResponse("If there is one thing the Queen hates, it is a water drop falling from the ceiling and hitting her hair. Bring ten cherry wood boards to fix the ceiling before next rainfall.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -820,8 +821,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("A new maidservant recently started working for her majesty. To dress her properly, a white heraldic dress is neede. Quick, run to one of the tailors and obtain one.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 5));
+talkEntry:addResponse("A new maidservant recently started working for her Majesty. To dress her properly, a white heraldic dress is needed. Quick, run to one of the tailors and obtain one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -833,8 +834,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Eine neue Zofe steht seit kurzem im Dienste ihrer Majestät. Um sie gebührend einzukleiden wird ein weißes Wappenkleid benötigt. Los, lauft zu einem Schneider und besorgt eines.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 5));
+talkEntry:addResponse("Eine neue Zofe steht seit kurzem im Dienste ihrer Majestät. Um sie gebührend einzukleiden wird ein weißes Wappenkleid benötigt. Los, lauft zu einem Schneider und besorgt eines.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -846,8 +847,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("A new maidservant recently started working for her majesty. To dress her properly, a white heraldic dress is neede. Quick, run to one of the tailors and obtain one.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 5));
+talkEntry:addResponse("A new maidservant recently started working for her Majesty. To dress her properly, a white heraldic dress is needed. Quick, run to one of the tailors and obtain one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -860,8 +861,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Eine neue Zofe steht seit kurzem im Dienste ihrer Majestät. Um sie gebührend einzukleiden wird ein weißes Wappenkleid benötigt. Los, lauft zu einem Schneider und besorgt eines.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 5));
+talkEntry:addResponse("Eine neue Zofe steht seit kurzem im Dienste ihrer Majestät. Um sie gebührend einzukleiden wird ein weißes Wappenkleid benötigt. Los, lauft zu einem Schneider und besorgt eines.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -872,12 +873,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a golden ring. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Excellent, that dress even has the right size. This ring shall remind you every day on your service for your queen.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(852, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Excellent, that dress is even the right size. This ring will remind you every day of your service for your Queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -887,12 +888,12 @@ talkEntry:addCondition(npc.base.condition.item.item(852, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen goldenen Ring. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Exzellent, das Kleid hat sogar die richtige Größe. Dieser Ring soll euch ewig an eure Dienste für die Königin erinnern.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(852, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Exzellent, das Kleid hat sogar die richtige Größe. Dieser Ring soll euch ewig an eure Dienste für die Königin erinnern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -903,7 +904,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("The maidservant is still clad in rugs! This way, I cannot let her serve the queen. Please, bring a white heraldic dress for the maidservant and I have a special reward for you.");
+talkEntry:addResponse("The maidservant is still clad in rags! This way, I cannot let her serve the Queen. Please, bring a white heraldic dress for the maidservant and I have a special reward for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -924,7 +925,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("The maidservant is still clad in rugs! This way, I cannot let her serve the queen. Please, bring a white heraldic dress for the maidservant and I have a special reward for you.");
+talkEntry:addResponse("The maidservant is still clad in rags! This way, I cannot let her serve the Queen. Please, bring a white heraldic dress for the maidservant and I have a special reward for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -948,8 +949,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Today's mission is a little more important: The town wall of Cadomyr is in need of constant repair. There is a small damage in the southern wall, nothing serious, but still, twenty bricks are needed to fix it.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 6));
+talkEntry:addResponse("Today's mission is a little more important: The town wall of Cadomyr is in need of constant repair. There is a small amount of damage to the southern wall, nothing serious, but still, twenty bricks are needed to fix it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -961,8 +962,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Die heutige Mission ist etwas wichtiger: Die Stadtmauer Cadomyrs muss ständig in Schuss gehalten werden. In der Südmauer ist ein kleiner Schaden, nichts schlimmes, aber dennoch werden zwanzig Ziegelsteine benötigt, um sie auszubessern.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 6));
+talkEntry:addResponse("Die heutige Mission ist etwas wichtiger: Die Stadtmauer Cadomyrs muss ständig in Schuss gehalten werden. In der Südmauer ist ein kleiner Schaden, nichts schlimmes, aber dennoch werden zwanzig Ziegelsteine benötigt, um sie auszubessern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -974,8 +975,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Today's mission is a little more important: The town wall of Cadomyr is in need of constant repair. There is a small damage in the southern wall, nothing serious, but still, twenty bricks are needed to fix it.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 6));
+talkEntry:addResponse("Today's mission is a little more important: The town wall of Cadomyr is in need of constant repair. There is a small amount of damage to the southern wall, nothing serious, but still, twenty bricks are needed to fix it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -988,8 +989,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Die heutige Mission ist etwas wichtiger: Die Stadtmauer Cadomyrs muss ständig in Schuss gehalten werden. In der Südmauer ist ein kleiner Schaden, nichts schlimmes, aber dennoch werden zwanzig Ziegelsteine benötigt, um sie auszubessern.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 6));
+talkEntry:addResponse("Die heutige Mission ist etwas wichtiger: Die Stadtmauer Cadomyrs muss ständig in Schuss gehalten werden. In der Südmauer ist ein kleiner Schaden, nichts schlimmes, aber dennoch werden zwanzig Ziegelsteine benötigt, um sie auszubessern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1000,12 +1001,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a bag. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("The masons will immediatly start fixing the wall with your bricks. Have this bag, it might help you in future missions.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2588, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(97, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 24));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("The masons will immediately start fixing the wall with your bricks. Have this bag, it might help you in future missions.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1015,12 +1016,12 @@ talkEntry:addCondition(npc.base.condition.item.item(2588, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Tasche. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Die Maurer werden sofort damit beginnen, die Mauer mit euren Ziegeln auszubessern. Nehmt diesen Sack, er wird euch in zukünftigen Missionen gute Dienste erweisen.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2588, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(97, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 24));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Die Maurer werden sofort damit beginnen, die Mauer mit euren Ziegeln auszubessern. Nehmt diesen Sack, er wird euch in zukünftigen Missionen gute Dienste erweisen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1031,7 +1032,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Cadomyr's enemies are just waiting for a sign of weakness. We must not show any; so twenty bricks is what we need to fix the small breach in the town wall.");
+talkEntry:addResponse("Cadomyr's enemies are just waiting for a sign of weakness. We must not show any, so twenty bricks are what we need to fix the small breach in the town wall.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1052,7 +1053,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Cadomyr's enemies are just waiting for a sign of weakness. We must not show any; so twenty bricks is what we need to fix the small breach in the wall.");
+talkEntry:addResponse("Cadomyr's enemies are just waiting for a sign of weakness. We must not show any, so twenty bricks are what we need to fix the small breach in the wall.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1076,8 +1077,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("You! I just checked the armoury and found a long sword missing! Please investigate on this theft - either, bring me the head of the thief or a newly crafted long sword as replacement.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 7));
+talkEntry:addResponse("You! I just checked the armoury and found a long sword missing! Please investigate this theft - either, bring me the head of the thief or a newly crafted long sword as replacement.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1089,8 +1090,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Ihr da! Ich habe gerade die Waffenkammer überprüft und festgestellt, dass ein Langschwert fehlt. Bitte untersucht diesen Diebstahl - entweder, ihr bringt mir den Kopf des Diebes oder ein neues Langschwert als Ersatz.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 7));
+talkEntry:addResponse("Ihr da! Ich habe gerade die Waffenkammer überprüft und festgestellt, dass ein Langschwert fehlt. Bitte untersucht diesen Diebstahl - entweder, ihr bringt mir den Kopf des Diebes oder ein neues Langschwert als Ersatz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1102,8 +1103,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("You! I just checked the armoury and found a sword missing! Please investigate on this theft - either, bring me the head of the thief or a newly crafted long sword as replacement.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 7));
+talkEntry:addResponse("You! I just checked the armoury and found a sword missing! Please investigate this theft - either, bring me the head of the thief or a newly crafted long sword as replacement.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1116,8 +1117,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Ihr da! Ich habe gerade die Waffenkammer überprüft und festgestellt, dass ein Langschwert fehlt. Bitte untersucht diesen Diebstahl - entweder, ihr bringt mir den Kopf des Diebes oder ein neues Langschwert als Ersatz.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 7));
+talkEntry:addResponse("Ihr da! Ich habe gerade die Waffenkammer überprüft und festgestellt, dass ein Langschwert fehlt. Bitte untersucht diesen Diebstahl - entweder, ihr bringt mir den Kopf des Diebes oder ein neues Langschwert als Ersatz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1128,12 +1129,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 12 silver coins. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Ah, a new long sword for the armoury. I guess we'll never find out who stole one, most probably a minion of Baron Hastings.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2701, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Ah, a new long sword for the armoury. I guess we'll never find out who stole one, most probably a minion of Baron Hastings.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1143,12 +1144,12 @@ talkEntry:addCondition(npc.base.condition.item.item(2701, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 12 Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Ah, ein neues Langschwert für die Waffenkammer. Ich nehme an, wir werden nie herausfinden, wer eines stahl. Wahrscheinlich einer von Baron Hastings Handlangern.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2701, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Ah, ein neues Langschwert für die Waffenkammer. Ich nehme an, wir werden nie herausfinden, wer eines stahl. Wahrscheinlich einer von Baron Hastings Handlangern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1204,8 +1205,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("You know what makes a glorious palace? Decoration. The queen likes firnis blossoms and she likes many of them. Bring me fifteen of them so I can decorate her chamber.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 8));
+talkEntry:addResponse("You know what makes a glorious palace? Decoration. The Queen likes firnis blossoms and she likes many of them. Bring me fifteen of them so I can decorate her chamber.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1217,8 +1218,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Wißt ihr, was einen Palast erst so richtig prunkvoll macht? Dekoration. Die Königin liebt Firnisblüten über alles und sie mag sie in Massen. Bringt bitte fünfzehn Blüten, so dass ich ihre Kammer ausschmücken kann.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 8));
+talkEntry:addResponse("Wißt ihr, was einen Palast erst so richtig prunkvoll macht? Dekoration. Die Königin liebt Firnisblüten über alles und sie mag sie in Massen. Bringt bitte fünfzehn Blüten, so dass ich ihre Kammer ausschmücken kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1230,8 +1231,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("You know what makes a glorious palace? Decoration. The queen likes firnis blossoms and she likes many of them. Bring me fifteen of them so I can decorate her chamber.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 8));
+talkEntry:addResponse("You know what makes a glorious palace? Decoration. The Queen likes firnis blossoms and she likes many of them. Bring me fifteen of them so I can decorate her chamber.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1244,8 +1245,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Wißt ihr, was einen Palast erst so richtig prunkvoll macht? Dekoration. Die Königin liebt Firnisblüten über alles und sie mag sie in Massen. Bringt bitte fünfzehn Blüten, so dass ich ihre Kammer ausschmücken kann.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 8));
+talkEntry:addResponse("Wißt ihr, was einen Palast erst so richtig prunkvoll macht? Dekoration. Die Königin liebt Firnisblüten über alles und sie mag sie in Massen. Bringt bitte fünfzehn Blüten, so dass ich ihre Kammer ausschmücken kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1255,13 +1256,13 @@ talkEntry:addCondition(npc.base.condition.item.item(148, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a mushroom soup. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Ah, firnis blossoms, that'll be a great surprise for her majesty. To recover from your journey, have this soup. Regain some strength for your next mission.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a bowl of mushroom soup. You advance in Queen Rosaline Edwards' favour."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(148, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2456, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Ah, firnis blossoms, that'll be a great surprise for her majesty. To recover from your journey, have this soup. Regain some strength for your next mission.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1271,12 +1272,12 @@ talkEntry:addCondition(npc.base.condition.item.item(148, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Pilzsuppe. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Ah, Firnisblüten, das wird eine schöne Überraschung für ihre Majestät. Nehmt diese Suppe zu euch, um euch von eurer Reise zu erholen und Kraft für die nächste Mission zu sammeln.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(148, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2456, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Ah, Firnisblüten, das wird eine schöne Überraschung für ihre Majestät. Nehmt diese Suppe zu euch, um euch von eurer Reise zu erholen und Kraft für die nächste Mission zu sammeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1287,7 +1288,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Decoration of a palace really seperates us from the barbarians. And a queen looks best with a flower in her hair, no? So, please bringe fifteen firnis blossoms.");
+talkEntry:addResponse("Decoration of a palace really separates us from the barbarians. A Queen looks best with a flower in her hair, no? So, please bring fifteen firnis blossoms.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1308,7 +1309,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Decoration of a palace really seperates us from the barbarians. And a queen looks best with a flower in her hair, no? So, please bringe fifteen firnis blossoms.");
+talkEntry:addResponse("Decoration of a palace really separates us from the barbarians. A Queen looks best with a flower in her hair, no? So, please bring fifteen firnis blossoms.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1332,8 +1333,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("The cavalary of Cadomyr's knights has always been feared by our enemies. Today, you'll learn that a cavalary needs more than a lance; the horses need to be fed every day. It is your job to bring ten carrots for the royal horses.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 9));
+talkEntry:addResponse("The cavalary of Cadomyr's knights has always been feared by our enemies. Today, you'll learn that a cavalary needs more than a lance; the horses need to be fed every day. It is your job to bring ten carrots for the royal horses.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1345,8 +1346,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Die Kavallerie der Ritter Cadomyrs wurde schon immer von unseren Feinden gefürchtet. Heute lernt ihr, dass zu einer Kavallerie mehr gehört als Lanzen; die Pferde müssen jeden Tag gefüttert werden. Eure Aufgabe ist es, zehn Karotten für das königliche Gestüt herzubringen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 9));
+talkEntry:addResponse("Die Kavallerie der Ritter Cadomyrs wurde schon immer von unseren Feinden gefürchtet. Heute lernt ihr, dass zu einer Kavallerie mehr gehört als Lanzen; die Pferde müssen jeden Tag gefüttert werden. Eure Aufgabe ist es, zehn Karotten für das königliche Gestüt herzubringen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1358,8 +1359,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("The cavalary of Cadomyr's knights has always been feared by our enemies. Today, you'll learn that a cavalary needs more than a lance; the horses need to be fed every day. It is your job to bring ten carrots for the royal horses.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 9));
+talkEntry:addResponse("The cavalary of Cadomyr's knights has always been feared by our enemies. Today, you'll learn that a cavalary needs more than a lance; the horses need to be fed every day. It is your job to bring ten carrots for the royal horses.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1372,8 +1373,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Die Kavallerie der Ritter Cadomyrs wurde schon immer von unseren Feinden gefürchtet. Heute lernt ihr, dass zu einer Kavallerie mehr gehört als Lanzen; die Pferde müssen jeden Tag gefüttert werden. Eure Aufgabe ist es, zehn Karotten für das königliche Gestüt herzubringen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 9));
+talkEntry:addResponse("Die Kavallerie der Ritter Cadomyrs wurde schon immer von unseren Feinden gefürchtet. Heute lernt ihr, dass zu einer Kavallerie mehr gehört als Lanzen; die Pferde müssen jeden Tag gefüttert werden. Eure Aufgabe ist es, zehn Karotten für das königliche Gestüt herzubringen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1384,12 +1385,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded four silver coins. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Here is a small reward for the carrots you brought. Certainly, you do not mind money when serving the queen, do you?");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Here is a small reward for the carrots you brought. Certainly, you do not mind money when serving the Queen, do you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1399,12 +1400,12 @@ talkEntry:addCondition(npc.base.condition.item.item(2493, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst vier Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Hier ist eine kleine Belohnung für die Karotten, die ihr brachtet. Aber sicherlich ist euch Geld nicht so wichtig, wenn ihr der Königin dienen könnt, nicht wahr?");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2493, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Hier ist eine kleine Belohnung für die Karotten, die ihr brachtet. Aber sicherlich ist euch Geld nicht so wichtig, wenn ihr der Königin dienen könnt, nicht wahr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1415,7 +1416,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("The royal horses are hungry. Hungry horses cannot ride to sweep away the foes of Cadomyr. So, ten carrots will feed them for today.");
+talkEntry:addResponse("The royal horses are hungry. Hungry horses cannot be ridden to sweep away the foes of Cadomyr. So, ten carrots will feed them for today.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1436,7 +1437,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("The royal horses are hungry. Hungry horses cannot ride to sweep away the foes of Cadomyr. So, ten carrots will feed them for today.");
+talkEntry:addResponse("The royal horses are hungry. Hungry horses cannot be ridden to sweep away the foes of Cadomyr. So, ten carrots will feed them for today.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1460,8 +1461,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Administration can be quite exhausting. Sometimes, I even work during the night. For that, I need a constant supply of candles. Please bring me a candle mould.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 10));
+talkEntry:addResponse("Administration can be quite exhausting. Sometimes, I even work during the night. For that, I need a constant supply of candles. Please bring me a candle mould.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1473,8 +1474,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Verwaltung kann manchmal ganz schön anstrengend sein. Manchmal arbeite ich bis tief in die Nacht. Dafür brauche ich immer eine Menge Kerzen. Bringt mir doch bitte eine Kerzenziehform.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 10));
+talkEntry:addResponse("Verwaltung kann manchmal ganz schön anstrengend sein. Manchmal arbeite ich bis tief in die Nacht. Dafür brauche ich immer eine Menge Kerzen. Bringt mir doch bitte eine Kerzenziehform.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1486,8 +1487,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Administration can be quite exhausting. Sometimes, I even work during the night. For that, I need a constant supply of candles. Please bring me a candle mould.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 10));
+talkEntry:addResponse("Administration can be quite exhausting. Sometimes, I even work during the night. For that, I need a constant supply of candles. Please bring me a candle mould.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1500,8 +1501,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Verwaltung kann manchmal ganz schön anstrengend sein. Manchmal arbeite ich bis tief in die Nacht. Dafür brauche ich immer eine Menge Kerzen. Bringt mir doch bitte eine Kerzenziehform.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 10));
+talkEntry:addResponse("Verwaltung kann manchmal ganz schön anstrengend sein. Manchmal arbeite ich bis tief in die Nacht. Dafür brauche ich immer eine Menge Kerzen. Bringt mir doch bitte eine Kerzenziehform.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1512,12 +1513,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded six silver coins. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Now I can spend even more time for serving the queen. Thank you very much for the candle mould, please accept this compensation.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(429, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Now I can spend even more time serving the Queen. Thank you very much for the candle mould, please accept this compensation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1527,12 +1528,12 @@ talkEntry:addCondition(npc.base.condition.item.item(429, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst sechs Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Jetzt kann ich endlich noch mehr Zeit damit zubringen, der Königin zu dienen. Vielen Dank für die Kerzenziehform, bitte nehmt diese Belohnung.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(429, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Jetzt kann ich endlich noch mehr Zeit damit zubringen, der Königin zu dienen. Vielen Dank für die Kerzenziehform, bitte nehmt diese Belohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1543,7 +1544,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Candles are rare, we have enough wax but no candle mould to produce new candles. Please hurry and bring me a candle mould so I can serve the queen in the night, too.");
+talkEntry:addResponse("Candles are rare, we have enough wax but no candle mould to produce new candles. Please hurry and bring me a candle mould so I can serve the Queen during the night as well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1564,7 +1565,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Candles are rare, we have enough wax but no candle mould to produce new candles. Please hurry and bring me a candle mould so I can serve the queen in the night, too.");
+talkEntry:addResponse("Candles are rare, we have enough wax but no candle mould to produce new candles. Please hurry and bring me a candle mould so I can serve the Queen during the night as well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1588,8 +1589,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Ah, a loyal servant of her majesty, very good. I plan a banquet to honour the royal family. We'll serve a delicious asparagus cream soup, but soup bowls aren't available in sufficient amounts. Please obtain twenty soup bowls of highest quality and bring them to me.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 11));
+talkEntry:addResponse("Ah, a loyal servant of her Majesty, very good. I plan a banquet to honour the royal family. We'll serve a delicious asparagus cream soup, but soup bowls aren't available in sufficient amounts. Please obtain twenty soup bowls of highest quality and bring them to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1601,8 +1602,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Ah, ein ergebender Diener ihrer Majestät, sehr gut. Ich plane ein Bankett zu Ehren der königlichen Familie. Es wird eine schmackhafte Spargelcremesuppe gereicht werden, aber es mangelt an Suppenschüsseln. Bitte besorgt zwanzig Schüsseln feinster Machart und bringt sie zu mir.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 11));
+talkEntry:addResponse("Ah, ein ergebender Diener ihrer Majestät, sehr gut. Ich plane ein Bankett zu Ehren der königlichen Familie. Es wird eine schmackhafte Spargelcremesuppe gereicht werden, aber es mangelt an Suppenschüsseln. Bitte besorgt zwanzig Schüsseln feinster Machart und bringt sie zu mir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1614,8 +1615,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Ah, a loyal servant of her majesty, very good. I plan a banquet to honour the royal family. We'll serve a delicious asparagus cream soup, but soup bowls aren't available in sufficient amounts. Please obtain twenty soup bowls of highest quality and bring them to me.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 11));
+talkEntry:addResponse("Ah, a loyal servant of her Majesty, very good. I plan a banquet to honour the royal family. We'll serve a delicious asparagus cream soup, but soup bowls aren't available in sufficient amounts. Please obtain twenty soup bowls of highest quality and bring them to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1628,8 +1629,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Ah, ein ergebender Diener ihrer Majestät, sehr gut. Ich plane ein Bankett zu Ehren der königlichen Familie. Es wird eine schmackhafte Spargelcremesuppe gereicht werden, aber es mangelt an Suppenschüsseln. Bitte besorgt zwanzig Schüsseln feinster Machart und bringt sie zu mir.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 11));
+talkEntry:addResponse("Ah, ein ergebender Diener ihrer Majestät, sehr gut. Ich plane ein Bankett zu Ehren der königlichen Familie. Es wird eine schmackhafte Spargelcremesuppe gereicht werden, aber es mangelt an Suppenschüsseln. Bitte besorgt zwanzig Schüsseln feinster Machart und bringt sie zu mir.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1640,12 +1641,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a gilded dagger. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("#me inspects the soup bowls and nods: 'You did not dissapoint the queen. The banquet can be held, maybe I'll mention your name in a toast. I award you this dagger as special thank of the palace.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2935, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(297, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 24));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("#me inspects the soup bowls and nods: 'You did not disappoint the Queen. The banquet can be held, maybe I'll mention your name in a toast. I award you this dagger as special thanks of the palace.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1655,12 +1656,12 @@ talkEntry:addCondition(npc.base.condition.item.item(2935, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen vergoldeten Dolch. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("#me begutachtet die Suppenschüsseln und nickt: 'Ihr habt die Königin nicht enttäuscht. Das Bankett kann abgehalten werden und vielleicht erwähne ich euren Namen in einem Trinkspruch. Ich verleihe euch diesen Dolch als besonderen Dank des Palastes.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2935, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(297, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 24));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("#me begutachtet die Suppenschüsseln und nickt: 'Ihr habt die Königin nicht enttäuscht. Das Bankett kann abgehalten werden und vielleicht erwähne ich euren Namen in einem Trinkspruch. Ich verleihe euch diesen Dolch als besonderen Dank des Palastes.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1671,7 +1672,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("The preparations for the banquet have already begun but you didn't bring the twenty soup bowls yet? How are we supposed to serve the soup to the queen - in a bucket!?");
+talkEntry:addResponse("The preparations for the banquet have already begun but you haven't brought the twenty soup bowls yet? How are we supposed to serve the soup to the Queen - in a bucket!?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1692,7 +1693,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("The preparations for the banquet have already begun but you didn't bring the twenty soup bowls yet? How are we supposed to serve the soup to the queen - in a bucket!?");
+talkEntry:addResponse("The preparations for the banquet have already begun but you haven't brought the twenty soup bowls yet? How are we supposed to serve the soup to the Queen - in a bucket!?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1716,8 +1717,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("An emergency has occured, the kingdom is seriously endangered. Queen Rosaline broke her mirror - you know how irascible she is and what beauty means to her. To prevent possible misjudgements of her, get a new mirror at once. Obey!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 12));
+talkEntry:addResponse("An emergency has occured, the kingdom is seriously endangered. Queen Rosaline broke her mirror - you know how irascible she is and what beauty means to her. To prevent possible misjudgements by her, get a new mirror at once. Obey!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1729,8 +1730,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Ein Notfall ist eingetreten, das Königreich ist in ernsthafter Gefahr. Königin Rosaline hat ihren Spiegel zerbrochen - ihr wisst, wie aufbrausend sie sein kann und wie viel Wert sie auf ihre Schönheit legt. Um Überstürztheiten ihrerseits zuvorzukommen, besorgt sofort einen neuen Spiegel. Gehorcht!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 12));
+talkEntry:addResponse("Ein Notfall ist eingetreten, das Königreich ist in ernsthafter Gefahr. Königin Rosaline hat ihren Spiegel zerbrochen - ihr wisst, wie aufbrausend sie sein kann und wie viel Wert sie auf ihre Schönheit legt. Um Überstürztheiten ihrerseits zuvorzukommen, besorgt sofort einen neuen Spiegel. Gehorcht!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1742,8 +1743,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("An emergency has occured, the kingdom is seriously endangered. Queen Rosaline broke her mirror - you know how irascible she is and what beauty means to her. To prevent possible misjudgements of her, get a new mirror at once. Obey!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 12));
+talkEntry:addResponse("An emergency has occured, the kingdom is seriously endangered. Queen Rosaline broke her mirror - you know how irascible she is and what beauty means to her. To prevent possible misjudgements by her, get a new mirror at once. Obey!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1756,8 +1757,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Ein Notfall ist eingetreten, das Königreich ist in ernsthafter Gefahr. Königin Rosaline hat ihren Spiegel zerbrochen - ihr wisst, wie aufbrausend sie sein kann und wie viel Wert sie auf ihre Schönheit legt. Um Überstürztheiten ihrerseits zuvorzukommen, besorgt sofort einen neuen Spiegel. Gehorcht!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 12));
+talkEntry:addResponse("Ein Notfall ist eingetreten, das Königreich ist in ernsthafter Gefahr. Königin Rosaline hat ihren Spiegel zerbrochen - ihr wisst, wie aufbrausend sie sein kann und wie viel Wert sie auf ihre Schönheit legt. Um Überstürztheiten ihrerseits zuvorzukommen, besorgt sofort einen neuen Spiegel. Gehorcht!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1768,12 +1769,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded seven silver coins. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("The queen's new mirror, very good. Always keep in mind that when she beholds herself now, an item of yours reflects her beauty.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 700));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(336, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("The Queen's new mirror, very good. Always keep in mind that when she beholds herself now, an item of yours reflects her beauty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1783,12 +1784,12 @@ talkEntry:addCondition(npc.base.condition.item.item(336, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst sieben Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Der Königin neuer Spiegel, sehr gut. Denkt nun immer daran, dass wenn sie sich im Spiegel betrachtet wird es ein Kleinod von euch sein, dass ihre Schönheit widerspiegelt.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 700));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(336, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Der Königin neuer Spiegel, sehr gut. Denkt nun immer daran, dass wenn sie sich im Spiegel betrachtet wird es ein Kleinod von euch sein, dass ihre Schönheit widerspiegelt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1799,7 +1800,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("The queen calmly asked me where her new mirror is. The queen never asks calmly - unless she is about to erupt like a volcano. Obey my order!");
+talkEntry:addResponse("The Queen calmly asked me where her new mirror is. The Queen never asks calmly - unless she is about to erupt like a volcano. Obey my order!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1820,7 +1821,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("The queen calmly asked me where her new mirror is. The queen never asks calmly - unless she is about to erupt like a volcano. Obey my order!");
+talkEntry:addResponse("The Queen calmly asked me where her new mirror is. The Queen never asks calmly - unless she is about to erupt like a volcano. Obey my order!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1844,8 +1845,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("I have an important order: Queen Rosaline will welcome a delegation from Sevenhill, a dwarven kingdom. She wants to impress those bearded gnomes with a special present: A comb for their shaggy beards. It is your duty to select a proper comb and bring it to me.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 13));
+talkEntry:addResponse("I have an important order: Queen Rosaline will welcome a delegation from Sevenhill, a dwarven kingdom. She wants to impress those bearded gnomes with a special present: A comb for their shaggy beards. It is your duty to select a proper comb and bring it to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1857,8 +1858,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Ich habe einen wichtigen Auftrag: Königin Rosaline empfängt demnächste eine Delegation aus Siebenbergen, ein Zwergenreich. Sie möchte diese bärtigen Wichte mit einem besonderen Geschenk beeindrucken: Ein Kamm für ihre zotteligen Bärte. Es ist an euch, einen geeigneten Kamm auszusuchen und mir zu bringen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 13));
+talkEntry:addResponse("Ich habe einen wichtigen Auftrag: Königin Rosaline empfängt demnächste eine Delegation aus Siebenbergen, ein Zwergenreich. Sie möchte diese bärtigen Wichte mit einem besonderen Geschenk beeindrucken: Ein Kamm für ihre zotteligen Bärte. Es ist an euch, einen geeigneten Kamm auszusuchen und mir zu bringen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1870,8 +1871,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("I have an important order: Queen Rosaline will welcome a delegation from Sevenhill, a dwarven kingdom. She wants to impress those bearded gnomes with a special present: A comb for their shaggy beards. It is your duty to select a proper comb and bring it to me.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 13));
+talkEntry:addResponse("I have an important order: Queen Rosaline will welcome a delegation from Sevenhill, a dwarven kingdom. She wants to impress those bearded gnomes with a special present: A comb for their shaggy beards. It is your duty to select a proper comb and bring it to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1884,8 +1885,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Ich habe einen wichtigen Auftrag: Königin Rosaline empfängt demnächste eine Delegation aus Siebenbergen, ein Zwergenreich. Sie möchte diese bärtigen Wichte mit einem besonderen Geschenk beeindrucken: Ein Kamm für ihre zotteligen Bärte. Es ist an euch, einen geeigneten Kamm auszusuchen und mir zu bringen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 13));
+talkEntry:addResponse("Ich habe einen wichtigen Auftrag: Königin Rosaline empfängt demnächste eine Delegation aus Siebenbergen, ein Zwergenreich. Sie möchte diese bärtigen Wichte mit einem besonderen Geschenk beeindrucken: Ein Kamm für ihre zotteligen Bärte. Es ist an euch, einen geeigneten Kamm auszusuchen und mir zu bringen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1896,12 +1897,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a pipe. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Ha! That comb will suit those bearded gnomes. Here, you should relax now, have this pipe, get some pipe weed and enjoy the rest of the day.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2719, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2744, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Ha! That comb will suit those bearded gnomes. Here, you should relax now, have this pipe, get some pipe weed and enjoy the rest of the day.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1911,12 +1912,12 @@ talkEntry:addCondition(npc.base.condition.item.item(2719, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Pfeife. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Ha! Dieser Kamm ist genau das richtige für diese bärtigen Wichte. Hier, ihr solltet euch jetzt entspannen, nehmt diese Pfeife, steckt euch etwas Pfeifenkraut an und genießt den Rest des Tages.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2719, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2744, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Ha! Dieser Kamm ist genau das richtige für diese bärtigen Wichte. Hier, ihr solltet euch jetzt entspannen, nehmt diese Pfeife, steckt euch etwas Pfeifenkraut an und genießt den Rest des Tages.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1972,8 +1973,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("I am responsible for the armoury of Cadomyr. Recently, Horatio Milenus, one of the town guards, approached me and suggested the purchase of a long bow to repell the beasts of the desert. Now I command you to provide a long bow.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 14));
+talkEntry:addResponse("I am responsible for the armoury of Cadomyr. Recently, Horatio Milenus, one of the town guards, approached me and suggested the purchase of a long bow to repel the beasts of the desert. Now I command you to provide a long bow.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1985,8 +1986,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Ich bin auch für die Waffenkammer Cadomyrs verantwortlich. Neulich trat Horation Milenus, eine der Stadtwachen, an mich heran und bat um die Anschaffung eines Langbogens um das Getier der Wüste fernzuhalten. Ich befehle nun euch, einen Langbogen zu beschaffen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 14));
+talkEntry:addResponse("Ich bin auch für die Waffenkammer Cadomyrs verantwortlich. Neulich trat Horation Milenus, eine der Stadtwachen, an mich heran und bat um die Anschaffung eines Langbogens um das Getier der Wüste fernzuhalten. Ich befehle nun euch, einen Langbogen zu beschaffen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1998,8 +1999,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("I am responsible for the armoury of Cadomyr. Recently, Horatio Milenus, one of the town guards, approached me and suggested the purchase of long bows to repell the beasts of the desert. Now I command you to provide a long bow.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 14));
+talkEntry:addResponse("I am responsible for the armoury of Cadomyr. Recently, Horatio Milenus, one of the town guards, approached me and suggested the purchase of long bows to repel the beasts of the desert. Now I command you to provide a long bow.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2012,8 +2013,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Ich bin auch für die Waffenkammer Cadomyrs verantwortlich. Neulich trat Horation Milenus, eine der Stadtwachen, an mich heran und bat um die Anschaffung eines Langbogens um das Getier der Wüste fernzuhalten. Ich befehle nun euch, einen Langbogen zu beschaffen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 14));
+talkEntry:addResponse("Ich bin auch für die Waffenkammer Cadomyrs verantwortlich. Neulich trat Horation Milenus, eine der Stadtwachen, an mich heran und bat um die Anschaffung eines Langbogens um das Getier der Wüste fernzuhalten. Ich befehle nun euch, einen Langbogen zu beschaffen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2024,12 +2025,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded eight silver coins. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("This bow will protect Cadomyr from this day on. Arrows shot by it will kill foes of her majesty, isn't that a good feeling? I have a small purse for your effort.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 800));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2708, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("This bow will protect Cadomyr from this day on. Arrows shot by it will kill foes of her Majesty, isn't that a good feeling? I have a small purse for your effort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2039,12 +2040,12 @@ talkEntry:addCondition(npc.base.condition.item.item(2708, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst acht Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Dieser Bogen wird von nun an Cadomyr beschützen. Mit ihm abgeschossene Pfeile werden die Feinde ihrer Majestät niederstrecken, ist das nicht ein gutes Gefühl? Ich habe hier eine kleine Börse für euren Bemühungen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 800));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2708, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Dieser Bogen wird von nun an Cadomyr beschützen. Mit ihm abgeschossene Pfeile werden die Feinde ihrer Majestät niederstrecken, ist das nicht ein gutes Gefühl? Ich habe hier eine kleine Börse für euren Bemühungen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2100,8 +2101,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Recently, a bunch of bandits dared to ambush a host of recruits of Cadomyr. Needless to say that the bandits perished. During the skirmish, many crossbow bolts were shot into their chests. Please bring me a resupply of a hundred bolts.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 15));
+talkEntry:addResponse("Recently, a bunch of bandits dared to ambush a host of recruits of Cadomyr. Needless to say the bandits perished. During the skirmish, many crossbow bolts were shot into their chests. Please bring me a supply of a hundred bolts to replace them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2113,8 +2114,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Neulich erdreiste sich eine Banditenbande, Rekruten Cadomyrs aufzulauern. Ich brauche nicht betonen, dass die Banditen mit unzähligen Armbrustbolzen niedergestreckt wurden. Besorgt bitte Nachschub an einhundert Bolzen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 15));
+talkEntry:addResponse("Neulich erdreiste sich eine Banditenbande, Rekruten Cadomyrs aufzulauern. Ich brauche nicht betonen, dass die Banditen mit unzähligen Armbrustbolzen niedergestreckt wurden. Besorgt bitte Nachschub an einhundert Bolzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2126,8 +2127,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Recently, a bunch of bandits dared to ambush a host of recruits of Cadomyr. Needless to say that the bandits perished. During the skirmish, many crossbow bolts were shot into their chests. Please bring me a resupply of a hundred bolts.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 15));
+talkEntry:addResponse("Recently, a bunch of bandits dared to ambush a host of recruits of Cadomyr. Needless to say the bandits perished. During the skirmish, many crossbow bolts were shot into their chests. Please bring me a supply of a hundred bolts to replace them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2140,8 +2141,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Neulich erdreiste sich eine Banditenbande, Rekruten Cadomyrs aufzulauern. Ich brauche nicht betonen, dass die Banditen mit unzähligen Armbrustbolzen niedergestreckt wurden. Besorgt bitte Nachschub an einhundert Bolzen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 15));
+talkEntry:addResponse("Neulich erdreiste sich eine Banditenbande, Rekruten Cadomyrs aufzulauern. Ich brauche nicht betonen, dass die Banditen mit unzähligen Armbrustbolzen niedergestreckt wurden. Besorgt bitte Nachschub an einhundert Bolzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2152,12 +2153,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded an ebony wood bow. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Crossbow bolts that will pierce the armour of our enemies - I am appeased. If you want to contribute to the defence of Cadomyr, accept this bow as reward.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(237, 100, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2780, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Crossbow bolts that will pierce the armour of our enemies - I am appeased. If you want to contribute to the defence of Cadomyr, accept this bow as reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2167,12 +2168,12 @@ talkEntry:addCondition(npc.base.condition.item.item(237, "all", ">", 99, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Ebenholzbogen. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Armbrustbolzen, die die Rüstungen unserer Feinde durchbohren werden - ich bin zufrieden mit euch. Wenn ihr auch euren Teil zur Verteidigung Cadomyrs beitragen wollt, so nehmt diesen Bogen als Belohnung.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(237, 100, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2780, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Armbrustbolzen, die die Rüstungen unserer Feinde durchbohren werden - ich bin zufrieden mit euch. Wenn ihr auch euren Teil zur Verteidigung Cadomyrs beitragen wollt, so nehmt diesen Bogen als Belohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2183,7 +2184,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Shall our soldiers toss rocks at our enemies? A hundred crossbow bolts are needed as fast as possible.");
+talkEntry:addResponse("Should our soldiers toss rocks at our enemies? A hundred crossbow bolts are needed as fast as possible.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2204,7 +2205,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Shall our soldiers toss rocks at our enemies? A hundred crossbow bolts are needed as fast as possible.");
+talkEntry:addResponse("Should our soldiers toss rocks at our enemies? A hundred crossbow bolts are needed as fast as possible.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2228,8 +2229,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("The queen commanded that she'll have a feast with her nobles and I am the one who coordinates the preparations. For the main course, venison dishes are planned. Your order: Obtain five dishes or you'll feel my wrath.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 16));
+talkEntry:addResponse("The Queen commanded that she'll have a feast with her nobles and I am the one who coordinates the preparations. For the main course, venison dishes are planned. Your order is to obtain five dishes or you'll feel my wrath.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2241,8 +2242,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Die Königin hat befohlen, dass sie ein Festessen mit ihren Adligen abhalten wird. Ich koordiniere die Vorbereitungen, für den Hauptgang ist ein Wildgericht vorgesehen. Euer Befehl: Besorgt fünf Gerichte oder spürt meinen Zorn.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 16));
+talkEntry:addResponse("Die Königin hat befohlen, dass sie ein Festessen mit ihren Adligen abhalten wird. Ich koordiniere die Vorbereitungen, für den Hauptgang ist ein Wildgericht vorgesehen. Euer Befehl: Besorgt fünf Gerichte oder spürt meinen Zorn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2254,8 +2255,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("The queen commanded that she'll have a feast with her nobles and I am the one who coordinates the preparations. For the main course, venison dishes are planned. Your order: Obtain five dishes or you'll feel my wrath.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 16));
+talkEntry:addResponse("The Queen commanded that she'll have a feast with her nobles and I am the one who coordinates the preparations. For the main course, venison dishes are planned. Your order is to obtain five dishes or you'll feel my wrath.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2268,8 +2269,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Die Königin hat befohlen, dass sie ein Festessen mit ihren Adligen abhalten wird. Ich koordiniere die Vorbereitungen, für den Hauptgang ist ein Wildgericht vorgesehen. Euer Befehl: Besorgt fünf Gerichte oder spürt meinen Zorn.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 16));
+talkEntry:addResponse("Die Königin hat befohlen, dass sie ein Festessen mit ihren Adligen abhalten wird. Ich koordiniere die Vorbereitungen, für den Hauptgang ist ein Wildgericht vorgesehen. Euer Befehl: Besorgt fünf Gerichte oder spürt meinen Zorn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2280,12 +2281,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 22 silver coins. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("#me sniffes: 'Delicious! I'll forward your dishes to the cooks at once. You did a great servide to Cadomyr today. This reward is yours.'");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(554, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("#me sniffs: 'Delicious! I'll forward your dishes to the cooks at once. You did a great servide to Cadomyr today. This reward is yours.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2295,12 +2296,12 @@ talkEntry:addCondition(npc.base.condition.item.item(554, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 22 Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("#me schnüffelt: 'Schmackhaft! Ich werde diese Gerichte gleich an die Köche weiterleiten. Ihr habt Cadomyr heute einen großen Dienst erwiesen. Diese Belohnung ist nun euer.'");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2200));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(554, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 60));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("#me schnüffelt: 'Schmackhaft! Ich werde diese Gerichte gleich an die Köche weiterleiten. Ihr habt Cadomyr heute einen großen Dienst erwiesen. Diese Belohnung ist nun euer.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2356,8 +2357,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("New orders from the queen: Tomorrow, she wants to visit the desert but lacks a proper outfit. Her taste is sometimes... special. She demands a red white skirt, get it and bring it to me.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 17));
+talkEntry:addResponse("New orders from the Queen: Tomorrow, she wants to visit the desert but lacks a proper outfit. Her taste is sometimes... special. She demands a red and white skirt, get it and bring it to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2369,8 +2370,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Neue Befehle der Königin: Morgen möchte sie die Wüste bereisen und sie braucht noch passende Kleidung. Ihr Geschmack ist manchmal etwas ausgefallen. Sie verlangt nach einem rot-weißem Rock. Besorgt einen und bringt ihn her.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 17));
+talkEntry:addResponse("Neue Befehle der Königin: Morgen möchte sie die Wüste bereisen und sie braucht noch passende Kleidung. Ihr Geschmack ist manchmal etwas ausgefallen. Sie verlangt nach einem rot-weißem Rock. Besorgt einen und bringt ihn her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2382,8 +2383,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("New orders from the queen: Tomorrow, she wants to visit the desert but lacks a proper outfit. Her taste is sometimes... special. She demands a red white skirt, get it and bring it to me.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 17));
+talkEntry:addResponse("New orders from the Queen: Tomorrow, she wants to visit the desert but lacks a proper outfit. Her taste is sometimes... special. She demands a red and white skirt, get it and bring it to me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2396,8 +2397,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Neue Befehle der Königin: Morgen möchte sie die Wüste bereisen und sie braucht noch passende Kleidung. Ihr Geschmack ist manchmal etwas ausgefallen. Sie verlangt nach einem rot-weißem Rock. Besorgt einen und bringt ihn her.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 17));
+talkEntry:addResponse("Neue Befehle der Königin: Morgen möchte sie die Wüste bereisen und sie braucht noch passende Kleidung. Ihr Geschmack ist manchmal etwas ausgefallen. Sie verlangt nach einem rot-weißem Rock. Besorgt einen und bringt ihn her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2408,12 +2409,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a topaz. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("A perfect skirt for a walk in the desert. You realise which part of the queen's body this skirt will cover? Only the best for the best! Your reward shall be this gem.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(843, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(198, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("A perfect skirt for a walk in the desert. You realise which part of the Queen's body this skirt will cover? Only the best for the best! Your reward shall be this gem.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2423,12 +2424,12 @@ talkEntry:addCondition(npc.base.condition.item.item(843, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Topas. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Ein perfekter Rock für einen Ausflug in die Wüste. Ihr seid euch bewußt, welches Körperteil der Königin hiervon bedeckt sein wird? Nur das Beste für das Beste! Eure Belohnung soll dieser Edelstein sein.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(843, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(198, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Ein perfekter Rock für einen Ausflug in die Wüste. Ihr seid euch bewußt, welches Körperteil der Königin hiervon bedeckt sein wird? Nur das Beste für das Beste! Eure Belohnung soll dieser Edelstein sein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2439,7 +2440,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I remember that I gave you the order to acquire the red white skirt the queen demands.");
+talkEntry:addResponse("I remember that I gave you the order to acquire the red and white skirt the Queen demands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2460,7 +2461,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I remember that I gave you the order to acquire the red white skirt the queen demands.");
+talkEntry:addResponse("I remember that I gave you the order to acquire the red and white skirt the Queen demands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2484,8 +2485,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Administration, administration, administration... to make a long story short, even though Cadomyr is a desert realm, it can be pretty cold at night. The stocks of coal are depleted and I don't want to see the queen freeze. Get fifteen lumps of coal to warm her.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 18));
+talkEntry:addResponse("Administration, administration, administration... to cut a long story short, even though Cadomyr is a desert realm, it can be pretty cold at night. The stocks of coal are depleted and I don't want to see the Queen freeze. Get fifteen lumps of coal to warm her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2497,8 +2498,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Verwaltung, Verwaltung, Verwaltung... um es kurz zu machen, auch wenn Cadomyr ein Wüstenreich ist, kann es verdammt kalt in der Nacht werden. Die Kohlevorräte sind erschöpft und Königin Rosaline soll doch nicht frieren. Bringt mir bitte fünfzehn Klumpen Kohle, um sie zu wärmen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 18));
+talkEntry:addResponse("Verwaltung, Verwaltung, Verwaltung... um es kurz zu machen, auch wenn Cadomyr ein Wüstenreich ist, kann es verdammt kalt in der Nacht werden. Die Kohlevorräte sind erschöpft und Königin Rosaline soll doch nicht frieren. Bringt mir bitte fünfzehn Klumpen Kohle, um sie zu wärmen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2510,8 +2511,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Administration, administration, administration... to make a long story short, even though Cadomyr is a desert realm, it can be pretty cold at night. The stocks of coal are depleted and I don't want to see the queen freeze. Get fifteen lumps of coal to warm her.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 18));
+talkEntry:addResponse("Administration, administration, administration... to cut a long story short, even though Cadomyr is a desert realm, it can be pretty cold at night. The stocks of coal are depleted and I don't want to see the Queen freeze. Get fifteen lumps of coal to warm her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2524,8 +2525,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Verwaltung, Verwaltung, Verwaltung... um es kurz zu machen, auch wenn Cadomyr ein Wüstenreich ist, kann es verdammt kalt in der Nacht werden. Die Kohlevorräte sind erschöpft und Königin Rosaline soll doch nicht frieren. Bringt mir bitte fünfzehn Klumpen Kohle, um sie zu wärmen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 18));
+talkEntry:addResponse("Verwaltung, Verwaltung, Verwaltung... um es kurz zu machen, auch wenn Cadomyr ein Wüstenreich ist, kann es verdammt kalt in der Nacht werden. Die Kohlevorräte sind erschöpft und Königin Rosaline soll doch nicht frieren. Bringt mir bitte fünfzehn Klumpen Kohle, um sie zu wärmen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2536,12 +2537,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Very well, you deserve a reward. Coal has stored much more of Brágon's fire than wood, it will surely make the nights more comfortable.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Very well, you deserve a reward. Coal has stored much more of Brágon's fire than wood, it will surely make the nights more comfortable.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2551,12 +2552,12 @@ talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 14, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Sehr gut, ihr habt euch eure Belohnung verdient. Kohle enthält weit mehr Feuer Brágons als Holz, sie wird die Nächte sicher behaglicher machen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 15, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 36));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Sehr gut, ihr habt euch eure Belohnung verdient. Kohle enthält weit mehr Feuer Brágons als Holz, sie wird die Nächte sicher behaglicher machen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2567,7 +2568,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Maybe I did not make myself clear: When I give you the order to get fifteen lumps of coal, you do exactly that and nothing else until you've completed your mission.");
+talkEntry:addResponse("Maybe I did not make myself clear... When I give you the order to get fifteen lumps of coal, you do exactly that and nothing else until you've completed your mission.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2588,7 +2589,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Maybe I did not make myself clear: When I give you the order to get fifteen lumps of coal, you do exactly that and nothing else until you've completed your mission.");
+talkEntry:addResponse("Maybe I did not make myself clear... When I give you the order to get fifteen lumps of coal, you do exactly that and nothing else until you've completed your mission.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2612,8 +2613,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("I got word of planned sabotage by Baron Hastings' men. All our guards are well equipped and prepared, except for a missing helmet for one recruit. Obey and deliver a pot helmet to my hands.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 19));
+talkEntry:addResponse("I got word of planned sabotage by Baron Hastings' men. All our guards are well equipped and prepared, except for a missing helmet for one recruit. Obey and deliver a pot helmet to my hands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2625,8 +2626,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Gerüchten zufolge planen Baron Hastings Männer einen Anschlag. Alle Wachen sind bestens vorbereitet und ausgerüstet, es fehlt lediglich ein Helm für einen neuen Rekruten. Gehorcht und liefert einen Topfhelm zu meinen Händen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 19));
+talkEntry:addResponse("Gerüchten zufolge planen Baron Hastings Männer einen Anschlag. Alle Wachen sind bestens vorbereitet und ausgerüstet, es fehlt lediglich ein Helm für einen neuen Rekruten. Gehorcht und liefert einen Topfhelm zu meinen Händen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2638,8 +2639,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("I got word of planned sabotage by Baron Hastings' men. All our guards are well equipped and prepared, except for a missing helmet for one recruit. Obey and deliver a pot helmet to my hands.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 19));
+talkEntry:addResponse("I got word of planned sabotage by Baron Hastings' men. All our guards are well equipped and prepared, except for a missing helmet for one recruit. Obey and deliver a pot helmet to my hands.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2652,8 +2653,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Gerüchten zufolge planen Baron Hastings Männer einen Anschlag. Alle Wachen sind bestens vorbereitet und ausgerüstet, es fehlt lediglich ein Helm für einen neuen Rekruten. Gehorcht und liefert einen Topfhelm zu meinen Händen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 19));
+talkEntry:addResponse("Gerüchten zufolge planen Baron Hastings Männer einen Anschlag. Alle Wachen sind bestens vorbereitet und ausgerüstet, es fehlt lediglich ein Helm für einen neuen Rekruten. Gehorcht und liefert einen Topfhelm zu meinen Händen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2664,12 +2665,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a gold ingot. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("With a fully equipped guard, Baron Hastings' men won't dare to take any action. That helmet does its part. I am authorised to grant you gold from Cadomyr's treasury.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(94, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(236, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("With a fully equipped guard, Baron Hastings' men won't dare to take any action. That helmet does its part. I am authorised to grant you gold from Cadomyr's treasury.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2679,12 +2680,12 @@ talkEntry:addCondition(npc.base.condition.item.item(94, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Goldbarren. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Eine voll ausgerüstete Wache wir die Männer von Baron Hastings davon abbringen, irgendwelche Missetaten zu versuchen. Dieser Helm trägt seinen Teil dazu bei. Ich bin dazu ermächtigt, euch Gold aus der Schatzkammer zuzuteilen.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(94, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(236, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Eine voll ausgerüstete Wache wir die Männer von Baron Hastings davon abbringen, irgendwelche Missetaten zu versuchen. Dieser Helm trägt seinen Teil dazu bei. Ich bin dazu ermächtigt, euch Gold aus der Schatzkammer zuzuteilen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2740,8 +2741,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Today, I have a personal request rather than an order. Could you please bring me a gold nugget - I want to forge a special gift, a bracelet, for my queen to prove my loyality.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 20));
+talkEntry:addResponse("Today, I have a personal request rather than an order. Could you please bring me a gold nugget - I want to forge a special gift, a bracelet, for my Queen to prove my loyality.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2753,8 +2754,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Heute habe ich keinen Befehl für euch sondern eine persönliche Bitte. Könntet ihr mir bitte ein Goldnugget bringen - ich möchte der Königin ein besonderes Geschenk, einen Armreif, schmieden um ihr meine Ergebenheit zu beweisen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 20));
+talkEntry:addResponse("Heute habe ich keinen Befehl für euch sondern eine persönliche Bitte. Könntet ihr mir bitte ein Goldnugget bringen - ich möchte der Königin ein besonderes Geschenk, einen Armreif, schmieden um ihr meine Ergebenheit zu beweisen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2766,8 +2767,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Do a good turn daily for Cadomyr"));
-talkEntry:addResponse("Today, I have a personal request rather than an order. Could you please bring me a gold nugget - I want to forge a special gift, a bracelet, for my queen to prove my loyality.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 20));
+talkEntry:addResponse("Today, I have a personal request rather than an order. Could you please bring me a gold nugget - I want to forge a special gift, a bracelet, for my Queen to prove my loyality.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2780,8 +2781,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Jeden Tag eine gute Tat für Cadomyr"));
-talkEntry:addResponse("Heute habe ich keinen Befehl für euch sondern eine persönliche Bitte. Könntet ihr mir bitte ein Goldnugget bringen - ich möchte der Königin ein besonderes Geschenk, einen Armreif, schmieden um ihr meine Ergebenheit zu beweisen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 20));
+talkEntry:addResponse("Heute habe ich keinen Befehl für euch sondern eine persönliche Bitte. Könntet ihr mir bitte ein Goldnugget bringen - ich möchte der Königin ein besonderes Geschenk, einen Armreif, schmieden um ihr meine Ergebenheit zu beweisen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2792,12 +2793,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("I thank you very much. I shall start to forge the golden bracelet for the queen as soon as I finished my other duties - spare time might be the right word.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("I thank you very much. I shall start to forge the golden bracelet for the Queen as soon as I finished my other duties - spare time might be the right word.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2807,12 +2808,12 @@ talkEntry:addCondition(npc.base.condition.item.item(234, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünf Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Ich danke euch vielmals. Ich sollte mit dem Schmieden des goldenen Armreifes für die Königin beginnen, sobald ich mit meinen anderen Verpflichtungen fertig bin. Ich glaube, das nennt man dann Feierabend.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(234, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(119, "=", 0));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(120, "=", 48));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Ich danke euch vielmals. Ich sollte mit dem Schmieden des goldenen Armreifes für die Königin beginnen, sobald ich mit meinen anderen Verpflichtungen fertig bin. Ich glaube, das nennt man dann Feierabend.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2864,7 +2865,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I have a special assignment for you: Go back to Wilderland and don't come back to the palace unless her majesty summons you.");
+talkEntry:addResponse("I have a special assignment for you: Go back to Wilderland and don't come back to the palace unless her Majesty summons you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2880,7 +2881,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I have a special assignment for you: Go back to Wilderland and don't come back to the palace unless her majesty summons you.");
+talkEntry:addResponse("I have a special assignment for you: Go back to Wilderland and don't come back to the palace unless her Majesty summons you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2895,9 +2896,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am Cadomyr's chancellor. I issue orders of her majesty and care about the palace.");
-talkEntry:addResponse("As chancellor, it is my duty to make sure that the queen has all she needs and that her palace is clean and secure.");
-talkEntry:addResponse("As Cadomyr's chancellor, I am the head of the royal administration. The queen relies on my any my initiative to take care of the unwanted and little things in her kingdom.");
+talkEntry:addResponse("I am Cadomyr's chancellor. I issue orders of her Majesty and care for the palace.");
+talkEntry:addResponse("As chancellor, it is my duty to make sure that the Queen has all she needs and that her palace is clean and secure.");
+talkEntry:addResponse("As Cadomyr's chancellor, I am the head of the royal administration. The Queen relies on me and my initiative to take care of the unwanted and little things in her kingdom.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2912,9 +2913,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I am Cadomyr's chancellor. I issue orders of her majesty and care about the palace.");
-talkEntry:addResponse("As chancellor, it is my duty to make sure that the queen has all she needs and that her palace is clean and secure.");
-talkEntry:addResponse("As Cadomyr's chancellor, I am the head of the royal administration. The queen relies on my any my initiative to take care of the unwanted and little things in her kingdom.");
+talkEntry:addResponse("I am Cadomyr's chancellor. I issue orders of her Majesty and care for the palace.");
+talkEntry:addResponse("As chancellor, it is my duty to make sure that the Queen has all she needs and that her palace is clean and secure.");
+talkEntry:addResponse("As Cadomyr's chancellor, I am the head of the royal administration. The Queen relies on me and my initiative to take care of the unwanted and little things in her kingdom.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2930,7 +2931,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("I've been to Gobaith before the fall: I had a horrible glass of wine in a horrible tavern with a sheep running around in the taproom!");
+talkEntry:addResponse("I'd been to Gobaith before the fall, I had a horrible glass of wine in a nasty tavern with a sheep running around in the taproom!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2956,8 +2957,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Chancellor");
 talkEntry:addResponse("I am Cadomyr's chancellor. I issue orders of her majesty and care about the palace.");
-talkEntry:addResponse("As chancellor, it is my duty to make sure that the queen has all she needs and that her palace is clean and secure.");
-talkEntry:addResponse("As Cadomyr's chancellor, I am the head of the royal administration. The queen relies on my any my initiative to take care of the unwanted and little things in her kingdom.");
+talkEntry:addResponse("As chancellor, it is my duty to make sure that the Queen has all she needs and that her palace is clean and secure.");
+talkEntry:addResponse("As Cadomyr's chancellor, I am the head of the royal administration. The Queen relies on me and my initiative to take care of the unwanted and little things in her kingdom.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2976,7 +2977,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Guard");
-talkEntry:addResponse("I doubt this palace needs a guard. No one in Cadomyr would raise his hand against queen Rosaline and if that bastard Hastings dares to appear here, I'd give my life to defend her majesty.");
+talkEntry:addResponse("I doubt this palace needs a guard. No one in Cadomyr would raise his hand against Queen Rosaline and if that bastard Hastings dares to appear here, I'd give my life to defend her Majesty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3022,7 +3023,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense for honour; sometimes, loyality is more important than rationality.");
+talkEntry:addResponse("Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense of honour; sometimes, loyality is more important than rationality.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3036,7 +3037,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense for honour; sometimes, loyality is more important than rationality.");
+talkEntry:addResponse("Elvaine Morgan, the archmage of Runewick, is a noble elf. I respect him and his words. However, he lacks a sense of honour; sometimes, loyality is more important than rationality.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3065,7 +3066,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Don Valerio is a honourless bastard who even dared to propose to my queen - my scimitar shall prevent a second attempt.");
+talkEntry:addResponse("Don Valerio is a honourless bastard who even dared to propose to my Queen - my scimitar will prevent a second attempt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3080,7 +3081,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("One thing is good about Galmair: Gold. But do not ask how they get it, you might learn sad stories.");
+talkEntry:addResponse("One thing is good about Galmair: Gold. Do not ask how they get it though, you might learn sad stories.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3092,7 +3093,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("The gods may save the queen. Rosaline is just like her father Reginald; a little more unforgiving and irascible but even more just and noble.");
+talkEntry:addResponse("The gods may save the Queen. Rosaline is just like her father Reginald, a little more unforgiving and irascible but even more just and noble.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3106,7 +3107,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("The gods may save the queen. Rosaline is just like her father Reginald; a little more unforgiving and irascible but even more just and noble.");
+talkEntry:addResponse("The gods may save the Queen. Rosaline is just like her father Reginald, a little more unforgiving and irascible but even more just and noble.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3133,7 +3134,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Being of albarian origin, the family of the Edwards' certainly has respect for the albarian people. However: Cadomyr is not Albar!");
+talkEntry:addResponse("Being of Albarian origin, the family of the Edwards' certainly has respect for the Albarian people. However, Cadomyr is not Albar!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3147,7 +3148,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("If you want to see traitors, cowards, liers and cheaters, either go to a gaol or to Gynk.");
+talkEntry:addResponse("If you want to see traitors, cowards, liars and cheaters, either go to a gaol or go to Gynk.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3173,7 +3174,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("My hand is guided by Malachín, my feet walk on Zhambra's path and my heart beats for my queen.");
+talkEntry:addResponse("My hand is guided by Malachín, my feet walk on Zhambra's path and my heart beats for my Queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3202,7 +3203,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Zhambra is the god of loyality. And I am loyal to my queen and her family, the Edwards'. I've been in their services longer than a dozen human lives.");
+talkEntry:addResponse("Zhambra is the god of loyality. And I am loyal to my Queen and her family, the Edwards'. I've been in their services longer than a dozen human lives.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3217,7 +3218,8 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Where is the sign above my head, reading 'Anthar's general store'? I am not a trader!");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Where is the sign above my head, reading 'Anthar's general store'? I am not ar!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3232,7 +3234,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I could tell you a lot about Cadomyr, queen Rosaline and the palace.");
+talkEntry:addResponse("I could tell you a lot about Cadomyr, Queen Rosaline and the palace.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3294,15 +3296,15 @@ talkEntry:addResponse("Pardon?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Willkommen im Palast.", "Welcome to the palace.");
-talkingNPC:addCycleText("Verbeugt euch vor der Königin!", "All bow to the queen!");
-talkingNPC:addCycleText("Ja, meine Königin?", "Yes, my queen?");
+talkingNPC:addCycleText("Verbeugt euch vor der Königin!", "All bow to the Queen!");
+talkingNPC:addCycleText("Ja, meine Königin?", "Yes, my Queen?");
 talkingNPC:addCycleText("#me rückt seine leichte Rüstung zurecht, die wohl nur dekorativen Zwecken dient.", "#me adjusts his light armour which seems to be just decorative.");
 talkingNPC:addCycleText("#me schwingt einen Krummsäbel geschwind durch die Luft, so dass ein surrendes Geräusch entsteht.", "#me swirls a scimitar, so fast that a buzzing noise can be heard.");
 talkingNPC:addCycleText("Für die Ehre Cadomyrs!", "For the glory of Cadomyr!");
 talkingNPC:addCycleText("#me blickt zur Decke.", "#me stares at the ceiling.");
 talkingNPC:addCycleText("Königin Rosaline ist eine der letzten mit Ehre und Anmut!", "Queen Rosaline is one of the last ones with honour and grace!");
 talkingNPC:addCycleText("Ihr da! Kommt her, eventuell habe ich eine Mission für euch.", "You, come here! Maybe I have a mission for you.");
-talkingNPC:addCycleText("Der nächste selbsternannte Traumprinz, der sich an meine Königin ranmacht, wird gevierteilt!", "The next self proclaimed Prince Charming who proposes to my queen will be quartered!");
+talkingNPC:addCycleText("Der nächste selbsternannte Traumprinz, der sich an meine Königin ranmacht, wird gevierteilt!", "The next self proclaimed Prince Charming who proposes to my Queen will be quartered!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(3);
 mainNPC:setDefaultLanguage(0);

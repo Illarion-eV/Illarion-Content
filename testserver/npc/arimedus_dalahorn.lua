@@ -18,6 +18,7 @@ VALUES (0, 951, 830, 1, 4, 'Arimedus Dalahorn', 'npc.arimedus_dalahorn', 0, 3, 1
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.arimedus_dalahorn", package.seeall)
 
@@ -47,7 +48,7 @@ talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Greetings in the name of Elara. Can I help you?");
 talkEntry:addResponse("Hush! This is a library, not a tavern.");
-talkEntry:addResponse("Please do not adress me informally.");
+talkEntry:addResponse("Please do not address me informally.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -76,7 +77,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Greetings in the name of Elara. Can I help you?");
 talkEntry:addResponse("Hush! This is a library, not a tavern.");
-talkEntry:addResponse("Please do not adress me informally.");
+talkEntry:addResponse("Please do not address me informally.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,7 +317,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("HEPT");
-talkEntry:addResponse("HEPT is the rune of ice. It can be used for offensive icespells and icebolts, create and put out iceflames.");
+talkEntry:addResponse("HEPT is the rune of ice. It can be used for offensive ice spells and ice bolts, to create and put out ice flames.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -329,7 +330,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("PEN");
-talkEntry:addResponse("PEN is the rune of spirit and a elemental rune. It can be used to cast healing spells, both weak, strong, and over an area.");
+talkEntry:addResponse("PEN is the rune of spirit and an elemental rune. It can be used to cast healing spells, both weak and strong, and over an area.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -342,7 +343,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("MES");
-talkEntry:addResponse("MES is the rune of light. It can be used to cast healing spells, both weak, strong, and over an area.");
+talkEntry:addResponse("MES is the rune of light. It can be used to cast healing spells, both weak and strong, and over an area.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -355,7 +356,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("ORL");
-talkEntry:addResponse("ORL is the rune of creating and materialisation. It can be used to create walls, relieve hunger and created thunderstorms. ");
+talkEntry:addResponse("ORL is the rune of creating and materialisation. It can be used to create walls, relieve hunger, and create thunderstorms. ");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -368,7 +369,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("CUN");
-talkEntry:addResponse("CUN is the rune of water and a elemental rune. It can be used to put out campfires.");
+talkEntry:addResponse("CUN is the rune of water and a elemental rune. It can be used to put out fires.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -420,7 +421,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("KAH");
-talkEntry:addResponse("KAH is the rune of nourishment and food. It can be used to relieve hunger, both minorly and thoroughly.");
+talkEntry:addResponse("KAH is the rune of nourishment and food. It can be used to relieve hunger, both a little and thoroughly.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -446,7 +447,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("KEL");
-talkEntry:addResponse("KEL is the rune of moving. It can be used to cast motion-related spells and has many uses. For instance, fireballs, iceballs, bringing things to you, remedying paralysis and operating doors.");
+talkEntry:addResponse("KEL is the rune of moving. It can be used to cast motion-related spells and has many uses, for instance, fireballs, iceballs, bringing things to you, remedying paralysis and operating doors.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -537,7 +538,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("SIH");
-talkEntry:addResponse("SIH is the rune of healing. It can be used in strong healing spells and to heal poison.");
+talkEntry:addResponse("SIH is the rune of healing. It can be used in strong healing spells and to cure poison.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -550,7 +551,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("ANTH");
-talkEntry:addResponse("ANTH is the rune of objects. It can be used to summon flames, iceflames, poison clouds, to operate doors and to bring objects towards you.");
+talkEntry:addResponse("ANTH is the rune of objects. It can be used to summon flames, ice flames, poison clouds, to operate doors and to bring objects towards you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -602,7 +603,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("PHERC");
-talkEntry:addResponse("PHERC is the rune of harm. It can be used to create lightning and for effective poison people.");
+talkEntry:addResponse("PHERC is the rune of harm. It can be used to create lightning and for effective poisoning of people.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -667,7 +668,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("RA");
-talkEntry:addResponse("RA is the rune of fire and an elemental rune. It can be used for offensive firespells and explosions, create and put out fireflames.");
+talkEntry:addResponse("RA is the rune of fire and an elemental rune. It can be used for offensive firespells and explosions, and to create and put out flames.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -679,7 +680,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("I am happy that archmage Morgan gave me the opportunity to continue my studies after the... events of Gobaith.");
+talkEntry:addResponse("I am happy that Archmage Morgan gave me the opportunity to continue my studies after the... events of Gobaith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -693,7 +694,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("I am happy that archmage Morgan gave me the opportunity to continue my studies after the... events of Gobaith.");
+talkEntry:addResponse("I am happy that Archmage Morgan gave me the opportunity to continue my studies after the... events of Gobaith.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -749,7 +750,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Her majesty has an impressive charisma, but she lacks education.");
+talkEntry:addResponse("Her Majesty has an impressive charisma, but she lacks education.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -763,7 +764,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Her majesty has an impressive charisma, but she lacks education.");
+talkEntry:addResponse("Her Majesty has an impressive charisma, but she lacks education.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -790,7 +791,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("#me awns: 'Albar? That backward country of ignorance? Do you want to bore me?'");
+talkEntry:addResponse("#me yawns: 'Albar? That backward country of ignorance? Do you want to bore me?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -804,7 +805,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("Gynk is an important centre of trade and goods. And corruption.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Gynk is an important centre ofand goods... and corruption.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -818,7 +820,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("I studied in Lor Angur, not Salkamar. But isn't that obvious?");
+talkEntry:addResponse("I studied in Lor Angur, not Salkamar, but isn't that obvious?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -857,7 +859,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Elara is my patron and the patron of Runewick. Her way is my way. And I do it my way!");
+talkEntry:addResponse("Elara is my patron and the patron of Runewick. Her way is my way, and I do it my way!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -870,7 +872,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("I respect Eldan, but a smart mind alone does not learn by itself. Intensive studies are necessary.");
+talkEntry:addResponse("I respect Eldan, but a smart mind alone does not learn by itself, intensive studies are necessary.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -968,11 +970,11 @@ talkEntry:addTrigger("GTFO");
 talkEntry:addResponse("Das ist auch eine mächtige Rune.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me nimmt eine andere Schriftrolle vom Stapel.", "#me takes another scoll from the stack.");
-talkingNPC:addCycleText("#me hebt kurz den Kopf an und blickt über den Rand seiner Brille durch den Raum.", "#me raises his head slightly and looks over the edge of his glassen through the room.");
+talkingNPC:addCycleText("#me nimmt eine andere Schriftrolle vom Stapel.", "#me takes another scroll from the stack.");
+talkingNPC:addCycleText("#me hebt kurz den Kopf an und blickt über den Rand seiner Brille durch den Raum.", "#me raises his head slightly and looks over the edge of his glasses across the room.");
 talkingNPC:addCycleText("#me seufzt.", "#me sighs.");
-talkingNPC:addCycleText("#me macht eine Notiz mit einem Federkiel.", "#me takes a note with a quill.");
-talkingNPC:addCycleText("Ich sollte dies Erzmagier Morgan melden.", "I should report this to archmage Morgan.");
+talkingNPC:addCycleText("#me macht eine Notiz mit einem Federkiel.", "#me makes a note with a quill.");
+talkingNPC:addCycleText("Ich sollte dies Erzmagier Morgan melden.", "I should report this to Archmage Morgan.");
 talkingNPC:addCycleText("Interessant.", "Interesting.");
 talkingNPC:addCycleText("Es muss noch mehr Runen geben... wenigstens vier.", "There have to be more runes... at least four.");
 talkingNPC:addCycleText("Runen alleine sind noch keine Magie, erst ihre Kombination erweckt Wunder.", "Runes themselves aren't magic. Only their combination can result in miracles.");
@@ -982,7 +984,7 @@ mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Arimedus Dalahorn der Bibliothekar.", "This NPC is Arimedus Dalahorn the librarian.");
-mainNPC:setUseMessage("Ich würde es bevorzugen, wenn ihr mich nicht anfasst.", "I would prefer that you don't touch me.");
+mainNPC:setUseMessage("Ich würde es bevorzugen, wenn ihr mich nicht anfasst.", "I would prefer that you didn't touch me.");
 mainNPC:setConfusedMessage("#me schaut verwirrt.", "#me looks around confused.");
 mainNPC:setEquipment(1, 0);
 mainNPC:setEquipment(3, 818);

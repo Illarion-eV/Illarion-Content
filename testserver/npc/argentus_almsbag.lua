@@ -169,8 +169,8 @@ talkEntry:addTrigger("lizzard");
 talkEntry:addTrigger("fish");
 talkEntry:addTrigger("order");
 talkEntry:addTrigger("riverbank");
-talkEntry:addResponse("Zassaria? A fish order? What now? The fish already started to smell? No, thanks. I want fresh fish, please tell Lady Zassaria that.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 5));
+talkEntry:addResponse("Zassaria? A fish order? What, now? The fish has already started to smell? No, thanks. I want fresh fish, please tell Lady Zassaria that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -182,8 +182,8 @@ talkEntry:addTrigger("lizzard");
 talkEntry:addTrigger("fisch");
 talkEntry:addTrigger("Bestellung");
 talkEntry:addTrigger("riverbank");
-talkEntry:addResponse("Zassaria?  Eine Fischbestellung? Was höre da der Fisch beginnt bereits zu stinken? Nein, danke! Ich möchte frischen Fisch, bitte sagt das Lady Riverbank.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 5));
+talkEntry:addResponse("Zassaria?  Eine Fischbestellung? Was höre da der Fisch beginnt bereits zu stinken? Nein, danke! Ich möchte frischen Fisch, bitte sagt das Lady Riverbank.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -194,8 +194,8 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("Ah, A customer, welcome!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Ah, A customer, welcome!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -206,8 +206,8 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addResponse("Ah, werte Kundschaft, seid willkommen.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Ah, werte Kundschaft, seid willkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -334,7 +334,7 @@ talkEntry:addTrigger("Gobiath");
 talkEntry:addResponse("Wollt Ihr nun Handeln, oder mich mit Eurem Geschwätz von der Arbeit abhalten?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me betrachtet eine Goldmünze.", "#me glances lovingly over a gold coin.");
+talkingNPC:addCycleText("#me betrachtet eine Goldmünze.", "#me glances lovingly at a gold coin.");
 talkingNPC:addCycleText("#me's Augen funklen gierig.", "#me's eyes sparkle greedily as he rubs a coin between his fingers.");
 talkingNPC:addCycleText("#me murmelt verärgert:'Wenn dir meine Preise nicht passen, dann geh doch woanders hin.'", "#me mumbles quietly: 'I wish I got to keep the money.'");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(61,"sell"));

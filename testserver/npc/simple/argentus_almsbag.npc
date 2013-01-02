@@ -92,7 +92,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
 
 -- Quest
 -- Quest by Zassaria Riverbank (Ask for me II)
-queststatus(701) = 4, english, "Zassaria", "lizzard", "fish", "order", "riverbank" -> "Zassaria? A fish order? What now? The fish already started to smell? No, thanks. I want fresh fish, please tell Lady Zassaria that.", queststatus(701) = 5
+queststatus(701) = 4, english, "Zassaria", "lizzard", "fish", "order", "riverbank" -> "Zassaria? A fish order? What, now? The fish has already started to smell? No, thanks. I want fresh fish, please tell Lady Zassaria that.", queststatus(701) = 5
 queststatus(701) = 4, english, "Zassaria", "lizzard", "fisch", "Bestellung", "riverbank" -> "Zassaria?  Eine Fischbestellung? Was höre da der Fisch beginnt bereits zu stinken? Nein, danke! Ich möchte frischen Fisch, bitte sagt das Lady Riverbank.", queststatus(701) = 5
 
 -- OPTIONAL TRIGGERS
@@ -134,6 +134,6 @@ english, "Gobaith", "Gobiath" -> "Unless it's stamped on a coin I don't care."
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me betrachtet eine Goldmünze.", "#me glances lovingly over a gold coin."
+cycletext "#me betrachtet eine Goldmünze.", "#me glances lovingly at a gold coin."
 cycletext "#me's Augen funklen gierig.", "#me's eyes sparkle greedily as he rubs a coin between his fingers."
 cycletext "#me murmelt verärgert:'Wenn dir meine Preise nicht passen, dann geh doch woanders hin.'", "#me mumbles quietly: 'I wish I got to keep the money.'"
