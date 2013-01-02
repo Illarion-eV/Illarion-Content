@@ -25,7 +25,7 @@ autointroduce = on
 author = "Estralis Seborian"
 
 lookatDE = "Dieser NPC ist der Leichenbestatter Gregor Remethar."
-lookatUS = "This is NPC is the mortician Gregor Remethar."
+lookatUS = "This is NPC is the funeral director Gregor Remethar."
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
@@ -62,7 +62,7 @@ itemShoes = 53
 -- 2: Quest 1 solved, reward: random, see below
 
 -- Help
-"Help" -> inform("[Game Help] This is NPC is the mortician Gregor Remethar. Keywords: Hello, quest, mortician, tomb, chambers, value of life.")
+"Help" -> inform("[Game Help] This NPC is the mortician Gregor Remethar. Keywords: Hello, quest, mortician, tomb, chambers, value of life.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Leichenbestatter Gregor Remethar. Schlüsselwörter: Hallo, Quest, Leichenbestatter, Gruft, Kammern, Wert des Lebens.")
 
 -- General speech
@@ -74,7 +74,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, one of the living visits me. Wh
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehet mit dem Segen der Götter. Und kehrt nicht sobald wieder - falls ihr versteht, was ich meine."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with the blessing of the Gods. And do not return again too soon, if you know what I mean."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehet mit dem Segen der Götter. Und kehrt nicht sobald wieder - falls ihr versteht, was ich meine."
-"How are you", "How feel", "How do you do" -> "I bury those who died. How do yousuppose I feel? To appreciate the value of life is indeed not easy."
+"How are you", "How feel", "How do you do" -> "I bury those who died. How do you suppose I feel? To appreciate the value of life is indeed not easy."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich beerdige diejenigen, die starben. Wie meint ihr wohl, fühle ich mich dabei? Den Wert eines Lebens zu schätzen ist fürwahr nicht einfach."
 "your name", "who are you", "who art thou" -> "My name is Gregor Remethar, I am delighted to meet you and to be able to - still - talk to you."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Gregor Remethar, es freut mich, mit mich euch - noch -unterhalten zu können."
@@ -115,33 +115,33 @@ queststatus(105) = 2, english, chance(17.0), ".+" -> inform("[Quest solved] You 
 queststatus(105) = 2, chance(17.0), ".+" -> inform("[Quest gelöst] Du erhältst ein Stück Wachs."), "Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Stück Wachs für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.", item(431, 1, 333), queststatus(105) = 1
 
 -- Item 4: Candles (43) 10%
-queststatus(105) = 2, english, chance(20.0), town = Runewick, ".+" -> inform("[Quest solved] You are awarded a candle. Your reputation with Archmage Elvaine Morgan rises."), "Ah, you lit the lights of honour. Here, take this candlefor your efforts. Come again to me if you ever rekindle the lights.", item(43, 1, 333), queststatus(105) = 1, rankpoints + 2
+queststatus(105) = 2, english, chance(20.0), town = Runewick, ".+" -> inform("[Quest solved] You are awarded a candle. Your reputation with Archmage Elvaine Morgan rises."), "Ah, you lit the lights of honour. Here, take this candle for your efforts. Come again to me if you ever rekindle the lights.", item(43, 1, 333), queststatus(105) = 1, rankpoints + 2
 queststatus(105) = 2, chance(20.0), town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst eine Kerze. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Kerze für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.", item(43, 1, 333), queststatus(105) = 1, rankpoints + 2
-queststatus(105) = 2, english, chance(20.0), ".+" -> inform("[Quest solved] You are awarded a candle."), "Ah, you lit the lights of honour. Here, take this candlefor your efforts. Come again to me if you ever rekindle the lights.", item(43, 1, 333), queststatus(105) = 1
+queststatus(105) = 2, english, chance(20.0), ".+" -> inform("[Quest solved] You are awarded a candle."), "Ah, you lit the lights of honour. Here, take this candle for your efforts. Come again to me if you ever rekindle the lights.", item(43, 1, 333), queststatus(105) = 1
 queststatus(105) = 2, chance(20.0), ".+" -> inform("[Quest gelöst] Du erhältst eine Kerze."), "Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Kerze für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.", item(43, 1, 333), queststatus(105) = 1
 
 -- Item 5: Torch (391) 10%
-queststatus(105) = 2, english, chance(25.0), town = Runewick, ".+" -> inform("[Quest solved] You are awarded a torch. Your reputation with Archmage Elvaine Morgan rises."), "Ah, you lit the lights of honour. Here, take this torchfor your efforts. Come again to me if you ever rekindle the lights.", item(391, 1, 333), queststatus(105) = 1, rankpoints + 2
+queststatus(105) = 2, english, chance(25.0), town = Runewick, ".+" -> inform("[Quest solved] You are awarded a torch. Your reputation with Archmage Elvaine Morgan rises."), "Ah, you lit the lights of honour. Here, take this torch for your efforts. Come again to me if you ever rekindle the lights.", item(391, 1, 333), queststatus(105) = 1, rankpoints + 2
 queststatus(105) = 2, chance(25.0), town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst eine Fackel. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Fackel für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.", item(391, 1, 333), queststatus(105) = 1, rankpoints + 2
-queststatus(105) = 2, english, chance(25.0), ".+" -> inform("[Quest solved] You are awarded a torch."), "Ah, you lit the lights of honour. Here, take this torchfor your efforts. Come again to me if you ever rekindle the lights.", item(391, 1, 333), queststatus(105) = 1
+queststatus(105) = 2, english, chance(25.0), ".+" -> inform("[Quest solved] You are awarded a torch."), "Ah, you lit the lights of honour. Here, take this torch for your efforts. Come again to me if you ever rekindle the lights.", item(391, 1, 333), queststatus(105) = 1
 queststatus(105) = 2, chance(25.0), ".+" -> inform("[Quest gelöst] Du erhältst eine Fackel."), "Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Fackel für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.", item(391, 1, 333), queststatus(105) = 1
 
 -- Item 6: Cookies (453) 10%
-queststatus(105) = 2, english, chance(33.0), town = Runewick, ".+" -> inform("[Quest solved] You are awarded a cookie. Your reputation with Archmage Elvaine Morgan rises."), "Ah, you lit the lights of honour. Here, take this cookiefor your efforts. Come again to me if you ever rekindle the lights.", item(453, 1, 333), queststatus(105) = 1, rankpoints + 2
+queststatus(105) = 2, english, chance(33.0), town = Runewick, ".+" -> inform("[Quest solved] You are awarded a cookie. Your reputation with Archmage Elvaine Morgan rises."), "Ah, you lit the lights of honour. Here, take this cookie for your efforts. Come again to me if you ever rekindle the lights.", item(453, 1, 333), queststatus(105) = 1, rankpoints + 2
 queststatus(105) = 2, chance(33.0), town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst einen Keks. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diesen Keks für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.", item(453, 1, 333), queststatus(105) = 1, rankpoints + 2
-queststatus(105) = 2, english, chance(33.0), ".+" -> inform("[Quest solved] You are awarded a cookie."), "Ah, you lit the lights of honour. Here, take this cookiefor your efforts. Come again to me if you ever rekindle the lights.", item(453, 1, 333), queststatus(105) = 1
+queststatus(105) = 2, english, chance(33.0), ".+" -> inform("[Quest solved] You are awarded a cookie."), "Ah, you lit the lights of honour. Here, take this cookie for your efforts. Come again to me if you ever rekindle the lights.", item(453, 1, 333), queststatus(105) = 1
 queststatus(105) = 2, chance(33.0), ".+" -> inform("[Quest gelöst] Du erhältst einen Keks."), "Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Keks für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.", item(453, 1, 333), queststatus(105) = 1
 
 -- Item 7: Parchment (2745) 10%
-queststatus(105) = 2, english, chance(50.0), town = Runewick, ".+" -> inform("[Quest solved] You are awarded a parchment. Your reputation with Archmage Elvaine Morgan rises."), "Ah, you lit the lights of honour. Here, take this parchmentfor your efforts. Come again to me if you ever rekindle the lights.", item(2745, 1, 333), queststatus(105) = 1, rankpoints + 2
+queststatus(105) = 2, english, chance(50.0), town = Runewick, ".+" -> inform("[Quest solved] You are awarded a parchment. Your reputation with Archmage Elvaine Morgan rises."), "Ah, you lit the lights of honour. Here, take this parchment for your efforts. Come again to me if you ever rekindle the lights.", item(2745, 1, 333), queststatus(105) = 1, rankpoints + 2
 queststatus(105) = 2, chance(50.0), town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst ein Pergament. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Pergament für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.", item(2745, 1, 333), queststatus(105) = 1, rankpoints + 2
-queststatus(105) = 2, english, chance(50.0), ".+" -> inform("[Quest solved] You are awarded a parchment."), "Ah, you lit the lights of honour. Here, take this parchmentfor your efforts. Come again to me if you ever rekindle the lights.", item(2745, 1, 333), queststatus(105) = 1
+queststatus(105) = 2, english, chance(50.0), ".+" -> inform("[Quest solved] You are awarded a parchment."), "Ah, you lit the lights of honour. Here, take this parchment for your efforts. Come again to me if you ever rekindle the lights.", item(2745, 1, 333), queststatus(105) = 1
 queststatus(105) = 2, chance(50.0), ".+" -> inform("[Quest gelöst] Du erhältst ein Pergament."), "Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Pergament für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.", item(2745, 1, 333), queststatus(105) = 1
 
 -- Item 8: Golden ring (235) 10%
-queststatus(105) = 2, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a golden ring. Your reputation with Archmage Elvaine Morgan rises."), "Ah, you lit the lights of honour. Here, take this golden ringfor your efforts. Come again to me if you ever rekindle the lights.", item(235, 1, 577), queststatus(105) = 1, rankpoints + 2
+queststatus(105) = 2, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a golden ring. Your reputation with Archmage Elvaine Morgan rises."), "Ah, you lit the lights of honour. Here, take this golden ring for your efforts. Come again to me if you ever rekindle the lights.", item(235, 1, 577), queststatus(105) = 1, rankpoints + 2
 queststatus(105) = 2, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst einen Goldring. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diesen Goldring für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.", item(235, 1, 577), queststatus(105) = 1, rankpoints + 2
-queststatus(105) = 2, english, ".+" -> inform("[Quest solved] You are awarded a golden ring."), "Ah, you lit the lights of honour. Here, take this golden ringfor your efforts. Come again to me if you ever rekindle the lights.", item(235, 1, 577), queststatus(105) = 1
+queststatus(105) = 2, english, ".+" -> inform("[Quest solved] You are awarded a golden ring."), "Ah, you lit the lights of honour. Here, take this golden ring for your efforts. Come again to me if you ever rekindle the lights.", item(235, 1, 577), queststatus(105) = 1
 queststatus(105) = 2, ".+" -> inform("[Quest gelöst] Du erhältst einen Goldring."), "Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diesen Goldring für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.", item(235, 1, 577), queststatus(105) = 1
 
 -- Debugging
@@ -150,17 +150,17 @@ queststatus(105) = 2, ".+" -> inform("[Chance error] Something went wrong, pleas
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "mortician", "undertaker", "gravedigger", "funeral" -> "My job is to bury those whose life is at an end - and to assess the value of their life. That determines what happens to them."
 "Bestatter", "Totengräber", "Beerdigung" -> "Meine Aufgabe ist es, diejenigen zu begraben, deren Leben am Ende ist - und den Wert ihres Lebens einzuschätzen. Den der bestimmt, was mit ihnen geschieht."
-"profession" -> "I am the local mortician. I judge who has made such valuable contributions by wisdom and justice. After all this is what determines our reputation in the afterlife."
+"profession" -> "I am the local mortician. I judge who has made such valuable contributions as wisdom and justice. After all, this is what determines our reputation in the afterlife."
 "beruf" -> "Ich bin hier der Bestatter. Ich entscheide, wer sich wie sehr verdient gemacht hat um die Weisheit und die Gerechtigkeit. Denn dies bestimmt unser aller Ansehen im Tode."
-english, "job" -> "I am the local mortician. I judge who has made such valuable contributions by wisdom and justice. After all this is what determines our reputation in the afterlife."
+english, "job" -> "I am the local mortician. I judge who has made such valuable contributions as wisdom and justice. After all, this is what determines our reputation in the afterlife."
 "job" -> "Ich bin hier der Bestatter. Ich entscheide, wer sich wie sehr verdient gemacht hat um die Weisheit und die Gerechtigkeit. Denn dies bestimmt unser aller Ansehen im Tode."
 "my name" -> "May I take your measurements?"
 "mein Name" -> "Darf ich schonmal eure Maße aufnehmen?"
 
 -- More small talk; add at least five triggers
-"tomb" -> "The crypt of Runewick is a place where the people are divided; urns for the mages, caskets for the apprentices and darkness for the common folk. All are buried in different chambers."
+"tomb" -> "The crypt of Runewick is a place where the people are divided - urns for the mages, caskets for the apprentices and darkness for the common folk. All are buried in different chambers."
 "value", "fame", "fate" -> "Depending on the value of one's life, there are three methods to bury someone. I could tell you more about these methods..."
-"assess", "earn", "judge" -> "What, do I imagine Ican judge the value of a life? That I must not; the reputation mosly precedes the corpse."
+"assess", "earn", "judge" -> "What, do I imagine I can judge the value of a life? That I must not - the reputation mostly precedes the corpse."
 english, "method", "urn" -> "Those whose lives had a high value will be cremated such that their body may not be desecrated. Those who did good are buried in caskets - for future use. Those who failed will be cast into darkness..."
 "bury", "grave", "coffin" -> "Those whose lives had a high value will be cremated such that their body may not be desecrated. Those who did good are buried in caskets - for future use. Those who failed will be cast into darkness..."
 "Gruft", "Grab" -> "Die Gruft von Runewick ist ein Ort, an dem sich das Volk aufteilt; Urnen für die Magier, Särge für die Lehrlinge und die Dunkelheit für das gemeine Volk. Alle werden in unterschiedlichen Kammern beigesetzt."
@@ -189,13 +189,13 @@ english, "Runewick" -> "Everyone is born equal in Runewick. Anyone who brings ab
 "Runewick" -> "In Runewick ist Jedermann gleich geboren. Wer nichts zustandebringt, dessen Leben ist allerdings verwirkt."
 english, "Valerio", "Guilianni", "Don" -> "I have heard a rumour about the Don; he makes people disappear as easily as they come to him. No gravestone will ever remember them..."
 "Valerio", "Guilianni", "Don" -> "Ich habe eine Gerücht über den Don gehört; er lässt Leute einfach so verschwinden, die ihm quer kommen. Kein Grabstein wird jemals an sie erinnern."
-english, "Galmair" -> "In Galmair, the reputaion of a deceased person depends greatly on their wealth obviously. Large purse, large grave, small purse, no grave. How terrible!"
+english, "Galmair" -> "In Galmair, the grave of a deceased person depends greatly on their wealth obviously. Large purse, large grave, small purse, no grave. How terrible!"
 "Galmair" -> "In Galmair hängt der Ruf eines Verstorbenen offensichtlich stark vom Reichtum ab. Großer Geldbeutel, großes Grab, kleiner Geldbeutel, kein Grab - wie schrecklich!"
-"Queen" -> "I have heard Queen Rosaline is to have a glorious grave in the desert. Her royal builder Robertus is commissioned; I just wonder whether he will finish before she passes..."
+"Queen" -> "I have heard Queen Rosaline is to have a glorious grave in the desert. Her royal builder Robertus is commissioned. I just wonder whether he will finish before she passes..."
 "Königin" -> "Ich habe gehört, dass Königin Rosaline ein glorreiches Grab in der Wüste haben möchte. Ihr königlicher Baumeister Robertus ist damit beauftragt. Ich frage mich nur, ob er damit fertig wird, bevor sie verstirbt..."
-english, "rosaline", "edwards" -> "I have heard Queen Rosaline is to have a glorious grave in the desert. Her royal builder Robertus is commissioned; I just wonder whether he will finish before she passes..."
+english, "rosaline", "edwards" -> "I have heard Queen Rosaline is to have a glorious grave in the desert. Her royal builder Robertus is commissioned. I just wonder whether he will finish before she passes..."
 "rosaline", "edwards" -> "Ich habe gehört, dass Königin Rosaline ein glorreiches Grab in der Wüste haben möchte. Ihr königlicher Baumeister Robertus ist damit beauftragt. Ich frage mich nur, ob er damit fertig wird, bevor sie verstirbt..."
-english, "Cadomyr" -> "I appreciate the people of Cadomyr. Their habits are somewhat different to ours; the value of life is determined by birth, with us after death. But does this make us so different?"
+english, "Cadomyr" -> "I appreciate the people of Cadomyr. Their habits are somewhat different to ours; the value of life is determined by birth, remaining with us after death. But does this make us so different?"
 "Cadomyr" -> "Ich schätze das Volk von Cadomyr. Ihre Gebräuche sind etwas anders als unsere; der Wert eines Lebens wird bei ihnen bei der Geburt bestimmt, bei uns nach dem Tode. Aber macht uns das so verschieden?"
 
 -- Main land factions
@@ -203,7 +203,7 @@ english, "albar" -> "The Albarians burn their dead. This is indeed a homage, for
 "albar" -> "Die Albarier verbrennen ihre Toten. Dies ist fürwahr eine Ehrerweisung, denn wer verbrannt ist, kann nicht durch dunkle Künste ins Leben zurückgerufen werden."
 english, "gynk", "gync" -> "There are strange customs in Gynk. They say they just cast their dead into the swamps. What a cruel custom!"
 "gync", "gynk" -> "Es gibt merkwürdige Sitten in Gynk. Man sagt, sie werfen ihre Toten einfach in den Sumpf. Was für ein grausamer Brauch!"
-english, "salkama" -> "The archmage once told me that in Salkamar, only the righteous are buried in coffins whereas the wicked face an indescribeable fate."
+english, "salkama" -> "The archmage once told me that in Salkamar, only the righteous are buried in coffins whereas the wicked face an indescribable fate."
 "salkama" -> "Einst sagte mir der Erzmagier, dass in Salkamar nur die Rechtschaffenden in Särgen begraben werden während die Niederträchtigen ein unbeschreibliches Schicksal erleiden."
 
 -- Gods; each NPC should react on AT LEAST one god, being a follower of said god
@@ -219,7 +219,7 @@ english, "Cherga" -> "I do not love Cherga, but I honour her. Her acts as Guardi
 "erzähl was", "erzähl etwas" -> "Wir könnten über die Gruft oder meinen Beruf reden. Ich habe auch eine Aufgabe für euch."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here.
-english, "Gregor", "Remethar" -> "I am the local mortician. Nobody loves me, but everyone needs me - one day."
+english, "Gregor", "Remethar" -> "I am the local mortician. Nobody loves me, but everyone needs me - eventually."
 "Gregor", "Remethar" -> "Ich bin hier der Leichenbestatter. Niemand liebt mich, aber jeder braucht mich - eines Tages."
 "Yes" -> "Really.", "By Cherga, could you put that differently?", "Honour the dead."
 "Ja" -> "Wirklich.", "Bei Cherga, könntet ihr das anders ausdrücken?", "Ehret die Toten."
@@ -233,12 +233,12 @@ english, "Gregor", "Remethar" -> "I am the local mortician. Nobody loves me, but
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Wie soll jemand seine letzte Ruhe finden, wenn kein Licht brennt?", "How should someone find their final resting place when no light is burning?"
-cycletext "Die Dunkelheit wartet... darauf, dass das Licht ausgeht.", "The darkness is waiting... that the light goes out."
+cycletext "Wie soll jemand seine letzte Ruhe finden, wenn kein Licht brennt?", "How can someone find their final resting place when no light is burning?"
+cycletext "Die Dunkelheit wartet... darauf, dass das Licht ausgeht.", "The darkness is waiting... for the light to extinguish."
 cycletext "Eine helle Kerze soll dir ein Leuchtfeuer sein.", "A candle of light, to you shall be a beacon."
-cycletext "Drei Schicksale und ich bin der Schätzer; was wird wohl euer Schicksal sein?", "Three fates and I am the valuer; what will become your fate?"
+cycletext "Drei Schicksale und ich bin der Schätzer; was wird wohl euer Schicksal sein?", "Three fates and I am the judge. What will become of your fate?"
 cycletext "Es ist nicht die Zeit, Trübsal zu blasen.", "No time to wallow in the mire."
-cycletext "Drei Pfade; welchen werdet ihr beschreiten?", "Three paths, which will you tread?"
+cycletext "Drei Pfade; welchen werdet ihr beschreiten?", "Three paths, which will you take?"
 cycletext "#me rollt bedächtig ein Maßband aus.", "#me slowly rolls out a measuring tape."
 cycletext "Soll ich eure Maße jetzt oder später aufnehmen?", "Should I take your measurements now or later?"
 cycletext "Mein Geschäft ist sicher - gestorben wird immer!", "My business is safe - there will always be death."

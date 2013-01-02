@@ -21,13 +21,14 @@ function callEffect(Effect,User)
 end
 
 function removeEffect(Effect,User)
+	--[[
 	local find,languageId = Effect:findValue("languageId")
 	local skillName = ListLanguages[languageId]
 	local find,oldSkill = Effect:findValue( "oldSkill")          
 	local find,newSkill = Effect:findValue( "newSkill")
 
 	--original skill level
-	User:increaseSkill(1,skillName,(-(newSkill-oldSkill))) -- ergibt wahrscheinlich noch falsche Werte
+	User:increaseSkill(skillName,(-(newSkill-oldSkill))) ]]
 end
 
 function loadEffect(Effect,User)                  			

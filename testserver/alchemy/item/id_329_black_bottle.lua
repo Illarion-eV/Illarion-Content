@@ -77,7 +77,7 @@ function DrinkPotion(User,SourceItem)
 		local newRace = math.floor(((potionEffectId - newSex - 500)/10))
 		local isMonster = 0
 		-- our old value to change the char later back
-		local oldRace = User:getRace(); User:inform("just defined "..oldRace)
+		local oldRace = User:getRace()
 	    local oldSkincolor1,oldSkincolor2,oldSkincolor3 = User:getSkinColor()
 	    local oldHaircolor1,oldHaircolor2,oldHaircolor3 = User:getHairColor()
 	    local oldSex = User:increaseAttrib("sex",0)
@@ -131,8 +131,6 @@ function DrinkPotion(User,SourceItem)
 	   if (newSex) == 0 then
 		  newHair = ListHairMale[newRace][math.random(1,#ListHairMale[newRace])]
 	   else
-		  User:inform(""..newRace)
-		  User:inform(""..#ListHairFemale[newRace])
 		  newHair = ListHairFemale[newRace][math.random(1,#ListHairFemale[newRace])]
 	   end
 	   local HairColorRandomPosition = ((math.random(1,(#ListHairColor[newRace]/3)))*3)
@@ -155,7 +153,6 @@ function DrinkPotion(User,SourceItem)
 		     
 			-- saving of the old values
 			  if isMonster ~= 1 then -- we transform him into an other memeber of on of the six races, so we need to save those old values
-					User:inform("check 1")
 					myEffect:addValue("oldSex",oldSex)
 					myEffect:addValue("oldHair",oldHair)
 					myEffect:addValue("oldBeard",oldBeard)
@@ -177,8 +174,7 @@ function DrinkPotion(User,SourceItem)
 					myEffect:addValue("newHaircolor3",newHaircolor3)      
 			  
 			  end
-			  User:inform("oldrace: "..oldRace)
-				myEffect:addValue("oldRace",oldRace)
+			    myEffect:addValue("oldRace",oldRace)
 				myEffect:addValue("oldHeight",oldHeight)
 				myEffect:addValue("newRace",newRace)
 				myEffect:addValue("newHeight",newHeight)

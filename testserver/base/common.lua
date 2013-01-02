@@ -767,16 +767,6 @@ function GetStiffness(Character)
 end;
 
 --[[
-    Encumbrence
-    Check if a character is encumbered by the armor he wears
-    @param CharacterStruct - The character whos encombrence is checked
-    @return boolean - true if encumbered, false if not
-]]
-function Encumbrence(Character)
-    return (GetStiffness(Character) > 100);
-end;
-
---[[
     ResetInterruption
     Resets the interruption counter state, in case the action did not success
     @param CharacterStruct - The character whos state is resetted
