@@ -68,13 +68,6 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 		return
 	end
 
-	if base.common.Encumbrence(User) then
-		base.common.HighInformNLS( User,
-		"Deine Rüstung behindert Dich beim Scheren der Schafe.",
-		"Your armour disturbs you while shearing sheep." );
-		return
-	end
-
 	if not base.common.FitForWork( User ) then -- check minimal food points
 		return
 	end
@@ -155,13 +148,6 @@ function UseItemEntrailsCutting( User, SourceItem, TargetItem, Counter, Param, l
 		base.common.HighInformNLS( User,
 		"Du musst die Schere in der Hand haben!",
 		"You have to hold the scissors in your hand!" );
-		return
-	end
-
-	if base.common.Encumbrence(User) then
-		base.common.HighInformNLS( User,
-		"Deine Rüstung behindert Dich beim Schneiden der Eingeweide.",
-		"Your armour disturbs you while cutting entrails." );
 		return
 	end
 

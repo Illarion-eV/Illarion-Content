@@ -27,7 +27,7 @@ function CharacterOnField(User)
         Ensnarl = true;
     end
     if Ensnarl then
-        User.movepoints=User.movepoints-40;
+        --User.movepoints=User.movepoints-40; -- ANNYOING AS HELL! deactivated.
         if (User:getPlayerLanguage() == 0) then
             User:inform("Du verf‰ngst dich im Spinnennetz, kannst es aber zerreiﬂen.");
         else

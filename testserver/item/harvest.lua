@@ -29,13 +29,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	if base.common.Encumbrence(User) then
-		base.common.HighInformNLS( User,
-		"Deine Rüstung behindert dich beim Sammeln der Früchte.",
-		"Your armour disturbs you while gathering fruits." );
-		return
-	end
-
 	-- Disabled in order to give a hungry player a chance to strengthen.
 	-- if not base.common.FitForWork( User ) then -- check minimal food points
 		-- return

@@ -153,8 +153,8 @@ function Init()
 			  )	
     AddPotion("Runewick",		  
 			  603,
-			  {"a potion for lizard language with at least average quality","ein Echsensprachtrank von zumindest durchschnittlicher Qualität"},
-			  {330,5,{"filledWith","potion"},{"potionEffectId","604"}}
+			  {"a medium mana annihilator bomb with at least average quality", "einen mittleren Manaannihilator von zumindest durchschnittlicher Qualität"},
+			  {327,5,{"filledWith","potion"},{"potionEffectId","307"}}
 			  )
     AddPotion("Runewick",		  
 			  607,
