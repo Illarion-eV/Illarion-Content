@@ -711,7 +711,7 @@ function CombineStockEssence( User, stock, essenceBrew)
 		world:makeSound(13,cauldron.pos)
 		world:gfx(52,cauldron.pos)
 	    -- and learn!
-	    User:learn(Character.alchemy, 80, 100)
+	    User:learn(Character.alchemy, 80/2, 100)
 		return true
 	end
 end

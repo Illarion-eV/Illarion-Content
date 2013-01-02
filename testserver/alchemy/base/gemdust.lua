@@ -91,11 +91,11 @@ function BrewingGemDust(User,gemDust,cauldron)
 		
 	elseif cauldron:getData("filledWith") == "stock" then -- create a potion
 	    GemDustInStock(User,cauldron,gemDust)
-		User:learn(Character.alchemy, 50, 100)
+		User:learn(Character.alchemy, 50/2, 100)
 
     elseif cauldron:getData("filledWith")=="water" then -- create an essence brew
 		GemDustInWater(User,cauldron,gemDust)
-		User:learn(Character.alchemy, 50, 100)
+		User:learn(Character.alchemy, 50/2, 100)
 	
 	else -- nothing in the cauldron
 	    base.common.InformNLS(User, "Der Edelsteinstaub verflüchtigt sich, als du ihn in den leeren Kessel schüttest.", 

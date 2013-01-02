@@ -119,11 +119,11 @@ function BrewingPlant(User,plant,cauldron)
 		
 	elseif cauldron:getData("filledWith")== "essenceBrew" then -- essence brew
 		PlantInEssenceBrew(User,plant,cauldron)
-		User:learn(Character.alchemy, 50, 100)
+		User:learn(Character.alchemy, 50/2, 100)
 		
 	elseif (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "water") then -- water or a stock we put the herb in
 	    PlantInStock(User,plant,cauldron)
-		User:learn(Character.alchemy, 50, 100)
+		User:learn(Character.alchemy, 50/2, 100)
 		
 	else -- there is nothing in the cauldron to put the herb in, failure
 	    base.common.InformNLS(User, "Die Pflanze vertrockent auf dem Boden des heiﬂen Kessels und zerf‰llt zu Asche.", 
@@ -168,7 +168,7 @@ function BrewingFilter(User,plant,cauldron)
     
 	elseif cauldron:getData("filledWith")=="stock" then -- stock, let's filter
 	    FilterStock(User,plant,cauldron)
-		User:learn(Character.alchemy, 50, 100)
+		User:learn(Character.alchemy, 50/2, 100)
 		
     else -- empty cauldron
         base.common.InformNLS(User, "Die Pflanze vertrockent auf dem Boden des heiﬂen Kessels und zerf‰llt zu Asche", 

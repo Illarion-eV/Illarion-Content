@@ -261,6 +261,9 @@ function TurnIntoAlchemist(User,SourceItem)
 		world:gfx(31,User.pos)
 		world:gfx(52,User.pos)
 		world:gfx(31,User.pos)
+		User:setQuestProgress(350,100)
+		User:setQuestProgress(351,100)
+		User:setQuestProgress(352,100)
 	end
 	if User:getPlayerLanguage() == 0 then
 	    dialog = MessageDialog(questInfos.teacherDE1, textDE , callback)
@@ -483,7 +486,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	-- already an alchemist?
     local alchemistCheck = AlchemistCheck(User)
-	if alchemistCheck then
+	if alchemistCheck and  then
 	    SendMessage(User, SourceItem,
 		            "You hear a voice you are unable to localise: \"You already know the great secret of alchemy. I am not allowed to help you further. Go away!\"",
 		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"Du kennst das große Geheimnis der Alchemie schon. Ich darf dir nicht weiter helfen. Geh weg!\""
@@ -492,7 +495,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end				
 	-- check if the char belongs to any other mage class
 	local noMagicCheck = NoMagicCheck(User)
-	if not noMagicCheck then
+	if (not noMagicCheck) and User:getQuestProgress(350)==100 then
 	    SendMessage(User, SourceItem,
 		            "You hear a voice you are unable to localise: \"You already know the great secret of alchemy. I am not allowed to help you further. Go away!\"",
 		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"Du kennst das große Geheimnis der Alchemie schon. Ich darf dir nicht weiter helfen. Geh weg!\""

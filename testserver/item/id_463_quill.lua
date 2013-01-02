@@ -30,12 +30,12 @@ function CheckIfBottleInHand(User)
 end
 
 function WriteLabel (User,SourceItem,bottle)
-    
+    --[[
 	-- does the char have parchment?
     if User:countItem(2745) < 1 then 
 	    User:inform("Dir fehlt Pergament, das du als Etikett nutzen könntest.","You don't have any parchment you could use as a label.")		
 	    return
-	end
+	end]]
 	
 	if bottle.number > 1 then
 	    User:inform("Du kannst immer nur eine Flasche beschriften.","You can label only one bottle at once.")		
@@ -60,8 +60,7 @@ function WriteLabel (User,SourceItem,bottle)
 			local labelText = dialog:getInput()
 			base.lookat.SetSpecialDescription(bottle,"Flaschenetikett: ".."\""..labelText.."\"","Bottle label: ".."\""..labelText.."\"")
 			world:changeItem(bottle)
-			User:eraseItem(2745,1)
-			User:inform("lalala: "..bottle:getData("descriptionDe"))
+			--User:eraseItem(2745,1)
 		end
 	end
 	local dialog = InputDialog(title, infoText, false, 100, callback)
