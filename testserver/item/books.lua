@@ -39,20 +39,9 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 	end]]
 end
 
-function getLookAt(player,item)
-    if player:getPlayerLanguage() == 0 then
-	    bookName = "Allgemeine Einführng in die Grundlagen der gewöhnlichen Alchemie"
-	else
-      	bookName = "General introduction to the basics of common alchemy"
-	end
-	lookAt.name = bookName
-    return lookAt
-end
-
 function LookAtItem(player, item)
     if item:getData("alchemyBook")=="true" then
-	    world:itemInform(player, item, getLookAt(player,item))
-	else
-	    world:itemInform(player, item, base.lookat.GenerateLookAt(player, item, 0))
-	end	
+		base.lookat.SetSpecialName(item, "Allgemeine Einführng in die Grundlagen der gewöhnlichen Alchemie", "General introduction to the basics of common alchemy");
+	end
+	world:itemInform(player, item, base.lookat.GenerateLookAt(player, item, base.lookat.NONE));
 end
