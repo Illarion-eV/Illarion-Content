@@ -16,18 +16,19 @@ function addEffect(Effect, User)
 end
 
 function callEffect(Effect,User)                  			
-	base.common.InformNLS( User, "Du fühlst, dass der Stärkungsrank seine Wirkung verliert.", "You feel that the strengthening potion looses its effect.")
+	base.common.InformNLS( User, "Du fühlst, dass der Sprachtrank seine Wirkung verliert.", "You feel that the language potion looses its effect.")
 	return false
 end
 
 function removeEffect(Effect,User)
+	--[[
 	local find,languageId = Effect:findValue("languageId")
 	local skillName = ListLanguages[languageId]
 	local find,oldSkill = Effect:findValue( "oldSkill")          
 	local find,newSkill = Effect:findValue( "newSkill")
 
 	--original skill level
-	User:increaseSkill(1,skillName,(-(newSkill-oldSkill))) -- ergibt wahrscheinlich noch falsche Werte
+	User:increaseSkill(skillName,(-(newSkill-oldSkill))) ]]
 end
 
 function loadEffect(Effect,User)                  			

@@ -180,7 +180,7 @@ function InitPotions()
 	setPotion(540, 449, 53415955, 766, 161, 764, false, false, false, false, false)
 	potionName[541] = {"Shape Shifter Female Orc","Verwandler Weiblicher Ork"}
 	setPotion(541, 449, 53415955, 766, 162, 764, false, false, false, false, false)
-	potionName[550] = {"Shape Shifter Male Lizardman","Verwandler Männlicher Lizardman"}
+	potionName[550] = {"Shape Shifter Male Lizardman","Verwandler Männlicher Echsenmensch"}
 	setPotion(550, 449, 53415955, 766, 161, 761, false, false, false, false, false)
 	potionName[551] = {"Shape Shifter Female Echsenmensch","Verwandler Weiblicher Echsenmensch"}
 	setPotion(551, 449, 53415955, 766, 162, 761, false, false, false, false, false)
@@ -544,18 +544,24 @@ function FillFromTo(fromItem,toItem)
 	end	
     toItem:setData("filledWith",fromItem:getData("filledWith")) 
 	toItem:setData("potionEffectId",fromItem:getData("potionEffectId"))
-	if fromItem:getData("filledWith") == "potion" then
-		if toItem.id >= 1008 and toItem.id <= 1018 then
-		    toItem:setData("potionQuality",fromItem.quality) 
-		else
-			toItem.quality = tonumber(fromItem:getData("potionQuality"))
-		end	
-	end
+	local quality = tonumber(fromItem:getData("potionQuality"))
+	if quality == nil then
+	    quality = fromItem.quality
+	end	
 	if toItem.id >= 1008 and toItem.id <= 1018 then
-		local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem)
+		toItem:setData("potionQuality",quality) 
+	else
+		toItem.quality = quality
+	end
+    local reGem, reDust, reCauldron, reBottle	
+	if fromItem.id >= 1008 and fromItem.id <= 1018 then
+	   reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem, nil)
+	else
+	    reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, fromItem)
+	end	
+	if toItem.id >= 1008 and toItem.id <= 1018 then
 		toItem.id = reCauldron
 	else
-		local reGem, reDust, reCauldron, reBottle = GemDustBottleCauldron(nil, nil, fromItem, nil)
 		toItem.id = reBottle
 	end	
 end
@@ -593,8 +599,8 @@ end
 function SetQuality(User,Item)
 -- skill has an influence of 75% on the mean
     local skillQuali = User:getSkill(Character.alchemy)*0.75 
--- attributes have an influence of 25% on the mean (if the sum of the attributes is 40 or higher, we reach the maixmum influence)	
-	local attribCalc = (((User:increaseAttrib("essence",0) + User:increaseAttrib("perception",0))/2))*5 
+-- attributes have an influence of 25% on the mean (if the sum of the attributes is 54 or higher, we reach the maixmum influence)	
+	local attribCalc = (((User:increaseAttrib("essence",0) + User:increaseAttrib("perception",0) + User:increaseAttrib("intelligence",0) )/3))*5 
 	local attribQuali = base.common.Scale(0,25,attribCalc)
 -- the mean	
 	local mean =  base.common.Scale(1,9,(attribQuali + skillQuali)) 
@@ -644,7 +650,6 @@ end
 -- combine of stock and essence brew to create a potion
 -- function is only called when item 331 is a stock or when a potion-bottle is an essence brew
 function CombineStockEssence( User, stock, essenceBrew)
-   User:inform(""..essenceBrew.id)
    if essenceBrew == nil then
         User:inform("is nil")
 	end	
@@ -654,13 +659,10 @@ function CombineStockEssence( User, stock, essenceBrew)
 		-- we get the gem dust used as an ingredient; and the new cauldron id we need later
 		local reGem, ingredientGemdust, newCauldron, reBottle
 		if cauldron:getData("filledWith") == "essenceBrew" then
-		    User:inform("herere")
-			reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew, nil)
+		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, essenceBrew, nil)
 		else
-		User:inform("herere 2")
-		    reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, essenceBrew)
+			reGem, ingredientGemdust, newCauldron, reBottle = GemDustBottleCauldron(nil, nil, nil, essenceBrew)
 		end
-		User:inform(""..newCauldron)
 		-- create our ingredients list
 		local myIngredients = {}
 		-- firstly, the gem dust which has been used (indirectly, that is the potion kind)
@@ -709,7 +711,7 @@ function CombineStockEssence( User, stock, essenceBrew)
 		world:makeSound(13,cauldron.pos)
 		world:gfx(52,cauldron.pos)
 	    -- and learn!
-	    User:learn(Character.alchemy, 80, 100)
+	    User:learn(Character.alchemy, 80/2, 100)
 		return true
 	end
 end
@@ -746,7 +748,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 			CauldronDestruction(User,cauldron,2)
 			
 		elseif cauldron:getData("filledWith") == "potion" then
-			if cauldron.id == 1011 then -- support potion
+			if cauldron.id == 1013 then -- support potion
 				alchemy.item.id_165_blue_bottle.SupportEssencebrew(User,cauldron,SourceItem)
 			else
 				CauldronDestruction(User,cauldron,2)
@@ -772,7 +774,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 			CauldronDestruction(User,cauldron,2)
 			
 		elseif cauldron:getData("filledWith") == "potion" then
-			if cauldron.id == 1011 then -- support potion
+			if cauldron.id == 1013 then -- support potion
 			    alchemy.item.id_165_blue_bottle.SupportPotion(User,cauldron,SourceItem)
 			else
 				CauldronDestruction(User,cauldron,2)
@@ -783,6 +785,7 @@ function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
 			
 		else -- nothing in the cauldron, we just fill in the potion
             FillFromTo(SourceItem,cauldron)	
+		    world:changeItem(cauldron)
 		end
                 
     end

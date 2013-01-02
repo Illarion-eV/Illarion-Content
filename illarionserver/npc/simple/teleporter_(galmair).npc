@@ -29,12 +29,12 @@ autointroduce = on
 
 author = "Estralis Seborian"
 
-lookatDE = "[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Galmair, Wilderland."
-lookatUS = "[Teleporter] Say the name of the realm you want to travel to: Runewick, Galmair, Wilderland."
-useMsgDE = "[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Galmair, Wilderland."
-useMsgUS = "[Teleporter] Say the name of the realm you want to travel to: Runewick, Galmair, Wilderland."
-wrongLangDE = "[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Galmair, Wilderland."
-wrongLangUS = "[Teleporter] Say the name of the realm you want to travel to: Runewick, Galmair, Wilderland."
+lookatDE = "[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Cadomyr, Wilderland."
+lookatUS = "[Teleporter] Say the name of the realm you want to travel to: Runewick, Cadomyr, Wilderland."
+useMsgDE = "[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Cadomyr, Wilderland."
+useMsgUS = "[Teleporter] Say the name of the realm you want to travel to: Runewick, Cadomyr, Wilderland."
+wrongLangDE = "[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Runewick, Cadomyr, Wilderland."
+wrongLangUS = "[Teleporter] Say the name of the realm you want to travel to: Runewick, Cadomyr, Wilderland."
 
 -- Cadomyr: 127 647 0
 -- Runewick: 788 826 0

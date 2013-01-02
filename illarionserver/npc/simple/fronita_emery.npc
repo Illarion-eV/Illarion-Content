@@ -74,43 +74,43 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 5% Stuff: 310, 374, 390, 391, 1858, 2183, 2184, 2185, 2717, 2719, 2738, 2744, 2760
 
 -- Quest triggers currently blank, to be added at a later date
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Ah, so you are interested in my wares.", "Take your time to look around."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um."
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Fronita Emery the merchant. Keywords: buy, sell, trade, glas, wares, Runewick.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Händlerin Fronita Emery. Schlüsselwörter: Handel, kaufe, verkaufe, Glas, Waren, Runewick.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "May Findari and Elara bless you! Do you want to have a look at my wares?", "Welcome. If you're looking for goods made of glass I can definately help you out."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "May Findari and Elara bless you! Do you want to have a look at my wares?", "Welcome. If you're looking for goods made of glass I can definitely help you out."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Findari und Elara mit euch! Kann ich euch für meine Waren begeistern?", "Willkommen. Wenn ihr Glaswaren sucht seid ihr hier absolut richtig."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "May Findari and Elara bless you! Do you want to have a look at my wares?", "Welcome. If you're looking for goods made of glass I can definately help you out."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "May Findari and Elara bless you! Do you want to have a look at my wares?", "Welcome. If you're looking for goods made of glass I can definitely help you out."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Findari und Elara mit euch! Kann ich euch für meine Waren begeistern?", "Willkommen. Wenn ihr Glaswaren sucht seid ihr hier absolut richtig."
-"Farewell", "Bye", "Fare well", "See you" -> "Fair winds and clear sight to you!", "May Elara enlighten your path.", "Farewell. Don't forget about me, as glass is pretty frail!"
+"Farewell", "Bye", "Fare well", "See you" -> "Fair winds and clear sight to you!", "May Elara enlighten your path.", "Farewell. Don't forget about me, as glass is pretty fragile!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Günstige Winde und klare Sicht!", "Möge Elara euren Pfad erleuchten.", "Auf bald. Und vergesst mich nicht, Glas ist zerbrechlich!"
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fair winds and clear sight to you!", "May Elara enlighten your path.", "Farewell. Don't forget about me, as glass is pretty frail!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Fair winds and clear sight to you!", "May Elara enlighten your path.", "Farewell. Don't forget about me, as glass is pretty fragile!"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Günstige Winde und klare Sicht!", "Möge Elara euren Pfad erleuchten.", "Auf bald. Und vergesst mich nicht, Glas ist zerbrechlich!"
-"How are you", "How feel", "How do you do" -> "I am very well. Look at this bottle here. If you hold it against the light it sparkles in every color imaginable.", "I am a little short of breath and there's blisters from all the glass I polished, but that's to expect from my work."
+"How are you", "How feel", "How do you do" -> "I am very well. Look at this bottle here. If you hold it against the light it sparkles in every colour imaginable.", "I'm a little short of breath and there's blisters from all the glass I polished, but that's to be expected from my work."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Mir geht es ausgezeichnet. Sehr euch diese Flasche hier an. Hält man sie gegen das Licht funkelt sie in allen Farben.", "Ich bin etwas außer Atem und habe Schwielen vom Glas polieren, aber das ist Berufsrisiko."
-"your name", "who are you", "who art thou" -> "I'm Fronita. I am a glassblower and I sell my wares here.", "My name? Fronita Emery, I deal in glass goods."
+"your name", "who are you", "who art thou" -> "I'm Fronita. I'm a glassblower and I sell my wares here.", "My name? Fronita Emery, I deal in glass goods."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin die Fronita. Ich bin Glasbläserin und verkaufe meine Waren hier.", "Mein Name? Fronita Emery, ich handle mit Glaswaren."
 
 -- Quest 107: A message from Groktan Flintsplit
-queststatus(107) = 9, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), "#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.", queststatus(107) = 10
-queststatus(107) = 9, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), "#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.", queststatus(107) = 10
-queststatus(107) = 9, english, "Groktan", "Flintsplit" -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), "#me shrieks as she reads the scroll: 'I thought I'd be save here from the Don! I'm ruined if I have to pay what he demands.", queststatus(107) = 10
-queststatus(107) = 9, "Groktan", "Flintsplit" -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), "#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle.", queststatus(107) = 10
+queststatus(107) = 9, "message", "news", "letter", "scroll", "parchment", "task", "adventure", "order" -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), queststatus(107) = 10, "#me shrieks as she reads the scroll: 'I thought I'd be safe here from the Don! I'm ruined if I have to pay what he demands."
+queststatus(107) = 9, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament", "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), queststatus(107) = 10, "#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle."
+queststatus(107) = 9, english, "Groktan", "Flintsplit", "quest", "mission" -> inform("[Quest status] The Reminder IV: You deliver the message from Groktan Flintsplit to Fronita Emery."), queststatus(107) = 10, "#me shrieks as she reads the scroll: 'I thought I'd be safe here from the Don! I'm ruined if I have to pay what he demands."
+queststatus(107) = 9, "Groktan", "Flintsplit", "quest", "mission" -> inform("[Queststatus] Die Erinnerung IV: Du überbringst Fronita Emery die Nachricht von Groktan Flintsplit."), queststatus(107) = 10, "#me erschrickt als sie die Schriftrolle durchließt: 'Ich dachte, ich wäre hier sicher vor dem Don! Ich bin ruiniert, wenn ich ihm diese Summe zahle."
 
 -- Catching quest triggers. Modify if the NPC does quests.
-english, "quest", "mission" -> "I do not issue any quests, sorry."
+english, "quest", "mission" -> "I don't really need any help, sorry."
 "quest", "mission" -> "Ich vergebe keine Questen, tut mir leid."
-"task", "adventure", "order" -> "I do not issue any quests, sorry."
+"task", "adventure", "order" -> "I don't really need any help, sorry."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich vergebe keine Questen, tut mir leid."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "Well, why should I stand around here between all this glass? I'm selling it!", "I'm a glassblower and I sell my wares here"
+"profession" -> "Well, why might I stand around here between all this glass? I'm selling it!", "I'm a glassblower and I sell my wares here."
 "beruf" -> "Nun, warum sollte ich hier zwischen diesen ganzen Glaswaren stehen? Ich verkaufe sie!", "Ich bin Glasbläserin und verkaufe hier meine Waren."
-english, "job" -> "Well, why should I stand around here between all this glass? I'm selling it!", "I'm a glassblower and I sell my wares here"
+english, "job" -> "Well, why might I stand around here between all this glass? I'm selling it!", "I'm a glassblower and I sell my wares here."
 "job" -> "Nun, warum sollte ich hier zwischen diesen ganzen Glaswaren stehen? Ich verkaufe sie!", "Ich bin Glasbläserin und verkaufe hier meine Waren."
 english, "Gobaith", "Gobiath" -> "I'm just a humble crafter. Ask a scholar about that."
 "Gobaith", "Gobiath" -> "Ich bin nur eine einfache Händlerin. Fragt doch einen Gelehrten über sowas."
@@ -118,8 +118,8 @@ english, "Gobaith", "Gobiath" -> "I'm just a humble crafter. Ask a scholar about
 "mein Name" -> "Schön dich kennenzulernen! Erwarte aber keinen Preisnachlass deswegen.", "Was für ein lustiger Name. Man merkt irgendwie, dass du nicht von hier bist."
 
 -- More small talk; add at least five triggers
-"glass" -> "To work with glass is challenging. It becomes frail very fast", "The slender hands of a lady like myself are just right for that kind of work, har har."
-"sand" -> "You may think there's enough sand in the desert, still Cadomyr troubles the supply.", "Aye, lots of sand in the west. But Cadomyr guards it tightly. That's a problem."
+"glass" -> "To work with glass is challenging. It becomes fragile very quickly.", "The slender hands of a lady like myself are just right for that kind of work, har har."
+"sand" -> "You may think there's enough sand in the desert. Still, Cadomyr troubles the supply.", "Aye, lots of sand in the west. But Cadomyr guards it tightly. That's a problem."
 "rune magic" -> "You have to ask another dwarf about that."
 "magic", "mage", "sorcer", "spell" -> "Ach, sometimes I twitch when spells fly about, but you get used to that.", "There's dwarven rune magic. So why should magic bother me?"
 "problem", "trouble", "supply" -> "Cadomyr checks tightly how much sieved sand leaves the desert. Not enough for me to work properly, I say!", "Cadomyr is mocking us. If they allow sand to be exported it's usualy wet and hardly useable. ", "'I reign over every grain of sand!' says the queen. You can be overzealous too, you know."
@@ -128,35 +128,35 @@ english, "Gobaith", "Gobiath" -> "I'm just a humble crafter. Ask a scholar about
 "Runenmagie" -> "Da musst du einen Zwerg fragen der sich genauer damit auskennt."
 "Magie", "Zauber" -> "Ach, ich zuck noch ein wenig wenn die Zaubersprüche fliegen, aber man gewöhnt sich dran.", "Wir Zwerge kennen ja auch die Runenmagie. Also warum soll mich Magie stören?"
 "Problem", "Ärger" -> "Cadomyr passt genau auf, wieviel feiner Sand aus der Wüste entnommen wird. Nicht genug für anständige Arbeit sag ich!", "Cadomyr ärgert uns. Wenn sie es mal erlauben und Sand nach Runewick kommt ist er feucht und fast unbrauchbar.", "'Ich herrsche über jedes Sandkorn!' sagt die Königin. Man kann auch übereifrig sein."
-"LOCATION" -> "You're in Runewick, enjoy the marvellous sight!", "#me smirks and winks: 'I'm taking a wild guess here, but you might be on the market.'"
+"LOCATION" -> "You're in Runewick, enjoy the marvellous sights!", "#me grins and winks: 'I'm taking a wild guess here, but you might be on the market.'"
 "ORT" -> "Du bist in Runewick, der Stadt mit der schönsten Aussicht!", "#me schmunzelt und zwinkert: 'Wenn ichs nicht besser wüsste, würd ich sagen du stehst am Markt.'"
-"trader", "merchant", "collegue", "vendor", "market" -> "Speak right up. Just ask around and you'll find the wares you're looking for.", "I am sure it won't be hard for you to find the other merchants of Runewick."
+"trader", "merchant", "collegue", "vendor", "market" -> "Speak right up. Just ask around and you'll find the wares you're looking for.", "I'm sure it won't be hard for you to find the other merchants of Runewick."
 "händler", "kollege", "höker", "markt" -> "Seid nur nicht auf den Mund gefallen. Fragt und ihr findet was ihr an Waren sucht.", "Es wird euch sicher nicht schwer fallen, die anderen Händler in Runewick zu finden."
 
 -- Faction stuff
-"archmage" -> "It's a great comfort to have such a smart man rule over Runewick.", "I have given him wine glasses as a present. Enough for many guests, eventhough he never has guests."
-"Erzmagier" -> "Ich finde es beruhigend, dass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt."
-english, "Elvaine", "Morgan" -> "It's a great comfort to have such a smart man rule over Runewick.", "I have given him wine glasses as a present. Enough for many guests, eventhough he never has guests."
-"Elvaine", "Morgan" -> "Ich finde es beruhigend, dass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt."
-english, "Runewick" -> "What a wonderful town! You take some steps away from the furnace and the cool sea air refreshes you.", "We have the greenest meadows, the tastiest food and the best beer here in Rnewick!"
+"archmage" -> "It's a great comfort to have such a smart man rule over Runewick.", "I've given him wine glasses as a present. Enough for many guests, even though he never has any."
+"Erzmagier" -> end, "Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt."
+english, "Elvaine", "Morgan" -> "It's a great comfort to have such a smart man rule over Runewick.", "I have given him wine glasses as a present. Enough for many guests, even though he never has any."
+"Elvaine", "Morgan" -> end, "Ich finde es beruhigdass so ein schlauer Mann über Runewick bestimmt.", "Ich habe ihm Gläser zum Geschenk gemacht. Genug für viele Gäste, auch wenn er nie jemanden zu sich einlädt."
+english, "Runewick" -> "What a wonderful town! You take a few steps away from the furnace and the cool sea air refreshes you.", "We have the greenest meadows, the tastiest food and the best beer here in Runewick!"
 "Runewick" -> "Eine wunderbare Stadt! Man tritt einige Schritte weg vom Schmelzofen und die kühle Seeluft erfrischt einen.", "Wir haben die grünsten Wiesen, das leckerste Essen und das beste Bier hier in Runewick!"
 english, "Valerio", "Guilianni", "Don" -> "Imagine a little goblin with the beard of a dwarf. That's him.", "Even if I admire archmage Morgan, I don't understand why he doesn't do anything against this fiend!"
 "Valerio", "Guilianni", "Don" -> "Stellt euch einen kleinen Goblin mit Zwergenbart vor. Das ist er.", "Auch wenn ich Erzmagier Morgan sonst bewundere, warum er nichts gegen diesen Halunken unternimmt ist mir ein Rätsel."
 english, "Galmair" -> "Galmair, bah! They don't need glass, they swig straight from the water hole!", "If you're robbed there and yell for help, only more people come to split the loot!"
 "Galmair" -> "Galmair, pah! Die brauchen kein Glas, die saufen aus der Tränke!", "Wird man dort ausgeraubt und ruft um Hilfe kommen nur mehr Leute um sich die Beute zu teilen!"
-"Queen" -> "They say she can tell glass jewelry and real jewelry apart. By their smell!", "Two big childhood dreams combined: Queen of her own enormous sandbox."
+"Queen" -> "They say she can tell glass jewelry and real jewelry apart... by their smell!", "Two big childhood dreams combined: Queen of her own enormous sandbox."
 "Königin" -> "Man sagt sie könne Glasschmuck von echtem Schmuck unterscheiden. Am Geruch!", "Zwei große Kindheitsträume vereint: Königin spielen in einem riesen Sandkasten."
-english, "rosaline", "edwards" -> "They say she can tell glass jewelry and real jewelry apart. By their smell!", "Two big childhood dreams combined: Queen of her own enormous sandbox."
+english, "rosaline", "edwards" -> "They say she can tell glass jewelry and real jewelry apart... by their smell!", "Two big childhood dreams combined: Queen of her own enormous sandbox."
 "rosaline", "edwards" -> "Man sagt sie könne Glasschmuck von echtem Schmuck unterscheiden. Am Geruch!", "Zwei große Kindheitsträume vereint: Königin spielen in einem riesen Sandkasten."
-english, "Cadomyr" -> "I have to admit, there's better glassblowers than me there. But what else do you expect with all the sand there?", "I don't like them. There's always troubles everytime I try to gather sand from the dessert."
+english, "Cadomyr" -> "I have to admit, there's better glassblowers than me there. But what else do you expect with all the sand there?", "I don't like them. There's always trouble everytime I try to gather sand from the desert."
 "Cadomyr" -> "Leider muss ich sagen, dort gibt es bessere Glasbläser als mich. Aber kein Wunder! Bei all dem Sand.", "Ich mag sie nicht. Es gibt immer wieder Probleme wenn ich Sand aus der Wüste holen will."
 
 -- Main land factions
-english, "albar" -> "I'm glad I don't have to live there. They certainly wouldn't have let me learn glassblowing, as I am a woman.", "Brutal and agressive people, all of their culture is based on war and opression."
+english, "albar" -> "I'm glad I don't have to live there. They certainly wouldn't have let me learn glassblowing, as I'm a woman.", "Brutal and aggressive people, all of their culture is based on war and oppression."
 "albar" -> "Wie froh bin ich nicht dort zu leben. Als Frau hätte ich wohl nie Glasblasen lernen dürfen.", "Ein grobes aggressives Volk. ihre ganze Kultur lebt von Krieg und Unterdrückung."
 english, "gynk", "gync" -> "Ugh! Let's talk about more pleasant things. My stock of wares for example."
 "gync", "gynk" -> "Pfui. Lass uns doch über etwas Schöneres reden. Mein Warenangebot zum Beispiel."
-english, "salkama" -> "Once I've earned enough money I want to visit Salkamar.", "I once heard that they have colourful windows there with pictures made of glas that tell stories."
+english, "salkama" -> "Once I've earned enough money I want to visit Salkamar.", "I once heard that they have colourful windows there with pictures made of glass that tell stories."
 "salkama" -> "Wenn der Handel genug Geld abgeworfen hat möchte ich Salkamar einmal besuchen.", "Es heißt, dort gibt es bunte Fenster mit Bildern aus Glas die Geschichten erzählen."
 
 -- Gods - use the triggers of the god the NPC worships or fights
@@ -168,7 +168,7 @@ english, "Bragon", "Brágon" -> "Aye, that's true. But I prefer Elara and Findar
 "Bragon", "Brágon" -> "Aye, richtig. Mir sagen Elara und Findari aber mehr zu."
 english, "Cherga" -> "Aye, that's true. But I prefer Elara and Findari."
 "Cherga" -> "Aye, richtig. Mir sagen Elara und Findari aber mehr zu."
-english, "Elara" -> "You have a lot of time to think about the important things of life when you stare at the furnace..", "My faith in Elara gives me peace of mind. Waiting for the glass to cool off is a form of meditation for me."
+english, "Elara" -> "You have a lot of time to think about the important things in life when you stare at the furnace..", "My faith in Elara gives me peace of mind. Waiting for the glass to cool off is a form of meditation for me."
 "Elara" -> "Bis das Glas schmilzt hat man viel Zeit im Schein der Esse über das wirklich wichtige nachzudenken.", "Der Glaube an Elara gibt mir Frieden. Ich freue mich auf das stille Warten wenn das Glas kühlt, es klärt den Geist."
 english, "Eldan" -> "Aye, that's true. But I prefer Elara and Findari."
 "Eldan" -> "Aye, richtig. Mir sagen Elara und Findari aber mehr zu."
@@ -223,12 +223,12 @@ german, chance(20.0), ".*" -> "Hör mal, ich will nicht unhöflich sein. Aber en
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me poliert ein fein gearbeitetes Weinglas.", "#me polishes a well crafted wine glass."
-cycletext "Genießt die feinen Getränke Runewicks in Runewicks besten Gläsern.", "Enjoy the best of Runewicks beverages in Runewicks best glasses."
+cycletext "Genießt die feinen Getränke Runewicks in Runewicks besten Gläsern.", "Enjoy the best of Runewick's beverages in Runewicks best glasses."
 cycletext "In meinen Glaswaren funkelt die Ewigkeit!", "Eternity sparkles in my glass wares!"
 cycletext "#me spielt mit ein paar Glasmurmeln.", "#me plays with some glass pebbles."
 cycletext "Kauft euren Bierkrug bei mir, ich kenn mich damit aus.", "Buy your beer mugs here, trust my expertise about them."
 cycletext "Feinstes Glas aus kundiger Zwergenhand!", "Finest glass made by knowledgable dwarven hands!"
 cycletext "Seht was ihr trinkt! Benutzt meine Gläser anstatt Holzbechern.", "See what you drink! Use my glasses instead of wooden mugs."
-cycletext "Beste Glaswaren!", "Best glas goods!"
+cycletext "Beste Glaswaren!", "Best glass goods around!"
 cycletext "Ich verkaufe Träume aus Glas und Kristall!", "I sell dreams of glass and crystal!"
 cycletext "Shh! Ich habe ein Sonderangebot!", "Shh! I have special offers!"

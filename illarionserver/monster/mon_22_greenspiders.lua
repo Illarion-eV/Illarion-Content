@@ -43,6 +43,7 @@ function enemyNear(Monster,Enemy)
     else
         return false;
     end]]
+	return false;
 end
 
 function enemyOnSight(Monster,Enemy)
@@ -53,14 +54,14 @@ function enemyOnSight(Monster,Enemy)
 
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
-    --[[local MonID=Monster:getMonsterType();
+    --local MonID=Monster:getMonsterType();
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
-    elseif (MonID==211) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{4000,5000},{{8,5}},{},40,1) == true );
+   -- elseif (MonID==211) then
+    --    return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{4000,5000},{{8,5}},{},40,1) == true );
     else
         return false
-    end]]
+    end
 end
 
 function onAttacked(Monster,Enemy)

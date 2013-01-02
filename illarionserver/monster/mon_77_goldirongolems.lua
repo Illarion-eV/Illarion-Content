@@ -13,7 +13,8 @@ monster.base.quests.iniQuests();
 killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
-
+msgs = base.messages.Messages();
+msgs:addMessage("#me stomps with his feet.", "#me stampft mit seinen Füßen.");
 end
 
 function enemyNear(Monster,Enemy)

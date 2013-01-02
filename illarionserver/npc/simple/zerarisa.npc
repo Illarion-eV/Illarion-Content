@@ -72,7 +72,7 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist die Fischerin Zerarisa. Schlüsselwörter: Hallo, Quest, Angelrute, Fischerin.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you.", "Yess, greetingss.", "Blessingss of Mother upon you, greetingss."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss to you.", "Yess, greetingss.", "Blessingss of the Mother upon you, greetingss"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss to you.", "Yess, greetingss.", "Greetsss."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüßsse dir.", "Ja, Grüßsse.", "Grüßsse."
@@ -80,88 +80,88 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss to you.", "Yess, greeti
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Mögenss Regen häufig und ssstark sssein.", "Mögenss die Meermutter dein Pfad leitenss.", "Abschied, zsss."
 english, "Ciao", "Adieu", "Au revoir" -> "Goodbye", "Farewell", "#me nods slowly: 'Goodbye'."
 "Ciao", "Adieu", "Au revoir" -> "Gut wiedersehensss.", "Abschied.", "#me nickt langsam: 'Gut wiedersehensss'."
-"How are you", "How feel", "How do you do" -> "Zerarisa iss fine, yess, but her paw hurtsss."
+"How are you", "How feel", "How do you do" -> "Zerarisa iss fine, yess, but her claw hurtsss."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Zerarisa issst gut, ja, aber Krallensss ssschmerzensss."
 "your name", "who are you", "who art thou" -> "I be Zerarisa, would you like to do a job for me?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich sindss Zerarisa, machenss du Aufgabe für michss?"
 
 -- Tool hints
-queststatus(71) = 0, "rod" -> "You'll need a fissshing rod, you can get one from Fredericus, if the line breakss, you need thread to fix."
+queststatus(71) = 0, "rod" -> "You'll need a fissshing rod, you can get one from Fredericus, if the line breakss, you need thread to fix it."
 queststatus(71) = 0, "rute", "angel" -> "Brauchenss Angelrute, gehenss Fredericuss. Wennss Sschnur reißenss, brauchensss Fadensss."
 "rod" -> "Broke your rod? If itss jusst the line, you can usse thread to fix it. If itss the wood, assk a carpenter for a new one."
 "rute", "angel" -> "Habenss gebrochen die Rute? Wennss die Schnur, brauchenss Faden. Wennss das Holzss, brauchenss Ssschreiner."
 
--- 1st quest: Take a tool and gather 10 raw materials for 50cp.
-queststatus(71) = 0, english, "quest", "mission" -> inform("[New quest] Cape Farewell I"), "Zerarisa hass hurt her paw, if you could collect ten trout for me, I give you coinsss.", item(72, 1, 399), queststatus(71) = 1
-queststatus(71) = 0, "quest", "mission" -> inform("[Neues Quest] Kap des Abschiedes I"), "Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen.", item(72, 1, 399), queststatus(71) = 1
-queststatus(71) = 0, "task", "adventure", "order" -> inform("[New quest] Cape Farewell I"), "Zerarisa hass hurt her paw, if you could collect ten trout for me, I give you coinsss.", item(72, 1, 399), queststatus(71) = 1
-queststatus(71) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Kap des Abschiedes I"), "Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen.", item(72, 1, 399), queststatus(71) = 1
+-- 1st quest: Take a tool and gather 10 raw materials for 500cp.
+queststatus(71) = 0, english, "quest", "mission" -> inform("[New quest] Cape Farewell I"), item(72, 1, 399), queststatus(71) = 1, "Zerarisa hass hurt her claw, if you could collect ten trout for me, I give you coinsss."
+queststatus(71) = 0, "quest", "mission" -> inform("[Neues Quest] Kap des Abschiedes I"), item(72, 1, 399), queststatus(71) = 1, "Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen."
+queststatus(71) = 0, "task", "adventure", "order" -> inform("[New quest] Cape Farewell I"), item(72, 1, 399), queststatus(71) = 1, "Zerarisa hass hurt her claw, if you could collect ten trout for me, I give you coinsss."
+queststatus(71) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Kap des Abschiedes I"), item(72, 1, 399), queststatus(71) = 1, "Sschwester Zerarisa habenss verletzt Pfote, fangenss zssehn Forelle, kriegenss Münzssen."
 queststatus(71) = 1, item(73, all) < 10, english, "quest", "mission" -> "Did you get the ten troutss for me yet?", "Zerarisa iss sstill waiting for the troutss."
 queststatus(71) = 1, item(73, all) < 10, "quest", "mission" -> "Habenss zssehn Forellen? Nein?", "Zerarisa wartenss auf Forellen."
 queststatus(71) = 1, item(73, all) < 10, "task", "adventure", "order" -> "Did you get the ten troutss for me yet?", "Zerarisa iss sstill waiting for the troutss."
 queststatus(71) = 1, item(73, all) < 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Habenss zssehn Forellen? Nein?", "Zerarisa wartenss auf Forellen."
-skill(fishing) < 90, queststatus(71) = 1, item(73, all) > 9, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded five silver coins and your fishing skill increases. You advance in Queen Rosaline Edwards's favour."), "Zerarisa thankss you for the troutss, here, take ssome silverss.", skill(fishing) + 1, money + 500, deleteItem(73, 10), queststatus(71) = 2, rankpoints + 5
-queststatus(71) = 1, item(73, all) > 9, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded five silver coins. You advance in Queen Rosaline Edwards's favour."), "Zerarisa thankss you for the troutss, here, take ssome silverss.", money + 500, deleteItem(73, 10), queststatus(71) = 2, rankpoints + 5
-skill(fishing) < 90, queststatus(71) = 1, item(73, all) > 9, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Fischereifertigkeit steigt. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Zerarisa dankenss für Forellen, nehmenss Silberss.", skill(fishing) + 1, money + 500, deleteItem(73, 10), queststatus(71) = 2, rankpoints + 5
-queststatus(71) = 1, item(73, all) > 9, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Zerarisa dankenss für Forellen, nehmenss Silberss.", money + 500, deleteItem(73, 10), queststatus(71) = 2, rankpoints + 5
-skill(fishing) < 90, queststatus(71) = 1, item(73, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and your fishing skill increases."), "Zerarisa thankss you for the troutss, here, take ssome silverss.", skill(fishing) + 1, money + 500, deleteItem(73, 10), queststatus(71) = 2
-queststatus(71) = 1, item(73, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), "Zerarisa thankss you for the troutss, here, take ssome silverss.", money + 500, deleteItem(73, 10), queststatus(71) = 2
-skill(fishing) < 90, queststatus(71) = 1, item(73, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Fischereifertigkeit steigt."), "Zerarisa dankenss für Forellen, nehmenss Silberss.", skill(fishing) + 1, money + 500, deleteItem(73, 10), queststatus(71) = 2
-queststatus(71) = 1, item(73, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), "Zerarisa dankenss für Forellen, nehmenss Silberss.", money + 500, deleteItem(73, 10), queststatus(71) = 2
+skill(fishing) < 90, queststatus(71) = 1, item(73, all) > 9, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded five silver coins and your fishing skill increases. You advance in Queen Rosaline Edwards's favour."), skill(fishing) + 1, money + 500, deleteItem(73, 10), queststatus(71) = 2, rankpoints + 5, "Zerarisa thankss you for the troutss, here, take ssome coinss."
+queststatus(71) = 1, item(73, all) > 9, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded five silver coins. You advance in Queen Rosaline Edwards's favour."), money + 500, deleteItem(73, 10), queststatus(71) = 2, rankpoints + 5, "Zerarisa thankss you for the troutss, here, take ssome coinss."
+skill(fishing) < 90, queststatus(71) = 1, item(73, all) > 9, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Fischereifertigkeit steigt. Dein Ansehen bei Königin Rosaline Edwards steigt."), skill(fishing) + 1, money + 500, deleteItem(73, 10), queststatus(71) = 2, rankpoints + 5, "Zerarisa dankenss für Forellen, nehmenss Silberss."
+queststatus(71) = 1, item(73, all) > 9, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), money + 500, deleteItem(73, 10), queststatus(71) = 2, rankpoints + 5, "Zerarisa dankenss für Forellen, nehmenss Silberss."
+skill(fishing) < 90, queststatus(71) = 1, item(73, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and your fishing skill increases."), skill(fishing) + 1, money + 500, deleteItem(73, 10), queststatus(71) = 2, "Zerarisa thankss you for the troutss, here, take ssome coinss."
+queststatus(71) = 1, item(73, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, deleteItem(73, 10), queststatus(71) = 2, "Zerarisa thankss you for the troutss, here, take ssome coinss."
+skill(fishing) < 90, queststatus(71) = 1, item(73, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 500, deleteItem(73, 10), queststatus(71) = 2, "Zerarisa dankenss für Forellen, nehmenss Silberss."
+queststatus(71) = 1, item(73, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(73, 10), queststatus(71) = 2, "Zerarisa dankenss für Forellen, nehmenss Silberss."
 
--- 2nd quest: Gather 20 different raw materials for 100cp.
-queststatus(71) = 2, english, "quest", "mission" -> inform("[New quest] Cape Farewell II"), "Thankss for troutss again, if you want you can catch twenty ssalmonss for me now.", queststatus(71) = 3
-queststatus(71) = 2, "quest", "mission" -> inform("[Neues Quest] Kap des Abschiedes II"), "Dankss für Forellen nochmalss, wollenss fangen zsswanzig Lachss nun für Zerarisa?", queststatus(71) = 3
-queststatus(71) = 2, "task", "adventure", "order" -> inform("[New quest] Cape Farewell II"), "Thankss for troutss again, if you want you can catch twenty ssalmonss for me now.", queststatus(71) = 3
-queststatus(71) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Kap des Abschiedes II"), "Dankss für Forellen nochmalss, wollenss fangen zsswanzig Lachss nun für Zerarisa?", queststatus(71) = 3
+-- 2nd quest: Gather 20 different raw materials for 10sp.
+queststatus(71) = 2, english, "quest", "mission" -> inform("[New quest] Cape Farewell II"), queststatus(71) = 3, "Thankss for troutss again, if you want you can catch twenty ssalmonss for me now."
+queststatus(71) = 2, "quest", "mission" -> inform("[Neues Quest] Kap des Abschiedes II"), queststatus(71) = 3, "Dankss für Forellen nochmalss, wollenss fangen zsswanzig Lachss nun für Zerarisa?"
+queststatus(71) = 2, "task", "adventure", "order" -> inform("[New quest] Cape Farewell II"), queststatus(71) = 3, "Thankss for troutss again, if you want you can catch twenty ssalmonss for me now."
+queststatus(71) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Kap des Abschiedes II"), queststatus(71) = 3, "Dankss für Forellen nochmalss, wollenss fangen zsswanzig Lachss nun für Zerarisa?"
 queststatus(71) = 3, item(355, all) < 20, english, "quest", "mission" -> "Twenty ssalmonss for Zerarisa, and you get coinss.", "Zerarisa sstill waitss for her ssalmonss."
 queststatus(71) = 3, item(355, all) < 20, "quest", "mission" -> "Zsswanzigs Lachsess, kriegenss Münzssenss.", "Zerarisa immernoch wartenss für Lachsss."
 queststatus(71) = 3, item(355, all) < 20, "task", "adventure", "order" -> "Twenty ssalmonss for Zerarisa, and you get coinss.", "Zerarisa sstill waitss for her ssalmonss."
 queststatus(71) = 3, item(355, all) < 20, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zsswanzigs Lachsess, kriegenss Münzssenss.", "Zerarisa immernoch wartenss für Lachsss."
-skill(fishing) < 90, queststatus(71) = 3, item(355, all) > 19, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your fishing skill increases. You advance in Queen Rosaline Edwards's favour."), "Thankss for ssalmonss, Zerarisa hass coinss for you.", skill(fishing) + 1, money + 1000, deleteItem(355, 20), queststatus(71) = 4, rankpoints + 10
-queststatus(71) = 3, item(355, all) > 19, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded ten silver coins. You advance in Queen Rosaline Edwards's favour."), "Thankss for ssalmonss, Zerarisa hass coinss for you.", money + 1000, deleteItem(355, 20), queststatus(71) = 4, rankpoints + 10
-skill(fishing) < 90, queststatus(71) = 3, item(355, all) > 19, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Fischereifertigkeit steigt. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Dankss für Lachsss, Zerarisa habenss Münzssen für dich.", skill(fishing) + 1, money + 1000, deleteItem(355, 20), queststatus(71) = 4, rankpoints + 10
-queststatus(71) = 3, item(355, all) > 19, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Dankss für Lachsss, Zerarisa habenss Münzssen für dich.", money + 1000, deleteItem(355, 20), queststatus(71) = 4, rankpoints + 10
-skill(fishing) < 90, queststatus(71) = 3, item(355, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your fishing skill increases."), "Thankss for ssalmonss, Zerarisa hass coinss for you.", skill(fishing) + 1, money + 1000, deleteItem(355, 20), queststatus(71) = 4
-queststatus(71) = 3, item(355, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), "Thankss for ssalmonss, Zerarisa hass coinss for you.", money + 1000, deleteItem(355, 20), queststatus(71) = 4
-skill(fishing) < 90, queststatus(71) = 3, item(355, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Fischereifertigkeit steigt."), "Dankss für Lachsss, Zerarisa habenss Münzssen für dich.", skill(fishing) + 1, money + 1000, deleteItem(355, 20), queststatus(71) = 4
-queststatus(71) = 3, item(355, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), "Dankss für Lachsss, Zerarisa habenss Münzssen für dich.", money + 1000, deleteItem(355, 20), queststatus(71) = 4
+skill(fishing) < 90, queststatus(71) = 3, item(355, all) > 19, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your fishing skill increases. You advance in Queen Rosaline Edwards's favour."), skill(fishing) + 1, money + 1000, deleteItem(355, 20), queststatus(71) = 4, rankpoints + 10, "Thankss for ssalmonss, Zerarisa hass coinss for you."
+queststatus(71) = 3, item(355, all) > 19, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded ten silver coins. You advance in Queen Rosaline Edwards's favour."), money + 1000, deleteItem(355, 20), queststatus(71) = 4, rankpoints + 10, "Thankss for ssalmonss, Zerarisa hass coinss for you."
+skill(fishing) < 90, queststatus(71) = 3, item(355, all) > 19, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Fischereifertigkeit steigt. Dein Ansehen bei Königin Rosaline Edwards steigt."), skill(fishing) + 1, money + 1000, deleteItem(355, 20), queststatus(71) = 4, rankpoints + 10, "Dankss für Lachsss, Zerarisa habenss Münzssen für dich."
+queststatus(71) = 3, item(355, all) > 19, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), money + 1000, deleteItem(355, 20), queststatus(71) = 4, rankpoints + 10, "Dankss für Lachsss, Zerarisa habenss Münzssen für dich."
+skill(fishing) < 90, queststatus(71) = 3, item(355, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your fishing skill increases."), skill(fishing) + 1, money + 1000, deleteItem(355, 20), queststatus(71) = 4, "Thankss for ssalmonss, Zerarisa hass coinss for you."
+queststatus(71) = 3, item(355, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, deleteItem(355, 20), queststatus(71) = 4, "Thankss for ssalmonss, Zerarisa hass coinss for you."
+skill(fishing) < 90, queststatus(71) = 3, item(355, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 1000, deleteItem(355, 20), queststatus(71) = 4, "Dankss für Lachsss, Zerarisa habenss Münzssen für dich."
+queststatus(71) = 3, item(355, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, deleteItem(355, 20), queststatus(71) = 4, "Dankss für Lachsss, Zerarisa habenss Münzssen für dich."
 
--- 3rd quest: 5 raw materials for 100cp
-queststatus(71) = 4, english, "quest", "mission" -> inform("[New quest] Cape Farewell III"), "Zerarisa needss five roasst trout now, you can cookss them at a ssmoke oven. You'll get coinsss.", queststatus(71) = 5
-queststatus(71) = 4, "quest", "mission" -> inform("[Neues Quest] Kap des Abschiedes III"), "Zerarisa brauchenss fünf geräuchert Forellenss nun, könnenss räuchern in Ofenss. Kriegensss Münzssenss!", queststatus(71) = 5
-queststatus(71) = 4, "task", "adventure", "order" -> inform("[New quest] Cape Farewell III"), "Zerarisa needss five roasst trout now, you can cookss them at a ssmoke oven. You'll get coinsss.", queststatus(71) = 5
-queststatus(71) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Kap des Abschiedes III"), "Zerarisa brauchenss fünf geräuchert Forellenss nun, könnenss räuchern in Ofenss. Kriegensss Münzssenss!", queststatus(71) = 5
+-- 3rd quest: 5 raw materials for 10sp
+queststatus(71) = 4, english, "quest", "mission" -> inform("[New quest] Cape Farewell III"), queststatus(71) = 5, "Zerarisa needss five roasst trout now, you can cookss them at a ssmoke oven. You'll get coinsss."
+queststatus(71) = 4, "quest", "mission" -> inform("[Neues Quest] Kap des Abschiedes III"), queststatus(71) = 5, "Zerarisa brauchenss fünf geräuchert Forellenss nun, könnenss räuchern in Ofenss. Kriegensss Münzssenss!"
+queststatus(71) = 4, "task", "adventure", "order" -> inform("[New quest] Cape Farewell III"), queststatus(71) = 5, "Zerarisa needss five roasst trout now, you can cookss them at a ssmoke oven. You'll get coinsss."
+queststatus(71) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Kap des Abschiedes III"), queststatus(71) = 5, "Zerarisa brauchenss fünf geräuchert Forellenss nun, könnenss räuchern in Ofenss. Kriegensss Münzssenss!"
 queststatus(71) = 5, item(455, all) < 5, english, "quest", "mission" -> "Have you the five roasst trout? Catch five trout and smoke them at an oven.", "Zerarisa ssstill waitss for roasst trout, sshe wantss five."
 queststatus(71) = 5, item(455, all) < 5, "quest", "mission" -> "Habenss fünf geräuchertss Forellenss? Fangenss und räuchernss in Räuchehütte.", "Zerarisa wartenss auf fünf geräuchertss Forellenss, wollenss!"
 queststatus(71) = 5, item(455, all) < 5, "task", "adventure", "order" -> "Have you the five roasst trout? Catch five trout and cook them at an oven.", "Zerarisa ssstill waitss for roasst trout, sshe wantss five."
 queststatus(71) = 5, item(455, all) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "job" -> "Habenss fünf geräuchertss Forellenss? Fangenss und räuchernss in Räuchehütte.", "Zerarisa wartenss auf fünf geräuchertss Forellenss, wollenss!"
-skill(fishing) < 90, queststatus(71) = 5, item(455, all) > 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your fishing skill increases. You advance in Queen Rosaline Edwards's favour."), "Zerarisa thanksss you for the troutss, here...", skill(fishing) + 1, money + 1000, deleteItem(455, 5), queststatus(71) = 6, rankpoints + 15
-queststatus(71) = 5, item(455, all) > 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded ten silver coins. You advance in Queen Rosaline Edwards's favour."), "Zerarisa thanksss you for the troutss, here...", money + 1000, deleteItem(455, 5), queststatus(71) = 6, rankpoints + 15
-skill(fishing) < 90, queststatus(71) = 5, item(455, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Fischereifertigkeit steigt. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Zerarisa dankenss für Forellenss, nehmenss...", skill(fishing) + 1, money + 1000, deleteItem(455, 5), queststatus(71) = 6, rankpoints + 15
-queststatus(71) = 5, item(455, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Zerarisa dankenss für Forellenss, nehmenss...", money + 1000, deleteItem(455, 5), queststatus(71) = 6, rankpoints + 15
-skill(fishing) < 90, queststatus(71) = 5, item(455, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your fishing skill increases."), "Zerarisa thanksss you for the troutss, here...", skill(fishing) + 1, money + 1000, deleteItem(455, 5), queststatus(71) = 6
-queststatus(71) = 5, item(455, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), "Zerarisa thanksss you for the troutss, here...", money + 1000, deleteItem(455, 5), queststatus(71) = 6
-skill(fishing) < 90, queststatus(71) = 5, item(455, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Fischereifertigkeit steigt."), "Zerarisa dankenss für Forellenss, nehmenss...", skill(fishing) + 1, money + 1000, deleteItem(455, 5), queststatus(71) = 6
-queststatus(71) = 5, item(455, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), "Zerarisa dankenss für Forellenss, nehmenss...", money + 1000, deleteItem(455, 5), queststatus(71) = 6
+skill(fishing) < 90, queststatus(71) = 5, item(455, all) > 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your fishing skill increases. You advance in Queen Rosaline Edwards's favour."), skill(fishing) + 1, money + 1000, deleteItem(455, 5), queststatus(71) = 6, rankpoints + 15, "Zerarisa thanksss you for the troutss, here..."
+queststatus(71) = 5, item(455, all) > 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded ten silver coins. You advance in Queen Rosaline Edwards's favour."), money + 1000, deleteItem(455, 5), queststatus(71) = 6, rankpoints + 15, "Zerarisa thanksss you for the troutss, here..."
+skill(fishing) < 90, queststatus(71) = 5, item(455, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Fischereifertigkeit steigt. Dein Ansehen bei Königin Rosaline Edwards steigt."), skill(fishing) + 1, money + 1000, deleteItem(455, 5), queststatus(71) = 6, rankpoints + 15, "Zerarisa dankenss für Forellenss, nehmenss..."
+queststatus(71) = 5, item(455, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), money + 1000, deleteItem(455, 5), queststatus(71) = 6, rankpoints + 15, "Zerarisa dankenss für Forellenss, nehmenss..."
+skill(fishing) < 90, queststatus(71) = 5, item(455, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your fishing skill increases."), skill(fishing) + 1, money + 1000, deleteItem(455, 5), queststatus(71) = 6, "Zerarisa thanksss you for the troutss, here..."
+queststatus(71) = 5, item(455, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, deleteItem(455, 5), queststatus(71) = 6, "Zerarisa thanksss you for the troutss, here..."
+skill(fishing) < 90, queststatus(71) = 5, item(455, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 1000, deleteItem(455, 5), queststatus(71) = 6, "Zerarisa dankenss für Forellenss, nehmenss..."
+queststatus(71) = 5, item(455, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, deleteItem(455, 5), queststatus(71) = 6, "Zerarisa dankenss für Forellenss, nehmenss..."
 
--- 4th quest: Gather 10 raw materials from a totally different location for 200cp. Link to other quest. Hint how to get there.
-queststatus(71) = 6, english, "quest", "mission" -> inform("[New quest] Cape Farewell IV"), "Do Zerarisa favour, go findss Henry, he'ss butcher in Dewy Sswampss, getss me ten piecess of leather from him.", queststatus(71) = 7
-queststatus(71) = 6, "quest", "mission" -> inform("[Neues Quest] Kap des Abschiedes IV"), "Tuenss Zerarisa Gefallen, findenss Henry, isst Sschlachter in Morgentausumpfss, bringenss zehn Lederhäute von ihmss.", queststatus(71) = 7
-queststatus(71) = 6, "task", "adventure", "order" -> inform("[New quest] Cape Farewell IV"), "Do Zerarisa favour, go findss Henryss, he'ss butcher in Dewy Swampss, getss me ten piecess of leather from him.", queststatus(71) = 7
-queststatus(71) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Kap des Abschiedes IV"), "Tuenss Zerarisa Gefallen, findenss Henry, isst Sschlachter in Morgentausumpfss, bringenss zehn Lederhäute von ihmss.", queststatus(71) = 7
+-- 4th quest: Gather 10 raw materials from a totally different location for 20sp. Link to other quest. Hint how to get there.
+queststatus(71) = 6, english, "quest", "mission" -> inform("[New quest] Cape Farewell IV"), queststatus(71) = 7, "Do Zerarisa favour, go findss Henry, he'ss butcher in Dewy Sswampss, getss me ten piecess of leather from him."
+queststatus(71) = 6, "quest", "mission" -> inform("[Neues Quest] Kap des Abschiedes IV"), queststatus(71) = 7, "Tuenss Zerarisa Gefallen, findenss Henry, isst Sschlachter in Morgentausumpfss, bringenss zehn Lederhäute von ihmss."
+queststatus(71) = 6, "task", "adventure", "order" -> inform("[New quest] Cape Farewell IV"), queststatus(71) = 7, "Do Zerarisa favour, go findss Henryss, he'ss butcher in Dewy Swampss, getss me ten piecess of leather from him."
+queststatus(71) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Kap des Abschiedes IV"), queststatus(71) = 7, "Tuenss Zerarisa Gefallen, findenss Henry, isst Sschlachter in Morgentausumpfss, bringenss zehn Lederhäute von ihmss."
 queststatus(71) = 7, item(2547, all) < 10, english, "quest", "mission" -> "You findss Henry in Dewy Swampss? He owess me ten piecess of leather.", "Zerarisa sstill waitss for leather from Henry in Dewy Swampss."
 queststatus(71) = 7, "quest", "mission" -> "Habenss sschon gefundenss Henry in Morgentausumpfss? Schuldenss zehn Lederhäute.", "Zerarisa wartenss noch auf Leder von Henry in Morgentaussumpf."
 queststatus(71) = 7, "task", "adventure", "order" -> "You findss Henry in Dewy Swampss? He owess me ten piecess of leather.", "Zerarisa sstill waitss for leather from Henry in Dewy Swampss."
 queststatus(71) = 7, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Habenss sschon gefundenss Henry in Morgentausumpfss? Schuldenss zehn Lederhäute.", "Zerarisa wartenss noch auf Leder von Henry in Morgentaussumpf."
-skill(fishing) < 90, queststatus(71) = 7, item(2547, all) > 9, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins and your fishing skill increases. You advance in Queen Rosaline Edwards's favour."), "Zerarisa thanksss you, here'ss money for your troubless.", skill(fishing) + 1, money + 2000, deleteItem(2547, 10), queststatus(71) = 8, rankpoints + 20
-queststatus(71) = 7, item(2547, all) > 9, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins. You advance in Queen Rosaline Edwards's favour."), "Zerarisa thanksss you, here'ss money for your troubless.", money + 2000, deleteItem(2547, 10), queststatus(71) = 8, rankpoints + 20
-skill(fishing) < 90, queststatus(71) = 7, item(2547, all) > 9, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke und deine Fischereifertigkeit steigt. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Zerarisa dankenss dir, hier sindsss Geld für Ärgerss.", skill(fishing) + 1, money + 2000, deleteItem(2547, 10), queststatus(71) = 8, rankpoints + 20
-queststatus(71) = 7, item(2547, all) > 9, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Zerarisa dankenss dir, hier sindsss Geld für Ärgerss.", money + 2000, deleteItem(2547, 10), queststatus(71) = 8, rankpoints + 20
-skill(fishing) < 90, queststatus(71) = 7, item(2547, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins and your fishing skill increases."), "Zerarisa thanksss you, here'ss money for your troubless.", skill(fishing) + 1, money + 2000, deleteItem(2547, 10), queststatus(71) = 8
-queststatus(71) = 7, item(2547, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), "Zerarisa thanksss you, here'ss money for your troubless.", money + 2000, deleteItem(2547, 10), queststatus(71) = 8
-skill(fishing) < 90, queststatus(71) = 7, item(2547, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke und deine Fischereifertigkeit steigt."), "Zerarisa dankenss dir, hier sindsss Geld für Ärgerss.", skill(fishing) + 1, money + 2000, deleteItem(2547, 10), queststatus(71) = 8
-queststatus(71) = 7, item(2547, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), "Zerarisa dankenss dir, hier sindsss Geld für Ärgerss.", money + 2000, deleteItem(2547, 10), queststatus(71) = 8
+skill(fishing) < 90, queststatus(71) = 7, item(2547, all) > 9, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins and your fishing skill increases. You advance in Queen Rosaline Edwards's favour."), skill(fishing) + 1, money + 2000, deleteItem(2547, 10), queststatus(71) = 8, rankpoints + 20, "Zerarisa thanksss you, here'ss money for your troubless."
+queststatus(71) = 7, item(2547, all) > 9, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins. You advance in Queen Rosaline Edwards's favour."), money + 2000, deleteItem(2547, 10), queststatus(71) = 8, rankpoints + 20, "Zerarisa thanksss you, here'ss money for your troubless."
+skill(fishing) < 90, queststatus(71) = 7, item(2547, all) > 9, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke und deine Fischereifertigkeit steigt. Dein Ansehen bei Königin Rosaline Edwards steigt."), skill(fishing) + 1, money + 2000, deleteItem(2547, 10), queststatus(71) = 8, rankpoints + 20, "Zerarisa dankenss dir, hier sindsss Geld für Ärgerss."
+queststatus(71) = 7, item(2547, all) > 9, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."), money + 2000, deleteItem(2547, 10), queststatus(71) = 8, rankpoints + 20, "Zerarisa dankenss dir, hier sindsss Geld für Ärgerss."
+skill(fishing) < 90, queststatus(71) = 7, item(2547, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins and your fishing skill increases."), skill(fishing) + 1, money + 2000, deleteItem(2547, 10), queststatus(71) = 8, "Zerarisa thanksss you, here'ss money for your troubless."
+queststatus(71) = 7, item(2547, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), money + 2000, deleteItem(2547, 10), queststatus(71) = 8, "Zerarisa thanksss you, here'ss money for your troubless."
+skill(fishing) < 90, queststatus(71) = 7, item(2547, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke und deine Fischereifertigkeit steigt."), skill(fishing) + 1, money + 2000, deleteItem(2547, 10), queststatus(71) = 8, "Zerarisa dankenss dir, hier sindsss Geld für Ärgerss."
+queststatus(71) = 7, item(2547, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), money + 2000, deleteItem(2547, 10), queststatus(71) = 8, "Zerarisa dankenss dir, hier sindsss Geld für Ärgerss."
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(71) = 8, english, "quest", "mission" -> "Zerarisa hass no more jobss for you, sshe hass enough fissh."
@@ -233,7 +233,7 @@ english, "Zerarisa" -> "Zerarisa have name, have claw, have tail! And you?"
 "Dewy", "swamps" -> "Zss, Dewy Sswampss be Runewick landss. Go far, north, easst."
 "Morgentau", "Sumpf" -> "Zss, Morgentaussumpf seienss Runewickland. Gehenss weit, Nord, Osst."
 "Yes" -> "What iss the yess for? If you want a job assk me for a job.", "You are very agreeable persson, but if you want job, assk for job."
-"Ja" -> "Wass meinenss mit ja? Wollenss Aufgabe, fragenss Aufgabe.", "Seienss zssustimmend, aber wenn wollenss Aufgabe, fragenss Aufgabe."
+"Ja" -> end, "Wass meinenss mit ja? Wollenss Aufgabe, fragenss Aufgabe.", "Seienss zssustimmaber wenn wollenss Aufgabe, fragenss Aufgabe."
 "No" -> "You isss not very nice?", "No, zss?"
 "Nein" -> "Du seienss nicht ssehr nett?", "Nein, zss?"
 
@@ -244,11 +244,11 @@ english, "Zerarisa" -> "Zerarisa have name, have claw, have tail! And you?"
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me kratzt sich an ihrer schlaff runterhängenden Pfote.", "#me lazily scratches a limp-looking paw."
-cycletext "#me setzt sich hin und schaut gedankenverloren drein.", "#me sits down on the ground and looks thoughtfully."
+cycletext "#me kratzt sich an ihrer schlaff runterhängenden Kralle.", "#me lazily scratches her limp-looking claw."
+cycletext "#me setzt sich hin und schaut gedankenverloren drein.", "#me sits down on the ground and looks thoughtful."
 cycletext "#me stinkt nach Fisch.", "#me smells strongly of fish."
-cycletext "#me bleckt die Zähne während sie hungrig aufs Wasser schaut.", "#me flicks her lips as she looks hungrily towards the water."
-cycletext "#me pult Dreck unter ihren Krallen hervor.", "#me cleans under her claws."
+cycletext "#me bleckt die Zähne während sie hungrig auf's Wasser schaut.", "#me bares her teeth as she looks hungrily towards the water."
+cycletext "#me pult Dreck unter ihren Krallen hervor.", "#me cleans her claws."
 cycletext "Zsss.", "Zsss."
 cycletext "Zsss!", "Zsss!"
 cycletext "Zsss?", "Zsss?"

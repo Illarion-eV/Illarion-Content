@@ -79,7 +79,7 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings. You came to me to change
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell and come back with more money."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Einen guten Tag wünsche ich und kommt mir mehr Geld zurück."
 "How are you", "How feel", "How do you do" -> "Let's skip this and get straight to business."
-"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Überspringen wir die Höflichkeiten und lasst uns zum Geschäft kommen."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Überspringen wir die Höflichkeiten und kommen gleich zum Geschäft."
 "your name", "who are you", "who art thou" -> "Cassandra."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Cassandra."
 
@@ -122,6 +122,8 @@ english, "rosaline", "edwards" -> "Queen Rosaline just tolerates my profession -
 "rosaline", "edwards" -> "Königin Rosaline toleriert lediglich meine Tätigkeit - Geld zu wechseln ist nicht sonderlich ehrbar."
 english, "Cadomyr" -> "Cadomyr is my home and I love it. Whether Cadomyr loves me or not - I do not know."
 "Cadomyr" -> "Cadomyr ist meine Heimat und ich liebe es. Ob nun Cadomyr mich auch liebt oder nicht - das weiß ich nicht."
+english, ".*" -> "I don't want to talk about it."
+german, ".*" -> "Ich will nicht darüber reden."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

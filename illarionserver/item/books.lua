@@ -24,9 +24,8 @@ end
 function UseItem(User, SourceItem, TargetItem, Counter, Param)
 	InitBook();
     -- alchemy book; just to make it accessable for testers
-	User:inform(""..SourceItem:getData("alchemyBook"))
 	if SourceItem:getData("alchemyBook")=="true" then
-	    User:sendBook(3)
+	    User:sendBook(101)
 	end	
 	-- alchemy end
 	
@@ -40,6 +39,20 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 	end]]
 end
 
-function LookAtItem(User, Item)
-    world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
+function getLookAt(player,item)
+    if player:getPlayerLanguage() == 0 then
+	    bookName = "Allgemeine Einführng in die Grundlagen der gewöhnlichen Alchemie"
+	else
+      	bookName = "General introduction to the basics of common alchemy"
+	end
+	lookAt.name = bookName
+    return lookAt
+end
+
+function LookAtItem(player, item)
+    if item:getData("alchemyBook")=="true" then
+	    world:itemInform(player, item, getLookAt(player,item))
+	else
+	    world:itemInform(player, item, base.lookat.GenerateLookAt(player, item, 0))
+	end	
 end

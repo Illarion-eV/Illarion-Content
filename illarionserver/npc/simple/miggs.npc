@@ -50,8 +50,8 @@ itemShoes = 326
 -- queststatus(77) Overview
 -- QuestID=77
 -- 0: No Quest taken
--- 1: Quest 1 taken - kill 10 ratmen, player receives torch
--- 2-11: Killing 10 ratmen
+-- 1: Quest 1 taken - kill 10 slime, player receives torch
+-- 2-11: Killing 10 slime
 -- 12: Quest 1 solved, reward: 1000 cp, +5 rankpoints
 -- 13: Quest 2 taken - kill 5 mummies
 -- 14-18: Killing 5 mummies
@@ -84,25 +84,25 @@ queststatus(107) = 3, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergam
 queststatus(107) = 3, english, "Groktan", "Flintsplit" -> inform("[Quest status] The Reminder II: You deliver the message from Groktan Flintsplit to Miggs."), "Ah! Good! A list of debtors from Groktan. I'll rule out their names one after another... When I'm done with 'em.", queststatus(107) = 4
 queststatus(107) = 3, "Groktan", "Flintsplit" -> inform("[Queststatus] Die Erinnerung II: Du überbringst Miggs die Nachricht von Groktan Flintsplit."), "Ah! Gut! Eine Liste der Schuldner von Groktan. Ich werde einen Namen nach dem anderen durchstreichen... wenn ich mit ihnen fertig bin.", queststatus(107) = 4
 
--- 1st quest: Kill 10 ratmen, player receives torch.
+-- 1st quest: Kill 10 slime, player receives torch.
 
 -- Give out quest 1 and a torch
-queststatus(77) = 0, english, "quest", "mission" -> inform("[New quest] Galmair Sewers I"), "Blasted ratmen! The Don wants me to keep the streets clean, but dirty ratmen seem to emerge from the sewers over and over again. Climb down and slay at least ten of those annoyances! Here, have this torch.", item(391, 1, 399), queststatus(77) = 1
-queststatus(77) = 0, "quest", "mission" -> inform("[Neues Quest] Die Kanalisation von Galmair I"), "Verdammte Rattenmenschen! Der Don wünscht sich saubere Straßen, aber diese Drecksratten steigen ein ums andere Mal aus der Kanalisation auf. Nehmt diese Fackel, steigt hinab und erschlagt wenigstens zehn dieser Plagegeister.", item(391, 1, 399), queststatus(77) = 1
-queststatus(77) = 0, "task", "adventure" -> inform("[New quest] Galmair Sewers I"), "Blasted ratmen! The Don wants me to keep the streets clean, but dirty ratmen seem to emerge from the sewers over and over again. Climb down and slay at least ten of those annoyances! Here, have this torch.", item(391, 1, 399), queststatus(77) = 1
-queststatus(77) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Kanalisation von Galmair I"), "Verdammte Rattenmenschen! Der Don wünscht sich saubere Straßen, aber diese Drecksratten steigen ein ums andere Mal aus der Kanalisation auf. Nehmt diese Fackel, steigt hinab und erschlagt wenigstens zehn dieser Plagegeister.", item(391, 1, 399), queststatus(77) = 1
+queststatus(77) = 0, english, "quest", "mission" -> inform("[New quest] Galmair Sewers I"), "Blasted slime! The Don wants me to keep the streets clean, but dirty slimes seem to emerge from the sewers over and over again. Climb down and slay at least ten of those annoyances! Here, have this torch.", item(391, 1, 399), queststatus(77) = 1
+queststatus(77) = 0, "quest", "mission" -> inform("[Neues Quest] Die Kanalisation von Galmair I"), "Verdammter Schleim! Der Don wünscht sich saubere Straßen, aber dieser Schleim steigt ein ums andere Mal aus der Kanalisation auf. Nehmt diese Fackel, steigt hinab und erschlagt wenigstens zehn dieser Plagegeister.", item(391, 1, 399), queststatus(77) = 1
+queststatus(77) = 0, "task", "adventure" -> inform("[New quest] Galmair Sewers I"), "Blasted slime! The Don wants me to keep the streets clean, but dirty slimes seem to emerge from the sewers over and over again. Climb down and slay at least ten of those annoyances! Here, have this torch.", item(391, 1, 399), queststatus(77) = 1
+queststatus(77) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Die Kanalisation von Galmair I"), "Verdammter Schleim! Der Don wünscht sich saubere Straßen, aber dieser Schleim steigen ein ums andere Mal aus der Kanalisation auf. Nehmt diese Fackel, steigt hinab und erschlagt wenigstens zehn dieser Plagegeister.", item(391, 1, 399), queststatus(77) = 1
 
 -- Quest 1 solved, reward: 1000cp, +5 rankpoints
-queststatus(77) = 11, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded ten silver coins. You advance in Don Valerio Guilianni's favour."), "#me hands over a small purse: 'Good job. Now I owe you one. But those ratmen were only the beginning of tasks I have for you.", money + 1000, queststatus(77) = 12, rankpoints + 5
-queststatus(77) = 11, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), "#me hands over a small purse: 'Good job. Now I owe you one. But those ratmen were only the beginning of tasks I have for you.", money + 1000, queststatus(77) = 12
-queststatus(77) = 11, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), "#me überreicht eine kleine Geldbörse: 'Gut gemacht, ihr habt einen gut bei mir. Aber diese Rattenmenschen waren erst der Anfang der Aufträge, die ich für euch habe.", money + 1000, queststatus(77) = 12, rankpoints + 5
-queststatus(77) = 11, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), "#me überreicht eine kleine Geldbörse: 'Gut gemacht, ihr habt einen gut bei mir. Aber diese Rattenmenschen waren erst der Anfang der Aufträge, die ich für euch habe.", money + 1000, queststatus(77) = 12
+queststatus(77) = 11, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded ten silver coins. You advance in Don Valerio Guilianni's favour."), "#me hands over a small purse: 'Good job. Now I owe you one. But those slimes were only the beginning of tasks I have for you.", money + 1000, queststatus(77) = 12, rankpoints + 5
+queststatus(77) = 11, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), "#me hands over a small purse: 'Good job. Now I owe you one. But those slimes were only the beginning of tasks I have for you.", money + 1000, queststatus(77) = 12
+queststatus(77) = 11, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), "#me überreicht eine kleine Geldbörse: 'Gut gemacht, ihr habt einen gut bei mir. Aber dieser Schleim war erst der Anfang der Aufträge, die ich für euch habe.", money + 1000, queststatus(77) = 12, rankpoints + 5
+queststatus(77) = 11, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), "#me überreicht eine kleine Geldbörse: 'Gut gemacht, ihr habt einen gut bei mir. Aber dieser Schleim war erst der Anfang der Aufträge, die ich für euch habe.", money + 1000, queststatus(77) = 12
 
 -- Quest 1 taken but not solved, repeat the instructions
-queststatus(77) > 0, queststatus(77) < 11, english, "quest", "mission" -> "I hear their squeaking everywhere. Go back to the sewers and smite as many ratmen as possible."
-queststatus(77) > 0, queststatus(77) < 11, "quest", "mission" -> "Ich hör sie überall quieken! Geht zurück in die Kanalisation und erschlagt so viele Rattenmenschen wie möglich."
-queststatus(77) > 0, queststatus(77) < 11, "task", "adventure" -> "I hear their squeaking everywhere. Go back to the sewers and smite as many ratmen as possible."
-queststatus(77) > 0, queststatus(77) < 11, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich hör sie überall quieken! Geht zurück in die Kanalisation und erschlagt so viele Rattenmenschen wie möglich."
+queststatus(77) > 0, queststatus(77) < 11, english, "quest", "mission" -> "I see them everywhere. Go back to the sewers and smite as many slimes as possible."
+queststatus(77) > 0, queststatus(77) < 11, "quest", "mission" -> "Ich seh sie überall! Geht zurück in die Kanalisation und erschlagt so viele Schleime wie möglich."
+queststatus(77) > 0, queststatus(77) < 11, "task", "adventure" -> "I see them everywhere. Go back to the sewers and smite as many slimes as possible."
+queststatus(77) > 0, queststatus(77) < 11, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich seh sie überall! Geht zurück in die Kanalisation und erschlagt so viele Schleime wie möglich."
 
 -- 2nd quest: Kill 5 mummies
 

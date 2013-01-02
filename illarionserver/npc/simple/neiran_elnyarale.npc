@@ -123,6 +123,10 @@ queststatus(205) =2,"quest", "mission"  -> "#me lächelt", "Haltet einfach die S
 queststatus(205) =2,"task", "adventure", "order" ->  "#me smiles", "Just keep the streets clean."
 queststatus(205) =2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me lächelt", "Haltet einfach die Straßen sauber."
 
+-- Quest by Zassaria Riverbank (Ask for me III)
+queststatus(701) = 7, english, "Zassaria", "lizzard", "lamp", "collection", "riverbank" -> "Oil lamp collection? I threw away some oil lamps a few days ago... they did not belong to Lady Zassaria, did they?", queststatus(701) = 8
+queststatus(701) = 7, english, "Zassaria", "lizzard", "Lampe", "", "Sammlung" -> "Öllampensammlung? Ich habe da eine ganze Mengen Öllampen entsorgt... aber, das war doch nicht Lady Zassarias Öllampensammlung, oder?", queststatus(701) = 8
+
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am the guard here. I guard the magical surface.", "I tell newcomers how to use the how to use recycle mechanism.", "I help to keep the steets clean. Do you want to help me with this task?"
 "beruf" -> "Ich bin Wächter hier. Ich hüte die magische Oberfälche.", "Ich erkläre Neuankömmlingen wir man den Recyclemechanismus verwendet.", "Ich helfe die Straßen sauber zu halten. Möchtet Ihr mir bei dieser Aufgabe behilflich sein?"

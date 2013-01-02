@@ -87,13 +87,6 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltsta
 		end
 	end
 
-	if base.common.Encumbrence(User) then
-		base.common.HighInformNLS( User,
-		"Deine Rüstung behindert Dich beim Herstellen der Glasblöcke.",
-		"Your armour disturbs you while producing glass ingots." );
-		return
-	end
-
 	if not base.common.FitForWork( User ) then -- check minimal food points
 		return
 	end
@@ -191,13 +184,6 @@ function ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, lts
 		end
 	end
 
-	if base.common.Encumbrence(User) then
-		base.common.HighInformNLS( User,
-		"Deine Rüstung behindert Dich beim Herstellen der ungebrannten Ziegel.",
-		"Your armour disturbs you while producing unfired bricks." );
-		return
-	end
-
 	if not base.common.FitForWork( User ) then -- check minimal food points
 		return
 	end
@@ -290,13 +276,6 @@ function ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			"You have to hold the brick mould in your hand!" );
 			return
 		end
-	end
-
-	if base.common.Encumbrence(User) then
-		base.common.HighInformNLS( User,
-		"Deine Rüstung behindert Dich beim Brennen der Ziegel.",
-		"Your armour disturbs you while firing bricks." );
-		return
 	end
 
 	if not base.common.FitForWork( User ) then -- check minimal food points

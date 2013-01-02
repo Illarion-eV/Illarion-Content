@@ -18,6 +18,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 			return
 		end
 
+		if ( User:increaseAttrib("perception",0) + User:increaseAttrib("essence",0) + User:increaseAttrib("intelligence",0) ) < 30 then 
+		User:inform("Verstand, ein gutes Auge und ein Gespür für die feinstofflichen Dinge - dir fehlt es daran, als dass du hier arbeiten könntest.",
+		            "Mind, good eyes and a feeling for the world of fine matter - with your lack of those, you are unable to work here."
+	                )
+		    return
+        end
+		
         if ( ltstate == Action.abort ) then
 		    base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
 			return
@@ -84,11 +91,11 @@ function BrewingGemDust(User,gemDust,cauldron)
 		
 	elseif cauldron:getData("filledWith") == "stock" then -- create a potion
 	    GemDustInStock(User,cauldron,gemDust)
-		User:learn(Character.alchemy, 50, 100)
+		User:learn(Character.alchemy, 50/2, 100)
 
     elseif cauldron:getData("filledWith")=="water" then -- create an essence brew
 		GemDustInWater(User,cauldron,gemDust)
-		User:learn(Character.alchemy, 50, 100)
+		User:learn(Character.alchemy, 50/2, 100)
 	
 	else -- nothing in the cauldron
 	    base.common.InformNLS(User, "Der Edelsteinstaub verflüchtigt sich, als du ihn in den leeren Kessel schüttest.", 

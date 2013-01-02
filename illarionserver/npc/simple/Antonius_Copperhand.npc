@@ -88,15 +88,15 @@ english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Greetings.", "Good d
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf bald.", "Bis bald.", "Möge Irmorom über Euch wachen."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell.", "Goodbye."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf bald.", "Bis bald."
-"How are you", "How feel", "How do you do" -> "I'm fine, thanks. And how are ya?", "Good, good."
+"How are you", "How feel", "How do you do" -> "I'm fine, thanks... and how are ya?", "Good, good."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir jeht ett wunderbar und wie jeht et Euch?", "Jut, jut."
 "your name", "who are you", "who art thou" -> "Me? I'm the goldsmith of Galmair, the hard working Antonius."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ick? Ick bin der Goldchmied von Galmair, der fleißge Antonius."
 
 -- Catching quest triggers. Modify if the NPC does quests.
-english, "quest", "mission" -> "At the moment I have nothing to do for ya. Sorry."
+english, "quest", "mission" -> "At the moment I have nothing for ya to do. Sorry."
 "quest", "mission" -> "Zur Zeit gibbet für dich nix zu tun. T'schuldigung."
-"task", "adventure" -> "At the moment I have nothing to do for ya. Sorry."
+"task", "adventure" -> "At the moment I have nothing for ya to do. Sorry."
 "Auftrag", "Aufgabe", "Abenteuer" -> "Zur Zeit gibbet für dich nix zu tun. T'schuldigung."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
@@ -113,7 +113,7 @@ english, "Gobaith", "Gobiath" -> "Never heard of that place..."
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me pfeift eine Melodie.", "#me whistles a melody."
-cycletext "#me wischt sich den Schweiß von der Stirn.", "#me wipes the sweat off his forhead."
+cycletext "#me wischt sich den Schweiß von der Stirn.", "#me wipes the sweat off his forehead."
 cycletext "#me betrachtet zufrieden seine geschmiedeten Werke.", "#me looks at his smithed works with a content face."
-cycletext "#me hält ein Amulett gegen das Licht, um es besser zu betrachten.", "#me holds an amulet against the light to have a better look at it."
+cycletext "#me hält ein Amulett gegen das Licht, um es besser zu betrachten.", "#me holds an amulet up to the light to have a better look at it."
 cycletext "Schmiedewaren! Schöner Schmuck! Kaufste woanders, dann bereustes!", "Smithed goods! Fine Jewelry! Ya buy elsewhere, and ya will regret it!"

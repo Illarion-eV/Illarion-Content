@@ -41,13 +41,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	if base.common.Encumbrence(User) then
-		base.common.HighInformNLS( User,
-		"Deine Rüstung behindert Dich beim Schneiden des Getreides.",
-		"Your armour disturbs you while harvesting grain." );
-		return
-	end
-
 	if not base.common.FitForWork( User ) then -- check minimal food points
 		return
 	end

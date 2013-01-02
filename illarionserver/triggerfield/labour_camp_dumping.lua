@@ -27,7 +27,7 @@ function PutItemOnField(Item,User)
 		
 			local theItemStats=world:getItemStats(Item)
 			itemNumberPay = base.common.Limit(workLoad-Item.number,0,nil) -- we do only count the items a char has to deliver
-			local payToFaction = itemNumberPay*theItemStats.Worth--*FACTOR ; replace FACTOR with a value, determing what perecentage of the item worth is payed to the faction
+			local payToFaction = itemNumberPay*theItemStats.Worth--*FACTOR ; replace FACTOR with a value, determing what perecentage of the item worth is paid to the faction
 			
 			base.townTreasure.ChangeTownTreasure(town,payToFaction) -- add to the town treasure
 			

@@ -18,6 +18,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		if not anAlchemist then
 		    return
 	    end
+		
+		if ( User:increaseAttrib("perception",0) + User:increaseAttrib("essence",0) + User:increaseAttrib("intelligence",0) ) < 30 then 
+		User:inform("Verstand, ein gutes Auge und ein Gespür für die feinstofflichen Dinge - dir fehlt es daran, als dass du hier arbeiten könntest.",
+		            "Mind, good eyes and a feeling for the world of fine matter - with your lack of those, you are unable to work here."
+	                )
+		    return
+        end
 
         if ( ltstate == Action.abort ) then
 		    base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")
@@ -112,11 +119,11 @@ function BrewingPlant(User,plant,cauldron)
 		
 	elseif cauldron:getData("filledWith")== "essenceBrew" then -- essence brew
 		PlantInEssenceBrew(User,plant,cauldron)
-		User:learn(Character.alchemy, 50, 100)
+		User:learn(Character.alchemy, 50/2, 100)
 		
 	elseif (cauldron:getData("filledWith") == "stock") or (cauldron:getData("filledWith") == "water") then -- water or a stock we put the herb in
 	    PlantInStock(User,plant,cauldron)
-		User:learn(Character.alchemy, 50, 100)
+		User:learn(Character.alchemy, 50/2, 100)
 		
 	else -- there is nothing in the cauldron to put the herb in, failure
 	    base.common.InformNLS(User, "Die Pflanze vertrockent auf dem Boden des heißen Kessels und zerfällt zu Asche.", 
@@ -161,7 +168,7 @@ function BrewingFilter(User,plant,cauldron)
     
 	elseif cauldron:getData("filledWith")=="stock" then -- stock, let's filter
 	    FilterStock(User,plant,cauldron)
-		User:learn(Character.alchemy, 50, 100)
+		User:learn(Character.alchemy, 50/2, 100)
 		
     else -- empty cauldron
         base.common.InformNLS(User, "Die Pflanze vertrockent auf dem Boden des heißen Kessels und zerfällt zu Asche", 

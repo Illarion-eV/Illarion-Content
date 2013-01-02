@@ -54,9 +54,9 @@ function onLogin( player )
 		    local callbackNewbie = function(dialogNewbie) end; --empty callback
 
 		    if player:getPlayerLanguage() == 0 then
-			    dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Eine lange Reise nähert sich ihrem Ende. Du gehst von Bord des Schiffes und hast endlich wieder festen Boden unter den Füßen. In diesem Land wirst du vor eine Entscheidung gestellt, die wohl die wichtigste deines Lebens sein wird. Das edle Cadomyr, das weise Runewick oder das reiche Galmair - welchen Weg wirst du einschlagen? Willkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen indem du 'Tutorial überspringen' zu einem NPC sagst.", callbackNewbie);
+			    dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Eine lange Reise nähert sich ihrem Ende. Du gehst von Bord des Schiffes und hast endlich wieder festen Boden unter den Füßen.\nIn diesem Land wirst du vor eine Entscheidung gestellt, die wohl die wichtigste deines Lebens sein wird.\nDas edle Cadomyr, das weise Runewick oder das reiche Galmair - welchen Weg wirst du einschlagen?\n\nWillkommen bei Illarion, dem kostenlosen Online-Rollenspiel.\nDieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen indem du 'Tutorial überspringen' zu einem NPC sagst.", callbackNewbie);
 		    else
-			    dialogNewbie = MessageDialog("Welcome to Illarion!", "A long, tiresome journey finally comes to an end. You disembark the ship and feel solid ground beneath your feet. In these lands, you will soon be faced with a choice, perhaps the most important of your entire life. Noble Cadomyr, wise Runewick, or wealthy Galmair - whose side shall you join? Welcome to Illarion, the free online roleplaying game. This tutorial will guide you through your first steps and teach you the controls of the game. You may skip the tutorial at any time by saying 'skip tutorial' to an NPC.", callbackNewbie);
+			    dialogNewbie = MessageDialog("Welcome to Illarion!", "A long, tiresome journey finally comes to an end. You disembark the ship and feel solid ground beneath your feet.\nIn these lands, you will soon be faced with a choice, perhaps the most important of your entire life.\nNoble Cadomyr, wise Runewick, or wealthy Galmair - whose side shall you join?\n\nWelcome to Illarion, the free online roleplaying game.\nThis tutorial will guide you through your first steps and teach you the controls of the game. You may skip the tutorial at any time by saying 'skip tutorial' to an NPC.", callbackNewbie);
 		    end
 
 		    player:requestMessageDialog(dialogNewbie); --showing the welcome text
@@ -136,7 +136,8 @@ function onLogin( player )
 		messageG[64]="[Tipp] Die meisten NPCs reagieren auf 'Hilfe' mit der Ausgabe einer Liste ihrer wichtigsten Schlüsselwörter."
 		messageG[65]="[Tipp] Die Fertigkeiten deines Charakters kannst du aufrufen, indem du 'C' drückst."
         messageG[66]="[Tipp] Ein Stapel von Gegenständen läßt sich durch Halten der Shift-Taste beim Bewegen auflösen."
-
+		messageG[67]="[Tipp] Wenn du auf Reisen gehst, nimm stets Proviant mit. Deine Lebenspunkte regenerieren sich nicht, wenn dein Charakter hungrig ist."
+		
 		--English
 		messageE={};
 		messageE[1]="[Hint] Light armours, such as those made of leather, offer good protection against blunt weapons but perform poorly against slashing weapons.";
@@ -205,6 +206,7 @@ function onLogin( player )
         messageE[64]="[Hint] Most NPCs react on 'help' with a list of their most important keywords.";
         messageE[65]="[Hint] You can review the skills of your character by hitting 'C'.";
 		messageE[66]="[Hint] To split a stack of items, hold shift while moving it.";
+		messageE[67]="[Hint] If you go on a journey, always have some rations with you. Your character's hitpoints won't regenerate if your character is hungry.";
 
 	    dailyMessageID=math.random(1,table.getn(messageG)); --chosing a message at random
 	    base.common.InformNLS( player,messageG[dailyMessageID],messageE[dailyMessageID]); --sending the message

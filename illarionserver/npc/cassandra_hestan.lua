@@ -135,7 +135,7 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addTrigger("Wie Befind");
-talkEntry:addResponse("Überspringen wir die Höflichkeiten und lasst uns zum Geschäft kommen.");
+talkEntry:addResponse("Überspringen wir die Höflichkeiten und kommen gleich zum Geschäft.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -337,6 +337,20 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("Cadomyr ist meine Heimat und ich liebe es. Ob nun Cadomyr mich auch liebt oder nicht - das weiß ich nicht.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("I don't want to talk about it.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("german"));
+talkEntry:addTrigger(".*");
+talkEntry:addResponse("Ich will nicht darüber reden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Psst! Wollt ihr etwas Geld wechseln?", "Shh! Want to change some money?");

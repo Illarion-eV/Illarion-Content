@@ -182,6 +182,31 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("profession");
+talkEntry:addResponse("Hunter. I can tell you many thingsss about Cadomyr. Just asssk me about locationsss around Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("beruf");
+talkEntry:addResponse("Jäger. Ich kann viele Dinge über Cadomyr erzählen. Frag nur nach Orten in der Nähe von Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("job");
+talkEntry:addResponse("Hunter. I can tell you many thingsss about Cadomyr. Just asssk me about locationsss around Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("job");
+talkEntry:addResponse("Jäger. Ich kann viele Dinge über Cadomyr erzählen. Frag nur nach Orten in der Nähe von Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("inform");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] place"));

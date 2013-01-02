@@ -1071,7 +1071,7 @@ talkingNPC:addCycleText("#me fummelt etwas trockenes Baumharz aus seiner Mantelt
 talkingNPC:addCycleText("#me rückt seine Kutte zurecht.", "#me adjusts his cowl.");
 talkingNPC:addCycleText("#me bleckt seine Zähne und leckt sich schmatzend über die Lippen.", "#me bares his teeth and licks with a smack of his lips.");
 talkingNPC:addCycleText("Ehre die Götter. Ehre den Vatha.", "Honour dha gods. Honour dha Faddha.");
-talkingNPC:addCycleText("#me streckt die Hand aus:'Ich fühlige mächtige Geister... um uns herum.'.", "#me holds his hand out:'I feel migthe spirits...surrounding us.'");
+talkingNPC:addCycleText("#me streckt die Hand aus:'Ich fühlige mächtige Geister... um uns herum.'.", "#me holds his hand out: 'I feel mighte spirits...surrounding us.'");
 talkingNPC:addCycleText("#me hält seine Hand über die Opferschale am Altar, diese beginnt augenblicklich merkwürdig zu leuchten.", "#me places his hand upon the sacrificial basin. In the next moment it starts to glow in a strange way.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);

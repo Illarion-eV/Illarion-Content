@@ -48,7 +48,7 @@ function InitFactionLists()
 					 {gRank = "Erzherzogin", eRank = "Archduchess"},				--rank 10
 					 {gRank = "Königin", eRank = "Queen"}};				--rank leader
 
-	RunewickRankListMale = { {gRank = "Neuling", eRank = "Novice"},    		--rank 1
+	RunewickRankListMale = { {gRank = "Novize", eRank = "Novice"},    		--rank 1
 					 {gRank = "Anwärter", eRank = "Apprentice"},       	--rank 2
 					 {gRank = "Student", eRank = "Student"},         	--rank 3
 					 {gRank = "Gelehrter", eRank = "Scholar"},       	--rank 4
@@ -60,7 +60,7 @@ function InitFactionLists()
 					 {gRank = "Rektor", eRank = "Rector"},    			--rank 10
 					 {gRank = "Erzmagier", eRank = "Archmage"}};		--rank leader
 	
-	RunewickRankListFemale = { {gRank = "Neuling", eRank = "Novice"},    		--rank 1
+	RunewickRankListFemale = { {gRank = "Novizin", eRank = "Novice"},    		--rank 1
 					 {gRank = "Anwärterin", eRank = "Apprentice"},       	--rank 2
 					 {gRank = "Studentin", eRank = "Student"},         	--rank 3
 					 {gRank = "Gelehrte", eRank = "Scholar"},       	--rank 4
@@ -68,7 +68,7 @@ function InitFactionLists()
 					 {gRank = "Doktorin", eRank = "Doctor"},         		--rank 6
 					 {gRank = "Dozentin", eRank = "Docent"},     			--rank 7
 					 {gRank = "Professorin", eRank = "Professor"},        --rank 8
-					 {gRank = "Dekan", eRank = "Dean"},    				--rank 9
+					 {gRank = "Dekanin", eRank = "Dean"},    				--rank 9
 					 {gRank = "Rektorin", eRank = "Rector"},    			--rank 10
 					 {gRank = "Erzmagierin", eRank = "Archmage"}};		--rank leader
 
@@ -90,9 +90,9 @@ function InitFactionLists()
 					 {gRank = "Krämerin", eRank = "Grocer"},       		--rank 4
 					 {gRank = "Kauffrau", eRank = "Merchant"},          --rank 5
 					 {gRank = "Finanzier", eRank = "Financier"},        --rank 6
-					 {gRank = "Patrizier", eRank = "Patrician"},     	--rank 7
-					 {gRank = "Mogul", eRank = "Mogul"},           		--rank 8
-					 {gRank = "Magnat", eRank = "Magnate"},    			--rank 9
+					 {gRank = "Patrizierin", eRank = "Patrician"},     	--rank 7
+					 {gRank = "Mogulin", eRank = "Mogul"},           		--rank 8
+					 {gRank = "Magnatin", eRank = "Magnate"},    			--rank 9
 					 {gRank = "Tycoon", eRank = "Tycoon"},				--rank 10
 					 {gRank = "Don", eRank = "Don"}};					--rank leader
 

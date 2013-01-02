@@ -76,7 +76,7 @@ function FillStockIn(User,SourceItem, cauldron)
 		alchemy.base.alchemy.CauldronDestruction(User,cauldron,2)
 	
 	elseif cauldron:getData("filledWith") == "potion" then
-		if cauldron.id == 1011 then -- support potion
+		if cauldron.id == 1013 then -- support potion
 			 alchemy.item.id_165_blue_bottle.SupportStock(User,cauldron,SourceItem)
 		else
 			alchemy.base.alchemy.CauldronExplosion(User,cauldron,2)

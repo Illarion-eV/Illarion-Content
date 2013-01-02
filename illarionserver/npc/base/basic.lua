@@ -75,10 +75,6 @@ baseNPC = base.class.class(function(self)
     -- was displayed. This is needed to avoid spamming with this messages.
     self["_lastConfusionTimestamp"] = 0;
     
-    -- This variable stores if the NPC is supposed to to introduce automatically
-    -- to the player.
-    self["_autointroduce"] = true;
-    
     -- This list is used to store the equipment that shall be set to the NPC at
     -- the first run. Once the equipment is set, the list is destroyed.
     self["_equipmentList"] = {};
@@ -227,10 +223,6 @@ function baseNPC:receiveText(npcChar, speaker, text)
         return false;
     end;
 
-    if self._autointroduce then
-        speaker:introduce(npcChar);
-    end;
-    
     if not self:checkLanguageOK(speaker) then
         self:_displayLanguageConfusion(npcChar);
         return false;
@@ -338,10 +330,6 @@ end;
 --  @param mode the mode used to look at the NPC (no effect)
 function baseNPC:lookAt(npcChar, char, mode)
     char:sendCharDescription(npcChar.id, base.common.GetNLS(char, self._lookAtMsgDE, self._lookAtMsgUS));
-    
-    if self._autointroduce then
-        char:introduce(npcChar);
-    end;
 end;
 
 --- This method handles all use methods that are done to the NPC. When ever a
@@ -354,10 +342,6 @@ function baseNPC:use(npcChar, char)
     npcChar.activeLanguage = self._defaultLanguage;
     npcChar:talkLanguage(Character.say, Player.german, self._useMsgDE);
     npcChar:talkLanguage(Character.say, Player.english, self._useMsgUS);
-    
-    if self._autointroduce then
-        char:introduce(npcChar);
-    end;
 end;
 
 --- This equipment sets the equipment an NPC gets at first start. This is needed
@@ -384,12 +368,7 @@ function baseNPC:initDone()
     self["initDone"] = nil;
 end;
 
---- This function set the autointroduce mode of this script. In case its set to
---- true the NPC will introduce automatically to the player talking to him.
---
---  @param autointroduce the new state for the autointroduce state
 function baseNPC:setAutoIntroduceMode(autointroduce)
-    self["_autointroduce"] = autointroduce;
 end;
 
 --- This function learns the NPC the languages skills needed to work properly.
