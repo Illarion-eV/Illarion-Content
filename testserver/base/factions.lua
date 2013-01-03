@@ -148,10 +148,6 @@ AddTownJailKey(12,2121, 333, 5031);
 AddTown(2,"Runewick");
 AddTown(3,"Galmair");
 
---[[AddTown(12,"Silberbrand","Silverbrand", 1022, 102, 111);
-AddTownMainKey(12,2121, 333, 5030);
-AddTownJailKey(12,2121, 333, 5031);   ]]--
-
 
 end
 --==================================END OF THE EDITABLE PART====================
