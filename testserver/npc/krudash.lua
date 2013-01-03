@@ -36,8 +36,8 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("Gâsh! I sell everything made in the forge. Sharpest Axes! Mightiest Armours! Best tools. Uh!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Gâsh! I sell everything made in the forge. Sharpest Axes! Mightiest Armours! Best tools. Uh!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -48,24 +48,24 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addResponse("Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: buy, sell, trade, Murgo, Er'hja, Kroch'Gurak, Alice, Tom"));
-talkEntry:addResponse("Me, Krudash sell and buy lots of stuff! Taghta?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Me, Krudash sell and buy lots of stuff! Taghta?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: kaufe, verkaufe, Handel, Murgo, Er'hja, Kroch'Gurak, Alice, Tom"));
-talkEntry:addResponse("Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -290,25 +290,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("mein Name");
 talkEntry:addResponse("Hurr, hurr. Was willst du kaufen?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("murgo");
-talkEntry:addResponse("#me grunts. 'Murgo is my husband. And he does what his wife command! Hrâch!'");
-talkEntry:addResponse("Ch-h! Where's my husband, huh? For sure, he got another one of his nutty ideas! He's like a big rock, mes say. Jûk, difficult to move, but if it's rolling noone is able to stop it.");
-talkEntry:addResponse("Hurr! Murgo is a good husband. He care much about the orclings and be strong warrior.");
-talkEntry:addResponse("Eh-h... I was gate guard at Trolls Bane, long ago. I liked Murgo! He got a new armor with panther fur... and bones. *grunts* And he always knew what was important.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("murgo");
-talkEntry:addResponse("#me grunzt langezogen. 'Murgo iss mein Mann. Und er tut was seine Frau ihm sagt! Hrâch!'");
-talkEntry:addResponse("Ch-h! Wo treibt sich mein Mann wieder herum, hä? Bestimmt hatt er wieder eine seiner bekloppten Ideen gehabt! Er ist wie ein schwerer Stein, sag ich. Jûk, schwer zu bewegen, aber wenn's rollt kann's keiner aufhalten.");
-talkEntry:addResponse("Hurr! Murgo is ein guter Mann. Er sorgt gutt, für die Jünglingens und ist ein starker Krieger.");
-talkEntry:addResponse("Eh-h... Ich war Torwache in Trolls Fluch, lange her. Murgo hat mir gefallen! Er hat sich ne Rüstung machn lassen. Mit Pantherfell... und Knochen. *grunzt* Und er hat immer gewusst, was die Dinge sind die wichtig sind.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -728,7 +709,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Taghta!");
-talkEntry:addResponse("Puny little Maggot.");
+talkEntry:addResponse("Puny little Maggot! What do you want?.");
 talkEntry:addResponse("Uh-h?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -738,7 +719,7 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Taghta!");
-talkEntry:addResponse("Winzige kleine Made.");
+talkEntry:addResponse("Winzig kleine Made, was willst du?.");
 talkEntry:addResponse("Uh-h?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
