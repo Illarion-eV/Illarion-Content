@@ -110,9 +110,9 @@ FoodList:add( 559,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- lamb dish
 FoodList:add( 554,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- venison dish
 
 -- Poisoned Food
-FoodList:add( 162,	 -300,	   0,	nil,	nil,	nil,	 600); -- birth mushroom
-FoodList:add( 158,	 -200,	   0,	nil,	nil,	nil,	 400); -- bulbsponge mushroom
-FoodList:add( 159,	 -500,	   0,	nil,	nil,	nil,	1000); -- toadstool
+FoodList:add( 162,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 600); -- birth mushroom
+FoodList:add( 158,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 400); -- bulbsponge mushroom
+FoodList:add( 159,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	1000); -- toadstool
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if (Init == nil) then
