@@ -30,7 +30,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		"Du füllst eine Flasche mit Wasser.",
 		"You fill a bottle with water." );
     User:eraseItem(2498, 1);
-    local notCreated = User:createItem( 2496, amount, 333, nil );
+    local notCreated = User:createItem( 2496, 1, 333, nil );
     if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
       world:createItemFromId( 2496, notCreated, User.pos, true, 333, nil );
       base.common.InformNLS(User,
