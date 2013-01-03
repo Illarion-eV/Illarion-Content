@@ -436,12 +436,12 @@ function Craft:checkMaterial(user, productId)
 
             if available == 0 then
                 base.common.HighInformNLS( user,
-                "Dir fehlt "..ingredientName..".",
-                "You lack "..ingredientName..".")
+                "Dir fehlt: "..ingredientName..".",
+                "You lack: "..ingredientName..".")
             else
                 base.common.HighInformNLS( user,
-                "Das Material reicht nicht. Du brauchst mehr "..ingredientName..".",
-                "The materials are insufficient. You lack "..ingredientName..".")
+                "Das Material reicht nicht. Dir fehlt: "..ingredientName..".",
+                "The materials are insufficient. You lack: "..ingredientName..".")
             end
         end
     end
