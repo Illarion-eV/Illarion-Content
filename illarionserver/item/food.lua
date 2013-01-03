@@ -21,11 +21,13 @@ BUFFS = {
 -- this is updated while adding food items
 MAX_DIFFICULTY = 0;
 
-MIN_CRAFTED_FOODVALUE = 5000;
+MIN_CRAFTED_FOODVALUE = 6000;
 MAX_CRAFTED_FOODVALUE = 45000;
 
-VALUE_SMALL = 0.25;
-VALUE_LARGE = 0.5
+VALUE_SMALL = 875;
+VALUE_MEDIUM = 1687;
+VALUE_LARGE = 2500;
+VALUE_XLARGE = 4000;
 
 --[[ create FoodList
 FoodList:add() adds an element
@@ -44,7 +46,7 @@ the racial tables have the following struct (in order of the race numbers):
 ]]
 FoodList = { add = function (self,id,Value,Leftover,BuffType,RacialFactor,UnEatable,Poison)
 				self[id] = {};
-				self[id].value = Value or VALUE_LARGE;
+				self[id].value = Value or VALUE_XLARGE;
 				self[id].leftover = Leftover or 0;
         self[id].buffType = BuffType;
 				self[id].difficulty = nil;
@@ -57,19 +59,19 @@ FoodList = { add = function (self,id,Value,Leftover,BuffType,RacialFactor,UnEata
 -- Free Food
 FoodList:add(  15,	 VALUE_LARGE,	   0); -- apple
 FoodList:add(  80,	 VALUE_LARGE,	   0); -- banana
-FoodList:add(  81,	 VALUE_SMALL,	   0); -- berries
-FoodList:add( 142,	 VALUE_SMALL,	   0); -- sand berry
+FoodList:add(  81,	 VALUE_MEDIUM,	   0); -- berries
+FoodList:add( 142,	 VALUE_MEDIUM,	   0); -- sand berry
 FoodList:add( 143,	 VALUE_SMALL,	   0); -- red elder
-FoodList:add( 147,	 VALUE_SMALL,	   0); -- black berry
-FoodList:add( 151,	 VALUE_SMALL,	   0); -- strawberries
+FoodList:add( 147,	 VALUE_MEDIUM,	   0); -- black berry
+FoodList:add( 151,	 VALUE_MEDIUM,	   0); -- strawberries
 FoodList:add( 160,	 VALUE_SMALL,	   0); -- redhead
 FoodList:add( 161,	 VALUE_SMALL,	   0); -- herders mushroom
 FoodList:add( 163,	 VALUE_SMALL,	   0); -- champignon
 FoodList:add( 199,	 VALUE_SMALL,	   0); -- tangerine
-FoodList:add( 200,	 VALUE_SMALL,	   0); -- tomato
+FoodList:add( 200,	 VALUE_MEDIUM,	   0); -- tomato
 FoodList:add( 201,	 VALUE_SMALL,	   0); -- onion
 FoodList:add( 302,	 VALUE_SMALL,	   0); -- cherry
-FoodList:add( 388,	 VALUE_SMALL,	   0); -- grapes
+FoodList:add( 388,	 VALUE_MEDIUM,	   0); -- grapes
 FoodList:add( 759,	 VALUE_LARGE,	   0); -- nuts
 FoodList:add(2493,	 VALUE_LARGE,	   0); -- carrots
 
@@ -82,8 +84,8 @@ FoodList:add( 553,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true
 FoodList:add(2934,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- lamb meat (orc)
 
 -- Simple Food
-FoodList:add( 306,	 VALUE_LARGE,	   0); -- ham
-FoodList:add( 455,	 VALUE_LARGE,	   0); -- smoked fish
+FoodList:add( 306,	 VALUE_XLARGE,	   0); -- ham
+FoodList:add( 455,	 VALUE_XLARGE,	   0); -- smoked fish
 
 -- Crafted Food
 FoodList:add(3051,	nil,	   0,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- sausage
@@ -111,7 +113,7 @@ FoodList:add( 554,	nil,	2952,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- venison dish
 -- Poisoned Food
 FoodList:add( 162,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 600); -- birth mushroom
 FoodList:add( 158,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 400); -- bulbsponge mushroom
-FoodList:add( 159,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	1000); -- toadstool
+FoodList:add( 159,	 VALUE_MEDIUM,	   0,	nil,	nil,	nil,	1000); -- toadstool
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	if (Init == nil) then
@@ -131,14 +133,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     -- now we now the max difficulty, so set the food value with linear distribution
     local diff = MAX_CRAFTED_FOODVALUE - MIN_CRAFTED_FOODVALUE;
-    local halfMin = MIN_CRAFTED_FOODVALUE/2;
     for _,foodItem in pairs(FoodList) do 
       if (type(foodItem) ~= "function") then
         if (foodItem.difficulty ~= nil) then
           foodItem.value = MIN_CRAFTED_FOODVALUE + diff*(foodItem.difficulty/MAX_DIFFICULTY);
         else
-          -- for non crafted foods, the maximum foodvalue is half the MIN_CRAFTED_FOODVALUE
-          foodItem.value = math.min(halfMin, foodItem.value);
+          -- for non crafted foods, the maximum foodvalue is the MIN_CRAFTED_FOODVALUE
+          foodItem.value = math.min(MIN_CRAFTED_FOODVALUE, foodItem.value);
         end
       end
     end

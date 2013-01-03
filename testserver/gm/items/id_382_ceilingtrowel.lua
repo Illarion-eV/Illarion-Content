@@ -386,9 +386,9 @@ end
 function ChangeRankpoints(User,modifier,value,faction,radius)
 	--check if the points shall be added or removed
 	if modifier == "add" then
-		text = "Added";
+		text = "added";
 	elseif modifier == "sub" then
-		text = "Removed";
+		text = "removed";
 		value = -value;
 	else
 		return;
