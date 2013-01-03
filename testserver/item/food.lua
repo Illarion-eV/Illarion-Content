@@ -320,6 +320,7 @@ end
 function SetNewFoodLevel(User, NewFoodLevel)
   NewFoodLevel = base.common.Limit(NewFoodLevel, 0, 60000);
   local foodToAdd = NewFoodLevel - User:increaseAttrib("foodlevel",0);
+  debug("foodToAdd: "..foodToAdd)
   while true do
     User:increaseAttrib("foodlevel",math.min(10000,foodToAdd));
     foodToAdd = foodToAdd - math.min(10000,foodToAdd);
