@@ -22,6 +22,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     return;
   end
   
+  if User:countItem(51) <= 0 then
+        return
+	end	
+  
   local foundSource
   -- check for well or fountain
   TargetItem = base.common.GetItemInArea(User.pos, 2207);
