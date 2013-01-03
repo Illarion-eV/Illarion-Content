@@ -24,7 +24,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
   
   if User:countItem(51) <= 0 then
         return
-	end	
+  end	
   
   local foundSource
   -- check for well or fountain
@@ -60,7 +60,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 	    
     if ( ltstate == Action.none ) then 
-		User:startAction( 20, 21, 5, 0, 25);
+		User:startAction( 20, 21, 5, 10, 25);
 		User:talkLanguage( Character.say, Player.german, "#me beginnt Eimer zu befüllen.");
 		User:talkLanguage( Character.say, Player.english, "#me starts to fill buckets."); 
 		return
@@ -74,7 +74,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		"Du kannst nichts mehr halten.",
 		"You can't carry any more.");
 	else -- character can still carry something
-		User:startAction( 20, 21, 5, 0, 25);
+		if User:countItem(51) <= 0 then
+            return
+        else
+		    User:startAction( 20, 21, 5, 10, 25);
+		end	
 	end
 end
 
