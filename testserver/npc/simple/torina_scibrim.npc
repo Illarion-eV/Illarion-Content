@@ -71,14 +71,14 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Zhambra with you.", "Farewe
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Torina Scibrim, ich kümmere mich um die Neuankömmlinge dieses Ortes.", "Mein Name ist Torina Scibrim, ich bin die Notarin Runewicks.", "Man nennt mich Torina Scibrim, als Notarin kann Ich Euch zum Bürger unseres schönen Ortes eintragen."
 
 -- Becoming citizen in Runewick
-english, town = Cadomyr, "become citizen", "gain citizenship" -> town = Runewick, "You are now a citizen of Runewick", "Welcome to Runewick!"
-town = Cadomyr, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Du bist jetzt Bürger von Runewick", "Willkommen in Runewick!"
-english, town = Galmair, "become citizen", "gain citizenship" -> town = Runewick, "You are now a citizen of Runewick", "Welcome to Runewick!"
-town = Galmair, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Du bist jetzt Bürger von Runewick", "Willkommen in Runewick!"
-english, town = None, "become citizen", "gain citizenship" -> town = Runewick, "You are now a citizen of Runewick", "Welcome to Runewick!"
-town = None, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Ihr seid jetzt Bürger von Runewick", "Willkommen in Runewick!"
-english, "become citizen", "gain citizenship" -> town = Runewick, "You are now a citizen of Runewick", "Welcome to Runewick!"
-"Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Ihr seid jetzt Bürger von Runewick", "Willkommen in Runewick!"
+english, town = Cadomyr, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
+town = Cadomyr, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
+english, town = Galmair, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
+town = Galmair, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
+english, town = None, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
+town = None, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
+english, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
+"Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
 
 -- Player is already citizen
 english, town = Runewick, "become citizen", "gain citizenship" -> "Ehm...you are already a citizen of Runewick. Didn't you know?"
@@ -97,70 +97,70 @@ queststatus(207) = 1, english, ".*" -> queststatus(207) = 0, "Ah, good. You stay
 queststatus(207) = 1, ".*" -> queststatus(207) = 0, "Ah, gut. Ihr bleibt hier, eine weise Entscheidung."
 
 -- Test Question
-"welche Stadt", "welche Faktion" -> "Du gehörst nach %TOWN!"
-"wich town", "wich faction" -> "You belong to %TOWN!"
+"welche Stadt", "Fraktion", "reich" -> "Du gehörst nach %TOWN!"
+"which town", "faction", "realm" -> "You belong to %TOWN!"
 
 -- RANK informations
 
 -- Rank 10
-rank > 9, english, town = Cadomyr, sex = male, "rank" -> "Ah! Rector %CHARNAME, be welcome, Sir. Is is truly a honour to see you!"
-rank > 9, english, town = Cadomyr, sex = female, "rank" -> "Ah! Rector %CHARNAME, be welcome, Madam. Is is truly a honour to see you!"
-rank > 9, town = Cadomyr, sex = male, "rang" -> "Ah! Rekor %CHARNAME! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
-rank > 9, town = Cadomyr, sex = female, "rang" -> "Ah! Rektorin %CHARNAME! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
+rank > 9, english, town = Runewick, sex = male, "rank" -> "Ah! Rector %CHARNAME, be welcome, Sir. Is is truly a honour to see you!"
+rank > 9, english, town = Runewick, sex = female, "rank" -> "Ah! Rector %CHARNAME, be welcome, Madam. Is is truly a honour to see you!"
+rank > 9, town = Runewick, sex = male, "rang" -> "Ah! Rekor %CHARNAME! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
+rank > 9, town = Runewick, sex = female, "rang" -> "Ah! Rektorin %CHARNAME! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
 
 -- Rank 9
-rank > 8, english, town = Galmair, sex = male, "rank" -> "Dean, be welcome. Is is a honour to see you."
-rank > 8, english, town = Galmair, sex = female, "rank" -> "Dean, be welcome. Is is a honour to see you."
-rank > 8, town = Galmair, sex = male, "rang" -> "Dekan, seid willkommen. Welch eine Ehre Euch zu sehen."
-rank > 8, town = Galmair, sex = female, "rang" -> "Dekanin, seid wilokmmen.Welch eine Ehre Euch zu sehen."
+rank > 8, english, town = Runewick, sex = male, "rank" -> "Dean, be welcome. Is is a honour to see you."
+rank > 8, english, town = Runewick, sex = female, "rank" -> "Dean, be welcome. Is is a honour to see you."
+rank > 8, town = Runewick, sex = male, "rang" -> "Dekan, seid willkommen. Welch eine Ehre Euch zu sehen."
+rank > 8, town = Runewick, sex = female, "rang" -> "Dekanin, seid wilokmmen.Welch eine Ehre Euch zu sehen."
 
 -- Rank 8
-rank > 7, english, town = Galmair, sex = male, "rank" -> "Oh! Professor %CHARNAME! How can I help you?"
-rank > 7, english, town = Galmair, sex = female, "rank" -> "Oh! Professor %CHARNAME! How can I help you?"
-rank > 7, town = Galmair, sex = male, "rang" -> "Oh! Professor %CHARNAME! Was kann ich für Euch tun?"
-rank > 7, town = Galmair, sex = female, "rang" -> "Oh! Professorin %CHARNAME! Was kann ich für Euch tun?"
+rank > 7, english, town = Runewick, sex = male, "rank" -> "Oh! Professor %CHARNAME! How can I help you?"
+rank > 7, english, town = Runewick, sex = female, "rank" -> "Oh! Professor %CHARNAME! How can I help you?"
+rank > 7, town = Runewick, sex = male, "rang" -> "Oh! Professor %CHARNAME! Was kann ich für Euch tun?"
+rank > 7, town = Runewick, sex = female, "rang" -> "Oh! Professorin %CHARNAME! Was kann ich für Euch tun?"
 
 -- Rank 7
-rank > 6, english, town = Galmair, sex = male, "rank" -> "Good to see you, docent %CHARNAME! How are you?"
-rank > 6, english, town = Galmair, sex = female, "rank" -> " Good to see you, docent %CHARNAME! How are you?"
-rank > 6, town = Galmair, sex = male, "rang" -> "Schön Euch zu sehen, Dozent %CHARNAME! Wie geht es Euch?"
-rank > 6, town = Galmair, sex = female, "rang" -> " Schön euch zu sehen, Dozentin %CHARNAME! Wie geht es Euch?"
+rank > 6, english, town = Runewick, sex = male, "rank" -> "Good to see you, docent %CHARNAME! How are you?"
+rank > 6, english, town = Runewick, sex = female, "rank" -> " Good to see you, docent %CHARNAME! How are you?"
+rank > 6, town = Runewick, sex = male, "rang" -> "Schön Euch zu sehen, Dozent %CHARNAME! Wie geht es Euch?"
+rank > 6, town = Runewick, sex = female, "rang" -> " Schön euch zu sehen, Dozentin %CHARNAME! Wie geht es Euch?"
 
 -- Rank 6
-rank > 5, english, town = Galmair, sex = male, "rank" -> "Greetings to you, doctor %CHARNAME!"
-rank > 5, english, town = Galmair, sex = female, "rank" -> "Greetings to you, doctor %CHARNAME!"
-rank > 5, town = Galmair, sex = male, "rang" -> "Seid gegrüß, Doktor %CHARNAME!"
-rank > 5, town = Galmair, sex = female, "rang" -> "Seid gegrüßt, Doktorin %CHARNAME!"
+rank > 5, english, town = Runewick, sex = male, "rank" -> "Greetings to you, doctor %CHARNAME!"
+rank > 5, english, town = Runewick, sex = female, "rank" -> "Greetings to you, doctor %CHARNAME!"
+rank > 5, town = Runewick, sex = male, "rang" -> "Seid gegrüß, Doktor %CHARNAME!"
+rank > 5, town = Runewick, sex = female, "rang" -> "Seid gegrüßt, Doktorin %CHARNAME!"
 
 -- Rank 5
-rank > 4, english, town = Galmair, sex = male, "rank" -> "Greetings to you, master!"
-rank > 4, english, town = Galmair, sex = female, "rank" -> "Greetings to you, master!"
-rank > 4, town = Galmair, sex = male, "rang" -> "Seid gegrüßt, Magister !"
-rank > 4, town = Galmair, sex = female, "rang" -> "Seid gegrüßt, Magister!"
+rank > 4, english, town = Runewick, sex = male, "rank" -> "Greetings to you, master!"
+rank > 4, english, town = Runewick, sex = female, "rank" -> "Greetings to you, master!"
+rank > 4, town = Runewick, sex = male, "rang" -> "Seid gegrüßt, Magister !"
+rank > 4, town = Runewick, sex = female, "rang" -> "Seid gegrüßt, Magister!"
 
 -- Rank 4
-rank > 3, english, town = Galmair, sex = male, "rank" -> "Scholar, how are you today?"
-rank > 3, english, town = Galmair, sex = female, "rank" -> " Scholar, how are you today?"
-rank > 3, town = Galmair, sex = male, "rang" -> "Gelehrter, wie geht es Euch?"
-rank > 3, town = Galmair, sex = female, "rang" -> "Gelehrte, wie geht es Euch?"
+rank > 3, english, town = Runewick, sex = male, "rank" -> "Scholar, how are you today?"
+rank > 3, english, town = Runewick, sex = female, "rank" -> " Scholar, how are you today?"
+rank > 3, town = Runewick, sex = male, "rang" -> "Gelehrter, wie geht es Euch?"
+rank > 3, town = Runewick, sex = female, "rang" -> "Gelehrte, wie geht es Euch?"
 
 -- Rank 3
-rank > 2, english, town = Galmair, sex = male, "rank" -> "Student, what are you here for? Do you need help?"
-rank > 2, english, town = Galmair, sex = female, "rank" -> "Student, what are you here for? Do you need help?"
-rank > 2, town = Galmair, sex = male, "rang" -> "Student, was führt dich zu mir? Brauchst du Hilfe?"
-rank > 2, town = Galmair, sex = female, "rang" -> "Studentin, was dich Euch zu mir? Brauchst du Hilfe?"
+rank > 2, english, town = Runewick, sex = male, "rank" -> "Student, what are you here for? Do you need help?"
+rank > 2, english, town = Runewick, sex = female, "rank" -> "Student, what are you here for? Do you need help?"
+rank > 2, town = Runewick, sex = male, "rang" -> "Student, was führt dich zu mir? Brauchst du Hilfe?"
+rank > 2, town = Runewick, sex = female, "rang" -> "Studentin, was dich Euch zu mir? Brauchst du Hilfe?"
 
 -- Rank 2
-rank > 1, english, town = Galmair, sex = male, "rank" -> "You are an assistat. Please set a good example for the novices."
-rank > 1, english, town = Galmair, sex = female, "rank" -> "You are an assistant. Please set a good example for the novices."
-rank > 1, town = Galmair, sex = male, "rang" -> "Du bist ein Anwärter. Bitte sei ein gutes Beispiel für die Novizen."
-rank > 1, town = Galmair, sex = female, "rang" -> "Du bist eine Anwärterin. Bitte sei ein gutes Beispiel für die Novizen."
+rank > 1, english, town = Runewick, sex = male, "rank" -> "You are an assistat. Please set a good example for the novices."
+rank > 1, english, town = Runewick, sex = female, "rank" -> "You are an assistant. Please set a good example for the novices."
+rank > 1, town = Runewick, sex = male, "rang" -> "Du bist ein Anwärter. Bitte sei ein gutes Beispiel für die Novizen."
+rank > 1, town = Runewick, sex = female, "rang" -> "Du bist eine Anwärterin. Bitte sei ein gutes Beispiel für die Novizen."
 
 -- Rank 1
-rank > 0, english, town = Galmair, sex = male, "rank" -> "You are new here. You are not well known. Feel free to stay in Runewick and gain more knowledge, novice!"
-rank > 0, english, town = Galmair, sex = female, "rank" -> "You are new here. You are not well known.  Feel free to stay in Runewick and gain more knowledge, novice!"
-rank > 0, town = Galmair, sex = male, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Sei so frei und bleibe in Runewick um mehr zu lernen, Novize!"
-rank > 0, town = Galmair, sex = female, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Sei so frei und bleibe in Runewick um mehr zu lernen, Novizin!"
+rank > 0, english, town = Runewick, sex = male, "rank" -> "You are new here. You are not well known. Feel free to stay in Runewick and gain more knowledge, novice!"
+rank > 0, english, town = Runewick, sex = female, "rank" -> "You are new here. You are not well known.  Feel free to stay in Runewick and gain more knowledge, novice!"
+rank > 0, town = Runewick, sex = male, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Sei so frei und bleibe in Runewick um mehr zu lernen, Novize!"
+rank > 0, town = Runewick, sex = female, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Sei so frei und bleibe in Runewick um mehr zu lernen, Novizin!"
 
 -- Catching quest triggers. Modify if the NPC does quests.
 english, "quest", "mission" -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I already have everything I need."
