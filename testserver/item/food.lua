@@ -27,6 +27,7 @@ MAX_CRAFTED_FOODVALUE = 45000;
 VALUE_SMALL = 875;
 VALUE_MEDIUM = 1687,5;
 VALUE_LARGE = 2500;
+VALUE_XLARGE = 5000;
 
 --[[ create FoodList
 FoodList:add() adds an element
@@ -83,8 +84,8 @@ FoodList:add( 553,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true
 FoodList:add(2934,	 VALUE_LARGE,	   0,	nil,	nil,	{true,true,true,true,false,true,true,true,true,true}); -- lamb meat (orc)
 
 -- Simple Food
-FoodList:add( 306,	 VALUE_LARGE,	   0); -- ham
-FoodList:add( 455,	 VALUE_LARGE,	   0); -- smoked fish
+FoodList:add( 306,	 VALUE_XLARGE,	   0); -- ham
+FoodList:add( 455,	 VALUE_XLARGE,	   0); -- smoked fish
 
 -- Crafted Food
 FoodList:add(3051,	nil,	   0,	 1,	{1,1,1,1,2,1,1,0.5,1,1}); -- sausage
