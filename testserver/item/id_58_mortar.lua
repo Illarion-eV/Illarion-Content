@@ -21,5 +21,5 @@ function LookAtItem(User, Item)
 end
 
 function CreateHerbalGemDust(User, SourceItem)
-    User:inform("lalala")
+    --User:inform("lalala")
 end   
