@@ -50,11 +50,11 @@ function talkNPC:addTalkingEntry(newEntry)
     table.insert(self._entry, newEntry);
 end;
 
-function talkNPC:receiveText(npcChar, player, text)
+function talkNPC:receiveText(npcChar, texttype, player, text)
 	local result = false;
 	
 	table.foreach(self._entry, function(_, entry)
-        if entry:checkEntry(npcChar, player, text) then
+        if entry:checkEntry(npcChar, texttype, player, text) then
             entry:execute(npcChar, player);
 			result = true;
             return true;
@@ -155,7 +155,7 @@ function talkNPCEntry:checkEntry(npcChar, player, text)
         if (a ~= nil) then
             local conditionsResult = true;
             for _3, condition in pairs(self._conditions) do
-                if not condition:check(npcChar, player) then
+                if not condition:check(npcChar, texttype, player) then
                     conditionsResult = false;
                     break;
                 end;
@@ -184,7 +184,7 @@ function talkNPCEntry:execute(npcChar, player)
 		if (string.find(responseText, "[#/]w") == 1) then
 			npcChar:talk(Character.whisper, string.gsub(responseText, "[#/]w%s*", "", 1));
 		elseif (string.find(responseText, "[#/]s") == 1) then 
-			npcChar:talk(Character.shout, string.gsub(responseText, "[#/]s%s*", "", 1));
+			npcChar:talk(Character.yell, string.gsub(responseText, "[#/]s%s*", "", 1));
 		elseif (string.find(responseText, "[#/]o") == 1) then 
 			npcChar:talk(Character.whisper, responseText);
 		else

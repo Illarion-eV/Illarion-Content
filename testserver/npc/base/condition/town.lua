@@ -11,6 +11,6 @@ function(self, value)
     self["check"] = _town_helper_equal;
 end);
 
-function _town_helper_equal(self, npcChar, player)
+function _town_helper_equal(self, npcChar, texttype, player)
     return (base.factions.getFaction(player).tid == self.value);
 end;

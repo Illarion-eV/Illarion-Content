@@ -10,6 +10,6 @@ function(self, value)
     self["check"] = _race_helper_equal;
 end);
 
-function _race_helper_equal(self, npcChar, player)
+function _race_helper_equal(self, npcChar, texttype, player)
     return (player:getRace() == self.value);
 end;
