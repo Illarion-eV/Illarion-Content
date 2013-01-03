@@ -71,6 +71,10 @@ tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you l
 "Help" -> inform("[Game Help] This NPC is Hagar Wernson the keeper of 'The Winged Sow' Tavern. Keywords: Galmair, I am 'your name'.")
 "Hilfe" -> inform("[Spielhilfe] Dies ist NPC Hager Wernson der Wirt der 'Taverne zur geflügelten Sau'. Schlüsselwörter: Galmair, Ich bin 'dein Name'.")
 
+queststatus(306) = 0,".*"-> inform("The Innkeeper gifts you a beer for free. Cheers!"), "You are new here, aren't you? Here you go! The first beer's free. Welcome at the Winged Sow tavern!", item(1909, 1, 333), queststatus(306) = 1
+queststatus(306) = 0,".*"-> inform("Der Wirt gibt dir ein Bier aus. Prost!"), "Du bist neu hier, was? Hier! Das erste Bier geht immer auf's Haus. Willkommen in der Taverne zur geflügelten Sau!", item(1909, 1, 333), queststatus(306) = 1
+
+
 -- General speech
 english, sex = female, "Hiho", "Hallo", "Hey", "Greeb" -> "G'day, beautiful maiden! Come here! I'll clean that table."
 item(333, all) => 1, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening" -> "G'day, %CHARNAME! Here's yer place! Fill yer up?"
@@ -103,10 +107,8 @@ english, "job" -> "I'm the inkeeper here.", "This is my tavern. 'The Winged Sow'
 "job" -> "Ich bin der Wirt, hier.", "Das ist meine Taverne. 'Zur geflügelten Sau'"
 english, "Gobaith", "Gobiath" -> "Aye, s' horrible waht happened there. I will miss the Nordmark for ever."
 "Gobaith", "Gobiath" -> "Aye, das war schrecklich was dort passiert ist. Die Nordmark werd ich immer vermissen."
-queststatus(306) = 5, "my name" -> "No need for tell me again. I'm really good with names. I never forgot one. - What may I serve you?"
-queststatus(306) = 5, "mein Name" -> "Brauchste mir nicht nochmal zu sagen. Mit Namen bin ich ausgesprochen gut. hab noch nie einen vergessen. - Was darfs heute sein?"
-"my name" -> inform("The Innkeeper gifts you a beer for free. Cheers!"), "You are new here, aren't you? Here you go! The first beer's free. Welcome at the Winged Sow tavern!", item(1909, 1, 333), queststatus(306) = 5
-"mein Name" -> inform("Der Wirt gibt dir ein Bier aus. Prost!"), "Du bist neu hier, was? Hier! Das erste Bier geht immer auf's Haus. Willkommen in der Taverne zur geflügelten Sau!", item(1909, 1, 333), queststatus(306) = 5
+"my name" -> "No need for tell me. I'm really good with names. I never forgot one. - What may I serve you?"
+"mein Name" -> "Brauchste mir nicht zu sagen. Mit Namen bin ich ausgesprochen gut. hab noch nie einen vergessen. - Was darfs heute sein?"
 
 -- More small talk; add at least five triggers
 "dragon" -> "Dragon's Pond. My old tavern. Sadly I had to leave it behind."
