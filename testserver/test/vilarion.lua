@@ -38,7 +38,7 @@ end
 function UseItem(User, SourceItem, TargetItem, counter, Param, ltstate)
     local found, _, item = string.find(User.lastSpokenText, "count (%d+)")
     if found then
-        User:inform("Count item " .. item .. ": " .. User:countItemAt("all", item, {}))
+        User:inform("Count item " .. item .. ": " .. User:countItemAt("all", tonumber(item), {}))
     end
 
     local found, _, book = string.find(User.lastSpokenText, "book (%d+)")
