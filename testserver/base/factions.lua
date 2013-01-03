@@ -294,7 +294,6 @@ function setRankpoints(originator, rankpoints)
 	if originator.name == "Valerio Guilianni" or originator.name == "Rosaline Edwards" or originator.name == "Elvaine Morgan" or originator.name == "Lilli" then
 		rankpoints = (leaderRank-1)*100;
 		Faction.rankTown = leaderRank;
-		debug("Sex of "..originator.name..": "..originator:increaseAttrib("sex",0))
 	end
 
 	local townName = getTownNameByID(Faction.tid)
@@ -305,7 +304,7 @@ function setRankpoints(originator, rankpoints)
 		rankName = townRanks[tonumber(Faction.tid)+3][Faction.rankTown]
 	end
 	
-	debug("Rankname: "..rankName);
+	debug("Rankname: "..rankName.gRank.." "..rankName.eRank);
 	
 	if Faction.rankTown>rank then
 		base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in "..townName.." erreicht. Du bist nun "..rankName.gRank..".",
