@@ -244,9 +244,10 @@ function AlchemistCheck(User)
 end
 
 function NoMagicCheck(User)
-    if User:getMagicFlags(User:getMagicType()) == 0 then
+    if (User:getMagicFlags(0) == 0) and (User:getMagicFlags(0) == 1) and (User:getMagicFlags(0) == 2) then
 	    return true
-	end	
+	end
+return false	
 end
 
 function TurnIntoAlchemist(User,SourceItem)
