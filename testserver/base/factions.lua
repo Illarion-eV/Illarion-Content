@@ -305,6 +305,8 @@ function setRankpoints(originator, rankpoints)
 		rankName = townRanks[tonumber(Faction.tid)+3][Faction.rankTown]
 	end
 	
+	debug("Rankname: "..rankName);
+	
 	if Faction.rankTown>rank then
 		base.common.InformNLS( originator, "Du hast soeben einen neuen Rang in "..townName.." erreicht. Du bist nun "..rankName.gRank..".",
 			"You reached a new town rank in "..townName..". You are now "..rankName.eRank..".")
