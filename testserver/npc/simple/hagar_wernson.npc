@@ -2,8 +2,8 @@
 -- NPC Name: Hagar Wernson                                            Galmair --
 -- NPC Job:  Barkeeper                                                        --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  391, 344, -6           --
--- NPC Sex:  female                     NPC Direction: west                   --
+-- NPC Race: human                      NPC Position:  391, 344, -6           --
+-- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Authors:  kormkormsen                                                      --
 --           Rincewind                                                        --
@@ -11,8 +11,8 @@
 --------------------------------------------------------------------------------
 
 name = "Hagar Wernson"
-race = elf
-sex = female
+race = human
+sex = male
 position = 391, 344, -6
 direction = west
 affiliation = "Galmair"
@@ -53,8 +53,8 @@ tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
 tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
 
 -- Stock: big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
-"verkauf", "handel" -> "Lass uns handeln!", trade
-"sell", "trade" -> "Let's trade!", trade
+"verkauf", "handel" -> trade, "Lass uns handeln!"
+"sell", "trade" -> trade, trade, "Let's!"
 
 -- Template Version 1.02, 12/02/2010 by Estralis Seborian
 -- tavern keeper at Galmair 'The Winged Sow', 'Taverne zur geflügelten Sau'
@@ -70,10 +70,8 @@ tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you l
 -- Help
 "Help" -> inform("[Game Help] This NPC is Hagar Wernson the keeper of 'The Winged Sow' Tavern. Keywords: Galmair, I am 'your name'.")
 "Hilfe" -> inform("[Spielhilfe] Dies ist NPC Hager Wernson der Wirt der 'Taverne zur geflügelten Sau'. Schlüsselwörter: Galmair, Ich bin 'dein Name'.")
-
-queststatus(306) = 0,".*"-> inform("The Innkeeper gifts you a beer for free. Cheers!"), "You are new here, aren't you? Here you go! The first beer's free. Welcome at the Winged Sow tavern!", item(1909, 1, 333), queststatus(306) = 1
-queststatus(306) = 0,".*"-> inform("Der Wirt gibt dir ein Bier aus. Prost!"), "Du bist neu hier, was? Hier! Das erste Bier geht immer auf's Haus. Willkommen in der Taverne zur geflügelten Sau!", item(1909, 1, 333), queststatus(306) = 1
-
+queststatus(306) = 0, ".*" -> inform("The Innkeeper gifts you a beer for free. Cheers!"), item(1909, 1, 333), queststatus(306) = 1, "You are new here, aren't you? Here you go! The first beer's free. Welcome at the Winged Sow tavern!"
+queststatus(306) = 0, ".*" -> inform("Der Wirt gibt dir ein Bier aus. Prost!"), item(1909, 1, 333), queststatus(306) = 1, "Du bist neu hier, was? Hier! Das erste Bier geht immer auf's Haus. Willkommen in der Taverne zur geflügelten Sau!"
 
 -- General speech
 english, sex = female, "Hiho", "Hallo", "Hey", "Greeb" -> "G'day, beautiful maiden! Come here! I'll clean that table."
@@ -81,9 +79,9 @@ item(333, all) => 1, "Hello", "Greet", "Hail", "Good day", "Good morning", "Good
 item(333, all) => 1, "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Moin, Moin, %CHARNAME! Komm ran! Hier kannste Dich vollkippen."
 item(333, all) => 1, english, "Hiho", "Hallo", "Hey", "Greeb" -> "G'day, %CHARNAME! Here's yer place! Fill yer up?"
 item(333, all) => 1, "Hiho", "Hallo", "Hey", "Greeb" -> "Moin, Moin, %CHARNAME! Komm ran! Hier kannste Dich vollkippen."
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "G'day, be welcome in the Winged Sow Tavern!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "G'day, be wellcome in the Winged Sow Tavern!"
 "Grüße", "Gruß", "Seid gegrüßt", "Guten Tag", "Guten Abend", "Mahlzeit", "Tach", "Moin", "mit dir" -> "Moin, seid willkommen in der Taverne zur geflügelten Sau!"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "G'day, be welcome in the Winged Sow Tavern!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "G'day, be wellcome in the Winged Sow Tavern!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Moin, seid willkommen in der Taverne zur geflügelten Sau!"
 "Farewell", "Bye", "Fare well", "See you" -> "Be well! An' careful that no one steps on yer hands..."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Bis bald! Und lass dir nich auffe Hände treten..."
@@ -114,12 +112,12 @@ english, "Gobaith", "Gobiath" -> "Aye, s' horrible waht happened there. I will m
 "dragon" -> "Dragon's Pond. My old tavern. Sadly I had to leave it behind."
 english, "nordmark", "northmark" -> "That's the place where my old tavern was. The Dragon's Pond! It was a good place to be. No witches and longears. Except for the ones whose heads we put on a spike. Har-har!"
 "sow", "pig" -> "Aye, peek at the sky. Maybe you are able to see one."
-english, "Murgo" -> "I know Murgo since coming to Gobaith. He was a good friend of my people."
+english, "Murgo" -> "I knew Murgo. He was a good friend of my people."
 english, "Vigalf" -> "Good-good old Vigalf. Zhambra may bless my old friend."
 "drache" -> "Drachentränke. Meine alte Taverne. Trauriger Weise musste ich sie verlassen."
 "Nordmark" -> "Das ist der Ort wo die alte Taverne stand. Die Drachentränke! Das war ein guter Ort zum Leben. Keine Hexer und Langohren. Abgesehen von denen, deren Köpfe wir auf nen Pfahl gesteckt haben. Har-har!"
 "sau", "schwein" -> "Aye, schaut in die Wolken, vielleicht seht ihr eine."
-"Murgo" -> "Ich kenn Murgo noch von der Zeit auf Gobaith. War ein guter Freund von meinen Leuten."
+"Murgo" -> "Ich kannte Murgo noch von der Zeit auf Gobaith. War ein guter Freund von meinen Leuten."
 "Vigalf" -> "Guter-guter alter Vigalf. Zhambra schütze meinen alten Freund."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
@@ -189,10 +187,12 @@ english, "Zhambra" -> "Bless my brothers and friends, Zhambra."
 "erzähl was", "erzähl etwas" -> "Damals war ich der Wirt der Drachentränke. Aber nun - ja nun gehört mir diese bescheidene Hütte.", "Dies ist meine Taverne. 'Zur geflügelten Sau' heißt sie. Aye, so ist's!", "Auch wenn das Geschäft in Galmair besser geht, vermiss ich die alte Drachentränke manchmal trozdem."
 "what sell", "what buy", "list wares", "price of" -> "I got virgin's delight, our applewine. An' Gnollpoison, a red wine, or Beartrap, our mead. An' Northburger scullcracker, our beer."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich hab Jungfernglück, den beliebten Apfelwein. Oder Gnollgift, den guten Rotwein. Bärenfalle, den besten Met der Gegend. Und Nordburger Schädelbrecher, unser Bier."
-"buy milk" -> "This is no monastery! get lost!"
-"milch kauf", "kauf milch" -> "Hier iss doch kein Kloster! Verschwinde!"
-"buy water" -> "ye can water yer cow outside! this ain't no stable here!"
-"wasser kauf", "kauf wasser" -> "Deine Kuh kannst du draussen tränken! Dies iss doch kein Stall!"
+"milk" -> "This is no monastery! get lost!"
+"milch", "kauf milch" -> "Hier iss doch kein Kloster! Verschwinde!"
+"water" -> "Ye can water yer cow outside! this ain't no stable here!"
+"wasser" -> "Deine Kuh kannst du draussen tränken! Dies iss doch kein Stall!"
+"beer" -> "I serve the best beer of Illarion! 'Yesolt's Bockbrau', a precious dwarfish ale! And of course the fameous Don's label - 'Gulden Goldmalz'!"
+"bier" -> "Hier gibts das Beste Bier Illarions! 'Yesolt's Bockbräu', n' feines zwergisches Ale! Und natürlich das berühmte 'Gülden Goldmalz', DAS Gebräu aus dem Hause des Dons."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Hagar", "Wernson" -> "Beer or wine?", "The usual?", "Hrmpf?"
