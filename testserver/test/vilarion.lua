@@ -201,7 +201,9 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
     --    return;
     --end;
 
-    --User.effects:addEffect(LongTimeEffect(777, 30))
+    if (User.lastSpokenText == "ltelarge") then
+        User.effects:addEffect(LongTimeEffect(777, 30))
+    end
 
     --pos = User.pos
     --pos.x = pos.x + 1
@@ -319,12 +321,15 @@ end
 
 function addEffect( e, c )
     c:inform("--- effect added ---");
-    e:addValue("n",100);
+    e:addValue("n",4294967294);
 end
 
 function callEffect( e, c )
     local found, n = e:findValue("n");
     c:inform("--- effect called, n == "..n.." ---");
+    e.nextCalled = 30;
+    return true;
+--[[
     c:inform("idleTime: "..c:idleTime());
     if n>0 then
         e:addValue("n",n-1);
@@ -334,6 +339,7 @@ function callEffect( e, c )
         e:removeValue("n");
         return false;
     end;
+--]]
 end
 
 function doubleEffect( e, c )
