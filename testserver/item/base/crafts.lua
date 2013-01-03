@@ -208,10 +208,6 @@ function Craft:allowUserCrafting(user, source)
 
         if not self:isHandToolEquipped(user) then
             self:swapToInactiveItem(user)
-            return false
-        end
-
-        if source:getType() ~= 4 then
             base.common.HighInformNLS(user,
             "Du musst das Werkzeug in die Hand nehmen um damit zu arbeiten.",
             "To work with that tool you have to hold it in your hand.")
