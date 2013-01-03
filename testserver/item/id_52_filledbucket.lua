@@ -22,24 +22,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     return;
   end
   
-  -- look for bottle
-  if (User:countItemAt("all",2498)>0) then
-    base.common.InformNLS( User,
-		"Du füllst eine Flasche mit Wasser.",
-		"You fill a bottle with water." );
-    User:eraseItem(2498, 1);
-    local notCreated = User:createItem( 2496, 1, 333, nil );
-    if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-      world:createItemFromId( 2496, notCreated, User.pos, true, 333, nil );
-      base.common.InformNLS(User,
-      "Du kannst nichts mehr halten und musst die Flasche auf den Boden stellen.",
-      "You can't carry any more and you have to put the bottle on the ground.");
-    end
-    world:makeSound(10,User.pos);
-    world:swap(SourceItem, 51, 333);
-    return;
-  end
-  
   -- look for forge
   TargetItem = base.common.GetItemInArea(User.pos, 2835, 1, true);
   if (TargetItem ~= nil) then
@@ -48,7 +30,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     base.common.InformNLS(User,
     "Du löschst das Feuer in der Esse.",
     "You extinguish the fire in the forge.");
-    world:swap(SourceItem, 51, 333);
+    world:gfx(11,TargetItem.pos)
+	CreateEmptyBucket(User, SourceItem,1)
     return;
   end
   
@@ -77,7 +60,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
       "Du löschst das Feuer.",
       "You extinguish the fire.");
     end
-    world:swap(SourceItem, 51, 333);
+    world:gfx(11,TargetItem.pos)
+	CreateEmptyBucket(User, SourceItem,1)
     return;
   end
   
@@ -92,12 +76,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         "Du schüttest das Wasser über die Person vor dir.",
         "You pour the water on the person in front of you.");
         PourOnCharacter(TargetChar, SourceItem);
-        return;
+        world:gfx(11,TargetChar.pos)
+		CreateEmptyBucket(User, SourceItem,1)
+		return;
       end
     end    
   end
-  -- no person in front found. Pour on self.
-  PourOnCharacter(User, SourceItem);
+  -- nothing; we empty all buckets
+  CreateEmptyBucket(User, SourceItem, SourceItem.number)
 end
 
 function PourOnCharacter (TargetCharacter, SourceItem )
@@ -163,11 +149,20 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		cauldron:setData("filledWith","water")
 		cauldron.id = 1010
     end
-
+    CreateEmptyBucket(User, SourceItem, 1)
 	world:changeItem(cauldron)
-	SourceItem.id = 51
-	SourceItem.quality = 333
-	world:changeItem(SourceItem)
+end
+
+function CreateEmptyBucket(User, SourceItem,amount)
+    if SourceItem.number > 1 then
+	    world:erase(SourceItem,amount)
+		local notCreated=User:createItem(51,amount,333,nil)
+		world:createItemFromId(51,amount,User.pos,true,333,nil)
+	else	
+		SourceItem.id = 51
+		SourceItem.quality = 333
+		world:changeItem(SourceItem)
+	end
 end
 
 function GetCauldron(User)

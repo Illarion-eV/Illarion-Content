@@ -22,6 +22,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     return;
   end
   
+  local foundSource
   -- check for well or fountain
   TargetItem = base.common.GetItemInArea(User.pos, 2207);
   if (TargetItem == nil) then
@@ -34,8 +35,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
       base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
     end
-    FillBucket(User, SourceItem);
-    return;
+    foundSource=true
   end
   
   -- check for water tile
@@ -44,26 +44,34 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if not base.common.IsLookingAt( User, targetPos ) then -- check looking direction
       base.common.TurnTo( User, targetPos ); -- turn if necessary
     end
-    FillBucket(User, SourceItem);
-    return;
+    foundSource=true
   end
   
-  -- nothing found to fill the bucket.
-  base.common.InformNLS(User, 
-  "Du kannst den Eimer an einem Brunnen oder an einem Gewässer füllen.", 
-  "You can fill the bucket at a well or at some waters.");
-end
-
--- common bucket filling function
-function FillBucket( User, SourceItem )
-  if base.common.FitForWork( User ) then
-    SourceItem.id = 52;
-    world:changeItem(SourceItem);
-    base.common.GetHungry( User, 100 );
-    base.common.InformNLS(User, 
-    "Du füllst den Eimer mit Wasser.", 
-    "You fill the bucket with water.");
-  end
+   if not foundSource then
+	  -- nothing found to fill the bucket.
+	  base.common.InformNLS(User, 
+	  "Du kannst den Eimer an einem Brunnen oder an einem Gewässer füllen.", 
+	  "You can fill the bucket at a well or at some waters.");
+      return
+	end
+	    
+    if ( ltstate == Action.none ) then 
+		User:startAction( 20, 21, 5, 0, 25);
+		User:talkLanguage( Character.say, Player.german, "#me beginnt Eimer zu befüllen.");
+		User:talkLanguage( Character.say, Player.english, "#me starts to fill buckets."); 
+		return
+	end
+	
+	local notCreated = User:createItem( 52, 1, 333, nil ); -- create the new produced items
+	world:erase(SourceItem,1)
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( 52, notCreated, User.pos, true, 333, nil );
+		base.common.HighInformNLS(User,
+		"Du kannst nichts mehr halten.",
+		"You can't carry any more.");
+	else -- character can still carry something
+		User:startAction( 20, 21, 5, 0, 25);
+	end
 end
 
 function FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
@@ -92,9 +100,16 @@ function FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	TargetItem.id = 1008
 	TargetItem:setData("filledWith","")
 	world:changeItem(TargetItem)
-    SourceItem.id = 52
-    SourceItem.quality = 333
-	world:changeItem(SourceItem)
+    
+	if SourceItem.number > 1 then
+	    world:erase(SourceItem,1)
+		local notCreated=User:createItem(52,1,333,nil)
+		world:createItemFromId(52,1,User.pos,true,333,nil)
+	else	
+		SourceItem.id = 52
+		SourceItem.quality = 333
+		world:changeItem(SourceItem)
+	end	
 end
 
 -- returns a cauldron filled with water if one is found next to the user.
