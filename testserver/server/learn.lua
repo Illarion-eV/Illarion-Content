@@ -54,8 +54,7 @@ function learn(user, skill, actionPoints, learnLimit)
      			    user:increaseMinorSkill(skill,realIncrease); --this is why we do all this grinding!
 					
 					if user:getType() == 0 then --Only players get informs and swirlies! Strangely, monsters also learn, but meh.
-					
-
+					-- Looks like the client handles such stuff now...
                     end						
 		        end
 			

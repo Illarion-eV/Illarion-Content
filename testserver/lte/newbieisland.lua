@@ -57,7 +57,7 @@ function callEffect(newbieEffect,Character)
 
 	        --Station 1: Henry Cunnigan teaches how to talk to NPCs		
 	        if Character:getQuestProgress(309) < 2 and Character:isInRangeToPosition(position(37, 21, 100),7) then -- the char should walk to a specific postion (see: triggerfield/noobia_henry)
-		        base.common.TempInformNLS(Character,"[Tutorial] Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke auf ein Feld neben dem Menschen und halte die linke Maustaste gedrückt. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen.","[Tutorial] To start the tutorial, please walk to the human at the end of the pier. To move, click and hold with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD.");
+		        base.common.InformNLS(Character,"[Tutorial] Gehe zum Menschen am Ende des Piers um mit dem Tutorial zu beginnen. Klicke auf ein Feld neben dem Menschen und halte die linke Maustaste gedrückt. Alternativ kannst du deinen Charakter auch mit WASD, dem Ziffernblock oder den Pfeiltasten bewegen.","[Tutorial] To start the tutorial, please walk to the human at the end of the pier. To move, click and hold with the left mouse button on a spot close to the human. Alternatively, you can walk using the num pad, the arrow keys or WASD.");
 	        end 
 
 		else --General help
@@ -68,7 +68,7 @@ function callEffect(newbieEffect,Character)
 				messageCount = 1;
 			end	
 			
-			base.common.TempInformNLS(Character,""..ListCycleMessageGerman[messageCount],""..ListCycleMessageEnglish[messageCount]);   
+			base.common.InformNLS(Character,""..ListCycleMessageGerman[messageCount],""..ListCycleMessageEnglish[messageCount]);   
 			
 			messageCount = messageCount + 1;
 			
