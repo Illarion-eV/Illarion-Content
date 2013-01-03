@@ -1,8 +1,8 @@
 ------------------------------------------------------------------------------AC
--- NPC Name: Torina Scibrim                                         Runewick --
+-- NPC Name: Torina Scibrim                                          Runewick --
 -- NPC Job:  Notary                                                           --
 --                                                                            --
--- NPC Race: human                      NPC Position: 899, 776, 1            --
+-- NPC Race: human                      NPC Position:  899, 776, 1            --
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Ardian                                                           --
@@ -12,7 +12,7 @@
 name = "Torina Scibrim"
 race = human
 sex = female
-position = 899,776,1
+position = 899, 776, 1
 direction = south
 affiliation = "Runewick"
 job = "Notary"
@@ -53,35 +53,117 @@ itemShoes = 326
 -- When you are done, please hit the "Rebuild Script" button.
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Torina Scibrim the notary. Keywords: 'become citizen'.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Bürger werden'.")
+"Help" -> inform("[Game Help] This NPC is Torina Scibrim the notary. Keywords: 'become citizen', 'leave', 'give up citizenship', 'rank'.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Torina Scibrim die Notarin. Schlüsselwörter: 'Bürger werden', 'verlassen', 'beende Bürgerstatus','Rang'.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted.", "Greetings.", "Good day."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tag."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted.", "Greetings.", "Good day."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Zum Gruße.", "Seid gegrüßt.", "Guten Tag."
-"Farewell", "Bye", "Fare well", "See you" -> "Malachin with you.", "Farewell.", "Goodbye."
-"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Malachin mit Euch.", "Auf bald.", "Bis bald."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin with you.", "Farewell.", "Goodbye."
-"Ciao", "Adieu", "Au revoir", "Farebba" -> "Malachin mit Euch.", "Auf bald.", "Bis bald."
+"Farewell", "Bye", "Fare well", "See you" -> "Zhambra with you.", "Farewell.", "Goodbye."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Zhambra mit Euch.", "Auf bald.", "Bis bald."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Zhambra with you.", "Farewell.", "Goodbye."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Zhambra mit Euch.", "Auf bald.", "Bis bald."
 "How are you", "How feel", "How do you do" -> "I'm fine, thank you for your concern.", "I can't complain, even if some more action wouldn't be that bad.", "Very good, and you?"
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage.", "Ich kann nicht klagen, auch wenn ein bisschen mehr Abenteuer mal wieder nicht schlecht wäre.", "Ganz gut, und Euch?"
 "your name", "who are you", "who art thou" -> "My name is Torina Scibrim, I take care of the new arrivals of this place.", "I'm Torina Scibrim, I am the notary of Runewick.", "You can call me Torina Scibrim, as notary of this town I could put you on the citizen list of this beautiful place."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Torina Scibrim, ich kümmere mich um die Neuankömmlinge dieses Ortes.", "Mein Name ist Torina Scibrim, ich bin die Notarin Runewicks.", "Man nennt mich Torina Scibrim, als Notarin kann Ich Euch zum Bürger unseres schönen Ortes eintragen."
 
 -- Becoming citizen in Runewick
-english, town = Cadomyr,  "become citizen", "gain citizenship" -> town = Runewick, "You are now a citizen of Runewick", "Welcome to Runewick!"
-town = Cadomyr,  "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Du bist jetzt Bürger von Runewick", "Willkommen in Runewick!"
-english, town = Galmair,  "become citizen", "gain citizenship" -> town = Runewick, "You are now a citizen of Runewick", "Welcome to Runewick!"
-town = Galmair,  "Bürger werden","Bürgerschaft beantragen" -> town = Runewick, "Du bist jetzt Bürger von Runewick", "Willkommen in Runewick!"
+english, town = Cadomyr, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
+town = Cadomyr, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
+english, town = Galmair, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
+town = Galmair, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
+english, town = None, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
+town = None, "Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
+english, "become citizen", "gain citizenship" -> town = Runewick, "Let me prepare the documents...", "Welcome to Runewick!"
+"Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Lasst mich die Urkunde vorbereiten...", "Willkommen in Runewick!"
+
+-- Player is already citizen
 english, town = Runewick, "become citizen", "gain citizenship" -> "Ehm...you are already a citizen of Runewick. Didn't you know?"
-town = Runewick, "Bürger werden","Bürgerschaft beantragen" -> "Ehm... ihr seid schon Bürger in Runewick. Wusstet Ihr das nicht?"
-english, "become citizen", "gain citizenship" -> town = Runewick, "You are now a citizen of Runewick", "Welcome to Runewick!"
-"Bürger werden", "Bürgerschaft beantragen" -> town = Runewick, "Ihr seid jetzt Bürger von Runewick", "Willkommen in Runewick!"
+town = Runewick, "Bürger werden", "Bürgerschaft beantragen" -> "Ehm... Ihr seid schon Bürger in Runewick. Wusstet Ihr das nicht?"
+
+-- leaving Runewick (207)
+english, town = Runewick, "give up citizenship", "terminating citizen ship", "leave", "leaving" -> queststatus(207) = 1, "So, you realy want to leave Runewick and live elsewhere? Are you sure?"
+town = Runewick, "beende Bürgerstatus", "verlassen", "verlasse", "annuliere" -> queststatus(207) = 1, "So, ihr möchtet Runwick wirklich verlassen und woanders leben? Seid Ihr sicher?"
+
+-- answer "yes"
+queststatus(207) = 1, english, "yes" -> queststatus(207) = 0, town = None, "You are no longer a citizen of Runewick. Fare well."
+queststatus(207) = 1, "ja" -> queststatus(207) = 0, town = None, "Nun seid Ihr nicht länger Bürger Runewicks. Auf bald."
+
+-- answer "no"
+queststatus(207) = 1, english, ".*" -> queststatus(207) = 0, "Ah, good. You stay here, a wise decision."
+queststatus(207) = 1, ".*" -> queststatus(207) = 0, "Ah, gut. Ihr bleibt hier, eine weise Entscheidung."
+
+-- Test Question
+"welche Stadt", "Fraktion", "reich" -> "Du gehörst nach %TOWN!"
+"which town", "faction", "realm" -> "You belong to %TOWN!"
+
+-- RANK informations
+
+-- Rank 10
+rank > 9, english, town = Runewick, sex = male, "rank" -> "Ah! Rector %CHARNAME, be welcome, Sir. Is is truly a honour to see you!"
+rank > 9, english, town = Runewick, sex = female, "rank" -> "Ah! Rector %CHARNAME, be welcome, Madam. Is is truly a honour to see you!"
+rank > 9, town = Runewick, sex = male, "rang" -> "Ah! Rekor %CHARNAME! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
+rank > 9, town = Runewick, sex = female, "rang" -> "Ah! Rektorin %CHARNAME! seid willkommen. Wahrhaftig es ist eine Ehre Euch zu sehen."
+
+-- Rank 9
+rank > 8, english, town = Runewick, sex = male, "rank" -> "Dean, be welcome. Is is a honour to see you."
+rank > 8, english, town = Runewick, sex = female, "rank" -> "Dean, be welcome. Is is a honour to see you."
+rank > 8, town = Runewick, sex = male, "rang" -> "Dekan, seid willkommen. Welch eine Ehre Euch zu sehen."
+rank > 8, town = Runewick, sex = female, "rang" -> "Dekanin, seid wilokmmen.Welch eine Ehre Euch zu sehen."
+
+-- Rank 8
+rank > 7, english, town = Runewick, sex = male, "rank" -> "Oh! Professor %CHARNAME! How can I help you?"
+rank > 7, english, town = Runewick, sex = female, "rank" -> "Oh! Professor %CHARNAME! How can I help you?"
+rank > 7, town = Runewick, sex = male, "rang" -> "Oh! Professor %CHARNAME! Was kann ich für Euch tun?"
+rank > 7, town = Runewick, sex = female, "rang" -> "Oh! Professorin %CHARNAME! Was kann ich für Euch tun?"
+
+-- Rank 7
+rank > 6, english, town = Runewick, sex = male, "rank" -> "Good to see you, docent %CHARNAME! How are you?"
+rank > 6, english, town = Runewick, sex = female, "rank" -> " Good to see you, docent %CHARNAME! How are you?"
+rank > 6, town = Runewick, sex = male, "rang" -> "Schön Euch zu sehen, Dozent %CHARNAME! Wie geht es Euch?"
+rank > 6, town = Runewick, sex = female, "rang" -> " Schön euch zu sehen, Dozentin %CHARNAME! Wie geht es Euch?"
+
+-- Rank 6
+rank > 5, english, town = Runewick, sex = male, "rank" -> "Greetings to you, doctor %CHARNAME!"
+rank > 5, english, town = Runewick, sex = female, "rank" -> "Greetings to you, doctor %CHARNAME!"
+rank > 5, town = Runewick, sex = male, "rang" -> "Seid gegrüß, Doktor %CHARNAME!"
+rank > 5, town = Runewick, sex = female, "rang" -> "Seid gegrüßt, Doktorin %CHARNAME!"
+
+-- Rank 5
+rank > 4, english, town = Runewick, sex = male, "rank" -> "Greetings to you, master!"
+rank > 4, english, town = Runewick, sex = female, "rank" -> "Greetings to you, master!"
+rank > 4, town = Runewick, sex = male, "rang" -> "Seid gegrüßt, Magister !"
+rank > 4, town = Runewick, sex = female, "rang" -> "Seid gegrüßt, Magister!"
+
+-- Rank 4
+rank > 3, english, town = Runewick, sex = male, "rank" -> "Scholar, how are you today?"
+rank > 3, english, town = Runewick, sex = female, "rank" -> " Scholar, how are you today?"
+rank > 3, town = Runewick, sex = male, "rang" -> "Gelehrter, wie geht es Euch?"
+rank > 3, town = Runewick, sex = female, "rang" -> "Gelehrte, wie geht es Euch?"
+
+-- Rank 3
+rank > 2, english, town = Runewick, sex = male, "rank" -> "Student, what are you here for? Do you need help?"
+rank > 2, english, town = Runewick, sex = female, "rank" -> "Student, what are you here for? Do you need help?"
+rank > 2, town = Runewick, sex = male, "rang" -> "Student, was führt dich zu mir? Brauchst du Hilfe?"
+rank > 2, town = Runewick, sex = female, "rang" -> "Studentin, was dich Euch zu mir? Brauchst du Hilfe?"
+
+-- Rank 2
+rank > 1, english, town = Runewick, sex = male, "rank" -> "You are an assistat. Please set a good example for the novices."
+rank > 1, english, town = Runewick, sex = female, "rank" -> "You are an assistant. Please set a good example for the novices."
+rank > 1, town = Runewick, sex = male, "rang" -> "Du bist ein Anwärter. Bitte sei ein gutes Beispiel für die Novizen."
+rank > 1, town = Runewick, sex = female, "rang" -> "Du bist eine Anwärterin. Bitte sei ein gutes Beispiel für die Novizen."
+
+-- Rank 1
+rank > 0, english, town = Runewick, sex = male, "rank" -> "You are new here. You are not well known. Feel free to stay in Runewick and gain more knowledge, novice!"
+rank > 0, english, town = Runewick, sex = female, "rank" -> "You are new here. You are not well known.  Feel free to stay in Runewick and gain more knowledge, novice!"
+rank > 0, town = Runewick, sex = male, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Sei so frei und bleibe in Runewick um mehr zu lernen, Novize!"
+rank > 0, town = Runewick, sex = female, "rang" -> "Du bist noch ganz neu hier. Dich kennt kaum jemand. Sei so frei und bleibe in Runewick um mehr zu lernen, Novizin!"
 
 -- Catching quest triggers. Modify if the NPC does quests.
-english, "quest", "mission" -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I have already everything I need."
+english, "quest", "mission" -> "At the moment I have everything, but thanks for asking.", "Maybe another time, I already have everything I need."
 "quest", "mission" -> "Derzeit habe ich alles, aber danke für Eure Sorge.", "Vielleicht ein anderes mal, derzeit habe ich alles was ich brauche."
 "task", "adventure", "order" -> "I have no tasks for you right now, maybe another time."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe derzeit keine Aufgaben für Euch, vielleicht aber wann anders."
@@ -97,25 +179,25 @@ english, "Gobaith", "Gobiath" -> "Never heard of that. Is it something to eat?"
 "mein Name" -> "Ich freue mich Euch kennenzulernen."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "He's the best mage in Runewick.", "I head he likes drinking tea."
-"Erzmagier" -> "Er ist der beste Magier in Runewick.", "Ich hörte sagen, dass er gern Tee trinkt."
-english, "Elvaine", "Morgan" -> "He's the best mage in Runewick.", "I head he likes drinking tea."
-"Elvaine", "Morgan" -> "Er ist der beste Magier in Runewick.", "Ich hörte sagen, dass er gern Tee trinkt."
-english, "Runewick" -> "We people of Runewick think of wisdom as more important than honour.", "That's there the Achmage lives, of couse!"
+"archmage" -> "He's the best mage in Runewick.", "I heard he likes drinking tea."
+"Erzmagier" -> "Er ist der beste Magier in Runewick.", "Ich hörte, dass er gerne Tee trinkt."
+english, "Elvaine", "Morgan" -> "He's the best mage in Runewick.", "I heard he likes drinking tea."
+"Elvaine", "Morgan" -> "Er ist der beste Magier in Runewick.", "Ich hörte, dass er gerne Tee trinkt."
+english, "Runewick" -> "We people of Runewick think wisdom is more important than honour.", "That's where the Achmage lives, of couse!"
 "Runewick" -> "Wir Leute von Runewick halten Wissen für wertvoller als Ehre.", "Selbstverständlich ist dies der Ort wo der Erzmagier lebt."
-english, "Valerio", "Guilianni", "Don" -> "Go to Galmair, if you want to see him!", "He's the greedy Lord of Galmair."
-"Valerio", "Guilianni", "Don" -> "Geht nach Galmair, wenn Ihr den sehen wollt!", "Das ist der gierige Herrscher von Galmair."
+english, "Valerio", "Guilianni", "Don" -> "Go to Galmair, if you want to see him!", "He's the greedy don of Galmair."
+"Valerio", "Guilianni", "Don" -> "Geht nach Galmair, wenn Ihr den sehen wollt!", "Das ist der gierige Don von Galmair."
 english, "Galmair" -> "In Galmair only wealth and money is important.", "There is also a notary in Galmair, just like in every city."
 "Galmair" -> "In Galmair zählt nur Reichtum und Geld.", "Es gibt auch in Galmair einen Notar, so wie in jeder Stadt."
 "Queen" -> "You want to see a real queen? Go to Cadomyr!"
 "Königin" -> "Ihr wollt eine echte Königin sehen? Geht nach Cadomyr!"
-english, "rosaline", "edwards" -> "Does she live in Runewick? I think I've head that name before."
+english, "rosaline", "edwards" -> "Does she live in Runewick? I think I've heard that name before."
 "rosaline", "edwards" -> "Lebt die in Runewick? I denke, ich habe den Namen schon mal gehört."
 english, "Cadomyr" -> "Cadomyr is quite a hot place. Especially if you like knights."
 "Cadomyr" -> "Cadomyr ist schon sehenswert, besonders wenn Ihr Ritter mögt."
 
 -- Main land factions
-english, "albar" -> "Albar is a nice country. But oder is important there."
+english, "albar" -> "Albar is a nice country. But order is important there."
 "albar" -> "Albar ist ein schönes Land. Aber dort herrscht Ordnung."
 english, "gynk", "gync" -> "Gync isn't the best place to grow up. It's a dirty place, just like Galmair.", "I've never been to Gync, I don't think I'd like it there."
 "gync", "gynk" -> "Gynk ist nicht der beste Ort wo man aufzuwachsen kann. Es ist ein dreckiger Ort, genau wie Galmair.", "Ich war noch nie in Gynk, I denke dort würde es mir nicht gefallen."
@@ -123,17 +205,17 @@ english, "salkama" -> "Salkamar is a nice place. It's sunny there.", "I've never
 "salkama" -> "Salkamar ist ein schöner Ort. Dort ist es recht sonnig.", "Ich war noch nie in Salkamar, ich glaube dieser Ort liegt am Meer."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "The month were named after the 16 Gods, we should name one month after the arch mage!", "I pray to Zhambra. To which god do you pray?"
+"god" -> "The month were named after the 16 Gods, we should name one month after the archmage!", "I pray to Zhambra. To which god do you pray?"
 "Gott", "Götter" -> "Nach den 16 Göttern wurden die Monate des Jahres benannt. Wir sollten einem Monat nach dem Erzmagier benennen!", "Ich bete zu Zhambar. Zu welchem Gott betet Ihr?"
 english, "Adron" -> "I don't worship this god."
-"Adron" -> "I don't worship this god."
+"Adron" -> "Ich verehre diesen Gott nicht."
 english, "Bragon", "Brágon" -> "I don't worship this god."
 "Bragon", "Brágon" -> "Ich verehre diesen Gott nicht."
 english, "Cherga" -> "I don't worship this god."
 "Cherga" -> "Ich verehre diesen Gott nicht."
-english, "Elara" -> "I don't worship this god.", "Some people pay to her."
+english, "Elara" -> "I don't worship this god.", "Some people pray to her."
 "Elara" -> "Ich verehre diesen Gott nicht.", "Einige Leute beten zu ihm."
-english, "Eldan" -> "I don't worship this god.", "Some people pay to him."
+english, "Eldan" -> "I don't worship this god.", "Some people pray to him."
 "Eldan" -> "Ich verehre diesen Gott nicht.", "Einige Leute beten zu ihm."
 english, "Findari" -> "I don't worship this god."
 "Findari" -> "Ich verehre diesen Gott nicht."
@@ -156,13 +238,13 @@ english, "Tanora", "Zelphia" -> "I don't worship this god."
 english, "Ushara" -> "I don't worship this god."
 "Ushara" -> "Ich verehre diesen Gott nicht."
 english, "Zhambra" -> "Pray to Zhambar, so he'll protect your friends during battle."
-"Zhambra" -> "Betet zu Zhambar damit er eure Freunde im Kampf schützt."
+"Zhambra" -> "Betet zu Zhambra damit er eure Freunde im Kampf schützt."
 
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I'm a notary.", "I do not sell anything."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin eine Notarin.", "Ich verkaufe nichts."
 "tell something" -> "I'm busy working, sorry. You should talk to someone else if you're in search of a nice conversation."
-"erzähl was", "erzähl etwas" -> "Es tut mir leid, ich bin gerade beschäftigt.Ihr sollte mit jemand anderem reden, wenn Euch der Sinn nach einer netten Plauerdei steht."
+"erzähl was", "erzähl etwas" -> "Es tut mir leid, ich bin gerade beschäftigt. Ihr sollte mit jemand anderem reden, wenn Euch der Sinn nach einer netten Plauderei steht."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Torina", "Scibrim" -> "Did I hear someone call my name? How can I help you?", "Yes? That's me!"
@@ -180,5 +262,5 @@ english, "Torina", "Scibrim" -> "Did I hear someone call my name? How can I help
 cycletext "#me blättert durch einen Stapel Pergamente.", "#me skims through a pile of parchments."
 cycletext "#me betrachtet die Schreibfeder in ihrer Hand.", "#me looks at the quill, she's holding in her hand."
 cycletext "#me liest einen Brief.", "#me reads a letter."
-cycletext "#me summt leise eine Melodie.", "#me hums a little melodie silently."
+cycletext "#me summt leise eine Melodie.", "#me hums a little melody."
 cycletext "#me bringt ein Siegel unter einem Brief an.", "#me affixes a seal under a letter."

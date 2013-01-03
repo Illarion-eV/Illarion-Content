@@ -1,0 +1,145 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Pheritaleth                                              Cadomyr --
+-- NPC Job:  Magical Blacksmith                                               --
+--                                                                            --
+-- NPC Race: elf                        NPC Position:  111, 599, 0            --
+-- NPC Sex:  female                     NPC Direction: south                  --
+--                                                                            --
+-- Author:   Estralis Seborian                                                --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Pheritaleth"
+race = elf
+sex = female
+position = 111, 599, 0
+direction = south
+affiliation = "Cadomyr"
+job = "Magical Blacksmith"
+
+language = common
+language = elf
+defaultLanguage = common
+autointroduce = on
+
+author = "Estralis Seborian"
+
+lookatDE = "Dieser NPC ist Pheritaleth die Zauberschmiedin."
+lookatUS = "This NPC is Pheritaleth the magical blacksmith."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 8
+beardID = 0
+colorHair = 255, 236, 139
+colorSkin = 245, 180, 137
+itemHead = 465
+itemChest = 805
+itemCoat = 0
+itemMainHand = 122
+itemSecondHand = 0
+itemHands = 2295
+itemTrousers = 0
+itemShoes = 369
+
+-- Template Version 1.08, 10/18/2012 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Pheritaleth the magical blacksmith. Keywords: Be greeted, gemcraft, profession, gems.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Pheritaleth die Zauberschmiedin. Schlüsselwörter: Seid gegrüßt, Vereinigung, Beruf, Edelsteine.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "I foretell that you did not come to me to chat about inane things. We should strictly get to business, mine is transmuting gems."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ich nehme an, ihr seid nicht zu mir gekommen um über Unwichtiges Gewäsch zu reden. Lasst uns zur Sache kommen, mein Geschäft ist das Vereinen von Edelsteinen."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "I foretell that you did not come to me to chat about inane things. We should strictly get to business, mine is gems."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Ich nehme an, ihr seid nicht zu mir gekommen um über Unwichtiges Gewäsch zu reden. Lasst uns zur Sache kommen, mein Geschäft ist das Vereinen von Edelsteinen."
+"Farewell", "Bye", "Fare well", "See you" -> "Happy mining.", "Farewell."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Viel Spaß in der Mine.", "Gehabt euch wohl."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Happy mining.", "Farewell."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Viel Spaß in der Mine.", "Gehabt euch wohl."
+"How are you", "How feel", "How do you do" -> "Fine! Let's talk about gems."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut. Nun lasst uns über Edelsteine reden."
+"your name", "who are you", "who art thou" -> "They call me Pheritaleth and I am skilled in gemcraft."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich werde Pheritaleth genannt und bin eine Edelsteinkünstlerin."
+
+-- OPTIONAL TRIGGERS
+
+-- Gemcraft
+"gemcraft", "transmute", "combine", "enchant" -> "Let me take a look at your gems...", gemcraft
+"verwandel", "verein", "kombinier", "verzauber" -> "Dann lasst mal eure Edelsteine sehen...", gemcraft
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "My profession is to transmute magical gems. I have several aeons of experience, so do not question my expertise."
+"beruf" -> "Mein Beruf ist es, magische Edelsteine zu vereinen. Ich habe mehrere Zeitalter an Erfahrung, also stellt meine Kompetenz nicht in Frage."
+english, "job" -> "My profession is to transmute magical gems. I have several aeons of experience, so do not question my expertise."
+"job" -> "Mein Beruf ist es, magische Edelsteine zu vereinen. Ich habe mehrere Zeitalter an Erfahrung, also stellt meine Kompetenz nicht in Frage."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"gem" -> "I know a lot about all the gems. Just throw in a keyword!"
+english, "Amethyst" -> "Amethysts are the the clubs among the gems. Their beauty is rather brute but true."
+"Ruby" -> "Some say, rubies were made of Brágon's fire, but I know better why they are so red..."
+english, "Obsidian" -> "The obsidian is known for its role in dark rituals, but keep in mind that evil deeds are done by evil men, not by gems."
+"Sapphire" -> "Those who don't know any better see a connection between sapphires and Tanora. How did I laught when I first heard that rumor!"
+"Emerald" -> "Emeralds are the gems many people forgot about; I never heard obscure theories about their origin."
+"Topaz" -> "I keep wondering why some people search for topazes at the shores. You could as well wait for them to drop from the sky."
+"Diamond" -> "The diamond is the king among the gems. They are extremely rare and powerful."
+"Edelstein" -> "Ich weiß eine Menge über die Edelsteine. Gebt mir einfach ein Stichwort!"
+"Amethyst" -> "Die Amethysten sind die Knüppel unter den Edelsteinen. Ihre Schönheit ist von roher, aber natürlicher Art."
+"Rubin" -> "Manche glauben, Rubine wurden aus Brágons Feuer geschaffen, aber ich weiß, warum sie wirklich so rot sind..."
+"Obsidian" -> "Der Obsidian ist dafür bekannt, in dunklen Ritualen Verwendung zu finden. Denkt aber immer daran, dass diejenigen böse sind, die Böses tun, und nicht die Edelsteine."
+"Saphir" -> "Die Unwissenden denken, Tanora hötte etwas mit den Saphiren zu tun. Wie habe ich gelacht, als ich diesen Quatsch das erste mal gehört habe."
+"Smaragd" -> "Viele haben vergessen, dass es Smaragde überhaupt gibt. Ich habe noch keine schwachsinnigen Theorien über ihre Herkunft gehört."
+"Topaz" -> "Ich wundere mich immer wieder darüber, warum die Leute Topase an der Küste suchen. Genausogut könnte man darauf warten, dass sie einem auf den Kopf fallen."
+"Diamant" -> "Die Diamanten sind die Könige der Edelsteine. Sie sind äußerst selten und mächtig."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god", "faith" -> "The Eleven are just rascals. Only the Five have true power."
+"Gott", "Götter", "Glaube" -> "Die Elf sind einfach nur ein paar Bengel. Die wahre Macht ist den Fünf zu eigen."
+english, "religion" -> "The Eleven are just rascals. Only the Five have true power."
+"religion" -> "Die Elf sind einfach nur ein paar Bengel. Die wahre Macht ist den Fünf zu eigen."
+english, "Irmorom" -> "So, you assume my art is a craft and I should pray to Irmorom? Shall I laugh or shall I cry?"
+"Irmorom" -> "Ah, ihr glaubt also, meine Kunst ist ein Handwerk und ich sollte zu Irmorom beten? Soll ich jetzt lachen oder weinen?"
+english, "Ushara" -> "Ushara granted us the gems long ago, even for my kin. Hail her!"
+"Ushara" -> "Ushara vermachte uns vor selbst für mein Volk langer Zeit die Edelsteine. Huldigt ihr!"
+
+-- Optional: Faction stuff
+"Queen" -> "Her majesty is the current monarch. Let us wait some decades and another short lived human will take her place."
+"Königin" -> "Ihre Majestät ist gerade die Monarchin. Lasst uns ein paar Jahrzehnte warten und irgendein anderer kurzlebiger Mensch hat ihren Platz eingenommen."
+english, "rosaline", "edwards" -> "Her majesty is the current monarch. Let us wait some decades and another short lived human will take her place."
+"rosaline", "edwards" -> "Ihre Majestät ist gerade die Monarchin. Lasst uns ein paar Jahrzehnte warten und irgendein anderer kurzlebiger Mensch hat ihren Platz eingenommen."
+english, "Cadomyr" -> "Cadomyr is quite a gemstone itself. It sparkles in the morning sun, might be because of the dew."
+"Cadomyr" -> "Cadomyr ist selbst ein Edelstein. Es schimmert in der Morgensonne, könnte am Tau liegen."
+
+-- Optional: Gobaith
+english, "Gobaith", "Gobiath" -> "Anger."
+"Gobaith", "Gobiath" -> "Wut."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Meine Vorfahren haben schon Edelsteine geschliffen als euer Stamm noch nicht mal gegründet war.", "My ancestors cut gems back when your tribe was not even founded."
+cycletext "Manche werden nie verstehen, welche Macht die Edelsteine haben und sie für einfache Klunker halten.", "Some people will never understand the power of gems and regard them just rocks."
+cycletext "Wenn ihr nach Tand sucht, geht zu Jacobus, dem Juwelier.", "If you need ordinary bling-bling, go to Jacobus, the lapidary."
+cycletext "In jedem Edelstein liegt wahre Macht.", "True magic lies within every gem."
+cycletext "Schaut, wie dieser hier funkelt.", "Look at it, it is sparkeling."
+cycletext "Funkel wie ein Diamant.", "Shine bright like a diamond."
+cycletext "Wenn ein Mann sagt, dass die Augen einer Frau wie Edelsteine strahlen, meint er damit, dass er ihr sie rausschneiden möchte?", "If a man says that a woman's eyes look like gemstones, does he imply that he wants to cut them out of her face?"
+cycletext "Zwerge lieben Granit, Elfen lieben Edelsteine.", "Dwarves love granite, elves love gemstones."
+cycletext "Diamanten sind die besten Freunde einer Elfin.", "Diamonds are an elf's best friend."
+cycletext "Habt ihr Edelsteine?", "Got gems?"

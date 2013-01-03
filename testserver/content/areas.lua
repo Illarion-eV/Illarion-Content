@@ -27,6 +27,9 @@ function Init()
   AddArea("galmair guard 1", {
     {{position(416,247,0),position(413,247,0),position(413,252,0),position(416,252,0)}, {0}}
   });
+  AddArea("galmair guard 2", {
+    {{position(388,332,0),position(382,332,0),position(382,327,0),position(388,327,0)}, {0}}
+  });
   AddArea("runewick guard 1", {
     {{position(839,825,0),position(839,819,0),position(846,819,0),position(846,825,0)}, {0}}
   });
@@ -53,6 +56,9 @@ end
 -- @param string The name of the area
 -- @return boolean True if point is in area with areaName
 function PointInArea(point, areaName)
+	if not AreaList then
+		Init();
+	end
 	if not AreaList[areaName] then
 		debug("Area does not exist.");
 		return false;

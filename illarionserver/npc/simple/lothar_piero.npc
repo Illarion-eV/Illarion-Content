@@ -1,0 +1,191 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Lothar Piero                                                None --
+-- NPC Job:  trader                                                           --
+--                                                                            --
+-- NPC Race: halfling                   NPC Position:  896, 816, 1            --
+-- NPC Sex:  male                       NPC Direction: east                   --
+--                                                                            --
+-- Authors:  Rincewind                                                        --
+--           Estralis Seborian                                                --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Lothar Piero"
+race = halfling
+sex = male
+position = 896, 816, 1
+direction = east
+affiliation = "None"
+job = "trader"
+
+language = common
+language = halfling
+defaultLanguage = common
+autointroduce = on
+
+author = "Rincewind"
+author = "Estralis Seborian"
+
+lookatDE = "Dieser NPC ist Lothar Piero der Holzhändler."
+lookatUS = "This NPC is Lothar Piero the timber merchant."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+radius = 0
+hairID = 1
+beardID = 0
+colorHair = 192, 107, 5
+colorSkin = 232, 188, 146
+itemHead = 0
+itemChest = 365
+itemCoat = 195
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 459
+itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 9, 74, 2709, 2715, 2752, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 2193, 2194, 2935, 2952, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 3, 56, 543, 544, 2560, 2786, 39, 40, 57, 76, 207, 208, 209, 90, 332, 333, 335, 323, 2782, 2783, 2784, 2785
+buyPrimaryItems = 9, 74, 2709, 2715, 2752, 64, 237, 322, 1266, 545, 546, 2543, 2716, 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780, 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585, 2193, 2194, 2935, 2952, 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448, 3, 56, 543, 544, 2560, 2786, 39, 40, 57, 76, 207, 208, 209, 90, 332, 333, 335, 323, 2782, 2783, 2784, 2785
+tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
+tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
+tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
+tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
+
+-- Template Version 1.02, 12/02/2010 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- NPC by Estralis Seborian
+
+-- This NPC is supposed to trade (all goods are sold and bought, percentage indicates ratio of price bought/sold):
+
+-- 10% Tools (Carpenter/Lumberjack): 9, 74, 2709, 2715, 2752
+-- 10% Ammo: 64, 237, 322, 1266
+-- 10% Boards: 545, 546, 2543, 2716
+-- 10% Distance weapons: 65, 70, 89, 2646, 2685, 2708, 2714, 2718, 2723, 2727, 2780
+-- 10% Handles: 2525, 2527, 2528, 2530, 2541, 2544, 2548, 2549, 2561, 2566, 2567, 2570, 2572, 2573, 2584, 2585
+-- 10% Wooden leg armour: 2193, 2194
+-- 10% Wooden plates: 2935, 2952
+-- 10% Shields: 17, 18, 19, 20, 95, 96, 186, 916, 917, 2284, 2388, 2439, 2445, 2447, 2448
+-- 10% Lumber: 3, 56, 543, 544, 2560, 2786
+-- 10% Staffs: 39, 40, 57, 76, 207, 208, 209
+-- 10% Instruments: 90, 332, 333, 335
+-- 10% Wands: 323, 2782, 2783, 2784, 2785
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Lothar Piero the timber merchant. Keywords: buy, sell, trade, Hello, profession, poetry, Pennymill, Archmage Morgan.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lothar Piero der Holzhändler. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Beruf, Poesie, Pfennigmühle, Erzmagier Morgan.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "May Oldra bless you. Do you need wooden goods?", "#me nods slowly: 'Wisdom and patience. How can I help you?'", "Hiho! How can I help you?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Oldra mit Euch. Benötigt Ihr hölzernes Gut?", "#me neigt seinen Kopf: 'Weisheit und Ausgeglichenheit. Wie darf ich Euch behilfich sein?'", "Hiho! Womit kann ich dienlich sein?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "May Oldra bless you. Do you need... wood?", "#me nods slowly: 'Wisdom and patience. How can I help you?'", "Hiho! How can I help you?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Das ist durchwegs salopp gesagt, aber ich bin nicht kleinlich. Seid gegrüßt.", "Ehre den Göttern, wollt ihr Bretter kaufen?", "Guten Tag. Im Namen aller Händler will ich Euch willkommen heißen."
+"Farewell", "Bye", "Fare well", "See you" -> "Sounds sloppy, but I'm not picky. Be greeted.", "Honour the gods, do you need boards?", "Good day. I welcome you on behalf of all my collegues."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen. Möge Oldra Eure Gärten und Felder hüten.", "Gehabt Euch wohl. Bis Bald.", "Adieu! Besucht mich wieder einmal."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Good bye. May Oldra bless your gardens and fields.", "Farewell and see you soon.", "Adieu! Come back anytime soon."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Möge Oldra Eure Gärten und Fälder hüten.", "Gehabt Euch wohl. Bis Bald.", "Adieu! Besucht mich wieder einmal."
+"How are you", "How feel", "How do you do" -> "Wonderful! Indeed, Oldra smiles upon me.", "Even if a cloud covers the sun, I know that it shines on my every day.", "A dark night is defeated by the sunrise."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Ausgezeichnet. Ja, Oldra blickt wohlwollend auf mich herab.", "Auch wenn hier und dort eine Wolke die Sonne verdecken mag, ich weiß, dass sie trotzdem jeden neuen Tag am Himmel stehen wird.", "So finster Euch manche Nacht erscheinen kann, die Sonne wird erwachen und alles Finstere vertreiben."
+"your name", "who are you", "who art thou" -> "My name is Lothar Piero. Welcome to the market of Runewick.", "I am Lothar Piero and I... wood.", "Boards, shields, bows, what do you desire? I am Lothar Piero and I got wood!"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Lothar Piero. Seid mir willkommen am Markt von Runewick.", "Ich bin Lothar Piero und handle mit allerlei hölzernen Gut.", "Bretter, Schilde, Bögen, was wollt Ihr wohl mögen? Ich bin Lothar Piero und handle mit Holz."
+
+-- Catching quest triggers
+english, "quest", "mission" -> "Sorry, I have no job for you."
+"quest", "mission" -> "Es tut mir Leid, ich habe keine Arbeit für Euch."
+"task", "adventure", "order" -> "Sorry, I have no job for you."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Es tut mir Leid, ich habe keine Arbeit für Euch."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "Wood is good.", "I am a merchant and thus, I trade wood. My wood makes me proud, hihi."
+"beruf" -> "Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!"
+english, "job" -> "Wood is good.", "I am a merchant and thus, I trade wood. My wood makes me proud, hihi."
+"job" -> "Ich bin Händler. Drum handle ich mit Holz, das macht mich sehr stolz. Hihi!"
+english, "Gobaith", "Gobiath" -> "Gobaith, isn't that a tiny a island in the ocean?", "Gobaith isn't important enough to attract Runewick's attention."
+"Gobaith", "Gobiath" -> "Gobaith, ist das nicht eine dieser winzigen Inseln im Splittermeer?", "Gobaith ist viel zu unwichtig, um die Aufmerksamkeit Runewicks Wert zu sein."
+"my name" -> "I am delighted. A pleasure to meet you.", "Well, I should remember that.", "Be greeted and be told: I won't betray you with my wood."
+"mein Name" -> "Sehr erfreut - sehr erfreut. Schön Euch kennen zu lernen.", "So, so? Das werde ich mir gut merken.", "Seid gegrüßt, und lasst Euch sagen, Lothar hat noch keinen Kunden übers Ohr gehauen."
+
+-- More small talk; add at least five triggers
+-- Boah, Rince, so viel Blablubb über Pennymill!? Das interessiert doch keine Nuss...
+"Pennymill" -> "The militia controls alls inns in Pennymill's harbour quarter. A halfling doesn't have to be afraid of ruffians and thugs there.", "The streets of Pennymill are illuminated with thick candles. No shadow is cast where evil might lurk.", "During the night, the gates of Pennymill are closed so you can only walk from quarter to quarter. That's much more save this way!", "Pennymill's farmer's daughters have the most huge melons."
+"Pfennigmühle" -> "In Pfennigmühle, ich will es Euch erzählen - kontrolliert die Miliz alle Tavernen und Gasthäuser des Hafenviertels. So braucht sich ein Halbling niemals vor Unruhestiftern und Grobianen fürchten.", "Die Straßen in Pfennigmühle werden stehts mit dicken Ölkerzen beleuchtet. Wenn man abends nach Hause geht, gibt es kein schattiges Plätzchen, wo sich Unholde verkreichen könnten.", "Nachts sind die Tore von Pfennigmühle geschlossen. Man kann sich so nur innerhalb der verschiedenen Viertel bewegen. So ist alles viel sicherer und kontrollierbar.", "Ich möchte nicht prahlen, doch in Pfennigmühle gibt es die saftigsten und riesigsten Melonen, Kürbisse und Tomaten Illarions!"
+"poetry" -> "Poetry, poetry. The carpenter's poetry's masterpiece is a harp. If you behold a true master carving the harp, you can almost hear the melody."
+"Poesie" -> "Poesie, Poesie. Das Schönste was ein Schreiner zu schaffen vermag, ist zweifelsfrei eine Harfe. Sehe ich einem Meister beim Schnitzen zu, glaube ich oft eine Melodie zu hören."
+"trader", "merchant", "collegue", "vendor", "market" -> "We merchants of Runewick always try to offer as many goods and wares as possible.", "The archmage himself asked us to import as few items as possible and rely on domestic goods.", "Hiho! We merchants of Runewick stand united and the archmage backs us up."
+"händler", "kollege", "höker", "markt" -> "Wir Händler Runewicks geben uns Mühe, ein möglichst großes Angebot an Waren und Güter für die Stadt bereitzustellen.", "Der Erzmagier persönlich hat uns Händlern aufgetragen, ausschließlich die nötigsten Güter zu importieren. Alles andere sind Güter aus Runewick.", "Hiho! Die Händler Runewicks stehen zusammen. Und der Erzmagier hinter uns."
+
+-- Faction stuff
+"archmage" -> "I'd never disagree with the archmage. Everyone knows he has the master plan!", "I trust Archmage Morgan, he is my guide. His able hands will forge Runewick's future.", "The archmage is the most wise person of all of us. Who dares to know it better?"
+"Erzmagier" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, dass sein Plan niemals fehlt.", "Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!", "Der Erzmagier ist der Weiseste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
+english, "Elvaine", "Morgan" -> "I'd never disagree with the archmage. Everyone knows he has the master plan!", "I trust Archmage Morgan, he is my guide. His able hands will forge Runewick's future.", "The archmage is the most wise person of all of us. Who dares to know it better?"
+"Elvaine", "Morgan" -> "Niemals würde ich unserem Erzmagier widersprechen. Ist doch jedem hier bewusst, das sein Plan niemals fehlt.", "Erzmagier Morgan, ihm gebührt mein Vertrauen und all meine Hoffnungen. Die Zukunft Runewicks liegt in seinen fähigen Händen!", "Der Erzmagier ist der Weiseste von uns. Wie könnte ich jemals an seinen Worten zweifeln?"
+english, "Runewick" -> "May Elara bless Runewick. The four towers are built to honour the gods and to demonstrate our might to our neighbours."
+"Runewick" -> "Elara möge Runewick bewahren. Die vier Türme sollen den Göttern schmeicheln und benachbarten Städten unsere Macht demonstrieren."
+english, "Valerio", "Guilianni", "Don" -> "He is stubborn I was told. All he cares for is gold. It is only a matter time until another thug overtakes Galmair."
+"Valerio", "Guilianni", "Don" -> "Ein wahrer Dickkopf, habe ich mir sagen lassen. Ihm ist nur daran gelegen Gold zu häufen. Es ist nur eine Frage der Zeit bis einer seiner Konkurenten das Ruder Galmairs aus seinen Händen reißt."
+english, "Galmair" -> "Us traders have a proverb: Do not trust Galmair, gold opens the door of the stupid. But if you want to walk into the house of wisdom, you have to open a book instead."
+"Galmair" -> "Wir Händler haben ein Sprichwort: Traue Galmair nicht, dort schätzt man nur das Gold, von Gewicht. Doch willst du Weisheit tragen, sollt Ihr die Bücher befragen."
+"Queen" -> "Queen Rosaline rules on behalf of the gods Malachín and Zhambra. They do not care about wisdom, but is it wise to rule a town by sword and battle?"
+"Königin" -> "Königin Rosaline herrscht aufgrund der Götter Gnade. Malachín und Zhambra, doch sie schenken der Weisheit keinen Wert. Ist es weise eine Stadt mit Schwert und Schlachtenehre zu regieren?"
+english, "rosaline", "edwards" -> "Queen Rosaline rules on behalf of the gods Malachín and Zhambra. They do not care about wisdom, but is it wise to rule a town by sword and battle?"
+"rosaline", "edwards" -> "Königin Rosaline herrscht aufgrund der Götter Gnade. Malachín und Zhambra, doch sie schenken der Weisheit keinen Wert. Ist es weise eine Stadt mit Schwert und Schlachtenehre zu regieren?"
+english, "Cadomyr" -> "Cadomyr is a sand pit, lots of barbarians that got too much sun on their heads. Who wins a duel takes it all, the loser standing small."
+"Cadomyr" -> "Cadomyr ist eine Sandgrube, voller Barbaren die zu viel Sonne bekommen haben. Wer im Zweikampf obliegt, erfährt Ehre und Recht. Der Verlierer lebt in Schande."
+
+-- Main land factions
+english, "albar" -> "Albar is a horrible place. Lucky you, you found Runewick."
+"albar" -> "Albar ist ein schrecklicher Ort. Seid froh, das ihr Euren Weg nach Runewick gefunden habt."
+english, "gynk", "gync" -> "I overheard Valerio Guilianni came from Gynk to Galmair. He brought strange customs from that spoiled land. With the arrival of the Don, the pearl of the mountains went down the sewers."
+"gync", "gynk" -> "Ich hörte Valerio Guilianni sei einst aus Gynk nach Galmair gekommen. Mit sich brachte er alle vermeintlichen Tugenden aus seinem abschäulichen Land. Denn mit dem Don ist auch die Stadt in den Bergen verkommen."
+english, "salkama" -> "Salkamar, you flourishing garden of mankind! If only all humans could live like the paladins of Salkamar."
+"salkama" -> "Salkamar, du blühender Garten des Menschenvolkes! Würden sich doch alle Menschen besinnen und leben wie die Paladine Salkamars."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Hail Oldra and Elara. May they protect us from all evil from Galmair or Cadomyr."
+"Gott", "Götter" -> "Gepriesen sein Oldra und Elara. Mögen sie uns vor den Übeln aus Galmair und Cadomyr bewahren."
+english, "Elara" -> "O Elara, guide archmage Morgan, for he may take the wisest step next."
+"Elara" -> "Elara, leite Erzmagier Morgan, damit er die weisesten Entscheidungen treffen mag."
+english, "Oldra" -> "Oldra, I thank thee for my wood, for the trees and for all what is made from them."
+"Oldra" -> "Oldra, ich danke für das Holz deiner Bäume, die meine Schilder so stark und die Instrumente so wohlklingend machen."
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+english, "Lothar", "Piero" -> "Hiho! What goods may I offer to you?"
+"Lothar", "Piero" -> "Hiho! Welche meiner Güter vermögen Euch zu begeistern?"
+"Yes" -> "Yes, very well.", "Indeed, just what I wanted to say.", "How marvellous, we have the same opinion."
+"Ja" -> "Ja, das ist mir auch Recht.", "Bestimmt, das denke ich auch.", "Wie fantastisch, wir sind einer Meinung."
+"No" -> "If you think that's good...", "I ment it the way I said it.", "No? Maybe we should discuss that at Elara's shrine."
+"Nein" -> "So denn ihr das für weise haltet.", "Das meine ich wie ich es sagte.", "Nein? Vielleicht sollten wir uns an Elaras Altar beratschlagen."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "Oldra's blessing for your gardens.", "Elara's wisdom may guide you.", "Hiho, that's funny!"
+german, chance(20.0), ".*" -> "Oldras Segen über Eure Gärten.", "Elaras Weisheit sei mit Euch.", "Hiho, das gefällt mir."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me greift sich mit beiden Händen in die wuscheligen braunen Haare und lächelt.", "#me combs his tousled hairs with his hands, smiling."
+cycletext "#me poliert mit einem öligen Laken einen gefinkelt verzierten Gehstock.", "#me polishes a decorated walking cane with an oiled rag."
+cycletext "#me klimpert mit seinen Fingern auf einer zierlichen Laute.", "#me jingles with his fingers on a petite lute."
+cycletext "#me hohlt tief Luft und seufzt leise: 'H-hm! Tannenholz!'", "#me breathes deeply and sighs: 'Ahh, fir wood!'."
+cycletext "#me lächelt sanft und sein faltiges Gesicht wirkt dabei wie eine große Rosine.", "#me smiles softly while his wrinkled face appears like a big raisin."
+cycletext "#me streicht mit der Hand über verschiedene hölzerne Dinge welche ihn umgeben.", "#me runs with a hand over a few different wooden things which surround him."
+cycletext "Rosen sind Rot, Veilchen sind Blau, ich mag den Himmel, und meine Frau. - Hab mein Holz, was braucht ein Halbling mehr? Darauf bin ich stolz.", "Roses are red, violets are blue, I like the sky and my wife too. - I got my wood, what else does a halfling need? I'm proud of it."
+cycletext "#me verängt mit einem Lächeln die Augen und mustert seine Umgebung.", "#me blinks with one eye and inspects his surrounding."
+cycletext "#me lehnt sich zufrieden lächelnd zurück.", "#me leans back, smiling contently."
+cycletext "#me steckt seine Hand in die Tasche neben dem Stuhl und zieht ein Brötchen heraus. Dann beginnt er daran zu knabbern.", "#me puts his hand into the bag near the chair, pulling out a bread roll and starts nibbling on it."

@@ -1,0 +1,396 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Sir Fludnar Yednos                                      Runewick --
+-- NPC Job:  Scholar                                                          --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  896, 757, 1            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   envi                                                             --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Sir Fludnar Yednos"
+race = human
+sex = male
+position = 896, 757, 1
+direction = south
+affiliation = "Runewick"
+job = "Scholar"
+
+language = common
+language = human
+language = ancient
+defaultLanguage = common
+autointroduce = on
+
+author = "envi"
+
+lookatDE = "Einer der Gelehrten dieser Stadt, der sich insbesondere für die Rasse der Orks interessiert."
+lookatUS = "One of the scholars of this town, who is interested in the race of orcs in particular."
+useMsgDE = "Psss! Ruhe bitte!"
+useMsgUS = "Psss! Silent please!"
+wrongLangDE = "Was sagtet ihr? Könntet ihr deutlicher sprechen?"
+wrongLangUS = "What are you saying? Could you say that again?"
+radius = 0
+hairID = 2
+beardID = 0
+colorHair = 33, 28, 25
+colorSkin = 180, 102, 102
+itemHead = 357
+itemChest = 182
+itemCoat = 193
+itemMainHand = 0
+itemSecondHand = 110
+itemHands = 2295
+itemTrousers = 34
+itemShoes = 369
+
+-- Template Version 1.03, 01/05/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- queststatus(600) Overview
+-- QuestID=600
+-- 0: Sir Fludnar Yedno - No Quest taken
+
+-- 11-20: Sir Fludnar Yedno - Quest taken - gather information about Bragon and orks
+
+-- 5: Nobarg - Quest 1 taken - gather pure fire
+-- 6: Nobarg - Quest 2 taken - gather red priest robe
+-- 7: Nobarg - Quest 3 taken - gather golden goblet
+-- 8: Nobarg - Quest question is asked
+
+-- 21-20: Nobarg - Quest answer is imparted to player
+
+-- 40: Sir Fludnar Yedno - Quest done and Player rewarded
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is the scholar Sir Fludnar Yednos. Keywords: Hello, quest, god, orc.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Gelehrte Sir Fludnar Yednos. Schlüsselwörter: Hallo, Quest, Götter, Ork.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Could you lower your voice? But be greeted anyway!", "Hmm...Can I help you?", "Be greeted as well, but now let me continue my research."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Könnt ihr nicht leiser sprechen? Aber seid trotzdem gegrüßt!", "Hmm...Kann ich euch helfen?", "Seid auch gegrüßt, aber nun last mich doch weiter forschen!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Are you lost?", "Leave me alone!", "Who is disturbing my work?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Habt ihr euch verlaufen?", "Raus hier aber schnell!", "Wer stört mich hier bei der Arbeit?"
+"Farewell", "Bye", "Fare well", "See you" -> "Farewell.", "Good bye.", "Don't forget to close the door!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl.", "Aufwiedersehen.", "Vergesst nicht die Tür zu schließen!"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Get out!", "Finally!", "..."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Raus hier!", "Endlich!", "..."
+"How are you", "How feel", "How do you do" -> "If nobody disturbed me, it would be better!", "Could you keep silent please?", "Fine, fine, but let me continue my work now."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Würde man mich nicht stören, würde es mir besser gehen.", "Könnt ihr bitte leise sein?", "Gut, Gut, aber nun lasst mich weiterarbeiten."
+"your name", "who are you", "who art thou" -> "Who asks?", "Sir Fludnar Yednos.", "Why do you need to know?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Wer fragt?", "Sir Fludnar Yednos.", "Ist das von belang zu wissen?"
+
+-- quest - 1th step: gather some information about bragon and orcs
+-- 1. question
+queststatus(600) = 0, chance(10.0), "task", "adventure", "can I do" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... find out in which age Bragon helped create the orcs? I think it was the fourth age, but maybe you should ask a priest. There should be one at the Chapel of the Five.", state = 1, queststatus(600) = 11
+queststatus(600) = 0, chance(10.0), "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... findet heraus, in welchem Zeitalter Bragon half die Orks zu erschaffen! Ich denke es war das vierte. Wie auch immer, ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein.", state = 1, queststatus(600) = 11
+queststatus(600) = 0, english, chance(10.0), "quest", "mission" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... find out in which age Bragon helped create the orcs? I think it was the fourth age, but maybe you should ask a priest. There should be one at the Chapel of the Five.", state = 1, queststatus(600) = 11
+queststatus(600) = 0, german, chance(10.0), "quest", "mission" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... findet heraus, in welchem Zeitalter Bragon half die Orks zu erschaffen! Ich denke es war das vierte. Wie auch immer, ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein.", state = 1, queststatus(600) = 11
+state = 1, queststatus(600) = 11, "task", "adventure", "can I do" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you in which age Bragon helped create the orcs? I think it was the fourth age. Now, go ask a priest for the information and don't waste my time until you have it!", state = 3
+state = 1, queststatus(600) = 11, "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: In welchem Zeitalter Bragon half die Orks zu erschaffen! Ich denke es war das vierte. Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 3
+state = 1, queststatus(600) = 11, english, "quest", "mission" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you in which age Bragon helped create the orcs? I think it was the fourth age. Now, go ask a priest for the information and don't waste my time until you have it!", state = 3
+state = 1, queststatus(600) = 11, "quest", "mission" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: In welchem Zeitalter Bragon half die Orks zu erschaffen! Ich denke es war das vierte. Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 3
+
+-- 2. question
+queststatus(600) = 0, chance(11.0), "task", "adventure", "can I do" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... are you sure? Find out what Bragon's reason was to support the Blood God in the creation of the orcs! A priest should know. There should be one at the Chapel of the Five.", state = 1, queststatus(600) = 12
+queststatus(600) = 0, chance(11.0), "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... seid ihr sicher? Naja egal, findet heraus, was der Grund für Bragons Unterstützung für den Blutgott in der Erschaffung der Orks war! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein.", state = 1, queststatus(600) = 12
+queststatus(600) = 0, english, chance(11.0), "quest", "mission" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... are you sure? Find out what Bragon's reason was to support the Blood God in the creation of the orcs! A priest should know. There should be one at the Chapel of the Five.", state = 1, queststatus(600) = 12
+queststatus(600) = 0, german, chance(11.0), "quest", "mission" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... seid ihr sicher? Naja egal, findet heraus, was der Grund für Bragons Unterstützung für den Blutgott in der Erschaffung der Orks war! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein.", state = 1, queststatus(600) = 12
+state = 1, queststatus(600) = 12, "task", "adventure", "can I do" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you what Bragon's reason was to support the Blood God in the creation of the orcs? Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 12, "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Was der Grund für Bragons Unterstützung für den Blutgott in der Erschaffung der Orks war? Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+state = 1, queststatus(600) = 12, english, "quest", "mission" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you what Bragon's reason was to support the Blood God in the creation of the orcs? Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 12, "quest", "mission" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Was der Grund für Bragons Unterstützung für den Blutgott in der Erschaffung der Orks war? Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+
+-- 3. question
+queststatus(600) = 0, chance(13.0), "task", "adventure", "can I do" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... find out what Bragon is to the orcs... something with purge or similar to that, but i can't remember! A priest should know. There should be one at the Chapel of the Five.", state = 1, queststatus(600) = 13
+queststatus(600) = 0, chance(13.0), "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... Naja egal, findet heraus, was Bragon für die Orks ist... etwas mit Vernichter oder ähnlichem, aber ich kann mich nicht mehr recht erinnern! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein.", state = 1, queststatus(600) = 13
+queststatus(600) = 0, english, chance(13.0), "quest", "mission" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... find out what Bragon is to the orcs... something with purge or similar to that, but i can't remember! A priest should know. There should be one at the Chapel of the Five.", state = 1, queststatus(600) = 13
+queststatus(600) = 0, german, chance(13.0), "quest", "mission" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... Naja egal, findet heraus, was Bragon für die Orks ist... etwas mit Vernichter oder ähnlichem, aber ich kann mich nicht mehr recht erinnern! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein.", state = 1, queststatus(600) = 13
+state = 1, queststatus(600) = 13, "task", "adventure", "can I do" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you what Bragon is to the orcs... something with purge or similar to that, but i can't remember! Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 13, "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Was Bragon für die Orks ist... etwas mit Vernichter oder ähnlichem, aber ich kann mich nicht mehr recht erinnern! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+state = 1, queststatus(600) = 13, english, "quest", "mission" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you what Bragon is to the orcs... something with purge or similar to that, but i can't remember! Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 13, "quest", "mission" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Was Bragon für die Orks ist... etwas mit Vernichter oder ähnlichem, aber ich kann mich nicht mehr recht erinnern! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+
+-- 4. question
+queststatus(600) = 0, chance(14.0), "task", "adventure", "can I do" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... find out when Bragon realized that the creation of the orcs could not change the Blood God! A priest should know. There should be one at the Chapel of the Five.", state = 1, queststatus(600) = 14
+queststatus(600) = 0, chance(14.0), "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... Naja egal, findet heraus, in welchem Zeitalter Bragon bemerkt hat, dass die Erschaffung der Orks den Blutgott besänftigen konnte! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein.", state = 1, queststatus(600) = 14
+queststatus(600) = 0, english, chance(14.0), "Yeah", "Yubba" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... find out when Bragon realized that the creation of the orcs could not change the Blood God! A priest should know. There should be one at the Chapel of the Five.", state = 1, queststatus(600) = 14
+queststatus(600) = 0, german, chance(14.0), "Yeah", "Yubba" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... Naja egal, findet heraus, in welchem Zeitalter Bragon bemerkt hat, dass die Erschaffung der Orks den Blutgott besänftigen konnte! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein.", state = 1, queststatus(600) = 14
+state = 1, queststatus(600) = 14, "task", "adventure", "can I do" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you when Bragon realized that the creation of the orcs could not change the Blood God! Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 14, "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: In welchem Zeitalter Bragon bemerkt hat, dass die Erschaffung der Orks den Blutgott besänftigen konnte! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+state = 1, queststatus(600) = 14, english, "quest", "mission" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you when Bragon realized that the creation of the orcs could not change the Blood God! Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 14, "quest", "mission" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: In welchem Zeitalter Bragon bemerkt hat, dass die Erschaffung der Orks den Blutgott besänftigen konnte! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+
+-- 5. question
+queststatus(600) = 0, chance(17.0), "task", "adventure", "can I do" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... are you sure? Alright find out what the orcs call Bragon... something with sun! A priest should know. There should be one at the Chapel of the Five. Good luck and be careful!", state = 1, queststatus(600) = 15
+queststatus(600) = 0, chance(17.0), "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... seid ihr sicher? Naja egal, findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sonne! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein. Viel Glück und seid vorsichtig!", state = 1, queststatus(600) = 15
+queststatus(600) = 0, english, chance(17.0), "quest", "mission" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... are you sure? Alright find out what the orcs call Bragon... something with sun! A priest should know. There should be one at the Chapel of the Five. Good luck and be careful!", state = 1, queststatus(600) = 15
+queststatus(600) = 0, german, chance(17.0), "quest", "mission" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... seid ihr sicher? Naja egal, findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sonne! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein. Viel Glück und seid vorsichtig!", state = 1, queststatus(600) = 15
+state = 1, queststatus(600) = 15, "task", "adventure", "can I do" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you what the orcs call Bragon... something with sun! Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 15, "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Welchen Namen die Orks für Bragon haben... etwas mit Sonne! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+state = 1, queststatus(600) = 15, english, "quest", "mission" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you what the orcs call Bragon... something with sun! Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 15, "quest", "mission" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Welchen Namen die Orks für Bragon haben... etwas mit Sonne! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+
+-- 6. question
+queststatus(600) = 0, chance(20.0), "task", "adventure", "can I do" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... are you sure? Alright, find out what Bragon did to remedy his mistake of helping to create the orcs! A priest should know. There should be one at the Chapel of the Five.", state = 1, queststatus(600) = 16
+queststatus(600) = 0, chance(20.0), "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... seid ihr sicher? Naja egal, findet heraus, was Bragon in Bezug auf die Wiedergutmachung seines Fehlers durch die Erschaffung der Orks tat! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein.", state = 1, queststatus(600) = 16
+queststatus(600) = 0, english, chance(20.0), "quest", "mission" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... are you sure? Alright, find out what Bragon did to remedy his mistake of helping to create the orcs! A priest should know. There should be one at the Chapel of the Five.", state = 1, queststatus(600) = 16
+queststatus(600) = 0, german, chance(20.0), "quest", "mission" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... seid ihr sicher? Naja egal, findet heraus, was Bragon in Bezug auf die Wiedergutmachung seines Fehlers durch die Erschaffung der Orks tat! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein.", state = 1, queststatus(600) = 16
+state = 1, queststatus(600) = 16, "task", "adventure", "can I do" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you what Bragon did to remedy his mistake of helping to create the orcs! Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 16, "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Was Bragon in Bezug auf die Wiedergutmachung seines Fehlers durch die Erschaffung der Orks tat! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+state = 1, queststatus(600) = 16, english, "quest", "mission" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you what Bragon did to remedy his mistake of helping to create the orcs! Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 16, "quest", "mission" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Was Bragon in Bezug auf die Wiedergutmachung seines Fehlers durch die Erschaffung der Orks tat! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+
+-- 7. question
+queststatus(600) = 0, chance(25.0), "task", "adventure", "can I do" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... are you sure? Alright, find out what kind of relationship Bragon and the Blood God had! A priest should know. There should be one at the Chapel of the Five. Good luck and be careful!", state = 1, queststatus(600) = 17
+queststatus(600) = 0, chance(25.0), "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... seid ihr sicher? Naja egal, findet heraus, was verbindet Bragon und dem Blutgott! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein. Viel Glück und seid vorsichtig!", state = 1, queststatus(600) = 17
+queststatus(600) = 0, english, chance(25.0), "quest", "mission" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... are you sure? Alright, find out what kind of relationship Bragon and the Blood God had! A priest should know. There should be one at the Chapel of the Five. Good luck and be careful!", state = 1, queststatus(600) = 17
+queststatus(600) = 0, german, chance(25.0), "quest", "mission" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... seid ihr sicher? Naja egal, findet heraus, was verbindet die Bragon und dem Blutgott! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein. Viel Glück und seid vorsichtig!", state = 1, queststatus(600) = 17
+state = 1, queststatus(600) = 17, "task", "adventure", "can I do" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you what kind of relationship Bragon and the Blood God had! Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 17, "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Was verbindet Bragon und dem Blutgott! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+state = 1, queststatus(600) = 17, english, "quest", "mission" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you what kind of relationship Bragon and the Blood God had! Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 17, "quest", "mission" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Was verbindet Bragon und dem Blutgott! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+
+-- 8. question
+queststatus(600) = 0, chance(34.0), "task", "adventure", "can I do" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... are you sure? Alright, find out what name the orcs have given Bragon... something to do with summer! A priest should know. There should be one at the Chapel of the Five. Good luck and be careful!", state = 1, queststatus(600) = 18
+queststatus(600) = 0, chance(34.0), "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... seid ihr sicher? Naja egal, findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sommer! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein. Viel Glück und seid vorsichtig!", state = 1, queststatus(600) = 18
+queststatus(600) = 0, english, chance(34.0), "quest", "mission" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... are you sure? Alright, find out what name the orcs have given Bragon... something to do with summer! A priest should know. There should be one at the Chapel of the Five. Good luck and be careful!", state = 1, queststatus(600) = 18
+queststatus(600) = 0, german, chance(34.0), "quest", "mission" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... seid ihr sicher? Naja egal, findet heraus, welchen Namen die Orks für Bragon haben... etwas mit Sommer! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein. Viel Glück und seid vorsichtig!", state = 1, queststatus(600) = 18
+state = 1, queststatus(600) = 18, "task", "adventure", "can I do" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you what name the orcs have given Bragon... something to do with summer! Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 18, "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Welchen Namen die Orks für Bragon haben... etwas mit Sommer! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+state = 1, queststatus(600) = 18, english, "quest", "mission" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you what name the orcs have given Bragon... something to do with summer! Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 18, "quest", "mission" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Welchen Namen die Orks für Bragon haben... etwas mit Sommer! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+
+-- 9. question
+queststatus(600) = 0, chance(51.0), "task", "adventure", "can I do" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... are you sure? Alright, find out why orcs pray to Bragon! A priest should know. There should be one at the Chapel of the Five. Good luck and be careful!", state = 1, queststatus(600) = 19
+queststatus(600) = 0, chance(51.0), "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... seid ihr sicher? Naja egal, findet heraus, warum die Orks zu Bragon beten! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein. Viel Glück und seid vorsichtig!", state = 1, queststatus(600) = 19
+queststatus(600) = 0, english, chance(51.0), "Yeah", "Yubba" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... are you sure? Alright, find out why orcs pray to Bragon! A priest should know. There should be one at the Chapel of the Five. Good luck and be careful!", state = 1, queststatus(600) = 19
+queststatus(600) = 0, german, chance(51.0), "Yeah", "Yubba" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... seid ihr sicher? Naja egal, findet heraus, warum die Orks zu Bragon beten! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein. Viel Glück und seid vorsichtig!", state = 1, queststatus(600) = 19
+state = 1, queststatus(600) = 19, "task", "adventure", "can I do" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you why orcs pray to Bragon! Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 19, "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Warum die Orks zu Bragon beten! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+state = 1, queststatus(600) = 19, english, "quest", "mission" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you why orcs pray to Bragon! Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 19, "quest", "mission" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Warum die Orks zu Bragon beten! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+
+-- 10. question
+queststatus(600) = 0, chance(100.0), "task", "adventure", "can I do" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... are you sure? Alright, find out the meaning of the 'Tribunal of Eternity'! A priest should know. There should be one at the Chapel of the Five. Good luck and be careful!", state = 1, queststatus(600) = 20
+queststatus(600) = 0, chance(100.0), "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... seid ihr sicher? Naja egal, findet heraus, was es mit dem so genannten 'Tribunal der Ewigkeit' auf sich hat! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein. Viel Glück und seid vorsichtig!", state = 1, queststatus(600) = 20
+queststatus(600) = 0, english, chance(100.0), "quest", "mission" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five."), "Hmm... are you sure? Alright, find out the meaning of the 'Tribunal of Eternity'! A priest should know. There should be one at the Chapel of the Five. Good luck and be careful!", state = 1, queststatus(600) = 20
+queststatus(600) = 0, german, chance(100.0), "quest", "mission" -> inform("[Neues Quest] Finde die Information für Sir Fludnar Yednos. Hinweis: Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Hmm... seid ihr sicher? Naja egal, findet heraus, was es mit dem so genannten 'Tribunal der Ewigkeit' auf sich hat! Ich denke ihr solltet hierfür einen Priester fragen. Es sollte einer an der Kapelle der Fünf zu finden sein. Viel Glück und seid vorsichtig!", state = 1, queststatus(600) = 20
+state = 1, queststatus(600) = 20, "task", "adventure", "can I do" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you to find out the meaning of the 'Tribunal of Eternity'! Now, go ask a priest for the information and don't waste my time until you have it!!", state = 2
+state = 1, queststatus(600) = 20, "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Was es mit dem so genannten 'Tribunal der Ewigkeit' auf sich hat! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+state = 1, queststatus(600) = 20, english, "quest", "mission" -> inform("[Hint] The answer can be found at the Chapel of Five."), "I asked you to find out the meaning of the 'Tribunal of Eternity'! Now, go ask a priest for the information and don't waste my time until you have it!", state = 2
+state = 1, queststatus(600) = 20, "quest", "mission" -> inform("[Hinweis] Die Antwort kann bei der Kapelle der Fünf gefunden werden."), "Ich habe euch gefragt: Was es mit dem so genannten 'Tribunal der Ewigkeit' auf sich hat! Geht nun, findet einen Priester für die Information und verschwendet meine Zeit nicht bis ihr sie habt!", state = 2
+state = 1, queststatus(600) > 0, queststatus(600) < 11, "task", "adventure", "can I do" -> inform("[Attention] You should not use following words again: task, adventure, quest, or mission. Otherwise the quest is over!"), "Don't bother me! You'd do better to find a priest and NOT return until you have the answer, otherwise you will have to face the consequences.", state = 3
+state = 1, queststatus(600) > 0, queststatus(600) < 11, "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Achtung] Du solltest folgende Wörter nun nicht mehr sagen: Auftrag, Aufgabe, Abenteuer, Quest oder Mission. Ansonsten ist die Quest beendet."), "Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.", state = 3
+state = 1, queststatus(600) > 0, queststatus(600) < 11, english, "quest", "mission" -> inform("[Attention] You should not use following words again: task, adventure, quest, or mission. Otherwise the quest is over!"), "Don't bother me! You'd do better to find a priest and NOT return until you have the answer, otherwise you will have to face the consequences.", state = 3
+state = 1, queststatus(600) > 0, queststatus(600) < 11, "quest", "mission" -> inform("[Achtung] Du solltest folgende Wörter nun nicht mehr sagen: Auftrag, Aufgabe, Abenteuer, Quest oder Mission. Ansonsten ist die Quest beendet."), "Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.", state = 3
+state = 2, queststatus(600) > 0, queststatus(600) < 21, "task", "adventure", "can I do" -> inform("[Attention] You should not use following words again: task, adventure, quest, or mission. Otherwise the quest is over!"), "Don't bother me! You'd do better to find a priest and NOT return until you have the answer, otherwise you will have to face the consequences.", state = 3
+state = 2, queststatus(600) > 0, queststatus(600) < 21, "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Achtung] Du solltest folgende Wörter nun nicht mehr sagen: Auftrag, Aufgabe, Abenteuer, Quest oder Mission. Ansonsten ist die Quest beendet."), "Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.", state = 3
+state = 2, queststatus(600) > 0, queststatus(600) < 21, english, "quest", "mission" -> inform("[Attention] You should not use following words again: task, adventure, quest, or mission. Otherwise the quest is over!"), "Don't bother me! You'd do better to find a priest and NOT return until you have the answer, otherwise you will have to face the consequences.", state = 3
+state = 2, queststatus(600) > 0, queststatus(600) < 21, "quest", "mission" -> inform("[Achtung] Du solltest folgende Wörter nun nicht mehr sagen: Auftrag, Aufgabe, Abenteuer, Quest oder Mission. Ansonsten ist die Quest beendet."), "Verärgert mich nicht! Findet besser einen Priester und kommt NICHT ohne Antwort zurück, ansonsten müsst ihr mit den Konsequenzen leben.", state = 3
+state = 3, queststatus(600) > 0, queststatus(600) < 21, "task", "adventure", "can I do" -> inform("[Quest finished] You bungled it. :O"), "Hmm... it seems you have forgotten what I asked you to do! You are not worthy to work for me.", queststatus(600) = 40
+state = 3, queststatus(600) > 0, queststatus(600) < 21, "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Quest beendet] Du hast es verbockt. :O"), "Hmm... es scheint als habt ihr vergessen um was ich euch los schickte! Nun, dann seid ihr es nicht wert für mich zu arbeiten.", queststatus(600) = 40
+state = 3, queststatus(600) > 0, queststatus(600) < 21, english, "quest", "mission" -> inform("[Quest finished] You bungled it. :O"), "Hmm... it seems you have forgotten what I asked you to do! You are not worthy to work for me.", queststatus(600) = 40
+state = 3, queststatus(600) > 0, queststatus(600) < 21, "quest", "mission" -> inform("[Quest beendet] Du hast es verbockt. :O"), "Hmm... es scheint als habt ihr vergessen um was ich euch los schickte! Nun, dann seid ihr es nicht wert für mich zu arbeiten.", queststatus(600) = 40
+
+-- quest - 3rd step: report information and collect gift
+queststatus(600) > 20, queststatus(600) < 31, "task", "adventure", "can I do", "answer" -> inform("[Quest deliver answer] Tell him your answer"), "Do you know the answer? So, what is it then?"
+queststatus(600) > 20, queststatus(600) < 31, "Auftrag", "Aufgabe", "Abenteuer", "antwort" -> inform("[Quest übermittle Antwort] Erzähle ihm deine Antwort"), "Wisst ihr die Antwort? So, wie lautet sie nun?"
+queststatus(600) > 20, queststatus(600) < 31, english, "quest", "mission", "info" -> inform("[Quest deliver answer] Tell him your answer"), "Do you know the answer? So, what is it then?"
+queststatus(600) > 20, queststatus(600) < 31, "quest", "mission", "info" -> inform("[Quest übermittle Antwort] Erzähle ihm deine Antwort"), "Wisst ihr die Antwort? So, wie lautet sie nun?"
+queststatus(600) = 21, chance(30.0), "Concord" -> inform("[Quest solved] You earned a magical ruby."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 21, "Concord" -> inform("[Quest solved] You earned a treasure map."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 21, chance(30.0), "Eintracht" -> inform("[Quest gelöst] Du hast einen magischen Rubin erhalten."), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 21, "Eintracht" -> inform("[Quest gelöst] Du hast eine Schatzkarte erhalten."), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 22, chance(30.0), "comfort" -> inform("[Quest solved] You earned a magical ruby."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 22, "comfort" -> inform("[Quest solved] You earned a treasure map."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 22, chance(30.0), "trösten", "Hoffnung" -> inform("[Quest gelöst] Du hast einen magischen Rubin erhalten"), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 22, "trösten", "Hoffnung" -> "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 23, chance(30.0), "purge", "impurity", "weakness" -> inform("[Quest solved] You earned a magical ruby."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 23, "purge", "impurity", "weakness" -> inform("[Quest solved] You earned a treasure map."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 23, chance(30.0), "Vernichter", "Unrein", "Schwach" -> inform("[Quest gelöst] Du hast einen magischen Rubin erhalten."), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 23, "Vernichter", "Unrein", "Schwach" -> inform("[Quest gelöst] Du hast eine Schatzkarte erhalten."), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 24, chance(30.0), "Discord" -> inform("[Quest solved] You earned a magical ruby."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 24, "Discord" -> inform("[Quest solved] You earned a treasure map."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 24, chance(30.0), "Zwietracht" -> inform("[Quest gelöst] Du hast einen magischen Rubin erhalten."), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 24, "Zwietracht" -> inform("[Quest gelöst] Du hast eine Schatzkarte erhalten."), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 25, chance(30.0), "sunmaker" -> inform("[Quest solved] You earned a magical ruby."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 25, "sunmaker" -> inform("[Quest solved] You earned a treasure map."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 25, chance(30.0), "Sonnenmacher" -> inform("[Quest gelöst] Du hast einen magischen Rubin erhalten."), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 25, "Sonnenmacher" -> inform("[Quest gelöst] Du hast eine Schatzkarte erhalten."), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 26, chance(30.0), "Dragon" -> inform("[Quest solved] You earned a magical ruby."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 26, "Dragon" -> inform("[Quest solved] You earned a treasure map."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 26, chance(30.0), "Drachen" -> inform("[Quest gelöst] Du hast einen magischen Rubin erhalten"), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 26, "Drachen" -> inform("[Quest gelöst] Du hast eine Schatzkarte erhalten."), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 27, chance(30.0), "fire" -> inform("[Quest solved] You earned a magical ruby."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 27, "fire" -> inform("[Quest solved] You earned a treasure map."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 27, chance(30.0), "Feuer" -> inform("[Quest gelöst] Du hast einen magischen Rubin erhalten"), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 27, "Feuer" -> "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 28, chance(30.0), "Strong", "summer" -> inform("[Quest solved] You earned a magical ruby."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 28, "Strong", "summer" -> inform("[Quest solved] You earned a treasure map."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 28, chance(30.0), "Stark", "Sommer" -> inform("[Quest gelöst] Du hast einen magischen Rubin erhalten"), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 28, "Stark", "Sommer" -> inform("[Quest gelöst] Du hast eine Schatzkarte erhalten."), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 29, chance(30.0), "live" -> inform("[Quest solved] You earned a magical ruby."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 29, "live" -> inform("[Quest solved] You earned a treasure map."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 29, chance(30.0), "leben" -> inform("[Quest gelöst] Du hast einen magischen Rubin erhalten"), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 29, "leben" -> inform("[Quest gelöst] Du hast eine Schatzkarte erhalten."), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 30, chance(30.0), "Flame" -> inform("[Quest solved] You earned a magical ruby."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 30, "Flame" -> inform("[Quest solved] You earned a treasure map."), "Thank you very much for your help! ...I have something for you. Maybe you can use it. Now... you know where the door is. Farewell and leave now! Silently!", state = 0, queststatus(600) = 30, treasure(8)
+queststatus(600) = 30, chance(30.0), "Flamme" -> inform("[Quest gelöst] Du hast einen magischen Rubin erhalten."), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, item(46, 1, 999, "gemLevel" = "1"), queststatus(600) = 40
+queststatus(600) = 30, "Flamme" -> inform("[Quest gelöst] Du hast eine Schatzkarte erhalten."), "Vielen Dank für eure Unterstützung! ...ich habe hier etwas für euch. Vielleicht könnt ihr etwas damit anfangen. Wie dem auch sei... ihr wisst wo die Türe ist. Lebt wohl, und nun geht! Aber leise!", state = 0, queststatus(600) = 40, treasure(8)
+queststatus(600) = 40, "task", "adventure", "can I do" -> "Hmm... You already had your task. There nothing to do for you here. Better ask someone else! Farewell."
+queststatus(600) = 40, "Auftrag", "Aufgabe", "Abenteuer" -> "Hmm... Du hattest bereits deine Aufgabe. Hier ist nichts mehr zu tun für dich. Besser du fragst jemand anderen. Leb wohl."
+queststatus(600) = 40, english, "quest", "mission" -> "Hmm... You already had your task. There nothing to do for you here. Better ask someone else! Farewell."
+queststatus(600) = 40, "quest", "mission" -> "Hmm... Du hattest bereits deine Aufgabe. Hier ist nichts mehr zu tun für dich. Besser du fragst jemand anderen. Leb wohl."
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession", "work" -> "I'm a scholar, or what have you thought?", "I am researching on Orcs.", "I'm a researcher and my interest is in the race of orcs."
+"beruf", "arbeit" -> "Ich bin ein Gelehrter, oder was habt ihr gedacht?", "Ich forsche an Orks.", "Ich bin Forscher und interessiert an der Rasse der Orks."
+english, "job" -> "I'm a scholar, or what have you thought?", "I am researching on Orcs.", "I'm a researcher and my interest is in the race of orcs."
+"job" -> "Ich bin ein Gelehrter, oder was habt ihr gedacht?", "Ich forsche an Orks.", "Ich bin Forscher und interessiert an der Rasse der Orks."
+english, "Gobaith" -> "Oh yes, the good, old times. *sigh*", "It was a small island somewhere in the east of the main land.", "It was a chaotic place with many wannabes!"
+"Gobaith" -> "Oh ja, die guten alten Zeiten. *seufzt*", "Es war eine kleine Insel irgendwo im Osten des Festlands.", "Es war ein chaotischer Ort mit lauter Möchtegern-Typen!"
+"I am", "my name" -> "Nice to meet you.", "Well, what do you want from me?", "Interesting, interesting, but never heard such a ridiculous name."
+"Ich bin", "mein Name" -> "Schön euch kennen zu lernen.", "Schön, was wollt ihr von mir?", "Interessant, interessant, aber ich habe noch nie so einen lächerlichen Namen gehört."
+
+-- More small talk; add at least five triggers
+"five" -> "Chapel of the Five? Ask people. I am sure someone knows it.", "Chapel of the Five? I think it is in the west.", "Altar of the Five? I don't know, but shall I looking for by myself? ..."
+"chapel" -> "I would recommend the Chapel of the Five. Ask people. I am sure someone knows it.", "I would recommend the Chapel of the Five. I think it is in the west."
+english, "priest" -> "I have no idea where they are hiding. Better you ask someone else or you look for an altar at least."
+english, "Northern", "Mountains", "krest" -> "A mighty clan. Some members of them live here now. Better avoid to bother them.", "They had a very honourable chief.", "Their warlord destroyed a whole dwarves army once. Probably one of the orcs knows more about that."
+"halfing" -> "Halfings...the favourite food of orcs.", "Orcs have several recipes for them.", "Halflings are also very useful as slaves for orcs."
+"bloodgod" -> "I don't want mention is right name. It would be heresey", "Orcs celebrating and following him, because he created them.", "Beware of those who follow him. Those are lost as he is."
+"Fünf" -> "Kapelle der Fünf? Fragt herum. Ich bin sicher jemand kann euch helfen.", "Kapelle der Fünf? Ich denke die liegt im Westen.", "Kapelle der Fünf? Keine Ahnung, aber soll ich selber suchen gehen? ..."
+"Kapelle" -> "Kapelle der Fünf würde ich vorschlagen. Fragt herum. Ich bin sicher jemand kann euch helfen.", "Kapelle der Fünf würde ich vorschlagen. Ich denke die liegt im Westen."
+"priest" -> "Ich habe keine wo sich die verstecken. Besser ihr fragt jemand anderen oder sucht wenigstens nach einen Altar."
+"Northern", "Mountains", "krest" -> "Ein mächtiger Klan einst. Einige von denen leben nun hier. Besser ihr vermeidet diese zu ärgern.", "Die hatten einen ehrenhaften Chief.", "Deren Kriegsherr zerstörte eine ganze Armee von Zwergen einst. Vielleicht weiß einer der Orks mehr."
+"Halbling" -> "Halblinge...das favorisierte Essen der Orks.", "Orks haben verschiedene Rezepte für sie.", "Orks verwenden sie auch als Sklaven."
+"Blutgott" -> "Ich möchte seinen Namen nicht nennen. Es wäre Häresie.", "Orks feiern und folgen ihm, weil er sie erschaffen hat.", "Hütet euch von jenen die ihm folgen. Verloren wie er, sind auch sie."
+"orc" -> "There is a great settlement of orcs close to the Death Marsh. But you should be careful if you go there, because they have a powerful shaman.", "Green, strong, bloody. These are my words for the orcs in Katanbi-Desert. Also known as Moshran's Brood.", "An interesting race for research, isn't?", "Better you show some respect if you meet one! You never know if the enslave you otherwise!"
+"ork" -> "Da ist eine große Siedlung von Orks nahe dem Todes Sumpf. Aber ihr solltet vorsichtig sein, wenn ihr dort hingeht, weil die einen mächtigen Schamanen haben.", "Grün, stark, Blutig. Das sind meine Worte für die Orks in der Katanbi Wüste. Auch bekann als Moshran's Brut.", "Eine interessante Rasse zum forschen, oder?", "Besser ihr zeigt ihnen gegenüber etwas Respekt. Man weiß nie, ob sie einen sonst versklaven?"
+"marsh" -> "The Death Marsh is in the north from here, beyond the dragon's lair. But be careful!"
+"sumpf" -> "Der Todes Sumpf ist nördlich von hier, hinter der Drachenhöhle. Aber sei vorsichtig!"
+"dragon" -> "You have not been here for a long them, haven't you? Ask someone else if you want know more about that."
+"drache" -> "Lange seit ihr noch nicht hier, oder? Fragt jemand anderen wenn ihr mehr dazu wissen wollt."
+"shaman" -> "The name of the Shaman that you can find in the craven cave is Igruk. Therefore Igruk's craven cave. *grins*"
+"Schaman" -> "Der Name des Schamanen den du in der feigen Höhle finden kannst heißt Igruk. Daher Igruk's feige Höhle. *grinst*"
+english, "Igruk" -> "A very powerful shaman. Don't go alone to his cave. Otherwise you will die as many did some years ago when these orcs invaded in this area."
+"Igruk" -> "Ein sehr mächtiger Schamane. Geh nicht alleine zu seiner Höhle. Ansonsten wirst du sterben wie viele vor einigen Jahren als diese Orks in diesen Teil eindrangen."
+"area" -> "The area where orcs live is now called Igruk's craven cave."
+"teil" -> "Der Teil wo diese Orks nun leben wird Igruk's feige Höhle genannt."
+"craven", "cave" -> "Do you like to visit Igruk? You can find him northern the snakehead bay. But be careful, many strong orcs are hiding there."
+"feig", "höhle" -> "Du möchtest Igruk besuchen? Du kannst ihn nördlich der Schlangenkopf Bucht finden. Aber seid vorsichtig. Es verstecken sich dort viele starke Orks."
+"snakehead", "bay" -> "You have not been here for a long them, haven't you? Ask someone else if you want know more about that."
+"Schlangenkopf", "bucht" -> "Lange seit ihr noch nicht hier, oder? Fragt jemand anderen wenn ihr mehr dazu wissen wollt."
+"invade", "hundred" -> "Orcs invaded in this area some years ago and crashed almost everything they met. But we could stand their attack even they got a lot of supply from Galmair."
+"dring", "drang", "hundert" -> "Orks drangen in diesen Teil vor einigen Jahren ein und töteten beinahe jeden den sie getroffen haben. Aber wir konnten ihren Angriff abwehren, obwohl sie Unterstützung aus Galmair bekamen."
+"brood" -> "Moshran's Brood... Rather dumb than evil orcs in the Katanbi Desert on the way to Cadomyr."
+"brut" -> "Moshran's Brut... Eher dämliche als bösartige Orks in der Katanbi Wüste am Weg nach Cadomyr."
+english, "Katanbi" -> "The Katanbi-Desert can be found in the west. In this case you will be close to Cadomyr."
+"Katanbi" -> "Die Katanbi Wüste kann im Westen gefunden werden. Sprich, in der Nähe von Cadomyr."
+
+-- Faction stuff
+"archmage" -> "He has so much knowledge.", "I have not seen anyone who is smarter than he.", "If you have a question, nobody can answer it better than him."
+"Erzmagier" -> "Er hat so viel Wissen.", "Ich habe noch nie jemanden gesehen der so schlau ist.", "Wenn ihr eine Frage habt, es gibt niemanden der es besser beantworten kann."
+english, "Elvaine", "Morgan" -> "He has so much knowledge.", "I have not seen anyone who is smarter than he.", "If you have a question, nobody can answer it better than him."
+"Elvaine", "Morgan" -> "Er hat so viel Wissen.", "Ich habe noch nie jemanden gesehen der so schlau ist.", "Wenn ihr eine Frage habt, es gibt niemanden der es besser beantworten kann."
+english, "Runewick" -> "Nice towers do we have, haven't we? And many great books. Take a look.", "Our forest is so beautiful, isn't it?", "I enjoy it to live here."
+"Runewick" -> "Schöne Türme haben wir, nicht wahr? Und viele tolle Bücher. Werft einen Blick rein.", "Unser Wald ist so wunderhübsch, oder?", "Ich genieße es hier zu leben."
+english, "Valerio", "Guilianni", "Don" -> "Watch his daggers if you ever meet him!", "He has only one aim: more wealth!", "I think he believes in Nargun."
+"Valerio", "Guilianni", "Don" -> "Achte auf seine Dolche wenn du ihn jemals treffen solltest!", "Er hat nur ein einziges Interesse: mehr Reichtum!", "Ich denke er glaubt an Nargun."
+english, "Galmair" -> "Only one word: Criminals.", "They are all greedy and moody.", "A disgusting place.", "Huuu, why do remember me that I still have to pay my debts there."
+"Galmair" -> "Nur ein Wort: Verbrecher.", "Die sind all gierig und launisch.", "Ein abscheulicher Platz.", "Huuu, warum müsst ihr mich erinnern, dass ich dort noch Schulden zu begleichen habe?"
+"Queen" -> "I don't know how such a person could become queen.", "Wisdom is not one of her characteristics.", "I haven't seen her so far, but she should be very pretty."
+"Königin" -> "Ich weiß nicht wie so eine Person Königin werden konnte.", "Weisheit ist nicht gerade eine ihrer Eigenschaften.", "Ich habe sie noch nie gesehen, aber sie soll sehr hübsch sein."
+english, "rosaline", "edwards" -> "I don't know how such a person could become queen.", "Wisdom is not one of her characteristics.", "I haven't seen her so far, but she should be very pretty."
+"rosaline", "edwards" -> "Ich weiß nicht wie so eine Person Königin werden konnte.", "Weisheit ist nicht gerade eine ihrer Eigenschaften.", "Ich habe sie noch nie gesehen, aber sie soll sehr hübsch sein."
+english, "Cadomyr" -> "They think they have honour, but to be honest, they only lack on wisdom.", "I think the have some quite good goldsmiths.", "I would not be surprised if they have some slaves."
+"Cadomyr" -> "Die denken, dass sie Ehre hätten, aber um ehrlich zu sein, denen mangelt es lediglich an Weisheit.", "Ich denke, dass sie ein paar ganz gute Goldschmiede haben.", "Ich wäre nicht überrascht wenn die nicht einige Sklaven hätten."
+
+-- Main land factions
+english, "albar" -> "Why are you not going there?", "That is no place I like to live.", "Are they still enslaving people?"
+"albar" -> "Warum geht ihr nicht dort hin?", "Das ist kein Ort wo ich leben möchte.", "Versklaven die noch immer Leute?"
+english, "gync", "gynk" -> "Why are you not going there?", "Huuu, why do remember me that I still have to pay my debts there.", "They have nice game halls."
+"gync", "gynk" -> "Warum geht ihr nicht dort hin?", "Huuu, warum müsst ihr mich erinnern, dass ich dort noch Schulden zu begleichen habe?", "Nette Spielhallen haben sie dort."
+english, "salkama" -> "Why are you not going there?", "I hope they come and free us from all this evil here.", "I say you, I am very sorry that they killed their prince at Gobaith."
+"salkama" -> "Warum geht ihr nicht dort hin?", "Ich hoffe die kommen und befreien uns von diesem Übel hier.", "Ich sage dir, dass es mir sehr leid tut, dass sie ihren Prinzen in Gobaith getötet haben."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+-- Pick 1-2 gods he likes, 1 he dislikes
+-- Use ONE other response for the other gods i.e. "I don't worship that good much"
+"god" -> "Elara, who else?", "I pray to Elara.", "If you look around here, you could believe I pray to Nargun."
+"Gott", "Götter" -> "Eldra, wem sonst?", "Ich bete zu Eldra.", "Wenn man sich hier umsieht könnt man glauben Nagrun ist mein Gott."
+english, "Adron" -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
+"Adron" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
+english, "Bragon", "Brágon" -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
+"Bragon", "Brágon" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
+english, "Cherga" -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
+"Cherga" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
+english, "Elara" -> "I hope she gives me knowledge.", "I believe in here as other scholars.", "She will help me to solve this matter here."
+"Elara" -> "Ich hoffe sie verleiht wir mehr Wissen.", "Wie andere Gelehrte verehre ich nur sie.", "Sie wird mir helfen mein Rätsel hier zu lösen."
+english, "Eldan" -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
+"Eldan" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
+english, "Findari" -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
+"Findari" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
+english, "Irmorom" -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
+"Irmorom" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
+english, "Malachin", "Malachín" -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
+"Malachin", "Malachín" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
+english, "Moshran" -> "One more word about him and I call the guards.", "There is rumours that the temple follows him.", "The Father of the Orks he is."
+"Moshran" -> "Ein Wort mehr über ihn und ich rufe die Wache.", "Es gibt Gerüchte, dass der Tempel ihm folgt.", "Für Orks ist er ihr Vater, ja."
+english, "Nargun", "Nargún", "Nargùn" -> "Don't believe I pray to him just because it looks chaotic here."
+"Nargun", "Nargún", "Nargùn" -> "Glaubt nur nicht ich bete zu ihm weil es hier so chaotisch aussieht."
+english, "Oldra" -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
+"Oldra" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
+english, "Ronagan" -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
+"Ronagan" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
+english, "Sirani" -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
+"Sirani" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
+english, "Tanora", "Zelphia" -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
+"Tanora", "Zelphia" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
+english, "Ushara" -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
+"Ushara" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
+english, "Zhambra" -> "There shall be people who pray to this god.", "I do not believe in this god.", "Nothing compared to Elara"
+"Zhambra" -> "Es soll Leute geben die an diesen Gott glauben.", "Ich glaube nicht an diesen Gott.", "Nichts im Vergleich zu Elara."
+
+-- Catching typical NPC phrases
+"what sell", "what buy", "list wares", "price of" -> "Do I look as I sell something?", "Do you remember where the gate is? GET OUT!", "I can sell you this book for 1000 gold! *smirks* "
+"was verkauf", "was kauf", "warenliste", "preis von" -> "Sehe ich aus als würde ich etwas verkaufen?", "Erinnerst du dich wo die Türe ist? RAUS HIER!", "Ich kann dir das Buch hier um 1000 Goldmünzen verkaufen. *grinst frech*"
+"tell something" -> "I am working and you are disturbing me!", "The gate is behind you.", "Have somebody ever told you that you are disturbing?"
+"erzähl was", "erzähl etwas" -> "Ich arbeite und ihr stört.", "Die Tür ist hinter euch.", "Hat euch jemals jemand erzählt, dass ihr störend seid?"
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+english, "sir", "fludnar", "yednos" -> "That's my name.", "Impressing, you can pronounce my name correctly!"
+"sir", "fludnar", "yednos" -> "Das ist mein Name.", "Beeindruckend, ihr könnt meinen Namen richtig aussprechen!"
+"Yes" -> "And what shall I do now?", "Can you give a proper answer?"
+"Ja" -> "Und was soll ich jetzt tun?", "Könnt ihr eine angebrachte Antwort geben?"
+"No" -> "And what shall I do now?", "Can you give a proper answer?"
+"Nein" -> "Und was soll ich jetzt tun?", "Könnt ihr eine angebrachte Antwort geben?"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "#me covers his nose and mumbles 'Maybe you should consider to clean your teeth. You have a very smelly breath'."
+german, chance(20.0), ".*" -> "#me hält sich die Nase zu und murmelt 'Vielleicht solltet ihr euch die Zähne putzen. Ihr habt einen üblen Mundgeruch'."
+
+-- Cycletext: Please add at least(!) five cycletext messages. The more, the better. You can use emotes (#me is green), too.
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "#me sitzt am Tisch und liest in einem Buch.", "#me sits at the table and reads in a book."
+cycletext "#me macht einige Notizen und seufzt leicht.", "#me takes some notes and sighs."
+cycletext "#me blickt hin und wieder über seine Schulter.", "#me looks over his soulder time to time."
+cycletext "#me murmelt vor sich hin: 'Orks, welches interessantes Geschöpf'", "#me mumbles: 'Orks, how interesting creatures.'"
+cycletext "#w Diese Orks... was die alles klein hauen können. Sagenhaft!", "#w Those orks... what they can crash easily. Impressing!"
+cycletext "#w Der Kriegsrat besteht aus dem Häuptling, dem Schaman und dem Kriegsherrn.", "#w The war-cycle consists of the chief, the shaman and the warlord."
+cycletext "#w So dumm sind Orks ja gar nicht.", "#w Orcs are not that dumb as assumed."
+cycletext "#w Oh ein Rezept... 'gefüllter Halbing'.", "#w Oh a recipe... 'stuffed halfing'."
+cycletext "#w In der Kriegsführung ist der Ork herausragend.", "#w In warfare the ork is outstanding."
+cycletext "#me betrachtet seine Notizen mit wohlwollen.", "#me looks at his notes with a satisfied glance in his face."

@@ -1,0 +1,165 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Severus Rabon                                            Cadomyr --
+-- NPC Job:  Waiter                                                           --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  113, 574, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Authors:  Regallo                                                          --
+--           Estralis Seborian                                                --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Severus Rabon"
+race = human
+sex = male
+position = 113, 574, 0
+direction = south
+affiliation = "Cadomyr"
+job = "Waiter"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Regallo"
+author = "Estralis Seborian"
+
+lookatDE = "Dieser NPC ist Severus Rabon der Ober."
+lookatUS = "This NPC is Severus Rabon the Waiter."
+useMsgDE = "Fass mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut dich verwirrt an."
+wrongLangUS = "#me looks at you confused."
+hairID = 1
+beardID = 1
+colorHair = 205, 102, 29
+colorSkin = 139, 90, 43
+itemHead = 0
+itemChest = 808
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 367
+itemShoes = 369
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 164, 191, 224, 353, 453, 454, 517, 518, 783, 784, 785, 786, 787, 788, 789, 790, 791, 1315, 1316, 1317, 1318, 1319, 1840, 1841, 1842, 1843, 1844, 1853, 1854, 1855, 1856, 1857, 1858, 1859, 1860, 1861, 1908, 1909, 2055, 2056, 2057, 2058, 2059, 2185, 2186, 2187, 2188, 2189, 2276, 2278, 2456, 2496, 2497, 2498, 2499, 2500, 2501, 2922, 2923, 2935, 2952
+buyPrimaryItems = 81, 151, 224, 290, 783, 786, 788, 789, 791, 1315
+buySecondaryItems = 80, 199, 784, 785, 787, 1318, 1316, 1319
+tradeNotEnoughMoneyMsg "Du hast nicht genug Geld!", "You don't have enough money!"
+tradeFinishedMsg "Danke, komm doch bald wieder.", "Thanks, come back soon."
+tradeFinishedWithoutTradingMsg "Nichts gefunden was dir gefällt?", "Don't you like my wares?"
+
+-- ----------------------------------------------------------------------------AC
+
+-- Stock: big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
+"verkauf", "handel" -> "Lass uns handeln!", trade
+"sell", "trade" -> "Let's trade!", trade
+
+-- Waiter: Severus Rabon
+-- Occupation: waiter
+-- Age: 31
+-- Race: Human
+-- Skin:  very dark
+-- Hair: short black
+-- Height: normal
+-- Weight: petite
+-- Clothes: Short sleeve black shirt. Brown Leather pants.
+-- Personality: Severus used to be very laid back and lazy and even after he started his tavern. He stayed this way in all things that are not his daughter. When he had her he became a super worry wart, always wondering what would make her safe and happy.
+
+-- Background: A poor man with a dream. He was born a single child. His parents loved and believed that he would be something, He lofted on this dream until hard reality smacked him in his face. When he finally was kicked out of his house he had no money and no skills. He tried random jobs around the city. He sucked at all of them and ended up homeless. For years he begged for money, until one day he had enough and found a way to make money for himself no matter how pathetic. He would go into the desert and gather sand rodents. He built a makeshift stand out of abandoned wood. This went over decent. He actually started to make quite a bit of money since he lived and worked out of a stand that cost him no money. He eventually used his money to pay dowry for a wife. He wanted a cute girl, any would have done. He chose the cheapest of the cute girls he could find, A women from a poor family that was elated to now have a business owner of a husband. He told her his lofty dreams and she worked hard to help him manage it. They eventually saved up enough to build an actual location to sell their sand rat, and that place grew into a general tavern. They have one daughter who cooks. His wife, Rose, passed away recently and so his daughter Linda is all that is left to him of her.
+
+-- Help
+"Help" -> inform("[Game Help] This NPC is Severus Rabon the Waiter. Keywords: Good day, tavern, Linda, trade.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Severus Rabon der Ober. Schlüsselwörter: Guten Tag, Taverne, Linda, Handel.")
+
+-- General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Please talk to my daughter. She will seat you and then I will take your order.", "If you're a regular please seat yourself. My tavern is your home.", "If I may be of service I would recommend the stew. It's our signature dish."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Redet doch bitte mit meiner Tochter. Sie wird euch einen Platz zeigen und ich nehme dann eure Bestellung entgegen.", "Als Stammgast dürft ihr euch natürlich einen Platz aussuchen. Fühlt euch wie zuhause.", "Wenn ich euch etwas empfehlen dürfte, der Eintopf ist heute vorzüglich. Er ist das Stammessen hier."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Please talk to my daughter. She will seat you and then I will take your order.", "If you're a regular please seat yourself. My business is your home.", "If I may be of service I would recommend the stew. It's our signature dish."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Redet doch bitte mit meiner Tochter. Sie wird euch einen Platz zeigen und ich nehme dann eure Bestellung entgegen.", "Als Stammgast dürft ihr euch natürlich einen Platz aussuchen. Fühlt euch wie zuhause.", "Wenn ich euch etwas empfehlen dürfte, der Eintopf ist heute vorzüglich. Er ist das Stammessen hier."
+"Farewell", "Bye", "Fare well", "See you" -> "Thank you, please come again.", "I would be most grateful if you would bless this institution with your presence once more.", "I hope you enjoyed your meal. Remember you can come back any time. The food is good here and the prices are so low the homeless can afford to it."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Danke, kommt doch gerne wieder.", "Ich wäre euch zu Dank verpflichtet, wenn ihr dieser Einrichtung erneut mit eurer Anwesenheit erfreuen würdet.", "Ich hoffe, es hat geschmeckt. Denkt daran, ihr seid hier immer willkommen. Das Essen ist lecker und die Preise können sich selbst Obdachlose leisten."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Thank you please come again.", "I would be most grateful if you would bless this institution with your presence once more.", "I hope you enjoyed your meal. Remember you can come back any time. The food is good here and the prices are so low the homeless can afford to it."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Danke, kommt doch gerne wieder.", "Ich wäre euch zu Dank verpflichtet, wenn ihr dieser Einrichtung erneut mit eurer Anwesenheit erfreuen würdet.", "Ich hoffe, es hat geschmeckt. Denkt daran, ihr seid hier immer willkommen. Das Essen ist lecker und die Preise können sich selbst Obdachlose leisten."
+"How are you", "How feel" -> "I wish Linda would take a break more often. She looks so tired.", "I feel Linda is working too hard. Maybe I should hire an extra hostess.", "May I take your order?"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich wünschte, Linda würde öfter mal eine Pause machen. Sie sieht so müde aus.", "Linda arbeitet eindach zu hart. Ich sollte noch eine Kellnerin einstellen.", "Ihre Bestellung, bitte?"
+"your name", "who are you", "who art thou" -> "I am Severus Rabon, father and tavern owner extrodinaire.", "I am Severus Rabon, father of the Cadomyr's most famous cook Linda Rabon.", "I am Severus. This is my tavern the Unicorn Lion. Me and my wife built this place from scratch along with our first home. Please have a seat, a meal and become part of the family."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Severus Rabon, Vater und Tavernenbesitzer.", "Ich bin Severus Rabon, Vater von Cadomyrs berühmtester Köchin, Linda Rabon.", "Ich bin Severus. Dies hier ist meine Tavern, der Einhörnige Löwe. Ich und meine Frau haben sie aus dem Nichts aufgebaut, sie ist unsere Heimat. Setzt euch, esst was und werdet Teil der Familie."
+
+-- Optional: Trade Hooks, use only for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Your order, please?", "What can I serve you today?", "Yes?", trade
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ihre Bestellung, bitte.", "Was kann ich ihnen bringen?", "Jawohl?", trade
+
+-- Small talk: The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I own this place here. So what would I call myself? Bartender, waiter? I don't know, just call me Severus.", "Right now I am the waiter and I used to be the cook, but my beautiful and talented daughter has been given a gift from the gods. She is now the cook."
+"beruf" -> "Mir gehört diese Taverne. Was bin ich also - ein Barmann, ein Ober? Eigentlich auch egal, nennt mich Severus.", "Ich bin hier der Ober, ich war auch mal der Koch, aber meine schöne und talentierte Tochter ist von den Göttern gesegnet. Sie ist nun die Köchin."
+english, "job" -> "I own this place here. So what would I call myself. Bartender, waiter? I don't know, just call me Severus.", "Right now I am the waiter and I used to be the cook, but my beautiful and talented daughter has been given a gift from the gods. She is now the cook."
+"job" -> "Mir gehört diese Taverne. Was bin ich also - ein Barmann, ein Ober? Eigentlich auch egal, nennt mich Severus.", "Ich bin hier der Ober, ich war auch mal der Koch, aber meine schöne und talentierte Tochter ist von den Göttern gesegnet. Sie ist nun die Köchin."
+"Lion", "Unicorn" -> "It started out as a stand. I only sold stew back then. After I got married I opened up this place. Now it is run by me and my beautiful daughter alone..."
+"Löwe", "Einhorn", "Einhörnig" -> "All dies hat mal als kleiner Markstand angefangen, damals gab es nur Eintopf. Nach meiner Hochzeit habe ich diese Taverne eröffnet. Nun führen sie nur noch meine schöne Tochter und ich..."
+"Daughter" -> "Linda is all that remains for me. After my wife passed away, I realised that Rose continues to life through Linda."
+"Tochter" -> "Linda ist alles, was mir geblieben ist. Nachdem meine Frau gestorben war, habe ich realisiert, dass sie durch Linda weiterlebt."
+english, "Linda" -> "Linda is all that remains for me. After my wife passed away, I realised that Rose continues to life through Linda."
+"Linda" -> "Linda ist alles, was mir geblieben ist. Nachdem meine Frau gestorben war, habe ich realisiert, dass sie durch Linda weiterlebt."
+"wife" -> "She went from wife, to lover to part of my soul. My wife Rose is no more, but I have my daughter Linda."
+"Frau" -> "Aus einer Ehefrau wurde eine Geliebte und aus ihr ein Teil meiner Seele. Meine Frau Rose ist nicht mehr, aber ich habe ja meine Tochter Linda."
+english, "Rose" -> "She went from wife, to lover to part of my soul. My wife Rose is no more, but I have my daughter Linda."
+"Rose" -> "Aus einer Ehefrau wurde eine Geliebte und aus ihr ein Teil meiner Seele. Meine Frau Rose ist nicht mehr, aber ich habe ja meine Tochter Linda."
+english, "Hassan" -> "This fellow brings life to this place. He's so quiet himself though. Maybe he will open up someday.", "Hassan is too nice. Too nice to be a fan waiver. He's big though, and each of us have our place."
+"Hassan" -> "Der Kerl bring Leben in die Bude. Er ist zwar etwas schweigsam, aber vielleicht öffnet er sich ja doch noch.", "Hassan ist wirklich nett. Eigentlich viel zu nett, um ein Fächelwedler zu sein. Er ist recht groß und wir alle haben unsere Bestimmung."
+"Queen" -> "I await the day when the queen graces our tavern with a visit."
+"Königin" -> "Ich kann es kaum erwarten, dass die Königin meiner Taverne ihre Anwesenheit schenkt und ihr einen Besuch abstattet."
+english, "rosaline", "edwards" -> "I await the day when the queen graces our tavern with a visit."
+"rosaline", "edwards" -> "Ich kann es kaum erwarten, dass die Königin meiner Taverne ihre Anwesenheit schenkt und ihr einen Besuch abstattet."
+
+-- Main land factions
+english, "albar" -> "Haha. I guess since I'm a business man now, I should look at things like maps. Someday."
+"albar" -> "Haha, nun, da ich ein Geschäftsmann bin, sollte ich wohl mal auf sowas wie Landkarten gucken. Oder auch nicht."
+
+-- Gods - use the triggers of the god the NPC worships or fights
+"gods" -> "Irmorom. I respect Irmorom, only."
+"Götter", "Gott" -> "Irmorom. Ich ehre nur Irmorom."
+english, "Irmorom" -> "He's the only one that ever cared about me. I give him ten percent of my all the money I make."
+"Irmorom" -> "Er ist der einzige, der sich um mich scherte. Daher gebe ich ihm zehn Prozent aller Einnahmen."
+
+-- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
+"secret" -> "I'm too bland of a person to have any."
+"Geheimnis" -> "Ich bin nur ein einfacher Mann und habe keine Geheimnisse."
+
+-- Last catch: Think about keywords the player might say and that are not caught until here
+english, "Severus", "Rabon" -> "Oh, do you need something?", "That is me.", "Hello. I am Severus Rabon. I would be glad to help you with anything that you need."
+"Severus", "Rabon" -> "Oh, braucht ihr etwas?", "Das bin ich.", "Hallo. Ich bin Severus Rabon. Ich bin euch gerne behilflich, wenn ihr etwas benötigt."
+"Yes" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait, what?"
+"Ja" -> "Hab ich was gesagt?", "Ich glaube nicht, dass ich recht verstehe, um was es geht.", "Wie bitte?"
+"No" -> "I did not say anything.", "I don't believe I asked a yes or no question.", "Wait, what?"
+"Nein" -> "Hab ich was gesagt?", "Ich glaube nicht, dass ich recht verstehe, um was es geht.", "Wie bitte?"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "This discussion is not relevant to me.", "Maybe talk about something like adventures or missions. People respond well to those words.", "I have no intention of buying your chicken."
+german, chance(20.0), ".*" -> "Irgendwie interessiert mich das nicht.", "Redet doch über Aufgaben oder Abenteuer. Die Leute reden gerne über sowas.", "Ich kaufe keine Hühner."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Eintopf ist genau das richtige nach einem Ritt durch die Wüste. Er macht satt und betäubt erfreut auch den Gaumen.", "Stew is the perfect way to fill a stomach emptied from a trek across the desert. It is both fulfilling and tantalizing to the tongue."
+cycletext "Was darf es denn heute sein? Ich empfehle etwas kaltes zu trinken und etwas warmes zu essen.", "What will you be having today? I suggest a cool drink followed by a hot meal."
+cycletext "Balance ist alles im Leben! Insbesondere, wenn es um das Servieren geht.", "Balance is the key to dining as it is in any other aspect of life."
+cycletext "Das sieht hier ja wieder aus... Hoffentlich zwingt mich Linda nicht zum Wischen.", "This place is a mess. I hope Linda doesn't make me mop."
+cycletext "Ich sollte mal nach Linda sehen. Ich hoffe, sie ist nicht allzu müde.", "I should check up on Linda. I hope she's not too tired."
+cycletext "Vielleicht sollte ich einen Gaukler anheuern. Ich denke, dass die Kundschaft auch einen Geschichtenerzähler gutheißen würde.", "Maybe I should hire a gleeman. I bet the customers would enjoy a story teller as well."
+cycletext "Wahre Männer fassen es in Worte, wie viel ihnen eine Frau bedeutet. Wahre Männer lieben!", "Real men tell the women in their lives how much they mean to them. Real men love."
+cycletext "Das schwerste am Arbeiten ist die Arbeit.", "The hardest part of work is working."
+cycletext "Schaut doch gerne mal wieder rein. Es gibt für uns nichts besseres als euch ein zweites mal zu bedienen.", "Please come again. We would like nothing better than to serve you another meal."
+cycletext "Entschuldigt, dass es so warm hier drinnen ist. Meine Tochter würde es nicht gut finden, wenn ich eine Horde Fächelwedlerinnen einstellen würde. Sie meint, ich könnte doch Kerle einstellen, aber das wäre mir wieder nicht recht.", "I'm sorry it's so hot in here. My daughter won't let me hire a bunch of girls to fan everyone. She said I could hire guys, but I would never allow that."
+cycletext "Linda! Ist alles in Ordnung?", "Linda! Is everything alright over there?"
+cycletext "#me seufzt: 'Rose, oh Rose...'", "#me sighs: 'Rose, O Rose...'"

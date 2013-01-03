@@ -725,15 +725,34 @@ end;
     Generate the sum of all stiffness values of the armor parts a character wears
     @param CharacterStruct - The character whos stiffness is checked
     @return integer - the stiffness value
+    Reworked by Flux
 ]]
 function GetStiffness(Character)
+
     local StiffnessVal = 0;
     local Item;
     local found;
     local Armor;
 
+    local Equipmentposition = {1, 3, 4, 9, 10, 11};
+    local counter;
+    
+    for counter = 1, #Equipmentposition do
+				Item = Character:getItemAt(Equipmentposition[counter]);
+				if Item and (Item.id ~= 0 ) then
+						found, Armor=world:getArmorStruct(Item.id);
+						if found then
+                StiffnessVal = StiffnessVal + Armor.Stiffness
+						end;
+				end;
+    
+    end
+    
+    
+    --Old system
+--[[
     if not InventoryFieds then
-        InventoryFieds = {Character.head, Character.coat, Character.breast, Character.hands, Character.legs, Character.feet};
+        InventoryFieds = {Character.Head, Character.Coat, Character.breast, Character.hands, Character.legs, Character.feet};
     end;
     for _, place in pairs(InventoryFieds) do
         Item=Character:getItemAt( place );
@@ -743,18 +762,8 @@ function GetStiffness(Character)
                 StiffnessVal = StiffnessVal + Armor.Stiffness;
             end;
         end;
-    end;
+    end;]]
     return StiffnessVal;
-end;
-
---[[
-    Encumbrence
-    Check if a character is encumbered by the armor he wears
-    @param CharacterStruct - The character whos encombrence is checked
-    @return boolean - true if encumbered, false if not
-]]
-function Encumbrence(Character)
-    return (GetStiffness(Character) > 100);
 end;
 
 --[[
@@ -1536,7 +1545,6 @@ function BasicNPCChecks(originator,NPCRange, npc)
         return false;
     end
 
-    originator:introduce(npc);
     return true;
 end
 
@@ -1653,8 +1661,8 @@ function GetLeadAttributeName(Skill)
   if leadAttribTable==nil then
     leadAttribTable={};
     leadAttribTable[Character.tailoring]="dexterity"
-    leadAttribTable[Character.alchemy]="perception"
-    leadAttribTable[Character.tactics]="perception"
+    leadAttribTable[Character.alchemy]="essence"
+    --leadAttribTable[Character.tactics]="perception"
     leadAttribTable[Character.farming]="constitution"
     leadAttribTable[Character.poisoning]="perception"
     leadAttribTable[Character.harp]="dexterity"
@@ -1665,7 +1673,7 @@ function GetLeadAttributeName(Skill)
     leadAttribTable[Character.distanceWeapons]="perception"
     leadAttribTable[Character.gemcutting]="dexterity"
     leadAttribTable[Character.slashingWeapons]="strength"
-    --leadAttribTable[Character.magicResistance]="essence"
+    --leadAttribTable[Character.magicResistance]="essence" --please reconsider once you work on magic
     leadAttribTable[Character.carpentry]="dexterity"
     leadAttribTable[Character.cookingAndBaking]="dexterity"
     leadAttribTable[Character.goldsmithing]="dexterity"
@@ -1719,4 +1727,14 @@ function GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
     end
   end
   return nil, nil;
+end
+
+-- Checks if a given position is located on the tutorial island Noobia.
+-- @param posStruct Pos  The position to check.
+-- @return bool  True if position is located on Noobia, false otherwise.
+function IsOnNoobia(Pos)
+  if (Pos.z == 100) then
+    return true;
+  end
+  return false;
 end

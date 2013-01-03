@@ -1,0 +1,135 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Simeon Ureses                                            Cadomyr --
+-- NPC Job:  Armourer                                                         --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  133, 581, 0            --
+-- NPC Sex:  male                       NPC Direction: south                  --
+--                                                                            --
+-- Author:   Estralis Seborian                                                --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+
+name = "Simeon Ureses"
+race = human
+sex = male
+position = 133, 581, 0
+direction = south
+affiliation = "Cadomyr"
+job = "Armourer"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Estralis Seborian"
+
+lookatDE = "Dieser NPC ist Simeon Ureses der königliche Waffenmeister."
+lookatUS = "This NPC is Simeon Ureses the royal armourer."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 1
+beardID = 3
+colorHair = 180, 35, 35
+colorSkin = 160, 80, 45
+itemHead = 0
+itemChest = 363
+itemCoat = 195
+itemMainHand = 23
+itemSecondHand = 0
+itemHands = 48
+itemTrousers = 459
+itemShoes = 53
+
+-- HANDS OFF! This NPC has modifications in its .lua file. See simeon_urestes_repairing.lua for instructions. Or better: Do not touch anything!
+
+-- Template Version 1.04, 07/12/2011 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change it your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly.
+-- When you are done, please hit the "Rebuild Script" button.
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Simeon Ureses the royal armourer. Keywords: Hello, armourer, dwarves, Irmorom, repair, cost.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Simeon Ureses der königliche Waffenmeister. Schlüsselwörter: Hallo, Waffenmeister, Zwerge, Irmorom, reparieren, Kosten.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Guten Tag. Soll ich eure Ausrüstung reparieren?", "Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.", "Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Good day. Shall I repair your equipment?", "Hello. Come with broken things and you will go with fixed ones.", "Pardon me, could you come back in a minute or two? I have to fix this first."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Guten Tag. Soll ich eure Ausrüstung reparieren?", "Hallo. Kommt zu mir mit Zerbrochenem und geht mit Repariertem.", "Entschuldigt, könnt ihr in ein bis zwei Minuten nochmal wiederkommen? Ich muss dies hier erst reparieren."
+"Farewell", "Bye", "Fare well", "See you" -> "Good bye. And do some adventures for me.", "Farewell and come back soon.", "I bid you farewell."
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wünsche euch was."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wünsche euch was."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Auf Wiedersehen. Und erlebt ein paar Abenteuer für mich mit.", "Gehabt euch wohl und kommt bald wieder.", "Ich wünsche euch was."
+"How are you", "How feel", "How do you do" -> "Good. I just got a new rasp.", "Did you know why a raspberry is called raspberry? Take a rasp and a raspberry and feel the surface...", "I need to work, sorry."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Gut. Ich habe gerade eine neue Feile bekommen.", "Wußtet ihr, dass eine Erdbeere gar keine Beere sondern eine Nussart ist?", "Ich muss arbeiten, entschuldigt."
+"your name", "who are you", "who art thou" -> "I am Simeon Ureses, the royal armourer."
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Simeon Ureses, der königliche Waffenmeister."
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+english, "quest", "mission" -> "Do I look like I'd issue quests?"
+"quest", "mission" -> "Sehe ich aus wie einer, der Befehle verteilt?"
+"task", "adventure", "order" -> "Do I look like I'd issue quests?"
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Sehe ich aus wie einer, der Befehle verteilt?"
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am the royal armourer. So, whenever your sword turns blunt, come to me."
+"beruf" -> "Ich bin der königliche Waffenmeister. Wenn also euer Schwert stumpf wird, kommt zu mir."
+english, "job" -> "I am the royal armourer. So, whenever your sword turns blunt, come to me."
+"job" -> "Ich bin der königliche Waffenmeister. Wenn also euer Schwert stumpf wird, kommt zu mir."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"dwarf", "dwarv" -> "Yes, indeed, I am the royal armourer and I am not a dwarf. Do you think only dwarves can forge and smith?"
+"armourer", "armorer" -> "As royal armourer, it is my responsibility that the equipment of the knights of Cadomyr is in a perfect condition."
+english, "Hastings", "Baron" -> "Hush! Not in public."
+"Zwerg" -> "Fürwahr, ich bin der königliche Waffenmeister und kein Zwerg. Denkt ihr etwa, nur Zwerge können schmieden?"
+"Waffenmeister" -> "Als königlicher Waffenmeister ist es meine Pflicht, dafür zu sorgen, dass die Ausrüstung der Ritter Cadomyrs in bester Verfassung ist."
+"Hastings", "Baron" -> "Still! Doch nicht in der Öffentlichkeit!"
+
+-- Optional: Catching typical NPC phrases
+"what sell", "what buy", "list wares" -> "I am not a trader but I can repair your items."
+"was verkauf", "was kauf", "warenliste" -> "Ich bin kein Händler aber ich kann eure Gegenstände reparieren."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "Irmorom, the god of crafting, is the only god I really pray to. I respect them all, though. Even Oldra!"
+"Gott", "Götter" -> "Irmorom, der Gott des Handwerkes, ist der einzige Gott, zu dem ich bete. Ich respektiere sie aber alle, sogar Oldra!"
+english, "Bragon", "Brágon" -> "Brágon grants me the fire for forging but he does not grant the hammer."
+"Bragon", "Brágon" -> "Brágon gibt mir das Schmiedefeuer, doch gibt er mir nicht den Schmiedehammer."
+english, "Irmorom", "Oldra" -> "Irmorom, the god of crafting, is the only god I really pray to. I respect them all, though. Even Oldra!"
+"Irmorom", "Oldra" -> "Irmorom, der Gott des Handwerkes, ist der einzige Gott, zu dem ich bete. Ich respektiere sie aber alle, sogar Oldra!"
+english, "Malachin", "Malachín" -> "So, I am with Cadomyr so I have to pray to Malachín? You need to learn a lot..."
+"Malachin", "Malachín" -> "So, ich bin also aus Cadomyr, also muss ich zu Malachín beten? Ihr müßt noch eine Menge lernen..."
+
+-- Optional: Faction stuff
+"Queen" -> "I serve the queen because she is the queen. Did I make myself clear?"
+"Königin" -> "Ich diene der Königin, weil sie die Königin ist. Habe ich mich klar ausgedrückt?"
+english, "rosaline", "edwards" -> "I serve the queen because she is the queen. Did I make myself clear?"
+"rosaline", "edwards" -> "Ich diene der Königin, weil sie die Königin ist. Habe ich mich klar ausgedrückt?"
+english, "Cadomyr" -> "The wellbeing of Cadomyr is my only concern. I will not do anything against Cadomyr, regardless of my personal opinion."
+"Cadomyr" -> "Das Wohlergehen Cadomyrs ist mein einziger Lebensinhalt. Ich werde nichts zum Schaden Cadomyrs tun, unabhängig davon, was meine eigentliche Meinung ist."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Ja, ich schaff das.", "Yes, I can!"
+cycletext "Ihr da! Sehe ich da eine Schramme in eurer Rüstung?", "Lo! Is that a scratch in your armour?"
+cycletext "Die Ritter Cadomyrs sollten nur in strahlenden Rüstungen in die Schlacht ziehen.", "The knights of Cadomyr should go to battle only in shiny armour."
+cycletext "Ein gebrochenes Herz? Das kann ein Bier von Severus helfen. Ein zerbrochenes Schwert? Da kann ich helfen!", "A broken heart? A beer from Severus might help. A broken sword? I can help!"
+cycletext "Dies ist... Cadomyr!", "This is... Cadomyr!"
+cycletext "#me poliert eine Panzerplatte.", "#me polishes a plate armour."
+cycletext "Ein zerbrochener Bogen tötet genau noch ein Opfer: Den Idioten mit der Sehne in der Hand.", "A broken bow kills just one victim: The idiot holding the string."
+cycletext "Ich kenne einen Ort mit Bäumen in der Wüste... Nicht einfach nur ein paar verschrumpelte Palmen sondern richtig Bäume mit Blättern!", "I know a place with trees in the desert... not just some ordinary palm trees but real trees with leaves!"
+cycletext "Guten Tag.", "Good day."
+cycletext "Ich hoffe, alles läuft zu eurer Zufriedenheit?", "I hope all is well?"

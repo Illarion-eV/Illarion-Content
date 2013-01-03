@@ -3,7 +3,7 @@ module("alchemy.base.teacher", package.seeall)
 
 -- This script turns a character into an alchemist. 
 -- Three 'beings' can do that: Knowing Tree (Galmair), Thinking Stone (Cadomyr), Recognizing Spring(Runewick)
--- Three tasks have to be fullfilled: Bring 5*3 normal herbs; bring 1*2 rar herbs; answer three questions
+-- Three tasks have to be fullfilled: Bring 5*3 normal herbs; bring 1*2 rare herbs; answer three questions
 
 ------------------------------------------- LISTS ------------------------------------------------------
 -- TASK ONE: three normal herbs
@@ -15,13 +15,13 @@ HerbsTaskOneId["Knowing Tree"] =   {133  ,  81, 140}
 HerbsTaskOneNameEN["Knowing Tree"] = {"sunherbs","berries","donf blades"}
 HerbsTaskOneNameDE["Knowing Tree"] = {"Sonnenkräuter","Beeren","Donfblätter"}
 
-HerbsTaskOneId["Thinking Stone"] =   {133  ,  81, 140}
-HerbsTaskOneNameEN["Thinking Stone"] = {"sunherbs","berries","donf blades"}
-HerbsTaskOneNameDE["Thinking Stone"] = {"Sonnenkräuter","Beeren","Donfblätter"}
+HerbsTaskOneId["Thinking Stone"] =   {142  ,  137, 156}
+HerbsTaskOneNameEN["Thinking Stone"] = {"sandberries","flamegoblet blossom","steppe fern"}
+HerbsTaskOneNameDE["Thinking Stone"] = {"Sandbeere","Flammenkelchblüte","Steppenfarn"}
 
-HerbsTaskOneId["Recognizing Spring"] =  {133  ,  81, 140}
-HerbsTaskOneNameEN["Recognizing Spring"] = {"sunherbs","berries","donf blades"}
-HerbsTaskOneNameDE["Recognizing Spring"] = {"Sonnenkräuter","Beeren","Donfblätter"}
+HerbsTaskOneId["Recognizing Spring"] =  {144  ,  151, 135}
+HerbsTaskOneNameEN["Recognizing Spring"] = {"virgin's weed","strawberries","yellow weed"}
+HerbsTaskOneNameDE["Recognizing Spring"] = {"Jungfernkraut","Erdbeeren","Gelbkraut"}
 -- TASK ONE END --
 
 -- TASK TWO: two normal herbs 
@@ -29,17 +29,17 @@ HerbsTaskTwoId = {}
 HerbsTaskTwoNameEN = {}
 HerbsTaskTwoNameDE = {}
 
-HerbsTaskTwoId["Knowing Tree"] =   {756,755}
-HerbsTaskTwoNameEN["Knowing Tree"] = {"pious berry","fire root"}
-HerbsTaskTwoNameDE["Knowing Tree"] = {"Frommbeere","Feuerwurz"}
+HerbsTaskTwoId["Knowing Tree"] =   {761,766}
+HerbsTaskTwoNameEN["Knowing Tree"] = {"rain weed","con blossom"}
+HerbsTaskTwoNameDE["Knowing Tree"] = {"Regenkraut","Trugblüte"}
 
-HerbsTaskTwoId["Thinking Stone"] =   {756,755}
-HerbsTaskTwoNameEN["Thinking Stone"] = {"pious berry","fire root"}
-HerbsTaskTwoNameDE["Thinking Stone"] = {"Frommbeere","Feuerwurz"}
+HerbsTaskTwoId["Thinking Stone"] =   {769,146}
+HerbsTaskTwoNameEN["Thinking Stone"] = {"desert berry","desert sky capsule"}
+HerbsTaskTwoNameDE["Thinking Stone"] = {"Wüstenbeere","Wüstenhimmelskapsel"}
 
-HerbsTaskTwoId["Recognizing Spring"] = {756,755}
-HerbsTaskTwoNameEN["Recognizing Spring"] = {"pious berry","fire root"}
-HerbsTaskTwoNameDE["Recognizing Spring"] = {"Frommbeere","Feuerwurz"}
+HerbsTaskTwoId["Recognizing Spring"] = {756,765}
+HerbsTaskTwoNameEN["Recognizing Spring"] = {"pious berry","day dream"}
+HerbsTaskTwoNameDE["Recognizing Spring"] = {"Frommbeere","Tagtraum"}
 -- TASK TWO END --
 
 -- deleting the herbs --
@@ -88,7 +88,7 @@ questionAnswerList["english"]["answer"][1][2] = {"Platanat","Adrazin","Orcanol"}
 questionAnswerList["german"]["question"][1][3]  = {"Was verwenden wir zum Filtern eines Sudes?"}
 questionAnswerList["english"]["question"][1][3] = {"What do we use to filter a stock?"}
 questionAnswerList["german"]["answer"][1][3]  = {"Faulbaumrinde","Fliegenpilz","Sumpfblume"} 
-questionAnswerList["english"]["answer"][1][3] = {"Rotten Tree Bark","Toad Stool","a3"} --- !!!!
+questionAnswerList["english"]["answer"][1][3] = {"Rotten Tree Bark","Toad Stool","Mash Flower"} --- !!!!
 
 questionAnswerList["german"]["question"][1][4]  = {"Wieviele Wirkstoffe gibt es?"}
 questionAnswerList["english"]["question"][1][4] = {"How many active substances do we know?"}
@@ -101,7 +101,7 @@ questionAnswerList["german"]["answer"][1][5]  = {"Edelsteine","Spiegel","Elfenoh
 questionAnswerList["english"]["answer"][1][5] = {"Gems","Mirror","Elf Ears"}
 
 questionAnswerList["german"]["question"][1][6]  = {"Welche Pflanze enthält Wirkstoffe?"}
-questionAnswerList["english"]["question"][1][6] = {"Wich plant contains activ substances?"}
+questionAnswerList["english"]["question"][1][6] = {"Which plant contains activ substances?"}
 questionAnswerList["german"]["answer"][1][6]  = {"Mandarine","Apfel","Tomate"} 
 questionAnswerList["english"]["answer"][1][6] = {"Tangerine","Apple","Tomato"}
 
@@ -123,7 +123,7 @@ questionAnswerList["english"]["answer"][1][9] = {"Desert Berry","Virgins Weed","
 questionAnswerList["german"]["question"][1][10]  = {"Welche Pflanze ist im Wald zu finden?"}
 questionAnswerList["english"]["question"][1][10] = {"Which plant can be found in the woods?"}
 questionAnswerList["german"]["answer"][1][10]  = {"Firnisblüte","Flammenkelchblüte","Steppenfarn"} 
-questionAnswerList["english"]["answer"][1][10] = {"Firnis Blossom","","Steppe Farn"}
+questionAnswerList["english"]["answer"][1][10] = {"Firnis Blossom","Flamegoblet Blossom","Steppe Farn"}
 
 -- difficulty 2:
 questionAnswerList["german"]["question"][2][1]  = {"Wie bezeichnen wir die höchste positive Konzentration eines Wirkstoffes?"}
@@ -172,9 +172,9 @@ questionAnswerList["german"]["answer"][2][9]  = {"Dracolin","Echolon","Hyperbore
 questionAnswerList["english"]["answer"][2][9] = {"Dracolin","Echolon","Hyperborelium"}
 
 questionAnswerList["german"]["question"][2][10]  = {"Von welcher Pflanze heißt es, dass sie in jeder Medizin, die erfolgreich sein soll, entahlten sein muss?"}
-questionAnswerList["english"]["question"][2][10] = {"What plant is to be said to be a necessary ingredient for every successfull medicine?"}
+questionAnswerList["english"]["question"][2][10] = {"What plant is to be said to be a necessary ingredient for every successful medicine?"}
 questionAnswerList["german"]["answer"][2][10]  = {"Firnisblüte","Heideblüte","Brombeere"} 
-questionAnswerList["english"]["answer"][2][10] = {"Firnisblüte","Heath Flower","Black Berry"}
+questionAnswerList["english"]["answer"][2][10] = {"Firnis Blossom","Heath Flower","Black Berry"}
 
 --difficulty 3:
 questionAnswerList["german"]["question"][3][1]  = {"Was passiert, wenn wir einen Sud in einen anderen Sud zu füllen versuchen?"}
@@ -244,15 +244,16 @@ function AlchemistCheck(User)
 end
 
 function NoMagicCheck(User)
-    if User:getMagicFlags(User:getMagicType()) == 0 then
-	    return true
-	end	
+    if (User:getMagicFlags(0) == 0) and (User:getMagicFlags(0) == 1) and (User:getMagicFlags(0) == 2) then
+	    return false
+	end
+return true	
 end
 
 function TurnIntoAlchemist(User,SourceItem)
     -- tell char the secret of alchemy and turn him into an alchemist
     local textDE = "Die ferne Stimme erklingt erneut: \"So sei es. Ich lehre dich das Geheimnis der Alchemie. Mögest du das Wissen weise nutzen.\" Für einen Moment schweigt die Stimme, dann dringt sie erneut an dein Ohr, du verstehst nicht, was sie sagt, und doch verstehst du es. Sie klingt fern und doch klingt sie nah. Sie scheint von außen zu kommen und doch scheint sie in dir zu sein. Du hörst Worte, die gesprochen werden und doch hörst du sie nicht. Du versteht alles, was dir gesagt wird und doch verstehst du nichts. Die Welt um dich herum wird zu einem. Es gibt kein Außen und kein Innen mehr, nur noch ein Ganzes, das auch du bist. Doch die Welt zerfällt in Vieles, in unendliche Teile, nichts haftet aneinander, alles ist verstreut, alles ist getrennt, es gibt nur Getrenntheit. Die Welt ist ein Ganzes und unendlich Vieles. Nichts hängt zusammen, alles hängt zusammen. Alles ergibt Sinn, nichts ergibt Sinn. Du hast das Geheimnis erkannt, du hast es nicht erkannt. - Du spürst wie sich deine Sinne und dein Geist verändert haben. Du merkst, wie sich das neue Wissen in deinen Gedanken ausbreitet und doch kannst du es nicht fassen. Du weißt es, doch es ist weder zu begreifen, noch in Worte zu fassen, eine unaussprechliche Wahrheit. Die Welt aber scheint dir nun anders."
-	local textEN = "Die ferne Stimme erklingt erneut: \"So sei es. Ich lehre dich das Geheimnis der Alchemie. Mögest du das Wissen weise nutzen.\" Für einen Moment schweigt die Stimme, dann dringt sie erneut an dein Ohr, du verstehst nicht, was sie sagt, und doch verstehst du es. Sie klingt fern und doch klingt sie nah. Sie scheint von außen zu kommen und doch scheint sie in dir zu sein. Du hörst Worte, die gesprochen werden und doch hörst du sie nicht. Du versteht alles, was dir gesagt wird und doch verstehst du nichts. Die Welt um dich herum wird zu einem. Es gibt kein Außen und kein Innen mehr, nur noch ein Ganzes, das auch du bist. Doch die Welt zerfällt in Vieles, in unendliche Teile, nichts haftet aneinander, alles ist verstreut, alles ist getrennt, es gibt nur Getrenntheit. Die Welt ist ein Ganzes und unendlich Vieles. Nichts hängt zusammen, alles hängt zusammen. Alles ergibt Sinn, nichts ergibt Sinn. Du hast das Geheimnis erkannt, du hast es nicht erkannt. - Du spürst wie sich deine Sinne und dein Geist verändert haben. Du merkst, wie sich das neue Wissen in deinen Gedanken ausbreitet und doch kannst du es nicht fassen. Du weißt es, doch es ist weder zu begreifen, noch in Worte zu fassen, eine unaussprechliche Wahrheit. Die Welt aber scheint dir nun anders."
+	local textEN = "The voice in the distance sounds again: \"So be it! I shall teach you the secret of alchemy. May you use it wisely.\" For a moment, the voice is silent, but then it sounds again. You don't understand the words and yet somehow you do. They sound close, yet distant. They seem to come from outside, yet within you. You perceive words being spoken, yet you don't hear them. You understand everything, yet you understand nothing. The world around you becomes one. There is no outside and inside anymore, just one whole which you are part of. The world collapses in an infinite, endless number of parts. Nothing is combined. Everything is scattered. There is only separation. The world is one and many. Nothing is connected, yet everything is connected.Everything makes sense now, yet nothing makes sense. You recognise the secret, but you haven't recognised it. You feel how your sense and mind have been altered. You feel how new knowledge has been placed into your mind, but you cannot grasp it. You know it, but it cannot be understood, not put into words - an unspeakable truth. The world appears to you in a different way now." 
 	local questInfos = GetTeacherQuestInfos(User, SourceItem)
 	local callback = function(dialog) 
 	    User:setMagicType(3)
@@ -261,6 +262,9 @@ function TurnIntoAlchemist(User,SourceItem)
 		world:gfx(31,User.pos)
 		world:gfx(52,User.pos)
 		world:gfx(31,User.pos)
+		User:setQuestProgress(350,100)
+		User:setQuestProgress(351,100)
+		User:setQuestProgress(352,100)
 	end
 	if User:getPlayerLanguage() == 0 then
 	    dialog = MessageDialog(questInfos.teacherDE1, textDE , callback)
@@ -284,7 +288,7 @@ function IsCharSure(User,SourceItem)
 	else
         answerYes = "Yes."
 		answerNo = "No."
-		askChar = "\"You've done all your tasks. Are you ready and willing to enter the world of fine matter and to learn the secret of alchemy? But keep in mind that the illusions of magic an alike won't be accessible for you and once you've chosen this way, there is no turning back! Are you ready?\""
+		askChar = "\"You've done all your tasks. Are you ready and willing to enter the world of fine matter and to learn the secret of alchemy? But keep in mind that the illusions of magic and alike won't be accessible for you and once you've chosen this way, there is no turning back! Are you ready?\""
 		title = questInfos.teacherDE1
 		abortTextEN = "\"Well, that's a shame. Come back, when you are ready!\""
     end
@@ -416,7 +420,7 @@ function FirstTask(User, SourceItem)
 end
 
 function SecondTask(User, SourceItem)
-    -- second task: bring to rar herbs from the region
+    -- second task: bring to rare herbs from the region
     local questInfos = GetTeacherQuestInfos(User, SourceItem)
 	
     -- first, we check if the char has fullfilled the first task
@@ -430,7 +434,7 @@ function SecondTask(User, SourceItem)
 	else
 	    -- he has finished the first task; delete herbs; tell him his second task
 		SendMessage(User, SourceItem,
-			        HerbsDeleteTextEN[questInfos.teacherEN2][1].." For a short amount fo time it seems as if someone would smack their lips, then the voice says: \"Good, very good. But there is an other task for you left. Now bring me two rar herbs - "..HerbsTaskTwoNameEN[questInfos.teacherEN2][1].." and "..HerbsTaskTwoNameEN[questInfos.teacherEN2][2]..". Be successfull and you are a step closer to your goal.", 
+			        HerbsDeleteTextEN[questInfos.teacherEN2][1].." For a short amount of time it seems as if someone would smack their lips, then the voice says: \"Good, very good. But there is an other task for you left. Now bring me two rare herbs - "..HerbsTaskTwoNameEN[questInfos.teacherEN2][1].." and "..HerbsTaskTwoNameEN[questInfos.teacherEN2][2]..". Be successful and you are a step closer to your goal.", 
 					HerbsDeleteTextDE[questInfos.teacherEN2][1].." Für einen Moment glaubst du etwas wie ein Schmatzen zu hören, bevor die Stimme erklingt: \"Sehr gut, sehr gut. Aber es erwartet dich noch eine Aufgabe. Nun sollst du mir zwei seltene Kräuter bringen und zwar "..HerbsTaskTwoNameDE[questInfos.teacherEN2][1].." und "..HerbsTaskTwoNameDE[questInfos.teacherEN2][2]..". Sei erfolgreich und du bist deinem Ziel ein Stück näher."
 					);
 		User:eraseItem(HerbsTaskOneId[questInfos.teacherEN2][1],5)
@@ -483,7 +487,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	-- already an alchemist?
     local alchemistCheck = AlchemistCheck(User)
-	if alchemistCheck then
+	if alchemistCheck and User:getQuestProgress(350)==100 then
 	    SendMessage(User, SourceItem,
 		            "You hear a voice you are unable to localise: \"You already know the great secret of alchemy. I am not allowed to help you further. Go away!\"",
 		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"Du kennst das große Geheimnis der Alchemie schon. Ich darf dir nicht weiter helfen. Geh weg!\""
@@ -492,26 +496,71 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end				
 	-- check if the char belongs to any other mage class
 	local noMagicCheck = NoMagicCheck(User)
-	if not noMagicCheck then
+	if (not noMagicCheck) then
 	    SendMessage(User, SourceItem,
-			        "Du fühlst dich beobachtet, jedoch scheint nichts weiter zu passieren.", 
-					"You feel observed, but nothing else seems to happen."
-					)
-	return
-	end	
+		            "You hear a voice you are unable to localise: \"You have chosen the path og magic. Go away!\"",
+		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"Du hast den Weg der Magie gewählt. Geh weg!\""
+	                )
+	    return
+	end
 
-	-- teacher and quest infos 
+    -- check for proper attributes
+    if ( User:increaseAttrib("perception",0) + User:increaseAttrib("essence",0) + User:increaseAttrib("intelligence",0) ) < 30 then 
+		SendMessage(User, SourceItem,            
+					"You hear a voice you are unable to localise: \"I can only tell those who are mindful, good observer and have a certain feeling for fine matter the secret of alchemy. Go away!\"",
+		            "Du hörst eine Stimme, die du nicht zu lokalisieren vermagst: \"Nur jenen, die einen klaren Verstand, ein gutes Augen und ein Gespür für Feinstoffliche haben, kann ich das Geheimnis der Alchmie erzählen. Geh weh!\""
+	                )
+		return
+    end		
+ 					
+    -- teacher and quest infos 
 	local questInfos = GetTeacherQuestInfos(User, SourceItem)
 	local qstPrg = questInfos.questPrg
 
 	if qstPrg == 1 then
 	    FirstTask(User, SourceItem) -- bring 15 normal herbs
 	elseif qstPrg == 2 then
-	    SecondTask(User, SourceItem) -- bring two rar herbs
+	    SecondTask(User, SourceItem) -- bring two rare herbs
 	elseif qstPrg >= 3 and qstPrg <= 6 then
 	    ThirdTask(User, SourceItem) -- answer three questions
     elseif qstPrg == 7 then
 	    IsCharSure(User,SourceItem) -- char did all the tasks; if he wants to, he can become an alchemist
 	end	
         	
+end
+
+function getLookAt(player,item)
+    local lookAt = ItemLookAt()
+    local infos = GetTeacherQuestInfos(player,item)
+	local teacherName, teacherDescription
+	local descriptionDE = {}
+	descriptionDE["Der Wissende Baum"] = "Die alte Eldaneiche wird von einer seltsamen Atmosphäre umgeben und gelegentlich meint man etwas wie ein Schmatzen."
+	descriptionDE["Der Denkende Stein"] = "Der vom Wüstensand geschliffene Stein wird von einer seltsamen Atmosphäre umgeben und gelegentlich meint man ein Murmeln zu hören."
+	descriptionDE["Die Erkennende Quelle"] = "Die sprudelnde Quelle wird von einer seltsamen Atmosphäre umgeben und gelegentlich mag man ein gedämpftes Flüstern vernehmen."
+	local descriptionEN = {}
+	descriptionEN["The Knowing Tree"] = "The old Eldan oak is surrounded by a strange atmosphere and sometimes one may here something as if someone smacks their lips."
+	descriptionEN["The Thinking Stone"] = "The by the desert sand sharpend stone is surrounded by a strange atmosphere and sometimes one may here muttering."
+	descriptionEN["The Recognizing Spring"] = "The sputtering spring is surrounded by a strange atmosphere and sometimes one may hear a damped whispering."
+	
+	
+	if player:getPlayerLanguage() == 0 then
+	    teacherName = infos.teacherDE1
+		teacherDescription = descriptionDE[teacherName]
+	else
+      	teacherName = infos.teacherEN1
+		teacherDescription = descriptionEN[teacherName]
+	end
+	
+	lookAt.name = teacherName
+    lookAt.description = teacherDescription
+    
+    return lookAt
+end
+
+function LookAtItem(player, item)
+    if item.pos == position(432,238,0) or item.pos == position(75,651,0) or item.pos == position(873,878,0) then
+	    world:itemInform(player, item, getLookAt(player,item))
+	else
+	    world:itemInform(player, item, base.lookat.GenerateLookAt(player, item, 0))
+	end	
 end

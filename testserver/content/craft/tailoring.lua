@@ -16,6 +16,11 @@ tailoring:addTool(103) -- tailoring table
 --------------------------------------------------------------------------------------------
 local catId = tailoring:addCategory("hats", "Hüte") --headware
 
+--Slouch Hat
+product = tailoring:addProduct(catId, 356, 0, 20, 30, 60)
+product:addIngredient(2547, 3) -- Leather: 3x1
+product:addIngredient(50, 3*2) -- Thread: 3x2
+
 --Grey Hat with feather
 local product = tailoring:addProduct(catId, 830, 40, 60, 75, 150)
 product:addIngredient(176, 2) -- Grey Cloth: 2x1
@@ -60,14 +65,14 @@ product:addIngredient(50, 3*2) -- Thread: 3x2
 product = tailoring:addProduct(catId, 370, 71, 91, 207, 414)
 product:addIngredient(174, 3) -- Red Cloth: 3x1
 product:addIngredient(50, 5*2) -- Thread: 5x2
-product:addIngredient(108) -- Topas: 1x1
+product:addIngredient(198) -- Topas: 1x1
 
 --Expensive Wizard Hat
 product = tailoring:addProduct(catId, 371, 76, 96, 264, 528)
 product:addIngredient(177, 2) -- Yellow Cloth: 2x1
 product:addIngredient(50, 5*2) -- Thread: 5x2
 product:addIngredient(179, 3) -- Blue Cloth: 3x1
-product:addIngredient(108) -- Topas: 1x1
+product:addIngredient(198) -- Topas: 1x1
 
 catId = tailoring:addCategory("dresses", "Kleider") -- Dresses
 
@@ -335,7 +340,7 @@ product:addIngredient(179, 4) -- Blue Cloth: 4x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
 product:addIngredient(2550) -- Copper Ingot: 1x1
 
-catId = tailoring:addCategory("leatherware", "Lederwaren") -- Leather gloves and hats
+catId = tailoring:addCategory("gloves", "Handschuhe") -- Leather gloves and hats
 
 --Leather Gloves
 product = tailoring:addProduct(catId, 48, 20, 40, 60, 120)
@@ -352,11 +357,6 @@ product:addIngredient(2535) -- Iron Ingot: 1x1
 product = tailoring:addProduct(catId, 527, 60, 80, 160, 320)
 product:addIngredient(2547, 4) -- Leather: 4x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
-
---Slouch Hat
-product = tailoring:addProduct(catId, 356, 0, 20, 30, 60)
-product:addIngredient(2547, 3) -- Leather: 3x1
-product:addIngredient(50, 3*2) -- Thread: 3x2
 
 --Thief Gloves
 product = tailoring:addProduct(catId, 384, 20, 40, 60, 120)
@@ -497,7 +497,7 @@ product:addIngredient(285, 3) -- Diamond: 3x1
 product:addIngredient(284, 3) -- Sapphire: 3x1
 product:addIngredient(283, 3) -- Obsidian: 3x1
 
-catId = tailoring:addCategory("leggings", "Leggings") -- leggings
+catId = tailoring:addCategory("leggings", "Beinzeug") -- leggings
 
 --Short Leather Legs
 product = tailoring:addProduct(catId, 367, 30, 50, 96, 192)
@@ -606,7 +606,12 @@ product = tailoring:addProduct(catId, 698, 70, 90, 220, 440)
 product:addIngredient(2547, 5) -- Leather: 5x1
 product:addIngredient(50, 5*2) -- Thread: 5x2
 
-catId = tailoring:addCategory("slings", "Schleudern") --slings, and more slings
+catId = tailoring:addCategory("other", "Sonstiges") --slings, and more slings + bag
+
+--Sling
+product = tailoring:addProduct(catId, 97, 0, 20, 28, 56)
+product:addIngredient(2547, 2) -- Leather: 2x1
+product:addIngredient(50, 2*2) -- Thread: 2x2 
 
 --Sling
 product = tailoring:addProduct(catId, 89, 10, 30, 28, 56)

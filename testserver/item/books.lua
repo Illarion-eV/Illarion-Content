@@ -3,6 +3,8 @@ module("item.books", package.seeall)
 
 -- UPDATE common SET com_script='item.books' WHERE com_itemid = 2622;
 
+-- 2622 is the alchemy book. dont use it otherwise.
+
 function InitBook()
 	--[[ -- needs a check
 	if (Init == nil) then
@@ -23,10 +25,9 @@ end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param)
 	InitBook();
-    -- alchemy book; just to make it accessable for testers
-	User:inform(""..SourceItem:getData("alchemyBook"))
-	if SourceItem:getData("alchemyBook")=="true" then
-	    User:sendBook(3)
+    -- alchemy book; DO NOT CHANGE! STARTER PACK RELEVANT!
+	if SourceItem.id == 2622 then
+	    User:sendBook(101)
 	end	
 	-- alchemy end
 	
@@ -40,6 +41,6 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 	end]]
 end
 
-function LookAtItem(User, Item)
+function LookAtItem(User,Item)
     world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
-end
+end   

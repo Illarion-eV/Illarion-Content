@@ -7,60 +7,8 @@ require("npc.base.guards_static");
 
 module("gm.items.id_382_ceilingtrowel", package.seeall, package.seeall(gm.base.log))
 
---[[function UseItemWithCharacter(User,SourceItem,TargetCharacter,Counter,Param)
-	Init();
-	User:setAttrib("strength",TargetCharacter:increaseAttrib("strength",0));
-	User:setAttrib("constitution",TargetCharacter:increaseAttrib("constitution",0));
-	User:setAttrib("perception",TargetCharacter:increaseAttrib("perception",0));
-	User:setAttrib("intelligence",TargetCharacter:increaseAttrib("intelligence",0));
-	User:setAttrib("agility",TargetCharacter:increaseAttrib("agility",0));
-	User:setAttrib("dexterity",TargetCharacter:increaseAttrib("dexterity",0));
-	skSlashGM=User:increaseSkill(5,"slashing weapons",0);
-	skParryGM=User:increaseSkill(5,"parry",0);
-	skConcuGM=User:increaseSkill(5,"concussion weapons",0);
-	skPiercGM=User:increaseSkill(5,"puncture weapons",0);
-	skDodgeGM=User:increaseSkill(5,"dodge",0);
-	skTactiGM=User:increaseSkill(5,"tactics",0);
-	skDistaGM=User:increaseSkill(5,"distance weapons",0);
-	skWrestGM=User:increaseSkill(5,"wrestling",0);
-	DSlashTC=TargetCharacter:increaseSkill(5,"slashing weapons",0)-skSlashGM;
-	DParryTC=TargetCharacter:increaseSkill(5,"parry",0)-skParryGM;
-	DConcuTC=TargetCharacter:increaseSkill(5,"concussion weapons",0)-skConcuGM;
-	DPiercTC=TargetCharacter:increaseSkill(5,"puncture weapons",0)-skPiercGM;
-	DDodgeTC=TargetCharacter:increaseSkill(5,"dodge",0)-skDodgeGM;
-	DTactiTC=TargetCharacter:increaseSkill(5,"tactics",0)-skTactiGM;
-	DDistaTC=TargetCharacter:increaseSkill(5,"distance weapons",0)-skDistaGM;
-	DWrestTC=TargetCharacter:increaseSkill(5,"wrestling",0)-skWrestGM;
-	User:increaseSkill(5,"slashing weapons",DSlashTC);
-	User:increaseSkill(5,"parry",DParryTC);
-	User:increaseSkill(5,"concussion weapons",DConcuTC);
-	User:increaseSkill(5,"puncture weapons",DPiercTC);
-	User:increaseSkill(5,"dodge",DDodgeTC);
-	User:increaseSkill(5,"tactics",DTactiTC);
-	User:increaseSkill(5,"distance weapons",DDistaTC);
-	User:increaseSkill(5,"wrestling",DWrestTC);
-	User:inform("...done with skills and stats");
-
-	for i=1,11 do
-	    Item = TargetCharacter:getItemAt(i);
-	    if ((Item ~= nil) and (Item.id ~= 0)) then
-	        BlockItem = User:getItemAt(i);
-	        if ((BlockItem ~= nil) and (BlockItem.id ~= 0)) then
-	            world:erase(BlockItem,BlockItem.number);
-	        end
-	        User:createAtPos(i,Item.id,Item.number);
-	        NewItem = User:getItemAt(i);
-	        NewItem.quality = Item.quality;
-	        NewItem.data = Item.data;
-	        world:changeItem(NewItem);
-	    end
-	end
-	-- LogGMAction(User,User.name.."("..User.id..") copied "..TargetCharacter.name.."("..TargetCharacter.id..")");
-end]]
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-    --    User:inform("data is ");--..SourceItem.data);
-    --SourceItem.data = 1;
 
 	Init();
   
@@ -92,18 +40,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	end
 	
   if (TargetItem and TargetItem.id~=0) then
-    User:inform("target item");
-    --[[WFound,weapon = world:getWeaponStruct(TargetItem.id);
-    AFound,armor = world:getArmorStruct(TargetItem.id);
-    if (WFound) then
-        User:inform("Quality: "..TargetItem.quality.. "; ID: "..TargetItem.id.."; number: "..TargetItem.number.."; data: "..TargetItem.data.."; wear: "..TargetItem.wear.. "; attack: "..weapon.Attack.."; defense: "..weapon.Defence.."; AP: "..weapon.ActionPoints.."; range: "..weapon.Range.."; type: "..weapon.WeaponType);
-        --User:inform(" itempos: "..TargetItem.itempos);
-        --User:inform(" pos: "..TargetItem.pos);
-    elseif (AFound) then
-        User:inform("Quality: "..TargetItem.quality.. " ID: "..TargetItem.id.." number: "..TargetItem.number.." data: "..TargetItem.data.." wear: "..TargetItem.wear.. " PuncA: "..armor.PunctureArmor.." StrokeA: "..armor.StrokeArmor.." ThrustA: "..armor.ThrustArmor.." stiffness: "..armor.Stiffness.." absorb: "..armor.Absorb.."HP");
-    else
-        User:inform("Quality: "..TargetItem.quality.. " ID: "..TargetItem.id.." number: "..TargetItem.number.." data: "..TargetItem.data.." wear: "..TargetItem.wear);
-    end]]
+
     if (string.find(User.lastSpokenText,"setdata (%a+) (.+)")~=nil) then
       a,b,dataString,newdata=string.find(User.lastSpokenText,"setdata (%a+) (.+)");
       TargetItem:setData(dataString,newdata);
@@ -157,18 +94,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     if User:increaseAttrib(spoken,0)~=0 then
       User:setAttrib(spoken,Counter);
       User:inform(spoken.." set to "..User:increaseAttrib(spoken,0));
-      -- LogGMAction(User,User.name.."("..User.id..") changed attribute "..spoken.." to "..User:increaseAttrib(spoken,0));
-    --[[elseif (string.find(User.lastSpokenText,"cold")~=nil) then
-      fndRes, resEffect = User.effects:find(3);
-      if not fndRes then                                  -- if not...
-        resEffect=User.effects:addEffect( LongTimeEffect(3,1) );     -- add effect (400) to resurrected player
-
-        resEffect:addValue("coldStr",coldStr-1);
-        User:inform("angesteckt");
-      else            -- if he has the effect already...
-        User:inform("Du bist schon angesteckt.");
-        resEffect.nextCalled =20;
-      end]]
     end
   end
   if ((string.find(User.lastSpokenText,"show map")~=nil)) then
@@ -451,15 +376,6 @@ function LookAtItem(User,Item)
         base.lookat.SetSpecialName(Item, "Kelle", "Kelle");
     end
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
-	
-    for intx=User.pos.x-5,User.pos.x+5 do
-        for inty=User.pos.y-5,User.pos.y+5 do
-            if (world:isCharacterOnField(position(intx,inty,User.pos.z))==true) then
-                TargetChar=world:getCharacterOnField(position(intx,inty,User.pos.z));
-                User:introduce(TargetChar);
-            end
-        end
-    end
 end
 
 function UseItemWithField(User,SourceItem,TargetPos,Counter,param)
@@ -470,9 +386,9 @@ end
 function ChangeRankpoints(User,modifier,value,faction,radius)
 	--check if the points shall be added or removed
 	if modifier == "add" then
-		text = "Added";
+		text = "added";
 	elseif modifier == "sub" then
-		text = "Removed";
+		text = "removed";
 		value = -value;
 	else
 		return;
@@ -503,4 +419,15 @@ function Init()
 		return;
 	end
 	InitDone = 1;
+end
+
+function String2Number(str)
+	if (string.find(str, "(%d+)") ~= nil) then
+    local _,_,num = string.find(str, "(%d+)");
+    if (num~="") then
+      num = tonumber(num);
+      return num, true;
+    end
+  end
+	return 0, false;
 end
