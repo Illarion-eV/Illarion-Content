@@ -148,7 +148,7 @@ function talkNPCEntry:addConsequence(consequence)
 	end;
 end;
 
-function talkNPCEntry:checkEntry(npcChar, player, text)
+function talkNPCEntry:checkEntry(npcChar, texttype, player, text)
     for _1, pattern in pairs(self._trigger) do
         local a, _2, number = string.find(text, pattern);
         self._saidNumber = number;
