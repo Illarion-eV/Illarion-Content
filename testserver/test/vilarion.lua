@@ -36,6 +36,11 @@ function LookAtItem(player, item)
 end
 
 function UseItem(User, SourceItem, TargetItem, counter, Param, ltstate)
+    local found, _, item = string.find(User.lastSpokenText, "count (%d+)")
+    if found then
+        User:inform("Count item " .. item .. ": " .. user:countItemAt("all", item, {}))
+    end
+
     local found, _, book = string.find(User.lastSpokenText, "book (%d+)")
     if found then
         User:sendBook(tonumber(book))
