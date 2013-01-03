@@ -187,7 +187,7 @@ function GatheringCraft:FindRandomItem(User)
 			local notCreated = User:createItem(self.RandomItems[ind].ID, self.RandomItems[ind].Quantity, self.RandomItems[ind].Quality, self.RandomItems[ind].Data);
 			if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 				world:createItemFromId( self.RandomItems[ind].ID, notCreated, User.pos, true, self.RandomItems[ind].Quality, self.RandomItems[ind].Data );
-				base.common.InformNLS(User,
+				base.common.HighInformNLS(User,
 				"Du kannst nichts mehr halten.",
 				"You can't carry any more.");
 			end
