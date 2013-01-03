@@ -58,7 +58,6 @@ end
 function FillBucket( User, SourceItem )
   if base.common.FitForWork( User ) then
     SourceItem.id = 52;
-    SourceItem:setData("amount", "10");
     world:changeItem(SourceItem);
     base.common.GetHungry( User, 100 );
     base.common.InformNLS(User, 
@@ -93,9 +92,8 @@ function FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	TargetItem.id = 1008
 	TargetItem:setData("filledWith","")
 	world:changeItem(TargetItem)
-  SourceItem.id = 52
-  SourceItem:setData("amount", "1");
-	SourceItem.quality = 333
+    SourceItem.id = 52
+    SourceItem.quality = 333
 	world:changeItem(SourceItem)
 end
 

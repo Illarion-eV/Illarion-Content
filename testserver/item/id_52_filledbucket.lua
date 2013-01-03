@@ -12,8 +12,6 @@ module("item.id_52_filledbucket", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 
-  CheckSetAmount(SourceItem);
-  
   -- look for cauldron
   TargetItem = GetCauldron(User);
   if (TargetItem ~= nil) then
@@ -196,16 +194,6 @@ function GetCauldron(User)
   return nil;
 end
 
--- Checks if the data "amount" is correctly set and adjusts it if necessaray.
-function CheckSetAmount(Item)
-  local str = Item:getData("amount");
-  if (str == "" or tonumber(str) < 1) then
-    Item:setData("amount", "10");
-    world:changeItem(Item);
-  end
-end
-
 function LookAtItem(User, Item)
-  CheckSetAmount(Item);
   world:itemInform(User, Item, base.lookat.GetItemDescription(User, Item, base.lookat.WOOD))
 end
