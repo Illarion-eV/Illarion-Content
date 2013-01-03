@@ -64,7 +64,7 @@ function CharacterOnField( User )
     --check if we are in the endurance cave and change the destination if needed
 	local PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
 	if (PlayerInCave) then
-		dest = t_dest;
+		dest = position(t_dest);
         destFound = true
 	end
 
