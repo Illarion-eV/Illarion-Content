@@ -180,8 +180,16 @@ function talkNPCEntry:execute(npcChar, player)
 				responseText = processor:process(player, self._parent, npcChar, responseText);
 			end;
 		end;
-    	
-		npcChar:talk(Character.say, responseText);
+		
+		if (string.find(responseText, "[#/]w") == 1) then
+			npcChar:talk(Character.whisper, string.gsub(responseText, "[#/]w%s*", "", 1));
+		elseif (string.find(responseText, "[#/]s") == 1) then 
+			npcChar:talk(Character.shout, string.gsub(responseText, "[#/]s%s*", "", 1));
+		elseif (string.find(responseText, "[#/]o") == 1) then 
+			npcChar:talk(Character.whisper, responseText);
+		else
+			npcChar:talk(Character.say, responseText);
+		end;		
     end;
     
 	table.foreach(self._consequences, function(_, consequence)
