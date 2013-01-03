@@ -68,7 +68,7 @@ function callEffect(newbieEffect,Character)
 				messageCount = 1;
 			end	
 			
-			base.common.HighInformNLS(Character,""..ListCycleMessageGerman[messageCount],""..ListCycleMessageEnglish[messageCount]);   
+			base.common.LowInformNLS(Character,""..ListCycleMessageGerman[messageCount],""..ListCycleMessageEnglish[messageCount]);   
 			
 			messageCount = messageCount + 1;
 			
