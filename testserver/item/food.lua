@@ -25,7 +25,7 @@ MIN_CRAFTED_FOODVALUE = 6000;
 MAX_CRAFTED_FOODVALUE = 45000;
 
 VALUE_SMALL = 875;
-VALUE_MEDIUM = 1687,5;
+VALUE_MEDIUM = 1687;
 VALUE_LARGE = 2500;
 VALUE_XLARGE = 4000;
 
@@ -320,7 +320,6 @@ end
 function SetNewFoodLevel(User, NewFoodLevel)
   NewFoodLevel = base.common.Limit(NewFoodLevel, 0, 60000);
   local foodToAdd = NewFoodLevel - User:increaseAttrib("foodlevel",0);
-  debug("foodToAdd: "..foodToAdd.." NewFoodLevel: "..NewFoodLevel)
   while true do
     User:increaseAttrib("foodlevel",math.min(10000,foodToAdd));
     foodToAdd = foodToAdd - math.min(10000,foodToAdd);
