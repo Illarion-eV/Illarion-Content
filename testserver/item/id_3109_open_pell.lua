@@ -34,7 +34,7 @@ function Init()
 	AddPotion("Runewick",
 	          10,
 			  {"a potion which increases strength to the highest possible grade and no other effect with at least very good quality","ein Trank, der die Stärke im höchstmöglichen Gerade hebt und keine anderen Effekte hat. Die Qualität sollte mindestens sehr gut sein."}
-			  {59,7,{"filledWith","potion"},{"potionEffectId","95555555"}
+			  {59,7,{"filledWith","potion"},{"potionEffectId","95555555"}}
 			  )
 	AddPotion("Cadomyr", 
 	          301, 
