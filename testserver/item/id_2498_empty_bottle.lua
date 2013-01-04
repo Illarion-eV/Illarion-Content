@@ -43,8 +43,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	    
     if ( ltstate == Action.none ) then 
 		User:startAction( 20, 21, 5, 10, 25);
-			User:talkLanguage( Character.say, User.german, "#me beginnt Flaschen zu befüllen.");
-			User:talkLanguage( Character.say, User.english, "#me starts to fill bottle."); 
+		User:talkLanguage( Character.say, 0, "#me beginnt Flaschen zu befüllen.");
+		User:talkLanguage( Character.say, 1, "#me starts to fill bottle."); 
 		return
 	end
 	
@@ -60,8 +60,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             return
         else
 		    --User:startAction( 20, 21, 5, 10, 25);
-			User:talkLanguage( Character.say, User.german, "#me beginnt Flaschen zu befüllen.");
-			User:talkLanguage( Character.say, User.english, "#me starts to fill bottle."); 
+			User:talkLanguage( Character.say, 0, "#me beginnt Flaschen zu befüllen.");
+			User:talkLanguage( Character.say, 1, "#me starts to fill bottle."); 
 		end	
 	end
 --[[ !!! OLD OLD OLD !!!
