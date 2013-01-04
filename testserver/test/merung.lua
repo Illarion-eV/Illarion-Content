@@ -20,7 +20,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 			local frontPos = base.common.GetFrontPosition(User)
 			world:makeSound(5,frontPos)
 		    world:gfx(9,frontPos)
-			world:createItemFromId(369,1,frontPos,true,333,nil)
+			world:createItemFromId(359,1,frontPos,true,333,nil)
 			effectRemoved = User.effects:removeEffect(60)
 			if not effectRemoved then
 				base.common.InformNLS( User,"Fehler: Informiere einen Dev.", "Error: Inform a dev.")
