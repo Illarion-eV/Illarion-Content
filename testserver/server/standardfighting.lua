@@ -47,7 +47,7 @@ module("server.standardfighting", package.seeall)
 -- @param Defender The character who is attacked
 -- @return true in case a attack was performed, else false
 function onAttack(Attacker, Defender)
-
+debug("******* CHECKPOINT 1");
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
@@ -55,42 +55,42 @@ function onAttack(Attacker, Defender)
 
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
-
+debug("******* CHECKPOINT 2");
     -- Load the weapons of the attacker
     LoadWeapons(Attacker);
-    
+debug("******* CHECKPOINT 3");
     -- Check the range between the both fighting characters
 
     if not CheckRange(Attacker, Defender.Char) then return false; end;
 
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker);
-
+debug("******* CHECKPOINT 4");
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker) then 
         return false; 
     end;
-    
+debug("******* CHECKPOINT 5");
     -- Check if ammunition is needed and use it
     if not HandleAmmunition(Attacker) then return false; end;
-    
+debug("******* CHECKPOINT 6");
     
     -- Load Skills and Attributes of the attacking character
     LoadAttribsSkills(Attacker, true);
-    
+debug("******* CHECKPOINT 7");
     -- Load weapon data, skills and attributes of the attacked character
     LoadWeapons(Defender);
     LoadAttribsSkills(Defender, false);
-	
+debug("******* CHECKPOINT 8");
     -- Calculate and reduce the required movepoints
     APreduction=HandleMovepoints(Attacker);
 
 	-- Turning the attacker to his victim
     base.common.TurnTo(Attacker.Char,Defender.Char.pos);
-
+debug("******* CHECKPOINT 9");
     -- Show the attacking animation
     ShowAttackGFX(Attacker);
-    
+debug("******* CHECKPOINT 10");
     -- Check if a coup de gráce is performed
     if CoupDeGrace(Attacker, Defender) then return true; end;
     
