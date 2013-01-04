@@ -807,6 +807,7 @@ end;
 function GetAttackType(CharStruct)
 	-- No weapon present:
     if not CharStruct.IsWeapon then
+CharStruct.Char:talk(Character.say,"GETATTTYPE 1");
         CharStruct["AttackKind"] = 0;
         CharStruct["UsedHands"] = 1;
         CharStruct["Skillname"] = Character.wrestling;
@@ -815,7 +816,9 @@ function GetAttackType(CharStruct)
     
 	-- weapon present:
     local weaponType = CharStruct.Weapon.WeaponType;
+CharStruct.Char:talk(Character.say,"WPTYPE="..weaponType);
     if (weaponType == 1) or (weaponType == 4) then
+CharStruct.Char:talk(Character.say,"GETATTTYPE 2");
         CharStruct["AttackKind"] = 1;
         CharStruct["Skillname"] = Character.slashingWeapons;
         if (weaponType == 1) then
@@ -824,6 +827,7 @@ function GetAttackType(CharStruct)
             CharStruct["UsedHands"] = 2;
         end;
     elseif (weaponType == 2) or (weaponType == 5) then
+CharStruct.Char:talk(Character.say,"GETATTTYPE 3");
         CharStruct["AttackKind"] = 2;
         CharStruct["Skillname"] = Character.concussionWeapons;
         if (weaponType == 2) then
@@ -832,6 +836,7 @@ function GetAttackType(CharStruct)
             CharStruct["UsedHands"] = 2;
         end;
     elseif (weaponType == 3) or (weaponType == 6) then
+CharStruct.Char:talk(Character.say,"GETATTTYPE 4");
         CharStruct["AttackKind"] = 3;
         CharStruct["Skillname"] = Character.punctureWeapons;
         if (weaponType == 3) then
@@ -840,6 +845,7 @@ function GetAttackType(CharStruct)
             CharStruct["UsedHands"] = 2;
         end;
     elseif (weaponType == 7) or (weaponType == 255) then
+CharStruct.Char:talk(Character.say,"GETATTTYPE 5");
         CharStruct["AttackKind"] = 4;
         CharStruct["Skillname"] = Character.distanceWeapons;
         if (weaponType == 255) then
