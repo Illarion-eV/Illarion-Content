@@ -23,7 +23,7 @@ function callEffect(Effect, User)
 		            "Hot and boiling it's coming up your throat and suddenly...")
         User:talkLanguage(Character.say, Player.german, "#me spuckt Feuer aus seinem Mund raus.")
 		User:talkLanguage(Character.say, Player.english, "#me spits fire out of his mouth.")
-        local findQuality, quality = Effect:findValue("quality")
+        local findQuality, quality = Effect:findValue("quality"); User:inform(""..quality+3)
 		local spitFire = function(posi) 
 		    if world:isCharacterOnField(posi) then
 			    local char = world:getCharacterOnField(posi)
