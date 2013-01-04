@@ -27,7 +27,7 @@ function callEffect(Effect, User)
 		local spitFire = function(posi) 
 		    if world:isCharacterOnField(posi) then
 			    local char = world:getCharacterOnField(posi)
-				char:inform("Du wirst von einer Flamme erwischt! Aua!","You are hit by fire! Ouch!",User.highPriority)
+				char:inform("Du wirst von einer Flamme erwischt! Aua!","You are hit by fire! Ouch!",Character.highPriority)
 			    char:increaseAttrib("hitpoints",-(200*quality))
 			end	
 		    world:gfx(9,posi)
