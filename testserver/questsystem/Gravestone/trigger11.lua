@@ -3,7 +3,7 @@ require("questsystem.base")
 module("questsystem.Gravestone.trigger11", package.seeall)
 
 local QUEST_NUMBER = 10000
-local PRECONDITION_QUESTSTATE = 58
+local PRECONDITION_QUESTSTATE = 88
 local POSTCONDITION_QUESTSTATE = 99
 
 local POSITION = position(605, 344, 0)
