@@ -31,6 +31,11 @@ function Init()
 			  taskItem)           -- a list with id, quality and datas of the item one has to bring in order to learn the recipe e.g. {331,false,{"AdrazinConcentration","9"}}
 	]]                            -- if the quality doesn't matter, set it to false; if no data is needed, just leave it out completely. note that every data gets its own list within the the list
 	
+	AddPotion("Runewick",
+	          10,
+			  {"a potion which increases strength to the highest possible grade and no other effect with at least very good quality","ein Trank, der die Stärke im höchstmöglichen Gerade hebt und keine anderen Effekte hat. Die Qualität sollte mindestens sehr gut sein."}
+			  {59,7,{"filledWith","potion"},{"potionEffectId","95555555"}
+			  )
 	AddPotion("Cadomyr", 
 	          301, 
 			  {"a stock containing only highly toxic Adrazin", "einen Sud, der nur nur hoch toxisches Adrazin enthält"},
