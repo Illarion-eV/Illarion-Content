@@ -30,7 +30,7 @@ function callEffect(Effect, User)
 				char:inform("Du wirst von einer Flamme erwischt! Aua!","You are hit by fire! Ouch!",User.highPriority)
 			    char:increaseAttrib("hitpoints",-(200*quality))
 			end	
-		    world:gfx(10,posi)
+		    world:gfx(9,posi)
 			world:gfx(36,posi)			
 		end
 		base.common.CreateLine(base.common.GetFrontPosition(User), base.common.GetFrontPosition(User, 3+quality), spitFire)

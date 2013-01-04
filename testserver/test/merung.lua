@@ -18,8 +18,8 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 			User:talkLanguage(Character.say, Player.german, "#me übergibt sich und spuckt dabei einen großen Feuerball aus.");
 			User:talkLanguage(Character.say, Player.english, "#me throws up and pukes out a big fireball.");
 			local frontPos = base.common.GetFrontPosition(User)
-			world:makeSound(0,frontPos)
-		    world:gfx(10,frontPos)
+			world:makeSound(5,frontPos)
+		    world:gfx(9,frontPos)
 			world:createItemFromId(369,1,frontPos,true,333,nil)
 			effectRemoved = User.effects:removeEffect(60)
 			if not effectRemoved then
