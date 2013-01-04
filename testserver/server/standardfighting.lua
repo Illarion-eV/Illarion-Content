@@ -807,7 +807,7 @@ end;
 function GetAttackType(CharStruct)
 	-- No weapon present:
     if not CharStruct.IsWeapon then
-CharStruct.Char:talk(Character.say,"GETATTTYPE 1");
+CharStruct.Char:talk(Character.say,"GETATTTYPE 1"); --- schild richtig
         CharStruct["AttackKind"] = 0;
         CharStruct["UsedHands"] = 1;
         CharStruct["Skillname"] = Character.wrestling;
@@ -816,7 +816,7 @@ CharStruct.Char:talk(Character.say,"GETATTTYPE 1");
     
 	-- weapon present:
     local weaponType = CharStruct.Weapon.WeaponType;
-CharStruct.Char:talk(Character.say,"WPTYPE="..weaponType);
+CharStruct.Char:talk(Character.say,"WPTYPE="..weaponType);	-- 14 wenn schild falsch
     if (weaponType == 1) or (weaponType == 4) then
 CharStruct.Char:talk(Character.say,"GETATTTYPE 2");
         CharStruct["AttackKind"] = 1;
@@ -1056,7 +1056,7 @@ function LoadWeapons(CharStruct)
 		if rWType==10 or rWType==11 or rWType==14 then -- Ammo or shield in right hand: switch r and l hand!
 			isRWp=0;
 		end
-		--debug("*** FOUND WP IN R!");
+		debug("*** FOUND WP IN R!");
 	else
 		isRWp=0;
 	end
@@ -1066,13 +1066,13 @@ function LoadWeapons(CharStruct)
 		if lWType==10 or lWType==11 or lWType==14 then -- Ammo or shield in right hand: switch r and l hand!
 			isLWp=0;
 		end
-		--debug("*** FOUND WP IN L!");
+		debug("*** FOUND WP IN L!");
 	else
 		isLWp=0;
 	end
 	
 	if isRWp==0 and isLWp==1 then 	-- switch weapons
-	--debug("*** SWITCHING WEAPONS NOW!"); 
+	debug("*** SWITCHING WEAPONS NOW!"); 
 		local dItem=rItem;
 		local dAttFound=rAttFound;
 		local dAttWeapon=rAttWeapon;
@@ -1093,7 +1093,8 @@ function LoadWeapons(CharStruct)
     CharStruct["SecWeaponItem"] = lItem;
     CharStruct["SecIsWeapon"] = lAttFound;
     CharStruct["SecWeapon"] = lAttWeapon;
-    
+    CharStruct.Char:talk(Character.say,"**** WPTYPE R: "..CharStruct.Weapon.WeaponType);
+	CharStruct.Char:talk(Character.say,"**** WPTYPE L: "..CharStruct.SecWeapon.WeaponType);
 	-- still  needed? :
     CharStruct["LeftWeaponItem"] = lItem;
     CharStruct["LeftIsWeapon"] = lAttFound;
