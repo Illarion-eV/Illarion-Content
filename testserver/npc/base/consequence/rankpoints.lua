@@ -8,7 +8,7 @@ rankpoints = base.class.class(npc.base.consequence.consequence.consequence,
 function(self, faction, mode, value)
     npc.base.consequence.consequence.consequence:init(self);
     self["value"], self["valuetype"] = npc.base.talk._set_value(value);
-    debug("value: "..value.."mode: "..mode)
+    debug("value: "..faction.."mode: "..mode)
     if (mode == "=") then
             self["perform"] = _rankpoints_helper_set;
     elseif (mode == "+") then
