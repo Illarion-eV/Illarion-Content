@@ -16,6 +16,6 @@ function(self, value)
     self["check"] = _basestate_helper_equal;
 end);
 
-function _basestate_helper_equal(self, npcChar, player)
+function _basestate_helper_equal(self, npcChar, texttype, player)
     return (self.npc._parent.state == self.value)
 end;

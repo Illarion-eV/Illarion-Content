@@ -203,10 +203,11 @@ end;
 --- properly in case its needed.
 --
 --  @param npcChar the NPC character
+--  @param textType the type that was used to send the text
 --  @param speaker the character struct who said some text
 --  @param text the text that was spoken
 --  @return true in case the text was handled properly by one of the receive text handlers
-function baseNPC:receiveText(npcChar, speaker, text)
+function baseNPC:receiveText(npcChar, texttype, speaker, text)
     if (self._receiveTextFunctions == nil) then
         return false;
     end;
@@ -231,7 +232,7 @@ function baseNPC:receiveText(npcChar, speaker, text)
     text = string.lower(text);
     
     table.foreach(self._receiveTextFunctions, function(key, value)
-        if (value:receiveText(npcChar, speaker, text)) then
+        if (value:receiveText(npcChar, texttype, speaker, text)) then
             return true;
         end;
     end);

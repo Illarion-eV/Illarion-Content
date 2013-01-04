@@ -25,32 +25,32 @@ function(self, name, comp, value)
     end;
 end);
 
-function _skill_helper_equal(self, npcChar, player)
+function _skill_helper_equal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value == player:getSkill(self.skill))
 end;
 
-function _skill_helper_notequal(self, npcChar, player)
+function _skill_helper_notequal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value ~= player:getSkill(self.skill))
 end;
 
-function _skill_helper_lesserequal(self, npcChar, player)
+function _skill_helper_lesserequal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value <= player:getSkill(self.skill))
 end;
 
-function _skill_helper_greaterequal(self, npcChar, player)
+function _skill_helper_greaterequal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value >= player:getSkill(self.skill))
 end;
 
-function _skill_helper_lesser(self, npcChar, player)
+function _skill_helper_lesser(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value < player:getSkill(self.skill))
 end;
 
-function _skill_helper_greater(self, npcChar, player)
+function _skill_helper_greater(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return (value > player:getSkill(self.skill))
 end;

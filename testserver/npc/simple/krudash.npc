@@ -103,8 +103,6 @@ english, "Gobaith", "Gobiath" -> "Hrmpf! What else is there to say?"
 "mein Name" -> "Hurr, hurr. Was willst du kaufen?"
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-english, "murgo" -> "#me grunts. 'Murgo is my husband. And he does what his wife command! Hrâch!'", "Ch-h! Where's my husband, huh? For sure, he got another one of his nutty ideas! He's like a big rock, mes say. Jûk, difficult to move, but if it's rolling noone is able to stop it.", "Hurr! Murgo is a good husband. He care much about the orclings and be strong warrior.", "Eh-h... I was gate guard at Trolls Bane, long ago. I liked Murgo! He got a new armor with panther fur... and bones. *grunts* And he always knew what was important."
-"murgo" -> "#me grunzt langezogen. 'Murgo iss mein Mann. Und er tut was seine Frau ihm sagt! Hrâch!'", "Ch-h! Wo treibt sich mein Mann wieder herum, hä? Bestimmt hatt er wieder eine seiner bekloppten Ideen gehabt! Er ist wie ein schwerer Stein, sag ich. Jûk, schwer zu bewegen, aber wenn's rollt kann's keiner aufhalten.", "Hurr! Murgo is ein guter Mann. Er sorgt gutt, für die Jünglingens und ist ein starker Krieger.", "Eh-h... Ich war Torwache in Trolls Fluch, lange her. Murgo hat mir gefallen! Er hat sich ne Rüstung machn lassen. Mit Pantherfell... und Knochen. *grunzt* Und er hat immer gewusst, was die Dinge sind die wichtig sind."
 english, "er hja", "erhja", "er'hja" -> "Oh-h! Er'hja will be my little orcling forever. *grunts happily* Yes, she's fiendishly clever. I will be her proud mommy forever!", "#me nods. 'Tagtha. Er'hja is my daughter. - She have a sister also, yes. Ol'hja, strangers get them mixed up.'", "#me laughs hoarsely. 'Ha-hr. Orclings like Er'hja 'nd Ol'hja cause much trouble for their mommies and daddies...'"
 "er hja", "erhja", "er'hja" -> "Oh-h! Er'hja wird immer meine kleine Orkling bleiben. *grunzt glücklich* Sie ist ist ja so sehr schlau und gewifft. Ich werd immer ihre stolze Mami sein!", "#me nickt. 'Tagtha. Er'hja ist meine Tochter. - Sie hat auch ne' Schwester, ja. Ol'hja, Fremde verwechseln die Beiden oft.'", "#me lacht heiser. 'Ha-hr. Orklinge wie Er'hja 'nd Ol'hja machen Mamis und Papis viele Sorgen...'"
 english, "ali[czs]", "ali[czs]e" -> "Gâsh! Aliz' this weepy flimsy snaga! She complained again, huh? Listen! She's Krudash dirty Snaga, that for she has to follow Krudash's orders... and I'm Krudash!", "Don't worry about the girl. She isn't worth it. She has to become strong and proud, do a good job. Ye-hs, but shes just going around crying like the puniest orclings...", "I bought her for a few coins. Wasn't much money, no. But now she's sniveling and doesn't do a good job."
@@ -169,8 +167,8 @@ english, "Krudash" -> "Hurr Hurr. Ciamar a'seibh! How goin?", "Hurr Hurr. Do you
 "Nein" -> "Grâth! Bisst du sicher?", "Dann nicht, nicht wahr?", "#me kichert. 'Ist gut, is' gu-ht.'"
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "Taghta!", "Puny little Maggot.", "Uh-h?"
-german, chance(20.0), ".*" -> "Taghta!", "Winzige kleine Made.", "Uh-h?"
+english, chance(20.0), ".*" -> "Taghta!", "Puny little Maggot! What do you want?.", "Uh-h?"
+german, chance(20.0), ".*" -> "Taghta!", "Winzig kleine Made, was willst du?.", "Uh-h?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -606,7 +606,7 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar)
   mainNPC:nextCycle(npcChar);
   npc.base.guards_static.NextCycle(npcChar);

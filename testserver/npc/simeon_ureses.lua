@@ -487,7 +487,7 @@ function receiveText(npcChar, texttype, message, speaker)
 		    end --there is an item
         end --item exists
 	else
-        mainNPC:receiveText(npcChar, speaker, message); 
+        mainNPC:receiveText(npcChar, texttype, speaker, message); 
 	end
 --ADDITION END
 end;

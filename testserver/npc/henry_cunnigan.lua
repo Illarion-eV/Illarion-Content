@@ -18,6 +18,7 @@ VALUES (0, 37, 21, 100, 6, 'Henry Cunnigan', 'npc.henry_cunnigan', 0, 2, 5, 123,
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.condition.quest")
+require("npc.base.condition.talkmode")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.warp")
@@ -62,8 +63,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(309, "<", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] To shout, please hit the return key to activate the chatbox. Type '#s' in front of the words you wish to shout and then hit return again to make your character shout them."));
-talkEntry:addResponse("Welcome to the tutorial, %CHARNAME. Henry Cunnigan, harbourmaster, at your service. I will teach you how to communicate with other characters. Since you clearly already know how to talk, I will show you how to shout. Please shout out something for me to hear. Perhaps your name, for example!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 2));
+talkEntry:addResponse("Welcome to the tutorial, %CHARNAME. Henry Cunnigan, harbourmaster, at your service. I will teach you how to communicate with other characters. Since you clearly already know how to talk, I will show you how to shout. Please shout out something for me to hear. Perhaps your name, for example!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -71,27 +72,29 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "<", 2));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Um zu schreien, aktiviere bitte durch das Drücken der Enter-Taste die Chatbox. Schreibe '#s' vor die Worte, die du rufen möchtest und drücke erneut die Enter-Taste, um deinen Charakter schreien zu lassen."));
-talkEntry:addResponse("Willkommen zu diesem Tutorial, %CHARNAME. Henry Cunnigan, Hafenmeister, zu Diensten. Ich werde dir beibringen, mit anderen Charakteren zu kommunizieren. Da du offensichtlich schon herausgefunden hast, wie man spricht, werde ich dir nun zeigen, wie man schreit. Bitte schreie etwas für mich, vielleicht deinen Namen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 2));
+talkEntry:addResponse("Willkommen zu diesem Tutorial, %CHARNAME. Henry Cunnigan, Hafenmeister, zu Diensten. Ich werde dir beibringen, mit anderen Charakteren zu kommunizieren. Da du offensichtlich schon herausgefunden hast, wie man spricht, werde ich dir nun zeigen, wie man schreit. Bitte schreie etwas für mich, vielleicht deinen Namen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("#s");
+talkEntry:addCondition(npc.base.condition.talkmode.talkmode("yell"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Whispering works a lot like shouting. Activate your chatbox again and write '#w' in front of the words you want to whisper."));
-talkEntry:addResponse("My, but you have a powerful voice! Shouting can be heard over quite some distance and is useful for communicating with large crowds or people that are far away. Sometimes, however, you don't want people eavesdropping into your private conversations. Please whisper some secret words for my ears only.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 3));
+talkEntry:addResponse("My, but you have a powerful voice! Shouting can be heard over quite some distance and is useful for communicating with large crowds or people that are far away. Sometimes, however, you don't want people eavesdropping into your private conversations. Please whisper some secret words for my ears only.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 2));
-talkEntry:addTrigger("#s");
+talkEntry:addCondition(npc.base.condition.talkmode.talkmode("yell"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Flüstern funktioniert fast wie Schreien. Aktiviere erneut deine Chatbox und schreibe '#w' vor die zu flüsternden Worte."));
-talkEntry:addResponse("Ui, du hast aber eine kraftvolle Stimme! Schreien kann man auch in einiger Entfernung noch hören und es ist nützlich zur Kommunikation mit großen Gruppen oder Personen, die weit weg sind. Manchmal will man allerdings nicht von anderen bei einer privaten Unterhaltung belauscht werden. Bitte flüster mir ein paar geheime Worte zu, die nur für meine Ohren bestimmt sind.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 3));
+talkEntry:addResponse("Ui, du hast aber eine kraftvolle Stimme! Schreien kann man auch in einiger Entfernung noch hören und es ist nützlich zur Kommunikation mit großen Gruppen oder Personen, die weit weg sind. Manchmal will man allerdings nicht von anderen bei einer privaten Unterhaltung belauscht werden. Bitte flüster mir ein paar geheime Worte zu, die nur für meine Ohren bestimmt sind.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -115,19 +118,21 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("#w");
+talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Emoting is done by placing a '#me' in front of your action."));
-talkEntry:addResponse("Sometimes, silence is golden. Use whispers to communicate with those immediately around you. But there will be times when you do not wish to speak at all. To perform actions as your character you can use emotes. Emotes cannot affect the game world or other characters but are a good way to add some flavour to your roleplaying. Please emote an action!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 4));
+talkEntry:addResponse("Sometimes, silence is golden. Use whispers to communicate with those immediately around you. But there will be times when you do not wish to speak at all. To perform actions as your character you can use emotes. Emotes cannot affect the game world or other characters but are a good way to add some flavour to your roleplaying. Please emote an action!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 3));
-talkEntry:addTrigger("#w");
+talkEntry:addCondition(npc.base.condition.talkmode.talkmode("whisper"));
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Zum Emoten muss man einfach '#me' vor die Handlung schreibt."));
-talkEntry:addResponse("Manchmal ist Schweigen Gold. Flüstere, um mit denen, die dich direkt umgeben zu kommunizieren. Aber es wird Zeiten geben, wenn du nicht reden willst. Mit Hilfe von Emotes kannst du Handlungen als dein Charakter auszuführen. Emotes haben keinen Einfluss auf die Spielwelt oder andere Charaktere, aber sie sind ein guter Weg um etwas Spannung in dein Rollenspiel zu bringen. Bitte emote eine Handlung!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 4));
+talkEntry:addResponse("Manchmal ist Schweigen Gold. Flüstere, um mit denen, die dich direkt umgeben zu kommunizieren. Aber es wird Zeiten geben, wenn du nicht reden willst. Mit Hilfe von Emotes kannst du Handlungen als dein Charakter auszuführen. Emotes haben keinen Einfluss auf die Spielwelt oder andere Charaktere, aber sie sind ein guter Weg um etwas Spannung in dein Rollenspiel zu bringen. Bitte emote eine Handlung!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -152,16 +157,16 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("#me");
-talkEntry:addResponse("Very good! You have learned all of the things that I can teach you. Have fun with the rest of the tutorial, %CHARNAME. Now, follow the road to the next lesson on items.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 5));
+talkEntry:addResponse("Very good! You have learned all of the things that I can teach you. Have fun with the rest of the tutorial, %CHARNAME. Now, follow the road to the next lesson on items.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(309, "=", 4));
 talkEntry:addTrigger("#me");
-talkEntry:addResponse("Sehr gut! Du hast nun alles gelernt, was ich dir beibringen kann. Viel Spaß bei dem Rest des Tutorials, %CHARNAME. Nun folge der Straße zur nächsten Lektion über Gegenstände.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(309, "=", 5));
+talkEntry:addResponse("Sehr gut! Du hast nun alles gelernt, was ich dir beibringen kann. Viel Spaß bei dem Rest des Tutorials, %CHARNAME. Nun folge der Straße zur nächsten Lektion über Gegenstände.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -217,7 +222,7 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
 function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;

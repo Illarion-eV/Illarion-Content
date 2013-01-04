@@ -291,10 +291,9 @@ function setRankpoints(originator, rankpoints)
 	Faction.rankTown = checkForRankChange(rankpoints,rank);
 	
 	-- Factionleaders always have the leaderrank 11 and 1000 rankpoints (just to keep it consistent)
-	if originator.name == "Valerio Guilianni" or originator.name == "Rosaline Edwards" or originator.name == "Elvaine Morgan" or originator.name == "Lilli" then
+	if originator.name == "Valerio Guilianni" or originator.name == "Rosaline Edwards" or originator.name == "Elvaine Morgan" then
 		rankpoints = (leaderRank-1)*100;
 		Faction.rankTown = leaderRank;
-		debug("Sex of "..originator.name..": "..originator:increaseAttrib("sex",0))
 	end
 
 	local townName = getTownNameByID(Faction.tid)
