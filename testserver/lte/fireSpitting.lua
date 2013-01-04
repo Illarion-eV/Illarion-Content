@@ -3,45 +3,45 @@
 require("base.common")
 module("lte.fireSpitting", package.seeall)
 
-function addEffect(Effect, Character)               				
+function addEffect(Effect, User)               				
 
 end
 
-function callEffect(Effect, Character) 
+function callEffect(Effect, User) 
     
 	local findSecondTime, sceondTime = Effect:findValue("secondTime")
     if not findSecondTime then
-	    Character:inform("Hitze erfüllt dein Inneres und in deinem Magen fängt es zu kochen an.",
+	    User:inform("Hitze erfüllt dein Inneres und in deinem Magen fängt es zu kochen an.",
 		            "Your inner body is heating up and it seems to start boiling in your stomach.")
-        Character:talkLanguage(Character.say, Player.german, "#me's Gesicht färbt sich knallrot.")
-		Character:talkLanguage(Character.say, Player.english, "#me's face turns bright red.")
+        User:talkLanguage(Character.say, Player.german, "#me's Gesicht färbt sich knallrot.")
+		User:talkLanguage(Character.say, Player.english, "#me's face turns bright red.")
         Effect:addValue("secondTime",1)	
 	    Effect.nextCalled = 50
 		return true
 	else
-		Character:inform("Heiß und kochend steigt es deine Kehle hinauf und plötzlich...",
+		User:inform("Heiß und kochend steigt es deine Kehle hinauf und plötzlich...",
 		            "Hot and boiling it's coming up your throat and suddenly...")
-        Character:talkLanguage(Character.say, Player.german, "#me spuckt Feuer aus seinem Mund raus.")
-		Character:talkLanguage(Character.say, Player.english, "#me spits fire out of his mouth.")
+        User:talkLanguage(User.say, Player.german, "#me spuckt Feuer aus seinem Mund raus.")
+		User:talkLanguage(User.say, Player.english, "#me spits fire out of his mouth.")
         local findQuality, quality = Effect:findValue("quality")
 		local spitFire = function(posi) 
-		    if world:isCharacterOnField(posi) then
-			    local char = world:getCharacterOnField(posi)
-				char:inform("Du wirst von einer Flamme erwischt! Aua!","You are hit by fire! Ouch!",Character.highPriority)
+		    if world:isUserOnField(posi) then
+			    local char = world:getUserOnField(posi)
+				char:inform("Du wirst von einer Flamme erwischt! Aua!","You are hit by fire! Ouch!",User.highPriority)
 			    char:increaseAttrib("hitpoints",-(200*quality))
 			end	
 		    world:gfx(10,posi)
 			world:gfx(36,posi)			
 		end
-		base.common.CreateLine(base.common.GetFrontPosition(Character), base.common.GetFrontPosition(Character, 3+quality), spawnFire)
+		base.common.CreateLine(base.common.GetFrontPosition(User), base.common.GetFrontPosition(User, 3+quality), spawnFire)
         return false
     end
 end
 
-function removeEffect(Effect,Character)
+function removeEffect(Effect,User)
 
 end
 
-function loadEffect(Effect,Character)                  			
+function loadEffect(Effect,User)                  			
 
 end
