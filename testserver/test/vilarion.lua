@@ -36,6 +36,15 @@ function LookAtItem(player, item)
 end
 
 function UseItem(User, SourceItem, TargetItem, counter, Param, ltstate)
+    if (User.lastSpokenText == "weapon") then
+        local found, struct = world:getWeaponStruct(2776)
+        if found then
+            User:inform("attack: " .. struct.Attack)
+        else
+            User:inform("struct not found")
+        end
+    end
+
     local found, _, item = string.find(User.lastSpokenText, "count (%d+)")
     if found then
         User:inform("Count item " .. item .. ": " .. User:countItemAt("all", tonumber(item), {}))
