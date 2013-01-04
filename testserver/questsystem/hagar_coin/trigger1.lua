@@ -11,7 +11,7 @@ local NPC_REPLY_DE = "Psst... Ich habe da etwas munkeln gehört von einer Botscha
 local NPC_REPLY_EN = "Psst... I heard rumors about something that was carved into a pine tree, in the southeast of the gate to Galmair, near the water."
 
 --function receiveText(type, text, player)
-function receiveText(npcChar, texttype, text, player)
+function receiveText(thisNPC, texttype, text, player)
 	debug("text: "..text)
 	debug("player: "..player.name)
   if questsystem.base.fulfilsPrecondition(player, QUEST_NUMBER, PRECONDITION_QUESTSTATE)
