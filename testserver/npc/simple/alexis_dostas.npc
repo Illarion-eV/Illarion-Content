@@ -93,9 +93,9 @@ queststatus(125) = 1, "task", "adventure", "order" -> "The mounts urgently need 
 queststatus(125) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Befehl" -> "Die Reittiere brauchen dringend neues Heu. Alles, was ich also von euch für sie erbitte, sind zehn Bündel Getreide."
 
 -- 2nd quest: Gather 10 carrots (2493)
-queststatus(125) = 2, english, "quest", "mission" -> inform("[New quest] The Royal Stables II"), "Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?", queststatus(125) = 3
+queststatus(125) = 2, english, "quest", "mission" -> inform("[New quest] The Royal Stables II"), "Did you know what our mounts love the most? Carrots! And only a content mount can stride proudy over the plains. Would you gather ten carrots for them, please?", queststatus(125) = 3
 queststatus(125) = 2, "quest", "mission" -> inform("[Neues Quest] Die königlichen Stallungen II"), "Wußtet ihr, was unsere Reittiere am liebsten haben? Karotten! Und nur zufriedene Reittiere galoppieren stolz über die Ebenen. Würdet ihr bitte zehn Karotten für sie besorgen?", queststatus(125) = 3
-queststatus(125) = 2, "task", "adventure", "order" -> inform("[New quest] The Royal Stables II"), "Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?", queststatus(125) = 3
+queststatus(125) = 2, "task", "adventure", "order" -> inform("[New quest] The Royal Stables II"), "Did you know what our mounts love the most? Carrots! And only a content mount can stride proudy over the plains. Would you gather ten carrots for them, please?", queststatus(125) = 3
 queststatus(125) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die königlichen Stallungen II"), "Wußtet ihr, was unsere Reittiere am liebsten haben? Karotten! Und nur zufriedene Reittiere galoppieren stolz über die Ebenen. Würdet ihr bitte zehn Karotten für sie besorgen?", queststatus(125) = 3
 
 -- 2nd quest solved, reward: 40cp, +10 rankpoints if Cadomyr
@@ -111,9 +111,9 @@ queststatus(125) = 3, "task", "adventure", "order" -> "The horses become nervous
 queststatus(125) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Die Pferde wiehern aufgeregt wenn ich nur das Wort 'Karotte' erwähne. Vielleicht findet ihr ja die Zeit, zehn Karotten für sie besorgen?"
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(125) = 4, english, "quest", "mission" -> "Well, there is nothing I need at this moment. Perhaps you should ask Anthar Vilicon, the chancellor, about services you could do for Cadomyr?"
+queststatus(125) = 4, english, "quest", "mission" -> "Well, there is nothing I need at this moment. Perhaps you should ask Anthar Vilicon, the Chancellor, about services you could do for Cadomyr?"
 queststatus(125) = 4, "quest", "mission" -> "Nun, es gibt nichts, was ich derzeit bräuchte. Vielleicht fragt ihr den Kanzler Anthar Vilicon nach Diensten, die ihr Cadomyr leisten könntet?"
-queststatus(125) = 4, "task", "adventure", "order" -> "Well, there is nothing I need at this moment. Perhaps you should ask Anthar Vilicon, the chancellor, about services you could do for Cadomyr?"
+queststatus(125) = 4, "task", "adventure", "order" -> "Well, there is nothing I need at this moment. Perhaps you should ask Anthar Vilicon, the Chancellor, about services you could do for Cadomyr?"
 queststatus(125) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun, es gibt nichts, was ich derzeit bräuchte. Vielleicht fragt ihr den Kanzler Anthar Vilicon nach Diensten, die ihr Cadomyr leisten könntet?"
 
 -- Easter egg
@@ -121,9 +121,9 @@ queststatus(125) = 4, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nun, es gi
 "Rumpelstiltskin" -> "Never heard that name. Who is that supposed to be, a baker or a brewer?"
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I feed the mounts. I care for them, I lend them to anyone who promises to treat them well."
+"profession" -> "I feed the mounts, I care for them, I lend them to anyone who promises to treat them well."
 "beruf" -> "Ich füttere die Reittiere hier. Ich kümmere mich um sie und leihe sie jedem, der verspricht, sie gut zu behandeln."
-english, "job" -> "I feed the mounts. I care for them, I lend them to anyone who promises to treat them well."
+english, "job" -> "I feed the mounts, I care for them, I lend them to anyone who promises to treat them well."
 "job" -> "Ich füttere die Reittiere hier. Ich kümmere mich um sie und leihe sie jedem, der verspricht, sie gut zu behandeln."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
