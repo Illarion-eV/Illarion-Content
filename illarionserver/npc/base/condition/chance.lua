@@ -10,6 +10,6 @@ function(self, value)
     self["check"] = _chance_helper_equal;
 end);
 
-function _chance_helper_equal(self, npcChar, player)
+function _chance_helper_equal(self, npcChar, texttype, player)
     return (math.random(100) < self.value);
 end;

@@ -9,6 +9,6 @@ function(self)
     self["check"] = _admin_helper_equal;
 end);
 
-function _admin_helper_equal(self, npcChar, player)
+function _admin_helper_equal(self, npcChar, texttype, player)
     return player:isAdmin();
 end;

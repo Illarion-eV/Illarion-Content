@@ -13,6 +13,6 @@ function condition:setNPC(npc)
     self["npc"] = npc;
 end;
 
-function _condition_helper_empty(self, npcChar, player)
+function _condition_helper_empty(self, npcChar, texttype, player)
     -- by default nothing is done
 end;

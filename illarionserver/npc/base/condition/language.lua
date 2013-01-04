@@ -14,6 +14,6 @@ function(self, value)
     self["check"] = _language_helper_equal;
 end);
 
-function _language_helper_equal(self, npcChar, player)
+function _language_helper_equal(self, npcChar, texttype, player)
     return (player:getPlayerLanguage() == self.value);
 end;
