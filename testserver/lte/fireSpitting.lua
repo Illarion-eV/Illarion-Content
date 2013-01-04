@@ -25,8 +25,8 @@ function callEffect(Effect, User)
 		User:talkLanguage(Character.say, Player.english, "#me spits fire out of his mouth.")
         local findQuality, quality = Effect:findValue("quality")
 		local spitFire = function(posi) 
-		    if world:isUserOnField(posi) then
-			    local char = world:getUserOnField(posi)
+		    if world:isCharacterOnField(posi) then
+			    local char = world:getCharacterOnField(posi)
 				char:inform("Du wirst von einer Flamme erwischt! Aua!","You are hit by fire! Ouch!",User.highPriority)
 			    char:increaseAttrib("hitpoints",-(200*quality))
 			end	
