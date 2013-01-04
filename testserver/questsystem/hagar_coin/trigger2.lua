@@ -1,7 +1,7 @@
 require("questsystem.base")
 module("questsystem.hagar_coin.trigger2", package.seeall)
 
-local QUEST_NUMBER = 10000
+local QUEST_NUMBER = 10001
 local PRECONDITION_QUESTSTATE = 3
 local POSTCONDITION_QUESTSTATE = 5
 

@@ -2,7 +2,7 @@ require("handler.createplayeritem")
 require("questsystem.base")
 module("questsystem.hagar_coin.trigger6", package.seeall)
 
-local QUEST_NUMBER = 10000
+local QUEST_NUMBER = 10001
 local PRECONDITION_QUESTSTATE = 10
 local POSTCONDITION_QUESTSTATE = 8
 
