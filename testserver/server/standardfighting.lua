@@ -602,31 +602,33 @@ end;
 -- @param CharStruct The table of the attacker that holds all values load
 -- @return true in case the attack is fine
 function CheckAttackOK(CharStruct)
+CharStruct.Char:talk(Character.say,"check 1 ok");
     if (CharStruct["AttackKind"] == nil) then -- finding the attack type failed
         return false;
     end;
-    --CharStruct.Char:talk(Character.say,"check 1 ok");
+    CharStruct.Char:talk(Character.say,"check 2 ok");
     if (CharStruct.WeaponItem.id == 228) then -- Item is occupied
         return false;
     end;
-    --CharStruct.Char:talk(Character.say,"check 2 ok");
+
+    CharStruct.Char:talk(Character.say,"check 3 ok");
     if (CharStruct.SecIsWeapon) then
         -- there is something in the second hand
         if (CharStruct.AttackKind == 0) then
             -- but nothing in the first
-            --CharStruct.Char:talk(Character.say,"check 3 ok");
+           CharStruct.Char:talk(Character.say,"check 4 ok");
             return false;
         elseif (CharStruct.SecWeapon.WeaponType == 7) then
             -- but a distance weapon in the first
-            --CharStruct.Char:talk(Character.say,"check 4 ok");
+            CharStruct.Char:talk(Character.say,"check 5 ok");
             return false;
         elseif (CharStruct.Weapon.WeaponType == 13) then
             -- but a wand in the first
-            --CharStruct.Char:talk(Character.say,"check 5 ok");
+            CharStruct.Char:talk(Character.say,"check 6 ok");
             return false;
         end;
     end;
-   -- CharStruct.Char:talk(Character.say,"check 7 ok");
+   CharStruct.Char:talk(Character.say,"check 7 ok");
     return true;
 end;
 
