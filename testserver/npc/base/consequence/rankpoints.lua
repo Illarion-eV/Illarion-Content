@@ -5,10 +5,10 @@ require("npc.base.consequence.consequence")
 module("npc.base.consequence.rankpoints", package.seeall)
 
 rankpoints = base.class.class(npc.base.consequence.consequence.consequence,
-function(self, faction, mode, value)
+function(self, mode, value)
     npc.base.consequence.consequence.consequence:init(self);
     self["value"], self["valuetype"] = npc.base.talk._set_value(value);
-    debug("value: "..faction.."mode: "..mode)
+    debug("value: "..value.."mode: "..mode)
     if (mode == "=") then
             self["perform"] = _rankpoints_helper_set;
     elseif (mode == "+") then
