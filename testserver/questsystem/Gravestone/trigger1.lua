@@ -4,6 +4,7 @@ module("questsystem.Gravestone.trigger1", package.seeall)
 local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 0
 local POSTCONDITION_QUESTSTATE = 27
+local ADDITIONAL_QUESTSTATE = 39
 
 local POSITION = position(605, 344, 0)
 local RADIUS = 10
@@ -13,7 +14,7 @@ local LOOKAT_TEXT_EN = "You see an old tombstone. With a cloth you could clean t
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
-      and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+      and PRECONDITION_QUESTSTATE < ADDITIONAL_QUESTSTATE then
 
 	base.lookat.SetSpecialDescription(item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
 	world:itemInform(PLAYER,item,base.lookat.GenerateLookAt(PLAYER, item, base.lookat.NONE));
