@@ -57,6 +57,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         return -- Abbrechen wenn Spieler im Kampf ist
     end
     local food = drinkList[ SourceItem.id ];
+	debug("food[1]: "..food[1].." food[2]: "..food[2].." food[3]: "..food[3])
     if (food == nil ) then
         User:inform("Unknown drinking Item: ID"..SourceItem.id.." Please Report this to a developer.");
         return
@@ -69,7 +70,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     else
         world:swap( SourceItem,food[2],333);
     end
-    if ( food[3] == 0 ) then -- dein Alkohol
+    if ( food[3] == 0 ) then -- kein Alkohol
         if ( foodLevel > 40000 ) then 
             base.common.InformNLS( User, "Du hast genug getrunken.", "You have drunk enough.");
         elseif ( foodLevel > 40000 ) then 
