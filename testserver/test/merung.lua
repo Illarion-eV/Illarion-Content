@@ -6,8 +6,9 @@ require("base.common")
 module("test.merung", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
-    if (User.lastSpokenText == "drinkF") then
-        
+    local a,b,quality = string.find(User.lastSpokenText,"fire (%d+)")
+    if a ~= nil then
+        local quality = tonumber(quality)
 		-- there is already a fire spitting potion effect going on
 		-- char pukes out a flame on the map, no further effect added
 		local foundEffect, myEffect = User.effects:find(60)
@@ -33,10 +34,10 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 		            "The potion runs down your throat and immediately, you get the feeling that throat was on fire.")
 		
 		-- quality determines length until char spits fire (better quality, shorter time)
-		local firstCall = (20-(math.floor(SourceItem.quality/100)*1.5))*10
+		local firstCall = (20-(--[[math.floor(SourceItem.]]quality/100)*1.5)*10
 		
 		local myEffect=LongTimeEffect(60,firstCall)
-		myEffect:addValue("quality",math.floor(SourceItem.quality/100))
+		myEffect:addValue("quality",--[[math.floor(SourceItem.]]quality/100)
 		User.effects:addEffect(myEffect)
 	end		
 end
