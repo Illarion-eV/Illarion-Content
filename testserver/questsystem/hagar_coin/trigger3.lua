@@ -17,7 +17,7 @@ function LookAtItem(PLAYER, item)
 	base.lookat.SetSpecialDescription(item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
 	world:itemInform(PLAYER,item,base.lookat.GenerateLookAt(PLAYER, item, base.lookat.NONE));
     
-handler.createplayeritem.createPlayerItem(PLAYER, 3077, 999, 1):execute()
+handler.createplayeritem.createPlayerItem(PLAYER, 3077, 999, 10):execute()
     
     questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
     return true
