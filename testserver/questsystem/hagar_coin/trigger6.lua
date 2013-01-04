@@ -7,7 +7,7 @@ local PRECONDITION_QUESTSTATE = 10
 local POSTCONDITION_QUESTSTATE = 8
 
 local POSITION = position(462, 285, 0)
-local RADIUS = 1
+local RADIUS = 2
 local LOOKAT_TEXT_DE = "In einem kleinen Astloch findest du eine Münze..."
 local LOOKAT_TEXT_EN = "In a small hole, you find a coin..."
 

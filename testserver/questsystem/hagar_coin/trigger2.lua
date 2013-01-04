@@ -6,7 +6,7 @@ local PRECONDITION_QUESTSTATE = 3
 local POSTCONDITION_QUESTSTATE = 5
 
 local POSITION = position(439, 284, 0)
-local RADIUS = 1
+local RADIUS = 2
 local LOOKAT_TEXT_DE = "Du liest: Such etwa 20 Schritt weiter östlich die Tanne beim Wasser."
 local LOOKAT_TEXT_EN = "You read: Search for the fir tree about 20 steps in the east that stands at the water."
 
