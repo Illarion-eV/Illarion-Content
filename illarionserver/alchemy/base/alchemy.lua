@@ -116,6 +116,11 @@ idList = {}
 -- Example: setPotion(15, 459, 95554553, 133, 15, 81, false, false, false, false, false)
 -- for an better overview, we save the names in an own list
 function InitPotions()
+
+-- body liquid potions 
+    potionName[10]	= {"Dragon Breath","Drachenatem"}
+	setPotion(301, 450, 94457331, 141, 141, 141, 755, false, false, false, false)
+-- body liquid end
     
 -- bombs 
     potionName[301]	= {"Small Explosion","Kleine Explosion"}

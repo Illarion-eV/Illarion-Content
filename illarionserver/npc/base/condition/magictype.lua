@@ -19,23 +19,23 @@ function(self, value)
     end;
 end);
 
-function _magictype_helper_none(self, npcChar, player)
+function _magictype_helper_none(self, npcChar, texttype, player)
     return (player:getMagicFlags(player:getMagicType()) == 0)
 end;
 
-function _magictype_helper_mage(self, npcChar, player)
+function _magictype_helper_mage(self, npcChar, texttype, player)
     return _test_magictype(player, 0)
 end;
 
-function _magictype_helper_priest(self, npcChar, player)
+function _magictype_helper_priest(self, npcChar, texttype, player)
     return _test_magictype(player, 1)
 end;
 
-function _magictype_helper_bard(self, npcChar, player)
+function _magictype_helper_bard(self, npcChar, texttype, player)
     return _test_magictype(player, 2)
 end;
 
-function _magictype_helper_druid(self, npcChar, player)
+function _magictype_helper_druid(self, npcChar, texttype, player)
     return _test_magictype(player, 3)
 end;
 

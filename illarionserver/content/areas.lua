@@ -56,6 +56,9 @@ end
 -- @param string The name of the area
 -- @return boolean True if point is in area with areaName
 function PointInArea(point, areaName)
+	if not AreaList then
+		Init();
+	end
 	if not AreaList[areaName] then
 		debug("Area does not exist.");
 		return false;

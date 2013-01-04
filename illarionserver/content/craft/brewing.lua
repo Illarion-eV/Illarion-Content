@@ -99,7 +99,7 @@ catId = brewing:addCategory("juices", "Säfte") -- Tee, Smoothies, Saft :p
 ------------------- FLASCHE MIT BROMBEERSAFT - 783 Dunkelblau ---------------------------
 product = brewing:addProduct(catId, 783, 63, 85, 126, 252)
 product:addIngredient(790) -- Schritt 6: leere Flasche(790) 1x
-product:addIngredient(157, 3*2) -- Schritt 1 - 3: Brombeeren(157) 2x
+product:addIngredient(147, 3*2) -- Schritt 1 - 3: Brombeeren(147) 2x
 product:addIngredient(778) -- Schritt 4: Zuckerrohr(778) 1x
 product:addIngredient(52)
 product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
@@ -126,7 +126,7 @@ product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
 ------------------- FLASCHE MIT KOHLSAFT - 786 ---------------------------
 product = brewing:addProduct(catId, 786, 33, 50, 72, 144)
 product:addIngredient(790) -- Schritt 6: leere Flasche(790) 1x
-product:addIngredient(155, 4*2) -- Schritt 1 - 4: Kohl(290) 2x
+product:addIngredient(290, 4*2) -- Schritt 1 - 4: Kohl(290) 2x
 product:addIngredient(52)
 product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
 ------------------- FLASCHE MIT KOHLSAFT - FERTIG ---------------------------
@@ -135,7 +135,7 @@ product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x
 product = brewing:addProduct(catId, 787, 29, 45, 110, 220)
 product:addIngredient(790) -- Schritt 6: leere Flasche(790) 1x
 product:addIngredient(144, 3*2) -- Schritt 1 - 3: Jungfernkraut(144) 2x
-product:addIngredient(157, 2) -- Schritt 4: Brombeeren(157) 2x
+product:addIngredient(147, 2) -- Schritt 4: Brombeeren(147) 2x
 product:addIngredient(2529) -- Schritt 5: Honig(2529) x1
 product:addIngredient(52)
 product:addRemnant(51) -- Schritt 5: Eimer mit Wasser(52) 1x

@@ -115,12 +115,10 @@ function useTile(User,Position,counter,param,ltstate)
             User:createItem(51,1,333,0)
             base.common.InformNLS(User,"Du ergreifst einen Eimer im Wasser und ziehst ihn heraus. Den hat hier wohl jemand verloren.","You grap a bucket and drag it out of the water. Someone has lost it here.");
         end
-	    --User:learn(2,"fishing",2,100);
-		--Replace with new learn function, see learn.lua 
+	    User:learn(Character.fishing,2,100);
 	    base.common.GetHungry( User, 100 ); -- Hunger
     else
-        --User:learn(2,"fishing",1,100);
-		--Replace with new learn function, see learn.lua 
+	    User:learn(Character.fishing,2,100);
         base.common.GetHungry( User, 100 ); -- Hunger
     end
 end

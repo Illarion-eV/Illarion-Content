@@ -26,32 +26,32 @@ function(self, questid, comp, value)
     end;
 end);
 
-function _quest_helper_equal(self, npcChar, player)
+function _quest_helper_equal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:getQuestProgress(self.questid) == value;
 end;
 
-function _quest_helper_notequal(self, npcChar, player)
+function _quest_helper_notequal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:getQuestProgress(self.questid) ~= value;
 end;
 
-function _quest_helper_lesserequal(self, npcChar, player)
+function _quest_helper_lesserequal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:getQuestProgress(self.questid) <= value;
 end;
 
-function _quest_helper_greaterequal(self, npcChar, player)
+function _quest_helper_greaterequal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:getQuestProgress(self.questid) >= value;
 end;
 
-function _quest_helper_lesser(self, npcChar, player)
+function _quest_helper_lesser(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:getQuestProgress(self.questid) < value;
 end;
 
-function _quest_helper_greater(self, npcChar, player)
+function _quest_helper_greater(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return player:getQuestProgress(self.questid) > value;
 end;

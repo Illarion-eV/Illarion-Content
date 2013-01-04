@@ -370,6 +370,10 @@ function InitHarvestItems()
     CreateHarvestProduct(158, nil)								-- bulbsponge mushroom
     }
 	
+	HarvestItems[158] = {									-- bulbsponge mushroom
+    CreateHarvestProduct(158, nil)								-- bulbsponge mushroom
+    }
+	
 	HarvestItems[1790] = {									-- mushroom circle
     CreateHarvestProduct(163, nil)								-- champignon
     }

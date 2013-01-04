@@ -148,10 +148,6 @@ AddTownJailKey(12,2121, 333, 5031);
 AddTown(2,"Runewick");
 AddTown(3,"Galmair");
 
---[[AddTown(12,"Silberbrand","Silverbrand", 1022, 102, 111);
-AddTownMainKey(12,2121, 333, 5030);
-AddTownJailKey(12,2121, 333, 5031);   ]]--
-
 
 end
 --==================================END OF THE EDITABLE PART====================
@@ -293,6 +289,12 @@ function setRankpoints(originator, rankpoints)
 	end
 
 	Faction.rankTown = checkForRankChange(rankpoints,rank);
+	
+	-- Factionleaders always have the leaderrank 11 and 1000 rankpoints (just to keep it consistent)
+	if originator.name == "Valerio Guilianni" or originator.name == "Rosaline Edwards" or originator.name == "Elvaine Morgan" then
+		rankpoints = (leaderRank-1)*100;
+		Faction.rankTown = leaderRank;
+	end
 
 	local townName = getTownNameByID(Faction.tid)
 	
