@@ -36,7 +36,7 @@ function onLogin( player )
 
 	    if not player:isAdmin() then --non admin chars need help!
 
-            player:pageGM("This player just logged in on Noobia.");
+            --player:pageGM("This player just logged in on Noobia.");
 
 		end
 
