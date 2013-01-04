@@ -43,13 +43,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	    
     if ( ltstate == Action.none ) then 
 		User:startAction( 20, 21, 5, 10, 25);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt Flaschen zu befüllen.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to fill bottle."); 
+			User:talkLanguage( Character.say, User.german, "#me beginnt Flaschen zu befüllen.");
+			User:talkLanguage( Character.say, User.english, "#me starts to fill bottle."); 
 		return
 	end
 	
 	local notCreated = User:createItem( 2496, 1, 999, nil ); -- create the new produced items
-	world:erase(SourceItem,1)
+	world:erase(SourceItem,1)	
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 2496, notCreated, User.pos, true, 999, nil );
 		base.common.HighInformNLS(User,
@@ -59,7 +59,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		if User:countItem(2498) <= 0 then
             return
         else
-		    User:startAction( 20, 21, 5, 10, 25);
+		    --User:startAction( 20, 21, 5, 10, 25);
+			User:talkLanguage( Character.say, User.german, "#me beginnt Flaschen zu befüllen.");
+			User:talkLanguage( Character.say, User.english, "#me starts to fill bottle."); 
 		end	
 	end
 --[[ !!! OLD OLD OLD !!!
