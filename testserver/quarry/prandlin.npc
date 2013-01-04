@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------------AC
 -- NPC Name: Prandlin                                                Runewick --
--- NPC Job:  Snorring                                                         --
+-- NPC Job:  Snoring                                                          --
 --                                                                            --
 -- NPC Race: halfling                   NPC Position:  789, 790, 0            --
 -- NPC Sex:  male                       NPC Direction: northeast              --
@@ -15,7 +15,7 @@ sex = male
 position = 789, 790, 0
 direction = northeast
 affiliation = "Runewick"
-job = "Snorring"
+job = "Snoring"
 
 language = common
 language = halfling
@@ -25,11 +25,11 @@ autointroduce = on
 author = "Rincewind"
 
 lookatDE = "Ein steinalter Halbling, der friedlich in seine Decke gekuschelt vor sich hin schlummert."
-lookatUS = "A halfling old as the hills, he slumbers peacfully in front of the chimney."
+lookatUS = "A halfling as old as the hills, he slumbers peacefully in front of the chimney."
 useMsgDE = "#me dreht sich auf die andere Seite und schläft weiter."
-useMsgUS = "#me truns to the other side and continues his nap."
+useMsgUS = "#me turns to the other side and continues sleeping."
 wrongLangDE = "#me schnarcht laut."
-wrongLangUS = "#me snorts loudly."
+wrongLangUS = "#me snores loudly."
 radius = 0
 hairID = 2
 beardID = 0
@@ -47,7 +47,7 @@ itemShoes = 53
 -- Template Version 1.03, 01/05/2011 by Estralis Seborian
 
 -- NPC by Rincewind.
--- Prandlin is asleep. So I don't used the usual template. Altough it's a cool NPC. He's with the quest "Jack's Peg leg."
+-- Prandlin is asleep. So I don't used the usual template. Although it's a cool NPC. He's with the quest "Jack's Peg leg."
 -- QuestID=304
 -- queststatus(304) Overview
 -- queststatus(304)=1 Player got told that 'old Prandlin' stolen the pegleg.
@@ -55,20 +55,20 @@ itemShoes = 53
 -- queststatus(304)=3 ordered to get a fake to change it against the staff/pegleg. (ornate mage's staff 208)
 -- queststatus(304)=4 the staff/pegleg is stolen
 -- queststatus(304)=5 quest end. Jack got his leg.
-queststatus(304) = 1, german, ".*" -> inform("'Dort! Prandlins Gehstock... er sieht aus als wäre er früher ein Holzbein gewesen! Das muss das Holzbein von Holzbein-Jack sein! Aber wie kann ich es nehmen ohne, dass der alte Halbling aufwacht?'"), "#me umklammert seinen Gehstock und zieht die Wolldecke hoch, ohne zu erwachen. Es ist ein kurzer schön verzierter Stab wie ihn Magier verwenden.", queststatus(304) = 2
-queststatus(304) = 1, english, ".*" -> inform("'Look! Prandlins walking stick... it looks like it was once a peg leg. This must be the peg leg of Peg-Leg-Jack! How to steel it, without wake the old halflin up?'"), "#me's grabs the walking stick tight and pulls the blanket to his chin, still asleep. It's a short beautiful ornated staff, like a mage would use.", queststatus(304) = 2
-queststatus(304) = 2, german, ".*" -> inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"), "#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke. ", queststatus(304) = 3
-queststatus(304) = 2, english, ".*" -> inform("'If I provide a ornate mage's staff, it may be possible to replace it with old Prandlins walking stick, without wake him up."), "#me smiles happy and babbles and drools on his woollen blanket.", queststatus(304) = 3
+queststatus(304) = 1, german, ".*" -> inform("'Dort! Prandlins Gehstock... er sieht aus als wäre er früher ein Holzbein gewesen! Das muss das Holzbein von Holzbein-Jack sein! Aber wie kann ich es nehmen ohne, dass der alte Halbling aufwacht?'"), queststatus(304) = 2, "#me umklammert seinen Gehstock und zieht die Wolldecke hoch, ohne zu erwachen. Es ist ein kurzer schön verzierter Stab wie ihn Magier verwenden."
+queststatus(304) = 1, english, ".*" -> inform("'Look! Prandlins' walking stick... it looks like it was once a peg leg. This must be the peg leg of Peg-Leg-Jack! How can you steal it, without waking the old halfling up?'"), queststatus(304) = 2, "#me grabs the walking stick tightly and pulls the blanket to his chin, still asleep. It's a short beautifully decorated staff, like a mage would use."
+queststatus(304) = 2, german, ".*" -> inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"), queststatus(304) = 3, "#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke. "
+queststatus(304) = 2, english, ".*" -> inform("'If I had an ornate mage's staff, it may be possible to replace it with old Prandlin's walking stick, without waking him up."), queststatus(304) = 3, "#me smiles happily, and babbles and drools over his woolen blanket."
 queststatus(304) = 3, "Hilfe" -> inform("[Spielhilfe] Es wird ein Emote benötigt um das Holzbein mit dem verzierten Magierstab auszutauschen, welcher ebenso mitgebracht werden muss.")
-queststatus(304) = 3, "Help" -> inform("[Game Help] A emote is needed to replace the peg leg with the ornate mage's staff, which need to be brought as well.")
-queststatus(304) = 3, item(208, all) => 1, "#me (.+) stab", "#me (.+) bein", "#me (.+) Holzbein", "#me (.+) Magierstab", "#me (.+) stäbe" -> inform("Großartig! Es hat geklappt. Nun besitze ich den Gehstock von Prandlin, der eigentlich Jack's Holzbein ist. Ich sollte es schnell zu ihm bringen."), "#me bemerkt nicht wie der verzierte Stab gegen seinen Gehstock ausgetauscht wird und schläft selig weiter.", deleteItem(208, 1), item(208, 1, 944), queststatus(304) = 4
-queststatus(304) = 3, item(208, all) => 1, "#me (.+) staff", "#me (.+) leg" -> inform("Awesome! It's done. Now I hold Prandlin's walking stick, which is in fact Jack's Peg Leg. Let's bring the Peg leg into the Pirate Bay."), "#me took no notice when his walking stick got replaced and sleeps along.", deleteItem(208, 1), item(208, 1, 944), queststatus(304) = 4
-queststatus(304) = 3, german, ".*" -> inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"), "#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke.", queststatus(304) = 3
-queststatus(304) = 3, english, ".*" -> inform("'If I provide a ornate mage's staff, it may be possible to replace it with old Prandlins walking stick, without wake him up."), "#me smiles happy and babbles and drools on his woollen blanket."
+queststatus(304) = 3, "Help" -> inform("[Game Help] An emote is needed to replace the peg leg with the ornate mage's staff, which needs to be carried as well.")
+queststatus(304) = 3, item(208, all) => 1, "#me (.+) stab", "#me (.+) bein", "#me (.+) Holzbein", "#me (.+) Magierstab", "#me (.+) stäbe" -> inform("Großartig! Es hat geklappt. Nun besitze ich den Gehstock von Prandlin, der eigentlich Jack's Holzbein ist. Ich sollte es schnell zu ihm bringen."), deleteItem(208, 1), item(208, 1, 944), queststatus(304) = 4, "#me bemerkt nicht wie der verzierte Stab gegen seinen Gehstock ausgetauscht wird und schläft selig weiter."
+queststatus(304) = 3, item(208, all) => 1, "#me (.+) staff", "#me (.+) leg" -> inform("Awesome! It's done. Now I hold Prandlin's walking stick, which is in fact Jack's Peg Leg. Let's take the Peg leg back into the Pirate Bay."), deleteItem(208, 1), item(208, 1, 944), queststatus(304) = 4, "#me took no notice when his walking stick got swapped and continues sleeping."
+queststatus(304) = 3, german, ".*" -> inform("'Wenn es mir gelingt, einen verzierten Magierstab zu besorgen könnte ich versuchen diesen mit dem Stab des Alten auszutauschen, ohne das er aufwacht.'"), queststatus(304) = 3, "#me brabbelt zufrieden lächelnd und sabbert schmatzend auf seine Wolldecke."
+queststatus(304) = 3, english, ".*" -> inform("'If I had a ornate mage's staff, it may be possible to replace it with old Prandlin's walking stick, without waking him up."), "#me smiles happily, and babbles and drools over his woolen blanket."
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Prandlin der Piratenjäger in Ruhestand. Schlüsselwörter: keine spezifischen."), "#me ist ein alter runzeliger Halbling der im Sessel eingeschlafen ist. Dabei kuschelt er sich, so gut wie möglich an einen verzierten Magierstab."
-"Help" -> inform("[Game Help] This NPC is Prandlin the retired pirate hunter. Keywords: nothing specific."), "#me is as old as the hills, he slumbers peacfully in front of the chimney, snuggling a ornate mage's staff."
+"Help" -> inform("[Game Help] This NPC is Prandlin the retired pirate hunter. Keywords: nothing specific."), "#me is as old as the hills, he slumbers peacefully in front of the chimney, snuggling a ornate mage's staff."
 german, ".*" -> "#me murmelt im Schlaf: 'Eh-n. Gnh.'", "#me murmelt im Schlaf: 'Piraten werd... gehängt.'", "#me murmelt im Schlaf: 'Wie sie mein-n...'", "#me murmelt im Schlaf: 'Jetzt hab ich nur noch Einen übrig...'", "#me murmelt im Schlaf: 'Hm-hhm? Ich nehm Kuchn...'", "#me murmelt im Schlaf: 'Lasst den alten Prandlin in frieden...'", "#me murmelt im Schlaf: 'Ja-ja.. ich kümmere mich darum. Gleich morgen...'", "#me murmelt im Schlaf: 'Uh, schon Mittag...?'", "#me murmelt im Schlaf: 'Diese Piraten... verflucht sein...'", "#me murmelt im Schlaf: 'Elara... vertraun wir dem Wissen...'", "#me murmelt im Schlaf: 'Galmair soll sich bloß nicht für voll nehmn...'", "#me murmelt im Schlaf: '..und dann wird Cadomyr verhandeln müssen..'"
-english, ".*" -> "#me mumbles while sleeping: 'Eh-n. Gnh.'", "#me mumbles while sleeping: 'Pirates'll... dangle.'", "#me mumbles while sleeping: 'Indee' agreed...'", "#me mumbles while sleeping: 'There... my last one.'", "#me mumbles while sleeping: 'Hm-hhm? I take cake...'", "#me mumbles while sleeping: 'Leave old Prandlin in peace...'", "#me mumbles while sleeping: 'Will do - it. Tomorrow...'", "#me mumbles while sleeping: 'Uh, lunchtime?'", "#me mumbles while sleeping: 'Those pirates... damn...'", "#me mumbles while sleeping: 'Elara... trust - wisdom...'", "#me mumbles while sleeping: 'Galmair... beggars. Gnhg.'", "#me mumbles while sleeping: 'Then Cadomyr... negotiate.'"
+english, ".*" -> "#me mumbles in his sleep: 'Eh-n. Gnh.'", "#me mumbles in his sleep: 'Pirates'll... dangle.'", "#me mumbles in his sleep: 'Indee' agreed...'", "#me mumbles in his sleep: 'There... my last one.'", "#me mumbles in his sleep: 'Hm-hhm? A delicious cake...'", "#me mumbles in his sleep: 'Leave old Prandlin in peace...'", "#me mumbles in his sleep: 'I'll get around to doing it. Tomorrow...'", "#me mumbles in his sleep: 'Uh, lunchtime?'", "#me mumbles in his sleep: 'Those damn pirates...'", "#me mumbles in his sleep: 'Elara... trust - wisdom...'", "#me mumbles in his sleep: 'Galmair... beggars. Gnhg.'", "#me mumbles in his sleep: 'Then Cadomyr... negotiate.'"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
@@ -76,16 +76,16 @@ english, ".*" -> "#me mumbles while sleeping: 'Eh-n. Gnh.'", "#me mumbles while 
 -- Emotes are possible also starting with "#me ....".
 
 cycletext "#me brabbelt leise in Schlaf.", "#me babbles quietly while asleep."
-cycletext "#me dreht sich im Schlaf herum.", "#me turns around."
+cycletext "#me dreht sich im Schlaf herum.", "#me tosses and turns in bed."
 cycletext "#me zieht die Wolldecke um seine Beine, etwas höher.", "#me pulls the woolen blanket right up to his chin."
-cycletext "#me schmatzt ein wenig.", "#me smacks several times, then gives a short snort."
-cycletext "#me schnarcht laut und melodiös.", "#me snorts loud and melodious."
-cycletext "#me gibt einen grunzenden Laut von sich.", "#me produces a grunting noise."
-cycletext "#me sabbert in seine Wolldecke.", "#me drools on to his blanket."
+cycletext "#me schmatzt ein wenig.", "#me groans several times, then gives a short snort."
+cycletext "#me schnarcht laut und melodiös.", "#me snorts loudly."
+cycletext "#me gibt einen grunzenden Laut von sich.", "#me grunts loudly."
+cycletext "#me sabbert in seine Wolldecke.", "#me dribbles onto his blanket."
 cycletext "#me kuschelt sich an den verzierten Magierstab, in seinen Händen.", "#me cuddles his ornate mage's staff."
-cycletext "#me atmet beinahe unmerklich, kaum eine Bewegung ist auszumachen.", "#me moves are almost not seeable and his breath barly able to notice."
-cycletext "#me sitzt regungslos vor dem knisternden Kamin, der wohlige Wärme im Raum verbreitet.", "#me sits motionless in front of the chimney, which spreeds hearty heat into the room."
-cycletext "#me schläft seelig ruhig im besten Sessel des Raumes. Da wundert es nicht, dass er ein Glückliches Gesicht macht.", "#me show's a happy smile while sleeping in the best chair of the room."
-cycletext "#me kratzt sich im Schlaf die haarige krumme Nase.", "#me gives his hairy short nose a scratch while still asleep."
-cycletext "#me beginnt leise und gackernd zu lachen, trotzdem scheint er weiter zu schlafen.", "#me start to giggle quietly, altough don't weak up."
-cycletext "#me murmelt im Schlaf: 'Ich muss den Erzmagier sprech...'", "#me mumbles while still sleeping: 'Have... speak.... archmage....'"
+cycletext "#me atmet beinahe unmerklich, kaum eine Bewegung ist auszumachen.", "#me moves and breathes very gently."
+cycletext "#me sitzt regungslos vor dem knisternden Kamin, der wohlige Wärme im Raum verbreitet.", "#me sits motionless in front of the chimney, which spreads an enjoyable warmth into the room."
+cycletext "#me schläft seelig ruhig im besten Sessel des Raumes. Da wundert es nicht, dass er ein Glückliches Gesicht macht.", "#me smiles widely while sleeping in the best chair of the room."
+cycletext "#me kratzt sich im Schlaf die haarige krumme Nase.", "#me scratches his hairy short nose while sleeping."
+cycletext "#me beginnt leise und gackernd zu lachen, trotzdem scheint er weiter zu schlafen.", "#me start to giggle quietly in his sleep."
+cycletext "#me murmelt im Schlaf: 'Ich muss den Erzmagier sprech...'", "#me mumbles in his sleep: 'Must... speak.... Archmage....'"
