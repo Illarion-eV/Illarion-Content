@@ -14,7 +14,7 @@ local LOOKAT_TEXT_EN = "You see an old tombstone. With a cloth you could clean t
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
-      and PRECONDITION_QUESTSTATE < ADDITIONAL_QUESTSTATE then
+      and PLAYER:getQuestProgress(QUEST_NUMBER) < ADDITIONAL_QUESTSTATE then
 
 	base.lookat.SetSpecialDescription(item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
 	world:itemInform(PLAYER,item,base.lookat.GenerateLookAt(PLAYER, item, base.lookat.NONE));

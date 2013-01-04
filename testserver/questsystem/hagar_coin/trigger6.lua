@@ -14,7 +14,8 @@ local LOOKAT_TEXT_EN = "In a small hole, you find a coin..."
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
+	base.lookat.SetSpecialDescription(item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
+	world:itemInform(PLAYER,item,base.lookat.GenerateLookAt(PLAYER, item, base.lookat.NONE));
     
 handler.createplayeritem.createPlayerItem(PLAYER, 3077, 999, 1):execute()
     
@@ -23,12 +24,4 @@ handler.createplayeritem.createPlayerItem(PLAYER, 3077, 999, 1):execute()
   end
 
   return false
-end
-
-function itemInformNLS(player, item, textDe, textEn)
-  if player:getPlayerLanguage() == Player.german then
-    world:itemInform(player, item, textDe)
-  else
-    world:itemInform(player, item, textEn)
-  end
 end
