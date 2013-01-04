@@ -33,7 +33,7 @@ function callEffect(Effect, User)
 		    world:gfx(10,posi)
 			world:gfx(36,posi)			
 		end
-		base.common.CreateLine(base.common.GetFrontPosition(User), base.common.GetFrontPosition(User, 3+quality), spawnFire)
+		base.common.CreateLine(base.common.GetFrontPosition(User), base.common.GetFrontPosition(User, 3+quality), spitFire)
         return false
     end
 end
