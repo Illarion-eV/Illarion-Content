@@ -250,7 +250,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
                   User:inform("no number");
                   return;
                 end
+				if rankpoints < base.factions.getRankpoints(chosenPlayer) then
+					playerText = {"sinkt.","decline"};
+				else
+					playerText = {"steigt.","advance"};
+				end
                 base.factions.setRankpoints(chosenPlayer, rankpoints);
+				informPlayerAboutRankpointchange(chosenPlayer, playerText);
               end
               User:requestInputDialog(InputDialog("Set rank points", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
             end
@@ -387,8 +393,10 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 	--check if the points shall be added or removed
 	if modifier == "add" then
 		text = "added";
+		playerText = {"steigt.","advance"};
 	elseif modifier == "sub" then
 		text = "removed";
+		playerText = {"sinkt.","decline"};
 		value = -value;
 	else
 		return;
@@ -409,9 +417,18 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 			else
 				return;
 			end	
+			informPlayerAboutRankpointchange(player_list[i], playerText);
 		end
 	end	
 	User:inform("You just "..text.." "..value.." rankpoints.");
+end
+
+function informPlayerAboutRankpointchange(User, modifierTextarray)
+	local faction = base.factions.getMembership(User);
+	local factionLeadersDE = {"Königin Rosaline Edwards", "Erzmagier Elvaine Morgan", "Don Valerio Guilianni"};
+	local factionLeadersEN = {"Queen Rosaline Edwards", "Archmage Elvaine Morgan", "Don Valerio Guilianni"};
+
+	base.common.InformNLS(User, "Dein Ansehen bei "..factionLeadersDE[faction].." "..modifierTextarray[1], "You "..modifierTextarray[2].." in "..factionLeadersDE[faction].."'s favour.");
 end
 
 function Init()
