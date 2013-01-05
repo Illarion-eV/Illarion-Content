@@ -116,7 +116,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 				if success then
 					User:inform(""..myPos.x.." "..myPos.y.." "..myPos.z)
 					world:createItemFromId(myPlant,1,myPos,false,333,nil)
-					herbCounter = herbCounter + 1
+					
 				end
 			end	
 		end	
