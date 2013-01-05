@@ -256,8 +256,12 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 				else
 					playerText = {"steigt.","advance"};
 				end
-                base.factions.setRankpoints(chosenPlayer, rankpoints);
-				informPlayerAboutRankpointchange(chosenPlayer, playerText);
+				if base.factions.getMembership(chosenPlayer) > 0 and base.factions.getMembership(chosenPlayer) < 4 then
+					base.factions.setRankpoints(chosenPlayer, rankpoints);
+					informPlayerAboutRankpointchange(chosenPlayer, playerText);
+				else
+					return;
+				end
               end
               User:requestInputDialog(InputDialog("Set rank points", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
             end
