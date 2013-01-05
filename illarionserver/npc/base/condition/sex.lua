@@ -14,6 +14,6 @@ function(self, value)
     self["check"] = _sex_helper_equal;
 end);
 
-function _sex_helper_equal(self, npcChar, player)
+function _sex_helper_equal(self, npcChar, texttype, player)
     return (player:increaseAttrib("sex", 0) == self.value);
 end;

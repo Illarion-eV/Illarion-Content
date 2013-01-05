@@ -196,7 +196,7 @@ function Craft:allowUserCrafting(user, source)
         if not self:isHandToolEquipped(user) then
             local germanTool = world:getItemName(self.handTool, Player.german)
             local englishTool = world:getItemName(self.handTool, Player.english)
-            base.common.InformNLS(user,
+            base.common.HighInformNLS(user,
             "Dir fehlt ein Werkzeug in deiner Hand um hier zu arbeiten: " .. germanTool,
             "To work here you have to hold a tool in your hand: " .. englishTool)
             return false
@@ -208,11 +208,7 @@ function Craft:allowUserCrafting(user, source)
 
         if not self:isHandToolEquipped(user) then
             self:swapToInactiveItem(user)
-            return false
-        end
-
-        if source:getType() ~= 4 then
-            base.common.InformNLS(user,
+            base.common.HighInformNLS(user,
             "Du musst das Werkzeug in die Hand nehmen um damit zu arbeiten.",
             "To work with that tool you have to hold it in your hand.")
             return false
@@ -436,12 +432,12 @@ function Craft:checkMaterial(user, productId)
 
             if available == 0 then
                 base.common.HighInformNLS( user,
-                "Dir fehlt "..ingredientName..".",
-                "You lack "..ingredientName..".")
+                "Dir fehlt: "..ingredientName..".",
+                "You lack: "..ingredientName..".")
             else
                 base.common.HighInformNLS( user,
-                "Das Material reicht nicht. Du brauchst mehr "..ingredientName..".",
-                "The materials are insufficient. You lack "..ingredientName..".")
+                "Das Material reicht nicht. Dir fehlt: "..ingredientName..".",
+                "The materials are insufficient. You lack: "..ingredientName..".")
             end
         end
     end
@@ -478,7 +474,7 @@ function Craft:locationFine(user)
     local staticTool = base.common.GetFrontItemID(user)
     if self.activeTool[staticTool] then
         if not self.fallbackCraft then
-            base.common.InformNLS(user,
+            base.common.HighInformNLS(user,
             "Hier arbeitet schon jemand.",
             "Someone is working here already.")
         end
@@ -487,14 +483,14 @@ function Craft:locationFine(user)
         if not self.fallbackCraft then
             local germanTool = world:getItemName(self.defaultTool, Player.german)
             local englishTool = world:getItemName(self.defaultTool, Player.english)
-            base.common.InformNLS(user,
+            base.common.HighInformNLS(user,
             "Du stehst nicht neben dem benötigten Werkzeug: " .. germanTool,
             "There is no " .. englishTool .. " close by to work with.")
         end
         return false
     elseif base.common.GetFrontItem(user).id == 359 and base.common.GetFrontItem(user).quality == 100 then
         if not self.fallbackCraft then
-            base.common.InformNLS(user,
+            base.common.HighInformNLS(user,
             "Aus irgendeinem Grund liefert die Flamme nicht die benötigte Hitze.",
             "For some reason the flame does not provide the required heat.")
         end
@@ -544,7 +540,7 @@ function Craft:craftItem(user, productId)
     local toolItem = self:getHandToolEquipped(user)
     
     if product.difficulty > skill then
-        base.common.InformNLS(user,
+        base.common.HighInformNLS(user,
         "Du bist nicht fähig genug um das zu tun.",
         "You are not skilled enough to do this.")
         self:swapToInactiveItem(user)
@@ -616,7 +612,7 @@ function Craft:createItem(user, productId, toolItem)
     end
 
     if not createdEverything then
-        base.common.InformNLS(user,
+        base.common.HighInformNLS(user,
         "Du kannst nichts mehr halten.",
         "You cannot carry anything else.")
     end

@@ -55,7 +55,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: buy, sell, trade, Murgo, Er'hja, Kroch'Gurak, Alice, Tom"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: buy, sell, trade, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"));
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Me, Krudash sell and buy lots of stuff! Taghta?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -63,7 +63,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: kaufe, verkaufe, Handel, Murgo, Er'hja, Kroch'Gurak, Alice, Tom"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: kaufe, verkaufe, Handel, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"));
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -443,6 +443,19 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("dwarf");
+talkEntry:addTrigger("dwarv");
+talkEntry:addResponse("Hurr Hurr. Do you need an axe, huh?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("zwerg");
+talkEntry:addResponse("Hurr Hurr. Brauchst ne Axt, hä?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
 talkEntry:addResponse("Pfft! Astute wizard... Runewick rat!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -644,7 +657,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("Gâsh! I learned the dealing in Gynk! Yp-Yp.");
 talkEntry:addResponse("Hrach! Do you know the blacksmith Frobenius? He sells swords, a horse farrier would be able to make them sharper.");
-talkEntry:addResponse("Murgo is my husband! Er'hja and Ol'hja are us whelps. Taghta?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -653,7 +665,6 @@ talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
 talkEntry:addResponse("Gâsh! Ich hab das Handeln in Gynk gelernt! Yp-Yp.");
 talkEntry:addResponse("Hrach! Kennst' du den Schmied Frobenius? Er verkauft Schwerter, ein Hufschmied könnt sie schärfer machen!");
-talkEntry:addResponse("Murgo ist mein Mann! Er'hja und Ol'hja unsere Welpen. Taghta?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

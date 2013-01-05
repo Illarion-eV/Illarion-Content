@@ -19,17 +19,17 @@ function(self, comp, value)
     end;
 end);
 
-function _money_helper_greaterequal(self, npcChar, player)
+function _money_helper_greaterequal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return base.money.CharHasMoney(player, value);
 end;
 
-function _money_helper_greater(self, npcChar, player)
+function _money_helper_greater(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return base.money.CharHasMoney(player, value + 1);
 end;
 
-function _money_helper_lesser(self, npcChar, player)
+function _money_helper_lesser(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return not base.money.CharHasMoney(player, value);
 end;

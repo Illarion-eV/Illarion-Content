@@ -3,8 +3,9 @@ require("questsystem.base")
 module("questsystem.Gravestone.trigger11", package.seeall)
 
 local QUEST_NUMBER = 10000
-local PRECONDITION_QUESTSTATE = 58
+local PRECONDITION_QUESTSTATE = 88
 local POSTCONDITION_QUESTSTATE = 99
+local ADDITIONAL_QUESTSTATE = 104
 
 local POSITION = position(605, 344, 0)
 local RADIUS = 1
@@ -14,9 +15,10 @@ local LOOKAT_TEXT_EN = "The names of the lovers brighten up for a brief moment."
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
-      and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+      and PLAYER:getQuestProgress(QUEST_NUMBER) < ADDITIONAL_QUESTSTATE then
 
-    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
+	base.lookat.SetSpecialDescription(item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
+	world:itemInform(PLAYER,item,base.lookat.GenerateLookAt(PLAYER, item, base.lookat.NONE));
     
     HANDLER(PLAYER)
     
@@ -26,15 +28,6 @@ function LookAtItem(PLAYER, item)
 
   return false
 end
-
-function itemInformNLS(player, item, textDe, textEn)
-  if player:getPlayerLanguage() == Player.german then
-    world:itemInform(player, item, textDe)
-  else
-    world:itemInform(player, item, textEn)
-  end
-end
-
 
 function HANDLER(PLAYER)
     handler.createeffect.createEffect(position(605, 344, 0), 53):execute()

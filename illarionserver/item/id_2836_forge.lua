@@ -1,5 +1,8 @@
--- forge off: 2836
--- forge on: 2835
+-- Forge off: 2836
+-- Forge on: 2835
+
+-- Forge off: 2837
+-- Forge on: 2834
 
 -- coal (21) + { iron ore (22), copper ore (2536), gold nuggets (234), 
 --               merinium ore (2534) + pure fire (2553) } 
@@ -58,11 +61,19 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 		User:talkLanguage(Character.say, Player.german, "#me unterbricht "..gText.." Arbeit.");
 		User:talkLanguage(Character.say, Player.english,"#me interrupts "..eText.." work.");
-    if (SourceItem.id == 2835) then
+		
+    if (SourceItem.id == 2834) then --swapping
+      SourceItem.id = 2837;
+      world:changeItem(SourceItem);
+      User:changeSource(SourceItem);
+    end
+	
+	if (SourceItem.id == 2835) then --swapping
       SourceItem.id = 2836;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
+	
 		return
 	end
 
@@ -137,15 +148,25 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
     -- oh wait, check if someone else is working at the tool
-    if (SourceItem.id == 2836) then
+    if (SourceItem.id == 2836) or (SourceItem.id == 2837) then
       -- alright, it's off
       oremelting.SavedWorkTime[User.id] = oremelting:GenWorkTime(User,toolItem);
       User:startAction( oremelting.SavedWorkTime[User.id], 0, 0, 0, 0);
       User:talkLanguage( Character.say, Player.german, "#me beginnt an der Esse Erz zu schmelzen.");
       User:talkLanguage( Character.say, Player.english, "#me starts to melt ore at the forge."); 
-      SourceItem.id = 2835;
-      world:changeItem(SourceItem);
-      User:changeSource(SourceItem);
+	  
+	     if (SourceItem.id == 2836) then --turn it on!
+            SourceItem.id = 2835;
+            world:changeItem(SourceItem);
+            User:changeSource(SourceItem);
+	    end
+		
+	    if (SourceItem.id == 2837) then --turn it on!
+            SourceItem.id = 2834;
+            world:changeItem(SourceItem);
+            User:changeSource(SourceItem);
+	    end
+	  
     else
       -- it's on, can't work now.
       base.common.HighInformNLS( User, 
@@ -158,12 +179,21 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	-- since we're here, we're working
 
 	if oremelting:FindRandomItem(User) then
-    if (SourceItem.id == 2835) then
+	
+    if (SourceItem.id == 2835) then --turn it off
       SourceItem.id = 2836;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
+	
+	if (SourceItem.id == 2834) then
+      SourceItem.id = 2837;
+      world:changeItem(SourceItem);
+      User:changeSource(SourceItem);
+    end
+	
 		return
+		
 	end
 
 	User:learn( oremelting.LeadSkill, oremelting.SavedWorkTime[User.id], 100);
@@ -210,18 +240,34 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		base.common.HighInformNLS(User,
 		"Deine alte Tiegelzange zerbricht.",
 		"Your old crucible-pincers break.");
-    if (SourceItem.id == 2835) then
+		
+    if (SourceItem.id == 2835) then --turn it off
       SourceItem.id = 2836;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
+	
+	if (SourceItem.id == 2834) then --turn it off
+      SourceItem.id = 2837;
+      world:changeItem(SourceItem);
+      User:changeSource(SourceItem);
+    end
+	
 		return
 	end
   if (not nextActionStarted) then
-    if (SourceItem.id == 2835) then
+  
+    if (SourceItem.id == 2835) then --turn it off
       SourceItem.id = 2836;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
+	
+	if (SourceItem.id == 2834) then --turn it off
+      SourceItem.id = 2837;
+      world:changeItem(SourceItem);
+      User:changeSource(SourceItem);
+    end
+	
   end
 end
