@@ -281,7 +281,7 @@ function receiveGems(gemRecipient)
 	--fnd=1
 	--lastSwitch=1
 	if fnd then gemRecipient:inform("lastSwitch: = "..lastSwitch) end
-	if fnd and lastSwitch<timeStmp then
+	if fnd and lastSwitch*1<timeStmp then
 		gemRecipient:inform("now switching!")
 		base.townTreasure.NewMonthSwitch(town,timeStmp)
 	end
