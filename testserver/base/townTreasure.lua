@@ -27,3 +27,15 @@ function ChangeTownTreasure(town,amount)
    ScriptVars:save()
     
 end
+
+-- New month starts:
+--	* Collected taxes are now stored as "old" taxes (overwrite!)
+-- 	* Actual taxes are reset to 0
+function NewMonthSwitch(town,timeStmp)
+	local foundTreasure, currentTreasure = ScriptVars:find("Treasure"..town)
+	if foundTreasure then
+		ScriptVars:set("OldTreasure"..town, currentTreasure)
+		ScriptVars:set("SwitchedToPayment"..town, timeStmp)
+		ScriptVars:set("Treasure"..town, 0)
+	end
+end
