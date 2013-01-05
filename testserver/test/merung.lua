@@ -11,7 +11,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
     end
 	
 	if (User.lastSpokenText == "drop") then
-	   for i = 1,30 do
+	   for i = 1,50 do
 		   local drop = function(posi)
 				world:createItemFromId(15,1,posi,false,333,nil)
 			end
