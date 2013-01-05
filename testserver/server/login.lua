@@ -30,9 +30,9 @@ function onLogin( player )
 	    -- So let there be taxes!
 	    payTaxes(player);
 		
-		receiveGems(player);
+		
 	end
-
+receiveGems(player);
 	--Noobia handling
 	if (base.common.IsOnNoobia(player.pos)) then --On Noobia
 
