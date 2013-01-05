@@ -281,7 +281,7 @@ function receiveGems(gemRecipient)
 	--fnd=1
 	--lastSwitch=1
 	if fnd then gemRecipient:inform("lastSwitch: = "..lastSwitch) end
-	if fnd and lastSwitch*1<timeStmp then
+	if fnd and tonumber(lastSwitch)<timeStmp then
 		gemRecipient:inform("now switching!")
 		base.townTreasure.NewMonthSwitch(town,timeStmp)
 	end
@@ -290,7 +290,7 @@ function receiveGems(gemRecipient)
 	if (lastGem~=nil) then
 		gemRecipient:inform("last gem: "..lastGem)
 		gemRecipient:inform("ts="..timeStmp.." lastSwitch="..lastSwitch.." lastGem="..lastGem)
-		if timeStmp>=lastSwitch and lastGem<timeStmp then
+		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
 			gemRecipient:setQuestProgress(124,timeStmp);
 			gemRecipient:inform("Paying NOW! ")
 			--payNow(gemRecipient)
