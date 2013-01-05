@@ -278,9 +278,11 @@ function receiveGems(gemRecipient)
 	end	
 	-- first check if there was a switch already: 
 	local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
+	fnd=1
+	lastSwitch=1
 	if fnd then gemRecipient:inform("lastSwitch: = "..lastSwitch) end
 	if fnd and lastSwitch<timeStmp then
-	gemRecipient:inform("now switching!")
+		gemRecipient:inform("now switching!")
 		NewMonthSwitch(town,timeStmp)
 	end
 	-- now check if last payment was before actual month and actual month is the one to pay out.
