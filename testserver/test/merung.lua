@@ -6,5 +6,7 @@ require("base.common")
 module("test.merung", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,counter,param)
-    	
+    if (User.lastSpokenText == "glas") then
+        User:increaseSkill(Character.glassBlowing,100)
+    end
 end
