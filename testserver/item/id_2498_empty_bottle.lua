@@ -7,7 +7,7 @@
 require("base.common");
 module("item.id_2498_empty_bottle", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
    local foundSource
   -- check for well or fountain
   TargetItem = base.common.GetItemInArea(User.pos, 2207);
@@ -59,9 +59,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		if User:countItem(2498) <= 0 then
             return
         else
-		    --User:startAction( 20, 21, 5, 10, 25);
-			User:talkLanguage( Character.say, 0, "#me beginnt Flaschen zu befüllen.");
-			User:talkLanguage( Character.say, 1, "#me starts to fill bottle."); 
+		    User:startAction( 20, 21, 5, 10, 25);
 		end	
 	end
 --[[ !!! OLD OLD OLD !!!

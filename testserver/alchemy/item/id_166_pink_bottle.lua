@@ -104,7 +104,7 @@ function DrinkPotion(User,SourceItem)
 		            "The potion runs down your throat and immediately, you get the feeling that throat was on fire.")
 		
 		-- quality determines length until char spits fire (better quality, shorter time)
-		local firstCall = (20-(math.floor(SourceItem.quality/100)*1.5)*10)
+		local firstCall = (20-(math.floor(SourceItem.quality/100)*1.5))*10
 		
 		local myEffect=LongTimeEffect(60,firstCall)
 		myEffect:addValue("quality",math.floor(SourceItem.quality/100))
