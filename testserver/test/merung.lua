@@ -30,5 +30,31 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 			end	
 	    end 
 		User:inform("drop end")
-	end		
+	end
+
+    if (User.lastSpokenText == "gaia") then
+        for i=1,50 do
+	    
+		local rndValue = math.random(1,#plnt)
+		local myPlant = plnt[rndValue]
+	    local myGrndsList = grnd[rndValue]
+		local myPos = position( math.random(0,1024), math.random(0,1024), 0 )
+		local theTile=world:getField(myPos);
+		if theTile then
+			local groundType = base.common.GetGroundType( theTile:tile() )
+			
+			local success = false
+			for i=1,#myGrndsList do
+				if groundType == myGrndsList[i] then
+					success = true
+				end
+			end			
+			
+			if success then
+				User:inform(""..myPos.x.." "..myPos.y.." "..myPos.z)
+				world:createItemFromId(myPlant,1,myPos,false,333,nil)
+				herbCounter = herbCounter + 1
+			end
+		end	
+    end	
 end
