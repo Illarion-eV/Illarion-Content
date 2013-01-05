@@ -30,8 +30,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("kauf");
 talkEntry:addTrigger("handel");
-talkEntry:addResponse("Lass uns handeln!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Lass uns handeln!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -39,8 +39,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("buy");
 talkEntry:addTrigger("sell");
 talkEntry:addTrigger("trade");
-talkEntry:addResponse("Let's trade!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Let's!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -200,9 +201,10 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I sell goods such as milk and farmer tools");
 talkEntry:addResponse("I sell that which you need.");
-talkEntry:addResponse("I'm a self made agricultural goods trader.");
+talkEntry:addResponse("I'm a self made agricultural goodsr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -217,9 +219,10 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I sell goods such as milk and farmer tools.");
 talkEntry:addResponse("I sell that which you need.");
-talkEntry:addResponse("I'm a self made agricultural goods trader.");
+talkEntry:addResponse("I'm a self made agricultural goodsr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -248,7 +251,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Francois Delacroix, agricultural goods trader.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Francois Delacroix, agricultural goodsr.");
 talkEntry:addResponse("My name is Francois. It's beyond a pleasure to be acquainted with you");
 talkEntry:addResponse(" Francois Delacroix. It still feels weird every time I say it.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -274,7 +278,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Geschäft");
 talkEntry:addTrigger("Märkte");
 talkEntry:addTrigger("Pfeffer");
-talkEntry:addResponse("");
+talkEntry:addResponse("Pfeffer wird derzeit zum dreifachen Preis gehandelt. Ich freu mich schon darauf, wenn der Preis wieder fällt und ich großen Profit abgreifen kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -288,8 +292,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Landwirtschaft");
-talkEntry:addTrigger("");
-talkEntry:addTrigger("");
+talkEntry:addTrigger("Getreide");
+talkEntry:addTrigger("Ackerbau");
 talkEntry:addResponse("Der Anbau von Feldfürchten und Viehhaltung ist etwas das es schon immer gegeben hat und das es immer geben wird. Das ist der beständigste Markt von allen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -496,7 +500,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Er verleiht mir Geschick, dardurch verdiene ich Geld,und durch das Geld möchen mich die Mädchen. Wie könnte ich da unzufrieden sein.");
+talkEntry:addResponse("Er verleiht mir Geschick, dadurch verdiene ich Geld und durch das Geld mögen mich die Mädchen. Wie könnte ich da unzufrieden sein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -509,7 +513,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Was hätte ich zu erzählen? Ich bin die Nummer Eins unter den hübschen Jungen in Runewick, wenn es um Landwirtschaftserzeugnisse geht.");
+talkEntry:addResponse("Was hätte ich zu erzählen? Ich bin die Nummer Eins unter den Händlern in Runewick, wenn es um Landwirtschaftserzeugnisse geht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -524,7 +528,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Francois");
 talkEntry:addTrigger("Delacroix");
-talkEntry:addResponse("Bracht Ihr etwas? Ich Chancen stehen gurt, dass ich es verkaufe.");
+talkEntry:addResponse("Bracht Ihr etwas? Die Chancen stehen gut, dass ich es verkaufe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -536,7 +540,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ja");
-talkEntry:addResponse("Bitte seid etwas genauer in Euer Wortwahl.");
+talkEntry:addResponse("Bitte seid etwas genauer in Eurer Wortwahl.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -548,7 +552,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("Bitte seid etwas genauer in Euer Wortwahl.");
+talkEntry:addResponse("Bitte seid etwas genauer in Eurer Wortwahl.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Braucht Ihr Werkzeuge? Ich, Francois Delacoix, verkaufe sowohl Werkzeuge für den Ackerbau als auch für die Fischerrei.", "Are you a farmer and need tools? I, Francois Delacroix, carry both farming and fishing tools.");
@@ -664,7 +668,7 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
 function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;

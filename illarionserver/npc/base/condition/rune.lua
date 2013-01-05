@@ -11,7 +11,7 @@ function(self, value)
     self["check"] = _rune_helper;
 end);
 
-function _rune_helper(self, npcChar, player)
+function _rune_helper(self, npcChar, texttype, player)
     local magicType = player:getMagicType();
     local magicFlags = player:getMagicFlags(magicType);
     return (LuaAnd(magicFlags, self.value) ~= 0);

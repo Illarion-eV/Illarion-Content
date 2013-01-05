@@ -69,7 +69,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     else
         world:swap( SourceItem,food[2],333);
     end
-    if ( food[3] == 0 ) then -- dein Alkohol
+    if ( food[3] == 0 ) then -- kein Alkohol
         if ( foodLevel > 40000 ) then 
             base.common.InformNLS( User, "Du hast genug getrunken.", "You have drunk enough.");
         elseif ( foodLevel > 40000 ) then 
@@ -77,7 +77,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             foodLevel = foodLevel - food[1];
         end
     else -- Alkohol
-
         -- Edit by abcfantasy: Wine brewing contest
         if ( food[3] == 15 ) then -- wine
             local perc = User:increaseAttrib("perception",0);
@@ -126,7 +125,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         end
         -- Abhandlung Foodlevel fertig
        
-	    -- LTE 1 crasht den Server -> raus damit
+	    --[[-- LTE 1 crasht den Server -> raus damit
         -- Alkohol Effekt
         -- Arbeitet mit LTE ID 1 - "alcohol"
         foundalc,alcEffect = User.effects:find(1); -- LTE 1 "alcohol" suchen
@@ -140,7 +139,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
         alcEffect = LongTimeEffect( 1, 300 ); -- Effektstruktur erstellen
         alcEffect:addValue("alcohol",oldAlcValue + math.floor(food[1]*(food[3]/100))); -- neuen Alkoholwert hinzufuegen
         User.effects:addEffect(alcEffect); -- Effekt an User senden
-        -- Alkoholabhandlung fertig
+        -- Alkoholabhandlung fertig]]
 		
     end
     if ( User:increaseAttrib("foodlevel",0) ~= foodLevel ) then -- Prüfen ob Nahrungspunkte geändert wurden

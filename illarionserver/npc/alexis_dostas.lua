@@ -312,7 +312,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Royal Stables II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 3));
-talkEntry:addResponse("Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?");
+talkEntry:addResponse("Did you know what our mounts love the most? Carrots! And only a content mount can stride proudy over the plains. Would you gather ten carrots for them, please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -333,7 +333,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Royal Stables II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(125, "=", 3));
-talkEntry:addResponse("Did you know what our mounts love the most? Carrots! And only a content mount can stride prouldy over the plains. Would you gather ten carrots for them, please?");
+talkEntry:addResponse("Did you know what our mounts love the most? Carrots! And only a content mount can stride proudy over the plains. Would you gather ten carrots for them, please?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -444,7 +444,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Well, there is nothing I need at this moment. Perhaps you should ask Anthar Vilicon, the chancellor, about services you could do for Cadomyr?");
+talkEntry:addResponse("Well, there is nothing I need at this moment. Perhaps you should ask Anthar Vilicon, the Chancellor, about services you could do for Cadomyr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -461,7 +461,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(125, "=", 4));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Well, there is nothing I need at this moment. Perhaps you should ask Anthar Vilicon, the chancellor, about services you could do for Cadomyr?");
+talkEntry:addResponse("Well, there is nothing I need at this moment. Perhaps you should ask Anthar Vilicon, the Chancellor, about services you could do for Cadomyr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -489,7 +489,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I feed the mounts. I care for them, I lend them to anyone who promises to treat them well.");
+talkEntry:addResponse("I feed the mounts, I care for them, I lend them to anyone who promises to treat them well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -502,7 +502,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I feed the mounts. I care for them, I lend them to anyone who promises to treat them well.");
+talkEntry:addResponse("I feed the mounts, I care for them, I lend them to anyone who promises to treat them well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

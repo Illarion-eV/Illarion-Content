@@ -3,6 +3,8 @@ module("item.books", package.seeall)
 
 -- UPDATE common SET com_script='item.books' WHERE com_itemid = 2622;
 
+-- 2622 is the alchemy book. dont use it otherwise.
+
 function InitBook()
 	--[[ -- needs a check
 	if (Init == nil) then
@@ -23,8 +25,8 @@ end
 
 function UseItem(User, SourceItem, TargetItem, Counter, Param)
 	InitBook();
-    -- alchemy book; just to make it accessable for testers
-	if SourceItem:getData("alchemyBook")=="true" then
+    -- alchemy book; DO NOT CHANGE! STARTER PACK RELEVANT!
+	if SourceItem.id == 2622 then
 	    User:sendBook(101)
 	end	
 	-- alchemy end
@@ -39,20 +41,6 @@ function UseItem(User, SourceItem, TargetItem, Counter, Param)
 	end]]
 end
 
-function getLookAt(player,item)
-    if player:getPlayerLanguage() == 0 then
-	    bookName = "Allgemeine Einführng in die Grundlagen der gewöhnlichen Alchemie"
-	else
-      	bookName = "General introduction to the basics of common alchemy"
-	end
-	lookAt.name = bookName
-    return lookAt
-end
-
-function LookAtItem(player, item)
-    if item:getData("alchemyBook")=="true" then
-	    world:itemInform(player, item, getLookAt(player,item))
-	else
-	    world:itemInform(player, item, base.lookat.GenerateLookAt(player, item, 0))
-	end	
-end
+function LookAtItem(User,Item)
+    world:itemInform(User, Item, base.lookat.GenerateLookAt(User, Item, 0))
+end   

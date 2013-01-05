@@ -47,7 +47,6 @@ module("server.standardfighting", package.seeall)
 -- @param Defender The character who is attacked
 -- @return true in case a attack was performed, else false
 function onAttack(Attacker, Defender)
-
     -- Prepare the lists that store the required values for the calculation
     local Attacker = { ["Char"]=Attacker };
     local Defender = { ["Char"]=Defender };
@@ -55,42 +54,33 @@ function onAttack(Attacker, Defender)
 
     -- Newbie Island Check
     if not NewbieIsland(Attacker.Char, Defender.Char) then return false; end;
-
     -- Load the weapons of the attacker
     LoadWeapons(Attacker);
-    
     -- Check the range between the both fighting characters
 
     if not CheckRange(Attacker, Defender.Char) then return false; end;
 
     -- Find out the attack type and the required combat skill
     GetAttackType(Attacker);
-
     -- Check if the attack is good to go (possible weapon configuration)
     if not CheckAttackOK(Attacker) then 
         return false; 
     end;
-    
     -- Check if ammunition is needed and use it
     if not HandleAmmunition(Attacker) then return false; end;
     
-    
     -- Load Skills and Attributes of the attacking character
     LoadAttribsSkills(Attacker, true);
-    
     -- Load weapon data, skills and attributes of the attacked character
     LoadWeapons(Defender);
     LoadAttribsSkills(Defender, false);
-	
     -- Calculate and reduce the required movepoints
     APreduction=HandleMovepoints(Attacker);
 
 	-- Turning the attacker to his victim
     base.common.TurnTo(Attacker.Char,Defender.Char.pos);
-
     -- Show the attacking animation
     ShowAttackGFX(Attacker);
-    
     -- Check if a coup de gráce is performed
     if CoupDeGrace(Attacker, Defender) then return true; end;
     
@@ -602,31 +592,33 @@ end;
 -- @param CharStruct The table of the attacker that holds all values load
 -- @return true in case the attack is fine
 function CheckAttackOK(CharStruct)
-    if (CharStruct["AttackKind"] == nil) then -- finding the attack type failed
+--CharStruct.Char:talk(Character.say,"check 1 ok");
+    if (CharStruct["AttackKind"] == nil) then -- finding the attack type failed ******************************
         return false;
     end;
-    --CharStruct.Char:talk(Character.say,"check 1 ok");
+--    CharStruct.Char:talk(Character.say,"check 2 ok");
     if (CharStruct.WeaponItem.id == 228) then -- Item is occupied
         return false;
     end;
-    --CharStruct.Char:talk(Character.say,"check 2 ok");
+
+--    CharStruct.Char:talk(Character.say,"check 3 ok");
     if (CharStruct.SecIsWeapon) then
         -- there is something in the second hand
         if (CharStruct.AttackKind == 0) then
             -- but nothing in the first
-            --CharStruct.Char:talk(Character.say,"check 3 ok");
+--           CharStruct.Char:talk(Character.say,"check 4 ok");--  ******************************
             return false;
         elseif (CharStruct.SecWeapon.WeaponType == 7) then
             -- but a distance weapon in the first
-            --CharStruct.Char:talk(Character.say,"check 4 ok");
+--            CharStruct.Char:talk(Character.say,"check 5 ok");
             return false;
         elseif (CharStruct.Weapon.WeaponType == 13) then
             -- but a wand in the first
-            --CharStruct.Char:talk(Character.say,"check 5 ok");
+--            CharStruct.Char:talk(Character.say,"check 6 ok");
             return false;
         end;
     end;
-   -- CharStruct.Char:talk(Character.say,"check 7 ok");
+--   CharStruct.Char:talk(Character.say,"check 7 ok");
     return true;
 end;
 
@@ -805,6 +797,7 @@ end;
 function GetAttackType(CharStruct)
 	-- No weapon present:
     if not CharStruct.IsWeapon then
+--CharStruct.Char:talk(Character.say,"GETATTTYPE 1"); --- schild richtig
         CharStruct["AttackKind"] = 0;
         CharStruct["UsedHands"] = 1;
         CharStruct["Skillname"] = Character.wrestling;
@@ -813,7 +806,9 @@ function GetAttackType(CharStruct)
     
 	-- weapon present:
     local weaponType = CharStruct.Weapon.WeaponType;
+--CharStruct.Char:talk(Character.say,"WPTYPE="..weaponType);	-- 14 wenn schild falsch
     if (weaponType == 1) or (weaponType == 4) then
+--CharStruct.Char:talk(Character.say,"GETATTTYPE 2");
         CharStruct["AttackKind"] = 1;
         CharStruct["Skillname"] = Character.slashingWeapons;
         if (weaponType == 1) then
@@ -822,6 +817,7 @@ function GetAttackType(CharStruct)
             CharStruct["UsedHands"] = 2;
         end;
     elseif (weaponType == 2) or (weaponType == 5) then
+--CharStruct.Char:talk(Character.say,"GETATTTYPE 3");
         CharStruct["AttackKind"] = 2;
         CharStruct["Skillname"] = Character.concussionWeapons;
         if (weaponType == 2) then
@@ -830,6 +826,7 @@ function GetAttackType(CharStruct)
             CharStruct["UsedHands"] = 2;
         end;
     elseif (weaponType == 3) or (weaponType == 6) then
+--CharStruct.Char:talk(Character.say,"GETATTTYPE 4");
         CharStruct["AttackKind"] = 3;
         CharStruct["Skillname"] = Character.punctureWeapons;
         if (weaponType == 3) then
@@ -838,6 +835,7 @@ function GetAttackType(CharStruct)
             CharStruct["UsedHands"] = 2;
         end;
     elseif (weaponType == 7) or (weaponType == 255) then
+--CharStruct.Char:talk(Character.say,"GETATTTYPE 5");
         CharStruct["AttackKind"] = 4;
         CharStruct["Skillname"] = Character.distanceWeapons;
         if (weaponType == 255) then
@@ -935,10 +933,10 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnDodge(Attacker, Defender, AP)
-
+debug("          NOW LEARNING dodge: "..Character.dodge..", "..(AP/2)..", "..(Attacker.skill + 10));
     -- Divide AP by three, since you can learn three skills with one AP reduction while fighting
     Defender.Char:learn(Character.dodge, AP/2, Attacker.skill + 10)
-	
+debug("          DONE LEARNING");   
 	--OLD. Tactics is redundant. No more attackers learning when attacking
 	--[[	
 	Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.dodge + 10)
@@ -954,9 +952,9 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnSuccess(Attacker, Defender, AP)
-
+debug("          NOW LEARNING att: "..Attacker.Skillname..", "..(AP/2)..", "..(math.max(Defender.dodge, Defender.parry) + 10));
     Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.dodge, Defender.parry) + 10)
-    
+debug("          DONE LEARNING");    
 	--OLD
 	--[[
     if base.common.Chance(0.33) then
@@ -976,11 +974,11 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnParry(Attacker, Defender, AP)
-
+debug("          NOW LEARNING parry: "..Character.parry..", "..(AP/2)..", "..(Attacker.skill + 10));
     --Defender.Char:inform("Learn limit is 10 above" .. Attacker.skill);
     
     Defender.Char:learn(Character.parry, AP/2, Attacker.skill + 10)
-		
+debug("          DONE LEARNING");   	
 	--OLD - No more tactics, no more learning attacking
 	--[[
 	
@@ -1048,7 +1046,7 @@ function LoadWeapons(CharStruct)
 		if rWType==10 or rWType==11 or rWType==14 then -- Ammo or shield in right hand: switch r and l hand!
 			isRWp=0;
 		end
-		--debug("*** FOUND WP IN R!");
+--		debug("*** FOUND WP IN R!");
 	else
 		isRWp=0;
 	end
@@ -1058,13 +1056,13 @@ function LoadWeapons(CharStruct)
 		if lWType==10 or lWType==11 or lWType==14 then -- Ammo or shield in right hand: switch r and l hand!
 			isLWp=0;
 		end
-		--debug("*** FOUND WP IN L!");
+--		debug("*** FOUND WP IN L!");
 	else
 		isLWp=0;
 	end
 	
 	if isRWp==0 and isLWp==1 then 	-- switch weapons
-	--debug("*** SWITCHING WEAPONS NOW!"); 
+--	debug("*** SWITCHING WEAPONS NOW!"); 
 		local dItem=rItem;
 		local dAttFound=rAttFound;
 		local dAttWeapon=rAttWeapon;
@@ -1085,7 +1083,8 @@ function LoadWeapons(CharStruct)
     CharStruct["SecWeaponItem"] = lItem;
     CharStruct["SecIsWeapon"] = lAttFound;
     CharStruct["SecWeapon"] = lAttWeapon;
-    
+--    CharStruct.Char:talk(Character.say,"**** WPTYPE R: "..CharStruct.Weapon.WeaponType);
+--	CharStruct.Char:talk(Character.say,"**** WPTYPE L: "..CharStruct.SecWeapon.WeaponType);
 	-- still  needed? :
     CharStruct["LeftWeaponItem"] = lItem;
     CharStruct["LeftIsWeapon"] = lAttFound;

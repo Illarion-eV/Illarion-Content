@@ -61,13 +61,13 @@ function InitGathering()
 		honeygathering:AddRandomItem(151,1,333,{},prob_occasionally,"Die Bienen haben offensichtlich Vorräte angelegt. Sogar eine ganze Erdbeere haben sie in ihren Stock geschleppt.","As you carefully pull honey from the hive you notice a sticky strawberry in your grasp!"); --Strawberry
 		honeygathering:AddRandomItem(431,1,333,{},prob_frequently,"An deinen Händen bleibt klebriger Wachs hängen.","Your hands get stuck in sticky wax.", 0); --Wax
 		honeygathering:SetTreasureMap(prob_rarely,"Oh! Jemand hat eine Schatzkarte in diesem Bienenstock versteckt. Was für eine Überrachung!","Oh! Someone has hidden a treasure map in this hive. What a surprise!");
-		honeygathering:AddMonster(271,prob_rarely,"Eine über deine Handlungen etwas erboste Biene scheint sich dazu entschlossen zu haben, deinen Handlungen ein Ende zu setzten.","A bee, unamused by your deeds, decides to attack!",4,7);
+		honeygathering:AddMonster(271,prob_rarely,"Eine über deine Handlungen etwas erboste Wespe scheint sich dazu entschlossen zu haben, deinen Handlungen ein Ende zu setzten.","A wasp, unamused by your deeds, decides to attack!",4,7);
 		
 		honeygathering:AddInterruptMessage("Du wirst von etwas in dem Bienenstock gestochen. Was das wohl wahr?", "You feel a sting as you try to work.");
 		honeygathering:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 		honeygathering:AddInterruptMessage("Du wirfst kurz einen Blick in den Bienenkorb um nach einer besseren Stelle für Honigwaben zu suchen.", "You decide to search deeper for honeycombs.");
 		honeygathering:AddInterruptMessage("Du greifst direkt in eine Stelle mit Honig und ziehst die Hand zurück. Nun bleibt dir wohl nichts anderes übrig als dir die Finger abzulecken.", "You decide to take a short break to lick off honey from your hands");
-		honeygathering:AddInterruptMessage("Ein aufdringliches Insekt schwirrt um deinen Kopf herum. Du schlägst mit der Hand danach und versuchst es zu vertreiben.", "A curious bee buzzes around your head and you try to scare it away.");
+		honeygathering:AddInterruptMessage("Eine aufdringliche Wespe schwirrt um deinen Kopf herum. Du schlägst mit der Hand danach und versuchst es zu vertreiben.", "A curious wasp buzzes around your head and you try to scare it away.");
 
 
 		--farming
@@ -99,7 +99,7 @@ function InitGathering()
 		mining:AddRandomItem(1908,1,333,{},prob_occasionally,"Diese Mine wurde offensichtlich kürzlich von Zwergen aufgesucht. Wie sonst erklärt sich der Bierkrug, den du zwischen dem Geröll findest?","This mine was occupied recently. How else would you explain the beer mug at your feet?"); --beer mug
 		mining:AddRandomItem(391,1,333,{},prob_frequently,"In einer Felsspalte liegt eine alte Fackel. Hier ist wohl jemanden ein Licht aufgegangen.","In a crevice you spot an old torch."); --torch
 		mining:SetTreasureMap(prob_rarely,"In einer engen Felsspalte findest du ein altes Pergament, das wie eine Karte aussieht. Kein Versteck ist so sicher, dass es nicht gefunden wird.","In a narrow crevice you find an old parchment that looks like a map. No hiding place is too safe that it cannot be found.");
-		mining:AddMonster(301,prob_rarely,"Als du den Fels malträtierst, erbebt die Erde und der Stein, den du eben noch mit der Spitzhacke schlugst, erhebt sich...","Your misguided strike makes contact with an enchanted rock but not just any enchanted rock. This one groans and rises from the earth in disgruntled bane!",4,7);
+		mining:AddMonster(611,prob_rarely,"Als du den Fels malträtierst, läuft etwas Schleim aus einer Felsspalte...","As you slam your pick-axe on the rock, some slime flows out of a cleavage...",4,7);
 		
 		mining:AddInterruptMessage("Du wischst dir den Schweiß von der Stirn.", "You wipe sweat off your forehead.");
 		mining:AddInterruptMessage("Dir fliegt ein Steinsplitter entgegen. Du kannst gerade noch ausweichen.", "Your hard work has shaken free a stalactite that crashes from overhead. Somehow you manage to avoid any injury as the rubble clears.");
@@ -148,7 +148,7 @@ function InitGathering()
 		herbgathering:AddRandomItem(799,1,333,{},prob_occasionally,"Ein Weidenkorb liegt am Boden. Er scheint noch brauchbar zu sein.","A wicker basket lies on the ground. It still seems to be usable."); --Basket
 		herbgathering:AddRandomItem(2570,1,333,{},prob_frequently,"Ein Griff einer alten Sichel liegt achtlos weggeworfen zwischen Blättern und Ästen herum.","A handle of an old sickle lies between the leaves and branches, but the blade is no where in sight."); --Sickle hilt
 		herbgathering:SetTreasureMap(prob_rarely,"Unter einer Lage Blätter stößt du auf eine Schatzkarte. Hoffentlich ist der Besitzer nicht in der Nähe.","Under a layer of leaves you find a treasure map. Hopefully, the owner is not nearby!");
-		herbgathering:AddMonster(271,prob_rarely,"Einige Wespen steigen aus dem Gestrüpp auf, offensichtlich unerfreut über die Störung.","Some pesky wasps rise in a swarm from the bushes apparently displeased with your disturbance.",4,7);
+		herbgathering:AddMonster(271,prob_rarely,"Eine Wespe steigt aus dem Gestrüpp auf, offensichtlich unerfreut über die Störung.","A pesky wasp rises from the bushes apparently displeased with your disturbance.",4,7);
 		
 
 		--fishing
@@ -170,14 +170,14 @@ function InitGathering()
 		woolcutting:AddRandomItem(153,1,333,{},prob_occasionally,"Ein großes Blatt hat sich im Fell des Schafes verfangen. Du betreibst zunächst ein wenig Fellpflege, bevor du weiter scherst.","A large leaf was tangled in the fur of the sheep. You do a little grooming before you continue shearing."); --Foot leaf
 		woolcutting:AddRandomItem(156,1,333,{},prob_frequently,"Etwas Gras hat sich im Fell des Schafs verfangen. Du entfernst das klebrige Grünzeug.","Some grass was ensnared in the fur of the sheep. Before you can continue shearing you have to remove the sticky green weed."); --Steppe fern
 		woolcutting:SetTreasureMap(prob_rarely,"Mit einem lauten 'Mäh' kratzt und schnüffelt das Schaf am Boden. Dort findest du eine seltsame Karte.","With a loud 'Baa' the sheep scratches and sniffs on the ground. Then, as if by magic a strange map appears on the ground.");
-		woolcutting:AddMonster(271,prob_rarely,"Während du die Wolle einsammelst, formiert sich ein lästiger Schwarm ungeöhnlich agressiver Wespen.","While you gather some wool a swarm of annoyingly aggressive wasps come after you!",4,7);
+		woolcutting:AddMonster(271,prob_rarely,"Während du die Wolle einsammelst, umschwirrt dich eine ungewöhnlich agressive Wespe.","While you gather some wool a annoyingly aggressive wasp comes after you!",4,7);
 		
 		--potashproducing
 
 		potashproducing:AddRandomItem(2553,1,333,{},prob_extremely_rarely,"Für deine harte und ehrliche Arbeit belohnt dich Brágon, die Gott des Feuers, mit einem Kleinod aus Reinem Feuer.","For your hard and honest labor Brágon, the God of Fire, awards you with a treasure of Pure Fire."); --Pure fire
 		potashproducing:AddRandomItem(item.gems.getMagicGemId(item.gems.EMERALD),1,999,item.gems.getMagicGemData(1),prob_extremely_rarely,"In der Asche erspähst du einen grün funkelnden Gegenstand. Du findest einen magischen Smaragd.","Amidst the burning rubble and potash you spot a green sparkling object. To your fortune it is a magical emerald."); --Magical emerald
 		potashproducing:SetTreasureMap(prob_rarely,"Fein säuberlich aufgerollt findest du eine Schatzkarte in einem ausgehöhlten Ast. Gut, dass du das Holz noch nicht verbrannt hattest!","Nestled in a hollowed-out branch you find a treasure map neatly rolled up. Luckily you did not burn it yet!");
-		potashproducing:AddMonster(271,prob_rarely,"Angezogen vom Licht des wärmenden Feuers, taucht ein Schwarm agressiver Wespen auf.","Attracted to the bright warm light of your fire a swarm of aggressive wasps come after you.",4,7);
+		potashproducing:AddMonster(271,prob_rarely,"Angezogen vom Licht des wärmenden Feuers, taucht eine agressive Wespe auf.","Attracted to the bright warm light of your fire a aggressive wasp comes after you.",4,7);
 
 		Init = 1;
 	end

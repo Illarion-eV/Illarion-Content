@@ -19,7 +19,7 @@ function learn(user, skill, actionPoints, learnLimit)
 	local skillName = user:getSkillName(skill) --reading the skill
 	
     --Learning speed - Change here if you're unhappy with the learning speed. Skillgain scales in a linear way.
-	scalingFactor=500; --Here, you can mod the learning speed. Higher value=faster ;-)
+	scalingFactor=1000; --Here, you can mod the learning speed. Higher value=faster ;-)
 	
 	--Constants - Do not change unless you know exactly what you're doing!
 	amplification=100; --An 'abritrary' value that governs the 'resolution' of the MC function.
@@ -54,8 +54,7 @@ function learn(user, skill, actionPoints, learnLimit)
      			    user:increaseMinorSkill(skill,realIncrease); --this is why we do all this grinding!
 					
 					if user:getType() == 0 then --Only players get informs and swirlies! Strangely, monsters also learn, but meh.
-					
-
+					-- Looks like the client handles such stuff now...
                     end						
 		        end
 			

@@ -16,6 +16,7 @@ require("handler.movelever")
 require("handler.warpplayer");
 require("handler.warpgroup");
 require("handler.createmonster");
+require("handler.eraseplayeritem")
 require("quest.leverRiddleA")       -- controlls the behaviour of the levers
 require("quest.leverquest")         -- main class for the whole quest
 

@@ -8,7 +8,62 @@ require("base.common");
 module("item.id_2498_empty_bottle", package.seeall)
 
 function UseItem(User,SourceItem,TargetItem,Counter,Param)
-    if (base.common.IsItemInHands(SourceItem)) then
+   local foundSource
+  -- check for well or fountain
+  TargetItem = base.common.GetItemInArea(User.pos, 2207);
+  if (TargetItem == nil) then
+    TargetItem = base.common.GetItemInArea(User.pos, 631);
+    if (TargetItem == nil) then
+      TargetItem = base.common.GetItemInArea(User.pos, 2079);
+    end
+  end
+  if (TargetItem ~= nil) then
+    if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
+      base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
+    end
+    foundSource=true
+  end
+  
+  -- check for water tile
+  local targetPos = GetWaterTilePosition(User);
+  if (targetPos ~= nil) then
+    if not base.common.IsLookingAt( User, targetPos ) then -- check looking direction
+      base.common.TurnTo( User, targetPos ); -- turn if necessary
+    end
+    foundSource=true
+  end
+  
+   if not foundSource then
+	  -- nothing found to fill the bucket.
+	  base.common.InformNLS(User, 
+	  "Du kannst Flaschen an einem Brunnen oder an einem Gewässer füllen.", 
+	  "You can fill bottles at a well or at some waters.");
+      return
+	end
+	    
+    if ( ltstate == Action.none ) then 
+		User:startAction( 20, 21, 5, 10, 25);
+		User:talkLanguage( Character.say, Player.german, "#me beginnt Flaschen zu befüllen.");
+		User:talkLanguage( Character.say, Player.english, "#me starts to fill bottle."); 
+		return
+	end
+	
+	local notCreated = User:createItem( 2496, 1, 999, nil ); -- create the new produced items
+	world:erase(SourceItem,1)
+	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+		world:createItemFromId( 2496, notCreated, User.pos, true, 999, nil );
+		base.common.HighInformNLS(User,
+		"Du kannst nichts mehr halten.",
+		"You can't carry any more.");
+	else -- character can still carry something
+		if User:countItem(2498) <= 0 then
+            return
+        else
+		    User:startAction( 20, 21, 5, 10, 25);
+		end	
+	end
+--[[ !!! OLD OLD OLD !!!
+   if (base.common.IsItemInHands(SourceItem)) then
         -- bottle in hand
 		local frontPos = base.common.GetFrontPosition(User);
 		-- TODO: convert quests & positions to New Illarion
@@ -57,4 +112,18 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 			-- world:changeItem(bottles);
         -- end;
     end;
+	OLD END ]]
+end
+
+function GetWaterTilePosition(User)
+  local Radius = 1;
+  for x=-Radius,Radius do
+    for y=-Radius,Radius do 
+      local targetPos = position(User.pos.x + x, User.pos.y, User.pos.z);
+      if (base.common.GetGroundType(world:getField(targetPos):tile()) == base.common.GroundType.water) then
+        return targetPos;
+      end
+    end
+  end
+  return nil;
 end

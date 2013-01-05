@@ -92,8 +92,8 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- As a he Francois felt a never before felt wave of confidence. When Francois arrived in Runewick he let it known that he known that he was a skilled merchant. Once his knowledge was demonstrated he had no problem starting a debt to purchase goods.
 -- Money wise Francois is doing good, but his youth is growing thin. He yearns for a mate and passively lingers the thought if she wants to be with a guy or a girl.
 -- Personality: Gentle, sweet, talented sales person, charismatic, outgoing on the outside, but lonely and self-conscious on the inside.
-"kauf", "handel" -> "Lass uns handeln!", trade
-"buy", "sell", "trade" -> "Let's trade!", trade
+"kauf", "handel" -> trade, "Lass uns handeln!"
+"buy", "sell", "trade" -> trade, trade, "Let's!"
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Francois Delacroix the Trader. Keywords: Hello, Markets, Buy, Sell, Agriculture, Trade.")
@@ -114,20 +114,20 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a great day today! You
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Francois Delacroix, Produke aus der Landwirtschaft.", "My Name ist Francois. Es ist mir eine Freude Eure Bekanntschaft zu machen", "Francois Delacroix. Es klingt noch immer jedes Mal seltsam es zu sagen."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I sell goods such as milk and farmer tools", "I sell that which you need.", "I'm a self made agricultural goods trader."
+"profession" -> trade, "I sell goods such as milk and farmer tools", "I sell that which you need.", "I'm a self made agricultural goodsr."
 "beruf" -> "Ich verkaufe Güter wie Milch und Werkzeug für Bauern.", "Ich verkaufe was immer Ihr braucht.", "Ich verkaufe selbstgemachte Landwirtschaftswaren."
-english, "job" -> "I sell goods such as milk and farmer tools.", "I sell that which you need.", "I'm a self made agricultural goods trader."
+english, "job" -> trade, "I sell goods such as milk and farmer tools.", "I sell that which you need.", "I'm a self made agricultural goodsr."
 "job" -> "Ich verkaufe Güter wie Milch und Werkzeug für Bauern.", "Ich verkaufe was immer Ihr braucht.", "Ich verkaufe selbstgemachte Landwirtschaftswaren."
 english, "Gobaith", "Gobiath" -> "That's like asking what the sky is. Honestly, I don't think I could answer it."
 "Gobaith", "Gobiath" -> "Das ist als ob man fragt, was der Himmel sei. Ehrlich gesagt, ich habe keine Ahnung davon."
-"my name" -> "Francois Delacroix, agricultural goods trader.", "My name is Francois. It's beyond a pleasure to be acquainted with you", " Francois Delacroix. It still feels weird every time I say it."
+"my name" -> trade, "Francois Delacroix, agricultural goodsr.", "My name is Francois. It's beyond a pleasure to be acquainted with you", " Francois Delacroix. It still feels weird every time I say it."
 "mein Name" -> "Francois Delacroix, Produke aus der Landwirtschaft.", "My Name ist Francois. Es ist mir eine Freude Eure Bekanntschaft zu machen", "Francois Delacroix. Es klingt noch immer jedes Mal seltsam es zu sagen."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his environment
 "Business", "Markets", "Pepper" -> "Recently, pepper has been selling at triple its gross estimated volume. It's exciting to see how long this will last before I reap great profits when the price falls again."
-"Geschäft", "Märkte", "Pfeffer" -> ""
+"Geschäft", "Märkte", "Pfeffer" -> "Pfeffer wird derzeit zum dreifachen Preis gehandelt. Ich freu mich schon darauf, wenn der Preis wieder fällt und ich großen Profit abgreifen kann."
 "Agriculture", "Farming", "crops" -> "Harvesting crops and cattle is something that has always been and always will be. It's the most stable of markets."
-"Landwirtschaft", "", "" -> "Der Anbau von Feldfürchten und Viehhaltung ist etwas das es schon immer gegeben hat und das es immer geben wird. Das ist der beständigste Markt von allen."
+"Landwirtschaft", "Getreide", "Ackerbau" -> "Der Anbau von Feldfürchten und Viehhaltung ist etwas das es schon immer gegeben hat und das es immer geben wird. Das ist der beständigste Markt von allen."
 "Family" -> "I don't want to talk about them.", "Family is not a word that everyone is fond of."
 "Familie" -> "Ich möchte darüber nicht sprechen", "Diese Wort erfreut nich jeden von uns."
 "Wife" -> "Hahaha, perhaps someday.", "Settle down? Me? Ha, maybe after I'm done making money."
@@ -163,19 +163,19 @@ english, "salkama" -> "I've lived in this land all my life. I don't love it, but
 "god" -> "I follow Irmorom, obviously. What kind of question is that."
 "Göttter" -> "Natürlich folge ich Irmorom. Was ist denn das für eine Frage?"
 english, "Irmorom" -> "He keeps me at the top of my craft, which makes me money, which gets all these girls to look my way. How could I be malcontent?"
-"Irmorom" -> "Er verleiht mir Geschick, dardurch verdiene ich Geld,und durch das Geld möchen mich die Mädchen. Wie könnte ich da unzufrieden sein."
+"Irmorom" -> "Er verleiht mir Geschick, dadurch verdiene ich Geld und durch das Geld mögen mich die Mädchen. Wie könnte ich da unzufrieden sein."
 
 -- Catching typical NPC phrases
 "tell something" -> "What is there to tell? I'm Runewick's number one agricultural trading pretty boy."
-"erzähl was", "erzähl etwas" -> "Was hätte ich zu erzählen? Ich bin die Nummer Eins unter den hübschen Jungen in Runewick, wenn es um Landwirtschaftserzeugnisse geht."
+"erzähl was", "erzähl etwas" -> "Was hätte ich zu erzählen? Ich bin die Nummer Eins unter den Händlern in Runewick, wenn es um Landwirtschaftserzeugnisse geht."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Francois", "Delacroix" -> "Do you need something? Chances are I sell it."
-"Francois", "Delacroix" -> "Bracht Ihr etwas? Ich Chancen stehen gurt, dass ich es verkaufe."
+"Francois", "Delacroix" -> "Bracht Ihr etwas? Die Chancen stehen gut, dass ich es verkaufe."
 "Yes" -> "Please be more specific. "
-"Ja" -> "Bitte seid etwas genauer in Euer Wortwahl."
+"Ja" -> "Bitte seid etwas genauer in Eurer Wortwahl."
 "No" -> " Please be more specific."
-"Nein" -> "Bitte seid etwas genauer in Euer Wortwahl."
+"Nein" -> "Bitte seid etwas genauer in Eurer Wortwahl."
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.

@@ -19,17 +19,17 @@ function(self, comp, value)
     end;
 end);
 
-function _rank_helper_greaterequal(self, npcChar, player)
+function _rank_helper_greaterequal(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return base.factions.getRankAsNumber(player) >= value;
 end;
 
-function _rank_helper_greater(self, npcChar, player)
+function _rank_helper_greater(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return base.factions.getRankAsNumber(player) > value;
 end;
 
-function _rank_helper_lesser(self, npcChar, player)
+function _rank_helper_lesser(self, npcChar, texttype, player)
     local value = npc.base.talk._get_value(self.npc, self.value, self.valuetype);
     return base.factions.getRankAsNumber(player) < value;
 end;

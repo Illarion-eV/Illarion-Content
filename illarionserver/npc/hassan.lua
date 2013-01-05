@@ -24,6 +24,7 @@ require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
+require("npc.base.consequence.talkstate")
 require("npc.base.talk")
 module("npc.hassan", package.seeall)
 
@@ -59,8 +60,8 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
-talkEntry:addResponse("#me stares at you. 'Be greeted, traveler! I am much too thirsty to talk. If you bring me a glass with red wine I will gladly answer your questions.'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addResponse("#me stares at you. 'Be greeted, traveler! I am much too thirsty to talk. If you bring me a glass with red wine I will gladly answer your questions.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -97,8 +98,8 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
-talkEntry:addResponse("#me frowns: ?Mere peasant you dare greet me in such a way! Make up for you lack of consideration by giving me an offering of red wine so I may quench my thirst.'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addResponse("#me frowns: ?Mere peasant you dare greet me in such a way! Make up for you lack of consideration by giving me an offering of red wine so I may quench my thirst.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -121,7 +122,8 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hah! My friend, come, let us talk about important things, we're important people, aren't we?");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Hah! My fricome, let us talk about important things, we're important people, aren't we?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -131,8 +133,8 @@ talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
-talkEntry:addResponse("I am thirsty! If you bring me a glass of red wine, I will answer your questions... and trust me I know many things!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addResponse("I am thirsty! If you bring me a glass of red wine, I will answer your questions... and trust me I know many things!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -165,8 +167,8 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
-talkEntry:addResponse("#me starrt dich an. 'Seid gegrüßt, Reisender. Meine Kehle ist zu trocken zum Reden. Bringt mir ein Glas Wein, wenn ihr was erfahren wollt.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addResponse("#me starrt dich an. 'Seid gegrüßt, Reisender. Meine Kehle ist zu trocken zum Reden. Bringt mir ein Glas Wein, wenn ihr was erfahren wollt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -204,8 +206,8 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
-talkEntry:addResponse("#me knurrt: 'Was für eine bäuerliche Art, einen Mann meines Ranges zu grüßen. Wenn ihr was wissen wollt, bringt mir erstmal ein Glas Wein, um meinen Durst zu stillen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addResponse("#me knurrt: 'Was für eine bäuerliche Art, einen Mann meines Ranges zu grüßen. Wenn ihr was wissen wollt, bringt mir erstmal ein Glas Wein, um meinen Durst zu stillen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -273,8 +275,8 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
-talkEntry:addResponse("Ich bin durstig! Wenn ihr mir ein Glas Wein bringt, beantworte ich eure Fragen... und ich weiß eine Menge!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addResponse("Ich bin durstig! Wenn ihr mir ein Glas Wein bringt, beantworte ich eure Fragen... und ich weiß eine Menge!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,8 +323,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
-talkEntry:addResponse("Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addResponse("Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -350,8 +352,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
-talkEntry:addResponse("Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addResponse("Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -378,8 +380,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("question");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
-talkEntry:addResponse("Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addResponse("Bring me a glass of red wine, and I'll answer your questions! Otherwise leave me be!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -408,8 +410,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Frage");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Cadomyr"));
-talkEntry:addResponse("Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
+talkEntry:addResponse("Bringt mir ein Glas Wein und ich beantworte eure Fragen. Ansonsten, lasst mich in Ruhe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -439,10 +441,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Hassan will now answer your questions. You advance in Queen Rosaline Edward's favour."));
-talkEntry:addResponse("#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -452,9 +454,9 @@ talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Hassan will now answer your questions."));
-talkEntry:addResponse("#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 2));
+talkEntry:addResponse("#me takes the glass with a pleased smile. 'Very good! Now, you can ask me anything you like... about the town, the Queen, the palace, our glorious Cadomyr, or even the vile neighboring factions.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -464,10 +466,10 @@ talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -476,9 +478,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2057, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Hassan wird nun deine Fragen beantworten."));
-talkEntry:addResponse("#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2057, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 2));
+talkEntry:addResponse("#me nimmt das Glas und grinst erfreut. 'Sehr gut. Nun könnt ihr mich alles fragen, was ihr wollt... über die Stadt, den Palast, Cadomyr oder unsere bösen Nachbarn.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -752,7 +754,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 2));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("#me seufzt: 'Cadomyr, oh Cadomyr! Wir sind die ehrenhafteste und großartigste Nation in der Gegend, nur behindert durch unsere verräterischen Nachbarn.'");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("#me seufzt: 'Cadomyr, oh Cadomyr! Wir sind die ehrenhafteste und großartigste Nation in der Gegnur behindert durch unsere verräterischen Nachbarn.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1255,7 +1258,7 @@ talkingNPC:addCycleText("Oh ja, ich bin wirklich wichtig. Ohne meine Dienste wür
 talkingNPC:addCycleText("#me knallt seine Faust auf den Tresen: 'Bedienung!'", "#me bangs his fist on the counter: 'I demand service!'");
 talkingNPC:addCycleText("#me tippt sich mit seinem Zeigefinger auf die Brust: 'Ich kenne die Königin! Ich bin eine sehr wichtige Person.'", "#me pokes his own chest with his index finger 'I know the Queen! I am a very important person!'");
 talkingNPC:addCycleText("Wie, ich soll für meine Getränke zahlen? Ihr solltet mich dafür bezahlen, dass ich hier trinke. Wißt ihr nicht, wer ich bin?", "What do you mean I have to pay for my drinks? You should be paying 'me' to drink here! Do you have any idea who I am?");
-talkingNPC:addCycleText("#me ist ein Mann in feiner, aber weingetränkten Kleidung. Sein glattgeschorener Kopf glänzt durch ein wohlriechendes Öl.", "#me is a man in expensive, albeit wine-stained clothes. His shaven head gleams with fine-smelling oil.");
+talkingNPC:addCycleText("#me ist ein Mann in feiner, aber weingetränkten Kleidung. Sein Haar glänzt durch ein wohlriechendes Öl.", "#me is a man in expensive, albeit wine-stained clothes. His hair gleams with fine-smelling oil.");
 talkingNPC:addCycleText("Ich arbeite im königlichen Palast. Nichts geschieht dort, ohne das ich davon erfahre.", "I work in the Royal Palace. Nothing happens here without my knowledge.");
 talkingNPC:addCycleText("#me knurrt beim Anblick seines leeren Glases: 'Warum erfreu ich euch Bauern mit meiner Anwesenheit? Ich, der Liebling der Königin! Sie hat mich gestern sogar angesehen.'", "#me frowns at the empty glass of wine 'Why do I bless you peasants with my presence? I, who am the Queen's favourite! She even looked at me two days ago!'");
 talkingNPC:addCycleText("Ich fächere der Königin Luft, damit sie einen ruhigen Kopf bewahren kann. Das nenn' ich eine wichtige Tätigkeit.", "I wave my fan over the Queen, keeping her blue blood cool in this dessert heat. Now 'that' is an important duty!");
@@ -1279,7 +1282,7 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
 function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
