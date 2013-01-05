@@ -225,6 +225,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             local ind = dialog:getSelectedIndex();
             if (ind < 4) then
               faction.tid = ind;
+			  faction.rankpoints = 0;
               base.factions.setFaction(chosenPlayer, faction);
             elseif (ind == 4) then
               local cbSetCount = function (dialog)
