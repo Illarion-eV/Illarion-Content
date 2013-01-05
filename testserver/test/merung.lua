@@ -11,12 +11,12 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
     end
 	
 	if (User.lastSpokenText == "drop") then
-	   for i = 1,10 do
+	   for i = 1,30 do
 		   local drop = function(posi)
 				world:createItemFromId(15,1,posi,false,333,nil)
 			end
 			for j=1,5 do
-				base.common.CreateCircle(User.pos, i, drop)
+				base.common.CreateCircle(User.pos, j, drop)
 			end	
 
 			local delete = function(posi)
@@ -26,7 +26,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 				end	
 			end
 			for k=1,5 do
-				base.common.CreateCircle(User.pos, i, delete)
+				base.common.CreateCircle(User.pos, k, delete)
 			end	
 	    end 
 		User:inform("drop end")
