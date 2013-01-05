@@ -412,12 +412,14 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 			Factionvalues = base.factions.getFaction(player_list[i]);
 			if faction == nil or faction == 99 then
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
+				informPlayerAboutRankpointchange(player_list[i], playerText);
 			elseif tonumber(faction) == tonumber(Factionvalues.tid) then
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
+				informPlayerAboutRankpointchange(player_list[i], playerText);
 			else
 				return;
 			end	
-			informPlayerAboutRankpointchange(player_list[i], playerText);
+
 		end
 	end	
 	User:inform("You just "..text.." "..value.." rankpoints.");
