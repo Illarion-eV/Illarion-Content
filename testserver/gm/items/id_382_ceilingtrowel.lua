@@ -263,7 +263,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 					User:inform("Player does not belong to any faction. Rankpoints not changed.");
 				end
               end
-              User:requestInputDialog(InputDialog("Set rank points", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
+              User:requestInputDialog(InputDialog("Set rankpoints", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
             end
           end
           local infoText = "Town: " .. base.factions.getMembershipByName(chosenPlayer);
@@ -273,14 +273,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
           else
             infoText = infoText .. "\nRank: no rank " .. faction.rankTown;
           end
-          infoText = infoText .. "\nExact rank points: " .. faction.rankpoints;
+          infoText = infoText .. "\nExact rankpoints: " .. faction.rankpoints;
           local sd = SelectionDialog("Set faction value", infoText, cbSetFactionValue);
           sd:addOption(0, "Change town to None");
           sd:addOption(0, "Change town to Cadomyr");
           sd:addOption(0, "Change town to Runewick");
           sd:addOption(0, "Change town to Galmair");
           sd:addOption(0, "Change town count");
-          sd:addOption(0, "Change rank points");
+          sd:addOption(0, "Change rankpoints");
           User:requestSelectionDialog(sd);
         end 
         local sd = SelectionDialog("Get/Set faction values for ...", "First choose a player:", cbChoosePlayer);
