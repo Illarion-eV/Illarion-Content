@@ -278,8 +278,8 @@ function receiveGems(gemRecipient)
 	end	
 	-- first check if there was a switch already: 
 	local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
-	fnd=1
-	lastSwitch=1
+	--fnd=1
+	--lastSwitch=1
 	if fnd then gemRecipient:inform("lastSwitch: = "..lastSwitch) end
 	if fnd and lastSwitch<timeStmp then
 		gemRecipient:inform("now switching!")
@@ -288,7 +288,8 @@ function receiveGems(gemRecipient)
 	-- now check if last payment was before actual month and actual month is the one to pay out.
 	lastGem=gemRecipient:getQuestProgress(124);
 	if (lastGem~=nil) then
-	gemRecipient:inform("last gem: "..lastGem)
+		gemRecipient:inform("last gem: "..lastGem)
+		gemRecipient:inform("ts="..timeStamp.." lastSwitch="..lastSwitch.." lastGem="..lastGem)
 		if timeStmp==lastSwitch and lastGem<timeStmp then
 			gemRecipient:setQuestProgress(124,timeStmp);
 			gemRecipient:inform("Paying NOW! ")
