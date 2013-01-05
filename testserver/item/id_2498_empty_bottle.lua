@@ -7,7 +7,7 @@
 require("base.common");
 module("item.id_2498_empty_bottle", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
    local foundSource
   -- check for well or fountain
   TargetItem = base.common.GetItemInArea(User.pos, 2207);
