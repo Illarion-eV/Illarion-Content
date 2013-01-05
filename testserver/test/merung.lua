@@ -12,7 +12,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 	
 	if (User.lastSpokenText == "drop") then
 	    local drop = function(posi)
-		    world:createItemFromId(15,posi,false,333,nil)
+		    world:createItemFromId(15,1,posi,false,333,nil)
 	    end
 		for i=1,5 do
 		    base.common.CreateCircle(User.pos, i, drop)
