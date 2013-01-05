@@ -59,9 +59,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		if User:countItem(2498) <= 0 then
             return
         else
-		    --User:startAction( 20, 21, 5, 10, 25);
-			User:talkLanguage( Character.say, 0, "#me beginnt Flaschen zu befüllen.");
-			User:talkLanguage( Character.say, 1, "#me starts to fill bottle."); 
+		    User:startAction( 20, 21, 5, 10, 25);
 		end	
 	end
 --[[ !!! OLD OLD OLD !!!
