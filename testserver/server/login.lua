@@ -283,7 +283,7 @@ function receiveGems(gemRecipient)
 	if fnd then gemRecipient:inform("lastSwitch: = "..lastSwitch) end
 	if fnd and lastSwitch<timeStmp then
 		gemRecipient:inform("now switching!")
-		NewMonthSwitch(town,timeStmp)
+		base.townTreasure.NewMonthSwitch(town,timeStmp)
 	end
 	-- now check if last payment was before actual month and actual month is the one to pay out.
 	lastGem=gemRecipient:getQuestProgress(124);
