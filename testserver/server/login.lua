@@ -289,7 +289,7 @@ function receiveGems(gemRecipient)
 	lastGem=gemRecipient:getQuestProgress(124);
 	if (lastGem~=nil) then
 		gemRecipient:inform("last gem: "..lastGem)
-		gemRecipient:inform("ts="..timeStamp.." lastSwitch="..lastSwitch.." lastGem="..lastGem)
+		gemRecipient:inform("ts="..timeStmp.." lastSwitch="..lastSwitch.." lastGem="..lastGem)
 		if timeStmp==lastSwitch and lastGem<timeStmp then
 			gemRecipient:setQuestProgress(124,timeStmp);
 			gemRecipient:inform("Paying NOW! ")
