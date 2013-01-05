@@ -28,11 +28,12 @@ function callEffect(Effect, User)
 		    if world:isCharacterOnField(posi) then
 			    local char = world:getCharacterOnField(posi)
 				char:inform("Du wirst von einer Flamme erwischt! Aua!","You are hit by fire! Ouch!",Character.highPriority)
-			    char:increaseAttrib("hitpoints",-(200*quality))
+			    char:increaseAttrib("hitpoints",-(100*quality))
 			end	
 		    world:gfx(9,posi)
 			world:gfx(36,posi)			
 		end
+		
 		base.common.CreateLine(base.common.GetFrontPosition(User), base.common.GetFrontPosition(User, 3+quality), spitFire)
         return false
     end
