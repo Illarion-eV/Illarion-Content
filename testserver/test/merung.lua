@@ -105,7 +105,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 			local theTile=world:getField(myPos);
 			if theTile then
 				local groundType = base.common.GetGroundType( theTile:tile() )
-				
+				User:inform(""..myPos.x.." "..myPos.y.." "..myPos.z)
 				local success = false
 				for i=1,#myGrndsList do
 					if groundType == myGrndsList[i] then
@@ -114,9 +114,8 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 				end			
 				
 				if success then
-					User:inform(""..myPos.x.." "..myPos.y.." "..myPos.z)
-					world:createItemFromId(myPlant,1,myPos,false,333,nil)
 					
+					world:createItemFromId(myPlant,1,myPos,false,333,nil)
 				end
 			end	
 		end	
