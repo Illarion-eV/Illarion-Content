@@ -260,7 +260,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 					base.factions.setRankpoints(chosenPlayer, rankpoints);
 					informPlayerAboutRankpointchange(chosenPlayer, playerText);
 				else
-					return;
+					User:inform("Player does not belong to any faction. Rankpoints not changed.");
 				end
               end
               User:requestInputDialog(InputDialog("Set rank points", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
