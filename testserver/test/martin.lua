@@ -15,7 +15,7 @@ end;
 
 
 function receiveGems(gemRecipient)
-	local yr=world:getTime("year");
+	local yr=world:getTime("hour");
 	local mon=world:getTime("minute"); --- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	local timeStmp=yr*1000+mon;
 	gemRecipient:inform("time stmp = "..timeStmp);
