@@ -63,16 +63,6 @@ function IncreaseTaxpayerNumber(town)
 	end
 end
 
--- get the number of taxpayers this month.
--- @town Town
-function GetTaxpayerNumber(town)
-	local foundPayers, currentNoPayer = ScriptVars:find("Payers"..town)
-	if foundPayers then
-		return currentNoPayer;
-	else
-		return 0;
-	end
-end
 
 -- New month starts:
 --	* Collected taxes are now stored as "old" taxes (overwrite!)
