@@ -161,4 +161,5 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( changeItem ) then
 		world:changeItem(SourceItem);
 	end
+	User:inform(""..amount)
 end
