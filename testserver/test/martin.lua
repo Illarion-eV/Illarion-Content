@@ -86,7 +86,7 @@ debug("GOING TO GTPN "..town)
 			RecipientRk=base.factions.getRank(Recipient)
 			RecipientRk=2 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			RankedWage=math.ceil(RecipientRk*baseWageUnit);
-
+Recipient:inform("RankedWage= "..RankedWage);
 			while RankedWage>0 do
 				randomGem=math.random(1,2)
 				maxGemLevel=math.floor(RankedWage^(1/3))
