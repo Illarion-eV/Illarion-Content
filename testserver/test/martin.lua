@@ -9,6 +9,22 @@ require("base.factions")
 module("test.martin", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
+	if User.lastSpokenText=="pay" then
+		User:inform("treasure before: "..base.townTreasure.GetTownTreasure("Cadomyr"))
+		base.townTreasure.ChangeTownTreasure("Cadomyr",10000)
+		User:inform("treasure after: "..base.townTreasure.GetTownTreasure("Cadomyr"))
+		return;
+	end
+	
+	if User.lastSpokenText=="reset" then
+		local yr=world:getTime("hour");
+		local mon=world:getTime("minute"); --- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+		local timeStmp=yr*1000+mon;
+		User:setQuestProgress(124,timeStmp);
+		base.townTreasure.NewMonthSwitch("Cadomyr",timeStmp)
+		return;
+	end
+	
 	receiveGems(User)
 end;
 
@@ -40,7 +56,7 @@ function receiveGems(gemRecipient)
 		gemRecipient:inform("ts="..timeStmp.." lastSwitch="..lastSwitch.." lastGem="..lastGem)
 		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
 			gemRecipient:setQuestProgress(124,timeStmp);
-			gemRecipient:inform("Paying NOW! ")
+			gemRecipient:inform("Paying NOW! "..base.townTreasure.GetPaymentAmount(town));
 			--payNow(gemRecipient)
 		end
 	else
