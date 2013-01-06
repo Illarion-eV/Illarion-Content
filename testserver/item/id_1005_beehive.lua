@@ -6,7 +6,6 @@ require("content.gathering")
 module("item.id_1005_beehive", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
-	User:inform("right after UseItem amount is "..SourceItem:getData("amount"))
 	
 	content.gathering.InitGathering();
 	local honeygathering = content.gathering.honeygathering;
@@ -38,7 +37,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	-- check the amount 
-	local MaxAmount = 20
+	local MaxAmount = 10
 	local changeItem = false;
 	local amountStr = SourceItem:getData("amount");
 	local amount = 0;
@@ -105,8 +104,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if honeygathering:FindRandomItem(User) then
 		return
 	end
-	User:inform("info amount 1:"..amount)
-	amount = amount - 1; User:inform("info amount 2:"..amount)
+	amount = amount - 1
 	-- update the amount
 	SourceItem:setData("amount", "" .. amount);
 	changeItem = true;
@@ -134,10 +132,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if ( changeItem ) then
-		User:inform(" before change item and amount is "..amount)
 		world:changeItem(SourceItem);
-		local newData=SourceItem:getData("amount")
-		User:inform("after change item and amount is "..newData)
 	end
 	
 	-- since we're here, everything should be alright
@@ -151,9 +146,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	else -- character can still carry something
 		if amount > 0 then  -- there are still items we can work on
 			honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
-			local newData=SourceItem:getData("amount")
-		    User:inform("before start action and amount is "..newData)
-			User:changeSource(SourceItem);
 			User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
 			-- only inform for non farming items. Farming items with amount==0 should already be erased.
