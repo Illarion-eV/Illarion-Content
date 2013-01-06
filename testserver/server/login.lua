@@ -358,6 +358,7 @@ function payNow(User)
     User:requestMessageDialog(dialog);
 	
 	base.townTreasure.ChangeTownTreasure(town,tax)
+	base.townTreasure.IncreaseTaxpayerNumber(town)
     
 end
 

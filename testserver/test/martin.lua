@@ -12,6 +12,7 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 	if User.lastSpokenText=="pay" then
 		User:inform("treasure before: "..base.townTreasure.GetTownTreasure("Cadomyr"))
 		base.townTreasure.ChangeTownTreasure("Cadomyr",10000)
+		base.townTreasure.IncreaseTaxpayerNumber("Cadomyr")
 		User:inform("treasure after: "..base.townTreasure.GetTownTreasure("Cadomyr"))
 		return;
 	end
@@ -44,6 +45,10 @@ function receiveGems(gemRecipient)
 	local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	--fnd=1
 	--lastSwitch=1
+	if not fnd then	-- there is nothing to pay out yet, just set the time of last payout to the actual one.
+		ScriptVars:set("SwitchedToPayment"..town,timeStmp)
+	end
+	
 	if fnd then gemRecipient:inform("lastSwitch: = "..lastSwitch) end
 	if fnd and tonumber(lastSwitch)<timeStmp then
 		gemRecipient:inform("now switching!")
@@ -57,10 +62,31 @@ function receiveGems(gemRecipient)
 		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
 			gemRecipient:setQuestProgress(124,timeStmp);
 			gemRecipient:inform("Paying NOW! "..base.townTreasure.GetPaymentAmount(town));
-			--payNow(gemRecipient)
+			PayOutWage(Recipient,town)
 		end
 	else
 		gemRecipient:setQuestProgress(124,timeStmp);
+	end
+end
+
+function PayOutWage(Recipient,town)
+	fndTax,totalTaxes=base.townTreasure.GetPaymentAmount(town)
+	fndNo,totalPayers=base.townTreasure.GetTaxpayerNumber(town)
+	if fndNo and fndTax then
+		if totalPayers>0 then
+			if totalTaxes>0 then
+				baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
+				RankedWage=math.ceil(getRank(Recipient)*baseWageUnit);
+
+				while RankedWage>0 do
+					randomGem=math.random(1,2)
+					maxGemLevel=math.floor(RankedWage^(1/3))
+					gemLevel=math.random(1,maxGemLevel)
+					Recipient:inform("You would now get the following gem: type "..randomGem.." level "..maxGemLevel);
+					RankedWage=RankedWage-gemLevel^3;
+				end
+			end
+		end
 	end
 end
 
