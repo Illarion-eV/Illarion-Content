@@ -176,7 +176,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 4));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zassaria");
 talkEntry:addTrigger("lizzard");
 talkEntry:addTrigger("fisch");

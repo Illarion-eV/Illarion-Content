@@ -71,9 +71,9 @@ itemShoes = 53
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Bergarbeiter Bruno Blackhole. Schlüsselwörter: Hallo, Quest, Spitzhacke, Bergarbeiter.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted ma friend!", "Welcome in da Malachite mine.", "Greetings, I hope ya don't try to steal meh ma gold!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted ma friend!", "Welcome to da Malachite mine.", "Greetings, I hope ya don't try to steal ma gold!"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Tach mein Freund!", "Willkommen inner Malachitmine!", "Grüße, ich hoff' du versuchst nicht mein Gold zu stehlen!"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted ma friend!", "Welcome in da Malachite mine.", "Greetings, I hope ya don't try to steal meh ma gold!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted ma friend!", "Welcome to da Malachite mine.", "Greetings, I hope ya don't try to steal ma gold!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Tach mein Freund!", "Willkommen inner Malachitmine!", "Grüße, ich hoff' du versuchst nicht mein Gold zu stehlen!"
 "Farewell", "Bye", "Fare well", "See you" -> "May Irmorom guide ya on yar ways!", "Come back whenever ya miss the coolness of da mine.", "Farewell."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge Irmorom dich auf deinen Wegen beschützen!", "Komm' ruhig zurück wenn du die Kühle der Mine vermisst.", "Auf bald."
@@ -85,9 +85,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell is what we say aro
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Bruno Blackhole.", "Ich bin 'n zwergischer Bergarbeiter namens Bruno.", "Nenn' mich einfach Bruno."
 
 -- Quest 107: A message from Groktan Flintsplit
-queststatus(107) = 6, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder III: You deliver the message from Groktan Flintsplit to Bruno Blackhole."), "Oh my goodness! How shall I pay that amount of money to the Don? I just know what I get when I don't pay...", queststatus(107) = 7
+queststatus(107) = 6, "message", "news", "letter", "scroll", "parchment" -> inform("[Quest status] The Reminder III: You deliver the message from Groktan Flintsplit to Bruno Blackhole."), "Oh my goodness! How will I pay that amount of money to the Don? I just know what I get when I don't pay...", queststatus(107) = 7
 queststatus(107) = 6, "nachricht", "brief", "Botschaft", "Schriftrolle", "Pergament" -> inform("[Queststatus] Die Erinnerung III: Du überbringst Bruno Blackhole die Nachricht von Groktan Flintsplit."), "Ach du meine Güte! Wie soll ich nur so viel Geld and den Don zahlen? Ich weiß nur, was mir blüht, wenn ich nicht zahle...", queststatus(107) = 7
-queststatus(107) = 6, english, "Groktan", "Flintsplit" -> inform("[Quest status] The Reminder III: You deliver the message from Groktan Flintsplit to Bruno Blackhole."), "Oh my goodness! How shall I pay that amount of money to the Don? I just know what I get when I don't pay...", queststatus(107) = 7
+queststatus(107) = 6, english, "Groktan", "Flintsplit" -> inform("[Quest status] The Reminder III: You deliver the message from Groktan Flintsplit to Bruno Blackhole."), "Oh my goodness! How will I pay that amount of money to the Don? I just know what I get when I don't pay...", queststatus(107) = 7
 queststatus(107) = 6, "Groktan", "Flintsplit" -> inform("[Queststatus] Die Erinnerung III: Du überbringst Bruno Blackhole die Nachricht von Groktan Flintsplit."), "Ach du meine Güte! Wie soll ich nur so viel Geld and den Don zahlen? Ich weiß nur, was mir blüht, wenn ich nicht zahle...", queststatus(107) = 7
 
 -- 1st quest: Take a tool and gather 10 raw materials for 50cp.
@@ -149,20 +149,20 @@ skill(mining) < 90, queststatus(65) = 5, item(234, all) > 4, ".+" -> inform("[Qu
 queststatus(65) = 5, item(234, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), "Jetzt bist du 'n richtiger Bergarbeiter. Hier hast du 'n Silberstück.", money + 1000, deleteItem(234, 5), queststatus(65) = 6
 
 -- 4th quest: Gather 10 raw materials from a totally different location for 200cp. Link to other quest. Hint how to get there.
-queststatus(65) = 6, english, "quest", "mission" -> inform("[New quest] Malachite Mine IV"), "Ya know pal, it's mah sweet gold nuggets birthday soon. She likes virgins weed but I have too much work to get them mahself. Could ya bring meh ten virgins weed? Ya should ask Raban at his grove, he can help ya.", queststatus(65) = 7
+queststatus(65) = 6, english, "quest", "mission" -> inform("[New quest] Malachite Mine IV"), "Ya know pal, it's mah sweet Gold Nuggets birthday soon. She likes virgin weed but I have too much work to get them mahself. Could ya bring meh ten virgin weed? Ya should ask Raban at his grove, he can help ya.", queststatus(65) = 7
 queststatus(65) = 6, "quest", "mission" -> inform("[Neues Quest] Malachitmine IV"), "Weißt du Kumpel, mein süßes Goldnugget hat bald Geburtstag. Sie mag Jungfernkraut, aber ich habe zu viel zu tun um sie selbst zu suchen. Könntest du mir zehn Jungfernkraut bringen? Du solltest Raban in seinem Hain fragen, er kann dir helfen.", queststatus(65) = 7
-queststatus(65) = 6, "task", "adventure", "order" -> inform("[New quest] Malachite Mine IV"), "Ya know pal, it's mah sweet gold nuggets birthday soon. She likes virgins weed but I have too much work to get them mahself. Could ya bring meh ten virgins weed? Ya should ask Raban at his grove, he can help ya.", queststatus(65) = 7
+queststatus(65) = 6, "task", "adventure", "order" -> inform("[New quest] Malachite Mine IV"), "Ya know pal, it's mah sweet Gold Nuggets birthday soon. She likes virgin weed but I have too much work to get them mahself. Could ya bring meh ten virgin weed? Ya should ask Raban at his grove, he can help ya.", queststatus(65) = 7
 queststatus(65) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Malachitmine IV"), "Weißt du Kumpel, mein süßes Goldnugget hat bald Geburtstag. Sie mag Jungfernkraut, aber ich habe zu viel zu tun um sie selbst zu suchen. Könntest du mir zehn Jungfernkraut bringen? Du solltest Raban in seinem Hain fragen, er kann dir helfen.", queststatus(65) = 7
-queststatus(65) = 7, item(144, all) < 10, english, "quest", "mission" -> "Do ya have the ten virgins weed for mah wife yet? Ya should go to Raban's grove and ask Raban himself for help."
+queststatus(65) = 7, item(144, all) < 10, english, "quest", "mission" -> "Do ya have the ten virgin weed for mah wife yet? Ya should go to Raban's grove and ask Raban himself for help."
 queststatus(65) = 7, item(144, all) < 10, "quest", "mission" -> "Hast du die zehn Jungerfernkraut für meine Frau schon? Du solltest zu Rabans Hain gehen und Raban um Hilfe bitten."
-queststatus(65) = 7, item(144, all) < 10, "task", "adventure", "order" -> "Do ya have the ten virgins weed for mah wife yet? Ya should go to Raban's grove and ask Raban himself for help."
+queststatus(65) = 7, item(144, all) < 10, "task", "adventure", "order" -> "Do ya have the ten virgin weed for mah wife yet? Ya should go to Raban's grove and ask Raban himself for help."
 queststatus(65) = 7, item(144, all) < 10, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Hast du die zehn Jungfernkraut für meine Frau schon? Du solltest zu Rabans Hain gehen und Raban um Hilfe bitten."
-skill(mining) < 90, queststatus(65) = 7, item(144, all) > 9, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "Thank you, mah wife will be very pleased. Here ya have some compensation money.", skill(mining) + 1, money + 2000, deleteItem(144, 10), queststatus(65) = 8, rankpoints + 20
-queststatus(65) = 7, item(144, all) > 9, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins. You advance in Don Valerio Guilianni's favour."), "Thank you, mah wife will be very pleased. Here ya have some compensation money.", money + 2000, deleteItem(144, 10), queststatus(65) = 8, rankpoints + 20
+skill(mining) < 90, queststatus(65) = 7, item(144, all) > 9, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."), "Thank you, mah wife will be very pleased. Here ya are, have some compensation.", skill(mining) + 1, money + 2000, deleteItem(144, 10), queststatus(65) = 8, rankpoints + 20
+queststatus(65) = 7, item(144, all) > 9, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded 20 silver coins. You advance in Don Valerio Guilianni's favour."), "Thank you, mah wife will be very pleased. Here ya are, have some compensation.", money + 2000, deleteItem(144, 10), queststatus(65) = 8, rankpoints + 20
 skill(mining) < 90, queststatus(65) = 7, item(144, all) > 9, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."), "Danke, meine Frau wird begeistert sein. Hier hast du 'ne kleine Entschädigung.", skill(mining) + 1, money + 2000, deleteItem(144, 10), queststatus(65) = 8, rankpoints + 20
 queststatus(65) = 7, item(144, all) > 9, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), "Danke, meine Frau wird begeistert sein. Hier hast du 'ne kleine Entschädigung.", money + 2000, deleteItem(144, 10), queststatus(65) = 8, rankpoints + 20
-skill(mining) < 90, queststatus(65) = 7, item(144, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins and your mining skill increases."), "Thank you, mah wife will be very pleased. Here ya have some compensation money.", skill(mining) + 1, money + 2000, deleteItem(144, 10), queststatus(65) = 8
-queststatus(65) = 7, item(144, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), "Thank you, mah wife will be very pleased. Here ya have some compensation money.", money + 2000, deleteItem(144, 10), queststatus(65) = 8
+skill(mining) < 90, queststatus(65) = 7, item(144, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins and your mining skill increases."), "Thank you, mah wife will be very pleased. Here ya are, have some compensation.", skill(mining) + 1, money + 2000, deleteItem(144, 10), queststatus(65) = 8
+queststatus(65) = 7, item(144, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), "Thank you, mah wife will be very pleased. Here ya are, have some compensation.", money + 2000, deleteItem(144, 10), queststatus(65) = 8
 skill(mining) < 90, queststatus(65) = 7, item(144, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke und deine Bergbaufertigkeit steigt."), "Danke, meine Frau wird begeistert sein. Hier hast du 'ne kleine Entschädigung.", skill(mining) + 1, money + 2000, deleteItem(144, 10), queststatus(65) = 8
 queststatus(65) = 7, item(144, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), "Danke, meine Frau wird begeistert sein. Hier hast du 'ne kleine Entschädigung.", money + 2000, deleteItem(144, 10), queststatus(65) = 8
 
@@ -191,43 +191,43 @@ english, "Gobaith", "Gobiath" -> "I remember a young lad telling me 'bout a dwar
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "miner" -> "Aye, that's what I am. Da very best miner of Galmair.", "A miner mines in da mines of Galmair for ore and coal.", "Miners are important to smiths, because they sell ore and coal to them."
 "Bergarbeiter" -> "Aye, das bin ich. Der beste Bergarbeiter von Galmair.", "Ein Bergarbeiter sucht in den Minen Galmairs nach Erz und Kohle.", "Bergarbeiter sind wichtig für Schmiede, weil sie Erz und Kohle an sie verkaufen."
-english, "Malachit" -> "The Malachite mine belongs to Galmair and one can mine for copper and iron here.", "Copper and iron are the most common ores here, but when ya get lucky ya might find goldnuggets as well.", "The Malachite mine is mah favorite spot. Isn't it nice here?"
+english, "Malachit" -> "The Malachite mine belongs to Galmair and one can mine for copper and iron here.", "Copper and iron are the most common ores here, but when ya get lucky ya might find gold nuggets as well.", "The Malachite mine is mah favorite spot. Isn't it nice here?"
 "Malachit" -> "Die Malachitmine gehört zu Galmair und man findet Kupfer- und Eisenerz hier.", "Kupfer- und Eisenerz kommt hier am meisten vor, aber wenn du Glück hast, findest du auch Goldnuggets.", "Die Malachitmine ist mein liebster Platz, ist es nicht toll hier?"
 english, "nugget" -> "You might find some down here. But you know my wife is my most precious gold nugget for meh. Are you married?"
 "nugget" -> "Vielleicht findest du welche hier unten. Doch für mich ist meine Frau mein wertwollstes Goldnugget. Bist du verheiratet?"
 english, "Raban" -> "Raban is most likely at his grove in the south. He never leaves the places and talks to his plants all day long."
 "Raban" -> "Raban ist wahrscheinlich in seinem Hain im Süden. Er verlässt den Platz nie und spricht den ganzen Tag zu seinen Pflanzen."
-"grove" -> "Raban's grove is in the forest in the south, I use to get lost between all those trees."
+"grove" -> "Raban's grove is in the forest in the south, I used to get lost between all those trees."
 "Hain" -> "Rabans Hain ist im Wald im Süden. Ich verlauf mich immer zwischen all diesen Bäumen."
-english, "Mine" -> "There are several mines close to Galmair. Just aks a fellow miner or a smith."
+english, "Mine" -> "There are several mines close to Galmair. Just ask a fellow miner or a smith."
 "Mine" -> "Es gibt mehrere Minen hier bei Galmair. Frag' einfach einen anderen Bergarbeiter oder einen Schmied."
-"ore" -> "A smith can make several things out of ore. Tools, swords, shields and more. Just ask one and maybe he'll even give ya work."
+"ore" -> "A smith can make several things out of ore... Tools, swords, armour and more. Just ask one and maybe he'll even give ya work."
 "erz" -> "Ein Schmied kann viele Dinge aus Erz machen. Werkzeuge, Schwerter, Schilder und noch mehr. Frag' doch einfach einen Schmied und vielleicht gibt er dir ja sogar Arbeit."
 "Stone" -> "From raw stone ya can do stoneblocks which are needed to build houses. All ya need is a chisel and a place to work."
 "Stein" -> "Von rohen Steinen kann man Steinquader machen, welche man braucht um Häuser zu bauen. Alles was du brauchst ist ein Meißel und ein Platz zum Arbeiten."
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "The archmage of Runewick is reading books all day long. You wonder who does all the work for him? Me either!"
+"archmage" -> "The Archmage of Runewick is there reading books all day long. You wonder who does all the work for him? Me as well!"
 "Erzmagier" -> "Der Erzmagier von Runewick ließt doch den ganzen Tag nur Bücher. Du fragst dich, wer die Arbeit für ihn erledigt? Das würde ich auch gerne wissen."
-english, "Elvaine", "Morgan" -> "The archmage of Runewick is reading books all day long. You wonder who does all the work for him? Me either!"
+english, "Elvaine", "Morgan" -> "The Archmage of Runewick is there reading books all day long. You wonder who does all the work for him? Me as well!"
 "Elvaine", "Morgan" -> "Der Erzmagier von Runewick ließt doch den ganzen Tag nur Bücher. Du fragst dich, wer die Arbeit für ihn erledigt? Das würde ich auch gerne wissen."
 english, "Runewick" -> "Lazy scum is living in Runewick. Gentle they are, but lazy!"
 "Runewick" -> "Ein faules Pack wohnt dort in Runewick. Nett sind sie zwar, aber sowas von faul!"
-english, "Valerio", "Guilianni", "Don" -> "The Don is a good leader. He never forgets who did something for him; and who owes him something..."
+english, "Valerio", "Guilianni", "Don" -> "The Don is a good leader. He never forgets who did something for him, or who owes him something..."
 "Valerio", "Guilianni", "Don" -> "Der Don ist ein guter Anführer. Er vergisst nie, wer etwas für ihn getan hat; und wer ihm was schuldet..."
-english, "Galmair" -> "The place to be: Galmair. Cozy, free and money counts in large amounts."
+english, "Galmair" -> "The place to be is Galmair... Cozy, free and money counts in large amounts."
 "Galmair" -> "Der Ort schlechthin: Galmair. Gemütlich, frei und Geld zählt man in großen Beträgen."
-"Queen" -> "I'd really like to arr... Discuss with queen Rosaline... about... her gems!"
+"Queen" -> "I'd really like to arr... Discuss with Queen Rosaline... about... her gems!"
 "Königin" -> "Ich würd' gern mal mit arr... Königin Rosaline über ihre... Juwelen diskutieren!"
-english, "rosaline", "edwards" -> "I'd really like to arr... Discuss with queen Rosaline... about... her gems!"
+english, "rosaline", "edwards" -> "I'd really like to arr... Discuss with Queen Rosaline... about... her gems!"
 "rosaline", "edwards" -> "Ich würd' gern mal mit arr... Königin Rosaline über ihre... Juwelen diskutieren!"
-english, "Cadomyr" -> "Noble men, pah, the people of Cadomyr behave only noble as long as they stare at the queen."
+english, "Cadomyr" -> "Noble men, pah, the people of Cadomyr behave only noble as long as they stare at the Queen."
 "Cadomyr" -> "Edel, pff, die Leute aus Cadomyr verhalten sich nur edel, wenn sie ihr Königin anstarren können."
 
 -- Main land factions
-english, "albar" -> "In Albar, arr, you can make good profit. They are so stupid there, can't distinguish between a pebble and a ruby, they."
+english, "albar" -> "In Albar, arr, you can make good profit. They are so stupid there, can't distinguish between a pebble and a ruby, they can't."
 "albar" -> "In Albar, arr, da kann man gute Profite machen. Die sind so dämlich da, die können einen Kieselstein nicht von einem Rubin unterscheiden."
-english, "gynk", "gync" -> "In Albar, arr, you can make good profit. You just need to know who to bribe, a little investment before payday."
+english, "gynk", "gync" -> "In Gynk, arr, you can make good profit. You just need to know who to bribe, a little investment before payday."
 "gync", "gynk" -> "In Gynk, arr, da kann man gute Profite machen. Du mußt nur wissen, wen du schmieren mußt, eine kleine Investition vor dem Zahltag!"
 english, "salkama" -> "In Salkamar, arr, you can make good profit. Just stuff some wax in your ears before negotiating with a trader and shake your head. After an hour, you pay close to nothing!"
 "salkama" -> "In Salkamar, arr, da kann man gute Profite machen. Stop' dir einfach Wachs in die Ohren bevor du mit einem Händler verhandelst und schüttel immer mit dem Kopf. Nach einer Stunde wirst du kaum noch etwas zahlen müssen!"
@@ -241,9 +241,9 @@ english, "Ushara" -> "Us dwarves honour Ushara. Maybe not every day and with hig
 "Ushara" -> "Wir Zwerge verehren Ushara. Vielleicht nicht an jedem Tag und mit vollster Hingabe, aber wir wissen schon genau, wem wir all die Edelsteine zu verdanken haben!"
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I do not sell or buy anything, but I could need ya help.", "Do I really look like a trader?", "I'm no trader, I'm a miner!"
+"what sell", "what buy", "list wares", "price of" -> "I do not sell or buy anything, but I could use ya help.", "Do I really look like a trader?", "I'm no trader, I'm a miner!"
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich kaufe und verkaufe nichts, aber ich könnte Hilfe gebrauchen.", "Seh' ich wirklich wie 'n Händler aus?", "Ich bin kein Händler, sondern 'n Bergarbeiter."
-"tell something" -> "If you want to hear a story, ya in da wrong place.", "I'm here to work, not to tell stories.", "My gold nugget is my most precious posession."
+"tell something" -> "If you want to hear a story, ya in da wrong place.", "I'm here to work, not to tell stories.", "My Gold Nugget is my most precious posession."
 "erzähl was", "erzähl etwas" -> "Wenn du 'ne Geschichte hören wollt, biste am falschen Ort.", "Ich bin nicht zum Geschichtenerzählen hier, sondern zum Arbeiten.", "Mein Goldnugget ist mein wertvollster Besitz."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
@@ -261,11 +261,11 @@ english, "Bruno", "Blackhole" -> "Aye, that's me I suppose!"
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me poliert gedankenverloren ein Goldnugget.", "#me seems to be lost in thought while polishing a gold nugget."
+cycletext "#me poliert gedankenverloren ein Goldnugget.", "#me seems to be lost in thought whilst polishing a gold nugget."
 cycletext "#me tritt nach einem Stein der klimpernd wegspringt.", "#me kicks at a small stone which bounces away with a strumming noise."
 cycletext "#me nuschelt vor sich hin: 'Ich hätte mehr Bier mitnehmen sollen.'", "#me mumbles: 'I should have brought more beer.'"
 cycletext "Irmorom is der Gott des Handwerks und Handels und zudem der Weltenschmied. Er hat die Zwerge nach seinem Ebenbild geschaffen damit sie der Welt und den anderen Rassen eine Stütze sind.", "Irmorom is the god of trade and craftmanship and also the worldsmith. He created us dwarves in his own likeness so that we can be a support for the world and the other races."
-cycletext "Wenn ich einmal sterbe, werde ich all die großen Zwerge in dem großen Berg wiedersehen und werde Irmorom zeigen können was ich gelernt habe.", "When I die I'll see all those great dwarves again in the big mountain and can show Irmorom what I learned."
+cycletext "Wenn ich einmal sterbe, werde ich all die großen Zwerge in dem großen Berg wiedersehen und werde Irmorom zeigen können was ich gelernt habe.", "When I die I'll see all those great dwarves again in the big mountain and can show Irmorom what I learnt."
 cycletext "Hey-ho!", "Hey-ho!"
 cycletext "Glück auf!", "Good luck!"
 cycletext "Arbeit macht durstig!", "Work makes me thirsty!"
