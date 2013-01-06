@@ -29,6 +29,7 @@ end
 -- get the amount of taxespayers last month to determine the amount of gems to pay out
 -- @town Town which treasure we want to get as a string: "Cadomyr"|"Runewick"|"Galmair"
 function GetTaxpayerNumber(town)
+debug("in gtpn");
 	local foundPayers, currentNoPayer = ScriptVars:find("OldPayers"..town)
 	if not foundPayers then
 	debug("TAXPAYERS RETURN 0")
