@@ -152,7 +152,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		if amount > 0 then  -- there are still items we can work on
 			honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
 			User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
-		else then -- no items left
+		else -- no items left
 			-- only inform for non farming items. Farming items with amount==0 should already be erased.
 			base.common.HighInformNLS(User,
 			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
