@@ -70,26 +70,27 @@ function receiveGems(gemRecipient)
 end
 
 function PayOutWage(Recipient,town)
-	fndTax,totalTaxes=base.townTreasure.GetPaymentAmount(town)
+	totalTaxes=base.townTreasure.GetPaymentAmount(town)
 	Recipient:inform("now calling gettaxpayernuber:");
-	fndNo,totalPayers=base.townTreasure.GetTaxpayerNumber(town)
+	totalPayers=base.townTreasure.GetTaxpayerNumber(town)
+	
 	Recipient:inform("done with gtpn:");
-	if fndNo and fndTax then
-		if totalPayers>0 then
-			if totalTaxes>0 then
-				baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
-				RankedWage=math.ceil(getRank(Recipient)*baseWageUnit);
 
-				while RankedWage>0 do
-					randomGem=math.random(1,2)
-					maxGemLevel=math.floor(RankedWage^(1/3))
-					gemLevel=math.random(1,maxGemLevel)
-					Recipient:inform("You would now get the following gem: type "..randomGem.." level "..maxGemLevel);
-					RankedWage=RankedWage-gemLevel^3;
-				end
+	if totalPayers>0 then
+		if totalTaxes>0 then
+			baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
+			RankedWage=math.ceil(getRank(Recipient)*baseWageUnit);
+
+			while RankedWage>0 do
+				randomGem=math.random(1,2)
+				maxGemLevel=math.floor(RankedWage^(1/3))
+				gemLevel=math.random(1,maxGemLevel)
+				Recipient:inform("You would now get the following gem: type "..randomGem.." level "..maxGemLevel);
+				RankedWage=RankedWage-gemLevel^3;
 			end
 		end
 	end
+
 end
 
 function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
