@@ -71,7 +71,9 @@ end
 
 function PayOutWage(Recipient,town)
 	fndTax,totalTaxes=base.townTreasure.GetPaymentAmount(town)
+	Recipient:inform("now calling gettaxpayernuber:");
 	fndNo,totalPayers=base.townTreasure.GetTaxpayerNumber(town)
+	Recipient:inform("done with gtpn:");
 	if fndNo and fndTax then
 		if totalPayers>0 then
 			if totalTaxes>0 then
