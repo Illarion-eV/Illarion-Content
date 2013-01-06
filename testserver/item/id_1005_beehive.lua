@@ -42,6 +42,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local amount = 0;
 	if ( amountStr ~= "" ) then
 		amount = tonumber(amountStr);
+		User:inform("amountStr: "..amountStr)
 	elseif ( SourceItem.wear == 255 ) then
 		-- first time that a (static!) herb item is harvested
 		amount = MaxAmount;
