@@ -15,6 +15,13 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 		User:inform("treasure after: "..base.townTreasure.GetTownTreasure("Cadomyr"))
 		return;
 	end
+	
+	if User.lastSpokenText=="reset" then
+		User:setQuestProgress(124,timeStmp);
+		base.townTreasure.NewMonthSwitch("Cadomyr",timeStmp)
+		return;
+	end
+	
 	receiveGems(User)
 end;
 
