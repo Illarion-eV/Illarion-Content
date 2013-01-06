@@ -83,7 +83,9 @@ debug("GOING TO GTPN "..town)
 		if tonumber(totalTaxes)>0 then
 		Recipient:inform("we have taxes: "..totalTaxes);
 			baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
-			RankedWage=math.ceil(getRank(Recipient)*baseWageUnit);
+			RecipientRk=base.factions.getRank(Recipient)
+			RecipientRk=2 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			RankedWage=math.ceil(RecipientRk*baseWageUnit);
 
 			while RankedWage>0 do
 				randomGem=math.random(1,2)
