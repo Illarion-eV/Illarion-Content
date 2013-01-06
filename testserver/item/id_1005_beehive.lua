@@ -138,6 +138,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return;
 	end
 	
+	if ( changeItem ) then
+		world:changeItem(SourceItem);
+	end
+	
 	-- since we're here, everything should be alright
 	User:learn( honeygathering.LeadSkill, honeygathering.SavedWorkTime[User.id], 100);
 	local notCreated = User:createItem( 2529, 1, 333, nil ); -- create the new produced items
