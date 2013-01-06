@@ -79,7 +79,9 @@ debug("GOING TO GTPN "..town)
 	Recipient:inform("done with gtpn:");
 
 	if tonumber(totalPayers)>0 then
+	Recipient:inform("we have payers: "..totalPayers);
 		if tonumber(totalTaxes)>0 then
+		Recipient:inform("we have taxes: "..totalTaxes);
 			baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
 			RankedWage=math.ceil(getRank(Recipient)*baseWageUnit);
 
