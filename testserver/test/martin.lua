@@ -11,6 +11,7 @@ module("test.martin", package.seeall)
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 	if User.lastSpokenText=="pay" then
 		base.townTreasure.ChangeTownTreasure("Cadomyr",10000)
+		return;
 	end
 	receiveGems(User)
 end;
