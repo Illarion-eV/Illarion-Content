@@ -17,6 +17,9 @@ function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
 	end
 	
 	if User.lastSpokenText=="reset" then
+		local yr=world:getTime("hour");
+		local mon=world:getTime("minute"); --- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+		local timeStmp=yr*1000+mon;
 		User:setQuestProgress(124,timeStmp);
 		base.townTreasure.NewMonthSwitch("Cadomyr",timeStmp)
 		return;
