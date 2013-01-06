@@ -182,7 +182,7 @@ talkEntry:addTrigger("fisch");
 talkEntry:addTrigger("Bestellung");
 talkEntry:addTrigger("riverbank");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 5));
-talkEntry:addResponse("Zassaria?  Eine Fischbestellung? Was höre da der Fisch beginnt bereits zu stinken? Nein, danke! Ich möchte frischen Fisch, bitte sagt das Lady Riverbank.");
+talkEntry:addResponse("Zassaria?  Eine Fischbestellung? Was höre ich da, der Fisch beginnt bereits zu stinken? Nein, danke! Ich möchte frischen Fisch, bitte sagt das Lady Riverbank.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -194,7 +194,7 @@ talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Ah, A customer, welcome!");
+talkEntry:addResponse("Ah, a customer, welcome!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -335,7 +335,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me betrachtet eine Goldmünze.", "#me glances lovingly at a gold coin.");
 talkingNPC:addCycleText("#me's Augen funklen gierig.", "#me's eyes sparkle greedily as he rubs a coin between his fingers.");
-talkingNPC:addCycleText("#me murmelt verärgert:'Wenn dir meine Preise nicht passen, dann geh doch woanders hin.'", "#me mumbles quietly: 'I wish I got to keep the money.'");
+talkingNPC:addCycleText("#me murmelt verärgert: 'Wenn dir meine Preise nicht passen, dann geh doch woanders hin.'", "#me mumbles quietly: 'I wish I got to keep the money.'");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(61,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3076,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3077,"sell"));
