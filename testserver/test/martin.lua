@@ -3,6 +3,7 @@ require("handler.sendmessage")
 require("base.common")
 require("base.money")
 require("base.factions")
+require("base.townTreasure")
 
 -- UPDATE common SET com_script='test.martin' WHERE com_itemid = ID;
 
