@@ -132,8 +132,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if ( changeItem ) then
-		User:inform("changce item")
+		User:inform(" before change item and amount is "..amount)
 		world:changeItem(SourceItem);
+		local newData=SourceItem:getData("amount")
+		User:inform("after change item and amount is "..newData)
 	end
 	
 	-- since we're here, everything should be alright
