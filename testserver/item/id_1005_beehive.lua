@@ -153,6 +153,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
 			local newData=SourceItem:getData("amount")
 		    User:inform("before start action and amount is "..newData)
+			User:changeSource(SourceItem);
 			User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
 			-- only inform for non farming items. Farming items with amount==0 should already be erased.
