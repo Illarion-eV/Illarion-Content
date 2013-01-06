@@ -151,7 +151,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	else -- character can still carry something
 		if amount > 0 then  -- there are still items we can work on
 			honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
-			User:inform("before start action amount is "..amount)
+			local newData=SourceItem:getData("amount")
+		    User:inform("before start action and amount is "..newData)
 			User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
 		else -- no items left
 			-- only inform for non farming items. Farming items with amount==0 should already be erased.
