@@ -148,7 +148,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-    local nextItem = GetHarvestItem(User);
 		if amount > 0 then  -- there are still items we can work on
 			honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
 			User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
