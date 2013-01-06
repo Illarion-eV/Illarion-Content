@@ -275,7 +275,7 @@ function receiveGems(gemRecipient)
 	town="Cadomyr";	 --- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	if town == "" then
 		return;
-	end	
+	end	-- LASTSWITCH >> TIMESTAMP??
 	-- first check if there was a switch already: 
 	local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	--fnd=1
