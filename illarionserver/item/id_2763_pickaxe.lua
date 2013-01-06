@@ -456,11 +456,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     User:startAction( mining.SavedWorkTime[User.id], 0, 0, 0, 0);
     User:talkLanguage( Character.say, Player.german, "#me beginnt mit einer Spitzhacke auf den Stein zu schlagen.");
     User:talkLanguage( Character.say, Player.english, "#me starts to hit the stone with a pick-axe."); 
+	User:performAnimation(14);
     return
   end
 
   -- since we're here, we're working
 
+  User:performAnimation(14);
   if mining:FindRandomItem(User) then
     return
   end

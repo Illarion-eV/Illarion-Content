@@ -1,56 +1,103 @@
 -- General Testscript
 require("handler.sendmessage")
+require("base.common")
 require("base.money")
+require("base.factions")
+require("base.townTreasure")
+
 -- UPDATE common SET com_script='test.martin' WHERE com_itemid = ID;
 
 module("test.martin", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
-
-    if 1 then
-        UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
-        UseItemMartin2( User, SourceItem, TargetItem, counter, Param, ltstate )
-        return
-    end
-
-
-    list=world:LoS(User.pos,position(User.pos.x+5,User.pos.y,User.pos.z));
-
-    if list ~= nil then
-        for key, value in pairs(list) do
-            User:inform(" test : "..value.TYPE);
-        end
-    end
-
-    --ScriptVars:set("test","Martin");
-    isThere, value = ScriptVars:find("test");
-    if isThere then
-        User:inform("sv = "..value);
-    end
-    
-    local value = User:eraseItem(1, 1, 3);
-    if (value ~= 1) then
-        User:inform("Delete of Item with Data 3 returned a false result: " .. value);
-    end;
-    
-    value = User:eraseItem(1, 1, 0);
-    if (value ~= 0) then
-        User:inform("Delete of Item with Data 0 returned a false result: " .. value);
-    end;
-    
-    value = User:eraseItem(1, 1, 1);
-    if (value ~= 0) then
-        User:inform("Delete of Item with Data 1 returned a false result: " .. value);
-    end;
-    
-    value = User:eraseItem(1, 1);
-    if (value ~= 0) then
-        User:inform("Delete of Item returned a false result: " .. value);
-    end;
-    
-    User:inform("All tests done.");
+	if User.lastSpokenText=="pay" then
+		User:inform("treasure before: "..base.townTreasure.GetTownTreasure("Cadomyr"))
+		base.townTreasure.ChangeTownTreasure("Cadomyr",500)
+		base.townTreasure.IncreaseTaxpayerNumber("Cadomyr")
+		User:inform("treasure after: "..base.townTreasure.GetTownTreasure("Cadomyr"))
+		return;
+	end
+	
+	if User.lastSpokenText=="reset" then
+		local yr=world:getTime("hour");
+		local mon=world:getTime("minute"); --- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+		local timeStmp=yr*1000+mon;
+		User:setQuestProgress(124,timeStmp);
+		base.townTreasure.NewMonthSwitch("Cadomyr",timeStmp)
+		return;
+	end
+	
+	receiveGems(User)
 end;
 
+
+
+function receiveGems(gemRecipient)
+	local yr=world:getTime("hour");
+	local mon=world:getTime("minute"); --- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+	local timeStmp=yr*1000+mon;
+	gemRecipient:inform("time stmp = "..timeStmp);
+	local town = base.factions.getMembershipByName(gemRecipient)
+	town="Cadomyr";	 --- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+	if town == "" then
+		return;
+	end	-- LASTSWITCH >> TIMESTAMP??
+	-- first check if there was a switch already: 
+	local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
+	--fnd=1
+	--lastSwitch=1
+	if not fnd then	-- there is nothing to pay out yet, just set the time of last payout to the actual one.
+		ScriptVars:set("SwitchedToPayment"..town,timeStmp)
+	end
+	
+	if fnd then gemRecipient:inform("lastSwitch: = "..lastSwitch) end
+	if fnd and tonumber(lastSwitch)<timeStmp then
+		gemRecipient:inform("now switching!")
+		base.townTreasure.NewMonthSwitch(town,timeStmp)
+	end
+	-- now check if last payment was before actual month and actual month is the one to pay out.
+	lastGem=gemRecipient:getQuestProgress(124);
+	if (lastGem~=nil) then
+		gemRecipient:inform("last gem: "..lastGem)
+		gemRecipient:inform("ts="..timeStmp.." lastSwitch="..lastSwitch.." lastGem="..lastGem)
+		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
+			gemRecipient:setQuestProgress(124,timeStmp);
+			gemRecipient:inform("Paying NOW! "..base.townTreasure.GetPaymentAmount(town));
+			PayOutWage(gemRecipient,town)
+		end
+	else
+		gemRecipient:setQuestProgress(124,timeStmp);
+	end
+end
+
+function PayOutWage(Recipient,town)
+debug("GOING TO GTPN "..town)
+	totalTaxes=base.townTreasure.GetPaymentAmount(town)
+	Recipient:inform("now calling gettaxpayernuber: "..totalTaxes);
+	totalPayers=base.townTreasure.GetTaxpayerNumber(town)
+	
+	Recipient:inform("done with gtpn:");
+
+	if tonumber(totalPayers)>0 then
+	Recipient:inform("we have payers: "..totalPayers);
+		if tonumber(totalTaxes)>0 then
+		Recipient:inform("we have taxes: "..totalTaxes);
+			baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
+			RecipientRk=base.factions.getRank(Recipient)
+			RecipientRk=2 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			RankedWage=math.ceil(RecipientRk*baseWageUnit);
+Recipient:inform("RankedWage= "..RankedWage);
+			while RankedWage>0 do
+				randomGem=math.random(1,2)
+				maxGemLevel=math.floor(RankedWage^(1/3))
+				gemLevel=math.random(1,maxGemLevel)
+				Recipient:inform("You would now get the following gem: type "..randomGem.." level "..maxGemLevel);
+				RankedWage=RankedWage-gemLevel^3;
+			end
+		end
+	end
+
+end
 
 function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
     taxFound,taxTotal=ScriptVars:find("taxTotal");

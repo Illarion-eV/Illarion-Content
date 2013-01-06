@@ -6,6 +6,8 @@ require("content.gathering")
 module("item.id_1005_beehive", package.seeall)
 
 function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	User:inform("right after UseItem amount is "..SourceItem:getData("amount"))
+	
 	content.gathering.InitGathering();
 	local honeygathering = content.gathering.honeygathering;
 
@@ -34,6 +36,61 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
 		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 	end
+	
+	-- check the amount 
+	local MaxAmount = 20
+	local changeItem = false;
+	local amountStr = SourceItem:getData("amount");
+	local amount = 0;
+	if ( amountStr ~= "" ) then
+		amount = tonumber(amountStr);
+		User:inform("amountStr: "..amountStr)
+	elseif ( SourceItem.wear == 255 ) then
+		-- first time that a (static!) herb item is harvested
+		amount = MaxAmount;
+		SourceItem:setData("amount","" .. MaxAmount);
+		changeItem = true;
+	end
+	if ( amount < 0 ) then
+		-- this should never happen...
+		User:inform("[ERROR] Negative amount " .. amount .. " for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
+		return;
+	end
+	if ( amount <= 1 ) then
+		-- check for regrow even at amount==1, so a continuous working is guaranteed
+		-- only non farming items regrow
+		local serverTime = world:getTime("unix");
+		for i=1,MaxAmount do 
+			local t = SourceItem:getData("next_regrow_" .. i);
+			if ( t ~= "" and tonumber(t) <= serverTime ) then
+				-- regrow
+				amount = amount + 1;
+				SourceItem:setData("next_regrow_" .. i, "");
+				changeItem = true;
+			end
+		end
+		if ( amount == 0 ) then
+			-- not regrown...
+			base.common.HighInformNLS( User, 
+			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
+			"This plant is already fully harvested. Give it time to grow again." );
+			if ( changeItem ) then
+				world:changeItem(SourceItem);
+			end
+			return;
+		elseif ( amount > MaxAmount ) then
+			-- this should never happen
+			User:inform("[ERROR] Too high amount " .. amount .. " for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
+			if ( changeItem ) then
+				world:changeItem(SourceItem);
+			end
+			return;
+		else
+			User:inform("amount check here: "..amount)
+			SourceItem:setData("amount", "" .. amount);
+			changeItem = true;
+		end
+	end
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
@@ -48,17 +105,59 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if honeygathering:FindRandomItem(User) then
 		return
 	end
-
+	User:inform("info amount 1:"..amount)
+	amount = amount - 1; User:inform("info amount 2:"..amount)
+	-- update the amount
+	SourceItem:setData("amount", "" .. amount);
+	changeItem = true;
+	-- and update the next regrow
+	local regrowOk = false;
+	for i=1,MaxAmount do 
+		local t = SourceItem:getData("next_regrow_" .. i);
+		-- look for a free slot
+		if ( t == "") then
+			-- set the next regrow time according to season and grow factor
+			local season = math.ceil(world:getTime("month")/4);
+			SourceItem:setData("next_regrow_" .. i, "" .. world:getTime("unix") + 300)
+			regrowOk = true;
+			changeItem = true;
+			break;
+		end
+	end
+	if ( not regrowOk ) then
+		-- there was no free slot, this should never happen
+		User:inform("[ERROR] There was no regrow slot for item id " .. SourceItem.id .. " at (" .. SourceItem.pos.x .. "," .. SourceItem.pos.y .. "," .. SourceItem.pos.z .. "). Please inform a developer.");
+		if ( changeItem ) then
+			world:changeItem(SourceItem);
+		end
+		return;
+	end
+	
+	if ( changeItem ) then
+		User:inform(" before change item and amount is "..amount)
+		world:changeItem(SourceItem);
+		local newData=SourceItem:getData("amount")
+		User:inform("after change item and amount is "..newData)
+	end
+	
+	-- since we're here, everything should be alright
 	User:learn( honeygathering.LeadSkill, honeygathering.SavedWorkTime[User.id], 100);
-	local amount = 1; -- set the amount of items that are produced
-	local notCreated = User:createItem( 2529, amount, 333, nil ); -- create the new produced items
+	local notCreated = User:createItem( 2529, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 2529, notCreated, User.pos, true, 333, nil );
 		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
-		User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
+		if amount > 0 then  -- there are still items we can work on
+			honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
+			User:inform("before start action amount is "..amount)
+			User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
+		else -- no items left
+			-- only inform for non farming items. Farming items with amount==0 should already be erased.
+			base.common.HighInformNLS(User,
+			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
+			"This plant is already fully harvested. Give it time to grow again." );
+		end
 	end
 end

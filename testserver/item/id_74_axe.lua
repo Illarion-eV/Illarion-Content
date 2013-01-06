@@ -161,11 +161,11 @@ function InitTreeItems()
     AddTree(  14,125,2560,  56,10,0.4); -- apple tree
     AddTree( 299,541, 543,2786,15,0.4); -- cherry tree
     AddTree( 300,541, 543,2786,15,0.4); -- cherry tree
-    AddTree( 308,309,   3,   0,12,0.4); -- fir tree
+    AddTree( 308,309,   3,   0,12,-1); -- fir tree
     AddTree( 586,587, 544,  56,10,0.4); -- cachdern tree
     AddTree(1804,542, 544,  56,15,0.4); -- naldor tree
     AddTree(1809,584, 544,  56,24,0.4); -- eldan oak
-    AddTree(1817,585,   3,   0,19,0.4); -- scandrel pine
+    AddTree(1817,585,   3,   0,19,-1); -- scandrel pine
 end
 
 function AddTree(TreeId, TrunkId, LogId, BoughId, Amount, BoughProbability)
