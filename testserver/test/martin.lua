@@ -62,7 +62,7 @@ function receiveGems(gemRecipient)
 		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
 			gemRecipient:setQuestProgress(124,timeStmp);
 			gemRecipient:inform("Paying NOW! "..base.townTreasure.GetPaymentAmount(town));
-			PayOutWage(Recipient,town)
+			PayOutWage(gemRecipient,town)
 		end
 	else
 		gemRecipient:setQuestProgress(124,timeStmp);
