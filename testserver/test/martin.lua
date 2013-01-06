@@ -44,7 +44,7 @@ function receiveGems(gemRecipient)
 		gemRecipient:inform("ts="..timeStmp.." lastSwitch="..lastSwitch.." lastGem="..lastGem)
 		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
 			gemRecipient:setQuestProgress(124,timeStmp);
-			gemRecipient:inform("Paying NOW! ")
+			gemRecipient:inform("Paying NOW! "..base.townTreasure.GetTownTreasure(town));
 			--payNow(gemRecipient)
 		end
 	else
