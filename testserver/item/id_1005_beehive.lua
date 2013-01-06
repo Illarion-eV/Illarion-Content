@@ -86,15 +86,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			SourceItem:setData("amount", "" .. amount);
 			changeItem = true;
 		end
-	elseif ( amount == 0 ) then
-		-- this is a farming item, it can't regrow
-		base.common.HighInformNLS( User, 
-		"Hier kannst du nichts ernten.", 
-		"There is nothing you can harvest." );
-		if ( changeItem ) then
-			world:changeItem(SourceItem);
-		end
-		return;
 	end
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
