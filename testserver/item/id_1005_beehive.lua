@@ -84,6 +84,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			end
 			return;
 		else
+			User:inform("amount check here: "..amount)
 			SourceItem:setData("amount", "" .. amount);
 			changeItem = true;
 		end
