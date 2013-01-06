@@ -16,16 +16,26 @@ function GetTownTreasure(town)
 	
 end
 
+-- get the amount of taxes collected to determine the amount of gems to pay out
+-- @town Town which treasure we want to get as a string: "Cadomyr"|"Runewick"|"Galmair"
+function GetPaymentAmount(town)
+    
+    local foundTreasure, currentTreasure = ScriptVars:find("OldTreasure"..town)
+	if not foundTreasure then
+		currentTreasure = 0
+	end
+	return currentTreasure
+	
+end
+
 -- change treasure of a town
 -- @town Town which treasure we want to change
 -- @amount Amount of money. Positive number = increase treasure; negative number = decrease treasure
 function ChangeTownTreasure(town,amount)
-
    local currentTreasure = GetTownTreasure(town)
    local newTreasure = currentTreasure + amount
    ScriptVars:set("Treasure"..town, newTreasure)
    ScriptVars:save()
-    
 end
 
 -- New month starts:
