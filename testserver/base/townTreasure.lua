@@ -31,8 +31,10 @@ end
 function GetTaxpayerNumber(town)
 	local foundPayers, currentNoPayer = ScriptVars:find("OldPayers"..town)
 	if not foundPayers then
+	debug("TAXPAYERS RETURN 0")
 		currentNoPayer = 0
 	end
+	debug("TAXPAERS RETURN "..currentNoPayer);
 	return currentNoPayer
 end
 
