@@ -101,8 +101,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if honeygathering:FindRandomItem(User) then
 		return
 	end
-	
-	amount = amount - 1;
+	User:inform("info amount 1:"..amount)
+	amount = amount - 1; User:inform("info amount 2:"..amount)
 	-- update the amount
 	SourceItem:setData("amount", "" .. amount);
 	changeItem = true;
@@ -156,5 +156,5 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if ( changeItem ) then
 		world:changeItem(SourceItem);
 	end
-	User:inform(""..amount)
+	User:inform("info amount 3:"..amount)
 end
