@@ -8,7 +8,7 @@ function InitDrinks()
     if ( drinkList == nil) then
         -- item ID,  food value,  leftover item, alcohol strength
         drinkList={};
-        drinkList[2502] = {  800,  164,   0}; -- bottle with sheep milk
+        drinkList[2502] = {  800, 2498,   0}; -- bottle with sheep milk
         drinkList[1841] = {  100, 1840,   0}; -- goblet with water
         drinkList[1842] = {  800, 1840,  15}; -- goblet with wine
         drinkList[1843] = { 1000, 1840,  10}; -- goblet with mead
