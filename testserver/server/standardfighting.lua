@@ -935,6 +935,7 @@ end;
 function LearnDodge(Attacker, Defender, AP)
 debug("          NOW LEARNING dodge: "..Character.dodge..", "..(AP/2)..", "..(Attacker.skill + 10));
     -- Divide AP by three, since you can learn three skills with one AP reduction while fighting
+    Defender.Char:inform("learning AP in dodge of " ... AP/2);
     Defender.Char:learn(Character.dodge, AP/2, Attacker.skill + 10)
 debug("          DONE LEARNING");   
 	--OLD. Tactics is redundant. No more attackers learning when attacking
@@ -953,6 +954,7 @@ end;
 -- @param Defender The table containing the defender data
 function LearnSuccess(Attacker, Defender, AP)
 debug("          NOW LEARNING att: "..Attacker.Skillname..", "..(AP/2)..", "..(math.max(Defender.dodge, Defender.parry) + 10));
+  Attacker.Char:inform("learning AP in attackskill of " ... AP/2);
     Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.dodge, Defender.parry) + 10)
 debug("          DONE LEARNING");    
 	--OLD
@@ -976,7 +978,7 @@ end;
 function LearnParry(Attacker, Defender, AP)
 debug("          NOW LEARNING parry: "..Character.parry..", "..(AP/2)..", "..(Attacker.skill + 10));
     --Defender.Char:inform("Learn limit is 10 above" .. Attacker.skill);
-    
+    Defender.Char:inform("learning AP in parry of " ... AP/2);
     Defender.Char:learn(Character.parry, AP/2, Attacker.skill + 10)
 debug("          DONE LEARNING");   	
 	--OLD - No more tactics, no more learning attacking
