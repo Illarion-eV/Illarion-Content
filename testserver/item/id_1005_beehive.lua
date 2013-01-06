@@ -132,6 +132,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	if ( changeItem ) then
+		User:inform("changce item")
 		world:changeItem(SourceItem);
 	end
 	
@@ -154,9 +155,4 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			"This plant is already fully harvested. Give it time to grow again." );
 		end
 	end
-	
-	if ( changeItem ) then
-		world:changeItem(SourceItem);
-	end
-	User:inform("info amount 3:"..amount)
 end
