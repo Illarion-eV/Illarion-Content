@@ -278,18 +278,18 @@ product:addIngredient(50, 4*2) -- Thread: 4x2
 
 --Black Shirt
 product = tailoring:addProduct(catId, 182, 19, 39, 60, 120)
-product:addIngredient(182, 3) -- Black Cloth: 3x1
+product:addIngredient(175, 3) -- Black Cloth: 3x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
 
 --Black Doublet
 product = tailoring:addProduct(catId, 812, 22, 42, 70, 140)
-product:addIngredient(182, 3) -- Black Cloth: 3x1
+product:addIngredient(175, 3) -- Black Cloth: 3x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
 product:addIngredient(2550) -- Copper Ingot: 1x1
 
 --Black Tunic
 product = tailoring:addProduct(catId, 819, 25, 45, 77, 154)
-product:addIngredient(182, 4) -- Black Cloth: 4x1
+product:addIngredient(175, 4) -- Black Cloth: 4x1
 product:addIngredient(50, 3*2) -- Thread: 3x2
 
 --Red Shirt
