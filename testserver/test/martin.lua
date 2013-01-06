@@ -71,6 +71,7 @@ function receiveGems(gemRecipient)
 end
 
 function PayOutWage(Recipient,town)
+debug("GOING TO GTPN "..town)
 	totalTaxes=base.townTreasure.GetPaymentAmount(town)
 	Recipient:inform("now calling gettaxpayernuber:");
 	totalPayers=base.townTreasure.GetTaxpayerNumber(town)
