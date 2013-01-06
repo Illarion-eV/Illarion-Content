@@ -139,26 +139,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	-- since we're here, everything should be alright
-	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], 100);
-	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
-	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-		world:createItemFromId( harvestProduct.productId, notCreated, User.pos, true, 333, nil );
-		base.common.HighInformNLS(User,
-		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
-		"You can't carry any more and the rest drops to the ground.");
-	else -- character can still carry something
-    local nextItem = GetHarvestItem(User);
-		if ( amount > 0 or (nextItem~=nil and HarvestItems[nextItem.id].isFarmingItem == harvestProduct.isFarmingItem)) then  -- there are still items we can work on
-			theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
-			User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
-		elseif ( not harvestProduct.isFarmingItem ) then -- no items left
-			-- only inform for non farming items. Farming items with amount==0 should already be erased.
-			base.common.HighInformNLS(User,
-			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
-			"This plant is already fully harvested. Give it time to grow again." );
-		end
-	end
-
 	User:learn( honeygathering.LeadSkill, honeygathering.SavedWorkTime[User.id], 100);
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 2529, amount, 333, nil ); -- create the new produced items
@@ -168,7 +148,15 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-		honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
-		User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
+    local nextItem = GetHarvestItem(User);
+		if amount > 0 then  -- there are still items we can work on
+			honeygathering.SavedWorkTime[User.id] = honeygathering:GenWorkTime(User,nil);
+			User:startAction( honeygathering.SavedWorkTime[User.id], 0, 0, 0, 0);
+		else -- no items left
+			-- only inform for non farming items. Farming items with amount==0 should already be erased.
+			base.common.HighInformNLS(User,
+			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
+			"This plant is already fully harvested. Give it time to grow again." );
+		end
 	end
 end
