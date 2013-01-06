@@ -158,4 +158,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			"This plant is already fully harvested. Give it time to grow again." );
 		end
 	end
+	
+	if ( changeItem ) then
+		world:changeItem(SourceItem);
+	end
 end
