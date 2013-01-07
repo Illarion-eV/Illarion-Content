@@ -339,3 +339,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end	
 	
 end
+
+function LookAtItem(User, Item)
+    local lookAt = ItemLookAt()
+	local town = getTown(SourceItem)
+	if town then
+		lookAt.description = function GetNLS(User, "Alchemierezepte", "Alchemy recipes")
+	end	
+	world:itemInform(User, Item, lookAt)
+    return true    
+end
