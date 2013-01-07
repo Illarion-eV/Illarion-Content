@@ -92,6 +92,21 @@ Recipient:inform("RankedWage= "..RankedWage);
 				maxGemLevel=math.floor(RankedWage^(1/3))
 				gemLevel=math.random(1,maxGemLevel)
 				Recipient:inform("You would now get the following gem: type "..randomGem.." level "..maxGemLevel);
+				-- ID: item.gems.getMagicGemId(gem, level)
+				-- data: item.gems.getMagicGemData(level) (1-10)
+				-- gems:  item.gems.DIAMOND, EMERALD, RUBY, OBSIDIAN, SAPPHIRE, AMETHYST, TOPAZ
+				
+				--Runewick: Emerald and Ruby
+				--Cadomyr: Topaz and Amethyst
+				--Galmair: Bluestond and Blackstone
+
+				local notCreated = User:createItem( productId, amount, 333, nil ); -- create the new produced items
+				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+					world:createItemFromId( productId, notCreated, User.pos, true, 333, nil );
+					base.common.HighInformNLS(User,
+						"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+						"You can't carry any more and the rest drops to the ground.");
+				end
 				RankedWage=RankedWage-gemLevel^3;
 			end
 		end
