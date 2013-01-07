@@ -13,7 +13,7 @@ killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
 msgs = base.messages.Messages();
-msgs:addMessage("#me growls.", "#me knurrt.");
+msgs:addMessage("#me knurrt.", "#me growls.");
 end
 
 function enemyNear(Monster,Enemy)
