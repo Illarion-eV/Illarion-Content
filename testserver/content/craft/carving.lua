@@ -88,12 +88,12 @@ product:addIngredient(2543) -- Conifer Wooden Boards: 1x1
 product = carving:addProduct(catId, 2544, 18, 38, 9, 18)
 product:addIngredient(56) -- Bough: 1x1
 
-catId = carving:addCategory("weapon handles", "Waffengriffe") -- weapon handles
-
 --Long Staff Handle
 product = carving:addProduct(catId, 2573, 10, 50, 14, 28)
 product:addIngredient(56) -- Bough: 1x1
 product:addIngredient(2543) -- Conifer Wooden Boards: 1x1
+
+catId = carving:addCategory("weapon handles", "Waffengriffe") -- weapon handles
 
 --Axe Handle
 product = carving:addProduct(catId, 2525, 23, 63, 11, 22)
