@@ -607,7 +607,7 @@ product:addIngredient(2535) -- Iron Ingot: 1x1
 product:addIngredient(2530) -- Dagger Handle: 1x1
 product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236, 2) -- Gold Ingot: 2x1
-product:addIngredient(2751) -- Merinium: 1x1
+product:addIngredient(2571) -- Merinium: 1x1
 
 --Red Fire Dagger
 product = smithing:addProduct(catId, 2742, 97, 117, 203, 406)
@@ -623,7 +623,7 @@ product:addIngredient(2535) -- Iron Ingot: 1x1
 product:addIngredient(2530) -- Dagger Handle: 1x1
 product:addIngredient(2550, 3) -- Copper Ingot: 3x1
 product:addIngredient(236, 3) -- Gold Ingot: 3x1
-product:addIngredient(2751) -- Merinium: 1x1
+product:addIngredient(2571) -- Merinium: 1x1
 
 catId = smithing:addCategory("two-hand weapons", "Zweihandwaffen")
 
@@ -689,7 +689,7 @@ product:addIngredient(2535, 5) -- Iron Ingot: 5x1
 product:addIngredient(2525) -- AxeHandle: 1x1
 product:addIngredient(2550, 3) -- Copper Ingot: 3x1
 product:addIngredient(236, 3) -- Gold Ingot: 3x1
-product:addIngredient(2751) -- Merinium: 1x1
+product:addIngredient(2571) -- Merinium: 1x1
 
 catId = smithing:addCategory("throwing weapons", "Wurfwaffen")
 

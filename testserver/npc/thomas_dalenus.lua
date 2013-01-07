@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -36,8 +36,8 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("Robes, dresses, capes, shirts, trousers... what do you need, I have everything.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Robes, dresses, capes, shirts, trousers... what do you need, I have everything.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -48,8 +48,8 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("ver‰uﬂer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addResponse("Roben, Kleider, Umh‰nge, Hemden, Hosen,... was braucht ihr, ich habe alles.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Roben, Kleider, Umh‰nge, Hemden, Hosen,... was braucht ihr, ich habe alles.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -235,8 +235,8 @@ talkEntry:addTrigger("Mirarie");
 talkEntry:addTrigger("Bragolin");
 talkEntry:addTrigger("letter");
 talkEntry:addTrigger("message");
-talkEntry:addResponse("I'm sorry, I don't have time. I still needed to finish that dress. Please tell Lady Bragolin that I'll notify her soon.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 4));
+talkEntry:addResponse("I'm sorry, I don't have time. I still needed to finish that dress. Please tell Lady Bragolin that I'll notify her soon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -246,8 +246,8 @@ talkEntry:addTrigger("Mirarie");
 talkEntry:addTrigger("Bragolin");
 talkEntry:addTrigger("Brief");
 talkEntry:addTrigger("Nachricht");
-talkEntry:addResponse("Tut mei leid. Ich habe grade keine Zeit, ich muss noch ein Kleid fertig n‰hen. Sagst doch bitte Fr‰ulein Bragolin, dass ich mich bei ihr melden werde.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 4));
+talkEntry:addResponse("Tut mei leid. Ich habe grade keine Zeit, ich muss noch ein Kleid fertig n‰hen. Sagst doch bitte Fr‰ulein Bragolin, dass ich mich bei ihr melden werde.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,7 +321,9 @@ talkEntry:addTrigger("merchant");
 talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
-talkEntry:addResponse("The amount of goods, traded on this marketplace, is magnificient. We're not traders by heart, but everyone needs something sometimes.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("The amount of goods,d on this marketplace, is magnificient. We're notrs by heart, but everyone needs something sometimes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -437,7 +439,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("I am honest, I do not like Galmair. I prefer to trade with honourable men.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I am honest, I do not like Galmair. I prefer towith honourable men.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -504,7 +507,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("I will never trade with anyone from Gynk. They never fulfill a contract.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I will neverwith anyone from Gynk. They never fulfill a contract.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -571,7 +575,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Never trade with Galmair. Just saying.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Neverwith Galmair. Just saying.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -743,7 +748,6 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(170,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(48,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(53,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(89,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(97,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(356,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(362,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(363,"sell"));
@@ -872,7 +876,6 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(170,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(48,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(53,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(89,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(97,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(356,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(362,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(363,"buySecondary"));
