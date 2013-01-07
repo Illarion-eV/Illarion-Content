@@ -77,7 +77,8 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		if SourceItem.number <= 0 then
             return
         else
-		    User:startAction( 20, 21, 5, 10, 25);
+		    User:changeSource(SourceItem)
+			User:startAction( 20, 21, 5, 10, 25);
 		end	
 	end
 end
