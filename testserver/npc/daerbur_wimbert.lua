@@ -27,6 +27,7 @@ require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
 require("npc.base.consequence.skill")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.daerbur_wimbert", package.seeall)
 
@@ -163,9 +164,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("Good and bad at once I feel. Sometimes, I feel a bit more bad than good, sometimes vice versa.");
+talkEntry:addResponse("I feel good and bad, all at once. Sometimes, I feel a bit more bad than good, sometimes vice versa.");
 talkEntry:addResponse("I feel just like you, maybe a bit more sad or lucky, who knows.");
-talkEntry:addResponse("Wie fühlst du dich denn so? Ach, warum haben Leute kein Gefühlssinn, dann würde das dusselige Fragen entfallen.");
+talkEntry:addResponse("How do you feel? Alas, why don't we all have a sense for feelings, then all these stupid questions would be unnecessary.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -175,7 +176,7 @@ talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addResponse("Gut und schlecht gleichzeitig, so fühl ich mich. Manchmal ein bisschen mehr schlecht als gut, manchmal genau anders herum.");
 talkEntry:addResponse("Ich fühl mich genauso wie du, vielleicht ein wenig schlechter oder besser, wer weiß das schon.");
-talkEntry:addResponse("How do you feel? Alas, why don't we all have a sense for feelings, then, all these stupid questions would be unnecessary.");
+talkEntry:addResponse("Wie fühlst du dich denn so? Ach, warum haben Leute kein Gefühlssinn, dann würde das dusselige Fragen entfallen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -209,8 +210,8 @@ talkEntry:addTrigger("letter");
 talkEntry:addTrigger("scroll");
 talkEntry:addTrigger("parchment");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail IV: You deliver the message from Hector Valerion to Daerbur Wimbert."));
-talkEntry:addResponse("#me turns the scroll around twice: 'Gems, she wants, the queen. That makes them queengems for the gemqueen! That makes me the queengemdeliverer, jidah!'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 10));
+talkEntry:addResponse("#me turns the scroll around twice: 'Gems, she wants, the Queen. That makes them Queen gems for the gem Queen! That makes me the Queen gem deliverer, jidah!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -222,8 +223,8 @@ talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Schriftrolle");
 talkEntry:addTrigger("Pergament");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post IV: Du überbringst Daerbur Wimbert die Nachricht von Hector Valerion."));
-talkEntry:addResponse("#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsetinlieferant, jidah!'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 10));
+talkEntry:addResponse("#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsetinlieferant, jidah!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -233,8 +234,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hector");
 talkEntry:addTrigger("Valerion");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest status] Delayed Mail IV: You deliver the message from Hector Valerion to Daerbur Wimbert."));
-talkEntry:addResponse("#me turns the scroll around twice: 'Gems, she wants, the queen. That makes them queengems for the gemqueen! That makes me the queengemdeliverer, jida!'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 10));
+talkEntry:addResponse("#me turns the scroll around twice: 'Gems, she wants, the Queen. That makes them Queen gems for the gem Queen! That makes me the Queen gem deliverer, jida!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -243,8 +244,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 9));
 talkEntry:addTrigger("Hector");
 talkEntry:addTrigger("Valerion");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post IV: Du überbringst Daerbur Wimbert die Nachricht von Hector Valerion."));
-talkEntry:addResponse("#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsetinlieferant, jidah!'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 10));
+talkEntry:addResponse("#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsetinlieferant, jidah!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -254,9 +255,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine I"));
-talkEntry:addResponse("Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 1));
+talkEntry:addResponse("For some reason, all rocks have decided to lay down on top of the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -265,9 +266,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine I"));
-talkEntry:addResponse("Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 1));
+talkEntry:addResponse("Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -277,9 +278,9 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine I"));
-talkEntry:addResponse("Somehow, all rocks have decided to lay down on the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 1));
+talkEntry:addResponse("For some reason, all rocks have decided to lay down on top of the gems. Can you collect ten stone blocks with this pick so I can reach the gems underneath?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -291,9 +292,9 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine I"));
-talkEntry:addResponse("Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 1));
+talkEntry:addResponse("Aus irgendeinem Grund haben die Felsen beschlossen, sich auf die Edelsteine zu legen. Kannst du zehn Steinblöcke mit dieser Spitzhacke sammeln, damit ich an die Edelsteine darunter komme?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -345,12 +346,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addResponse("Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Perfect. Why have rocks not legs so we could stop carrying them? Here is your reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -361,11 +362,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addResponse("Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Perfect. Why have rocks not legs so we could stop carrying them? Here is your reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -375,13 +376,13 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addResponse("Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -390,12 +391,12 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addResponse("Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünf Silberstücke. Dein Ansehen bei Don Valerio Guilianni steigt."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -406,11 +407,11 @@ talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins and your mining skill increases."));
-talkEntry:addResponse("Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 2));
+talkEntry:addResponse("Perfect. Why have rocks not legs so we could stop carrying them? Here is your reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -420,10 +421,10 @@ talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins."));
-talkEntry:addResponse("Perfect. Why have rocks no legs so we could stop carrying them? Here is your reward.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 2));
+talkEntry:addResponse("Perfect. Why have rocks not legs so we could stop carrying them? Here is your reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -432,12 +433,12 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.mining, "<", 90)
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke und deine Bergbaufertigkeit steigt."));
-talkEntry:addResponse("Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Bergbaufertigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 2));
+talkEntry:addResponse("Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -445,11 +446,11 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(733, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 50 Kupferstücke."));
-talkEntry:addResponse("Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünf Silberstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(733, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 2));
+talkEntry:addResponse("Perfekt. Warum wachsen den Steinen eigentlich keine Beine, dann könnten wir uns das Geschleppe sparen. Hier ist deine Belohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -459,8 +460,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine II"));
-talkEntry:addResponse("There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 3));
+talkEntry:addResponse("There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -469,8 +470,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine II"));
-talkEntry:addResponse("Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 3));
+talkEntry:addResponse("Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -480,8 +481,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine II"));
-talkEntry:addResponse("There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 3));
+talkEntry:addResponse("There is so much coal on top of the gems. Can you dig away twenty lumps of coal and bring them to me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,8 +493,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine II"));
-talkEntry:addResponse("Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 3));
+talkEntry:addResponse("Es liegt eindeutig zu viel Kohle über den Edelsteinen. Schippst du bitte zwanzig Klumpen weg und bringst sie mir?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -545,12 +546,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addResponse("How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -561,11 +562,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addResponse("How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -575,13 +576,13 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addResponse("Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -590,12 +591,12 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addResponse("Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke. Dein Ansehen bei Don Valerio Guilianni steigt."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -606,11 +607,11 @@ talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your mining skill increases."));
-talkEntry:addResponse("How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 4));
+talkEntry:addResponse("How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -620,10 +621,10 @@ talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins."));
-talkEntry:addResponse("How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 4));
+talkEntry:addResponse("How marvelous! Away is the coal, now we can get things done. Here, your reward, don't spend it all at once.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -632,12 +633,12 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.mining, "<", 90)
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt."));
-talkEntry:addResponse("Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Bergbaufertigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 4));
+talkEntry:addResponse("Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -645,11 +646,11 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
-talkEntry:addResponse("Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 4));
+talkEntry:addResponse("Wie wundervoll! Weg ist die Kohle, nun geht's ans Eingemachte. Hier, dein Lohn, gib es nicht alles auf einmal aus.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -659,8 +660,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine III"));
-talkEntry:addResponse("Hey-ho! Now we can dig for gems. Gather five raw obsidians for me and I will reward you generously.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 5));
+talkEntry:addResponse("Hey-ho! Now we can dig for gems. Gather five raw obsidian gems for me and I will reward you generously.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -669,8 +670,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 4));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine III"));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 5));
 talkEntry:addResponse("Hey-ho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Obsidiane und ich belohne dich großzügig.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 5));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -680,8 +681,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine III"));
-talkEntry:addResponse("Heydiho! Now we can dig for gems. Gather five raw obsidians for me and I will reward you generously.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 5));
+talkEntry:addResponse("Heydiho! Now we can dig for gems. Gather five raw obsidian gems for me and I will reward you generously.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -692,8 +693,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine III"));
-talkEntry:addResponse("Heydiho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Obsidiane und ich belohne dich großzügig");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 5));
+talkEntry:addResponse("Heydiho! Jetzt können wir nach Edelsteinen graben. Bring mir fünf ungeschliffene Obsidiane und ich belohne dich großzügig");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -703,7 +704,7 @@ talkEntry:addCondition(npc.base.condition.item.item(252, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Bring me five raw obsidians and you get money. I'm so excited!");
+talkEntry:addResponse("Bring me five raw obsidian gems and you get money. I'm so excited!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -722,7 +723,7 @@ talkEntry:addCondition(npc.base.condition.item.item(252, "all", "<", 5, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Bring me five raw obsidians and you get money. I'm so excited!");
+talkEntry:addResponse("Bring me five raw obsidian gems and you get money. I'm so excited!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -745,12 +746,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addResponse("Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -761,11 +762,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addResponse("Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -775,13 +776,13 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addResponse("Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -790,12 +791,12 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addResponse("Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke. Dein Ansehen bei Don Valerio Guilianni steigt."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -806,11 +807,11 @@ talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your mining skill increases."));
-talkEntry:addResponse("Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 6));
+talkEntry:addResponse("Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -820,10 +821,10 @@ talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins."));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 6));
 talkEntry:addResponse("Thank you for the gems. You wonder what I want to do with them? I hide them in another cave!");
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 6));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -832,12 +833,12 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.mining, "<", 90)
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke und deine Bergbaufertigkeit steigt."));
-talkEntry:addResponse("Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Bergbaufertigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 6));
+talkEntry:addResponse("Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -845,11 +846,11 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(252, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 100 Kupferstücke."));
-talkEntry:addResponse("Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(252, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 6));
+talkEntry:addResponse("Danke für die Edelsteine. Du fragst dich, was ich mit ihnen mache? Ich verstecke sie in einer anderen Höhle!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -859,8 +860,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine IV"));
-talkEntry:addResponse("Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 7));
+talkEntry:addResponse("Watch out! The ceiling is unstable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -869,8 +870,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 6));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine IV"));
-talkEntry:addResponse("Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 7));
+talkEntry:addResponse("Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -880,8 +881,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dark Hole Mine IV"));
-talkEntry:addResponse("Watch out! The ceiling is instable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 7));
+talkEntry:addResponse("Watch out! The ceiling is unstable, run and bring me ten logs of conifer wood to support the ceiling. You get the best wood from Elstree forest.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -892,8 +893,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Dunkellochmine IV"));
-talkEntry:addResponse("Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 7));
+talkEntry:addResponse("Vorsicht! Die Höhlendecke ist einsturzgefährdet, lauf und bring mir zehn Nadelholzstämme um die Decke abzustützen. Das beste Holz bekommst du im Elsbaumwald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -944,13 +945,13 @@ talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded twenty silver coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addResponse("Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins and your mining skill increases. You advance in Don Valerio Guilianni's favour."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Oh, fine wood... Not only will the sky not fall on my head down here, but now the ceiling won't either.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -960,12 +961,12 @@ talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded twenty silver coins. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addResponse("Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins. You advance in Don Valerio Guilianni's favour."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Oh, fine wood... Not only will the sky not fall on my head down here, but now the ceiling won't either.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -975,13 +976,13 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addResponse("Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke und deine Bergbaufertigkeit steigt. Dein Ansehen bei Don Valerio Guilianni steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -990,12 +991,12 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addResponse("Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke. Dein Ansehen bei Don Valerio Guilianni steigt."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1005,12 +1006,12 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded twenty silver coins and your mining skill increases."));
-talkEntry:addResponse("Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins and your mining skill increases."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 8));
+talkEntry:addResponse("Oh, fine wood... Not only will the sky not fall on my head down here, but now the ceiling won't either.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1019,11 +1020,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded twenty coins."));
-talkEntry:addResponse("Oh, fine, wood. Not only won't the sky fall on my head down here, but also the ceiling won't.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 8));
+talkEntry:addResponse("Oh, fine wood... Not only will the sky not fall on my head down here, but now the ceiling won't either.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1032,12 +1033,12 @@ talkEntry:addCondition(npc.base.condition.skill.skill(Character.mining, "<", 90)
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke und deine Bergbaufertigkeit steigt."));
-talkEntry:addResponse("Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke und deine Bergbaufertigkeit steigt."));
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.mining, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 8));
+talkEntry:addResponse("Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1045,11 +1046,11 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 200 Kupferstücke."));
-talkEntry:addResponse("Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 8));
+talkEntry:addResponse("Oh, gut, Holz! Fällt mir hier unten nicht nur nicht der Himmel, sondern auch nicht die Decke auf den Kopf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1058,7 +1059,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I thank you for all you did, you made the world a better place. Or you changed nothing, but got money.");
+talkEntry:addResponse("I thank you for all you did, you made the world a better place... Or you changed nothing, but got money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1075,7 +1076,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 8));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I thank you for all you did, you made the world a better place. Or you changed nothing, but got money.");
+talkEntry:addResponse("I thank you for all you did, you made the world a better place... Or you changed nothing, but got money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1118,7 +1119,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Islands are none of business.");
+talkEntry:addResponse("Islands are none of my business.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1143,7 +1144,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("miner");
-talkEntry:addResponse("I dig for gems, metals, and holes.");
+talkEntry:addResponse("I dig for precious stones, metals, and holes.");
 talkEntry:addResponse("Once, I dug a hole and some stinky, black fluid squirted out. Bah!");
 talkEntry:addResponse("If you find any gems, well, do not pick them up or nobody else can find them anymore.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1161,7 +1162,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("dark hole");
 talkEntry:addResponse("It is not dark down here, you just need a torch.");
-talkEntry:addResponse("A nice mine, isn't it? All mine in this mine, hehe.");
+talkEntry:addResponse("A nice mine, isn't it? All is mine in this mine, hehe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1176,7 +1177,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("mine");
 talkEntry:addResponse("It is not dark down here, you just need a torch.");
-talkEntry:addResponse("A nice mine, isn't it? All mine in this mine, hehe.");
+talkEntry:addResponse("A nice mine, isn't it? All is mine in this mine, hehe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1217,7 +1218,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick, that makes me sick!");
+talkEntry:addResponse("Runewick, that place makes me sick!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1232,7 +1233,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("I think I owe the Don something. Was it the content of a hole?");
+talkEntry:addResponse("I think I owe the Don something... Was it the content of a hole?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1259,7 +1260,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Do not tell me you were sent to fetch gems for the queen. Not again!");
+talkEntry:addResponse("Do not tell me you were sent to fetch gems for the Queen? Not again!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1273,7 +1274,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Do not tell me you were sent to fetch gems for the queen. Not again!");
+talkEntry:addResponse("Do not tell me you were sent to fetch gems for the Queen? Not again!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1300,7 +1301,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("I wish I could dig a hole to throw in the whole albarian kingdom.");
+talkEntry:addResponse("I wish I could dig a hole to throw in the whole Albarian kingdom.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1314,7 +1315,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("Immigrants from Gynk you can easily recognize by the size of their purse before and after they go to a dark alley. It is bigger afterwards.");
+talkEntry:addResponse("Immigrants from Gynk, you can easily recognize them by the size of their purse before and after they go to a dark alley. It is always bigger afterwards.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1354,7 +1355,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("I have a beard and a pick axe and I dig for gems. Guess what I think about Irmorom!");
+talkEntry:addResponse("I have a beard and a pick axe and I dig for gems. Guess what I think about Irmorom?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1410,7 +1411,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("pick");
-talkEntry:addResponse("Need a pick, it has a nick. In Galmair, you get a new one.");
+talkEntry:addResponse("Need a pick, it has a nick? In Galmair, you get a new one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1425,8 +1426,9 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I sell nothing to you, you sell nothing to me. Everyone keeps his property, fine.");
-talkEntry:addResponse("You have enough, I have enough, so why trade?");
+talkEntry:addResponse("You have enough, I have enough, so why?");
 talkEntry:addResponse("Bartering is so stupid, don't we all want to betray each other?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1512,7 +1514,7 @@ talkEntry:addTrigger("nutty");
 talkEntry:addTrigger("strange");
 talkEntry:addTrigger("wierd");
 talkEntry:addTrigger("loony");
-talkEntry:addResponse("I am what I am. And what are you, something else?");
+talkEntry:addResponse("I am what I am... and what are you, something else?");
 talkEntry:addResponse("That's all a matter of perspective.");
 talkEntry:addResponse("Points of view!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1534,7 +1536,7 @@ talkEntry:addTrigger("LOL");
 talkEntry:addResponse("#me laughes out loud.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Ich frag mich, was wir sagen würden, wenn der Boden dauernd auf uns rumtrampeln würde. Er ist ziemlich ruhig...", "I wonder what we would say if the ground would stomp on us. It is quite silent...");
+talkingNPC:addCycleText("Ich frag mich, was wir sagen würden, wenn der Boden dauernd auf uns rumtrampeln würde. Er ist ziemlich ruhig...", "I wonder what we would say if the ground stomped on us. It is quite silent...");
 talkingNPC:addCycleText("Ist Dunkelheit das Fehlen von Licht oder Licht das Fehlen von Dunkeltheit?", "Is darkness the lack of light or light the lack of darkness?");
 talkingNPC:addCycleText("#me hält einen funkelnden Edelstein vor seine zugekniffenen Augen und nickt langsam.", "#me holds a gem in front of his eyes and nods slowly.");
 talkingNPC:addCycleText("Vorsicht vor den Steinen.", "Beware of rocks.");
