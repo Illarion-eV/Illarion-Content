@@ -13,7 +13,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
         User:increaseSkill(Character.farming,100)
     end
 	if (User.lastSpokenText == "carpentry") then
-        User:increaseSkill(Character.Character.carpentry,100)
+        User:increaseSkill(Character.carpentry,100)
     end
 	local a,b,lockId = string.find(User.lastSpokenText,"lockId (%d+)")
     if a ~= nil then
