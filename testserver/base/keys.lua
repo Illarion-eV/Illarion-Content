@@ -37,7 +37,7 @@ end;
 ]]
 function UnlockDoor(Door)
     if base.doors.CheckClosedDoor(Door.id) then
-        if (Door:getData("doorLock") == "locked" or Door:getData("lockId")~="" then
+        if (Door:getData("doorLock") == "locked" or Door:getData("lockId")~="") then
 			Door:setData("doorLock","unlocked")
 			world:changeItem(Door);
             world:makeSound(20, Door.pos);
