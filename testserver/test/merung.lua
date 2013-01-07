@@ -12,5 +12,10 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 	if (User.lastSpokenText == "farming") then
         User:increaseSkill(Character.farming,100)
     end
-	
+	local a,b,lockId = string.find(User.lastSpokenText,"lockId (%d+)")
+    if a ~= nil then
+	    local myItem=base.common.GetFrontItem(User)
+		myItem:setData("lockId",lockId)
+		world:changeItem(myItem)
+	end	
 end
