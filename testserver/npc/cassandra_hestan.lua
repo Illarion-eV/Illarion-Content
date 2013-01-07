@@ -47,7 +47,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("Greetings. You came to me to change money, am I not right?");
+talkEntry:addResponse("Greetings. You came to me to change money, am I right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -72,7 +72,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Greetings. You came to me to change money, am I not right?");
+talkEntry:addResponse("Greetings. You came to me to change money, am I right?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -161,7 +161,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I am just a humble servant of her majesty. I do not have orders for you.");
+talkEntry:addResponse("I am just a humble servant of her Majesty. I do not have orders for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -176,7 +176,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I am just a humble servant of her majesty. I do not have orders for you.");
+talkEntry:addResponse("I am just a humble servant of her Majesty. I do not have orders for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -228,7 +228,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("copper");
-talkEntry:addResponse("One hundred copper coins equal a silver coin.");
+talkEntry:addResponse("One hundred copper coins equal one silver coin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -270,8 +270,8 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("I just change money. I do not offer any other services.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I just change money. I do not offer any other services.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -282,8 +282,8 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
-talkEntry:addResponse("Ich wechsle einfach nur Geld. Ich biete keine anderen Dienste an.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Ich wechsle einfach nur Geld. Ich biete keine anderen Dienste an.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -330,7 +330,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr is my home and I love it. Whether Cadomyr loves me or not - I do not know.");
+talkEntry:addResponse("Cadomyr is my home and I love it. Whether Cadomyr loves me or not... I do not know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -355,10 +355,10 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Psst! Wollt ihr etwas Geld wechseln?", "Shh! Want to change some money?");
 talkingNPC:addCycleText("Hast mal 'nen Silberling?", "Got some change?");
-talkingNPC:addCycleText("Wollt ihr mehr Geld? Wechselt eure Goldstücke in Kupferstücke ein!", "Do you want more money? Change your gold coins to copper coins!");
-talkingNPC:addCycleText("Ihr da. Ja, genau ihr. Kommt doch mal näher.", "You there. Yes, you. Come a little closer.");
+talkingNPC:addCycleText("Wollt ihr mehr Geld? Wechselt eure Goldstücke in Kupferstücke ein!", "Do you want more money? Change your gold coins into copper coins!");
+talkingNPC:addCycleText("Ihr da. Ja, genau ihr. Kommt doch mal näher.", "You there. Yes, you... Come a little closer.");
 talkingNPC:addCycleText("#me stellt einen kleinen Becher vor sich auf die Straße.", "#me places a small mug on the street.");
-talkingNPC:addCycleText("#me klimpert mit ein paar Münzen.", "#me rattles the coins.");
+talkingNPC:addCycleText("#me klimpert mit ein paar Münzen.", "#me rattles some coins.");
 talkingNPC:addCycleText("#me betrachtet eine Münze und sagt: 'Königin Rosalines Porträt ist wirklich schmeichelhaft.'.", "#me beholds a coin and says: 'Queen Rosaline's potrait is charming.'.");
 talkingNPC:addCycleText("Geld macht nicht glücklich, aber kein Geld macht unglücklich!", "Money doesn't make you happy, but no money makes you sad!");
 talkingNPC:addCycleText("Ich wechsle Geld!", "I change money!");
