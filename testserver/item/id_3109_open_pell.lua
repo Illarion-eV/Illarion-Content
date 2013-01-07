@@ -344,7 +344,7 @@ function LookAtItem(User, Item)
     local lookAt = ItemLookAt()
 	local town = getTown(SourceItem)
 	if town then
-		lookAt.description = function GetNLS(User, "Alchemierezepte", "Alchemy recipes")
+		lookAt.description = base.common.GetNLS(User, "Alchemierezepte", "Alchemy recipes")
 	end	
 	world:itemInform(User, Item, lookAt)
     return true    
