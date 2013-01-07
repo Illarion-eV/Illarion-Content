@@ -66,7 +66,7 @@ end;
 
 function talkNPC:nextCycle(npcChar, counter)
     if (counter >= self._nextCycleText) then
-	    self._nextCycleText = math.random(1200, 3600); --2 to 6 minutes
+	    self._nextCycleText = math.random(3000, 6000); --5 to 10 minutes
         local german, english = self._cycleText:getRandomMessage();
 		do
 			local textType, text = _get_text_and_talktype(german);
