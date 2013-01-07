@@ -70,8 +70,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		if ( amount == 0 ) then
 			-- not regrown...
 			base.common.HighInformNLS( User, 
-			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
-			"This plant is already fully harvested. Give it time to grow again." );
+			"Dieser Bienenstock ist leer. Gib den Bienen einige Zeit neuen Honig zu machen.", 
+			"This beehive is empty. Give the bees sometime to make new honey." );
 			if ( changeItem ) then
 				world:changeItem(SourceItem);
 			end
@@ -149,8 +149,8 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		else -- no items left
 			-- only inform for non farming items. Farming items with amount==0 should already be erased.
 			base.common.HighInformNLS(User,
-			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
-			"This plant is already fully harvested. Give it time to grow again." );
+			"Dieser Bienenstock ist leer. Gib den Bienen einige Zeit neuen Honig zu machen.", 
+			"This beehive is empty. Give the bees sometime to make new honey." );
 		end
 	end
 end
