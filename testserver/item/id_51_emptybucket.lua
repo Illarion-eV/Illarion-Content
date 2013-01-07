@@ -74,7 +74,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		"Du kannst nichts mehr halten.",
 		"You can't carry any more.");
 	else -- character can still carry something
-		if User:countItem(51) <= 0 then
+		if SourceItem.number <= 0 then
             return
         else
 		    User:startAction( 20, 21, 5, 10, 25);
