@@ -28,5 +28,5 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 		output = output.." and "..content.chardescription.getHPText(User:increaseAttrib("hitpoints",0), lang)..". ";
 		output = output.."Your clothes look "..content.chardescription.getClothesQualText(qual, lang).." and "..content.chardescription.getClothesDuraText(dura, lang)..".";
 	end
-	User:sendCharDescription(User.id, output);
+	User:inform(output);
 end
