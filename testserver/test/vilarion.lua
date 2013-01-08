@@ -36,6 +36,14 @@ function LookAtItem(player, item)
 end
 
 function UseItem(User, SourceItem, TargetItem, counter, Param, ltstate)
+    if (User.lastSpokenText == "server") then
+        if isTestserver() then
+            User:inform("testserver")
+        else
+            User:inform("illarionserver")
+        end
+    end
+    
     if (User.lastSpokenText == "weapon") then
         local found, struct = world:getWeaponStruct(2)
         if found then

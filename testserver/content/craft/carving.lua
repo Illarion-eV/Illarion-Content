@@ -52,7 +52,7 @@ product:addIngredient(2716) -- Apple Wooden Boards: 1x1
 
 --Dyeing Rod
 product = carving:addProduct(catId, 2781, 24, 44, 11, 22)
-product:addIngredient(56) -- Bough: 1x1
+product:addIngredient(56,3) -- Bough: 1x3
 
 --Fishing rod
 product = carving:addProduct(catId, 72, 28, 48, 24, 48)
