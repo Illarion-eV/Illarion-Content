@@ -469,7 +469,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   
   local productId = GetResource(areaId, rock.id);
 
-  User:learn( mining.LeadSkill, mining.SavedWorkTime[User.id], 100);
+  User:learn( mining.LeadSkill, mining.SavedWorkTime[User.id], 20);
   local amount = 1; -- set the amount of items that are produced
   local notCreated = User:createItem( productId, amount, 333, nil ); -- create the new produced items
   local rockBroken = breakRock(rock);
@@ -490,7 +490,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
   end
 
-  if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+  if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
     base.common.HighInformNLS(User,
     "Deine alte Spitzhacke zerbricht.",
     "Your old pick-axe breaks.");

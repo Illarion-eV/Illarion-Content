@@ -91,7 +91,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( doughproducing.LeadSkill, doughproducing.SavedWorkTime[User.id], 100);
+	User:learn( doughproducing.LeadSkill, doughproducing.SavedWorkTime[User.id], 20);
 	User:eraseItem( 2, 5 ); -- erase the item we're working on
   local theBucket = base.common.GetItemInInventory(User, 52);
   local bucketAmount = 0;
@@ -134,7 +134,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Dein altes Nudelholz zerbricht.",
 		"Your old rolling pin breaks.");

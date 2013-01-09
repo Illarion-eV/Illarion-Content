@@ -89,7 +89,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( weaving.LeadSkill, weaving.SavedWorkTime[User.id], 100);
+	User:learn( weaving.LeadSkill, weaving.SavedWorkTime[User.id], 20);
 	User:eraseItem( 170, 5 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 176, amount, 333, nil ); -- create the new produced items
@@ -109,7 +109,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Schere zerbricht.",
 		"Your old scissor break.");

@@ -80,7 +80,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( graingrinding.LeadSkill, graingrinding.SavedWorkTime[User.id], 100);
+	User:learn( graingrinding.LeadSkill, graingrinding.SavedWorkTime[User.id], 20);
 	User:eraseItem( 259, 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 2, amount, 333, nil ); -- create the new produced items
@@ -100,7 +100,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Holzkelle zerbricht.",
 		"Your old wooden shovel breaks.");

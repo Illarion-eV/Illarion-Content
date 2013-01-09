@@ -118,7 +118,7 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltsta
 		return
 	end
 
-	User:learn( glassingotproducing.LeadSkill, glassingotproducing.SavedWorkTime[User.id], 100);
+	User:learn( glassingotproducing.LeadSkill, glassingotproducing.SavedWorkTime[User.id], 20);
 	User:eraseItem( 316, 1 ); -- erase the item we're working on
   User:eraseItem( 314, 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
@@ -139,7 +139,7 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltsta
 		end
 	end
 
-	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Dein altes Glasblasrohr zerbricht.",
 		"Your old glass blow pipe breaks.");
@@ -212,7 +212,7 @@ function ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, lts
 		return
 	end
 
-	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], 100);
+	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], 20);
 	User:eraseItem( 26, 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 736, amount, 333, nil ); -- create the new produced items
@@ -233,7 +233,7 @@ function ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, lts
 		end
 	end
 
-	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Ziegelform zerbricht.",
 		"Your old brick mould breaks.");
@@ -306,7 +306,7 @@ function ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], 100);
+	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], 20);
 	User:eraseItem( 736, 5 ); -- erase the item we're working on
 	local amount = 5; -- set the amount of items that are produced
 	local notCreated = User:createItem( 2588, amount, 333, nil ); -- create the new produced items
@@ -327,7 +327,7 @@ function ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Ziegelform zerbricht.",
 		"Your old brick mould breaks.");

@@ -217,7 +217,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 	-- since we're here, everything should be alright
-	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], 100);
+	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], 20);
 	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( harvestProduct.productId, notCreated, User.pos, true, 333, nil );
@@ -237,7 +237,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Sichel zerbricht.",
 		"Your old sickle breaks.");

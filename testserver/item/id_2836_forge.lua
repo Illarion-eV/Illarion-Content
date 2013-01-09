@@ -196,7 +196,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		
 	end
 
-	User:learn( oremelting.LeadSkill, oremelting.SavedWorkTime[User.id], 100);
+	User:learn( oremelting.LeadSkill, oremelting.SavedWorkTime[User.id], 20);
 	User:eraseItem( oreItem.ore.id, oreItem.ore.amount ); -- erase the item we're working on
   User:eraseItem( coalItem.id, coalItem.amount ); 
   if (oreItem.ore.id == 2534) then
@@ -236,7 +236,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
 	end
 
-	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Tiegelzange zerbricht.",
 		"Your old crucible-pincers break.");

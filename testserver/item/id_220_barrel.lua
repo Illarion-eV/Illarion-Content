@@ -101,7 +101,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( dyeing.LeadSkill, dyeing.SavedWorkTime[User.id], 100);
+	User:learn( dyeing.LeadSkill, dyeing.SavedWorkTime[User.id], 20);
 	User:eraseItem( dye[1], 1 ); -- erase the item we're working on
   User:eraseItem( dye[2], 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
@@ -129,7 +129,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Dein alter Färberstab zerbricht.",
 		"Your old dyeing rod breaks.");

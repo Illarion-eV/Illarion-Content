@@ -64,7 +64,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( flailing.LeadSkill, flailing.SavedWorkTime[User.id], 100);
+	User:learn( flailing.LeadSkill, flailing.SavedWorkTime[User.id], 20);
 	User:eraseItem( 249, 1 ); -- erase the item we're working on
 	local amount = math.random(1,4); -- set the amount of items that are produced
 	local notCreated = User:createItem( 259, amount, 333, nil ); -- create the new produced items
@@ -84,7 +84,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Dein alter Dreschflegel zerbricht.",
 		"Your old flail breaks.");

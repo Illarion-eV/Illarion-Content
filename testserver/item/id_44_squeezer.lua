@@ -67,7 +67,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( oilsqueezing.LeadSkill, oilsqueezing.SavedWorkTime[User.id], 100);
+	User:learn( oilsqueezing.LeadSkill, oilsqueezing.SavedWorkTime[User.id], 20);
 	User:eraseItem( 141, 2 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 390, amount, 333, nil ); -- create the new produced items

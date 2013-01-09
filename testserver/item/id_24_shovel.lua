@@ -139,7 +139,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], 100);
+	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], 20);
 	local amount = math.random(1,4); -- set the amount of items that are produced
 	local notCreated = User:createItem( digForID, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -152,7 +152,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
 	end
 
-	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Schaufel zerbricht.",
 		"Your old shovel breaks.");
