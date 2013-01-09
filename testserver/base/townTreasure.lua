@@ -22,6 +22,7 @@ end
 function GetTownGem(town,gemNr)
 	if town=="Cadomyr" then
 		
+	end
 end
 
 				--Runewick: Emerald and Ruby
