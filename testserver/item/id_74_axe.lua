@@ -73,6 +73,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	local tree = TreeItems[TargetItem.id];
 	
+	if tree == nil then
+		return;
+	end;
+	
 	-- any other checks?
 	local changeItem = false;
 	local amount = TargetItem:getData("wood_amount");
