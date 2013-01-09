@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: southeast              --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -22,6 +22,7 @@ require("npc.base.condition.town")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.rankpoints")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
 module("npc.neiran_el_nyarale", package.seeall)
@@ -190,7 +191,8 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("Me? I am not a trader. I am a treasurer. Or, rather the guard of the garbage bin.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Me? I am not ar. I am a treasurer. Or, rather the guard of the garbage bin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -210,8 +212,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 1));
+talkEntry:addResponse("Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -219,8 +221,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 1));
+talkEntry:addResponse("Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -229,8 +231,8 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 1));
+talkEntry:addResponse("Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -240,8 +242,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 1));
+talkEntry:addResponse("Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -280,6 +282,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Just drop what ever you do not need or want to donate to the treasury here on the field. It is not difficult to make Runewick a better place!");
@@ -288,6 +291,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Werft das was Ihr nicht braucht oder was Ihr spenden wollt hier auf das Feld. Es ist  nicht schwere Runewick zu einem bessren Ort zu machen!");
@@ -296,6 +300,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -305,6 +310,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -316,44 +322,56 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You advance in Archmage Elvaine Morgan favour."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkEntry:addResponse("Thank you for you help!");
 talkEntry:addResponse("Thank you for your support!");
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkEntry:addResponse("Vielen Dank für Eure Hilfe!");
 talkEntry:addResponse("Vielen Dank für Eure Unterstützung!");
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You advance in Archmage Elvaine Morgan favour."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkEntry:addResponse("Thank you for you help!");
 talkEntry:addResponse("Thank you for your support!");
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Dein Ansehen bei Elvaine Morgan steigt."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkEntry:addResponse("Vielen Dank für Eure Hilfe!");
 talkEntry:addResponse("Vielen Dank für Eure Unterstützung!");
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("=", 20));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -405,8 +423,8 @@ talkEntry:addTrigger("lizzard");
 talkEntry:addTrigger("lamp");
 talkEntry:addTrigger("collection");
 talkEntry:addTrigger("riverbank");
-talkEntry:addResponse("Oil lamp collection? I threw away some oil lamps a few days ago... they did not belong to Lady Zassaria, did they?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 8));
+talkEntry:addResponse("Oil lamp collection? I threw away some oil lamps a few days ago... they did not belong to Lady Zassaria, did they?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -418,8 +436,8 @@ talkEntry:addTrigger("lizzard");
 talkEntry:addTrigger("Lampe");
 talkEntry:addTrigger("");
 talkEntry:addTrigger("Sammlung");
-talkEntry:addResponse("Öllampensammlung? Ich habe da eine ganze Mengen Öllampen entsorgt... aber, das war doch nicht Lady Zassarias Öllampensammlung, oder?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 8));
+talkEntry:addResponse("Öllampensammlung? Ich habe da eine ganze Mengen Öllampen entsorgt... aber, das war doch nicht Lady Zassarias Öllampensammlung, oder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
