@@ -38,7 +38,7 @@ function tradeNPC:addItem(item)
     elseif (item._type == "buyPrimary" or item._type == "buySecondary") then
 		if (item._itemId == 97 or item._itemId == 320 or item._itemId == 321
 			or item._itemId == 799 or item._itemId == 1367 or item._itemId == 2830) {
-			debug("NPC can't buy item " . item._itemId . " because its blacklisted (container).");
+			debug("NPC can't buy item " .. item._itemId .. " because its blacklisted (container).");
 		} else {
 			table.insert(self._buyItems, item);
 		}
