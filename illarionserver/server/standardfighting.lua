@@ -935,15 +935,9 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnDodge(Attacker, Defender, AP)
-<<<<<<< HEAD
---debug("          NOW LEARNING dodge: "..Character.dodge..", "..(AP/2)..", "..(Attacker.skill + 10));
-    -- Divide AP by three, since you can learn three skills with one AP reduction while fighting
-    Defender.Char:learn(Character.dodge, AP/2, Attacker.skill + 10)
-=======
 --debug("          NOW LEARNING dodge: "..Character.dodge..", "..(AP/3)..", "..(Attacker.skill + 10));
     -- Divide AP by three, since you can learn three skills with one AP reduction while fighting
     Defender.Char:learn(Character.dodge, AP/3, Attacker.skill + 10)
->>>>>>> c0b472a35aa6ed2c2549746e24da331d58fad609
 --debug("          DONE LEARNING");   
 	--OLD. Tactics is redundant. No more attackers learning when attacking
 	--[[	
