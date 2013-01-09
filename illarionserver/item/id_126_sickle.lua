@@ -362,7 +362,7 @@ function InitHarvestItems()
     CreateHarvestProduct(161, nil)								-- herder's mushroom
     }
 	
-	HarvestItems[426] = {									-- mushroom
+	HarvestItems[162] = {									-- birth mushroom
     CreateHarvestProduct(162, nil)								-- birth mushroom
     }
 	

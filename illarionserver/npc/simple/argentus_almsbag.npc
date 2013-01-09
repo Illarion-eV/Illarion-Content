@@ -92,14 +92,14 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Adieu."
 
 -- Quest
 -- Quest by Zassaria Riverbank (Ask for me II)
-queststatus(701) = 4, english, "Zassaria", "lizzard", "fish", "order", "riverbank" -> "Zassaria? A fish order? What, now? The fish has already started to smell? No, thanks. I want fresh fish, please tell Lady Zassaria that.", queststatus(701) = 5
-queststatus(701) = 4, english, "Zassaria", "lizzard", "fisch", "Bestellung", "riverbank" -> "Zassaria?  Eine Fischbestellung? Was höre da der Fisch beginnt bereits zu stinken? Nein, danke! Ich möchte frischen Fisch, bitte sagt das Lady Riverbank.", queststatus(701) = 5
+queststatus(701) = 4, english, "Zassaria", "lizzard", "fish", "order", "riverbank" -> queststatus(701) = 5, "Zassaria? A fish order? What, now? The fish has already started to smell? No, thanks. I want fresh fish, please tell Lady Zassaria that."
+queststatus(701) = 4, "Zassaria", "lizzard", "fisch", "Bestellung", "riverbank" -> queststatus(701) = 5, "Zassaria?  Eine Fischbestellung? Was höre ich da, der Fisch beginnt bereits zu stinken? Nein, danke! Ich möchte frischen Fisch, bitte sagt das Lady Riverbank."
 
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, A customer, welcome!", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, werte Kundschaft, seid willkommen.", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Ah, a customer, welcome!"
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ah, werte Kundschaft, seid willkommen."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I love money, but I hate my job."
@@ -136,4 +136,4 @@ english, "Gobaith", "Gobiath" -> "Unless it's stamped on a coin I don't care."
 
 cycletext "#me betrachtet eine Goldmünze.", "#me glances lovingly at a gold coin."
 cycletext "#me's Augen funklen gierig.", "#me's eyes sparkle greedily as he rubs a coin between his fingers."
-cycletext "#me murmelt verärgert:'Wenn dir meine Preise nicht passen, dann geh doch woanders hin.'", "#me mumbles quietly: 'I wish I got to keep the money.'"
+cycletext "#me murmelt verärgert: 'Wenn dir meine Preise nicht passen, dann geh doch woanders hin.'", "#me mumbles quietly: 'I wish I got to keep the money.'"

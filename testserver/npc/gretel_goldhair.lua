@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -209,8 +209,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Do you want a task? Bring some more donations. And drop it on the field here!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Galmair Treasury"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 1));
+talkEntry:addResponse("Do you want a task? Bring some more donations. And drop it on the field here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -219,8 +220,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Galmair Treasury"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 1));
+talkEntry:addResponse("Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -230,8 +232,9 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Do you want a task? Bring some more donations. And drop it on the field here!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Galmair Treasury"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 1));
+talkEntry:addResponse("Do you want a task? Bring some more donations. And drop it on the field here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -242,13 +245,122 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Galmair Treasury"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 1));
+talkEntry:addResponse("Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Donating is quite easy: Just drop your items on the donation place. Easy, isn't it?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Spenden ist eigentlich ganz einfach: Legt einen Gegenstand auf den Spendenplatz. Einfach, oder?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("Donating is quite easy: Just drop your items on the donation place. Easy, isn't it?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Spenden ist eigentlich ganz einfach: Legt einen Gegenstand auf den Spendenplatz. Einfach, oder?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You advance in Don Valerio Guilianni's favour."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Thank you for your donation!");
+talkEntry:addResponse("#me cackles");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You advance in Don Valerio Guilianni's favour."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 3));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Danke für Eure Spende!");
+talkEntry:addResponse("#me kichert");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 3));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("#me grins showing a pair of yellow teeth.");
+talkEntry:addResponse("Ask Cormac, maybe he has something to do. But come back again and donate more to the Don!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 3));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("#me grinst und entblößt dabei ein paar gelber Zähne.");
+talkEntry:addResponse("Frag' bei Cormac, vielleicht hat er etwas zu tun. Aber komm bald wieder und spende mehr an den Don!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 3));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("#me grins showing a pair of yellow teeth.");
+talkEntry:addResponse("Ask Cormac, maybe he has something to do. But come back again and donate more to the Don, Sweetheart!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 3));
+talkEntry:addCondition(npc.base.condition.town.town(3));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("#me grinst und entblößt dabei ein paar gelber Zähne.");
+talkEntry:addResponse("Frag' bei Cormac, vielleicht hat er etwas zu tun. Aber komm bald wieder und spende mehr an den Don, Schätzchen!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -257,7 +369,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("I have nothing to do for you, darling.");
@@ -265,7 +376,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -274,150 +384,23 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Ich habe keine Aufgabe für dich, Liebling.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 1));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 1));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ganz genau! Ihr habt herausgefunden, wie man das Feld benutzt! War auch nicht schwer, oder?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 1));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("order");
-talkEntry:addResponse("Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 1));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ganz genau! Ihr habt herausgefunden, wie man das Feld benutzt! War auch nicht schwer, oder?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Thank you for your donation!");
-talkEntry:addResponse("#me cackles");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("=", 20));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 2));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Danke für Eure Spende!");
-talkEntry:addResponse("#me kichert");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("=", 20));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 2));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("order");
-talkEntry:addResponse("Thank you for your donation!");
-talkEntry:addResponse("#me cackles");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("=", 20));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 2));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Danke für Eure Spende!");
-talkEntry:addResponse("#me kichert");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("=", 20));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 3));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("#me grins showing a pair of yellow teeth.");
-talkEntry:addResponse(" Come back again!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 3));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("#me grinst und entblößt dabei ein paar gelber Zähne.");
-talkEntry:addResponse("Bis bald!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 3));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("order");
-talkEntry:addResponse("#me grins showing a pair of yellow teeth.");
-talkEntry:addResponse(" Come back again, Sweetheart!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 3));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("#me grinst und entblößt dabei ein paar gelber Zähne.");
-talkEntry:addResponse("Bis bald, Schätzchen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I am sorting all that rubbish...I mean, all the donations to the Don.");
-talkEntry:addResponse("...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
 talkEntry:addResponse("Ich sortiere all diesen Müll...ähm, all diese Spenden an den Don, wollte ich sagen.");
-talkEntry:addResponse("...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -517,7 +500,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Glaube");
-talkEntry:addResponse("Die alten Götter sind zurüch gekehrt.");
+talkEntry:addResponse("Die alten Götter sind zurück gekehrt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -628,14 +611,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("Speak louder, I can't hear you!");
-talkEntry:addResponse("Cadomyr ...what's with Cadomyr?");
+talkEntry:addResponse("Cadomyr... what's with Cadomyr?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
 talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören!");
-talkEntry:addResponse("Cadomyr?... Was ist damit?");
+talkEntry:addResponse("Cadomyr? Was ist damit?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -746,14 +729,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("Oh...that's too sad.");
+talkEntry:addResponse("Oh... that's too sad.");
 talkEntry:addResponse("Speak louder, I can't hear you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nein");
-talkEntry:addResponse("Oh, das ist jammerschade ...");
+talkEntry:addResponse("Oh, das ist jammerschade...");
 talkEntry:addResponse("#me hebt eine Augenbraue.");
 talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -765,7 +748,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("Speak louder, I can't hear you!");
 talkEntry:addResponse("Did you say something?");
-talkEntry:addResponse("#me lookes around");
+talkEntry:addResponse("#me looks around");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

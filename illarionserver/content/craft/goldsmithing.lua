@@ -26,6 +26,10 @@ product:addIngredient(2535) -- Iron Ingot: 1x1
 product = goldsmithing:addProduct(catId, 92, 9, 49, 14, 28)
 product:addIngredient(2550, 2) -- Copper Ingot: 2x1
 
+--Glass blow pipe
+product = goldsmithing:addProduct(catId, 311, 14, 53, 14, 28)
+product:addIngredient(2550, 2) -- Copper Ingot: 2x1
+
 --Candlestick
 product = goldsmithing:addProduct(catId, 399, 18, 58, 18, 36)
 product:addIngredient(2550) -- Copper Ingot: 1x1

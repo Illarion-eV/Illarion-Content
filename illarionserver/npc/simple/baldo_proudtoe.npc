@@ -63,11 +63,11 @@ itemShoes = 53
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, hallo, willkommen in meinem Garten.", "Trampelt bitte nicht auf den Blumen herum, danke. Ihr seid hier um mir zu helfen, richtig?", "Oh, hiho! Ich muss geträumt haben, mein Garten ist so schön, dass man leicht mal die grausame Welt da draußen vergisst."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, hello and welcome to my garden.", "Do not stomp on the flowers, will you? You came here to help me, right?", "Oh, hiho! I was lost in thoughts - my garden is so beautiful that one tends to forget about the rest of this cruel world."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, hallo, willkommen in meinem Garten.", "Trampelt bitte nicht auf den Blumen herum, danke. Ihr seid hier um mir zu helfen, richtig?", "Oh, hiho! Ich muss geträumt haben, mein Garten ist so schön, dass man leicht mal die grausame Welt da draußen vergisst."
-"Farewell", "Bye", "Fare well", "See you" -> "Have a nice day! And do not stomp on any flowers.", "You are always welcome in my garden... so will you come back?", "Oh, you have to leave? That's sad! I don't get visitors here that often."
+"Farewell", "Bye", "Fare well", "See you" -> "Have a nice day and do not stomp on any flowers!", "You are always welcome in my garden... so will you come back?", "Oh, you have to leave? That's sad! I don't get visitors here that often."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Einen schönen Tag noch! Und trampelt keine Blumen platt.", "Ihr seid in meinem Garten immer willkommen... werdet ihr also wiederkommen?", "Oh, ihr müßt schon gehen? Ich empfange leider nicht oft Besuch hier."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a nice day! And do not stomp on any flowers.", "You are always welcome in my garden... so will you come back?", "Oh, you have to leave? That's sad! I don't get visitors here that often."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Have a nice day and do not stomp on any flowers!", "You are always welcome in my garden... so will you come back?", "Oh, you have to leave? That's sad! I don't get visitors here that often."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Einen schönen Tag noch! Und trampelt keine Blumen platt.", "Ihr seid in meinem Garten immer willkommen... werdet ihr also wiederkommen?", "Oh, ihr müßt schon gehen? Ich empfange leider nicht oft Besuch hier."
-"How are you", "How feel", "How do you do" -> "I feel lonely, really. But the hedges are always here with me.", "Will you stay a while to talk to me? That would be so great!", "Maybe I should go to the market of Runewick. At least I see some people there..."
+"How are you", "How feel", "How do you do" -> "I feel lonely, really, but the hedges are always here with me.", "Will you stay a while to talk to me? That would be so great!", "Maybe I should go to the market of Runewick. At least I see some people there..."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich bin wirklich einsam. Aber die Hecken sind ja hier bei mir.", "Bleibt ihr noch etwas zum Reden?", "Vielleicht sollte ich mal auf den Markt von Runewick gehen. Wenigstens kann ich dort mal Leute sehen."
 "your name", "who are you", "who art thou" -> "My name is Baldo, Baldo Proudtoe. I'm the local gardener!", "Proudtoe. Baldo Proudtoe.", "I'm Baldo, the gardener. A garden requires a lot of attention."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Mein Name ist Baldo, Baldo Proudtoe. Ich bin hier der Gärtner!", "Proudtoe. Baldo Proudtoe.", "Ich bin Baldo, der Gärtner. So ein Garten verlangt nach einer Menge Pflege."
@@ -79,30 +79,30 @@ queststatus(118) = 0, "task", "adventure", "order" -> inform("[New quest] Runewi
 queststatus(118) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Gärten von Runewick I"), "Ah, ihr wollt mir also helfen? Ich würde gerne einige Apfelbäume in meinem Garten pflanzen. Aber dafür brauche ich Apfelsamen. Also bringt mir doch bitte zehn Äpfel!", queststatus(118) = 1
 
 -- 1st quest solved, reward: goblet with cider (1844), +5 rankpoints if Runewick
-queststatus(118) = 1, item(15, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a goblet with cider. You advance in Archmage Elvaine Morgan's favour."), "How marvellous! Now I can plant new friends for me. You know, I love cider, it makes me forget... Have one goblet with me!", deleteItem(15, 10), item(1844, 1, 699), queststatus(118) = 2, rankpoints + 5
+queststatus(118) = 1, item(15, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded a goblet of cider. You advance in Archmage Elvaine Morgan's favour."), "How marvellous! Now I can plant new friends for me. You know, I love cider, it makes me forget... Have a goblet with me!", deleteItem(15, 10), item(1844, 1, 699), queststatus(118) = 2, rankpoints + 5
 queststatus(118) = 1, item(15, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst einen Krug Cidre. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Wie wunderbar! Jetzt kann ich mir neue Freunde pflanzen. Wisst ihr, ich liebe Cidre, er hilft mir zu vergessen... Hebt einen Krug mit mir!", deleteItem(15, 10), item(1844, 1, 699), queststatus(118) = 2, rankpoints + 5
-queststatus(118) = 1, item(15, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded a goblet with cider."), "How marvellous! Now I can plant new friends for me. You know, I love cider, it makes me forget... Have one goblet with me!", deleteItem(15, 10), item(1844, 1, 699), queststatus(118) = 2
+queststatus(118) = 1, item(15, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded a goblet of cider."), "How marvellous! Now I can plant new friends for me. You know, I love cider, it makes me forget... Have a goblet with me!", deleteItem(15, 10), item(1844, 1, 699), queststatus(118) = 2
 queststatus(118) = 1, item(15, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst einen Krug Cidre."), "Wie wunderbar! Jetzt kann ich mir neue Freunde pflanzen. Wisst ihr, ich liebe Cidre, er hilft mir zu vergessen... Hebt einen Krug mit mir!", deleteItem(15, 10), item(1844, 1, 699), queststatus(118) = 2
 
 -- 1st quest not solved, repeat the instructions
-queststatus(118) = 1, english, "quest", "mission" -> "Some new trees would be so fine, please, get me ten apples so I can plant new friends for me."
+queststatus(118) = 1, english, "quest", "mission" -> "Some new trees would be so fine, please, get me ten apples so I can plant myself some new friends."
 queststatus(118) = 1, "quest", "mission" -> "Ein paar neue Bäume wären so fein, bitte, holt mir zehn Äpfel, damit ich mir neue Freund pflanzen kann."
-queststatus(118) = 1, "task", "adventure", "order" -> "Some new trees would be so fine, please, get me ten apples so I can plant new friends for me."
+queststatus(118) = 1, "task", "adventure", "order" -> "Some new trees would be so fine, please, get me ten apples so I can plant myself some new friends."
 queststatus(118) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Befehl" -> "Ein paar neue Bäume wären so fein, bitte, holt mir zehn Äpfel, damit ich mir neue Freund pflanzen kann."
 
 -- 2nd quest: Gather 10 grapes
-queststatus(118) = 2, english, "quest", "mission" -> inform("[New quest] Runewick Gardens II"), "I am honest: I enjoy sweet fruits once in a whiles. Makes me feel... alive. Could you bring me ten grapes? That'd be so nice!", queststatus(118) = 3
+queststatus(118) = 2, english, "quest", "mission" -> inform("[New quest] Runewick Gardens II"), "If I am honest, I enjoy sweet fruits once in a while. It makes me feel... alive. Could you bring me ten grapes? That'd be so nice!", queststatus(118) = 3
 queststatus(118) = 2, "quest", "mission" -> inform("[Neues Quest] Die Gärten von Runewick II"), "Ich bin ganz offen: Ich nasche gerne süße Früchte. Dann fühl ich mich irgendwie lebendig. Könntet ihr mir zehn Trauben bringen? Das wäre so nett!", queststatus(118) = 3
-queststatus(118) = 2, "task", "adventure", "order" -> inform("[New quest] Runewick Gardens II"), "I am honest: I enjoy sweet fruits once in a whiles. Makes me feel... alive. Could you bring me ten grapes? That'd be so nice!", queststatus(118) = 3
+queststatus(118) = 2, "task", "adventure", "order" -> inform("[New quest] Runewick Gardens II"), "If I am honest, I enjoy sweet fruits once in a while. It makes me feel... alive. Could you bring me ten grapes? That'd be so nice!", queststatus(118) = 3
 queststatus(118) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Gärten von Runewick II"), "Ich bin ganz offen: Ich nasche gerne süße Früchte. Dann fühl ich mich irgendwie lebendig. Könntet ihr mir zehn Trauben bringen? Das wäre so nett!", queststatus(118) = 3
 
 -- 2nd quest solved, reward: +1 peasantry if peasantry < 90, 20cp, +5 rankpoints if Runewick
-skill(farming) < 90, queststatus(118) = 3, item(388, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded two silver coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."), "Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while. And this time, I can share my joy!", skill(farming) + 1, money + 200, deleteItem(388, 10), queststatus(118) = 4, rankpoints + 5
-queststatus(118) = 3, item(388, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded two silver coins. You advance in Archmage Elvaine Morgan's favour."), "Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while. And this time, I can share my joy!", money + 200, deleteItem(388, 10), queststatus(118) = 4, rankpoints + 5
+skill(farming) < 90, queststatus(118) = 3, item(388, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded two silver coins and your farming skill increases. You advance in Archmage Elvaine Morgan's favour."), "Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while, and this time, I can share my joy!", skill(farming) + 1, money + 200, deleteItem(388, 10), queststatus(118) = 4, rankpoints + 5
+queststatus(118) = 3, item(388, all) > 9, english, town = Runewick, ".+" -> inform("[Quest solved] You are awarded two silver coins. You advance in Archmage Elvaine Morgan's favour."), "Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while, and this time, I can share my joy!", money + 200, deleteItem(388, 10), queststatus(118) = 4, rankpoints + 5
 skill(farming) < 90, queststatus(118) = 3, item(388, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst zwei Silberstücke und deine Ackerbaufähigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Lecker, lecker, lecker! Ihr macht mich froh, wirklich! So hab ich mich schon lange nicht mehr gefühlt und diesmal ist sogar jemand da, mit dem ich meine Freude teilen kann!", skill(farming) + 1, money + 200, deleteItem(388, 10), queststatus(118) = 4, rankpoints + 5
 queststatus(118) = 3, item(388, all) > 9, town = Runewick, ".+" -> inform("[Quest gelöst] Du erhältst zwei Silberstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Lecker, lecker, lecker! Ihr macht mich froh, wirklich! So hab ich mich schon lange nicht mehr gefühlt und diesmal ist sogar jemand da, mit dem ich meine Freude teilen kann!", money + 200, deleteItem(388, 10), queststatus(118) = 4, rankpoints + 5
-skill(farming) < 90, queststatus(118) = 3, item(388, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded two silver coins and your peasantry skill increases."), "Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while. And this time, I can share my joy!", skill(farming) + 1, money + 200, deleteItem(388, 10), queststatus(118) = 4
-queststatus(118) = 3, item(388, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded two silver coins."), "Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while. And this time, I can share my joy!", money + 200, deleteItem(388, 10), queststatus(118) = 4
+skill(farming) < 90, queststatus(118) = 3, item(388, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded two silver coins and your farming skill increases."), "Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while, and this time, I can share my joy!", skill(farming) + 1, money + 200, deleteItem(388, 10), queststatus(118) = 4
+queststatus(118) = 3, item(388, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded two silver coins."), "Tasty, tasty, tasty! You make me smile, really! I haven't felt like this for quite a while, and this time, I can share my joy!", money + 200, deleteItem(388, 10), queststatus(118) = 4
 skill(farming) < 90, queststatus(118) = 3, item(388, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst zwei Silberstücke und deine Ackerbaufähigkeit steigt."), "Lecker, lecker, lecker! Ihr macht mich froh, wirklich! So hab ich mich schon lange nicht mehr gefühlt und diesmal ist sogar jemand da, mit dem ich meine Freude teilen kann!", skill(farming) + 1, money + 200, deleteItem(388, 10), queststatus(118) = 4
 queststatus(118) = 3, item(388, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst zwei Silberstücke."), "Lecker, lecker, lecker! Ihr macht mich froh, wirklich! So hab ich mich schon lange nicht mehr gefühlt und diesmal ist sogar jemand da, mit dem ich meine Freude teilen kann!", money + 200, deleteItem(388, 10), queststatus(118) = 4
 
@@ -131,7 +131,7 @@ english, "Gobaith", "Gobiath" -> "Sorry, what did you say?"
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "Garden" -> "My lovely garden is all that... remains. I care for it like I'd care for a child. At least I have something to do that distracts me."
 "hedge" -> "Aren't these hedges great? I cut them all day long to keep them in perfect shape. I wish more people would notice..."
-"lone", "sorrow" -> "I am indeed lonely and I admit it. So, why don't you stay a little longer? I will as well!", "This loneliness has become a friend of mine. At least I do not expect anything anymore, so all that happens can surprise me."
+"lone", "sorrow" -> "I am indeed lonely and I admit it... So, why don't you stay a little longer? I will as well!", "This loneliness has become a friend of mine. At least I do not expect anything anymore, so all that happens can surprise me."
 "tree" -> "Ah, yes some trees would be fine, no? I mean, hedges are fine, but trees, they... stay for ages."
 "murder" -> "I am not the murderer! Prejudices!"
 "Garten" -> "Mein wunderbarer Garten ist alles, was mir geblieben ist. Ich kümmere mich um ihn wie um ein Kind. Wenigstens habe ich so etwas zu tun, was mich ablenkt."
@@ -141,39 +141,39 @@ english, "Gobaith", "Gobiath" -> "Sorry, what did you say?"
 "Mörder" -> "Ich bin nicht der Mörder! Vorurteile!"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
-"archmage" -> "The archmage is my friend! He talked to me years ago about my garden, but I still feel that he thinks about me from time to time."
+"archmage" -> "The Archmage is my friend! He talked to me years ago about my garden, but I still feel that he thinks about me from time to time."
 "Erzmagier" -> "Der Erzmagier ist mein Freund! Er hat vor einigen Jahren mal mit mir über meinen Garten geredet und ich fühle, dass er von Zeit zu Zeit noch an mich denkt."
-english, "Elvaine", "Morgan" -> "The archmage is my friend! He talked to me years ago about my garden, but I still feel that he thinks about me from time to time."
+english, "Elvaine", "Morgan" -> "The Archmage is my friend! He talked to me years ago about my garden, but I still feel that he thinks about me from time to time."
 "Elvaine", "Morgan" -> "Der Erzmagier ist mein Freund! Er hat vor einigen Jahren mal mit mir über meinen Garten geredet und ich fühle, dass er von Zeit zu Zeit noch an mich denkt."
-english, "Runewick" -> "Runewick is a nice place to be. But some of its citizens are so... snobby!"
+english, "Runewick" -> "Runewick is a nice place to be but some of its citizens are so... snobby!"
 "Runewick" -> "Runewick ist eigentlich ein netter Ort, wenn manche seiner Bewohner nicht so hochnäsig wären."
 english, "Valerio", "Guilianni", "Don" -> "Who's that? Tell me more about this person."
 "Valerio", "Guilianni", "Don" -> "Wer soll das sein? Erzählt mir mehr über ihn."
 english, "Galmair" -> "Ich weiß absolut nichts über Galmair, außer, dass es weit weg ist."
-"Galmair" -> "I just know about Galmair that it is far away from here."
+"Galmair" -> "I just know that Galmair is far away from here."
 "Queen" -> "Queen Rosaline is a witch! Hear what I say: A witch!"
 "Königin" -> "Königin Rosaline ist eine Hexe! Hört auf meine Worte: Eine Hexe!"
 english, "rosaline", "edwards" -> "Queen Rosaline is a witch! Hear what I say: A witch!"
 "rosaline", "edwards" -> "Königin Rosaline ist eine Hexe! Hört auf meine Worte: Eine Hexe!"
-english, "Cadomyr" -> "Cadomyr, that is arid and dry land. Who would like to settle there!?"
+english, "Cadomyr" -> "Cadomyr, that is an arid and dry land. Who would like to settle there!?"
 "Cadomyr" -> "Cadomyr, das ist trockenes und unfruchtbares Land. Wer würde da schon gerne wohnen?"
 
 -- Main land factions
-english, "albar" -> "One day, I'll move to Albar I guess. Maybe I'll get some more attention there."
+english, "albar" -> "One day, I'll move to Albar I guess. Maybe I'll get more attention there."
 "albar" -> "Eines Tages werde ich wohl nach Albar ziehen. Wenigstens werde ich dort auffallen!"
 english, "gynk", "gync" -> "I do not know anything about Gynk, sorry."
 "gync", "gynk" -> "Ich weiß rein gar nichts über Gynk, tut mir leid."
-english, "salkama" -> "I heard they have nice gardens in Salkamar. But that is all I heard; people do not talk much to me these days."
+english, "salkama" -> "I heard they have nice gardens in Salkamar, but that is all I have heard; people do not talk much to me these days."
 "salkama" -> "Ich hörte, sie haben schöne Gärten in Salkamar. Aber das ist auch alles, was ich weiß; die Leute reden eher wenig mit mir in letzter Zeit."
 
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "The gods are my friends. I have never seen them, but they listen to my prayers I think. Oldra is my favourite!"
 "Gott", "Götter" -> "Die Götter sind meine Freunde. Ich hab sie zwar noch nie gesehen, aber sie erhören meine Gebete. Oldra ist meine Lieblingsgöttin!"
-english, "Adron" -> "Oh yes, hehe, I really adore Adron. You got me. But you'd drink a little wine or more either, being as lonely as me."
+english, "Adron" -> "Oh yes, hehe, I really adore Adron. You got me. But you'd drink a little wine or more as well, being as lonely as me."
 "Adron" -> "Oh ja, hehe, ich verehre Adron, ihr habt mich erwischt. Aber wenn ihr so einsam wie ich wäret, würdet ihr auch mitunter mal einen guten Wein kosten wollen."
 english, "Oldra" -> "I guess without Oldra and her wonders, I'd have gone insane by now. Beholding the plants grow compensates for my sorrows."
 "Oldra" -> "Ich denke, ohne Oldra und ihre Wunder wäre ich schon verrückt geworden. Den Pflanzen beim Wachsen zuzusehen erleichtert es mir, mit meinen Sorgen klarzukommen."
-english, "Tanora", "Zelphia" -> "Tanora sends the rain, so I should thank her from time to time. But not too often, hihi."
+english, "Tanora", "Zelphia" -> "Tanora sends the rain, so I should thank her from time to time, but not too often, hihi."
 "Tanora", "Zelphia" -> "Tanora bringt uns den Regen, also sollte ich ihr hin und wieder dankbar sein. Aber bitte nicht zu oft, hihi."
 english, "Ushara" -> "Ushara, did you know that some call her Ushi, hihi? Actually, I respect the Five elder gods, but I do not really know whether they care for me or not."
 "Ushara" -> "Ushara, wußtet ihr, dass manche sie Ushi nennen, hihi? Aber ich respektiere die Fünf alten Götter natürlich, wobei ich gar nicht so genau weiß, ob sie das interessiert."
@@ -181,7 +181,7 @@ english, "Ushara" -> "Ushara, did you know that some call her Ushi, hihi? Actual
 -- Catching typical NPC phrases
 "what sell", "what buy", "list wares", "price of" -> "I am just the gardener here. If you want to trade things, go to the market place of Runewick."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich bin doch hier nur der Gärtner. Wenn ihr Waren handeln wollt, geht doch zum Marktplatz von Runewick."
-"tell something" -> "I am not a storyteller; but I enjoy our communication! It is much better than talking to the hedges, all alone, you know..."
+"tell something" -> "I am not a storyteller, but I enjoy our communication! It is much better than talking to the hedges, all alone, you know..."
 "erzähl was", "erzähl etwas" -> "Ich bin nicht gerade der beste Geschichtenerzähler. Aber ich schätze eure Gesellschaft. Weit besser, als hier einsam Selbstgespräche zu führen..."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
@@ -193,7 +193,7 @@ english, "Baldo", "Proudtoe" -> "Us Proudtoes are very proud of our toes!", "An 
 "Nein" -> "Oh, nicht wirklich, oder?", "Im Ernst?", "Das sehe ich aber anders."
 
 -- Easteregg
-english, "Samwise" -> "How comes everyone asks me about a 'Samwise'?", "My name is not 'Samwise'! Who is that, anyway?", "Pardon me? 'Samwise', who's that? "
+english, "Samwise" -> "How come everyone asks me about a 'Samwise'?", "My name is not 'Samwise'! Who is that, anyway?", "Pardon me? 'Samwise', who's that? "
 "Samwise" -> "Warum fragt mich eigentlich jeder über einen gewissen 'Samwise'?", "Mein Name ist nicht 'Samwise'. Wer ist das überhaupt?", "Pardon? 'Samwise', wer soll das sein?"
 
 ------------------------------------------------------------------------------AC

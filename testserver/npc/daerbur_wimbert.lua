@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -224,7 +224,7 @@ talkEntry:addTrigger("Schriftrolle");
 talkEntry:addTrigger("Pergament");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post IV: Du überbringst Daerbur Wimbert die Nachricht von Hector Valerion."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 10));
-talkEntry:addResponse("#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsetinlieferant, jidah!'");
+talkEntry:addResponse("#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsteinlieferant, jidah!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -245,7 +245,7 @@ talkEntry:addTrigger("Hector");
 talkEntry:addTrigger("Valerion");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Queststatus] Späte Post IV: Du überbringst Daerbur Wimbert die Nachricht von Hector Valerion."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 10));
-talkEntry:addResponse("#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsetinlieferant, jidah!'");
+talkEntry:addResponse("#me dreht die Schriftrolle zweimal rundherum: 'Edelsteine will sie, die Königin. Das sind also Königinnenedelsteine für die Edelsteinkönigin. Das macht mich zum Königinnenedelsteinlieferant, jidah!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1020,7 +1020,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(68, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(3, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 coins."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(3, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(68, "=", 8));

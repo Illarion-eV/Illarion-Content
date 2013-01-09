@@ -10,7 +10,7 @@ local NPC_TRIGGER_EN = "[Mm]ary [Ss]ue"
 local NPC_REPLY_DE = "Mary Sue, meine einzige und wahre Liebe. Ich wünschte ich könnte noch einmal ihr Grab besuchen. Ich bin zu alt für so eine lange Reise. Würdet ihr so nett sein und ihr eine Firnisblüte ans Grab legen? Ich würde mich erkenntlich zeigen."
 local NPC_REPLY_EN = "Mary Sue, my one and only true love. I wish I could see her grave one last time unfortunately I´m to old to take such a long journey. Would you be so nice and bring her a firnis blossom? I would appreciate it."
 
-function receiveText(npc, type, text, PLAYER)
+function receiveText(npc, texttype, text, PLAYER)
     if ADDITIONALCONDITIONS(PLAYER)
     and PLAYER:getType() == Character.player
     and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then

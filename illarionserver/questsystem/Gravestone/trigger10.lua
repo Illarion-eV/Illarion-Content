@@ -5,7 +5,7 @@ module("questsystem.Gravestone.trigger10", package.seeall)
 
 local QUEST_NUMBER = 10000
 local PRECONDITION_QUESTSTATE = 76
-local POSTCONDITION_QUESTSTATE = 58
+local POSTCONDITION_QUESTSTATE = 88
 
 local POSITION = position(605, 344, 0)
 local RADIUS = 1

@@ -67,17 +67,21 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 	
 	local notCreated = User:createItem( 52, 1, 333, nil ); -- create the new produced items
-	world:erase(SourceItem,1)
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 52, notCreated, User.pos, true, 333, nil );
 		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten.",
 		"You can't carry any more.");
+		world:erase(SourceItem,1)
+		return
 	else -- character can still carry something
-		if User:countItem(51) <= 0 then
-            return
+		if SourceItem.number == 1 then
+		    world:erase(SourceItem,1)
+			return
         else
-		    User:startAction( 20, 21, 5, 10, 25);
+		    world:erase(SourceItem,1)
+			User:changeSource(SourceItem)
+			User:startAction( 20, 21, 5, 10, 25);
 		end	
 	end
 end
