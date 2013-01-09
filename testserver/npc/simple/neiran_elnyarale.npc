@@ -96,10 +96,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the five 
 
 -- Quest 1: Donate something to the treasury
 -- 1: Quest 1 taken, donate something to the treasury, reward: 20 rankpoints
-queststatus(205) = 0, english, town = Runewick, "quest", "mission" -> "Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!", queststatus(205) = 1
-queststatus(205) = 0, town = Runewick, "quest", "mission" -> "Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.", queststatus(205) = 1
-queststatus(205) = 0, town = runewick, "task", "adventure", "order" ->"Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!", queststatus(205) = 1
-queststatus(205) = 0, town = runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.", queststatus(205) = 1
+queststatus(205) = 0, english, town = Runewick, "quest", "mission" -> inform("[New Quest] Runewick Treasury"), "Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!", queststatus(205) = 1
+queststatus(205) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Die Schatzkammer Runewicks"), "Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.", queststatus(205) = 1
+queststatus(205) = 0, town = runewick, "task", "adventure", "order" -> inform("[New Quest] Runewick Treasury"), "Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!", queststatus(205) = 1
+queststatus(205) = 0, town = runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Schatzkammer Runewicks"), "Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.", queststatus(205) = 1
 
 -- Quest 1 taken but not solved, repeat the instructions
 queststatus(205) = 1, english, town = Runewick, "quest", "mission" -> "Just drop what ever you do not need or want to donate to the treasury here on the field. It is not difficult to make Runewick a better place!"
@@ -112,10 +112,10 @@ queststatus(205) = 2, english, town = Runewick, ".*" -> inform("[Quest solved] Y
 queststatus(205) = 2, town = Runewick, ".*" -> inform("[Quest gelöst] Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Vielen Dank für Eure Hilfe!", "Vielen Dank für Eure Unterstützung!", queststatus(205) = 3, rankpoints + 20
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(205) = 3, english, "quest", "mission" -> "#me smiles", "Just keep the streets clean."
-queststatus(205) = 3,"quest", "mission"  -> "#me lächelt", "Haltet einfach die Straßen sauber."
-queststatus(205) = 3,"task", "adventure", "order" ->  "#me smiles", "Just keep the streets clean."
-queststatus(205) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me lächelt", "Haltet einfach die Straßen sauber."
+queststatus(205) = 3, english, "quest", "mission" -> "#me smiles happily and writes something down in a list.", "I'm busy right now, please come again later."
+queststatus(205) = 3,"quest", "mission"  -> "#me lächelt glücklich und schreibt etwas auf eine Liste nieder.", "Ich bin im Moment etwas beschäftigt, kommt doch später wieder."
+queststatus(205) = 3,"task", "adventure", "order" ->  "#me smiles happily and writes something down in a list.", "I'm busy right now, please come again later."
+queststatus(205) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me lächelt glücklich und schreibt etwas auf eine Liste nieder.", "Ich bin im Moment etwas beschäftigt, kommt doch später wieder."
 
 -- Quest by Zassaria Riverbank (Ask for me III)
 queststatus(701) = 7, english, "Zassaria", "lizzard", "lamp", "collection", "riverbank" -> "Oil lamp collection? I threw away some oil lamps a few days ago... they did not belong to Lady Zassaria, did they?", queststatus(701) = 8

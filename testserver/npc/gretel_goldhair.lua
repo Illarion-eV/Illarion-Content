@@ -11,7 +11,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (0, 341, 218, 0, 5, 'Gretel Goldhair', 'npc.gretel_goldhair', 1, 2, 5, 150, 157, 164, 232, 214, 199);
+VALUES (0, 341, 218, 0, 5, 'Gretel Goldhair', 'npc.gretel_goldhair', 1, 7, 0, 60, 30, 4, 232, 214, 199);
 ---]]
 
 require("npc.base.basic")
