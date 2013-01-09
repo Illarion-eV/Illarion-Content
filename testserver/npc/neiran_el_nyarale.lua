@@ -208,6 +208,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
@@ -218,6 +219,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -227,6 +229,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
@@ -237,6 +240,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
@@ -244,38 +248,6 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 1));
 talkEntry:addResponse("Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Just keep the streets clean.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Haltet einfach die Straßen sauber.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("order");
-talkEntry:addResponse("Just keep the streets clean.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Haltet einfach die Straßen sauber.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -323,8 +295,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You advance in Archmage Elvaine Morgan favour."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
@@ -336,38 +307,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
 talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
+talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
-talkEntry:addResponse("Vielen Dank für Eure Hilfe!");
-talkEntry:addResponse("Vielen Dank für Eure Unterstützung!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
-talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You advance in Archmage Elvaine Morgan favour."));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
-talkEntry:addResponse("Thank you for you help!");
-talkEntry:addResponse("Thank you for your support!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(205, "=", 2));
-talkEntry:addCondition(npc.base.condition.town.town(2));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Dein Ansehen bei Elvaine Morgan steigt."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(205, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkEntry:addResponse("Vielen Dank für Eure Hilfe!");
