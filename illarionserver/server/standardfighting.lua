@@ -960,13 +960,8 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnSuccess(Attacker, Defender, AP)
-<<<<<<< HEAD
---debug("          NOW LEARNING att: "..Attacker.Skillname..", "..(AP/2)..", "..(math.max(Defender.dodge, Defender.parry) + 10));
-    Attacker.Char:learn(Attacker.Skillname, AP/2, math.max(Defender.dodge, Defender.parry) + 10)
-=======
 --debug("          NOW LEARNING att: "..Attacker.Skillname..", "..(AP/3)..", "..(math.max(Defender.dodge, Defender.parry) + 10));
     Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.dodge, Defender.parry) + 10)
->>>>>>> c0b472a35aa6ed2c2549746e24da331d58fad609
 --debug("          DONE LEARNING");    
 	--OLD
 	--[[
@@ -987,15 +982,9 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnParry(Attacker, Defender, AP)
-<<<<<<< HEAD
---debug("          NOW LEARNING parry: "..Character.parry..", "..(AP/2)..", "..(Attacker.skill + 10));
-    --Defender.Char:inform("Learn limit is 10 above" .. Attacker.skill);
-    Defender.Char:learn(Character.parry, AP/2, Attacker.skill + 10)
-=======
 --debug("          NOW LEARNING parry: "..Character.parry..", "..(AP/3)..", "..(Attacker.skill + 10));
     --Defender.Char:inform("Learn limit is 10 above" .. Attacker.skill);
     Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 10)
->>>>>>> c0b472a35aa6ed2c2549746e24da331d58fad609
 --debug("          DONE LEARNING");   	
 	--OLD - No more tactics, no more learning attacking
 	--[[
