@@ -83,21 +83,23 @@ function onAttack(Attacker, Defender)
     ShowAttackGFX(Attacker);
     -- Check if a coup de gráce is performed
     if CoupDeGrace(Attacker, Defender) then return true; end;
-    
+    -- learn anyway
+	LearnDodge(Attacker, Defender, APreduction);
     -- Calculate the chance to hit
     if not ChanceToHit(Attacker, Defender) then
         -- Target character was not hit
-        LearnDodge(Attacker, Defender, APreduction);
+        
         
         -- Place some ammo on the ground in case ammo was used
         DropAmmo(Attacker, Defender.Char, true);
         return true;
     end;
-    
+	
+    LearnParry(Attacker, Defender, APreduction);
     -- Calculate the chance to parry
     if ChanceToParry(Attacker, Defender) then
         -- Hit was parried
-        LearnParry(Attacker, Defender, APreduction);
+        
         
         -- Play the parry sound
         PlayParrySound(Attacker, Defender);

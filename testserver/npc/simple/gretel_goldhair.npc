@@ -107,14 +107,14 @@ queststatus(206) = 1, town = Galmair, "task", "adventure", "order" -> "Donating 
 queststatus(206) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Spenden ist eigentlich ganz einfach: Legt einen Gegenstand auf den Spendenplatz. Einfach, oder?"
 
 -- Quest 1 solved, reward: +20 rankpoints
-queststatus(206) = 2, english, town = Galmair, ".*" -> inform("[Quest solved] You advance in Don Valerio Guilianni's favour."), queststatus(206) = 3, rankpoints + 20, "Thank you for your donation!", "#me cackles"
-queststatus(206) = 2, town = Galmair, ".*" -> inform("[Quest solved] You advance in Don Valerio Guilianni's favour."), queststatus(206) = 3, rankpoints + 20, "Danke für Eure Spende!", "#me kichert"
+queststatus(206) = 2, english, town = Galmair, ".*" -> inform("[Quest solved] You advance in Don Valerio Guilianni's favour."), queststatus(206) = 3, rankpoints + 20, "Thank you for your donation!"
+queststatus(206) = 2, town = Galmair, ".*" -> inform("[Quest solved] You advance in Don Valerio Guilianni's favour."), queststatus(206) = 3, rankpoints + 20, "Danke für Eure Spende!"
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(206) = 3, english, town = Galmair, "quest", "mission" -> "#me grins showing a pair of yellow teeth.", "Ask Cormac, maybe he has something to do. But come back again and donate more to the Don!"
-queststatus(206) = 3, town = Galmair, "quest", "mission" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Frag' bei Cormac, vielleicht hat er etwas zu tun. Aber komm bald wieder und spende mehr an den Don!"
-queststatus(206) = 3, town = Galmair, "task", "adventure", "order" -> "#me grins showing a pair of yellow teeth.", "Ask Cormac, maybe he has something to do. But come back again and donate more to the Don, Sweetheart!"
-queststatus(206) = 3, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Frag' bei Cormac, vielleicht hat er etwas zu tun. Aber komm bald wieder und spende mehr an den Don, Schätzchen!"
+queststatus(206) = 3, english, town = Galmair, "quest", "mission" -> "Ask Cormac, maybe he has something to do. But come back again and donate more to the Don!"
+queststatus(206) = 3, town = Galmair, "quest", "mission" -> "Frag' bei Cormac, vielleicht hat er etwas zu tun. Aber komm bald wieder und spende mehr an den Don!"
+queststatus(206) = 3, town = Galmair, "task", "adventure", "order" -> "Ask Cormac, maybe he has something to do. But come back again and donate more to the Don, Sweetheart!"
+queststatus(206) = 3, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Frag' bei Cormac, vielleicht hat er etwas zu tun. Aber komm bald wieder und spende mehr an den Don, Schätzchen!"
 english, "quest", "mission" -> "I have nothing to do for you, darling."
 "quest", "mission" -> "I have nothing to do for you, darling."
 "task", "adventure", "order" -> "Ich habe keine Aufgabe für dich, Liebling."

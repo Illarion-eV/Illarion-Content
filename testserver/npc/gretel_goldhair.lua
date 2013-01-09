@@ -300,7 +300,6 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkEntry:addResponse("Thank you for your donation!");
-talkEntry:addResponse("#me cackles");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -312,7 +311,6 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
 talkEntry:addResponse("Danke für Eure Spende!");
-talkEntry:addResponse("#me kichert");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -322,7 +320,6 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("#me grins showing a pair of yellow teeth.");
 talkEntry:addResponse("Ask Cormac, maybe he has something to do. But come back again and donate more to the Don!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -332,7 +329,6 @@ talkEntry:addCondition(npc.base.condition.quest.quest(206, "=", 3));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("#me grinst und entblößt dabei ein paar gelber Zähne.");
 talkEntry:addResponse("Frag' bei Cormac, vielleicht hat er etwas zu tun. Aber komm bald wieder und spende mehr an den Don!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -343,7 +339,6 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("#me grins showing a pair of yellow teeth.");
 talkEntry:addResponse("Ask Cormac, maybe he has something to do. But come back again and donate more to the Don, Sweetheart!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -355,7 +350,6 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("#me grinst und entblößt dabei ein paar gelber Zähne.");
 talkEntry:addResponse("Frag' bei Cormac, vielleicht hat er etwas zu tun. Aber komm bald wieder und spende mehr an den Don, Schätzchen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
