@@ -105,16 +105,16 @@ queststatus(206) = 0, "task", "adventure", "order" -> "Ich habe keine Aufgabe f�
 queststatus(206) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe f체r dich, Liebling."
 
 -- Quest 1 taken but not solved, repeat the instructions
-queststatus(206) = 1, english, "quest", "mission" -> "Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?"
-queststatus(206) = 1, "quest", "mission" -> "Ganz genau! Ihr habt herausgefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
-queststatus(206) = 1, "task", "adventure", "order" -> "Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?"
-queststatus(206) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ganz genau! Ihr habt herausgefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
+queststatus(206) = 1, english, town = Galmair, "quest", "mission" -> "Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?"
+queststatus(206) = 1, town = Galmair, "quest", "mission" -> "Ganz genau! Ihr habt herausgefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
+queststatus(206) = 1, town = Galmair, "task", "adventure", "order" -> "Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?"
+queststatus(206) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ganz genau! Ihr habt herausgefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
 
 -- Quest 1 solved, reward: +20 rankpoints
-queststatus(206) = 2, english, "quest", "mission" -> queststatus(206) = 3, rankpoints + 20, "Thank you for your donation!", "#me cackles"
-queststatus(206) = 2, "quest", "mission" -> queststatus(206) = 3, rankpoints + 20, "Danke f체r Eure Spende!", "#me kichert"
-queststatus(206) = 2, "task", "adventure", "order" -> queststatus(206) = 3, rankpoints + 20, "Thank you for your donation!", "#me cackles"
-queststatus(206) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(206) = 3, rankpoints + 20, "Danke f체r Eure Spende!", "#me kichert"
+queststatus(206) = 2, english, town = Galmair, "quest", "mission" -> queststatus(206) = 3, rankpoints + 20, "Thank you for your donation!", "#me cackles"
+queststatus(206) = 2, town = Galmair, "quest", "mission" -> queststatus(206) = 3, rankpoints + 20, "Danke f체r Eure Spende!", "#me kichert"
+queststatus(206) = 2, town = Galmair, "task", "adventure", "order" -> queststatus(206) = 3, rankpoints + 20, "Thank you for your donation!", "#me cackles"
+queststatus(206) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(206) = 3, rankpoints + 20, "Danke f체r Eure Spende!", "#me kichert"
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(206) = 3, english, "quest", "mission" -> "#me grins showing a pair of yellow teeth.", " Come back again!"
