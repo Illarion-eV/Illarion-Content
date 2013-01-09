@@ -74,6 +74,9 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	local tree = TreeItems[TargetItem.id];
 	
 	if tree == nil then
+		base.common.HighInformNLS( User,
+		"Du kannst diesen Baum nicht fällen.",
+		"You cannot cut down this tree." );
 		return;
 	end;
 	
