@@ -32,7 +32,7 @@ function onLogin( player )
 		
 		
 	end
-receiveGems(player);
+--receiveGems(player);
 	--Noobia handling
 	if (base.common.IsOnNoobia(player.pos)) then --On Noobia
 
