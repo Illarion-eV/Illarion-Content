@@ -118,10 +118,10 @@ queststatus(205) =2, town = Runewick, "task", "adventure", "order" -> inform("[Q
 queststatus(205) =2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Quest gelöst] Dein Ansehen bei Elvaine Morgan steigt."), "Vielen Dank für Eure Hilfe!", "Vielen Dank für Eure Unterstützung!", queststatus(205) = 3, rankpoints + 20
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(205) =2, english, "quest", "mission" -> "#me smiles", "Just keep the streets clean."
-queststatus(205) =2,"quest", "mission"  -> "#me lächelt", "Haltet einfach die Straßen sauber."
-queststatus(205) =2,"task", "adventure", "order" ->  "#me smiles", "Just keep the streets clean."
-queststatus(205) =2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me lächelt", "Haltet einfach die Straßen sauber."
+queststatus(205) =3, english, "quest", "mission" -> "#me smiles", "Just keep the streets clean."
+queststatus(205) =3,"quest", "mission"  -> "#me lächelt", "Haltet einfach die Straßen sauber."
+queststatus(205) =3,"task", "adventure", "order" ->  "#me smiles", "Just keep the streets clean."
+queststatus(205) =3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me lächelt", "Haltet einfach die Straßen sauber."
 
 -- Quest by Zassaria Riverbank (Ask for me III)
 queststatus(701) = 7, english, "Zassaria", "lizzard", "lamp", "collection", "riverbank" -> "Oil lamp collection? I threw away some oil lamps a few days ago... they did not belong to Lady Zassaria, did they?", queststatus(701) = 8
