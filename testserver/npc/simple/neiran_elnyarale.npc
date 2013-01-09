@@ -94,34 +94,28 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the five 
 "sell", "buy", "wares", "price", "trade", "purchase" -> "Me? I am not a trader. I am a treasurer. Or, rather the guard of the garbage bin."
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich? Ich bin kein Händler, ich bin der Schatzmeister... Nun ja, wohl eher der Wächter der Müllkippe."
 
--- Optional: Catching quest triggers. Modify if the NPC does quests
-town = runewick, english, "quest", "mission" -> "Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!", queststatus(205) =1
-town = runewick, "quest", "mission" -> "Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.", queststatus(205) =1
-town = runewick, "task", "adventure", "order" ->"Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!", queststatus(205) =1
-town = runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.", queststatus(205) =1
-
-english,"quest", "mission" -> "Just keep the streets clean."
-"quest", "mission" -> "Haltet einfach die Straßen sauber."
-"task", "adventure", "order" -> "Just keep the streets clean."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Haltet einfach die Straßen sauber."
+-- Quest 1: Donate something to the treasury
+-- 1: Quest 1 taken, donate something to the treasury, reward: 20 rankpoints
+queststatus(205) = 0, english, town = Runewick, "quest", "mission" -> "Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!", queststatus(205) = 1
+queststatus(205) = 0, town = Runewick, "quest", "mission" -> "Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.", queststatus(205) = 1
+queststatus(205) = 0, town = runewick, "task", "adventure", "order" ->"Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!", queststatus(205) = 1
+queststatus(205) = 0, town = runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.", queststatus(205) = 1
 
 -- Quest 1 taken but not solved, repeat the instructions
-queststatus(205) =1, english, town = Runewick, "quest", "mission" -> "Just drop what ever you do not need or want to donate to the treasury here on the field. It is not difficult to make Runewick a better place!"
-queststatus(205) =1, town = Runewick, "quest", "mission" -> "Werft das was Ihr nicht braucht oder was Ihr spenden wollt hier auf das Feld. Es ist  nicht schwere Runewick zu einem bessren Ort zu machen!"
-queststatus(205) =1, town = Runewick, "task", "adventure", "order" -> "Just drop what ever you do not need or want to donate to the treasury here on the field. It is not difficult to keep the streets clean!"
-queststatus(205) =1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Werft das was Ihr nicht braucht oder was Ihr spenden wollt hier auf das Feld. Es ist  nicht schwere Runewick zu einem bessren Ort zu machen!"
+queststatus(205) = 1, english, town = Runewick, "quest", "mission" -> "Just drop what ever you do not need or want to donate to the treasury here on the field. It is not difficult to make Runewick a better place!"
+queststatus(205) = 1, town = Runewick, "quest", "mission" -> "Werft das was Ihr nicht braucht oder was Ihr spenden wollt hier auf das Feld. Es ist  nicht schwere Runewick zu einem bessren Ort zu machen!"
+queststatus(205) = 1, town = Runewick, "task", "adventure", "order" -> "Just drop what ever you do not need or want to donate to the treasury here on the field. It is not difficult to keep the streets clean!"
+queststatus(205) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Werft das was Ihr nicht braucht oder was Ihr spenden wollt hier auf das Feld. Es ist  nicht schwere Runewick zu einem bessren Ort zu machen!"
 
 -- Quest 1 solved, reward: +20 rankpoints
-queststatus(205) =2, english, town = Runewick,  "quest", "mission" -> inform("[Quest solved] You advance in Archmage Elvaine Morgan favour."),  "Thank you for you help!", "Thank you for your support!", queststatus(205) = 3, rankpoints + 20
-queststatus(205) =2, town = Runewick, "quest", "mission" -> inform("[Quest gelöst] Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Vielen Dank für Eure Hilfe!", "Vielen Dank für Eure Unterstützung!", queststatus(205) = 3, rankpoints + 20
-queststatus(205) =2, town = Runewick, "task", "adventure", "order" -> inform("[Quest solved] You advance in Archmage Elvaine Morgan favour."),  "Thank you for you help!", "Thank you for your support!", queststatus(205) = 3, rankpoints + 20
-queststatus(205) =2, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Quest gelöst] Dein Ansehen bei Elvaine Morgan steigt."), "Vielen Dank für Eure Hilfe!", "Vielen Dank für Eure Unterstützung!", queststatus(205) = 3, rankpoints + 20
+queststatus(205) = 2, english, town = Runewick, ".*" -> inform("[Quest solved] You advance in Archmage Elvaine Morgan favour."),  "Thank you for you help!", "Thank you for your support!", queststatus(205) = 3, rankpoints + 20
+queststatus(205) = 2, town = Runewick, ".*" -> inform("[Quest gelöst] Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Vielen Dank für Eure Hilfe!", "Vielen Dank für Eure Unterstützung!", queststatus(205) = 3, rankpoints + 20
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(205) =3, english, "quest", "mission" -> "#me smiles", "Just keep the streets clean."
-queststatus(205) =3,"quest", "mission"  -> "#me lächelt", "Haltet einfach die Straßen sauber."
-queststatus(205) =3,"task", "adventure", "order" ->  "#me smiles", "Just keep the streets clean."
-queststatus(205) =3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me lächelt", "Haltet einfach die Straßen sauber."
+queststatus(205) = 3, english, "quest", "mission" -> "#me smiles", "Just keep the streets clean."
+queststatus(205) = 3,"quest", "mission"  -> "#me lächelt", "Haltet einfach die Straßen sauber."
+queststatus(205) = 3,"task", "adventure", "order" ->  "#me smiles", "Just keep the streets clean."
+queststatus(205) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me lächelt", "Haltet einfach die Straßen sauber."
 
 -- Quest by Zassaria Riverbank (Ask for me III)
 queststatus(701) = 7, english, "Zassaria", "lizzard", "lamp", "collection", "riverbank" -> "Oil lamp collection? I threw away some oil lamps a few days ago... they did not belong to Lady Zassaria, did they?", queststatus(701) = 8

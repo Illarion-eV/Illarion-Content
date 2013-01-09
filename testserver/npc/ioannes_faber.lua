@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian/Ardian                                         --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -251,8 +251,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr Treasury"));
-talkEntry:addResponse("As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to her majesty's throne, place your donation on it. But don't you dare to donate just alms!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 1));
+talkEntry:addResponse("As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to her majesty's throne, place your donation on it. But don't you dare to donate just alms!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -262,8 +262,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Schatzkammer Cadomyrs"));
-talkEntry:addResponse("Als loyaler Bürger Cadomyrs ist es eure Pflicht, einen Teil eures Reichtums an die Schatzkammer zu spenden. Der Spendenplatz ist genau neben dem Thron ihrer Majestät, bringt eure Spende dorthin. Aber wagt es nicht, einfach nur Almosen zu spenden!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 1));
+talkEntry:addResponse("Als loyaler Bürger Cadomyrs ist es eure Pflicht, einen Teil eures Reichtums an die Schatzkammer zu spenden. Der Spendenplatz ist genau neben dem Thron ihrer Majestät, bringt eure Spende dorthin. Aber wagt es nicht, einfach nur Almosen zu spenden!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -274,8 +274,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr Treasury"));
-talkEntry:addResponse("As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to her majesty's throne, place your donation on it. But don't you dare to donate just alms!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 1));
+talkEntry:addResponse("As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to her majesty's throne, place your donation on it. But don't you dare to donate just alms!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -287,8 +287,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Schatzkammer Cadomyrs"));
-talkEntry:addResponse("Als loyaler Bürger Cadomyrs ist es eure Pflicht, einen Teil eures Reichtums an die Schatzkammer zu spenden. Der Spendenplatz ist genau neben dem Thron ihrer Majestät, bringt eure Spende dorthin. Aber wagt es nicht, einfach nur Almosen zu spenden!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 1));
+talkEntry:addResponse("Als loyaler Bürger Cadomyrs ist es eure Pflicht, einen Teil eures Reichtums an die Schatzkammer zu spenden. Der Spendenplatz ist genau neben dem Thron ihrer Majestät, bringt eure Spende dorthin. Aber wagt es nicht, einfach nur Almosen zu spenden!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -298,9 +298,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("I see that you have learned how you can donate your wealth to the treasury. Next time, donate more! I will mention your name when talking to the queen next time.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("I see that you have learned how you can donate your wealth to the treasury. Next time, donate more! I will mention your name when talking to the queen next time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -309,9 +309,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(151, "=", 2));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Nun, ihr habt verstanden, wie man etwas an die Schatzkammer spendet. Das nächste Mal spendet ihr aber gefälligst mehr! Ich werde euren Namen in meinem nächsten Gespräch mit der Königin erwähnen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Nun, ihr habt verstanden, wie man etwas an die Schatzkammer spendet. Das nächste Mal spendet ihr aber gefälligst mehr! Ich werde euren Namen in meinem nächsten Gespräch mit der Königin erwähnen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
