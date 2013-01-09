@@ -32,7 +32,7 @@ function onLogin( player )
 		
 		
 	end
-receiveGems(player);
+--receiveGems(player);
 	--Noobia handling
 	if (base.common.IsOnNoobia(player.pos)) then --On Noobia
 
@@ -56,9 +56,9 @@ receiveGems(player);
 		    local callbackNewbie = function(dialogNewbie) end; --empty callback
 
 		    if player:getPlayerLanguage() == 0 then
-			    dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Eine lange Reise nähert sich ihrem Ende. Du gehst von Bord des Schiffes und hast endlich wieder festen Boden unter den Füßen.\nIn diesem Land wirst du vor eine Entscheidung gestellt, die wohl die wichtigste deines Lebens sein wird.\nDas edle Cadomyr, das weise Runewick oder das reiche Galmair - welchen Weg wirst du einschlagen?\n\nWillkommen bei Illarion, dem kostenlosen Online-Rollenspiel.\nDieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen indem du 'Tutorial überspringen' zu einem NPC sagst.", callbackNewbie);
+			    dialogNewbie = MessageDialog("Willkommen bei Illarion!", "Eine lange Reise nähert sich ihrem Ende. Du gehst von Bord des Schiffes und hast endlich wieder festen Boden unter den Füßen. In diesem Land wirst du vor eine Entscheidung gestellt, die wohl die wichtigste deines Lebens sein wird.\nDas edle Cadomyr, das weise Runewick oder das reiche Galmair - welchen Weg wirst du einschlagen?\n\nWillkommen bei Illarion, dem kostenlosen Online-Rollenspiel. Dieses Tutorial wird dich auf deinen ersten Schritten begleiten und dir die Bedienung des Spiels beibringen. Du kannst das Tutorial jederzeit überspringen indem du 'Tutorial überspringen' zu einem NPC sagst.", callbackNewbie);
 		    else
-			    dialogNewbie = MessageDialog("Welcome to Illarion!", "A long, tiresome journey finally comes to an end. You disembark the ship and feel solid ground beneath your feet.\nIn these lands, you will soon be faced with a choice, perhaps the most important of your entire life.\nNoble Cadomyr, wise Runewick, or wealthy Galmair - whose side shall you join?\n\nWelcome to Illarion, the free online roleplaying game.\nThis tutorial will guide you through your first steps and teach you the controls of the game. You may skip the tutorial at any time by saying 'skip tutorial' to an NPC.", callbackNewbie);
+			    dialogNewbie = MessageDialog("Welcome to Illarion!", "A long, tiresome journey finally comes to an end. You disembark the ship and feel solid ground beneath your feet. In these lands, you will soon be faced with a choice, perhaps the most important of your entire life. Noble Cadomyr, wise Runewick, or wealthy Galmair - whose side shall you join?\n\nWelcome to Illarion, the free online roleplaying game. This tutorial will guide you through your first steps and teach you the controls of the game. You may skip the tutorial at any time by saying 'skip tutorial' to an NPC.", callbackNewbie);
 		    end
 
 		    player:requestMessageDialog(dialogNewbie); --showing the welcome text
