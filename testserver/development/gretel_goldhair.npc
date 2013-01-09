@@ -95,32 +95,30 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the five 
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich verkaufe nichts. Aber ich nehme Spenden entgegen... nun ja, eigentlich sind es Spenden für den Don. Bringt die Sachen ruhig her und legt sie auf das Feld."
 
 -- Optional: Catching quest triggers. Galmair garbage bin quest (206)
-queststatus(206) = 0, english, town = Galmair, "quest", "mission" -> queststatus(206) = 1, "Do you want a task? Bring some more donations. And drop it on the field here!"
-queststatus(206) = 0, town = Galmair, "quest", "mission" -> queststatus(206) = 1, "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
-queststatus(206) = 0, town = Galmair, "task", "adventure", "order" -> queststatus(206) = 1, "Do you want a task? Bring some more donations. And drop it on the field here!"
-queststatus(206) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(206) = 1, "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
-queststatus(206) = 0, english, "quest", "mission" -> "I have nothing to do for you, darling."
-queststatus(206) = 0, "quest", "mission" -> "I have nothing to do for you, darling."
-queststatus(206) = 0, "task", "adventure", "order" -> "Ich habe keine Aufgabe für dich, Liebling."
-queststatus(206) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe für dich, Liebling."
+queststatus(206) = 0, english, town = Galmair, "quest", "mission" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Do you want a task? Bring some more donations. And drop it on the field here!"
+queststatus(206) = 0, town = Galmair, "quest", "mission" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
+queststatus(206) = 0, town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Do you want a task? Bring some more donations. And drop it on the field here!"
+queststatus(206) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
 
 -- Quest 1 taken but not solved, repeat the instructions
-queststatus(206) = 1, english, town = Galmair, "quest", "mission" -> "Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?"
-queststatus(206) = 1, town = Galmair, "quest", "mission" -> "Ganz genau! Ihr habt herausgefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
-queststatus(206) = 1, town = Galmair, "task", "adventure", "order" -> "Yes. Yes! You did figure out how the field works! It wasn't difficult, was it?"
-queststatus(206) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ganz genau! Ihr habt herausgefunden, wie man das Feld benutzt! War auch nicht schwer, oder?"
+queststatus(206) = 1, english, town = Galmair, "quest", "mission" -> "Donating is quite easy: Just drop your items on the donation place. Easy, isn't it?"
+queststatus(206) = 1, town = Galmair, "quest", "mission" -> "Spenden ist eigentlich ganz einfach: Legt einen Gegenstand auf den Spendenplatz. Einfach, oder?"
+queststatus(206) = 1, town = Galmair, "task", "adventure", "order" -> "Donating is quite easy: Just drop your items on the donation place. Easy, isn't it?"
+queststatus(206) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Spenden ist eigentlich ganz einfach: Legt einen Gegenstand auf den Spendenplatz. Einfach, oder?"
 
 -- Quest 1 solved, reward: +20 rankpoints
-queststatus(206) = 2, english, town = Galmair, "quest", "mission" -> queststatus(206) = 3, rankpoints + 20, "Thank you for your donation!", "#me cackles"
-queststatus(206) = 2, town = Galmair, "quest", "mission" -> queststatus(206) = 3, rankpoints + 20, "Danke für Eure Spende!", "#me kichert"
-queststatus(206) = 2, town = Galmair, "task", "adventure", "order" -> queststatus(206) = 3, rankpoints + 20, "Thank you for your donation!", "#me cackles"
-queststatus(206) = 2, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> queststatus(206) = 3, rankpoints + 20, "Danke für Eure Spende!", "#me kichert"
+queststatus(206) = 2, english, town = Galmair, ".*" -> inform("[Quest solved] You advance in Don Valerio Guilianni's favour."), queststatus(206) = 3, rankpoints + 20, "Thank you for your donation!", "#me cackles"
+queststatus(206) = 2, town = Galmair, ".*" -> inform("[Quest solved] You advance in Don Valerio Guilianni's favour."), queststatus(206) = 3, rankpoints + 20, "Danke für Eure Spende!", "#me kichert"
 
 -- Final dialogue: No more quests, just nice hints
-queststatus(206) = 3, english, "quest", "mission" -> "#me grins showing a pair of yellow teeth.", " Come back again!"
-queststatus(206) = 3, "quest", "mission" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald!"
-queststatus(206) = 3, "task", "adventure", "order" -> "#me grins showing a pair of yellow teeth.", " Come back again, Sweetheart!"
-queststatus(206) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Bis bald, Schätzchen!"
+queststatus(206) = 3, english, town = Galmair, "quest", "mission" -> "#me grins showing a pair of yellow teeth.", "Ask Cormac, maybe he has something to do. But come back again and donate more to the Don!"
+queststatus(206) = 3, town = Galmair, "quest", "mission" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Frag' bei Cormac, vielleicht hat er etwas zu tun. Aber komm bald wieder und spende mehr an den Don!"
+queststatus(206) = 3, town = Galmair, "task", "adventure", "order" -> "#me grins showing a pair of yellow teeth.", "Ask Cormac, maybe he has something to do. But come back again and donate more to the Don, Sweetheart!"
+queststatus(206) = 3, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me grinst und entblößt dabei ein paar gelber Zähne.", "Frag' bei Cormac, vielleicht hat er etwas zu tun. Aber komm bald wieder und spende mehr an den Don, Schätzchen!"
+english, "quest", "mission" -> "I have nothing to do for you, darling."
+"quest", "mission" -> "I have nothing to do for you, darling."
+"task", "adventure", "order" -> "Ich habe keine Aufgabe für dich, Liebling."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe für dich, Liebling."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "I am sorting all that rubbish...I mean, all the donations to the Don."
