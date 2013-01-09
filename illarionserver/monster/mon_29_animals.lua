@@ -92,15 +92,15 @@ function onDeath(Monster)
 
     elseif (MonID==371 or MonID==381 or MonID==382) then --cow
 
-        monster.base.drop.AddDropItem(69,1,50,333,0,1); --leather
         monster.base.drop.AddDropItem(333,1,50,333,0,2); --horn
-        monster.base.drop.AddDropItem(2940,1,100,333,0,3); --steak
+        monster.base.drop.AddDropItem(2940,1,50,333,0,3); --steak
+		monster.base.drop.AddDropItem(69,1,100,333,0,1); --leather
 		
 	elseif (MonID==241 or MonID==251 or MonID==252 or MonID==253) then --pig
 
-        monster.base.drop.AddDropItem(69,1,50,333,0,1); --leather
         monster.base.drop.AddDropItem(63,1,50,333,0,2); --entrails
-        monster.base.drop.AddDropItem(307,1,100,333,0,3); --pork
+        monster.base.drop.AddDropItem(307,1,50,333,0,3); --pork
+        monster.base.drop.AddDropItem(69,1,100,333,0,1); --leather
 		
 	elseif (MonID==581 or MonID==582 or MonID==583 or MonID==584 or MonID==951 or MonID==961 or MonID==962 or MonID==971 or MonID==972) then --dog
 

@@ -29,14 +29,16 @@ function onLogin( player )
     if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes. Not on Noobia!
 	    -- So let there be taxes!
 	    payTaxes(player);
+		
+		
 	end
-
+receiveGems(player);
 	--Noobia handling
 	if (base.common.IsOnNoobia(player.pos)) then --On Noobia
 
 	    if not player:isAdmin() then --non admin chars need help!
 
-            player:pageGM("This player just logged in on Noobia.");
+            --player:pageGM("This player just logged in on Noobia.");
 
 		end
 
@@ -264,6 +266,39 @@ function payTaxes(taxPayer)
 	end
 end
 
+function receiveGems(gemRecipient)
+	local yr=world:getTime("year");
+	local mon=world:getTime("minute"); --- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+	local timeStmp=yr*1000+mon;
+	gemRecipient:inform("time stmp = "..timeStmp);
+	local town = base.factions.getMembershipByName(gemRecipient)
+	town="Cadomyr";	 --- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+	if town == "" then
+		return;
+	end	-- LASTSWITCH >> TIMESTAMP??
+	-- first check if there was a switch already: 
+	local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
+	--fnd=1
+	--lastSwitch=1
+	if fnd then gemRecipient:inform("lastSwitch: = "..lastSwitch) end
+	if fnd and tonumber(lastSwitch)<timeStmp then
+		gemRecipient:inform("now switching!")
+		base.townTreasure.NewMonthSwitch(town,timeStmp)
+	end
+	-- now check if last payment was before actual month and actual month is the one to pay out.
+	lastGem=gemRecipient:getQuestProgress(124);
+	if (lastGem~=nil) then
+		gemRecipient:inform("last gem: "..lastGem)
+		gemRecipient:inform("ts="..timeStmp.." lastSwitch="..lastSwitch.." lastGem="..lastGem)
+		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
+			gemRecipient:setQuestProgress(124,timeStmp);
+			gemRecipient:inform("Paying NOW! ")
+			--payNow(gemRecipient)
+		end
+	else
+		gemRecipient:setQuestProgress(124,timeStmp);
+	end
+end
 
 function payNow(User)
 --Cadomyr = 101
@@ -323,6 +358,7 @@ function payNow(User)
     User:requestMessageDialog(dialog);
 	
 	base.townTreasure.ChangeTownTreasure(town,tax)
+	base.townTreasure.IncreaseTaxpayerNumber(town)
     
 end
 

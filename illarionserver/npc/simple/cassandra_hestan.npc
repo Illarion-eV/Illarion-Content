@@ -70,9 +70,9 @@ sellItems = 61, 3076, 3077
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Cassandra Hestan die Geldwechslerin. Schlüsselwörter: kaufe, verkaufe, Handel, Hallo, Geld, Cadomyr, Beruf, Ronagan.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings. You came to me to change money, am I not right?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings. You came to me to change money, am I right?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße. Ihr seid zu mir gekommen, um Geld zu wechseln, hab ich nicht recht?"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings. You came to me to change money, am I not right?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings. You came to me to change money, am I right?"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüße. Ihr seid zu mir gekommen, um Geld zu wechseln, hab ich nicht recht?"
 "Farewell", "Bye", "Fare well", "See you" -> "Farewell and come back with more money."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Einen guten Tag wünsche ich und kommt mir mehr Geld zurück."
@@ -86,9 +86,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Farewell and come back with
 -- OPTIONAL TRIGGERS
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
-english, "quest", "mission" -> "I am just a humble servant of her majesty. I do not have orders for you."
+english, "quest", "mission" -> "I am just a humble servant of her Majesty. I do not have orders for you."
 "quest", "mission" -> "Ich bin auch nur eine Dienerin ihrer Majestät. Ich vermag euch keine Befehle zu erteilen."
-"task", "adventure", "order" -> "I am just a humble servant of her majesty. I do not have orders for you."
+"task", "adventure", "order" -> "I am just a humble servant of her Majesty. I do not have orders for you."
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich bin auch nur eine Dienerin ihrer Majestät. Ich vermag euch keine Befehle zu erteilen."
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
@@ -100,7 +100,7 @@ english, "job" -> "I change money. That is not a honourable profession, I am awa
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 "money" -> "In Cadomyr, we know three types of coins: Copper, silver and gold."
 "silver" -> "A silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin."
-"copper" -> "One hundred copper coins equal a silver coin."
+"copper" -> "One hundred copper coins equal one silver coin."
 english, "gold" -> "A gold coin equals a hundred silver coins."
 "Geld" -> "In Cadomyr kennt man drei Sorten Münzen: Kupfer, Silber und Gold."
 "Silber" -> "Ein Silberstück entspricht einhundert Kupferstücken. Einhundert Silberstücke entsprechen einem Goldstück."
@@ -120,7 +120,7 @@ english, "Ronagan" -> "You don't think that Ronagan is one of the evil guys, do 
 "Königin" -> "Königin Rosaline toleriert lediglich meine Tätigkeit - Geld zu wechseln ist nicht sonderlich ehrbar."
 english, "rosaline", "edwards" -> "Queen Rosaline just tolerates my profession - changing money isn't very honourable."
 "rosaline", "edwards" -> "Königin Rosaline toleriert lediglich meine Tätigkeit - Geld zu wechseln ist nicht sonderlich ehrbar."
-english, "Cadomyr" -> "Cadomyr is my home and I love it. Whether Cadomyr loves me or not - I do not know."
+english, "Cadomyr" -> "Cadomyr is my home and I love it. Whether Cadomyr loves me or not... I do not know."
 "Cadomyr" -> "Cadomyr ist meine Heimat und ich liebe es. Ob nun Cadomyr mich auch liebt oder nicht - das weiß ich nicht."
 english, ".*" -> "I don't want to talk about it."
 german, ".*" -> "Ich will nicht darüber reden."
@@ -132,10 +132,10 @@ german, ".*" -> "Ich will nicht darüber reden."
 
 cycletext "Psst! Wollt ihr etwas Geld wechseln?", "Shh! Want to change some money?"
 cycletext "Hast mal 'nen Silberling?", "Got some change?"
-cycletext "Wollt ihr mehr Geld? Wechselt eure Goldstücke in Kupferstücke ein!", "Do you want more money? Change your gold coins to copper coins!"
-cycletext "Ihr da. Ja, genau ihr. Kommt doch mal näher.", "You there. Yes, you. Come a little closer."
+cycletext "Wollt ihr mehr Geld? Wechselt eure Goldstücke in Kupferstücke ein!", "Do you want more money? Change your gold coins into copper coins!"
+cycletext "Ihr da. Ja, genau ihr. Kommt doch mal näher.", "You there. Yes, you... Come a little closer."
 cycletext "#me stellt einen kleinen Becher vor sich auf die Straße.", "#me places a small mug on the street."
-cycletext "#me klimpert mit ein paar Münzen.", "#me rattles the coins."
+cycletext "#me klimpert mit ein paar Münzen.", "#me rattles some coins."
 cycletext "#me betrachtet eine Münze und sagt: 'Königin Rosalines Porträt ist wirklich schmeichelhaft.'.", "#me beholds a coin and says: 'Queen Rosaline's potrait is charming.'."
 cycletext "Geld macht nicht glücklich, aber kein Geld macht unglücklich!", "Money doesn't make you happy, but no money makes you sad!"
 cycletext "Ich wechsle Geld!", "I change money!"

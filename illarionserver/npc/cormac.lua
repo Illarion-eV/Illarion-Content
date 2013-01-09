@@ -59,8 +59,8 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Galmair's Gossiper"));
-talkEntry:addResponse("#me flashes you a sparse-toothed grin. 'Eh! If ye want to sit down with me, ye better bring me a mug of beer. Then I'll answer yer questions.'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 1));
+talkEntry:addResponse("#me flashes you a sparse-toothed grin. 'Eh! If ye want to sit down with me, ye better bring me a mug of beer. Then I'll answer yer questions.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -73,7 +73,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty.");
+talkEntry:addResponse("Is there wax in yer ears or what? If ye want to talk with me, ye need to bring me a beer! I'm bloody thirsty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -85,7 +85,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("If that isn't mah good ol' buddy! Come, sit down and drink with meh!");
+talkEntry:addResponse("If it isn't mah good ol' buddy! Come, sit down and drink with meh!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -99,8 +99,8 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Galmair"));
-talkEntry:addResponse("#me zeigt ein zahnloses Grinsen. 'Eh! Wenn du dich hier hinsetzen willst, bring mir besser ein Bier. Dann beantworte ich deine Fragen.'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 1));
+talkEntry:addResponse("#me zeigt ein zahnloses Grinsen. 'Eh! Wenn du dich hier hinsetzen willst, bring mir besser ein Bier. Dann beantworte ich deine Fragen.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -139,8 +139,8 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Galmair's Gossiper"));
-talkEntry:addResponse("#me strokes his beard and grins: 'Arr, Greetings! If ye want to talk, then ye better quench my thirst first!'");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 1));
+talkEntry:addResponse("#me strokes his beard and grins: 'Arr, Greetings! If ye want to talk, then ye better quench my thirst first!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -152,7 +152,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty.");
+talkEntry:addResponse("Is there wax in yer ears or what? If ye want to talk with me, ye need to bring me a beer! I'm bloody thirsty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -174,8 +174,8 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Galmair"));
-talkEntry:addResponse("#me streicht seinen Bart zurecht: 'Arr, grüß dich. Wenn du mit mir reden willst, dann lösch erstmal meinen Durst mit einem Bier.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 1));
+talkEntry:addResponse("#me streicht seinen Bart zurecht: 'Arr, grüß dich. Wenn du mit mir reden willst, dann lösch erstmal meinen Durst mit einem Bier.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -224,7 +224,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("See ye around, traveller! Stay safe.");
+talkEntry:addResponse("See ye around, traveller. Stay safe!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -243,8 +243,8 @@ talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Galmair's Gossiper"));
-talkEntry:addResponse("Arr! My throat is dry as tha desert! When ye want tha talk, ye need to bring me a beer first.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 1));
+talkEntry:addResponse("Arr! My throat is dry as tha desert! When ye want to talk, ye need to bring me a beer first.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -254,7 +254,7 @@ talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "<", 1, nil));
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty.");
+talkEntry:addResponse("Is there wax in yer ears or what? If ye want to talk with me, ye need to bring me a beer! I'm bloody thirsty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -263,7 +263,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("A beer in the morning drives away the sorrows. And I have none anymore.");
+talkEntry:addResponse("A beer in the morning drives away the sorrows, and I have none anymore.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -273,8 +273,8 @@ talkEntry:addTrigger("Wie geht");
 talkEntry:addTrigger("Wie fühlst");
 talkEntry:addTrigger("Wie ist es ergangen");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Galmair"));
-talkEntry:addResponse("Arr! Meine Kehle ist so trocken wie die Wüste. Wenn du reden willst, bring mir erstmal ein Bier.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 1));
+talkEntry:addResponse("Arr! Meine Kehle ist so trocken wie die Wüste. Wenn du reden willst, bring mir erstmal ein Bier.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,8 +321,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Galmair's Gossiper"));
-talkEntry:addResponse("A task? Bring mah meh beer, ye bum!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 1));
+talkEntry:addResponse("A task? Bring mah meh beer, ye bum!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -332,7 +332,7 @@ talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty.");
+talkEntry:addResponse("Is there wax in yer ears or what? If ye want to talk with me, ye need to bring me a beer! I'm bloody thirsty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -350,8 +350,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Galmair"));
-talkEntry:addResponse("Hol' mir mal 'ne Flasche Bier sonst streik ich hier!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 1));
+talkEntry:addResponse("Hol' mir mal 'ne Flasche Bier sonst streik ich hier!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -378,8 +378,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("question");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Galmair's Gossiper"));
-talkEntry:addResponse("A task? Bring mah meh beer, ye bum!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 1));
+talkEntry:addResponse("A task? Bring mah meh beer, ye bum!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -389,7 +389,7 @@ talkEntry:addCondition(npc.base.condition.item.item(1909, "all", "<", 1, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("question");
-talkEntry:addResponse("Is there wax in yer ears or what? If ye want tha talk with me, ye need to bring me a beer! I'm bloody thirsty.");
+talkEntry:addResponse("Is there wax in yer ears or what? If ye want to talk with me, ye need to bring me a beer! I'm bloody thirsty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -408,8 +408,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Frage");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schwätzer von Galmair"));
-talkEntry:addResponse("Hol' mir mal 'ne Flasche Bier sonst streik ich hier!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 1));
+talkEntry:addResponse("Hol' mir mal 'ne Flasche Bier sonst streik ich hier!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -439,10 +439,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Cormac will now answer your questions. You advance in Don Valerio Guilianni's favour."));
-talkEntry:addResponse("#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -452,9 +452,9 @@ talkEntry:addCondition(npc.base.condition.item.item(1909, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] Cormac will now answer your questions."));
-talkEntry:addResponse("#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 2));
+talkEntry:addResponse("#me takes the mug and grins: 'Arr! Ye aint so bad after all! I've been all over tha place, so I can tell ye about tha town, tha Don, Galmair or even the neighbours if ye really want.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -464,10 +464,10 @@ talkEntry:addCondition(npc.base.condition.item.item(1909, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Cormac wird nun deine Fragen beantworten. Dein Ansehen bei Don Valerio Guilianni steigt."));
-talkEntry:addResponse("#me nimmt den Krug und grinst: 'Arr! Du bist gar nicht so schlecht, wie du aussiehst. Ich bin schon überall gewesen, du kannst mich alles über die Stadt, den Don, Galmair oder sogar unsere dummen Nachbarn fragen.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("#me nimmt den Krug und grinst: 'Arr! Du bist gar nicht so schlecht, wie du aussiehst. Ich bin schon überall gewesen, du kannst mich alles über die Stadt, den Don, Galmair oder sogar unsere dummen Nachbarn fragen.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -476,9 +476,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(1909, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Cormac wird nun deine Fragen beantworten."));
-talkEntry:addResponse("#me nimmt den Krug und grinst: 'Arr! Du bist gar nicht so schlecht, wie du aussiehst. Ich bin schon überall gewesen, du kannst mich alles über die Stadt, den Don, Galmair oder sogar unsere dummen Nachbarn fragen.'");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(1909, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(74, "=", 2));
+talkEntry:addResponse("#me nimmt den Krug und grinst: 'Arr! Du bist gar nicht so schlecht, wie du aussiehst. Ich bin schon überall gewesen, du kannst mich alles über die Stadt, den Don, Galmair oder sogar unsere dummen Nachbarn fragen.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -515,7 +515,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Urbano");
 talkEntry:addTrigger("Dorian");
-talkEntry:addResponse("#me frowns: 'Dorian Urbano, he called himself. A former bigshot in these parts... a no-good thief and scoundrel whom Don Guillianni booted out. Haha!'");
+talkEntry:addResponse("#me frowns: 'Dorian Urbano, he called himself... A former bigshot in these parts... a no-good thief and scoundrel whom Don Guillianni booted out. Haha!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -536,21 +536,21 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addTrigger("gift");
-talkEntry:addResponse("Gifts? Arr! I heard tha Don likes expensive weapons n' armour... very prudent, don't ye think? Money is good too...");
+talkEntry:addResponse("Gifts? Arr! I heard tha Don likes expensive weapons n' armour... very prudent, don't ye think? Money is good as well...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addTrigger("beer");
-talkEntry:addResponse("#me flashes you a sparse-toothed grin: 'Thank ye fer tha beer, traveller! What ye want to know now?'");
+talkEntry:addResponse("#me flashes you a sparse-toothed grin: 'Thank ye fer tha beer, traveller! What d'ye want to know now?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addTrigger("neighbo");
-talkEntry:addResponse("#me scowls: 'May tha plague visit those bastards, Runewick and Cadomyr! This is 'our' bloody land n' they're just enroaching.'");
+talkEntry:addResponse("#me scowls: 'May tha plague visit those bastards in Runewick and Cadomyr! This is 'our' bloody land n' they're just enroaching.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -651,7 +651,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Leave me alone with that!");
+talkEntry:addResponse("Leave me in peace about that!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -664,7 +664,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("That information is to vital to me I'll write it down immediatly... after my next beer.");
+talkEntry:addResponse("That information is too vital to me. I'll write it down immediatly... after my next beer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -690,7 +690,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Some say the archmage Morgan of Runewick was once a woman but some mysterious, failed spell turned her in a man... partially, har, har.");
+talkEntry:addResponse("Some say the Archmage Morgan of Runewick was once a woman but some mysterious, failed spell turned her in a man... partially, har, har.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -706,7 +706,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Some say the archmage Morgan of Runewick was once a woman but some mysterious, failed spell turned him in a man... partially, har, har.");
+talkEntry:addResponse("Some say the Archmage Morgan of Runewick was once a woman but some mysterious, failed spell turned her in a man... partially, har, har.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -722,7 +722,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick! Hah! They're a nation o' folks who sat on a bloody broomstick in tha morning, ruled by a bloody lass who waves a magic wand around.");
+talkEntry:addResponse("Runewick! Hah! They're a nation o' folks who sit on a bloody broomstick in tha morning, ruled by a bloody lass who waves a magic wand around.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -787,7 +787,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("The princess, erm, queen of Cadomyr is quite a fittie. She would fit as the Don's wife. And rumour says he got quite a crash on her.");
+talkEntry:addResponse("The Princess, erm, Queen of Cadomyr is quite a fitty. She would fit as the Don's wife, and rumour says he has got quite a crush on her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -803,7 +803,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(74, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("The princess, erm, queen of Cadomyr is quite a fittie. She would fit as the Don's wife. And rumour says he got quite a crash on her.");
+talkEntry:addResponse("The Princess, erm, Queen of Cadomyr is quite a fitty. She would fit as the Don's wife, and rumour says he has got quite a crush on her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -847,7 +847,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("So, you think I'm from Gynk? Pah! Then I should think you come from a badger's burrow or what?");
+talkEntry:addResponse("So, you think I'm from Gynk? Pah! Then I should think you come from a badger's burrow or something?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -896,7 +896,7 @@ talkEntry:addTrigger("god");
 talkEntry:addResponse("#me nods and strokes his beard: 'We're all pious folks down here, though we mind our own business with this like with other stuff.'");
 talkEntry:addResponse("Gods are overrated.");
 talkEntry:addResponse("Do I look like I want to talk about faith and devotion?");
-talkEntry:addResponse("Go... to a temple if you want to talk about gods. Or just go... elsewhere.");
+talkEntry:addResponse("Go to a temple if you want to talk about gods. Or just go... elsewhere.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -916,7 +916,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Business, eh? Not here! Meet me... wait... Nevermind!");
+talkEntry:addResponse("Business, eh? Not here! Meet me... wait... nevermind!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -994,12 +994,12 @@ talkingNPC:addCycleText("Ich war schon überall und woanders, aber verdammt nochm
 talkingNPC:addCycleText("#me schnattert: 'Wie viele Cadomyrer braucht man, um eine Kerze anzuzünden? Einen, um die Kerze anzuzünden und eine Brigade, um das brennende Haus zu löschen!'", "#me cackles: 'How many Cadomyrians do you need to light a candle? One to light tha candle and a brigade to extinguish tha burning house!'");
 talkingNPC:addCycleText("Verdammt! Wirt, meine Kehle ist so leer und trocken wie der Schädel eines Runewickers!", "Damn! Oy, bartender! My throat is as empty and dry as a Runewickian skull!");
 talkingNPC:addCycleText("#me ist ein Zwerg mit einem schwarzen, buschigem Bart, gekleidet in grober, zerschlissener Kleidung.", "#me is a dwarf with a black bushy beard, dressed in ragged and coarse clothes.");
-talkingNPC:addCycleText("#me scheint bester Laune zu sein, auch wenn sein Bierkrug leer erscheint.", "#me seems to be in jubilant mood, though his beer-mug is empty.");
+talkingNPC:addCycleText("#me scheint bester Laune zu sein, auch wenn sein Bierkrug leer erscheint.", "#me seems to be in jubilant mood, eventhough his beer mug is empty.");
 talkingNPC:addCycleText("Hey! Füll meinen Krug und wir können reden.", "Oy, fill my mug with beer n' we can talk.");
 talkingNPC:addCycleText("#me summt: Fässer voll Schnaps, fließen den Fluss entlang. Der Zollmann weiß von nichts, die Nacht beschützt meine Fracht. Mein Profit ist recht und Steuern gibts von mir nicht.'", "#me hums: 'Barrels o' booze, downstream they go! That tha bailiff don't know! The night protects my cargo n' coins, n' tha taxman can kiss my loins! Haha!'");
 talkingNPC:addCycleText("Borps!", "Burp!");
 talkingNPC:addCycleText("Ist der Krug leer, dann muss ein neuer her!", "An empty mug is not good!");
-talkingNPC:addCycleText("Sagt ein Mütterchen zum Wachtmeister: Können sie mir über den Fluss helfen? Der Wachtmeister: Ja, ich bringe euch zur Brücke dort. Das Mütterchen: Pah, da komm ich alleine rüber!", "An hag to the constable: Could you help me cross the river? The constable replies: Sure, I'll guide you to the bridge. The hag: Pah! There, I can do it on my own!");
+talkingNPC:addCycleText("Sagt ein Mütterchen zum Wachtmeister: Können sie mir über den Fluss helfen? Der Wachtmeister: Ja, ich bringe euch zur Brücke dort. Das Mütterchen: Pah, da komm ich alleine rüber!", "A mother to the constable: Could you help me cross the river? The constable replies: Sure, I'll take you to the bridge. The mother: Pah! There, I can do it on my own!");
 talkingNPC:addCycleText("Ein Bauer zum Wachtmeister: Man hat mir meinen Karren gestohlen! Der Wachtmeister: Hatte der Wagen eine Laterne und eine Tröte? Der Bauer: Nein, warum? Der Wachtmeister: Das macht dann dreißig Kupferstücke Strafe!", "A peasant to the constable: Someone stole my cart! The constable: Did the cart have a lantern and a horn? The peasant. No, why? The constable: That's thirty copper fine then!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);

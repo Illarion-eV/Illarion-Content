@@ -41,6 +41,8 @@ function enemyOnSight(Monster,Enemy)
 
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
+	else
+		return false;
     end
 end
 

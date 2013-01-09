@@ -82,9 +82,9 @@ queststatus(111) > 18, ".+" -> inform("[Error] Something went wrong, please info
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Beror Oakaxe der königliche Quartiermeister. Schlüsselwörter: Hallo, Quest, Befehle, Ritter, Tor.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ha! A new recruit. You came here to get your orders for today, right?", "Attention! The queen issued new orders, and her majesty will not tolerate delay! Report for duty!"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Ha! A new recruit. You came here to get your orders for today, right?", "Attention! The Queen has issued new orders, and her Majesty will not tolerate delay! Report for duty!"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ha! Ein neuer Rekrut. Du bist hier, um deinen Tagesbefehl zu erhalten, richtig?", "Hergehört! Die Königin hat neue Befehle ausgegeben. Und ihre Majestät mag keine Verzögerungen in ihrer Ausführung."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ha! A new recruit. You came here to get your orders for today, right?", "Ha! A new recruit, bet your looking for orders aren't you, greenhorn?", "Attention! The queen issued new orders, and her majesty will not tolerate delay! Report for duty!"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ha! A new recruit. You came here to get your orders for today, right?", "Ha! A new recruit, bet your looking for orders aren't you, greenhorn?", "Attention! The Queen has issued new orders, and her Majesty will not tolerate delay! Report for duty!"
 "Hiho", "Hallo", "Hey", "Greeb" -> "Ha! Ein neuer Rekrut. Du bist hier, um deinen Tagesbefehl zu erhalten, richtig?", "Hergehört! Die Königin hat neue Befehle ausgegeben. Und ihre Majestät mag keine Verzögerungen in ihrer Ausführung."
 "Farewell", "Bye", "Fare well", "See you" -> "Dismissed.", "Best of luck.", "Move out!"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Wegetreten.", "Viel Glück.", "Los!"
@@ -112,9 +112,9 @@ town = None, "task", "adventure", "order" -> "You outcast! Can't you find a home
 town = None, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Du Ausgestoßener! Kannst du keine Heimat finden? Sie nehmen jeden in Galmair, solange die Kasse stimmt, sagt man."
 
 -- Quest 1: Read the Cadomyr laws
-queststatus(111) = 0, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] A Question of Honour I"), "You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the Cadomyr laws. Visit Sir Reginald's statue and study the customs thoroughly.", queststatus(111) = 1, queststatus(110) = 0
+queststatus(111) = 0, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] A Question of Honour I"), "You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the laws of Cadomyr. Visit Sir Reginald's statue and study the customs thoroughly.", queststatus(111) = 1, queststatus(110) = 0
 queststatus(111) = 0, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Eine Frage der Ehre I"), "Du bist neu hier, richtig? Als braver Rekrut solltest du dich zuerst mit den Gesetzen Cadomyrs vertraut machen. Geh zu Sir Reginalds Statue, dort kannst du sie ausgiebig studieren.", queststatus(111) = 1, queststatus(110) = 0
-queststatus(111) = 0, town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] A Question of Honour I"), "You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the Cadomyr laws. Visit Sir Reginald's statue and study the customs thoroughly.", queststatus(111) = 1, queststatus(110) = 0
+queststatus(111) = 0, town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] A Question of Honour I"), "You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the laws of Cadomyr. Visit Sir Reginald's statue and study the customs thoroughly.", queststatus(111) = 1, queststatus(110) = 0
 queststatus(111) = 0, town = Cadomyr, "Auftrag", "Aufgabe" -> inform("[Neues Quest] Eine Frage der Ehre I"), "Du bist neu hier, richtig? Als braver Rekrut solltest du dich zuerst mit den Gesetzen Cadomyrs vertraut machen. Geh zu Sir Reginalds Statue, dort kannst du sie ausgiebig studieren.", queststatus(111) = 1, queststatus(110) = 0
 
 -- Quest 1 solved, reward: 5 rankpoints
@@ -150,7 +150,7 @@ queststatus(111) = 6, town = Cadomyr, "task", "adventure", "order" -> inform("[N
 queststatus(111) = 6, town = Cadomyr, "Auftrag", "Aufgabe" -> inform("[Neues Quest] Eine Frage der Ehre III"), "Wahrscheinlich ist dir währender der Patroullie die kleine Bresche in der Stadtmauer aufgefallen. Manchmal bedeuten glorreiche Taten auch harte Arbeit; bring mir bitte zwanzig Ziegel zum Ausbessern der Bresche.", queststatus(111) = 7
 
 -- Quest 3 solved, reward: brick mould (734), 10 rankpoints
-queststatus(111) = 7, item(2588, all) > 19, english, town = Cadomyr, ".*" -> inform("[Quest solved] You are awarded a brick mould. You advance in Queen Rosaline Edwards' favour."), "Recruit! Imagine we were under siege and it takes you that long again to get some ordinary bricks! Here, have this brick mould so you can provide bricks faster the next time!", deleteItem(2588, 20), item(734, 1, 599), queststatus(111) = 8, rankpoints + 10
+queststatus(111) = 7, item(2588, all) > 19, english, town = Cadomyr, ".*" -> inform("[Quest solved] You are awarded a brick mould. You advance in Queen Rosaline Edwards' favour."), "Recruit! Imagine we were under siege and it takes you that long again to get some ordinary bricks! Here, have this brick mould so you can provide bricks faster next time!", deleteItem(2588, 20), item(734, 1, 599), queststatus(111) = 8, rankpoints + 10
 queststatus(111) = 7, item(2588, all) > 19, town = Cadomyr, ".*" -> inform("[Quest gelöst] Du erhältst eine Ziegelform. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Rekrut! Stell dir mal vor, wir würden belagert werden und du brauchst wieder so lange, um ein paar gewöhnliche Ziegel zu besorgen! Nimm diese Ziegelform, damit du nächstes mal schneller bist!", deleteItem(2588, 20), item(734, 1, 599), queststatus(111) = 8, rankpoints + 10
 
 -- Quest 3 taken but not solved, repeat the instructions
@@ -166,7 +166,7 @@ queststatus(111) = 8, town = Cadomyr, "task", "adventure", "order" -> inform("[N
 queststatus(111) = 8, town = Cadomyr, "Auftrag", "Aufgabe" -> inform("[Neues Quest] Eine Frage der Ehre IV"), "Zeit für wahre Heldentaten. Patroulliere bitte den Grundstein der Aufrichtigkeit, den Blutkreis, die nördliche Brücke über den Kantabifluss und die Ostgrenze. Sorge dafür, dass das Hinterland Cadomyrs sicher ist!", queststatus(111) = 9
 
 -- Quest 4 solved, reward: Albarian soldier helmet (2287), 15 rankpoints
-queststatus(111) = 10, english, town = Cadomyr, ".*" -> inform("[Quest solved] You are awarded an albarian soldier helmet. You advance in Queen Rosaline Edwards' favour."), "What? An ambush of bandits? Bad news, I'll report to the queen as soon as possible. Good work, recruit! You deserve this helmet of Cadomyr's warriors.", item(2287, 1, 699), queststatus(111) = 11, rankpoints + 15
+queststatus(111) = 10, english, town = Cadomyr, ".*" -> inform("[Quest solved] You are awarded an Albarian soldier helmet. You advance in Queen Rosaline Edwards' favour."), "What? An ambush of bandits? Bad news, I'll report to the Queen as soon as possible. Good work, recruit! You deserve this helmet of Cadomyr's warriors.", item(2287, 1, 699), queststatus(111) = 11, rankpoints + 15
 queststatus(111) = 10, town = Cadomyr, ".*" -> inform("[Quest gelöst] Du erhältst einen albarischen Soldatenhelm. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Was? Ein Banditenhinterhalt? Schlimme Kunde, die ich der Königin so bald wie möglich zu berichten habe. Gute Arbeit, Rekrut! Du hast dir diesen Helm der Krieger Cadomyrs redlich verdient.", item(2287, 1, 699), queststatus(111) = 11, rankpoints + 15
 
 -- Quest 4 taken but not solved, repeat the instructions
@@ -182,7 +182,7 @@ queststatus(111) = 11, town = Cadomyr, "task", "adventure", "order" -> inform("[
 queststatus(111) = 11, town = Cadomyr, "Auftrag", "Aufgabe" -> inform("[Neues Quest] Eine Frage der Ehre V"), "Aufklärung sichert manchmal das Überleben. Wir sind keine Spione, wollen aber wissen, wer unser Feind ist. Ich will, du den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und die Kammer des Erzmagiers in Runewick 'aufklärst'.", queststatus(111) = 12
 
 -- Quest 5 solved, reward: albarian steelboots 15 rankpoints
-queststatus(111) = 13, english, town = Cadomyr, ".*" -> inform("[Quest solved] You are awarded enchanted albarian steelboots. You advance in Queen Rosaline Edwards' favour."), "Once again, you can write your report later. For now, I am happy you made it back alive, recruit. For your next patrol, I have fitting footwear for you.", item(771, 1, 699), queststatus(111) = 14, rankpoints + 15
+queststatus(111) = 13, english, town = Cadomyr, ".*" -> inform("[Quest solved] You are awarded enchanted Albarian steel boots. You advance in Queen Rosaline Edwards' favour."), "Once again, you can write your report later. For now, I am happy you made it back alive, recruit. For your next patrol, I have fitting footwear for you.", item(771, 1, 699), queststatus(111) = 14, rankpoints + 15
 queststatus(111) = 13, town = Cadomyr, ".*" -> inform("[Quest gelöst] Du erhältst verzauberte albarische Stahlschuhe. Dein Ansehen bei Königin Rosaline Edwards steigt."), "Wie immer kannst du deinen Bericht später schreiben, Rekrut. Ich bin erstmal froh, dass du heil zurück bist. Für deine nächste Patroullie habe ich passendes Schuhwerk für dich.", item(771, 1, 699), queststatus(111) = 14, rankpoints + 15
 
 -- Quest 5 taken but not solved, repeat the instructions
@@ -208,9 +208,9 @@ queststatus(111) = 15, town = Cadomyr, "task", "adventure", "order" -> "Malachí
 queststatus(111) = 15, town = Cadomyr, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Malachín ist der Patron aller Ritter und sein Tempel braucht wirklich eine neue Vertäfelung. Bitte holt zwanzig Naldorholzbretter für diesen heiligen Zweck."
 
 -- Quest 7: Provide a charm of the icebird (334), a ring of the archmage (2559) and a vase (315)
-queststatus(111) = 16, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] A Question of Honour VII"), "I have new orders from the queen. She demands precious goods from the best artisans of Cadomyr for impressing an albarian ambassador. Provide a charm of the icebird, a ring of the archmage and a vase. For the glory of Cadomyr!", queststatus(111) = 17
+queststatus(111) = 16, english, town = Cadomyr, "quest", "mission" -> inform("[New Quest] A Question of Honour VII"), "I have new orders from the Queen. She demands precious goods from the best artisans of Cadomyr for impressing an Albarian ambassador. Provide a charm of the icebird, a ring of the archmage and a vase. For the glory of Cadomyr!", queststatus(111) = 17
 queststatus(111) = 16, town = Cadomyr, "quest", "mission" -> inform("[Neues Quest] Eine Frage der Ehre VII"), "Ich habe neue Befehle der Königin. Sie verlangt nach wertvollen Kunstwerken der besten Artisanen Cadomyrs um damit einen albarischen Botschafter zu beeindrucken. Bring mir bitte ein Eisvogelamulett, einen Erzmagierring und eine Vase. Für die Ehre von Cadomyr!", queststatus(111) = 17
-queststatus(111) = 16, town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] A Question of Honour VII"), "I have new orders from the queen. She demands precious goods from the best artisans of Cadomyr for impressing an albarian ambassador. Provide a charm of the icebird, a ring of the archmage and a vase. For the glory of Cadomyr!", queststatus(111) = 17
+queststatus(111) = 16, town = Cadomyr, "task", "adventure", "order" -> inform("[New Quest] A Question of Honour VII"), "I have new orders from the Queen. She demands precious goods from the best artisans of Cadomyr for impressing an Albarian ambassador. Provide a charm of the icebird, a ring of the archmage and a vase. For the glory of Cadomyr!", queststatus(111) = 17
 queststatus(111) = 16, town = Cadomyr, "Auftrag", "Aufgabe" -> inform("[Neues Quest] Eine Frage der Ehre VII"), "Ich habe neue Befehle der Königin. Sie verlangt nach wertvollen Kunstwerken der besten Artisanen Cadomyrs um damit einen albarischen Botschafter zu beeindrucken. Bring mir bitte ein Eisvogelamulett, einen Erzmagierring und eine Vase. Für die Ehre von Cadomyr!", queststatus(111) = 17
 
 -- Quest 7 solved, reward: knight shield (20), 20 rankpoints
@@ -240,9 +240,9 @@ english, "Gobaith", "Gobiath" -> "When all those refugees came I was glad that t
 "mein Name" -> "Ich werde dich Gefreiter Wattebausch nennen, wenns dich nicht stört."
 
 -- More small talk; add at least five triggers, e.g. about the profession of the NPC or his enviroment
-"quartermaster" -> "I take my job serious and I am a serious person. My task is to care for new recruits of Cadomyr and to make sure they have all they need - orders especially!"
+"quartermaster" -> "I take my job seriously and I am a serious person. My task is to care for new recruits of Cadomyr and to make sure they have all they need - orders especially!"
 "order" -> "How kind! You ask me kindly for an order. Stand still! Attention! I will send you on a mission for the glory of Cadomyr, not a walk in the park!"
-"knight", "page" -> "So, you want to become a knight of the Queen like all the heroes your mother told you about before you went to bed? Ha! The first thing a knight has to learn is to obey orders. I got plenty!"
+"knight", "page" -> "So, you want to become a knight of the Queen like all the heroes your mother told you about before you went to bed? Ha! The first thing a knight has to learn is to obey orders. I've got plenty!"
 "gate" -> "So, Horatio let you pass? I trained him, so you cannot be a threat to Cadomyr."
 english, "Horatio", "Milenus" -> "So, Horatio let you pass? I trained him, so you cannot be a threat to Cadomyr."
 "Quartiermeister" -> "Ich nehme meine Aufgabe ernst und bin ein harter Hund. Mein Dienst sieht vor, mich um die neuen Rekruten Cadomyrs zu kümmern und sicherzustellen, dass es ihnen an nichts fehlt - insbesondere an Befehlen!"
@@ -280,35 +280,35 @@ english, "salkama" -> "Salkamar lacks organization. Other than that, it seems to
 -- Gods - use the triggers of the god the NPC worships or fights
 "god" -> "I obey queen Rosaline alone and if she orders me to worship a god, I'll worship it."
 "Gott", "Götter" -> "Ich gehorche nur Königin Rosaline und wenn sie mir befiehlt, einem Gott zu huldigen, dann tu ich das auch."
-english, "Adron" -> "You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr."
+english, "Adron" -> "You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr."
 "Adron" -> "Es ist mir egal, zu welchem Gott du betest, solange du den Befehlen ihrer Majestät gehorchst. Loyalität zählt hier in Cadomyr mehr als dein Glaube."
 english, "Bragon", "Brágon" -> "Well, Brágon's impact on Illarion is still a mystery to me. So, he gave us the fire? When I light a candle, it burns, not much of a miracle."
 "Bragon", "Brágon" -> "Nun, Brágons Bedeutung für Illarion ist mir immernoch unklar. Er hat uns angeblich das Feuer gegeben? Wenn ich eine Kerze anzünde, dann brennt sie, soll das etwa ein Wunder sein?"
 english, "Cherga" -> "Pray to Cherga if you want to meet her, I say!"
 "Cherga" -> "Betet zu Cherga, wenn ihr sie treffen wollt, ja das sage ich!"
-english, "Elara" -> "You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr."
+english, "Elara" -> "You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr."
 "Elara" -> "Es ist mir egal, zu welchem Gott du betest, solange du den Befehlen ihrer Majestät gehorchst. Loyalität zählt hier in Cadomyr mehr als dein Glaube."
-english, "Eldan" -> "You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr."
+english, "Eldan" -> "You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr."
 "Eldan" -> "Es ist mir egal, zu welchem Gott du betest, solange du den Befehlen ihrer Majestät gehorchst. Loyalität zählt hier in Cadomyr mehr als dein Glaube."
-english, "Findari" -> "You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr."
+english, "Findari" -> "You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr."
 "Findari" -> "Es ist mir egal, zu welchem Gott du betest, solange du den Befehlen ihrer Majestät gehorchst. Loyalität zählt hier in Cadomyr mehr als dein Glaube."
-english, "Irmorom" -> "You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr."
+english, "Irmorom" -> "You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr."
 "Irmorom" -> "Es ist mir egal, zu welchem Gott du betest, solange du den Befehlen ihrer Majestät gehorchst. Loyalität zählt hier in Cadomyr mehr als dein Glaube."
 english, "Malachin", "Malachín" -> "Ah, yes, all proud knights pray to Malachín and eat their vegetables - forget all that! Loyalty is what makes a knight, not begging for divine assistance."
 "Malachin", "Malachín" -> "Ja, ja, edle Ritter beten zu Malachín und essen brav ihr Gemüse - vergiss es! Loyalität ist das, was einen Ritter ausmacht, nicht das betteln nach göttlichem Beistand."
 english, "Moshran" -> "You may even worship Moshran, I have no problem with that, but any jokes about the Queen and you'd wish that you were never born."
 "Moshran" -> "Du kannst von mir aus zu Moshran beten, ich hab da kein Problem mit. Aber erzähl irgendwelche Witze über die Königin und du wirst dir wünschen, nie geboren worden zu sein."
-english, "Nargun", "Nargún", "Nargùn" -> "You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr."
+english, "Nargun", "Nargún", "Nargùn" -> "You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr."
 "Nargun", "Nargún", "Nargùn" -> "Es ist mir egal, zu welchem Gott du betest, solange du den Befehlen ihrer Majestät gehorchst. Loyalität zählt hier in Cadomyr mehr als dein Glaube."
-english, "Oldra" -> "You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr."
+english, "Oldra" -> "You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr."
 "Oldra" -> "Es ist mir egal, zu welchem Gott du betest, solange du den Befehlen ihrer Majestät gehorchst. Loyalität zählt hier in Cadomyr mehr als dein Glaube."
-english, "Ronagan" -> "You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr."
+english, "Ronagan" -> "You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr."
 "Ronagan" -> "Es ist mir egal, zu welchem Gott du betest, solange du den Befehlen ihrer Majestät gehorchst. Loyalität zählt hier in Cadomyr mehr als dein Glaube."
 english, "Sirani" -> "Girls wanna have fun, eh?"
 "Sirani" -> "Mädchen wollen auch mal Spaß, eh?"
-english, "Tanora", "Zelphia" -> "You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr."
+english, "Tanora", "Zelphia" -> "You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr."
 "Tanora", "Zelphia" -> "Es ist mir egal, zu welchem Gott du betest, solange du den Befehlen ihrer Majestät gehorchst. Loyalität zählt hier in Cadomyr mehr als dein Glaube."
-english, "Ushara" -> "You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr."
+english, "Ushara" -> "You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr."
 "Ushara" -> "Es ist mir egal, zu welchem Gott du betest, solange du den Befehlen ihrer Majestät gehorchst. Loyalität zählt hier in Cadomyr mehr als dein Glaube."
 english, "Zhambra" -> "The doctrines of Zhambra's followers are also mine. Does that make me a follower of Zhambra? I do not know and I do not care."
 "Zhambra" -> "Die Doktrin der Anhänger Zhambra's sind auch meine. Bin ich also ein Anhänger Zhambras? Ich weiß es nicht und es ist mir eigentlich auch egal."

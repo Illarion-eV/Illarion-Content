@@ -69,8 +69,8 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!", trade
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: buy, sell, trade, Murgo, Er'hja, Kroch'Gurak, Alice, Tom"), "Me, Krudash sell and buy lots of stuff! Taghta?", state = 0
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: kaufe, verkaufe, Handel, Murgo, Er'hja, Kroch'Gurak, Alice, Tom"), "Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?", state = 0
+"Help" -> inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: buy, sell, trade, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"), "Me, Krudash sell and buy lots of stuff! Taghta?", state = 0
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: kaufe, verkaufe, Handel, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"), "Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?", state = 0
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas. Do you need sumthing?", "Hurr! Be greeted.", "Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!", "Latha math! Greetings-Greetings, mes mean."
@@ -119,6 +119,9 @@ english, "snaga" -> "Snagas! Those are monkeys... - basically. And weak puny orc
 "snaga" -> "Snagas! Das sind Affen... - eigentlich. Und schwächliche Orks, denen man sagt was sie tun müssen! Eine mächtige Ork wie ich, Krudash es bin hat viele Snagas. Gâsh! Bin ja auch die Schlauste hier."
 english, "where com", "krochgurak" -> "Hrach. I come frome Khenserra. But most orcs come frome Kroch'gurak where the Clans camp in winter."
 "where com", "krochgurak" -> "Hrach. Ich komme aus Khenserra. Aber viele Orks sind aus Kroch'gurak. Dort'ists wo die Clans im Winter lagern."
+"dwarf","dwarv"->"Hurr Hurr. Do you need an axe, huh?"
+"zwerg" -> "Hurr Hurr. Brauchst ne Axt, hä?"
+
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Pfft! Astute wizard... Runewick rat!"
@@ -155,8 +158,8 @@ english, "cherga", "icy witch", "eis Hex" -> "Hurr. Tha icy witch, be god ob anc
 german, "cherga", "icy witch", "eis Hex" -> "Hurr. Eisig Hexe, Gottin von Ahnen ist. Du fragst Grimlug!"
 
 -- Catching typical NPC phrases
-"tell something" -> "Gâsh! I learned the dealing in Gynk! Yp-Yp.", "Hrach! Do you know the blacksmith Frobenius? He sells swords, a horse farrier would be able to make them sharper.", "Murgo is my husband! Er'hja and Ol'hja are us whelps. Taghta?"
-"erzähl was", "erzähl etwas" -> "Gâsh! Ich hab das Handeln in Gynk gelernt! Yp-Yp.", "Hrach! Kennst' du den Schmied Frobenius? Er verkauft Schwerter, ein Hufschmied könnt sie schärfer machen!", "Murgo ist mein Mann! Er'hja und Ol'hja unsere Welpen. Taghta?"
+"tell something" -> "Gâsh! I learned the dealing in Gynk! Yp-Yp.", "Hrach! Do you know the blacksmith Frobenius? He sells swords, a horse farrier would be able to make them sharper."
+"erzähl was", "erzähl etwas" -> "Gâsh! Ich hab das Handeln in Gynk gelernt! Yp-Yp.", "Hrach! Kennst' du den Schmied Frobenius? Er verkauft Schwerter, ein Hufschmied könnt sie schärfer machen!"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 english, "Krudash" -> "Hurr Hurr. Ciamar a'seibh! How goin?", "Hurr Hurr. Do you need an axe, huh?"

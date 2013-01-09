@@ -7,7 +7,7 @@
 require("base.common");
 module("item.id_2498_empty_bottle", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
    local foundSource
   -- check for well or fountain
   TargetItem = base.common.GetItemInArea(User.pos, 2207);
@@ -43,23 +43,27 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
 	    
     if ( ltstate == Action.none ) then 
 		User:startAction( 20, 21, 5, 10, 25);
-		User:talkLanguage( Character.say, Player.german, "#me beginnt Flaschen zu befüllen.");
-		User:talkLanguage( Character.say, Player.english, "#me starts to fill bottle."); 
+		User:talkLanguage( Character.say, 0, "#me beginnt Flaschen zu befüllen.");
+		User:talkLanguage( Character.say, 1, "#me starts to fill bottle."); 
 		return
 	end
 	
 	local notCreated = User:createItem( 2496, 1, 999, nil ); -- create the new produced items
-	world:erase(SourceItem,1)
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 2496, notCreated, User.pos, true, 999, nil );
 		base.common.HighInformNLS(User,
 		"Du kannst nichts mehr halten.",
 		"You can't carry any more.");
+		world:erase(SourceItem,1)
+		return
 	else -- character can still carry something
-		if User:countItem(2498) <= 0 then
-            return
+		if SourceItem.number == 1 then
+		    world:erase(SourceItem,1)
+			return
         else
-		    User:startAction( 20, 21, 5, 10, 25);
+		    world:erase(SourceItem,1)
+			User:changeSource(SourceItem)
+			User:startAction( 20, 21, 5, 10, 25);
 		end	
 	end
 --[[ !!! OLD OLD OLD !!!

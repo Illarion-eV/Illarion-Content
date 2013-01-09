@@ -47,8 +47,12 @@ itemShoes = 53
 
 ------------------------------------------------------------------------------AC
 -- help
-"Help" -> inform("[Game Help] This NPC is Joseph Quatrilla the master of alchemy. Keywords: recipes, alchemy")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joseph Quatrilla der Lehrmeister der Alchemie. Schlüsselwörter: Rezepte, Alchemie")
+"Help" -> inform("[Game Help] This NPC is Joseph Quatrilla the master of alchemy. Keywords: recipes, alchemy, book")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joseph Quatrilla der Lehrmeister der Alchemie. Schlüsselwörter: Rezepte, Alchemie, Buch")
+
+sellItems = id(2622), de("Buch der Alchemie"), en("Book Of Alchemy"), price(1000), stack(1), quality(333)
+"handel","kauf","Buch" -> "Bei mir könnt Ihr das Standardwerk der Alchemie erwerben.",trade
+"buy","sell,","trade","book" -> "You can buy the standard work of alchemy from me.",trade
 
 -- general speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!", "Hello.", "Be greeted!"
