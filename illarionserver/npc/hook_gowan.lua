@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: southwest              --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -35,9 +35,9 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ah, so you are interested in my wares.");
 talkEntry:addResponse("Take your time to look around.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -48,9 +48,9 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ah, dann interessiert Ihr Euch also für meine Waren.");
 talkEntry:addResponse("Schaut Euch ruhig in Ruhe um.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -191,8 +191,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("#me winks with his hook hand: 'They call me Hook Gowan.'");
-talkEntry:addResponse("#me twinkles: 'I'm Hook, trader of third hand equipment...'");
+talkEntry:addResponse("#me twinkles: 'I'm Hook,r of third hand equipment...'");
 talkEntry:addResponse("Gowan. May name is Gowan - Sometimes I wish everyone would call me just Gowan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -283,7 +284,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Allright. Do you wish to trade something?");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Allright. Do you wish tosomething?");
 talkEntry:addResponse("Well then. Listen - If you don't ask any questions I will not lie to you. Agreed?");
 talkEntry:addResponse("Superb!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -322,7 +324,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nubris");
-talkEntry:addResponse("Well, my father lived directly in Nubris. I moved... - Nubris, the golden jewel of the south, like they say in Salkamar. Many people there have a dark skin.");
+talkEntry:addResponse("Well, my father lived directly in Nubris. I moved... Nubris, the golden jewel of the south, like they say in Salkamar. Many people there have a dark skin.");
 talkEntry:addResponse(" Nubris! Well let me tell about my far away home... - there lives a animal named Kawaaru. A giant lizard with calm mind. Used to lift and bear heavy goods.");
 talkEntry:addResponse("I tend to say - kind of subjective of course - Nubris is the most beautiful town of Illarion. The dome-shaped roofs are seeable from far away and glowing in the desert sun. And A Circle of Elders is ruling the town.");
 talkEntry:addResponse("In Nubris it's too hot for heavy armory. Instead they use armors made of hard wood and thin stones.");
@@ -354,7 +356,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("nubris");
-talkEntry:addResponse("Tja, mein Vater lebte noch direkt in Nubris. Ich bin ausgezogen... - Nurbis, das goldene Juwel des Südens, wie es in Salkamar genannt wird. Viele Menschen dort, haben eine dunkle Haut.");
+talkEntry:addResponse("Tja, mein Vater lebte noch direkt in Nubris. Ich bin ausgezogen... Nurbis, das goldene Juwel des Südens, wie es in Salkamar genannt wird. Viele Menschen dort, haben eine dunkle Haut.");
 talkEntry:addResponse("In Nubris, lasst mich von meiner weit entfernten Heimat erzählen... - dort gibts es ein Tier, es heißt Kawaaru. Eine riesige Echse mit sanften Gemüt. Welche zum tragen von schweren Gütern genützt wird.");
 talkEntry:addResponse("Ich will ganz subjektiv meinen Nubris ist die schönste Stadt Illarions. Weithin sind die vergoldeten Kuppeldächer und die prächtigen goldgelben Granitbauten sichtbar. Außerdem regiert ein Ältestenrat die Stadt.");
 talkEntry:addResponse("In Nubris ist es viel zu heiß für hinderliche Lederrüstungen oder gar Stahl. Stattdessen verwendet man hauptsächlich leichte Rüstplatten aus hartem Holz oder Schuppenpanzer aus stabilen Steinsorten.");
@@ -553,12 +555,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ronagan, the god of thieves and shadows! He promises shelter to everyone who live in the shadow of the so called high society");
 talkEntry:addResponse("They say there is a shrine for the Shadow lord somwhere in Galmair. But when I went there I didn't find it.");
 talkEntry:addResponse("My Lord despises the autority of the nobility. And like Ronagan himself, its my aim to hoax them.");
 talkEntry:addResponse("Sometimes he appears as a dark haired and clothed charming man, guarding those who are in need of helping hand. He seems quite good humored to me.");
 talkEntry:addResponse("Ronagan dislikes betrayal. To betray a confederate is  the worst and for sure the Shadow lord will calm for revenge one day.");
-talkEntry:addResponse("They say there are traders who sacrifice a part of their earnings to Ronagan, so he will shelter their goods.");
+talkEntry:addResponse("They say there arers who sacrifice a part of their earnings to Ronagan, so he will shelter their goods.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -685,7 +688,6 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(7,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(27,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(49,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(55,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(97,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(183,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(363,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(369,"sell"));

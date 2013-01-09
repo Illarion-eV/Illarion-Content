@@ -140,7 +140,7 @@ mainNPC:addLanguage(2);
 mainNPC:addLanguage(3);
 mainNPC:addLanguage(4);
 mainNPC:addLanguage(5);
-mainNPC:addLanguage(5);
+mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Wilderland, Galmair, Cadomyr.", "[Teleporter] Say the name of the realm you want to travel to: Wilderland, Galmair, Cadomyr.");
 mainNPC:setUseMessage("[Teleporter] Sagt den Namen der Gegend, in die ihr reisen möchtet: Wilderland, Galmair, Cadomyr.", "[Teleporter] Say the name of the realm you want to travel to: Wilderland, Galmair, Cadomyr.");

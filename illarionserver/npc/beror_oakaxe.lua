@@ -59,7 +59,7 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Ha! A new recruit. You came here to get your orders for today, right?");
-talkEntry:addResponse("Attention! The queen issued new orders, and her majesty will not tolerate delay! Report for duty!");
+talkEntry:addResponse("Attention! The Queen has issued new orders, and her Majesty will not tolerate delay! Report for duty!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -87,7 +87,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Ha! A new recruit. You came here to get your orders for today, right?");
 talkEntry:addResponse("Ha! A new recruit, bet your looking for orders aren't you, greenhorn?");
-talkEntry:addResponse("Attention! The queen issued new orders, and her majesty will not tolerate delay! Report for duty!");
+talkEntry:addResponse("Attention! The Queen has issued new orders, and her Majesty will not tolerate delay! Report for duty!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -296,9 +296,9 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour I"));
-talkEntry:addResponse("You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the Cadomyr laws. Visit Sir Reginald's statue and study the customs thoroughly.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(110, "=", 0));
+talkEntry:addResponse("You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the laws of Cadomyr. Visit Sir Reginald's statue and study the customs thoroughly.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -308,9 +308,9 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre I"));
-talkEntry:addResponse("Du bist neu hier, richtig? Als braver Rekrut solltest du dich zuerst mit den Gesetzen Cadomyrs vertraut machen. Geh zu Sir Reginalds Statue, dort kannst du sie ausgiebig studieren.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(110, "=", 0));
+talkEntry:addResponse("Du bist neu hier, richtig? Als braver Rekrut solltest du dich zuerst mit den Gesetzen Cadomyrs vertraut machen. Geh zu Sir Reginalds Statue, dort kannst du sie ausgiebig studieren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,9 +321,9 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour I"));
-talkEntry:addResponse("You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the Cadomyr laws. Visit Sir Reginald's statue and study the customs thoroughly.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(110, "=", 0));
+talkEntry:addResponse("You are fairly new to Cadomyr, aren't you? As a good recruit, you should make yourself familiar with the laws of Cadomyr. Visit Sir Reginald's statue and study the customs thoroughly.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -333,9 +333,9 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre I"));
-talkEntry:addResponse("Du bist neu hier, richtig? Als braver Rekrut solltest du dich zuerst mit den Gesetzen Cadomyrs vertraut machen. Geh zu Sir Reginalds Statue, dort kannst du sie ausgiebig studieren.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(110, "=", 0));
+talkEntry:addResponse("Du bist neu hier, richtig? Als braver Rekrut solltest du dich zuerst mit den Gesetzen Cadomyrs vertraut machen. Geh zu Sir Reginalds Statue, dort kannst du sie ausgiebig studieren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -345,9 +345,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Very well, now you are ready for a real mission. You didn't expect a reward, did you?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Very well, now you are ready for a real mission. You didn't expect a reward, did you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -356,9 +356,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 2));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Soweit, so gut. Du bist nun bereit für höhere Aufgaben. Du hast jetzt nicht mit einer Belohnung gerechnet, oder?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Soweit, so gut. Du bist nun bereit für höhere Aufgaben. Du hast jetzt nicht mit einer Belohnung gerechnet, oder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -409,8 +409,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour II"));
-talkEntry:addResponse("Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the notary's office, the palace and especially the gate.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 4));
+talkEntry:addResponse("Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the notary's office, the palace and especially the gate.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -420,8 +420,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre II"));
-talkEntry:addResponse("Stillgestanden, Rekrut! Deine erste Mission besteht darin, in Cadomyr zu patroullieren und besonder Vorkommnisse zu melden. Überprüf das Notarbüro, den Palast und natürlich das Stadttor.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 4));
+talkEntry:addResponse("Stillgestanden, Rekrut! Deine erste Mission besteht darin, in Cadomyr zu patroullieren und besonder Vorkommnisse zu melden. Überprüf das Notarbüro, den Palast und natürlich das Stadttor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -432,8 +432,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour II"));
-talkEntry:addResponse("Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the notary's office, the palace and especially the gate.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 4));
+talkEntry:addResponse("Attention recruit! Your first mission is to patrol Cadomyr and report any uncommon events. Check the notary's office, the palace and especially the gate.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -443,8 +443,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre II"));
-talkEntry:addResponse("Stillgestanden, Rekrut! Deine erste Mission besteht darin, in Cadomyr zu patroullieren und besonder Vorkommnisse zu melden. Überprüf das Notarbüro, den Palast und natürlich das Stadttor.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 4));
+talkEntry:addResponse("Stillgestanden, Rekrut! Deine erste Mission besteht darin, in Cadomyr zu patroullieren und besonder Vorkommnisse zu melden. Überprüf das Notarbüro, den Palast und natürlich das Stadttor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -454,10 +454,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a beer. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Any uncommon events? I expect a written report later. Now let's have a beer before I send you out again!");
 talkEntry:addConsequence(npc.base.consequence.item.item(1909, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Any uncommon events? I expect a written report later. Now let's have a beer before I send you out again!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -466,10 +466,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 5));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Bier. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Irgendwelche besonderen Vorkommnisse? Ich erwarte deinen schriftlichen Bericht später. Jetzt lass uns erstmal ein Bier leeren, bevor ich dich auf deine nächste Mission schicke.");
 talkEntry:addConsequence(npc.base.consequence.item.item(1909, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Irgendwelche besonderen Vorkommnisse? Ich erwarte deinen schriftlichen Bericht später. Jetzt lass uns erstmal ein Bier leeren, bevor ich dich auf deine nächste Mission schicke.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -520,8 +520,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour III"));
-talkEntry:addResponse("Maybe you noticed on your patrol the small breach in the town wall. Glorious deeds sometimes are hard labour; bring me twenty bricks so we fix the breach.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 7));
+talkEntry:addResponse("Maybe you noticed on your patrol the small breach in the town wall. Glorious deeds sometimes are hard labour; bring me twenty bricks so we fix the breach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -531,8 +531,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre III"));
-talkEntry:addResponse("Wahrscheinlich ist dir währender der Patroullie die kleine Bresche in der Stadtmauer aufgefallen. Manchmal bedeuten glorreiche Taten auch harte Arbeit; bring mir bitte zwanzig Ziegel zum Ausbessern der Bresche.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 7));
+talkEntry:addResponse("Wahrscheinlich ist dir währender der Patroullie die kleine Bresche in der Stadtmauer aufgefallen. Manchmal bedeuten glorreiche Taten auch harte Arbeit; bring mir bitte zwanzig Ziegel zum Ausbessern der Bresche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -543,8 +543,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour III"));
-talkEntry:addResponse("Maybe you noticed on your patrol the small breach in the town wall. Glorious deeds sometimes are hard labour; bring me twenty bricks so we fix the breach.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 7));
+talkEntry:addResponse("Maybe you noticed on your patrol the small breach in the town wall. Glorious deeds sometimes are hard labour; bring me twenty bricks so we fix the breach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -554,8 +554,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre III"));
-talkEntry:addResponse("Wahrscheinlich ist dir währender der Patroullie die kleine Bresche in der Stadtmauer aufgefallen. Manchmal bedeuten glorreiche Taten auch harte Arbeit; bring mir bitte zwanzig Ziegel zum Ausbessern der Bresche.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 7));
+talkEntry:addResponse("Wahrscheinlich ist dir währender der Patroullie die kleine Bresche in der Stadtmauer aufgefallen. Manchmal bedeuten glorreiche Taten auch harte Arbeit; bring mir bitte zwanzig Ziegel zum Ausbessern der Bresche.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -566,11 +566,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a brick mould. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Recruit! Imagine we were under siege and it takes you that long again to get some ordinary bricks! Here, have this brick mould so you can provide bricks faster the next time!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2588, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(734, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Recruit! Imagine we were under siege and it takes you that long again to get some ordinary bricks! Here, have this brick mould so you can provide bricks faster next time!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -580,11 +580,11 @@ talkEntry:addCondition(npc.base.condition.item.item(2588, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Ziegelform. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Rekrut! Stell dir mal vor, wir würden belagert werden und du brauchst wieder so lange, um ein paar gewöhnliche Ziegel zu besorgen! Nimm diese Ziegelform, damit du nächstes mal schneller bist!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2588, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(734, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Rekrut! Stell dir mal vor, wir würden belagert werden und du brauchst wieder so lange, um ein paar gewöhnliche Ziegel zu besorgen! Nimm diese Ziegelform, damit du nächstes mal schneller bist!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -635,8 +635,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour IV"));
-talkEntry:addResponse("Time for some serious action! Please patrol the Candour Foundation, the Circle of Blood, the northern bridge over the Kantabi River and the eastern border. Make Cadomyr's homeland a safe place!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 9));
+talkEntry:addResponse("Time for some serious action! Please patrol the Candour Foundation, the Circle of Blood, the northern bridge over the Kantabi River and the eastern border. Make Cadomyr's homeland a safe place!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -646,8 +646,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre IV"));
-talkEntry:addResponse("Zeit für wahre Heldentaten. Patroulliere bitte den Grundstein der Aufrichtigkeit, den Blutkreis, die nördliche Brücke über den Kantabifluss und die Ostgrenze. Sorge dafür, dass das Hinterland Cadomyrs sicher ist!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 9));
+talkEntry:addResponse("Zeit für wahre Heldentaten. Patroulliere bitte den Grundstein der Aufrichtigkeit, den Blutkreis, die nördliche Brücke über den Kantabifluss und die Ostgrenze. Sorge dafür, dass das Hinterland Cadomyrs sicher ist!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -658,8 +658,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour IV"));
-talkEntry:addResponse("Time for some serious action! Please patrol the Candour Foundation, the Circle of Blood, the northern bridge over the Kantabi River and the eastern border. Make Cadomyr's homeland a safe place!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 9));
+talkEntry:addResponse("Time for some serious action! Please patrol the Candour Foundation, the Circle of Blood, the northern bridge over the Kantabi River and the eastern border. Make Cadomyr's homeland a safe place!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -669,8 +669,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre IV"));
-talkEntry:addResponse("Zeit für wahre Heldentaten. Patroulliere bitte den Grundstein der Aufrichtigkeit, den Blutkreis, die nördliche Brücke über den Kantabifluss und die Ostgrenze. Sorge dafür, dass das Hinterland Cadomyrs sicher ist!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 9));
+talkEntry:addResponse("Zeit für wahre Heldentaten. Patroulliere bitte den Grundstein der Aufrichtigkeit, den Blutkreis, die nördliche Brücke über den Kantabifluss und die Ostgrenze. Sorge dafür, dass das Hinterland Cadomyrs sicher ist!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -679,11 +679,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded an albarian soldier helmet. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("What? An ambush of bandits? Bad news, I'll report to the queen as soon as possible. Good work, recruit! You deserve this helmet of Cadomyr's warriors.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded an Albarian soldier helmet. You advance in Queen Rosaline Edwards' favour."));
 talkEntry:addConsequence(npc.base.consequence.item.item(2287, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("What? An ambush of bandits? Bad news, I'll report to the Queen as soon as possible. Good work, recruit! You deserve this helmet of Cadomyr's warriors.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -692,10 +692,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 10));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen albarischen Soldatenhelm. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Was? Ein Banditenhinterhalt? Schlimme Kunde, die ich der Königin so bald wie möglich zu berichten habe. Gute Arbeit, Rekrut! Du hast dir diesen Helm der Krieger Cadomyrs redlich verdient.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2287, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Was? Ein Banditenhinterhalt? Schlimme Kunde, die ich der Königin so bald wie möglich zu berichten habe. Gute Arbeit, Rekrut! Du hast dir diesen Helm der Krieger Cadomyrs redlich verdient.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -746,8 +746,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour V"));
-talkEntry:addResponse("Sometimes, intelligence can be vital for surviving. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 12));
+talkEntry:addResponse("Sometimes, intelligence can be vital for surviving. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -757,8 +757,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre V"));
-talkEntry:addResponse("Aufklärung sichert manchmal das Überleben. Wir sind keine Spione, wollen aber wissen, wer unser Feind ist. Ich will, du den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und die Kammer des Erzmagiers in Runewick 'aufklärst'.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 12));
+talkEntry:addResponse("Aufklärung sichert manchmal das Überleben. Wir sind keine Spione, wollen aber wissen, wer unser Feind ist. Ich will, du den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und die Kammer des Erzmagiers in Runewick 'aufklärst'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -769,8 +769,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour V"));
-talkEntry:addResponse("Sometimes, intelligence can be vital for surviving. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 12));
+talkEntry:addResponse("Sometimes, intelligence can be vital for surviving. We do not spy, but we want to know who our enemy is, if you know what I mean. I want you to reconnoitre the Hemp Necktie Inn, the Don's hideout in Galmair and the Archmage's chamber in Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -780,8 +780,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre V"));
-talkEntry:addResponse("Aufklärung sichert manchmal das Überleben. Wir sind keine Spione, wollen aber wissen, wer unser Feind ist. Ich will, du den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und die Kammer des Erzmagiers in Runewick 'aufklärst'.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 12));
+talkEntry:addResponse("Aufklärung sichert manchmal das Überleben. Wir sind keine Spione, wollen aber wissen, wer unser Feind ist. Ich will, du den Gasthof zur Hanfschlinge, das Versteck des Dons in Galmair und die Kammer des Erzmagiers in Runewick 'aufklärst'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -790,11 +790,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 13));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded enchanted albarian steelboots. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Once again, you can write your report later. For now, I am happy you made it back alive, recruit. For your next patrol, I have fitting footwear for you.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded enchanted Albarian steel boots. You advance in Queen Rosaline Edwards' favour."));
 talkEntry:addConsequence(npc.base.consequence.item.item(771, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 14));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Once again, you can write your report later. For now, I am happy you made it back alive, recruit. For your next patrol, I have fitting footwear for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -803,10 +803,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(111, "=", 13));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst verzauberte albarische Stahlschuhe. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Wie immer kannst du deinen Bericht später schreiben, Rekrut. Ich bin erstmal froh, dass du heil zurück bist. Für deine nächste Patroullie habe ich passendes Schuhwerk für dich.");
 talkEntry:addConsequence(npc.base.consequence.item.item(771, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 14));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Wie immer kannst du deinen Bericht später schreiben, Rekrut. Ich bin erstmal froh, dass du heil zurück bist. Für deine nächste Patroullie habe ich passendes Schuhwerk für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -857,8 +857,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour VI"));
-talkEntry:addResponse("Being a knight means more than swinging a sword. Fostering one's home requires hard labour, too. Cadomyr is short on wood supply, as you might know. Please provide twenty naldor wood boards for the reconstruction of the Malachín temple.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 15));
+talkEntry:addResponse("Being a knight means more than swinging a sword. Fostering one's home requires hard labour, too. Cadomyr is short on wood supply, as you might know. Please provide twenty naldor wood boards for the reconstruction of the Malachín temple.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -868,8 +868,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre VI"));
-talkEntry:addResponse("Ein Ritter zu sein verlangt mehr als ein Schwert zu schwingen. Die Heimat zu hegen erfordert auch harte Arbeit. Cadomyr mangelt es bekanntermaßen an Holzlieferungen. Bring mir bitte zwanzig Naldorholzbretter für den Umbau des Malachíntempels.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 15));
+talkEntry:addResponse("Ein Ritter zu sein verlangt mehr als ein Schwert zu schwingen. Die Heimat zu hegen erfordert auch harte Arbeit. Cadomyr mangelt es bekanntermaßen an Holzlieferungen. Bring mir bitte zwanzig Naldorholzbretter für den Umbau des Malachíntempels.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -880,8 +880,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour VI"));
-talkEntry:addResponse("Being a knight means more than swinging a sword. Fostering one's home requires hard labour, too. Cadomyr is short on wood supply, as you might know. Please provide twenty naldor wood boards for the reconstruction of the Malachín temple.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 15));
+talkEntry:addResponse("Being a knight means more than swinging a sword. Fostering one's home requires hard labour, too. Cadomyr is short on wood supply, as you might know. Please provide twenty naldor wood boards for the reconstruction of the Malachín temple.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -891,8 +891,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre VI"));
-talkEntry:addResponse("Ein Ritter zu sein verlangt mehr als ein Schwert zu schwingen. Die Heimat zu hegen erfordert auch harte Arbeit. Cadomyr mangelt es bekanntermaßen an Holzlieferungen. Bring mir bitte zwanzig Naldorholzbretter für den Umbau des Malachíntempels.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 15));
+talkEntry:addResponse("Ein Ritter zu sein verlangt mehr als ein Schwert zu schwingen. Die Heimat zu hegen erfordert auch harte Arbeit. Cadomyr mangelt es bekanntermaßen an Holzlieferungen. Bring mir bitte zwanzig Naldorholzbretter für den Umbau des Malachíntempels.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -903,11 +903,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a coppered dagger. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Good job, recruit! You did a good deed today for the glory of Cadomyr and Malachín. I award you this dagger which identifies you as a defender of Cadomyr.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(546, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(398, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 16));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Good job, recruit! You did a good deed today for the glory of Cadomyr and Malachín. I award you this dagger which identifies you as a defender of Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -917,11 +917,11 @@ talkEntry:addCondition(npc.base.condition.item.item(546, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Kupferdolch. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Gut gemacht, Rekrut! Du hast heute eine gute Tat im Namen Cadomyrs und Malachíns vollbracht. Ich verleihe dir hiermit diesen Dolch, welcher dich als Verteidiger Cadomyr ausweist.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(546, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(398, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 16));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Gut gemacht, Rekrut! Du hast heute eine gute Tat im Namen Cadomyrs und Malachíns vollbracht. Ich verleihe dir hiermit diesen Dolch, welcher dich als Verteidiger Cadomyr ausweist.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -972,8 +972,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour VII"));
-talkEntry:addResponse("I have new orders from the queen. She demands precious goods from the best artisans of Cadomyr for impressing an albarian ambassador. Provide a charm of the icebird, a ring of the archmage and a vase. For the glory of Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 17));
+talkEntry:addResponse("I have new orders from the Queen. She demands precious goods from the best artisans of Cadomyr for impressing an Albarian ambassador. Provide a charm of the icebird, a ring of the archmage and a vase. For the glory of Cadomyr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -983,8 +983,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre VII"));
-talkEntry:addResponse("Ich habe neue Befehle der Königin. Sie verlangt nach wertvollen Kunstwerken der besten Artisanen Cadomyrs um damit einen albarischen Botschafter zu beeindrucken. Bring mir bitte ein Eisvogelamulett, einen Erzmagierring und eine Vase. Für die Ehre von Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 17));
+talkEntry:addResponse("Ich habe neue Befehle der Königin. Sie verlangt nach wertvollen Kunstwerken der besten Artisanen Cadomyrs um damit einen albarischen Botschafter zu beeindrucken. Bring mir bitte ein Eisvogelamulett, einen Erzmagierring und eine Vase. Für die Ehre von Cadomyr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -995,8 +995,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] A Question of Honour VII"));
-talkEntry:addResponse("I have new orders from the queen. She demands precious goods from the best artisans of Cadomyr for impressing an albarian ambassador. Provide a charm of the icebird, a ring of the archmage and a vase. For the glory of Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 17));
+talkEntry:addResponse("I have new orders from the Queen. She demands precious goods from the best artisans of Cadomyr for impressing an Albarian ambassador. Provide a charm of the icebird, a ring of the archmage and a vase. For the glory of Cadomyr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1006,8 +1006,8 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine Frage der Ehre VII"));
-talkEntry:addResponse("Ich habe neue Befehle der Königin. Sie verlangt nach wertvollen Kunstwerken der besten Artisanen Cadomyrs um damit einen albarischen Botschafter zu beeindrucken. Bring mir bitte ein Eisvogelamulett, einen Erzmagierring und eine Vase. Für die Ehre von Cadomyr!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 17));
+talkEntry:addResponse("Ich habe neue Befehle der Königin. Sie verlangt nach wertvollen Kunstwerken der besten Artisanen Cadomyrs um damit einen albarischen Botschafter zu beeindrucken. Bring mir bitte ein Eisvogelamulett, einen Erzmagierring und eine Vase. Für die Ehre von Cadomyr!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1020,13 +1020,13 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a knight shield. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("You are truly an altruistic knight of Cadomyr. Bear the crest of Cadomyr on your shield, the shield of a knight. I salute you!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(334, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2559, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(315, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(20, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 18));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("You are truly an altruistic knight of Cadomyr. Bear the crest of Cadomyr on your shield, the shield of a knight. I salute you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1038,13 +1038,13 @@ talkEntry:addCondition(npc.base.condition.item.item(315, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Ritterschild. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Du bist wahrhaftig ein selbstloser Ritter Cadomyrs. Trage fortan das Wappen Cadomyrs auf deinem Schild, der Schild eines Ritters. Ich salutiere vor dir!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(334, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2559, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(315, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(20, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(111, "=", 18));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Du bist wahrhaftig ein selbstloser Ritter Cadomyrs. Trage fortan das Wappen Cadomyrs auf deinem Schild, der Schild eines Ritters. Ich salutiere vor dir!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1182,7 +1182,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quartermaster");
-talkEntry:addResponse("I take my job serious and I am a serious person. My task is to care for new recruits of Cadomyr and to make sure they have all they need - orders especially!");
+talkEntry:addResponse("I take my job seriously and I am a serious person. My task is to care for new recruits of Cadomyr and to make sure they have all they need - orders especially!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1195,7 +1195,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("knight");
 talkEntry:addTrigger("page");
-talkEntry:addResponse("So, you want to become a knight of the Queen like all the heroes your mother told you about before you went to bed? Ha! The first thing a knight has to learn is to obey orders. I got plenty!");
+talkEntry:addResponse("So, you want to become a knight of the Queen like all the heroes your mother told you about before you went to bed? Ha! The first thing a knight has to learn is to obey orders. I've got plenty!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1416,7 +1416,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1457,7 +1457,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1470,7 +1470,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1483,7 +1483,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1496,7 +1496,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1539,7 +1539,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1554,7 +1554,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1567,7 +1567,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1594,7 +1594,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1608,7 +1608,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her majesty. Loyalty counts more than faith here in Cadomyr.");
+talkEntry:addResponse("You may worship whatever god you want as long as you obey the orders of her Majesty. Loyalty counts more than faith here in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

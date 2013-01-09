@@ -38,7 +38,9 @@ function enemyOnSight(Monster,Enemy)
     monster.base.drop.MonsterRandomTalk(Monster,msgs); --a random message is spoken once in a while
 
     if monster.base.drop.DefaultSlowdown( Monster ) then
-        return true
+        return true;
+	else
+		return false;
     end
 end
 

@@ -66,10 +66,16 @@ end;
 
 function talkNPC:nextCycle(npcChar, counter)
     if (counter >= self._nextCycleText) then
-	    self._nextCycleText = math.random(1200, 3600); --2 to 6 minutes
+	    self._nextCycleText = math.random(3000, 6000); --5 to 10 minutes
         local german, english = self._cycleText:getRandomMessage();
-        npcChar:talkLanguage(Character.say, Player.german, german);
-        npcChar:talkLanguage(Character.say, Player.english, english);
+		do
+			local textType, text = _get_text_and_talktype(german);
+			npcChar:talkLanguage(textType, Player.german, text);
+		end;
+		do
+			local textType, text = _get_text_and_talktype(english);
+			npcChar:talkLanguage(textType, Player.english, text);
+		end;
     else
         self._nextCycleText = self._nextCycleText - counter;
     end;
@@ -181,15 +187,8 @@ function talkNPCEntry:execute(npcChar, player)
 			end;
 		end;
 		
-		if (string.find(responseText, "[#/]w") == 1) then
-			npcChar:talk(Character.whisper, string.gsub(responseText, "[#/]w%s*", "", 1));
-		elseif (string.find(responseText, "[#/]s") == 1) then 
-			npcChar:talk(Character.yell, string.gsub(responseText, "[#/]s%s*", "", 1));
-		elseif (string.find(responseText, "[#/]o") == 1) then 
-			npcChar:talk(Character.whisper, responseText);
-		else
-			npcChar:talk(Character.say, responseText);
-		end;		
+		local textType, text = _get_text_and_talktype(responseText);
+		npcChar:talk(textType, text);		
     end;
     
 	table.foreach(self._consequences, function(_, consequence)
@@ -197,6 +196,18 @@ function talkNPCEntry:execute(npcChar, player)
 			consequence:perform(npcChar, player);
 		end;
 	end);
+end;
+
+function _get_text_and_talktype(text)
+	if (string.find(text, "[#/]w") == 1) then
+		return Character.whisper, string.gsub(text, "[#/]w%s*", "", 1);
+	elseif (string.find(text, "[#/]s") == 1) then 
+		return Character.yell, string.gsub(text, "[#/]s%s*", "", 1);
+	elseif (string.find(text, "[#/]o") == 1) then 
+		return Character.whisper, text;
+	else
+		return Character.say, text;
+	end;
 end;
 
 function _set_value(value)

@@ -225,6 +225,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             local ind = dialog:getSelectedIndex();
             if (ind < 4) then
               faction.tid = ind;
+			  faction.rankpoints = 0;
               base.factions.setFaction(chosenPlayer, faction);
             elseif (ind == 4) then
               local cbSetCount = function (dialog)
@@ -250,9 +251,19 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
                   User:inform("no number");
                   return;
                 end
-                base.factions.setRankpoints(chosenPlayer, rankpoints);
+				if rankpoints < base.factions.getRankpoints(chosenPlayer) then
+					playerText = {"sinkt.","decline"};
+				else
+					playerText = {"steigt.","advance"};
+				end
+				if base.factions.getMembership(chosenPlayer) > 0 and base.factions.getMembership(chosenPlayer) < 4 then
+					base.factions.setRankpoints(chosenPlayer, rankpoints);
+					informPlayerAboutRankpointchange(chosenPlayer, playerText);
+				else
+					User:inform("Player does not belong to any faction. Rankpoints not changed.");
+				end
               end
-              User:requestInputDialog(InputDialog("Set rank points", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
+              User:requestInputDialog(InputDialog("Set rankpoints", "Every 100 points there is a new rank.\nE.g. 300-399 points is rank 4.\nThere are 10 ranks plus the leader.", false, 255, cbSetRank));
             end
           end
           local infoText = "Town: " .. base.factions.getMembershipByName(chosenPlayer);
@@ -262,14 +273,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
           else
             infoText = infoText .. "\nRank: no rank " .. faction.rankTown;
           end
-          infoText = infoText .. "\nExact rank points: " .. faction.rankpoints;
+          infoText = infoText .. "\nExact rankpoints: " .. faction.rankpoints;
           local sd = SelectionDialog("Set faction value", infoText, cbSetFactionValue);
           sd:addOption(0, "Change town to None");
           sd:addOption(0, "Change town to Cadomyr");
           sd:addOption(0, "Change town to Runewick");
           sd:addOption(0, "Change town to Galmair");
           sd:addOption(0, "Change town count");
-          sd:addOption(0, "Change rank points");
+          sd:addOption(0, "Change rankpoints");
           User:requestSelectionDialog(sd);
         end 
         local sd = SelectionDialog("Get/Set faction values for ...", "First choose a player:", cbChoosePlayer);
@@ -387,8 +398,10 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 	--check if the points shall be added or removed
 	if modifier == "add" then
 		text = "added";
+		playerText = {"steigt.","advance"};
 	elseif modifier == "sub" then
 		text = "removed";
+		playerText = {"sinkt.","decline"};
 		value = -value;
 	else
 		return;
@@ -404,14 +417,25 @@ function ChangeRankpoints(User,modifier,value,faction,radius)
 			Factionvalues = base.factions.getFaction(player_list[i]);
 			if faction == nil or faction == 99 then
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
+				informPlayerAboutRankpointchange(player_list[i], playerText);
 			elseif tonumber(faction) == tonumber(Factionvalues.tid) then
 				base.factions.setRankpoints(player_list[i], tonumber(Factionvalues.rankpoints)+value);
+				informPlayerAboutRankpointchange(player_list[i], playerText);
 			else
 				return;
 			end	
+
 		end
 	end	
 	User:inform("You just "..text.." "..value.." rankpoints.");
+end
+
+function informPlayerAboutRankpointchange(User, modifierTextarray)
+	local faction = base.factions.getMembership(User);
+	local factionLeadersDE = {"Königin Rosaline Edwards", "Erzmagier Elvaine Morgan", "Don Valerio Guilianni"};
+	local factionLeadersEN = {"Queen Rosaline Edwards", "Archmage Elvaine Morgan", "Don Valerio Guilianni"};
+
+	base.common.InformNLS(User, "Dein Ansehen bei "..factionLeadersDE[faction].." "..modifierTextarray[1], "You "..modifierTextarray[2].." in "..factionLeadersEN[faction].."'s favour.");
 end
 
 function Init()

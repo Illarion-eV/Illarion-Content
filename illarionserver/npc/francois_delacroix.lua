@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Regallo                                                          --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -588,7 +588,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(773,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(779,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2494,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2917,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(330,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2502,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(307,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(552,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(553,"sell"));
@@ -628,7 +628,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(773,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(779,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2494,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2917,"buyPrimary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(330,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2502,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(307,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(552,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(553,"buyPrimary"));
