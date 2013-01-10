@@ -60,7 +60,6 @@ end
 function ChangeTownTreasure(town,amount)
    local currentTreasure = GetTownTreasure(town)
    local newTreasure = currentTreasure + amount
-   debug("Town: "..town.." old treasure: "..currentTreasure.." new treasure: "..newTreasure.." amout added: "..amount)
    ScriptVars:set("Treasure"..town, newTreasure)
    ScriptVars:save()
 end
