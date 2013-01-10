@@ -332,7 +332,7 @@ function payNow(User)
 	
     for i=1, #(depNr) do
         valDepot[i]=base.money.DepotCoinsToMoney(User,depNr[i]);
-		debug("depot "..i.." = "..valDepot[i])
+		debug("depot "..depNr[i].." = "..valDepot[i])
 		val = val + valDepot[i]; 	--how much money is in the depots combined
     end
 
