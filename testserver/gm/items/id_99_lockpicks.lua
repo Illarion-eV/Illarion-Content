@@ -75,7 +75,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		--get all the items the char has on him, with the stuff in the backpack
 		local itemsOnChar = {};
 		for i=17,0,-1 do 
-			table.insert(itemsOnChar, User:getItemAt(i));
+			local item = User:getItemAt(i);
+      if (item.id > 0) then
+        table.insert(itemsOnChar, item);
+      end
 		end
 					
 		local cbChooseItem = function (dialog)
@@ -83,7 +86,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 				return;
       end
       local index = dialog:getSelectedIndex();
-      debug("index " .. index);
 			if (index == 0) then 
 				local frontitem = base.common.GetFrontItem(User);
 				if frontitem~=nil then
@@ -91,17 +93,14 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 				end
 			else
 				local chosenItem = itemsOnChar[index]
-        debug("item info: " .. chosenItem.id .. ", " .. world:getItemName(chosenItem.id,1) .. " (" .. itemPos[chosenItem.itempos] .. ") Count: ".. chosenItem.number);
 				world:erase(chosenItem,chosenItem.number);
 			end
 		end			
 		local sdItems = SelectionDialog("Erase items.", "Choose the item you wish to erase:", cbChooseItem);
 		sdItems:addOption(0,"Front of char");
     for _,item in ipairs(itemsOnChar) do 
-			if (item.id > 0) then
-        local itemName = world:getItemName(item.id,1) -- only english names folks
-        sdItems:addOption(item.id,itemName .. " (" .. itemPos[item.itempos] .. ") Count: ".. item.number);
-      end
+      local itemName = world:getItemName(item.id,1) -- only english names folks
+      sdItems:addOption(item.id,itemName .. " (" .. itemPos[item.itempos] .. ") Count: ".. item.number);
     end	
 		User:requestSelectionDialog(sdItems);
 		
