@@ -59,8 +59,8 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Wulfgorda die Jägerin. Schlüsselwörter: Auskunft, Information, Plätze.")
 
 -- Mandatory: General speech
-queststatus(650) = 1, english, ".*" -> "#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have a silvercoin for that you found me.", money + 1000, queststatus(650) = 2
-queststatus(650) = 1, ".*" -> "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdiente Münze.", money + 1000, queststatus(650) = 2
+queststatus(650) = 1, english, ".*" -> "#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have some silvercoins for that you found me.", money + 1000, deleteitem(155,10), queststatus(650) = 2
+queststatus(650) = 1, ".*" -> "Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen.", money + 1000, deleteitem(155,10), queststatus(650) = 2
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "#me tips her helmet."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "#me tippt auf ihren Helm."
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "#me tips her helmet."
