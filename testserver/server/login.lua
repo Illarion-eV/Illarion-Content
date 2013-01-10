@@ -332,14 +332,17 @@ function payNow(User)
 	
     for i=1, #(depNr) do
         valDepot[i]=base.money.DepotCoinsToMoney(User,depNr[i]);
-		val = val + valDepot[i]; 	--how much money is in the depots combined?
+		debug("depot "..i.." = "..valDepot[i])
+		val = val + valDepot[i]; 	--how much money is in the depots combined
     end
 
+	debug("depot money: "..val)
 	val = val + base.money.CharCoinsToMoney(User); -- total wealth
 	
     tax=math.floor(val*taxHeight);
     local totTax=tax; -- total tax to pay
-
+	debug("total tax"..totTax);
+	
     --[[-- try to get it from homedepot:
     if tax<=valDepot[1] then
         base.money.TakeMoneyFromDepot(User,tax,depNr[1]);
@@ -388,7 +391,7 @@ function payNow(User)
 
     User:requestMessageDialog(dialog);
 	
-	base.townTreasure.ChangeTownTreasure(town,toTax)
+	base.townTreasure.ChangeTownTreasure(town,totTax)
 	base.townTreasure.IncreaseTaxpayerNumber(town)
     
 end
