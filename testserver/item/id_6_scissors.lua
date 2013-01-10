@@ -89,7 +89,7 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 		User:talkLanguage( Character.say, Player.german, "#me beginnt ein Schaf zu scheren.");
 		User:talkLanguage( Character.say, Player.english, "#me starts to shear a sheep."); 
 		-- make sure the sheep doesn't move away
-		Sheep.movepoints = math.min(Sheep.movepoints - woolcutting.SavedWorkTime[User.id], -1*woolcutting.SavedWorkTime[User.id]);
+		Sheep.movepoints = math.min(Sheep.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
 		return;
 	end
 
@@ -110,8 +110,12 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 	else -- character can still carry something
 		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User,SourceItem);
 		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 0, 0);
-		-- the sheep may move away
-		Sheep.movepoints = Sheep.movepoints - 0.8*woolcutting.SavedWorkTime[User.id];
+		-- the sheep may move away (in 1 out of 10 cases)
+    if (math.random(1,10) == 1) then
+      Sheep.movepoints = math.min(Sheep.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
+    else
+      Sheep.movepoints = math.min(Sheep.movepoints, -0.5*woolcutting.SavedWorkTime[User.id]);
+    end
 	end
 
 	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool

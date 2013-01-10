@@ -135,7 +135,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		-- change item id
 		SourceItem.id = harvestProduct.nextItemId;
 		local season = math.ceil(world:getTime("month")/4);
-		SourceItem.wear = harvestProduct.growCycles[4];
+		SourceItem.wear = harvestProduct.growCycles[season];
 	end
 	SourceItem:setData("amount","" .. amount);
 	world:changeItem(SourceItem);
