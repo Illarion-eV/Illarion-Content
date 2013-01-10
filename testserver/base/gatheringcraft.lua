@@ -249,13 +249,11 @@ function GatheringCraft:GenWorkTime(User, toolItem)
   if ( toolItem ~= nil ) then
     local qual = math.min(9,math.max(1,math.floor(toolItem.quality/100))) - 1; -- quality integer in [0,8]
     maxTime = maxTime - 20*(qual/8);
-  else
-    maxTime = 80;
   end
 
   -- apply time bonus: reduce maxTime
   if (timeBonus>0) then
-    maxTime = maxTime - math.ceil(40*timeBonus);
+    maxTime = maxTime - math.ceil(30*timeBonus);
   end
   -- apply skill bonus: increase skill
   if (skillBonus>0 and skill<100) then
