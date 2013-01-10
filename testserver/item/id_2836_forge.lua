@@ -64,12 +64,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		
     if (SourceItem.id == 2834) then --swapping
       SourceItem.id = 2837;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
 	
 	if (SourceItem.id == 2835) then --swapping
       SourceItem.id = 2836;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
@@ -157,12 +159,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	  
 	     if (SourceItem.id == 2836) then --turn it on!
             SourceItem.id = 2835;
+			SourceItem.wear = 2;
             world:changeItem(SourceItem);
             User:changeSource(SourceItem);
 	    end
 		
 	    if (SourceItem.id == 2837) then --turn it on!
             SourceItem.id = 2834;
+			SourceItem.wear = 2;
             world:changeItem(SourceItem);
             User:changeSource(SourceItem);
 	    end
@@ -182,12 +186,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
     if (SourceItem.id == 2835) then --turn it off
       SourceItem.id = 2836;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
 	
 	if (SourceItem.id == 2834) then
       SourceItem.id = 2837;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
@@ -243,12 +249,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		
     if (SourceItem.id == 2835) then --turn it off
       SourceItem.id = 2836;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
 	
 	if (SourceItem.id == 2834) then --turn it off
       SourceItem.id = 2837;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
@@ -259,12 +267,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   
     if (SourceItem.id == 2835) then --turn it off
       SourceItem.id = 2836;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
 	
 	if (SourceItem.id == 2834) then --turn it off
       SourceItem.id = 2837;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
