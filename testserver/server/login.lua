@@ -344,7 +344,7 @@ function payNow(User)
 			tax = 0;
 			break;
 		elseif tax ~= 0 and valDepot[i] > 0 then -- if not, take as much as you can from the following depots
-			base.money.TakeMoneyFromDepot(User,tax,depNr[i]);
+			base.money.TakeMoneyFromDepot(User,valDepot[i],depNr[i]);
 			tax = tax - valDepot[i];
 		end
 	end
