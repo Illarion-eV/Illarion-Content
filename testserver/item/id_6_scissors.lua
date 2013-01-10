@@ -110,11 +110,11 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 	else -- character can still carry something
 		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User,SourceItem);
 		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 0, 0);
-		-- the sheep may move away (in 1 out of 10 cases)
-    if (math.random(1,10) == 1) then
-      Sheep.movepoints = math.min(Sheep.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
-    else
+		-- the sheep may move away
+    if (math.random(1,5) == 1) then
       Sheep.movepoints = math.min(Sheep.movepoints, -0.5*woolcutting.SavedWorkTime[User.id]);
+    else
+      Sheep.movepoints = math.min(Sheep.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
     end
 	end
 
