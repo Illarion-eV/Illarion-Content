@@ -81,15 +81,17 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		local cbChooseItem = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
-            end
-            local index = dialog:getSelectedIndex();
+      end
+      local index = dialog:getSelectedIndex();
+      debug("index " .. index);
 			if (index == 0) then 
 				local frontitem = base.common.GetFrontItem(User);
 				if frontitem~=nil then
 					world:erase(frontitem,frontitem.number);
 				end
 			else
-				local chosenItem = itemsOnChar[dialog:getSelectedIndex()]
+				local chosenItem = itemsOnChar[index]
+        debug("item info: " .. chosenItem.id .. ", " .. world:getItemName(chosenItem.id,1) .. " (" .. itemPos[chosenItem.itempos] .. ") Count: ".. chosenItem.number);
 				world:erase(chosenItem,chosenItem.number);
 			end
 		end			
