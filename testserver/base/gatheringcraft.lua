@@ -243,7 +243,7 @@ function GatheringCraft:GenWorkTime(User, toolItem)
   ]]
 
   local minTime = 10;
-  local maxTime = 90;
+  local maxTime = 50;
 
   -- apply the quality bonus
   if ( toolItem ~= nil ) then
