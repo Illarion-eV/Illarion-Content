@@ -320,16 +320,19 @@ function payNow(User)
     
 	depNr={101,102,103,104};
     valDepot={0,0,0,0};
-    for i=1,2 do
+    for i=1, #(depNr) do
         valDepot[i]=base.money.DepotCoinsToMoney(User,depNr[i]);
+		val = val + valDepot[i]; 	--how much money is in the depots combined?
     end
 
+	--how much money does he have with him?
     valBody=base.money.CharCoinsToMoney(User);
-    val=valBody+valDepot[1]+valDepot[2];
+	val = val + valBody; -- total wealth
+	
     tax=math.floor(val*taxHeight);
-    totTax=tax;
+    totTax=tax; -- total tax to pay
 
-    -- try to get it from homedepot:
+    --[[-- try to get it from homedepot:
     if tax<=valDepot[1] then
         base.money.TakeMoneyFromDepot(User,tax,depNr[1]);
     elseif tax<=valDepot[2] then    -- if not possible, just take it from the pub-depot:
@@ -344,7 +347,22 @@ function payNow(User)
         base.money.TakeMoneyFromDepot(User,valDepot[2],depNr[2]);
         tax=tax-valDepot[2];
         base.money.TakeMoneyFromChar(User,tax);
-    end
+    end]]
+	
+	-- try to get the payable tax from the depots first
+	for i=1, #(depNr) do
+		if tax<=valDepot[i] then -- if you fild all you need in the first depot, take it.
+			base.money.TakeMoneyFromDepot(User,tax,depNr[i]);
+			break;
+		elseif tax ~= 0 and valDepot[i] > 0 then -- if not, take as much as you can from the following depots
+			base.money.TakeMoneyFromDepot(User,tax,depNr[i]);
+			tax = tax - valDepot[i];
+		end
+	end
+	
+	if tax ~= 0 then --there wasn't enough cash in the depots, get the rest from the char
+		base.money.TakeMoneyFromChar(User,tax);
+	end
 
 	gstring,estring=base.money.MoneyToString(totTax); --converting money to a string
     
