@@ -328,7 +328,7 @@ function payNow(User)
     
 	local depNr={101,102,103,104};
     local valDepot={0,0,0,0};
-	local val;
+	local val = 0;
 	
     for i=1, #(depNr) do
         valDepot[i]=base.money.DepotCoinsToMoney(User,depNr[i]);
