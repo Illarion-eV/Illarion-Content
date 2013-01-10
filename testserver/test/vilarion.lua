@@ -323,7 +323,7 @@ end
 function receiveText(npc, texttype, message, originator)
     if message == "go" then
         start = position(0, 0, 121)
-        goal = position(5, 1, 121)
+        goal = position(0, 7, 121)
         npc:setOnRoute(false)
         npc.waypoints:clear()
         npc:forceWarp(start)
