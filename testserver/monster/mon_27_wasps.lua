@@ -164,7 +164,7 @@ function HitChar(Posi,Hitpoints,CenterPos)
         end
         base.common.InformNLS(Character,
         "Getroffen von der Detonation wirst du davon geschleudert.",
-        "Hitted by the detonation, you get thrown away.");
+        "Hit by the detonation, you get thrown away.");
         Character:increaseAttrib("hitpoints",-Hitpoints);
     end;
 end;
