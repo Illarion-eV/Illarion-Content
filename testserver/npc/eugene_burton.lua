@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -23,6 +23,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.talkstate")
 require("npc.base.talk")
 module("npc.eugene_burton", package.seeall)
 
@@ -145,7 +146,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am Eugene Burton; father to four hungry mouths. Feeding those mouths has become so difficult these days...");
+talkEntry:addResponse("I am Eugene Burton, father to four hungry mouths. Feeding those mouths has become so difficult these days...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -165,8 +166,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Poacher I"));
-talkEntry:addResponse("My family is starving and without food, we won't survive the next winter. Please, will you head for Elstree forest, hunt half a dozen boars and bring me their pork?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 1));
+talkEntry:addResponse("My family is starving and without food, we won't survive the next winter. Please, will you head for Elstree forest, hunt half a dozen boars and bring me their pork?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -175,8 +176,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Wilderer I"));
-talkEntry:addResponse("Meine Familie ist am verhungern und ohne etwas zu essen überleben wir den Winter nicht. Bitte, könntet ihr bitte in den Elsbaumwald gehen, ein halbes Dutzend Wildschweine jagen und mir ihr Fleisch bringen?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 1));
+talkEntry:addResponse("Meine Familie ist am verhungern und ohne etwas zu essen überleben wir den Winter nicht. Bitte, könntet ihr bitte in den Elsbaumwald gehen, ein halbes Dutzend Wildschweine jagen und mir ihr Fleisch bringen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -185,8 +186,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Poacher I"));
-talkEntry:addResponse("My family is starving and without food, we won't survive the next winter. Please, will you head for Elstree forest, hunt half a dozen boars and bring me their pork?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 1));
+talkEntry:addResponse("My family is starving and without food, we won't survive the next winter. Please, will you head for Elstree forest, hunt half a dozen boars and bring me their pork?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -196,8 +197,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Wilderer I"));
-talkEntry:addResponse("Meine Familie ist am verhungern und ohne etwas zu essen überleben wir den Winter nicht. Bitte, könntet ihr bitte in den Elsbaumwald gehen, ein halbes Dutzend Wildschweine jagen und mir ihr Fleisch bringen?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 1));
+talkEntry:addResponse("Meine Familie ist am verhungern und ohne etwas zu essen überleben wir den Winter nicht. Bitte, könntet ihr bitte in den Elsbaumwald gehen, ein halbes Dutzend Wildschweine jagen und mir ihr Fleisch bringen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -283,10 +284,10 @@ talkEntry:addCondition(npc.base.condition.item.item(307, "all", ">", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 250 arrows."));
-talkEntry:addResponse("Thank you very, very much for the food. Pork will silence the bellies of my children, at least for some days. Take this quiver of arrows, it will help you hunting.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(307, 6, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(64, 250, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 8));
+talkEntry:addResponse("Thank you very, very much for the food. Pork will silence the bellies of my children, at least for some days. Take this quiver of arrows, it will help you when hunting.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -295,10 +296,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(307, "all", ">", 5, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 250 Pfeile."));
-talkEntry:addResponse("Vielen, vielen Dank. Dieses Fleisch wird das Magenknurren meiner Kinder wenigstens für ein paar Tage besänftigen. Hier, nehmt diesen Köcher voll Pfeile, sie werden euch auf der Jagd gute Dienste erweisen.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(307, 6, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(64, 250, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 8));
+talkEntry:addResponse("Vielen, vielen Dank. Dieses Fleisch wird das Magenknurren meiner Kinder wenigstens für ein paar Tage besänftigen. Hier, nehmt diesen Köcher voll Pfeile, sie werden euch auf der Jagd gute Dienste erweisen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -308,8 +309,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Poacher II"));
-talkEntry:addResponse("Well, to survive the winter, it takes more than a slice of pork. I assume the meat of a dozen bulls from Elstree forest will make my children survive. Will you save their lives?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 9));
+talkEntry:addResponse("Well, to survive the winter, it takes more than a slice of pork. I assume the meat of a dozen bulls from Elstree forest will ensure my children survive. Will you save their lives?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -318,8 +319,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 8));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Wilderer II"));
-talkEntry:addResponse("Um den Winter zu überleben braucht man mehr als ein Stück Fleisch. Ich schätze, dass das Fleisch von einem Dutzend Rindern aus dem Elsbaumwald wenigstens meine Kinder am Leben halten wird. Werdet ihr ihre Leben retten?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 9));
+talkEntry:addResponse("Um den Winter zu überleben braucht man mehr als ein Stück Fleisch. Ich schätze, dass das Fleisch von einem Dutzend Rindern aus dem Elsbaumwald wenigstens meine Kinder am Leben halten wird. Werdet ihr ihre Leben retten?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,8 +329,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 8));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Poacher II"));
-talkEntry:addResponse("Well, to survive the winter, it takes more than a slice of pork. I assume the meat of a dozen bulls from Elstree forest will make my children survive. Will you save their lives?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 9));
+talkEntry:addResponse("Well, to survive the winter, it takes more than a slice of pork. I assume the meat of a dozen bulls from Elstree forest will ensure my children survive. Will you save their lives?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -339,8 +340,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Wilderer II"));
-talkEntry:addResponse("Um den Winter zu überleben braucht man mehr als ein Stück Fleisch. Ich schätze, dass das Fleisch von einem Dutzend Rindern aus dem Elsbaumwald wenigstens meine Kinder am Leben halten wird. Werdet ihr ihre Leben retten?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 9));
+talkEntry:addResponse("Um den Winter zu überleben braucht man mehr als ein Stück Fleisch. Ich schätze, dass das Fleisch von einem Dutzend Rindern aus dem Elsbaumwald wenigstens meine Kinder am Leben halten wird. Werdet ihr ihre Leben retten?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -388,7 +389,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2940, "all", "<", 12, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Slaying animals and leaving the meat for the carrion crows? How you dare! I beg you, on behalf of my children, every piece of meat can save a human's life.");
+talkEntry:addResponse("Slaying animals and leaving the meat for the carrion crows? How dare you! I beg you, on behalf of my children, every piece of meat can save a human's life.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -406,7 +407,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 21));
 talkEntry:addCondition(npc.base.condition.item.item(2940, "all", "<", 12, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Slaying animals and leaving the meat for the carrion crows? How you dare! I beg you, on behalf of my children, every piece of meat can save a human's life.");
+talkEntry:addResponse("Slaying animals and leaving the meat for the carrion crows? How dare you! I beg you, on behalf of my children, every piece of meat can save a human's life.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -426,13 +427,13 @@ talkEntry:addCondition(npc.base.condition.item.item(2940, "all", ">", 11, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a golden ring, a copper goblet, an emerald amulet and 20 silver coins."));
-talkEntry:addResponse("How great! You brought enough meat for my whole family. Here, I... found a bag with precious things. You can have it as reward.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2940, 12, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 666, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(1840, 1, 666, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(62, 1, 666, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 22));
+talkEntry:addResponse("How great! You brought enough meat for my whole family. Here, I... found a bag with precious things. You can have it as a reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -441,13 +442,13 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 21));
 talkEntry:addCondition(npc.base.condition.item.item(2940, "all", ">", 11, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen goldenen Ring, einen Kupferkelch, ein Smaragdamulet und 20 Silberstücke."));
-talkEntry:addResponse("Großartig! Ihr habt genug Fleisch für meine ganze Familie mitgebracht. Hier, ich habe diesen Beutel mit kostbaren Dingen... gefunden. Nehmt ihn als Belohnung.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2940, 12, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 666, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(1840, 1, 666, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(62, 1, 666, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 22));
+talkEntry:addResponse("Großartig! Ihr habt genug Fleisch für meine ganze Familie mitgebracht. Hier, ich habe diesen Beutel mit kostbaren Dingen... gefunden. Nehmt ihn als Belohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -457,8 +458,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Poacher III"));
-talkEntry:addResponse("Recently, a pack of wolves entered Elstree forest. They hunt all the animals I need to feed my children. Will you stop the pack? There are at least half a dozen of them.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 23));
+talkEntry:addResponse("Recently, a pack of wolves entered Elstree forest. They hunt all the animals I need to feed my children. Will you stop the pack? There are at least half a dozen of them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -467,8 +468,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 22));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Wilderer III"));
-talkEntry:addResponse("Seit kurzem treibt ein Wolfsudel sein Unwesen im Elsbaumwald. Die Wölfe reißen all die Tiere, die ich brauche, um meine Kinder zu ernähren. Werdet ihr das Rudel niederstrecken? Ich habe mindestens ein halbes Dutzend von ihnen gesehen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 23));
+talkEntry:addResponse("Seit kurzem treibt ein Wolfsudel sein Unwesen im Elsbaumwald. Die Wölfe reißen all die Tiere, die ich brauche, um meine Kinder zu ernähren. Werdet ihr das Rudel niederstrecken? Ich habe mindestens ein halbes Dutzend von ihnen gesehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -477,8 +478,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 22));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Poacher III"));
-talkEntry:addResponse("Recently, a pack of wolves entered Elstree forest. They hunt all the animals I need to feed my children. Will you stop the pack? There are at least half a dozen of them.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 23));
+talkEntry:addResponse("Recently, a pack of wolves entered Elstree forest. They hunt all the animals I need to feed my children. Will you stop the pack? There are at least half a dozen of them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -488,8 +489,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Wilderer III"));
-talkEntry:addResponse("Seit kurzem treibt ein Wolfsudel sein Unwesen im Elsbaumwald. Die Wölfe reißen all die Tiere, die ich brauche, um meine Kinder zu ernähren. Werdet ihr das Rudel niederstrecken? Ich habe mindestens ein halbes Dutzend von ihnen gesehen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 23));
+talkEntry:addResponse("Seit kurzem treibt ein Wolfsudel sein Unwesen im Elsbaumwald. Die Wölfe reißen all die Tiere, die ich brauche, um meine Kinder zu ernähren. Werdet ihr das Rudel niederstrecken? Ich habe mindestens ein halbes Dutzend von ihnen gesehen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -499,7 +500,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, "<", 29));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("The wolf pack still roams the Elstree forest. Please, slay them all to save my childrens' futures.");
+talkEntry:addResponse("The wolf pack still roams the Elstree forest. Please, slay them all to safeguard the future of my children.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -517,7 +518,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, ">", 22));
 talkEntry:addCondition(npc.base.condition.quest.quest(4, "<", 29));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("The wolf pack still roams the Elstree forest. Please, slay them all to save my children's futures.");
+talkEntry:addResponse("The wolf pack still roams the Elstree forest. Please, slay them all to safeguard the future of my children.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -536,10 +537,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 29));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a long bow and 100 poisoned arrows."));
-talkEntry:addResponse("Words cannot express how grateful I am. Take my very own bow, now that the wolves are gone, I can rely on my spear again.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2708, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(549, 100, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 30));
+talkEntry:addResponse("Words cannot express how grateful I am. Take my very own bow, now that the wolves are gone, I can rely on my spear again.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -547,10 +548,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 29));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Langbogen und 100 vergiftete Pfeile."));
-talkEntry:addResponse("Worte können nicht beschreiben, wie dankbar ich bin. Nehmt meine Bogen, nun, da die Wölfe fort sind, kann ich mich wieder auf meinen Speer verlassen.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2708, 1, 777, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(549, 100, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 30));
+talkEntry:addResponse("Worte können nicht beschreiben, wie dankbar ich bin. Nehmt meine Bogen, nun, da die Wölfe fort sind, kann ich mich wieder auf meinen Speer verlassen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -560,8 +561,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Poacher IV"));
-talkEntry:addResponse("You may wonder why I didn't set out to hunt on my own. The self proclaimed guardians of the forest do not appreciate my deeds. I'd welcome if you'd make the elven guardian... disappear.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 31));
+talkEntry:addResponse("You may wonder why I didn't set out to hunt on my own. The self proclaimed guardians of the forest do not appreciate my deeds. I'd welcome if you'd make the elven guardian... disappear.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -570,8 +571,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 30));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Wilderer IV"));
-talkEntry:addResponse("Ihr mögt euch fragen, warum ich noch nicht selbst zur Jagd ausgezogen bin. Die selbsternannten Wächter des Waldes heißen nicht gut, was ich tue. Ich würde es begrüßen, wenn ihr die Elfenwache... verschwinden lassen würdet.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 31));
+talkEntry:addResponse("Ihr mögt euch fragen, warum ich noch nicht selbst zur Jagd ausgezogen bin. Die selbsternannten Wächter des Waldes heißen nicht gut, was ich tue. Ich würde es begrüßen, wenn ihr die Elfenwache... verschwinden lassen würdet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -580,8 +581,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 30));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Poacher IV"));
-talkEntry:addResponse("You may wonder why I didn't set out to hunt on my own. The self proclaimed guardians of the forest do not appreciate my deeds. I'd welcome if you'd make the elven guardian... disappear.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 31));
+talkEntry:addResponse("You may wonder why I didn't set out to hunt on my own. The self proclaimed guardians of the forest do not appreciate my deeds. I'd welcome if you'd make the elven guardian... disappear.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -591,8 +592,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Wilderer IV"));
-talkEntry:addResponse("Ihr mögt euch fragen, warum ich noch nicht selbst zur Jagd ausgezogen bin. Die selbsternannten Wächter des Waldes heißen nicht gut, was ich tue. Ich würde es begrüßen, wenn ihr die Elfenwache... verschwinden lassen würdet.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 31));
+talkEntry:addResponse("Ihr mögt euch fragen, warum ich noch nicht selbst zur Jagd ausgezogen bin. Die selbsternannten Wächter des Waldes heißen nicht gut, was ich tue. Ich würde es begrüßen, wenn ihr die Elfenwache... verschwinden lassen würdet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -639,10 +640,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 32));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ruby ring and a magical ruby."));
-talkEntry:addResponse("Hooray! No elven rapscallion will keep me from hunting anymore! Of course, just to feed my children... However, take this ring, I had it long enough.");
 talkEntry:addConsequence(npc.base.consequence.item.item(68, 1, 888, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 33));
+talkEntry:addResponse("Hooray! No elven rapscallion will keep me from hunting anymore! Of course, just to feed my children... However, take this ring, I have had it long enough.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -650,10 +651,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 32));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Rubinring und einen magischen Rubin."));
-talkEntry:addResponse("Hurra! Kein elfischer Halunke wird sich mir nun noch in den Weg stellen, wenn ich jagen gehen... natürlich, um meine Kinder zu ernähren, versteht sich. Hier, nehmt diesen Ring, er hat mir lange genug gehört.");
 talkEntry:addConsequence(npc.base.consequence.item.item(68, 1, 888, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(4, "=", 33));
+talkEntry:addResponse("Hurra! Kein elfischer Halunke wird sich mir nun noch in den Weg stellen, wenn ich jagen gehen... natürlich, um meine Kinder zu ernähren, versteht sich. Hier, nehmt diesen Ring, er hat mir lange genug gehört.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -662,7 +663,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 33));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("My friend, you helped me and my family more than enough. Thank you and may Malachín bless you.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("My friyou helped me and my family more than enough. Thank you and may Malachín bless you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -678,7 +680,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(4, "=", 33));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("My friend, you helped me and my family more than enough. Thank you and may Malachín bless you.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("My friyou helped me and my family more than enough. Thank you and may Malachín bless you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -765,7 +768,7 @@ talkEntry:addTrigger("elensar");
 talkEntry:addTrigger("elf");
 talkEntry:addTrigger("elfen");
 talkEntry:addTrigger("elves");
-talkEntry:addResponse("Wicked elves! They think that the life of an animal is worth much more than the life of my four children. Valandil Elensar, the self proclaimed guardian of the Elstree forest, is the worst!");
+talkEntry:addResponse("Wicked elves! They think that the life of an animal is worth much more than the lives of my four children. Valandil Elensar, the self proclaimed guardian of the Elstree forest, is the worst!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -781,7 +784,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("law");
-talkEntry:addResponse("Legal, illegal... I give a damn!");
+talkEntry:addResponse("Legal, illegal... I don't give a damn!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -794,7 +797,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("animal");
 talkEntry:addTrigger("game");
-talkEntry:addResponse("There are countless animals in the Elstree forest, waiting for me and my bow: boars, bulls and, sadly, even wolves.");
+talkEntry:addResponse("There are countless animals in the Elstree forest, waiting for me and my bow... boars, bulls and, sadly, even wolves.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -809,7 +812,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("forest");
 talkEntry:addTrigger("woods");
 talkEntry:addTrigger("Elstree");
-talkEntry:addResponse("The Elstree forest is a good place to hunt; unfortunately wolves know that too. I still wonder what an Elstree is, actually.");
+talkEntry:addResponse("The Elstree forest is a good place to hunt, unfortunately wolves know that too. I still wonder what an Elstree is, actually.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -851,7 +854,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("boar");
-talkEntry:addResponse("Boars can become pretty angry, especially if they have shoats.");
+talkEntry:addResponse("Boars can become pretty angry, especially if they have piglets.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -863,7 +866,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("bull");
-talkEntry:addResponse("Never confront a bull directly. Sneak up from behind and then...");
+talkEntry:addResponse("Never confront a bull directly, sneak up from behind and then...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -929,7 +932,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("The mages always dictated what's going on in Runewick. I fear this is never going to change. They don't give a damn about the needs of the common people.");
+talkEntry:addResponse("The mages have always dictated what goes on in Runewick. I fear this is never going to change. They don't give a damn about the needs of the common people.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -943,7 +946,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("The mages always dictated what's going on in Runewick. I fear this is never going to change. They don't give a damn about the needs of the common people.");
+talkEntry:addResponse("The mages have always dictated what goes on in Runewick. I fear this is never going to change. They don't give a damn about the needs of the common people.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -987,7 +990,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Oh, Galmair, a good place to sell fur for a good coin. Uhm, to buy food... of course.");
+talkEntry:addResponse("Oh, Galmair, a good place to sell fur for good coin. Uhm, to buy food... of course.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1040,7 +1043,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("I heard a lot about Albar and I wait eagerly for the day I can travel there. But I doubt this day will ever come; too poor I am.");
+talkEntry:addResponse("I heard a lot about Albar and I await eagerly for the day I can travel there, but I doubt this day will ever come... I am too poor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1054,7 +1057,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("Gynk is a pool of sins. But aren't we all sinnners one day?");
+talkEntry:addResponse("Gynk is a pool of sins, but aren't we all sinnners one day?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1068,7 +1071,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Noble folk are living there; but also poor people. And nobody really cares about them!");
+talkEntry:addResponse("Noble folk are living there, but also poor people, and nobody really cares about them!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1080,7 +1083,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("The gods don't feed my family, I do. But a little blessing never hurts.");
+talkEntry:addResponse("The gods don't feed my family, I do, but a little blessing never hurts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1108,7 +1111,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Praise Malachín, the god of all hunters. May he guide my bow.");
+talkEntry:addResponse("Praise Malachín, the God of all hunters. May he guide my bow.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1152,7 +1155,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I don't have the time to chat with you; my family is starving. Perhaps you can help me with a task?");
+talkEntry:addResponse("I don't have the time to chat with you when my family are starving. Perhaps you can help me with a task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1167,7 +1170,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eugene");
 talkEntry:addTrigger("Burton");
-talkEntry:addResponse("Us Burtons aren't rich nor noble. And we refuse to be poor and dishonourable.");
+talkEntry:addResponse("Us Burtons aren't rich or noble but we refuse to be poor and dishonourable.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1213,7 +1216,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("easter");
 talkEntry:addTrigger("egg");
-talkEntry:addResponse("I once found a strange egg in the Elstree forest. It was huge! But I left it where it was, who knows what hatches from such eggs.");
+talkEntry:addResponse("I once found a strange egg in the Elstree forest. It was huge! But I left it where it was, who knows what hatches from such eggs?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1223,7 +1226,7 @@ talkEntry:addResponse("Einst habe ich ein merkwürdiges Ei im Elsbaumwald gefunde
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me schärft sein Messer.", "#me sharpens his knife.");
-talkingNPC:addCycleText("#me murmelt: 'Verdammte Wölfe!'", "#me mumbles: 'Damned wolves!'");
+talkingNPC:addCycleText("#me murmelt: 'Verdammte Wölfe!'", "#me mumbles, 'Damned wolves!'");
 talkingNPC:addCycleText("#me hustet.", "#me coughs.");
 talkingNPC:addCycleText("#me nießt.", "#me sneezes.");
 talkingNPC:addCycleText("#me sortiert einige Felle, offensichtlich bedacht, dies nicht allzu auffällig zu tun.", "#me sorts some fur, obviously trying to hide them.");
