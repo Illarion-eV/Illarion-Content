@@ -66,7 +66,6 @@ function DepotCoinsToMoney(char,depNr)
             copper=depot:countItem(CopperCoinsID);
             silver=depot:countItem(SilverCoinsID);
             gold=depot:countItem(GoldCoinsID);
-			debug("depot content "..depNr..": "..gold.." "..silver.." "..copper)
         else
             return 0;
         end
@@ -382,7 +381,7 @@ end;
 --  @param depotId - number - the ID of the depot to take the money from
 function TakeMoneyFromDepot(char, money, depotId)
 
-    if DepotCoinsToMoney(char, money, depotId)<money then
+    if DepotCoinsToMoney(char, depotId)<money then
 		debug("first check in takemoneyfromdepot");
         return;
     end
