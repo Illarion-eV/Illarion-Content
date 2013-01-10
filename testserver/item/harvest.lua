@@ -133,9 +133,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		-- reset amount
 		amount = harvestProduct.maxAmount;
 		-- change item id
-		SourceItem.id = harvestProduct.nextItemId;
-		local season = math.ceil(world:getTime("month")/4);
-		SourceItem.wear = harvestProduct.growCycles[season];
+    world:swap(SourceItem, harvestProduct.nextItemId, 333);
+    -- regrow according to season: currently deactivated
+		-- local season = math.ceil(world:getTime("month")/4);
+		-- SourceItem.wear = SourceItem.wear + harvestProduct.growCycles[season];
 	end
 	SourceItem:setData("amount","" .. amount);
 	world:changeItem(SourceItem);
@@ -173,19 +174,20 @@ end
 -- for GroundType, see base.common.GroundType. If it doesn't matter, just set it to nil
 -- GrowCycles define how fast the plants regrow in the 4 seasons. 1 cycle takes 3 minutes
 function CreateHarvestProduct(ProductId, GroundType, GrowCycles, MaxAmount, NextItemId)
-    local retValue = {};
-    retValue.productId = ProductId;
-    retValue.groundType = GroundType;
+  local retValue = {};
+  retValue.productId = ProductId;
+  retValue.groundType = GroundType;
+  -- NOTE: regrow according to season is currently deactivated, so growCycles is not used
 	retValue.growCycles = {1,1,1,1};
-    if (GrowCycles ~= nil) then
+  if (GrowCycles ~= nil) then
 		retValue.growCycles = GrowCycles;
-    end
+  end
 	retValue.maxAmount = 10;
 	if ( MaxAmount ~= nil ) then
 		retValue.maxAmount = MaxAmount;
 	end
 	retValue.nextItemId = NextItemId;
-    return retValue;
+  return retValue;
 end
 
 --[[ old list
