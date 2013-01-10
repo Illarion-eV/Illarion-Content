@@ -106,6 +106,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   User:eraseItem( dye[2], 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( dye[3], amount, 333, nil ); -- create the new produced items
+	User:createItem( 51, 1, 333, nil ); -- giving back the bucket
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( dye[3], notCreated, User.pos, true, 333, nil );
 		world:createItemFromId( 51, notCreated, User.pos, true, 333, nil ); -- giving back the bucket
@@ -113,9 +114,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-	
-	    User:createItem( 51, 1, 333, nil ); -- giving back the bucket
-	
 	    dye = nil;
     for _,d in pairs(dyersList) do 
       if (User:countItemAt("all",d[1])>0 and User:countItemAt("all",d[2])>0) then
