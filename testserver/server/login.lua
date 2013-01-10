@@ -32,12 +32,6 @@ function onLogin( player )
 				
 	end
 		
-	-- Alsaya has to pay taxes whenever she logs in... poor gal	
-	if player.name == "Alsaya" then
-		payNow(player)
-	end
-
-
 	if isTestserver() then
 		receiveGems(player);
 	end
