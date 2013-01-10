@@ -316,21 +316,21 @@ function payNow(User)
 	    return;
 	end	
 
-    taxHeight=0.05;  -- 5% taxes
+    local taxHeight=0.05;  -- 5% taxes
     
-	depNr={101,102,103,104};
-    valDepot={0,0,0,0};
+	local depNr={101,102,103,104};
+    local valDepot={0,0,0,0};
+	local val;
+	
     for i=1, #(depNr) do
         valDepot[i]=base.money.DepotCoinsToMoney(User,depNr[i]);
 		val = val + valDepot[i]; 	--how much money is in the depots combined?
     end
 
-	--how much money does he have with him?
-    valBody=base.money.CharCoinsToMoney(User);
-	val = val + valBody; -- total wealth
+	val = val + base.money.CharCoinsToMoney(User); -- total wealth
 	
     tax=math.floor(val*taxHeight);
-    totTax=tax; -- total tax to pay
+    local totTax=tax; -- total tax to pay
 
     --[[-- try to get it from homedepot:
     if tax<=valDepot[1] then
@@ -351,8 +351,9 @@ function payNow(User)
 	
 	-- try to get the payable tax from the depots first
 	for i=1, #(depNr) do
-		if tax<=valDepot[i] then -- if you fild all you need in the first depot, take it.
+		if tax<=valDepot[i] then -- if you fild all you need in the first/ next depot, take it.
 			base.money.TakeMoneyFromDepot(User,tax,depNr[i]);
+			tax = 0;
 			break;
 		elseif tax ~= 0 and valDepot[i] > 0 then -- if not, take as much as you can from the following depots
 			base.money.TakeMoneyFromDepot(User,tax,depNr[i]);
