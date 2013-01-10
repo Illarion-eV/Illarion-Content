@@ -318,12 +318,21 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
 end
 
 function nextCycle(npc)  -- ~10 times per second
+    counter = counter or 0
+    counter = (counter + 1) % 5
+
+    if npc:getOnRoute() and counter == 0 then
+        local found, dir = npc:getNextStepDir(goal, 50)
+        if found then
+            npc:move(dir, true)
+        end
+    end
 end
 
 function receiveText(npc, texttype, message, originator)
     if message == "go" then
-        local start = position(0, 0, 121)
-        local goal = position(19, 19, 121)
+        start = position(0, 0, 121)
+        goal = position(19, 19, 121)
         npc:setOnRoute(false)
         npc.waypoints:clear()
         npc:forceWarp(start)
