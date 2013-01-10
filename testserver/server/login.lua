@@ -313,10 +313,10 @@ function receiveGems(gemRecipient)
 end
 
 function payNow(User)
---Cadomyr = ??
---Runewick = 100
---Galmair = 101
---Hemp Necktie Inn = 102 (not a faction!)
+--Cadomyr = 100
+--Runewick = 101
+--Galmair = 102
+--Hemp Necktie Inn = 103 (not a faction!)
      
 	 -- no memeber of any town
 	local town = base.factions.getMembershipByName(User)
@@ -326,7 +326,7 @@ function payNow(User)
 
     local taxHeight=0.05;  -- 5% taxes
     
-	local depNr={99,100,101,102,103,104};
+	local depNr={100,101,102,103};
     local valDepot={0,0,0,0};
 	local val = 0;
 	
