@@ -28,10 +28,18 @@ function onLogin( player )
 	--Taxes (has to be redone by "someone")
     if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes. Not on Noobia!
 	    -- So let there be taxes!
-	    payTaxes(player);
-		
-		
+		--payTaxes(player);
+		if isTestserver() then -- remove before rs deployment!
+			payTaxes(player);
+		end
+				
 	end
+		
+	-- Alsaya has to pay taxes whenever she logs in... poor gal	
+	if player.name == "Alsaya" then
+		payNow(player)
+	end
+
 
 	if isTestserver() then
 		receiveGems(player);
@@ -380,7 +388,7 @@ function payNow(User)
 
     User:requestMessageDialog(dialog);
 	
-	base.townTreasure.ChangeTownTreasure(town,tax)
+	base.townTreasure.ChangeTownTreasure(town,toTax)
 	base.townTreasure.IncreaseTaxpayerNumber(town)
     
 end
