@@ -111,9 +111,8 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User,SourceItem);
 		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 0, 0);
 		-- the sheep may move away
-    if (math.random(1,3) == 1) then
+    if (math.random(1,5) == 1) then
       Sheep.movepoints = math.min(Sheep.movepoints, -0.5*woolcutting.SavedWorkTime[User.id]);
-      User:inform("might move away");
     else
       Sheep.movepoints = math.min(Sheep.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
     end
