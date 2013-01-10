@@ -328,18 +328,21 @@ function payNow(User)
     
 	local depNr={101,102,103,104};
     local valDepot={0,0,0,0};
-	local val;
+	local val = 0;
 	
     for i=1, #(depNr) do
         valDepot[i]=base.money.DepotCoinsToMoney(User,depNr[i]);
-		val = val + valDepot[i]; 	--how much money is in the depots combined?
+		debug("depot "..i.." = "..valDepot[i])
+		val = val + valDepot[i]; 	--how much money is in the depots combined
     end
 
+	debug("depot money: "..val)
 	val = val + base.money.CharCoinsToMoney(User); -- total wealth
 	
     tax=math.floor(val*taxHeight);
     local totTax=tax; -- total tax to pay
-
+	debug("total tax "..totTax);
+	
     --[[-- try to get it from homedepot:
     if tax<=valDepot[1] then
         base.money.TakeMoneyFromDepot(User,tax,depNr[1]);
@@ -360,16 +363,20 @@ function payNow(User)
 	-- try to get the payable tax from the depots first
 	for i=1, #(depNr) do
 		if tax<=valDepot[i] then -- if you fild all you need in the first/ next depot, take it.
+			debug ("take from depot directly "..i)
 			base.money.TakeMoneyFromDepot(User,tax,depNr[i]);
 			tax = 0;
 			break;
 		elseif tax ~= 0 and valDepot[i] > 0 then -- if not, take as much as you can from the following depots
+			debug ("take as much as you can from depot "..i)
 			base.money.TakeMoneyFromDepot(User,tax,depNr[i]);
 			tax = tax - valDepot[i];
 		end
+		debug("new tax "..tax)
 	end
 	
 	if tax ~= 0 then --there wasn't enough cash in the depots, get the rest from the char
+		debug("take from char")
 		base.money.TakeMoneyFromChar(User,tax);
 	end
 
@@ -388,7 +395,7 @@ function payNow(User)
 
     User:requestMessageDialog(dialog);
 	
-	base.townTreasure.ChangeTownTreasure(town,toTax)
+	base.townTreasure.ChangeTownTreasure(town,totTax)
 	base.townTreasure.IncreaseTaxpayerNumber(town)
     
 end

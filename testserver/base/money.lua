@@ -276,6 +276,7 @@ function TakeCoinsFromDepot(char, gCoins, sCoins, cCoins, depotId)
     end
     
     if (gCoins > charGold or sCoins > charSilver or cCoins > charCopper) then
+		debug("Take coins from depot check")
         return;
     end;
     
@@ -380,7 +381,8 @@ end;
 --  @param depotId - number - the ID of the depot to take the money from
 function TakeMoneyFromDepot(char, money, depotId)
 
-    if DepotCoinsToMoney(char, money, depotId)<money then
+    if DepotCoinsToMoney(char, depotId)<money then
+		debug("first check in takemoneyfromdepot");
         return;
     end
 
@@ -391,11 +393,13 @@ function TakeMoneyFromDepot(char, money, depotId)
     local MissSilver = 0;
     local MissCopper = 0;
     MissGold, MissSilver, MissCopper = MoneyToCoins(money);
+	debug("Miss: "..MissGold.." "..MissSilver.." "..MissCopper)
     
     local charGold = 0;
     local charSilver = 0;
     local charCopper = 0;
     charGold, charSilver, charCopper = DepotCoins(char,depotId);
+	debug("char: "..charGold.." "..charSilver.." "..charCopper)
     
     local Amount = money;
     
@@ -447,6 +451,7 @@ function TakeMoneyFromDepot(char, money, depotId)
         PaySilver = PaySilver + MissSilver - 100;
     end;
     
+	debug("paygold: "..PayGold.." "..PaySilver.." "..PayCopper)
     TakeCoinsFromDepot(char, PayGold, PaySilver, PayCopper,depotId);
 end;
 
