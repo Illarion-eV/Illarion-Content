@@ -66,6 +66,7 @@ function DepotCoinsToMoney(char,depNr)
             copper=depot:countItem(CopperCoinsID);
             silver=depot:countItem(SilverCoinsID);
             gold=depot:countItem(GoldCoinsID);
+			debug("depot content "..depNr..": "..gold.." "..silver.." "..copper)
         else
             return 0;
         end
