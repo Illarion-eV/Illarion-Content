@@ -313,10 +313,10 @@ function receiveGems(gemRecipient)
 end
 
 function payNow(User)
---Cadomyr = 101
---Runewick = 102
---Galmair = 103
---Hemp Necktie Inn = 104 (not a faction!)
+--Cadomyr = 100
+--Runewick = 101
+--Galmair = 102
+--Hemp Necktie Inn = 103 (not a faction!)
      
 	 -- no memeber of any town
 	local town = base.factions.getMembershipByName(User)
@@ -326,13 +326,13 @@ function payNow(User)
 
     local taxHeight=0.05;  -- 5% taxes
     
-	local depNr={101,102,103,104};
+	local depNr={100,101,102,103};
     local valDepot={0,0,0,0};
 	local val = 0;
 	
     for i=1, #(depNr) do
         valDepot[i]=base.money.DepotCoinsToMoney(User,depNr[i]);
-		debug("depot "..i.." = "..valDepot[i])
+		debug("depot "..depNr[i].." = "..valDepot[i])
 		val = val + valDepot[i]; 	--how much money is in the depots combined
     end
 
