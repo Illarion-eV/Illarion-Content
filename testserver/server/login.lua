@@ -341,7 +341,7 @@ function payNow(User)
 	
     tax=math.floor(val*taxHeight);
     local totTax=tax; -- total tax to pay
-	debug("total tax"..totTax);
+	debug("total tax "..totTax);
 	
     --[[-- try to get it from homedepot:
     if tax<=valDepot[1] then
@@ -363,16 +363,20 @@ function payNow(User)
 	-- try to get the payable tax from the depots first
 	for i=1, #(depNr) do
 		if tax<=valDepot[i] then -- if you fild all you need in the first/ next depot, take it.
+			debug ("take from depot directly "..i)
 			base.money.TakeMoneyFromDepot(User,tax,depNr[i]);
 			tax = 0;
 			break;
 		elseif tax ~= 0 and valDepot[i] > 0 then -- if not, take as much as you can from the following depots
+			debug ("take as much as you can from depot "..i)
 			base.money.TakeMoneyFromDepot(User,tax,depNr[i]);
 			tax = tax - valDepot[i];
 		end
+		debug("new tax "..tax)
 	end
 	
 	if tax ~= 0 then --there wasn't enough cash in the depots, get the rest from the char
+		debug("take from char")
 		base.money.TakeMoneyFromChar(User,tax);
 	end
 
