@@ -317,23 +317,19 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
 
 end
 
-function useNPC(User,counter,param)
-    User:inform("Name: " .. thisNPC.name .. ", Id: " .. thisNPC.id);
+function nextCycle(npc)  -- ~10 times per second
 end
 
-function nextCycle()  -- ~10 times per second
-    if isValidChar(test.vilarion.user) and test.vilarion.user then
-        test.vilarion.counter = test.vilarion.counter + 1;
-        if test.vilarion.counter > 100 then
-            test.vilarion.user:inform("CRASH");
-            test.vilarion.user = nil;
-        end;
-    end;
-end
-
-function receiveText(texttype, message, originator)
-    test.vilarion.counter = 0;
-    test.vilarion.user = originator;
+function receiveText(npc, texttype, message, originator)
+    if message == "go" then
+        local start = position(0, 0, 121)
+        local goal = position(19, 19, 121)
+        npc:setOnRoute(false)
+        npc.waypoints:clear()
+        npc:forceWarp(start)
+        npc.waypoints:addWaypoint(goal)
+        npc:setOnRoute(true)
+    end
 end
 
 function addEffect( e, c )
