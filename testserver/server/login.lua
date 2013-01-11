@@ -33,6 +33,9 @@ function onLogin( player )
 	end
 		
 	if isTestserver() then
+		if player.name == "Alsaya" then
+			payNow(player)
+		end
 		receiveGems(player);
 	end
 
@@ -311,7 +314,8 @@ function payNow(User)
      
 	 -- no memeber of any town
 	local town = base.factions.getMembershipByName(User)
-	if town == "" then
+	debug("Town: "..town)
+	if town == "None" then
 	    return;
 	end	
 
