@@ -98,9 +98,9 @@ function AddPlant(ItemID,Grounds,rare,User)
 end
 
 function plantdrop(User)
-   if ( RarePlantByGround==nil ) then
+   --if ( RarePlantByGround==nil ) then
         Init();
-    end
+    --end
 
 	local herbCounter = 0 -- for testing
 	local normal = 0; local cool = 0
