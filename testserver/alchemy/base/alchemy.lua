@@ -119,7 +119,7 @@ function InitPotions()
 
 -- body liquid potions 
     potionName[10]	= {"Dragon Breath","Drachenatem"}
-	setPotion(301, 450, 94457331, 141, 141, 141, 755, false, false, false, false)
+	setPotion(10, 450, 94457331, 141, 141, 141, 755, false, false, false, false)
 -- body liquid end
     
 -- bombs 
