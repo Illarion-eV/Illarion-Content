@@ -272,13 +272,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
   -- check for buffs
   if (foodItem.buffType ~= nil) then
     -- calculate how long the buff will last, at least 5min, maximal 30min
-    local newDuration = 3000;
+    local newDuration = 300;
     -- grant even easy craftable items a good chance by adding 5
     local raceDifficulty = (foodItem.difficulty+5)*foodItem.racialFactor[race];
     -- add 5 more minutes each in 5 more random experiments
     for i=1,5 do 
       if (math.random(1,105) <= raceDifficulty) then
-        newDuration = newDuration + 3000;
+        newDuration = newDuration + 300;
       end
     end
     -- determine number of increased attributes
@@ -288,7 +288,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     end
     debug("new duration, amount " .. newDuration .. ", " .. newBuffAmount);
     -- add buff, if it is better than the previous one
-    local newIsBetter = true;
     local foundEffect,dietEffect=User.effects:find(12);
     if (foundEffect) then
       local foundType, buffType = dietEffect:findValue("buffType");
@@ -296,13 +295,26 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         local foundAmount, buffAmount = dietEffect:findValue("buffAmount");
         if (foundAmount) then
           -- check if old one is better
-          debug("old duration, amount " .. dietEffect.nextCalled .. ", " .. buffAmount);
-          if (buffAmount > newBuffAmount or (buffAmount == newBuffAmount and dietEffect.nextCalled > newDuration)) then
-            newIsBetter = false;
+          local newIsBetter = false;
+          if (buffAmount < newBuffAmount) then
+            newIsBetter = true;
           else
+            local foundExpire, buffExpireStamp = dietEffect:findValue("buffExpireStamp");
+            if (not foundExpire) then
+              User:inform("[ERROR] No expire stamp found. Using new one instead. Please inform a developer.");
+              newIsBetter = true;
+            else
+              debug("new duration diff " .. buffExpireStamp - base.common.GetCurrentTimestamp());
+              if (newDuration > buffExpireStamp - base.common.GetCurrentTimestamp()) then
+                newIsBetter = true;
+              end
+            end
+          end
+          debug("old amount " .. buffAmount);
+          if (newIsBetter) then
             dietEffect:addValue("buffType", foodItem.buffType);
             dietEffect:addValue("buffAmount", newBuffAmount);
-            dietEffect.nextCalled = newDuration;
+            dietEffect:addValue("buffExpireStamp", base.common.GetCurrentTimestamp() + newDuration);
           end
         else
           User:inform("[ERROR] Found diet effect without buffAmount. Adding new buff. Please inform a developer.");
@@ -311,9 +323,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         User:inform("[ERROR] Found diet effect without buffType. Adding new buff. Please inform a developer.");
       end
     else
-      local dietEffect=LongTimeEffect(12, newDuration);
+      local dietEffect=LongTimeEffect(12, newDuration*10);
       dietEffect:addValue("buffType", foodItem.buffType);
       dietEffect:addValue("buffAmount", newBuffAmount);
+      dietEffect:addValue("buffExpireStamp", base.common.GetCurrentTimestamp() + newDuration);
       User.effects:addEffect(dietEffect);
     end
   end
