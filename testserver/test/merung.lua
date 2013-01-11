@@ -93,7 +93,7 @@ function AddPlant(ItemID,Grounds,rare,User)
 	    if myList[Grounds] == nil then
 		    myList[Grounds] = {}
 		end
-		table.insert(myList[Grounds],ItemId)
+		table.insert(myList[Grounds],ItemID)
 		User:inform(""..myList[Grounds][1])
 	end	
 end
