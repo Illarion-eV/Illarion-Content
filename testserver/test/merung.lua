@@ -26,7 +26,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
     end	
 end
 
-function Init()
+function Init(User)
     
 	RarePlantByGround = {}
 	NormalPlantByGround = {}
@@ -34,8 +34,8 @@ function Init()
 	local gt = base.common.GroundType
 	
 	-- normal herbs; collectable with sickle
-	AddPlant(144, {gt.rocks},false)                         -- virgins weed
-    AddPlant(137, {gt.sand},false)                          -- flamegoblet blossom
+	AddPlant(144, {gt.rocks},false,User)                         -- virgins weed
+--[[    AddPlant(137, {gt.sand},false)                          -- flamegoblet blossom
     AddPlant(135, {gt.grass},false)                         -- yellow weed
     AddPlant(148, {gt.forest},false)                        -- firnis blossom
     AddPlant(763, {gt.dirt},false)                          -- mash flower
@@ -79,7 +79,7 @@ function Init()
 	AddPlant(765, {gt.forest},true)                        -- day tream
 	AddPlant(766, {gt.forest},true)                        -- con blossom
 	AddPlant(768, {gt.forest},true)                        -- wolverine fern
-	AddPlant(769, {gt.sand},true)                         -- desert berry
+	AddPlant(769, {gt.sand},true)    ]]                    -- desert berry
 end
 
 function AddPlant(ItemID,Grounds,rare,User)
@@ -100,7 +100,7 @@ end
 
 function plantdrop(User)
    --if ( RarePlantByGround==nil ) then
-        Init();
+        Init(User);
     --end
 
 	local herbCounter = 0 -- for testing
