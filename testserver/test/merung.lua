@@ -22,7 +22,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 		world:changeItem(myItem)
 	end
     if (User.lastSpokenText == "gaia") then
-        plantdrop()
+        plantdrop(User)
     end	
 end
 
@@ -82,7 +82,7 @@ function Init()
 	AddPlant(769, {gt.sand},true)                         -- desert berry
 end
 
-function AddPlant(ItemID,Grounds,rare)
+function AddPlant(ItemID,Grounds,rare,User)
     local myList
 	if rare then -- rare herb
 	    myList = RarePlantByGround
@@ -97,7 +97,7 @@ function AddPlant(ItemID,Grounds,rare)
 	end	
 end
 
-function plantdrop()
+function plantdrop(User)
    if ( RarePlantByGround==nil ) then
         Init();
     end
@@ -105,19 +105,19 @@ function plantdrop()
 	local herbCounter = 0 -- for testing
 	local normal = 0; local cool = 0
 	for i=1,60 do -- normal plants
-	   local this = PutPlantOnField(false)
+	   local this = PutPlantOnField(false,User)
 	   if this then normal = normal + 1 end
 	end
     
 	for i=1,20 do -- rare plants
-	   local that = PutPlantOnField(true)
+	   local that = PutPlantOnField(true,User)
 	   if that then cool = cool + 1 end
 	end
 User:inform("normal herbs: "..normal)
 User:inform("rare herbs: "..cool)	
 end
 
-function PutPlantOnField(rare)
+function PutPlantOnField(rare,User)
     local myPos = position( math.random(0,1024), math.random(0,1024), 0 )
 	local theTile=world:getField(myPos);
 	local myList
