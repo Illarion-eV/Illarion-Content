@@ -82,7 +82,19 @@ function Init(User)
 	AddPlant(769, {gt.sand},true,User)                         -- desert berry
 end
 
-function AddPlant(ItemID,Grounds,rare,User)
+function AddPlant(ItemID, Grounds, rare)
+    if rare then
+        for i=1, #Grounds do
+            table.insert(RarePlantByGround.Grounds[i], ItemID);
+        end
+    else
+        for i=1, #Grounds do
+            table.insert(NormalPlantByGround.Grounds[i], ItemID);
+        end
+    end
+end
+
+--[[function AddPlant(ItemID,Grounds,rare,User)
     local myList
 	if rare then -- rare herb
 	    myList = RarePlantByGround
@@ -101,7 +113,7 @@ function AddPlant(ItemID,Grounds,rare,User)
 	else -- normal herb
         NormalPlantByGround = myList
     end	
-end
+end]]
 
 function plantdrop(User)
    --if ( RarePlantByGround==nil ) then
