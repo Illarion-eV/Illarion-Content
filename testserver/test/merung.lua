@@ -22,7 +22,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param)
 		world:changeItem(myItem)
 	end
     if (User.lastSpokenText == "gaia") then
-        User:increaseSkill(Character.carpentry,100)
+        plantdrop()
     end	
 end
 
