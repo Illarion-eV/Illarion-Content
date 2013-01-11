@@ -32,6 +32,7 @@ function CharacterOnField(User)  -- geht los wenn ein Char auf das Feld tritt
 			break
 		end
 	end
+	debug("pos: "..FieldItem.pos.z)
     if (FieldItem.quality>100) and FieldItem.pos.z ~= 100 and FieldItem.pos.z ~= 101 and FieldItem.pos.z ~= 40 then --no harmful flames on noobia or the working camp
         UserRace=User:getRace();                  -- Char Rasse
         for i,theRace in pairs(AffectedRaces) do   -- Rassenliste durchlaufen
