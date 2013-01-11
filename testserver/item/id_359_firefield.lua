@@ -32,9 +32,8 @@ function CharacterOnField(User)  -- geht los wenn ein Char auf das Feld tritt
 			break
 		end
 	end
-	debug("pos: "..FieldItem.pos.z)
-    if (FieldItem.quality>100) and FieldItem.pos.z ~= 100 and FieldItem.pos.z ~= 101 and FieldItem.pos.z ~= 40 then --no harmful flames on noobia or the working camp
-        UserRace=User:getRace();                  -- Char Rasse
+    if (FieldItem.quality>100) and User.pos.z ~= 100 and User.pos.z ~= 101 and User.pos.z ~= 40 then --no harmful flames on noobia or the working camp
+        local UserRace=User:getRace();                  -- Char Rasse
         for i,theRace in pairs(AffectedRaces) do   -- Rassenliste durchlaufen
             if UserRace==theRace then              -- User Rasse finden
                 found=true
@@ -44,9 +43,9 @@ function CharacterOnField(User)  -- geht los wenn ein Char auf das Feld tritt
         if not found or RaceStrenght==nil then
             RaceStrenght=100;
         end
-        resist=SpellResistence(User);      -- Magie Resistenz prüfen
+        local resist=SpellResistence(User);      -- Magie Resistenz prüfen
         if (resist<FieldItem.quality*2) then   -- Qualität des Items --> Stärke mit Magie Resistenz vergleichen
-            damageDealt=math.random((3/100)*math.floor((math.max(10,FieldItem.quality-resist))*RaceStrenght),(5/100)*math.floor((math.max(FieldItem.quality-resist))*RaceStrenght));--AffectedStren[i]
+            local damageDealt=math.random((3/100)*math.floor((math.max(10,FieldItem.quality-resist))*RaceStrenght),(5/100)*math.floor((math.max(FieldItem.quality-resist))*RaceStrenght));--AffectedStren[i]
             User:increaseAttrib("hitpoints",-damageDealt); -- Schaden berechnen und bewirken
             -- Added by abcfantasy, inform user
             if (User:getPlayerLanguage()==0) then
