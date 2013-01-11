@@ -132,10 +132,10 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
 		-- reset amount
 		amount = harvestProduct.maxAmount;
-		-- change item id
-    world:swap(SourceItem, harvestProduct.nextItemId, 333);
     SourceItem:setData("amount","" .. amount);
     world:changeItem(SourceItem);
+		-- change item id
+    world:swap(SourceItem, harvestProduct.nextItemId, 333);
     return;
     -- regrow according to season: currently deactivated
 		-- local season = math.ceil(world:getTime("month")/4);
