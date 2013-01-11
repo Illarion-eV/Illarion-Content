@@ -314,7 +314,6 @@ function payNow(User)
      
 	 -- no memeber of any town
 	local town = base.factions.getMembershipByName(User)
-	debug("Town: "..town)
 	if town == "None" then
 	    return;
 	end	
