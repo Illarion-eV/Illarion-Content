@@ -25,13 +25,14 @@ function CharacterOnField(User)  -- geht los wenn ein Char auf das Feld tritt
 	-- !!Eventuell gibt es Probleme, wenn sich mehrere Flammen auf einem Feld befinden!!
 	local Items = base.common.GetItemsOnField(User.pos);
 	local FieldItem;
-	debug("FlameID: "..FieldItem.id)
+
 	for i, item in pairs(Items) do
 		if(item.id == 359) then
 			FieldItem = item;
 			break
 		end
 	end
+		debug("FlameID: "..FieldItem.id)
     if (FieldItem.quality>100) then
         UserRace=User:getRace();                  -- Char Rasse
 		debug("Race: "..UserRace);
