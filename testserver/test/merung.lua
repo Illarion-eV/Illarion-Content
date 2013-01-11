@@ -90,11 +90,11 @@ function AddPlant(ItemID,Grounds,rare,User)
         myList = NormalPlantByGround
     end		
 	for i=1,#Grounds do
-	    if myList[Grounds[i]] == nil then
-		    myList[Grounds[i]] = {}
+	    if myList[Grounds] == nil then
+		    myList[Grounds] = {}
 		end
-		table.insert(myList[Grounds[i]],ItemId)
-		User:inform(""..myList[Grounds[#myList[Ground]]])
+		table.insert(myList[Grounds],ItemId)
+		User:inform(""..myList[Grounds[#myList[Grounds]]])
 	end	
 end
 
