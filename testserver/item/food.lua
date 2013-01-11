@@ -302,7 +302,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
           else
             dietEffect:addValue("buffType", foodItem.buffType);
             dietEffect:addValue("buffAmount", newBuffAmount);
-            dietEffect.nextCalled = 100;
+            dietEffect.nextCalled = newDuration;
           end
         else
           User:inform("[ERROR] Found diet effect without buffAmount. Adding new buff. Please inform a developer.");
