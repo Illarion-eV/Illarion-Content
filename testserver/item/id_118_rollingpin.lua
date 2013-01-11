@@ -44,7 +44,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   if (staticTool == nil) then
     base.common.HighInformNLS( User,
     "Du musst an einem Tisch arbeiten!",
-    "You have to work at a Tisch!" );
+    "You have to work at a table!" );
     return;
   end
   

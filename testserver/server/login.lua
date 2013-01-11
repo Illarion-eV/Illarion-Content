@@ -28,19 +28,10 @@ function onLogin( player )
 	--Taxes (has to be redone by "someone")
     if not player:isAdmin() and player.pos.z~=100 and player.pos.z~=101 then --Admins don't pay taxes. Not on Noobia!
 	    -- So let there be taxes!
-		--payTaxes(player);
-		if isTestserver() then -- remove before rs deployment!
-			payTaxes(player);
-		end
+		payTaxes(player);
 				
 	end
 		
-	-- Alsaya has to pay taxes whenever she logs in... poor gal	
-	if player.name == "Alsaya" then
-		payNow(player)
-	end
-
-
 	if isTestserver() then
 		receiveGems(player);
 	end
@@ -313,10 +304,10 @@ function receiveGems(gemRecipient)
 end
 
 function payNow(User)
---Cadomyr = 101
---Runewick = 102
---Galmair = 103
---Hemp Necktie Inn = 104 (not a faction!)
+--Cadomyr = 100
+--Runewick = 101
+--Galmair = 102
+--Hemp Necktie Inn = 103 (not a faction!)
      
 	 -- no memeber of any town
 	local town = base.factions.getMembershipByName(User)
@@ -326,57 +317,33 @@ function payNow(User)
 
     local taxHeight=0.05;  -- 5% taxes
     
-	local depNr={101,102,103,104};
+	local depNr={100,101,102,103};
     local valDepot={0,0,0,0};
 	local val = 0;
 	
     for i=1, #(depNr) do
         valDepot[i]=base.money.DepotCoinsToMoney(User,depNr[i]);
-		debug("depot "..i.." = "..valDepot[i])
 		val = val + valDepot[i]; 	--how much money is in the depots combined
     end
 
-	debug("depot money: "..val)
 	val = val + base.money.CharCoinsToMoney(User); -- total wealth
 	
     tax=math.floor(val*taxHeight);
     local totTax=tax; -- total tax to pay
-	debug("total tax "..totTax);
-	
-    --[[-- try to get it from homedepot:
-    if tax<=valDepot[1] then
-        base.money.TakeMoneyFromDepot(User,tax,depNr[1]);
-    elseif tax<=valDepot[2] then    -- if not possible, just take it from the pub-depot:
-        base.money.TakeMoneyFromDepot(User,tax,depNr[2]);
-    elseif tax<=valDepot[1]+valDepot[2] then    -- try both, for god's sake!
-        base.money.TakeMoneyFromDepot(User,valDepot[1],depNr[1]);
-        tax=tax-valDepot[1];
-        base.money.TakeMoneyFromDepot(User,tax,depNr[2]);
-    else    -- last, but not least, get it from wherever you can!
-        base.money.TakeMoneyFromDepot(User,valDepot[1],depNr[1]);
-        tax=tax-valDepot[1];
-        base.money.TakeMoneyFromDepot(User,valDepot[2],depNr[2]);
-        tax=tax-valDepot[2];
-        base.money.TakeMoneyFromChar(User,tax);
-    end]]
 	
 	-- try to get the payable tax from the depots first
 	for i=1, #(depNr) do
 		if tax<=valDepot[i] then -- if you fild all you need in the first/ next depot, take it.
-			debug ("take from depot directly "..i)
 			base.money.TakeMoneyFromDepot(User,tax,depNr[i]);
 			tax = 0;
 			break;
 		elseif tax ~= 0 and valDepot[i] > 0 then -- if not, take as much as you can from the following depots
-			debug ("take as much as you can from depot "..i)
-			base.money.TakeMoneyFromDepot(User,tax,depNr[i]);
+			base.money.TakeMoneyFromDepot(User,valDepot[i],depNr[i]);
 			tax = tax - valDepot[i];
 		end
-		debug("new tax "..tax)
 	end
 	
 	if tax ~= 0 then --there wasn't enough cash in the depots, get the rest from the char
-		debug("take from char")
 		base.money.TakeMoneyFromChar(User,tax);
 	end
 

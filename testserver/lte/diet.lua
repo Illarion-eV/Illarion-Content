@@ -18,6 +18,7 @@ GermanAttributes = {
 };
 
 function addEffect(dietEffect,Character)
+  debug("addEffect: nextCalled " .. dietEffect.nextCalled);
   InformPlayer(dietEffect,Character);
 end
 
