@@ -316,7 +316,9 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             dietEffect:addValue("buffType", foodItem.buffType);
             dietEffect:addValue("buffAmount", newBuffAmount);
             dietEffect:addValue("buffExpireStamp", base.common.GetCurrentTimestamp() + newDuration);
-            lte.diet.InformPlayer(dietEffect, User);
+            if (newBuffAmount > buffAmount or buffType ~= foodItem.buffType) then
+              lte.diet.InformPlayer(dietEffect, User);
+            end
           end
         else
           User:inform("[ERROR] Found diet effect without buffAmount. Adding new buff. Please inform a developer.");
