@@ -28,7 +28,6 @@ function callEffect(dietEffect,Character)
     User:inform("[ERROR] No expire stamp found in callEffect. Removing buff. Please inform a developer.");
     return false;
   end
-  debug("callEffect, diff " .. buffExpireStamp - curStamp);
   if (curStamp >= buffExpireStamp) then
     return false;
   end
