@@ -287,7 +287,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if (math.random(1,105) <= raceDifficulty) then
       newBuffAmount = 2;
     end
-    debug("new duration, amount " .. newDuration .. ", " .. newBuffAmount);
     -- add buff, if it is better than the previous one
     local foundEffect,dietEffect=User.effects:find(12);
     if (foundEffect) then
@@ -305,13 +304,11 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
               User:inform("[ERROR] No expire stamp found. Using new one instead. Please inform a developer.");
               newIsBetter = true;
             else
-              debug("new duration diff " .. buffExpireStamp - base.common.GetCurrentTimestamp());
               if (newDuration > buffExpireStamp - base.common.GetCurrentTimestamp()) then
                 newIsBetter = true;
               end
             end
           end
-          debug("old amount " .. buffAmount);
           if (newIsBetter) then
             dietEffect:addValue("buffType", foodItem.buffType);
             dietEffect:addValue("buffAmount", newBuffAmount);
