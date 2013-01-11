@@ -11,6 +11,7 @@ require("alchemy.base.alchemy")
 require("alchemy.base.herbs")
 require("content.craft.baking")
 require("content.craft.cooking")
+require("lte.diet")
 
 -- buff types, they have exactly two attributes
 BUFFS = {
@@ -315,6 +316,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
             dietEffect:addValue("buffType", foodItem.buffType);
             dietEffect:addValue("buffAmount", newBuffAmount);
             dietEffect:addValue("buffExpireStamp", base.common.GetCurrentTimestamp() + newDuration);
+            lte.diet.InformPlayer(dietEffect, User);
           end
         else
           User:inform("[ERROR] Found diet effect without buffAmount. Adding new buff. Please inform a developer.");
