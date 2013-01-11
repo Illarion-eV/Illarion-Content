@@ -126,6 +126,7 @@ function PutPlantOnField(rare,User)
 	else -- normal herb
         myList = NormalPlantByGround
     end	
+	User:inform(""..#myList)
 	if theTile then
 		local groundType = base.common.GetGroundType( theTile:tile() )
 		if myList[groundType] == nil then
