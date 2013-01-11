@@ -96,8 +96,8 @@ function PutItemOnField(Item,User)
 			world:erase(Item,1)
 			myNPC:talkLanguage(Character.say,Player.german,"#me beginnt sorgsam und langsam die einzelnen Zutaten vorzubereiten und dann zu verarbeiten, darauf Acht gebend, dass keine Unbefugten es sehen können. \"So geht das richtig.\"")
 			myNPC:talkLanguage(Character.say,Player.english,"#me starts to prepare the ingredients carefully and slowly and then to worken them, while making sure that no unasked eyes have a look at it. \"So geht das richtig.\"")
-			TellRecipe(User,ListEffectId[myListPos])
 			User:setQuestProgress(ListEffectId[myListPos]+1000,1)
+			TellRecipe(User,ListEffectId[myListPos])
 		end	
 	end					
 end
