@@ -94,7 +94,7 @@ function AddPlant(ItemID,Grounds,rare,User)
 		    myList[Grounds] = {}
 		end
 		table.insert(myList[Grounds],ItemId)
-		User:inform(""..myList[Grounds[#myList[Grounds]]])
+		User:inform(""..myList[Grounds][1])
 	end	
 end
 
