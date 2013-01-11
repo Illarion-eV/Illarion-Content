@@ -35,7 +35,7 @@ function Init(User)
 	
 	-- normal herbs; collectable with sickle
 	AddPlant(144, {gt.rocks},false,User)                         -- virgins weed
---[[    AddPlant(137, {gt.sand},false)                          -- flamegoblet blossom
+    AddPlant(137, {gt.sand},false)                          -- flamegoblet blossom
     AddPlant(135, {gt.grass},false)                         -- yellow weed
     AddPlant(148, {gt.forest},false)                        -- firnis blossom
     AddPlant(763, {gt.dirt},false)                          -- mash flower
@@ -79,7 +79,7 @@ function Init(User)
 	AddPlant(765, {gt.forest},true)                        -- day tream
 	AddPlant(766, {gt.forest},true)                        -- con blossom
 	AddPlant(768, {gt.forest},true)                        -- wolverine fern
-	AddPlant(769, {gt.sand},true)    ]]                    -- desert berry
+	AddPlant(769, {gt.sand},true)                         -- desert berry
 end
 
 function AddPlant(ItemID,Grounds,rare,User)
@@ -94,7 +94,6 @@ function AddPlant(ItemID,Grounds,rare,User)
 		    myList[Grounds] = {}
 		end
 		table.insert(myList[Grounds],ItemID)
-		User:inform(""..myList[Grounds][1])
 	end	
 end
 
@@ -132,9 +131,6 @@ function PutPlantOnField(rare,User)
 		if myList[groundType] == nil then
 		    return false
 		end
-		User:inform(""..#myList)
-		User:inform(""..#myList[2])
-        User:inform(""..#myList[groundType])		
 		myPlant = myList[groundType][math.random(1,#myList[groundType])]
 		world:createItemFromId(myPlant,1,myPos,false,333,nil)
 		return true
