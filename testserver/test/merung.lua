@@ -131,6 +131,7 @@ function PutPlantOnField(rare,User)
 		if myList[groundType] == nil then
 		    return false
 		end
+		User:inform(""..#myList)
         User:inform(""..#myList[groundType])		
 		myPlant = myList[groundType][math.random(1,#myList[groundType])]
 		world:createItemFromId(myPlant,1,myPos,false,333,nil)
