@@ -131,7 +131,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         MAX_DIFFICULTY = math.max(MAX_DIFFICULTY, product.difficulty);
       end
     end
-    -- now we now the max difficulty, so set the food value with linear distribution
+    -- now we know the max difficulty, so set the food value with linear distribution
     local diff = MAX_CRAFTED_FOODVALUE - MIN_CRAFTED_FOODVALUE;
     for _,foodItem in pairs(FoodList) do 
       if (type(foodItem) ~= "function") then
@@ -286,6 +286,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if (math.random(1,105) <= raceDifficulty) then
       newBuffAmount = 2;
     end
+    debug("new duration, amount " .. newDuration .. ", " .. newBuffAmount);
     -- add buff, if it is better than the previous one
     local newIsBetter = true;
     local foundEffect,dietEffect=User.effects:find(12);
@@ -295,6 +296,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         local foundAmount, buffAmount = dietEffect:findValue("buffAmount");
         if (foundAmount) then
           -- check if old one is better
+          debug("old duration, amount " .. dietEffect.nextCalled .. ", " .. buffAmount);
           if (buffAmount > newBuffAmount or (buffAmount == newBuffAmount and dietEffect.nextCalled > newDuration)) then
             newIsBetter = false;
           else
