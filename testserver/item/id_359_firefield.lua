@@ -32,10 +32,8 @@ function CharacterOnField(User)  -- geht los wenn ein Char auf das Feld tritt
 			break
 		end
 	end
-		debug("FlameID: "..FieldItem.id)
-    if (FieldItem.quality>100) then
+    if (FieldItem.quality>100) and FieldItem.pos.z ~= 100 and FieldItem.pos.z ~= 101 and FieldItem.pos.z ~= 40 then --no harmful flames on noobia or the working camp
         UserRace=User:getRace();                  -- Char Rasse
-		debug("Race: "..UserRace);
         for i,theRace in pairs(AffectedRaces) do   -- Rassenliste durchlaufen
             if UserRace==theRace then              -- User Rasse finden
                 found=true
@@ -45,7 +43,6 @@ function CharacterOnField(User)  -- geht los wenn ein Char auf das Feld tritt
         if not found or RaceStrenght==nil then
             RaceStrenght=100;
         end
-		debug("RaceStrenght: "..RaceStrenght)
         resist=SpellResistence(User);      -- Magie Resistenz prüfen
         if (resist<FieldItem.quality*2) then   -- Qualität des Items --> Stärke mit Magie Resistenz vergleichen
             damageDealt=math.random((3/100)*math.floor((math.max(10,FieldItem.quality-resist))*RaceStrenght),(5/100)*math.floor((math.max(FieldItem.quality-resist))*RaceStrenght));--AffectedStren[i]
