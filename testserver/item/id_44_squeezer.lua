@@ -8,7 +8,7 @@ require("base.common")
 
 module("item.id_44_squeezer", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local oilsqueezing = content.gathering.oilsqueezing;
 

@@ -84,20 +84,20 @@ function DoTeleSpell(Caster, TargetPos, ltstate)
 	--Replace with new learn function, see learn.lua 
 end
 
-function CastMagic(Caster,counter,param, ltstate)
+function CastMagic(Caster, ltstate)
     DoTeleSpell(Caster,base.common.GetFrontPosition( Caster ), ltstate);
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param, ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter, ltstate)
     base.common.InformNLS( Caster,
     "Es ist nicht sinnvoll sich auf ein anderes Lebewesen zu teleportieren.",
     "Its not useful to teleport on another entity" );
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param, ltstate)
+function CastMagicOnField(Caster,Targetpos, ltstate)
     DoTeleSpell(Caster,Targetpos, ltstate);
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param, ltstate)
+function CastMagicOnItem(Caster,TargetItem, ltstate)
     DoTeleSpell(Caster,TargetItem.pos, ltstate);
 end

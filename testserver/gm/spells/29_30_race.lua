@@ -11,7 +11,7 @@ INSERT INTO spells VALUES (2^28 + 2^29,2,'gm.spells.29_30_race');
 INSERT INTO spells VALUES (2^28 + 2^29,3,'gm.spells.29_30_race');
 ]]
 
-function CastMagicOnCharacter(User, TargetCharacter, Counter, Param)
+function CastMagicOnCharacter(User, TargetCharacter)
     local oldRace = TargetCharacter:increaseAttrib("racetype", 0);
     local a,b,value=string.find(User.lastSpokenText,"(%d+)");
     value = tonumber(value);

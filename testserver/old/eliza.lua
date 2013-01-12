@@ -29,7 +29,7 @@ function lookAtNpc( player, mode )
 		"#b|0|62|Here you could read info and help.");
 end
 
-function useNPC(User,counter,param)
+function useNPC(User)
     if npc.base.functions.BasicNPCChecks(User,2) then
         if (npc.base.functions.LangOK(User,TradSpeakLang)==true) then
             User:inform("param "..param);
@@ -46,7 +46,7 @@ function useNPC(User,counter,param)
                User:sendMenu( newMenu );
             end
             
-            --npc.base.trader_functions.NPCUsed(User,counter,param);
+            --npc.base.trader_functions.NPCUsed(User);
         end;
     end;
     --local lang=User:getPlayerLanguage();

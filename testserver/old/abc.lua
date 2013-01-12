@@ -4,7 +4,7 @@ require("npc.base.autonpcfunctions")
 module("npc.abc", package.seeall)
 -- dofile("/usr/share/servers/illarionserver/scripts/npc_autonpcfunctions.lua");
 
-function useNPC(user,counter,param)
+function useNPC(user)
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talkLanguage(Character.say, Player.german, "ABC!");
     thisNPC:talkLanguage(Character.say, Player.english, "ABC!");

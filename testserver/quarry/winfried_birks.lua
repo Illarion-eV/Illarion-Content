@@ -11,7 +11,7 @@ require("npc.base.autonpcfunctions")
 require("base.common")
 module("npc.winfried_birks", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talkLanguage(Character.say, Player.german, "Ich würde es bevorzugen, wenn ihr mich nicht anfasst!");
     thisNPC:talkLanguage(Character.say, Player.english, "Ich would prefer, that you don't touch me!!");

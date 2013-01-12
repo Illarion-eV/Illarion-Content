@@ -21,7 +21,7 @@ module("npc.blackbeard", package.seeall, package.seeall(npc.base.ships));
 -- INSERT INTO npc VALUES (1011,2,-406,-489,0,0,'f','Ship NPC',NULL,0);
 -- INSERT INTO npc VALUES (1012,0,-281,53,0,0,'f','Capitain Blackbeard','npc_blackbeard.lua',0);
 
-function useNPC( User , Counter , Param )
+function useNPC( User )
     User:introduce(thisNPC);
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talkLanguage( Character.say, Player.german, "Fass mich an und ich schneid dir die Augen raus, Landratte.");

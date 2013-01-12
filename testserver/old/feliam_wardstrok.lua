@@ -11,14 +11,14 @@ require("npc.base.trader_functions")
 require("npc.base.functions")
 module("npc.feliam_wardstrok", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     -- logToFile("start useNPC (faliam)");
-    local value = useNPC_debug(user,counter,param)
+    local value = useNPC_debug(user)
     -- logToFile("end useNPC (faliam)");
     return value;
 end
 
-function useNPC_debug(user,counter,param)
+function useNPC_debug(user)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
     if (lang==0) then thisNPC:talk(Character.say, "Finger weg!") end

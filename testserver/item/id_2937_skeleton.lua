@@ -14,7 +14,7 @@ function LookAtItem(User,Item)
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 end
 
-function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
+function UseItem(User, SourceItem, ltstate)
 
     queststatus=User:getQuestProgress(112);
 

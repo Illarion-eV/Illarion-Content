@@ -1,6 +1,6 @@
 module("npc.mathilda", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     thisNPC:increaseSkill(1,"common language",100);
     if ( User:getPlayerLanguage()==0 ) then
          thisNPC:talk(Character.say, "Rede doch lieber mit mir anstatt mich zu begrapschen.");

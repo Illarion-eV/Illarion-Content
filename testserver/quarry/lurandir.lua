@@ -9,7 +9,7 @@
 
 module("npc.lurandir", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talk(Character.say, "Don't touch me!");
 end

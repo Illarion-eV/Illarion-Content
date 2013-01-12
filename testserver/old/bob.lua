@@ -1,7 +1,7 @@
 require("npc.base.autonpcfunctions")
 module("npc.bob", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talkLanguage(Character.say, Player.german, "Finger weg!");
     thisNPC:talkLanguage(Character.say, Player.english, "Don't touch me!");

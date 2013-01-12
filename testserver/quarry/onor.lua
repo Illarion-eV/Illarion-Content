@@ -11,7 +11,7 @@ require("npc.base.trader_functions")
 require("npc.base.functions")
 module("npc.onor", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talkLanguage(Character.say, Player.german , "Fasst mich nicht an!" );

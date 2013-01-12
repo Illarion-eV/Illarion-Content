@@ -9,7 +9,7 @@ require("base.townTreasure")
 
 module("test.martin", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	if User.lastSpokenText=="pay" then
 		User:inform("treasure before: "..base.townTreasure.GetTownTreasure("Cadomyr"))
 		base.townTreasure.ChangeTownTreasure("Cadomyr",500)
@@ -114,7 +114,7 @@ Recipient:inform("RankedWage= "..RankedWage);
 
 end
 
-function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
+function UseItemMartin( User, SourceItem, TargetItem, ltstate )
     taxFound,taxTotal=ScriptVars:find("taxTotal");
     payFound,payerCount=ScriptVars:find("payerCount");
     
@@ -135,7 +135,7 @@ function UseItemMartin( User, SourceItem, TargetItem, counter, Param, ltstate )
 end
 
 
-function UseItemMartin2( User, SourceItem, TargetItem, counter, Param, ltstate )
+function UseItemMartin2( User, SourceItem, TargetItem, ltstate )
 
 --cadomyr = 101
 --runewick = 102 

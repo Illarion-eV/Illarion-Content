@@ -263,7 +263,7 @@ function getNPC(SourceItem)
     return myNPC	
 end
 
-function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function RecipeInform( User, SourceItem, TargetItem, ltstate )
 
     if (ListEffectId["Runewick"] == nil) then
 	    Init()
@@ -325,7 +325,7 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	User:requestSelectionDialog(dialog)
 end
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
       
     if (SourceItem:getType()~=3) then -- no map item
 	    return
@@ -335,7 +335,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if town == false then
 	    return
 	else
-	    RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	    RecipeInform( User, SourceItem, TargetItem, ltstate )
 	end	
 	
 end

@@ -87,22 +87,22 @@ function DoItemMoveSpell(Caster, TargetPos, ltstate)
 	--Replace with new learn function, see learn.lua 
 end
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
     DoItemMoveSpell(Caster,base.common.GetFrontPosition(Caster),ltstate);
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
     if TargetCharacter then
         DoItemMoveSpell(Caster, TargetCharacter.pos, ltstate);
     else
-        CastMagic(Caster,counter,param,ltstate);
+        CastMagic(Caster,ltstate);
     end
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
     DoItemMoveSpell(Caster,Targetpos,ltstate);
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
+function CastMagicOnItem(Caster,TargetItem,ltstate)
     DoItemMoveSpell(Caster,TargetItem.pos,ltstate);
 end

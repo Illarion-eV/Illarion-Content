@@ -116,7 +116,7 @@ FoodList:add( 162,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 600); -- birth mushroom
 FoodList:add( 158,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 400); -- bulbsponge mushroom
 FoodList:add( 159,	 VALUE_MEDIUM,	   0,	nil,	nil,	nil,	1000); -- toadstool
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(User, SourceItem, ltstate)
 	if (Init == nil) then
     Init = 1;
     -- import difficulties from crafts
@@ -149,7 +149,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(SourceItem.id, User)
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User,SourceItem)
 	if (cauldron ~= nil) and isPlant then
-	    alchemy.base.herbs.UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	    alchemy.base.herbs.UseItem(User, SourceItem, ltstate)
 		return
 	end	
 	

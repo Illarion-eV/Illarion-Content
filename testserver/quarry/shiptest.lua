@@ -1,6 +1,6 @@
 module("npc.shiptest", package.seeall)
 
-function useNPC(user,Counter,Param)
+function useNPC(user)
        -- user:talk(Character.say, "test");
        thisNPC:talk(Character.say, "I am used by " .. user.name .. " !");
 end

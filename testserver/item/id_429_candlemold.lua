@@ -10,7 +10,7 @@ require("item.general.wood")
 
 module("item.id_429_candlemold", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local candleproducing = content.gathering.candleproducing;
 	
