@@ -15,7 +15,7 @@ item.base.music.addTalkText("#me blows in a horn, sounding like a dying animal",
 item.base.music.addTalkText("#me blows into a horn and produces a great sound","#me bläst in das Horn und erzeugt so einen guten Klang", skill);
 item.base.music.addTalkText("#me blows into a horn and produces a awesome sound","#me bläst in das Horn und erzeugt einen beeindruckenden Klang", skill);
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User, SourceItem)
     item.base.music.PlayInstrument(User,SourceItem, skill);
 end
 

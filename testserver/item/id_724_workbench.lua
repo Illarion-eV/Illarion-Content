@@ -28,7 +28,7 @@ function CreateCraftItem(sourceItem, productItem)
   return {source = sourceItem, product = productItem};
 end
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local boardproducing = content.gathering.boardproducing;
   

@@ -42,8 +42,8 @@ function InitializeNpc()
 	AddTraderTrigger("test","TEST!");
 end
 
-function useNPC(user,counter,param)
-	npc.lightmaster.LM_useNPC(user,counter,param);
+function useNPC(user)
+	npc.lightmaster.LM_useNPC(user);
 end
 
 function nextCycle()

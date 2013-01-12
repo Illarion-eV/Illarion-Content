@@ -67,17 +67,26 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
     if modifier == nil then
         modifier = 1;
     end
+	
+	local baseDamage -- the bigger the area, the lower the base damage
+	if #DamagedArea == 1 then
+	    baseDamage = 555
+	elseif #DamagedArea == 9 then
+        baseDamage = 370
+    else
+		baseDamage = 277
+	end	
 
     for i, posi in pairs(DamagedArea) do
         if world:isCharacterOnField( posi ) then
             Person = world:getCharacterOnField( posi );
 
-            -- Schaden bestimmt sich aus Item Qualität
-            -- 850HP - 9990HP
+            -- damage depends on quality and baseDamage determined by area size
+            -- 277HP - 4995HP
             local qual = Item.quality;
             qual = base.common.Limit(math.floor(qual/100), 1, 9)
 			
-			Schaden = 850 * qual;
+			Schaden = baseDamage * qual;
 
             -- Ermittle Summe der als schützend angegebene Attribute
             AttribEffect = 0;
@@ -100,17 +109,19 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
             Stiffness = base.common.GetStiffness( Person );
 
             -- Der dreifache Wert der Rüstungssteifheit wird vom Schaden abgezogen ( max. -1080 )
-            Schaden = Schaden - Stiffness * 3;
+            Schaden = Schaden - Stiffness * 2;
 
             -- Modifier für Attribute mit mehr als 10000 Punkten
             Schaden = math.ceil(Schaden * modifier);
-
-            if ( Schaden > 0 ) then
-                if isTestserver() then Person:talk(Character.say, ""..-Schaden.." "..DamagedAttrib) end
-				Person:increaseAttrib( DamagedAttrib, -Schaden );
-            else
-			    if isTestserver() then Person:talk(Character.say, "-0 "..DamagedAttrib) end
-			end
+            
+			-- minimal damage
+			local minDamage = math.ceil(75*qual*modifier)
+			if minDamage > Schaden then
+			    Schaden = minDamage
+			end	
+            if isTestserver() then Person:talk(Character.say, "-"..Schaden.." "..DamagedAttrib) end
+			-- deal damage
+			Person:increaseAttrib( DamagedAttrib, -Schaden );
         end
         if ( gfxid ~= 0 ) then
             world:gfx( gfxid, posi );

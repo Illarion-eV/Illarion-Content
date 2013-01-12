@@ -5,7 +5,7 @@ require("base.lookat")
 
 module("item.id_121_peel", package.seeall)
 
-function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
+function UseItem(User, SourceItem, ltstate)
     content.craft.baking.baking:showDialog(User, SourceItem)
 end
 

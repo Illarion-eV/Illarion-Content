@@ -130,7 +130,7 @@ function receiveText(texttype, message, originator)
 	end
 end
 
-function useNPC(user,counter,param)
+function useNPC(user)
 	if not IsEscortingPlayerOnline(thisNPC) or (user.id == player[thisNPC.id].id and not move[thisNPC.id].status()) then --look if the Escorting Player is still online and npc not moving
 		player[thisNPC.id] = getCharForId(user.id);--create a save copy of the char struct
 		  move[thisNPC.id] = moveFunction(itemlist,player[thisNPC.id]); --initialize npc.base.autonpcfunctions.walking function

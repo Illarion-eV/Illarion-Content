@@ -14,7 +14,7 @@ function InitRanks()
     AddRank("a grand master","ein Groﬂmeister");
 end
 
-function UseItem(User, SourceItem, TargetItem, Counter, Param)
+function UseItem(User, SourceItem)
     if ( TargetItem.id == 266 ) or ( TargetItem.id == 267 ) then
         world:erase(SourceItem,1);
     else

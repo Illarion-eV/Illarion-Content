@@ -9,7 +9,7 @@ require("content.gathering")
 
 module("item.id_428_candletable", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local waxproducing = content.gathering.waxproducing;
   

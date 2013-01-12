@@ -6,7 +6,7 @@ module("item.book.id_2615_white_book", package.seeall)
 
 -- UPDATE common SET com_script='item.book.id_2615_white_book' WHERE com_itemid = 2615;
 
-function UseItem(User, SourceItem, TargetItem, Counter, Param) 
+function UseItem(User, SourceItem) 
       if ( TargetItem.id == 266 ) or ( TargetItem.id == 267 ) then 
           world:erase(SourceItem,1); 
       else 

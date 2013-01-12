@@ -14,7 +14,7 @@ require("npc.base.autonpcfunctions")
 require("base.common")
 module("npc.asgrimur", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
     if (lang==0) then thisNPC:talk(Character.say, "Fasst mich nicht an!") end

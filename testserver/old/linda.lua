@@ -1,6 +1,6 @@
 module("npc.linda", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     thisNPC:increaseSkill(1,"common language",100);
     if ( User:getPlayerLanguage()==0 ) then
         thisNPC:talk(Character.say, "Finger weg! Hilf mir lieber.");

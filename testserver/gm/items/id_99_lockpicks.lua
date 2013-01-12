@@ -39,7 +39,7 @@ skillNames = {Character.alchemy,Character.carpentry,Character.concussionWeapons,
 			Character.harp,Character.herblore,Character.horn,Character.lute,Character.mining,Character.parry,Character.punctureWeapons,Character.slashingWeapons,
 			Character.smithing,Character.tailoring,Character.woodcutting,Character.wrestling}
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(User, SourceItem, ltstate)
 	
 	-- First check for mode change
 	if (string.find(User.lastSpokenText, "setmode")~=nil) then

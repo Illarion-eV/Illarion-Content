@@ -390,7 +390,7 @@ function getRock(User, AreaId)
   return nil;
 end
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
   Init();
   content.gathering.InitGathering();
   local mining = content.gathering.mining;
@@ -483,11 +483,16 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     if (rock ~= nil) then  -- there are still items we can work on
       mining.SavedWorkTime[User.id] = mining:GenWorkTime(User,SourceItem);
       User:startAction( mining.SavedWorkTime[User.id], 0, 0, 0, 0);
-    else -- no items left
+    else -- no items left (as the rock is still okay, this should never happen... handle it anyway)
       base.common.HighInformNLS(User,
       "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
       "There are no stones for mining anymore.");
     end
+  else
+    -- rock is broken
+    base.common.HighInformNLS(User,
+    "Hier gibt es keine Steine mehr, an denen du arbeiten kannst.",
+    "There are no stones for mining anymore.");
   end
 
   if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool

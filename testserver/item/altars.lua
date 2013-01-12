@@ -142,7 +142,7 @@ function LookAtItem( User, Item )
   world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 end --function
 
-function UseItem(User, SourceItem, TargetItem, counter, param, ltstate)
+function UseItem(User, SourceItem, ltstate)
   thisGod=tonumber(SourceItem:getData("god"));
   
   if thisGod==nil then

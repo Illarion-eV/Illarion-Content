@@ -9,7 +9,7 @@ require("npc.base.trader_functions");
 require("base.factions")
 module("npc.torina_scibrim", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talkLanguage(Character.say, Player.german, "Lasst mich in Ruhe!");
     thisNPC:talkLanguage(Character.say, Player.english, "Don't you touch me!");

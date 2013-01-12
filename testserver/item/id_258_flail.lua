@@ -10,7 +10,7 @@ require("content.gathering")
 
 module("item.id_258_flail", package.seeall, package.seeall(item.general.wood))
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local flailing = content.gathering.flailing;
 

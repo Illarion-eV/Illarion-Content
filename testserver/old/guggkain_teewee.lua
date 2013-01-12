@@ -241,7 +241,7 @@ function receiveText(texttype, message, originator)
     end
 end--function
 
-function useNPC(User,Counter,Param)
+function useNPC(User)
 --
 end
 

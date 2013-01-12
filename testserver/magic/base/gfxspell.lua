@@ -380,22 +380,22 @@ function CalcEffectRadius(Radius,CasterTry)
     return base.common.Limit( math.floor( Radius * CasterTry / Skill.max + GemBonis.Radius ), 0, Radius );
 end
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
     DoGFXSpell(Caster,Caster.pos, ltstate);
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
     if TargetCharacter then
         DoGFXSpell(Caster, TargetCharacter.pos, ltstate);
     else
-        CastMagic(Caster,counter,param,ltstate);
+        CastMagic(Caster,ltstate);
     end
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param, ltstate)
+function CastMagicOnField(Caster,Targetpos, ltstate)
     DoGFXSpell(Caster,Targetpos, ltstate);
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param, ltstate)
+function CastMagicOnItem(Caster,TargetItem, ltstate)
     DoGFXSpell(Caster,TargetItem.pos,ltstate );
 end

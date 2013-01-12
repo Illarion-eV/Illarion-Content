@@ -7,11 +7,11 @@ module("druid.spell.id_10_analyze_char_exact_illness", package.seeall)
 
 -- INSERT INTO spells VALUES (2^9,3,'druid.spell.id_10_analyze_char_exact_illness');
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 --Caster:inform("debug #32.1")  
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 --Caster:inform("debug #32.2")
 	if Caster:getSkill("exquirere")>math.random(100) then	 
 		--Analyse TargetChar auf Viruskrankheiten  
@@ -62,10 +62,10 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 	end		    
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 --Caster:inform("debug #32.3")    
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
+function CastMagicOnItem(Caster,TargetItem,ltstate)
 --Caster:inform("debug #32.4")    
 end

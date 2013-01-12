@@ -14,7 +14,7 @@ require("npc.base.autonpcfunctions")
 require("base.keys")
 module("npc.karkish_orcguard", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talkLanguage(Character.say, Player.german, "Nimm Greifer deine weg, sonst du haben gleich keine mehr!"); 
     thisNPC:talkLanguage(Character.say, Player.english, "Nub touch meh, stoopid!");

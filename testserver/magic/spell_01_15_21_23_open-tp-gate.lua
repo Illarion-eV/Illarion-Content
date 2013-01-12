@@ -90,19 +90,19 @@ if (orgScript == nil) then
     orgScript = Script;
 end
 
-function CastMagic(Caster,counter,param, ltstate)
+function CastMagic(Caster, ltstate)
     DoTeleportSpell(Caster,base.common.GetFrontPosition(Caster), ltstate);
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param, ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter, ltstate)
     DoTeleportSpell(Caster,base.common.GetFrontPosition(TargetCharacter), ltstate);
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param, ltstate)
+function CastMagicOnField(Caster,Targetpos, ltstate)
     DoTeleportSpell(Caster,Targetpos, ltstate);
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param, ltstate)
+function CastMagicOnItem(Caster,TargetItem, ltstate)
     DoTeleportSpell(Caster,TargetItem.pos, ltstate);
 end
 

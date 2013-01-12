@@ -3,7 +3,7 @@
 require("npc.base.autonpcfunctions")
 module("npc.miss_piggy", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talkLanguage(Character.say, Player.german, "#me springt empört grunzend umher, so dass man die Krone auf ihrer Pobacke unmöglich zu fassen bekommt.");
     thisNPC:talkLanguage(Character.say, Player.english, "#me hops indignantly grunting arround, so it's impossible to grab the crown on its buttock.");

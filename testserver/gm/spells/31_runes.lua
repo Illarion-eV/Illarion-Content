@@ -10,7 +10,7 @@ INSERT INTO spells VALUES (2^30,2,'gm.spells.31_runes');
 INSERT INTO spells VALUES (2^30,3,'gm.spells.31_runes');
 ]]
 
-function CastMagic(User,Counter,Param)
+function CastMagic(User)
     local magictype = User:getMagicType()
     for i = 1,32 do
         User:teachMagic(magictype,i-1)

@@ -10,7 +10,7 @@ require("content.gathering")
 
 module("item.id_220_barrel", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local dyeing = content.gathering.dyeing;
   

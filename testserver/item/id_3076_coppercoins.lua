@@ -8,7 +8,7 @@ if not InitTime then
 	TimeList = {};
 end
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User, SourceItem)
 	if ( SourceItem.number == 1 ) then  --works only with 1 coin
 
     	if TimeList[User.id]~=nil then
