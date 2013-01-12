@@ -114,7 +114,7 @@ Recipient:inform("RankedWage= "..RankedWage);
 
 end
 
-function UseItemMartin( User, SourceItem, TargetItem, ltstate )
+function UseItemMartin(User, SourceItem, ltstate)
     taxFound,taxTotal=ScriptVars:find("taxTotal");
     payFound,payerCount=ScriptVars:find("payerCount");
     
@@ -135,7 +135,7 @@ function UseItemMartin( User, SourceItem, TargetItem, ltstate )
 end
 
 
-function UseItemMartin2( User, SourceItem, TargetItem, ltstate )
+function UseItemMartin2(User, SourceItem, ltstate)
 
 --cadomyr = 101
 --runewick = 102 
