@@ -28,7 +28,8 @@ function split(splitString,pattern)
 		table.insert(tempTable, index)
 	end;
 	
-	for i=1, table.getn(tempTable)-1 do
+	table.insert(splitTable, string.sub(splitString, 0, tempTable[1]));
+	for i=1, table.getn(tempTable) do
 		table.insert(splitTable, string.sub(splitString, tempTable[i], tempTable[i+1]));
 	end
 	
