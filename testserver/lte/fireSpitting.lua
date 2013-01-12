@@ -28,7 +28,12 @@ function callEffect(Effect, User)
 		    if world:isCharacterOnField(posi) then
 			    local char = world:getCharacterOnField(posi)
 				char:inform("Du wirst von einer Flamme erwischt! Aua!","You are hit by fire! Ouch!",Character.highPriority)
-			    char:increaseAttrib("hitpoints",-(100*quality))
+			    local damage = 100*quality
+				Stiffness = base.common.GetStiffness( char )
+				damage = damage - Stiffness
+				damage = damage - (char:increaseAttrib("constitution",0)*2)
+				base.common.Limit(damage, 100, 900)
+				char:increaseAttrib("hitpoints",-damage)
 			end	
 		    world:gfx(9,posi)
 			world:gfx(36,posi)			
