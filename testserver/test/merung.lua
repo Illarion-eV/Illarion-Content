@@ -85,7 +85,7 @@ end
 function AddPlant(ItemID, Grounds, rare)
     if rare then
         for i=1, #Grounds do
-            table.insert(RarePlantByGround.Grounds[i], ItemID);
+            table.insert(RarePlantByGround[Grounds[i]], ItemID)
         end
     else
         for i=1, #Grounds do
