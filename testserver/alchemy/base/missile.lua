@@ -106,10 +106,12 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
             Schaden = math.ceil(Schaden * modifier);
 
             if ( Schaden > 0 ) then
-                Person:increaseAttrib( DamagedAttrib, -Schaden );
-            end
-        debug(""..-Schaden)
-		end
+                if isTestserver() then Person:talk(Character.say, ""..-Schaden.." "..DamagedAttrib) end
+				Person:increaseAttrib( DamagedAttrib, -Schaden );
+            else
+			    if isTestserver() then Person:talk(Character.say, "-0 "..DamagedAttrib) end
+			end
+        end
         if ( gfxid ~= 0 ) then
             world:gfx( gfxid, posi );
         end
