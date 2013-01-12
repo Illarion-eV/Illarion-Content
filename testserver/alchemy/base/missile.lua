@@ -69,7 +69,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
     end
 	
 	local baseDamage -- the bigger the area, the lower the base damage
-	if #Damaged Area == 1 then
+	if #DamagedArea == 1 then
 	    baseDamage = 555
 	elseif #DamagedArea == 9 then
         baseDamage = 370
