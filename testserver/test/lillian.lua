@@ -28,9 +28,9 @@ function split(splitString,pattern)
 		table.insert(tempTable, index)
 	end;
 	
-	table.insert(splitTable, string.sub(splitString, 0, tempTable[1]));
+	table.insert(splitTable, string.gsub(string.sub(splitString, 0, tempTable[1]), ";", ""));
 	for i=1, table.getn(tempTable) do
-		table.insert(splitTable, string.sub(splitString, tempTable[i], tempTable[i+1]));
+		table.insert(splitTable, string.gsub(string.sub(splitString, tempTable[i], tempTable[i+1]), ";", ""));
 	end
 	
 	return splitTable;
