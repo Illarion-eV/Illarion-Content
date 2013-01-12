@@ -15,7 +15,7 @@
 
 -- PLEASE WRITE YOUR COMMENTARIES IN THE PROJECT LANGUAGE: ENGLISH! ~Estralis
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(User,SourceItem,TargetItem,ltstate)
 
   -- prüfe ob der User eine Planze in der Hand hat
     local plantInHand = druid.base.alchemy.CheckIfPlantInHand(User);  

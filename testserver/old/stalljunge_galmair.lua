@@ -16,7 +16,7 @@ require("lte.lasttier")
 require("npc.lasttier")
 module("npc.stalljunge_galmair", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
     if (lang==0) then thisNPC:talk(Character.say, "Finger weg!") end

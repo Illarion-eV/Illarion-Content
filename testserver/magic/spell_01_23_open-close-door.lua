@@ -47,19 +47,19 @@ function Succeed(Caster)
     world:makeSound(13,Caster.pos);
 end
 
-function CastMagic(Caster,counter,param)
+function CastMagic(Caster)
     base.common.InformNLS(Caster,"Der Spruch zeigt keine Wirkung.","Nothing happens.");
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param)
+function CastMagicOnCharacter(Caster,TargetCharacter)
     base.common.InformNLS(Caster,"Der Spruch zeigt keine Wirkung.","Nothing happens.");
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param)
+function CastMagicOnField(Caster,Targetpos)
     informNLS(Caster,"Der Spruch zeigt keine Wirkung.","Nothing happens.");
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param, ltstate)
+function CastMagicOnItem(Caster,TargetItem, ltstate)
     if ( ltstate == nil or ltstate == Action.success ) then
         OpenCloseTarget(Caster,TargetItem)
     elseif ( ltstate == Action.none ) then

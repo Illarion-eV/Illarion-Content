@@ -171,7 +171,7 @@ function receiveText(texttype, message, originator)
 	end  
 end
 
-function useNPC(user,counter,param)
+function useNPC(user)
     if ( myOrderNPC:checkOrder(user) == true ) then
         
     else

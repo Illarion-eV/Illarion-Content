@@ -9,7 +9,7 @@ module("item.id_37_window", package.seeall)
 --A window that the player can use to enter/exit the temple
 --Part of Ronagan's Temple questid(n/a) and related NPCs/scripts...
 
-function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
+function UseItem(User, SourceItem, TargetItem, ltstate)
 
 	local win = position(504, 215, 0); --location of the window; to be changed
 	local inside = position(505, 215, 0); --location that entering window warps to; to be changed

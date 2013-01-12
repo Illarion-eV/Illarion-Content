@@ -7,7 +7,7 @@ require("content.gathering")
 
 module("item.id_74_axe", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem( User, SourceItem, TargetItem, ltstate )
 	content.gathering.InitGathering();
 	InitTreeItems();
 	local woodchopping = content.gathering.woodchopping;

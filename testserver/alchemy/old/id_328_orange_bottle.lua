@@ -83,7 +83,7 @@ function DoDruidism(Character,SourceItem)
 	"You drink the liquid but it doesn't seem to have any effect on you.");
 end
 
-function UseItem(Character,SourceItem,TargetItem,Counter,Param)
+function UseItem(Character,SourceItem,TargetItem)
 
     if (ltstate == Action.abort) then
         Character:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");

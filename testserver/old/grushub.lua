@@ -10,7 +10,7 @@
 require("npc.base.trader_functions")
 module("npc.grushub", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
     if (lang==0) then thisNPC:talk(Character.say, "Geh weg!") end

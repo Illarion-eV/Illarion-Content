@@ -6,7 +6,7 @@ require("base.common")
 
 module("item.id_92_oillamp", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User,SourceItem,TargetItem)
     x=math.random(99);
     if x < 6 then
         base.common.InformNLS(User,"Du bist nicht sicher, aber es scheint als würde die Lampe etwas leuchten","You are not sure, but it seems the lamp starts to glow a little.");

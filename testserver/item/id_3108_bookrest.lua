@@ -28,7 +28,7 @@ function LookAtItem(User,Item)
 	end
 end
 
-function UseItem(User,SourceItem,TargetItem,counter,param)
+function UseItem(User,SourceItem,TargetItem)
 
     if (SourceItem.pos == position(741,406,-3)) then
 	    User:sendBook(201);

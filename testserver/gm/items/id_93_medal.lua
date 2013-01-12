@@ -4,7 +4,7 @@
 require("base.common")
 module("gm.items.id_93_medal", package.seeall)
 
-function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
+function UseItemWithField(User,SourceItem, TargetPos)
 
 	-- First check for mode change
 	if (string.find(User.lastSpokenText, "setmode")~=nil) then
@@ -104,8 +104,8 @@ function UseItemWithField(User,SourceItem, TargetPos, Counter, Param)
     end
 end 
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
-    UseItemWithField(User,SourceItem,base.common.GetFrontPosition(User),Counter,Param);
+function UseItem(User,SourceItem,TargetItem)
+    UseItemWithField(User,SourceItem,base.common.GetFrontPosition(User));
 end
 
 function LookAtItem(User,Item)

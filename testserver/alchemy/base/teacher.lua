@@ -480,7 +480,7 @@ function ThirdTask(User, SourceItem)
 	end
 end
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(User,SourceItem,TargetItem,ltstate)
     if not (SourceItem.pos == position(75,651,0) or SourceItem.pos == position(432,238,0) or SourceItem.pos == position(873,878,0)) then
 	    return
 	end	

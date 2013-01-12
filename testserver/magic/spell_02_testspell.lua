@@ -5,7 +5,7 @@
 -- Effekt Zauber
 module("magic.spell_02_testspell", package.seeall)
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 	Caster:inform("moep");
 	
     find, magicEffect =  Caster.effects:find(600);
@@ -27,11 +27,11 @@ function CastMagic(Caster,counter,param,ltstate)
 	
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
+function CastMagicOnItem(Caster,TargetItem,ltstate)
 end

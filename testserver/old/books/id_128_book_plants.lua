@@ -8,7 +8,7 @@ module("druid.item.id_128_book_plants", package.seeall)
 
 -- UPDATE common SET com_script='druid.item.id_128_book_plants' WHERE com_itemid = 128;
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem( User, SourceItem, TargetItem, ltstate )
 --User:inform("debug 128-1")
     if base.books.InitBook() then
         base.books.AddLanguage("common language",0);
@@ -86,12 +86,12 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
    base.books.SendBookPage(User,SourceItem.data,Counter);
 end
 
-function UseItemWithField( User, SourceItem, TargetPos, Counter, Param, ltstate )
+function UseItemWithField( User, SourceItem, TargetPos, ltstate )
 --User:inform("debug 128-2")
   world:erase(SourceItem,1)
 end
 
-function UseItemWithCharacter( User, SourceItem, TargetCharacter, Counter, Param, ltstate )
+function UseItemWithCharacter( User, SourceItem, TargetCharacter, ltstate )
 --User:inform("debug 128-3")
   world:erase(SourceItem,1)
 end

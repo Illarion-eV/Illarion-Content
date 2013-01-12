@@ -16,7 +16,7 @@ function DrinkPotion(User,SourceItem)
 		"You don't have the feeling that something happens.")
 end
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(User,SourceItem,TargetItem,ltstate)
 	
 	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else
@@ -70,7 +70,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		    -- unlike the support potion itself, the essence brew of it has no specail effects when filled in
 			-- therefore we call the ordinary fill-function; note that we call it after checking for potion in this script
 			-- and we do not set ltstate as a parameter, since we did the abort stuff already here
-			alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron,Counter,Param)
+			alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron)
 		end
 	else -- not infront of a cauldron, therefore drink!
         if User.attackmode then

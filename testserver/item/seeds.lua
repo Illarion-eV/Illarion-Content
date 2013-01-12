@@ -35,7 +35,7 @@ module("item.seeds", package.seeall)
 -- UPDATE common SET com_agingspeed = 3, com_objectafterrot = 732 WHERE com_itemid = 731;
 -- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 732 WHERE com_itemid = 732;
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem( User, SourceItem, TargetItem, ltstate )
 	content.gathering.InitGathering();
 	local farming = content.gathering.farming;
     

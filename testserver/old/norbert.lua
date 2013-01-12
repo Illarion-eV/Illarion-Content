@@ -12,7 +12,7 @@ require("npc.base.autonpcfunctions")
 require("magic.base.basics");
 module("npc.norbert", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talkLanguage(Character.say, Player.german, "#me kuschelt sich an "..user.name.." an.");

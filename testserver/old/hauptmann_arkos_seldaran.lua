@@ -4,7 +4,7 @@ require("npc.base.autonpcfunctions")
 -- require("npc.base.autonpcfunctions")
 module("npc.hauptmann_arkos_seldaran", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talkLanguage(Character.say, Player.german, "Finger weg!");
     thisNPC:talkLanguage(Character.say, Player.english, "Dont you touch me!");

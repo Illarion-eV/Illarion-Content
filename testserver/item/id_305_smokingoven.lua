@@ -25,7 +25,7 @@ function CreateCraftItem(sourceItem, productItem)
   return {source = sourceItem, product = productItem};
 end
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem( User, SourceItem, TargetItem, ltstate )
 	content.gathering.InitGathering();
 	local smokefood = content.gathering.smokefood;
   

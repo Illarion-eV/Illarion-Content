@@ -1,6 +1,6 @@
 module("npc.wesley", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     --thisNPC:increaseSkill(1,"common language",100);
     thisNPC:talk(Character.say, "Don't you touch me!");
 end

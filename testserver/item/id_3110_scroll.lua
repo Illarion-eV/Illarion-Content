@@ -22,7 +22,7 @@ function LookAtItem(User,Item)
 	end
 end
 
-function UseItem( User, SourceItem, TargetItem, counter, param, ltstate )
+function UseItem( User, SourceItem, TargetItem, ltstate )
 
 	local spell = SourceItem.quality;
     if (tonumber(SourceItem:getData("scrollData")) == 600) then -- summon creature

@@ -15,7 +15,7 @@ item.base.music.addTalkText("#me plays an out of tune melody.","#me spielt eine 
 item.base.music.addTalkText("#me plays an airy tune on the flute.","#me spielt eine leichte Melodie auf der Flöte.", skill);
 item.base.music.addTalkText("#me plays a wild tune on the flute.","#me spielt eine wilde Melodie auf der Flöte.", skill);
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User,SourceItem,TargetItem)
 	item.base.music.PlayInstrument(User,SourceItem,skill);
 	
 	--Testing fireball, only activates if flute's data key name is used. Does not affect normal flute -Dyluck

@@ -8,19 +8,19 @@ module("druid.spell.spell_04_quality_stock", package.seeall)
 
 -- INSERT INTO spells VALUES (2^4,3,'druid.spell.spell_04_quality_stock');
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 	base.common.InformNLS(Caster, "Du musst diesen Qualitätsanalysezauber mit einem Kräutersood benutzen.", "You have to use this quality analyzing spell with a herbage brooth.");
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 	base.common.InformNLS(Caster, "Du musst diesen Qualitätsanalysezauber mit einem Kräutersood benutzen.", "You have to use this quality analyzing spell with a herbage brooth.");
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 	base.common.InformNLS(Caster, "Du musst diesen Qualitätsanalysezauber mit einem Kräutersood benutzen.", "You have to use this quality analyzing spell with a herbage brooth.");
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
+function CastMagicOnItem(Caster,TargetItem,ltstate)
 	--Analyse eines Sudes auf Quality 
 	if TargetItem.id == 331 and TargetItem.data ~=0 then
 		qualstat = math.floor(TargetItem.quality/100)

@@ -328,27 +328,27 @@ function TeachingRoom( posi )
     return false;
 end
 
-function CastMagic(Caster,counter,param, ltstate)
+function CastMagic(Caster, ltstate)
     base.common.InformNLS( Caster,
     "Dieser Zauber hat hier keinen Effekt.",
     "This spell has no effect at all here." );
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param, ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter, ltstate)
     if TargetCharacter then
         DoTeachSpell(Caster, TargetCharacter, ltstate);
     else
-        CastMagic(Caster,counter,param,ltstate);
+        CastMagic(Caster,ltstate);
     end
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param, ltstate)
+function CastMagicOnField(Caster,Targetpos, ltstate)
     base.common.InformNLS( Caster,
     "Dieser Zauber hat hier keinen Effekt.",
     "This spell has no effect at all here." );
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param, ltstate)
+function CastMagicOnItem(Caster,TargetItem, ltstate)
     base.common.InformNLS( Caster,
     "Dieser Zauber hat hier keinen Effekt.",
     "This spell has no effect at all here." );

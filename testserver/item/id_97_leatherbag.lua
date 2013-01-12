@@ -17,7 +17,7 @@ function LookAtItem(User,Item)
     world:itemInform(User, Item, lookAt)
 end
 
-function UseItem( User, Item, TargetItem, Counter, Param )
+function UseItem( User, Item, TargetItem)
     local itemType = Item:getType()
     if (itemType == scriptItem.field)
     or (itemType == scriptItem.inventory)

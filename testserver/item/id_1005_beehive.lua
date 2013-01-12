@@ -5,7 +5,7 @@ require("content.gathering")
 
 module("item.id_1005_beehive", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem( User, SourceItem, TargetItem, ltstate )
 	
 	content.gathering.InitGathering();
 	local honeygathering = content.gathering.honeygathering;

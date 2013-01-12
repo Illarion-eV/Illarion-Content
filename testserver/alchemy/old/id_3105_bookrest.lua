@@ -8,7 +8,7 @@ module("druid.item.id_3105_bookrest", package.seeall)
 
 -- UPDATE common SET com_script='druid.item.id_3105_bookrest' WHERE com_itemid = 3105;
  
-function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
+function UseItem(User, SourceItem, TargetItem, ltstate)
 --      if base.books.InitBook() then
 --         base.books.AddLanguage("common language",0);
 --         

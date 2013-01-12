@@ -4,7 +4,7 @@ module("item.id_2620_language_book", package.seeall)
 
 -- UPDATE common SET com_script='item.id_2620_language_book' WHERE com_itemid = 2620;
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(User,SourceItem,TargetItem,ltstate)
 	if SourceItem:getData("langcode") == "" then
 		SourceItem:setData("langcode", 11)
 	end	

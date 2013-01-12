@@ -1255,7 +1255,7 @@ function nextCycle()
 	mainNPC:nextCycle(); 
 end;
 function lookAtNpc(char, mode) mainNPC:lookAt(char, mode); end;
-function useNPC(char, counter, param) mainNPC:use(char); end;
+function useNPC(char) mainNPC:use(char); end;
 
 function mainTask(texttype,message,originator)
 		User = getCharForId(originator.id);

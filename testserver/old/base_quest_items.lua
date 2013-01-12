@@ -89,7 +89,7 @@ function AddQuestWarp(Coord,gText,eText,WarpTarget,mage)
     table.insert(getMageOnly,mage);
 end
 
-function UseItem( User, Item, TargetItem, counter, param )
+function UseItem( User, Item, TargetItem)
     if (first==nil) then
         init();
         first=1;

@@ -10,19 +10,19 @@ module("druid.spell.spell_05_quality_potion", package.seeall, package.seeall(dru
 
 -- INSERT INTO spells VALUES (2^6,3,'druid.spell.spell_06_quality_potion');
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 	base.common.InformNLS(Caster, "Du musst diesen Qualitätsanalysezauber mit einem Trank benutzen.", "You have to use this quality analyzing spell with a potion.");
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 	base.common.InformNLS(Caster, "Du musst diesen Qualitätsanalysezauber mit einem Trank benutzen.", "You have to use this quality analyzing spell with a potion.");
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 	base.common.InformNLS(Caster, "Du musst diesen Qualitätsanalysezauber mit einem Trank benutzen.", "You have to use this quality analyzing spell with a potion.");
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
+function CastMagicOnItem(Caster,TargetItem,ltstate)
 	--Analyse eines Trankes auf Quality 
 	pList={59,165,166,167,327,328,329,330} 
 	for i=1,table.getn(pList) do

@@ -11,14 +11,14 @@ require("alchemy.base.alchemy")
 module("item.id_51_emptybucket", package.seeall)
 
 -- Wassereimer fuellen
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(User,SourceItem,TargetItem,ltstate)
   -- check for cauldron
   TargetItem = GetCauldron(User);
   if (TargetItem ~= nil) then
     if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
       base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
     end
-    FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate);
+    FillFromCauldron(User,SourceItem,TargetItem,ltstate);
     return;
   end
   
@@ -86,7 +86,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	end
 end
 
-function FillFromCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function FillFromCauldron(User,SourceItem,TargetItem,ltstate)
     
     if ( ltstate == Action.abort ) then
 		base.common.InformNLS(User, "Du brichst deine Arbeit ab.", "You abort your work.")

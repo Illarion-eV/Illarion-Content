@@ -22,7 +22,7 @@ function InitNPC(thisNPC)
     end
 end 
 
-function useNPC(thisNPC, originator,counter,param)
+function useNPC(thisNPC, originator)
   	User = getCharForId(originator.id);  --create a save copy of the char struct
   	
 	acttask1 = quest.aquest28.Cow_useNPC(User, CowID, acttask1,thisNPC);

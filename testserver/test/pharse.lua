@@ -33,7 +33,7 @@ function String2Number(str)
 	return 0, false;
 end
 
-function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
+function UseItem(User,SourceItem,TargetItem,ltstate)
 	local possibilities = {
     "Remove all items by ID (in inventory)",
     "Get/Set skill",
@@ -224,7 +224,7 @@ function UseItem(User,SourceItem,TargetItem,counter,param,ltstate)
   User:requestSelectionDialog(sd);
 end
 
-function UseItem_deprecated(User,SourceItem,TargetItem,counter,param,ltstate)
+function UseItem_deprecated(User,SourceItem,TargetItem,ltstate)
 	if dowp then
 		if User.lastSpokenText == "nowp" then
 			dowp = false;

@@ -721,7 +721,7 @@ function CombineStockEssence( User, stock, essenceBrew)
 	end
 end
 
-function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
+function FillIntoCauldron(User,SourceItem,cauldron,ltstate)
     -- function to fill stock, essencebrew or potion into a cauldron
 	-- is the char an alchemist?
 	local anAlchemist = CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")

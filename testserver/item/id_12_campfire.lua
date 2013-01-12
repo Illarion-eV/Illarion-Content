@@ -7,7 +7,7 @@ require("content.gathering")
 
 module("item.id_12_campfire", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem( User, SourceItem, TargetItem, ltstate )
 	content.gathering.InitGathering();
 	local potashproducing = content.gathering.potashproducing;
 

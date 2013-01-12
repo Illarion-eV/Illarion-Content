@@ -12,7 +12,7 @@ require("content.gathering")
 
 module("item.id_171_spinningwheel", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem( User, SourceItem, TargetItem, ltstate )
 	content.gathering.InitGathering();
 	local threadproducing = content.gathering.threadproducing;
 

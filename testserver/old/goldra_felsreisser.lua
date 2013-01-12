@@ -14,7 +14,7 @@ require("base.keys")
 require("base.doors")
 module("npc.goldra_felsreisser", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     thisNPC:increaseSkill(1,"common language",100);
     
 	user:talkLanguage(Character.say, Player.german, "#me packt sie an den Armen und schüttelt sie kräftig.");

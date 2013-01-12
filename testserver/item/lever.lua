@@ -189,7 +189,7 @@ function generateKey(posX,posY,posZ)
     return posX*1024*1024+posY*1024+posZ;
 end
 
-function UseItem (User,SourceItem,TargetItem,counter,param,ltstate)
+function UseItem (User,SourceItem,TargetItem,ltstate)
     if (initi==nil) then
         myLevers=init();
         initi=1;

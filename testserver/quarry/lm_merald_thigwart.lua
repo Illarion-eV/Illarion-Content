@@ -36,8 +36,8 @@ WAITING = -1;
 DUSK = 20;
 DAWN = 6;
 
-function useNPC(user,counter,param)
-	npc.lightmaster.LM_useNPC(user,counter,param);
+function useNPC(user)
+	npc.lightmaster.LM_useNPC(user);
 end
 
 function nextCycle()

@@ -25,7 +25,7 @@ function LookAtItem(User, Item)
     world:itemInform(User, Item, lookAt)
 end
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User,SourceItem,TargetItem)
 	local output = "";
 	local lang = User:getPlayerLanguage();
 	local qual,dura = content.chardescription.getClothesFactor(User);

@@ -390,7 +390,7 @@ function getRock(User, AreaId)
   return nil;
 end
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem( User, SourceItem, TargetItem, ltstate )
   Init();
   content.gathering.InitGathering();
   local mining = content.gathering.mining;

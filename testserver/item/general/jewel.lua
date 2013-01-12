@@ -17,7 +17,7 @@ function LookAtItem(user, item)
 end;
 
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem( User, SourceItem, TargetItem, ltstate )
     -- list with jewles and the functions belonging to them
     UseMe={}
 	-- UseMe[ITEMID] = function(...) UseJewl_ITEMID(...) end
@@ -25,6 +25,6 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if not UseMe[SourceItem.id] then -- security check
 	    return -- if the jewel is not defined yet, we return
     else
-        UseMe[SourceItem.id](User, SourceItem, TargetItem, Counter, Param, ltstate)
+        UseMe[SourceItem.id](User, SourceItem, TargetItem, ltstate)
     end
 end

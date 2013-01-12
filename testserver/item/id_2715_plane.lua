@@ -5,7 +5,7 @@ require("base.lookat")
 
 module("item.id_2715_plane", package.seeall)
 
-function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
+function UseItem(User, SourceItem, TargetItem, ltstate)
     content.craft.carpentry.carpentry:showDialog(User, SourceItem)
 end
 

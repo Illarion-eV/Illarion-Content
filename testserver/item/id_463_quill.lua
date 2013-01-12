@@ -5,7 +5,7 @@ require("alchemy.base.alchemy")
 
 module("item.id_463_quill", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(User,SourceItem,TargetItem,ltstate)
     -- we check if the char holds a bottle to label it
     local bottle = CheckIfBottleInHand(User)
 	if bottle then 

@@ -6,7 +6,7 @@ module("item.harvest", package.seeall)
 
 -- UPDATE common SET com_script='item.harvest' WHERE com_itemid IN (14,300,387, 1809);
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem( User, SourceItem, TargetItem, ltstate )
 	content.gathering.InitGathering();
 	InitHarvestItems();
 	local fruitgathering = content.gathering.fruitgathering;

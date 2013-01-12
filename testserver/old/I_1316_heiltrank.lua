@@ -12,7 +12,7 @@ require("base.common")
 -- -- TargetItem  - Item the potion is used with ( should be nothing normaly )
 -- -- Param       - ItemID of the Item selected from a possible menu. Useless for this script.
 -- -- ltstate     - LongTime State for interrupted scripts
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(User,SourceItem,TargetItem,ltstate)
 
     -- check for ltstate == Action.abort
     -- means the script got interrupted before the time needed was up (-> drinking was not finished!)

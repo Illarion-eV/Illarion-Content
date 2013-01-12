@@ -33,7 +33,7 @@ function LookAtItem(User, Item)
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
 end
 
-function UseItem(User, SourceItem, TargetItem, Counter, param)
+function UseItem(User, SourceItem, TargetItem)
 
 	if (tonumber(SourceItem:getData("libraryQuest")) == 100) then --used for THE LIBRARY quest
 		

@@ -15,7 +15,7 @@ item.base.music.addTalkText("#me blows gently in the panpipes, singing a few, sh
 item.base.music.addTalkText("#me plays a nice, coordinated melody on the panpipes.","#me spielt eine klare Melodie auf der Panflöte. ", skill);
 item.base.music.addTalkText("#me plays his panpipes, blowing gently and gracefully, singing an impressively beautiful melody.","#me spielt behändig eine beeindruckende Melodie voller Anmut auf der Panflöte. ", skill);
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User,SourceItem,TargetItem)
     item.base.music.PlayInstrument(User,SourceItem, skill);
 end
 

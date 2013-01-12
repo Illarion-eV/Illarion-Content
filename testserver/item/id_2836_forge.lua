@@ -34,7 +34,7 @@ function CreateOre(oreItem, productItem, additionalRequiredItems)
   return {ore = oreItem, product = productItem};
 end
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem( User, SourceItem, TargetItem, ltstate )
 	content.gathering.InitGathering();
 	local oremelting = content.gathering.oremelting;
   if ( oreList == nil) then

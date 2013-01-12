@@ -38,7 +38,7 @@ end
 
 
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User,SourceItem,TargetItem)
 
     if firstcall==nil then
         InitDrinks();

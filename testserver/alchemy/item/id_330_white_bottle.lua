@@ -61,7 +61,7 @@ function DrinkPotion(User,SourceItem)
     end
   end
     
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(User,SourceItem,TargetItem,ltstate)
  
 	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else
@@ -69,7 +69,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
 	if cauldron then -- infront of a cauldron?
-	    alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
+	    alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 	
 	else -- not infront of a cauldron, therefore drink!
         if User.attackmode then

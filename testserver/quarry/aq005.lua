@@ -10,7 +10,7 @@
 require("npc.base.functions")
 module("npc.aq005", package.seeall)
 
-function useNPC(user,counter,param)
+function useNPC(user)
     local lang=user:getPlayerLanguage();
     thisNPC:increaseSkill(1,"common language",100);
     if (lang==0) then thisNPC:talk(Character.say, "Fassst mich nicht an!") end
