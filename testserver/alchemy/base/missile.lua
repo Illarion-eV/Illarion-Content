@@ -110,15 +110,15 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
             if ( Schaden > 0 ) then
                 Person:increaseAttrib( DamagedAttrib, -Schaden );
             end
-        end
+        debug(-Schaden)
+		end
         if ( gfxid ~= 0 ) then
             world:gfx( gfxid, posi );
         end
         if ( sfxid ~= 0 ) then
             world:makeSound( sfxid, posi );
         end
-		debug(-Schaden)
-    end
+	end
 end
 
 function damageItemDura( Item, targetArea, gfxid, sfxid, modifier, ItemType )
