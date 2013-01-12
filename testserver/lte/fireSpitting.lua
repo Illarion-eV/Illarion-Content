@@ -38,7 +38,7 @@ function callEffect(Effect, User)
 		    world:gfx(9,posi)
 			world:gfx(36,posi)			
 		end
-		
+		spitFire(base.common.GetFrontPosition(User))
 		base.common.CreateLine(base.common.GetFrontPosition(User), base.common.GetFrontPosition(User, 3+quality), spitFire)
         return false
     end
