@@ -119,7 +119,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
 			if minDamage > Schaden then
 			    Schaden = minDamge
 			end	
-            if isTestserver() then Person:talk(Character.say, ""..-Schaden.." "..DamagedAttrib) end
+            if isTestserver() then Person:talk(Character.say, "-"..Schaden.." "..DamagedAttrib) end
 			-- deal damage
 			Person:increaseAttrib( DamagedAttrib, -Schaden );
         end
