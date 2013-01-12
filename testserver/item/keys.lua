@@ -108,7 +108,7 @@ function SentenceCharacter(User,SourceItem)
             end
 		end	
 	end
-	local dialog = InputDialog("Sentence to forced labour","Insert: [Name|ID] [workload] Example: Hans Thief 300",false,255,callback)
+	local dialog = InputDialog("Sentence to forced labour","Insert: [Name|ID] [workload] Example: John Doe 300",false,255,callback)
 	User:requestInputDialog(dialog)
 end
 
