@@ -85,11 +85,21 @@ end
 function AddPlant(ItemID, Grounds, rare)
     if rare then
         for i=1, #Grounds do
-            table.insert(RarePlantByGround.Grounds[i], ItemID);
+			if RarePlantByGround[Grounds[i]] == nil then
+				debug("RarePlantByGround nil for GroundType: "..Grounds[i]);
+				RarePlantByGround[Grounds[i]] = {}
+			end
+            table.insert(RarePlantByGround[Grounds[i]], ItemID);
+			debug("New rare plant added. Size of table: "..table.getn(RarePlantByGround[Grounds[i]]));
         end
     else
         for i=1, #Grounds do
-            table.insert(NormalPlantByGround.Grounds[i], ItemID);
+			if NormalPlantByGround[Grounds[i]] == nil then
+				debug("NormalPlantByGround nil for GroundType: "..Grounds[i]);
+				NormalPlantByGround[Grounds[i]] = {}
+			end
+            table.insert(NormalPlantByGround[Grounds[i]], ItemID);
+			debug("New normal plant added. Size of table: "..table.getn(NormalPlantByGround[Grounds[i]]));
         end
     end
 end
