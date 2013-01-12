@@ -33,14 +33,14 @@ function callEffect(Effect, User)
 				damage = damage - Stiffness
 				damage = damage - (char:increaseAttrib("constitution",0)*2)
 				base.common.Limit(damage, 100, 900)
-				if isTestserver() then Person:talk(Character.say, "-"..damage) end
+				if isTestserver() then char:talk(Character.say, "-"..damage) end
 				char:increaseAttrib("hitpoints",-damage)
 			end	
 		    world:gfx(9,posi)
 			world:gfx(36,posi)			
 		end
 		spitFire(base.common.GetFrontPosition(User))
-		base.common.CreateLine(base.common.GetFrontPosition(User), base.common.GetFrontPosition(User, 3+quality), spitFire)
+		base.common.CreateLine(base.common.GetFrontPosition(User), base.common.GetFrontPosition(User, quality), spitFire)
         return false
     end
 end
