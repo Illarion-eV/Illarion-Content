@@ -1,6 +1,6 @@
 require("base.common")
 
--- UPDATE common SET com_script = 'test.lillian' WHERE com_itemid = ;
+-- UPDATE common SET com_script = 'test.lillian' WHERE com_itemid = 2697 ;
 
 module("test.lillian", package.seeall)
 
