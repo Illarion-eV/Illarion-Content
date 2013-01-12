@@ -117,6 +117,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
         if ( sfxid ~= 0 ) then
             world:makeSound( sfxid, posi );
         end
+		debug(""..-Schaden)
     end
 end
 
