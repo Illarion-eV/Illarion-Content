@@ -8,7 +8,7 @@ function UseItem(User, SourceItem, ltstate)
     local text = "Hans Dampf;123;Peter Bulle;456"
 	local splitTable = {}
 	if (User.lastSpokenText == "split") then
-		splitTable = split(text, "\;");
+		splitTable = split(text, ";");
 		for i=1, #(splitTable) do
 			User:inform("SplitTable entrynumber: "..i.." = "..splitTable[i]);
 		end
