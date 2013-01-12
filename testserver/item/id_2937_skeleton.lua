@@ -7,7 +7,7 @@ module("item.id_2937_skeleton", package.seeall)
 function LookAtItem(User,Item)
 
 	if Item.pos == position (501,156,0) then --The body of Madoquar
-	    base.lookat.SetSpecialName(Item,"Ein zierliches Skelett, vielleicht von einer Elfin.","A slender skeleton, maybe an elfess."); --sending the message
+	    base.lookat.SetSpecialDescription(Item,"Ein zierliches Skelett, vielleicht von einer Elfin.","A slender skeleton, maybe an elfess."); --sending the message
     else
 		base.lookat.SetSpecialName(Item,"Verrottendes Skelett","rotting skeleton"); --default
     end
