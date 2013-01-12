@@ -33,6 +33,7 @@ function callEffect(Effect, User)
 				damage = damage - Stiffness
 				damage = damage - (char:increaseAttrib("constitution",0)*2)
 				base.common.Limit(damage, 100, 900)
+				if isTestserver() then Person:talk(Character.say, "-"..damage) end
 				char:increaseAttrib("hitpoints",-damage)
 			end	
 		    world:gfx(9,posi)
