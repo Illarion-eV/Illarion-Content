@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Nanuk                                                            --
 --           Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -29,11 +29,11 @@ talkingNPC:addCycleText("#me stampft störrisch auf.", "#me stubbornly stamps one
 talkingNPC:addCycleText("#me zerrt am Halfter.", "#me tears at the headcollar.");
 talkingNPC:addCycleText("#me versucht den Halbling zu beißen.", "#me tries to bite the halfling.");
 talkingNPC:addCycleText("#me schüttelt seinen Kopf.", "#me tosses his head.");
-talkingNPC:addCycleText("#me tritt mit den Hinterläufen aus.", "#me kicks with his hind legs.");
-talkingNPC:addCycleText("#me hebt den Schwanz.", "#me drops some droppings.");
+talkingNPC:addCycleText("#me tritt mit den Hinterläufen aus.", "#me kicks out with his hind legs.");
+talkingNPC:addCycleText("#me hebt den Schwanz.", "#me deposits some droppings.");
 talkingNPC:addCycleText("#me schlägt mit dem Schwanz nach ein paar Fliegen.", "#me wags his tail to get rid of some flies.");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(5);
+mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dies ist Flori, der eigensinnige Ochse.", "This is Flori, the stubborn ox.");
 mainNPC:setUseMessage("Muh!", "Moo!");
