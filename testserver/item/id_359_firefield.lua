@@ -45,9 +45,9 @@ function CharacterOnField(User)  -- geht los wenn ein Char auf das Feld tritt
         end
         local resist=SpellResistence(User);      -- Magie Resistenz prüfen
         if (resist<FieldItem.quality*2) then   -- Qualität des Items --> Stärke mit Magie Resistenz vergleichen
-			debug("qual: "..FieldItem.quality.." resistens: "..resist.." RaceStrenght: "..RaceStrenght);
-            local damageDealt=math.random((3/100)*math.floor((math.max(10,FieldItem.quality-resist))*RaceStrenght),(5/100)*math.floor((math.max(FieldItem.quality-resist))*RaceStrenght));--AffectedStren[i]
-			debug("damage: "..damageDealt)
+			local damageLow = (3/100)*math.floor((math.max(10,FieldItem.quality-resist))*RaceStrenght)
+			local damageHigh = (5/100)*math.floor((math.max(FieldItem.quality-resist))*RaceStrenght)
+            local damageDealt=math.random(math.min(damageLow,damageHigh),math.max(damageLow,damageHigh));--AffectedStren[i]
             User:increaseAttrib("hitpoints",-damageDealt); -- Schaden berechnen und bewirken
             -- Added by abcfantasy, inform user
             if (User:getPlayerLanguage()==0) then
