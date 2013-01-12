@@ -33,7 +33,7 @@ function String2Number(str)
 	return 0, false;
 end
 
-function UseItem(User,SourceItem,TargetItem,ltstate)
+function UseItem(User, SourceItem, ltstate)
 	local possibilities = {
     "Remove all items by ID (in inventory)",
     "Get/Set skill",

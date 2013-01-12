@@ -17,7 +17,7 @@ function LookAtItem(user, item)
 end;
 
 
-function UseItem( User, SourceItem, TargetItem, ltstate )
+function UseItem(User, SourceItem, ltstate)
     -- list with jewles and the functions belonging to them
     UseMe={}
 	-- UseMe[ITEMID] = function(...) UseJewl_ITEMID(...) end

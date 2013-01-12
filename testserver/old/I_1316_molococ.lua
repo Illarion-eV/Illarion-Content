@@ -51,7 +51,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
     end;
 end;
 
-function UseItem(User,SourceItem,TargetItem)
+function UseItem(User, SourceItem)
     local lang=User:getPlayerLanguage();
     if (math.floor(SourceItem.quality/100)==2) then
         InformChar(User,

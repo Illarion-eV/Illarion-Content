@@ -9,7 +9,7 @@ require("item.general.wood")
 
 module("item.id_118_rollingpin", package.seeall);
 
-function UseItem( User, SourceItem, TargetItem, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local doughproducing = content.gathering.doughproducing;
   if (TableList == nil) then

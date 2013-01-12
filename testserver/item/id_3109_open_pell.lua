@@ -325,7 +325,7 @@ function RecipeInform( User, SourceItem, TargetItem, ltstate )
 	User:requestSelectionDialog(dialog)
 end
 
-function UseItem( User, SourceItem, TargetItem, ltstate )
+function UseItem(User, SourceItem, ltstate)
       
     if (SourceItem:getType()~=3) then -- no map item
 	    return

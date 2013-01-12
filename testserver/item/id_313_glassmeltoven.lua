@@ -12,7 +12,7 @@ require("content.gathering")
 
 module("item.id_313_glassmeltoven", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, ltstate )
+function UseItem(User, SourceItem, ltstate)
   content.gathering.InitGathering();
   if (User:countItemAt("all",311)==0 and User:countItemAt("all",734)==0) then
     -- no tool at all

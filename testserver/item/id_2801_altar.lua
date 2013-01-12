@@ -24,7 +24,7 @@ end;
 end; --end function
 	
 
-function UseItem(User,SourceItem,TargetItem,lstate)
+function UseItem(User, SourceItem, lstate)
 
 -- part of the Library Quest
 

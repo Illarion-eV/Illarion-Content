@@ -8,7 +8,7 @@ module("druid.item.id_129_book_paths", package.seeall)
 
 -- UPDATE common SET com_script='druid.item.id_129_book_paths' WHERE com_itemid = 129;
 
-function UseItem( User, SourceItem, TargetItem, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	--User:inform("debug 129-1")
     if base.books.InitBook() then
         base.books.AddLanguage("common language",0);

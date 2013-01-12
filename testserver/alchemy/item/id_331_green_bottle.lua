@@ -16,7 +16,7 @@ module("alchemy.item.id_331_green_bottle", package.seeall)
 -- UPDATE common SET com_script='alchemy.item.id_331_green_bottle' WHERE com_itemid = 331;
 
 
-function UseItem( User, SourceItem, TargetItem, ltstate )
+function UseItem(User, SourceItem, ltstate)
     
 	if SourceItem:getData("filledWith") ~= "stock" then -- no stock, something else
 	    return

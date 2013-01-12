@@ -8,7 +8,7 @@ module("item.id_72_fishingrod", package.seeall, package.seeall(item.general.wood
 
 LookAtItem = item.general.wood.LookAtItem
 
-function UseItem( User, SourceItem, TargetItem, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local fishing = content.gathering.fishing;
 	

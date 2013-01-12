@@ -180,7 +180,7 @@ function LookAtItem(user, item)
     world:itemInform(user, item, lookAt)
 end
 
-function UseItem(user, item, target, ltstate)
+function UseItem(user, item, ltstate)
     if item:getType() ~= scriptItem.field then
         return
     end

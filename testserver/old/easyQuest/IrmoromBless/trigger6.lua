@@ -8,7 +8,7 @@ local POSTCONDITION_QUESTSTATE = 0
 local POSITION = position(0, 0, 0)
 local RADIUS = 0
 
-function UseItem( PLAYER, item, TargetItem, ltstate )
+function UseItem(PLAYER, item, ltstate)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then

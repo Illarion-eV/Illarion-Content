@@ -8,7 +8,7 @@ require("npc.base.guards_static");
 module("gm.items.id_382_ceilingtrowel", package.seeall, package.seeall(gm.base.log))
 
 
-function UseItem(User,SourceItem,TargetItem)
+function UseItem(User, SourceItem)
 
 	Init();
   

@@ -188,7 +188,7 @@ function LookAtItem(User,Item)
 	
 end
 
-function UseItem(User, SourceItem, TargetItem, ltstate)
+function UseItem(User, SourceItem, ltstate)
 
     LookAtItem(User,SourceItem);
 
@@ -198,7 +198,7 @@ end
 
 --[[
 --copyed from id_272_statue.lua; locations are all in gobaith
-function UseItem( User, Item, TargetItem)
+function UseItem(User, Item)
     lang=User:getPlayerLanguage();
     if (Item.pos == position(-28, 192, -9)) then
         if ( not base.common.isItemIdInFieldStack( 35, position(-29, 195, -9) ) ) then

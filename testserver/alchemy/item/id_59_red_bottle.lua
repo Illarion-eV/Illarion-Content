@@ -103,7 +103,7 @@ function GenerateEffectMessage(User,dataZList)
     end
 end
 
-function UseItem(User,SourceItem,TargetItem,ltstate)
+function UseItem(User, SourceItem, ltstate)
     if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else
 	end

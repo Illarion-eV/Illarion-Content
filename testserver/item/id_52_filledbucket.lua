@@ -10,7 +10,7 @@ require("alchemy.base.alchemy")
 
 module("item.id_52_filledbucket", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,ltstate)
+function UseItem(User, SourceItem, ltstate)
 
   -- look for cauldron
   TargetItem = GetCauldron(User);

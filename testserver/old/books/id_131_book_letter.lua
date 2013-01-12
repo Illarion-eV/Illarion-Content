@@ -10,7 +10,7 @@ module("druid.item.id_131_book_letter", package.seeall)
 
 -- UPDATE common SET com_script='druid.item.id_131_book_letter' WHERE com_itemid = 131;
 
-function UseItem( User, SourceItem, TargetItem, ltstate )
+function UseItem(User, SourceItem, ltstate)
 --User:inform("debug 129-1")
     if base.books.InitBook() then
         base.books.AddLanguage("common language",0);

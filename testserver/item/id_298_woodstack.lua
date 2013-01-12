@@ -51,7 +51,7 @@ function logToFile(theString)
 end
 
 
-function UseItem(User,SourceItem,TargetItem)
+function UseItem(User, SourceItem)
     -- User:inform("start fire");
 
     if (SourceItem:getType()==3) then

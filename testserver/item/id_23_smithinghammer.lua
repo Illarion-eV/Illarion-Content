@@ -5,7 +5,7 @@ require("base.lookat")
 
 module("item.id_23_smithinghammer", package.seeall)
 
-function UseItem(User, SourceItem, TargetItem, ltstate)
+function UseItem(User, SourceItem, ltstate)
     content.craft.smithing.smithing:showDialog(User, SourceItem)
 end
 

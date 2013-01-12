@@ -35,7 +35,7 @@ function LookAtItem(player, item)
     return true    
 end
 
-function UseItem(User, SourceItem, TargetItem, ltstate)
+function UseItem(User, SourceItem, ltstate)
     if (User.lastSpokenText == "server") then
         if isTestserver() then
             User:inform("testserver")

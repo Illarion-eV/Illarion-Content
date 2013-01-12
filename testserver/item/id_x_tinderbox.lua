@@ -8,7 +8,7 @@ module("item.id_x_tinderbox", package.seeall)
 WoodIds = {544,543,2560,3};
 BC = base.common;
 
-function UseItem(User,SourceItem,TargetItem)
+function UseItem(User, SourceItem)
 	
 	-- item in hand?
 	if not BC.IsItemInHands(SourceItem) then

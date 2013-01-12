@@ -11,7 +11,7 @@ require("alchemy.base.alchemy")
 module("item.id_51_emptybucket", package.seeall)
 
 -- Wassereimer fuellen
-function UseItem(User,SourceItem,TargetItem,ltstate)
+function UseItem(User, SourceItem, ltstate)
   -- check for cauldron
   TargetItem = GetCauldron(User);
   if (TargetItem ~= nil) then

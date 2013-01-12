@@ -10,7 +10,7 @@ require("item.base.crafts")
 
 module("item.id_737_chisel", package.seeall, package.seeall(item.general.metal))
 
-function UseItem( User, SourceItem, TargetItem, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local stonecutting = content.gathering.stonecutting;
 	-- we have to distinguish if we work on raw stones or stone blocks

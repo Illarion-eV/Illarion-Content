@@ -10,7 +10,7 @@ function DrinkPotion(User,SourceItem)
     User:inform("Der Trank scheint keine Wirkung zu haben.","The potion seems to have no effect.")
 end
 
-function UseItem(User,SourceItem,TargetItem,ltstate)
+function UseItem(User, SourceItem, ltstate)
  
 	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else

@@ -2,7 +2,7 @@
 
 -- Eingestellt auf: Wahl des Statthalters von TB
 
-function UseItem(User,SourceItem,TargetItem)
+function UseItem(User, SourceItem)
     if (UserStat == nil) then
         UserStat = {};
     end

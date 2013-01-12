@@ -16,7 +16,7 @@ function DrinkPotion(User,SourceItem)
 		"You don't have the feeling that something happens.")
 end
 
-function UseItem(User,SourceItem,TargetItem,ltstate)
+function UseItem(User, SourceItem, ltstate)
 	
 	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else

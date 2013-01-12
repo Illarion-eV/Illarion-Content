@@ -47,7 +47,7 @@ ReqTexts = {};
 ReqTexts.german = { [392] = "Fackeln", [43] = "Kerzen", [390] = "Lampenöl" };
 ReqTexts.english = { [392] = "torches", [43] = "candles", [390] = "lamp oil" };
 
-function UseItem( User, SourceItem, TargetItem, ltstate )
+function UseItem(User, SourceItem, ltstate)
 
 	if SourceItem:getType()==1 or SourceItem:getType()==2 then
 		base.common.InformNLS(User,

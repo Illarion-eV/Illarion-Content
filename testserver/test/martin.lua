@@ -9,7 +9,7 @@ require("base.townTreasure")
 
 module("test.martin", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	if User.lastSpokenText=="pay" then
 		User:inform("treasure before: "..base.townTreasure.GetTownTreasure("Cadomyr"))
 		base.townTreasure.ChangeTownTreasure("Cadomyr",500)

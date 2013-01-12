@@ -104,7 +104,7 @@ function UseItemWithField(User,SourceItem, TargetPos)
     end
 end 
 
-function UseItem(User,SourceItem,TargetItem)
+function UseItem(User, SourceItem)
     UseItemWithField(User,SourceItem,base.common.GetFrontPosition(User));
 end
 

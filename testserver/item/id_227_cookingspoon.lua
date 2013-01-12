@@ -5,7 +5,7 @@ require("base.lookat")
 
 module("item.id_227_cookingspoon", package.seeall)
 
-function UseItem(User, SourceItem, TargetItem, ltstate)
+function UseItem(User, SourceItem, ltstate)
     content.craft.cooking.cooking:showDialog(User, SourceItem)
 end
 

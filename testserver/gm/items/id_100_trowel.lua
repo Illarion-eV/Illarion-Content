@@ -7,7 +7,7 @@ module("gm.items.id_100_trowel", package.seeall)
 
 -- UPDATE common SET com_script='gm.items.id_100_trowel' WHERE com_itemid = 100;
 
-function UseItem(User,SourceItem,TargetItem)
+function UseItem(User, SourceItem)
     local TargetItem = base.common.GetTargetItem(User, SourceItem);
 	if not TargetItem then
 		TargetItem = base.common.GetFrontItem(User);

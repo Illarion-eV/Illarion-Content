@@ -5,7 +5,7 @@ require("base.lookat")
 
 module("item.id_2752_carvingtools", package.seeall)
 
-function UseItem(User, SourceItem, TargetItem, ltstate)
+function UseItem(User, SourceItem, ltstate)
     content.craft.carving.carving:showDialog(User, SourceItem)
 end
 

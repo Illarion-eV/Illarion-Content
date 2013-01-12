@@ -37,7 +37,7 @@ TreasureList:add( 1, ALWAYS, RESET_DATA, {{id=2,minNum=2}} );
 TreasureList:add( 2, ALWAYS, DELETE_CHEST, {{id=1,minNum=1,maxNum=5,quality=999,data=1}} );
 TreasureList:add( 1001, 2, 3, {{id=2,minNum=2},{id=1,minNum=1,maxNum=5,quality=999,data=1}} );
 
-function UseItem( User, SourceItem, TargetItem, LTState )
+function UseItem(User, SourceItem, LTState)
 	if string.find(User.lastSpokenText,"qpg") then
 		User:inform("current qpg:" .. User:getQuestProgress(1001) .. "; set to " .. Counter-1);
 		User:setQuestProgress(1001,Counter-1);

@@ -22,13 +22,13 @@ function LookAtItem(User,Item)
 	end
 end
 
-function UseItem( User, SourceItem, TargetItem, ltstate )
+function UseItem(User, SourceItem, ltstate)
 
 	local spell = SourceItem.quality;
     if (tonumber(SourceItem:getData("scrollData")) == 600) then -- summon creature
         summonCreature( User, SourceItem );
     elseif (spell == 101) then -- teleport
-        teleportUseItem( User, SourceItem, ltstate );
+        teleportUseItem(User, SourceItem);
     elseif (spell == 102) then -- self-teleport
         selfTeleportUseItem( User, SourceItem );
     elseif (tonumber(SourceItem:getData("scrollData")) == 666) then 
@@ -118,7 +118,7 @@ function teleportLookAt( User, Item )
         
 end
 
-function teleportUseItem( User, SourceItem, ltstate )
+function teleportUseItem(User, SourceItem)
             if ( ltstate == nil or ltstate == Action.success ) then
                 
                     destination = teleportTarget( SourceItem );

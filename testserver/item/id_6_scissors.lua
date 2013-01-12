@@ -8,7 +8,7 @@ require("item.base.crafts")
 
 module("item.id_6_scissors", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	-- first decide if we're cutting wool or entrails
 	local targetCharacter = base.common.GetFrontCharacter(User);
 	-- check for sheep in front

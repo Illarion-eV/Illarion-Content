@@ -6,7 +6,7 @@ require("base.lookat")
 
 module("item.id_58_mortar", package.seeall)
 
-function UseItem(User, SourceItem, TargetItem, ltstate)
+function UseItem(User, SourceItem, ltstate)
 
     content.craft.dyemaking.dyemaking:showDialog(User, SourceItem)
 	
