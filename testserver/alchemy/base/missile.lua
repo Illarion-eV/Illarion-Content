@@ -116,7 +116,7 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
             
 			-- minimal damage
 			local minDamage = math.ceil(75*qual*modifier)
-			if minDamge > Schaden then
+			if minDamage > Schaden then
 			    Schaden = minDamge
 			end	
             if isTestserver() then Person:talk(Character.say, ""..-Schaden.." "..DamagedAttrib) end
