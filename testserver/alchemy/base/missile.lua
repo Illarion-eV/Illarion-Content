@@ -102,15 +102,13 @@ function causeDamage(User, Item, DamagedArea, DamagedAttrib, ShieldAttribs, gfxi
             -- Der dreifache Wert der Rüstungssteifheit wird vom Schaden abgezogen ( max. -1080 )
             Schaden = Schaden - Stiffness * 3;
 
-            User:inform("schaden vor modifier: "..Schaden)
-			
-			-- Modifier für Attribute mit mehr als 10000 Punkten
+            -- Modifier für Attribute mit mehr als 10000 Punkten
             Schaden = math.ceil(Schaden * modifier);
 
             if ( Schaden > 0 ) then
                 Person:increaseAttrib( DamagedAttrib, -Schaden );
             end
-        debug(-Schaden)
+        debug(""..-Schaden)
 		end
         if ( gfxid ~= 0 ) then
             world:gfx( gfxid, posi );
