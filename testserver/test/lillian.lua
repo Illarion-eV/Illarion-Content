@@ -29,10 +29,10 @@ function split(splitString,pattern)
 		table.insert(tempTable, index)
 	end;
 	
-	_, tempString = string.gsub(string.sub(splitString, 0, tempTable[1]), ";", "")
+	tempString,_ = string.gsub(string.sub(splitString, 0, tempTable[1]), ";", "")
 	table.insert(splitTable, tempString);
 	for i=1, table.getn(tempTable) do
-		_, tempString = string.gsub(string.sub(splitString, tempTable[i], tempTable[i+1]), ";", "")
+		tempString,_ = string.gsub(string.sub(splitString, tempTable[i], tempTable[i+1]), ";", "")
 		table.insert(splitTable, tempString);
 	end
 	
