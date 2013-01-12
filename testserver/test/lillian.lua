@@ -21,7 +21,7 @@ function split(splitString,pattern)
 	local index = 0;
 	
 	while true do
-		index = string.find(splitString, patttern, index+1);
+		index = string.find(splitString, pattern, index+1);
 		if index == nil then
 			break;
 		end;
