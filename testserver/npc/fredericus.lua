@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
 --           Martin Karing                                                    --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -194,7 +194,7 @@ talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Fish, fish, fish. Ifish. And also herbs, if you need any to spice up your dishes.");
+talkEntry:addResponse("Fish, fish, fish. Ifish... And also herbs, if you need any to spice up your dishes.");
 talkEntry:addResponse("Ifish, do you need any?");
 talkEntry:addResponse("Iwhat you need to catch fish and I even buy the fish you caught.");
 talkEntry:addResponse("Ya want to? Aye, have a look!");
@@ -256,7 +256,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I'm a fisherman. A hard job, but a honest and honourable job.");
+talkEntry:addResponse("I'm a fisherman. A hard job, but an honest and honourable job.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -269,7 +269,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I'm a fisherman. A hard job, but a honest and honourable job.");
+talkEntry:addResponse("I'm a fisherman. A hard job, but an honest and honourable job.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -503,7 +503,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Oh, Albar, how much I desire to sail there. A land of justice and honour");
+talkEntry:addResponse("Oh, Albar, how much I desire to sail there... A land of justice and honour");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -537,7 +537,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Arrogant wisenheimers they are. And a hard working fisherman does not matter to the oh-so-noble people there.");
+talkEntry:addResponse("Arrogant wise guys they are, and a hard working fisherman does not matter to the oh-so-noble people there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -549,7 +549,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Goddesses aren't prayed to in Cadomyr, they say. But when you are at sea, you'll pray to Tanora and Findari, that's for sure.");
+talkEntry:addResponse("Goddesses aren't prayed to in Cadomyr, they say, but when you are at sea, you'll pray to Tanora and Findari, that's for sure.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -564,7 +564,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("Tanora guides my boat, Tanora protects my boat, Tanora causes the waves that crash my boat.");
+talkEntry:addResponse("Tanora guides my boat, Tanora protects my boat, Tanora causes the waves that sink my boat.");
 talkEntry:addResponse("Hail Tanora!");
 talkEntry:addResponse("I obey Tanora, but if you want to meet people who adore her, go to Cape Farewell.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -595,7 +595,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("Irmorom helps me doing good business, but my fate is in the hand of Tanora and Findari.");
+talkEntry:addResponse("Irmorom helps me to do good business, but my fate is in the hand of Tanora and Findari.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -623,7 +623,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Fredericus");
-talkEntry:addResponse("I am merely a humble fisherman. But I could tell you about the gods, shall I?");
+talkEntry:addResponse("I am merely a humble fisherman. But I could tell you about the Gods, shall I?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -681,13 +681,13 @@ end;
 talkingNPC:addCycleText("Mein Fisch stinkt nicht!", "My fish does not stink!");
 talkingNPC:addCycleText("Frischer Fisch!", "Fresh fish!");
 talkingNPC:addCycleText("Fisch, Kräuter, alles, was ihr braucht für das Festmahl!", "Fish, herbs, all you need for dinner!");
-talkingNPC:addCycleText("#me riecht an den Fischen in seiner Auslage und verzieht das Gesicht.", "#me sniffes on the fish on his cart and wrinkles his nose.");
+talkingNPC:addCycleText("#me riecht an den Fischen in seiner Auslage und verzieht das Gesicht.", "#me sniffs at the fish on his cart and wrinkles his nose.");
 talkingNPC:addCycleText("Fangfrischer Lachs!", "Fresh salmon!");
 talkingNPC:addCycleText("Komm, kauf jetzt und pack dir noch einen Aal drauf!", "C'mon, buy now and you get an eel for free!");
 talkingNPC:addCycleText("Kauft noch einen Bückling, der schmeckt zwar nicht, hält aber die Ratten fern.", "Buy this bloater, it is not tasty, but it keeps the rats at bay.");
-talkingNPC:addCycleText("Beste Forellen!", "Best trouts!");
+talkingNPC:addCycleText("Beste Forellen!", "Best trout!");
 talkingNPC:addCycleText("Leckere Heringe!", "Tasty herrings!");
-talkingNPC:addCycleText("Ein Pfund Makrelen, nur jetzt, nur für euch!", "A pound mackerels, only now, only for you!");
+talkingNPC:addCycleText("Ein Pfund Makrelen, nur jetzt, nur für euch!", "A pound of mackerels, only now, only for you!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(72,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(126,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(752,"sell"));

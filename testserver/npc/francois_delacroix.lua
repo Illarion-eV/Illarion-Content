@@ -118,7 +118,7 @@ talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Have a magnificent day today. Remember you are beautiful.");
 talkEntry:addResponse("Great tidings, friend! See you later.");
-talkEntry:addResponse("Remember to tell your friends to come see Francois Delacroix for all their agricultural needs!");
+talkEntry:addResponse("Remember to tell your friends to come and see Francois Delacroix for all their agricultural needs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -141,7 +141,7 @@ talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Have a great day today! You deserve it!");
 talkEntry:addResponse("Great tidings! See you later.");
-talkEntry:addResponse("Remember to tell your friends to come see Francois Delacroix for all their agricultural needs!");
+talkEntry:addResponse("Remember to tell your friends to come and see Francois Delacroix for all their agricultural needs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -181,9 +181,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Francois Delacroix , Agricultural goods.");
+talkEntry:addResponse("Francois Delacroix , agricultural goods.");
 talkEntry:addResponse("My name is Francois. It's beyond a pleasure to be acquainted with you");
-talkEntry:addResponse("Francois Delacroix. It still feels weird every time I say it.");
+talkEntry:addResponse("Francois Delacroix, it still feels weird every time I say it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -202,9 +202,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("I sell goods such as milk and farmer tools");
+talkEntry:addResponse("I sell goods such as milk and farmer's tools");
 talkEntry:addResponse("I sell that which you need.");
-talkEntry:addResponse("I'm a self made agricultural goodsr.");
+talkEntry:addResponse("I sell homemade agricultural goods.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -220,9 +220,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("I sell goods such as milk and farmer tools.");
+talkEntry:addResponse("I sell goods such as milk and farmer's tools.");
 talkEntry:addResponse("I sell that which you need.");
-talkEntry:addResponse("I'm a self made agricultural goodsr.");
+talkEntry:addResponse("I sell homemade agricultural goods.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -238,7 +238,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("That's like asking what the sky is. Honestly, I don't think I could answer it.");
+talkEntry:addResponse("That's like asking what the sky is, honestly, I don't think I could answer it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -252,9 +252,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("Francois Delacroix, agricultural goodsr.");
+talkEntry:addResponse("Francois Delacroix, agricultural good seller.");
 talkEntry:addResponse("My name is Francois. It's beyond a pleasure to be acquainted with you");
-talkEntry:addResponse(" Francois Delacroix. It still feels weird every time I say it.");
+talkEntry:addResponse(" Francois Delacroix, it still feels weird every time I say it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -270,7 +270,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Business");
 talkEntry:addTrigger("Markets");
 talkEntry:addTrigger("Pepper");
-talkEntry:addResponse("Recently, pepper has been selling at triple its gross estimated volume. It's exciting to see how long this will last before I reap great profits when the price falls again.");
+talkEntry:addResponse("Pepper is currently trading at three times the normal price. I'm looking forward to seeing when the price falls and I can count my big profit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -286,7 +286,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Agriculture");
 talkEntry:addTrigger("Farming");
 talkEntry:addTrigger("crops");
-talkEntry:addResponse("Harvesting crops and cattle is something that has always been and always will be. It's the most stable of markets.");
+talkEntry:addResponse("Harvesting crops and tending cattle is something that has always been and always will be. It's the most stable of markets.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,7 +328,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("I don't know much of the man, but I can't help but appreciate him for keeping this city safe for all of us who live here.");
+talkEntry:addResponse("I don't know much of the man, though I can't help but appreciate him for keeping this city safe for all of us who live here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -342,7 +342,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("I don't know much of the man, but I can't help but appreciate him for keeping this city safe for all of us who live here.");
+talkEntry:addResponse("I don't know much of the man, though I can't help but appreciate him for keeping this city safe for all of us who live here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -426,8 +426,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("I've been. It's a little too dry and hot. I prefer the Runewick Breeze.");
-talkEntry:addResponse("They have quite a few jewelry makers. I think most of my collection is from Cadomyrian smiths.");
+talkEntry:addResponse("I've been. It's a little too dry and hot, I prefer the Runewick Breeze.");
+talkEntry:addResponse("They have quite a few jewellery makers. I think most of my collection is from Cadomyrian smiths.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -441,7 +441,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("On the downside it's dangerously hot in the Albarian deserts. The upshot, of course, is that the Alberian women are also dangerously hot.");
+talkEntry:addResponse("On the downside, it's dangerously hot in the Albarian deserts. The upshot, of course, is that the Albarian women are also dangerously hot.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -455,7 +455,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("Never been. I have no idea. Everyone keeps asking me about it though. Maybe I should go someday.");
+talkEntry:addResponse("Never been... I have no idea. Everyone keeps asking me about it though, maybe I should go someday.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -481,7 +481,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("I follow Irmorom, obviously. What kind of question is that.");
+talkEntry:addResponse("I follow Irmorom, obviously. What kind of question is that?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -557,14 +557,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Braucht Ihr Werkzeuge? Ich, Francois Delacoix, verkaufe sowohl Werkzeuge für den Ackerbau als auch für die Fischerrei.", "Are you a farmer and need tools? I, Francois Delacroix, carry both farming and fishing tools.");
 talkingNPC:addCycleText("Ihr sucht wunderschöne Felle um dem Winter zu trotzen oder Leder um einem Schwerthieb stand zu halten? Besucht mich, Francois Delacoix!", "Want beautiful furs to last the winter? Or perhaps leather to survive a sword strike! Francois Delacroix is your man!.");
-talkingNPC:addCycleText("Habt Ihr Hunger? Leidet ihr an Skorbut? Ich, Francois Delacoix, habe ein gesundes Angebot an Früchten und Gemüse! Kommt vorbei!", "Are you hungry? Perhaps you're dying from scurvy! With fresh fruit and veg from Francois Delacroix , your gums'll never drop off!");
+talkingNPC:addCycleText("Habt Ihr Hunger? Leidet ihr an Skorbut? Ich, Francois Delacoix, habe ein gesundes Angebot an Früchten und Gemüse! Kommt vorbei!", "Are you hungry? Perhaps you're dying from scurvy? With fresh fruit and vegetables from Francois Delacroix , your gums will never be sore and your teeth never drop out!");
 talkingNPC:addCycleText("Ich habe Fisch, Ihr wollt Fisch? Kauft bei mir,  Francois Delacoix.", "You want fish, I have fish. It's a no brainer! Come see Francois Delacroix!");
-talkingNPC:addCycleText("Ich verkaufe Saatgut für alle Jahreszeiten. Plant Ihr einen neuen Hof zu gründen und eine Familie zu Gründen? Kauft zuerst hier ein, bei mir , Francois Delacoix.", "I have seeds from any season! Are you about to settle down and start a new farm and family?  First visit moi - Francois Delacroix!");
+talkingNPC:addCycleText("Ich verkaufe Saatgut für alle Jahreszeiten. Plant Ihr einen neuen Hof zu gründen und eine Familie zu Gründen? Kauft zuerst hier ein, bei mir , Francois Delacoix.", "I have seeds from any season! Are you about to settle down and start a new farm and family?  First visit me - Francois Delacroix!");
 talkingNPC:addCycleText("Ihr könnt Euch kein Fleisch leisten? Milch ist das perkte Mittel um Eure Familie ohne Fleisch durch zu bringen. Wenn Ihr das Glück habt Euch Fleisch leisten zu können, es schmeckt auch zu Milch! Kauft bei mirein, kauft bei Francois Delacoix!", "Can't afford meat? Milk is the perfect way to feed a family on no money! For your babies healthy bones, if you can't produce your own, come to Francois Delacroix.");
 talkingNPC:addCycleText("Wie geht es Euch heute? Werft einen Blick auf die neuesen Waren von mir, Francois Delacroix.", "How are you doing today? Check out the latest wares of I, Francois Delacroix.");
-talkingNPC:addCycleText("Euer liebster Händler für landwirtschaftliche Güter, ich, Francois Delacroix bin für eich da!", "Your favourite agricultural trader, Francois Delacroix is here to server your needs!");
+talkingNPC:addCycleText("Euer liebster Händler für landwirtschaftliche Güter, ich, Francois Delacroix bin für eich da!", "Your favourite agricultural trader, Francois Delacroix is here to serve your needs!");
 talkingNPC:addCycleText("Ihr seid wunderschöne Leute. Habt einen wunderscönen Tag.", "You're all beautiful people! Have a gorgeous day!");
-talkingNPC:addCycleText("Seid Ihr hungrig großer Kerl? Oder wollt ihr einen Mann glücklich machen  hübsches Fräulein? Ich, Francois Delacroix verkaufe rohes Fleisch. Esst und seid glücklich!", "Are you hungry big man? Or do you have a man you want to make happy, pretty lady? I, Francois Delacroix, sell meat raw! For the untamed man!");
+talkingNPC:addCycleText("Seid Ihr hungrig großer Kerl? Oder wollt ihr einen Mann glücklich machen  hübsches Fräulein? Ich, Francois Delacroix verkaufe rohes Fleisch. Esst und seid glücklich!", "Are you hungry big man? Or do you have a man you want to make happy, pretty lady? I, Francois Delacroix, sells raw meat... For the untamed man!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(51,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(126,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(258,"sell"));
