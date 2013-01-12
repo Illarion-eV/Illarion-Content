@@ -82,7 +82,7 @@ function Init(User)
 	AddPlant(769, {gt.sand},true,User)                         -- desert berry
 end
 
-function AddPlant(ItemID, Grounds, rare)
+function AddPlant(ItemID, Grounds, rare, User)
     if rare then
         for i=1, #Grounds do
 			if RarePlantByGround[Grounds[i]] == nil then
@@ -90,7 +90,7 @@ function AddPlant(ItemID, Grounds, rare)
 				RarePlantByGround[Grounds[i]] = {}
 			end
             table.insert(RarePlantByGround[Grounds[i]], ItemID);
-			debug("New rare plant added. Size of table: "..table.getn(RarePlantByGround[Grounds[i]]));
+			debug("New rare plant added. Ground: "..Grounds[i].." Size of table: "..table.getn(RarePlantByGround[Grounds[i]]));
         end
     else
         for i=1, #Grounds do
@@ -99,7 +99,7 @@ function AddPlant(ItemID, Grounds, rare)
 				NormalPlantByGround[Grounds[i]] = {}
 			end
             table.insert(NormalPlantByGround[Grounds[i]], ItemID);
-			debug("New normal plant added. Size of table: "..table.getn(NormalPlantByGround[Grounds[i]]));
+			debug("New normal plant added. Ground: "..Grounds[i].." Size of table: "..table.getn(NormalPlantByGround[Grounds[i]]));
         end
     end
 end
