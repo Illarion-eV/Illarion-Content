@@ -6,18 +6,17 @@ local QUEST_NUMBER = 700
 local PRECONDITION_QUESTSTATE = 14
 local POSTCONDITION_QUESTSTATE = 2
 
-local POSITION = position(682, 319, 0)
+local POSITION = position(685, 316, 0)
 local RADIUS = 2
 local LOOKAT_TEXT_DE = "Ganz unten auf dem Boden des Fasses siehst du eine Notiz, die folgendes besagt: \"Das Geld liegt wie immer in der Hecke.\""
-local LOOKAT_TEXT_EN = "On the very bottom of the barrel is a hidden note. The following is written down here: \"The money is as always in the hedge!\""
+local LOOKAT_TEXT_EN = "On the very bottom of the barrel is a hidden note. You can read the following: \"The money is as always in the hedge!\""
 
 function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-	
-	base.lookat.SetSpecialDescription(item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
-	world:itemInform(PLAYER,item,base.lookat.GenerateLookAt(PLAYER, item, base.lookat.NONE));
+
+    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
     
     HANDLER(PLAYER)
     
@@ -27,6 +26,15 @@ function LookAtItem(PLAYER, item)
 
   return false
 end
+
+function itemInformNLS(player, item, textDe, textEn)
+  if player:getPlayerLanguage() == Player.german then
+    world:itemInform(player, item, textDe)
+  else
+    world:itemInform(player, item, textEn)
+  end
+end
+
 
 function HANDLER(PLAYER)
     handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh und suche in der Hecke nicht weit von hier.", "Go and seach in the hedge not far from here."):execute()

@@ -16,6 +16,8 @@ function LookAtItem(PLAYER, item)
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
+
+    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
     
     HANDLER(PLAYER)
     
@@ -25,6 +27,15 @@ function LookAtItem(PLAYER, item)
 
   return false
 end
+
+function itemInformNLS(player, item, textDe, textEn)
+  if player:getPlayerLanguage() == Player.german then
+    world:itemInform(player, item, textDe)
+  else
+    world:itemInform(player, item, textEn)
+  end
+end
+
 
 function HANDLER(PLAYER)
     handler.createplayeritem.createPlayerItem(PLAYER, 3077, 999, 25):execute()
