@@ -1,28 +1,22 @@
 require("handler.sendmessagetoplayer")
-require("handler.createitem")
 require("questsystem.base")
-require("base.lookat")
-require("base.common")
 module("questsystem.testquest.trigger7", package.seeall)
 
 local QUEST_NUMBER = 11111
-local PRECONDITION_QUESTSTATE = 3
-local POSTCONDITION_QUESTSTATE = 5
+local PRECONDITION_QUESTSTATE = 0
+local POSTCONDITION_QUESTSTATE = 148
 
-local POSITION = position(879, 759, 0)
-local RADIUS = 2
-local LOOKAT_TEXT_DE = "du kannst was lesen"
-local LOOKAT_TEXT_EN = "you can read something"
+local POSITION = position(814, 740, 0)
+local RADIUS = 10
 
-function LookAtItem(PLAYER, item)
+function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
   if PLAYER:isInRangeToPosition(POSITION,RADIUS)
       and ADDITIONALCONDITIONS(PLAYER)
       and questsystem.base.fulfilsPrecondition(PLAYER, QUEST_NUMBER, PRECONDITION_QUESTSTATE) then
-
-    itemInformNLS(PLAYER, item, LOOKAT_TEXT_DE, LOOKAT_TEXT_EN)
-
+    PLAYER:inform(TEXT_DE, TEXT_EN)
+    
     HANDLER(PLAYER)
-
+    
     questsystem.base.setPostcondition(PLAYER, QUEST_NUMBER, POSTCONDITION_QUESTSTATE)
     return true
   end
@@ -30,16 +24,13 @@ function LookAtItem(PLAYER, item)
   return false
 end
 
-function itemInformNLS(player, item, textDe, textEn)
-  local lookAt = base.lookat.GenerateLookAt(player, item)
-  lookAt.description = base.common.GetNLS(player, textDe, textEn)
-  world:itemInform(player, item, lookAt)
-end
+
+-- local TEXT_DE = TEXT -- German Use Text -- Deutscher Text beim Benutzen
+-- local TEXT_EN = TEXT -- English Use Text -- Englischer Text beim Benutzen
 
 
 function HANDLER(PLAYER)
-    handler.createitem.createItem(position(876, 756, 0), 74, 999, 1):execute()
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "funkt", "works"):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Du wirst zwar noch ein wenig üben müssen, aber man konnte dich gut hören. Geh nun zu Numila zurück", "You will have to practice more, but there was some noise at least. Go back to Numila now."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
