@@ -2,17 +2,17 @@
 -- NPC Name: Rose Deepdelver                                         Runewick --
 -- NPC Job:  Barkeeper                                                        --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  950, 834, 0            --
+-- NPC Race: halfling                   NPC Position:  899, 772, 0            --
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 name = "Rose Deepdelver"
 race = halfling
 sex = female
-position = 950, 834, 0
+position = 899, 772, 0
 direction = east
 affiliation = "Runewick"
 job = "Barkeeper"
@@ -59,8 +59,8 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- ----------------------------------------------------------------------------AC
 
 -- Stock: big empty bottle, bread roll, golden goblet, apple pie, cookies, muffin, bottle with rum, empty bottle, bottle of blackberry juice, bottle of tangerine juice, bottle of banana juice, bottle of cabbage juice, bottle of tea, bottle of carrot juice, bottle of strawberry juice, empty bottle, bottle of grape juice, bottle of berry booze, bottle of bear slayer, small empty bottle, bottle of Elven wine, bottle of cherry schnapps, (silver, copper, gold)goblet, goblet with water, goblet with wine, goblet with mead, goblet with cider, cider, (empty,full)beer mug, glass, glass with mead, glass with wine, glass with water, glass with cider, wooden cup, cup with water, cup with wine, cup with mead, cup with cider, mulligan, cabbage stew, mushroom soup, blue bottle, orange bottle, grey bottle, green bottle, red bottle, black bottle, sausages dish, onion soup,  soup bowl, plate
-"verkauf", "handel" -> "Lass uns handeln!", trade
-"sell", "trade" -> "Let's trade!", trade
+"verkauf", "handel" -> trade, "Lass uns handeln!"
+"sell", "trade" -> trade, trade, "Let's!"
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is Rose Deepdelver the owner of the tavern. Keywords: Greetings, family, trade.")
@@ -117,7 +117,6 @@ english, "Rose", "Deepdelver" -> "Yes, this is my name. If you need something to
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "#me wischt über die Theke.", "#me wipes the counter."
 cycletext "#me schaut sich nach Kunden um.", "#me looks around for customers."
 cycletext "#me knabbert an einem Keks.", "#me nibbles on a cookie."
 cycletext "#me trocknet ein Glas ab.", "#me cleans a glass."
