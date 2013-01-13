@@ -187,6 +187,25 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(603, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(603, "<", 10));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform(""[Hint] You have to fulfil NPC Nobarg' tasks before you can continue here."));
+talkEntry:addResponse("Are you not busy with other tasks? Please do not interrupt me until you are done with them.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(603, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(603, "<", 10));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform(""[Hinweis] Du musst die Aufgaben von NPC Nobarg erfülle bevor du hier weiter machen kannst."));
+talkEntry:addResponse("Seid ihr nicht anderswo beschäftigt? Bitte stört mich nicht bis ihr dort fertig seid.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 0));
 talkEntry:addCondition(npc.base.condition.chance.chance(10.0));
 talkEntry:addTrigger("task");

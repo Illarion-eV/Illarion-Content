@@ -86,6 +86,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Get out!", "Finally!", "...
 "your name", "who are you", "who art thou" -> "Who asks?", "Sir Fludnar Yednos.", "Why do you need to know?"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Wer fragt?", "Sir Fludnar Yednos.", "Ist das von belang zu wissen?"
 
+-- quest - player has gained tasks from Nobarg
+queststatus(603) > 0, queststatus(603) < 10, english, ".*" -> inform("[Hint] You have to fulfil NPC Nobarg' tasks before you can continue here.), "Are you not busy with other tasks? Please do not interrupt me until you are done with them."
+queststatus(603) > 0, queststatus(603) < 10, ".*" -> inform("[Hinweis] Du musst die Aufgaben von NPC Nobarg erfülle bevor du hier weiter machen kannst.), "Seid ihr nicht anderswo beschäftigt? Bitte stört mich nicht bis ihr dort fertig seid."
+
 -- quest - 1th step: gather some information about bragon and orcs
 -- 1. question
 queststatus(600) = 0, chance(10.0), "task", "adventure", "can I do" -> inform("[New Quest] Find the information for Sir Fludnar Yednos. Hint: The answer can be found at the Chapel of Five. You should take a note of the question and the place where you can find the answer!"), "Hmm... find out in which age Bragon helped create the orcs? I think it was the fourth age, but maybe you should ask a priest. There should be one at the Chapel of the Five.", state = 1, queststatus(600) = 11
