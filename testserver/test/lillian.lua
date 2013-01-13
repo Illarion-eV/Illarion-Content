@@ -29,6 +29,7 @@ function getRanklist(User, NPC, message)
 	local arenaEntry;
 	local arenaList = {};
 	local list = " ";
+	local place = 2;
 	
 	for i=1, 5 do -- get the top 5
 		found, arenaEntry = ScriptVars:find("ArenaList"..town);
@@ -46,13 +47,17 @@ function getRanklist(User, NPC, message)
 			end
 		end
 		if User:getPlayerLanguage() == 0 then
-			for i=1,#(arenaEntry),2 do
-				list = list.."Platz "..i.." : "..arenaEntry[i].." mit "..arenaEntry[i+1].." Punkten.\n";
+			list = "Platz 1: "..arenaEntry[1].." mit "..arenaEntry[2].." Punkten.\n";
+			for i=3,#(arenaEntry),2 do
+				list = list.."Platz "..place.." : "..arenaEntry[i].." mit "..arenaEntry[i+1].." Punkten.\n";
+				place = place +1;
 			end
 			mdList = MessageDialog("Top fünf Kämpfer des Reiches", list, nil);			
 		else
-			for i=1, #(arenaEntry),2 do
-				list = list.."Place "..i.." : "..arenaEntry[i].." with "..arenaEntry[i+1].." points.\n";
+			list = "Place 1: "..arenaEntry[1].." with "..arenaEntry[2].." points.\n";
+			for i=3, #(arenaEntry),2 do
+				list = list.."Place "..(i-1).." : "..arenaEntry[i].." with "..arenaEntry[i+1].." points.\n";
+				place = place +1;
 			end
 			mdList = MessageDialog("Top five fighters of the realm", list, nil);
 		end
