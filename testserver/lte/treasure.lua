@@ -52,6 +52,7 @@ function callEffect(trsEff, trsHunter)
         --world:createItemFromId(2830,1,trsPosition,true,333,{["trsCat"]=cat}); --spawn a treasure chest
         world:gfx(16,trsPosition);
         world:makeSound(13,trsPosition);
+		base.treasure.SpawnTreasure(cat, trsPosition)
         return false;
     end
 

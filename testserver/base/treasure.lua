@@ -354,7 +354,6 @@ module("base.treasure", package.seeall)
 			treasureEff:addValue("posZ",tonumber(mapItem:getData("MapPosZ")))
 			treasureEff:addValue("category",treasureLevel);
             User.effects:addEffect(treasureEff);
-			SpawnTreasure(treasureLevel, TargetPosition)
         else
             base.common.InformNLS(User,
                 "Du hast schon einen Schatz ausgegraben und die Wächter noch nicht besiegt.",
