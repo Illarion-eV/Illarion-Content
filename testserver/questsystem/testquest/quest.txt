@@ -4,3 +4,8 @@ item,2744,UseItem,trigger3
 item,519,LookAtItem,trigger4
 triggerfield,874,761,0,MoveToField,trigger5
 item,2744,UseItem,trigger6
+item,519,LookAtItem,trigger7
+item,519,LookAtItem,trigger8
+item,2744,UseItem,trigger9
+triggerfield,874,761,0,MoveToField,trigger10
+triggerfield,874,761,0,MoveToField,trigger11
