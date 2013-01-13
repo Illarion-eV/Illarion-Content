@@ -122,6 +122,22 @@ queststatus(600) > 20, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage" -> "
 queststatus(600) > 20, english, "quest", "mission", "info" -> "There is nothing more to do."
 queststatus(600) > 20, "quest", "mission", "info" -> "Ich habe für euch nichts mehr zu tun."
 
+-- 3st quest: Bring 1 gold goblet.
+queststatus(603) = 6, item(2419, all) > 0, english, ".*" -> inform("[Quest 'red priest robe' solved, Quest 'golden goblet' started] Bring him a golden goblet"), "Very good! Well, I am also preparing a ritual for Brágon and I need a golden goblet. Please bring me one.", deleteItem(2419, 1), queststatus(603) = 7
+queststatus(603) = 6, item(2419, all) > 0, "quest", "mission", "info", "Robe" -> inform("[Quest 'rote Priesterrobe' gelöst, Quest 'goldener Kelch' gestartet] Bringe ihm einen goldenen Kelch"), "Sehr gut! Ich bin am vorbereiten eines Rituals für Bragon and brauche einen Goldkelch hierfür. Bitte bringt mir einen.", deleteItem(2419, 1), queststatus(603) = 7
+queststatus(603) = 6, item(2419, all) = 0, "task", "adventure", "know", "question", "thing" -> "Please, do not interrupt me again unless you have that red priest robe."
+queststatus(603) = 6, item(2419, all) = 0, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Ding" -> "Bitte stört mich nicht bis ihr die rote Priesterrobe habt!"
+queststatus(603) = 6, item(2419, all) = 0, english, "quest", "mission", "info", "robe" -> "Please, do not interrupt me again unless you have that red priest robe."
+queststatus(603) = 6, item(2419, all) = 0, "quest", "mission", "info", "Robe" -> "Bitte stört mich nicht bis ihr die rote Priesterrobe habt!"
+
+-- 2st quest: Bring 1 red priest robe.
+queststatus(603) = 5, item(2553, all) > 0, english, ".*" -> inform("[Quest 'pure fire' solved, Quest 'red priest robe' started] Bring him a red priest robe"), "Well done, you are ready for the next task. My red priest robes are in poor condition. Please bring me a new one.", deleteItem(2553, 1), queststatus(603) = 6
+queststatus(603) = 5, item(2553, all) > 0, ".*" -> inform("[Quest 'reines Feuer' gelöst, Quest 'rote Priesterrobe' gestartet] Bringe ihm eine rote Priesterrobe"), "Gut gemacht, du bist bereit für die nächste Aufgabe. Nun, schaut auf meine rote Priester Robe... Sie ist schon alt. Bitte bringt mir eine neue.", deleteItem(2553, 1), queststatus(603) = 6
+queststatus(603) = 5, item(2553, all) = 0, "task", "adventure", "know", "question", "fire", "thing" -> "Please, do not interrupt me until you've gotten the pure fire!"
+queststatus(603) = 5, item(2553, all) = 0, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Feuer", "Ding" -> "Bitte stört mich nicht bis ihr das reine Feuer habt!"
+queststatus(603) = 5, item(2553, all) = 0, english, "quest", "mission", "info" -> "Please, do not interrupt me until you've gotten the pure fire!"
+queststatus(603) = 5, item(2553, all) = 0, "quest", "mission", "info" -> "Bitte stört mich nicht bis ihr das reine Feuer habt!"
+
 queststatus(600) < 5, "task", "adventure", "know", "question" -> "I don't have to do anything for you."
 queststatus(600) < 5, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage" -> "Ich habe für euch nichts zu tun."
 queststatus(600) < 5, english, "quest", "mission", "info" -> "I don't have to do anything for you."
@@ -152,24 +168,6 @@ queststatus(600) = 20, "Eternity" -> inform("[Quest 'pure fire' started] Bring h
 queststatus(600) = 20, "Ewigkeit" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
 queststatus(600) = 20, english, "Tribunal" -> inform("[Quest 'pure fire' started] Bring him a pure fire"), "Ah, in search of answers traveler? To get them you will need to bring me a pure element of fire though. Brágon show you the path to righteousness!", queststatus(603) = 5
 queststatus(600) = 20, "Tribunal" -> inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"), "Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!", queststatus(603) = 5
-
--- 2st quest: Bring 1 red priest robe.
-queststatus(603) = 5, item(2553, all) > 0, english, ".*" -> inform("[Quest 'pure fire' solved, Quest 'red priest robe' started] Bring him a red priest robe"), "Well done, you are ready for the next task. My red priest robes are in poor condition. Please bring me a new one.", deleteItem(2553, 1), queststatus(603) = 6
-queststatus(603) = 5, item(2553, all) > 0, ".*" -> inform("[Quest 'reines Feuer' gelöst, Quest 'rote Priesterrobe' gestartet] Bringe ihm eine rote Priesterrobe"), "Gut gemacht, du bist bereit für die nächste Aufgabe. Nun, schaut auf meine rote Priester Robe... Sie ist schon alt. Bitte bringt mir eine neue.", deleteItem(2553, 1), queststatus(603) = 6
-queststatus(603) = 5, item(2553, all) = 0, "task", "adventure", "know", "question", "fire", "thing" -> "Please, do not interrupt me until you've gotten the pure fire!"
-queststatus(603) = 5, item(2553, all) = 0, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Feuer", "Ding" -> "Bitte stört mich nicht bis ihr das reine Feuer habt!"
-queststatus(603) = 5, item(2553, all) = 0, english, "quest", "mission", "info" -> "Please, do not interrupt me until you've gotten the pure fire!"
-queststatus(603) = 5, item(2553, all) = 0, "quest", "mission", "info" -> "Bitte stört mich nicht bis ihr das reine Feuer habt!"
-
--- 3st quest: Bring 1 gold goblet.
-queststatus(603) = 6, item(2419, all) > 0, english, ".*" -> inform("[Quest 'red priest robe' solved, Quest 'golden goblet' started] Bring him a golden goblet"), "Very good! Well, I am also preparing a ritual for Brágon and I need a golden goblet. Please bring me one.", deleteItem(2419, 1), queststatus(603) = 7
-queststatus(603) = 6, item(2419, all) > 0, "quest", "mission", "info", "Robe" -> inform("[Quest 'rote Priesterrobe' gelöst, Quest 'goldener Kelch' gestartet] Bringe ihm einen goldenen Kelch"), "Sehr gut! Ich bin am vorbereiten eines Rituals für Bragon and brauche einen Goldkelch hierfür. Bitte bringt mir einen.", deleteItem(2419, 1), queststatus(603) = 7
-queststatus(603) = 6, item(2419, all) = 0, "task", "adventure", "know", "question", "thing" -> "Please, do not interrupt me again unless you have that red priest robe."
-queststatus(603) = 6, item(2419, all) = 0, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage", "Ding" -> "Bitte stört mich nicht bis ihr die rote Priesterrobe habt!"
-queststatus(603) = 6, item(2419, all) = 0, english, "quest", "mission", "info", "robe" -> "Please, do not interrupt me again unless you have that red priest robe."
-queststatus(603) = 6, item(2419, all) = 0, "quest", "mission", "info", "Robe" -> "Bitte stört mich nicht bis ihr die rote Priesterrobe habt!"
-
-"test" -> "test"
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
 "pure fire" -> "I really don't know where you can find pure fire. Ask in Runewick, there are people there that know many things."
