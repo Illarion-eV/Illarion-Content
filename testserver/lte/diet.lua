@@ -25,7 +25,7 @@ function callEffect(dietEffect,Character)
 	local curStamp = base.common.GetCurrentTimestamp();
   local foundExpire, buffExpireStamp = dietEffect:findValue("buffExpireStamp");
   if (not foundExpire) then
-    User:inform("[ERROR] No expire stamp found in callEffect. Removing buff. Please inform a developer.");
+    Character:inform("[ERROR] No expire stamp found in callEffect. Removing buff. Please inform a developer.");
     return false;
   end
   if (curStamp >= buffExpireStamp) then
