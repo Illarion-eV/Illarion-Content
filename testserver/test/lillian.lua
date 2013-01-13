@@ -50,15 +50,18 @@ function requestMonster(User, NPC)
 end
 
 function getArena(User, NPC)
-	User:inform("NPC Name: "..NPC.name)
 	for i=1, #(arenaInformations) do
 		if arenaInformations[i].npcName == NPC.name then
-			User:inform("Index: "..i)
 			return i;
 		else
 			return "";
 		end
 	end
+end
+
+function getRandomMonster(level) 
+	local randomNumber = base.common.NormalRnd2(1, table.getn(monsterIDsByLevel[level].monsters), 10);
+	return monsterIDsByLevel[level].monsters[randomNumber];
 end
 
 function LookAtItem(User, Item)
