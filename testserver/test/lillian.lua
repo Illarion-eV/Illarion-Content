@@ -32,7 +32,7 @@ function getRanklist(User, NPC, message)
 	local place = 2;
 	
 	for i=1, 5 do -- get the top 5
-		found, arenaEntry = ScriptVars:find("ArenaList"..town);
+		found, arenaEntry = ScriptVars:find("ArenaListCadomyr");
 		if found then
 			arenaList = split(arenaEntry, ";");
 		elseif found == false or table.getn(arenaList) ~= 10 then
