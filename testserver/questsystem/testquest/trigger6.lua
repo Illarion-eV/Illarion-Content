@@ -1,3 +1,4 @@
+require("handler.sendmessagetoplayer")
 require("handler.createitem")
 require("questsystem.base")
 module("questsystem.testquest.trigger6", package.seeall)
@@ -31,6 +32,7 @@ end
 
 function HANDLER(PLAYER)
     handler.createitem.createItem(position(876, 756, 0), 74, 999, 1):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "funkt", "works"):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
