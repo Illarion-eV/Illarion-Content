@@ -5,10 +5,9 @@ require("base.common")
 module("test.lillian", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-    local NPC = "Alsaya"
 	local splitTable = {}
 	if (User.lastSpokenText == "request") then
-		requestMonster(User,NPC); 
+		requestMonster(User,User); 
 	end
 end
 
@@ -51,8 +50,10 @@ function requestMonster(User, NPC)
 end
 
 function getArena(User, NPC)
+	User:inform("NPC Name: "..NPC.name)
 	for i=1, #(arenaInformations) do
 		if arenaInformations[i].npcName == NPC.name then
+			User:inform("Index: "..i)
 			return i;
 		else
 			return "";
