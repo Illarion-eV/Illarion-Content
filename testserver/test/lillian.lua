@@ -5,67 +5,59 @@ require("base.common")
 module("test.lillian", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
+	ScriptVars:set("ArenaListCadomyr", "Hans;543;Peter;321;Wolfgang;987;Klaus;111;Holger;222")
 	local splitTable = {}
-	if (User.lastSpokenText == "request") then
-		requestMonster(User,User); 
+	if (User.lastSpokenText == "list") then
+		getRanklist(User, User, true)
 	end
-end
-
-monsterIDsByLevel = {
-	{monsters = {252, 271, 382, 582, 592}, points = 1},
-	{monsters = {101, 196, 381, 602, 881}, points = 2},
-	{monsters = {311, 394, 551, 882, 1011}, points = 3},
-	{monsters = {141, 501, 552, 791, 872}, points = 5},
-	{monsters = {191, 492, 531, 411, 851}, points = 8},
-	{monsters = {121, 202, 491, 525, 852}, points = 13},
-	{monsters = {534, 124, 562, 661, 853}, points = 20}
-}
-
-arenaInformations = {{playerPos=position(0,0,0), monsterPos=position(0,1,0), npcName="Alsaya", town="Cadomyr"}, 
-					{playerPos=position(0,0,0), monsterPos=position(0,1,0), npcName="Alsaya", town="Runewick"}, 
-					{playerPos=position(0,0,0), monsterPos=position(0,1,0), npcName="Alsaya", town="Galmair"}}
-
-function requestMonster(User, NPC) 
-	local cbChooseLevel = function (dialog)
-		if (not dialog:getSuccess()) then
-			return;
-        end
-		local index = dialog:getSelectedIndex()+1;
-		local arena = getArena(User, NPC);
-		User:warp(arenaInformations[arena].playerPos);
-		monster = world:createMonster(getRandomMonster(index),arenaInformations[arena].monsterPos,0);
-	end
-	if User:getPlayerLanguage() == 0 then
-		sdMonster = SelectionDialog("Monsterlevel", "Wählt ein Monsterlevel gegen das Ihr kämpfen möchtet:", cbChooseLevel);
-		for i=1, #(monsterIDsByLevel) do
-			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkt(e))");
-		end
-	else
-		sdMonster = SelectionDialog("Monsterlevel", "Plaese choose a monsterlevel you wish to fight against:", cbChooseLevel);
-		for i=1, #(monsterIDsByLevel) do
-			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." point(s))");
-		end
-	end	
-	User:requestSelectionDialog(sdMonster);
-end
-
-function getArena(User, NPC)
-	for i=1, #(arenaInformations) do
-		if arenaInformations[i].npcName == NPC.name then
-			return i;
-		else
-			return "";
-		end
-	end
-end
-
-function getRandomMonster(level) 
-	local randomNumber = base.common.NormalRnd2(1, table.getn(monsterIDsByLevel[level].monsters), 10);
-	return monsterIDsByLevel[level].monsters[randomNumber];
 end
 
 function LookAtItem(User, Item)
 	base.lookat.SetSpecialDescription(Item, "Lillians rasp of doom", "Lillians rasp of doom");
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
     return true    
+end
+
+arenaInformations = {{playerPos=position(10,10,0), monsterPos=position(10,0,0), npcName="Alsaya", town="Cadomyr"}, 
+					{playerPos=position(10,10,0), monsterPos=position(10,0,0), npcName="Alsaya", town="Runewick"}, 
+					{playerPos=position(10,10,0), monsterPos=position(10,0,0), npcName="Alsaya", town="Galmair"}}
+
+function getRanklist(User, NPC, message)
+	local arena = getArena(User, NPC);
+	local town = arenaInformations[arena].town;
+	local found = false;
+	local arenaEntry;
+	local arenaList = {};
+	local list = "";
+	
+	for i=1, 5 do -- get the top 5
+		found, arenaEntry = ScriptVars:find("ArenaList"..town);
+		if found then
+			arenaList = split(arenaEntry, ";");
+		elseif found == false or table.getn(arenaList) ~= 10 then
+			User:inform("[ERROR] An error occured please contact a developer.")
+		end
+	end
+	
+	if message then
+		local mdList = function(dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+		end
+		if User:getPlayerLanguage() == 0 then
+			for i=1,#(arenaEntry),2 do
+				list = list.."Platz "..i.." : "..arenaEntry[i].." mit "..arenaEntry[i+1].." Punkten.\n";
+			end
+			mdList = MessageDialog("Top fünf Kämpfer des Reiches", list, nil);			
+		else
+			for i=1, #(arenaEntry),2 do
+				list = list.."Place "..i.." : "..arenaEntry[i].." with "..arenaEntry[i+1].." points.\n";
+			end
+			mdList = MessageDialog("Top five fighters of the realm", list, nil);
+		end
+		User:requestMessageDialog(mdList);
+	else
+		return arenaList;
+	end
 end
