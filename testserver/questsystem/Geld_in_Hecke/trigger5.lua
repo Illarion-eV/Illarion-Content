@@ -37,7 +37,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh und suche in der Hecke nicht weit von hier.", "Go and seach in the hedge not far from here."):execute()
+    handler.sendmessagetoplayer.sendMessageToPlayer(PLAYER, "Geh und suche in der Hecke beim Cadomyr Wegschild nicht weit von hier.", "Go and seach in the hedge at the Cadomyr signpost not far from here."):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
