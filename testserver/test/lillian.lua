@@ -47,16 +47,16 @@ function getRanklist(User, NPC, message)
 			end
 		end
 		if User:getPlayerLanguage() == 0 then
-			list = "Platz 1: "..arenaEntry[1].." mit "..arenaEntry[2].." Punkten.\n";
-			for i=3,#(arenaEntry),2 do
-				list = list.."Platz "..place.." : "..arenaEntry[i].." mit "..arenaEntry[i+1].." Punkten.\n";
+			list = "Platz 1: "..arenaList[1].." mit "..arenaList[2].." Punkten.\n";
+			for i=3,#(arenaList),2 do
+				list = list.."Platz "..place.." : "..arenaList[i].." mit "..arenaList[i+1].." Punkten.\n";
 				place = place +1;
 			end
 			mdList = MessageDialog("Top fünf Kämpfer des Reiches", list, nil);			
 		else
-			list = "Place 1: "..arenaEntry[1].." with "..arenaEntry[2].." points.\n";
-			for i=3, #(arenaEntry),2 do
-				list = list.."Place "..(i-1).." : "..arenaEntry[i].." with "..arenaEntry[i+1].." points.\n";
+			list = "Place 1: "..arenaList[1].." with "..arenaList[2].." points.\n";
+			for i=3, #(arenaList),2 do
+				list = list.."Place "..(i-1).." : "..arenaList[i].." with "..arenaList[i+1].." points.\n";
 				place = place +1;
 			end
 			mdList = MessageDialog("Top five fighters of the realm", list, nil);
