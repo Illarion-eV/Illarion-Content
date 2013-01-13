@@ -18,6 +18,7 @@ end
 function split(splitString,pattern)
 	local splitTable = {};
 	local tempTable = {};
+	local tempString;
 	local index = 0;
 	
 	while true do
@@ -28,9 +29,11 @@ function split(splitString,pattern)
 		table.insert(tempTable, index)
 	end;
 	
-	table.insert(splitTable, string.sub(splitString, 0, tempTable[1]));
+	tempString,_ = string.gsub(string.sub(splitString, 0, tempTable[1]), ";", "")
+	table.insert(splitTable, tempString);
 	for i=1, table.getn(tempTable) do
-		table.insert(splitTable, string.sub(splitString, tempTable[i], tempTable[i+1]));
+		tempString,_ = string.gsub(string.sub(splitString, tempTable[i], tempTable[i+1]), ";", "")
+		table.insert(splitTable, tempString);
 	end
 	
 	return splitTable;

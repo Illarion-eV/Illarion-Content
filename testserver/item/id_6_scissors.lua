@@ -13,7 +13,7 @@ function UseItem(User, SourceItem, ltstate)
 	local targetCharacter = base.common.GetFrontCharacter(User);
 	-- check for sheep in front
 	if (targetCharacter ~= nil and targetCharacter:getRace()==18) then
-		UseItemWoolCutting( User, SourceItem, TargetItem, ltstate, targetCharacter );
+		UseItemWoolCutting( User, SourceItem, ltstate, targetCharacter );
 		return;
 	end
 	-- look for a nearby sheep
@@ -23,14 +23,14 @@ function UseItem(User, SourceItem, ltstate)
 			if ( world:isCharacterOnField(pos) ) then
 				targetCharacter = world:getCharacterOnField(pos);
 				if ( targetCharacter:getRace() == 18 ) then
-					UseItemWoolCutting( User, SourceItem, TargetItem, ltstate, targetCharacter );
+					UseItemWoolCutting( User, SourceItem, ltstate, targetCharacter );
 					return;
 				end
 			end
 		end
 	end
 	if (User:countItemAt("all",63)>0) then -- check for entrails
-		UseItemEntrailsCutting( User, SourceItem, TargetItem, ltstate );
+		UseItemEntrailsCutting( User, SourceItem, ltstate );
 		return;
 	end
 	-- there is no sheep and no entrails
@@ -39,7 +39,7 @@ function UseItem(User, SourceItem, ltstate)
 	"You need either a sheep for shearing it, or entrails for cutting it and thus producing thread." );
 end
 
-function UseItemWoolCutting( User, SourceItem, TargetItem, ltstate, Sheep )
+function UseItemWoolCutting( User, SourceItem, ltstate, Sheep )
 	content.gathering.InitGathering();
 	local woolcutting = content.gathering.woolcutting;
 
@@ -122,7 +122,7 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, ltstate, Sheep )
 	end
 end
 
-function UseItemEntrailsCutting( User, SourceItem, TargetItem, ltstate )
+function UseItemEntrailsCutting( User, SourceItem, ltstate )
 	content.gathering.InitGathering();
 	local entrailscutting = content.gathering.entrailscutting;
 
