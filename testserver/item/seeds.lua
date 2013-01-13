@@ -148,14 +148,14 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
       -- item is dragged to the User
       User:createAtPos(TargetItem.pos, SourceItem.id, amount);
     end
-    world:erase( TargetItem, TargetItem.number );
+    -- world:erase( TargetItem, TargetItem.number );
   end
   return true;
 end
 
--- function MoveItemAfterMove(User, SourceItem, TargetItem)
-  -- if (TargetItem:getData("amount") ~= "") then
-    -- world:erase( TargetItem, TargetItem.number );
-  -- end
-  -- return true;
--- end
+function MoveItemAfterMove(User, SourceItem, TargetItem)
+  if (TargetItem:getData("amount") ~= "") then
+    world:erase( TargetItem, TargetItem.number );
+  end
+  return true;
+end
