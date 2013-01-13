@@ -665,46 +665,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 5));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("know");
-talkEntry:addTrigger("question");
-talkEntry:addResponse("I don't have to do anything for you.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 5));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("wissen");
-talkEntry:addTrigger("Frage");
-talkEntry:addResponse("Ich habe für euch nichts zu tun.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 5));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addTrigger("info");
-talkEntry:addResponse("I don't have to do anything for you.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 5));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addTrigger("info");
-talkEntry:addResponse("Ich habe für euch nichts zu tun.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 10));
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 21));
 talkEntry:addTrigger("task");

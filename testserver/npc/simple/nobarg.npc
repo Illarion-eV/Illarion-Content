@@ -138,10 +138,7 @@ queststatus(603) = 5, item(2553, all) = 0, "Auftrag", "Aufgabe", "Abenteuer", "w
 queststatus(603) = 5, item(2553, all) = 0, english, "quest", "mission", "info" -> "Please, do not interrupt me until you've gotten the pure fire!"
 queststatus(603) = 5, item(2553, all) = 0, "quest", "mission", "info" -> "Bitte stört mich nicht bis ihr das reine Feuer habt!"
 
-queststatus(600) < 5, "task", "adventure", "know", "question" -> "I don't have to do anything for you."
-queststatus(600) < 5, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage" -> "Ich habe für euch nichts zu tun."
-queststatus(600) < 5, english, "quest", "mission", "info" -> "I don't have to do anything for you."
-queststatus(600) < 5, "quest", "mission", "info" -> "Ich habe für euch nichts zu tun."
+-- 1st quest: Bring 1 pure fire.
 queststatus(600) > 10, queststatus(600) < 21, "task", "adventure", "know", "question" -> inform("Ask your question from Sir Fludnar Yednos"), "Hmm, you are seeking knowledge traveler? Well, what is your question?"
 queststatus(600) > 10, queststatus(600) < 21, "Auftrag", "Aufgabe", "Abenteuer", "wissen", "Frage" -> inform("Stelle deine Frage von Sir Fludnar Yednos"), "Hmm, ihr möchtet etwas von mir wissen? Nun, was ist eure Frage?"
 queststatus(600) > 10, queststatus(600) < 21, english, "quest", "mission", "info" -> inform("Ask your question from Sir Fludnar Yednos"), "Hmm, you are seeking knowledge traveler? Well, what is your question?"
