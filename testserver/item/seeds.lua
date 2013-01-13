@@ -143,10 +143,10 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
     amount = tonumber(amount);
     if (TargetItem:getType() == 3) then
       -- item is dragged to the map
-      world:createItemFromId( TargetItem.id, amount, TargetItem.pos, true, 333, nil );
+      world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
     else
       -- item is dragged to the User
-      User:createAtPos(TargetItem.pos, TargetItem.id, amount);
+      User:createAtPos(TargetItem.pos, SourceItem.id, amount);
     end
     world:erase( TargetItem, TargetItem.number );
   end
