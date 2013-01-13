@@ -9,3 +9,4 @@ item,519,LookAtItem,trigger8
 item,2744,UseItem,trigger9
 triggerfield,874,761,0,MoveToField,trigger10
 triggerfield,874,761,0,MoveToField,trigger11
+item,2744,UseItem,trigger12
