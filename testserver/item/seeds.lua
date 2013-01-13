@@ -141,21 +141,23 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
     local amount = SourceItem:getData("amount");
     if (amount ~= "") then
         amount = tonumber(amount);
-        if (TargetItem:getType() == 3) then -- item on the map
-            local notCreated = User:createItem(SourceItem.id, amount, 333, nil);
-            if (notCreated > 0) then
-                world:createItemFromId( SourceItem.id, notCreated, SourceItem.pos, true, 333, nil );
-            end
+        if (TargetItem:getType() == 3) then
+          -- item is dragged to the map
+          world:createItemFromId( SourceItem.id, amount, SourceItem.pos, true, 333, nil );
         else
-            world:createItemFromId( SourceItem.id, amount, SourceItem.pos, true, 333, nil );
+          -- item is dragged to the User
+          local notCreated = User:createItem(SourceItem.id, amount, 333, nil);
+          if (notCreated > 0) then
+              world:createItemFromId( SourceItem.id, notCreated, SourceItem.pos, true, 333, nil );
+          end
         end
-        world:erase( SourceItem, SourceItem.number );
+        world:erase( TargetItem, TargetItem.number );
     end
     return true;
 end
 
 function MoveItemAfterMove(User, SourceItem, TargetItem)
     if (SourceItem:getData("amount") ~= "") then
-        world:erase( SourceItem, SourceItem.number );
+        world:erase( TargetItem, TargetItem.number );
     end
 end
