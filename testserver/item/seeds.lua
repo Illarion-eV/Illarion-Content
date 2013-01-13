@@ -146,10 +146,7 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
           world:createItemFromId( TargetItem.id, amount, TargetItem.pos, true, 333, nil );
         else
           -- item is dragged to the User
-          local notCreated = User:createItem(TargetItem.id, amount, 333, nil);
-          if (notCreated > 0) then
-              world:createItemFromId( TargetItem.id, notCreated, TargetItem.pos, true, 333, nil );
-          end
+          User:createAtPos(TargetItem.pos, TargetItem.id, amount);
         end
         world:erase( TargetItem, TargetItem.number );
     end
@@ -157,7 +154,7 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
 end
 
 function MoveItemAfterMove(User, SourceItem, TargetItem)
-    if (SourceItem:getData("amount") ~= "") then
+    if (TargetItem:getData("amount") ~= "") then
         world:erase( TargetItem, TargetItem.number );
     end
 end
