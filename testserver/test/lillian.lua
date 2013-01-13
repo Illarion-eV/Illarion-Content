@@ -61,3 +61,42 @@ function getRanklist(User, NPC, message)
 		return arenaList;
 	end
 end
+
+function getArena(User, NPC)
+	for i=1, #(arenaInformations) do
+		if arenaInformations[i].npcName == NPC.name then
+			return i;
+		else
+			return "";
+		end
+	end
+end
+
+--[[
+Splits a string at a given pattern and puts then
+resulting substrings into a table.
+
+Usage: result = split("Hans;Dampf",";") -> result = {"Hans", "Dampf"}
+]]
+function split(splitString,pattern)
+	local splitTable = {};
+	local tempTable = {};
+	local tempString;
+	local index = 0;
+	
+	while true do
+		index = string.find(splitString, pattern, index+1);
+		if index == nil then
+			break;
+		end;
+		table.insert(tempTable, index)
+	end;
+	tempString,_ = string.gsub(string.sub(splitString, 0, tempTable[1]), ";", "")
+	table.insert(splitTable, tempString);
+	for i=1, table.getn(tempTable) do
+		tempString,_ = string.gsub(string.sub(splitString, tempTable[i], tempTable[i+1]), ";", "")
+		table.insert(splitTable, tempString);
+	end
+	
+	return splitTable;
+end
