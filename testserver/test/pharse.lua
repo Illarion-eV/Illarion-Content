@@ -224,7 +224,7 @@ function UseItem(User, SourceItem, ltstate)
   User:requestSelectionDialog(sd);
 end
 
-function UseItem_deprecated(User,SourceItem,TargetItem,ltstate)
+function UseItem_deprecated(User, SourceItem, ltstate)
 	if dowp then
 		if User.lastSpokenText == "nowp" then
 			dowp = false;
