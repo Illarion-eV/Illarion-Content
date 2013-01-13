@@ -6,7 +6,7 @@ local QUEST_NUMBER = 11111
 local PRECONDITION_QUESTSTATE = 5
 local POSTCONDITION_QUESTSTATE = 5
 
-local POSITION = position(878, 757, 0)
+local POSITION = position(874, 758, 0)
 local RADIUS = 2
 
 function UseItem( PLAYER, item, TargetItem, counter, Param, ltstate )
@@ -30,7 +30,7 @@ end
 
 
 function HANDLER(PLAYER)
-    handler.createitem.createItem(position(878, 760, 0), 74, 999, 1):execute()
+    handler.createitem.createItem(position(876, 756, 0), 74, 999, 1):execute()
 end
 
 function ADDITIONALCONDITIONS(PLAYER)
