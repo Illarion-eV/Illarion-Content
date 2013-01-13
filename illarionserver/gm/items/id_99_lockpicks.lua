@@ -39,7 +39,7 @@ skillNames = {Character.alchemy,Character.carpentry,Character.concussionWeapons,
 			Character.harp,Character.herblore,Character.horn,Character.lute,Character.mining,Character.parry,Character.punctureWeapons,Character.slashingWeapons,
 			Character.smithing,Character.tailoring,Character.woodcutting,Character.wrestling}
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(User, SourceItem, ltstate)
 	
 	-- First check for mode change
 	if (string.find(User.lastSpokenText, "setmode")~=nil) then
@@ -75,31 +75,32 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 		--get all the items the char has on him, with the stuff in the backpack
 		local itemsOnChar = {};
 		for i=17,0,-1 do 
-			table.insert(itemsOnChar, User:getItemAt(i));
+			local item = User:getItemAt(i);
+      if (item.id > 0) then
+        table.insert(itemsOnChar, item);
+      end
 		end
 					
 		local cbChooseItem = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
-            end
-            local index = dialog:getSelectedIndex();
+      end
+      local index = dialog:getSelectedIndex();
 			if (index == 0) then 
 				local frontitem = base.common.GetFrontItem(User);
 				if frontitem~=nil then
 					world:erase(frontitem,frontitem.number);
 				end
 			else
-				local chosenItem = itemsOnChar[dialog:getSelectedIndex()]
+				local chosenItem = itemsOnChar[index]
 				world:erase(chosenItem,chosenItem.number);
 			end
 		end			
 		local sdItems = SelectionDialog("Erase items.", "Choose the item you wish to erase:", cbChooseItem);
 		sdItems:addOption(0,"Front of char");
     for _,item in ipairs(itemsOnChar) do 
-			if (item.id > 0) then
-        local itemName = world:getItemName(item.id,1) -- only english names folks
-        sdItems:addOption(item.id,itemName .. " (" .. itemPos[item.itempos] .. ") Count: ".. item.number);
-      end
+      local itemName = world:getItemName(item.id,1) -- only english names folks
+      sdItems:addOption(item.id,itemName .. " (" .. itemPos[item.itempos] .. ") Count: ".. item.number);
     end	
 		User:requestSelectionDialog(sdItems);
 		

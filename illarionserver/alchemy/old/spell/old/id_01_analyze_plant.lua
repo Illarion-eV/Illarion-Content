@@ -10,19 +10,19 @@ module("druid.spell.id_01_analyze_plant", package.seeall)
 
 -- INSERT INTO spells VALUES (2^0,3,'druid.spell.id_01_analyze_plant');
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 	--Caster:inform("debug #01.1")  
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 	--Caster:inform("debug #01.2") 
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 	--Caster:inform("debug #01.3")    
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param)
+function CastMagicOnItem(Caster,TargetItem)
 	--Caster:inform("debug #01.4")
 	--Analyse einer Pflanze
 

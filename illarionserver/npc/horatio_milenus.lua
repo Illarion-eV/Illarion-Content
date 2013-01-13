@@ -984,7 +984,7 @@ function nextCycle(npcChar)
   npc.base.guards_static.NextCycle(npcChar);
 end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

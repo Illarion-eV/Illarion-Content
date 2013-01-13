@@ -7,7 +7,7 @@ require("content.gathering")
 
 module("item.id_74_axe", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	InitTreeItems();
 	local woodchopping = content.gathering.woodchopping;
@@ -73,6 +73,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
 	local tree = TreeItems[TargetItem.id];
 	
+	if tree == nil then
+		base.common.HighInformNLS( User,
+		"Du kannst diesen Baum nicht fällen.",
+		"You cannot cut down this tree." );
+		return;
+	end;
+	
 	-- any other checks?
 	local changeItem = false;
 	local amount = TargetItem:getData("wood_amount");
@@ -134,7 +141,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Dein altes Beil zerbricht.",
 		"Your old hatchet breaks.");

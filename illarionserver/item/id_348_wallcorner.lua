@@ -2,7 +2,7 @@
 
 module("item.id_348_wallcorner", package.seeall)
 
-function UseItem( User, Item, TargetItem, counter, param )
+function UseItem(User, Item)
     --The stuff below belongs to the quest of NPC Sylvester. This is old Gobaith stuff. But this quest should be converted to NewIllarion - so I don't delete it ~Estralis
 	--[[
     if (Item.pos == position(-106,-147,0)) then 

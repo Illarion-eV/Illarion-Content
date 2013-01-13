@@ -10,7 +10,7 @@ require("item.general.wood")
 
 module("item.id_429_candlemold", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local candleproducing = content.gathering.candleproducing;
 	
@@ -79,7 +79,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( candleproducing.LeadSkill, candleproducing.SavedWorkTime[User.id], 100);
+	User:learn( candleproducing.LeadSkill, candleproducing.SavedWorkTime[User.id], 20);
 	User:eraseItem( 431, 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 43, amount, 333, nil ); -- create the new produced items
@@ -99,7 +99,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Kerzenform zerbricht.",
 		"Your old candle mold breaks.");

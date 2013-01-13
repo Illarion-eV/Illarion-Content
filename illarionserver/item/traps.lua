@@ -8,7 +8,7 @@ require("base.common")
 
 module("item.traps", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User, SourceItem)
     if ((User:increaseAttrib("dexterity",0) + 0.5*User:increaseAttrib("perception",0) + math.random(1,30)) >= 30) then
         base.common.InformNLS( User,"Du entschärfst die Falle.","You disarm the trap." );
         world:swap(SourceItem,375,333);

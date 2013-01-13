@@ -28,13 +28,19 @@ function callEffect(Effect, User)
 		    if world:isCharacterOnField(posi) then
 			    local char = world:getCharacterOnField(posi)
 				char:inform("Du wirst von einer Flamme erwischt! Aua!","You are hit by fire! Ouch!",Character.highPriority)
-			    char:increaseAttrib("hitpoints",-(100*quality))
+			    local damage = 100*quality
+				Stiffness = base.common.GetStiffness( char )
+				damage = damage - Stiffness
+				damage = damage - (char:increaseAttrib("constitution",0)*2)
+				base.common.Limit(damage, 100, 900)
+				if isTestserver() then char:talk(Character.say, "-"..damage) end
+				char:increaseAttrib("hitpoints",-damage)
 			end	
 		    world:gfx(9,posi)
 			world:gfx(36,posi)			
 		end
-		
-		base.common.CreateLine(base.common.GetFrontPosition(User), base.common.GetFrontPosition(User, 3+quality), spitFire)
+		spitFire(base.common.GetFrontPosition(User))
+		base.common.CreateLine(base.common.GetFrontPosition(User), base.common.GetFrontPosition(User, quality), spitFire)
         return false
     end
 end

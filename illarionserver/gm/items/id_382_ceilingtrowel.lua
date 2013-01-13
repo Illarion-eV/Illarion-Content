@@ -8,7 +8,7 @@ require("npc.base.guards_static");
 module("gm.items.id_382_ceilingtrowel", package.seeall, package.seeall(gm.base.log))
 
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User, SourceItem)
 
 	Init();
   
@@ -71,7 +71,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     end
   end
   if (string.find(User.lastSpokenText,"field")~=nil) then
-    UseItemWithField(User, SourceItem, User.pos, Counter, Param);
+    UseItemWithField(User, SourceItem, User.pos);
   end
   if (string.find(User.lastSpokenText,"count (%d+)")~=nil) then
     a,b,countID=string.find(User.lastSpokenText,"count (%d+)");
@@ -389,7 +389,7 @@ function LookAtItem(User,Item)
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.METAL));
 end
 
-function UseItemWithField(User,SourceItem,TargetPos,Counter,param)
+function UseItemWithField(User,SourceItem,TargetPos)
     local Field=world:getField(TargetPos)
     User:inform("This field has the ID: "..Field:tile());
 end

@@ -34,7 +34,7 @@ function CreateOre(oreItem, productItem, additionalRequiredItems)
   return {ore = oreItem, product = productItem};
 end
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local oremelting = content.gathering.oremelting;
   if ( oreList == nil) then
@@ -64,12 +64,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		
     if (SourceItem.id == 2834) then --swapping
       SourceItem.id = 2837;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
 	
 	if (SourceItem.id == 2835) then --swapping
       SourceItem.id = 2836;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
@@ -157,12 +159,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	  
 	     if (SourceItem.id == 2836) then --turn it on!
             SourceItem.id = 2835;
+			SourceItem.wear = 2;
             world:changeItem(SourceItem);
             User:changeSource(SourceItem);
 	    end
 		
 	    if (SourceItem.id == 2837) then --turn it on!
             SourceItem.id = 2834;
+			SourceItem.wear = 2;
             world:changeItem(SourceItem);
             User:changeSource(SourceItem);
 	    end
@@ -182,12 +186,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	
     if (SourceItem.id == 2835) then --turn it off
       SourceItem.id = 2836;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
 	
 	if (SourceItem.id == 2834) then
       SourceItem.id = 2837;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
@@ -196,7 +202,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		
 	end
 
-	User:learn( oremelting.LeadSkill, oremelting.SavedWorkTime[User.id], 100);
+	User:learn( oremelting.LeadSkill, oremelting.SavedWorkTime[User.id], 20);
 	User:eraseItem( oreItem.ore.id, oreItem.ore.amount ); -- erase the item we're working on
   User:eraseItem( coalItem.id, coalItem.amount ); 
   if (oreItem.ore.id == 2534) then
@@ -236,19 +242,21 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
 	end
 
-	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Tiegelzange zerbricht.",
 		"Your old crucible-pincers break.");
 		
     if (SourceItem.id == 2835) then --turn it off
       SourceItem.id = 2836;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
 	
 	if (SourceItem.id == 2834) then --turn it off
       SourceItem.id = 2837;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
@@ -259,12 +267,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   
     if (SourceItem.id == 2835) then --turn it off
       SourceItem.id = 2836;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end
 	
 	if (SourceItem.id == 2834) then --turn it off
       SourceItem.id = 2837;
+	  SourceItem.wear = 255;
       world:changeItem(SourceItem);
       User:changeSource(SourceItem);
     end

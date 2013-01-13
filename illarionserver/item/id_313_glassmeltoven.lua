@@ -12,7 +12,7 @@ require("content.gathering")
 
 module("item.id_313_glassmeltoven", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
   content.gathering.InitGathering();
   if (User:countItemAt("all",311)==0 and User:countItemAt("all",734)==0) then
     -- no tool at all
@@ -21,13 +21,13 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		"You need a glass blow pipe or a brick mould to work here." );
   elseif (User:countItemAt("all",311)>0 and User:countItemAt("all",734)==0) then
     -- only glass blow pipe
-    ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltstate );
+    ProduceGlassIngots( User, SourceItem, TargetItem, ltstate );
   elseif (User:countItemAt("all",311)==0 and User:countItemAt("all",734)>0) then
     -- only brick mould
     if (User:countItemAt("all",26)>0) then
-      ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
+      ProduceUnfiredBricks( User, SourceItem, TargetItem, ltstate );
     elseif (User:countItemAt("all",736)>4) then
-      ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
+      ProduceBricks( User, SourceItem, TargetItem, ltstate );
     else
       base.common.HighInformNLS( User,
       "Du brauchst Lehm oder fünf ungebrannte Ziegel um mit der Ziegelform hier zu arbeiten.", 
@@ -36,11 +36,11 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   else
     -- both tools
     if (User:countItemAt("all",26)>0) then
-      ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
+      ProduceUnfiredBricks( User, SourceItem, TargetItem, ltstate );
     elseif (User:countItemAt("all",736)>4) then
-      ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate );
+      ProduceBricks( User, SourceItem, TargetItem, ltstate );
     elseif (User:countItemAt("all",316)>0 and User:countItemAt("all",314)>0) then
-      ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltstate );
+      ProduceGlassIngots( User, SourceItem, TargetItem, ltstate );
     else
       base.common.HighInformNLS( User,
       "Für die Ziegelform brauchst du Lehm oder fünf ungebrannte Ziegel, für das Glasblasrohr brauchst du Quarzsand und Pottasche.", 
@@ -49,7 +49,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   end
 end
 
-function ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function ProduceGlassIngots( User, SourceItem, TargetItem, ltstate )
 
   local glassingotproducing = content.gathering.glassingotproducing;
 
@@ -118,7 +118,7 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltsta
 		return
 	end
 
-	User:learn( glassingotproducing.LeadSkill, glassingotproducing.SavedWorkTime[User.id], 100);
+	User:learn( glassingotproducing.LeadSkill, glassingotproducing.SavedWorkTime[User.id], 20);
 	User:eraseItem( 316, 1 ); -- erase the item we're working on
   User:eraseItem( 314, 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
@@ -139,7 +139,7 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltsta
 		end
 	end
 
-	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Dein altes Glasblasrohr zerbricht.",
 		"Your old glass blow pipe breaks.");
@@ -147,7 +147,7 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, Counter, Param, ltsta
 	end
 end
 
-function ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function ProduceUnfiredBricks( User, SourceItem, TargetItem, ltstate )
 	local bricksproducing = content.gathering.bricksproducing;
 
 	base.common.ResetInterruption( User, ltstate );
@@ -212,7 +212,7 @@ function ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, lts
 		return
 	end
 
-	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], 100);
+	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], 20);
 	User:eraseItem( 26, 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 736, amount, 333, nil ); -- create the new produced items
@@ -233,7 +233,7 @@ function ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, lts
 		end
 	end
 
-	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Ziegelform zerbricht.",
 		"Your old brick mould breaks.");
@@ -241,7 +241,7 @@ function ProduceUnfiredBricks( User, SourceItem, TargetItem, Counter, Param, lts
 	end
 end
 
-function ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function ProduceBricks( User, SourceItem, TargetItem, ltstate )
 	local bricksproducing = content.gathering.bricksproducing;
 
 	base.common.ResetInterruption( User, ltstate );
@@ -306,7 +306,7 @@ function ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], 100);
+	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], 20);
 	User:eraseItem( 736, 5 ); -- erase the item we're working on
 	local amount = 5; -- set the amount of items that are produced
 	local notCreated = User:createItem( 2588, amount, 333, nil ); -- create the new produced items
@@ -327,7 +327,7 @@ function ProduceBricks( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Ziegelform zerbricht.",
 		"Your old brick mould breaks.");

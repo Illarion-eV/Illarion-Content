@@ -9,7 +9,7 @@ require("item.general.wood")
 
 module("item.id_118_rollingpin", package.seeall);
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local doughproducing = content.gathering.doughproducing;
   if (TableList == nil) then
@@ -44,7 +44,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
   if (staticTool == nil) then
     base.common.HighInformNLS( User,
     "Du musst an einem Tisch arbeiten!",
-    "You have to work at a Tisch!" );
+    "You have to work at a table!" );
     return;
   end
   
@@ -91,7 +91,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( doughproducing.LeadSkill, doughproducing.SavedWorkTime[User.id], 100);
+	User:learn( doughproducing.LeadSkill, doughproducing.SavedWorkTime[User.id], 20);
 	User:eraseItem( 2, 5 ); -- erase the item we're working on
   local theBucket = base.common.GetItemInInventory(User, 52);
   local bucketAmount = 0;
@@ -134,7 +134,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Dein altes Nudelholz zerbricht.",
 		"Your old rolling pin breaks.");

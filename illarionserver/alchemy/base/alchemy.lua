@@ -119,93 +119,93 @@ function InitPotions()
 
 -- body liquid potions 
     potionName[10]	= {"Dragon Breath","Drachenatem"}
-	setPotion(301, 450, 94457331, 141, 141, 141, 755, false, false, false, false)
+	setPotion(10, 450, 58325631, 755, 755, 141, 141, 141, 146, false, false) -- done
 -- body liquid end
     
 -- bombs 
     potionName[301]	= {"Small Explosion","Kleine Explosion"}
-	setPotion(301, 446, 15761498, 146, 764, 141, false, false, false, false, false)
+	setPotion(301, 446, 34374416, 755, 755, 755, 146, 141 ,141, 141, 133)
 	potionName[302]	= {"Medium Explosion","Mittlere Explosion"}
-	setPotion(302, 446, 15761498, 146, 764, 764, 141, 141, false, false, false)
+	setPotion(302, 446, 44156426, 755, 755, 146, 146, 141 ,141, 141, 133)
 	potionName[304]	= {"Big Explosion","Große Explosion"}
-	setPotion(304, 446, 15761498, 146, 764, 764, 764, 141, 141, 141, false)
+	setPotion(304, 446, 22446419, 755, 146, 146, 146, 141 ,141, 141, 133) -- done
 	potionName[306]	= {"Small Mana Annihilator","Kleiner Manaannihilator"}
-	setPotion(306, 446, 15761498, 146, 134, 141, false, false, false, false, false)
+	setPotion(306, 446, 22856451, 138, 138, 138, 146, 134, 134, 134, 133)
 	potionName[307]	= {"Medium Mana Annihilator","Mittlerer Manaannihilator"}
-	setPotion(307, 446, 15761498, 146, 134, 134, 141, 141, false, false, false)
+	setPotion(307, 446, 21957432, 138, 138, 146, 146, 134, 134, 134, 133)
 	potionName[309]	= {"Big Mana Annihilator","Großer Manaannihilator"}
-	setPotion(309, 446, 15761498, 146, 134, 134, 134, 141, 141, 141, false)
+	setPotion(309, 446, 22955451, 138, 146, 146, 146, 134, 134, 134, 133)
 	potionName[311]	= {"Small Nutrition Annihilator","Kleiner Nahrungsannihilator"}
-	setPotion(311, 446, 15761498, 146, 754, 141, false, false, false, false, false)
+	setPotion(311, 446, 26843821, 754, 754, 754, 146, 135, 135, 135, 133) 
 	potionName[312]	= {"Medium Nutrition Annihilator","Mittlerer Nahrungsannihilator"}
-	setPotion(312, 446, 15761498, 146, 754, 754, 141, 141, false, false, false)
+	setPotion(312, 446, 15873523, 754, 754, 146, 146, 135, 135, 135, 133) 
 	potionName[314]	= {"Big Nutrition Annihilator","Großer Nahrungsannihilator"}
-	setPotion(314, 446, 15761498, 146, 754, 754, 754, 141, 141, 141, false)
+	setPotion(314, 446, 15783424, 754, 146, 146, 146, 135, 135, 135, 133) 
 	potionName[316]	= {"Small Slime Barrier","Kleine Schleimbarriere"}
-	setPotion(316, 446, 91535851, 146, 140, 140, 152, 141, 141, false, false)
+	setPotion(316, 446, 86386546, 140, 140, 140, 152, 146) 
 	potionName[317]	= {"Big Slime Barrier","Große Schleimbarriere"}
-	setPotion(317, 446, 91535851, 146, 140, 140, 140, 152, 152, 141, 141)
+	setPotion(317, 446, 76576456, 140, 140, 140, 140, 152, 152, 146, 146) 
 -- bombs end	
 	
 -- quality raiser
 	potionName[400] = {"Quality Raiser for Potions based on Emerald Powder","Qualitätsheber für Tränke auf Smaragdstaubbasis"}
-	setPotion(400, 448, 95155955, 133, 133, 133, 146, false, false, false, false)
+	setPotion(400, 448, 69487354, 763, 768, 133, 133, 133, false, false, false) 
     potionName[401] = {"Quality Raiser for Potions based on Ruby Powder","Qualitätsheber für Tränke auf Rubinstaubbasis"}
-	setPotion(401, 448, 95155955, 133, 133, 133, 764, false, false, false, false)
+	setPotion(401, 448, 64966357, 763, 758, 133, 133, 133, false, false, false) 
 	potionName[402] = {"Quality Raiser for Potions based on Sapphire Powder","Qualitätsheber für Tränke auf Saphirstaubbasis"}
-	setPotion(402, 448, 95155955, 133, 133, 133, 761, false, false, false, false)
+	setPotion(402, 448, 62497378, 763, 146, 133, 133, 133, false, false, false) 
 	potionName[403] = {"Quality Raiser for Potions based on Obsidian Powder","Qualitätsheber für Tränke auf Obsidianstaubbasis"}
-	setPotion(403, 448, 95155955, 133, 133, 133, 766, false, false, false, false)
+	setPotion(403, 448, 64489753, 763, 766, 133, 133, 133, false, false, false)   
 	potionName[404] = {"Quality Raiser for Potions based on Amethyst Powder","Qualitätsheber für Tränke auf Amethyststaubbasis"}
-	setPotion(404, 448, 95155955, 133, 133, 133, 152, false, false, false, false)
+	setPotion(404, 448, 67645954, 763, 152, 133, 133, 133, false, false, false) 
 	potionName[405] = {"Quality Raiser for Potions based on Topaz Powder","Qualitätsheber für Tränke auf Topasstaubbasis"}
-	setPotion(405, 448, 95155955, 133, 133, 133, 758, false, false, false, false)
+	setPotion(405, 448, 64873297, 763, 761, 133, 133, 133, false, false, false) 
 	potionName[406] = {"Quality Raiser for Potions based on Diamond Powder","Qualitätsheber für Tränke auf Diamantstaubbasis"}
-	setPotion(406, 448, 95155955, 133, 133, 133, 765, false, false, false, false)
+	setPotion(406, 448, 64763659, 763, 756, 133, 133, 133, false, false, false) 
 -- quality raiser end
 
--- transformation potions
+-- transformation potions     
 	potionName[500] = {"Shape Shifter Male Human","Verwandler Männlicher Mensch"}
-	setPotion(500, 449, 53415955, 766, 161, 769, false, false, false, false, false)
+	setPotion(500, 449, 64135842, 766, 161, 754, 752, false, false, false, false)
 	potionName[501] = {"Shape Shifter Female Human","Verwandler Weiblicher Mensch"}
-	setPotion(501, 449, 53415955, 766, 162, 769, false, false, false, false, false)
+	setPotion(501, 449, 64135842, 766, 162, 754, 752, false, false, false, false)
 	potionName[510] = {"Shape Shifter Male Dwarf","Verwandler Männlicher Zwerg"}
-	setPotion(510, 449, 53415955, 766, 161, 762, false, false, false, false, false)
+	setPotion(510, 449, 74385866, 766, 161, 762, 759, false, false, false, false)
 	potionName[511] = {"Shape Shifter Female Dwarf","Verwandler Weiblicher Zwerg"}
-	setPotion(511, 449, 53415955, 766, 162, 762, false, false, false, false, false)
+	setPotion(511, 449, 74385866, 766, 162, 762, 759, false, false, false, false)
 	potionName[520] = {"Shape Shifter Male Halfling","Verwandler Männlicher Halbling"}
-	setPotion(520, 449, 53415955, 766, 161, 768, false, false, false, false, false)
+	setPotion(520, 449, 84452136, 766, 161, 765, 151, false, false, false, false)
 	potionName[521] = {"Shape Shifter Female Halfling","Verwandler Weiblicher Halbling"}
-	setPotion(521, 449, 53415955, 766, 162, 768, false, false, false, false, false)
+	setPotion(521, 449, 84452136, 766, 162, 765, 151, false, false, false, false)
 	potionName[530] = {"Shape Shifter Male Elf","Verwandler Männlicher Elf"}
-	setPotion(530, 449, 53415955, 766, 161, 138, false, false, false, false, false)
+	setPotion(530, 449, 87372749, 766, 161, 756, 753, false, false, false, false)
 	potionName[531] = {"Shape Shifter Female Elf","Verwandler Weiblicher Elf"}
-	setPotion(531, 449, 53415955, 766, 162, 138, false, false, false, false, false)
+	setPotion(531, 449, 87372749, 766, 162, 756, 753, false, false, false, false)
 	potionName[540] = {"Shape Shifter Male Orc","Verwandler Männlicher Ork"}
-	setPotion(540, 449, 53415955, 766, 161, 764, false, false, false, false, false)
+	setPotion(540, 449, 63584498, 766, 161, 764, 763, false, false, false, false)
 	potionName[541] = {"Shape Shifter Female Orc","Verwandler Weiblicher Ork"}
-	setPotion(541, 449, 53415955, 766, 162, 764, false, false, false, false, false)
+	setPotion(541, 449, 63584498, 766, 162, 764, 763, false, false, false, false)
 	potionName[550] = {"Shape Shifter Male Lizardman","Verwandler Männlicher Echsenmensch"}
-	setPotion(550, 449, 53415955, 766, 161, 761, false, false, false, false, false)
+	setPotion(550, 449, 23417592, 766, 161, 760, 767, false, false, false, false)
 	potionName[551] = {"Shape Shifter Female Echsenmensch","Verwandler Weiblicher Echsenmensch"}
-	setPotion(551, 449, 53415955, 766, 162, 761, false, false, false, false, false)
+	setPotion(551, 449, 23417592, 766, 162, 760, 767, false, false, false, false)
 -- transformation potions end
 
 --language potions
 	potionName[600] = {"Language Potion Common Language","Sprachtrank Handelssprache"}
-	setPotion(600, 452, 58541757, 756, 765, 135, false, false, false, false, false)
+	setPotion(600, 452, 26727482, 756, 765, 135, false, false, false, false, false)
     potionName[601] = {"Language Potion Human Language","Sprachtrank Menschensprache"}
-	setPotion(601, 452, 58541757, 756, 765, 769, false, false, false, false, false)
+	setPotion(601, 452, 28751379, 756, 765, 769, false, false, false, false, false)
 	potionName[602] = {"Language Potion Dwarf Language","Sprachtrank Zwergenspreche"}
-	setPotion(602, 452, 58541757, 756, 765, 762, false, false, false, false, false)
+	setPotion(602, 452, 23369487, 756, 765, 762, false, false, false, false, false)
 	potionName[603] = {"Language Potion Elf Language","Sprachtrank Elfensprache"}
-	setPotion(603, 452, 58541757, 756, 765, 138, false, false, false, false, false)
+	setPotion(603, 452, 51397674, 756, 765, 138, false, false, false, false, false)
 	potionName[604] = {"Language Potion Lizard Language","Sprachtrank Echsensprache"}
-	setPotion(604, 452, 58541757, 756, 765, 761, false, false, false, false, false)
+	setPotion(604, 452, 85612648, 756, 765, 761, false, false, false, false, false)
 	potionName[605] = {"Language Potion Orc Language","Sprachtrank Orksprache"}
-	setPotion(605, 452, 58541757, 756, 765, 764, false, false, false, false, false)
+	setPotion(605, 452, 58641767, 756, 765, 764, false, false, false, false, false)
 	potionName[606] = {"Language Potion Halfling Language","Sprachtrank Halblingssprache"}
-	setPotion(606, 452, 58541757, 756, 765, 768, false, false, false, false, false)
+	setPotion(606, 452, 56612824, 756, 765, 768, false, false, false, false, false)
 	potionName[607] = {"Language Potion Ancient Language","Sprachtrank Antike Sprache"}
 	setPotion(607, 452, 25796346, 756, 756, 765, 152, false, false, false, false)
 -- language potions end	
@@ -526,12 +526,12 @@ end
 
 function EmptyBottle(User,Bottle)
     if math.random(1,20) == 1 then
-	   User:eraseItem(Bottle,1) -- bottle breaks
+	   world:erase(Bottle,1) -- bottle breaks
 	   base.common.InformNLS(User, "Die Flasche zerbricht.", "The bottle breaks.", Player.lowPriority)
 	else	
 		if Bottle.number > 1 then -- if we empty a bottle (stock, potion or essence brew) it should normally never be a stack! but to be one the safe side, we check anyway
 		    User:createItem(164,1,333,nil)
-			User:eraseItem(Bottle,1)
+			world:erase(Bottle,1)
 		else
 			RemoveAll(Bottle)
 			Bottle.id = 164
@@ -721,7 +721,7 @@ function CombineStockEssence( User, stock, essenceBrew)
 	end
 end
 
-function FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
+function FillIntoCauldron(User,SourceItem,cauldron,ltstate)
     -- function to fill stock, essencebrew or potion into a cauldron
 	-- is the char an alchemist?
 	local anAlchemist = CheckIfAlchemist(User,"Nur jene, die in die Kunst der Alchemie eingeführt worden sind, können hier ihr Werk vollrichten.","Only those who have been introduced to the art of alchemy are able to work here.")

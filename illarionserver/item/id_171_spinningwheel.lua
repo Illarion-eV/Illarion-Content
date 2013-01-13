@@ -12,7 +12,7 @@ require("content.gathering")
 
 module("item.id_171_spinningwheel", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local threadproducing = content.gathering.threadproducing;
 
@@ -89,7 +89,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( threadproducing.LeadSkill, threadproducing.SavedWorkTime[User.id], 100);
+	User:learn( threadproducing.LeadSkill, threadproducing.SavedWorkTime[User.id], 20);
 	local itemId = 170; -- first check for wool
 	local eraseCount = 2;
 	if ( User:countItemAt("all",170)<2 ) then
@@ -120,7 +120,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Dein alte Schere zerbricht.",
 		"Your old scissors break.");

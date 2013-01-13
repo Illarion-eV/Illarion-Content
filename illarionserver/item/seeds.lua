@@ -35,7 +35,7 @@ module("item.seeds", package.seeall)
 -- UPDATE common SET com_agingspeed = 3, com_objectafterrot = 732 WHERE com_itemid = 731;
 -- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 732 WHERE com_itemid = 732;
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local farming = content.gathering.farming;
     
@@ -130,7 +130,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( farming.LeadSkill, farming.SavedWorkTime[User.id], 100);
+	User:learn( farming.LeadSkill, farming.SavedWorkTime[User.id], 20);
 	local amount = math.random(1,3); -- set the amount of items that are produced
 	world:createItemFromId( seedPlantList[SourceItem.id], 1, TargetPos, true, 333 ,{["amount"] = "" .. amount});
 	world:erase( SourceItem, 1 ); -- erase the seed

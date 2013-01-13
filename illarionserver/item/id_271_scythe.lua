@@ -12,7 +12,7 @@ module("item.id_271_scythe", package.seeall, package.seeall(item.general.metal))
 
 LookAtItem = item.general.metal.LookAtItem
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local grainharvesting = content.gathering.grainharvesting;
 
@@ -92,7 +92,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( grainharvesting.LeadSkill, grainharvesting.SavedWorkTime[User.id], 100);
+	User:learn( grainharvesting.LeadSkill, grainharvesting.SavedWorkTime[User.id], 20);
 	local amount = TargetItem:getData("amount");
 	if ( amount == "" ) then
 		-- this should never happen...
@@ -117,7 +117,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Sense zerbricht.",
 		"Your old scythe breaks.");

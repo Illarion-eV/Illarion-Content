@@ -9,20 +9,20 @@ module("druid.spell.id_03_quality_plant", package.seeall(druid.base.alchemy))
 
 -- INSERT INTO spells VALUES (2^2,3,'druid.spell.id_03_quality_plant');
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 --Caster:inform("debug #03.1")  
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 --Caster:inform("debug #03.2") 
  
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 --Caster:inform("debug #03.3")    
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param)
+function CastMagicOnItem(Caster,TargetItem)
 --Caster:inform("debug #03.4")
 --Analyse einer Pflanze (Qualität)
 

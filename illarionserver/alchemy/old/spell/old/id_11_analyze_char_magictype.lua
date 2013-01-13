@@ -8,11 +8,11 @@ module("druid.spell.id_11_analyze_char_magictype", package.seeall)
 
 -- INSERT INTO spells VALUES (2^10,3,'druid.spell.id_11_analyze_char_magictype');
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 --Caster:inform("debug #11.1")  
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 --Caster:inform("debug #11.2")
 	if Caster:getSkill("exquirere")>math.random(100) then	
 		--Feststellung der Magieklasse von TI
@@ -39,10 +39,10 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 	
 end
 
-function CastMagicOnField(Caster,TargetPos,counter,param,ltstate)
+function CastMagicOnField(Caster,TargetPos,ltstate)
 --Caster:inform("debug #11.3")  
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
+function CastMagicOnItem(Caster,TargetItem,ltstate)
 --Caster:inform("debug #11.4")    
 end

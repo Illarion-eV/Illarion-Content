@@ -25,7 +25,7 @@ function CreateCraftItem(sourceItem, productItem)
   return {source = sourceItem, product = productItem};
 end
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local smokefood = content.gathering.smokefood;
   
@@ -92,7 +92,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( smokefood.LeadSkill, smokefood.SavedWorkTime[User.id], 100);
+	User:learn( smokefood.LeadSkill, smokefood.SavedWorkTime[User.id], 20);
 	User:eraseItem( craftItem.source.id, craftItem.source.amount ); -- erase the item we're working on
 	local amount = craftItem.product.amount; -- set the amount of items that are produced
 	local notCreated = User:createItem( craftItem.product.id, amount, 333, nil ); -- create the new produced items

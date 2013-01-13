@@ -8,7 +8,7 @@ module("item.id_2744_pipe", package.seeall, package.seeall(item.general.wood))
 -- UPDATE common SET com_script='item.id_2744_pipe' WHERE com_itemid = 2744;
 
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param)
+function UseItem(User, SourceItem)
 	--local ammountSib = User:countItemAt("belt",155);
 	--local ammountTob = User:countItemAt("belt",772);
 	if (User:countItemAt("belt",155) == 0 and User:countItemAt("belt",772) == 0) then

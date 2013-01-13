@@ -10,7 +10,7 @@ require("base.common")
 
 module("item.id_727_sieve", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local sieving = content.gathering.sieving;
 
@@ -81,7 +81,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( sieving.LeadSkill, sieving.SavedWorkTime[User.id], 100);
+	User:learn( sieving.LeadSkill, sieving.SavedWorkTime[User.id], 20);
 	User:eraseItem( 726, 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 316, amount, 333, nil ); -- create the new produced items
@@ -101,7 +101,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, toolItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, toolItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Holzkelle zerbricht.",
 		"Your old wooden shovel breaks.");

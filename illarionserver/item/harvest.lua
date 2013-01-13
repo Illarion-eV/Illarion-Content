@@ -6,7 +6,7 @@ module("item.harvest", package.seeall)
 
 -- UPDATE common SET com_script='item.harvest' WHERE com_itemid IN (14,300,387, 1809);
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	InitHarvestItems();
 	local fruitgathering = content.gathering.fruitgathering;
@@ -106,7 +106,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], 100);
+	User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], 20);
 	amount = amount - 1;
 	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -132,10 +132,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
     end
 		-- reset amount
 		amount = harvestProduct.maxAmount;
+    SourceItem:setData("amount","" .. amount);
+    world:changeItem(SourceItem);
 		-- change item id
-		SourceItem.id = harvestProduct.nextItemId;
-		local season = math.ceil(world:getTime("month")/4);
-		SourceItem.wear = harvestProduct.growCycles[4];
+    world:swap(SourceItem, harvestProduct.nextItemId, 333);
+    return;
+    -- regrow according to season: currently deactivated
+		-- local season = math.ceil(world:getTime("month")/4);
+		-- SourceItem.wear = SourceItem.wear + harvestProduct.growCycles[season];
 	end
 	SourceItem:setData("amount","" .. amount);
 	world:changeItem(SourceItem);
@@ -173,19 +177,20 @@ end
 -- for GroundType, see base.common.GroundType. If it doesn't matter, just set it to nil
 -- GrowCycles define how fast the plants regrow in the 4 seasons. 1 cycle takes 3 minutes
 function CreateHarvestProduct(ProductId, GroundType, GrowCycles, MaxAmount, NextItemId)
-    local retValue = {};
-    retValue.productId = ProductId;
-    retValue.groundType = GroundType;
+  local retValue = {};
+  retValue.productId = ProductId;
+  retValue.groundType = GroundType;
+  -- NOTE: regrow according to season is currently deactivated, so growCycles is not used
 	retValue.growCycles = {1,1,1,1};
-    if (GrowCycles ~= nil) then
+  if (GrowCycles ~= nil) then
 		retValue.growCycles = GrowCycles;
-    end
+  end
 	retValue.maxAmount = 10;
 	if ( MaxAmount ~= nil ) then
 		retValue.maxAmount = MaxAmount;
 	end
 	retValue.nextItemId = NextItemId;
-    return retValue;
+  return retValue;
 end
 
 --[[ old list

@@ -282,8 +282,8 @@ english, "Zhambra" -> "#me looks disinterested, 'Perhaps another subject?'", "I 
 "erzähl was", "erzähl etwas" -> "An Bragon glaube ich.", "Vielleicht ein andermal. Jetzt muss ich beten.", "Nun ist nicht die Zeit um Geschichten zu erzählen."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
-english, "<NPC first name>", "<NPC last name>" -> "Yes? How can I help you? Do you like to know more about gods?"
-"<NPC-Vorname>", "<NPC-Nachname>" -> "Ja? Wie kann ich euch behilflich sein? Wollt ihr etwas über Götter wissen?"
+english, "Nobarg" -> "Yes? How can I help you? Do you like to know more about gods?"
+"Nobarg" -> "Ja? Wie kann ich euch behilflich sein? Wollt ihr etwas über Götter wissen?"
 "Yes" -> "Very well. I feared you would say no."
 "Ja" -> "Sehr gut. Ich fürchtete ihr sagt nein."
 "No" -> "No? Are you sure?"

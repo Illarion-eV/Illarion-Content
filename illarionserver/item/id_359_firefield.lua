@@ -25,14 +25,15 @@ function CharacterOnField(User)  -- geht los wenn ein Char auf das Feld tritt
 	-- !!Eventuell gibt es Probleme, wenn sich mehrere Flammen auf einem Feld befinden!!
 	local Items = base.common.GetItemsOnField(User.pos);
 	local FieldItem;
+
 	for i, item in pairs(Items) do
 		if(item.id == 359) then
 			FieldItem = item;
 			break
 		end
 	end
-    if (FieldItem.quality>100) then
-        UserRace=User:getRace();                  -- Char Rasse
+    if (FieldItem.quality>100) and User.pos.z ~= 100 and User.pos.z ~= 101 and User.pos.z ~= 40 then --no harmful flames on noobia or the working camp
+        local UserRace=User:getRace();                  -- Char Rasse
         for i,theRace in pairs(AffectedRaces) do   -- Rassenliste durchlaufen
             if UserRace==theRace then              -- User Rasse finden
                 found=true
@@ -42,9 +43,11 @@ function CharacterOnField(User)  -- geht los wenn ein Char auf das Feld tritt
         if not found or RaceStrenght==nil then
             RaceStrenght=100;
         end
-        resist=SpellResistence(User);      -- Magie Resistenz prüfen
+        local resist=SpellResistence(User);      -- Magie Resistenz prüfen
         if (resist<FieldItem.quality*2) then   -- Qualität des Items --> Stärke mit Magie Resistenz vergleichen
-            damageDealt=math.random((3/100)*math.floor((math.max(10,FieldItem.quality-resist))*RaceStrenght),(5/100)*math.floor((math.max(FieldItem.quality-resist))*RaceStrenght));--AffectedStren[i]
+			local damageLow = (3/100)*math.floor((math.max(10,FieldItem.quality-resist))*RaceStrenght)
+			local damageHigh = (5/100)*math.floor((math.max(FieldItem.quality-resist))*RaceStrenght)
+            local damageDealt=math.random(math.min(damageLow,damageHigh),math.max(damageLow,damageHigh));--AffectedStren[i]
             User:increaseAttrib("hitpoints",-damageDealt); -- Schaden berechnen und bewirken
             -- Added by abcfantasy, inform user
             if (User:getPlayerLanguage()==0) then

@@ -107,9 +107,9 @@ english, "quest", "mission" -> "Your quest today: Defend Cadomyr with my weapons
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Euer Auftrag heute: Verteidigt Cadomyr mit meinen Waffen. Ihr müßt aber erstmal eine kaufen..."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I am a blacksmith. That means I craft weapons of death."
+"profession" -> "I am a blacksmith, that means I craft weapons of death."
 "beruf" -> "Ich bin ein Schmied. Das bedeutet, ich fertige Waffen des Todes."
-english, "job" -> "I am a blacksmith. That means I craft weapons of death."
+english, "job" -> "I am a blacksmith, that means I craft weapons of death."
 "job" -> "Ich bin ein Schmied. Das bedeutet, ich fertige Waffen des Todes."
 english, "Gobaith", "Gobiath" -> "That reminds me of a story I once heard... a very sad story."
 "Gobaith", "Gobiath" -> "Das erinnert mich an eine alte Geschichte, die ich einst hörte... eine traurige Geschichte."
@@ -117,7 +117,7 @@ english, "Gobaith", "Gobiath" -> "That reminds me of a story I once heard... a v
 "mein Name" -> "Aha.", "Nun?", "Braucht ihr eine Waffe?"
 
 -- More small talk; add at least five triggers
-"iron" -> "Iron is tough, stiff and hard. The perfect material for weapons."
+"iron" -> "Iron is tough, stiff and hard... The perfect material for weapons."
 "Eisen" -> "Eisen ist zäh, steif und hart. Das perfekte Material für Waffen."
 "Erz" -> "Eisen gewinnt man aus Erzen. Cadomyr hat zwar keine reichen Minen, aber wir machen das beste daraus."
 "ore" -> "Iron you can make from ore. Cadomyr does not have rich mines, but we're doing our best."
@@ -129,25 +129,25 @@ english, "Gobaith", "Gobiath" -> "That reminds me of a story I once heard... a v
 "händler", "kollege", "höker", "markt" -> "Kauft, was immer ihr wollt auf diesem Marktplatz, aber am Ende werden nur Waffen Cadomyr voran bringen."
 
 -- Faction stuff
-"archmage" -> "The archmage is the best that could happen to Runewick. He is such a bad leader that we do not have to bother about Runewick too much."
+"archmage" -> "The Archmage is the best that could happen to Runewick. He is such a bad leader that we do not have to bother about Runewick too much."
 "Erzmagier" -> "Der Erzmagier ist das beste, was Runewick passieren konnte. Er ist so ein schlechter Anführer, dass wir uns nicht um Runewick sorgen müssen."
-english, "Elvaine", "Morgan" -> "The archmage is the best that could happen to Runewick. He is such a bad leader that we do not have to bother about Runewick too much."
+english, "Elvaine", "Morgan" -> "The Archmage is the best that could happen to Runewick. He is such a bad leader that we do not have to bother about Runewick too much."
 "Elvaine", "Morgan" -> "Der Erzmagier ist das beste, was Runewick passieren konnte. Er ist so ein schlechter Anführer, dass wir uns nicht um Runewick sorgen müssen."
-english, "Runewick" -> "Runewick will fall into ruins one day, so do not bother. If you do, I have a good sword for you."
+english, "Runewick" -> "Runewick will fall to ruins one day, so do not bother. If you do, I have a good sword for you."
 "Runewick" -> "Runewick wird eines Tages eine Ruine sein, sorgt euch nicht. Wenn ihr euch dennoch sorgt, ich habe ein gutes Schwert für euch."
-english, "Valerio", "Guilianni", "Don" -> "I assume the dagger that will slash the Don's throat was already crafted. Hopefully, by me."
+english, "Valerio", "Guilianni", "Don" -> "I assume the dagger that will slash the Don's throat has already been crafted... Hopefully, by me."
 "Valerio", "Guilianni", "Don" -> "Ich denke, dass der Dolch, der die Kehle des Dons aufschlitzen wird, bereits gefertigt wurde. Hoffentlich ist es einer von meinen."
-english, "Galmair" -> "Galmair is rich, but they don't use their wealth properly. Like, for buying weapons."
+english, "Galmair" -> "Galmair is rich, but they don't use their wealth properly, like for buying weapons."
 "Galmair" -> "Galmair ist reich, aber sie verstehen es nicht, ihren Reichtum richtig einzusetzen, zum Beispiel, um Waffen zu kaufen."
-"Queen" -> "Any weapon I craft is ment to protect the queen. So, raise your hand against the queen and hundreds of swords will chop it off."
+"Queen" -> "Any weapon I craft is meant to protect the Queen. So, raise your hand against the Queen and hundreds of swords will chop it off."
 "Königin" -> "Jede Waffe, die ich schmiede, ist gemacht, um die Königin zu schützen. Erhebe deine Hand gegen sie und hunderte Schwerter werden sie abschlagen."
-english, "rosaline", "edwards" -> "Any weapon I craft is ment to protect the queen. So, raise your hand against the queen and hundreds of swords will chop it off."
+english, "rosaline", "edwards" -> "Any weapon I craft is meant to protect the Queen. So, raise your hand against the Queen and hundreds of swords will chop it off."
 "rosaline", "edwards" -> "Jede Waffe, die ich schmiede, ist gemacht, um die Königin zu schützen. Erhebe deine Hand gegen sie und hunderte Schwerter werden sie abschlagen."
 english, "Cadomyr" -> "Cadomyr is our home and I hope my goods help to defend it against any enemies."
 "Cadomyr" -> "Cadomyr ist unsere Heimat und ich hoffe, meine Waren leisten ihren Beitrag, es gegen Feinde zu verteidigen."
 
 -- Main land factions
-english, "albar" -> "Spears and swords built the albarian kingdom. Need any?"
+english, "albar" -> "Spears and swords built the Albarian kingdom. Need any?"
 "albar" -> "Speere und Schwerter haben Albar aufgebaut. Braucht ihr welche?"
 english, "gynk", "gync" -> "Gynk is far away and their weapons are lies and treason."
 "gync", "gynk" -> "Gynk ist weit entfernt und ihre Waffen sind Lügen und Verrat."
@@ -155,9 +155,9 @@ english, "salkama" -> "Salkamaerian armour might shine brightly, but it is ineff
 "salkama" -> "Salkamaerische Rüstungen mögen funkeln und blitzen, aber sie sind nicht effektiv."
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
-"god" -> "I just have faith in Malachín and Irmorom. I mean, what good does Sirani, the goddess of hugs?"
+"god" -> "I just have faith in Malachín and Irmorom. I mean, what use is Sirani, the Goddess of hugs?"
 "Gott", "Götter" -> "Ich vertraue nur auf Malachín und Irmorom. Ich meine, was ist der Nutzen von Sirani, Göttin der Umarmungen?"
-english, "Malachin", "Malachín" -> "Every sword I craft I craft for Malachin himself."
+english, "Malachin", "Malachín" -> "Every sword I craft, I craft for Malachin himself."
 "Malachin", "Malachín" -> "Jedes Schwert, welches ich schmiede, schmiede ich für Malachin!"
 english, "Irmorom" -> "Irmorom would be proud if he saw my art. I'm his most hard working scholar."
 "Irmorom" -> "Irmorom wäre stolz, wenn er meine Schmiedekunst sehen würde. Ich bin sein fleißigster Schüler."
@@ -165,7 +165,7 @@ english, "Sirani" -> "Oh, come on, you don't want to talk to a person like me ab
 "Sirani" -> "Oh, ich denkt doch nicht etwa, dass ein Kerl wie ich gerne mit euch über Sirani reden will!"
 
 -- Catching typical NPC phrases
-"tell something" -> "I tell you: Sharpen you blade and commit deeds for the glory of Cadomyr."
+"tell something" -> "I tell you, sharpen you blade and commit deeds for the glory of Cadomyr."
 "erzähl was", "erzähl etwas" -> "Ich sag euch: Schärft eure Klinge und vollbringt Taten für die Ehre von Cadomyr."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here
@@ -192,4 +192,4 @@ cycletext "Hier gibt es die besten Waffen zum Töten von Orks, Goblins und Galma
 cycletext "Ihr da! Eure Waffe ist der letzte Schrott. Ich hätte da was im Angebot für euch.", "Hey you! Your weapon is scrap. I'd have something for you."
 cycletext "#me poliert eine Schwertklinge.", "#me polishes the blade of a sword."
 cycletext "Jeden Tag eine gute Tat.", "An axe a day keeps the raptor away."
-cycletext "Heute ist ein guter Tag zum Sterben... für die Feinde der Königin!", "Today is a good day to die for the foes of the queen."
+cycletext "Heute ist ein guter Tag zum Sterben... für die Feinde der Königin!", "Today is a good day to die fighting the foes of the Queen."

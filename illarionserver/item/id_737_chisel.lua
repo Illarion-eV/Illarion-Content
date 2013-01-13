@@ -10,7 +10,7 @@ require("item.base.crafts")
 
 module("item.id_737_chisel", package.seeall, package.seeall(item.general.metal))
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local stonecutting = content.gathering.stonecutting;
 	-- we have to distinguish if we work on raw stones or stone blocks
@@ -96,7 +96,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( stonecutting.LeadSkill, stonecutting.SavedWorkTime[User.id], 100);
+	User:learn( stonecutting.LeadSkill, stonecutting.SavedWorkTime[User.id], 20);
 	User:eraseItem( WorkOnStone[User.id], 1 ); -- erase the item we're working on
 	local notCreated = User:createItem( Stones[WorkOnStone[User.id]].productId, Stones[WorkOnStone[User.id]].amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -115,7 +115,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		end
 	end
 
-	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Dein alter Meiﬂel zerbricht.",
 		"Your old chisel breaks.");

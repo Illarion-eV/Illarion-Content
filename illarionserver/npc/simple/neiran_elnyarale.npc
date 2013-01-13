@@ -1,0 +1,208 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Neiran el Nyarale                                       Runewick--
+-- NPC Job:  Runewick 'recycle mechanism' guard                                             --
+--                                                                            --
+-- NPC Race: Elf                      NPC Position: 897, 781, 2                          --
+-- NPC Sex:  male                       NPC Direction: southeast                  --
+--                                                                            --
+-- Author:   Miriam                                         --
+--                                                       easyNPC Parser v1.21 --
+--------------------------------------------------------------------------------
+name = "Neiran el Nyarale"
+race = elf
+sex = male
+position = 897, 781,2
+direction = southeast
+affiliation = "Runewick"
+job = "guard"
+
+language = common
+language = elf
+defaultLanguage = common
+autointroduce = on
+
+author = "Miriam"
+
+lookatDE = "Dieser NPC ist Neiran el Nyarale der Wachmann."
+lookatUS = "This NPC is Neiran el Nyarale the guard."
+useMsgDE = "Fasst mich nicht an!"
+useMsgUS = "Do not touch me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 2
+beardID = 0
+colorHair = 128, 255, 255
+colorSkin = 245, 230, 197
+itemHead = 0
+itemChest = 181
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+-- fur trousers
+itemTrousers = 825
+itemShoes = 53
+
+------------------------------------------------------------------------------AC
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+sellItems = 1, 2, 3
+buyPrimaryItems = 1
+buySecondaryItems = 2, 3
+
+-- Template Version 1.08, 10/18/2012 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- TRADING
+-- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Neiran el Nyarale the guard. Keywords: Quest, greetings, archmage, rubbish, recycling.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Neiran el Nyarale der Wachmann. Schlüsselwörter: Auftrag, Grüße, Erzmagier, Müll, recycling.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings to you!", "#me smiles: 'Greetings'", "Hello! ."
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Seid gegrüßt!", "#me lächlet: 'Grüße'", "Hallo! "
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hello hello!", "Well...?"
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hallo hallo!", "Nun...?"
+"Farewell", "Bye", "Fare well", "See you" -> "Fare well!", "See you soon again.", "#me waves"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Lebt wohl.", "Tschüss. Bis demnächst!","#me winkt"
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the five be with you!", "#me bows."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Bis bald!", "Mögen die Fünf mit Euch sein!", "#me verbeugt sich."
+"How are you", "How feel", "How do you do" -> "Me? Thank you, I am fine. How are you?", "How do you do?", "#me shrougs his shoulders."
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich? Mir geht es gut. Danke. Wie geht es Euch?", "Wie geht es Euch?", "#me zuckt mit den Schultern."
+"your name", "who are you", "who art thou" -> "Neiran el Nyarale, how can I help you?", "Neiran el Nyarale, at your service.", "Neiran el Nyarale from Runewick. And who are you?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Neiran el Nyarale, was kann ich für Euch tun?","Neiran el Nyarale , zu Diensten.", "Neiran el Nyarale, aus Runewick. Und wer seid Ihr?"
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Trade Hooks, use only for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Me? I am not a trader. I am a treasurer. Or, rather the guard of the garbage bin."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich? Ich bin kein Händler, ich bin der Schatzmeister... Nun ja, wohl eher der Wächter der Müllkippe."
+
+-- Quest 1: Donate something to the treasury
+-- 1: Quest 1 taken, donate something to the treasury, reward: 20 rankpoints
+queststatus(205) = 0, english, town = Runewick, "quest", "mission" -> inform("[New Quest] Runewick Treasury"), "Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!", queststatus(205) = 1
+queststatus(205) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Die Schatzkammer Runewicks"), "Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.", queststatus(205) = 1
+queststatus(205) = 0, town = runewick, "task", "adventure", "order" -> inform("[New Quest] Runewick Treasury"), "Do you want a task? Please help to keep the town clean. Drop your garbage on the magical surface!", queststatus(205) = 1
+queststatus(205) = 0, town = runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Die Schatzkammer Runewicks"), "Ihr möchtet eine Aufgabe? Bitte helft mit die Stadt sauber zu halten. Werft Euren Müll auf die magische Oberfläche.", queststatus(205) = 1
+
+-- Quest 1 taken but not solved, repeat the instructions
+queststatus(205) = 1, english, town = Runewick, "quest", "mission" -> "Just drop what ever you do not need or want to donate to the treasury here on the field. It is not difficult to make Runewick a better place!"
+queststatus(205) = 1, town = Runewick, "quest", "mission" -> "Werft das was Ihr nicht braucht oder was Ihr spenden wollt hier auf das Feld. Es ist  nicht schwere Runewick zu einem bessren Ort zu machen!"
+queststatus(205) = 1, town = Runewick, "task", "adventure", "order" -> "Just drop what ever you do not need or want to donate to the treasury here on the field. It is not difficult to keep the streets clean!"
+queststatus(205) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Werft das was Ihr nicht braucht oder was Ihr spenden wollt hier auf das Feld. Es ist  nicht schwere Runewick zu einem bessren Ort zu machen!"
+
+-- Quest 1 solved, reward: +20 rankpoints
+queststatus(205) = 2, english, town = Runewick, ".*" -> inform("[Quest solved] You advance in Archmage Elvaine Morgan favour."),  "Thank you for you help!", "Thank you for your support!", queststatus(205) = 3, rankpoints + 20
+queststatus(205) = 2, town = Runewick, ".*" -> inform("[Quest gelöst] Dein Ansehen bei Erzmagier Elvaine Morgan steigt."), "Vielen Dank für Eure Hilfe!", "Vielen Dank für Eure Unterstützung!", queststatus(205) = 3, rankpoints + 20
+
+-- Final dialogue: No more quests, just nice hints
+queststatus(205) = 3, english, "quest", "mission" -> "#me smiles happily and writes something down in a list.", "I'm busy right now, please come again later."
+queststatus(205) = 3,"quest", "mission"  -> "#me lächelt glücklich und schreibt etwas auf eine Liste nieder.", "Ich bin im Moment etwas beschäftigt, kommt doch später wieder."
+queststatus(205) = 3,"task", "adventure", "order" ->  "#me smiles happily and writes something down in a list.", "I'm busy right now, please come again later."
+queststatus(205) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "#me lächelt glücklich und schreibt etwas auf eine Liste nieder.", "Ich bin im Moment etwas beschäftigt, kommt doch später wieder."
+
+-- Quest by Zassaria Riverbank (Ask for me III)
+queststatus(701) = 7, english, "Zassaria", "lizzard", "lamp", "collection", "riverbank" -> "Oil lamp collection? I threw away some oil lamps a few days ago... they did not belong to Lady Zassaria, did they?", queststatus(701) = 8
+queststatus(701) = 7, english, "Zassaria", "lizzard", "Lampe", "", "Sammlung" -> "Öllampensammlung? Ich habe da eine ganze Mengen Öllampen entsorgt... aber, das war doch nicht Lady Zassarias Öllampensammlung, oder?", queststatus(701) = 8
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am the guard here. I guard the magical surface.", "I tell newcomers how to use the how to use recycle mechanism.", "I help to keep the steets clean. Do you want to help me with this task?"
+"beruf" -> "Ich bin Wächter hier. Ich hüte die magische Oberfälche.", "Ich erkläre Neuankömmlingen wir man den Recyclemechanismus verwendet.", "Ich helfe die Straßen sauber zu halten. Möchtet Ihr mir bei dieser Aufgabe behilflich sein?"
+english, "job" -> "I am the guard here. I guard the magical surface.", "I tell newcomers how to use the how to use recycle mechanism.", "I help to keep the steets clean. Do you want to help me with this task?"
+"job" -> "Ich bin Wächter hier. Ich hüte die magische Oberfälche.", "Ich erkläre Neuankömmlingen wir man den Recyclemechanismus verwendet.", "Ich helfe die Straßen sauber zu halten. Möchtet Ihr mir bei dieser Aufgabe behilflich sein?"
+"tell something" -> "I do not have much to tell, if you want to hear about adventures, then better go on adventure yourself."
+"erzähl was", "erzähl etwas" -> "Ich habe nicht viel zu erzählen, wenn Ihr über Abenteuer hören wollt, geht besser selst welche erleben."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"garbage bin", "rubbish","garbadge", "trash"  -> "There is no real rubbish, we reuse the most things.", "This is no garbadge bin! It's a most magical recycle mechanism!"
+"Müllkippe",  "Müll", "Schrott"-> "Es gibt eigentlich keinen Abfall. Wir verwerten das meiste weiter.", "Das ist keine Müllkippe! Das ist ein höchst magischer Recylemechanismus!"
+"recycle mechanism" -> "The Archmage invented the recycle mechanism. It is a wounderfull thing.", "By using the recycle mechanism we keep this place clean. The arch mage is always happy when someone uses it."
+"recyclemechanismus", "Recyclemechanismus", "recycle mechanismus" -> "Der Erzmagier erfand den Recyclemechanismus.", "Mit Hilfe des Recyclemechanismus halten wir Runewick sauer. Der Erzmagier freut sich immer, wenn jemand ihn benutzt."
+"magical", "surface" -> "If you drop things on the magical surface they will disppear, and magically regain their value and then be teleportet to Runewicks treasury."
+"magische", "Fläche", "Oberfläche" -> "Wenn Ihr Gegenstände auf die magische Oberfläche legt, werden sie durch Magie ihren Wert zurück erhalten und in die Satzkammer von Runewick transferiert."
+english, "recycling" -> "The archmage invented the word 'recycling'."
+"recycling" -> "Der Erzmgier erfand das Wort 'recycling'."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "The gods created Illarion without rubbish. Most of us produce rubbish everyday."
+"Gott", "Götter" -> "Die Götter erschufen Illarion ohne Müll. Wir erschaffen jeden Tag Müll."
+english, "religion" -> "We elves pray to the five elder gods."
+"religion" -> "Wir Elfen beten zu den fünf alten Göttern."
+"faith" -> "We elves pray to the five elder gods."
+"Glaube" -> "Wir Elfen beten zu den fünf alten Göttern."
+
+-- Optional: Faction stuff
+"archmage" -> "The arch mage is a wise man.", "The arch mage helps to keep the streets clean!", "The arch mages name ist Elvain Morgan."
+"Erzmagier" -> "Der Erzmagier ist ein weiser Mann.", "Der Erzmagier hilft die Straßen sauber zu halten.", "Der Erzmagier heißt Elvaine Morgan."
+english, "Elvaine", "Morgan" -> "Elvaine Morgan is a wise man.", "Elvaine Morgan helps to keep the streets clean!", "Elvaine Morgan is the arch mage."
+"Elvaine", "Morgan" -> "Elvaine Morgan ist ein weiser Mann.", "Elvaine Morgan hilft die Staßeb sauber zu halten!", "Elvaine Morgan ist der Erzmagier."
+english, "Runewick" -> "Yes, this is Runewick.", "Let's keep the steets of Runewick clean!", "Many people here study magic. Why did you come here?"
+"Runewick" -> "Ja, dies ist Runewick.", "Lasst uns die Straßen von Runewick sauber halten!", "Viele Leute hier studieren Magie. Warum seid Ihr hier?"
+english, "Valerio", "Guilianni", "Don" -> "No, that's not me.", "He ist not here.", "He has not here, as far as I know."
+"Valerio", "Guilianni", "Don" -> "Nein, das bin ich nicht.", "Der ist nicht hier.", "So weit ich weiß, war er nicht hier."
+english, "Galmair" -> "They do not keep the streets clean in Galmair."
+"Galmair" -> "In Galmair halten sie die Straßen nicht sauber."
+"Queen" -> "Queen is a title used by humans and dwarves for female leaders."
+"Königin" -> "Königin ist ein Titel den Menschen und Zwerge für weibliche Anführer benutzen."
+english, "rosaline", "edwards" -> "Mh? … Who is that?", "No, I haven't seen her. She has not used the recycle mechanism recently."
+"rosaline", "edwards" -> "Mh? ...Wer?", "Nein, ich habe sie nicht gesehen. Sie hat den Recyclemechanismus schon lange nicht benutzt."
+english, "Cadomyr" -> "Ah... Cadomyr. That's a town full of sand.", "Just a place not far from here. nothing more, nothing less.", "#me nods slowly."
+"Cadomyr" -> "Ah... Cadomyr. Das ist eine Stadt voll von Sand.", "Nur ein Ort nicht weit vob hier. Nichts mehr oder weniger als dies.", "#me nickt langsam."
+
+-- Optional: Main land factions
+english, "albar" -> "#me nods with a faint smile on his lips."
+"albar"  -> "#me nickt mit einem schmalen Lächeln auf den Lippen."
+english, "gynk", "gync" -> "#me nods with a faint smile on his lips."
+"gync", "gynk" -> "#me nickt mit einem schmalen Lächeln auf den Lippen."
+english, "salkama" -> "#me nods with a faint smile on his lips."
+"salkama" -> "#me nickt mit einem schmalen Lächeln auf den Lippen."
+
+-- Optional: Gobaith
+english, "Gobaith", "Gobiath" -> " I've never been to this place.", "It was ...a place.", "#me nods with a faint smile on his lips."
+"Gobaith", "Gobiath" -> "Da war ich noch nie.", "Es war … ein Ort.", "#me nickt mit einem schmalen Lächeln auf den Lippen."
+
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
+"my name" -> "Nice to meet you! ", "Good to see you!", "#me smiles friendly."
+"mein Name" -> "Feut mich!", "Schön euch zu treffen!","#me lächelt freundlich."
+english, "Neiran", "el Nyarale", "Nyarale"  -> "That's me. How can I help you?", "#me raises a hand and waves.", "#me lookes around: 'Who called for me?'", "#me smiles friendly"
+"Neiran", "el Nyarale", "Nyarale"  -> "Das bin ich. Was kann ich für Euch tun?", "#me hebt eine Hand und winkt.", "#me bickt sich um: 'Wer rief nach mir?'", "#me smiles friendly"
+"Yes" -> "#me nods slowly.", "#me smiles.", "I am happy to hear you say so!"
+"Ja" -> "#me nickt langsam.", "#me lächelt.", "Es freut mich, dass Ihr das sagt.."
+"No" -> "I didn't expect that answer.", "#me raises an eyebrow.", "I shall give  you some more time to consider your answer. But at the moment you seem to be … still inexperieced."
+"Nein" -> "Ich hätte eine andere Antwort erwartet.", "#me hebt eine Augenbraue.", "Ich werde dir mehr Zeit geben deine Antwort zu bedenken. Zur Zeit scheinst du noch … unerfahren zu sein."
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "Ah...pardon? What did you say?", "#me raises an eyebrow."
+german, chance(20.0), ".*" -> "Ah... verzeiht. Was sagtet Ihr?", "#me hebt eine Augenbraue."
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Wir in Runewick wollen unsere Straßen sauer halten. Hilf auch du mit!", "Let's keep Runewicks streets clean!"
+cycletext "#me schaut sich um.", "#me lookes around."
+cycletext "#me lächelt und  lässt einige Münzen auf die magische Oberfläche fallen.", "#me smiles and drops some coins into the magical surface."
+cycletext "Was ist wahrer Reichtum? Wissen oder Münzen?", "What is more of more value? Knowledge or coins?"
+cycletext "Münzen, Waffen, Schmuck und Besteck, alles kann eingeschmolzen werden! Spendet unserer schönen Stadt.", "Coins, weapon, juwely, cutlery - everything can be melted down!"
+cycletext "Getreide, Käuter, Küchenabfälle, alles kommt auf den Kompst!", "Grain, Herbs, kitchen waste, everything will be composted."
+cycletext "Spendet Roh- und Baustoffe, wir bessern die Straßen von Runewick aus!", "Donate building material and ressouces, we repair the streets of Runewick!"
+cycletext "Spendet Papier und Tinte, die Bibliothek von Runewick wird es Euch danken!", "Donate ink and paper, for the library in Runewick!"
+cycletext "Ich werde von eurem Einsatz für unsere schöne Stadt beim Erzmagier sprechen - zögert nicht!", "I'll tell the archmage about you supporting for you town! Do not heasitate to donate."
+cycletext "#me sieht glücklich aus.", "#me seems to be happy."
+cycletext "#me schreibt eine Liste.", "#me writes a list."

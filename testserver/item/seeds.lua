@@ -138,24 +138,24 @@ end
 
 -- some plants rot to seeds again, those have a different data value
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
-    local amount = SourceItem:getData("amount");
-    if (amount ~= "") then
-        amount = tonumber(amount);
-        if (TargetItem:getType() == 3) then -- item on the map
-            local notCreated = User:createItem(SourceItem.id, amount, 333, nil);
-            if (notCreated > 0) then
-                world:createItemFromId( SourceItem.id, notCreated, SourceItem.pos, true, 333, nil );
-            end
-        else
-            world:createItemFromId( SourceItem.id, amount, SourceItem.pos, true, 333, nil );
-        end
-        world:erase( SourceItem, SourceItem.number );
+  local amount = SourceItem:getData("amount");
+  if (amount ~= "") then
+    amount = tonumber(amount);
+    if (TargetItem:getType() == 3) then
+      -- item is dragged to the map
+      world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
+    else
+      -- item is dragged to the User
+      User:createAtPos(TargetItem.itempos, SourceItem.id, amount);
     end
-    return true;
+    -- world:erase( TargetItem, TargetItem.number );
+  end
+  return true;
 end
 
 function MoveItemAfterMove(User, SourceItem, TargetItem)
-    if (SourceItem:getData("amount") ~= "") then
-        world:erase( SourceItem, SourceItem.number );
-    end
+  if (TargetItem:getData("amount") ~= "") then
+    world:erase( TargetItem, TargetItem.number );
+  end
+  return true;
 end
