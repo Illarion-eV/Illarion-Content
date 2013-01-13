@@ -155,7 +155,7 @@ end
 
 function MoveItemAfterMove(User, SourceItem, TargetItem)
   if (TargetItem:getData("amount") ~= "") then
-    world:erase( TargetItem, TargetItem.number );
+    -- world:erase( TargetItem, TargetItem.number );
   end
   return true;
 end
