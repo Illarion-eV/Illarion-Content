@@ -1,0 +1,6 @@
+triggerfield,874,761,0,MoveToField,trigger1
+item,519,LookAtItem,trigger2
+item,74,UseItem,trigger3
+item,519,LookAtItem,trigger4
+triggerfield,874,761,0,MoveToField,trigger5
+item,74,UseItem,trigger6
