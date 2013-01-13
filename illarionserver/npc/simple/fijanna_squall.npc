@@ -52,47 +52,47 @@ itemShoes = 53
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Fijanna Squall the fortune teler. Keywords: Fortune, greetings, profession, Findari.")
+"Help" -> inform("[Game Help] This NPC is Fijanna Squall the fortune teller. Keywords: Fortune, greetings, profession, Findari.")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Fijanna Squall die Wahrsagerin. Schlüsselwörter: Zukunft, Grüße, Beruf, Findari.")
 
 -- Mandatory: General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted in the name of the godess of air.", "Greetings, traveler."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Be greeted in the name of the Goddess of air.", "Greetings, traveller."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Sei gegrüßt im Namen der Göttin der Luft.", "Sei gegrüßt, Reisender."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted in the name of the godess of air.", "Greetings, traveler."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Be greeted in the name of the Goddess of air.", "Greetings, traveller."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Sei gegrüßt im Namen der Göttin der Luft.", "Sei gegrüßt, Reisender."
-"Farewell", "Bye", "Fare well", "See you" -> "May Findari watch over you.", "Save paths, traveler.", "Fare well."
+"Farewell", "Bye", "Fare well", "See you" -> "May Findari watch over you.", "Safe paths, traveller.", "Farewell."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Möge Findari über dich wachen.", "Sichere Pfade, Reisender.", "Auf Bald."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Findari watch over you.", "Save paths, traveler.", "Fare well."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "May Findari watch over you.", "Safe paths, traveller.", "Farewell."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Möge Findari über dich wachen.", "Sichere Pfade, Reisender.", "Auf Bald."
-"How are you", "How feel", "How do you do" -> "I feel the wind. I know where it went. And I know the places where it will go. Do you feel the wind?", "I feel as light as air."
+"How are you", "How feel", "How do you do" -> "I feel the wind. I know where it went, and I know the places where it will go. Do you feel the wind?", "I feel as light as air."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Ich spüre den Wind. Ich weiß woher er kam und wohin er geht. Spürst du den Wind?", "Ich fühle mich so leicht wie Luft."
-"your name", "who are you", "who art thou" -> "I am Fijanna Spuall, a travelling Seer.", "I am a travelling priest of the goddess of air. My name is Fijanna. Nice to meet you.", "My Name is Fijanna. Nice to meet you."
+"your name", "who are you", "who art thou" -> "I am Fijanna Spuall, a travelling Seer.", "I am a travelling priest of the Goddess of air. My name is Fijanna. Nice to meet you.", "My Name is Fijanna. Nice to meet you."
 "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Fijanna Spuall, eine wandernde Seherin.", "Ich bin eine reisende Priesterin der Göttin der Luft. Ich heiße Fijanna. Es freut mich dich zu treffen.", "Ich heiße Fijanna. Freut mich dich zu sehen."
 
 -- Fortune telling phrases
 state = 1, money => 100, "Yes" -> "Very well. I shall tell your fortune. What do you want to hear?", state = 2, money - 300
 state = 1, money => 100, "Ja" -> "Gut. Ich werde deine Zukunft lesen. Worüber möchtest du etwas erfahren?", state = 2, money - 300
-state = 1, "Yes" -> "Seems like, you didn't brought enough coins with you...", state = 0
+state = 1, "Yes" -> "Seems like, you didn't bring enough coins with you...", state = 0
 state = 1, "Ja" -> "Sieht so aus als hättest du nicht genügen Münzen mit...", state = 0
-state = 1, "No", "Thanks" -> "Come back, anytime you want to hear about your fortune.", state = 0
+state = 1, "No", "Thanks" -> "Come back anytime you want to hear about your fortune.", state = 0
 state = 1, "Nein", "Danke" -> "Komm einfach wieder vorbei wenn du etwas über deine Zukunft erfahren möchtest.", state = 0
-state = 1, english, ".*" -> "Do you want to hear your Fortune in exchange for three silver coins? Say yes or no."
+state = 1, english, ".*" -> "Do you want to hear your fortune in exchange for three silver coins? Say yes or no."
 state = 1, ".*" -> "Willst du deine Zukunft im Tausch für drei  Silberstücke gesagt bekommen? Antwortet einfach mit ja oder nein."
 
 -- Warnings
-state = 2, english, ".*" -> ". . . run!", "You'll need strong friends", "Take good care of yourself during the next days.", "Stay away from trouble as far as possible.", "Avoiding monsters, will keep you safe.", "In the near future you'll need lots of luck.", "In the near future you'd better be very careful.", "It would be wise to avoid unnecessary danger", "I'm sorry. You will experience a disappointment.", state = 0
+state = 2, english, ".*" -> ". . . run!", "You'll need strong friends", "Take good care of yourself during the next few days.", "Stay away from trouble as far as possible.", "Avoiding monsters will keep you safe.", "In the near future you'll need lots of luck.", "In the near future you'd better be very careful.", "It would be wise to avoid unnecessary danger", "I'm sorry, you will experience a disappointment.", state = 0
 state = 2, chance(33.0), ".*" -> ". . . lauf!", "Du wirst starke Freunde brauchen.", "Gibt in nächster Zeit gut auf dich Acht.", "Meide Schwierigkeiten soweit es geht.", "Gehe Monstern besser aus dem Weg, sonst erwartet dich Unglück.", "Du wirst in nächster Zeit viel Glück gebrauchen können.", "Sei in nächster Zeit sehr vorsichtig.", "Besser du meidest unnötige Gefahren.", "Es tut mir leid. Dich erwartet eine Enttäuschung.", state = 0
 
 -- Hints and Advice
-state = 2, english, ".*" -> "Pride will have a fall", "Consider this, if you sow mischief, you'll reap conflict.", "As you make your bed so you must lie on it. Consider this well.", "Be friendly and others will be friendly to you as well.", "Smiling and laughing will open the doors for the good things in life.", "You will go on an adventure.", "You will achieve fame but you'll have to work for that.", "Take good care of yourself, that's all I can tell you.", "Be careful not to make enemies.", "Don't try your luck.", "Don't anger the gods.", " You'll a make a new acquaintance.", "Hard work will pay off.", "Work diligent and you won't regret it.", "Believe in yourself, and you'll achieve great things.", "You'll be famous one day, but you have to work for it.", "Think positive, that's the only advice I can give you.", state = 0
+state = 2, english, ".*" -> "Pride will result in a fall", "Consider this, if you sow mischief, you'll reap conflict.", "As you make your bed, so you must lie on it. Consider this well.", "Be friendly and others will be friendly to you as well.", "Smiling and laughing will open the doors for the good things in life.", "You will go on an adventure.", "You will achieve fame but you'll have to work for that.", "Take good care of yourself, that's all I can tell you.", "Be careful not to make enemies.", "Don't try your luck.", "Don't anger the Gods.", " You'll make a new acquaintance.", "Hard work will pay off.", "Work diligently and you won't regret it.", "Believe in yourself, and you'll achieve great things.", "You'll be famous one day, but you have to work for it.", "Think positive, that's the only advice I can give you.", state = 0
 state = 2, chance(53.0), ".*" -> "Bedenke, Hochmut kommt vor dem Fall.", "Bedenke: Wer Streit sucht, wird Ärger finden.", "Wie man sich bettet so liegt man. Denke darüber nach.", "Sei freundlich zu anderen und sie werden freundlich zu dir sein.", "Lächeln und Lachen sind Tür und Pforte durch die viel Gutes in den Menschen hineinschlüpfen kann", "Du wirst ein Abenteuer erleben.", "Du wirst Ruhm erlangen, aber du musst auch etwas dafür tun.", "Gib auf dich Acht, das ist alles was ich dir raten kann.", "Gib Acht, dass du dir keine Feinde machst.", "Fordere das Glück nicht heraus.", "Ärgere die Götter nicht.", "Du wirst eine neue Bekanntschaft machen.", "Harte Arbeit wird sich für dich auszahlen.", "Sei fleißig und du wirst es nicht bereuen.", "Glaube an dich selbst, und du wirst großes erreichen", "Du wirst Ruhm erlangen, aber du musst auch etwas dafür tun.", "Alles was du brauchst ist Glaube an dich und an deine Fähigkeiten.", "Denke Positiv, das ist der einzige Rat den ich dir geben kann.", state = 0
 
 -- nice Words
-state = 2, english, ".*" -> "Wealth is waiting for you.", "You will receive a present.", "You will be very lucky in the near future.", "You will make a positive experience.", "You'll find new friends.", "You'll see the good in others.", "You'll find a new friend.", state = 0
+state = 2, english, ".*" -> "Wealth is waiting for you.", "You will receive a present.", "You will be very lucky in the near future.", "You will have a positive experience.", "You'll find new friends.", "You'll see the good in others.", "You'll find a new friend.", state = 0
 state = 2, ".*" -> "Dich erwartet Reichtum", "Du wirst ein Geschenk bekommen.", "Du wirst Geld finden.", "Du wirst in nächster Zeit großes Glück haben.", "Du wirst positive Erfahrungen machen.", "Du wirst neue Freunde finden.", "Du wirst das Gute in anderen erkennen.", "Du wirst einen neuen Freund finden.", state = 0
 
 -- Fortune telling phrases - starting point
-"fortune","future" -> "I'll tell you your future, if you give me three silver coins in return. Do you to hear about your fortune?", state = 1
+"fortune","future" -> "I'll tell you your future, if you give me three silver coins in return. Do you want to hear about your fortune?", state = 1
 "Zukunft" -> "Ich sage dir deine Zukunft voraus, wenn du mir dafür drei Silberstücke gibst. Möchtest du etwas über deine  Zukunft hören?", state = 1
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
@@ -100,9 +100,9 @@ state = 2, ".*" -> "Dich erwartet Reichtum", "Du wirst ein Geschenk bekommen.", 
 "beruf" -> "Ich bin eine Wahrsagerin. Wisst ihr was eine Wahrsagerin tut?", "Ich höre dem Wind und den Leuten zu.", "Die Leute kommen und fragen mich um Rat, also gebe ich Rat."
 english, "job" -> "I am a fortune teller. You know what a fortune teller does?", "I listen to the wind and the people.", "People come and ask me for advice and so I give advice."
 "job" -> "Ich bin eine Wahrsagerin. Wisst ihr was eine Wahrsagerin tut?", "Ich höre dem Wind und den Leuten zu.", "Die Leute kommen und fragen mich um Rat, also gebe ich Rat."
-"tell something" -> "We all breath air. So do the animals and the plants."
+"tell something" -> "We all breath air, so do the animals and the plants."
 "erzähl was", "erzähl etwas" -> "Wir alle atmen Luft. Auch die Tiere und Pflanzen."
-english, "Findari" -> "Oh, the goddess of air. All my prayers are for her.", "Yes, the goddess of air. All my doing is done to serve her."
+english, "Findari" -> "Oh, the Goddess of air, all my prayers are for her.", "Yes, the Goddess of air, all my doing is done to serve her."
 "Findari" -> "Oh, die Göttin der Luft. All meine Gebete gelten ihr.", "Ja, die Göttin der Luft, alle mein Tun ist getan um ihr zu dienen."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time

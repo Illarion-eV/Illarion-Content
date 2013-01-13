@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Faladron                                                         --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 name = "Valerio Guilianni"
@@ -55,8 +55,8 @@ itemShoes = 697
 -- NPC by Faladron
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Don Valerio Guilianni of Galmair. Keywords: Quest, Task, Gods, Factions.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Don Valerio Guilianni von Galmair. Schlüsselwörter: Quest, Aufgabe, Götter, Fraktionen.")
+"Help" -> inform("[Game Help] This NPC is Don Valerio Guilianni of Galmair. Keywords: Task, Gods, Realms, Galmair.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Don Valerio Guilianni von Galmair. Schlüsselwörter: Aufgabe, Götter, Reiche, Galmair.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "The Don greets you.", "Greetings, greetings. The Don is busy right now but he always has an open ear for the pleas of his protégés.", "Hm? State your cause to the Don but make it brief or one of my associates might have to cut you off."
@@ -72,6 +72,12 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "#me rubs his chin looking c
 "your name", "who are you", "who art thou" -> "#me makes a broad welcoming gesture with his hands. 'Ah forgive my manners. Valerio Guilianni is my name but call me 'The Don'.", "Hm, you're not too bright are ya? I thought my residence and hoards of servants would have given you a hint.", "#me sighs, '%CHARNAME, how can one be so naive? Where's the respect? I am the Don.'"
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "#me macht eine ausladende willkommende Geste 'Ah meine Manieren. Valerio Guilianni ist mein Name aber nennt mich 'Mein Don'.", "Hm, der hellste Blitz scheint ihr nicht zu sein. Und ich dachte die Residenz und Dienerschaft wären Hinweis genug.", "#me seufzt '%CHARNAME, wie kann man nur so blauäugig sein? Wo bleibt der Respekt? Ich bin der Don.'"
 
+-- Mirarie Bragolin Quest (Writing history V
+queststatus(317) = 12, english, "Mirarie", "Bragolin", "quest", "mission" -> queststatus(317) = 13, "A letter from Cadomyr? Oh, thank you very much. What? Ah, I see. I'll take care of that, you may leave now."
+queststatus(317) = 12, "Mirarie", "Bragolin", "quest", "mission" -> queststatus(317) = 13, "Ein Brief aus Cadomyr? Oh, vielen Dank... Was? Ah, ich verstehe. Ich werde mich darum kümmern. Ihr könnt nun gehen."
+queststatus(317) = 12, "task", "adventure", "order", "letter", "message" -> queststatus(317) = 13, "A letter from Cadomyr? Oh, thank you very much. What? Ah, I see. I'll take care of that, you may leave now."
+queststatus(317) = 12, "Auftrag", "Aufgabe", "Abenteuer", "Befehl", "Brief", "Nachricht" -> queststatus(317) = 13, "Ein Brief aus Cadomyr? Oh, vielen Dank... Was? Ah, ich verstehe. Ich werde mich darum kümmern. Ihr könnt nun gehen."
+
 -- Catching quest triggers
 english, "quest", "mission" -> "The day will come, when the Don will ask you for a favor. Ask Miggs if that day is today."
 "quest", "mission" -> "Es wird der Tag kommen, an dem dich der Don um einen Gefallen bittet. Frage Miggs, ob heute dieser Tag ist."
@@ -79,30 +85,26 @@ english, "quest", "mission" -> "The day will come, when the Don will ask you for
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Weißt du, der Don mag dich. Und der Don wird dir auch eine Arbeit verschaffen. Frage Miggs, wie du in der Gunst des Don steigen kannst."
 
 -- Reward for quest 622
-queststatus(632) > 0, queststatus(633) = 0, english, chance(10.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(1)
-queststatus(632) > 0, queststatus(633) = 0, german, chance(10.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(1)
-queststatus(632) > 0, queststatus(633) = 0, english, chance(11.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(2)
-queststatus(632) > 0, queststatus(633) = 0, german, chance(11.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(2)
-queststatus(632) > 0, queststatus(633) = 0, english, chance(13.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(3)
-queststatus(632) > 0, queststatus(633) = 0, german, chance(13.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(3)
-queststatus(632) > 0, queststatus(633) = 0, english, chance(14.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(4)
-queststatus(632) > 0, queststatus(633) = 0, german, chance(14.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(4)
-queststatus(632) > 0, queststatus(633) = 0, english, chance(17.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(5)
-queststatus(632) > 0, queststatus(633) = 0, german, chance(17.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(5)
-queststatus(632) > 0, queststatus(633) = 0, english, chance(20.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(6)
-queststatus(632) > 0, queststatus(633) = 0, german, chance(20.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(6)
-queststatus(632) > 0, queststatus(633) = 0, english, chance(25.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(7)
-queststatus(632) > 0, queststatus(633) = 0, german, chance(25.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(7)
-queststatus(632) > 0, queststatus(633) = 0, english, chance(34.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", queststatus(633) = 1, treasure(8)
-queststatus(632) > 0, queststatus(633) = 0, german, chance(34.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", queststatus(633) = 1, treasure(8)
-queststatus(632) > 0, queststatus(633) = 0, english, chance(51.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", item(284, 1, 999, "gemLevel" = "1"), queststatus(633) = 1
-queststatus(632) > 0, queststatus(633) = 0, german, chance(51.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(284, 1, 999, "gemLevel" = "1"), queststatus(633) = 1
-queststatus(632) > 0, queststatus(633) = 0, english, chance(100.0), "Mordak", "Kharud" -> "#me nods and hands you an item silently.", item(283, 1, 999, "gemLevel" = "1"), queststatus(633) = 1
-queststatus(632) > 0, queststatus(633) = 0, german, chance(100.0), "Mordak", "Kharud" -> "#me nickt und reicht dir leise einen Gegenstand.", item(283, 1, 999, "gemLevel" = "1"), queststatus(633) = 1
-
--- Mirarie Bragolin Quest (Writing history V
-queststatus(317) = 12, english, "Mirarie", "Bragolin", "letter", "message" -> "A Letter from Cadomyr? Oh, thank you very much. … What? Ah, I see. I'll take care of that, you may leave now.", queststatus(317) = 13
-queststatus(317) = 12, "Mirarie", "Bragolin", "Brief", "Nachricht" -> "Ein Brief aus Cadomyr? Oh, vielen Dank...Was? Ah, ich verstehe. Ich werde mich darum kümmer. Ihr könnt nun gehen.", queststatus(317) = 13
+queststatus(632) > 0, queststatus(633) = 0, english, chance(10.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(1), "#me nods and hands you an item silently."
+queststatus(632) > 0, queststatus(633) = 0, german, chance(10.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(1), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(632) > 0, queststatus(633) = 0, english, chance(11.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(2), "#me nods and hands you an item silently."
+queststatus(632) > 0, queststatus(633) = 0, german, chance(11.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(2), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(632) > 0, queststatus(633) = 0, english, chance(13.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(3), "#me nods and hands you an item silently."
+queststatus(632) > 0, queststatus(633) = 0, german, chance(13.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(3), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(632) > 0, queststatus(633) = 0, english, chance(14.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(4), "#me nods and hands you an item silently."
+queststatus(632) > 0, queststatus(633) = 0, german, chance(14.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(4), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(632) > 0, queststatus(633) = 0, english, chance(17.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(5), "#me nods and hands you an item silently."
+queststatus(632) > 0, queststatus(633) = 0, german, chance(17.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(5), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(632) > 0, queststatus(633) = 0, english, chance(20.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(6), "#me nods and hands you an item silently."
+queststatus(632) > 0, queststatus(633) = 0, german, chance(20.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(6), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(632) > 0, queststatus(633) = 0, english, chance(25.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(7), "#me nods and hands you an item silently."
+queststatus(632) > 0, queststatus(633) = 0, german, chance(25.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(7), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(632) > 0, queststatus(633) = 0, english, chance(34.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(8), "#me nods and hands you an item silently."
+queststatus(632) > 0, queststatus(633) = 0, german, chance(34.0), "Mordak", "Kharud" -> queststatus(633) = 1, treasure(8), "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(632) > 0, queststatus(633) = 0, english, chance(51.0), "Mordak", "Kharud" -> item(284, 1, 999, "gemLevel" = "1"), queststatus(633) = 1, "#me nods and hands you an item silently."
+queststatus(632) > 0, queststatus(633) = 0, german, chance(51.0), "Mordak", "Kharud" -> item(284, 1, 999, "gemLevel" = "1"), queststatus(633) = 1, "#me nickt und reicht dir leise einen Gegenstand."
+queststatus(632) > 0, queststatus(633) = 0, english, chance(100.0), "Mordak", "Kharud" -> item(283, 1, 999, "gemLevel" = "1"), queststatus(633) = 1, "#me nods and hands you an item silently."
+queststatus(632) > 0, queststatus(633) = 0, german, chance(100.0), "Mordak", "Kharud" -> item(283, 1, 999, "gemLevel" = "1"), queststatus(633) = 1, "#me nickt und reicht dir leise einen Gegenstand."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
 "profession" -> "Well, I provide for myself and my family. Ah and I rule Galmair of course."
@@ -119,16 +121,16 @@ english, "Rosie" -> "She doesn't like the name, what can I say? Prefers Rosaline
 "Rosie" -> "Sie mag den Namen nicht, ihr werdet sie eher als Königin Rosaline kennen.", "Glaubt mir, das Privileg sie so zu nennen ist allein mir vorbestimmt. Versucht es erst gar nicht."
 english, "Miggs" -> "Every successful businessman need two things: A supportive wife and a muscle to do his biding. If only I had Rosie, I'd have both in one person.", "Miggs is like a second left hand for me, but enough jokes. See him if you need a task."
 "Miggs" -> "Jeder erfolgreiche Geschäftsmann braucht zwei Dinge: Eine unterstützende Frau und einen Mann fürs Grobe. Ach, mit Rosie hätte ich beides in einem.", "Miggs ist wie eine zweite linke Hand, aber genug gescherzt. Geh zu ihm wenn du eine Aufgabe suchst."
-"protection", "fee" -> "You wanna be in the know? So do about a thousand other people. Don't talk about things that don't concern you.", "You talking about protection fees? You need some protection? You might if you keep talking about things that don't concern you.", "A business has to have protection from a lot things. Also, has to pay a lot fees. That's about all you need to know."
-"Protektionsgebühr", "Schutz", "Protekt", "Gebühr" -> " Was wollt Ihr wissen? - Sprecht nicht über Dinge die Euch nichts angehen.", "Sprecht Ihr über die Protektionsgebühren? Braucht ihr etwa Schutz? Vermutlich schon... sprecht Ihr immerhin über Dinge die Euch nicht im gerningsten zu interessieren haben.", "Ein Laden muss vor vielen Dingen geschützt werden. - Und muss viele Gebühren zahlen. Das ist alles was Ihr wissen müsst."
+"protect", "fee" -> "You wanna be in the know? So do about a thousand other people. Don't talk about things that don't concern you.", "You talking about protection fees? You need some protection? You might if you keep talking about things that don't concern you.", "A business has to have protection from a lot things. Also, has to pay a lot fees. That's about all you need to know."
+"Schutz", "Protekt", "Gebühr" -> " Was wollt Ihr wissen? - Sprecht nicht über Dinge die Euch nichts angehen.", "Sprecht Ihr über die Protektionsgebühren? Braucht ihr etwa Schutz? Vermutlich schon... sprecht Ihr immerhin über Dinge die Euch nicht im gerningsten zu interessieren haben.", "Ein Laden muss vor vielen Dingen geschützt werden. - Und muss viele Gebühren zahlen. Das ist alles was Ihr wissen müsst."
 
 -- Easter egg
-english, "Corleone" -> "Ach, a dazzler from Gynka, no honour. And throaty all the time, only the gods know why."
-"Corleone" -> "Ach, ein Blender aus Gynka, keine Ehre. Und immer heiser, die Götter wissen warum."
+english, "Corleone" -> "Ach, a dazzler from Gynk, no honour. And throaty all the time, only the gods know why."
+"Corleone" -> "Ach, ein Blender aus Gynk, keine Ehre. Und immer heiser, die Götter wissen warum."
 
 -- Faction stuff
-"faction" -> "Ya know I hear people talking about these 'factions', but all I see is the land of my future wife and a drugged out magician leading halfers.", "Ya, ya Runewick, Cadomyr, and Galmair that's all you newcomers want to talk about. Focus on what's important, getting rich, plain and simple."
-"fraktion" -> "Wisst Ihr, ich höre die Leute immer wieder über die 'Fraktionen' sprechen. Aber für mich sind sie nichts weiter als die Länder meiner zukünftigen Frau und des übergeschnappten Magiers, der Frauenkleider trägt.", "Aye, Runewick, Cadomyr und Galmair, das ist alles worüber Neuankömmlinge wie ihr sprechen wollt. Konzentriert Euch lieber auf die  wichtigen Dinge! Reichtum und Macht! - Ganz einfach."
+"realm" -> "Ya know I hear people talking about these 'realms', but all I see is the land of my future wife and a drugged out magician leading halfers.", "Ya, ya Runewick, Cadomyr, and Galmair that's all you newcomers want to talk about. Focus on what's important, getting rich, plain and simple."
+"Reich" -> "Wisst Ihr, ich höre die Leute immer wieder über die 'Reiche' sprechen. Aber für mich sind sie nichts weiter als die Länder meiner zukünftigen Frau und des übergeschnappten Magiers, der Frauenkleider trägt.", "Aye, Runewick, Cadomyr und Galmair, das ist alles worüber Neuankömmlinge wie ihr sprechen wollt. Konzentriert Euch lieber auf die wichtigen Dinge! Reichtum und Macht! Ganz einfach."
 english, "archmage" -> "Tell me, what should I think of a man who wears women's clothing and enjoys men swooning over his greatness?", "He is said not to leave his tower very often. If you ask me, that's a good thing."
 "Erzmagier" -> "Sagt mir ernsthaft, was soll ich von einem Mann halten der Frauengewänder trägt und sich von Männern anhimmeln lässt?", "Er soll seinen Turm ja nicht oft verlassen, und wenn ihr mich fragt ist das auch gut so."
 english, "Elvaine", "Morgan" -> "Tell me, what should I think of a man who wears women's clothing and enjoys men swooning over his greatness?", "He is said not to leave his tower very often. And if you ask me, that's a good thing."
@@ -217,4 +219,4 @@ cycletext "#me spuckt angewidert ein paar Trauben aus. 'Ugh. Wer hat das zu vera
 cycletext "Ich befürchet, dieser Kräuterhandel wird uns noch in den nächsten Jahren viele Sorgen bereiten.", "I believe this herb business is gonna destroy us in the years to come."
 cycletext "Ich war niemals unvorsichtig. Frauen und Kinder dürfen unvorsichtig sein, Männer nicht.", "I spent my life trying not to be careless. Females and children can be careless, but not dwarves or men."
 cycletext "Ich glaube an Gold, Reichtümer und Macht. Wer an sie nicht ehrt, hat sie wohl schlichtweg nicht!", "I have faith in gold, wealth and power. Those who don't honour such meaningful things simply don't have either."
-cycletext "Miggs! Wo ist Miggs schon wieder! Einige Händler haben ihre 'Protektionsgebühr' diesen Monat noch nicht entrichtet.", "Miggs! Where is Miggs again? Some traders haven't paid their 'protection fee' this month."
+cycletext "Miggs! Wo ist Miggs schon wieder! Einige Händler haben ihre 'Protektionsgebühr' diesen Monat noch nicht entrichtet.", "Miggs! Where is Miggs again? Some merchants haven't paid their 'protection fee' this month."

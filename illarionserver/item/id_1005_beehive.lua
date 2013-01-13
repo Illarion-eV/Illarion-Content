@@ -5,7 +5,7 @@ require("content.gathering")
 
 module("item.id_1005_beehive", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	
 	content.gathering.InitGathering();
 	local honeygathering = content.gathering.honeygathering;
@@ -134,7 +134,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	end
 	
 	-- since we're here, everything should be alright
-	User:learn( honeygathering.LeadSkill, honeygathering.SavedWorkTime[User.id], 100);
+	User:learn( honeygathering.LeadSkill, honeygathering.SavedWorkTime[User.id], 20);
 	local notCreated = User:createItem( 2529, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 2529, notCreated, User.pos, true, 333, nil );

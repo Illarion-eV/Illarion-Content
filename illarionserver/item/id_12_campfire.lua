@@ -7,7 +7,7 @@ require("content.gathering")
 
 module("item.id_12_campfire", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local potashproducing = content.gathering.potashproducing;
 
@@ -61,7 +61,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		return
 	end
 
-	User:learn( potashproducing.LeadSkill, potashproducing.SavedWorkTime[User.id], 100);
+	User:learn( potashproducing.LeadSkill, potashproducing.SavedWorkTime[User.id], 20);
 	local woodList = {2560,543,544,3};
 	local woodID = 0;
 	for _,wood in pairs(woodList) do

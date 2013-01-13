@@ -8,12 +8,12 @@ require("item.base.crafts")
 
 module("item.id_6_scissors", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	-- first decide if we're cutting wool or entrails
 	local targetCharacter = base.common.GetFrontCharacter(User);
 	-- check for sheep in front
 	if (targetCharacter ~= nil and targetCharacter:getRace()==18) then
-		UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltstate, targetCharacter );
+		UseItemWoolCutting( User, SourceItem, ltstate, targetCharacter );
 		return;
 	end
 	-- look for a nearby sheep
@@ -23,14 +23,14 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 			if ( world:isCharacterOnField(pos) ) then
 				targetCharacter = world:getCharacterOnField(pos);
 				if ( targetCharacter:getRace() == 18 ) then
-					UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltstate, targetCharacter );
+					UseItemWoolCutting( User, SourceItem, ltstate, targetCharacter );
 					return;
 				end
 			end
 		end
 	end
 	if (User:countItemAt("all",63)>0) then -- check for entrails
-		UseItemEntrailsCutting( User, SourceItem, TargetItem, Counter, Param, ltstate );
+		UseItemEntrailsCutting( User, SourceItem, ltstate );
 		return;
 	end
 	-- there is no sheep and no entrails
@@ -39,7 +39,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	"You need either a sheep for shearing it, or entrails for cutting it and thus producing thread." );
 end
 
-function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltstate, Sheep )
+function UseItemWoolCutting( User, SourceItem, ltstate, Sheep )
 	content.gathering.InitGathering();
 	local woolcutting = content.gathering.woolcutting;
 
@@ -89,7 +89,7 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 		User:talkLanguage( Character.say, Player.german, "#me beginnt ein Schaf zu scheren.");
 		User:talkLanguage( Character.say, Player.english, "#me starts to shear a sheep."); 
 		-- make sure the sheep doesn't move away
-		Sheep.movepoints = math.min(Sheep.movepoints - woolcutting.SavedWorkTime[User.id], -1*woolcutting.SavedWorkTime[User.id]);
+		Sheep.movepoints = math.min(Sheep.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
 		return;
 	end
 
@@ -99,7 +99,7 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 		return
 	end
 
-	User:learn( woolcutting.LeadSkill, woolcutting.SavedWorkTime[User.id], 100);
+	User:learn( woolcutting.LeadSkill, woolcutting.SavedWorkTime[User.id], 20);
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 170, amount, 333, nil); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -110,11 +110,11 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 	else -- character can still carry something
 		woolcutting.SavedWorkTime[User.id] = woolcutting:GenWorkTime(User,SourceItem);
 		User:startAction( woolcutting.SavedWorkTime[User.id], 0, 0, 0, 0);
-		-- the sheep may move away
-		Sheep.movepoints = Sheep.movepoints - 0.8*woolcutting.SavedWorkTime[User.id];
+		-- make sure the sheep doesn't move away
+		Sheep.movepoints = math.min(Sheep.movepoints, -1*woolcutting.SavedWorkTime[User.id]);
 	end
 
-	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Schere zerbricht.",
 		"Your old scissors break.");
@@ -122,7 +122,7 @@ function UseItemWoolCutting( User, SourceItem, TargetItem, Counter, Param, ltsta
 	end
 end
 
-function UseItemEntrailsCutting( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItemEntrailsCutting( User, SourceItem, ltstate )
 	content.gathering.InitGathering();
 	local entrailscutting = content.gathering.entrailscutting;
 
@@ -178,7 +178,7 @@ function UseItemEntrailsCutting( User, SourceItem, TargetItem, Counter, Param, l
 		return
 	end
 
-	User:learn( entrailscutting.LeadSkill, entrailscutting.SavedWorkTime[User.id], 100);
+	User:learn( entrailscutting.LeadSkill, entrailscutting.SavedWorkTime[User.id], 20);
 	User:eraseItem( 63, 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 50, amount, 333, nil ); -- create the new produced items
@@ -198,7 +198,7 @@ function UseItemEntrailsCutting( User, SourceItem, TargetItem, Counter, Param, l
 		end
 	end
 
-	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Schere zerbricht.",
 		"Your old scissors break.");

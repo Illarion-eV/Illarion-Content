@@ -9,19 +9,19 @@ module("druid.spell.spell_10_combine_gem", package.seeall(druid.base.alchemy))
 
 -- INSERT INTO spells VALUES (2^10,3,'druid.spell.spell_10_combine_gem');
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 	base.common.InformNLS(Caster, "Dieser Zauber lässt sich nur auf magische Edelsteine wirken.", "Dieser Zauber lässt sich nur auf magische Edelsteine wirken.");
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 	base.common.InformNLS(Caster, "Dieser Zauber lässt sich nur auf magische Edelsteine wirken.", "Dieser Zauber lässt sich nur auf magische Edelsteine wirken.");
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 	base.common.InformNLS(Caster, "Dieser Zauber lässt sich nur auf magische Edelsteine wirken.", "Dieser Zauber lässt sich nur auf magische Edelsteine wirken.");
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param)
+function CastMagicOnItem(Caster,TargetItem)
 	if(Init == nil) then
 		GemList = {45, 46, 197, 198, 283, 284, 285};
 		DustList = {448, 447, 450, 451, 449, 446, 452};

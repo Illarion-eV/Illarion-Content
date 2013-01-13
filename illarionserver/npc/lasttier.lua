@@ -9,7 +9,7 @@
 
 module("npc.lasttier", package.seeall)
 
-function useNPC(User,Counter,Param)
+function useNPC(User)
     if lost[thisNPC.id] then -- Kuh wurde zurück gelassen
         find_transporter, effect_transporter = thisNPC.effects:find(10);
         if not find_transporter then

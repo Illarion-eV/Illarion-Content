@@ -97,7 +97,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Good trip.", "Until next ti
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Fredericus. Das bin ich.", "Ich bin der Fischer Fredericus.", "Fredericus ist mein Name, ich handel mit Fischen."
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Fish, fish, fish. I trade fish. And also herbs, if you need any to spice up your dishes.", "I trade fish, do you need any?", "I trade what you need to catch fish and I even buy the fish you caught.", "Ya want to trade? Aye, have a look!", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "Fish, fish, fish. I trade fish... And also herbs, if you need any to spice up your dishes.", "I trade fish, do you need any?", "I trade what you need to catch fish and I even buy the fish you caught.", "Ya want to trade? Aye, have a look!", trade
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Fisch, Fisch und nochmal Fisch. Ich handele mit Fischen und auch Kräutern, wenn ihr eure Gerichte würzen wollt.", "Ich handel Fische, braucht ihr welche?", "Ich verkaufe alles, was man zum Fischen braucht und kaufe sogar euren Fang.", "Du willst handeln? Da schau her was ich hab!", trade
 
 -- Catching quest triggers
@@ -110,9 +110,9 @@ english, "quest", "mission" -> "I do not issue any quests. But you can bring me 
 "fischers fritze" -> "Fischt frische Fische!"
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I'm a fisherman. A hard job, but a honest and honourable job."
+"profession" -> "I'm a fisherman. A hard job, but an honest and honourable job."
 "beruf" -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
-english, "job" -> "I'm a fisherman. A hard job, but a honest and honourable job."
+english, "job" -> "I'm a fisherman. A hard job, but an honest and honourable job."
 "job" -> "Ich bin ein Fischer. Das ist ein hartes Geschäft, aber es ist ehrlich und ehrbar."
 english, "Gobaith", "Gobiath" -> "I once sailed to Gobaith, the natives tossed onions at each other!"
 "Gobaith", "Gobiath" -> "Ich bin einmal nach Gobaith gesegelt, die Eingeborenen dort haben mit Zwiebeln aufeinander geworfen!"
@@ -150,21 +150,21 @@ english, "Cadomyr" -> "Cadomyr is my home, where I return to after setting sails
 "Cadomyr" -> "Cadomyr ist meine Heimat, in die ich mit vollen Segeln zurückkehre.", "Ich liebe Cadomyr wie das weite, offene Meer.", "Cadomyr kriegt das beste, für die anderen bleiben nur Reste."
 
 -- Main land factions
-english, "albar" -> "Oh, Albar, how much I desire to sail there. A land of justice and honour"
+english, "albar" -> "Oh, Albar, how much I desire to sail there... A land of justice and honour"
 "albar" -> "Oh, Albar, wie sehr wünschte ich, ich könnte dorthin segeln. Ein Land der Gerechtigkeit und der Ehre."
 english, "gynk", "gync" -> "What did you say?", "I did not understand you.", "Pardon me?", "Shh, do not talk about this too loud."
 "gync", "gynk" -> "Was habt ihr gesagt?", "Ich habe euch nicht verstanden.", "Entschuldigung?", "Psst, sprecht darüber nicht so laut."
-english, "salkama" -> "Arrogant wisenheimers they are. And a hard working fisherman does not matter to the oh-so-noble people there."
+english, "salkama" -> "Arrogant wise guys they are, and a hard working fisherman does not matter to the oh-so-noble people there."
 "salkama" -> "Arrogante Besserwisser sind das. Und ein hart arbeitender Fischer zählt nichts für die ach-so-noblen Leute dort."
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
-"god" -> "Goddesses aren't prayed to in Cadomyr, they say. But when you are at sea, you'll pray to Tanora and Findari, that's for sure."
+"god" -> "Goddesses aren't prayed to in Cadomyr, they say, but when you are at sea, you'll pray to Tanora and Findari, that's for sure."
 "Gott", "Götter" -> "In Cadomyr betet man keine Göttinnen an, so heißt es. Aber wenn ihr mal auf See seid, dann werdet ihr sicherlich Tanora und Findari anflehen."
-english, "Tanora", "Zelphia" -> "Tanora guides my boat, Tanora protects my boat, Tanora causes the waves that crash my boat.", "Hail Tanora!", "I obey Tanora, but if you want to meet people who adore her, go to Cape Farewell."
+english, "Tanora", "Zelphia" -> "Tanora guides my boat, Tanora protects my boat, Tanora causes the waves that sink my boat.", "Hail Tanora!", "I obey Tanora, but if you want to meet people who adore her, go to Cape Farewell."
 "Tanora", "Zelphia" -> "Tanora lenkt mein Boot, Tanora schützt mein Boot, Tanora schickt die Wellen, die mein Boot zermalmen.", "Huldigt Tanora!", "Ich gehorche Tanora, aber wenn ihr Leute treffen wollt, die sie verehren, geht zum Kap des Abschiedes."
 english, "Findari" -> "Findari grants the devastating storm or the wind that blows the sail; depending on her mood."
 "Findari" -> "Findari bringt den vernichtenden Sturm oder den Wind, der die Segel aufbläht, je nach ihrer Stimmungslage."
-english, "Irmorom" -> "Irmorom helps me doing good business, but my fate is in the hand of Tanora and Findari."
+english, "Irmorom" -> "Irmorom helps me to do good business, but my fate is in the hand of Tanora and Findari."
 "Irmorom" -> "Irmorom verhilft mir manches mal zu guten Geschäften, aber mein Leben liegt in Tanoras und Findaris Händen."
 
 -- Catching typical NPC phrases
@@ -172,7 +172,7 @@ english, "Irmorom" -> "Irmorom helps me doing good business, but my fate is in t
 "erzähl was", "erzähl etwas" -> "Ich schwöre, ich habe ein Seeungeheuer gesehen!", "Wenn ein böser Geist auf einem Schiff sein Unwesen treibt, dann ist es meist bald verloren."
 
 -- Last catch: Think about keyphrases the player might say and that are not caught until here
-english, "Fredericus" -> "I am merely a humble fisherman. But I could tell you about the gods, shall I?"
+english, "Fredericus" -> "I am merely a humble fisherman. But I could tell you about the Gods, shall I?"
 "Fredericus" -> "Ich bin nur ein einfacher Fischer, aber ich könnte euch etwas über die Götter erzählen, wenn ihr Zeit habt."
 "Yes" -> "Aye, aye, and a flounder in addition.", "Well, maybe a herring?", "That's good."
 "Ja" -> "Aye, aye, und eine Flunder dazu.", "Vielleicht einen Hering?", "Das ist gut auch so."
@@ -191,10 +191,10 @@ english, "Fredericus" -> "I am merely a humble fisherman. But I could tell you a
 cycletext "Mein Fisch stinkt nicht!", "My fish does not stink!"
 cycletext "Frischer Fisch!", "Fresh fish!"
 cycletext "Fisch, Kräuter, alles, was ihr braucht für das Festmahl!", "Fish, herbs, all you need for dinner!"
-cycletext "#me riecht an den Fischen in seiner Auslage und verzieht das Gesicht.", "#me sniffes on the fish on his cart and wrinkles his nose."
+cycletext "#me riecht an den Fischen in seiner Auslage und verzieht das Gesicht.", "#me sniffs at the fish on his cart and wrinkles his nose."
 cycletext "Fangfrischer Lachs!", "Fresh salmon!"
 cycletext "Komm, kauf jetzt und pack dir noch einen Aal drauf!", "C'mon, buy now and you get an eel for free!"
 cycletext "Kauft noch einen Bückling, der schmeckt zwar nicht, hält aber die Ratten fern.", "Buy this bloater, it is not tasty, but it keeps the rats at bay."
-cycletext "Beste Forellen!", "Best trouts!"
+cycletext "Beste Forellen!", "Best trout!"
 cycletext "Leckere Heringe!", "Tasty herrings!"
-cycletext "Ein Pfund Makrelen, nur jetzt, nur für euch!", "A pound mackerels, only now, only for you!"
+cycletext "Ein Pfund Makrelen, nur jetzt, nur für euch!", "A pound of mackerels, only now, only for you!"

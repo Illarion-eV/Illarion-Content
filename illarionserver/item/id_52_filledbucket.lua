@@ -10,7 +10,7 @@ require("alchemy.base.alchemy")
 
 module("item.id_52_filledbucket", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(User, SourceItem, ltstate)
 
   -- look for cauldron
   TargetItem = GetCauldron(User);
@@ -18,7 +18,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
     if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
       base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
     end
-    WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate);
+    WaterIntoCauldron(User,SourceItem,TargetItem,ltstate);
     return;
   end
   
@@ -94,7 +94,7 @@ function PourOnCharacter (TargetCharacter, SourceItem )
   "You feel much cleaner.");
 end
 
-function WaterIntoCauldron(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function WaterIntoCauldron(User,SourceItem,TargetItem,ltstate)
     local cauldron = TargetItem
 	
 	if ( ltstate == Action.abort ) then

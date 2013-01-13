@@ -422,19 +422,19 @@ function ds_analyse_330(Caster,Item)
 end
 
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 --Caster:inform("debug #06.1")
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 --Caster:inform("debug #06.2")
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 --Caster:inform("debug #06.3")
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
+function CastMagicOnItem(Caster,TargetItem,ltstate)
 --Caster:inform("debug #06.4")
 --Analyse eines Trankes auf Inhalt(data)
 	pList={59,165,166,167,327,328,329,330};

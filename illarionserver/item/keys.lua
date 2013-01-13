@@ -5,7 +5,7 @@ module("item.keys", package.seeall)
 
 -- UPDATE common SET com_script='item.keys' WHERE com_itemid IN (2121,2122,2123,2124,2141,2144,2145,2161,2556,2558,3054,3055,3056);
 
-function UseItem(User,SourceItem,TargetItem,counter,param)
+function UseItem(User, SourceItem)
     local DoorItem = base.common.GetFrontItem( User );
     
 	if SourceItem:getData("prisonKeyOf") ~= "" then 
@@ -108,7 +108,7 @@ function SentenceCharacter(User,SourceItem)
             end
 		end	
 	end
-	local dialog = InputDialog("Sentence to forced labour","Insert: [Name|ID] [workload] Example: Hans Thief 300",false,255,callback)
+	local dialog = InputDialog("Sentence to forced labour","Insert: [Name|ID] [workload] Example: John Doe 300",false,255,callback)
 	User:requestInputDialog(dialog)
 end
 

@@ -1,0 +1,202 @@
+------------------------------------------------------------------------------AC
+-- NPC Name: Gretel Goldhair                                          Galmair --
+-- NPC Job:  Galmair Treasurer                                                --
+--                                                                            --
+-- NPC Race: human                      NPC Position:  341, 218, 0            --
+-- NPC Sex:  female                     NPC Direction: southwest              --
+--                                                                            --
+-- Author:   Miriam                                                           --
+--                                                       easyNPC Parser v1.22 --
+--------------------------------------------------------------------------------
+
+name = "Gretel Goldhair"
+race = human
+sex = female
+position = 341, 218, 0
+direction = southwest
+affiliation = "Galmair"
+job = "Galmair Treasurer"
+
+language = common
+language = human
+defaultLanguage = common
+autointroduce = on
+
+author = "Miriam"
+
+lookatDE = "Dieser NPC ist Gretel Goldhair."
+lookatUS = "This NPC is Gretel Goldhair."
+useMsgDE = "Bleibt weg von mir!"
+useMsgUS = "Stay away from me!"
+wrongLangDE = "#me schaut verwirrt."
+wrongLangUS = "#me looks around confused."
+radius = 0
+hairID = 7
+beardID = 0
+colorHair = 60, 30, 4
+colorSkin = 232, 214, 199
+itemHead = 1
+itemChest = 802
+itemCoat = 0
+itemMainHand = 0
+itemSecondHand = 0
+itemHands = 0
+itemTrousers = 0
+itemShoes = 369
+
+-- Trading
+-- Here are all items the NPCs is able to trade. They will be displayed inside
+-- the merchant dialog.
+
+-- sellItems =
+-- buyPrimaryItems = 1
+-- buySecondaryItems = 2, 3
+
+-- Template Version 1.08, 10/18/2012 by Estralis Seborian
+-- Instructions: Replace all talk consequences with strings ending with a full stop, maximum length is 250 characters. Try to provide more than one answer, one is chosen at random.
+-- Order of triggers: Triggers are checked from top to bottom in the script. Never use very general triggers like "hi" or even ".*" on top of the script unless you know exactly what you are doing.
+-- Style of triggers: Keywords are preferred. Avoid usage of phrases such as "tell me more"
+-- Valid races: human, elf, dwarf, lizardman, orc, halfling
+-- Valid directions: north, northeast, east, southeast, south, southwest, west, northwest
+-- Appearance: If you don't change anything your NPC will wear a blue shirt, black trousers, leather glowes and leather boots at least. S/he will also have fair skin and brown hairs. Please use red-green-blue values as indicator. Ex.: colorHair = 123 (red), 62 (green), 9 (blue) = brown hair.
+-- Equipment: You can find a graphical item list here: http://illarion.org/~martin/itemlist.pdf
+-- Keep radius=0 and the NPC won't walk around, a value greater than 0 will make the NPC run around his position randomly
+-- When you are done, please hit the "Rebuild Script" button and save the LUA script. Both, this npc file and the LUA file have to be uploaded to the script repository
+-- After uploading, your NPC needs to be submitted to the database and a developer has to perform a full reload (!fr) of the server
+
+-- TRADING
+-- The trader should buy all items he sells. Primary items are bought at 10% of the worth, secondary items yield only 5%
+
+-- MANDATORY TRIGGERS
+
+-- Mandatory: Help
+"Help" -> inform("[Game Help] This NPC is Gretel Goldhair. Keywords: Quest, profession, Galmair, garbage, gods, Don.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Gretel Goldhair. Süsselwörter: Auftrag, Beruf, Galmair, Müll, Götter, Don.")
+
+-- Mandatory: General speech
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!", "#me nods.", "Speak louder, I can't hear you!"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße!", "#me nickt.'", "Sprecht lauter, ich kann Euch nicht hören."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hm?", "Speak louder, I can't hear you!", "Hello."
+"Hiho", "Hallo", "Hey", "Greeb" -> "Hm?", "Sprecht lauter, ich kann Euch nicht hören.", "Hallo."
+"Farewell", "Bye", "Fare well", "See you" -> "#me nods", "Speak louder, I can't hear you!"
+"Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "#me nickt.", "Sprecht lauter, ich kann Euch nicht hören."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Take care!", "May the five be with you!", "#me bows her head."
+"Ciao", "Adieu", "Au revoir", "Farebba" -> "Bis bald!", "Mögen die Fünf mit Euch sein!", "#me neigt den Kopf."
+"How are you", "How feel", "How do you do" -> "Speak louder, I can't hear you!"
+"Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befind" -> "Sprecht lauter, Ich kann Euch nicht hören."
+"How do you do" -> "Shoe? Just drop your shoe on the field here!"
+"your name", "who are you", "who art thou" -> "I am Gretel. And you are...?", "Gretel Goldhair. I once was famous, maybe you heard of me?"
+"ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Gretel Goldhair. Und Ihr seid?", "Gretel Goldhair. Ich war mal berühmt. Vielleicht habt Ihr von mir gehört?"
+
+-- OPTIONAL TRIGGERS
+
+-- Optional: Trade Hooks, use only for traders
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I do not sell anything. But I take donations...or well, the Don does. Just bring the things here and place them on the field."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich verkaufe nichts. Aber ich nehme Spenden entgegen... nun ja, eigentlich sind es Spenden für den Don. Bringt die Sachen ruhig her und legt sie auf das Feld."
+
+-- Optional: Catching quest triggers. Galmair garbage bin quest (206)
+queststatus(206) = 0, english, town = Galmair, "quest", "mission" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Do you want a task? Bring some more donations. And drop it on the field here!"
+queststatus(206) = 0, town = Galmair, "quest", "mission" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
+queststatus(206) = 0, town = Galmair, "task", "adventure", "order" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Do you want a task? Bring some more donations. And drop it on the field here!"
+queststatus(206) = 0, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[New Quest] Galmair Treasury"), queststatus(206) = 1, "Ihr möchtet eine Aufgabe? Bringt ein paar mehr Spenden her. Und legt sie hier auf das Feld!"
+
+-- Quest 1 taken but not solved, repeat the instructions
+queststatus(206) = 1, english, town = Galmair, "quest", "mission" -> "Donating is quite easy: Just drop your items on the donation place. Easy, isn't it?"
+queststatus(206) = 1, town = Galmair, "quest", "mission" -> "Spenden ist eigentlich ganz einfach: Legt einen Gegenstand auf den Spendenplatz. Einfach, oder?"
+queststatus(206) = 1, town = Galmair, "task", "adventure", "order" -> "Donating is quite easy: Just drop your items on the donation place. Easy, isn't it?"
+queststatus(206) = 1, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Spenden ist eigentlich ganz einfach: Legt einen Gegenstand auf den Spendenplatz. Einfach, oder?"
+
+-- Quest 1 solved, reward: +20 rankpoints
+queststatus(206) = 2, english, town = Galmair, ".*" -> inform("[Quest solved] You advance in Don Valerio Guilianni's favour."), queststatus(206) = 3, rankpoints + 20, "Thank you for your donation!"
+queststatus(206) = 2, town = Galmair, ".*" -> inform("[Quest solved] You advance in Don Valerio Guilianni's favour."), queststatus(206) = 3, rankpoints + 20, "Danke für Eure Spende!"
+
+-- Final dialogue: No more quests, just nice hints
+queststatus(206) = 3, english, town = Galmair, "quest", "mission" -> "Ask Cormac, maybe he has something to do. But come back again and donate more to the Don!"
+queststatus(206) = 3, town = Galmair, "quest", "mission" -> "Frag' bei Cormac, vielleicht hat er etwas zu tun. Aber komm bald wieder und spende mehr an den Don!"
+queststatus(206) = 3, town = Galmair, "task", "adventure", "order" -> "Ask Cormac, maybe he has something to do. But come back again and donate more to the Don, Sweetheart!"
+queststatus(206) = 3, town = Galmair, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Frag' bei Cormac, vielleicht hat er etwas zu tun. Aber komm bald wieder und spende mehr an den Don, Schätzchen!"
+english, "quest", "mission" -> "I have nothing to do for you, darling."
+"quest", "mission" -> "I have nothing to do for you, darling."
+"task", "adventure", "order" -> "Ich habe keine Aufgabe für dich, Liebling."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe keine Aufgabe für dich, Liebling."
+
+-- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
+"profession" -> "I am sorting all that rubbish...I mean, all the donations to the Don."
+"beruf" -> "Ich sortiere all diesen Müll...ähm, all diese Spenden an den Don, wollte ich sagen."
+english, "job" -> "I am sorting all that rubbish...I mean, all the donations to the Don."
+"job" -> "Ich sortiere all diesen Müll...ähm, all diese Spenden an den Don, wollte ich sagen."
+"tell something" -> "I came to Galmair as a young girl. And I am still here now. How long will you stay here?", "I once was a well known, beautiful dancer. But I grew old and ugly. Now I guard this garbage bin.", "When I was young, they called me Gretel Goldhair, but now they call me Gretel Grayhair."
+"erzähl was", "erzähl etwas" -> "Ich kam als junges Mädchen nach Galmair. Jetzt bin ich immer noch da. Wie lange werden Ihr bleiben?", "Ich war mal eine Stadtbekannt, wunderschöne Tänzerin. Doch ich wurde alt und hässlich. Jetzt beaufsichtige ich diese Müllkippe!", "Früher nannten sie mich Gertel Goldhair, jetzt nennen sie mich Graue Gretel."
+
+-- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
+"garbage bin", "rubbish", "garbage", "trash" -> "You do not donate garbage to the Don, do you?"
+"Müllkippe", "Müll", "Schrott" -> "Ihr spendet doch keinen Müll an den Don, oder?"
+"magical", "surface" -> "If you drop things on the magical surface they will disppear, and magically regain their value and then be teleportet to Galmairs treasury."
+"magische", "Fläche", "Oberfläche" -> "Wenn Ihr Gegenstände auf die magische Oberfläche legt, werden sie durch Magie ihren Wert zurück erhalten und in die Schatzkammer von Galmair transferiert."
+
+-- Optional: Gods - use the triggers of the god the NPC worships or fights
+"god" -> "The gods created Illarion without rubbish. Most of us produce rubbish everyday."
+"Gott", "Götter" -> "Die Götter erschufen Illarion ohne Müll. Wir erschaffen jeden Tag Müll."
+english, "religion" -> "If you lost your loved ones you hope the gods keep them save in their realms. Maybe you'll understand oneday... or maybe you alredy do?"
+"religion" -> "Wenn du deine Liebsten verloren hast, betest du zu den Göttern, dass sie sie sicher in ihrer Spähre verweilen lassen. Eines Tags werdet Ihr das verstehen... oder versteht Ihr das schon?"
+"faith" -> "The elder gods have returned."
+"Glaube" -> "Die alten Götter sind zurück gekehrt."
+
+-- Optional: Faction stuff
+"archmage" -> "I am older than the archmage. By ages!", "Speak louder, I can't hear you!"
+"Erzmagier" -> "Ich bin älter als der Erzmagier. Wesentlich älter!", "Sprecht lauter, ich kann Euch nicht hören!"
+english, "Elvaine", "Morgan" -> "I am older than the archmage. By ages!", "Speak louder, I can't hear you!"
+"Elvaine", "Morgan" -> "Ich bin älter als der Erzmagier. Wesentlich älter!", "Sprecht lauter, ich kann Euch nicht hören!"
+english, "Runewick" -> "Speak louder, I can't hear you!", "No, no. This place is Galmair, sweetheart"
+"Runewick" -> "Sprecht lauter, ich kann Euch nicht hören!", "Nein, nein. Dieser Ort ist Galmair, Schätzchen."
+english, "Valerio", "Guilianni", "Don" -> "That's the Don here. He allowed me to guard the garbage bin."
+"Valerio", "Guilianni", "Don" -> "Das ist der Don. Er erlaubte mir auf die Müllkippe zu wachen."
+english, "Galmair" -> "Best place to be."
+"Galmair" -> "Der beste Ort zum verweilen."
+"Queen" -> "Even she will be ugly when she's old. But I'll be dead by than, what a pity."
+"Königin" -> "Auch sie wird häßlich, wenn sie alt wird. Aber dann ich schon tot, schade, schade..."
+english, "rosaline", "edwards" -> "I hate this arrogant brat!"
+"rosaline", "edwards" -> "Ich hasse diese arrogante Göre!"
+english, "Cadomyr" -> "Speak louder, I can't hear you!", "Cadomyr... what's with Cadomyr?"
+"Cadomyr" -> "Sprecht lauter, ich kann Euch nicht hören!", "Cadomyr? Was ist damit?"
+
+-- Optional: Main land factions
+english, "albar" -> "Speak louder, I can't hear you!"
+"albar" -> "Sprecht lauter, ich kann Euch nicht hören!", "Albar...did you say?"
+english, "gynk", "gync" -> "Speak louder, I can't hear you!", "Albar...had Ihr gesagt?"
+"gync", "gynk" -> "Sprecht lauter, ich kann Euch nicht hören!"
+english, "salkama" -> "Speak louder, I can't hear you!"
+"salkama" -> "Sprecht lauter, ich kann Euch nicht hören!"
+
+-- Optional: Gobaith
+english, "Gobaith", "Gobiath" -> "Speak louder, I can't hear you!"
+"Gobaith", "Gobiath" -> "Sprecht lauter, ich kann Euch nicht hören!"
+
+-- Optional: Last catch - Think about keywords the player might say and that are not caught until here
+"my name" -> "Speak louder, I can't hear you!", "Haven't I met you before?"
+"mein Name" -> "Sprecht lauter, ich kann Euch nicht hören!", "Habe ich Euch nicht schon einmal gesehen?"
+english, "Gretel", "Goldhair" -> "You asked for me?", "Who asked?", "Did you say something?"
+"Gretel", "Goldhair" -> "Ihr fragt nach mir?", "Wer fragt?", "Habt Ihr was gesagt?"
+"Yes" -> "#me grins showing a pair of yellow teeth.", "Very well."
+"Ja" -> "#me grinst und zeigt ein paar gelber Zähne.", " Schön. Schön."
+"No" -> "Oh... that's too sad.", "Speak louder, I can't hear you!"
+"Nein" -> "Oh, das ist jammerschade...", "#me hebt eine Augenbraue.", "Sprecht lauter, ich kann Euch nicht hören!"
+
+-- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
+english, chance(20.0), ".*" -> "Speak louder, I can't hear you!", "Did you say something?", "#me looks around"
+german, chance(20.0), ".*" -> "Sprecht lauter, ich kann Euch nicht hören!", "Habt Ihr was gesagt?", "#me schaut sich um."
+
+------------------------------------------------------------------------------AC
+-- Cycle Texts - Messages spoken automatically in random intervals.
+-- Every NPC should contain at least 10 of those messages.
+-- Emotes are possible also starting with "#me ....".
+
+cycletext "Seht mich an, so werdet auch Ihr aussehen, wenn Ihr alt seid!", "Look at me. You will look just the same when you're old!"
+cycletext "#me kichert irre wie eine alte Hexe.", "#me cackles like an old witch."
+cycletext "#me stützt sich auf ihren Stock.", "#me rests her arms on her walking staff."
+cycletext "#me starrt in die Ferne.", "#me stares at the horizon."
+cycletext "#me zieht die Nase hoch. ", "#me snuffles."
+cycletext "#me redet leise mich sich selbst.", "#me talks to herself silently."
+cycletext "#me schaut sich um.", "#me looks around."
+cycletext "#me hustet.", "#me coughs."
+cycletext "#me spuckt auf den Boden.", "#me spits on the ground."

@@ -22,7 +22,17 @@ function addEffect(dietEffect,Character)
 end
 
 function callEffect(dietEffect,Character)
-	return false;
+	local curStamp = base.common.GetCurrentTimestamp();
+  local foundExpire, buffExpireStamp = dietEffect:findValue("buffExpireStamp");
+  if (not foundExpire) then
+    User:inform("[ERROR] No expire stamp found in callEffect. Removing buff. Please inform a developer.");
+    return false;
+  end
+  if (curStamp >= buffExpireStamp) then
+    return false;
+  end
+  dietEffect.nextCalled = (buffExpireStamp - curStamp)*10;
+  return true;
 end
 
 function removeEffect(dietEffect,Character)
@@ -30,6 +40,20 @@ function removeEffect(dietEffect,Character)
   base.common.HighInformNLS(Character,
   "[Ernährung] Die Wirkung des guten Essens vergeht.",
   "[Diet] The effect of the good food vanishes.");
+  local foundBuff, buffType = dietEffect:findValue("buffType");
+  if (foundBuff) then
+    local foundBuffAmount, buffAmount = dietEffect:findValue("buffAmount");
+    if (not foundBuffAmount) then
+      -- should not happen
+      Character:inform("[ERROR] Found buffType, but no buffAmount. Set to 1. Please inform a developer.");
+      buffAmount = 1;
+    end
+    -- reset again the attributes
+    for i=1,buffAmount do 
+      local attrib = item.food.BUFFS[buffType][i];
+      Character:setAttrib(attrib,math.max(1,Character:increaseAttrib(attrib,0)-1));
+    end
+  end
 end
 
 function loadEffect(dietEffect,Character)

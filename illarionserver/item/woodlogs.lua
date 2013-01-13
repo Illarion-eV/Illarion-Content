@@ -6,7 +6,7 @@ require("base.common")
 
 module("item.woodlogs", package.seeall)
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User, SourceItem)
   local checkPos = SourceItem.pos;
   if (SourceItem:getType()~=3) then
     -- item is not on a field, try to light a fire at the front position.

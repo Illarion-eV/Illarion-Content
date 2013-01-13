@@ -8,7 +8,7 @@ module("item.id_72_fishingrod", package.seeall, package.seeall(item.general.wood
 
 LookAtItem = item.general.wood.LookAtItem
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local fishing = content.gathering.fishing;
 	
@@ -74,7 +74,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if fishing:FindRandomItem(User) then
 		return
 	end
-	User:learn( fishing.LeadSkill, fishing.SavedWorkTime[User.id], 100);
+	User:learn( fishing.LeadSkill, fishing.SavedWorkTime[User.id], 20);
 	local amount = 1; -- set the amount of items that are produced
 	local fishID = 0; 
 	local chance = math.random(1,10);
@@ -100,7 +100,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 		User:startAction( fishing.SavedWorkTime[User.id], 0, 0, 0, 0);
 	end
 
-	if base.common.ToolBreaks( User, SourceItem, false ) then -- damage and possibly break the tool
+	if base.common.GatheringToolBreaks( User, SourceItem ) then -- damage and possibly break the tool
 		base.common.HighInformNLS(User,
 		"Deine alte Angel zerbricht.",
 		"Your old fishing rod breaks.");

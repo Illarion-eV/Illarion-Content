@@ -124,9 +124,9 @@ function LookAtItem(user, item)
     world:itemInform(user, item, lookAt)
 end
 
-function UseItem(User, SourceItem, TargetItem, Counter, Param, ltstate)
+function UseItem(User, SourceItem, ltstate)
     if SourceItem:getData("gemLevel") == "" then
-	    alchemy.base.analysis.CauldronPotionCheck(User, SourceItem, TargetItem, Counter, Param, ltstate)
+	    alchemy.base.analysis.CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
 		return
 	end    
 
