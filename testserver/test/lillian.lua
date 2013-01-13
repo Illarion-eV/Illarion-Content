@@ -5,38 +5,59 @@ require("base.common")
 module("test.lillian", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-    local text = "Hans Dampf;123;Peter Bulle;456"
+    local NPC = "Alsaya"
 	local splitTable = {}
-	if (User.lastSpokenText == "split") then
-		splitTable = split(text, ";");
-		for i=1, #(splitTable) do
-			User:inform("SplitTable entrynumber: "..i.." = "..splitTable[i]);
-		end
+	if (User.lastSpokenText == "request") then
+		requestMonster(User,NPC); 
 	end
 end
 
-function split(splitString,pattern)
-	local splitTable = {};
-	local tempTable = {};
-	local tempString;
-	local index = 0;
-	
-	while true do
-		index = string.find(splitString, pattern, index+1);
-		if index == nil then
-			break;
-		end;
-		table.insert(tempTable, index)
-	end;
-	
-	tempString,_ = string.gsub(string.sub(splitString, 0, tempTable[1]), ";", "")
-	table.insert(splitTable, tempString);
-	for i=1, table.getn(tempTable) do
-		tempString,_ = string.gsub(string.sub(splitString, tempTable[i], tempTable[i+1]), ";", "")
-		table.insert(splitTable, tempString);
+monsterIDsByLevel = {
+	{monsters = {252, 271, 382, 582, 592}, points = 1},
+	{monsters = {101, 196, 381, 602, 881}, points = 2},
+	{monsters = {311, 394, 551, 882, 1011}, points = 3},
+	{monsters = {141, 501, 552, 791, 872}, points = 5},
+	{monsters = {191, 492, 531, 411, 851}, points = 8},
+	{monsters = {121, 202, 491, 525, 852}, points = 13},
+	{monsters = {534, 124, 562, 661, 853}, points = 20}
+}
+
+arenaInformations = {{playerPos=position(0,0,0), monsterPos=position(0,1,0), npcName="Alsaya", town="Cadomyr"}, 
+					{playerPos=position(0,0,0), monsterPos=position(0,1,0), npcName="Alsaya", town="Runewick"}, 
+					{playerPos=position(0,0,0), monsterPos=position(0,1,0), npcName="Alsaya", town="Galmair"}}
+
+function requestMonster(User, NPC) 
+	local cbChooseLevel = function (dialog)
+		if (not dialog:getSuccess()) then
+			return;
+        end
+		local index = dialog:getSelectedIndex()+1;
+		local arena = getArena(User, NPC);
+		User:warp(arenaInformations[arena].playerPos);
+		monster = world:createMonster(getRandomMonster(index),arenaInformations[arena].monsterPos,0);
 	end
-	
-	return splitTable;
+	if User:getPlayerLanguage() == 0 then
+		sdMonster = SelectionDialog("Monsterlevel", "Wählt ein Monsterlevel gegen das Ihr kämpfen möchtet:", cbChooseLevel);
+		for i=1, #(monsterIDsByLevel) do
+			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." Punkt(e))");
+		end
+	else
+		sdMonster = SelectionDialog("Monsterlevel", "Plaese choose a monsterlevel you wish to fight against:", cbChooseLevel);
+		for i=1, #(monsterIDsByLevel) do
+			sdMonster:addOption(0,"Level "..i.." Monster ("..monsterIDsByLevel[i].points.." point(s))");
+		end
+	end	
+	User:requestSelectionDialog(sdMonster);
+end
+
+function getArena(User, NPC)
+	for i=1, #(arenaInformations) do
+		if arenaInformations[i].npcName == NPC.name then
+			return i;
+		else
+			return "";
+		end
+	end
 end
 
 function LookAtItem(User, Item)
