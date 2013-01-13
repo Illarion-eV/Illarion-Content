@@ -28,7 +28,7 @@ function getRanklist(User, NPC, message)
 	local found = false;
 	local arenaEntry;
 	local arenaList = {};
-	local list = "";
+	local list = " ";
 	
 	for i=1, 5 do -- get the top 5
 		found, arenaEntry = ScriptVars:find("ArenaList"..town);
