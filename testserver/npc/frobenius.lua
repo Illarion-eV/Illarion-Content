@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -17,6 +17,7 @@ VALUES (0, 121, 599, 0, 4, 'Frobenius', 'npc.frobenius', 0, 2, 3, 255, 255, 255,
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.talkstate")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
@@ -34,9 +35,9 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ah, so you are interested in my wares.");
 talkEntry:addResponse("Take your time to look around.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -47,9 +48,9 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ah, dann interessiert Ihr Euch also für meine Waren.");
 talkEntry:addResponse("Schaut Euch ruhig in Ruhe um.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -218,7 +219,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am a blacksmith. That means I craft weapons of death.");
+talkEntry:addResponse("I am a blacksmith, that means I craft weapons of death.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -231,7 +232,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I am a blacksmith. That means I craft weapons of death.");
+talkEntry:addResponse("I am a blacksmith, that means I craft weapons of death.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -274,7 +275,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("iron");
-talkEntry:addResponse("Iron is tough, stiff and hard. The perfect material for weapons.");
+talkEntry:addResponse("Iron is tough, stiff and hard... The perfect material for weapons.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -326,7 +327,8 @@ talkEntry:addTrigger("merchant");
 talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
-talkEntry:addResponse("Buy whatever you want on this marketplace, but in the end, only weapons will make Cadomyr prosper.");
+talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
+talkEntry:addResponse("Buy whatever you want on this marketplace, but in theonly weapons will make Cadomyr prosper.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -341,7 +343,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("The archmage is the best that could happen to Runewick. He is such a bad leader that we do not have to bother about Runewick too much.");
+talkEntry:addResponse("The Archmage is the best that could happen to Runewick. He is such a bad leader that we do not have to bother about Runewick too much.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -355,7 +357,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("The archmage is the best that could happen to Runewick. He is such a bad leader that we do not have to bother about Runewick too much.");
+talkEntry:addResponse("The Archmage is the best that could happen to Runewick. He is such a bad leader that we do not have to bother about Runewick too much.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -369,7 +371,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick will fall into ruins one day, so do not bother. If you do, I have a good sword for you.");
+talkEntry:addResponse("Runewick will fall to ruins one day, so do not bother. If you do, I have a good sword for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -384,7 +386,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("I assume the dagger that will slash the Don's throat was already crafted. Hopefully, by me.");
+talkEntry:addResponse("I assume the dagger that will slash the Don's throat has already been crafted... Hopefully, by me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -399,7 +401,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair is rich, but they don't use their wealth properly. Like, for buying weapons.");
+talkEntry:addResponse("Galmair is rich, but they don't use their wealth properly, like for buying weapons.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -411,7 +413,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Any weapon I craft is ment to protect the queen. So, raise your hand against the queen and hundreds of swords will chop it off.");
+talkEntry:addResponse("Any weapon I craft is meant to protect the Queen. So, raise your hand against the Queen and hundreds of swords will chop it off.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -425,7 +427,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Any weapon I craft is ment to protect the queen. So, raise your hand against the queen and hundreds of swords will chop it off.");
+talkEntry:addResponse("Any weapon I craft is meant to protect the Queen. So, raise your hand against the Queen and hundreds of swords will chop it off.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -452,7 +454,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Spears and swords built the albarian kingdom. Need any?");
+talkEntry:addResponse("Spears and swords built the Albarian kingdom. Need any?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,7 +494,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("I just have faith in Malachín and Irmorom. I mean, what good does Sirani, the goddess of hugs?");
+talkEntry:addResponse("I just have faith in Malachín and Irmorom. I mean, what use is Sirani, the Goddess of hugs?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -507,7 +509,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Every sword I craft I craft for Malachin himself.");
+talkEntry:addResponse("Every sword I craft, I craft for Malachin himself.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -546,7 +548,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I tell you: Sharpen you blade and commit deeds for the glory of Cadomyr.");
+talkEntry:addResponse("I tell you, sharpen you blade and commit deeds for the glory of Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -614,7 +616,7 @@ talkingNPC:addCycleText("Hier gibt es die besten Waffen zum Töten von Orks, Gobl
 talkingNPC:addCycleText("Ihr da! Eure Waffe ist der letzte Schrott. Ich hätte da was im Angebot für euch.", "Hey you! Your weapon is scrap. I'd have something for you.");
 talkingNPC:addCycleText("#me poliert eine Schwertklinge.", "#me polishes the blade of a sword.");
 talkingNPC:addCycleText("Jeden Tag eine gute Tat.", "An axe a day keeps the raptor away.");
-talkingNPC:addCycleText("Heute ist ein guter Tag zum Sterben... für die Feinde der Königin!", "Today is a good day to die for the foes of the queen.");
+talkingNPC:addCycleText("Heute ist ein guter Tag zum Sterben... für die Feinde der Königin!", "Today is a good day to die fighting the foes of the Queen.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(23,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2697,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2710,"sell"));
@@ -851,7 +853,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
