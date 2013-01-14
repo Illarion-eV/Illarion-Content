@@ -138,27 +138,31 @@ end
 
 -- some plants rot to seeds again, those have a different data value
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
-  local amount = SourceItem:getData("amount");
+  -- local amount = SourceItem:getData("amount");
+  -- if (amount ~= "") then
+    -- amount = tonumber(amount);
+    -- debug("move seed, amount " .. amount);
+    -- TargetItem:setData("amount", "");
+    -- world:changeItem(TargetItem);
+    -- world:increase(TargetItem, amount - TargetItem.number);
+    -- -- if (TargetItem:getType() == 3) then
+      -- -- -- item is dragged to the map
+      -- -- world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
+    -- -- else
+      -- -- -- item is dragged to the User
+      -- -- User:createAtPos(TargetItem.itempos, SourceItem.id, amount);
+    -- -- end
+  -- end
+  return true;
+end
+
+function MoveItemAfterMove(User, SourceItem, TargetItem)
+  local amount = TargetItem:getData("amount");
   if (amount ~= "") then
     amount = tonumber(amount);
     debug("move seed, amount " .. amount);
     TargetItem:setData("amount", "");
     world:changeItem(TargetItem);
     world:increase(TargetItem, amount - TargetItem.number);
-    -- if (TargetItem:getType() == 3) then
-      -- -- item is dragged to the map
-      -- world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
-    -- else
-      -- -- item is dragged to the User
-      -- User:createAtPos(TargetItem.itempos, SourceItem.id, amount);
-    -- end
   end
-  return true;
 end
-
--- function MoveItemAfterMove(User, SourceItem, TargetItem)
-  -- if (TargetItem:getData("amount") ~= "") then
-    -- world:erase( TargetItem, TargetItem.number );
-  -- end
-  -- return true;
--- end
