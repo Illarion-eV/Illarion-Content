@@ -184,6 +184,8 @@ queststatus(69) = 0, "Beil" -> "Wenn ihr ein Beil wollt, könnte ich euch eines 
 "Förster" -> "Ich bin ein Förster und wenn ihr helfen wollt, gebe ich euch eine Aufgabe.", "Als Förster kümmere ich mich um die Bäume, richtig.", "Förster zu sein strengt an aber man ist auch viel an der frischen Luft."
 english, "Nana", "Winterbutter" -> "Nana is a cute and kind person, living in Yewdale. I used to travel there once in a while - before the bark beetles came."
 "Nana", "Winterbutter" -> "Nana ist eine liebliche und nette Person. Sie lebt im Eibenthal, wohin ich früher oft gereist bin - bevor die Borkenkäfer kamen."
+"Yewdale" -> "Yewdale is just west of Runewick, a beautiful valley with Nana's cottage."
+"Eibental", "Eibenthal" -> "Das Eibenthal liegt westlich von Runewick, es ist ein schönes Tal mit Nanas Bauernhof."
 "bark beetle" -> "Bark beetles are the trees' foes. And I am the trees' friend. So they are my foes!"
 "Borkenkäfer" -> "Der Borkenkäfer ist der Feind der Bäume und ich bin ein Freund der Bäume. Also ist er mein Feind!"
 "lice", "louse", "bug", "insect" -> "Scale lice want to exterminate the forest. But what if they succeed - won't they exterminate themselves?"
