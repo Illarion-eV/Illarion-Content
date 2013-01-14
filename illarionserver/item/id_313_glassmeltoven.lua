@@ -118,7 +118,7 @@ function ProduceGlassIngots( User, SourceItem, TargetItem, ltstate )
 		return
 	end
 
-	User:learn( glassingotproducing.LeadSkill, glassingotproducing.SavedWorkTime[User.id], 20);
+	User:learn( glassingotproducing.LeadSkill, glassingotproducing.SavedWorkTime[User.id], glassingotproducing.LearnLimit);
 	User:eraseItem( 316, 1 ); -- erase the item we're working on
   User:eraseItem( 314, 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
@@ -212,7 +212,7 @@ function ProduceUnfiredBricks( User, SourceItem, TargetItem, ltstate )
 		return
 	end
 
-	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], 20);
+	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], bricksproducing.LearnLimit);
 	User:eraseItem( 26, 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 736, amount, 333, nil ); -- create the new produced items
@@ -306,7 +306,7 @@ function ProduceBricks( User, SourceItem, TargetItem, ltstate )
 		return
 	end
 
-	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], 20);
+	User:learn( bricksproducing.LeadSkill, bricksproducing.SavedWorkTime[User.id], bricksproducing.LearnLimit);
 	User:eraseItem( 736, 5 ); -- erase the item we're working on
 	local amount = 5; -- set the amount of items that are produced
 	local notCreated = User:createItem( 2588, amount, 333, nil ); -- create the new produced items

@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -94,7 +94,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Go with the blessing of the Gods. And do not return again too soon, if you know what I mean.");
+talkEntry:addResponse("Go with the blessing of the Gods, and do not return again too soon, if you know what I mean?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -113,7 +113,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Go with the blessing of the Gods. And do not return again too soon, if you know what I mean.");
+talkEntry:addResponse("Go with the blessing of the Gods, and do not return again too soon, if you know what I mean?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -166,9 +166,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A light at the end of the tunnel"));
-talkEntry:addResponse("Indeed, I have a task for you. Could you please go down into the crypt and make sure the lights burn in front of the urns in honour of the mages? Here, take this lamp oil and come back to me when you have lit the lamps.");
 talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Indeed, I have a task for you. Could you please go down into the crypt and make sure the lights burn in front of the urns in honour of the mages? Here, take this lamp oil and come back to me when you have lit the lamps.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -177,9 +177,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Ein Licht am Ende des Tunnels"));
-talkEntry:addResponse("In der Tat, ich habe einen Auftrag für euch. Könntet ihr bitte in die Gruft gehen und sicherstellen, dass die Ehrenlichter vor den Urnen der Magier brennen? Hier, nehmt dieses Lampenöl und kommt zu mir zurück, wenn ihr die Leuchten angezündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("In der Tat, ich habe einen Auftrag für euch. Könntet ihr bitte in die Gruft gehen und sicherstellen, dass die Ehrenlichter vor den Urnen der Magier brennen? Hier, nehmt dieses Lampenöl und kommt zu mir zurück, wenn ihr die Leuchten angezündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -189,9 +189,9 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A light at the end of the tunnel"));
-talkEntry:addResponse("Indeed, I have a task for you. Could you please go down into the crypt and make sure the lights burn in front of the urns in honour of the mages? Here, take this lamp oil and come back to me when you have lit the lamps.");
 talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Indeed, I have a task for you. Could you please go down into the crypt and make sure the lights burn in front of the urns in honour of the mages? Here, take this lamp oil and come back to me when you have lit the lamps.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -202,9 +202,9 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Ein Licht am Ende des Tunnels"));
-talkEntry:addResponse("In der Tat, ich habe einen Auftrag für euch. Könntet ihr bitte in die Gruft gehen und sicherstellen, dass die Ehrenlichter vor den Urnen der Magier brennen? Hier, nehmt dieses Lampenöl und kommt zu mir zurück, wenn ihr die Leuchten angezündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("In der Tat, ich habe einen Auftrag für euch. Könntet ihr bitte in die Gruft gehen und sicherstellen, dass die Ehrenlichter vor den Urnen der Magier brennen? Hier, nehmt dieses Lampenöl und kommt zu mir zurück, wenn ihr die Leuchten angezündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -251,10 +251,10 @@ talkEntry:addCondition(npc.base.condition.chance.chance(30.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded two silver coins. Your reputation with Archmage Elvaine Morgan rises."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take these two silver coins for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take these two silver coins for your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -264,10 +264,10 @@ talkEntry:addCondition(npc.base.condition.chance.chance(30.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zwei Silberstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese zwanzig Kupfermünzen für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese zwanzig Kupfermünzen für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -277,9 +277,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(30.0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded two silver coins."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take these two silver coins for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take these two silver coins for your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -288,9 +288,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.chance.chance(30.0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zwei Silberstücke."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese zwanzig Kupfermünzen für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese zwanzig Kupfermünzen für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -301,10 +301,10 @@ talkEntry:addCondition(npc.base.condition.chance.chance(14.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a bottle of lamp oil. Your reputation with Archmage Elvaine Morgan rises."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this lamp oil for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this lamp oil for your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -314,10 +314,10 @@ talkEntry:addCondition(npc.base.condition.chance.chance(14.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Flasche Lampenöl. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Lampenöl für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Lampenöl für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -327,9 +327,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(14.0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a bottle of lamp oil."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this lamp oil for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this lamp oil for your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -338,9 +338,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.chance.chance(14.0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Flasche Lampenöl."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Lampenöl für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Lampenöl für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -351,10 +351,10 @@ talkEntry:addCondition(npc.base.condition.chance.chance(17.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a piece of wax. Your reputation with Archmage Elvaine Morgan rises."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this piece of wax for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(431, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this piece of wax for your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -364,10 +364,10 @@ talkEntry:addCondition(npc.base.condition.chance.chance(17.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Stück Wachs. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Stück Wachs für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(431, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Stück Wachs für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -377,9 +377,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(17.0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a piece of wax."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this piece of waxfor your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(431, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this piece of waxfor your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -388,9 +388,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.chance.chance(17.0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Stück Wachs."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Stück Wachs für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(431, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Stück Wachs für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -401,10 +401,10 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a candle. Your reputation with Archmage Elvaine Morgan rises."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this candle for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(43, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this candle for your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -414,10 +414,10 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Kerze. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Kerze für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(43, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Kerze für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -427,9 +427,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a candle."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this candle for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(43, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this candle for your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -438,9 +438,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Kerze."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Kerze für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(43, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Kerze für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -451,10 +451,10 @@ talkEntry:addCondition(npc.base.condition.chance.chance(25.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a torch. Your reputation with Archmage Elvaine Morgan rises."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this torch for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this torch for your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -464,10 +464,10 @@ talkEntry:addCondition(npc.base.condition.chance.chance(25.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Fackel. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Fackel für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Fackel für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -477,9 +477,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(25.0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a torch."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this torch for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this torch for your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -488,9 +488,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.chance.chance(25.0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Fackel."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Fackel für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Fackel für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -501,10 +501,10 @@ talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a cookie. Your reputation with Archmage Elvaine Morgan rises."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this cookie for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(453, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this cookie for your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -514,10 +514,10 @@ talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Keks. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diesen Keks für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(453, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diesen Keks für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -527,9 +527,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a cookie."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this cookie for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(453, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this cookie for your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -538,9 +538,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Keks."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Keks für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(453, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Keks für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -551,10 +551,10 @@ talkEntry:addCondition(npc.base.condition.chance.chance(50.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a parchment. Your reputation with Archmage Elvaine Morgan rises."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this parchment for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2745, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this parchment for your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -564,10 +564,10 @@ talkEntry:addCondition(npc.base.condition.chance.chance(50.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Pergament. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Pergament für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2745, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Pergament für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -577,9 +577,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(50.0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a parchment."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this parchment for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2745, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this parchment for your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -588,9 +588,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.chance.chance(50.0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Pergament."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Pergament für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2745, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Pergament für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -600,10 +600,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a golden ring. Your reputation with Archmage Elvaine Morgan rises."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this golden ring for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 577, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this golden ring for your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -612,10 +612,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Goldring. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diesen Goldring für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 577, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diesen Goldring für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -624,9 +624,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a golden ring."));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this golden ring for your efforts. Come again to me if you ever rekindle the lights.");
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 577, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this golden ring for your efforts. Come again to me if you ever rekindle the lights.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -634,9 +634,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Goldring."));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diesen Goldring für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 577, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
+talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diesen Goldring für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -652,7 +652,7 @@ talkEntry:addTrigger("mortician");
 talkEntry:addTrigger("undertaker");
 talkEntry:addTrigger("gravedigger");
 talkEntry:addTrigger("funeral");
-talkEntry:addResponse("My job is to bury those whose life is at an end - and to assess the value of their life. That determines what happens to them.");
+talkEntry:addResponse("My job is to bury those whose life is at an end - and to assess the value of their life, that determines what happens to them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -666,7 +666,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am the local mortician. I judge who has made such valuable contributions as wisdom and justice. After all, this is what determines our reputation in the afterlife.");
+talkEntry:addResponse("I am the local mortician. I judge who has made valuable contributions such as as wisdom and justice... After all, this is what determines our reputation in the afterlife.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -679,7 +679,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I am the local mortician. I judge who has made such valuable contributions as wisdom and justice. After all, this is what determines our reputation in the afterlife.");
+talkEntry:addResponse("I am the local mortician. I judge who has made valuable contributions such as wisdom and justice... After all, this is what determines our reputation in the afterlife.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -793,7 +793,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Twilight");
-talkEntry:addResponse("In the Chamber of Twilight there are the coffins of the apprentices - located where their body will be needed once again.");
+talkEntry:addResponse("In the Chamber of Twilight there are the coffins of the apprentices - located where their bodies will be needed once again.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -805,7 +805,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("dark");
-talkEntry:addResponse("In the Chamber of Darkness the bones of the unworthy rot. Those who have not understood during their lifetime the need to strive for wisdom.");
+talkEntry:addResponse("In the Chamber of Darkness the bones of the unworthy rot, those who have not understood during their lifetime the need to strive for wisdom.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -836,7 +836,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("The archmage is a good man. He knows exactly whose life is valuable to the community.");
+talkEntry:addResponse("The Archmage is a good man. He knows exactly whose life is valuable to the community.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -850,7 +850,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("The archmage is a good man. He knows exactly whose life is valuable to the community.");
+talkEntry:addResponse("The Archmage is a good man. He knows exactly whose life is valuable to the community.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -906,7 +906,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("I have heard Queen Rosaline is to have a glorious grave in the desert. Her royal builder Robertus is commissioned. I just wonder whether he will finish before she passes...");
+talkEntry:addResponse("I have heard Queen Rosaline is to have a glorious grave in the desert. Her royal builder Robertus is commissioned but I just wonder whether he will finish before she passes...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -920,7 +920,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("I have heard Queen Rosaline is to have a glorious grave in the desert. Her royal builder Robertus is commissioned. I just wonder whether he will finish before she passes...");
+talkEntry:addResponse("I have heard Queen Rosaline is to have a glorious grave in the desert. Her royal builder Robertus is commissioned but I just wonder whether he will finish before she passes...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -934,7 +934,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("I appreciate the people of Cadomyr. Their habits are somewhat different to ours; the value of life is determined by birth, remaining with us after death. But does this make us so different?");
+talkEntry:addResponse("I appreciate the people of Cadomyr. Their habits are somewhat different to ours; the value of life is determined by birth, remaining with us after death... but does this make us so different?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -975,7 +975,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("The archmage once told me that in Salkamar, only the righteous are buried in coffins whereas the wicked face an indescribable fate.");
+talkEntry:addResponse("The Archmage once told me that in Salkamar, only the righteous are buried in coffins whereas the wicked face an indescribable fate.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1001,7 +1001,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("I do not love Cherga, but I honour her. Her acts as Guardian of the Afterlife deserve our respect. Or would you like to do that job?");
+talkEntry:addResponse("I do not love Cherga, but I honour her. Her acts as Guardian of the Afterlife deserve our respect, or would you like to do that job?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1120,7 +1120,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

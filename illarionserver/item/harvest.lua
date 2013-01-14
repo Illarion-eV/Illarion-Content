@@ -106,7 +106,7 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], 20);
+	User:learn( fruitgathering.LeadSkill, fruitgathering.SavedWorkTime[User.id], fruitgathering.LearnLimit);
 	amount = amount - 1;
 	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore

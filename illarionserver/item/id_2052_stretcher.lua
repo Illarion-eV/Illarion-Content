@@ -93,7 +93,7 @@ function UseItem(User, SourceItem, ltstate)
     User:inform("[ERROR] No tanning item found. Please inform a developer.");
     return;
   end
-	User:learn( leatherproducing.LeadSkill, leatherproducing.SavedWorkTime[User.id], 20);
+	User:learn( leatherproducing.LeadSkill, leatherproducing.SavedWorkTime[User.id], leatherproducing.LearnLimit);
 	User:eraseItem( tanItemId, 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 2547, amount, 333, nil ); -- create the new produced items

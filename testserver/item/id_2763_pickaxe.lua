@@ -469,7 +469,7 @@ function UseItem(User, SourceItem, ltstate)
   
   local productId = GetResource(areaId, rock.id);
 
-  User:learn( mining.LeadSkill, mining.SavedWorkTime[User.id], 20);
+  User:learn( mining.LeadSkill, mining.SavedWorkTime[User.id], mining.LearnLimit);
   local amount = 1; -- set the amount of items that are produced
   local notCreated = User:createItem( productId, amount, 333, nil ); -- create the new produced items
   local rockBroken = breakRock(rock);

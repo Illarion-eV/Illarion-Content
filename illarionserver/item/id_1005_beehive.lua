@@ -134,7 +134,7 @@ function UseItem(User, SourceItem, ltstate)
 	end
 	
 	-- since we're here, everything should be alright
-	User:learn( honeygathering.LeadSkill, honeygathering.SavedWorkTime[User.id], 20);
+	User:learn( honeygathering.LeadSkill, honeygathering.SavedWorkTime[User.id], honeygathering.LearnLimit);
 	local notCreated = User:createItem( 2529, 1, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 2529, notCreated, User.pos, true, 333, nil );

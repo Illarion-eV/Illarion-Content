@@ -2,16 +2,16 @@
 -- NPC Name: Rose Deepdelver                                         Runewick --
 -- NPC Job:  Barkeeper                                                        --
 --                                                                            --
--- NPC Race: halfling                   NPC Position:  950, 834, 0            --
+-- NPC Race: halfling                   NPC Position:  899, 772, 0            --
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Zot                                                              --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (2, 950, 834, 0, 2, 'Rose Deepdelver', 'npc.rose_deepdelver', 1, 1, 0, 205, 102, 29, 232, 187, 145);
+VALUES (2, 899, 772, 0, 2, 'Rose Deepdelver', 'npc.rose_deepdelver', 1, 1, 0, 205, 102, 29, 232, 187, 145);
 ---]]
 
 require("npc.base.basic")
@@ -30,16 +30,17 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("verkauf");
 talkEntry:addTrigger("handel");
-talkEntry:addResponse("Lass uns handeln!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Lass uns handeln!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sell");
 talkEntry:addTrigger("trade");
-talkEntry:addResponse("Let's trade!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Let's!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -350,7 +351,6 @@ talkEntry:addResponse("Nun, ich verstehe.");
 talkEntry:addResponse("Sicher?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me wischt über die Theke.", "#me wipes the counter.");
 talkingNPC:addCycleText("#me schaut sich nach Kunden um.", "#me looks around for customers.");
 talkingNPC:addCycleText("#me knabbert an einem Keks.", "#me nibbles on a cookie.");
 talkingNPC:addCycleText("#me trocknet ein Glas ab.", "#me cleans a glass.");
@@ -442,7 +442,7 @@ tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come bac
 tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was dir gefällt?", "Don't you like my wares?");
 tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(5);
+mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist Rose Deepdelver die Bedienung.", "This NPC is Rose Deepdelver the barkeeper.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
@@ -463,7 +463,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

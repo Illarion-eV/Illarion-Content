@@ -1,3 +1,6 @@
 .*
 !.gitignore
 !.quests
+illarionserver/development
+illarionserver/documentation
+illarionserver/test
