@@ -2,7 +2,7 @@
 -- NPC Name: Valandil Elensar                                            None --
 -- NPC Job:  forester                                                         --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  843, 477, 0            --
+-- NPC Race: elf                        NPC Position:  840, 470, 0            --
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
@@ -12,7 +12,7 @@
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 843, 477, 0, 4, 'Valandil Elensar', 'npc.valandil_elensar', 0, 2, 0, 208, 125, 4, 242, 199, 157);
+VALUES (3, 840, 470, 0, 4, 'Valandil Elensar', 'npc.valandil_elensar', 0, 2, 0, 208, 125, 4, 242, 199, 157);
 ---]]
 
 require("npc.base.basic")
