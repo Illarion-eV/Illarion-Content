@@ -138,6 +138,15 @@ end
 
 -- some plants rot to seeds again, those have a different data value
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
+  local amount = SourceItem:getData("amount");
+  if (amount ~= "") then
+    local seedId = SourceItem.id;
+    amount = tonumber(amount);
+    debug("move seed, amount " .. amount);
+    world:createItemFromId( seedId, amount, TargetItem.pos, true, 333, nil );
+    world:erase(SourceItem, SourceItem.number);
+  end
+  
   -- local amount = SourceItem:getData("amount");
   -- if (amount ~= "") then
     -- amount = tonumber(amount);
@@ -157,16 +166,12 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
 end
 
 function MoveItemAfterMove(User, SourceItem, TargetItem)
-  local amount = SourceItem:getData("amount");
-  if (amount ~= "") then
-    amount = tonumber(amount);
-    debug("move seed, amount " .. amount);
-    SourceItem:setData("amount", "");
-    TargetItem:setData("amount", "");
-    if (amount > 0) then
-      world:increase(TargetItem, amount - 1);
-    end
-    world:changeItem(SourceItem);
-    world:changeItem(TargetItem);
-  end
+  -- local amount = SourceItem:getData("amount");
+  -- if (amount ~= "") then
+    -- local seedId = SourceItem.id;
+    -- amount = tonumber(amount);
+    -- debug("move seed, amount " .. amount);
+    -- world:createItemFromId( seedId, amount, TargetItem.pos, true, 333, nil );
+    -- world:erase(SourceItem, SourceItem.number);
+  -- end
 end
