@@ -79,45 +79,61 @@ function InitWegweiser()
     AddWeg({109,771,0},"Cadomyr Hafen","Cadomyr Harbour",4,0);
     AddWeg({117,642,0},"Sir Reginalds Gruft","Sir Reginald's Tomb",2,0);
     AddWeg({134,631,0},"Sir Reginalds Gruft","Sir Reginald's Tomb",6,0);
+    AddWeg({193,430,0},"Festung Hammerfall","Fortress Hammerfall",0,0);-- <Name hier> Zwergenfort -- <name here> dwarfen fortress
 
     --NW/Galmair-map
-    AddWeg({369,259,0},"Guilianni-Residenz oder Galmairs Krone","Guilianni Residence or Galmair's Crest",0,0); -- Don's palace
-    AddWeg({376,274,0},"Werkstatt","Workshop",2,0);-- <Name hier> Werkstatt -- <name here> workshop
-    AddWeg({401,293,0},"Gasthof zum schläfrigen Bujhaar","Sleepy Bujhaar Inn",2,0);-- <Name hier> Gasthaus -- <name here> Inn
-    AddWeg({421,251,0},"Galmair","Galmair",6,0);
-    AddWeg({421,247,0},"Galmair","Galmair",6,0);
-    AddWeg({343,259,0},"Taverne zur Geflügelten Sau","The Winged Sow Tavern",0,0);-- <Name hier> Taverne -- <name here> tavern
-    AddWeg({311,282,0},"Villa 'Goldader'","Villa 'Goldvein'",6,0);-- <Name hier> Villa -- <name here> villa
-    AddWeg({311,265,0},"Irmoroms Tempel","Temple of Irmorom",0,0);
-    AddWeg({332,254,0},"Schlackengrube","Scoria Mine",0,0);-- <Name hier> Galmair Underground -- <name here> Galmair underground
-    AddWeg({474,251,0},"Galmair","Galmair",6,0);
-    AddWeg({474,248,0},"Galmair","Galmair",6,0);
-    AddWeg({501,212,0},"Hafen + Dunkellochmine","Harbour + Dark Hole Mine",0,0);
-    AddWeg({444,123,0},"Hafen","Harbour",0,0);
-    AddWeg({409,148,0},"Dunkellochmine","Dark Hole Mine",6,0);
-    AddWeg({409,143,0},"Dunkellochmine","Dark Hole Mine",6,0);
-    AddWeg({193,430,0},"Festung Hammerfall","Fortress Hammerfall",0,0);-- <Name hier> Zwergenfort -- <name here> dwarfen fortress
-    AddWeg({417,385,0},"Cadomyr; Schattenland - Gefahr!","Cadomyr; Shadowland - Danger!",4,0);
-    AddWeg({338,238,-6},"Schweinebaue","Hog Dens",2,0);-- <Name hier> Orkshöhle - <name here> orccave
-    AddWeg({342,243,-6},"Gemmenschacht","Cameo Pit",2,0);-- <Name hier> Wohnviertel
-    AddWeg({343,247,-6},"Ronagans Tempel - Achtung, überflutet!","Temple of Ronagan - Attention, flooded!",4,0);-- <Name hier> überflutetes Viertels(ronagan schrein)
-    AddWeg({337,248,-6},"Taverne zur Geflügelten Sau","The Winged Sow Tavern",4,0);
-    AddWeg({332,251,-6},"Abwasserschächte","Sewers",4,0);
-    AddWeg({330,249,-6},"Schimmersenke","Flicker Swale",6,0);-- <Name hier> Schwarzmarkt -- <name here> black market
-    AddWeg({503,213,0},"Gasthof zur Hanfschlinge; Cadomyr; Runewick","The Hemp Necktie Inn; Cadomyr; Runewick",2,0);
-    AddWeg({501,218,0},"Galmair","Galmair",4,0);
-    AddWeg({427,247,0},"Hafen; Dunkellochmine; Gasthof zur Hanfschlinge; Cadomyr; Runewick","Harbour; Dark Hole Mine; The Hemp Necktie Inn; Cadomyr; Runewick",2,0);
-    AddWeg({485,248,0},"Hafen; Dunkellochmine; Gasthof zur Hanfschlinge; Cadomyr; Runewick","Harbour; Dark Hole Mine; The Hemp Necktie Inn; Cadomyr; Runewick",2,0);
-    AddWeg({397,253,0},"Zensusbüro, Gasthof zum schläfrigen Bujhaar, Tollloch, Schürfer Club, Malachitmine","Census office, Sleepy Bujhaar Inn, Sporthole, Miners Club, Malachite Mine",4,0);
+    AddWeg({414,247,0},"Eselstall","Donkey stable",0,0);
+    AddWeg({398,249,0},"Dunkle Gasse","Dark Alley",0,0);
     AddWeg({392,249,0},"Wachstube","Guardroom",0,0);
+    AddWeg({398,248,0},"Schuldeneintreiber","Debt-collector",0,0);
+    AddWeg({369,259,0},"Galmairs Krone (Guilianni-Residenz, Konzil Kammer, Goldträume, Schatzkammer und  Bibliothek)","Galmair's Crest (Guilianni-Residence, Council Chamber, Golden Dreams, Treasury, Library",0,0);
+    AddWeg({343,259,0},"Taverne zur Geflügelten Sau","The Winged Sow Tavern",0,0);
+    AddWeg({398,248,0},"Markt","Market",2,0);
+    AddWeg({372,279,0},"Markt","Market",6,0);
+    AddWeg({330,264,0},"Schlackengrube","Scoria Mine",0,0);
+    AddWeg({311,262,0},"Tempel des Irmorom","Temple of Irmorom",0,0);
+    AddWeg({323,282,0},"Villa 'Goldader'","Villa 'Goldvein'",0,0);
+    AddWeg({296,282,0},"Quelle der Träume","Well of Dreams",6,0);
+    AddWeg({376,274,0},"Werkstatt","Workshop",2,0);
+    AddWeg({398,292,0},"Werkstatt","Workshop",6,0);
+    AddWeg({397,253,0},"Galmairs Krone, Guilianni-Residenz, Markt, Werkstatt, Schlackengrube, Tempel des Irmorom, Villa 'Goldader', Quelle der Träume","Galmair's Crest, Guilianni-Residence, Market, Workshop, Scoria Mine, Temple of Irmorom, Villa 'Goldvein', Well of Dreams",4,0);
+    AddWeg({398,254,0},"Zensusbüro, Gasthof zum schläfrigen Bujhaar, Werkstatt, Tollloch, Schürfer Club, Malachitmine, Galmair Hochebene, Cadomyr, Katanbi Wüste, Schattenland","Census office, Sleepy Bujhaar Inn, Workshop, Sporthole, Miners Club, Malachite Mine, Galmair Plateau, Cadomyr, Katanbi Desert, Shadowland",4,0);
     AddWeg({394,273,0},"Zensusbüro","Census office",2,0);
+    AddWeg({401,293,0},"Gasthof zum schläfrigen Bujhaar","Sleepy Bujhaar Inn",2,0);
     AddWeg({398,305,0},"Tollloch","Sporthole",2,0);
     AddWeg({387,346,0},"Galmair","Galmair",0,0);
-    AddWeg({387,347,0},"Schürferclub, Malachitmine","Miners' Club, Malachite Mine",2,0);
-    AddWeg({386,346,0},"Fort Schnellbeil, Goldener Rumil","Fort Schnellbeil, Golden Rumil",6,0);
+    AddWeg({387,347,0},"Schürferclub, Schürfer Quelle, Malachitmine","Miners' Club, Miner's Spring, Malachite Mine",2,0);
+    AddWeg({386,346,0},"Galmair Hochebene mit Fort Schnellbeil, Goldener Rumil","Galmair Plateau with Fort Schnellbeil, Golden Rumil",6,0);
     AddWeg({417,357,0},"Schürferclub","Miners' Club",0,0);
     AddWeg({418,357,0},"Malachitmine","Malachite Mine",2,0);
+    AddWeg({418,371,0},"Cadomyr, Katanbi Wüste, Schattenland - Gefahr!","Cadomyr, Katanbi Desert, Shadowland - Danger!",4,0);
+    AddWeg({417,385,0},"Galmair","Galmair",0,0);
+
+    AddWeg({337,248,-6},"Taverne zur Geflügelten Sau","The Winged Sow Tavern",4,0);-- Scoria Mine
+    AddWeg({338,238,-6},"Schweinebaue","Hog Dens",2,0);-- Scoria Mine
+    AddWeg({338,243,-6},"Gemmenschacht","Cameo Pit",2,0);-- Scoria Mine
+    AddWeg({339,248,-6},"Ronagans Tempel - Achtung, überflutet!","Temple of Ronagan - Attention, flooded!",2,0);-- Scoria Mine
+    AddWeg({333,248,-6},"Abwasserschächte","Sewers",4,0);-- Scoria Mine
+    AddWeg({331,248,-6},"Schimmersenke mit dem Spielraum und dem Tempel des Nagrun.","Flicker Swale with Game Room and the Temple of Nagrun",6,0);-- Scoria Mine
+
+    AddWeg({423,248,0},"Galmair","Galmair",6,0);
+    AddWeg({425,248,0},"Nargun Ebene, Hafen, Dunkellochmine, Gasthof zur Hanfschlinge, Cadomyr, Runewick","Nargun's Plain, Harbour, Dark Hole Mine, The Hemp Necktie Inn, Cadomyr, Runewick",2,0);
+    AddWeg({427,252,0},"Ackerland + Stinkende Fischer beim Malachit Bach","Farmland + Stinky Fisherman at the Malachite Creek",4,0);
+    AddWeg({441,253,0},"Waldeck","Woodcorner",0,0);
     AddWeg({464,253,0},"Die Plattform","The Platform",0,0);
+    AddWeg({474,251,0},"Nargun Ebene, Hafen, Dunkellochmine, Gasthof zur Hanfschlinge, Cadomyr, Runewick","Nargun's Plain, Harbour, Dark Hole Mine, The Hemp Necktie Inn, Cadomyr, Runewick",6,0);
+    AddWeg({474,248,0},"Hafen, Dunkellochmine, Gasthof zur Hanfschlinge, Cadomyr, Runewick","Harbour, Dark Hole Mine, The Hemp Necktie Inn, Cadomyr, Runewick",6,0);
+    AddWeg({485,248,0},"Galmair","Galmair",2,0);
+    AddWeg({501,218,0},"Galmair","Galmair",4,0);
+    AddWeg({500,210,0},"Hafen, Dunkellochmine, Nördliche Inseln, Der Sumpf, Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes","Harbour, Dark Hole Mine, Northern Islands, The Swamp, Temple of the Five, Plains of Silence, Northern Woods, The Insurmountable Limes",0,0);
+    AddWeg({499,189},"Der Sumpf, Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes","The Swamp, Temple of the Five, Plains of Silence, Northern Woods, The Insurmountable Limes",6,0);
+    AddWeg({496,191,0},"Hafen, Dunkellochmine, Nördliche Inseln","Harbour, Dark Hole Mine, Northern Islands",2,0);
+    AddWeg({446,138,0},"Hafen, Nördliche Inseln","Harbour, Northern Islands"",0,0);
+    AddWeg({440,139,0},"Dunkellochmine","Dark Hole Mine",6,0);
+    AddWeg({409,148,0},"Dunkellochmine","Dark Hole Mine",6,0);
+    AddWeg({409,143,0},"Dunkellochmine","Dark Hole Mine",6,0);
+    AddWeg({503,213,0},"Gasthof zur Hanfschlinge; Cadomyr; Runewick","The Hemp Necktie Inn; Cadomyr; Runewick",2,0);
+
 
     --SE/Runewick-map
     AddWeg({525,782,0},"Cadomyr","Cadomyr",6,0);
