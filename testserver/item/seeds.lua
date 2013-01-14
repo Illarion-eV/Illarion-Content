@@ -140,12 +140,10 @@ end
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
   local amount = SourceItem:getData("amount");
   if (amount ~= "") then
-    local seedId = SourceItem.id;
     amount = tonumber(amount);
     debug("move seed, amount " .. amount);
-    debug("seedId " .. seedId);
-    world:createItemFromId( seedId, amount, TargetItem.pos, true, 333, nil );
-    world:erase(SourceItem, SourceItem.number);
+    world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
+    world:erase(TargetItem, SourceItem.number);
   end
   
   -- local amount = SourceItem:getData("amount");
