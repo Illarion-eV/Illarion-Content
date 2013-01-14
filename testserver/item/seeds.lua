@@ -157,12 +157,12 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
 end
 
 function MoveItemAfterMove(User, SourceItem, TargetItem)
-  local amount = TargetItem:getData("amount");
+  local amount = SourceItem:getData("amount");
   if (amount ~= "") then
     amount = tonumber(amount);
     debug("move seed, amount " .. amount);
-    TargetItem:setData("amount", "");
-    world:changeItem(TargetItem);
-    world:increase(TargetItem, amount - TargetItem.number);
+    SourceItem:setData("amount", "");
+    world:changeItem(SourceItem);
+    world:increase(SourceItem, amount - SourceItem.number);
   end
 end
