@@ -240,7 +240,7 @@ function UseItem(User, SourceItem, ltstate)
 		if ( amount > 0 or nextItem~=nil) then  -- there are still items we can work on
       if (amount < 1) then
         base.common.TurnTo( User, nextItem.pos ); -- turn, so we find this item in next call as first item
-        debug("next is farming: " .. GetValidProduct(nextItem).isFarmingItem and 1 or 0);
+        debug("next is farming: " .. (GetValidProduct(nextItem).isFarmingItem and 1 or 0));
       end
 			theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
 			User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
