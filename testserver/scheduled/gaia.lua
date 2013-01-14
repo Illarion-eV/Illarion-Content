@@ -45,10 +45,10 @@ function Init()
 	-- rar herbs; not collectable with sickle
     AddPlant(138, {gt.dirt},true)                        -- night angels blossom
 	AddPlant(146, {gt.sand},true)                        -- deser sky capsule
-	AddPlant(152, {gt.grass, gt.forest},true)            -- life root
-	AddPlant(754, {gt.grass},true)                        -- oneleaved fourberry
+	AddPlant(152, {gt.forest},true)                      -- life root
+	AddPlant(754, {gt.grass},true)                          -- oneleaved fourberry
 	AddPlant(755, {gt.rocks},true)                        -- fire root
-	AddPlant(756, {gt.grass,gt.forest},true)             -- pious berry
+	AddPlant(756, {gt.grass},true)                       -- pious berry
 	AddPlant(757, {gt.forest},true)                        -- tybalt star
 	AddPlant(758, {gt.rocks},true)                        -- heart blood
 	AddPlant(760, {gt.snow},true)                        -- ice leaf
