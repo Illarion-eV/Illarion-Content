@@ -87,8 +87,8 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Get out!", "Finally!", "...
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Wer fragt?", "Sir Fludnar Yednos.", "Ist das von belang zu wissen?"
 
 -- quest - player has gained tasks from Nobarg
-queststatus(603) > 0, queststatus(603) < 8, english, ".*" -> inform("[Hint] You have to fulfil NPC Nobarg' tasks before you can continue here."), "Are you not busy with other tasks? Please do not interrupt me until you are done with them."
-queststatus(603) > 0, queststatus(603) < 8, ".*" -> inform("[Hinweis] Du musst die Aufgaben von NPC Nobarg erfülle bevor du hier weiter machen kannst."), "Seid ihr nicht anderswo beschäftigt? Bitte stört mich nicht bis ihr dort fertig seid."
+queststatus(603) < 8, queststatus(603) > 0, english, ".*" -> inform("[Hint] You have to fulfil NPC Nobarg' tasks before you can continue here."), "Are you not busy with other tasks? Please do not interrupt me until you are done with them."
+queststatus(603) < 8, queststatus(603) > 0, ".*" -> inform("[Hinweis] Du musst die Aufgaben von NPC Nobarg erfülle bevor du hier weiter machen kannst."), "Seid ihr nicht anderswo beschäftigt? Bitte stört mich nicht bis ihr dort fertig seid."
 
 -- quest - 1th step: gather some information about bragon and orcs
 -- 1. question
