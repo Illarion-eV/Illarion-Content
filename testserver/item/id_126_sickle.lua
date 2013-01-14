@@ -227,6 +227,12 @@ function UseItem(User, SourceItem, ltstate)
 	else -- character can still carry something
     local nextItem = GetHarvestItem(User);
     if (nextItem~=nil) then
+      if (HarvestItems[nextItem.id].isFarmingItem == nil) then
+        debug("1");
+      end
+      if (harvestProduct.isFarmingItem == nil) then
+        debug("2");
+      end
       debug("next id " .. nextItem.id .. ", isFarming " .. HarvestItems[nextItem.id].isFarmingItem .. ", current isFarming " .. harvestProduct.isFarmingItem .. ", comp " .. HarvestItems[nextItem.id].isFarmingItem == harvestProduct.isFarmingItem);
     end
 		if ( amount > 0 or (nextItem~=nil and HarvestItems[nextItem.id].isFarmingItem == harvestProduct.isFarmingItem)) then  -- there are still items we can work on
