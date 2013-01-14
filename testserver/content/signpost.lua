@@ -196,7 +196,7 @@ function InitWegweiser()
 end
 
 function AddWeg(Posi,dText,eText,Dir,Percept)
-    local tablePos = position(Posi[1], Posi[2], Posi[3])
+    local tablePos = tostring(Posi[1]).." "..tostring(Posi[2]).." "..tostring(Posi[3]);
     PrepareTables(tablePos);
     table.insert(signCoo[tablePos],position(Posi[1],Posi[2],Posi[3]));
     table.insert(signTextDe[tablePos],dText);
