@@ -270,7 +270,7 @@ function GetValidProduct(TargetItem, OnlyFarming, OnlyNonFarming)
 	local harvestProduct = nil;
 	for _,hp in pairs(HarvestItems[TargetItem.id]) do 
 		if (hp.groundType == nil or GroundType == hp.groundType) then
-			if ((OnlyFarming and hp.isFarmingItem) or (OnlyNonFarming and not hp.isFarmingItem)) then
+			if ((not OnlyFarming or hp.isFarmingItem) and (not OnlyNonFarming or not hp.isFarmingItem)) then
         harvestProduct = hp;
         break;
       end
