@@ -85,7 +85,7 @@ function InitWegweiser()
     AddWeg({414,247,0},"Eselstall","Donkey stable",0,0);
     AddWeg({398,249,0},"Dunkle Gasse","Dark Alley",0,0);
     AddWeg({392,249,0},"Wachstube","Guardroom",0,0);
-    AddWeg({398,248,0},"Schuldeneintreiber","Debt-collector",0,0);
+    AddWeg({389,248,0},"Schuldeneintreiber","Debt-collector",0,0);
     AddWeg({369,259,0},"Galmairs Krone (Guilianni-Residenz, Konzil Kammer, Goldträume, Schatzkammer und  Bibliothek)","Galmair's Crest (Guilianni-Residence, Council Chamber, Golden Dreams, Treasury, Library",0,0);
     AddWeg({343,259,0},"Taverne zur Geflügelten Sau","The Winged Sow Tavern",0,0);
     AddWeg({398,248,0},"Markt","Market",2,0);
