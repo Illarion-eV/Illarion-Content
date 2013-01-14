@@ -621,6 +621,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(2710,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2751,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(325,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(326,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(528,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(529,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(530,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(531,"sell"));

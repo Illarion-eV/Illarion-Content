@@ -26,7 +26,7 @@ author = "Rincewind"
 
 lookatDE = "Eine sinnliche Orkfrau mit druchdringenden rotbraunen Augen. Sie hat ein süßes Näschen und kleine spitze Hauer. Achtsam überblickt sie den Marktplatz."
 lookatUS = "A voluptous orcess with rebbrown eyes. She has a cute nose and small pointy tusks. She watches the marketplace observantly."
-useMsgDE = "Fass mich nicht an! Oder ich mach disch Kebab! Alda!"
+useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
@@ -45,8 +45,8 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 23, 2697, 2710, 2751, 325, 326, 529, 530, 531, 699, 770, 771, 2111, 2112, 2116, 2117, 2172, 77, 88, 124, 188, 192, 205, 229, 296, 383, 2629, 2642, 2660, 2711, 2723, 2946, 226, 230, 231, 2647, 2664, 2737, 27, 189, 190, 297, 389, 398, 444, 2675, 2740, 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444, 2537, 2696, 223, 466, 739, 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407, 104, 236, 2550, 2535, 2571, 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778
-buyPrimaryItems = 23, 2697, 2710, 2751, 325, 326, 529, 530, 531, 699, 770, 771, 2111, 2112, 2116, 2117, 2172, 77, 88, 124, 188, 192, 205, 229, 296, 383, 2629, 2642, 2660, 2711, 2723, 2946, 226, 230, 231, 2647, 2664, 2737, 27, 189, 190, 297, 389, 398, 444, 2675, 2740, 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444, 2537, 2696, 223, 466, 739, 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407, 104, 236, 2550, 2535, 2571, 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778
+sellItems = 23, 2697, 2710, 2751, 325, 326, 528, 529, 530, 531, 699, 770, 771, 2111, 2112, 2116, 2117, 2172, 77, 88, 124, 188, 192, 205, 229, 296, 383, 2629, 2642, 2660, 2711, 2723, 2946, 226, 230, 231, 2647, 2664, 2737, 27, 189, 190, 297, 389, 398, 444, 2675, 2740, 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444, 2537, 2696, 223, 466, 739, 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407, 104, 236, 2550, 2535, 2571, 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778
+buyPrimaryItems = 23, 2697, 2710, 2751, 325, 326, 528, 529, 530, 531, 699, 770, 771, 2111, 2112, 2116, 2117, 2172, 77, 88, 124, 188, 192, 205, 229, 296, 383, 2629, 2642, 2660, 2711, 2723, 2946, 226, 230, 231, 2647, 2664, 2737, 27, 189, 190, 297, 389, 398, 444, 2675, 2740, 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444, 2537, 2696, 223, 466, 739, 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407, 104, 236, 2550, 2535, 2571, 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778
 tradeNotEnoughMoneyMsg "Du kannst dir das nicht leisten!", "You can not afford that!"
 tradeFinishedMsg "Danke, komm bald wieder!", "Thanks, come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
@@ -121,7 +121,6 @@ english, "where com", "krochgurak" -> "Hrach. I come frome Khenserra. But most o
 "where com", "krochgurak" -> "Hrach. Ich komme aus Khenserra. Aber viele Orks sind aus Kroch'gurak. Dort'ists wo die Clans im Winter lagern."
 "dwarf","dwarv"->"Hurr Hurr. Do you need an axe, huh?"
 "zwerg" -> "Hurr Hurr. Brauchst ne Axt, hä?"
-
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Pfft! Astute wizard... Runewick rat!"
