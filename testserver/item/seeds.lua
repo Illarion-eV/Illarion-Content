@@ -141,9 +141,9 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
   local amount = SourceItem:getData("amount");
   if (amount ~= "") then
     amount = tonumber(amount);
-    TargetItem:setData("amount", "");
-    world:changeItem(TargetItem);
-    world:increase(TargetItem, amount);
+    SourceItem:setData("amount", "");
+    world:changeItem(SourceItem);
+    world:increase(TargetItem, amount - SourceItem.number);
     -- if (TargetItem:getType() == 3) then
       -- -- item is dragged to the map
       -- world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
