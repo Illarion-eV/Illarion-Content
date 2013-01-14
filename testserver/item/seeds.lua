@@ -171,7 +171,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
   if (amount ~= "") then
     amount = tonumber(amount);
     debug("remove " .. SourceItem.number);
-    -- world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
+    world:createItemFromId( 2, amount, User.pos, true, 333, nil );
     -- world:erase(SourceItem, SourceItem.number);
     world:erase(TargetItem, SourceItem.number);
   end
