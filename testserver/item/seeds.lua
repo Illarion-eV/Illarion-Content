@@ -141,16 +141,16 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
   local amount = SourceItem:getData("amount");
   if (amount ~= "") then
     amount = tonumber(amount);
-    if (TargetItem:getType() == 3) then
-      -- item is dragged to the map
-      world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
-    else
-      -- item is dragged to the User
-      User:createAtPos(TargetItem.itempos, SourceItem.id, amount);
-    end
-    world:erase( SourceItem, SourceItem.number );
-    world:erase( TargetItem, TargetItem.number );
-    -- return false;
+    TargetItem:setData("amount", "");
+    world:changeItem(TargetItem);
+    world:increase(TargetItem, amount);
+    -- if (TargetItem:getType() == 3) then
+      -- -- item is dragged to the map
+      -- world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
+    -- else
+      -- -- item is dragged to the User
+      -- User:createAtPos(TargetItem.itempos, SourceItem.id, amount);
+    -- end
   end
   return true;
 end
