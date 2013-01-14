@@ -287,6 +287,7 @@ end
 function GetHarvestItem(User, OnlyValidProducts, OnlyFarming, OnlyNonFarming)
   -- first check front position
   local item = base.common.GetFrontItem(User);
+  debug("front data " .. item:getData("amount"));
   if (item ~= nil and HarvestItems[item.id] ~= nil and (item:getData("amount") ~= "" or (item.wear == 255 and item:getData("amount") ~= "0"))) then
     if (not OnlyValidProducts or GetValidProduct(item, OnlyFarming, OnlyNonFarming) ~= nil) then
       return item;
