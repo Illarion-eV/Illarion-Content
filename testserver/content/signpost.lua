@@ -105,7 +105,7 @@ function InitWegweiser()
     AddWeg({387,347,0},"Schürferclub, Schürfer Quelle, Malachitmine","Miners' Club, Miner's Spring, Malachite Mine",2,0);
     AddWeg({386,346,0},"Galmair Hochebene mit Fort Schnellbeil, Goldener Rumil","Galmair Plateau with Fort Schnellbeil, Golden Rumil",6,0);
     AddWeg({417,357,0},"Schürferclub","Miners' Club",0,0);
-    AddWeg({418,357,0},"Malachitmine","Malachite Mine",2,0);
+    AddWeg({418,357,0},"Malachitmine, Cadomyr, Katanbi Wüste, Schattenland - Gefahr!","Malachite Mine, Cadomyr, Katanbi Desert, Shadowland - Danger!",2,0);
     AddWeg({418,371,0},"Cadomyr, Katanbi Wüste, Schattenland - Gefahr!","Cadomyr, Katanbi Desert, Shadowland - Danger!",4,0);
     AddWeg({417,385,0},"Galmair","Galmair",0,0);
 
