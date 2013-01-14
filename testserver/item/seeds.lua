@@ -155,7 +155,7 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
     end
     world:erase(SourceItem, 1);
     -- world:increase(SourceItem, -SourceItem.number);
-    return false;
+    return true;
   end
   
   -- local amount = SourceItem:getData("amount");
@@ -176,19 +176,19 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
   return true;
 end
 
-function MoveItemAfterMove(User, SourceItem, TargetItem)
-  local amount = SourceItem:getData("amount");
-  if (amount ~= "") then
-    amount = tonumber(amount);
-    debug("remove " .. SourceItem.number);
-    if (TargetItem:getType() == 3) then
-      -- item is dragged to the map
-      world:createItemFromId( SourceItem.id, amount, User.pos, true, 333, nil );
-    else
-      -- item is dragged to the User
-      User:createItem(SourceItem.id, amount, 333, nil);
-    end
-    world:erase(SourceItem, SourceItem.number);
-    world:erase(TargetItem, SourceItem.number);
-  end
-end
+-- function MoveItemAfterMove(User, SourceItem, TargetItem)
+  -- local amount = SourceItem:getData("amount");
+  -- if (amount ~= "") then
+    -- amount = tonumber(amount);
+    -- debug("remove " .. SourceItem.number);
+    -- if (TargetItem:getType() == 3) then
+      -- -- item is dragged to the map
+      -- world:createItemFromId( SourceItem.id, amount, User.pos, true, 333, nil );
+    -- else
+      -- -- item is dragged to the User
+      -- User:createItem(SourceItem.id, amount, 333, nil);
+    -- end
+    -- world:erase(SourceItem, SourceItem.number);
+    -- world:erase(TargetItem, SourceItem.number);
+  -- end
+-- end
