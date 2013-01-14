@@ -142,13 +142,20 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
   if (amount ~= "") then
     amount = tonumber(amount);
     debug("move seed, amount " .. amount);
-    if (TargetItem:getData("amount") == "") then
-      return false;
+    if (amount == 2) then
+      world:createItemFromId( SourceItem.id, amount, User.pos, true, 333, nil );
+    elseif (amount == 3) then
+      if (TargetItem:getType() == 3) then
+        -- item is dragged to the map
+        world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
+      else
+        -- item is dragged to the User
+        User:createItem(SourceItem.id, amount, 333, nil);
+      end
     end
-    -- world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
-    -- world:erase(SourceItem, 1);
+    world:erase(SourceItem, 1);
     -- world:increase(SourceItem, -SourceItem.number);
-    return true;
+    return false;
   end
   
   -- local amount = SourceItem:getData("amount");
