@@ -131,8 +131,7 @@ function InitWegweiser()
     AddWeg({452,109,0},"Nördliche Inseln","Northern Islands",0,0);
     AddWeg({440,139,0},"Dunkellochmine","Dark Hole Mine",6,0);
     AddWeg({409,148,0},"Dunkellochmine","Dark Hole Mine",6,0);
-    AddWeg({409,143,0},"Dunkellochmine","Dark Hole Mine",6,0);
-    AddWeg({503,213,0},"Gasthof zur Hanfschlinge; Cadomyr; Runewick","The Hemp Necktie Inn; Cadomyr; Runewick",2,0);
+    AddWeg({503,213,0},"Gasthof zur Hanfschlinge, Cadomyr, Runewick","The Hemp Necktie Inn, Cadomyr, Runewick",2,0);
 
 
     --SE/Runewick-map
