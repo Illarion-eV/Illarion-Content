@@ -173,7 +173,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
     debug("remove " .. SourceItem.number);
     if (TargetItem:getType() == 3) then
       -- item is dragged to the map
-      world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
+      world:createItemFromId( SourceItem.id, amount, User.pos, true, 333, nil );
     else
       -- item is dragged to the User
       User:createAtPos(TargetItem.itempos, SourceItem.id, amount);
