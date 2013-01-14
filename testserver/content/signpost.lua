@@ -117,7 +117,7 @@ function InitWegweiser()
     AddWeg({331,248,-6},"Schimmersenke mit dem Spielraum und dem Tempel des Nagrun.","Flicker Swale with Game Room and the Temple of Nagrun",6,0);-- Scoria Mine
 
     AddWeg({423,248,0},"Galmair","Galmair",6,0);
-    AddWeg({425,248,0},"Nargun Ebene, Hafen, Dunkellochmine, Gasthof zur Hanfschlinge, Cadomyr, Runewick","Nargun's Plain, Harbour, Dark Hole Mine, The Hemp Necktie Inn, Cadomyr, Runewick",2,0);
+    AddWeg({427,248,0},"Nargun Ebene, Hafen, Dunkellochmine, Gasthof zur Hanfschlinge, Cadomyr, Runewick","Nargun's Plain, Harbour, Dark Hole Mine, The Hemp Necktie Inn, Cadomyr, Runewick",2,0);
     AddWeg({427,252,0},"Ackerland + Stinkende Fischer beim Malachit Bach","Farmland + Stinky Fisherman at the Malachite Creek",4,0);
     AddWeg({441,253,0},"Waldeck","Woodcorner",0,0);
     AddWeg({464,253,0},"Die Plattform","The Platform",0,0);
