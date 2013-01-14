@@ -170,7 +170,7 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
   local amount = SourceItem:getData("amount");
   if (amount ~= "") then
     debug("remove " .. SourceItem.number);
-    world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
+    world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, {} );
     world:erase(TargetItem, SourceItem.number);
   end
 end
