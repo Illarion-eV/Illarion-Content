@@ -92,10 +92,10 @@ queststatus(69) = 0, "task", "adventure", "order" -> inform("[New quest] Elstree
 queststatus(69) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Elsbaumwald I"), item(74, 1, 399), queststatus(69) = 1, "Ah, fein, ihr möchtet mir dabei helfen, die Bäume zu pflegen. Borkenkäfer sind zu einer echten Plage geworden. Nehmt dieses Beil und sucht nach kranken Naldorbäumen. Bringt mir zehn Scheite, ja?"
 
 -- Quest 1 solved
-skill(woodcutting) < 90, queststatus(69) = 1, item(544, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and your lumberjacking skill increases."), skill(woodcutting) + 1, money + 500, deleteItem(2560, 10), queststatus(69) = 2, "Oh, thank you. Here, take this reward for your efforts."
-queststatus(69) = 1, item(544, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, deleteItem(2560, 10), queststatus(69) = 2, "Oh, thank you. Here, take this reward for your efforts."
-skill(woodcutting) < 90, queststatus(69) = 1, item(544, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Holzfällerfertigkeit steigt."), skill(woodcutting) + 1, money + 500, deleteItem(2560, 10), queststatus(69) = 2, "Oh, vielen Dank. Hier, eine kleine Entschädigung für eure Mühen."
-queststatus(69) = 1, item(544, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(2560, 10), queststatus(69) = 2, "Oh, vielen Dank. Hier, eine kleine Entschädigung für eure Mühen."
+skill(woodcutting) < 90, queststatus(69) = 1, item(544, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins and your lumberjacking skill increases."), skill(woodcutting) + 1, money + 500, deleteItem(544, 10), queststatus(69) = 2, "Oh, thank you. Here, take this reward for your efforts."
+queststatus(69) = 1, item(544, all) > 9, english, ".+" -> inform("[Quest solved] You are awarded five silver coins."), money + 500, deleteItem(544, 10), queststatus(69) = 2, "Oh, thank you. Here, take this reward for your efforts."
+skill(woodcutting) < 90, queststatus(69) = 1, item(544, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Holzfällerfertigkeit steigt."), skill(woodcutting) + 1, money + 500, deleteItem(544, 10), queststatus(69) = 2, "Oh, vielen Dank. Hier, eine kleine Entschädigung für eure Mühen."
+queststatus(69) = 1, item(544, all) > 9, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silberstücke."), money + 500, deleteItem(544, 10), queststatus(69) = 2, "Oh, vielen Dank. Hier, eine kleine Entschädigung für eure Mühen."
 
 -- Quest 1 not solved, repeat the instructions
 queststatus(69) = 1, english, "quest", "mission" -> "Please take care of ill naldor trees, else bark beetles might make other trees suffer, too.", "Well, I am sure you'll find more ill naldor trees."
