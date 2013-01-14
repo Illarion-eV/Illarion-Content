@@ -115,10 +115,7 @@ function TellRecipe(User, effectId)
 	recipeDE = recipeDE.."\nEssenzgebräu auf "..world:getItemName(ingredientList[1],Player.german).."basis:\n"
     local success = false
 	for i=3,10 do
-	    if isTestserver() then
-		    User:inform(""..ingredientList[i])
-		end	
-		if ingredientList[i] == false then
+	    if ingredientList[i] == false then
 		    break
 		else
             success = true
