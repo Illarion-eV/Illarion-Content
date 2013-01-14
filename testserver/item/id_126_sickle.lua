@@ -233,7 +233,10 @@ function UseItem(User, SourceItem, ltstate)
       if (harvestProduct.isFarmingItem == nil) then
         debug("2");
       end
-      debug("next id " .. nextItem.id .. ", isFarming " .. HarvestItems[nextItem.id].isFarmingItem .. ", current isFarming " .. harvestProduct.isFarmingItem .. ", comp " .. HarvestItems[nextItem.id].isFarmingItem == harvestProduct.isFarmingItem);
+      debug("next id " .. nextItem.id);
+      debug(", isFarming " .. HarvestItems[nextItem.id].isFarmingItem);
+      debug(", current isFarming " .. harvestProduct.isFarmingItem);
+      debug(", comp " .. HarvestItems[nextItem.id].isFarmingItem == harvestProduct.isFarmingItem);
     end
 		if ( amount > 0 or (nextItem~=nil and HarvestItems[nextItem.id].isFarmingItem == harvestProduct.isFarmingItem)) then  -- there are still items we can work on
 			theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
