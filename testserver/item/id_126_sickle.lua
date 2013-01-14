@@ -42,28 +42,26 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
   
-  local TargetItem = GetHarvestItem(User);
+  -- first try to get only valid items
+  local TargetItem = GetHarvestItem(User, true, false, false);
+  if (TargetItem == nil) then
+    -- no valid item ... try to get any item and inform later
+    TargetItem = GetHarvestItem(User, false, false, false);
+  end
   if ( TargetItem == nil) then
 		base.common.HighInformNLS( User, 
 		"Hier ist nichts, wofür du die Sichel benutzen kannst.", 
 		"There is nothing for which you can use the sickle." );
 		return;
 	end
-  harvestItem = HarvestItems[TargetItem.id];
+  
   local TargetPos = TargetItem.pos;
 	if not base.common.IsLookingAt( User, TargetPos ) then -- check looking direction
 		base.common.TurnTo( User, TargetPos ); -- turn if necessary
 	end
 	
 	-- there is a harvestable item, but does the ground fit?
-	local GroundType = base.common.GetGroundType(world:getField(TargetPos):tile());
-	local harvestProduct = nil;
-	for _,hp in pairs(harvestItem) do 
-		if (hp.groundType == nil or GroundType == hp.groundType) then
-			harvestProduct = hp;
-			break;
-		end
-	end
+	local harvestProduct = GetValidProduct(TargetItem, false, false);
 	if ( harvestProduct == nil ) then
 		base.common.HighInformNLS( User, 
 		"Diese Pflanze trägt nichts Nützliches, das du mit deiner Sichel schneiden kannst. Vielleicht wird diese Art Pflanze in einem anderen Boden besser gedeihen.", 
@@ -225,24 +223,25 @@ function UseItem(User, SourceItem, ltstate)
 		"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
-    local nextItem = GetHarvestItem(User);
+    -- try to find a next item of the same (non-)farming type
+    local nextItem = GetHarvestItem(User, true, harvestProduct.isFarmingItem, not harvestProduct.isFarmingItem);
     if (nextItem~=nil) then
-      if (HarvestItems[nextItem.id].isFarmingItem == nil) then
-        debug("1");
-      end
-      if (harvestProduct.isFarmingItem == nil) then
-        debug("2");
-      end
-      debug("next id " .. nextItem.id);
-      debug(", isFarming " .. HarvestItems[nextItem.id].isFarmingItem);
-      debug(", current isFarming " .. harvestProduct.isFarmingItem);
-      debug(", comp " .. HarvestItems[nextItem.id].isFarmingItem == harvestProduct.isFarmingItem);
+      -- if (HarvestItems[nextItem.id].isFarmingItem == nil) then
+        -- debug("1");
+      -- end
+      -- if (harvestProduct.isFarmingItem == nil) then
+        -- debug("2");
+      -- end
+      -- debug("next id " .. nextItem.id);
+      -- debug(", isFarming " .. HarvestItems[nextItem.id].isFarmingItem);
+      -- debug(", current isFarming " .. harvestProduct.isFarmingItem);
+      -- debug(", comp " .. HarvestItems[nextItem.id].isFarmingItem == harvestProduct.isFarmingItem);
     end
-		if ( amount > 0 or (nextItem~=nil and HarvestItems[nextItem.id].isFarmingItem == harvestProduct.isFarmingItem)) then  -- there are still items we can work on
+		if ( amount > 0 or nextItem~=nil) then  -- there are still items we can work on
+      base.common.TurnTo( User, nextItem.pos ); -- turn, so we find this item in next call as first item
 			theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
 			User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
 		elseif ( not harvestProduct.isFarmingItem ) then -- no items left
-			-- only inform for non farming items. Farming items with amount==0 should already be erased.
 			base.common.HighInformNLS(User,
 			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
 			"This plant is already fully harvested. Give it time to grow again." );
@@ -263,12 +262,31 @@ function UseItem(User, SourceItem, ltstate)
 	end
 end
 
+function GetValidProduct(TargetItem, OnlyFarming, OnlyNonFarming)
+  if (HarvestItems[TargetItem.id] == nil) then
+    return false;
+  end
+  local GroundType = base.common.GetGroundType(world:getField(TargetItem.pos):tile());
+	local harvestProduct = nil;
+	for _,hp in pairs(HarvestItems[TargetItem.id]) do 
+		if (hp.groundType == nil or GroundType == hp.groundType) then
+			if ((OnlyFarming and hp.isFarmingItem) or (OnlyNonFarming and not hp.isFarmingItem)) then
+        harvestProduct = hp;
+        break;
+      end
+		end
+	end
+  return harvestProduct;
+end
+
 -- check around the user for harvest items, only top items on the field!
-function GetHarvestItem(User)
+function GetHarvestItem(User, OnlyValidProducts, OnlyFarming, OnlyNonFarming)
   -- first check front position
   local item = base.common.GetFrontItem(User);
   if (item ~= nil and HarvestItems[item.id] ~= nil and (item:getData("amount") ~= "" or item.wear == 255)) then
-    return item;
+    if (not OnlyValidProducts or GetValidProduct(item, OnlyFarming, OnlyNonFarming) ~= nil) then
+      return item;
+    end
   end
   local Radius = 1;
   for x=-Radius,Radius do
@@ -278,7 +296,9 @@ function GetHarvestItem(User)
         local item = world:getItemOnField(checkPos);
         -- harvest item has to be static or an amount has to be set
         if (HarvestItems[item.id] ~= nil and (item:getData("amount") ~= "" or item.wear == 255)) then
-          return item;
+          if (not OnlyValidProducts or GetValidProduct(item, OnlyFarming, OnlyNonFarming) ~= nil) then
+            return item;
+          end
         end
       end
     end
