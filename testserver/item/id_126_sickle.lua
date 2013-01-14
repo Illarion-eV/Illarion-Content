@@ -412,6 +412,25 @@ function InitHarvestItems()
 	HarvestItems[777] = {									-- withered tobacco plant
     CreateHarvestProduct(772, nil, nil, true)					-- tobacco
     }
+  -- TODO when bug in MoveItem functions is resolved, remove these
+  HarvestItems[779] = {									-- sugarcane seeds
+    CreateHarvestProduct(779, nil, nil, true)
+    }
+  HarvestItems[773] = {									-- tobacco seeds
+    CreateHarvestProduct(773, nil, nil, true)
+    }
+  HarvestItems[2917] = {								-- tomato seeds
+    CreateHarvestProduct(2917, nil, nil, true)
+    }
+  HarvestItems[2494] = {								-- carrot seeds ("seeds")
+    CreateHarvestProduct(2494, nil, nil, true)
+    }
+  HarvestItems[534] = {								  -- onion seeds
+    CreateHarvestProduct(534, nil, nil, true)
+    }
+  HarvestItems[291] = {								  -- withered cabbage (seeds)
+    CreateHarvestProduct(291, nil, nil, true)
+    }
 	
 	-- anything else
 	HarvestItems[308] = {									-- fir tree

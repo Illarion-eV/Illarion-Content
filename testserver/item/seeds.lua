@@ -6,34 +6,45 @@ module("item.seeds", package.seeall)
 -- UPDATE common SET com_script='item.seeds' WHERE com_itemid IN (259,291,534,2494,2917,728,773,779);
 
 -- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 247 WHERE com_itemid = 246;
--- UPDATE common SET com_agingspeed = 3, com_objectafterrot = 248 WHERE com_itemid = 247;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 248 WHERE com_itemid = 247;
 -- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 246 WHERE com_itemid = 248;
--- UPDATE common SET com_agingspeed = 3, com_objectafterrot = 259 WHERE com_itemid = 259;
+-- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 259 WHERE com_itemid = 259;
 
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 289 WHERE com_itemid = 288;
--- UPDATE common SET com_agingspeed = 3, com_objectafterrot = 290 WHERE com_itemid = 289;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 289 WHERE com_itemid = 288;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 290 WHERE com_itemid = 289;
 -- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 291 WHERE com_itemid = 290;
 -- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 291 WHERE com_itemid = 291;
 
--- UPDATE common SET com_agingspeed = 3, com_objectafterrot = 536 WHERE com_itemid = 535;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 536 WHERE com_itemid = 535;
 -- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 537 WHERE com_itemid = 536;
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 534 WHERE com_itemid = 537;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 534 WHERE com_itemid = 537;
 -- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 534 WHERE com_itemid = 534;
 
--- UPDATE common SET com_agingspeed = 3, com_objectafterrot = 2491 WHERE com_itemid = 2490;
--- UPDATE common SET com_agingspeed = 3, com_objectafterrot = 2492 WHERE com_itemid = 2491;
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 2494 WHERE com_itemid = 2492;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 2491 WHERE com_itemid = 2490;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 2492 WHERE com_itemid = 2491;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 2494 WHERE com_itemid = 2492;
 -- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 2494 WHERE com_itemid = 2494;
 
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 539 WHERE com_itemid = 538;
--- UPDATE common SET com_agingspeed = 3, com_objectafterrot = 540 WHERE com_itemid = 539;
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 2917 WHERE com_itemid = 540;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 539 WHERE com_itemid = 538;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 540 WHERE com_itemid = 539;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 2917 WHERE com_itemid = 540;
 -- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 2917 WHERE com_itemid = 2917;
 
--- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 730 WHERE com_itemid = 729;
--- UPDATE common SET com_agingspeed = 3, com_objectafterrot = 731 WHERE com_itemid = 730;
--- UPDATE common SET com_agingspeed = 3, com_objectafterrot = 732 WHERE com_itemid = 731;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 730 WHERE com_itemid = 729;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 731 WHERE com_itemid = 730;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 732 WHERE com_itemid = 731;
 -- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 732 WHERE com_itemid = 732;
+
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 775 WHERE com_itemid = 774;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 776 WHERE com_itemid = 775;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 777 WHERE com_itemid = 776;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 773 WHERE com_itemid = 777;
+-- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 773 WHERE com_itemid = 773;
+
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 781 WHERE com_itemid = 780;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 782 WHERE com_itemid = 781;
+-- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 779 WHERE com_itemid = 782;
+-- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 779 WHERE com_itemid = 779;
 
 function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
@@ -140,39 +151,26 @@ end
 function MoveItemBeforeMove(User, SourceItem, TargetItem)
   local amount = SourceItem:getData("amount");
   if (amount ~= "") then
-    amount = tonumber(amount);
-    debug("move seed, amount " .. amount);
-    if (amount == 2) then
-      world:createItemFromId( SourceItem.id, amount, User.pos, true, 333, nil );
-    elseif (amount == 3) then
-      if (TargetItem:getType() == 3) then
-        -- item is dragged to the map
-        world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
-      else
-        -- item is dragged to the User
-        User:createItem(SourceItem.id, amount, 333, nil);
-      end
-    end
-    world:erase(SourceItem, SourceItem.number);
-    -- world:increase(SourceItem, -SourceItem.number);
-    return false;
-  end
-  
-  -- local amount = SourceItem:getData("amount");
-  -- if (amount ~= "") then
     -- amount = tonumber(amount);
     -- debug("move seed, amount " .. amount);
-    -- TargetItem:setData("amount", "");
-    -- world:changeItem(TargetItem);
-    -- world:increase(TargetItem, amount - TargetItem.number);
-    -- -- if (TargetItem:getType() == 3) then
-      -- -- -- item is dragged to the map
-      -- -- world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
-    -- -- else
-      -- -- -- item is dragged to the User
-      -- -- User:createAtPos(TargetItem.itempos, SourceItem.id, amount);
-    -- -- end
-  -- end
+    -- if (amount == 2) then
+      -- world:createItemFromId( SourceItem.id, amount, User.pos, true, 333, nil );
+    -- elseif (amount == 3) then
+      -- if (TargetItem:getType() == 3) then
+        -- -- item is dragged to the map
+        -- world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
+      -- else
+        -- -- item is dragged to the User
+        -- User:createItem(SourceItem.id, amount, 333, nil);
+      -- end
+    -- end
+    -- world:erase(SourceItem, SourceItem.number);
+    -- world:increase(SourceItem, -SourceItem.number);
+    base.common.InformNLS(User,
+		"[INFO] Aus technischen Gründen brauchst du zur Zeit eine Sichel, um die Samen aufzuheben.",
+		"[INFO] For technical reasons you currently need a sickle to pick up the seeds.");
+    return false;
+  end
   return true;
 end
 
