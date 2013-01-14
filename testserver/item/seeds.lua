@@ -166,7 +166,7 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
     -- end
     -- world:erase(SourceItem, SourceItem.number);
     -- world:increase(SourceItem, -SourceItem.number);
-    base.common.InformNLS(User,
+    base.common.HighInformNLS(User,
 		"[INFO] Aus technischen Gründen brauchst du zur Zeit eine Sichel, um die Samen aufzuheben.",
 		"[INFO] For technical reasons you currently need a sickle to pick up the seeds.");
     return false;

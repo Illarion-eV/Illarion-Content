@@ -234,6 +234,10 @@ function UseItem(User, SourceItem, ltstate)
 			base.common.HighInformNLS(User,
 			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
 			"This plant is already fully harvested. Give it time to grow again." );
+    else
+      base.common.HighInformNLS( User, 
+      "Hier ist nichts mehr, wofür du die Sichel benutzen kannst.", 
+      "There is nothing anymore for which you can use the sickle." );
 		end
 	end
 
