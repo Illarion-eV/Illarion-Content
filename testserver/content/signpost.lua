@@ -102,10 +102,10 @@ function InitWegweiser()
     AddWeg({401,293,0},"Gasthof zum schläfrigen Bujhaar","Sleepy Bujhaar Inn",2,0);
     AddWeg({398,305,0},"Tollloch","Sporthole",2,0);
     AddWeg({387,346,0},"Galmair","Galmair",0,0);
-    AddWeg({387,347,0},"Schürferclub, Schürfer Quelle, Malachitmine","Miners' Club, Miner's Spring, Malachite Mine",2,0);
-    AddWeg({386,346,0},"Galmair Hochebene mit Fort Schnellbeil, Goldener Rumil","Galmair Plateau with Fort Schnellbeil, Golden Rumil",6,0);
+    AddWeg({387,347,0},"Schürferclub, Schürfer Quelle, Malachitmine, Cadomyr, Katanbi Wüste, Schattenland","Miners' Club, Miner's Spring, Malachite Mine, Cadomyr, Katanbi Desert, Shadowland",2,0);
+    AddWeg({386,346,0},"Galmair Hochebene mit Fort Schnellbeil und Goldener Rumil","Galmair Plateau with Fort Schnellbeil and Golden Rumil",6,0);
     AddWeg({417,357,0},"Schürferclub","Miners' Club",0,0);
-    AddWeg({418,357,0},"Malachitmine","Malachite Mine",2,0);
+    AddWeg({418,357,0},"Malachitmine, Cadomyr, Katanbi Wüste, Schattenland","Malachite Mine, Cadomyr, Katanbi Desert, Shadowland",2,0);
     AddWeg({418,371,0},"Cadomyr, Katanbi Wüste, Schattenland - Gefahr!","Cadomyr, Katanbi Desert, Shadowland - Danger!",4,0);
     AddWeg({417,385,0},"Galmair","Galmair",0,0);
 
@@ -117,22 +117,21 @@ function InitWegweiser()
     AddWeg({331,248,-6},"Schimmersenke mit dem Spielraum und dem Tempel des Nagrun.","Flicker Swale with Game Room and the Temple of Nagrun",6,0);-- Scoria Mine
 
     AddWeg({423,248,0},"Galmair","Galmair",6,0);
-    AddWeg({427,248,0},"Nargun Ebene, Hafen, Dunkellochmine, Gasthof zur Hanfschlinge, Cadomyr, Runewick","Nargun's Plain, Harbour, Dark Hole Mine, The Hemp Necktie Inn, Cadomyr, Runewick",2,0);
+    AddWeg({427,248,0},"Nargun Ebene, Hafen, Dunkellochmine, Spinnen Maul, Gasthof zur Hanfschlinge, Cadomyr, Runewick","Nargun's Plain, Harbour, Dark Hole Mine, Spider's Mouth, Hemp Necktie Inn, Cadomyr, Runewick",2,0);
     AddWeg({427,252,0},"Ackerland + Stinkende Fischer beim Malachit Bach","Farmland + Stinky Fisherman at the Malachite Creek",4,0);
     AddWeg({441,253,0},"Waldeck","Woodcorner",0,0);
     AddWeg({464,253,0},"Die Plattform","The Platform",0,0);
-    AddWeg({473,248,0},"Nargun Ebene, Hafen, Dunkellochmine, Gasthof zur Hanfschlinge, Cadomyr, Runewick","Nargun's Plain, Harbour, Dark Hole Mine, The Hemp Necktie Inn, Cadomyr, Runewick",6,0);
-    AddWeg({485,248,0},"Galmair","Galmair",2,0);
+    AddWeg({473,248,0},"Nargun Ebene, Hafen, Dunkellochmine, Spinnen Maul, Gasthof zur Hanfschlinge, Cadomyr, Runewick","Nargun's Plain, Harbour, Dark Hole Mine, Spider's Mouth, Hemp Necktie Inn, Cadomyr, Runewick",2,0);
+    AddWeg({485,248,0},"Galmair","Galmair",6,0);
     AddWeg({501,218,0},"Galmair","Galmair",4,0);
-    AddWeg({500,210,0},"Hafen, Dunkellochmine, Nördliche Inseln, Der Sumpf, Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes","Harbour, Dark Hole Mine, Northern Islands, The Swamp, Temple of the Five, Plains of Silence, Northern Woods, The Insurmountable Limes",0,0);
-    AddWeg({499,189,0},"Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes","Temple of the Five, Plains of Silence, Northern Woods, The Insurmountable Limes",6,0);
-    AddWeg({496,191,0},"Hafen, Dunkellochmine, Nördliche Inseln","Harbour, Dark Hole Mine, Northern Islands",2,0);
+    AddWeg({500,210,0},"Hafen, Dunkellochmine, Nördliche Inseln, Der Sumpf, Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes","Harbour, Dark Hole Mine, Northern Islands, The Swamp, Temple of the Five, Plains of Silence, Northern Woods, Insurmountable Limes",0,0);
+    AddWeg({499,189,0},"Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes","Temple of the Five, Plains of Silence, Northern Woods, The Insurmountable Limes",2,0);
+    AddWeg({496,191,0},"Hafen, Dunkellochmine, Nördliche Inseln","Harbour, Dark Hole Mine, Northern Islands",6,0);
     AddWeg({446,138,0},"Hafen, Nördliche Inseln","Harbour, Northern Islands",0,0);
     AddWeg({452,109,0},"Nördliche Inseln","Northern Islands",0,0);
     AddWeg({440,139,0},"Dunkellochmine","Dark Hole Mine",6,0);
     AddWeg({409,148,0},"Dunkellochmine","Dark Hole Mine",6,0);
-    AddWeg({409,143,0},"Dunkellochmine","Dark Hole Mine",6,0);
-    AddWeg({503,213,0},"Gasthof zur Hanfschlinge; Cadomyr; Runewick","The Hemp Necktie Inn; Cadomyr; Runewick",2,0);
+    AddWeg({503,213,0},"Spinnen Maul, Gasthof zur Hanfschlinge, Cadomyr, Runewick","Spider's Mouth, Hemp Necktie Inn, Cadomyr, Runewick",2,0);
 
 
     --SE/Runewick-map
@@ -197,7 +196,7 @@ function InitWegweiser()
 end
 
 function AddWeg(Posi,dText,eText,Dir,Percept)
-    local tablePos = Posi[1]..Posi[2]..Posi[3];
+    local tablePos = position(Posi[1], Posi[2], Posi[3])
     PrepareTables(tablePos);
     table.insert(signCoo[tablePos],position(Posi[1],Posi[2],Posi[3]));
     table.insert(signTextDe[tablePos],dText);
