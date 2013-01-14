@@ -188,7 +188,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(603, ">", 0));
-talkEntry:addCondition(npc.base.condition.quest.quest(603, "<", 10));
+talkEntry:addCondition(npc.base.condition.quest.quest(603, "<", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Hint] You have to fulfil NPC Nobarg' tasks before you can continue here."));
