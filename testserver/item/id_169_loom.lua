@@ -89,7 +89,7 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	User:learn( weaving.LeadSkill, weaving.SavedWorkTime[User.id], 20);
+	User:learn( weaving.LeadSkill, weaving.SavedWorkTime[User.id], weaving.LearnLimit);
 	User:eraseItem( 170, 5 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 176, amount, 333, nil ); -- create the new produced items
