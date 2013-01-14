@@ -214,6 +214,10 @@ function UseItem(User, SourceItem, ltstate)
 			return;
 		end
 	end
+  if ( changeItem ) then
+		world:changeItem(TargetItem);
+	end
+  
 	-- since we're here, everything should be alright
 	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], 20);
 	local notCreated = User:createItem( harvestProduct.productId, 1, 333, nil ); -- create the new produced items
@@ -262,9 +266,6 @@ function UseItem(User, SourceItem, ltstate)
 		base.common.HighInformNLS(User,
 		"Deine alte Sichel zerbricht.",
 		"Your old sickle breaks.");
-	end
-	if ( changeItem ) then
-		world:changeItem(TargetItem);
 	end
 end
 
