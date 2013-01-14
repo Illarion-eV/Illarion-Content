@@ -163,6 +163,8 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
     debug("move seed, amount " .. amount);
     TargetItem:setData("amount", "");
     world:changeItem(TargetItem);
-    world:increase(TargetItem, amount - SourceItem.number);
+    if (amount > 0) then
+      world:increase(TargetItem, amount - 1);
+    end
   end
 end
