@@ -121,8 +121,7 @@ function InitWegweiser()
     AddWeg({427,252,0},"Ackerland + Stinkende Fischer beim Malachit Bach","Farmland + Stinky Fisherman at the Malachite Creek",4,0);
     AddWeg({441,253,0},"Waldeck","Woodcorner",0,0);
     AddWeg({464,253,0},"Die Plattform","The Platform",0,0);
-    AddWeg({474,251,0},"Nargun Ebene, Hafen, Dunkellochmine, Gasthof zur Hanfschlinge, Cadomyr, Runewick","Nargun's Plain, Harbour, Dark Hole Mine, The Hemp Necktie Inn, Cadomyr, Runewick",6,0);
-    AddWeg({474,248,0},"Hafen, Dunkellochmine, Gasthof zur Hanfschlinge, Cadomyr, Runewick","Harbour, Dark Hole Mine, The Hemp Necktie Inn, Cadomyr, Runewick",6,0);
+    AddWeg({473,248,0},"Nargun Ebene, Hafen, Dunkellochmine, Gasthof zur Hanfschlinge, Cadomyr, Runewick","Nargun's Plain, Harbour, Dark Hole Mine, The Hemp Necktie Inn, Cadomyr, Runewick",6,0);
     AddWeg({485,248,0},"Galmair","Galmair",2,0);
     AddWeg({501,218,0},"Galmair","Galmair",4,0);
     AddWeg({500,210,0},"Hafen, Dunkellochmine, Nördliche Inseln, Der Sumpf, Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes","Harbour, Dark Hole Mine, Northern Islands, The Swamp, Temple of the Five, Plains of Silence, Northern Woods, The Insurmountable Limes",0,0);
