@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 name = "Krudash"
@@ -65,12 +65,12 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Metal body armour: 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407
 -- Metal ingots: 104, 236, 2550, 2535, 2571
 -- Swords: 1, 25, 78, 84, 85, 98, 123, 204, 445 (Holzschert), 2658, 2701, 2731, 2757, 2775, 2778
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Gâsh! I sell everything made in the forge. Sharpest Axes! Mightiest Armours! Best tools. Uh!", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Gâsh! I sell everything made in the forge. Sharpest Axes! Mightiest Armours! Best tools. Uh!"
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!"
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: buy, sell, trade, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"), "Me, Krudash sell and buy lots of stuff! Taghta?", state = 0
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: kaufe, verkaufe, Handel, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"), "Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?", state = 0
+"Help" -> inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: buy, sell, trade, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"), "Me, Krudash sell and buy lots of stuff! Taghta?"
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: kaufe, verkaufe, Handel, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"), "Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?"
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas. Do you need sumthing?", "Hurr! Be greeted.", "Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!", "Latha math! Greetings-Greetings, mes mean."
@@ -119,7 +119,7 @@ english, "snaga" -> "Snagas! Those are monkeys... - basically. And weak puny orc
 "snaga" -> "Snagas! Das sind Affen... - eigentlich. Und schwächliche Orks, denen man sagt was sie tun müssen! Eine mächtige Ork wie ich, Krudash es bin hat viele Snagas. Gâsh! Bin ja auch die Schlauste hier."
 english, "where com", "krochgurak" -> "Hrach. I come frome Khenserra. But most orcs come frome Kroch'gurak where the Clans camp in winter."
 "where com", "krochgurak" -> "Hrach. Ich komme aus Khenserra. Aber viele Orks sind aus Kroch'gurak. Dort'ists wo die Clans im Winter lagern."
-"dwarf","dwarv"->"Hurr Hurr. Do you need an axe, huh?"
+"dwarf", "dwarv" -> "Hurr Hurr. Do you need an axe, huh?"
 "zwerg" -> "Hurr Hurr. Brauchst ne Axt, hä?"
 
 -- Faction stuff. Please remove if you send the template to outsiders!
