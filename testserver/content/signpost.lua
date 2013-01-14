@@ -92,7 +92,7 @@ function InitWegweiser()
     AddWeg({372,279,0},"Markt","Market",6,0);
     AddWeg({330,264,0},"Schlackengrube","Scoria Mine",0,0);
     AddWeg({311,262,0},"Tempel des Irmorom","Temple of Irmorom",0,0);
-    AddWeg({323,282,0},"Villa 'Goldader'","Villa 'Goldvein'",0,0);
+    AddWeg({303,282,0},"Villa 'Goldader'","Villa 'Goldvein'",0,0);
     AddWeg({296,282,0},"Quelle der Träume","Well of Dreams",6,0);
     AddWeg({376,274,0},"Werkstatt","Workshop",2,0);
     AddWeg({398,292,0},"Werkstatt","Workshop",6,0);
