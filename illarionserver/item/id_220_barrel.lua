@@ -101,7 +101,7 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	User:learn( dyeing.LeadSkill, dyeing.SavedWorkTime[User.id], 20);
+	User:learn( dyeing.LeadSkill, dyeing.SavedWorkTime[User.id], dyeing.LearnLimit);
 	User:eraseItem( dye[1], 1 ); -- erase the item we're working on
   User:eraseItem( dye[2], 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced

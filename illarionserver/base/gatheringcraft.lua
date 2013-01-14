@@ -22,7 +22,8 @@ GatheringCraft = {
 	Treasure = 0,
 	TreasureMsg = { },
 	FoodLevel = 100,
-  FastActionFactor = 1
+  FastActionFactor = 1,
+  LearnLimit = 20
 };
 
 Monster = {

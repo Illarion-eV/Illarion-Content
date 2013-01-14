@@ -91,7 +91,7 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	User:learn( doughproducing.LeadSkill, doughproducing.SavedWorkTime[User.id], 20);
+	User:learn( doughproducing.LeadSkill, doughproducing.SavedWorkTime[User.id], doughproducing.LearnLimit);
 	User:eraseItem( 2, 5 ); -- erase the item we're working on
   local theBucket = base.common.GetItemInInventory(User, 52);
   local bucketAmount = 0;

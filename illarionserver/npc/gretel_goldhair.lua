@@ -122,7 +122,7 @@ talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Take care!");
-talkEntry:addResponse("May the five be with you!");
+talkEntry:addResponse("May the Five be with you!");
 talkEntry:addResponse("#me bows her head.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -211,7 +211,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Galmair Treasury"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 1));
-talkEntry:addResponse("Do you want a task? Bring some more donations. And drop it on the field here!");
+talkEntry:addResponse("Do you want a task? Bring some more donations. And drop them on the field here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -234,7 +234,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Galmair Treasury"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(206, "=", 1));
-talkEntry:addResponse("Do you want a task? Bring some more donations. And drop it on the field here!");
+talkEntry:addResponse("Do you want a task? Bring some more donations. And drop them on the field here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -257,7 +257,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Donating is quite easy: Just drop your items on the donation place. Easy, isn't it?");
+talkEntry:addResponse("Donating is quite simple, just drop your items on the donation place. Easy, isn't it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -276,7 +276,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Donating is quite easy: Just drop your items on the donation place. Easy, isn't it?");
+talkEntry:addResponse("Donating is quite simple, just drop your items on the donation place. Easy, isn't it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -320,7 +320,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ask Cormac, maybe he has something to do. But come back again and donate more to the Don!");
+talkEntry:addResponse("Ask Cormac, maybe he has something for you to do, but come back again and donate more to the Don!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -339,7 +339,7 @@ talkEntry:addCondition(npc.base.condition.town.town(3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Ask Cormac, maybe he has something to do. But come back again and donate more to the Don, Sweetheart!");
+talkEntry:addResponse("Ask Cormac, maybe he has something for you to do, but come back again and donate more to the Don, Sweetheart!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -358,7 +358,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I have nothing to do for you, darling.");
+talkEntry:addResponse("I have nothing for you to do, darling.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -414,8 +414,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("I came to Galmair as a young girl. And I am still here now. How long will you stay here?");
-talkEntry:addResponse("I once was a well known, beautiful dancer. But I grew old and ugly. Now I guard this garbage bin.");
-talkEntry:addResponse("When I was young, they called me Gretel Goldhair, but now they call me Gretel Grayhair.");
+talkEntry:addResponse("I once was a well known, beautiful dancer, but I grew old and ugly. Now I guard this garbage bin.");
+talkEntry:addResponse("When I was young, they called me Gretel Goldhair, but now they call me Gretel Greyhair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -448,7 +448,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("magical");
 talkEntry:addTrigger("surface");
-talkEntry:addResponse("If you drop things on the magical surface they will disppear, and magically regain their value and then be teleportet to Galmairs treasury.");
+talkEntry:addResponse("If you drop things on the magical surface they will disppear, and magically their value will be regained by Galmair's treasury.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,7 +462,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("The gods created Illarion without rubbish. Most of us produce rubbish everyday.");
+talkEntry:addResponse("The Gods created Illarion without rubbish. Most of us produce rubbish everyday.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -476,7 +476,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("religion");
-talkEntry:addResponse("If you lost your loved ones you hope the gods keep them save in their realms. Maybe you'll understand oneday... or maybe you alredy do?");
+talkEntry:addResponse("If you lose your loved ones you hope the Gods keep them safe in their realms. Maybe you'll understand one day... or maybe you already do?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -488,7 +488,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("faith");
-talkEntry:addResponse("The elder gods have returned.");
+talkEntry:addResponse("The Elder Gods have returned.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -500,7 +500,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("I am older than the archmage. By ages!");
+talkEntry:addResponse("I am older than the Archmage. By ages!");
 talkEntry:addResponse("Speak louder, I can't hear you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -516,7 +516,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("I am older than the archmage. By ages!");
+talkEntry:addResponse("I am older than the Archmage. By ages!");
 talkEntry:addResponse("Speak louder, I can't hear you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -549,7 +549,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("That's the Don here. He allowed me to guard the garbage bin.");
+talkEntry:addResponse("That's the Don here, he allows me to guard the garbage bin.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -576,7 +576,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Even she will be ugly when she's old. But I'll be dead by than, what a pity.");
+talkEntry:addResponse("Even she will be ugly when she's old, but I'll be dead by then, what a pity.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -590,7 +590,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("I hate this arrogant brat!");
+talkEntry:addResponse("I hate the arrogant brat!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -620,13 +620,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
 talkEntry:addResponse("Speak louder, I can't hear you!");
+talkEntry:addResponse("Albar...did you say?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("albar");
 talkEntry:addResponse("Sprecht lauter, ich kann Euch nicht hören!");
-talkEntry:addResponse("Albar...did you say?");
+talkEntry:addResponse("Albar...had Ihr gesagt?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -635,7 +636,6 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
 talkEntry:addResponse("Speak louder, I can't hear you!");
-talkEntry:addResponse("Albar...had Ihr gesagt?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -709,7 +709,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
-talkEntry:addResponse("#me grins showing a pair of yellow teeth.");
+talkEntry:addResponse("#me grins showing a set of yellow teeth.");
 talkEntry:addResponse("Very well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -755,10 +755,10 @@ talkEntry:addResponse("Habt Ihr was gesagt?");
 talkEntry:addResponse("#me schaut sich um.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Seht mich an, so werdet auch Ihr aussehen, wenn Ihr alt seid!", "Look at me. You will look just the same when you're old!");
+talkingNPC:addCycleText("Seht mich an, so werdet auch Ihr aussehen, wenn Ihr alt seid!", "Look at me, you will look just the same when you're old!");
 talkingNPC:addCycleText("#me kichert irre wie eine alte Hexe.", "#me cackles like an old witch.");
 talkingNPC:addCycleText("#me stützt sich auf ihren Stock.", "#me rests her arms on her walking staff.");
-talkingNPC:addCycleText("#me starrt in die Ferne.", "#me stares at the horizon.");
+talkingNPC:addCycleText("#me starrt in die Ferne.", "#me stares across the hall.");
 talkingNPC:addCycleText("#me zieht die Nase hoch. ", "#me snuffles.");
 talkingNPC:addCycleText("#me redet leise mich sich selbst.", "#me talks to herself silently.");
 talkingNPC:addCycleText("#me schaut sich um.", "#me looks around.");
@@ -786,7 +786,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
