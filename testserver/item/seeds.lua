@@ -143,7 +143,7 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
     amount = tonumber(amount);
     debug("move seed, amount " .. amount);
     -- world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
-    world:erase(SourceItem, SourceItem.number);
+    world:erase(SourceItem, 1);
     -- world:increase(SourceItem, -SourceItem.number);
     return false;
   end
