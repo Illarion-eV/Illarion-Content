@@ -173,5 +173,6 @@ function MoveItemAfterMove(User, SourceItem, TargetItem)
     debug("remove " .. SourceItem.number);
     world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
     world:erase(SourceItem, SourceItem.number);
+    world:erase(TargetItem, SourceItem.number);
   end
 end
