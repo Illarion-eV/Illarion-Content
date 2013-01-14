@@ -288,7 +288,7 @@ function GetHarvestItem(User, OnlyValidProducts, OnlyFarming, OnlyNonFarming)
   -- first check front position
   local item = base.common.GetFrontItem(User);
   debug("front data " .. item:getData("amount"));
-  if (item ~= nil and HarvestItems[item.id] ~= nil and (item.wear == 255 or (item:getData("amount") ~= "" and item:getData("amount") ~= "0"))) then
+  if (item ~= nil and HarvestItems[item.id] ~= nil and (item:getData("amount") ~= "0" and (item:getData("amount") ~= "" or item.wear == 255))) then
     if (not OnlyValidProducts or GetValidProduct(item, OnlyFarming, OnlyNonFarming) ~= nil) then
       return item;
     end
@@ -300,7 +300,7 @@ function GetHarvestItem(User, OnlyValidProducts, OnlyFarming, OnlyNonFarming)
       if (world:isItemOnField(checkPos)) then
         local item = world:getItemOnField(checkPos);
         -- harvest item has to be static or an amount has to be set
-        if (HarvestItems[item.id] ~= nil and (item.wear == 255 or (item:getData("amount") ~= "" and item:getData("amount") ~= "0"))) then
+        if (HarvestItems[item.id] ~= nil and (item:getData("amount") ~= "0" and (item:getData("amount") ~= "" or item.wear == 255))) then
           if (not OnlyValidProducts or GetValidProduct(item, OnlyFarming, OnlyNonFarming) ~= nil) then
             return item;
           end
