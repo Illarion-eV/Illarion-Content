@@ -240,6 +240,7 @@ function UseItem(User, SourceItem, ltstate)
 		if ( amount > 0 or nextItem~=nil) then  -- there are still items we can work on
       if (amount < 1) then
         base.common.TurnTo( User, nextItem.pos ); -- turn, so we find this item in next call as first item
+        debug("next is farming: " .. GetValidProduct(nextItem).isFarmingItem);
       end
 			theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
 			User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
@@ -287,9 +288,6 @@ end
 function GetHarvestItem(User, OnlyValidProducts, OnlyFarming, OnlyNonFarming)
   -- first check front position
   local item = base.common.GetFrontItem(User);
-  if (item ~= nil) then
-    debug("front data " .. item:getData("amount"));
-  end
   if (item ~= nil and HarvestItems[item.id] ~= nil and (item:getData("amount") ~= "0" and (item:getData("amount") ~= "" or item.wear == 255))) then
     if (not OnlyValidProducts or GetValidProduct(item, OnlyFarming, OnlyNonFarming) ~= nil) then
       return item;
