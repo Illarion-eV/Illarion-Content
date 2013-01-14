@@ -149,7 +149,8 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
       User:createAtPos(TargetItem.itempos, SourceItem.id, amount);
     end
     world:erase( SourceItem, SourceItem.number );
-    return false;
+    world:erase( TargetItem, TargetItem.number );
+    -- return false;
   end
   return true;
 end
