@@ -226,6 +226,9 @@ function UseItem(User, SourceItem, ltstate)
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
     local nextItem = GetHarvestItem(User);
+    if (nextItem~=nil) then
+      debug("next id " .. nextItem.id .. ", isFarming " .. HarvestItems[nextItem.id].isFarmingItem .. ", current isFarming " .. harvestProduct.isFarmingItem .. ", comp " .. HarvestItems[nextItem.id].isFarmingItem == harvestProduct.isFarmingItem);
+    end
 		if ( amount > 0 or (nextItem~=nil and HarvestItems[nextItem.id].isFarmingItem == harvestProduct.isFarmingItem)) then  -- there are still items we can work on
 			theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
 			User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
@@ -236,8 +239,8 @@ function UseItem(User, SourceItem, ltstate)
 			"This plant is already fully harvested. Give it time to grow again." );
     else
       base.common.HighInformNLS( User, 
-      "Hier ist nichts mehr, wofür du die Sichel benutzen kannst.", 
-      "There is nothing anymore for which you can use the sickle." );
+      "Hier ist nichts mehr, was du mit der Sichel ernten kannst.", 
+      "There is nothing anymore which you can harvest with the sickle." );
 		end
 	end
 
