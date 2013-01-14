@@ -153,9 +153,9 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
         User:createItem(SourceItem.id, amount, 333, nil);
       end
     end
-    world:erase(SourceItem, 1);
+    -- world:erase(SourceItem, 1);
     -- world:increase(SourceItem, -SourceItem.number);
-    return true;
+    return false;
   end
   
   -- local amount = SourceItem:getData("amount");
