@@ -228,34 +228,18 @@ function UseItem(User, SourceItem, ltstate)
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
     -- try to find a next item of the same (non-)farming type
-    debug("look for farming " .. (harvestProduct.isFarmingItem and 1 or 0) .. ", non " .. (not harvestProduct.isFarmingItem and 1 or 0));
     local nextItem = GetHarvestItem(User, true, harvestProduct.isFarmingItem, not harvestProduct.isFarmingItem);
-    if (nextItem~=nil) then
-      -- if (HarvestItems[nextItem.id].isFarmingItem == nil) then
-        -- debug("1");
-      -- end
-      -- if (harvestProduct.isFarmingItem == nil) then
-        -- debug("2");
-      -- end
-      -- debug("next id " .. nextItem.id);
-      -- debug(", isFarming " .. HarvestItems[nextItem.id].isFarmingItem);
-      -- debug(", current isFarming " .. harvestProduct.isFarmingItem);
-      -- debug(", comp " .. HarvestItems[nextItem.id].isFarmingItem == harvestProduct.isFarmingItem);
-    end
 		if ( amount > 0 or nextItem~=nil) then  -- there are still items we can work on
       if (amount < 1) then
         base.common.TurnTo( User, nextItem.pos ); -- turn, so we find this item in next call as first item
-        debug("next is farming: " .. (GetValidProduct(nextItem).isFarmingItem and 1 or 0));
       end
 			theCraft.SavedWorkTime[User.id] = theCraft:GenWorkTime(User,SourceItem);
 			User:startAction( theCraft.SavedWorkTime[User.id], 0, 0, 0, 0);
 		elseif ( not harvestProduct.isFarmingItem ) then -- no items left
-      debug("no herbs")
 			base.common.HighInformNLS(User,
 			"Diese Pflanze ist schon komplett abgeerntet. Gib ihr Zeit um nachzuwachsen.", 
 			"This plant is already fully harvested. Give it time to grow again." );
     else
-      debug("no crops")
       base.common.HighInformNLS( User, 
       "Hier ist nichts mehr, was du mit der Sichel ernten kannst.", 
       "There is nothing anymore which you can harvest with the sickle." );
