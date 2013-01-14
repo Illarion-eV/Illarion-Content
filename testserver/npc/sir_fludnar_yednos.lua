@@ -1748,6 +1748,58 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.state.state(">", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 21));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("can I do");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Hint] Say it again!"));
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
+talkEntry:addResponse("Huh? What did you say?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.state.state(">", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 21));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("was tun");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Hinweis] Sage es nochmals!"));
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
+talkEntry:addResponse("Huh? Was habt ihr gesagt?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.state.state(">", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 21));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Hint] Say it again!"));
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
+talkEntry:addResponse("Huh? What did you say?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.state.state(">", 3));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 0));
+talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 21));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Hinweis] Sage es nochmals!"));
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
+talkEntry:addResponse("Huh? Was habt ihr gesagt?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, ">", 20));
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 31));
 talkEntry:addTrigger("task");

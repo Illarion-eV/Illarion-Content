@@ -236,6 +236,11 @@ state = 3, queststatus(600) > 0, queststatus(600) < 21, "Auftrag", "Aufgabe", "A
 state = 3, queststatus(600) > 0, queststatus(600) < 21, english, "quest", "mission" -> inform("[Quest finished] You bungled it. :O"), "Hmm... it seems you have forgotten what I asked you to do! You are not worthy to work for me.", queststatus(600) = 40
 state = 3, queststatus(600) > 0, queststatus(600) < 21, "quest", "mission" -> inform("[Quest beendet] Du hast es verbockt. :O"), "Hmm... es scheint als habt ihr vergessen um was ich euch los schickte! Nun, dann seid ihr es nicht wert für mich zu arbeiten.", queststatus(600) = 40
 
+state > 3, queststatus(600) > 0, queststatus(600) < 21, "task", "adventure", "can I do" -> inform("[Hint] Say it again!"), "Huh? What did you say?", state = 1
+state > 3, queststatus(600) > 0, queststatus(600) < 21, "Auftrag", "Aufgabe", "Abenteuer", "was tun" -> inform("[Hinweis] Sage es nochmals!"), "Huh? Was habt ihr gesagt?", state = 1
+state > 3, queststatus(600) > 0, queststatus(600) < 21, english, "quest", "mission" -> inform("[Hint] Say it again!"), "Huh? What did you say?", state = 1
+state > 3, queststatus(600) > 0, queststatus(600) < 21, "quest", "mission" -> inform("[Hinweis] Sage es nochmals!"), "Huh? Was habt ihr gesagt?", state = 1
+
 -- quest - 3rd step: report information and collect gift
 queststatus(600) > 20, queststatus(600) < 31, "task", "adventure", "can I do", "answer" -> inform("[Quest deliver answer] Tell him your answer that you got from NPC Nobarg."), "Do you know the answer? So, what is it then?"
 queststatus(600) > 20, queststatus(600) < 31, "Auftrag", "Aufgabe", "Abenteuer", "antwort" -> inform("[Quest übermittle Antwort] Erzähle ihm deine Antwort die du vom NPC Nobarg erhalten hast."), "Wisst ihr die Antwort? So, wie lautet sie nun?"
