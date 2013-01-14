@@ -144,6 +144,7 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
     debug("move seed, amount " .. amount);
     world:createItemFromId( SourceItem.id, amount, TargetItem.pos, true, 333, nil );
     -- world:erase(SourceItem, SourceItem.number);
+    world:increase(SourceItem, -SourceItem.number);
     return false;
   end
   
@@ -165,10 +166,10 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
   return true;
 end
 
-function MoveItemAfterMove(User, SourceItem, TargetItem)
-  local amount = SourceItem:getData("amount");
-  if (amount ~= "") then
-    debug("remove " .. SourceItem.number);
-    world:erase(SourceItem, SourceItem.number);
-  end
-end
+-- function MoveItemAfterMove(User, SourceItem, TargetItem)
+  -- local amount = SourceItem:getData("amount");
+  -- if (amount ~= "") then
+    -- debug("remove " .. SourceItem.number);
+    -- world:erase(SourceItem, SourceItem.number);
+  -- end
+-- end
