@@ -303,10 +303,10 @@ function InitPillar()
     AddPillar({483,251,0},"Eine Notiz an der Kupferstatue besagt: 'Beschützer der Kupferbrücke'.","A note on the copper figure says 'Protector of the Copperbridge'.", 4,0); --Copperbridge
     AddPillar({474,248,0},"Eine Notiz an der Kupferstatue besagt: 'Beschützer der Kupferbrücke'.","A note on the copper figure says: 'Protector of the Copperbridge'.", 4,0); --Copperbridge
     AddPillar({474,251,0},"Eine Notiz an der Kupferstatue besagt: 'Beschützer der Kupferbrücke'.","A note on the copper figure says 'Protector of the Copperbridge'.", 4,0); --Copperbridge
-    AddPillar({496,208,0},"Eine Notiz an der Kupferstatue besagt: 'Beschützer der Kupferbrücke'.","A note on the copper figure says: 'Protector of the Copperbridge'.", 5,0); --Blackbridge
-    AddPillar({499,208,0},"Eine Notiz an der Kupferstatue besagt: 'Beschützer der Kupferbrücke'.","A note on the copper figure says 'Protector of the Copperbridge'.", 5,0); --Blackbridge
-    AddPillar({495,193,0},"Eine Notiz an der Kupferstatue besagt: 'Beschützer der Kupferbrücke'.","A note on the copper figure says: 'Protector of the Copperbridge'.", 5,0); --Blackbridge
-    AddPillar({499,193,0},"Eine Notiz an der Kupferstatue besagt: 'Beschützer der Kupferbrücke'.","A note on the copper figure says 'Protector of the Copperbridge'.", 5,0); --Blackbridge
+    AddPillar({496,208,0},"Eine Notiz an der Kupferstatue besagt: 'Beschützer der Kupferbrücke'.","A note on the copper figure says: 'Protector of the Blackbridge'.", 5,0); --Blackbridge
+    AddPillar({499,208,0},"Eine Notiz an der Kupferstatue besagt: 'Beschützer der Kupferbrücke'.","A note on the copper figure says 'Protector of the Blackbridge'.", 5,0); --Blackbridge
+    AddPillar({496,193,0},"Eine Notiz an der Kupferstatue besagt: 'Beschützer der Kupferbrücke'.","A note on the copper figure says: 'Protector of the Blackbridge'.", 5,0); --Blackbridge
+    AddPillar({499,193,0},"Eine Notiz an der Kupferstatue besagt: 'Beschützer der Kupferbrücke'.","A note on the copper figure says 'Protector of the Blackbridge'.", 5,0); --Blackbridge
 	--Galmair Plateau
 	--[[	AddPillar({357,365,1},"","", 4,5);
 	--Grugmutz's cave
