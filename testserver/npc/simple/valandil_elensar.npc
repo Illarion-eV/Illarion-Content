@@ -104,14 +104,14 @@ queststatus(69) = 1, "task", "adventure", "order" -> "Please take care of ill na
 queststatus(69) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte kümmert euch um die kranken Naldorbäume, andernfalls könnte der Borkenkäfer auch andere Bäume befallen.", "Nun, ihr findet sicher noch weitere kranke Naldorbäume."
 
 -- 2nd quest: Gather 20 different raw materials for 100cp. Hint on where to get new tools.
-queststatus(69) = 2, english, "quest", "mission" -> inform("[New quest] Elstree Forest II"), queststatus(69) = 3, "Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben kein Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite."
-queststatus(69) = 2, "quest", "mission" -> inform("[Neues Quest] Elsbaumwald II"), queststatus(69) = 3, "Oh dear, scale lice infested some of the cherry trees. We have no other choice, cut the ill trees and bring me twenty logs, please."
+queststatus(69) = 2, english, "quest", "mission" -> inform("[New quest] Elstree Forest II"), queststatus(69) = 3, "Oh dear, scale lice infested some of the cherry trees. We have no other choice, cut the ill trees and bring me twenty logs, please."
+queststatus(69) = 2, "quest", "mission" -> inform("[Neues Quest] Elsbaumwald II"), queststatus(69) = 3, "Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben kein Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite."
 queststatus(69) = 2, "task", "adventure", "order" -> inform("[New quest] Elstree Forest II"), queststatus(69) = 3, "Oh dear, scale lice infested some of the cherry trees. We have no other choice, cut the ill trees and bring me twenty logs, please."
 queststatus(69) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Elsbaumwald II"), queststatus(69) = 3, "Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben kein Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite."
 
 -- Quest 2 solved
-skill(woodcutting) < 90, queststatus(69) = 3, item(543, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your lumberjacking skill increases."), skill(woodcutting) + 1, money + 1000, deleteItem(543, 20), queststatus(69) = 4, "Ha, now the archers can train again for any possible emergency, thank you. Take this as a reward."
-queststatus(69) = 3, item(543, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, deleteItem(543, 20), queststatus(69) = 4, "Ha, now the archers can train again for any possible emergency, thank you. Take this as a reward."
+skill(woodcutting) < 90, queststatus(69) = 3, item(543, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your lumberjacking skill increases."), skill(woodcutting) + 1, money + 1000, deleteItem(543, 20), queststatus(69) = 4, "Ha, you taught the lice a lesson. Take this as a reward."
+queststatus(69) = 3, item(543, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins."), money + 1000, deleteItem(543, 20), queststatus(69) = 4, "Ha, you taught the lice a lesson. Take this as a reward."
 skill(woodcutting) < 90, queststatus(69) = 3, item(543, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Holzfällerfertigkeit steigt."), skill(woodcutting) + 1, money + 1000, deleteItem(543, 20), queststatus(69) = 4, "Ha, ihr habt es den Schildläusen gezeigt, danke euch. Nehmt dies als Belohnung."
 queststatus(69) = 3, item(543, all) > 19, ".+" -> inform("[Quest gelöst] Du erhältst zehn Silberstücke."), money + 1000, deleteItem(543, 20), queststatus(69) = 4, "Ha, ihr habt es den Schildläusen gezeigt, danke euch. Nehmt dies als Belohnung."
 

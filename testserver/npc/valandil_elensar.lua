@@ -332,7 +332,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Elstree Forest II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 3));
-talkEntry:addResponse("Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben kein Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite.");
+talkEntry:addResponse("Oh dear, scale lice infested some of the cherry trees. We have no other choice, cut the ill trees and bring me twenty logs, please.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -342,7 +342,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Elsbaumwald II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 3));
-talkEntry:addResponse("Oh dear, scale lice infested some of the cherry trees. We have no other choice, cut the ill trees and bring me twenty logs, please.");
+talkEntry:addResponse("Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben kein Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -380,7 +380,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.woodcutting,
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(543, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 4));
-talkEntry:addResponse("Ha, now the archers can train again for any possible emergency, thank you. Take this as a reward.");
+talkEntry:addResponse("Ha, you taught the lice a lesson. Take this as a reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -393,7 +393,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(543, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 4));
-talkEntry:addResponse("Ha, now the archers can train again for any possible emergency, thank you. Take this as a reward.");
+talkEntry:addResponse("Ha, you taught the lice a lesson. Take this as a reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
