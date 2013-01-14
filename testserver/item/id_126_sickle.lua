@@ -224,6 +224,7 @@ function UseItem(User, SourceItem, ltstate)
 		"You can't carry any more and the rest drops to the ground.");
 	else -- character can still carry something
     -- try to find a next item of the same (non-)farming type
+    debug("look for farming " .. (harvestProduct.isFarmingItem and 1 or 0) .. ", non " .. (not harvestProduct.isFarmingItem and 1 or 0));
     local nextItem = GetHarvestItem(User, true, harvestProduct.isFarmingItem, not harvestProduct.isFarmingItem);
     if (nextItem~=nil) then
       -- if (HarvestItems[nextItem.id].isFarmingItem == nil) then
@@ -275,7 +276,7 @@ function GetValidProduct(TargetItem, OnlyFarming, OnlyNonFarming)
 	local harvestProduct = nil;
 	for _,hp in pairs(HarvestItems[TargetItem.id]) do 
 		if (hp.groundType == nil or GroundType == hp.groundType) then
-			if ((not OnlyFarming or hp.isFarmingItem) and (not OnlyNonFarming or not hp.isFarmingItem)) then
+			if (((not OnlyFarming) or hp.isFarmingItem) and ((not OnlyNonFarming) or (not hp.isFarmingItem))) then
         harvestProduct = hp;
         break;
       end
@@ -289,7 +290,7 @@ function GetHarvestItem(User, OnlyValidProducts, OnlyFarming, OnlyNonFarming)
   -- first check front position
   local item = base.common.GetFrontItem(User);
   if (item ~= nil and HarvestItems[item.id] ~= nil and (item:getData("amount") ~= "0" and (item:getData("amount") ~= "" or item.wear == 255))) then
-    if (not OnlyValidProducts or GetValidProduct(item, OnlyFarming, OnlyNonFarming) ~= nil) then
+    if ((not OnlyValidProducts) or (GetValidProduct(item, OnlyFarming, OnlyNonFarming) ~= nil)) then
       return item;
     end
   end
@@ -301,7 +302,7 @@ function GetHarvestItem(User, OnlyValidProducts, OnlyFarming, OnlyNonFarming)
         local item = world:getItemOnField(checkPos);
         -- harvest item has to be static or an amount has to be set
         if (HarvestItems[item.id] ~= nil and (item:getData("amount") ~= "0" and (item:getData("amount") ~= "" or item.wear == 255))) then
-          if (not OnlyValidProducts or GetValidProduct(item, OnlyFarming, OnlyNonFarming) ~= nil) then
+          if ((not OnlyValidProducts) or (GetValidProduct(item, OnlyFarming, OnlyNonFarming) ~= nil)) then
             return item;
           end
         end
