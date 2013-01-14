@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 name = "Frobenius"
@@ -50,7 +50,7 @@ itemShoes = 53
 -- the merchant dialog.
 
 sellItems = 23, 2697, 2710, 2751, 325, 326, 529, 530, 531, 699, 770, 771, 2111, 2112, 2116, 2117, 2172, 77, 88, 124, 188, 192, 205, 229, 296, 383, 2629, 2642, 2660, 2711, 2946, 226, 230, 231, 2647, 2664, 2737, 27, 189, 190, 297, 389, 398, 444, 2675, 2740, 2537, 2696, 223, 466, 739, 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407, 104, 236, 2550, 2535, 2571, 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778, 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444
-buySecondaryItems = 23, 2697, 2710, 2751, 325, 326, 529, 530, 531, 699, 770, 771, 2111, 2112, 2116, 2117, 2172, 77, 88, 124, 188, 192, 205, 229, 296, 383, 2629, 2642, 2660, 2711, 2946, 226, 230, 231, 2647, 2664, 2737, 27, 189, 190, 297, 389, 398, 444, 2675, 2740, 2537, 2696, 223, 466, 739, 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407, 104, 236, 2550, 2535, 2571, 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778, 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444
+buySecondaryItems = 23, 2697, 2710, 2751, 325, 326, 528, 529, 530, 531, 699, 770, 771, 2111, 2112, 2116, 2117, 2172, 77, 88, 124, 188, 192, 205, 229, 296, 383, 2629, 2642, 2660, 2711, 2946, 226, 230, 231, 2647, 2664, 2737, 27, 189, 190, 297, 389, 398, 444, 2675, 2740, 2537, 2696, 223, 466, 739, 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407, 104, 236, 2550, 2535, 2571, 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778, 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444
 tradeNotEnoughMoneyMsg "Oh, ich fürchte Ihr könnt Euch das nicht leisten.", "Oh, I fear, you can not afford that."
 tradeFinishedMsg "Vielen Dank, beehrt mich bald wieder!", "Thank you, please come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
@@ -79,8 +79,8 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- 5% Metal ingots: 104, 236, 2550, 2535, 2571
 -- 5% Swords: 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778
 -- 5% Helmets: 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Ah, so you are interested in my wares.", "Take your time to look around.", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um.", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Ah, so you are interested in my wares.", "Take your time to look around."
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Ah, dann interessiert Ihr Euch also für meine Waren.", "Schaut Euch ruhig in Ruhe um."
 
 -- Help
 "Help" -> inform("[Game Help] This NPC is the blacksmith Frobenius. Keywords: buy, sell, trade, Hello, blacksmith, iron.")
@@ -125,7 +125,7 @@ english, "Gobaith", "Gobiath" -> "That reminds me of a story I once heard... a v
 "Stahl" -> "Was soll das sein?"
 "smith" -> "Use my forged items to smite the foes of Cadomyr."
 "Schmied" -> "Benutze meine Schmiedewaren um die Feinde Cadomyrs zu zerschmettern."
-"trader", "merchant", "collegue", "vendor", "market" -> "Buy whatever you want on this marketplace, but in the end, only weapons will make Cadomyr prosper."
+"trader", "merchant", "collegue", "vendor", "market" -> "Buy whatever you want on this marketplace, but in the end only weapons will make Cadomyr prosper."
 "händler", "kollege", "höker", "markt" -> "Kauft, was immer ihr wollt auf diesem Marktplatz, aber am Ende werden nur Waffen Cadomyr voran bringen."
 
 -- Faction stuff
