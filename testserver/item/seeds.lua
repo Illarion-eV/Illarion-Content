@@ -143,6 +143,7 @@ function MoveItemBeforeMove(User, SourceItem, TargetItem)
     local seedId = SourceItem.id;
     amount = tonumber(amount);
     debug("move seed, amount " .. amount);
+    debug("seedId " .. seedId);
     world:createItemFromId( seedId, amount, TargetItem.pos, true, 333, nil );
     world:erase(SourceItem, SourceItem.number);
   end
