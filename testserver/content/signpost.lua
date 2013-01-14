@@ -128,7 +128,7 @@ function InitWegweiser()
     AddWeg({500,210,0},"Hafen, Dunkellochmine, Nördliche Inseln, Der Sumpf, Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes","Harbour, Dark Hole Mine, Northern Islands, The Swamp, Temple of the Five, Plains of Silence, Northern Woods, The Insurmountable Limes",0,0);
     AddWeg({499,189},"Der Sumpf, Tempel der Fünf, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes","The Swamp, Temple of the Five, Plains of Silence, Northern Woods, The Insurmountable Limes",6,0);
     AddWeg({496,191,0},"Hafen, Dunkellochmine, Nördliche Inseln","Harbour, Dark Hole Mine, Northern Islands",2,0);
-    AddWeg({446,138,0},"Hafen, Nördliche Inseln","Harbour, Northern Islands"",0,0);
+    AddWeg({446,138,0},"Hafen, Nördliche Inseln","Harbour, Northern Islands",0,0);
     AddWeg({440,139,0},"Dunkellochmine","Dark Hole Mine",6,0);
     AddWeg({409,148,0},"Dunkellochmine","Dark Hole Mine",6,0);
     AddWeg({409,143,0},"Dunkellochmine","Dark Hole Mine",6,0);
