@@ -362,7 +362,7 @@ function MetamorphosisEN(User,Difficult,CharLangSkillName)
 	return modText
 end
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 --User:inform("debug 3104-1")
 --Man könnte jetzt hergehen und den Standort des Schreines noch als Bedingung festschreiben. Damit gï¿½be es dann nur einen einzigen Schrein auf der Insel, oder eben mehrere, falls gewï¿½nscht.
 	if SourceItem.pos.x == 821 and SourceItem.pos.y == 96 and SourceItem.pos.z == 0 then

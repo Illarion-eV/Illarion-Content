@@ -6,9 +6,9 @@ require("tile.id_10_snow")
 
 module("tile.id_11_gras", package.seeall)
 
-function useTile(User,Position,counter,param)
+function useTile(User,Position)
 	if (world:getTime("month") <= 13) then
-		tile.id_10_snow.useTile(User, Position, counter, param)
+		tile.id_10_snow.useTile(User, Position)
 		return;
 	end;
 end

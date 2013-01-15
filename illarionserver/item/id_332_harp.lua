@@ -15,7 +15,7 @@ item.base.music.addTalkText("#me plays a smooth melody on the harp","#me spielt 
 item.base.music.addTalkText("#me plays a pretty tune on the harp","#me spielt eine nette Melodie auf der Harfe", skill);
 item.base.music.addTalkText("#me plays a beautiful melody on the harp","#me spielt eine wunderschöne Melodie auf der Harfe", skill);
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User, SourceItem)
     item.base.music.PlayInstrument(User,SourceItem, skill);
 end
 

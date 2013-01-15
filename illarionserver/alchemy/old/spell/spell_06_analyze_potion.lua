@@ -423,19 +423,19 @@ function ds_analyse_330(Caster,Item)
 end
 
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 	base.common.InformNLS(Caster, "Du musst diesen Analysezauber mit einem Trank benutzen.", "You have to use this analyzing spell with a potion.");
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 	base.common.InformNLS(Caster, "Du musst diesen Analysezauber mit einem Trank benutzen.", "You have to use this analyzing spell with a potion.");
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 	base.common.InformNLS(Caster, "Du musst diesen Analysezauber mit einem Trank benutzen.", "You have to use this analyzing spell with a potion.");
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
+function CastMagicOnItem(Caster,TargetItem,ltstate)
 	--Analyse eines Trankes auf Inhalt(data)
 	pList={59,165,166,167,327,328,329,330};
 	local textDE = nil;

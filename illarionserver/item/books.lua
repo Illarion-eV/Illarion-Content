@@ -23,7 +23,7 @@ function InitBook()
 	end]]
 end
 
-function UseItem(User, SourceItem, TargetItem, Counter, Param)
+function UseItem(User, SourceItem)
 	InitBook();
     -- alchemy book; DO NOT CHANGE! STARTER PACK RELEVANT!
 	if SourceItem.id == 2622 then

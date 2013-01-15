@@ -202,7 +202,7 @@ function UseItem(User, SourceItem, ltstate)
 		
 	end
 
-	User:learn( oremelting.LeadSkill, oremelting.SavedWorkTime[User.id], 20);
+	User:learn( oremelting.LeadSkill, oremelting.SavedWorkTime[User.id], oremelting.LearnLimit);
 	User:eraseItem( oreItem.ore.id, oreItem.ore.amount ); -- erase the item we're working on
   User:eraseItem( coalItem.id, coalItem.amount ); 
   if (oreItem.ore.id == 2534) then

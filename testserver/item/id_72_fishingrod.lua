@@ -74,7 +74,7 @@ function UseItem(User, SourceItem, ltstate)
 	if fishing:FindRandomItem(User) then
 		return
 	end
-	User:learn( fishing.LeadSkill, fishing.SavedWorkTime[User.id], 20);
+	User:learn( fishing.LeadSkill, fishing.SavedWorkTime[User.id], fishing.LearnLimit);
 	local amount = 1; -- set the amount of items that are produced
 	local fishID = 0; 
 	local chance = math.random(1,10);

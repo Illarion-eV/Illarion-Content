@@ -56,7 +56,7 @@ itemShoes = 369
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Lotta Medborgar the hunter. Keywords: Question, information, Galmair, places.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lotta Medborgar die Jägerin. Schlüsselwörter: Auskunft, Information, Galmair, Plätze.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Lotta Medborgar die Jägerin. Schlüsselwörter: Auskunft, Information, Galmair, Orte.")
 
 -- Mandatory: General speech
 queststatus(630) = 1, english, ".*" -> "Good day. Finally you found me! Iradona has already informed me about your visit. There you have a silvercoin for that you found me.", money + 1000, queststatus(630) = 2
@@ -77,21 +77,21 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "See ya soon."
 -- OPTIONAL TRIGGERS
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-english, "inform" -> inform("[Keywords] place"), "I can give you information about places near of Galmair. Just ask me!"
-"inform" -> inform("[Schlüsselwörter] Platz"), "Ich kann dir Informationen über Plätze in der Nähe von Galmair geben. Frag einfach!"
-"question" -> inform("[Keywords] place"), "I can give you information about places near of Galmair. Just ask me!"
-"Frage", "Auskunft" -> inform("[Schlüsselwörter] Platz"), "Ich kann dir Informationen über Plätze in der Nähe von Galmair geben. Frag einfach!"
+english, "inform" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "I can give you information about places near of Galmair. Just ask me!"
+"inform" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Ich kann dir Informationen zu den Orten in der Nähe von Galmair geben. Frag einfach!"
+"question" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "I can give you information about places near of Galmair. Just ask me!"
+"Frage", "Auskunft" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Ich kann dir Informationen zu den Orten in der Nähe von Galmair geben. Frag einfach!"
 "place" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "Places? Which places do you mean? These could be in the northeast, northwest, southwest or southeast of Illarion?"
-"Platz", "Plätz" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Plätze? Welche Plätze meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Illarion?"
+"Orte" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Orte? Welche Orte meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Illarion?"
 english, "Iradona", "Goldschein" -> "You can find her outside of the town close to the teleporter. She has a lot of information and some tasks for you."
-"Iradona", "Goldschein" -> "Du findest sie drausen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für dich."
+"Iradona", "Goldschein" -> "Du findest sie draußen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für dich."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_galmair_2.quest belongs to this NPC: Quest-ID.: 632 - IN PROGRESS
 english, "quest", "mission" -> "Nothing to do for you yet but soon."
-"quest", "mission" -> "Ich habe nichts für dich zu tun momentant aber bald."
+"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald."
 "task", "adventure" -> "Nothing to do for you yet but soon."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentant aber bald."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald."
 
 -- Places
 english, "Illarion" -> inform("[Keywords] Northeast, northwest, southwest, southeast"), "This land is called Illarion and I divide it into northeast, northwest, southwest and southeast."
@@ -99,11 +99,11 @@ english, "Illarion" -> inform("[Keywords] Northeast, northwest, southwest, south
 "northeast" -> inform("[Keywords] Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock"), "I know following places: Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock."
 "Nordost" -> inform("[Schlüsselwörter] Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen"), "Dort gibt es: Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen."
 "northwest" -> inform("[Keywords] Lake Syrita, Nargun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau, Malachite creek, Malachite Island, Golden Rumil, Fort Schnellbeil, Fortress Hammerfall"), "I know following places: Lake Syrita, Nargun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau, Malachite creek, Malachite Island, Galmair Plateau, Golden Rumil, Fort Schnellbeil, Fortress Hammerfall."
-"Nordwest" -> inform("[Schlüsselwörter] See Syrita, Nargun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall"), "Ich weiß folgende Plätze: See Syrita, Nargun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Galmair Plateau, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall."
+"Nordwest" -> inform("[Schlüsselwörter] See Syrita, Narguns Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall"), "Ich habe Informationen zu folgenden Orten: See Syrita, Narguns Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Galmair Plateau, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall."
 "southwest" -> inform("[Keywords] Shadowland, Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert"), "I know following places: Shadowland, The Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert."
-"Südwest" -> inform("[Schlüsselwörter] Schattenland, Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste"), "Ich weiß folgende Plätze: Schattenland, Der Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste"
+"Südwest" -> inform("[Schlüsselwörter] Schattenland, Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste"), "Ich habe Informationen zu folgenden Orten: Schattenland, Der Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste"
 "southeast" -> inform("[Keywords] Snakehead Bay, Lonely Islands, Death's Stench, Dragon's Lair, Dewy Swamps, Yewdale"), "I know following places: Snakehead Bay, Lonely Islands, Death's Stench, Dragon's Lair, Dewy Swamps, Yewdale."
-"Südost" -> inform("[Schlüsselwörter] Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental"), "Ich weiß folgende Plätze: Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental."
+"Südost" -> inform("[Schlüsselwörter] Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental"), "Ich habe Informationen zu folgenden Orten: Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental."
 
 -- northeast
 "Elstree Forest" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
@@ -143,7 +143,7 @@ english, "Wulfgorda" -> "Wulfgorda is a hunter who knows almost each place in th
 "Lake Syrita" -> "Lake Syrita is north from here where you can find the harbour of Galmair."
 "See Syrita" -> "See Syrita ist im Norden von hier, wo du den Hafen von Galmair finden kannst."
 "Nargun's Plain", "narguns plain" -> "This is the area east after the Copperbridge over the Malachite Creek between Galmair and Spider's Mouth."
-"Nargun Ebene" -> "Das ist das Gebiet östlich der Kupferbrücke über den Malachit Bach zwischen Galmair und dem Spinnen Mund."
+"Narguns Ebene" -> "Das ist das Gebiet östlich der Kupferbrücke über den Malachit Bach zwischen Galmair und dem Spinnen Mund."
 "Swamp" -> "This is the area north from here after the Blackbridge over the Bounding Stream, where you can also find the harbour of Galmair."
 "Sumpf" -> "Das ist das Gebiet nördlich der Schwarzbrücke über den Grenzstrom, wo du auch den Hafen von Galmair finden kannst."
 "Temple five" -> "The Temple of the Five is east of the Swamp."
@@ -153,7 +153,7 @@ english, "Wulfgorda" -> "Wulfgorda is a hunter who knows almost each place in th
 "Galmair Plateau" -> "The Galmair Plateau is south from Galmair and west from the Malachite Mine. You will find the bandits from Fort Schnellbeil there."
 "Galmair Hochebene" -> "Die Galmair Hochebene ist südlich von Galmair und westlich der Malachit Mine. Du findest dort die Banditen vom Fort Schnellbeil."
 "Malachite creek" -> "The Malachite creek is the water between Galmair and Nargun's Plain. The Copperbridge will help you to cross it."
-"Malachit Bach" -> "Der Malachit Bach ist das Gewässer zwischen Galmair und der Nargun Ebene. Die Kupferbrücke wird dir helfen es zu überqueren."
+"Malachit Bach" -> "Der Malachit Bach ist das Gewässer zwischen Galmair und der Narguns Ebene. Die Kupferbrücke wird dir helfen es zu überqueren."
 "Malachite Island" -> "This island is in the south in the middle of the Mlachite creek."
 "Malachit Insel" -> "Diese Insel is südlich von hier in der Mitte des Malachit Bach."
 "Golden Rumil" -> "The Golden Rumil found a bad end once. The bandits of Fort Schnellbeil threw the good old Rumil into liquid gold. You can find him on the way to Fort Schnellbeil."
@@ -205,7 +205,7 @@ english, "Numila", "Irunnleh" -> "Die findet man in Runewick und die weiß sämt
 english, "Elvaine", "Morgan" -> "The archmage owns two stones of power. These are an Emerald and a Ruby. They protect Runewick to get beaten by our forces."
 "Elvaine", "Morgan" -> "Der Erzmagier besitzt zwei Steine der Macht. Einen Smaragd und einen Rubin. Die beschützen Runewick vor der Übernahme durch unsere Streitkräfte."
 english, "Runewick" -> "That's is the southeast. Follow the road through Nargun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further southeast. Look for signposts. But be careful. Dangerous way, use better the teleporter outside the town."
-"Runewick" -> "Das liegt im Südosten. Einfach der Straße entlang durch die Nargun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südöstlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter."
+"Runewick" -> "Das liegt im Südosten. Einfach der Straße entlang durch die Narguns Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südöstlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter."
 english, "Valerio", "Guilianni", "Don" -> "The Don owns two stones of power. These are a Sapphire and a Obsidian. They protect us against Runewick and Cadomyr."
 "Valerio", "Guilianni", "Don" -> "Der Don besitzt zwei Steine der Macht. Einen Saphir und einen Obsidian. Die beschützen uns vor Runewick und Cadomyr."
 english, "Galmair" -> "That is here and if you want to know more about it ask Iradona Goldschein for further information."
@@ -215,7 +215,7 @@ english, "Galmair" -> "That is here and if you want to know more about it ask Ir
 english, "rosaline", "edwards" -> "The Queen owns two stones of power. These are a Topaz and an Amethyst. They protect Cadomyr to get beaten by our forces."
 "rosaline", "edwards" -> "Der Königin besitzt zwei Steine der Macht. Einen Topas und einen Amethyst. Die beschützen Cadomyr vor der Übernahme durch unsere Streitkräfte."
 english, "Cadomyr" -> "That's is the southwest. Follow the road trough Nargun's Plain to the Hemp Necktie Inn at the Spider's Mouth and then further southwest. Look for signposts. But be careful. Dangerous way, use better Or use the teleporter outside the town."
-"Cadomyr" -> "Das liegt im Südwesten. Einfach der Straße entlang durch die Nargun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südwestlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter."
+"Cadomyr" -> "Das liegt im Südwesten. Einfach der Straße entlang durch die Narguns Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südwestlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
 "god" -> "Primarly, we pray to three gods in Galmair. They are Irmorom, Nargun and Ronagan of course, my favorite god."
@@ -258,7 +258,7 @@ english, "Zhambra" -> "If you like to know more about this god ask somone else. 
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "My name sounds better! I hope your questions sound better!"
 "mein Name" -> "Mein Name klingt besser! Ich hoffe deine Fragen klingen besser!"
-english, "Lotta", "Medborgar" -> "Yes, that is my name. About welche Plätze places do you want information?"
+english, "Lotta", "Medborgar" -> "Yes, that is my name. Über welche Orte places do you want information?"
 "Lotta", "Medborgar" -> "Ja, das ist mein Name. Über was wollt ihr Information?"
 "Yes" -> "As I see, you can say one word, but what about a whole sentence?"
 "Ja" -> "Wie ich merke, kannst du schon ein Wort sagen. Aber wie sieht es mit einem ganzen Satz aus?"
@@ -267,14 +267,14 @@ english, "Lotta", "Medborgar" -> "Yes, that is my name. About welche Plätze pla
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "Huh, about what places shall I give you information? Do you mind just to ask for help as a first step?"
-german, chance(20.0), ".*" -> "Huh, über welche Plätze wünscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
+german, chance(20.0), ".*" -> "Huh, über welche Orte wünscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places."
+cycletext "Wer etwas über die Orte hier in der Umgebung wissen will, soll mich nur nach diesen Orten fragen.", "If someone wants to know something about the places around here, just ask me for these places."
 cycletext "#me kratzt sich im Gesicht.", "#me paddles her face."
 cycletext "#me blickt herum mit ihren weit geöffneten Augen.", "#me looks around with wide opened eyes."
 cycletext "#me untersucht ihre Rüstung.", "#me examines her armour."

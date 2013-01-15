@@ -114,7 +114,7 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	User:learn( boardproducing.LeadSkill, boardproducing.SavedWorkTime[User.id], 20);
+	User:learn( boardproducing.LeadSkill, boardproducing.SavedWorkTime[User.id], boardproducing.LearnLimit);
 	User:eraseItem( craftItem.source.id, craftItem.source.amount ); -- erase the item we're working on
 	local amount = craftItem.product.amount; -- set the amount of items that are produced
 	local notCreated = User:createItem( craftItem.product.id, amount, 333, nil ); -- create the new produced items

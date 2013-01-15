@@ -62,7 +62,10 @@ end;
     it does not fit
 ]]
 function CheckKey(Key, Door)
-    if base.doors.CheckClosedDoor(Door.id) or base.doors.CheckOpenDoor(Door.id) then
+    if Door == nil then
+	    return false
+	end	
+	if base.doors.CheckClosedDoor(Door.id) or base.doors.CheckOpenDoor(Door.id) then
         if (Key:getData("lockId") == Door:getData("lockId") and Door:getData("lockId") ~= "") then
             return true;
         else

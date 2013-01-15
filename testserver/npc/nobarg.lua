@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -187,9 +187,9 @@ talkEntry:addCondition(npc.base.condition.item.item(224, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'golden goblet' solved] Ask him your question from Sir Fludnar Yednos"));
-talkEntry:addResponse("You have done everything I've asked of you. Tell me what you seek?");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(224, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 8));
+talkEntry:addResponse("You have done everything I've asked of you. Tell me what you seek?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -198,9 +198,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(224, "all", ">", 0, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'goldener Kelch' gelöst] Frage ihn nun deine Frage von Sir Fludnar Yednos"));
-talkEntry:addResponse("Ihr habt alles getan, was ich haben wollte. Was ist eure Frage nun?");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(224, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 8));
+talkEntry:addResponse("Ihr habt alles getan, was ich haben wollte. Was ist eure Frage nun?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -257,8 +257,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 11));
 talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("age");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"));
-talkEntry:addResponse("That is not difficult, of course. It was in the Age of Concord! *sings a few lines to himself* The world is perfect. You cannot improve her. La, la,....well, I hope you are satisfied! Farewell! *lowers his head and starts praying*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 21));
+talkEntry:addResponse("That is not difficult, of course. It was in the Age of Concord! *sings a few lines to himself* The world is perfect. You cannot improve her. La, la,....well, I hope you are satisfied! Farewell! *lowers his head and starts praying*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -267,8 +267,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 11));
 talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("Zeitalter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"));
-talkEntry:addResponse("Das ist nicht schwierig, gewiss. Es war im Zeitalter der Eintracht! *singt einige Zeilen vor sich her* Die Welt ist perfekt. Man kann sie nicht verbessern. La, la,...nun gut, ich hoffe ihr seid zufrieden! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 21));
+talkEntry:addResponse("Das ist nicht schwierig, gewiss. Es war im Zeitalter der Eintracht! *singt einige Zeilen vor sich her* Die Welt ist perfekt. Man kann sie nicht verbessern. La, la,...nun gut, ich hoffe ihr seid zufrieden! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -277,8 +277,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 12));
 talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("support");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"));
-talkEntry:addResponse("That is not difficult, of course. Brágon had hoped to comfort the Bloodgod in his loneliness through the creation of the orcs! ?Well, there is your answer! Farewell! *lowers his head and starts praying*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 22));
+talkEntry:addResponse("That is not difficult, of course. Brágon had hoped to comfort the Bloodgod in his loneliness through the creation of the orcs! ?Well, there is your answer! Farewell! *lowers his head and starts praying*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -287,8 +287,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 12));
 talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("Unterstützung");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"));
-talkEntry:addResponse("Das ist nicht schwierig, gewiss. Bragon hatte die Hoffnung den Blutgott in seiner Einsamkeit zu trösten durch die Erschaffung der Orks! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 22));
+talkEntry:addResponse("Das ist nicht schwierig, gewiss. Bragon hatte die Hoffnung den Blutgott in seiner Einsamkeit zu trösten durch die Erschaffung der Orks! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -297,8 +297,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 13));
 talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("Purge");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"));
-talkEntry:addResponse("Of course, no problem. Brágon is the lifegiver, and purged of all impurity and weakness! ?Well, that is all I have to say about that. *Lowers his head and starts praying.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 23));
+talkEntry:addResponse("Of course, no problem. Brágon is the lifegiver, and purged of all impurity and weakness! ?Well, that is all I have to say about that. *Lowers his head and starts praying.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -307,8 +307,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 13));
 talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("Vernichter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"));
-talkEntry:addResponse("Das ist nicht schwierig, gewiss. Bragon ist der Lebensspender und Vernichter alles Unreinen und Schwachen! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 23));
+talkEntry:addResponse("Das ist nicht schwierig, gewiss. Bragon ist der Lebensspender und Vernichter alles Unreinen und Schwachen! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -318,8 +318,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("realized");
 talkEntry:addTrigger("realised");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"));
-talkEntry:addResponse("Not a difficult inquiry. It was in the Age of Discord! *sings a few lines to himself* Deep down, where loneliness and darkness reign...well,  I hope my singing satisfied you! Farewell! *lowers his head and starts praying*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 24));
+talkEntry:addResponse("Not a difficult inquiry. It was in the Age of Discord! *sings a few lines to himself* Deep down, where loneliness and darkness reign...well,  I hope my singing satisfied you! Farewell! *lowers his head and starts praying*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -329,8 +329,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("bemerkt hat");
 talkEntry:addTrigger("erkannt hat");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"));
-talkEntry:addResponse("Das ist nicht schwierig, gewiss. Es war im Zeitalter der Zwietracht! *singt einige Zeilen vor sich her* Tief unten, wo Einsamkeit und Dunkelheit herrschen...nun gut, ich hoffe ihr seid zufrieden! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 24));
+talkEntry:addResponse("Das ist nicht schwierig, gewiss. Es war im Zeitalter der Zwietracht! *singt einige Zeilen vor sich her* Tief unten, wo Einsamkeit und Dunkelheit herrschen...nun gut, ich hoffe ihr seid zufrieden! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -339,8 +339,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 15));
 talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("Sun");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"));
-talkEntry:addResponse("Of course of course, the 'Daily sunmaker'! ?All you needed to know farewell! *lowers his head and starts praying*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 25));
+talkEntry:addResponse("Of course of course, the 'Daily sunmaker'! ?All you needed to know farewell! *lowers his head and starts praying*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -349,8 +349,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 15));
 talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("Sonne");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"));
-talkEntry:addResponse("Das ist nicht schwierig, gewiss. 'Täglich Sonnenmacher'! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 25));
+talkEntry:addResponse("Das ist nicht schwierig, gewiss. 'Täglich Sonnenmacher'! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -359,8 +359,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 16));
 talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("remedy");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"));
-talkEntry:addResponse("Easy enough, he sent Dragons into the battle?well, I hope you are satisfied with my answer! Be well! *Lowers his head and starts praying.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 26));
+talkEntry:addResponse("Easy enough, he sent Dragons into the battle?well, I hope you are satisfied with my answer! Be well! *Lowers his head and starts praying.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -369,8 +369,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 16));
 talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("Wiedergutmachung");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"));
-talkEntry:addResponse("Das ist nicht schwierig, gewiss. Drachen! Er sendete Drachen in die Schlacht...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 26));
+talkEntry:addResponse("Das ist nicht schwierig, gewiss. Drachen! Er sendete Drachen in die Schlacht...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -380,8 +380,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("relationship");
 talkEntry:addTrigger("relate");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"));
-talkEntry:addResponse("The answer is simple, Fire! There is a fire in both you must feel to understand. I hope that will suffice, be well. *Lowers his head and starts praying.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 27));
+talkEntry:addResponse("The answer is simple, Fire! There is a fire in both you must feel to understand. I hope that will suffice, be well. *Lowers his head and starts praying.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -391,8 +391,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("verbindet");
 talkEntry:addTrigger("verbindung");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"));
-talkEntry:addResponse("Das ist nicht schwierig, gewiss. Feuer! Da brennt ein Feuer in beiden, dass du bestimmt noch nicht gesehen hast wie ich annehme...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 27));
+talkEntry:addResponse("Das ist nicht schwierig, gewiss. Feuer! Da brennt ein Feuer in beiden, dass du bestimmt noch nicht gesehen hast wie ich annehme...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -401,8 +401,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 18));
 talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("Summer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"));
-talkEntry:addResponse("Not difficult, `'Strong in summer'! If that is all I will return to my prayers, be well! *Lowers his head and starts praying.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 28));
+talkEntry:addResponse("Not difficult, `'Strong in summer'! If that is all I will return to my prayers, be well! *Lowers his head and starts praying.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -411,8 +411,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 18));
 talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("Sommer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"));
-talkEntry:addResponse("Das ist nicht schwierig, gewiss. 'Stark im Sommer'! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 28));
+talkEntry:addResponse("Das ist nicht schwierig, gewiss. 'Stark im Sommer'! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -422,8 +422,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("pray");
 talkEntry:addTrigger("praying");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"));
-talkEntry:addResponse("The answer is rather simple,  orcs see Brágon as the one who gives life! ?Well, I hope you are satisfied with this answer! Farewell! *Lowers his head and starts praying.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 29));
+talkEntry:addResponse("The answer is rather simple,  orcs see Brágon as the one who gives life! ?Well, I hope you are satisfied with this answer! Farewell! *Lowers his head and starts praying.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -433,8 +433,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("beten");
 talkEntry:addTrigger("gebet");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"));
-talkEntry:addResponse("Das ist nicht schwierig, gewiss. Die Orks sehen Bragon als denjenigen der das Leben schenkt! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 29));
+talkEntry:addResponse("Das ist nicht schwierig, gewiss. Die Orks sehen Bragon als denjenigen der das Leben schenkt! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -443,8 +443,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 20));
 talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("Eternity");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"));
-talkEntry:addResponse("A noble inquiry, among other things Brágon will discern whether they lived for the purpose of the Holy Flame or not! Take my words as you will, good day. *Lowers his head and starts praying.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 30));
+talkEntry:addResponse("A noble inquiry, among other things Brágon will discern whether they lived for the purpose of the Holy Flame or not! Take my words as you will, good day. *Lowers his head and starts praying.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -453,8 +453,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 20));
 talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("Ewigkeit");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"));
-talkEntry:addResponse("Das ist nicht schwierig, gewiss. Unteranderem Brágon wird feststellen, ob sie gerecht und im Sinne der heiligen Flamme gelebt haben! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 30));
+talkEntry:addResponse("Das ist nicht schwierig, gewiss. Unteranderem Brágon wird feststellen, ob sie gerecht und im Sinne der heiligen Flamme gelebt haben! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -464,8 +464,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tribunal");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest answer is imparted] Deliver the answer to Sir Fludnar Yednos"));
-talkEntry:addResponse("This is not difficult to understand really. Among other things Brágon will discern whether they lived for the purpose of the Holy Flame or not! ?Well, I hope you are satisfied with this answer! Farewell! *Lowers his head and starts praying.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 30));
+talkEntry:addResponse("This is not difficult to understand really. Among other things Brágon will discern whether they lived for the purpose of the Holy Flame or not! ?Well, I hope you are satisfied with this answer! Farewell! *Lowers his head and starts praying.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -474,8 +474,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 20));
 talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 8));
 talkEntry:addTrigger("Tribunal");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Antwort erhalten] Überbringe nun die Antwort zu Sir Fludnar Yednos"));
-talkEntry:addResponse("Das ist nicht schwierig, gewiss. Unteranderem Brágon wird feststellen, ob sie gerecht und im Sinne der heiligen Flamme gelebt haben! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(600, "=", 30));
+talkEntry:addResponse("Das ist nicht schwierig, gewiss. Unteranderem Brágon wird feststellen, ob sie gerecht und im Sinne der heiligen Flamme gelebt haben! ...nun gut, ich hoffe ihr seid zufrieden mit der Antwort! Lebt wohl! *senkt seinen Kopf und beginnt zu beten*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -520,42 +520,147 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 5));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("know");
-talkEntry:addTrigger("question");
-talkEntry:addResponse("I don't have to do anything for you.");
+talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 6));
+talkEntry:addCondition(npc.base.condition.item.item(2419, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'red priest robe' solved, Quest 'golden goblet' started] Bring him a golden goblet"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2419, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 7));
+talkEntry:addResponse("Very good! Well, I am also preparing a ritual for Brágon and I need a golden goblet. Please bring me one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 6));
+talkEntry:addCondition(npc.base.condition.item.item(2419, "all", ">", 0, nil));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("info");
+talkEntry:addTrigger("Robe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'rote Priesterrobe' gelöst, Quest 'goldener Kelch' gestartet] Bringe ihm einen goldenen Kelch"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2419, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 7));
+talkEntry:addResponse("Sehr gut! Ich bin am vorbereiten eines Rituals für Bragon and brauche einen Goldkelch hierfür. Bitte bringt mir einen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 6));
+talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, nil));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("know");
+talkEntry:addTrigger("question");
+talkEntry:addTrigger("thing");
+talkEntry:addResponse("Please, do not interrupt me again unless you have that red priest robe.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 6));
+talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("wissen");
 talkEntry:addTrigger("Frage");
-talkEntry:addResponse("Ich habe für euch nichts zu tun.");
+talkEntry:addTrigger("Ding");
+talkEntry:addResponse("Bitte stört mich nicht bis ihr die rote Priesterrobe habt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 6));
+talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("info");
-talkEntry:addResponse("I don't have to do anything for you.");
+talkEntry:addTrigger("robe");
+talkEntry:addResponse("Please, do not interrupt me again unless you have that red priest robe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(600, "<", 5));
+talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 6));
+talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("info");
-talkEntry:addResponse("Ich habe für euch nichts zu tun.");
+talkEntry:addTrigger("Robe");
+talkEntry:addResponse("Bitte stört mich nicht bis ihr die rote Priesterrobe habt!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", ">", 0, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'pure fire' solved, Quest 'red priest robe' started] Bring him a red priest robe"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2553, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 6));
+talkEntry:addResponse("Well done, you are ready for the next task. My red priest robes are in poor condition. Please bring me a new one.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", ">", 0, nil));
+talkEntry:addTrigger(".*");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'reines Feuer' gelöst, Quest 'rote Priesterrobe' gestartet] Bringe ihm eine rote Priesterrobe"));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2553, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 6));
+talkEntry:addResponse("Gut gemacht, du bist bereit für die nächste Aufgabe. Nun, schaut auf meine rote Priester Robe... Sie ist schon alt. Bitte bringt mir eine neue.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, nil));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("know");
+talkEntry:addTrigger("question");
+talkEntry:addTrigger("fire");
+talkEntry:addTrigger("thing");
+talkEntry:addResponse("Please, do not interrupt me until you've gotten the pure fire!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, nil));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("wissen");
+talkEntry:addTrigger("Frage");
+talkEntry:addTrigger("Feuer");
+talkEntry:addTrigger("Ding");
+talkEntry:addResponse("Bitte stört mich nicht bis ihr das reine Feuer habt!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, nil));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("info");
+talkEntry:addResponse("Please, do not interrupt me until you've gotten the pure fire!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 5));
+talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, nil));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addTrigger("info");
+talkEntry:addResponse("Bitte stört mich nicht bis ihr das reine Feuer habt!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -611,8 +716,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 11));
 talkEntry:addTrigger("age");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'pure fire' started] Bring him a pure fire"));
-talkEntry:addResponse("Well, I know the answer but you have to bring me three things first. Start by bringing me a pure element of fire. Brágon with you!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Well, I know the answer but you have to bring me three things first. Start by bringing me a pure element of fire. Brágon with you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -620,8 +725,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 11));
 talkEntry:addTrigger("Zeitalter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"));
-talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,8 +734,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 12));
 talkEntry:addTrigger("support");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'pure fire' started] Bring him a pure fire"));
-talkEntry:addResponse("The answer is within reach traveler but Brágon demands charity. Start by bringing me a pure element of fire. Brágon guide you!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("The answer is within reach traveler but Brágon demands charity. Start by bringing me a pure element of fire. Brágon guide you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -638,8 +743,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 12));
 talkEntry:addTrigger("Unterstützung");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"));
-talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -647,8 +752,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 13));
 talkEntry:addTrigger("Purge");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'pure fire' started] Bring him a pure fire"));
-talkEntry:addResponse("Well, I know the answer but only one worthy may acquire such knowledge. Start by bringing me a pure element of fire. Brágon will guide you!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Well, I know the answer but only one worthy may acquire such knowledge. Start by bringing me a pure element of fire. Brágon will guide you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -656,8 +761,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 13));
 talkEntry:addTrigger("Vernichter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"));
-talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -666,8 +771,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 14));
 talkEntry:addTrigger("realized");
 talkEntry:addTrigger("realised");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'pure fire' started] Bring him a pure fire"));
-talkEntry:addResponse("Answers will come once charity is given traveler. Start by bringing me a pure element of fire. Brágon with you!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Answers will come once charity is given traveler. Start by bringing me a pure element of fire. Brágon with you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -676,8 +781,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 14));
 talkEntry:addTrigger("bemerkt hat");
 talkEntry:addTrigger("erkannt hat");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"));
-talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -685,8 +790,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 15));
 talkEntry:addTrigger("Sun");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'pure fire' started] Bring him a pure fire"));
-talkEntry:addResponse("Well, I know the answer you seek, but are you worthy? Bring me a pure element of fire to prove that worth. Brágon keep you!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Well, I know the answer you seek, but are you worthy? Bring me a pure element of fire to prove that worth. Brágon keep you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,8 +799,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 15));
 talkEntry:addTrigger("Sonne");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"));
-talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -703,8 +808,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 16));
 talkEntry:addTrigger("remedy");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'pure fire' started] Bring him a pure fire"));
-talkEntry:addResponse("If you seek answers start by bringing me a pure element of fire. Brágon with you!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("If you seek answers start by bringing me a pure element of fire. Brágon with you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -712,8 +817,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 16));
 talkEntry:addTrigger("Wiedergutmachung");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"));
-talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -722,8 +827,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 17));
 talkEntry:addTrigger("relationship");
 talkEntry:addTrigger("relate");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'pure fire' started] Bring him a pure fire"));
-talkEntry:addResponse("Bring me a pure element of fire and you shall have your answers traveler. Brágon with you!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Bring me a pure element of fire and you shall have your answers traveler. Brágon with you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -732,8 +837,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 17));
 talkEntry:addTrigger("verbindet");
 talkEntry:addTrigger("verbindung");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"));
-talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -741,8 +846,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 18));
 talkEntry:addTrigger("Summer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'pure fire' started] Bring him a pure fire"));
-talkEntry:addResponse("Well, I know the answer you seek, but I will need test your worth. Start by bringing me a pure element of fire. Brágon with you!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Well, I know the answer you seek, but I will need test your worth. Start by bringing me a pure element of fire. Brágon with you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -750,8 +855,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 18));
 talkEntry:addTrigger("Sommer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"));
-talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -760,8 +865,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addTrigger("pray");
 talkEntry:addTrigger("praying");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'pure fire' started] Bring him a pure fire"));
-talkEntry:addResponse("So many questions, but only a few have the answers. Bring me a  pure element of fire and I will give you the answers you seek. Brágon with you!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("So many questions, but only a few have the answers. Bring me a  pure element of fire and I will give you the answers you seek. Brágon with you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -770,8 +875,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 19));
 talkEntry:addTrigger("beten");
 talkEntry:addTrigger("gebet");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"));
-talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -779,8 +884,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 20));
 talkEntry:addTrigger("Eternity");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'pure fire' started] Bring him a pure fire"));
-talkEntry:addResponse("Alright traveler but first  bring me a pure element of fire. Brágon with you!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Alright traveler but first  bring me a pure element of fire. Brágon with you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -788,8 +893,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 20));
 talkEntry:addTrigger("Ewigkeit");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"));
-talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -798,8 +903,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 20));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tribunal");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'pure fire' started] Bring him a pure fire"));
-talkEntry:addResponse("Ah, in search of answers traveler? To get them you will need to bring me a pure element of fire though. Brágon show you the path to righteousness!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
+talkEntry:addResponse("Ah, in search of answers traveler? To get them you will need to bring me a pure element of fire though. Brágon show you the path to righteousness!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -807,159 +912,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(600, "=", 20));
 talkEntry:addTrigger("Tribunal");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'reines Feuer' gestartet] Bringe ihm ein reines Feuer"));
-talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 5));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2553, "all", ">", 0, nil));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'pure fire' solved, Quest 'red priest robe' started] Bring him a red priest robe"));
-talkEntry:addResponse("Well done, you are ready for the next task. My red priest robes are in poor condition. Please bring me a new one.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2553, 1, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 6));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2553, "all", ">", 0, nil));
-talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'reines Feuer' gelöst, Quest 'rote Priesterrobe' gestartet] Bringe ihm eine rote Priesterrobe"));
-talkEntry:addResponse("Gut gemacht, du bist bereit für die nächste Aufgabe. Nun, schaut auf meine rote Priester Robe... Sie ist schon alt. Bitte bringt mir eine neue.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2553, 1, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 6));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, nil));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("know");
-talkEntry:addTrigger("question");
-talkEntry:addTrigger("fire");
-talkEntry:addTrigger("thing");
-talkEntry:addResponse("Please, do not interrupt me until you've gotten the pure fire!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, nil));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("wissen");
-talkEntry:addTrigger("Frage");
-talkEntry:addTrigger("Feuer");
-talkEntry:addTrigger("Ding");
-talkEntry:addResponse("Bitte stört mich nicht bis ihr das reine Feuer habt!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, nil));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addTrigger("info");
-talkEntry:addResponse("Please, do not interrupt me until you've gotten the pure fire!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 5));
-talkEntry:addCondition(npc.base.condition.item.item(2553, "all", "=", 0, nil));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addTrigger("info");
-talkEntry:addResponse("Bitte stört mich nicht bis ihr das reine Feuer habt!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2419, "all", ">", 0, nil));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'red priest robe' solved, Quest 'golden goblet' started] Bring him a golden goblet"));
-talkEntry:addResponse("Very good! Well, I am also preparing a ritual for Brágon and I need a golden goblet. Please bring me one.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2419, 1, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 7));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2419, "all", ">", 0, nil));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addTrigger("info");
-talkEntry:addTrigger("Robe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'rote Priesterrobe' gelöst, Quest 'goldener Kelch' gestartet] Bringe ihm einen goldenen Kelch"));
-talkEntry:addResponse("Sehr gut! Ich bin am vorbereiten eines Rituals für Bragon and brauche einen Goldkelch hierfür. Bitte bringt mir einen.");
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2419, 1, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 7));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, nil));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addTrigger("know");
-talkEntry:addTrigger("question");
-talkEntry:addTrigger("thing");
-talkEntry:addResponse("Please, do not interrupt me again unless you have that red priest robe.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, nil));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addTrigger("wissen");
-talkEntry:addTrigger("Frage");
-talkEntry:addTrigger("Ding");
-talkEntry:addResponse("Bitte stört mich nicht bis ihr die rote Priesterrobe habt!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, nil));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addTrigger("info");
-talkEntry:addTrigger("robe");
-talkEntry:addResponse("Please, do not interrupt me again unless you have that red priest robe.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(603, "=", 6));
-talkEntry:addCondition(npc.base.condition.item.item(2419, "all", "=", 0, nil));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addTrigger("info");
-talkEntry:addTrigger("Robe");
-talkEntry:addResponse("Bitte stört mich nicht bis ihr die rote Priesterrobe habt!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("test");
-talkEntry:addResponse("test");
+talkEntry:addResponse("Nun, ich weiß die Antwort, aber ihr müsst mir erst drei Dinge bringen. Aber bringt mir erst mal ein reines Feuer. So, geht und findet es!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1756,15 +1710,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("<NPC first name>");
-talkEntry:addTrigger("<NPC last name>");
+talkEntry:addTrigger("Nobarg");
 talkEntry:addResponse("Yes? How can I help you? Do you like to know more about gods?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("<NPC-Vorname>");
-talkEntry:addTrigger("<NPC-Nachname>");
+talkEntry:addTrigger("Nobarg");
 talkEntry:addResponse("Ja? Wie kann ich euch behilflich sein? Wollt ihr etwas über Götter wissen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1841,7 +1793,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

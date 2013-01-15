@@ -12,7 +12,7 @@ INSERT INTO spells VALUES (2^28 + 2^30,2,'gm.spells.29_31_magic_warp');
 INSERT INTO spells VALUES (2^28 + 2^30,3,'gm.spells.29_31_magic_warp');
 ]]
 
-function CastMagic(User,Counter,Param)
+function CastMagic(User)
 		
 	wert = 10
     magtyp = User:getMagicType()
@@ -71,6 +71,6 @@ function CastMagic(User,Counter,Param)
 end
 
 -- Selbst auf ein Feld in Sichtweite warpen
-function CastMagicOnField(User,Pos,Counter,Param)
+function CastMagicOnField(User,Pos)
     User:warp(Pos);
 end

@@ -8,19 +8,19 @@ module("druid.spell.id_18_analyze_item_volume", package.seeall)
 
 -- INSERT INTO spells VALUES (2^17,3,'druid.spell.id_18_analyze_item_volume');
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 --Caster:inform("debug #18.1")     
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 --Caster:inform("debug #18.2")    
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 --Caster:inform("debug #18.3")        
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
+function CastMagicOnItem(Caster,TargetItem,ltstate)
 --Caster:inform("debug #18.4")
   --Anzeige des Item-Volumens
   myItem = world:getItemStats(TargetItem)

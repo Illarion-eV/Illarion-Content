@@ -80,7 +80,7 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	User:learn( graingrinding.LeadSkill, graingrinding.SavedWorkTime[User.id], 20);
+	User:learn( graingrinding.LeadSkill, graingrinding.SavedWorkTime[User.id], graingrinding.LearnLimit);
 	User:eraseItem( 259, 1 ); -- erase the item we're working on
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 2, amount, 333, nil ); -- create the new produced items

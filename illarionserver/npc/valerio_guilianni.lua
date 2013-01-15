@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Faladron                                                         --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -31,13 +31,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Don Valerio Guilianni of Galmair. Keywords: Quest, Task, Gods, Factions."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Don Valerio Guilianni of Galmair. Keywords: Task, Gods, Realms, Galmair."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Don Valerio Guilianni von Galmair. Schlüsselwörter: Quest, Aufgabe, Götter, Fraktionen."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Don Valerio Guilianni von Galmair. Schlüsselwörter: Aufgabe, Götter, Reiche, Galmair."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -183,6 +183,54 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 12));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Mirarie");
+talkEntry:addTrigger("Bragolin");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 13));
+talkEntry:addResponse("A letter from Cadomyr? Oh, thank you very much. What? Ah, I see. I'll take care of that, you may leave now.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 12));
+talkEntry:addTrigger("Mirarie");
+talkEntry:addTrigger("Bragolin");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 13));
+talkEntry:addResponse("Ein Brief aus Cadomyr? Oh, vielen Dank... Was? Ah, ich verstehe. Ich werde mich darum kümmern. Ihr könnt nun gehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 12));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addTrigger("letter");
+talkEntry:addTrigger("message");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 13));
+talkEntry:addResponse("A letter from Cadomyr? Oh, thank you very much. What? Ah, I see. I'll take care of that, you may leave now.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 12));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addTrigger("Brief");
+talkEntry:addTrigger("Nachricht");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 13));
+talkEntry:addResponse("Ein Brief aus Cadomyr? Oh, vielen Dank... Was? Ah, ich verstehe. Ich werde mich darum kümmern. Ihr könnt nun gehen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
@@ -221,9 +269,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(10.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(1));
+talkEntry:addResponse("#me nods and hands you an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -234,9 +282,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(10.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(1));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -247,9 +295,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(11.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(2));
+talkEntry:addResponse("#me nods and hands you an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -260,9 +308,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(11.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(2));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -273,9 +321,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(13.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(3));
+talkEntry:addResponse("#me nods and hands you an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -286,9 +334,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(13.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(3));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -299,9 +347,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(14.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(4));
+talkEntry:addResponse("#me nods and hands you an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -312,9 +360,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(14.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(4));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -325,9 +373,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(17.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(5));
+talkEntry:addResponse("#me nods and hands you an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -338,9 +386,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(17.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(5));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -351,9 +399,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(6));
+talkEntry:addResponse("#me nods and hands you an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -364,9 +412,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(6));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -377,9 +425,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(25.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(7));
+talkEntry:addResponse("#me nods and hands you an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -390,9 +438,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(25.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(7));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -403,9 +451,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(34.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(8));
+talkEntry:addResponse("#me nods and hands you an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -416,9 +464,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(34.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.treasure.treasure(8));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -429,9 +477,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(51.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 999, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
+talkEntry:addResponse("#me nods and hands you an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -442,9 +490,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(51.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.item.item(284, 1, 999, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -455,9 +503,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(100.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nods and hands you an item silently.");
 talkEntry:addConsequence(npc.base.consequence.item.item(283, 1, 999, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
+talkEntry:addResponse("#me nods and hands you an item silently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -468,32 +516,9 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(100.0));
 talkEntry:addTrigger("Mordak");
 talkEntry:addTrigger("Kharud");
-talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkEntry:addConsequence(npc.base.consequence.item.item(283, 1, 999, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(633, "=", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 12));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Mirarie");
-talkEntry:addTrigger("Bragolin");
-talkEntry:addTrigger("letter");
-talkEntry:addTrigger("message");
-talkEntry:addResponse("A Letter from Cadomyr? Oh, thank you very much. ? What? Ah, I see. I'll take care of that, you may leave now.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 13));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(317, "=", 12));
-talkEntry:addTrigger("Mirarie");
-talkEntry:addTrigger("Bragolin");
-talkEntry:addTrigger("Brief");
-talkEntry:addTrigger("Nachricht");
-talkEntry:addResponse("Ein Brief aus Cadomyr? Oh, vielen Dank...Was? Ah, ich verstehe. Ich werde mich darum kümmer. Ihr könnt nun gehen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(317, "=", 13));
+talkEntry:addResponse("#me nickt und reicht dir leise einen Gegenstand.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -582,7 +607,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("protection");
+talkEntry:addTrigger("protect");
 talkEntry:addTrigger("fee");
 talkEntry:addResponse("You wanna be in the know? So do about a thousand other people. Don't talk about things that don't concern you.");
 talkEntry:addResponse("You talking about protection fees? You need some protection? You might if you keep talking about things that don't concern you.");
@@ -591,7 +616,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Protektionsgebühr");
 talkEntry:addTrigger("Schutz");
 talkEntry:addTrigger("Protekt");
 talkEntry:addTrigger("Gebühr");
@@ -604,27 +628,27 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Corleone");
-talkEntry:addResponse("Ach, a dazzler from Gynka, no honour. And throaty all the time, only the gods know why.");
+talkEntry:addResponse("Ach, a dazzler from Gynk, no honour. And throaty all the time, only the gods know why.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Corleone");
-talkEntry:addResponse("Ach, ein Blender aus Gynka, keine Ehre. Und immer heiser, die Götter wissen warum.");
+talkEntry:addResponse("Ach, ein Blender aus Gynk, keine Ehre. Und immer heiser, die Götter wissen warum.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("faction");
-talkEntry:addResponse("Ya know I hear people talking about these 'factions', but all I see is the land of my future wife and a drugged out magician leading halfers.");
+talkEntry:addTrigger("realm");
+talkEntry:addResponse("Ya know I hear people talking about these 'realms', but all I see is the land of my future wife and a drugged out magician leading halfers.");
 talkEntry:addResponse("Ya, ya Runewick, Cadomyr, and Galmair that's all you newcomers want to talk about. Focus on what's important, getting rich, plain and simple.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("fraktion");
-talkEntry:addResponse("Wisst Ihr, ich höre die Leute immer wieder über die 'Fraktionen' sprechen. Aber für mich sind sie nichts weiter als die Länder meiner zukünftigen Frau und des übergeschnappten Magiers, der Frauenkleider trägt.");
-talkEntry:addResponse("Aye, Runewick, Cadomyr und Galmair, das ist alles worüber Neuankömmlinge wie ihr sprechen wollt. Konzentriert Euch lieber auf die  wichtigen Dinge! Reichtum und Macht! - Ganz einfach.");
+talkEntry:addTrigger("Reich");
+talkEntry:addResponse("Wisst Ihr, ich höre die Leute immer wieder über die 'Reiche' sprechen. Aber für mich sind sie nichts weiter als die Länder meiner zukünftigen Frau und des übergeschnappten Magiers, der Frauenkleider trägt.");
+talkEntry:addResponse("Aye, Runewick, Cadomyr und Galmair, das ist alles worüber Neuankömmlinge wie ihr sprechen wollt. Konzentriert Euch lieber auf die wichtigen Dinge! Reichtum und Macht! Ganz einfach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1097,7 +1121,7 @@ talkingNPC:addCycleText("#me spuckt angewidert ein paar Trauben aus. 'Ugh. Wer h
 talkingNPC:addCycleText("Ich befürchet, dieser Kräuterhandel wird uns noch in den nächsten Jahren viele Sorgen bereiten.", "I believe this herb business is gonna destroy us in the years to come.");
 talkingNPC:addCycleText("Ich war niemals unvorsichtig. Frauen und Kinder dürfen unvorsichtig sein, Männer nicht.", "I spent my life trying not to be careless. Females and children can be careless, but not dwarves or men.");
 talkingNPC:addCycleText("Ich glaube an Gold, Reichtümer und Macht. Wer an sie nicht ehrt, hat sie wohl schlichtweg nicht!", "I have faith in gold, wealth and power. Those who don't honour such meaningful things simply don't have either.");
-talkingNPC:addCycleText("Miggs! Wo ist Miggs schon wieder! Einige Händler haben ihre 'Protektionsgebühr' diesen Monat noch nicht entrichtet.", "Miggs! Where is Miggs again? Some traders haven't paid their 'protection fee' this month.");
+talkingNPC:addCycleText("Miggs! Wo ist Miggs schon wieder! Einige Händler haben ihre 'Protektionsgebühr' diesen Monat noch nicht entrichtet.", "Miggs! Where is Miggs again? Some merchants haven't paid their 'protection fee' this month.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
@@ -1120,7 +1144,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

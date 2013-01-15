@@ -10,7 +10,7 @@ INSERT INTO spells VALUES (2^29,1,'gm.spells.30_heal');
 INSERT INTO spells VALUES (2^29,2,'gm.spells.30_heal');
 INSERT INTO spells VALUES (2^29,3,'gm.spells.30_heal');
 ]]
-function CastMagicOnCharacter(Caster,TargetCharacter,Counter,Param)
+function CastMagicOnCharacter(Caster,TargetCharacter)
     while (TargetCharacter:increaseAttrib("hitpoints", 0) < 10000) do
         TargetCharacter:increaseAttrib("hitpoints", 10000);
     end;

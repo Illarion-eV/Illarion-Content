@@ -50,7 +50,7 @@ function InitDrinks()
     end
 end
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User, SourceItem)
     InitDrinks();
     if User.attackmode then
         base.common.InformNLS( User, "Du würdest alles verschütten.", "You'd spill everything.");

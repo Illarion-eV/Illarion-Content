@@ -11,7 +11,7 @@ INSERT INTO spells VALUES (2^28,2,'gm.spells.29_kill');
 INSERT INTO spells VALUES (2^28,3,'gm.spells.29_kill');
 ]]
 
-function CastMagicOnCharacter(Caster, TargetCharacter, Counter, Param)
+function CastMagicOnCharacter(Caster, TargetCharacter)
 	TargetCharacter:increaseAttrib("hitpoints",-32767);
 	gm.base.log.Write(User, User.name .. "(" .. User.id .. ") killed " .. TargetCharacter.name .. "(" .. TargetCharacter.id .. ")");
 end;

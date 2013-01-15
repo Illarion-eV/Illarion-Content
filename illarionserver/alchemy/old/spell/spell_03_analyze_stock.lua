@@ -10,19 +10,19 @@ module("druid.spell.spell_03_analyze_stock", package.seeall(druid.base.alchemy))
 
 -- INSERT INTO spells VALUES (2^3,3,'druid.spell.spell_03_analyze_stock');
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 	base.common.InformNLS(Caster, "Du musst diesen Analysezauber mit einem Kräutersud benutzen.", "You have to use this analyzing spell with a herbage brooth.");
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 	base.common.InformNLS(Caster, "Du musst diesen Analysezauber mit einem Kräutersud benutzen.", "You have to use this analyzing spell with a herbage brooth.");
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 	base.common.InformNLS(Caster, "Du musst diesen Analysezauber mit einem Kräutersud benutzen.", "You have to use this analyzing spell with a herbage brooth.");
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param)
+function CastMagicOnItem(Caster,TargetItem)
 	--Analyse eines Sudes
 	if TargetItem.id == 331 then
 		dataZList = SplitBottleData(Caster,TargetItem.data)

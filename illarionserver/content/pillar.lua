@@ -284,7 +284,7 @@ function InitPillar()
     AddPillar({255,292,-5},"Auf der Spitze der Säule starrt ein großer schwarzer Rabe in die Ferne. Der Rabe hält einen Ohrring in seinem Schnabel und der Schatten von Flammen erscheint in seinen Augen.","At the top of the column a huge black raven peers into distance. The raven holds an earring in his beak and the shade of flames appears in the eyes.", 1, 0); --Flicker Swale
     AddPillar({255,294,-5},"Auf der Spitze der Säule starrt ein großer schwarzer Rabe in die Ferne. Der Rabe hält einen Ohrring in seinem Schnabel und der Schatten von Flammen erscheint in seinen Augen.","On top of the column, a huge black raven stares into the distance. The raven holds an earring in his beak and the shadows of flames appear in his eyes.", 1, 0); --Flicker Swale
     AddPillar({252,288,-5},"Ein schwarz gekleideter Mann, noble, geschmacksvolle Kleider tragend, blickt auf seinen Dietrich in seiner linken Hand. Er grinst hämisch während er einen seiner Ohrring mit der anderen Hand kratzt.","A man dressed in black, wearing noble, tasteful clothing, looks at a picklock in his left hand. He grins gleefully as he scratches one of his earrings with his other hand.", 3, 0); --Flicker Swale
-	--[[AddPillar({255,292,-6},"","", 4, 5); --Flicker Swale
+	--[[    AddPillar({255,292,-6},"","", 4, 5); --Flicker Swale
     AddPillar({255,294,-6},"","", 4, 5); --Flicker Swale
     AddPillar({248,298,-5},"","", 3, 5); --Flicker Swale
     AddPillar({251,298,-5},"","", 3, 5); --Flicker Swale
@@ -298,11 +298,17 @@ function InitPillar()
     AddPillar({423,296,1},"","", 2,5); --Sleepy Bujhaar Inn
     AddPillar({423,298,1},"","", 2,5); --Sleepy Bujhaar Inn
     AddPillar({417,289,1},"","", 3,5); --Sleepy Bujhaar Inn
-    AddPillar({415,298,1},"","", 3,5); --Sleepy Bujhaar Inn
-    AddPillar({483,248,0},"","", 6,5); --Copperbridge
-    AddPillar({483,251,0},"","", 6,5); --Copperbridge
+    AddPillar({415,298,1},"","", 3,5); --Sleepy Bujhaar Inn	]]--
+    AddPillar({483,248,0},"Eine Notiz an der Kupferstatue besagt: 'Beschützer der Kupferbrücke'.","A note on the copper figure says: 'Protector of the Copperbridge'.", 4,0); --Copperbridge
+    AddPillar({483,251,0},"Eine Notiz an der Kupferstatue besagt: 'Beschützer der Kupferbrücke'.","A note on the copper figure says 'Protector of the Copperbridge'.", 4,0); --Copperbridge
+    AddPillar({474,248,0},"Eine Notiz an der Kupferstatue besagt: 'Beschützer der Kupferbrücke'.","A note on the copper figure says: 'Protector of the Copperbridge'.", 4,0); --Copperbridge
+    AddPillar({474,251,0},"Eine Notiz an der Kupferstatue besagt: 'Beschützer der Kupferbrücke'.","A note on the copper figure says 'Protector of the Copperbridge'.", 4,0); --Copperbridge
+    AddPillar({496,208,0},"Eine Notiz an der Eisenstatue besagt: 'Beschützer der Schwarzbrücke'.","A note on the iron figure says: 'Protector of the Blackbridge'.", 5,0); --Blackbridge
+    AddPillar({499,208,0},"Eine Notiz an der Eisenstatue besagt: 'Beschützer der Schwarzbrücke'.","A note on the iron figure says 'Protector of the Blackbridge'.", 5,0); --Blackbridge
+    AddPillar({496,193,0},"Eine Notiz an der Eisenstatue besagt: 'Beschützer der Schwarzbrücke'.","A note on the iron figure says: 'Protector of the Blackbridge'.", 5,0); --Blackbridge
+    AddPillar({499,193,0},"Eine Notiz an der Eisenstatue besagt: 'Beschützer der Schwarzbrücke'.","A note on the iron figure says 'Protector of the Blackbridge'.", 5,0); --Blackbridge
 	--Galmair Plateau
-	AddPillar({357,365,1},"","", 4,5);
+	--[[	AddPillar({357,365,1},"","", 4,5);
 	--Grugmutz's cave
     AddPillar({169,558,0},"","", 1,5);
     AddPillar({169,561,0},"","", 1,5);

@@ -184,7 +184,7 @@ function DoDruidism(Character,SourceItem)
 end -- function DoDruidism()
 
 --
-function UseItem(Character,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(Character, SourceItem, ltstate)
 	if (ltstate == Action.abort) then
         Character:talkLanguage(Character.say, Player.german, "#me verschüttet den Trank.");
         Character:talkLanguage(Character.say, Player.english, "#me spills the potion.");

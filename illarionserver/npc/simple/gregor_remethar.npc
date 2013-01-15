@@ -70,9 +70,9 @@ itemShoes = 53
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Ah, einer der Lebenden besucht mich. Was hat euch hergebracht - wollt ihr in der Gruft eure Vorfahren ehren?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Ah, one of the living visits me. What brought you here - you want to honour your ancestors in the crypt?"
 "Hiho", "Hallo", "Hey", "Greeb" -> ", einer der Lebenden besucht mich. Was hat euch hergebracht - wollt ihr in der Gruft eure Vorfahren ehren?"
-"Farewell", "Bye", "Fare well", "See you" -> "Go with the blessing of the Gods. And do not return again too soon, if you know what I mean."
+"Farewell", "Bye", "Fare well", "See you" -> "Go with the blessing of the Gods, and do not return again too soon, if you know what I mean?"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Gehet mit dem Segen der Götter. Und kehrt nicht sobald wieder - falls ihr versteht, was ich meine."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with the blessing of the Gods. And do not return again too soon, if you know what I mean."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Go with the blessing of the Gods, and do not return again too soon, if you know what I mean?"
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Gehet mit dem Segen der Götter. Und kehrt nicht sobald wieder - falls ihr versteht, was ich meine."
 "How are you", "How feel", "How do you do" -> "I bury those who died. How do you suppose I feel? To appreciate the value of life is indeed not easy."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich beerdige diejenigen, die starben. Wie meint ihr wohl, fühle ich mich dabei? Den Wert eines Lebens zu schätzen ist fürwahr nicht einfach."
@@ -148,11 +148,11 @@ queststatus(105) = 2, ".+" -> inform("[Quest gelöst] Du erhältst einen Goldrin
 queststatus(105) = 2, ".+" -> inform("[Chance error] Something went wrong, please inform a developer.")
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"mortician", "undertaker", "gravedigger", "funeral" -> "My job is to bury those whose life is at an end - and to assess the value of their life. That determines what happens to them."
+"mortician", "undertaker", "gravedigger", "funeral" -> "My job is to bury those whose life is at an end - and to assess the value of their life, that determines what happens to them."
 "Bestatter", "Totengräber", "Beerdigung" -> "Meine Aufgabe ist es, diejenigen zu begraben, deren Leben am Ende ist - und den Wert ihres Lebens einzuschätzen. Den der bestimmt, was mit ihnen geschieht."
-"profession" -> "I am the local mortician. I judge who has made such valuable contributions as wisdom and justice. After all, this is what determines our reputation in the afterlife."
+"profession" -> "I am the local mortician. I judge who has made valuable contributions such as as wisdom and justice... After all, this is what determines our reputation in the afterlife."
 "beruf" -> "Ich bin hier der Bestatter. Ich entscheide, wer sich wie sehr verdient gemacht hat um die Weisheit und die Gerechtigkeit. Denn dies bestimmt unser aller Ansehen im Tode."
-english, "job" -> "I am the local mortician. I judge who has made such valuable contributions as wisdom and justice. After all, this is what determines our reputation in the afterlife."
+english, "job" -> "I am the local mortician. I judge who has made valuable contributions such as wisdom and justice... After all, this is what determines our reputation in the afterlife."
 "job" -> "Ich bin hier der Bestatter. Ich entscheide, wer sich wie sehr verdient gemacht hat um die Weisheit und die Gerechtigkeit. Denn dies bestimmt unser aller Ansehen im Tode."
 "my name" -> "May I take your measurements?"
 "mein Name" -> "Darf ich schonmal eure Maße aufnehmen?"
@@ -170,9 +170,9 @@ english, "method", "urn" -> "Those whose lives had a high value will be cremated
 "Raum", "Kammer" -> "Die Gruft hat drei Kammern: Die Kammer des Lichtes, die Kammer des Zwielichtes und die Kammer der Dunkelheit."
 "room", "chamber" -> "The crypt has three chambers: The Chamber of Light, the Chamber of Twilight and the Chamber of Darkness."
 "Zwielicht" -> "In der Kammer des Zwielichtes stehen die Särge der Lehrlinge - falls ihre Körper nochmal gebraucht werden."
-"Twilight" -> "In the Chamber of Twilight there are the coffins of the apprentices - located where their body will be needed once again."
+"Twilight" -> "In the Chamber of Twilight there are the coffins of the apprentices - located where their bodies will be needed once again."
 "Dunkel" -> "In der Kammer der Dunkelheit rotten die Knochen der Unwürdigen vor sich hin, die es zu Lebzeiten nicht verstanden haben, der Weisheit nachzustreben."
-"dark" -> "In the Chamber of Darkness the bones of the unworthy rot. Those who have not understood during their lifetime the need to strive for wisdom."
+"dark" -> "In the Chamber of Darkness the bones of the unworthy rot, those who have not understood during their lifetime the need to strive for wisdom."
 "Licht" -> "In der Kammer des Lichtes werden die weisen Magier Runewicks beigesetzt, nachdem man ihren Körper eingeäschert hat, wie es seit jeher Sitte ist."
 "Light" -> "In the Chamber of Light the wise mages of Runewick are buried, after having their body cremated, as has always been the custom."
 
@@ -181,9 +181,9 @@ english, "Calaway" -> "I am not the Undertaker! I prefer the term mortician."
 "Calaway" -> "Ich bin nicht der Totengräber! Ich ziehe die Bezeichnung Leichenbestatter vor."
 
 -- Faction stuff
-"archmage" -> "The archmage is a good man. He knows exactly whose life is valuable to the community."
+"archmage" -> "The Archmage is a good man. He knows exactly whose life is valuable to the community."
 "Erzmagier" -> "Der Erzmagier ist ein guter Mann. Er weiß genau, wessen Leben wertvoll für die Gemeinschaft ist; und wessen nicht."
-english, "Elvaine", "Morgan" -> "The archmage is a good man. He knows exactly whose life is valuable to the community."
+english, "Elvaine", "Morgan" -> "The Archmage is a good man. He knows exactly whose life is valuable to the community."
 "Elvaine", "Morgan" -> "Der Erzmagier ist ein guter Mann. Er weiß genau, wessen Leben wertvoll für die Gemeinschaft ist; und wessen nicht."
 english, "Runewick" -> "Everyone is born equal in Runewick. Anyone who brings about nothing, however, his life is forfeited."
 "Runewick" -> "In Runewick ist Jedermann gleich geboren. Wer nichts zustandebringt, dessen Leben ist allerdings verwirkt."
@@ -191,11 +191,11 @@ english, "Valerio", "Guilianni", "Don" -> "I have heard a rumour about the Don; 
 "Valerio", "Guilianni", "Don" -> "Ich habe eine Gerücht über den Don gehört; er lässt Leute einfach so verschwinden, die ihm quer kommen. Kein Grabstein wird jemals an sie erinnern."
 english, "Galmair" -> "In Galmair, the grave of a deceased person depends greatly on their wealth obviously. Large purse, large grave, small purse, no grave. How terrible!"
 "Galmair" -> "In Galmair hängt der Ruf eines Verstorbenen offensichtlich stark vom Reichtum ab. Großer Geldbeutel, großes Grab, kleiner Geldbeutel, kein Grab - wie schrecklich!"
-"Queen" -> "I have heard Queen Rosaline is to have a glorious grave in the desert. Her royal builder Robertus is commissioned. I just wonder whether he will finish before she passes..."
+"Queen" -> "I have heard Queen Rosaline is to have a glorious grave in the desert. Her royal builder Robertus is commissioned but I just wonder whether he will finish before she passes..."
 "Königin" -> "Ich habe gehört, dass Königin Rosaline ein glorreiches Grab in der Wüste haben möchte. Ihr königlicher Baumeister Robertus ist damit beauftragt. Ich frage mich nur, ob er damit fertig wird, bevor sie verstirbt..."
-english, "rosaline", "edwards" -> "I have heard Queen Rosaline is to have a glorious grave in the desert. Her royal builder Robertus is commissioned. I just wonder whether he will finish before she passes..."
+english, "rosaline", "edwards" -> "I have heard Queen Rosaline is to have a glorious grave in the desert. Her royal builder Robertus is commissioned but I just wonder whether he will finish before she passes..."
 "rosaline", "edwards" -> "Ich habe gehört, dass Königin Rosaline ein glorreiches Grab in der Wüste haben möchte. Ihr königlicher Baumeister Robertus ist damit beauftragt. Ich frage mich nur, ob er damit fertig wird, bevor sie verstirbt..."
-english, "Cadomyr" -> "I appreciate the people of Cadomyr. Their habits are somewhat different to ours; the value of life is determined by birth, remaining with us after death. But does this make us so different?"
+english, "Cadomyr" -> "I appreciate the people of Cadomyr. Their habits are somewhat different to ours; the value of life is determined by birth, remaining with us after death... but does this make us so different?"
 "Cadomyr" -> "Ich schätze das Volk von Cadomyr. Ihre Gebräuche sind etwas anders als unsere; der Wert eines Lebens wird bei ihnen bei der Geburt bestimmt, bei uns nach dem Tode. Aber macht uns das so verschieden?"
 
 -- Main land factions
@@ -203,13 +203,13 @@ english, "albar" -> "The Albarians burn their dead. This is indeed a homage, for
 "albar" -> "Die Albarier verbrennen ihre Toten. Dies ist fürwahr eine Ehrerweisung, denn wer verbrannt ist, kann nicht durch dunkle Künste ins Leben zurückgerufen werden."
 english, "gynk", "gync" -> "There are strange customs in Gynk. They say they just cast their dead into the swamps. What a cruel custom!"
 "gync", "gynk" -> "Es gibt merkwürdige Sitten in Gynk. Man sagt, sie werfen ihre Toten einfach in den Sumpf. Was für ein grausamer Brauch!"
-english, "salkama" -> "The archmage once told me that in Salkamar, only the righteous are buried in coffins whereas the wicked face an indescribable fate."
+english, "salkama" -> "The Archmage once told me that in Salkamar, only the righteous are buried in coffins whereas the wicked face an indescribable fate."
 "salkama" -> "Einst sagte mir der Erzmagier, dass in Salkamar nur die Rechtschaffenden in Särgen begraben werden während die Niederträchtigen ein unbeschreibliches Schicksal erleiden."
 
 -- Gods; each NPC should react on AT LEAST one god, being a follower of said god
 "god" -> "I serve Cherga every day."
 "Gott", "Götter" -> "Ich diene Cherga jeden Tag."
-english, "Cherga" -> "I do not love Cherga, but I honour her. Her acts as Guardian of the Afterlife deserve our respect. Or would you like to do that job?"
+english, "Cherga" -> "I do not love Cherga, but I honour her. Her acts as Guardian of the Afterlife deserve our respect, or would you like to do that job?"
 "Cherga" -> "Ich liebe Cherga nicht, aber ich ehre sie. Ihre Taten als Hüterin des Jenseits verdienen unseren Respekt. Oder möchtet ihr ihren Job übernehmen?"
 
 -- Catching typical NPC phrases

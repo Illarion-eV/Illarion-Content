@@ -7,19 +7,19 @@ module("druid.spell.id_05_quality_stock", package.seeall)
 
 -- INSERT INTO spells VALUES (2^4,3,'druid.spell.id_05_quality_stock');
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 --Caster:inform("debug #05.1")  
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 --Caster:inform("debug #05.2")  
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 --Caster:inform("debug #05.3")    
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
+function CastMagicOnItem(Caster,TargetItem,ltstate)
 --Caster:inform("debug #05.4") 
 --Analyse eines Sudes auf Quality 
   if TargetItem.id == 331 and TargetItem.data ~=0 then

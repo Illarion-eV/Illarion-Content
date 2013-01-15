@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -56,7 +56,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("Greebas! Yoos be lookin' like yoos could help mes in mes mission.");
+talkEntry:addResponse("Greebas! Yoos be lookin' like yoos could help mes on mes mission.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -81,7 +81,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Greebas! Yoos be lookin' like yoos could help mes in mes mission.");
+talkEntry:addResponse("Greebas! Yoos be lookin' like yoos could help mes on mes mission.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -99,7 +99,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Go wid dat Moshi. And when come back, den bring lotsa shinies fer mes, hurr, hurr.");
+talkEntry:addResponse("Go wid dat Moshi, and when come back, den bring lotsa shinies fer mes, hurr, hurr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -118,7 +118,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Go wid dat Moshi. And when come back, den bring lotsa shinies fer mes, hurr, hurr.");
+talkEntry:addResponse("Go wid dat Moshi, and when come back, den bring lotsa shinies fer mes, hurr, hurr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -135,7 +135,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("Mes be feelin' gud, mes be on important mission fer clan. Mes be radur sure yoos can do task fer mes.");
+talkEntry:addResponse("Mes be feelin' gud, mes be on important mission fer clan. Mes be realleh sure yoos can do task fer mes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -151,7 +151,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Mes be mighty Graznok, explorer op dem Clan op dem Bonegnawers. Dat mes.");
+talkEntry:addResponse("Mes be mighty Graznok, explorer op dem Clan op dem Bonegnawers, dat mes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -171,8 +171,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Craven Orc I"));
-talkEntry:addResponse("Yoos gottur help mes. Mes want explore dat cave over dere, but nub hab torch fer light. Gimme torch so mes can find place fer clan fer dwellin'.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 1));
+talkEntry:addResponse("Yoos gottur help mes. Mes want teh explore dat cave over dere, but nub hab torch fer light. Gimme torch so mes can find place fer clan fer dwellin'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -181,8 +181,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der feige Ork I"));
-talkEntry:addResponse("Du mirr hilfst. Mirr wolle erkunden Höhle drüben dort. Aber nix hab Fackl für Licht. Gibst mirr Fackl. Mir findet Platz fürr Klan. Beißn Knochn.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 1));
+talkEntry:addResponse("Du mirr hilfst. Mirr wolle erkunden Höhle drüben dort. Aber nix hab Fackl für Licht. Gibst mirr Fackl. Mir findet Platz fürr Klan. Beißn Knochn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -191,8 +191,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Craven Orc I"));
-talkEntry:addResponse("Yoos gottur help mes. Mes want explore dat cave over dere, but nub hab torch fer light. Gimme torch so mes can find place fer clan fer dwellin'.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 1));
+talkEntry:addResponse("Yoos gottur help mes. Mes want teh explore dat cave over dere, but nub hab torch fer light. Gimme torch so mes can find place fer clan fer dwellin'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -202,8 +202,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der feige Ork I"));
-talkEntry:addResponse("Du mirr hilfst. Mirr wolle erkunden Höhle drüben dort. Aber nix hab Fackl für Licht. Gibst mirr Fackl. Mir findet Platz fürr Klan. Beißn Knochn.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 1));
+talkEntry:addResponse("Du mirr hilfst. Mirr wolle erkunden Höhle drüben dort. Aber nix hab Fackl für Licht. Gibst mirr Fackl. Mir findet Platz fürr Klan. Beißn Knochn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -255,10 +255,10 @@ talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a piece of pork. Tasty..."));
-talkEntry:addResponse("Hurr! Danks fer dat torch. Now mes can go explorin' again. Hab dat pork, dat be tasty.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(307, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 2));
+talkEntry:addResponse("Hurr! Danks fer dat torch, now mes can go explorin' again. Hab dat pork, dat be tasty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -267,10 +267,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(391, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Stück Schweinefleich. Lecker..."));
-talkEntry:addResponse("Hurr! Dancke für d' Fackl. Jetz mirr kann gehn, Erkundung. Du nimmst Fleisch, das lecker!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(391, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(307, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 2));
+talkEntry:addResponse("Hurr! Dancke für d' Fackl. Jetz mirr kann gehn, Erkundung. Du nimmst Fleisch, das lecker!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -280,10 +280,10 @@ talkEntry:addCondition(npc.base.condition.item.item(392, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a piece of pork. Tasty..."));
-talkEntry:addResponse("Hurr! Danks fer dat burnin' torch. Now mes can go explorin' again. Hab dat pork, dat be tasty.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(392, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(307, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 2));
+talkEntry:addResponse("Hurr! Danks fer dat burnin' torch, now mes can go explorin' again. Hab dat pork, dat be tasty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -292,10 +292,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(392, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Stück Schweinefleich. Lecker..."));
-talkEntry:addResponse("Hurr! Dancke für d' Fackl. Jetz mirr kann gehn, Erkundung. Du nimmst Fleisch, das lecker!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(392, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(307, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 2));
+talkEntry:addResponse("Hurr! Dancke für d' Fackl. Jetz mirr kann gehn, Erkundung. Du nimmst Fleisch, das lecker!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -305,8 +305,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Craven Orc II"));
-talkEntry:addResponse("Hurr! Last time mes hab been explorin' cave, dere be lotsa ragmen. Mes nub like dem ragmen, dey like be spook. Smash dem!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 3));
+talkEntry:addResponse("Hurr! Last time mes hab been explorin' caves, dere be lotsa ragmen. Mes nub like dem ragmen, dey be like spooks. Smash dem!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -315,8 +315,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der feige Ork II"));
-talkEntry:addResponse("Hurr. Letzte mal mir erkundet Höhle dort gewesen Lumpenmanns. Mirr nix mag, sie wie Spuk. Du zermatschn! Verjagn Lumpenmanns!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 3));
+talkEntry:addResponse("Hurr. Letzte mal mir erkundet Höhle dort gewesen Lumpenmanns. Mirr nix mag, sie wie Spuk. Du zermatschn! Verjagn Lumpenmanns!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -325,8 +325,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Craven Orc II"));
-talkEntry:addResponse("Hurr! Last time mes hab been explorin' cave, dere be lotsa ragmen. Mes nub like dem ragmen, dey like be spook. Smash dem!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 3));
+talkEntry:addResponse("Hurr! Last time mes hab been explorin' caves, dere be lotsa ragmen. Mes nub like dem ragmen, dey be like spooks. Smash dem!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -336,8 +336,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der feige Ork II"));
-talkEntry:addResponse("Hurr. Letzte mal mir erkundet Höhle dort gewesen Lumpenmanns. Mirr nix mag, sie wie Spuk. Du zermatschn! Verjagn Lumpenmanns!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 3));
+talkEntry:addResponse("Hurr. Letzte mal mir erkundet Höhle dort gewesen Lumpenmanns. Mirr nix mag, sie wie Spuk. Du zermatschn! Verjagn Lumpenmanns!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -347,7 +347,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(3, "<", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Smash more op dem ragmen. Smash one fer each op mes finger on mes rite hand, den cave be save mes be dinkin'.");
+talkEntry:addResponse("Smash more op dem ragmen. Smash one fer each op mes fingers on mes right hand, den cave be safe mes be dinkin'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -365,7 +365,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(3, ">", 2));
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "<", 8));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Smash more op dem ragmen. Smash one fer each op mes finger on mes rite hand, den cave be save mes be dinkin'.");
+talkEntry:addResponse("Smash more op dem ragmen. Smash one fer each op mes fingers on mes right hand, den cave be safe mes be dinkin'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -384,11 +384,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a steak, a piece of leather and a horn. How useful..."));
-talkEntry:addResponse("Yoos hab smash dem ragmen? Gud! Mes gib yoos stuff mes hab hunt in dat meantime, tasty and gud stuff.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2547, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2940, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(333, 1, 533, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 9));
+talkEntry:addResponse("Yoos hab smash dem ragmen? Gud! Mes gib yoos stuff mes hab hunt in dat meantime, tasty and gud stuff.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -396,11 +396,11 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 8));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Steak, ein Stück Leder und ein Horn. Wie praktisch..."));
-talkEntry:addResponse("Du zermatscht hast die Lumpenmanns? Gutt! Mir gibt dir Zeug, mir erbeutet hat. Lecker und gutt Zeug.");
 talkEntry:addConsequence(npc.base.consequence.item.item(2547, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2940, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(333, 1, 533, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 9));
+talkEntry:addResponse("Du zermatscht hast die Lumpenmanns? Gutt! Mir gibt dir Zeug, mir erbeutet hat. Lecker und gutt Zeug.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -410,8 +410,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Craven Orc III"));
-talkEntry:addResponse("Cave be much more cozy widout ragmen. But dere sum bonemen, deep in cave. Nub want dwell in same cave as bonemen. Smash as many as yoos can count wid yoos hands!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 10));
+talkEntry:addResponse("Cave be much more cozy widout ragmen, but dere sum bonemen, deep in cave. Nub want teh dwell in same cave as bonemen. Smash as many as yoos can count wid yoos hands!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -420,8 +420,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 9));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der feige Ork III"));
-talkEntry:addResponse("Höhle viel mehr gemütlich, ohne Lumpenmanns. Aber dort Knochenmanns sind. Tief in Höhle. Mir nix nagn Knochen in selbe Höhle wie Knochnman. Du zerhaust Knochenmans, so viel zu abzählst auf dein Hände.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 10));
+talkEntry:addResponse("Höhle viel mehr gemütlich, ohne Lumpenmanns. Aber dort Knochenmanns sind. Tief in Höhle. Mir nix nagn Knochen in selbe Höhle wie Knochnman. Du zerhaust Knochenmans, so viel zu abzählst auf dein Hände.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -430,8 +430,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 9));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Craven Orc III"));
-talkEntry:addResponse("Cave be much more cozy widout ragmen. But dere sum bonemen, deep in cave. Nub want dwell in same cave as bonemen. Smash as many as yoos can count wid yoos hands!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 10));
+talkEntry:addResponse("Cave be much more cozy widout ragmen, but dere sum bonemen, deep in cave. Nub want teh dwell in same cave as bonemen. Smash as many as yoos can count wid yoos hands!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -441,8 +441,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der feige Ork III"));
-talkEntry:addResponse("Höhle viel mehr gemütlich, ohne Lumpenmanns. Aber dort Knochenmanns sind. Tief in Höhle. Mir nix nagn Knochen in selbe Höhle wie Knochnman. Du zerhaust Knochenmans, so viel zu abzählst auf dein Hände.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 10));
+talkEntry:addResponse("Höhle viel mehr gemütlich, ohne Lumpenmanns. Aber dort Knochenmanns sind. Tief in Höhle. Mir nix nagn Knochen in selbe Höhle wie Knochnman. Du zerhaust Knochenmans, so viel zu abzählst auf dein Hände.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -489,11 +489,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 20));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a warhammer, an orc helmet and a full leather armour. Nice..."));
-talkEntry:addResponse("Hurr! Victor-dingy! Clan be save now, yoos hab smash dem bonemen. In dat name op dat chief op dem bonegnawers, mes be makin' yoos friend op clan. Hab dat weapon and armour op clan, yoos deserve dat.");
 talkEntry:addConsequence(npc.base.consequence.item.item(226, 1, 644, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(16, 1, 644, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(362, 1, 644, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 21));
+talkEntry:addResponse("Hurr! Victor-dingy! Clan be safe now, yoos hab smash dem bonemen. In der name op dat chief op dem Bonegnawers, mes be makin' yoos friend op clan. Hab dat weapon and armour op clan, yoos deserve dat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -501,11 +501,11 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 20));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Kriegshammer, einen Orkhelm und eine volle Lederrüstung. Nett..."));
-talkEntry:addResponse("Hurr! Sieg-ding! Klan sicher jetzt ist, du zerschlagn d' Knochenmanns. In Name von Häuptling von Knochenbeißer, mirr machen dich zu Freund. Von ganze Klan. Nimmst Waffe und Rüsta von Klan, du verdienen es.");
 talkEntry:addConsequence(npc.base.consequence.item.item(226, 1, 644, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(16, 1, 644, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(362, 1, 644, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(3, "=", 21));
+talkEntry:addResponse("Hurr! Sieg-ding! Klan sicher jetzt ist, du zerschlagn d' Knochenmanns. In Name von Häuptling von Knochenbeißer, mirr machen dich zu Freund. Von ganze Klan. Nimmst Waffe und Rüsta von Klan, du verdienen es.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -514,7 +514,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 21));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Nub can help mes, yoos. Hab done enuff. Mes gonna bring clan to cave, danks.");
+talkEntry:addResponse("Nub can help mes, yoos hab done enuff. Mes gonna bring clan to cave, danks.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -530,7 +530,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(3, "=", 21));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Nub can help mes, yoos. Hab done enuff. Mes gonna bring clan to cave, danks.");
+talkEntry:addResponse("Nub can help mes, yoos hab done enuff. Mes gonna bring clan to cave, danks.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -582,7 +582,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("Mes be explorer op clan op dem bonegnawers. Dem bonegnawers be searchin' fer new cave fer dwellin'. Dere be cave, but mes need help in mes mission.");
+talkEntry:addResponse("Mes be explorer op clan op dem Bonegnawers. Dem Bonegnawers be searchin' fer new cave fer dwellin'. Dere be cave, but mes need help on mes mission.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -595,7 +595,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Mes be explorer op clan op dem bonegnawers. Dem bonegnawers be searchin' fer new cave fer dwellin'. Dere be cave, but mes need help in mes mission.");
+talkEntry:addResponse("Mes be explorer op clan op dem Bonegnawers. Dem Bonegnawers be searchin' fer new cave fer dwellin'. Dere be cave, but mes need help on mes mission.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -626,7 +626,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("clan");
-talkEntry:addResponse("Mes clan be dat clan op dem bonegnawers. Gnawin' bone all day, hurr, hurr. Clan be searchin' fer new cave fer dwellin'.");
+talkEntry:addResponse("Mes clan be dat clan op dem Bonegnawers. Gnawin' bone all day, hurr, hurr. Clan be searchin' fer new cave fer dwellin'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -638,7 +638,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("cave");
-talkEntry:addResponse("Mes be on important mission, yubba. Mes be searchin' new cave fer clan. Dere be cave; help mes wid dat mission!");
+talkEntry:addResponse("Mes be on important mission, yubba. Mes be searchin' new cave fer clan. Dere be cave, help mes wid dat mission!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -652,7 +652,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("bonemen");
 talkEntry:addTrigger("boneman");
-talkEntry:addResponse("Dem bonemen! Hurr! Dey like dead and still walkin'. Dat simply nub rite, dat be scary!");
+talkEntry:addResponse("Dem bonemen! Hurr! Dey like dead and still walkin', dat simply nub right, dat be scary!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -677,7 +677,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ghost");
 talkEntry:addTrigger("spectre");
 talkEntry:addTrigger("spook");
-talkEntry:addResponse("Spook! Evil oomies and leafeaters make dat spook. Mes nub like spook, spook so... spooky!");
+talkEntry:addResponse("Spook! Evil oomies and leafeaters make dat spooks. Mes nub like spooks, spooks so... spooky!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -797,7 +797,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Stoopid majik oomie! Dat be makin' spook, mes be sure. Bedda smash, dat mes say.");
+talkEntry:addResponse("Stoopid majik oomie! Dat be makin' spooks, mes be sure. Bedda smash, dat mes say.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -811,7 +811,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Stoopid majik oomie! Dat be makin' spook, mes be sure. Bedda smash, dat mes say.");
+talkEntry:addResponse("Stoopid majik oomie! Dat be makin' spooks, mes be sure. Bedda smash, dat mes say.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -936,7 +936,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Blah, bleh, blubb. Dem oomies in dat Salka-dingy, dey nub can do anyding but talk. And dat nub even gud.");
+talkEntry:addResponse("Blah, bleh, blubb. Dem oomies in dat Salka-dingy, dey nub can do anyding but talk, and dat nub even gud.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -963,7 +963,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
 talkEntry:addTrigger("Moshi");
-talkEntry:addResponse("Big Moshi, dat be mighty god. Moshi nub evil, Moshi power. Moshi gib mes power!");
+talkEntry:addResponse("Big Moshi, dat be mighty god. Moshi nub evil, Moshi power... Moshi gib mes power!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -977,7 +977,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
-talkEntry:addResponse("Mala-dingy guide mes smasher. When hunt, den Mala-dingy bring gud game. Praise dat Mala-dingy!");
+talkEntry:addResponse("Mala-dingy guide mes smasher. When hunt, den Mala-dingy bring gud game, praise dat Mala-dingy!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -992,7 +992,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Lemme dink... Nub want yoos stuff, nub hab stuff fer yoos. So get lost.");
+talkEntry:addResponse("Lemme dink... Nub want yoos stuff, nub hab stuff fer yoos, so get lost.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1007,7 +1007,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Dere once was orci. And dere was dragon. Dat orci hab smash dat dragon! Gud story, eh?");
+talkEntry:addResponse("Dere once was orci, and dere was dragon. Dat orci hab smash dat dragon! Gud story, eh?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1068,10 +1068,10 @@ talkingNPC:addCycleText("Hurr!", "Hurr!");
 talkingNPC:addCycleText("Maul halt! Mir nix Angst nix und nixmand!", "Shuddup! Mes nub fear anyding!");
 talkingNPC:addCycleText("Gibst, gibst, gibst ne fackel bis nach Mitternacht.", "Gimme, gimme, gimme a torch aftur midnight!");
 talkingNPC:addCycleText("Mirr nix früchtet nix Geist!", "Mes nub afraid op no ghost!");
-talkingNPC:addCycleText("Mir nix Hilfe braucht. Verjagen Schatten allein!", "Want nubbody help mes chase dem shadows away!");
+talkingNPC:addCycleText("Mir nix Hilfe braucht. Verjagen Schatten allein!", "Won't nubbody help mes chase dem shadows away!");
 talkingNPC:addCycleText("Bringen mirr durch Dunkelheit, bis Tag kommt.", "Take mes thru dat darkness to dat break op dat day.");
 talkingNPC:addCycleText("Dat Jagdgrund fürr ne Fackl!", "A huntin' ground fer a torch!");
-talkingNPC:addCycleText("#me schnüffelt und rotzt auf den Boden.", "#me sniffes and spits on the ground.");
+talkingNPC:addCycleText("#me schnüffelt und rotzt auf den Boden.", "#me sniffs and spits on the ground.");
 talkingNPC:addCycleText("#me knurrt und bleckt die Zähne.", "#me growls and snarls.");
 talkingNPC:addCycleText("#me schlägt zwei Steine gegeneinander und flucht: 'Dat werd Licht!'", "#me strikes two stones together and curses: 'Let dere be light!'");
 mainNPC:addLanguage(0);

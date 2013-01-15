@@ -49,9 +49,11 @@ function callEffect(trsEff, trsHunter)
         base.common.InformNLS( trsHunter,
         "Die Wächter des Schatzes wurden besiegt. Gebt nicht alles auf einmal aus!",
         "The guardians of the treasure have been slain. Do not spend it all at once!");
-        world:createItemFromId(2830,1,trsPosition,true,333,{["trsCat"]=cat}); --spawn a treasure chest
+		--bad because the chest has a wear of 255 and is thus static
+        --world:createItemFromId(2830,1,trsPosition,true,333,{["trsCat"]=cat}); --spawn a treasure chest
         world:gfx(16,trsPosition);
         world:makeSound(13,trsPosition);
+		base.treasure.SpawnTreasure(cat, trsPosition)
         return false;
     end
 

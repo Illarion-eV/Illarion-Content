@@ -807,7 +807,7 @@ function PayTheTax(amount)
 	 
 end
 
-function NPCUsed(user,counter,param)
+function NPCUsed(user)
     if not NPCStatus then
         NPCStatus = { };
     end

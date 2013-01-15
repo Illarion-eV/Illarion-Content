@@ -142,7 +142,7 @@ function InitPotions()
 	potionName[314]	= {"Big Nutrition Annihilator","Groﬂer Nahrungsannihilator"}
 	setPotion(314, 446, 15783424, 754, 146, 146, 146, 135, 135, 135, 133) 
 	potionName[316]	= {"Small Slime Barrier","Kleine Schleimbarriere"}
-	setPotion(316, 446, 86386546, 140, 140, 140, 152, 146) 
+	setPotion(316, 446, 86386546, 140, 140, 140, 152, 146, false, false, false) 
 	potionName[317]	= {"Big Slime Barrier","Groﬂe Schleimbarriere"}
 	setPotion(317, 446, 76576456, 140, 140, 140, 140, 152, 152, 146, 146) 
 -- bombs end	

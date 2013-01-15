@@ -8,19 +8,19 @@ module("druid.spell.id_19_analyze_item_wear", package.seeall)
 
 -- INSERT INTO spells VALUES (2^18,3,'druid.spell.id_19_analyze_item_wear');
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 --Caster:inform("debug #19.1")  
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 --Caster:inform("debug #19.2")    
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 --Caster:inform("debug #19.3")    
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
+function CastMagicOnItem(Caster,TargetItem,ltstate)
   --Caster:inform("debug #19.4")  
   --Anzeige von Item-Verrottung
 

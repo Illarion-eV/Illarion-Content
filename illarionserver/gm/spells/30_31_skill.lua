@@ -27,11 +27,11 @@ INSERT INTO spells VALUES (2^29 + 2^30,2,'gm.spells.30_31_skill');
 INSERT INTO spells VALUES (2^29 + 2^30,3,'gm.spells.30_31_skill');
 ]]
 
-function CastMagic(Caster,counter,param)
+function CastMagic(Caster)
     SkillChange(Caster,Caster);
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param)
+function CastMagicOnCharacter(Caster,TargetCharacter)
     SkillChange(Caster,TargetCharacter);
 end
 

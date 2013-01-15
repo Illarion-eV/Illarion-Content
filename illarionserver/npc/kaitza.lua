@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Grokk                                                            --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -24,6 +24,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.kaitza", package.seeall)
 
@@ -191,8 +192,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest updated] Aurora's Staff: Part III"));
-talkEntry:addResponse("Zis dagger? It isss not for sssale. Zss. Although...ze druid, Aurora Sssnow, ssshe hasss zis emerald ring. Get it for me, and I ssshall part with ze dagger.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 8));
+talkEntry:addResponse("Zis dagger? It isss not for sssale. Zss. Although...ze druid, Aurora Sssnow, ssshe hasss zis emerald ring. Get it for me, and I ssshall part with ze dagger.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -201,8 +202,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 7));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addResponse("Diessser Dolch? Er issst nicht zzzu kaufen. Zss. Aber...diesse Druidin Aurora Sssnow, ssie hat einen Emerald-Ring. Zss. Gebt mir den Ring und ich überlassse euch den Dolch. Zss.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 8));
+talkEntry:addResponse("Diessser Dolch? Er issst nicht zzzu kaufen. Zss. Aber...diesse Druidin Aurora Sssnow, ssie hat einen Emerald-Ring. Zss. Gebt mir den Ring und ich überlassse euch den Dolch. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -213,8 +214,8 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("staff");
 talkEntry:addTrigger("dagger");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest updated] Aurora's Staff: Part III"));
-talkEntry:addResponse("Zis dagger? It isss not for sssale. Zss. Although...ze druid, Aurora Sssnow, ssshe hasss zis emerald ring. Get it for me, and I ssshall part with ze dagger.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 8));
+talkEntry:addResponse("Zis dagger? It isss not for sssale. Zss. Although...ze druid, Aurora Sssnow, ssshe hasss zis emerald ring. Get it for me, and I ssshall part with ze dagger.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -226,8 +227,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("stab");
 talkEntry:addTrigger("dolch");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche I"));
-talkEntry:addResponse("Diessser Dolch? Er issst nicht zzzu kaufen. Zss. Aber...diesse Druidin Aurora Sssnow, ssie hat einen Emerald-Ring. Zss. Gebt mir den Ring und ich überlassse euch den Dolch. Zss.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 8));
+talkEntry:addResponse("Diessser Dolch? Er issst nicht zzzu kaufen. Zss. Aber...diesse Druidin Aurora Sssnow, ssie hat einen Emerald-Ring. Zss. Gebt mir den Ring und ich überlassse euch den Dolch. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -271,10 +272,10 @@ talkEntry:addCondition(npc.base.condition.item.item(281, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest updated] Aurora's Staff: Part III."));
-talkEntry:addResponse("Yesss...zis iss ze one. Gorgeousss...Here iss your dagger, as promisssed. Zss.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(281, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(190, 1, 499, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 10));
+talkEntry:addResponse("Yesss...zis iss ze one. Gorgeousss...Here iss your dagger, as promisssed. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -283,10 +284,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(333, "=", 9));
 talkEntry:addCondition(npc.base.condition.item.item(281, "all", ">", 0, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 80 Kupferstücke."));
-talkEntry:addResponse("Ja...dasss issst er, der Dolch. Zss! Grosssartig... Hier isst Euer Doch wie versprochen. Zzs.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(281, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(190, 1, 499, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(333, "=", 10));
+talkEntry:addResponse("Ja...dasss issst er, der Dolch. Zss! Grosssartig... Hier isst Euer Doch wie versprochen. Zzs.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -296,8 +297,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Fishing For Lizards"));
-talkEntry:addResponse("Zss. You wisssh to help Kaitza? He isss ssso hungry. Pleassse, bring me ten trout. Zey mussst be raw, cooking ruinsss ze fisssh.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 1));
+talkEntry:addResponse("Zss. You wisssh to help Kaitza? He isss ssso hungry. Pleassse, bring me ten trout. Zey mussst be raw, cooking ruinsss ze fisssh.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -306,8 +307,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addResponse("Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie müsssen roh sssein. Kochen verdirbt das Esssen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 1));
+talkEntry:addResponse("Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie müsssen roh sssein. Kochen verdirbt das Esssen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,8 +317,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 0));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Ghost Oak II"));
-talkEntry:addResponse("Zss. You wisssh to help Kaitza? He isss ssso hungry. Pleassse, bring me ten trout. Zey mussst be raw, cooking ruinsss ze fisssh.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 1));
+talkEntry:addResponse("Zss. You wisssh to help Kaitza? He isss ssso hungry. Pleassse, bring me ten trout. Zey mussst be raw, cooking ruinsss ze fisssh.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -327,8 +328,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche II"));
-talkEntry:addResponse("Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie müsssen roh sssein. Kochen verdirbt das Esssen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 1));
+talkEntry:addResponse("Zsss. Ihr wollt Kaitza helfen? Er isst so hungrig. Bitte bringt mir 10 Forellenfisssche. Ssie müsssen roh sssein. Kochen verdirbt das Esssen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -366,7 +367,7 @@ talkEntry:addCondition(npc.base.condition.item.item(73, "all", "<", 10, nil));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Zss. Sso Hungrig. Bring mir zzzehn Forellen. Kaitza zzzahl dafür. Zss.");
+talkEntry:addResponse("Zss. Sso Hungrig. Bring mir zzzehn Forellen. Kaitza zzzahlt dafür. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -376,10 +377,10 @@ talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded three silver coins."));
-talkEntry:addResponse("Yess...zis isss good. Very good. Zss. Here isss your money.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 300));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 2));
+talkEntry:addResponse("Yess...zis isss good. Very good. Zss. Here isss your money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -388,10 +389,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst drei Silberstücke."));
-talkEntry:addResponse("Ja... dass ist gut.Sssehr gut. Zss. Hier issst Euer Geld.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 300));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(73, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 2));
+talkEntry:addResponse("Ja... dass ist gut.Sssehr gut. Zss. Hier issst Euer Geld.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -401,8 +402,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Fishing For Lizards II"));
-talkEntry:addResponse("Yesss. Ze trout wasss mossst deliciousss. Now, Kaitza wantsss sssome sssalmon. Zsss. Bring me five of zem.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 3));
+talkEntry:addResponse("Yesss. Ze trout wasss mossst deliciousss. Now, Kaitza wantsss sssome sssalmon. Zsss. Bring me five of zem.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -411,8 +412,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
-talkEntry:addResponse("Ja. Szzz. Die Forellen war ausssgesprochen lecker, Zss. Jetzzzt möchte Kaitza ein paar Lachsssfische verspeisssen. Bingt mir fünf Sssstück.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 3));
+talkEntry:addResponse("Ja. Szzz. Die Forellen waren ausssgesprochen lecker, Zss. Jetzzzt möchte Kaitza ein paar Lachsssfische verspeisssen. Bringt mir fünf Sssstück.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -421,8 +422,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Fishing For Lizards II"));
-talkEntry:addResponse("Yesss. Ze trout wasss mossst deliciousss. Now, Kaitza wantsss sssome sssalmon. Zsss. Bring me five of zem.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 3));
+talkEntry:addResponse("Yesss. Ze trout wasss mossst deliciousss. Now, Kaitza wantsss sssome sssalmon. Zsss. Bring me five of zem.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -432,8 +433,8 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Die Geistereiche III"));
-talkEntry:addResponse("Ja. Szzz. Die Forellen war ausssgesprochen lecker, Zss. Jetzzzt möchte Kaitza ein paar Lachsssfische verspeisssen. Bingt mir fünf Sssstück.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 3));
+talkEntry:addResponse("Ja. Szzz. Die Forellen waren ausssgesprochen lecker, Zss. Jetzzzt möchte Kaitza ein paar Lachsssfische verspeisssen. Bringt mir fünf Sssstück.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -452,7 +453,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", "<", 5, nil));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Bitte findet für Kaitza fünf ssschamckhafte Lachssse.Kocht sssie nicht. Sssie müsssen roh sssein.");
+talkEntry:addResponse("Bitte findet für Kaitza fünf ssschamckhafte Lachssse. Kocht sssie nicht. Sssie müsssen roh sssein.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -481,11 +482,11 @@ talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a snake sword and four silver coins."));
-talkEntry:addResponse("Zese sssalmon look mossst good. Take zis, as payment. Zss. Now leave Kaitza alone to eat hisss fishiesss.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2788, 1, 799, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 4));
+talkEntry:addResponse("Zese sssalmon look mossst good. Take zis, as payment. Zss. Now leave Kaitza alone to eat hisss fishiesss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -494,11 +495,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(335, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Schlangenschwert und vier Silberstücke."));
-talkEntry:addResponse("Der Lachsss sssieht gut uisss. Nemt diesss, alsss Bezzzahlung. Zss. Jetzzzt lasst mich in Ruhe essssen. Zss.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 400));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2788, 1, 799, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(355, "=", 4));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(335, "=", 4));
+talkEntry:addResponse("Der Lachsss sssieht gut uisss. Nehmt diesss, alsss Bezzzahlung. Zss. Jetzzzt lasst mich in Ruhe essssen. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1103,9 +1104,12 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Zss. I have nozing to trade.");
-talkEntry:addResponse("I do not ssseek to trade. Zss.");
-talkEntry:addResponse("Sssorry, I do not wisssh to trade.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Zss. I have nozing to.");
+talkEntry:addResponse("I do not ssseek to. Zss.");
+talkEntry:addResponse("Sssorry, I do not wisssh to.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1236,7 +1240,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

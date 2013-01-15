@@ -197,9 +197,9 @@ module("base.treasure", package.seeall)
         end
 		
 		if level < 5 then -- silver coins
-            world:createItemFromId(3077,math.random(math.ceil(5*level*level),math.ceil(15*level*level)),posi,true,333,0);
+            world:createItemFromId(3077,math.random(math.ceil(5*level*level),math.ceil(15*level*level)),posi,true,333,nil);
 		else -- gold coins
-		    world:createItemFromId(61,math.random(math.ceil(0.05*level*level),math.ceil(0.15*level*level)),posi,true,333,0);
+		    world:createItemFromId(61,math.random(math.ceil(0.05*level*level),math.ceil(0.15*level*level)),posi,true,333,nil);
 		end
     end
 

@@ -457,6 +457,34 @@ function GetBonusFromTool(toolItem)
     return 0, 0, 0, 0;
 end;
 
+function GatheringToolBreaks(user, item)
+  if not user or not item then
+    return false;
+  end;
+  
+  -- reduce durability only each 3rd time
+  if (math.random(1, 100) < 33) then
+    local durability = math.mod(item.quality, 100);
+    local quality = (item.quality - durability) / 100;
+    
+    if (durability == 0) then
+      world:erase(item, 1);
+      return true;
+    end
+    
+    durability = durability - 1;
+    item.quality = quality * 100 + durability;
+    world:changeItem(item);
+    
+    if (durability == 10) then 
+      InformNLS(user,
+      "Das Werkzeug wird nicht mehr lange halten. Du solltest dich nach einem neuen umschauen.",
+      "The tool looks like it could break soon. You should try to get a new one.");
+    end
+  end
+  return false;
+end
+
 --- Damage an item
 -- @param user The character who has the item
 -- @param item The item that gets damaged

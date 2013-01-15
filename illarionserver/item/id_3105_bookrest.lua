@@ -36,7 +36,7 @@ function LookAtItem(User,Item)
 	end
 end
 
-function UseItem(User,SourceItem,TargetItem,counter,param)
+function UseItem(User, SourceItem)
 	if (tonumber(SourceItem:getData("bookrestData")) == 666) then
 		if (User:getSkill(Character.ancientLanguage) > 59) then
 		    if (SourceItem.pos.z == -6) then

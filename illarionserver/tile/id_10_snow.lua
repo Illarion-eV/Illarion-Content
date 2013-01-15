@@ -4,7 +4,7 @@
 
 module("tile.id_10_snow", package.seeall)
 
-function useTile(User,Position,counter,param)
+function useTile(User,Position)
     User:talkLanguage(Character.say, Player.german, "#me formt einen Schneeball.");
     User:talkLanguage(Character.say, Player.english,"#me makes a snowball.");
     User:createItem(456,1,333,nil);

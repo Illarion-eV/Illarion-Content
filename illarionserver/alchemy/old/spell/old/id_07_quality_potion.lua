@@ -9,19 +9,19 @@ module("druid.spell.id_07_quality_potion", package.seeall, package.seeall(druid.
 
 -- INSERT INTO spells VALUES (2^6,3,'druid.spell.id_07_quality_potion');
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 --Caster:inform("debug #07.1")  
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 -- Caster:inform("debug #07.2")  
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 --Caster:inform("debug #07.3") 
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
+function CastMagicOnItem(Caster,TargetItem,ltstate)
 --Caster:inform("debug #07.4") 
 --Analyse eines Trankes auf Quality 
   pList={59,165,166,167,327,328,329,330} 

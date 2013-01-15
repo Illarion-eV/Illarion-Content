@@ -534,7 +534,7 @@ function getLookAt(player,item)
     local infos = GetTeacherQuestInfos(player,item)
 	local teacherName, teacherDescription
 	local descriptionDE = {}
-	descriptionDE["Der Wissende Baum"] = "Die alte Eldaneiche wird von einer seltsamen Atmosphäre umgeben und gelegentlich meint man etwas wie ein Schmatzen."
+	descriptionDE["Der Wissende Baum"] = "Die alte Eldaneiche wird von einer seltsamen Atmosphäre umgeben und gelegentlich meint man etwas wie ein Schmatzen zu hören."
 	descriptionDE["Der Denkende Stein"] = "Der vom Wüstensand geschliffene Stein wird von einer seltsamen Atmosphäre umgeben und gelegentlich meint man ein Murmeln zu hören."
 	descriptionDE["Die Erkennende Quelle"] = "Die sprudelnde Quelle wird von einer seltsamen Atmosphäre umgeben und gelegentlich mag man ein gedämpftes Flüstern vernehmen."
 	local descriptionEN = {}

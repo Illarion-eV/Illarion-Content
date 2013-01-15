@@ -6,7 +6,7 @@ module("item.id_336_mirror", package.seeall, package.seeall(content.chardescript
 
 -- UPDATE common SET com_script='item.id_336_mirror' WHERE com_itemid = 336;
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User, SourceItem)
 	local output = "";
 	local lang = User:getPlayerLanguage();
 	local qual,dura = content.chardescription.getClothesFactor(User);

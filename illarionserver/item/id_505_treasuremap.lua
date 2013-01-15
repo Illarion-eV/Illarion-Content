@@ -33,6 +33,6 @@ function LookAtItem(User, Item)
 	end;
 end;
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )  -- DONT EDIT THIS LINE!
+function UseItem(User, SourceItem, ltstate)  -- DONT EDIT THIS LINE!
 
 end

@@ -3,7 +3,7 @@
 require("alchemy.base.alchemy")
 module("alchemy.base.analysis", package.seeall)
 
-function StockAnalysis(User, gem, brew, Counter, Param, ltstate)
+function StockAnalysis(User, gem, brew, ltstate)
 	local analysisResultDE = "Substanz:\nKräutersud\n\nWirkstoffkonzentrationen:\n"
 	local analysisResultEN = "Substanz:\nHerbal Stock\n\nActive substance concentrations:\n"
 	for i=1,8 do -- loop to get the concentration of the eight active substances
@@ -20,7 +20,7 @@ function StockAnalysis(User, gem, brew, Counter, Param, ltstate)
 	return analysisResultDE, analysisResultEN
 end
 
-function EssenceBrewAnalysis(User, gem, brew, Counter, Param, ltstate)
+function EssenceBrewAnalysis(User, gem, brew, ltstate)
     local cauldron, bottle
 	if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
 		cauldron = brew
@@ -57,7 +57,7 @@ function EssenceBrewAnalysis(User, gem, brew, Counter, Param, ltstate)
 	return analysisResultDE, analysisResultEN
 end
 
-function PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
+function PotionAnalysis(User, gem, brew, ltstate)
 	local cauldron, bottle, potionQuality, potionQualityDE, potionQualityEN
 	if brew.id >= 1008 and brew.id <= 1018 then -- brew is a cauldron
 		cauldron = brew
@@ -114,7 +114,7 @@ function PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
 	return analysisResultDE, analysisResultEN	
 end
 
-function AnalysisOfBrew(User, gem, brew, Counter, Param, ltstate)
+function AnalysisOfBrew(User, gem, brew, ltstate)
 
     local isAlchemist = alchemy.base.alchemy.CheckIfAlchemist(User,"Nur jene, die die Kunst der Alchemie beherrschen vermögen zu analysieren.","Only those who have been introduced to the art of alchemy are able to analyse.")
     if not isAlchemist then
@@ -129,13 +129,13 @@ function AnalysisOfBrew(User, gem, brew, Counter, Param, ltstate)
 		analysisResultEN = "Substance: Water"
 		
 	elseif brew:getData("filledWith") == "stock" then
-	    analysisResultDE, analysisResultEN = StockAnalysis(User, gem, brew, Counter, Param, ltstate)
+	    analysisResultDE, analysisResultEN = StockAnalysis(User, gem, brew, ltstate)
 		
 	elseif brew:getData("filledWith") == "essenceBrew" then
-        analysisResultDE, analysisResultEN = EssenceBrewAnalysis(User, gem, brew, Counter, Param, ltstate)
+        analysisResultDE, analysisResultEN = EssenceBrewAnalysis(User, gem, brew, ltstate)
 		
 	elseif brew:getData("filledWith") == "potion" then
-	    analysisResultDE, analysisResultEN = PotionAnalysis(User, gem, brew, Counter, Param, ltstate)
+	    analysisResultDE, analysisResultEN = PotionAnalysis(User, gem, brew, ltstate)
 	end	
 	
 	if analysisResultDE and analysisResultEN then 
@@ -150,18 +150,18 @@ function AnalysisOfBrew(User, gem, brew, Counter, Param, ltstate)
 	end	
 end
 
-function CauldronPotionCheck(User, SourceItem, TargetItem, Counter, Param, ltstate)
+function CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
     local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
 	if (cauldron) and (cauldron.id ~= 1008) then
-		AnalysisOfBrew(User, SourceItem, cauldron, Counter, Param, ltstate)
+		AnalysisOfBrew(User, SourceItem, cauldron, ltstate)
 	else	
 	    local brew = User:getItemAt(5)
 		if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") then
-	        AnalysisOfBrew(User, SourceItem, brew, Counter, Param, ltstate)
+	        AnalysisOfBrew(User, SourceItem, brew, ltstate)
 		else	
 	        local brew = User:getItemAt(6)
 			if (brew:getData("filledWith") == "stock") or (brew:getData("filledWith") == "essenceBrew") or (brew:getData("filledWith") == "potion") then
-				AnalysisOfBrew(User, SourceItem, brew, Counter, Param, ltstate)
+				AnalysisOfBrew(User, SourceItem, brew, ltstate)
 			end
         end
     end		

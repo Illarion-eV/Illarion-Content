@@ -7,7 +7,7 @@ require("alchemy.base.alchemy")
 
 module("item.id_164_emptybottle", package.seeall)
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
 if (User.lastSpokenText == "set") then
     SourceItem:setData("dataTest","1")
 	world:changeItem(SourceItem)

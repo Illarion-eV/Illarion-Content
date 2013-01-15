@@ -136,7 +136,7 @@ product:addIngredient(50, 2) -- Thread: 2x1
 --Harp
 product = carpentry:addProduct(catId, 332, 60, 70, 136, 272)
 product:addIngredient(545, 5) -- Cherry Wooden Boards: 5x1
-product:addIngredient(51, 3) -- Thread: 3x1
+product:addIngredient(50, 3) -- Thread: 3x1
 
 catId = carpentry:addCategory("shields", "Schilde") --shields
 

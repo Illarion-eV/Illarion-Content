@@ -290,7 +290,11 @@ function TakeCoinsFromDepot(char, gCoins, sCoins, cCoins, depotId)
     if (cCoins > 0) then
         depot:eraseItem(CopperCoinsID, cCoins);
     end;
-    
+	
+	if (gCoins < 0 or sCoins < 0 or cCoins < 0) then
+        GiveCoinsToChar(char, math.min(0, gCoins) * (-1),
+            math.min(0, sCoins) * (-1), math.min(0, cCoins) * (-1));
+    end;
 end;
 
 --- This method takes a certain amount of money from the player. It tries to
@@ -380,7 +384,7 @@ end;
 --  @param depotId - number - the ID of the depot to take the money from
 function TakeMoneyFromDepot(char, money, depotId)
 
-    if DepotCoinsToMoney(char, money, depotId)<money then
+    if DepotCoinsToMoney(char, depotId)<money then
         return;
     end
 

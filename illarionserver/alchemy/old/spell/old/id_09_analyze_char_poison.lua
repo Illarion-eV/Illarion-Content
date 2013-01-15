@@ -8,11 +8,11 @@ module("druid.spell.id_09_analyze_char_poison", package.seeall)
 
 -- INSERT INTO spells VALUES (2^8,3,'druid.spell.id_09_analyze_char_poison');
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 --Caster:inform("debug #09.1")  
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 --Caster:inform("debug #09.2")
 	if Caster:getSkill("exquirere")>math.random(100) then	 
 		--TargetChar auf "PoisonValue" abprüfen
@@ -49,10 +49,10 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 	end	    
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 --Caster:inform("debug #09.3")    
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
+function CastMagicOnItem(Caster,TargetItem,ltstate)
 --Caster:inform("debug #09.4")    
 end

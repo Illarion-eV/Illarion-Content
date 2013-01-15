@@ -61,7 +61,7 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	User:learn( potashproducing.LeadSkill, potashproducing.SavedWorkTime[User.id], 20);
+	User:learn( potashproducing.LeadSkill, potashproducing.SavedWorkTime[User.id], potashproducing.LearnLimit);
 	local woodList = {2560,543,544,3};
 	local woodID = 0;
 	for _,wood in pairs(woodList) do

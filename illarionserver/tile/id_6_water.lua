@@ -28,7 +28,7 @@ function GenWorkTime(User) -- generate work time
 	return math.floor( ( ( -0.2 * (Skill+Attrib) + 50) + math.random(0,40) )/2);
 end
 
-function useTile(User,Position,counter,param,ltstate)
+function useTile(User,Position,ltstate)
 	if (User:getRace()~=5) then
 	    return
 	end

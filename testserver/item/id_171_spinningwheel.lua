@@ -89,7 +89,7 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	User:learn( threadproducing.LeadSkill, threadproducing.SavedWorkTime[User.id], 20);
+	User:learn( threadproducing.LeadSkill, threadproducing.SavedWorkTime[User.id], threadproducing.LearnLimit);
 	local itemId = 170; -- first check for wool
 	local eraseCount = 2;
 	if ( User:countItemAt("all",170)<2 ) then

@@ -33,13 +33,13 @@ function Init()
 	
 	AddPotion("Runewick",
 	          10,
-			  {"a potion which increases strength to the highest possible grade and no other effect with at least very good quality","ein Trank, der die Stärke im höchstmöglichen Gerade hebt und keine anderen Effekte hat. Die Qualität sollte mindestens sehr gut sein."},
-			  {59,7,{"filledWith","potion"},{"potionEffectId","95555555"}}
+			  {"a stock containing no Adrazin, dominant pronounced Illidrium, distinctive Caprazin, dominant marked Hyperborelium, no Echolon, slightly pronounced Dracolin, distinctive Orcanol, saturated solution of Fenolin","einen Sud, der kein Adrazin, konzentriertes Illidrium, merklich Caprazin, eine sehr ausgeprägte Menge Hyperborelium, kein Echolon, geringe Mengen Dracolin, merklich Orcanol, gesättigte Anreicherung von Fenolin beinhaltet"},
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","5"},{"IllidriumConcentration","8"},{"CaprazinConcentration","3"},{"HyperboreliumConcentration","2"},{"EcholonConcentration","5"},{"DracolinConcentration","6"},{"OrcanolConcentration","3"},{"FenolinConcentration","1"}}
 			  )
 	AddPotion("Cadomyr", 
 	          301, 
-			  {"a stock containing only highly toxic Adrazin", "einen Sud, der nur nur hoch toxisches Adrazin enthält"},
-			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","9"},{"IllidriumConcentration","5"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","5"},{"EcholonConcentration","5"},{"DracolinConcentration","5"},{"OrcanolConcentration","5"},{"FenolinConcentration","5"}}
+			  {"a stock containing distinctive Adrazin, slightly marked Illidrium, distinctive Caprazin, enriched Hyperborelium, slightly marked Echolon, slightly marked Dracolin, saturated solution of Orcanol, slightly pronounced Fenolin", "einen Sud, der merklich Adrazin, schwache Konzentration an Illidrium, merklich Caprazin, etwas Hyperborelium, schwache Konzentration an Echolon, schwache Konzentration an Dracolin, gesättigte Anreicherung von Orcanol, geringe Mengen Fenolin enthält"},
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","3"},{"IllidriumConcentration","4"},{"CaprazinConcentration","3"},{"HyperboreliumConcentration","7"},{"EcholonConcentration","4"},{"DracolinConcentration","4"},{"OrcanolConcentration","1"},{"FenolinConcentration","6"}}
 			  )
 	AddPotion("Galmair", 
 	          302, 
@@ -53,8 +53,8 @@ function Init()
 			  )
     AddPotion("Galmair", 
 	          306, 
-			  {"a stock containing only highly toxic Caprazin", "einen Sud, der nur nur hoch toxisches Caprazin enthält"},
-			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","5"},{"IllidriumConcentration","5"},{"CaprazinConcentration","9"},{"HyperboreliumConcentration","5"},{"EcholonConcentration","5"},{"DracolinConcentration","5"},{"OrcanolConcentration","5"},{"FenolinConcentration","5"}}
+			  {"a stock containing dominant marked Adrazin, dominant marked Illidrium, dominant pronounced Caprazin, no Hyperborelium, slightly pronounced Echolon, slightly marked Dracolin, no Orcanol, saturated solution of Fenolin", "einen Sud, der eine sehr ausgeprägte Menge Adrazin, eine sehr ausgeprägte Menge Illidrium, konzentriertes Caprazin, kein Hyperborelium, geringe Mengen Echolon, schwache Konzentration an Dracolin, kein Orcanol, gesättigte Anreicherung von Fenolin enthält"},
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","2"},{"IllidriumConcentration","2"},{"CaprazinConcentration","8"},{"HyperboreliumConcentration","5"},{"EcholonConcentration","6"},{"DracolinConcentration","4"},{"OrcanolConcentration","5"},{"FenolinConcentration","1"}}
 			  )			  
 	AddPotion("Runewick", 
 	          307, 
@@ -68,8 +68,8 @@ function Init()
 			  )
     AddPotion("Runewick", 
 	          311, 
-			  {"a stock containing only highly toxic Illidrium", "einen Sud, der nur nur hoch toxisches Illidrium enthält"},
-			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","5"},{"IllidriumConcentration","9"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","5"},{"EcholonConcentration","5"},{"DracolinConcentration","5"},{"OrcanolConcentration","5"},{"FenolinConcentration","5"}}
+			  {"a stock containing dominant marked Adrazin, slightly pronounced Illidrium, dominant pronounced Caprazin, slightly marked Hyperborelium, distinctive Echolon, dominant pronounced Dracolin, dominant marked Orcanol, saturated solution of Fenolin", "einen Sud, der eine sehr ausgeprägte Menge Adrazin, geringe Mengen Illidrium, konzentriertes Caprazin, schwache Konzentration an Hyperborelium, merklich Echolon, konzentriertes Dracolin, eine sehr ausgeprägte Menge Orcanol, gesättigte Anreicherung von Fenolin enthält"},
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","2"},{"IllidriumConcentration","6"},{"CaprazinConcentration","8"},{"HyperboreliumConcentration","4"},{"EcholonConcentration","3"},{"DracolinConcentration","8"},{"OrcanolConcentration","2"},{"FenolinConcentration","1"}}
 			  )
     AddPotion("Cadomyr", 
 	          312, 
@@ -83,28 +83,28 @@ function Init()
 			  )
     AddPotion("Galmair", 
 	          316, 
-			  {"a medium mana annihilator bomb with at least average quality", "einen mittleren Manaannihilator von zumindest durchschnittlicher Qualität"},
-			  {327,5,{"filledWith","potion"},{"potionEffectId","307"}}
+			  {"a stock containing dominant pronounced Adrazin, slightly pronounced Illidrium, distinctive Caprazin, dominant pronounced Hyperborelium, slightly pronounced Echolon, no Dracolin, slightly marked Orcanol, slightly pronounced Fenolin", "einen Sud, der konzentriertes Adrazin, geringe Mengen Illidrium, merklich Caprazin, konzentriertes Hyperborelium, geringe Mengen Echolon, kein Dracolin, schwache Konzentration an Orcanol, geringe Mengen Fenolin enthält"},
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","8"},{"IllidriumConcentration","6"},{"CaprazinConcentration","3"},{"HyperboreliumConcentration","8"},{"EcholonConcentration","6"},{"DracolinConcentration","5"},{"OrcanolConcentration","4"},{"FenolinConcentration","6"}}
 			  )
 	AddPotion("Cadomyr", 
 	          317, 
-			  {"a big explosion bomb with at least average quality", "eine eine große Explosionsbombe von zumindest durchschnittlicher Qualität"},
-			  {327,5,{"filledWith","potion"},{"potionEffectId","304"}}
+			  {"a small slime barrier with at least average quality", "eine eine kleine Schleimbarriere von zumindest durchschnittlicher Qualität"},
+			  {327,5,{"filledWith","potion"},{"potionEffectId","316"}}
 			  )		  
     AddPotion("Runewick",		  
 			  400,
-			  {"a desert sky capsule","eine Wüstenhimmelskapsel"},
-			  {146,false}
+			  {"a wolverine fern","ein Wolfsfarn"},
+			  {768,false}
 			  )
 	AddPotion("Runewick",		  
 			  401,
-			  {"a dark moss","ein Dunkelmoos"},
-			  {764,false}
+			  {"a heart blood","ein Herzblut"},
+			  {758,false}
 			  )
     AddPotion("Galmair",		  
 			  402,
-			  {"a rain weed","ein Regenkraut"},
-			  {761,false}
+			  {"a desert sky capsule","eine Wüstenhimmelskapsel"},
+			  {146,false}
 			  )
     AddPotion("Galmair",		  
 			  403,
@@ -118,48 +118,48 @@ function Init()
 			  )
     AddPotion("Cadomyr",		  
 			  405,
-			  {"a heart blood","ein Herzblut"},
-			  {758,false}
+			  {"a rain weed","ein Regenkraut"},
+			  {761,false}
 			  )
     AddPotion("Cadomyr",		  
 			  406,
-			  {"a daydream","einen Tragtraum"},
-			  {765,false}
-			  )
-    AddPotion("Cadomyr",		  
-			  605,
-			  {"a stock containing no Adrazin, dominant pronounced Illidrium, no Caprazin, slightly marked Hyperborelium, saturated solution of Echolon, enriched Dracolin, no Orcanol and enriched Fenolin","einen Sud der kein Adrazin, konzentriertes Illidrium, kein Caprazin, schwache Konzentration Hyperborelium, gesättige Anreicherung von Echolon, etwas Dracolin, kein Orcanol und etwas Fenolin enthält"},
-			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","5"},{"IllidriumConcentration","8"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","4"},{"EcholonConcentration","1"},{"DracolinConcentration","7"},{"OrcanolConcentration","5"},{"FenolinConcentration","7"}}
-			  )
-    AddPotion("Cadomyr",		  
-			  601,
-			  {"a potion for orc language with at least average quality","ein Orksprachtrank von zumindest durchschnittlicher Qualität"},
-			  {330,5,{"filledWith","potion"},{"potionEffectId","605"}}
-			  )
-    AddPotion("Galmair",		  
-			  606,
-			  {"a stock containing no Adrazin, dominant pronounced Illidrium, no Caprazin, slightly marked Hyperborelium, saturated solution of Echolon, enriched Dracolin, no Orcanol and enriched Fenolin","einen Sud der kein Adrazin, konzentriertes Illidrium, kein Caprazin, schwache Konzentration Hyperborelium, gesättige Anreicherung von Echolon, etwas Dracolin, kein Orcanol und etwas Fenolin enthält"},
-			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","5"},{"IllidriumConcentration","8"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","4"},{"EcholonConcentration","1"},{"DracolinConcentration","7"},{"OrcanolConcentration","5"},{"FenolinConcentration","7"}}
-			  )		
-    AddPotion("Galmair",		  
-			  602,
-			  {"a potion for halfling language with at least average quality","ein Halblingssprachtrank von zumindest durchschnittlicher Qualität"},
-			  {330,5,{"filledWith","potion"},{"potionEffectId","606"}}
-			  )
-    AddPotion("Galmair",		  
-			  600,
 			  {"a pious berry","eine Frommbeere"},
 			  {756,false}
 			  )
+    AddPotion("Cadomyr",		  
+			  605,
+			  {"a stock containing no Adrazin, dominant pronounced Illidrium, slightly pronounced Caprazin, slightly marked Hyperborelium, saturated solution of Echolon, enriched Dracolin, slightly pronounced Orcanol, enriched Fenolin","einen Sud, der kein Adrazin, konzentriertes Illidrium, geringe Mengen Caprazin, schwache Konzentration an Hyperborelium, ges??ttigte Anreicherung von Echolon, etwas Dracolin, geringe Mengen Orcanol, etwas Fenolin enthält"},
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","5"},{"IllidriumConcentration","8"},{"CaprazinConcentration","6"},{"HyperboreliumConcentration","4"},{"EcholonConcentration","1"},{"DracolinConcentration","7"},{"OrcanolConcentration","6"},{"FenolinConcentration","7"}}
+			  )
+    AddPotion("Cadomyr",		  
+			  601,
+			  {"a stock containing dominant marked Adrazin, dominant pronounced Illidrium, enriched Caprazin, no Hyperborelium, saturated solution of Echolon, distinctive Dracolin, enriched Orcanol, highly toxic Fenolin","einen Sude, der eine sehr ausgeprägte Menge Adrazin, konzentriertes Illidrium, etwas Caprazin, kein Hyperborelium, gesättigte Anreicherung von Echolon, merklich Dracolin, etwas Orcanol, hoch toxisches Fenolin enthält"},
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","2"},{"IllidriumConcentration","8"},{"CaprazinConcentration","7"},{"HyperboreliumConcentration","5"},{"EcholonConcentration","1"},{"DracolinConcentration","3"},{"OrcanolConcentration","7"},{"FenolinConcentration","9"}}
+			  )
+    AddPotion("Galmair",		  
+			  606,
+			  {"a stock containing no Adrazin, slightly pronounced Illidrium, slightly pronounced Caprazin, saturated solution of Hyperborelium, dominant marked Echolon, dominant pronounced Dracolin, dominant marked Orcanol, slightly marked Fenolin","einen Sud der kein Adrazin, geringe Mengen Illidrium, geringe Mengen Caprazin, gesättigte Anreicherung von Hyperborelium, eine sehr ausgeprägte Menge Echolon, konzentriertes Dracolin, eine sehr ausgeprägte Menge Orcanol, schwache Konzentration an Fenolin enthält"},
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","5"},{"IllidriumConcentration","6"},{"CaprazinConcentration","6"},{"HyperboreliumConcentration","1"},{"EcholonConcentration","2"},{"DracolinConcentration","8"},{"OrcanolConcentration","2"},{"FenolinConcentration","4"}}
+			  )		
+    AddPotion("Galmair",		  
+			  602,
+			  {"a stock containing dominant marked Adrazin, distinctive Illidrium, distinctive Caprazin, slightly pronounced Hyperborelium, highly toxic Echolon, slightly marked Dracolin, dominant pronounced Orcanol, enriched Fenolin","einen Sud, der eine sehr ausgeprägte Menge Adrazin, merklich Illidrium, merklich Caprazin, geringe Mengen Hyperborelium, hoch toxisches Echolon, schwache Konzentration an Dracolin, konzentriertes Orcanol, etwas Fenolin enthält"},
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","2"},{"IllidriumConcentration","3"},{"CaprazinConcentration","3"},{"HyperboreliumConcentration","6"},{"EcholonConcentration","9"},{"DracolinConcentration","4"},{"OrcanolConcentration","8"},{"FenolinConcentration","7"}}
+			  )
+    AddPotion("Galmair",		  
+			  600,
+			  {"a stock containing dominant marked Adrazin, slightly pronounced Illidrium, enriched Caprazin, dominant marked Hyperborelium, enriched Echolon, slightly marked Dracolin, dominant pronounced Orcanol, dominant marked Fenolin","einen Sud, der eine sehr ausgeprägte Menge Adrazin, geringe Mengen Illidrium, etwas Caprazin, eine sehr ausgeprägte Menge Hyperborelium, etwas Echolon, schwache Konzentration an Dracolin, konzentriertes Orcanol, eine sehr ausgeprägte Menge Fenolin enthält"},
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","2"},{"IllidriumConcentration","6"},{"CaprazinConcentration","7"},{"HyperboreliumConcentration","2"},{"EcholonConcentration","7"},{"DracolinConcentration","4"},{"OrcanolConcentration","8"},{"FenolinConcentration","2"}}
+			  )
     AddPotion("Runewick",		  
 			  604,
-			  {"a stock containing no Adrazin, dominant pronounced Illidrium, no Caprazin, slightly marked Hyperborelium, saturated solution of Echolon, enriched Dracolin, no Orcanol and enriched Fenolin","einen Sud der kein Adrazin, konzentriertes Illidrium, kein Caprazin, schwache Konzentration Hyperborelium, gesättige Anreicherung von Echolon, etwas Dracolin, kein Orcanol und etwas Fenolin enthält"},
-			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","5"},{"IllidriumConcentration","8"},{"CaprazinConcentration","5"},{"HyperboreliumConcentration","4"},{"EcholonConcentration","1"},{"DracolinConcentration","7"},{"OrcanolConcentration","5"},{"FenolinConcentration","7"}}
+			  {"a stock containing dominant pronounced Adrazin, no Illidrium, slightly pronounced Caprazin, saturated solution of Hyperborelium, dominant marked Echolon, slightly pronounced Dracolin, slightly marked Orcanol, dominant pronounced Fenolin","einen Sud, der konzentriertes Adrazin, kein Illidrium, geringe Mengen Caprazin, gesättigte Anreicherung von Hyperborelium, eine sehr ausgeprägte Menge Echolon, geringe Mengen Dracolin, schwache Konzentration an Orcanol, konzentriertes Fenolin enthält"},
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","8"},{"IllidriumConcentration","5"},{"CaprazinConcentration","6"},{"HyperboreliumConcentration","1"},{"EcholonConcentration","2"},{"DracolinConcentration","6"},{"OrcanolConcentration","4"},{"FenolinConcentration","8"}}
 			  )	
     AddPotion("Runewick",		  
 			  603,
-			  {"a medium mana annihilator bomb with at least average quality", "einen mittleren Manaannihilator von zumindest durchschnittlicher Qualität"},
-			  {327,5,{"filledWith","potion"},{"potionEffectId","307"}}
+			  {"a stock containing no Adrazin, saturated solution of Illidrium, distinctive Caprazin, highly toxic Hyperborelium, enriched Echolon, slightly pronounced Dracolin, enriched Orcanol, slightly marked Fenolin", "einen Sud, der kein Adrazin, gesättigte Anreicherung von Illidrium, merklich Caprazin, hoch toxisches Hyperborelium, etwas Echolon, geringe Mengen Dracolin, etwas Orcanol, schwache Konzentration an Fenolin enthält"},
+			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","5"},{"IllidriumConcentration","1"},{"CaprazinConcentration","3"},{"HyperboreliumConcentration","9"},{"EcholonConcentration","7"},{"DracolinConcentration","6"},{"OrcanolConcentration","7"},{"FenolinConcentration","4"}}
 			  )
     AddPotion("Runewick",		  
 			  607,
@@ -168,28 +168,28 @@ function Init()
 			  )			  
 	AddPotion("Runewick",		  
 			  550,
-			  {"a potion for the lizard language with at least average quality","ein Trank für die Echsensprache mit mindestens durchschnittlicher Qualität"},
-			  {330,5,{"filledWith","potion"},{"potionEffectId","604"}}
+			  {"a shape shifter potion female lizard with at least average quality","einen Verwandlungstrank weibliche Echse von mindestens durchschnittlicher Qualität"},
+			  {329,5,{"filledWith","potion"},{"potionEffectId","551"}}
 			  )
     AddPotion("Runewick",		  
 			  501,
-			  {"a shape shifter potion male human with at least average quality","einen Verwandlungstrank männlicher Mensch mit zumindest durchschnittlicher Qualität"},
-			  {329,5,{"filledWith","potion"},{"potionEffectId","500"}}
+			  {"a potion for the human language with at least average quality","einen Trank der Menschensprache zumindest durchschnittlicher Qualität"},
+			  {330,5,{"filledWith","potion"},{"potionEffectId","601"}}
 			  )
     AddPotion("Runewick",		  
 			  521,
-			  {"a potion for the halfling language with at least average quality","einen Trank für die Halblingssprache von mindestens durchschnittlicher Qualität"},
-			  {330,5,{"filledWith","potion"},{"potionEffectId","606"}}
+			  {"a shape shifter potion male halfling with at least average quality","einen Verwandlungstrank männlicher Halbling von mindestens durchschnittlicher Qualität"},
+			  {330,5,{"filledWith","potion"},{"potionEffectId","520"}}
 			  )
     AddPotion("Runewick",		  
 			  530,
-			  {"a shape shifter female elf with at least average quality","einen Verwandlungstrank weiblicher Elf von mindestens durchschnittlicher Qualität"},
-			  {329,5,{"filledWith","potion"},{"potionEffectId","531"}}
+			  {"a a potion for the elf language with at least average quality","einen Trank für die Elfensprache von mindestens durchschnittlicher Qualität"},
+			  {330,5,{"filledWith","potion"},{"potionEffectId","603"}}
 			  )
 	AddPotion("Cadomyr",		  
 			  500,
-			  {"a potion for the human language with at least average quality","ein Trank für die Menschensprache mit mindestens durchschnittlicher Qualität"},
-			  {330,5,{"filledWith","potion"},{"potionEffectId","601"}}
+			  {"a shape shifter potion female human with at least average quality","einen Verwandlungstrank weiblicher Mensch mit mindestens durchschnittlicher Qualität"},
+			  {329,5,{"filledWith","potion"},{"potionEffectId","501"}}
 			  )
     AddPotion("Cadomyr",		  
 			  540,
@@ -203,18 +203,18 @@ function Init()
 			  )
     AddPotion("Cadomyr",		  
 			  531,
-			  {"a potion for the elf language with at least average quality","einen Trank für die Elfensprache von mindestens durchschnittlicher Qualität"},
-			  {330,5,{"filledWith","potion"},{"potionEffectId","603"}}
+			  {"a shape shifter potion male elf with at least average quality","einen Verwandlungstrank männlicher Elf von mindestens durchschnittlicher Qualität"},
+			  {329,5,{"filledWith","potion"},{"potionEffectId","530"}}
 			  )	  
 	AddPotion("Galmair",		  
 			  551,
-			  {"a shape shifter male lizard with at least average quality","einen Verwandlungstrank männlicher Echsenmensch von mindestens durchschnittlicher Qualität"},
-			  {329,5,{"filledWith","potion"},{"potionEffectId","550"}}
+			  {"a potion for the lizard language with at least average quality","einen Trank für die Echsensprache von mindestens durchschnittlicher Qualität"},
+			  {330,5,{"filledWith","potion"},{"potionEffectId","604"}}
 			  )
     AddPotion("Galmair",		  
 			  520,
-			  {"a shape shifter female halfling with at least average quality","einen Verwandlungstrank weiblicher Halbling von mindestens durchschnittlicher Qualität"},
-			  {329,5,{"filledWith","potion"},{"potionEffectId","521"}}
+			  {"a potion for the halbling language with at least average quality","einen Trank für die Halblingssprache von mindestens durchschnittlicher Qualität"},
+			  {330,5,{"filledWith","potion"},{"potionEffectId","606"}}
 			  )
     AddPotion("Galmair",		  
 			  541,
@@ -263,7 +263,7 @@ function getNPC(SourceItem)
     return myNPC	
 end
 
-function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function RecipeInform( User, SourceItem, TargetItem, ltstate )
 
     if (ListEffectId["Runewick"] == nil) then
 	    Init()
@@ -325,7 +325,7 @@ function RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	User:requestSelectionDialog(dialog)
 end
 
-function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+function UseItem(User, SourceItem, ltstate)
       
     if (SourceItem:getType()~=3) then -- no map item
 	    return
@@ -335,7 +335,7 @@ function UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
 	if town == false then
 	    return
 	else
-	    RecipeInform( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	    RecipeInform( User, SourceItem, TargetItem, ltstate )
 	end	
 	
 end

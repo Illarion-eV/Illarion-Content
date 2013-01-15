@@ -11,6 +11,7 @@ require("alchemy.base.alchemy")
 require("alchemy.base.herbs")
 require("content.craft.baking")
 require("content.craft.cooking")
+require("lte.diet")
 
 -- buff types, they have exactly two attributes
 BUFFS = {
@@ -115,7 +116,7 @@ FoodList:add( 162,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 600); -- birth mushroom
 FoodList:add( 158,	 VALUE_SMALL,	   0,	nil,	nil,	nil,	 400); -- bulbsponge mushroom
 FoodList:add( 159,	 VALUE_MEDIUM,	   0,	nil,	nil,	nil,	1000); -- toadstool
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(User, SourceItem, ltstate)
 	if (Init == nil) then
     Init = 1;
     -- import difficulties from crafts
@@ -131,7 +132,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         MAX_DIFFICULTY = math.max(MAX_DIFFICULTY, product.difficulty);
       end
     end
-    -- now we now the max difficulty, so set the food value with linear distribution
+    -- now we know the max difficulty, so set the food value with linear distribution
     local diff = MAX_CRAFTED_FOODVALUE - MIN_CRAFTED_FOODVALUE;
     for _,foodItem in pairs(FoodList) do 
       if (type(foodItem) ~= "function") then
@@ -148,7 +149,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	local isPlant, ignoreIt = alchemy.base.alchemy.getPlantSubstance(SourceItem.id, User)
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User,SourceItem)
 	if (cauldron ~= nil) and isPlant then
-	    alchemy.base.herbs.UseItem( User, SourceItem, TargetItem, Counter, Param, ltstate )
+	    alchemy.base.herbs.UseItem(User, SourceItem, ltstate)
 		return
 	end	
 	
@@ -272,13 +273,13 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
   -- check for buffs
   if (foodItem.buffType ~= nil) then
     -- calculate how long the buff will last, at least 5min, maximal 30min
-    local newDuration = 3000;
+    local newDuration = 300;
     -- grant even easy craftable items a good chance by adding 5
     local raceDifficulty = (foodItem.difficulty+5)*foodItem.racialFactor[race];
     -- add 5 more minutes each in 5 more random experiments
     for i=1,5 do 
       if (math.random(1,105) <= raceDifficulty) then
-        newDuration = newDuration + 3000;
+        newDuration = newDuration + 300;
       end
     end
     -- determine number of increased attributes
@@ -287,7 +288,6 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
       newBuffAmount = 2;
     end
     -- add buff, if it is better than the previous one
-    local newIsBetter = true;
     local foundEffect,dietEffect=User.effects:find(12);
     if (foundEffect) then
       local foundType, buffType = dietEffect:findValue("buffType");
@@ -295,12 +295,27 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         local foundAmount, buffAmount = dietEffect:findValue("buffAmount");
         if (foundAmount) then
           -- check if old one is better
-          if (buffAmount > newBuffAmount or (buffAmount == newBuffAmount and dietEffect.nextCalled > newDuration)) then
-            newIsBetter = false;
+          local newIsBetter = false;
+          if (buffAmount < newBuffAmount) then
+            newIsBetter = true;
           else
+            local foundExpire, buffExpireStamp = dietEffect:findValue("buffExpireStamp");
+            if (not foundExpire) then
+              User:inform("[ERROR] No expire stamp found. Using new one instead. Please inform a developer.");
+              newIsBetter = true;
+            else
+              if (newDuration > buffExpireStamp - base.common.GetCurrentTimestamp()) then
+                newIsBetter = true;
+              end
+            end
+          end
+          if (newIsBetter) then
             dietEffect:addValue("buffType", foodItem.buffType);
             dietEffect:addValue("buffAmount", newBuffAmount);
-            dietEffect.nextCalled = 100;
+            dietEffect:addValue("buffExpireStamp", base.common.GetCurrentTimestamp() + newDuration);
+            if (newBuffAmount > buffAmount or buffType ~= foodItem.buffType) then
+              lte.diet.InformPlayer(dietEffect, User);
+            end
           end
         else
           User:inform("[ERROR] Found diet effect without buffAmount. Adding new buff. Please inform a developer.");
@@ -309,9 +324,10 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
         User:inform("[ERROR] Found diet effect without buffType. Adding new buff. Please inform a developer.");
       end
     else
-      local dietEffect=LongTimeEffect(12, newDuration);
+      local dietEffect=LongTimeEffect(12, newDuration*10);
       dietEffect:addValue("buffType", foodItem.buffType);
       dietEffect:addValue("buffAmount", newBuffAmount);
+      dietEffect:addValue("buffExpireStamp", base.common.GetCurrentTimestamp() + newDuration);
       User.effects:addEffect(dietEffect);
     end
   end

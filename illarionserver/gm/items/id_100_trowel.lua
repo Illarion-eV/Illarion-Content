@@ -7,7 +7,7 @@ module("gm.items.id_100_trowel", package.seeall)
 
 -- UPDATE common SET com_script='gm.items.id_100_trowel' WHERE com_itemid = 100;
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User, SourceItem)
     local TargetItem = base.common.GetTargetItem(User, SourceItem);
 	if not TargetItem then
 		TargetItem = base.common.GetFrontItem(User);
@@ -18,7 +18,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
             world:increase(TargetItem, value - TargetItem.number);
 			return;
 		elseif (TargetItem:getType() == scriptItem.field) then
-            UseItemWithField(User, SourceItem, TargetItem.pos, Counter, Param);
+            UseItemWithField(User, SourceItem, TargetItem.pos);
 			return;
         end;
     end;
@@ -37,7 +37,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param)
     world:createItemFromId(itemId, 1, target, true, itemQual, itemData);
 end;
 
-function UseItemWithField(User,SourceItem,TargetPos,Counter,Param)
+function UseItemWithField(User,SourceItem,TargetPos)
     if (ListName == nil) then
         Ini();
     end;

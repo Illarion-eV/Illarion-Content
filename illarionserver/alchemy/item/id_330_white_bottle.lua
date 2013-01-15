@@ -49,19 +49,19 @@ function DrinkPotion(User,SourceItem)
 		end
 		newSkill = 100
         
-		local duration = math.floor(SourceItem.quality/100)*600*10 
-        myEffect=LongTimeEffect(330,duration)
 		myEffect:addValue( "oldSkill",oldSkill )
 		myEffect:addValue( "newSkill",newSkill )
 	    myEffect:addValue( "languageId",potionEffectId-599)
         myEffect:addValue("counterWhite",10)
 	  
 	    User:increaseSkill(ListLanguages[potionEffectId-599],newSkill)]]
- 		User.effects:addEffect(myEffect);
+ 		local duration = math.floor(SourceItem.quality/100)*600*10 
+		local myEffect = LongTimeEffect(329,duration)
+		User.effects:addEffect(myEffect);
     end
   end
     
-function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
+function UseItem(User, SourceItem, ltstate)
  
 	if not ((SourceItem:getData("filledWith")=="potion") or (SourceItem:getData("filledWith") =="essenceBrew")) then
 		return -- no potion, no essencebrew, something else
@@ -69,7 +69,7 @@ function UseItem(User,SourceItem,TargetItem,Counter,Param,ltstate)
 	
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
 	if cauldron then -- infront of a cauldron?
-	    alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron,Counter,Param,ltstate)
+	    alchemy.base.alchemy.FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 	
 	else -- not infront of a cauldron, therefore drink!
         if User.attackmode then

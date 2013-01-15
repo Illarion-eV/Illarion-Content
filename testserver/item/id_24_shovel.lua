@@ -139,7 +139,7 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], 20);
+	User:learn( theCraft.LeadSkill, theCraft.SavedWorkTime[User.id], theCraft.LearnLimit);
 	local amount = math.random(1,4); -- set the amount of items that are produced
 	local notCreated = User:createItem( digForID, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore

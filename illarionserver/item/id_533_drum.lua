@@ -16,7 +16,7 @@ item.base.music.addTalkText("#me drums a loud though simple rhythm.","#me tromme
 item.base.music.addTalkText("#me bangs a powerful, coordinated beat upon the drum.","#me trommelt gut klingende mehrteilige Rhythmen. ", skill);
 item.base.music.addTalkText("#me beats in a wild, frenzied pulse, a deep broad sound emitting from the drum.","#me schlägt in wilden vielschichtigen Rhythmen, mit vollem, tiefen Klängen auf die Trommel.", skill);
 
-function UseItem(User,SourceItem,TargetItem,Counter,Param)
+function UseItem(User, SourceItem)
     item.base.music.PlayInstrument(User,SourceItem, skill);
 end 
 

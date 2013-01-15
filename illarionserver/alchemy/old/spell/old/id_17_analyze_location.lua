@@ -8,15 +8,15 @@ module("druid.spell.id_17_analyze_location", package.seeall)
 
 -- INSERT INTO spells VALUES (2^16,3,'druid.spell.id_17_analyze_location');
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 --Caster:inform("debug #17.1")  
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 --Caster:inform("debug #17.2")    
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 --Caster:inform("debug #17.3")
  
 --Weltkoordinaten: 
@@ -56,7 +56,7 @@ latiMin = latitude - latiGrad*60
   end
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
+function CastMagicOnItem(Caster,TargetItem,ltstate)
 --Caster:inform("debug #17.4") 
   --Anzeige des Item-Gewichtes 
   myItem = world:getItemStats(TargetItem)

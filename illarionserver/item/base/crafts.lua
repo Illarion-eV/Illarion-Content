@@ -362,7 +362,7 @@ function Craft:swapToActiveItem(user)
     end
 
     frontItem.id = self.toolLink[frontItem.id]
-    frontItem.wear = 3
+    frontItem.wear = 2
     world:changeItem(frontItem)
 end
 

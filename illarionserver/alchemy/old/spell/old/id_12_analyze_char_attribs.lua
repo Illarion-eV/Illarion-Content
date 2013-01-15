@@ -25,11 +25,11 @@ function initTerms()
   end  
 end
 
-function CastMagic(Caster,counter,param,ltstate)
+function CastMagic(Caster,ltstate)
 --Caster:inform("debug #12.1")  
 end
 
-function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
+function CastMagicOnCharacter(Caster,TargetCharacter,ltstate)
 --Caster:inform("debug #12.2")
 	if Caster:getSkill("exquirere")>math.random(100) then	 
 	  --Abfrage der Primärattribute
@@ -59,10 +59,10 @@ function CastMagicOnCharacter(Caster,TargetCharacter,counter,param,ltstate)
 	end    
 end
 
-function CastMagicOnField(Caster,Targetpos,counter,param,ltstate)
+function CastMagicOnField(Caster,Targetpos,ltstate)
 --Caster:inform("debug #12.3")    
 end
 
-function CastMagicOnItem(Caster,TargetItem,counter,param,ltstate)
+function CastMagicOnItem(Caster,TargetItem,ltstate)
 --Caster:inform("debug #12.4")    
 end

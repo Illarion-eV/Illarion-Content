@@ -96,7 +96,7 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	User:learn( stonecutting.LeadSkill, stonecutting.SavedWorkTime[User.id], 20);
+	User:learn( stonecutting.LeadSkill, stonecutting.SavedWorkTime[User.id], stonecutting.LearnLimit);
 	User:eraseItem( WorkOnStone[User.id], 1 ); -- erase the item we're working on
 	local notCreated = User:createItem( Stones[WorkOnStone[User.id]].productId, Stones[WorkOnStone[User.id]].amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
