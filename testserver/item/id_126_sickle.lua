@@ -257,6 +257,10 @@ function GetValidProduct(TargetItem, OnlyFarming, OnlyNonFarming)
   if (HarvestItems[TargetItem.id] == nil) then
     return false;
   end
+  -- Check for not regrown static plants.
+  if (TargetItem.wear == 255 and TargetItem:getData("amount") ~= "0" and not IsRegrown(TargetItem)) then
+    return false;
+  end
   local GroundType = base.common.GetGroundType(world:getField(TargetItem.pos):tile());
 	local harvestProduct = nil;
 	for _,hp in pairs(HarvestItems[TargetItem.id]) do 
@@ -286,7 +290,7 @@ end
 function GetHarvestItem(User, OnlyValidProducts, OnlyFarming, OnlyNonFarming)
   -- first check front position
   local item = base.common.GetFrontItem(User);
-  if (item ~= nil and HarvestItems[item.id] ~= nil and ((item:getData("amount") ~= "0" and item:getData("amount") ~= "") or (item.wear == 255 and (item:getData("amount") ~= "0" or IsRegrown(item))))) then
+  if (item ~= nil and HarvestItems[item.id] ~= nil and ((item:getData("amount") ~= "0" and item:getData("amount") ~= "") or item.wear == 255)) then
     if ((not OnlyValidProducts) or (GetValidProduct(item, OnlyFarming, OnlyNonFarming) ~= nil)) then
       return item;
     end
@@ -298,7 +302,7 @@ function GetHarvestItem(User, OnlyValidProducts, OnlyFarming, OnlyNonFarming)
       if (world:isItemOnField(checkPos)) then
         local item = world:getItemOnField(checkPos);
         -- harvest item has to be static or an amount has to be set
-        if (item ~= nil and HarvestItems[item.id] ~= nil and ((item:getData("amount") ~= "0" and item:getData("amount") ~= "") or (item.wear == 255 and (item:getData("amount") ~= "0" or IsRegrown(item))))) then
+        if (item ~= nil and HarvestItems[item.id] ~= nil and ((item:getData("amount") ~= "0" and item:getData("amount") ~= "") or item.wear == 255)) then
           if ((not OnlyValidProducts) or (GetValidProduct(item, OnlyFarming, OnlyNonFarming) ~= nil)) then
             return item;
           end
