@@ -86,6 +86,10 @@ english, "Elesil", "Daelwon" -> "You can find her outside of the town close to t
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_runewick_2.quest belongs to this NPC: Quest-ID.: 622
+english, "quest", "mission" -> "Nothing to do for you yet but soon."
+"quest", "mission" -> "Ich habe nichts für dich zu tun momentant aber bald."
+"task", "adventure", "order" -> "Nothing to do for you yet but soon."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentant aber bald."
 
 -- Places
 english, "Illarion" -> inform("[Keywords] northeast, northwest, southwest, southeast"), "This land is called Illarion and I devide it in northeast, northwest, southwest and southeast."
