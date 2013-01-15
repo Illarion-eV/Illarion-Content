@@ -56,7 +56,7 @@ function getRanklist(User, NPC, message)
 		else
 			list = "Place 1: "..arenaList[1].." with "..arenaList[2].." points.\n";
 			for i=3, #(arenaList),2 do
-				list = list.."Place "..(i-1).." : "..arenaList[i].." with "..arenaList[i+1].." points.\n";
+				list = list.."Place "..place.." : "..arenaList[i].." with "..arenaList[i+1].." points.\n";
 				place = place +1;
 			end
 			mdList = MessageDialog("Top five fighters of the realm", list, nil);
@@ -75,6 +75,10 @@ function getArena(User, NPC)
 			return "";
 		end
 	end
+end
+
+function sortTable(inputTable)
+
 end
 
 --[[
