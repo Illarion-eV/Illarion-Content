@@ -68,8 +68,8 @@ itemShoes = 53
 -- 8: Quest 4 solved
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is the forester Valandil Elensar. Keywords: Hello, quest, hatchet, forester, wood.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Förster Valandil Elensar. Schlüsselwörter: Hallo, Quest, Beil, Förster, Holz.")
+"Help" -> inform("[Game Help] This NPC is the forester Valandil Elensar. Keywords: Hello, quest, hatchet, forester.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist der Förster Valandil Elensar. Schlüsselwörter: Hallo, Quest, Beil, Förster.")
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> end, "Greetings, frisorry that I won't stand up but I planted trees all day long, now I feel a little tired.", "Welcome in Elstree forest, watch out for the deers, they are easily frightened today.", "Hello, I hope you weren't sent to me in order to buy wood like my last visitor."
@@ -105,9 +105,9 @@ queststatus(69) = 1, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte kümm
 
 -- 2nd quest: Gather 20 different raw materials for 100cp. Hint on where to get new tools.
 queststatus(69) = 2, english, "quest", "mission" -> inform("[New quest] Elstree Forest II"), queststatus(69) = 3, "Oh dear, scale lice infested some of the cherry trees. We have no other choice, cut the ill trees and bring me twenty logs, please."
-queststatus(69) = 2, "quest", "mission" -> inform("[Neues Quest] Elsbaumwald II"), queststatus(69) = 3, "Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben kein Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite."
+queststatus(69) = 2, "quest", "mission" -> inform("[Neues Quest] Elsbaumwald II"), queststatus(69) = 3, "Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben keine Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite."
 queststatus(69) = 2, "task", "adventure", "order" -> inform("[New quest] Elstree Forest II"), queststatus(69) = 3, "Oh dear, scale lice infested some of the cherry trees. We have no other choice, cut the ill trees and bring me twenty logs, please."
-queststatus(69) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Elsbaumwald II"), queststatus(69) = 3, "Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben kein Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite."
+queststatus(69) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Elsbaumwald II"), queststatus(69) = 3, "Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben keine Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite."
 
 -- Quest 2 solved
 skill(woodcutting) < 90, queststatus(69) = 3, item(543, all) > 19, english, ".+" -> inform("[Quest solved] You are awarded ten silver coins and your lumberjacking skill increases."), skill(woodcutting) + 1, money + 1000, deleteItem(543, 20), queststatus(69) = 4, "Ha, you taught the lice a lesson. Take this as a reward."
