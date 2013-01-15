@@ -84,13 +84,6 @@ english, "inform" -> inform("[Keywords] Illarion, northeast, northwest, southwes
 "place" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Illarion?"
 "Orte" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Orte? Welche Orte meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Illarion?"
 
--- Optional: Catching quest triggers. Modify if the NPC does quests
--- quest information_cadomyr_1.quest belongs to this NPC: Quest-ID.: 652 - IN PROGRESS
-english, "quest", "mission" -> "Nothing to do for you yet but soon."
-"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald."
-"task", "adventure", "order" -> "Nothing to do for you yet but soon."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald."
-
 -- Places
 english, "Illarion" -> inform("[Keywords] Northeast, northwest, southwest, southeast"), "This land is called Illarion and I devide it in northeast, northwest, southwest and southeast."
 "Illarion" -> inform("[Schlüsselwörter] Nordosten, Nordwesten, Südwesten, Südosten"), "Dieses Land wird Illarion genannt und ich unterteile es in in Nordost, Nordwest, Südwest und Südost."
@@ -153,23 +146,25 @@ english, "Lotta", "Medborgar" -> "You can find her in Galmair and she knows seve
 
 -- southwest
 "Shadowland" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
-"Schattenland" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+"Schattenland" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
 "Wight Canal" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
-"Wichtkanal" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+"Wichtkanal" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
 "Sentry Forest" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
-"Wachwald" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+"Wachwald" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
 "Great Ocean" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
-"Großer Ozean" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+"Großer Ozean" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
 "Border Mountains" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
-"Grenzberge" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+"Grenzberge" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
 "Katanbi Desert" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
-"Katanbi Wüste" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
-"Katanbi Delta" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
-"Katanbi Delta" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+"Katanbi Wüste" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
 "Western Katanbi Desert" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
-"Westliche Katanbi Wüste" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+"Westliche Katanbi Wüste" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+english, "Katanbi Delta" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
+"Katanbi Delta" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
+english, "Ruzusss" -> "You can find him in Cadomyr and he knows several places in the southwest, thus around Cadomyr."
 "Ruzusss" -> "Den findet man in Cadomyr und der weiß sämtliche Orte im Südwesten, sprich um Cadomyr."
-"Ruzusss" -> "You can find him in Cadomyr and he knows several places in the southwest, thus around Cadomyr."
+"Chapel Five" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert."
+"Kapelle Fünf" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste."
 
 -- southeast
 "Snakehead Bay" -> "Well, as I said, it is in the southeast and you better ask someone who lives there. For example Numila Irunnleh in Runewick."
@@ -186,6 +181,13 @@ english, "Lotta", "Medborgar" -> "You can find her in Galmair and she knows seve
 "Eibental" -> "Nun, wie ich schon sagte, dieser Ort ist im Südosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Numila Irunnleh in Runewick."
 "Numila", "Irunnleh" -> "Die findet man in Runewick und die weiß sämtliche Orte im Südosten, sprich um Runewick."
 "Numila", "Irunnleh" -> "You can find her in Runewick and he knows several places in the southeast, thus around Runewick."
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+-- quest information_cadomyr_1.quest belongs to this NPC: Quest-ID.: 652 - IN PROGRESS
+english, "quest", "mission" -> "Nothing to do for you yet but soon."
+"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald."
+"task", "adventure", "order" -> "Nothing to do for you yet but soon."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald."
 
 -- Faction stuff
 "archmage" -> "The archmage owns two stones of power. These are an Emerald and a Ruby. They protect Runewick against Galmair and Cadomyr."
