@@ -86,7 +86,7 @@ function plantdrop()
 
 	local herbCounter = 0 -- for testing
 	local normal = 0; local cool = 0
-	for i=1,40 do -- normal plants
+	for i=1,35 do -- normal plants
 	   PutPlantOnField(false)
 	end
     
@@ -96,7 +96,6 @@ function plantdrop()
 end
 
 function PutPlantOnField(rare)
-local gt = base.common.GroundType
 
     local myPos = position( math.random(0,1024), math.random(0,1024), 0 )
 	local theTile=world:getField(myPos);
@@ -110,7 +109,7 @@ local gt = base.common.GroundType
 		local groundType = base.common.GetGroundType( theTile:tile() )
 		local gt = base.common.GroundType
 		
-		if theTile:countItem > 0 then -- check if no item is on that field
+		if theTile:countItem() > 0 then -- check if no item is on that field
 		    return
 		end	
 		if myList[groundType] == nil then -- check if this ground has any herbs
