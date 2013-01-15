@@ -42,18 +42,22 @@ function learn(user, skill, actionPoints, learnLimit)
             attributeFactor=math.min(1.5,(0.5+0.5*(leadAttrib/10))); --0.5 to 1.5, depending on attribute, limited to 1.5 (no bonus for insane attributes, balancing!)
 			actionpointFactor=(actionPoints/normalAP); --An action with 50AP is "normal"
 			minorIncrease=math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor);
-
+            
+			if isTestserver() then
+			user:inform("MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", actionpointFactor="..actionpointfactor..", minorIncrease="..minorIncrease.."!");
+			end
+			
 			while minorIncrease>0 do --for the rare case that an action results in two swirlies, we have this loop
 			
                 realIncrease=math.min(minorIncrease,10000) -- to prevent overflow, we cannot gain more than one level per action anyway
 				
                 if minorSkill+realIncrease<10000 then
                     user:increaseMinorSkill(skill,realIncrease); --minimum of 10 actions of 50AP for a swirlie at 5% activity
-					user:inform("Increase: "..realIncrease.."!");
+					
                 else
 				    skillValue=user:getSkill(skill); --reading the skill points
      			    user:increaseMinorSkill(skill,realIncrease); --this is why we do all this grinding!
-					user:inform("Increase: "..realIncrease.."!");
+					
 					
 					if user:getType() == 0 then --Only players get informs and swirlies! Strangely, monsters also learn, but meh.
 					-- Looks like the client handles such stuff now...
