@@ -109,7 +109,7 @@ function PutPlantOnField(rare)
 		local groundType = base.common.GetGroundType( theTile:tile() )
 		local gt = base.common.GroundType
 		
-		if theTile:countItem() > 0 then -- check if no item is on that field
+		if theTile:countItems() > 0 then -- check if no item is on that field
 		    return
 		end	
 		if myList[groundType] == nil then -- check if this ground has any herbs
