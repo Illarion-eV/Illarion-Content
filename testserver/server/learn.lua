@@ -49,9 +49,11 @@ function learn(user, skill, actionPoints, learnLimit)
 				
                 if minorSkill+realIncrease<10000 then
                     user:increaseMinorSkill(skill,realIncrease); --minimum of 10 actions of 50AP for a swirlie at 5% activity
+					user:inform("Increase: "..realIncrease.."!");
                 else
 				    skillValue=user:getSkill(skill); --reading the skill points
      			    user:increaseMinorSkill(skill,realIncrease); --this is why we do all this grinding!
+					user:inform("Increase: "..realIncrease.."!");
 					
 					if user:getType() == 0 then --Only players get informs and swirlies! Strangely, monsters also learn, but meh.
 					-- Looks like the client handles such stuff now...
