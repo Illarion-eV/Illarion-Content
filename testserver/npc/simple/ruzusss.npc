@@ -56,7 +56,7 @@ itemShoes = 369
 
 -- Mandatory: Help
 "Help" -> inform("[Game Help] This NPC is Ruzusss the hunter. Keywords: Question, information, Cadomyr, places.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Ruzusss der Jäger. Schlüsselwörter: Auskunft, Information, Cadomyr, Plätze.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Ruzusss der Jäger. Schlüsselwörter: Auskunft, Information, Cadomyr, Orte.")
 
 -- Mandatory: General speech
 queststatus(640) = 1, english, ".*" -> "Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have a sssilvercoin for that you found me.", money + 1000, queststatus(640) = 2
@@ -82,12 +82,12 @@ english, "job" -> "Hunter. I can tell you many thingsss about Cadomyr. Just asss
 "job" -> "Jäger. Ich kann viele Dinge über Cadomyr erzählen. Frag nur nach Orten in der Nähe von Cadomyr."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-english, "inform" -> inform("[Keywords] place"), "I have information about placesss clossse to Cadomyr. Just asssk me!"
-"inform" -> inform("[Schlüsselwörter] Platz"), "Ich habe Informationen über Plätze in der Nähe von Cadomyr geben. Frag einfach!"
-"question" -> inform("[Keywords] place"), "I have information about placesss clossse to Cadomyr. Just asssk me!"
-"Frage", "Auskunft" -> inform("[Schlüsselwörter] Platz"), "Ich habe Informationen über Plätze in der Nähe von Cadomyr geben. Frag einfach!"
+english, "inform" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "I have information about placesss clossse to Cadomyr. Just asssk me!"
+"inform" -> inform("[Schlüsselwörter] Platz"), "Ich habe Informationen zu den Orten in der Nähe von Cadomyr geben. Frag einfach!"
+"question" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "I have information about placesss clossse to Cadomyr. Just asssk me!"
+"Frage", "Auskunft" -> inform("[Schlüsselwörter] Platz"), "Ich habe Informationen zu den Orten in der Nähe von Cadomyr geben. Frag einfach!"
 "place" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Illarion?"
-"Platz", "Plätz" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Plätze? Welche Plätze meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Illarion?"
+"Ort" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Orte? Welche Orte meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Illarion?"
 english, "Frizza" -> "You can find her outssside of the town clossse to the teleporter. Sssshe hasss a lot of information and sssome tasksss for you."
 "Frizza" -> "Du findest sssie drausen vor der Stadt, nahe am Teleporter. Sssie hat eine Menge Informationen und Aufträge für dich."
 
@@ -104,11 +104,11 @@ english, "Illarion" -> inform("[Keywords] northeast, northwest, southwest, south
 "northeast" -> inform("[Keywords] Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock"), "I know following places: Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock."
 "Nordost" -> inform("[Schlüsselwörter] Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen"), "Dort gibt es: Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen."
 "northwest" -> inform("[Keywords] Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau"), "I know following places: Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau."
-"Nordwest" -> inform("[Schlüsselwörter] See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene"), "Ich weiß folgende Plätze: See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene."
+"Nordwest" -> inform("[Schlüsselwörter] See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene"), "Ich habe Informationen zu folgenden Orten: See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene."
 "southwest" -> inform("[Keywords] Shadowland, Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert"), "I know following places: Shadowland, The Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert."
-"Südwest" -> inform("[Schlüsselwörter] Schattenland, Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste"), "Ich weiß folgende Plätze: Schattenland, Der Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste"
+"Südwest" -> inform("[Schlüsselwörter] Schattenland, Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste"), "Ich habe Informationen zu folgenden Orten: Schattenland, Der Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste"
 "southeast" -> inform("[Keywords] Snakehead Bay, Lonely Islands, Death's Stench, Dragon's Lair, Dewy Swamps Yewdale"), "I know following places: Snakehead Bay, Lonely Islands, Death's Stench, Dragon's Lair, Dewy Swamps, Yewdale."
-"Südost" -> inform("[Schlüsselwörter] Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental"), "Ich weiß folgende Plätze: Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental."
+"Südost" -> inform("[Schlüsselwörter] Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental"), "Ich habe Informationen zu folgenden Orten: Schlangenkopfbucht, Einsame Inseln, Todes Gestank, Drachenhöhle, Frische Sümpfe, Eibental."
 
 -- northeast
 "Elstree Forest" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
@@ -358,7 +358,7 @@ english, "Zhambra" -> "You can find a Temple of him in our town. Jussst go throu
 "my name" -> "Nice to meet you. How can I help you?"
 "mein Name" -> "Ssschön dich zu kennenzulernen. Wie kann ich dir helfen?"
 english, "Ruzusss" -> "Yes, that isss my name. About what placesss do you want information?"
-"Ruzusss" -> "Ja, dasss ist mein Name. Über welche Plätze wollt ihr Information?"
+"Ruzusss" -> "Ja, dasss ist mein Name. Über welche Orte wollt ihr Information?"
 "Yes" -> "A bit more concrete, pleassse!"
 "Ja" -> "Etwas konkreter wenn ich bitten darf!"
 "No" -> "A bit more concrete, pleassse!"
@@ -366,14 +366,14 @@ english, "Ruzusss" -> "Yes, that isss my name. About what placesss do you want i
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
 english, chance(20.0), ".*" -> "Huh, about what placesss ssshall I give you information? Do you mind just to asssk for help asss a firssst ssstep?"
-german, chance(20.0), ".*" -> "Huh, über welche Plätze wünssscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
+german, chance(20.0), ".*" -> "Huh, über welche Orte wünssscht ihr Information? Vielleicht begnügt ihr euch erstmal nach Hilfe zu fragen?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
 -- Every NPC should contain at least 10 of those messages.
 -- Emotes are possible also starting with "#me ....".
 
-cycletext "Wer etwas über die Plätze hier wissen will, soll mich nur nach diesen Plätzen fragen.", "If someone wants to know something about the places here, just ask me for these places."
+cycletext "Wer etwas über die Orte hier in der Umgebung wissen will, soll mich nur nach diesen Orten fragen.", "If someone wants to know something about the places here, just ask me for these places."
 cycletext "#me wedelt mit seinem Schwanz.", "#me wages his tail."
 cycletext "#me blickt herum mit seinen weit geöffneten Augen.", "#me looks around with wide opened eyes."
 cycletext "#me untersucht seinen Dolch.", "#me examines his dagger."
