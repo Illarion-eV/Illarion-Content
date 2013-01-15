@@ -254,15 +254,15 @@ function UseItem(User, SourceItem, ltstate)
 end
 
 function GetValidProduct(TargetItem, OnlyFarming, OnlyNonFarming)
+  local harvestProduct = nil;
   if (HarvestItems[TargetItem.id] == nil) then
-    return false;
+    return harvestProduct;
   end
   -- Check for not regrown static plants.
   if (TargetItem.wear == 255 and TargetItem:getData("amount") ~= "0" and not IsRegrown(TargetItem)) then
-    return false;
+    return harvestProduct;
   end
   local GroundType = base.common.GetGroundType(world:getField(TargetItem.pos):tile());
-	local harvestProduct = nil;
 	for _,hp in pairs(HarvestItems[TargetItem.id]) do 
 		if (hp.groundType == nil or GroundType == hp.groundType) then
 			if (((not OnlyFarming) or hp.isFarmingItem) and ((not OnlyNonFarming) or (not hp.isFarmingItem))) then
