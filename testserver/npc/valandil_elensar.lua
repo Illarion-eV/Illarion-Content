@@ -885,6 +885,19 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yewdale");
+talkEntry:addResponse("Yewdale is just west of Runewick, a beautiful valley with Nana's cottage.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Eibental");
+talkEntry:addTrigger("Eibenthal");
+talkEntry:addResponse("Das Eibenthal liegt westlich von Runewick, es ist ein schönes Tal mit Nanas Bauernhof.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("bark beetle");
 talkEntry:addResponse("Bark beetles are the trees' foes. And I am the trees' friend. So they are my foes!");
 talkingNPC:addTalkingEntry(talkEntry);
