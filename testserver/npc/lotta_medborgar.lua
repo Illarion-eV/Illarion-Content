@@ -219,7 +219,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ort");
+talkEntry:addTrigger("Orte");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"));
 talkEntry:addResponse("Orte? Welche Orte meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Illarion?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -236,7 +236,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Iradona");
 talkEntry:addTrigger("Goldschein");
-talkEntry:addResponse("Du findest sie drausen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für dich.");
+talkEntry:addResponse("Du findest sie draußen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -309,8 +309,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nordwest");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] See Syrita, Nargun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall"));
-talkEntry:addResponse("Ich habe Informationen zu folgenden Orten: See Syrita, Nargun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Galmair Plateau, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] See Syrita, Narguns Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall"));
+talkEntry:addResponse("Ich habe Informationen zu folgenden Orten: See Syrita, Narguns Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene, Malachit Bach, Malachit Insel, Galmair Plateau, Goldener Rumil, Fort Schnellbeil, Festung Hammerfall.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -565,7 +565,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nargun Ebene");
+talkEntry:addTrigger("Narguns Ebene");
 talkEntry:addResponse("Das ist das Gebiet östlich der Kupferbrücke über den Malachit Bach zwischen Galmair und dem Spinnen Mund.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -626,7 +626,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachit Bach");
-talkEntry:addResponse("Der Malachit Bach ist das Gewässer zwischen Galmair und der Nargun Ebene. Die Kupferbrücke wird dir helfen es zu überqueren.");
+talkEntry:addResponse("Der Malachit Bach ist das Gewässer zwischen Galmair und der Narguns Ebene. Die Kupferbrücke wird dir helfen es zu überqueren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -913,7 +913,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Das liegt im Südosten. Einfach der Straße entlang durch die Nargun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südöstlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.");
+talkEntry:addResponse("Das liegt im Südosten. Einfach der Straße entlang durch die Narguns Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südöstlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -983,7 +983,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Das liegt im Südwesten. Einfach der Straße entlang durch die Nargun's Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südwestlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.");
+talkEntry:addResponse("Das liegt im Südwesten. Einfach der Straße entlang durch die Narguns Ebene zum Gasthof zur Hanfschlinge im Spinnenmaul und dann weiter südwestlich. Schau nach Wegschildern. Ist aber ein gefährlicher Weg. Verwende besser den Teleporter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -303,15 +303,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("northwest");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau"));
-talkEntry:addResponse("I know following places: Lake Syrita, Nagrun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Lake Syrita, Nargun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau"));
+talkEntry:addResponse("I know following places: Lake Syrita, Nargun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nordwest");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene"));
-talkEntry:addResponse("Ich habe Informationen zu folgenden Orten: See Syrita, Nagrun Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] See Syrita, Narguns Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene"));
+talkEntry:addResponse("Ich habe Informationen zu folgenden Orten: See Syrita, Narguns Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -559,26 +559,26 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nagrun's Plain");
-talkEntry:addTrigger("Nagrun plain");
+talkEntry:addTrigger("Nargun's Plain");
+talkEntry:addTrigger("narguns plain");
 talkEntry:addResponse("Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Nagrun Ebene");
+talkEntry:addTrigger("Narguns Ebene");
 talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("The Swamp");
+talkEntry:addTrigger("Swamp");
 talkEntry:addResponse("Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Der Sumpf");
+talkEntry:addTrigger("Sumpf");
 talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -623,14 +623,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Lotta");
 talkEntry:addTrigger("Medborgar");
-talkEntry:addResponse("You can find her in Galmair and he knows several places in the northwest, thus around Galmair.");
+talkEntry:addResponse("You can find her in Galmair and she knows several places in the northwest, thus around Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lotta");
 talkEntry:addTrigger("Medborgar");
-talkEntry:addResponse("Die findet man in Galmair und die weiß sämtliche Orte im Nordwesten, sprich um Galmair.");
+talkEntry:addResponse("Die findet man in Galmair und die kennt sämtliche Orte im Nordwesten, sprich um Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
