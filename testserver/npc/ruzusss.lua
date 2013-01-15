@@ -259,7 +259,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Frizza");
-talkEntry:addResponse("Du findest sssie drausen vor der Stadt, nahe am Teleporter. Sssie hat eine Menge Informationen und Aufträge für dich.");
+talkEntry:addResponse("Du findest sssie draußen vor der Stadt, nahe am Teleporter. Sssie hat eine Menge Informationen und Aufträge für dich.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -274,7 +274,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentant aber bald.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -291,7 +291,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentant aber bald.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

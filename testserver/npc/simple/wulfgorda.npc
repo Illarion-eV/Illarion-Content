@@ -89,7 +89,7 @@ english, "inform" -> inform("[Keywords] Illarion, northeast, northwest, southwes
 english, "quest", "mission" -> "Nothing to do for you yet but soon."
 "quest", "mission" -> "Ich habe nichts für dich zu tun momentant aber bald."
 "task", "adventure", "order" -> "Nothing to do for you yet but soon."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentant aber bald."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald."
 
 -- Places
 english, "Illarion" -> inform("[Keywords] Northeast, northwest, southwest, southeast"), "This land is called Illarion and I devide it in northeast, northwest, southwest and southeast."

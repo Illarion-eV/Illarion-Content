@@ -91,7 +91,7 @@ english, "Iradona", "Goldschein" -> "You can find her outside of the town close 
 english, "quest", "mission" -> "Nothing to do for you yet but soon."
 "quest", "mission" -> "Ich habe nichts für dich zu tun momentant aber bald."
 "task", "adventure" -> "Nothing to do for you yet but soon."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentant aber bald."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald."
 
 -- Places
 english, "Illarion" -> inform("[Keywords] Northeast, northwest, southwest, southeast"), "This land is called Illarion and I divide it into northeast, northwest, southwest and southeast."

@@ -251,7 +251,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentant aber bald.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -267,7 +267,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentant aber bald.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -236,7 +236,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Elesil");
 talkEntry:addTrigger("Daelwon");
-talkEntry:addResponse("Ihr findet sie drausen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für euch.");
+talkEntry:addResponse("Ihr findet sie draußen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für euch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -251,7 +251,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentant aber bald.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -268,7 +268,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich habe nichts für dich zu tun momentant aber bald.");
+talkEntry:addResponse("Ich habe nichts für dich zu tun momentan aber bald.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
