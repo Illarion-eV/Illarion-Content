@@ -17,7 +17,6 @@ VALUES (0, 121, 599, 0, 4, 'Frobenius', 'npc.frobenius', 0, 2, 3, 255, 255, 255,
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.talkstate")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
@@ -327,8 +326,7 @@ talkEntry:addTrigger("merchant");
 talkEntry:addTrigger("collegue");
 talkEntry:addTrigger("vendor");
 talkEntry:addTrigger("market");
-talkEntry:addConsequence(npc.base.consequence.talkstate.talkstate("end"));
-talkEntry:addResponse("Buy whatever you want on this marketplace, but in theonly weapons will make Cadomyr prosper.");
+talkEntry:addResponse("Buy whatever you want on this marketplace, but in the end only weapons will make Cadomyr prosper.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -623,6 +621,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(2710,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2751,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(325,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(326,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(528,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(529,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(530,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(531,"sell"));
@@ -728,6 +727,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(2710,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2751,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(325,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(326,"buySecondary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(528,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(529,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(530,"buySecondary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(531,"buySecondary"));

@@ -100,7 +100,7 @@ if (MonID==171) then --Mummiefied Priest, Level: 3, Armourtype: light, Weapontyp
 
         --Category 1: Cloth
 
-        local done=monster.base.drop.AddDropItem(177,2,30,(100*math.random(2,3)+math.random(22,33)),0,1); --yellow cloth
+        local done=monster.base.drop.AddDropItem(177,1,30,(100*math.random(2,3)+math.random(22,33)),0,1); --yellow cloth
         if not done then done=monster.base.drop.AddDropItem(55,1,10,(100*math.random(2,3)+math.random(22,33)),0,1); end --green cloth
         if not done then done=monster.base.drop.AddDropItem(178,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --white cloth
         if not done then done=monster.base.drop.AddDropItem(175,1,1,(100*math.random(2,3)+math.random(22,33)),0,1); end --black cloth
@@ -108,7 +108,7 @@ if (MonID==171) then --Mummiefied Priest, Level: 3, Armourtype: light, Weapontyp
 
         --Category 2: Special loot
 
-        local done=monster.base.drop.AddDropItem(63,2,30,(100*math.random(2,3)+math.random(22,33)),0,2); --entrails
+        local done=monster.base.drop.AddDropItem(63,1,30,(100*math.random(2,3)+math.random(22,33)),0,2); --entrails
         if not done then done=monster.base.drop.AddDropItem(2746,1,10,(100*math.random(2,3)+math.random(22,33)),0,2); end --razor blade
         if not done then done=monster.base.drop.AddDropItem(1858,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --goblet
         if not done then done=monster.base.drop.AddDropItem(223,1,1,(100*math.random(2,3)+math.random(22,33)),0,2); end --iron goblet
@@ -116,7 +116,7 @@ if (MonID==171) then --Mummiefied Priest, Level: 3, Armourtype: light, Weapontyp
 
         --Category 3: Weapon
 
-        local done=monster.base.drop.AddDropItem(78,2,30,(100*math.random(2,3)+math.random(22,33)),0,3); --short sword
+        local done=monster.base.drop.AddDropItem(78,1,30,(100*math.random(2,3)+math.random(22,33)),0,3); --short sword
         if not done then done=monster.base.drop.AddDropItem(1,1,10,(100*math.random(2,3)+math.random(22,33)),0,3); end --serinjah sword
         if not done then done=monster.base.drop.AddDropItem(2757,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --scimitar
         if not done then done=monster.base.drop.AddDropItem(445,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --wooden sword
@@ -130,7 +130,7 @@ if (MonID==171) then --Mummiefied Priest, Level: 3, Armourtype: light, Weapontyp
 
         --Category 1: Armor
 
-        local done=monster.base.drop.AddDropItem(174,2,30,(100*math.random(1,2)+math.random(11,22)),0,1); --red cloth
+        local done=monster.base.drop.AddDropItem(174,1,30,(100*math.random(1,2)+math.random(11,22)),0,1); --red cloth
         if not done then done=monster.base.drop.AddDropItem(179,1,10,(100*math.random(1,2)+math.random(11,22)),0,1); end --blue cloth
         if not done then done=monster.base.drop.AddDropItem(178,1,1,(100*math.random(1,2)+math.random(11,22)),0,1); end --white cloth
         if not done then done=monster.base.drop.AddDropItem(175,1,1,(100*math.random(1,2)+math.random(11,22)),0,1); end --black cloth
@@ -138,18 +138,18 @@ if (MonID==171) then --Mummiefied Priest, Level: 3, Armourtype: light, Weapontyp
 
         --Category 2: Special loot
 
-        local done=monster.base.drop.AddDropItem(63,2,30,(100*math.random(1,2)+math.random(11,22)),0,2); --entrails
-        if not done then done=monster.base.drop.AddDropItem(2746,1,10,(100*math.random(1,2)+math.random(11,22)),0,2); end --razor blade
+        local done=monster.base.drop.AddDropItem(63,1,30,(100*math.random(1,2)+math.random(11,22)),0,2); --entrails
+        if not done then done=monster.base.drop.AddDropItem(2031,1,10,(100*math.random(1,2)+math.random(11,22)),0,2); end --plate
         if not done then done=monster.base.drop.AddDropItem(1858,1,1,(100*math.random(1,2)+math.random(11,22)),0,2); end --goblet
         if not done then done=monster.base.drop.AddDropItem(223,1,1,(100*math.random(1,2)+math.random(11,22)),0,2); end --iron goblet
         if not done then done=monster.base.drop.AddDropItem(1840,1,1,(100*math.random(1,2)+math.random(11,22)),0,2); end --copper goblet
 
         --Category 3: Weapon
 
-        local done=monster.base.drop.AddDropItem(2031,2,30,(100*math.random(1,2)+math.random(11,22)),0,3); --plate
-        if not done then done=monster.base.drop.AddDropItem(27,1,10,(100*math.random(1,2)+math.random(11,22)),0,3); end --simple dagger
-        if not done then done=monster.base.drop.AddDropItem(189,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --dagger
-        if not done then done=monster.base.drop.AddDropItem(2668,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --poisoned simple dagger
+        local done=monster.base.drop.AddDropItem(445,1,30,(100*math.random(1,2)+math.random(11,22)),0,3); --wooden sword
+        if not done then done=monster.base.drop.AddDropItem(2757,1,10,(100*math.random(1,2)+math.random(11,22)),0,3); end --scimitar
+        if not done then done=monster.base.drop.AddDropItem(1,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --serinjah sword
+        if not done then done=monster.base.drop.AddDropItem(78,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --short sword
         if not done then done=monster.base.drop.AddDropItem(2711,1,1,(100*math.random(1,2)+math.random(11,22)),0,3); end --barbarian axe
 
         --Category 4: Perma Loot
@@ -160,7 +160,7 @@ if (MonID==171) then --Mummiefied Priest, Level: 3, Armourtype: light, Weapontyp
 
         --Category 1: Armor
 
-        local done=monster.base.drop.AddDropItem(55,2,30,(100*math.random(3,4)+math.random(33,44)),0,1); --green cloth
+        local done=monster.base.drop.AddDropItem(55,1,30,(100*math.random(3,4)+math.random(33,44)),0,1); --green cloth
         if not done then done=monster.base.drop.AddDropItem(179,1,10,(100*math.random(3,4)+math.random(33,44)),0,1); end --blue cloth
         if not done then done=monster.base.drop.AddDropItem(174,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --red cloth
         if not done then done=monster.base.drop.AddDropItem(178,1,1,(100*math.random(3,4)+math.random(33,44)),0,1); end --white cloth
@@ -168,7 +168,7 @@ if (MonID==171) then --Mummiefied Priest, Level: 3, Armourtype: light, Weapontyp
 
         --Category 2: Special loot
 
-        local done=monster.base.drop.AddDropItem(63,2,30,(100*math.random(3,4)+math.random(33,44)),0,2); --entrails
+        local done=monster.base.drop.AddDropItem(63,1,30,(100*math.random(3,4)+math.random(33,44)),0,2); --entrails
         if not done then done=monster.base.drop.AddDropItem(236,1,10,(100*math.random(3,4)+math.random(33,44)),0,2); end --gold ingot
         if not done then done=monster.base.drop.AddDropItem(224,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --golden goblet
         if not done then done=monster.base.drop.AddDropItem(399,1,1,(100*math.random(3,4)+math.random(33,44)),0,2); end --candle
@@ -176,11 +176,11 @@ if (MonID==171) then --Mummiefied Priest, Level: 3, Armourtype: light, Weapontyp
 
         --Category 3: Weapon
 
-        local done=monster.base.drop.AddDropItem(78,2,30,(100*math.random(3,4)+math.random(33,44)),0,3); --short sword
-        if not done then done=monster.base.drop.AddDropItem(1,1,10,(100*math.random(3,4)+math.random(33,44)),0,3); end --serinjah sword
-        if not done then done=monster.base.drop.AddDropItem(2757,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --scimitar
-        if not done then done=monster.base.drop.AddDropItem(2668,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --poisoned simple dagger
-        if not done then done=monster.base.drop.AddDropItem(2711,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --barbarian axe
+        local done=monster.base.drop.AddDropItem(2664,1,30,(100*math.random(3,4)+math.random(33,44)),0,3); --club
+        if not done then done=monster.base.drop.AddDropItem(230,1,10,(100*math.random(3,4)+math.random(33,44)),0,3); end --mace
+        if not done then done=monster.base.drop.AddDropItem(231,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --morning star
+        if not done then done=monster.base.drop.AddDropItem(2737,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --morning star
+        if not done then done=monster.base.drop.AddDropItem(226,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --warhammer
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3076,math.random(30,90),100,333,0,4); --copper coins

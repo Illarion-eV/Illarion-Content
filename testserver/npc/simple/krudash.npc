@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 name = "Krudash"
@@ -26,7 +26,7 @@ author = "Rincewind"
 
 lookatDE = "Eine sinnliche Orkfrau mit druchdringenden rotbraunen Augen. Sie hat ein süßes Näschen und kleine spitze Hauer. Achtsam überblickt sie den Marktplatz."
 lookatUS = "A voluptous orcess with rebbrown eyes. She has a cute nose and small pointy tusks. She watches the marketplace observantly."
-useMsgDE = "Fass mich nicht an! Oder ich mach disch Kebab! Alda!"
+useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Do not touch me!"
 wrongLangDE = "#me schaut dich verwirrt an."
 wrongLangUS = "#me looks at you confused."
@@ -45,8 +45,8 @@ itemShoes = 53
 -- Here are all items the NPCs is able to trade. They will be displayed inside
 -- the merchant dialog.
 
-sellItems = 23, 2697, 2710, 2751, 325, 326, 529, 530, 531, 699, 770, 771, 2111, 2112, 2116, 2117, 2172, 77, 88, 124, 188, 192, 205, 229, 296, 383, 2629, 2642, 2660, 2711, 2723, 2946, 226, 230, 231, 2647, 2664, 2737, 27, 189, 190, 297, 389, 398, 444, 2675, 2740, 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444, 2537, 2696, 223, 466, 739, 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407, 104, 236, 2550, 2535, 2571, 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778
-buyPrimaryItems = 23, 2697, 2710, 2751, 325, 326, 529, 530, 531, 699, 770, 771, 2111, 2112, 2116, 2117, 2172, 77, 88, 124, 188, 192, 205, 229, 296, 383, 2629, 2642, 2660, 2711, 2723, 2946, 226, 230, 231, 2647, 2664, 2737, 27, 189, 190, 297, 389, 398, 444, 2675, 2740, 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444, 2537, 2696, 223, 466, 739, 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407, 104, 236, 2550, 2535, 2571, 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778
+sellItems = 23, 2697, 2710, 2751, 325, 326, 528, 529, 530, 531, 699, 770, 771, 2111, 2112, 2116, 2117, 2172, 77, 88, 124, 188, 192, 205, 229, 296, 383, 2629, 2642, 2660, 2711, 2723, 2946, 226, 230, 231, 2647, 2664, 2737, 27, 189, 190, 297, 389, 398, 444, 2675, 2740, 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444, 2537, 2696, 223, 466, 739, 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407, 104, 236, 2550, 2535, 2571, 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778
+buyPrimaryItems = 23, 2697, 2710, 2751, 325, 326, 528, 529, 530, 531, 699, 770, 771, 2111, 2112, 2116, 2117, 2172, 77, 88, 124, 188, 192, 205, 229, 296, 383, 2629, 2642, 2660, 2711, 2723, 2946, 226, 230, 231, 2647, 2664, 2737, 27, 189, 190, 297, 389, 398, 444, 2675, 2740, 7, 16, 94, 184, 185, 187, 202, 324, 2286, 2287, 2290, 2291, 2302, 2441, 2444, 2537, 2696, 223, 466, 739, 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407, 104, 236, 2550, 2535, 2571, 1, 25, 78, 84, 85, 98, 123, 204, 445, 2658, 2701, 2731, 2757, 2775, 2778
 tradeNotEnoughMoneyMsg "Du kannst dir das nicht leisten!", "You can not afford that!"
 tradeFinishedMsg "Danke, komm bald wieder!", "Thanks, come again!"
 tradeFinishedWithoutTradingMsg "Auf Bald!", "Farewell!"
@@ -65,12 +65,12 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 -- Metal body armour: 4, 101, 696, 2357, 2359, 2360, 2363, 2364, 2365, 2367, 2369, 2389, 2390, 2393, 2395, 2399, 2400, 2403, 2407
 -- Metal ingots: 104, 236, 2550, 2535, 2571
 -- Swords: 1, 25, 78, 84, 85, 98, 123, 204, 445 (Holzschert), 2658, 2701, 2731, 2757, 2775, 2778
-"sell", "buy", "wares", "price", "trade", "purchase" -> "Gâsh! I sell everything made in the forge. Sharpest Axes! Mightiest Armours! Best tools. Uh!", trade
-"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> trade, "Gâsh! I sell everything made in the forge. Sharpest Axes! Mightiest Armours! Best tools. Uh!"
+"kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> trade, "Gâsh! Ich verkaufe alles was sie in der Schmiede zusammen bauen. Schärfste Äxte! Mächtigste Rüstungen! Und bestes Werkzeug. Uh!"
 
 -- Help
-"Help" -> inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: buy, sell, trade, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"), "Me, Krudash sell and buy lots of stuff! Taghta?", state = 0
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: kaufe, verkaufe, Handel, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"), "Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?", state = 0
+"Help" -> inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: buy, sell, trade, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"), "Me, Krudash sell and buy lots of stuff! Taghta?"
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: kaufe, verkaufe, Handel, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"), "Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?"
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greebas. Do you need sumthing?", "Hurr! Be greeted.", "Hurr. Me, Krudash sell all you need. For good hack'n sack trip! Hehe!", "Latha math! Greetings-Greetings, mes mean."
@@ -119,9 +119,8 @@ english, "snaga" -> "Snagas! Those are monkeys... - basically. And weak puny orc
 "snaga" -> "Snagas! Das sind Affen... - eigentlich. Und schwächliche Orks, denen man sagt was sie tun müssen! Eine mächtige Ork wie ich, Krudash es bin hat viele Snagas. Gâsh! Bin ja auch die Schlauste hier."
 english, "where com", "krochgurak" -> "Hrach. I come frome Khenserra. But most orcs come frome Kroch'gurak where the Clans camp in winter."
 "where com", "krochgurak" -> "Hrach. Ich komme aus Khenserra. Aber viele Orks sind aus Kroch'gurak. Dort'ists wo die Clans im Winter lagern."
-"dwarf","dwarv"->"Hurr Hurr. Do you need an axe, huh?"
+"dwarf", "dwarv" -> "Hurr Hurr. Do you need an axe, huh?"
 "zwerg" -> "Hurr Hurr. Brauchst ne Axt, hä?"
-
 
 -- Faction stuff. Please remove if you send the template to outsiders!
 "archmage" -> "Pfft! Astute wizard... Runewick rat!"
