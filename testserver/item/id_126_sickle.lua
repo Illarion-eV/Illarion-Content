@@ -259,7 +259,7 @@ function GetValidProduct(TargetItem, OnlyFarming, OnlyNonFarming)
     return harvestProduct;
   end
   -- Check for not regrown static plants.
-  if (TargetItem.wear == 255 and TargetItem:getData("amount") ~= "0" and not IsRegrown(TargetItem)) then
+  if (TargetItem.wear == 255 and TargetItem:getData("amount") == "0" and not IsRegrown(TargetItem)) then
     return harvestProduct;
   end
   local GroundType = base.common.GetGroundType(world:getField(TargetItem.pos):tile());
