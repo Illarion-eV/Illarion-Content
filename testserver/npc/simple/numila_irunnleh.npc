@@ -80,7 +80,7 @@ english, "inform" -> inform("[Keywords] Illarion, northeast, northwest, southwes
 "question" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "I have information about places close to Runewick for you if you want to know them."
 "Frage", "Auskunft" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Ich habe für euch Informationen zu den Orten in der Nähe von Runewick wenn ihr wünscht."
 "place" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Illarion?"
-"Ort" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Orte? Welche Orte meint ihr? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Illarion?"
+"Orte" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Orte? Welche Orte meint ihr? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Illarion?"
 english, "Elesil", "Daelwon" -> "You can find her outside of the town close to the teleporter. She has a lot of information and some tasks for you."
 "Elesil", "Daelwon" -> "Ihr findet sie draußen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für euch."
 

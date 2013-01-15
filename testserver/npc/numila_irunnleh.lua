@@ -219,7 +219,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ort");
+talkEntry:addTrigger("Orte");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"));
 talkEntry:addResponse("Orte? Welche Orte meint ihr? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Illarion?");
 talkingNPC:addTalkingEntry(talkEntry);
