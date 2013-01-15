@@ -560,7 +560,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nagrun's Plain");
-talkEntry:addTrigger("Nagruns plain");
+talkEntry:addTrigger("Nagrun plain");
 talkEntry:addResponse("Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
