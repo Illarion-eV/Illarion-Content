@@ -44,7 +44,7 @@ function learn(user, skill, actionPoints, learnLimit)
 			minorIncrease=math.floor(scalingFactor*attributeFactor*actionpointFactor*MCfactor);
             
 			if isTestserver() then
-			user:inform("MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease.."!");
+			user:inform("actionPoints="..actionPoints..", MCfactor="..MCfactor..", attributeFactor="..attributeFactor..", actionpointFactor="..actionpointFactor..", minorIncrease="..minorIncrease.."!");
 			end
 			
 			while minorIncrease>0 do --for the rare case that an action results in two swirlies, we have this loop
