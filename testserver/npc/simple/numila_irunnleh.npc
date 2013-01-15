@@ -84,13 +84,6 @@ english, "inform" -> inform("[Keywords] Illarion, northeast, northwest, southwes
 english, "Elesil", "Daelwon" -> "You can find her outside of the town close to the teleporter. She has a lot of information and some tasks for you."
 "Elesil", "Daelwon" -> "Ihr findet sie draußen vor der Stadt, nahe am Teleporter. Sie hat eine Menge Informationen und Aufträge für euch."
 
--- Optional: Catching quest triggers. Modify if the NPC does quests
--- quest information_runewick_2.quest belongs to this NPC: Quest-ID.: 622
-english, "quest", "mission" -> "Nothing to do for you yet but soon."
-"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald."
-"task", "adventure", "order" -> "Nothing to do for you yet but soon."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald."
-
 -- Places
 english, "Illarion" -> inform("[Keywords] northeast, northwest, southwest, southeast"), "This land is called Illarion and I devide it in northeast, northwest, southwest and southeast."
 "Illarion" -> inform("[Schlüsselwörter] Nordosten, Nordwesten, Südwesten, Südosten"), "Dieses Land wird Illarion genannt und ich unterteile es in in Nordost, Nordwest, Südwest und Südost."
@@ -206,6 +199,13 @@ english, "Ruzusss" -> "You can find him in Cadomyr and he knows several places i
 "Adron Versteck" -> "Dieser Ort liegt westlich vom Ameisenhügelbach. Eine blinde und feige Person wird Probleme haben ihn zu finden."
 "Yewdale" -> "This place west of Runewick beyond the Lurnord-bridge is a place that offers an opportunity for farmers and to use the ferry."
 "Eibental" -> "Dieser Ort westlich von Runewick am anderen Ende der Lurnord-Brücke ist ein Ort für unsere Bauern und bietet Zugang zu den Fähren."
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+-- quest information_runewick_2.quest belongs to this NPC: Quest-ID.: 622
+english, "quest", "mission" -> "Nothing to do for you yet but soon."
+"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald."
+"task", "adventure", "order" -> "Nothing to do for you yet but soon."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald."
 
 -- Faction stuff
 "archmage" -> "The archmage owns two stones of power. These are an Emerald and a Ruby. They protect us against Galmair and Cadomyr."

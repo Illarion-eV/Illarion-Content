@@ -91,13 +91,6 @@ english, "inform" -> inform("[Keywords] Illarion, northeast, northwest, southwes
 english, "Frizza" -> "You can find her outssside of the town clossse to the teleporter. Sssshe hasss a lot of information and sssome tasksss for you."
 "Frizza" -> "Du findest sssie draußen vor der Stadt, nahe am Teleporter. Sssie hat eine Menge Informationen und Aufträge für dich."
 
--- Optional: Catching quest triggers. Modify if the NPC does quests
--- quest information_cadomyr_2.quest belongs to this NPC: Quest-ID.: 642 - IN PROGRESS
-english, "quest", "mission" -> "Nothing to do for you yet but soon."
-"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald."
-"task", "adventure", "order" -> "Nothing to do for you yet but soon."
-"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald."
-
 -- Places
 english, "Illarion" -> inform("[Keywords] northeast, northwest, southwest, southeast"), "This land is called Illarion and I devide it in northeast, northwest, southwest and southeast."
 "Illarion" -> inform("[Schlüsselwörter] Nordosten, Nordwesten, Südwesten, Südosten"), "Dieses Land wird Illarion genannt und ich unterteile es in in Nordost, Nordwest, Südwest und Südost."
@@ -297,6 +290,13 @@ english, "Khesra" -> "Khesra's Dungeon can be found close to the cursed place. Y
 "Eibental" -> "Nun, wie ich schon sagte, dieser Ort ist im Südosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Numila Irunnleh in Runewick."
 english, "Numila", "Irunnleh" -> "Die findet man in Runewick und die weiß sämtliche Orte im Südosten, sprich um Runewick."
 "Numila", "Irunnleh" -> "You can find her in Runewick and he knows several places in the southeast, thus around Runewick."
+
+-- Optional: Catching quest triggers. Modify if the NPC does quests
+-- quest information_cadomyr_2.quest belongs to this NPC: Quest-ID.: 642 - IN PROGRESS
+english, "quest", "mission" -> "Nothing to do for you yet but soon."
+"quest", "mission" -> "Ich habe nichts für dich zu tun momentan aber bald."
+"task", "adventure", "order" -> "Nothing to do for you yet but soon."
+"Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Ich habe nichts für dich zu tun momentan aber bald."
 
 -- Faction stuff
 "archmage" -> "The archmage ownsss two ssstonesss of power. Thessse are an Emerald and a Ruby. They protect Runewick to get beaten by our forcesss."
