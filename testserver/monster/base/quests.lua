@@ -601,8 +601,8 @@ function iniQuests()
     --Quest 16: The Errant Crusade II
 
     local id=16;
-    germanTitle[id]="The Errant Crusade II"; 
-    englishTitle[id]="Der fehlgeleitete Kreuzzug II";
+    englishTitle[id]="The Errant Crusade II"; 
+    germanTitle[id]="Der fehlgeleitete Kreuzzug II";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
     englishRace[id]="mummies"; 
@@ -621,8 +621,8 @@ function iniQuests()
     --Quest 17: The Errant Crusade III
 
     local id=17;
-    germanTitle[id]="The Errant Crusade III"; 
-    englishTitle[id]="Der fehlgeleitete Kreuzzug III";
+    englishTitle[id]="The Errant Crusade III"; 
+    germanTitle[id]="Der fehlgeleitete Kreuzzug III";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
     englishRace[id]="skeletons"; 
@@ -640,8 +640,8 @@ function iniQuests()
     --Quest 18: The Errant Crusade IV
 
     local id=18;
-    germanTitle[id]="The Errant Crusade IV"; 
-    englishTitle[id]="Der fehlgeleitete Kreuzzug IV";
+    englishTitle[id]="The Errant Crusade IV"; 
+    germanTitle[id]="Der fehlgeleitete Kreuzzug IV";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
     englishRace[id]="blood mages"; 
@@ -655,8 +655,8 @@ function iniQuests()
     --Quest 19: The Errant Crusade V
 
     local id=19;
-    germanTitle[id]="The Errant Crusade V"; 
-    englishTitle[id]="Der fehlgeleitete Kreuzzug V";
+    englishTitle[id]="The Errant Crusade V"; 
+    germanTitle[id]="Der fehlgeleitete Kreuzzug V";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
     englishRace[id]="demon skeleton warrior"; 
@@ -670,8 +670,8 @@ function iniQuests()
     --Quest 20: The Errant Crusade VI
 
     local id=20;
-    germanTitle[id]="The Errant Crusade VI"; 
-    englishTitle[id]="Der fehlgeleitete Kreuzzug VI";
+    englishTitle[id]="The Errant Crusade VI"; 
+    germanTitle[id]="Der fehlgeleitete Kreuzzug VI";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
     englishRace[id]="undead fire dragons"; 
@@ -685,8 +685,8 @@ function iniQuests()
 	--Quest 21: The Ghost Oak IV
 
     local id=21;
-    germanTitle[id]="The Ghost Oak IV"; 
-    englishTitle[id]="Die Geistereiche IV";
+    englishTitle[id]="The Ghost Oak IV"; 
+    germanTitle[id]="Die Geistereiche IV";
     NPCName[id]="Madoquar"; 
     statusId[id]=112;
     germanRace[id]="Geist der Eiche"; 
