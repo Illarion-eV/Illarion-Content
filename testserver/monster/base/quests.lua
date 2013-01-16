@@ -489,7 +489,7 @@ function iniQuests()
     minimumQueststatus[id]=1; 
     maximumQueststatus[id]=7; 
     questLocation[id]=position(775,475,0); 
-    radius[id]=75; 
+    radius[id]=100; 
 
     --Quest 11: The Poacher II (4)
 
@@ -506,7 +506,7 @@ function iniQuests()
     minimumQueststatus[id]=9; 
     maximumQueststatus[id]=21; 
     questLocation[id]=position(775,475,0); 
-    radius[id]=75; 
+    radius[id]=100; 
 
     --Quest 12: The Poacher III (4)
 
@@ -524,7 +524,7 @@ function iniQuests()
     minimumQueststatus[id]=23; 
     maximumQueststatus[id]=29; 
     questLocation[id]=position(775,475,0); 
-    radius[id]=75; 
+    radius[id]=100; 
 
     --Quest 13: The Poacher IV (4)
 
@@ -539,7 +539,7 @@ function iniQuests()
     minimumQueststatus[id]=30; 
     maximumQueststatus[id]=31; 
     questLocation[id]=position(775,475,0); 
-    radius[id]=75; 
+    radius[id]=100; 
 
     --Quest 14: The Craven Orc II (3)
 
