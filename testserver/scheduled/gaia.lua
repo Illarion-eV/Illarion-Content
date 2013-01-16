@@ -86,7 +86,7 @@ function plantdrop()
 
 	local herbCounter = 0 -- for testing
 	local normal = 0; local cool = 0
-	for i=1,60 do -- normal plants
+	for i=1,35 do -- normal plants
 	   PutPlantOnField(false)
 	end
     
@@ -96,6 +96,7 @@ function plantdrop()
 end
 
 function PutPlantOnField(rare)
+
     local myPos = position( math.random(0,1024), math.random(0,1024), 0 )
 	local theTile=world:getField(myPos);
 	local myList
@@ -106,9 +107,24 @@ function PutPlantOnField(rare)
     end	
 	if theTile then
 		local groundType = base.common.GetGroundType( theTile:tile() )
-		if myList[groundType] == nil then
+		local gt = base.common.GroundType
+		
+		if theTile:countItems() > 0 then -- check if no item is on that field
+		    return
+		end	
+		if myList[groundType] == nil then -- check if this ground has any herbs
 		    return
 		end
+		if (groundType == gt.sand) then
+		    if not math.random(3)==1 then -- "Frickelfactor" for sand herbs (we have too many sand fields!)
+			    return
+			end	
+        elseif (groundType == gt.grass or groundType == gt.forest) then
+		    if not math.random(2)==1 then -- "Frickelfactor" for grass and forest herbs (we have slightly too many fields of those)
+			    return
+			end	
+        end
+		
 		myPlant = myList[groundType][math.random(1,#myList[groundType])]
 		world:createItemFromId(myPlant,1,myPos,false,333,nil)
 		return true

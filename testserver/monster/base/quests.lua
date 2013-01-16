@@ -431,10 +431,16 @@ function iniQuests()
     statusId[id]=79;
     germanRace[id]="Wölfe"; 
     englishRace[id]="wolves";
-    table.insert(questList[391],id); 
-    table.insert(questList[392],id); 
-    table.insert(questList[393],id); 
-    table.insert(questList[394],id); 
+    table.insert(questList[391],id); --Wolf
+    table.insert(questList[392],id); --Welp
+    table.insert(questList[393],id); --Young Wolf
+    table.insert(questList[394],id); --GiantWolf
+	table.insert(questList[395],id); --Pack Leader
+    table.insert(questList[396],id); --Peaceful Wolf
+    table.insert(questList[401],id); --Ghost Wolf
+    table.insert(questList[411],id); --Lambslaughterer
+	table.insert(questList[421],id); --Grey Tail
+    table.insert(questList[431],id); --Redwolf
     minimumQueststatus[id]=1; 
     maximumQueststatus[id]=11; 
     questLocation[id]=position(774,711,0); 
@@ -467,6 +473,11 @@ function iniQuests()
     statusId[id]=79;
     germanRace[id]="Spinnen"; 
     englishRace[id]="spiders";
+	table.insert(questList[191],id); 
+	table.insert(questList[192],id); 
+	table.insert(questList[193],id); 
+	table.insert(questList[194],id); 
+	table.insert(questList[195],id); 
     table.insert(questList[196],id); 
     minimumQueststatus[id]=20; 
     maximumQueststatus[id]=21; 
@@ -489,7 +500,7 @@ function iniQuests()
     minimumQueststatus[id]=1; 
     maximumQueststatus[id]=7; 
     questLocation[id]=position(775,475,0); 
-    radius[id]=75; 
+    radius[id]=100; 
 
     --Quest 11: The Poacher II (4)
 
@@ -506,7 +517,7 @@ function iniQuests()
     minimumQueststatus[id]=9; 
     maximumQueststatus[id]=21; 
     questLocation[id]=position(775,475,0); 
-    radius[id]=75; 
+    radius[id]=100; 
 
     --Quest 12: The Poacher III (4)
 
@@ -517,14 +528,20 @@ function iniQuests()
     statusId[id]=4;
     germanRace[id]="Wölfe"; 
     englishRace[id]="wolves";
-    table.insert(questList[391],id); 
-    table.insert(questList[392],id); 
-    table.insert(questList[393],id); 
-    table.insert(questList[394],id); 
+    table.insert(questList[391],id); --Wolf
+    table.insert(questList[392],id); --Welp
+    table.insert(questList[393],id); --Young Wolf
+    table.insert(questList[394],id); --GiantWolf
+	table.insert(questList[395],id); --Pack Leader
+    table.insert(questList[396],id); --Peaceful Wolf
+    table.insert(questList[401],id); --Ghost Wolf
+    table.insert(questList[411],id); --Lambslaughterer
+	table.insert(questList[421],id); --Grey Tail
+    table.insert(questList[431],id); --Redwolf
     minimumQueststatus[id]=23; 
     maximumQueststatus[id]=29; 
     questLocation[id]=position(775,475,0); 
-    radius[id]=75; 
+    radius[id]=100; 
 
     --Quest 13: The Poacher IV (4)
 
@@ -539,7 +556,7 @@ function iniQuests()
     minimumQueststatus[id]=30; 
     maximumQueststatus[id]=31; 
     questLocation[id]=position(775,475,0); 
-    radius[id]=75; 
+    radius[id]=100; 
 
     --Quest 14: The Craven Orc II (3)
 
@@ -560,7 +577,7 @@ function iniQuests()
     minimumQueststatus[id]=3; 
     maximumQueststatus[id]=8; 
     questLocation[id]=position(665,415,0); 
-    radius[id]=35; 
+    radius[id]=50; 
 
     --Quest 15: The Craven Orc III (3)
 
@@ -579,13 +596,13 @@ function iniQuests()
     minimumQueststatus[id]=10; 
     maximumQueststatus[id]=20; 
     questLocation[id]=position(665,415,0); 
-    radius[id]=35; 
+    radius[id]=50; 
 
     --Quest 16: The Errant Crusade II
 
     local id=16;
-    germanTitle[id]="The Errant Crusade II"; 
-    englishTitle[id]="Der fehlgeleitete Kreuzzug II";
+    englishTitle[id]="The Errant Crusade II"; 
+    germanTitle[id]="Der fehlgeleitete Kreuzzug II";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
     englishRace[id]="mummies"; 
@@ -604,8 +621,8 @@ function iniQuests()
     --Quest 17: The Errant Crusade III
 
     local id=17;
-    germanTitle[id]="The Errant Crusade III"; 
-    englishTitle[id]="Der fehlgeleitete Kreuzzug III";
+    englishTitle[id]="The Errant Crusade III"; 
+    germanTitle[id]="Der fehlgeleitete Kreuzzug III";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
     englishRace[id]="skeletons"; 
@@ -623,8 +640,8 @@ function iniQuests()
     --Quest 18: The Errant Crusade IV
 
     local id=18;
-    germanTitle[id]="The Errant Crusade IV"; 
-    englishTitle[id]="Der fehlgeleitete Kreuzzug IV";
+    englishTitle[id]="The Errant Crusade IV"; 
+    germanTitle[id]="Der fehlgeleitete Kreuzzug IV";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
     englishRace[id]="blood mages"; 
@@ -638,8 +655,8 @@ function iniQuests()
     --Quest 19: The Errant Crusade V
 
     local id=19;
-    germanTitle[id]="The Errant Crusade V"; 
-    englishTitle[id]="Der fehlgeleitete Kreuzzug V";
+    englishTitle[id]="The Errant Crusade V"; 
+    germanTitle[id]="Der fehlgeleitete Kreuzzug V";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
     englishRace[id]="demon skeleton warrior"; 
@@ -653,8 +670,8 @@ function iniQuests()
     --Quest 20: The Errant Crusade VI
 
     local id=20;
-    germanTitle[id]="The Errant Crusade VI"; 
-    englishTitle[id]="Der fehlgeleitete Kreuzzug VI";
+    englishTitle[id]="The Errant Crusade VI"; 
+    germanTitle[id]="Der fehlgeleitete Kreuzzug VI";
     NPCName[id]="Arenius Batavius"; 
     statusId[id]=104;
     englishRace[id]="undead fire dragons"; 
@@ -668,8 +685,8 @@ function iniQuests()
 	--Quest 21: The Ghost Oak IV
 
     local id=21;
-    germanTitle[id]="The Ghost Oak IV"; 
-    englishTitle[id]="Die Geistereiche IV";
+    englishTitle[id]="The Ghost Oak IV"; 
+    germanTitle[id]="Die Geistereiche IV";
     NPCName[id]="Madoquar"; 
     statusId[id]=112;
     germanRace[id]="Geist der Eiche"; 

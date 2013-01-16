@@ -36,13 +36,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the forester Valandil Elensar. Keywords: Hello, quest, hatchet, forester, wood."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the forester Valandil Elensar. Keywords: Hello, quest, hatchet, forester."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Förster Valandil Elensar. Schlüsselwörter: Hallo, Quest, Beil, Förster, Holz."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist der Förster Valandil Elensar. Schlüsselwörter: Hallo, Quest, Beil, Förster."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -342,7 +342,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Elsbaumwald II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 3));
-talkEntry:addResponse("Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben kein Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite.");
+talkEntry:addResponse("Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben keine Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -365,7 +365,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Elsbaumwald II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(69, "=", 3));
-talkEntry:addResponse("Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben kein Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite.");
+talkEntry:addResponse("Oje, Schildläuse haben einige der Kirschbäume befallen. Wir haben keine Wahl, schlagt die kranken Bäume und bring mir zwanzig Scheite.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

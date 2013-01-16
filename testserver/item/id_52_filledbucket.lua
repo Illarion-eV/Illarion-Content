@@ -188,7 +188,3 @@ function GetCauldron(User)
   end
   return nil;
 end
-
-function LookAtItem(User, Item)
-  world:itemInform(User, Item, base.lookat.GetItemDescription(User, Item, base.lookat.WOOD))
-end
