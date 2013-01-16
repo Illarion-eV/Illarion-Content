@@ -476,7 +476,6 @@ function iniQuests()
 	table.insert(questList[191],id); 
 	table.insert(questList[192],id); 
 	table.insert(questList[193],id); 
-	table.insert(questList[194],id); 
 	table.insert(questList[195],id); 
     table.insert(questList[196],id); 
     minimumQueststatus[id]=20; 
