@@ -431,10 +431,16 @@ function iniQuests()
     statusId[id]=79;
     germanRace[id]="Wölfe"; 
     englishRace[id]="wolves";
-    table.insert(questList[391],id); 
-    table.insert(questList[392],id); 
-    table.insert(questList[393],id); 
-    table.insert(questList[394],id); 
+    table.insert(questList[391],id); --Wolf
+    table.insert(questList[392],id); --Welp
+    table.insert(questList[393],id); --Young Wolf
+    table.insert(questList[394],id); --GiantWolf
+	table.insert(questList[395],id); --Pack Leader
+    table.insert(questList[396],id); --Peaceful Wolf
+    table.insert(questList[401],id); --Ghost Wolf
+    table.insert(questList[411],id); --Lambslaughterer
+	table.insert(questList[421],id); --Grey Tail
+    table.insert(questList[431],id); --Redwolf
     minimumQueststatus[id]=1; 
     maximumQueststatus[id]=11; 
     questLocation[id]=position(774,711,0); 
@@ -517,10 +523,16 @@ function iniQuests()
     statusId[id]=4;
     germanRace[id]="Wölfe"; 
     englishRace[id]="wolves";
-    table.insert(questList[391],id); 
-    table.insert(questList[392],id); 
-    table.insert(questList[393],id); 
-    table.insert(questList[394],id); 
+    table.insert(questList[391],id); --Wolf
+    table.insert(questList[392],id); --Welp
+    table.insert(questList[393],id); --Young Wolf
+    table.insert(questList[394],id); --GiantWolf
+	table.insert(questList[395],id); --Pack Leader
+    table.insert(questList[396],id); --Peaceful Wolf
+    table.insert(questList[401],id); --Ghost Wolf
+    table.insert(questList[411],id); --Lambslaughterer
+	table.insert(questList[421],id); --Grey Tail
+    table.insert(questList[431],id); --Redwolf
     minimumQueststatus[id]=23; 
     maximumQueststatus[id]=29; 
     questLocation[id]=position(775,475,0); 
