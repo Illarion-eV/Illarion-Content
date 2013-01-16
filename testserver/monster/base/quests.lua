@@ -577,7 +577,7 @@ function iniQuests()
     minimumQueststatus[id]=3; 
     maximumQueststatus[id]=8; 
     questLocation[id]=position(665,415,0); 
-    radius[id]=35; 
+    radius[id]=50; 
 
     --Quest 15: The Craven Orc III (3)
 
@@ -596,7 +596,7 @@ function iniQuests()
     minimumQueststatus[id]=10; 
     maximumQueststatus[id]=20; 
     questLocation[id]=position(665,415,0); 
-    radius[id]=35; 
+    radius[id]=50; 
 
     --Quest 16: The Errant Crusade II
 
