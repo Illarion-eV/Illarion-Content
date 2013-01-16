@@ -612,6 +612,8 @@ function iniQuests()
     table.insert(questList[104],id); 
     table.insert(questList[106],id);    
     table.insert(questList[107],id);
+	table.insert(questList[151],id);
+	table.insert(questList[152],id);	
 	table.insert(questList[171],id);
 	table.insert(questList[172],id);
 	table.insert(questList[173],id);
@@ -634,6 +636,16 @@ function iniQuests()
     table.insert(questList[113],id); 
     table.insert(questList[114],id); 
     table.insert(questList[115],id); 
+	table.insert(questList[751],id); 
+    table.insert(questList[753],id); 
+    table.insert(questList[754],id); 
+    table.insert(questList[761],id); 
+    table.insert(questList[762],id); 
+	table.insert(questList[763],id); 
+    table.insert(questList[764],id); 
+    table.insert(questList[782],id); 
+    table.insert(questList[783],id); 
+    table.insert(questList[784],id); 
     minimumQueststatus[id]=11; 
     maximumQueststatus[id]=23; 
     questLocation[id]=position(705,410,-3); 
