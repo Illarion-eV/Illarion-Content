@@ -660,7 +660,7 @@ function iniQuests()
     statusId[id]=104;
     englishRace[id]="blood mages"; 
     germanRace[id]="Blutmagier";
-    table.insert(questList[4],id); 
+    table.insert(questList[101],id); 
     minimumQueststatus[id]=26; 
     maximumQueststatus[id]=28; 
     questLocation[id]=position(705,410,-3); 
