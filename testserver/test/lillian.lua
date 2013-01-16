@@ -87,8 +87,8 @@ function sortTable(inputTable)
 	for i= 1, #(numberTable) do
 		for j=2, #(inputTable), 2 do
 			if inputTable[j] == numberTable[i] then
-				table.insert(sortedTable, inputTable[j-1]);
-				table.insert(sortedTable, inputTable[j]);
+				table.insert(sortedTable, 1, inputTable[j-1]);
+				table.insert(sortedTable, 1, inputTable[j]);
 			end
 		end
 	end
