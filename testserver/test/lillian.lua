@@ -5,7 +5,7 @@ require("base.common")
 module("test.lillian", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-	ScriptVars:set("ArenaListCadomyr", "Hans;543;Peter;321;Wolfgang;987;Klaus;111;Holger;222")
+	ScriptVars:set("ArenaListCadomyr", "Hans Zwei;543;Peter Drei;321;Wolfgang Eins;987;Klaus Fünf;111;Holger Vier;222")
 	local splitTable = {}
 	if (User.lastSpokenText == "list") then
 		getRanklist(User, User, true)
@@ -34,7 +34,7 @@ function getRanklist(User, NPC, message)
 	for i=1, 5 do -- get the top 5
 		found, arenaEntry = ScriptVars:find("ArenaListCadomyr");
 		if found then
-			arenaList = split(arenaEntry, ";");
+			arenaList = sortTable(split(arenaEntry, ";"));
 		elseif found == false or table.getn(arenaList) ~= 10 then
 			User:inform("[ERROR] An error occured please contact a developer.")
 		end
@@ -78,7 +78,21 @@ function getArena(User, NPC)
 end
 
 function sortTable(inputTable)
-
+	local numberTable = {}
+	local sortedTable = {}
+	for i=2, #(inputTable), 2 do
+		table.insert(numberTable, inputTable[i]);
+	end	
+	table.sort(numberTable);
+	for i= 1, #(numberTable) do
+		for j=2, #(inputTable), 2 do
+			if inputTable[j] == numberTable[i] then
+				table.insert(sortedTable, inputTable[j-1]);
+				table.insert(sortedTable, inputTable[j]);
+			end
+		end
+	end
+	return sortedTable;
 end
 
 --[[
