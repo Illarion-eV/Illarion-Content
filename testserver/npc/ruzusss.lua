@@ -280,15 +280,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("northeast");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, Insurmountable Limes, Evilrock"));
 talkEntry:addResponse("I know following places: Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nordost");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen"));
-talkEntry:addResponse("Dort gibt es: Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Elstree Wald, Elstree Ebene, Ostland, Schulterplatte Insel, Todes Sumpf, Spinnen Maul, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen"));
+talkEntry:addResponse("Dort gibt es: Elstree Wald, Elstree Ebene, Ostland, Schulterplatte Insel, Todes Sumpf, Spinnen Maul, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -377,7 +377,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Schulterplatten");
+talkEntry:addTrigger("Schulterplatte");
 talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -401,7 +401,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Spinnen Mund");
+talkEntry:addTrigger("Spinnen Maul");
 talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1106,6 +1106,18 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Chapel");
+talkEntry:addResponse("The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Kapelle");
+talkEntry:addResponse("Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Lumpskrump Band");
 talkEntry:addResponse("This place of bandits on the road to the east after the Desert Hole.");
@@ -1390,14 +1402,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Numila");
 talkEntry:addTrigger("Irunnleh");
-talkEntry:addResponse("Die findet man in Runewick und die weiß sämtliche Orte im Südosten, sprich um Runewick.");
+talkEntry:addResponse("You can find her in Runewick and she knows several places in the southeast, thus around Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Numila");
 talkEntry:addTrigger("Irunnleh");
-talkEntry:addResponse("You can find her in Runewick and he knows several places in the southeast, thus around Runewick.");
+talkEntry:addResponse("Die findet man in Runewick und die kennt sämtliche Orte im Südosten, sprich um Runewick.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -87,8 +87,8 @@ english, "Elesil", "Daelwon" -> "You can find her outside of the town close to t
 -- Places
 english, "Illarion" -> inform("[Keywords] northeast, northwest, southwest, southeast"), "This land is called Illarion and I devide it in northeast, northwest, southwest and southeast."
 "Illarion" -> inform("[Schlüsselwörter] Nordosten, Nordwesten, Südwesten, Südosten"), "Dieses Land wird Illarion genannt und ich unterteile es in in Nordost, Nordwest, Südwest und Südost."
-"northeast" -> inform("[Keywords] Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock"), "I know following places: Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock."
-"Nordost" -> inform("[Schlüsselwörter] Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen"), "Dort gibt es: Elstree Wald, Elstree Ebene, Ostland, Schulterplatten Insel, Todes Sumpf, Spinnenmund, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen."
+"northeast" -> inform("[Keywords] Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, Insurmountable Limes, Evilrock"), "I know following places: Elstree Forest, Elstree Plain, Eastland, Pauldron Isle, The Dead Marsh, Spider's Mouth, Hemp Necktie Inn, Bounding Stream, Glowing River, Plains of Silence, Northern Woods, The Insurmountable Limes, Evilrock."
+"Nordost" -> inform("[Schlüsselwörter] Elstree Wald, Elstree Ebene, Ostland, Schulterplatte Insel, Todes Sumpf, Spinnen Maul, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen"), "Dort gibt es: Elstree Wald, Elstree Ebene, Ostland, Schulterplatte Insel, Todes Sumpf, Spinnen Maul, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen."
 "northwest" -> inform("[Keywords] Lake Syrita, Nargun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau"), "I know following places: Lake Syrita, Nargun's Plain, The Swamp, Temple of the Five, Lonely Mountains, Galmair Plateau."
 "Nordwest" -> inform("[Schlüsselwörter] See Syrita, Narguns Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene"), "Ich habe Informationen zu folgenden Orten: See Syrita, Narguns Ebene, Der Sumpf, Tempel der Fünf, Einsame Berge, Galmair Hochebene."
 "southwest" -> inform("[Keywords] Shadowland, Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert"), "I know following places: Shadowland, The Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert."
@@ -104,11 +104,11 @@ english, "Illarion" -> inform("[Keywords] northeast, northwest, southwest, south
 "Eastland" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
 "Ostland" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Pauldron Isle" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
-"Schulterplatten Insel" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Schulterplatte Insel" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Dead Marsh" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
 "Todes Sumpf" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
-"Spider's Mouth", "spider mouth" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
-"Spinnen Mund" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
+"Spider's Mouth", "spiders mouth" -> "Well, as I said, it is in the northeast and you better ask someone who lives there. For example Wulfgorda."
+"Spinnen Maul" -> "Nun, wie ich schon sagte, dieser Ort ist im Nordosten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Wulfgorda."
 "Hemp Necktie Inn" -> "The Hemp Necktie Inn is a neutral taverne in the Spider's Mouth and many adventurer are resting there. Among others Wulfgorda. You can use the teleporter to get there."
 "Gasthof Hanfschlinge" -> "Der Gasthof zur Hanfschlinge ist eine neutrale Taverne im Spinnen Mund und viele Abenteuerer rasten dort. Unteranderem Wulfgorda. Du kannst den Teleporter verwenden um dort hinzukommen."
 queststatus(650) < 1, english, "Wulfgorda" -> inform("[New Quest] Try to find Wulfgorda and bring her the sibanac leafs to get your reward."), "Wulfgorda is a hunter who knows almost each place in the northeast. You can find her infront of the Hemp Necktie Inn. Furthermore, you should bring her these leafs here. *hands some sibanac leafs*", item(155, 10, 333), queststatus(650) = 1
@@ -164,9 +164,11 @@ english, "Lotta", "Medborgar" -> "You can find her in Galmair and she knows seve
 english, "Katanbi Delta" -> "Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr."
 "Katanbi Delta" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
 english, "Ruzusss" -> "You can find him in Cadomyr and he knows several places in the southwest, thus around Cadomyr."
-"Ruzusss" -> "Den findet man in Cadomyr und der weiß sämtliche Orte im Südwesten, sprich um Cadomyr."
+"Ruzusss" -> "Den findet man in Cadomyr und der kennt sämtliche Orte im Südwesten, sprich um Cadomyr."
 "Chapel Five" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert."
 "Kapelle Fünf" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste."
+"Chapel" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert."
+"Kapelle" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste."
 
 -- southeast
 "Snakehead Bay" -> "The bay westwards from Runewick is called Snakehead Bay."
