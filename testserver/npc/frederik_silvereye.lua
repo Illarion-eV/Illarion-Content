@@ -1357,7 +1357,7 @@ talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
 talkEntry:addResponse("...pardon?");
 talkEntry:addResponse("Well...");
-talkEntry:addResponse("#me lookes around.");
+talkEntry:addResponse("#me looks around.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
