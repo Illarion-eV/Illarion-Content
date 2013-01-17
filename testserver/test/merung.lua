@@ -15,6 +15,11 @@ function UseItem(User, SourceItem)
 	if (User.lastSpokenText == "carpentry") then
         User:increaseSkill(Character.carpentry,100)
     end
+	if (User.lastSpokenText == "attribute") then
+        User:increaseAttrib("essence",10)
+		User:increaseAttrib("perception",10)
+		User:increaseAttrib("intelligence",10)
+    end
 	local a,b,lockId = string.find(User.lastSpokenText,"lockId (%d+)")
     if a ~= nil then
 	    local myItem=base.common.GetFrontItem(User)
