@@ -23,7 +23,7 @@ function MoveToField( User )
         User:warp(position(740,406,-3));
 	    world:gfx(41,User.pos);
 	    world:makeSound(13,User.pos);
-	elseif User.pos == position(728,436,-3) then --to the portal room
+	elseif User.pos == position(728,433,-3) then --to the portal room
 		world:gfx(41,User.pos);
 	    world:makeSound(13,User.pos);
         User:warp(position(728,436,-3));
