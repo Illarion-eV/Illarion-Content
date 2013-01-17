@@ -26,7 +26,7 @@ function UseItem(User, SourceItem, ltstate)
         return
   end	
   
-  local foundSource
+  local foundSource = false;
   -- check for well or fountain
   TargetItem = base.common.GetItemInArea(User.pos, 2207);
   if (TargetItem == nil) then
