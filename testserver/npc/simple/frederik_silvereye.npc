@@ -261,7 +261,7 @@ english, "Frederik", "Silvereye" -> "Yes, that's me!", "Who? Me?", "#me waves."
 "gesundheit" -> "Danke."
 
 -- Optional: Everything a player says and is not caught earlier. Response is only given 1/5 of the time
-english, chance(20.0), ".*" -> "...pardon?", "Well...", "#me lookes around."
+english, chance(20.0), ".*" -> "...pardon?", "Well...", "#me looks around."
 german, chance(20.0), ".*" -> "...bitte?", "Mhm....", "#me schaut sich um."
 
 ------------------------------------------------------------------------------AC

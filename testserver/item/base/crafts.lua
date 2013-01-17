@@ -170,7 +170,7 @@ function Craft:showDialog(user, source)
         elseif result == CraftingDialog.playerCraftingAborted then
             self:swapToInactiveItem(user)
         else
-            -- user:inform("Dialog closed!")
+            self:swapToInactiveItem(user)
         end
     end
     local dialog = CraftingDialog(self:getName(user), self.sfx, self.sfxDuration, callback)
