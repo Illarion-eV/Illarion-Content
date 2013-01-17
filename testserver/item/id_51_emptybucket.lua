@@ -150,10 +150,15 @@ function GetCauldron(User)
 end
 
 function GetWaterTilePosition(User)
+  local targetPos = base.common.GetFrontPosition(User);
+  if (base.common.GetGroundType(world:getField(targetPos):tile()) == base.common.GroundType.water) then
+        return targetPos;
+  end
+  
   local Radius = 1;
   for x=-Radius,Radius do
     for y=-Radius,Radius do 
-      local targetPos = position(User.pos.x + x, User.pos.y, User.pos.z);
+      targetPos = position(User.pos.x + x, User.pos.y, User.pos.z);
       if (base.common.GetGroundType(world:getField(targetPos):tile()) == base.common.GroundType.water) then
         return targetPos;
       end
