@@ -655,7 +655,6 @@ end
 -- combine of stock and essence brew to create a potion
 -- function is only called when item 331 is a stock or when a potion-bottle is an essence brew
 function CombineStockEssence( User, stock, essenceBrew)
-   
    local cauldron = GetCauldronInfront(User)
     if cauldron then
         
@@ -759,6 +758,9 @@ function FillIntoCauldron(User,SourceItem,cauldron,ltstate)
 			
 		elseif cauldron:getData("filledWith") == "stock" then -- stock is in the cauldron; we call the combin function
 				CombineStockEssence( User, cauldron, SourceItem)
+				if check == false then
+				  return
+				end
 				
 		else -- nothing in the cauldron, we just fill in the essence brew
 			FillFromTo(SourceItem,cauldron)	
