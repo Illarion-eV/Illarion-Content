@@ -66,8 +66,6 @@ function onCasted(Monster,Enemy)
 end
 
 function onDeath(Monster)
-
-
 	
 	if killer and killer[Monster.id] ~= nil then
 
@@ -110,8 +108,14 @@ function onDeath(Monster)
 
 	elseif (MonID==591 or MonID==592 or MonID==593 or MonID==594 or MonID==981 or MonID==991 or MonID==1001 or MonID==1011) then --beetle
 
-        monster.base.drop.AddDropItem(254,1,50,333,0,1); --stone
-        monster.base.drop.AddDropItem(1266,10,100,333,0,2); --stone
+        monster.base.drop.AddDropItem(251,1,4,333,0,1); --raw amethyst
+		monster.base.drop.AddDropItem(252,1,3,333,0,1); --raw obsidian
+        monster.base.drop.AddDropItem(253,1,3,333,0,1); --raw sapphire
+		monster.base.drop.AddDropItem(254,1,1,333,0,1); --raw diamond
+		monster.base.drop.AddDropItem(255,1,4,333,0,1); --raw ruby
+		monster.base.drop.AddDropItem(256,1,2,333,0,1); --raw emerald
+		monster.base.drop.AddDropItem(257,1,2,333,0,1); --raw topaz
+        monster.base.drop.AddDropItem(1266,math.random(5,10),100,333,0,2); --stone
 		
 	elseif (MonID==601 or MonID==602 or MonID==603 or MonID==604 or MonID==1021 or MonID==1022) then --fox
 
