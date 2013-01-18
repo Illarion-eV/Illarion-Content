@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Regallo                                                          --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -620,16 +620,16 @@ talkEntry:addTrigger(".*");
 talkEntry:addResponse("Das hat nichts mit mir zu tun, entschuldigt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Diess Mädchen ist so dünn.", "That girl's far too skinny.");
-talkingNPC:addCycleText("Ich habe hunger. Ich meine, ich habe keinem Hunger.", "Ugh.. I'm hungry. No I'm not! Mind over matter!");
-talkingNPC:addCycleText("Kommt, esst mein Brot, schmeckt besser als cadomyrische Sandratte!", "Come eat my bread! It's better than a Cadomyrian sand rat. At least.. I hope so.");
-talkingNPC:addCycleText("Der alte John Sights sagte mir, ich soll Euch sagen, dass ich Alysa Lorthelia bin, die Tochter der Waffenschmiedein Asha Lorthelia.", "The old John Sights told me I should tell everyone that I'm Alysa Lorthelia, daughter of Aysha, the weapon smith!");
-talkingNPC:addCycleText("Ich backe Brot so gut, wie meine Mutter Waffen herstellt.", "I bake bread as well as my mother crafts weapons!");
-talkingNPC:addCycleText("Mein Magen schmerzt. Diese Brot um mich herum. Das ist Folter.", "My stomach hurts. All this bread sitting around me. It's torture.");
-talkingNPC:addCycleText("Calthors kurze Abhandlung üder die Geschichte der Feen ist das beste Buch was ich jemals gelesen habe.", "The Calthor Digest on the history of fairies is the best book I've ever read!");
-talkingNPC:addCycleText("Wo ist Papa schon wieder hin verschwunden? Er ist ständig weg.", "Where did dad wander off to? He's always disappearing.");
-talkingNPC:addCycleText("Ich werde Ce im Kochwettbewerb schlagen.", "I will destroy Ce-Ce in our bake off.");
-talkingNPC:addCycleText("Ich frage mich ob Mutter sich jemals einen Tag frei nimmt.", "I wonder if mum'll ever take a day off.");
+talkingNPC:addCycleText("Dieses Mädchen ist so dünn.", "That girl is so skinny.");
+talkingNPC:addCycleText("Ich habe Hunger. Ich meine, ich habe keinen Hunger.", "Ugh.. I'm hungry. No I'm not! Mind over matter!");
+talkingNPC:addCycleText("Kommt, esst mein Brot, schmeckt besser als cadomyrische Sandratte!", "Come and eat my bread! It's better than a Cadomyrian sand rat. At least.. I hope so.");
+talkingNPC:addCycleText("Der alte John Sights sagte mir, ich solle Euch sagen, dass ich Alysa Lorthelia bin, die Tochter der Waffenschmiedin Asha Lorthelia.", "Old John Sights asked me to tell everyone that I'm Alysa Lorthelia, daughter of Aysha the armourer!");
+talkingNPC:addCycleText("Ich backe Brot so gut, wie meine Mutter Waffen herstellt.", "I bake bread just as well as my mother crafts weapons!");
+talkingNPC:addCycleText("Mein Magen schmerzt. Dieses Brot um mich herum. Das ist Folter!", "My stomach hurts. All this bread around me. It's torture!");
+talkingNPC:addCycleText("Calthors kurze Abhandlung über die Geschichte der Feen ist das beste Buch, das ich jemals gelesen habe.", "The Calthor Digest on the history of fairies is the best book I've ever read!");
+talkingNPC:addCycleText("Wohin ist Papa schon wieder verschwunden? Er ist ständig weg!", "Dad wandered off again.. but where to? He's always gone!");
+talkingNPC:addCycleText("Ich werde Ce-Ce im Kochwettbewerb schlagen.", "I will destroy Ce-Ce in the next cook-off.");
+talkingNPC:addCycleText("Ich frage mich, ob Mutter sich jemals einen freien Tag gönnt.", "I wonder if mum ever takes a day off.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(51,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(118,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(121,"sell"));
@@ -718,7 +718,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
