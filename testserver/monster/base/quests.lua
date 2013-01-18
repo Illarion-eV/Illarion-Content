@@ -499,7 +499,7 @@ function iniQuests()
     minimumQueststatus[id]=1; 
     maximumQueststatus[id]=7; 
     questLocation[id]=position(775,475,0); 
-    radius[id]=100; 
+    radius[id]=75; 
 
     --Quest 11: The Poacher II (4)
 
@@ -516,7 +516,7 @@ function iniQuests()
     minimumQueststatus[id]=9; 
     maximumQueststatus[id]=21; 
     questLocation[id]=position(775,475,0); 
-    radius[id]=100; 
+    radius[id]=75; 
 
     --Quest 12: The Poacher III (4)
 
@@ -540,7 +540,7 @@ function iniQuests()
     minimumQueststatus[id]=23; 
     maximumQueststatus[id]=29; 
     questLocation[id]=position(775,475,0); 
-    radius[id]=100; 
+    radius[id]=75; 
 
     --Quest 13: The Poacher IV (4)
 
@@ -555,7 +555,7 @@ function iniQuests()
     minimumQueststatus[id]=30; 
     maximumQueststatus[id]=31; 
     questLocation[id]=position(775,475,0); 
-    radius[id]=100; 
+    radius[id]=75; 
 
     --Quest 14: The Craven Orc II (3)
 
@@ -576,7 +576,7 @@ function iniQuests()
     minimumQueststatus[id]=3; 
     maximumQueststatus[id]=8; 
     questLocation[id]=position(665,415,0); 
-    radius[id]=50; 
+    radius[id]=35; 
 
     --Quest 15: The Craven Orc III (3)
 
@@ -595,7 +595,7 @@ function iniQuests()
     minimumQueststatus[id]=10; 
     maximumQueststatus[id]=20; 
     questLocation[id]=position(665,415,0); 
-    radius[id]=50; 
+    radius[id]=35; 
 
     --Quest 16: The Errant Crusade II
 
