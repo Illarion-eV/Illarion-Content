@@ -608,13 +608,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Lonely Mountains");
+talkEntry:addTrigger("Lonely Mountain");
 talkEntry:addResponse("These are the mountains around us.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Einsame Berge");
+talkEntry:addTrigger("Einsam Berg");
 talkEntry:addResponse("Das sind die Berge um uns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
