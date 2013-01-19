@@ -20,7 +20,7 @@ function newPokerTable(
                         fileRake             -- Path to the rake file
                       )
                       
-    npcDealer:increaseSkill(1,"common language",100);
+    npcDealer:increaseSkill(Character.commonLanguage, 100);
 
     local indexSet = function()
         local t = {};
@@ -549,8 +549,6 @@ function newPokerTable(
                     if not self.listPlayer[i] or (self.listPlayer[i].id ~= char.id) then
                         self.listPlayer[i] = char;
                         self.numberPlayer = self.numberPlayer + 1;
-                        char:introduce(self.npcDealer);
-                        char:setAttrib( "perception", 254 );
                         self.npcDealer:talk(Character.say, "Seat "..i.." has been taken.");
                     end;
                 else
