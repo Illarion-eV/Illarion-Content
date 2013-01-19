@@ -15,7 +15,7 @@ function newCardDeck( cardList )
         local i,j;
         local newCardList = {};
         local indexList = {};
-        math.randomseed(os.time());
+        math.randomseed(world:getTime("unix"));
         for i=1,self.numCards do
             indexList[i] = i;
         end;
