@@ -322,7 +322,7 @@ function newPokerTable(
     
     local setFixedItemOnField = function( id, amount, pos )
         if amount > 0 then
-            local item = world:createItemFromId( id, amount, pos, true, 333, 0 );
+            local item = world:createItemFromId( id, amount, pos, true, 333, nil );
             item.wear = 255;
             world:changeItem( item );
         end;
@@ -455,7 +455,7 @@ function newPokerTable(
             if units > 0 then
                 p:eraseItem( self.unitId, units );
             elseif units < 0 then
-                p:createItem( self.unitId, -units, 333, 0);
+                p:createItem( self.unitId, -units, 333, nil);
             end;
         end;
         
@@ -506,9 +506,9 @@ function newPokerTable(
     
     local payPlayer = function( pid, amount )
         local ints = math.floor( amount );
-        self.listPlayer[pid]:createItem( self.hundredthId, ( amount - ints ) * 100, 333, 0 );
-        self.listPlayer[pid]:createItem( self.unitId, math.mod( ints, 100 ), 333, 0 );
-        self.listPlayer[pid]:createItem( self.hundredId, math.floor( ints / 100 ), 333, 0 );
+        self.listPlayer[pid]:createItem( self.hundredthId, ( amount - ints ) * 100, 333, nil );
+        self.listPlayer[pid]:createItem( self.unitId, math.mod( ints, 100 ), 333, nil );
+        self.listPlayer[pid]:createItem( self.hundredId, math.floor( ints / 100 ), 333, nil );
     end;
     
     local payPotsToPlayer = function()
