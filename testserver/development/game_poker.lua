@@ -44,6 +44,7 @@ function newPokerTable(
     local self = {
         -- static part
         npcDealer          = npcDealer,
+        hundredthId        = hundredthId,
         unitId             = unitId,
         hundredId          = hundredId,
         buttonId           = buttonId,
