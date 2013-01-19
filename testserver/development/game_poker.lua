@@ -535,7 +535,7 @@ function newPokerTable(
             i=i+1;
         end;
         str = str .. " ]";
-        self.listPlayer[self.activePlayer]:inform("#w ##### Available cards are: "..str.." #####");
+        self.listPlayer[self.activePlayer]:inform("Available cards are: "..str, Character.highPriority);
     end;
     
     local nextCycle = function()
@@ -590,7 +590,7 @@ function newPokerTable(
                             cardHigh = card;
                             self.buttonPlayer = i;
                         end;
-                        self.listPlayer[i]:inform("#w ##### You got the "..card.getEnglish().." #####");
+                        self.listPlayer[i]:inform("You got the "..card.getEnglish(), Character.highPriority);
                     end;
                 end;
                 self.activePlayer = self.buttonPlayer;
@@ -601,7 +601,7 @@ function newPokerTable(
                 if self.timeoutCounter == 0 then
                     self.numberInHand = self.numberPlayer;
                     self.npcDealer:talk(Character.say, "Seat "..self.activePlayer..", please place the small blind.");
-                    self.listPlayer[self.activePlayer]:inform("#w ##### You can now place the small blind #####");
+                    self.listPlayer[self.activePlayer]:inform("You can now place the small blind", Character.highPriority);
                 end;
                 if isTimeout() then
                     if self.numberPlayer < 2 then
@@ -614,7 +614,7 @@ function newPokerTable(
         elseif (self.gameState == 2) then -- wait for big blind  
             if self.timeoutCounter == 0 then
                 self.npcDealer:talk(Character.say, "Seat "..self.activePlayer..", please place the big blind.");
-                self.listPlayer[self.activePlayer]:inform("#w ##### You can now place the big blind #####");
+                self.listPlayer[self.activePlayer]:inform("You can now place the big blind", Character.highPriority);
             end;
             if isTimeout() then
                 if self.numberPlayer < 2 then
@@ -638,7 +638,7 @@ function newPokerTable(
                 else
                     str = "call and raise";
                 end;
-                self.listPlayer[self.activePlayer]:inform("#w ##### You can now fold, "..str.." #####");
+                self.listPlayer[self.activePlayer]:inform("You can now fold, "..str, Character.highPriority);
             end;
             if isTimeout() then
                 if self.numberInHand < 2 then
@@ -653,7 +653,7 @@ function newPokerTable(
 	        if self.timeoutCounter == 0 then
 	            self.npcDealer:talk(Character.say, "What will you do with your cards seat "..self.activePlayer.."?");
 	            showAvailableCards();
-                self.listPlayer[self.activePlayer]:inform("#w ##### You can now fold or show your cards #####");
+                self.listPlayer[self.activePlayer]:inform("You can now fold or show your cards", Character.highPriority);
 	        end;
             if isTimeout() then
 	            if self.numberInHand < 2 then
@@ -684,7 +684,7 @@ function newPokerTable(
                         self.gameState = 2;
                         self.timeoutCounter = 0;
                     else
-                        self.listPlayer[self.activePlayer]:inform("#w ##### You have not enough money to cover the small blind #####");
+                        self.listPlayer[self.activePlayer]:inform("You have not enough money to cover the small blind", Character.highPriority);
                     end;
                 end;
             elseif (self.gameState == 2) then -- big blind
@@ -698,13 +698,13 @@ function newPokerTable(
                         for i=1,self.tableSize do
                             if self.listPlayer[i] then
                                 self.listPocket1[i] = self.cardDeck52.draw();
-                                self.listPlayer[i]:inform("#w ##### You got the "..self.listPocket1[i].getEnglish().." as first pocket card #####");
+                                self.listPlayer[i]:inform("You got the "..self.listPocket1[i].getEnglish().." as first pocket card", Character.highPriority);
                             end;
                         end;
                         for i=1,self.tableSize do
                             if self.listPlayer[i] then
                                 self.listPocket2[i] = self.cardDeck52.draw();
-                                self.listPlayer[i]:inform("#w ##### You got the "..self.listPocket2[i].getEnglish().." as second pocket card #####");
+                                self.listPlayer[i]:inform("You got the "..self.listPocket2[i].getEnglish().." as second pocket card", Character.highPriority);
                             end;
                         end;
                         nextPlayer();
@@ -712,7 +712,7 @@ function newPokerTable(
                         self.gameState = 3;
                         self.timeoutCounter = 0;
                     else
-                        self.listPlayer[self.activePlayer]:inform("#w ##### You have not enough money to cover the big blind #####");
+                        self.listPlayer[self.activePlayer]:inform("You have not enough money to cover the big blind", Character.highPriority);
                     end;
                 end;                
             elseif (self.gameState >= 3) and (self.gameState <= 6) then -- betting
@@ -749,13 +749,13 @@ function newPokerTable(
                                     self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." bets "..amount..".");
                                     cont = true;
                                 else
-                                    self.listPlayer[self.activePlayer]:inform("#w ##### You do not have enough money to cover this bet #####");
+                                    self.listPlayer[self.activePlayer]:inform("You do not have enough money to cover this bet", Character.highPriority);
                                 end;
                             else
-                                self.listPlayer[self.activePlayer]:inform("#w ##### You have to bet at least the big blind ("..self.bigBlind..") #####");
+                                self.listPlayer[self.activePlayer]:inform("You have to bet at least the big blind ("..self.bigBlind..")", Character.highPriority);
                             end;
                         else
-                            self.listPlayer[self.activePlayer]:inform("#w ##### You have to bet a certain amount #####");
+                            self.listPlayer[self.activePlayer]:inform("You have to bet a certain amount", Character.highPriority);
                         end;                            
                     end;                        
                 else
@@ -787,13 +787,13 @@ function newPokerTable(
                                     self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." raises to "..amount..".");
                                     cont = true;
                                 else
-                                    self.listPlayer[self.activePlayer]:inform("#w ##### You do not have enough money to cover this raise #####");
+                                    self.listPlayer[self.activePlayer]:inform("You do not have enough money to cover this raise", Character.highPriority);
                                 end;
                             else
-                                self.listPlayer[self.activePlayer]:inform("#w ##### You have to raise to the current maximum bet/raise plus the big blind ("..(self.bigBlind+self.maxBet)..") at least #####");
+                                self.listPlayer[self.activePlayer]:inform("You have to raise to the current maximum bet/raise plus the big blind ("..(self.bigBlind+self.maxBet)..") at least", Character.highPriority);
                             end;
                         else
-                            self.listPlayer[self.activePlayer]:inform("#w ##### You have to raise to a certain amount #####");
+                            self.listPlayer[self.activePlayer]:inform("You have to raise to a certain amount", Character.highPriority);
                         end;
                     end;
                 end;
