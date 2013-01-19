@@ -82,26 +82,26 @@ queststatus(107) > 14, ".+" -> inform("[Error] Something went wrong, please info
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Groktan Flintsplit der 'Erinnerer'. Schlüsselwörter: Erinnerer, Don Valerio Guilianni, Quest, Götter, Schulden, Geld.")
 
 -- General speech
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "You're not here to pay a bill. So, what is it you want?", "Your account with the Don is balanced. Whatcha want?", "A good day to you, a good day for Galmair."
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "You're not here to pay a bill, so, what is it you want?", "Your account with the Don is balanced. Whatcha want?", "A good day to you, a good day for Galmair."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Du bist nicht hier, um eine Rechnung zu begleichen. Also, was gibt es?", "Du hast keine offenen Rechnungen mit dem Don. Was ist los?", "Einen guten Tag wünsche ich, einen guten Tag für Galmair."
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "You're not here to pay a bill. So, what is it you want?", "Your account with the Don is balanced. Whatcha want?", "A good day to you, a good day for Galmair."
+english, "Hiho", "Hallo", "Hey", "Greeb" -> "You're not here to pay a bill, so, what is it you want?", "Your account with the Don is balanced. Whatcha want?", "A good day to you, a good day for Galmair."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Du bist nicht hier, um eine Rechnung zu begleichen. Also, was gibt es?", "Du hast keine offenen Rechnungen mit dem Don. Was ist los?", "Einen guten Tag wünsche ich, einen guten Tag für Galmair."
-"Farewell", "Bye", "Fare well", "See you" -> "Come back with some money!", "Good bye; and always think what the Don would do to you if you disbehave.", "#me grunts: 'Aye, bye'."
+"Farewell", "Bye", "Fare well", "See you" -> "Come back with some money!", "Good bye, and always think what the Don would do to you if you misbehave.", "#me grunts, 'Aye, bye'."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Komm mit Geld zurück!", "Auf wiedersehen; und denk immer daran, was der Don mit dir machen würde, wenn du dich daneben benimmst.", "#me grunzt: 'Aye, servus'."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back with some money!", "Good bye; and always think what the Don would do to you if you disbehave.", "#me grunts: 'Aye, bye'."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Come back with some money!", "Good bye, and always think what the Don would do to you if you misbehave.", "#me grunts, 'Aye, bye'."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Komm mit Geld zurück!", "Auf wiedersehen; und denk immer daran, was der Don mit dir machen würde, wenn du dich daneben benimmst.", "#me grunzt: 'Aye, servus'."
-"How are you", "How feel", "How do you do" -> "The things I do make me feel alright. How about you?", "Well, I know many folks who feel worse, usually, the owe the Don some money.", "Business is good. The Don cares for me and I care for his debt claims."
+"How are you", "How feel", "How do you do" -> "The things I do make me feel alright. How about you?", "Well, I know many folks who feel worse, usually, they owe the Don some money.", "Business is good. The Don cares for me and I care for his debt claims."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen", "Wie Befinden" -> "Was mache mache, stellt mich zufrieden. Und wie sieht das bei dir aus?", "Nun, ich kenne viele Leute, denen es weit schlechter geht. Meist schulden sie dem Don Geld.", "Das Geschäft läuft bestens. Der Don sorgt für mich und ich kümmere mich um seine Schuldscheine."
-"your name", "who are you", "who art thou" -> "I am Badman!", "They call me Groktan. As long as they didn't mess with me. Then, they call me Master Groktan!", "Groktan Flintsplit. At the Don's service."
+"your name", "who are you", "who art thou" -> "I am Badman!", "They call me Groktan, as long as they don't mess with me... Then, they call me Master Groktan!", "Groktan Flintsplit. At the Don's service."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich bin Badman!", "Die Leute nennen mich Groktan, solange sie sich mit mir noch nicht angelegt haben. Hinterher nennen sie mich dann Meister Groktan!", "Groktan Flintsplit. Stets dem Don zu Diensten."
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Bring 5 ropes, reward 200cp
 
 -- Give out quest 1
-queststatus(107) = 0, english, "quest", "mission" -> inform("[New quest] The Reminder I"), "Aye, ye can help meh. We need five ropes. You know for what, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you...", queststatus(107) = 1
+queststatus(107) = 0, english, "quest", "mission" -> inform("[New quest] The Reminder I"), "Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you...", queststatus(107) = 1
 queststatus(107) = 0, "quest", "mission" -> inform("[Neues Quest] Die Erinnerung I"), "Japp, ich hätte einen Handlangerdienst. Bring' mir fünf Seile, du weist, wofür. Frag nicht! Bring sie ran und alles ist gut, bring sie nicht und ich werde dich an sie... 'erinnern'.", queststatus(107) = 1
-queststatus(107) = 0, "task", "adventure", "message" -> inform("[New quest] The Reminder I"), "Aye, ye can help meh. We need five ropes. You know for what, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you...", queststatus(107) = 1
+queststatus(107) = 0, "task", "adventure", "message" -> inform("[New quest] The Reminder I"), "Aye, ye can help meh. We need five ropes. You know what for, do not ask. Bring 'em and all is fine. If you don't, I'll 'remind' you...", queststatus(107) = 1
 queststatus(107) = 0, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Die Erinnerung I"), "Japp, ich hätte einen Handlangerdienst. Bring' mir fünf Seile, du weist, wofür. Frag nicht! Bring sie ran und alles ist gut, bring sie nicht und ich werde dich an sie... 'erinnern'.", queststatus(107) = 1
 
 -- Quest 1 taken but not solved, repeat the instructions
@@ -111,23 +111,23 @@ queststatus(107) = 1, item(2760, all) < 5, "task", "adventure", "message" -> "Fi
 queststatus(107) = 1, item(2760, all) < 5, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Fünf feste Hanfseile brauch ich. Bring sie her oder knüpf sie schonmal an den Baum auf dem Marktplatz, wie du meinst."
 
 -- Quest 1 solved, reward: 200cp, +5 rankpoints
-queststatus(107) = 1, item(2760, all) > 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins. You advance in Don Valerio Guilianni's favour."), "Ah, yes, five strong ropes. They'll do the job. You know which job. If you are loyal to the Don, you can do another mission for me.", money + 2000, deleteItem(2760, 5), queststatus(107) = 2, rankpoints + 5
-queststatus(107) = 1, item(2760, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), "Ah, yes, five strong ropes. They'll do the job. You know which job. If you are loyal, you can do another mission for me.", money + 2000, deleteItem(2760, 5), queststatus(107) = 2
+queststatus(107) = 1, item(2760, all) > 4, english, town = Cadomyr, ".+" -> inform("[Quest solved] You are awarded 20 silver coins. You advance in Don Valerio Guilianni's favour."), "Ah, yes, five strong ropes. They'll do the job, you know which job. If you are loyal to the Don, you can do another mission for me.", money + 2000, deleteItem(2760, 5), queststatus(107) = 2, rankpoints + 5
+queststatus(107) = 1, item(2760, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 20 silver coins."), "Ah, yes, five strong ropes. They'll do the job, you know which job. If you are loyal, you can do another mission for me.", money + 2000, deleteItem(2760, 5), queststatus(107) = 2
 queststatus(107) = 1, item(2760, all) > 4, town = Cadomyr, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke. Dein Ansehen bei Don Valerio Guilianni steigt."), "Ah, ja, fünf feste Seile. Sie werden's tun, du weißt schon, was. Wenn du dem Don loyal bist, kannst du eine weitere Mission für mich übernehmen.", money + 2000, deleteItem(2760, 5), queststatus(107) = 2, rankpoints + 5
 queststatus(107) = 1, item(2760, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 20 Silberstücke."), "Ah, ja, fünf feste Seile. Sie werden's tun, du weißt schon, was. Wenn du dem Don loyal bist, kannst du eine weitere Mission für mich übernehmen.", money + 2000, deleteItem(2760, 5), queststatus(107) = 2
 
 -- 2nd quest: Bring a message to Miggs.
 
 -- Give out quest 2
-queststatus(107) = 2, english, "quest", "mission" -> inform("[New quest] The Reminder II: You received a message for Miggs."), "Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it. Just names, don't ask! Bring the list to Miggs and you won't read your name on it.", queststatus(107) = 3
+queststatus(107) = 2, english, "quest", "mission" -> inform("[New quest] The Reminder II: You received a message for Miggs."), "Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it, just names, don't ask! Take the list to Miggs and you won't read your name on it.", queststatus(107) = 3
 queststatus(107) = 2, "quest", "mission" -> inform("[Neues Quest] Die Erinnerung II: Du hast eine Nachricht für Miggs erhalten."), "Aye, du könntest mir noch einen Gefallen tun. Ich habe hier eine Nachricht für Miggs, eine Namensliste. Nur Namen, frag nicht! Bring sie zu Miggs und dein Name wird nicht drauf stehen.", queststatus(107) = 3
-queststatus(107) = 2, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder II: You received a message for Miggs."), "Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it. Just names, don't ask! Bring the list to Miggs and you won't read your name on it.", queststatus(107) = 3
+queststatus(107) = 2, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder II: You received a message for Miggs."), "Aye, another favour you could do, indeed. I have a message for Miggs, a list with names on it, just names, don't ask! Take the list to Miggs and you won't read your name on it.", queststatus(107) = 3
 queststatus(107) = 2, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Die Erinnerung II: Du hast eine Nachricht für Miggs erhalten."), "Aye, du könntest mir noch einen Gefallen tun. Ich habe hier eine Nachricht für Miggs, eine Namensliste. Nur Namen, frag nicht! Bring sie zu Miggs und dein Name wird nicht drauf stehen.", queststatus(107) = 3
 
 -- Quest 2 taken but not solved, repeat the instructions
-queststatus(107) = 3, english, "quest", "mission" -> "Bring my message to Miggs at once! He shouldn't hit the wrong faces, could be yours."
+queststatus(107) = 3, english, "quest", "mission" -> "Take my message to Miggs at once! He shouldn't hit the wrong faces, could be yours."
 queststatus(107) = 3, "quest", "mission" -> "Bring sofort meine Nachricht zu Miggs! Er soll doch nicht in die falschen Fressen schlagen, es könnte deine sein."
-queststatus(107) = 3, "Task", "Adventure", "Message" -> "Bring my message to Miggs at once! He shouldn't hit the wrong faces, could be yours."
+queststatus(107) = 3, "Task", "Adventure", "Message" -> "Take my message to Miggs at once! He shouldn't hit the wrong faces, could be yours."
 queststatus(107) = 3, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Bring sofort meine Nachricht zu Miggs! Er soll doch nicht in die falschen Fressen schlagen, es könnte deine sein."
 
 -- Quest 2 solved, reward: 50cp, red wizard hat, +10 rankpoints
@@ -139,9 +139,9 @@ queststatus(107) = 4, ".+" -> inform("[Quest gelöst] Du erhältst fünf Silbers
 -- 3rd quest: Bring a message to Bruno Blackhole.
 
 -- Give out quest 3
-queststatus(107) = 5, english, "quest", "mission" -> inform("[New quest] The Reminder III: You received a message for Bruno Blackhole."), "Arr! Bruno Blackhole, that filthy bastard, owes the Don quite a sum. You have no problem bringing him this special message from me? Good! Off!", queststatus(107) = 6
+queststatus(107) = 5, english, "quest", "mission" -> inform("[New quest] The Reminder III: You received a message for Bruno Blackhole."), "Arr! Bruno Blackhole, that filthy bastard owes the Don quite a sum. You will have no problem taking him this special message from me? Good! Off!", queststatus(107) = 6
 queststatus(107) = 5, "quest", "mission" -> inform("[Neues Quest] Die Erinnerung III: Du hast eine Nachricht für Bruno Blackhole erhalten."), "Arr! Bruno Blackhole, der dreckige Lump, schuldet dem Don eine ziemliche Summe. Du hast kein Problem damit, ihm diese spezielle Nachricht von mir zu überbringen? Gut! Los!", queststatus(107) = 6
-queststatus(107) = 5, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder III: You received a message for Bruno Blackhole."), "Arr! Bruno Blackhole, that filthy bastard, owes the Don quite a sum. You have no problem bringing him this special message from me? Good! Off!", queststatus(107) = 6
+queststatus(107) = 5, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder III: You received a message for Bruno Blackhole."), "Arr! Bruno Blackhole, that filthy bastard owes the Don quite a sum. You will have no problem taking him this special message from me? Good! Off!", queststatus(107) = 6
 queststatus(107) = 5, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Die Erinnerung III: Du hast eine Nachricht für Bruno Blackhole erhalten."), "Arr! Bruno Blackhole, der dreckige Lump, schuldet dem Don eine ziemliche Summe. Du hast kein Problem damit, ihm diese spezielle Nachricht von mir zu überbringen? Gut! Los!", queststatus(107) = 6
 
 -- Quest 3 taken but not solved, repeat the instructions
@@ -151,8 +151,8 @@ queststatus(107) = 6, "Task", "Adventure", "Message" -> "What are still waiting 
 queststatus(107) = 6, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Warauf wartest du? Mit jedem Tag, der vergeht, steigen die Zinsen, die Bruno Blackhole zu zahlen hat. Ab zur Malachitmine!"
 
 -- Quest 3 solved, reward: warhammer, +10 rankpoints
-queststatus(107) = 7, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded a warhammer. You advance in Don Valerio Guilianni's favour."), "Now Bruno will pay, the one or the other way. Anyway, here, for your good services, have my friend. His name is skull splitter!", item(226, 1, 699), queststatus(107) = 8, rankpoints + 10
-queststatus(107) = 7, english, ".+" -> inform("[Quest solved] You are awarded a warhammer."), "Now Bruno will pay, the one or the other way. Anyway, here, for your good services, have my friend. His name is skull splitter!", item(226, 1, 699), queststatus(107) = 8
+queststatus(107) = 7, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded a warhammer. You advance in Don Valerio Guilianni's favour."), "Now Bruno will pay the debt one way or another. Anyway, here, for your good service, have my friend, his name is skull splitter!", item(226, 1, 699), queststatus(107) = 8, rankpoints + 10
+queststatus(107) = 7, english, ".+" -> inform("[Quest solved] You are awarded a warhammer."), "Now Bruno will paythe debt one way or another. Anyway, here, for your good service, have my friend, his name is skull splitter!", item(226, 1, 699), queststatus(107) = 8
 queststatus(107) = 7, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst einen Kriegshammer. Dein Ansehen bei Don Valerio Guilianni steigt."), "Jetzt wird Bruno zahlen, auf die eine oder andere Weise. Nun, für deine guten Dienste gebe ich dir meinen Freund. Sein Name ist Schädelspalter.", item(226, 1, 699), queststatus(107) = 8, rankpoints + 10
 queststatus(107) = 7, ".+" -> inform("[Quest gelöst] Du erhältst einen Kriegshammer."), "Jetzt wird Bruno zahlen, auf die eine oder andere Weise. Nun, für deine guten Dienste gebe ich dir meinen Freund. Sein Name ist Schädelspalter.", item(226, 1, 699), queststatus(107) = 8
 
@@ -165,9 +165,9 @@ queststatus(107) = 8, "Task", "Adventure", "Message" -> inform("[New quest] The 
 queststatus(107) = 8, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Die Erinnerung IV: Du hast eine Nachricht für Fronita Emery erhalten."), "Sie denkt, sie ist schlau! Fronita Emery, eine Handwerkerin Runewicks, denkt sie kann sich in der Turmstadt verstecken und ihre Schulden nicht bezahlen. Bring ihr diese letzte Mahnung!", queststatus(107) = 9
 
 -- Quest 4 taken but not solved, repeat the instructions
-queststatus(107) = 9, english, "quest", "mission" -> "Fronita Emery owes the Don a lot; her business isn't doing well. Glass goods don't pay off, keep that in mind when bringing her my message."
+queststatus(107) = 9, english, "quest", "mission" -> "Fronita Emery owes the Don a lot and her business isn't doing well. Glass goods don't pay off, keep that in mind when giving her my message."
 queststatus(107) = 9, "quest", "mission" -> "Fronita Emery schuldet dem Don eine Menge; ihr Geschäft läuft nicht so gut. Glaswaren zahlen sich nicht aus, denk daran, wenn du ihr meine Nachricht bringst."
-queststatus(107) = 9, "Task", "Adventure", "Message" -> "Fronita Emery owes the Don a lot; her business isn't doing well. Glass goods don't pay off, keep that in mind when bringing her my message."
+queststatus(107) = 9, "Task", "Adventure", "Message" -> "Fronita Emery owes the Don a lot and her business isn't doing well. Glass goods don't pay off, keep that in mind when giving her my message."
 queststatus(107) = 9, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Fronita Emery schuldet dem Don eine Menge; ihr Geschäft läuft nicht so gut. Glaswaren zahlen sich nicht aus, denk daran, wenn du ihr meine Nachricht bringst."
 
 -- Quest 4 solved, reward: 400cp, +15 rankpoints
@@ -179,44 +179,44 @@ queststatus(107) = 10, ".+" -> inform("[Quest gelöst] Du erhältst 40 Silberst�
 -- 5th quest: Bring a message to Rosaline Edwards.
 
 -- Give out quest 5
-queststatus(107) = 11, english, "quest", "mission" -> inform("[New quest] The Reminder V: You received a message for Queen Rosaline Edwards."), "The Don trusts me and I trust you. This time, you have to deliver a very... special message. Bring this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!", queststatus(107) = 12
+queststatus(107) = 11, english, "quest", "mission" -> inform("[New quest] The Reminder V: You received a message for Queen Rosaline Edwards."), "The Don trusts me and I trust you. This time, you have to deliver a very... special message. Take this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!", queststatus(107) = 12
 queststatus(107) = 11, "quest", "mission" -> inform("[Neues Quest] Die Erinnerung V: Du hast eine Nachricht für Königin Rosaline Edwards erhalten."), "Der Don vertraut mir und ich traue dir. Diesmal musst du eine 'besondere' Nachricht überbringen. Bring diesen 'Brief der Wertschätzung' zur Königin von Cadomyr. Kein Wort zu niemanden! Los!", queststatus(107) = 12
-queststatus(107) = 11, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder V: You received a message for Queen Rosaline Edwards."), "I trust you. The Don trusts you. This time, you have to deliver a very... special message. Bring this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!", queststatus(107) = 12
+queststatus(107) = 11, "Task", "Adventure", "Message" -> inform("[New quest] The Reminder V: You received a message for Queen Rosaline Edwards."), "I trust you. The Don trusts you. This time, you have to deliver a very... special message. Take this 'letter of appreciation' to the Queen of Cadomyr. No word to anyone! Off!", queststatus(107) = 12
 queststatus(107) = 11, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> inform("[Neues Quest] Die Erinnerung V: Du hast eine Nachricht für Königin Rosaline Edwards erhalten."), "Der Don vertraut mir und ich traue dir. Diesmal musst du eine 'besondere' Nachricht überbringen. Bring diesen 'Brief der Wertschätzung' zur Königin von Cadomyr. Kein Wort zu niemanden! Los!", queststatus(107) = 12
 
 -- Quest 5 taken but not solved, repeat the instructions
-queststatus(107) = 12, english, "quest", "mission" -> "Well, well, you didn't deliver the love letter of the Don to Rosaline Edwards? So, what are you waiting for!?"
+queststatus(107) = 12, english, "quest", "mission" -> "Well, well, you haven't delivered the Don's love letter to Rosaline Edwards! So, what are you waiting for?"
 queststatus(107) = 12, "quest", "mission" -> "Soso, den Liebesbrief des Dons für Rosaline Edwards hast du noch nicht überbracht? Also, worauf wartest du!?"
-queststatus(107) = 12, "Task", "Adventure", "Message" -> "Well, well, you didn't deliver the love letter of the Don to Rosaline Edwards? So, what are you waiting for!?"
+queststatus(107) = 12, "Task", "Adventure", "Message" -> "Well, well, you haven't delivered the Don's love letter to Rosaline Edwards! So, what are you waiting for?"
 queststatus(107) = 12, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Soso, den Liebesbrief des Dons für Rosaline Edwards hast du noch nicht überbracht? Also, worauf wartest du!?"
 
 -- Quest 5 solved, reward: uber item, +20 rankpoints
-queststatus(107) = 13, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded a charm of the icebird. You advance in Don Valerio Guilianni's favour."), "I already heard the Queen of Cadomyr wasn't so fond of the message you brought her. The Don won't like to hear the news. My next mission would have been that you bring her this necklace; keep it and keep silent about all this!", item(334, 1, 999), queststatus(107) = 14, rankpoints + 20
-queststatus(107) = 13, english, ".+" -> inform("[Quest solved] You are awarded a charm of the icebird."), "I already heard the Queen of Cadomyr wasn't so fond of the 'message' you brought her. The Don won't like to hear the news. My next mission would have been that you bring her this necklace; keep it and keep silent about all this!", item(334, 1, 999), queststatus(107) = 14
+queststatus(107) = 13, english, town = Galmair, ".+" -> inform("[Quest solved] You are awarded a charm of the icebird. You advance in Don Valerio Guilianni's favour."), "I have already heard the Queen of Cadomyr wasn't so fond of the message you took her. The Don won't like to hear the news. My next mission would have been for you to take her this necklace; instead keep it and keep silent about all of this!", item(334, 1, 999), queststatus(107) = 14, rankpoints + 20
+queststatus(107) = 13, english, ".+" -> inform("[Quest solved] You are awarded a charm of the icebird."), "I have already heard the Queen of Cadomyr wasn't so fond of the 'message' you took her. The Don won't like to hear the news. My next mission would have been for you to take her this necklace; instead keep it and keep silent about all of this!", item(334, 1, 999), queststatus(107) = 14
 queststatus(107) = 13, town = Galmair, ".+" -> inform("[Quest gelöst] Du erhältst ein Eisvogelamulett. Dein Ansehen bei Don Valerio Guilianni steigt."), "Ich habe schon davon gehört, dass die Königin von Cadomyr nicht so begeistert über die 'Nachricht' war, die du ihr gebracht hast. Den Don wird das nicht freuen. Meine nächste Mission wäre gewesen, dass du ihr diesen Halsschmuck bringst. Behalte ihn und die ganze Angelegenheit für dich!", item(334, 1, 999), queststatus(107) = 14, rankpoints + 20
 queststatus(107) = 13, ".+" -> inform("[Quest gelöst] Du erhältst ein Eisvogelamulett."), "Ich habe schon davon gehört, dass die Königin von Cadomyr nicht so begeistert über die 'Nachricht' war, die du ihr gebracht hast. Den Don wird das nicht freuen. Meine nächste Mission wäre gewesen, dass du ihr diesen Halsschmuck bringst. Behalte ihn und die ganze Angelegenheit für dich!", item(334, 1, 999), queststatus(107) = 14
 
 -- No more quests, just nice words of gratitude
-queststatus(107) = 14, english, "quest", "mission" -> "You did so much for me and the Don; one could be suspicious why. So, I'll stick to other henchmen, no offense."
+queststatus(107) = 14, english, "quest", "mission" -> "You did so much for me and the Don; one could be suspicious why, so, I'll stick to other henchmen, no offense."
 queststatus(107) = 14, "quest", "mission" -> "Du hast schon so viel für mich und den Don getan; man könnte misstrauisch werden, warum. Ich werde mich anderer Handlanger bedienen, wenns dir nichts ausmacht."
-queststatus(107) = 14, "Task", "Adventure", "Message" -> "You did so much for me and the Don; one could be suspicious why. So, I'll stick to other henchmen, no offense."
+queststatus(107) = 14, "Task", "Adventure", "Message" -> "You did so much for me and the Don; one could be suspicious why, so, I'll stick to other henchmen, no offense."
 queststatus(107) = 14, "Auftrag", "Aufgabe", "Abenteuer", "Botschaft", "Nachricht" -> "Du hast schon so viel für mich und den Don getan; man könnte misstrauisch werden, warum. Ich werde mich anderer Handlanger bedienen, wenns dir nichts ausmacht."
 
 -- Small talk: The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I remind people, that's what I do. First, I remind them to pay. Then I make something with them that reminds them that they didn't pay. For good!", "Many people owe the Don a lot. I keep track of this. And I never forget!", "The Don relies on me to 'remind' people on paying their debts. Makes me proud, aye!"
+"profession" -> "I remind people, that's what I do. First, I remind them that they have to pay, then I never miss reminding them that they haven't paid!", "Many people owe the Don a lot. I keep track of this, and I never forget!", "The Don relies on me to 'remind' people about paying their debts. Makes me proud, aye!"
 "beruf" -> "Ich erinnere die Leute, das ist mein Ding. Zuerst erinnere ich sie daran, dass sie zu zahlen haben. Dann verpasse ich ihnen etwas, was sie immer daran erinnert, dass sie nicht gezahlt haben.", "Viele Leute schulden dem Don eine Menge. Und ich vergesse nie etwas!", "Der Don verlässt sich auf mich, seine Schuldner daran zu 'erinnern', was sie ihm schulden. Macht mich stolz, aye!"
-english, "job" -> "I remind people, that's what I do. First, I remind them to pay. Then I make something with them that reminds them that they didn't pay. For good!", "Many people owe the Don a lot. I keep track of this. And I never forget!", "The Don relies on me to 'remind' people on paying their debts. Makes me proud, aye!"
+english, "job" -> "I remind people, that's what I do. First, I remind them that they have to pay, then I never miss reminding them that they haven't paid!", "Many people owe the Don a lot. I keep track of this, and I never forget!", "The Don relies on me to 'remind' people about paying their debts. Makes me proud, aye!"
 "job" -> "Ich erinnere die Leute, das ist mein Ding. Zuerst erinnere ich sie daran, dass sie zu zahlen haben. Dann verpasse ich ihnen etwas, was sie immer daran erinnert, dass sie nicht gezahlt haben.", "Viele Leute schulden dem Don eine Menge. Und ich vergesse nie etwas!", "Der Don verlässt sich auf mich, seine Schuldner daran zu 'erinnern', was sie ihm schulden. Macht mich stolz, aye!"
-english, "Gobaith", "Gobiath" -> "What that's supposed to be?"
+english, "Gobaith", "Gobiath" -> "What's that supposed to be?"
 "Gobaith", "Gobiath" -> "Was soll das sein?"
-"my name" -> "Let me check... no, you don't have debts.", "Nice. And I am not nice.", "I'm Groktan. Mess with the Don and you mess with me."
+"my name" -> "Let me check... no, you don't have debts.", "Nice, and I am not nice.", "I'm Groktan. Mess with the Don and you mess with me."
 "mein Name" -> "Lass mich mal nachsehen... nein, du hast keine Schulden.", "Nett. Und ich bin nicht nett.", "Ich bin Groktan. Leg dich mit dem Don an und du kriegst es mit mir zu tun."
 
 -- More small talk; add at least five triggers
-"reminder" -> "I remind people, that's what I do. First, I remind them to pay. Then I make something with them that reminds them that they didn't pay. For good!", "Many people owe the Don a lot. I keep track of this. And I never forget!", "The Don relies on me to 'remind' people on paying their debts. Makes me proud, aye!"
-"ruff", "bully" -> "I'm not ruff. I'm direct and strict. And I am fair. Pay and you are alright. Don't pay and, well, the opposite."
-"owe", "debt" -> "Debts with Don Valerio are a special issue. Who is loyal to the Don gets credit and deferral. But who does not pay his protection fee loses his protection - from me!"
-"money" -> "Copper, silver and gold. The first I toss at beggars, right in their face. The second I keep for me. The last is for the Don. Never forget this!"
+"reminder" -> "I remind people, that's what I do. First, I remind them that they have to pay, then I never miss reminding them that they haven't paid!", "Many people owe the Don a lot. I keep track of this, and I never forget!", "The Don relies on me to 'remind' people about paying their debts. Makes me proud, aye!"
+"ruff", "bully" -> "I'm not rough, I'm direct and strict... and I am fair. Pay and you are alright. Don't pay and, well, the opposite."
+"owe", "debt" -> "Debts with Don Valerio are a special issue. Those who are loyal to the Don get credit and deferral, but who do not pay his protection fee lose his protection - from me!"
+"money" -> "Copper, silver and gold. The first I toss at beggars, right into their face. The second I keep for me. The last is for the Don. Never forget this!"
 "interest" -> "Interest? What's that? Either, you pay back in time what you borrowed or you pay with your bones. Does that go by the term 'interest'?"
 "erinnerer" -> "Ich erinnere die Leute, das ist mein Ding. Zuerst erinnere ich sie daran, dass sie zu zahlen haben. Dann verpasse ich ihnen etwas, was sie immer daran erinnert, dass sie nicht gezahlt haben.", "Viele Leute schulden dem Don eine Menge. Und ich vergesse nie etwas!", "Der Don verlässt sich auf mich, seine Schuldner daran zu 'erinnern', was sie ihm schulden. Macht mich stolz, aye!"
 "Grobian", "Schläger" -> "Ich bin kein Grobian. Ich bin streng und direkt. Aber ich bin fair. Zahle, und alles wird gut. Zahle nicht und es geschieht das Gegenteil."
@@ -227,35 +227,35 @@ english, "Gobaith", "Gobiath" -> "What that's supposed to be?"
 "Zwerg" -> "Wenn du wegen dem Weitwurfwettbewerb hier bist, muss ich dich enttäuschen. Der wurde mangels gesunder Teilnehmer abgesagt."
 
 -- Other NPCs
-english, "Miggs" -> "Aye, Miggs. My best regards to him. You can find him in the headquarter of Don Valerio. He does the... serious cases for the Don."
+english, "Miggs" -> "Aye, Miggs, my best regards to him. You can find him in the headquarter of Don Valerio. He does the... serious cases for the Don."
 "Miggs" -> "Aye, Miggs. Meine besten Grüße an ihn. Du findest ihn im Hauptquartier von Don Valerio. Er übernimmt die... schwierigen Fälle des Dons."
 english, "Bruno", "Blackhole" -> "Bruno Blackhole is a lazy digger who pretends to work in the Malachite mine. Didn't really make him rich."
 "Bruno", "Blackhole" -> "Bruno Blackhole ist eine fauler Wühler der so tut, als würde er in der Malachitmine arbeiten. Hat ihn jedenfalls nicht reich gemacht."
-english, "Fronita", "Emery" -> "In Runewick, you can find skilled artisans. Fronita Emery is one of them; instead of cost effective goods, she crafts silly vases nobody buys, anyway."
+english, "Fronita", "Emery" -> "In Runewick, you can find skilled artisans. Fronita Emery is one of them but instead of cost effective goods, she crafts silly vases nobody buys, anyway."
 "Fronita", "Emery" -> "In Runewick kann man recht geschickte Handwerker finden. Fronita Emery gehört zu ihnen; anstatt allerdings preiswerte Waren anzubieten, verschwendet sie ihre Zeit mit Vasen, die eh niemand kauft."
 
 -- Easteregg (optional): Think about a funny, unrelated trigger with a surprising answer
-"bottle" -> "Payment reminder don't come in a bottle. Maybe by a bottle on your head!"
+"bottle" -> "Payment reminders don't come in a bottle, well maybe by a bottle on your head!"
 "flasche" -> "Mahnungen werden nicht als Flaschenpost verschickt. Vielleicht aber als Flasche auf deinen Kopf!"
 english, "Snickers" -> "Could take a while..."
 "Snickers" -> "Wenns mal wieder länger dauert..."
 
 -- Faction stuff
-"archmage" -> "I don't really know Archmage Morgan. Word is that he's a bit... quirky. But if you care, why don't you visit him?"
+"archmage" -> "I don't really know Archmage Morgan. Word is that he's a bit... quirky. If you are so interested, why don't you visit him?"
 "Erzmagier" -> "Ich kenne den Erzmagier Morgan nicht recht. Man sagt, er sei etwas... sonderbar. Wenns dich interessiert, besuch in doch."
-english, "Elvaine", "Morgan" -> "I don't really know Archmage Morgan. Word is that he's a bit... quirky. But if you care, why don't you visit him?"
+english, "Elvaine", "Morgan" -> "I don't really know Archmage Morgan. Word is that he's a bit... quirky. If you are so interested, why don't you visit him?"
 "Elvaine", "Morgan" -> "Ich kenne den Erzmagier Morgan nicht recht. Man sagt, er sei etwas... sonderbar. Wenns dich interessiert, besuch in doch."
 english, "Runewick" -> "Runewick is not a town but a joke. I mean, who would be so stupid to build towers in the ocean?"
 "Runewick" -> "Runewick ist keine Stadt, sondern ein Witz. Ich meine, wer ist so dämlich und baut Türme im Ozean?"
-english, "Valerio", "Guilianni", "Don" -> "Don Valerio is like a father to me. One could say, like a godfather.", "Say a bad word about the Don and risk a tooth. Say another and you risk your tongue.", "Don Valerio built up what you see here. Not by brick by brick, but coin by coin. Wealth is what Galmair made strong."
+english, "Valerio", "Guilianni", "Don" -> "Don Valerio is like a father to me, one could say, like a godfather.", "Say a bad word about the Don and risk a tooth, say another and you risk your tongue.", "Don Valerio built up what you see here, not by brick by brick, but coin by coin. Wealth is what made Galmair strong."
 "Valerio", "Guilianni", "Don" -> "Don Valerio ist wie ein Vater für mich. Wie ein Pate, könnte man auch sagen.", "Sag ein böses Wort über den Don und du riskierst einen Zahn. Sage ein weiteres und du riskierst deine Zunge.", "Don Valerio hat all dies hier aufgebaut. Nicht Stein für Stein, sondern Münze für Münze. Reichtum hat Galmair stark gemacht."
-english, "Galmair" -> "Actually, Galmair is my home. And yes, in this valley, there was once a dwarven stronghold. I'm a dwarf, so I feel quite comfortable here."
+english, "Galmair" -> "Actually, Galmair is my home, and yes, in this valley, there was once a dwarven stronghold. I'm a dwarf, so I feel quite comfortable here."
 "Galmair" -> "Galmair ist genau genommen meine Heimat. Und ja, in diesem Tal war einst eine Zwergenfeste. Ich bin ein Zwerg, also fühl ich mich hier wohl."
-"Queen" -> "Rosi. Arr, a pretty wife she would be. Not for me, of course. For who? Nevermind!"
+"Queen" -> "Rosi, arr, a pretty wife she would be. Not for me, of course. For who? Nevermind!"
 "Königin" -> "Rosi. Arr, sie wäre eine schöne Ehefrau. Natürlich nicht für mich. Für wen dann? Vergiss es."
-english, "rosaline", "edwards" -> "Rosi. Arr, a pretty wife she would be. Not for me, of course. For who? Nevermind!"
+english, "rosaline", "edwards" -> "Rosi, arr, a pretty wife she would be. Not for me, of course. For who? Nevermind!"
 "rosaline", "edwards" -> "Rosi. Arr, sie wäre eine schöne Ehefrau. Natürlich nicht für mich. Für wen dann? Vergiss es."
-english, "Cadomyr" -> "Personally, I don't like Cadomyr. I understand that it has many resources and, despite arid, it's a rich country. But I wouldn't want to live there."
+english, "Cadomyr" -> "Personally, I don't like Cadomyr. I understand that it has many resources and despite how arid it is, there's no denying it is a rich country, but I wouldn't want to live there."
 "Cadomyr" -> "Wenn du mich fragst, ich mag Cadomyr nicht so recht. Ich weiß, dass es viele Bodenschätze hat und trotz der Trockenheit ist es ein reiches Land. Aber leben möchte ich dort nicht."
 
 -- Main land factions
@@ -263,51 +263,51 @@ english, "albar" -> "I'm not so familiar with other lands. Albar you say? Sounds
 "albar" -> "Ich kenne mich nicht mit anderen Ländern aus. Albar sagst du? Klingt nach einem guten Schaumwein."
 
 -- Comment: Herzog Alba is a very cheap sparkling wine you can buy at ALDI
-english, "gynk", "gync" -> "Gynk; oh yes, the land of my dreams. Freedom for everyone, at least if you can afford it."
+english, "gynk", "gync" -> "Gynk, oh yes, the land of my dreams. Freedom for everyone, at least if you can afford it."
 "gync", "gynk" -> "Gynk; oh ja, das Land meiner Träume. Freiheit für alle, solange man sie sich leisten kann."
 english, "salkama" -> "Don Valerio once stated that Salkamar isn't as bad as everyone thinks. I don't want to find out, Galmair is my land."
 "salkama" -> "Don Valerio erwähnte einst, Salkamar. wäre gar nicht so schlimm, wie alle immer meinen. Ich will es eigentlich gar nicht rausfinden, Galmair ist mein Land."
 
 -- Gods - use the triggers of the god the NPC worships or fights
-"god" -> "Gods are overrated. They won't pay your dues. They may inspire your life, though."
+"god" -> "Gods are overrated. They won't pay your dues. I suppose they may inspire your life, though."
 "Gott", "Götter" -> "Die Götter werden überschätzt. Sie werden nicht deine Schulden bezahlen. Aber sie können dich zu einem besseren Leben inspirieren."
-english, "Adron" -> "The god of booze, that's Adron. Anything interesting about him?"
+english, "Adron" -> "The God of booze, that's Adron. Anything interesting about him?"
 "Adron" -> "Der Suffgott, das ist Adron. Gibts sonst noch was über ihn zu sagen?"
-english, "Bragon", "Brágon" -> "For Brágon gave us the flame... my tinderbox does, to. Do I pray to my tinderbox!?"
+english, "Bragon", "Brágon" -> "Brágon gave us the flame... my tinderbox does as well. Do I pray to my tinderbox!?"
 "Bragon", "Brágon" -> "Und Brágon gab uns das Feuer... Zündhölzer können das auch. Bete ich deshalb Zündhölzer an!?"
-english, "Cherga" -> "I'm not dead, so leave me alone with Cherga."
+english, "Cherga" -> "I'm not dead, so leave me alone about Cherga."
 "Cherga" -> "Ich bin nicht tot, also lass mich mit Cherga in Frieden."
-english, "Elara" -> "Who was that again? Eleven younger gods, how am I supposed to remember them all?"
+english, "Elara" -> "Who was that again? Eleven younger Gods, how am I supposed to remember them all?"
 "Elara" -> "Wer war die nochmal? Elf junge Götter, wie soll man sich die alle merken!"
-english, "Eldan" -> "You don't want to talk to a dwarf like me about Eldan. You do not want to. Better for you."
+english, "Eldan" -> "You don't want to talk to a dwarf like me about Eldan. You do not want to! Better for you!"
 "Eldan" -> "Du willst mit einem Zwerg wie mir nicht über Eldan reden. Das willst du nicht. Ist besser für dich."
-english, "Findari" -> "You don't want to talk to a dwarf like me about Findari. You do not want to. Better for you."
+english, "Findari" -> "You don't want to talk to a dwarf like me about Findari. You do not want to! Better for you!"
 "Findari" -> "Du willst mit einem Zwerg wie mir nicht über Findari reden. Das willst du nicht. Ist besser für dich."
-english, "Irmorom" -> "Irmorom is called 'father' by some of my bethren. I don't know my father. But I seriously doubt a god would mate with my mother."
+english, "Irmorom" -> "Irmorom is called 'Father' by some of my bethren. I don't know my father,but I seriously doubt a god would mate with my mother."
 "Irmorom" -> "Manche meiner Zwergenbrüder nennen Irmorom 'Vater' Ich kenne meinen Vater nicht. Aber ich glaube kaum, dass sich ein Gott mit meiner Mutter eingelassen hat."
-english, "Malachin", "Malachín" -> "Who was that again? Eleven younger gods, how am I supposed to remember them all?"
+english, "Malachin", "Malachín" -> "Who was that again? Eleven younger Gods, how am I supposed to remember them all?"
 "Malachin", "Malachín" -> "Wer war die nochmal? Elf junge Götter, wie soll man sich die alle merken!"
-english, "Moshran" -> "Who was that again? Eleven younger gods, how am I supposed to remember them all?"
+english, "Moshran" -> "Who was that again? Eleven younger Gods, how am I supposed to remember them all?"
 "Moshran" -> "Wer war die nochmal? Elf junge Götter, wie soll man sich die alle merken!"
-english, "Nargun", "Nargún", "Nargùn" -> "You don't want to talk to a dwarf like me about Nargún. You do not want to. Better for you."
+english, "Nargun", "Nargún", "Nargùn" -> "You don't want to talk to a dwarf like me about Nargún. You do not want to! Better for you!"
 "Nargun", "Nargún", "Nargùn" -> "Du willst mit einem Zwerg wie mir nicht über Nargún reden. Das willst du nicht. Ist besser für dich."
-english, "Oldra" -> "Oh. Oldra, the goddess of ferti... fert... something."
+english, "Oldra" -> "Oh. Oldra, the Goddess of ferti... fert... something."
 "Oldra" -> "Oh. Oldra, die Göttin der Fruchtbar... Furchtbarkeit!"
-english, "Ronagan" -> "Oh, my god!"
+english, "Ronagan" -> "Oh, my God!"
 "Ronagan" -> "Oh, mein Gott!"
-english, "Sirani" -> "You don't want to talk to a dwarf like me about Sirani. You do not want to. Better for you."
+english, "Sirani" -> "You don't want to talk to a dwarf like me about Sirani. You do not want to! Better for you!"
 "Sirani" -> "Du willst mit einem Zwerg wie mir nicht über Sirani reden. Das willst du nicht. Ist besser für dich."
-english, "Tanora", "Zelphia" -> "You don't want to talk to a dwarf like me about Tanora. You do not want to. Better for you."
+english, "Tanora", "Zelphia" -> "You don't want to talk to a dwarf like me about Tanora. You do not want to! Better for you."
 "Tanora", "Zelphia" -> "Du willst mit einem Zwerg wie mir nicht über Tanory reden. Das willst du nicht. Ist besser für dich."
-english, "Ushara" -> "Ushara is called 'mother' by some of my bethren. I knew my mother. Her name wasn't Ushara, not even Uschi."
+english, "Ushara" -> "Ushara is called 'Mother' by some of my bethren. I knew my mother, her name wasn't Ushara, not even Ushi."
 "Ushara" -> "Manche meiner Zwergenbrüder nennen Ushara 'Mutter' Ich kannte meine Mutter. Ihr Name war nicht Ushara, nicht mal Uschi."
-english, "Zhambra" -> "Zhambra is the most overrated god of them all. Friendship, eh? I show you friendship. My friend is my fist. And yours?"
+english, "Zhambra" -> "Zhambra is the most overrated god of them all. Friendship, eh? I'll show you friendship. My friend is my fist... and yours?"
 "Zhambra" -> "Zhambra ist der am meisten überschätzte Gott von allen. Freundschaft, eh? Ich zeig dir gleich Freundschaft. Meine Freundin ist meine Faust. Deine auch?"
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "Come to me if you owe the Don money. Then, you give it to me. If you don't, I give something to you. Right in your face!", "I'm not a trader. The difference is: I just take money and give nothing in return. You just get something from me if you don't pay. Pain!", "Get lost if you want to barter."
+"what sell", "what buy", "list wares", "price of" -> "Come to me if you owe the Don money... Then, you give it to me. If you don't, I give something to you, right in your face!", "I'm not a trader. The difference is, I just take money and give nothing in return. You just get something from me if you don't pay, pain!", "Get lost if you want to barter."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Komm zu mir, wenn du dem Don Geld schuldest. Das gibst du dann mir. Wenn du das nicht tust, dann gebe ich dir was. Auf die Fresse!", "Ich bin doch kein Händler. Der Unterschied: Ich nehme nur Geld und gebe nichts im Gegenzug. Du bekommst nur etwas von mir, wenn du nicht bezahlst. Schmerz!", "Hau ab, wenn du feilschen willst."
-"tell something" -> "I'm not in the mood.", "Do I look like an elven bard?", "Do you know how much pain it is when you pull on somebody's tongue? Lizards don't like this, especially."
+"tell something" -> "I'm not in the mood.", "Do I look like an elven bard?", "Do you know how much pain is involved when you pull on somebody's tongue? Lizards don't like it, especially."
 "erzähl was", "erzähl etwas" -> "Mir ist nicht danach.", "Sehe ich aus wie ein Elfenbarde?", "Weißt du eigentlich, wie schmerzhaft es ist, jemanden an der Zunge zu ziehen? Echsenwesen hassen das ganz besonders."
 
 -- Last catch: Think about keywords the player might say and that are not caught until here.
@@ -328,8 +328,8 @@ cycletext "Eine gutgemeinte Mahnung: Vergesst nie, was ihr dem Don schuldet.", "
 cycletext "#me zückt ein Notizbuch und streicht etwas durch: 'Erinnert!'", "#me takes out a notebook and rules out a line: 'Reminded!'"
 cycletext "Wenn der Don all das Geld hätte, was ihm die Leute schulden, wäre er ein reicher Mann!", "If the Don had all the money people owe him, he'd be rich!"
 cycletext "Zahltag!", "Payday!"
-cycletext "#me rümpft die Nase: 'Geld stinkt nicht. Muss also was anderes sein. Ich bin's nicht!'", "#me wrinkles his nose: 'Money doesn't stink. Has to be something else, but not me!'"
+cycletext "#me rümpft die Nase: 'Geld stinkt nicht. Muss also was anderes sein. Ich bin's nicht!'", "#me wrinkles his nose: 'Money doesn't stink, has to be something else, but not me!'"
 cycletext "Schweigen ist Gold, Zahlen hält gesund.", "Silence is golden, paying is healthy."
 cycletext "Ich bin der Herr von Ratschkling!", "I am the Lord of Kerching!"
-cycletext "Die, die bezahlt haben, wurden daran erinnert. Die, die nicht zahlten, werden sich immer daran erinnern.", "Those who paid were reminded. Those who didn't will remember."
+cycletext "Die, die bezahlt haben, wurden daran erinnert. Die, die nicht zahlten, werden sich immer daran erinnern.", "Those who paid were reminded, those who didn't will remember."
 cycletext "Bringt da jemand Geld für den Don?", "Got money for the Don?"
