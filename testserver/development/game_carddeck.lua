@@ -1,4 +1,8 @@
-dofile( "game_card.lua" );
+require("development.game_card");
+
+module("development.game_carddeck", package.seeall)
+
+newCard = development.game_card.newCard
 
 function newCardDeck( cardList )
     local self = {

@@ -1,5 +1,9 @@
-require( "game_carddeck" );
-module("game_poker", package.seeall(game_carddeck))
+require("development.game_carddeck");
+
+module("development.game_poker", package.seeall)
+
+newCardDeck13 = development.game_carddeck.newCardDeck13
+newCardDeck52 = development.game_carddeck.newCardDeck52
 
 function newPokerTable( 
                         npcDealer,           -- Dealer npc
@@ -11,10 +15,7 @@ function newPokerTable(
                         bigBlind,            -- The big blind
                         listPosSeat,         -- A list with positions of player seats
                         listPosBetUnits,     -- A list with positions of player bet units
-                        listPosBetHundreds,  -- A list with positions of player bet hundreds
-                        posPotHundredths,    -- Position where the hundredths will be displayed
                         posPotUnits,         -- Position where the units will be displayed
-                        posPotHundreds,      -- Position where the hundreds will be displayed
                         rake,                -- Rake in Percent
                         fileRake             -- Path to the rake file
                       )
@@ -44,17 +45,13 @@ function newPokerTable(
         -- static part
         npcDealer          = npcDealer,
         unitId             = unitId,
-        hundredthId        = hundredthId,
         hundredId          = hundredId,
         buttonId           = buttonId,
         smallBlind         = smallBlind,
         bigBlind           = bigBlind,
         listPosSeat        = listPosSeat,
-        listPosBetHundreds = listPosBetHundreds,
         listPosBetUnits    = listPosBetUnits,
-        posPotHundredths   = posPotHundredths,        
         posPotUnits        = posPotUnits,
-        posPotHundreds     = posPotHundreds,
         rake               = rake/100,
         fileRake           = fileRake,
         initialDelay       = 100,
@@ -93,10 +90,6 @@ function newPokerTable(
     };
     
     local compareBets = function( index1, index2 )
-        --self.npcDealer:talk(Character.yell, "Entering..." );
-        --self.npcDealer:talk(Character.yell, "Compare: "..index1.." and "..index2);
-        --local txt = (not self.listBets[index1] or ( self.listBets[index2] and self.listBets[index1] < self.listBets[index2] )) and "true" or "false";
-        --self.npcDealer:talk(Character.yell, "Return: "..txt);
         return not self.listBets[index1] or ( self.listBets[index2] and self.listBets[index1] < self.listBets[index2] );
     end;
     
@@ -310,7 +303,7 @@ function newPokerTable(
         local delete = true;
         while delete and world:isItemOnField( p ) do
             item = world:getItemOnField( p );
-            if ( item.wear < 255 ) or ( ( item.wear == 255 ) and ( ( item.id == self.hundredId ) or ( item.id == self.unitId ) or ( item.id == self.hundredthId ) or ( item.id == self.buttonId ) ) ) then
+            if ( item.wear < 255 ) or ( ( item.wear == 255 ) and ( ( item.id == self.unitId ) or ( item.id == self.buttonId ) ) ) then
                 world:erase( item, item.number );
             else
                 delete = false;
@@ -321,12 +314,9 @@ function newPokerTable(
     local clearFields = function()
         local i;
         for i=1,self.tableSize do
-            clearField( self.listPosBetHundreds[ i ] );
             clearField( self.listPosBetUnits[ i ] );
         end;
-        clearField( self.posPotHundreds );
         clearField( self.posPotUnits );
-        clearField( self.posPotHundredths );
     end;
     
     local setFixedItemOnField = function( id, amount, pos )
@@ -340,28 +330,18 @@ function newPokerTable(
     local setPlayerMoneyOnTable = function()
         local seat   = self.activePlayer;
         local amount = self.listBets[ seat ] or 0;
-        local posH   = self.listPosBetHundreds[ seat ];
         local posU   = self.listPosBetUnits[ seat ];
-        clearField( posH );
         clearField( posU );
         if seat == self.buttonPlayer then
             setFixedItemOnField( self.buttonId, 1, posU );
         end;
-        setFixedItemOnField( self.unitId, math.mod( amount, 100 ), posU );
-        setFixedItemOnField( self.hundredId, math.floor( amount / 100 ), posH );
+        setFixedItemOnField( self.unitId, amount, posU );
     end;
     
     local setPotOnTable = function( amount )
-        local ints = math.floor( amount );
-        local posH = self.posPotHundreds;
         local posU = self.posPotUnits;
-        local posf = self.posPotHundredths;
-        clearField( posH );
         clearField( posU );
-        clearField( posf );
-        setFixedItemOnField( self.hundredthId, amount*100 - ints*100, posf );
-        setFixedItemOnField( self.unitId, math.mod( ints, 100 ), posU );
-        setFixedItemOnField( self.hundredId, math.floor( ints / 100 ), posH );
+        setFixedItemOnField( self.unitId, amount, posU );
     end;
 
     local init = function()
@@ -856,7 +836,7 @@ function newPokerTable(
 		                            local money = self.listBets[ idx ] * ( self.tableSize - i + 1 );
 		                            
 		                            -- Rake
-		                            local currentRake = money * self.rake;
+		                            local currentRake = math.floor(money * self.rake);
 		                            self.roundRake = self.roundRake + currentRake;
 		                            
                                     pot.value = pot.value + money - currentRake;
@@ -974,7 +954,7 @@ function newPokerTable(
                     table.insert( pot.listPotCandidates, z );
                 end;
             end;
-            money = pot.value / (1 - self.rake);
+            money = pot.value;
             local n = table.getn( pot.listPotCandidates );
             money = math.floor( money / n * 100 ) / 100;
             for z=1,n do
