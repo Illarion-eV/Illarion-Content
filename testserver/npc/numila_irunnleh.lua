@@ -515,6 +515,191 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Snakehead Bay");
+talkEntry:addResponse("The bay westwards from Runewick is called Snakehead Bay.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Schlangenkopfbucht");
+talkEntry:addResponse("Die Bucht westlich von Runewick heißt Schlangenkopfbucht.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Lonely Islands");
+talkEntry:addResponse("These two islands are southwest from Runewick. You will have to take a ferry to get there. But be careful, it is said, that noone has ever returned from there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Einsame Inseln");
+talkEntry:addResponse("Diese zwei Inseln liegen südwestlich von Runewick. Ihr werdet eine Fähre nehmen müssen. Aber seid vorsichtig! Es wird gesagt, dass noch nie jemand von dort zurückkam.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Death's Stench");
+talkEntry:addTrigger("deaths stench");
+talkEntry:addResponse("These area north of the Dragon's Lair has been turned into a swamp by dragons years ago.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Todes Gestank");
+talkEntry:addResponse("Dieser Bereich nördlich der Drachenhöhle wurde von Drachen in einen Sumpf verwandelt vor einigen Jahren.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Dragon's Lair");
+talkEntry:addTrigger("dragons lair");
+talkEntry:addResponse("The Dragon's Lair is north of the Bear Cave. Don't go there alone!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Drachenhöhle");
+talkEntry:addResponse("Die Drachenhöhle ist nördlich der Bärenhöhle. Geht dort nicht alleine hin!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Dewy Swamps");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Darter's Shop, Shadow Gate"));
+talkEntry:addResponse("The Dewy Swamps are north from Runewick. Walk to Yewdale, then northeast, pass Merryglade and you are there. You find there Darter's Shop and the Shadow Gate.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Frische Sümpfe");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Darters Laden, Schattentor"));
+talkEntry:addResponse("Die Frischen Sümpfe ligen nördlich von Runwick. Geht nach Eibental, von dort nordöstlich, passiert die Fröhliche Lichtung und schon seid ihr dort. Ihr findet dort Darters Laden und das Schattentor.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Darter Shop");
+talkEntry:addResponse("That is a part of Dewy Swamps. This shop belongs to the Darter family, but it collapsed years ago. I think you can still find a member there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Darter Laden");
+talkEntry:addResponse("Das ist ein Teil der Frischen Sümpfe. Dieser Laden gehört der Darter Familie, welcher aber vor Jahren zugrunde ging. Ich denke man findet immer noch ein Mitglieder der Familie dort.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Shadow Gate");
+talkEntry:addResponse("That is a part of Dewy Swamps. It was once a place for experiments. We tried to open a large permanent portal to distant lands there. But it failed and thus it is a ruin now.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Schattentor");
+talkEntry:addResponse("Das ist ein Teil der Frischen Sümpfe. Es war einst ein Ort für Experimente. Wir versuchten ein permanentes Portal zu fernen Ländern zu öffnen. Aber wir scheiterten und so ist dort lediglich eine Ruine nun zu finden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Merryglade");
+talkEntry:addResponse("It was once the home of a stable hand who disappeared to Galmair after he failed to protect his animals. It is northeast from Yewdale.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Fröhliche Lichtung");
+talkEntry:addResponse("Es war einst das Haus eines Stalljungen, welcher nach Galmair verschwand nachdem es ihm nicht gelungen ist seine Tiere zu behüten. Es liegt nordöstlich von Eibental.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oldra's Tower");
+talkEntry:addTrigger("Oldras Tower");
+talkEntry:addResponse("It is northeast from Yewdale close at Merryglade. Druids and Alchemists are often traveling there. Ask them for further information.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Oldras Turm");
+talkEntry:addResponse("Der liegt nordöstlich von Eibental in der Nähe der Fröhlichen Lichtung. Druiden und Alchemisten reisen oft dorthin. Fragt die wenn ihr weitere Information wünscht.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Coward last stand");
+talkEntry:addResponse("It is northeast from Yewdale on the way to Merryclade. The coward is noone else than Sir Luvwick from Cadomyr. There is rumour that he ran faster than an arrow of Malachin when he was attacked by Galmair supporters.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Feiglings letztes Gefecht");
+talkEntry:addResponse("Dieser Ort liegt nordöstlich von Eibental am Weg zur Fröhlichen Lichtung. Der angesprochene Feigling ist Sir Luvwick von Cadomyr. Es heißt, er lief schneller als ein Pfeil von Malachin als er dort von Galmair Anhängern angegriffen wurde.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Outpost");
+talkEntry:addResponse("This outpost is northeast from Yewdale at a bridge. We used it in the past to protect ourselves.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Außenposten");
+talkEntry:addResponse("Dieser Außernposten liegt nordöstlich von Yewdale an einer Brücke. Wir verwendeten ihn in der Vergangenheit um uns zu schützen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Anthil Brook");
+talkEntry:addResponse("Anthil Brook is north of Yewdale. You will find there some sign of our glorious victory during the Halfling-war against Galmair years ago.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Ameisenhügelbach");
+talkEntry:addResponse("Der Ameisenhügelbach liegt nördlich von Eibental. Du findest dort Hinweise über unseren glorreichen Sieg im Halblingkrieg über Glamair vor einigen Jahren.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bear cave");
+talkEntry:addResponse("The Bear cave is north of Anthil Brook. The cave was used by bears until warriors from Galmair killed them. Nowadays you can find some wolfs and other animals there. A good place to practice some combat-skills for unexperienced warriors.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bärenhöhle");
+talkEntry:addResponse("Die Bärenhöhle ist nördlich vom Ameisenhügelbach. Die Höhle wurde einst von Bären bewohnt bis sie alle von Kriegern aus Galmair getötet wurden. Nun leben dort Wölfe und andere Tiere. Ein guter Ort für unerfahrene Krieger um sich an ihre Waffe zu gewöhnen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Adron Covert");
+talkEntry:addResponse("This place is west of Anthil Brook. A blind and coward person will have troubles to find it.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Adron Versteck");
+talkEntry:addResponse("Dieser Ort liegt westlich vom Ameisenhügelbach. Eine blinde und feige Person wird Probleme haben ihn zu finden.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Yewdale");
+talkEntry:addResponse("This place west of Runewick beyond the Lurnord-bridge is a place that offers an opportunity for farmers and to use the ferry.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Eibental");
+talkEntry:addResponse("Dieser Ort westlich von Runewick am anderen Ende der Lurnord-Brücke ist ein Ort für unsere Bauern und bietet Zugang zu den Fähren.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lake Syrita");
 talkEntry:addResponse("Well, as I said, it is in the northwest and you better ask someone who lives there. For example Lotta Medborgar in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -663,18 +848,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Katanbi Desert");
-talkEntry:addResponse("Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Katanbi Wüste");
-talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Western Katanbi Desert");
 talkEntry:addResponse("Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -682,6 +855,18 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Westliche Katanbi Wüste");
+talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Katanbi Desert");
+talkEntry:addResponse("Well, as I said, it is in the southwest and you better ask someone who lives there. For example Ruzusss in Cadomyr.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Katanbi Wüste");
 talkEntry:addResponse("Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -733,190 +918,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Kapelle");
 talkEntry:addResponse("Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Snakehead Bay");
-talkEntry:addResponse("The bay westwards from Runewick is called Snakehead Bay.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Schlangenkopfbucht");
-talkEntry:addResponse("Die Bucht westlich von Runewick heißt Schlangenkopfbucht.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Lonely Islands");
-talkEntry:addResponse("These two islands southwest from Runewick. You will have to take a ferry to get there. But be careful, it is said, that noone has ever returned from there.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Einsame Inseln");
-talkEntry:addResponse("Diese zwei Inseln liegen südwestlich von Runewick. Ihr werdet eine Fähre nehmen müssen. Aber seid vorsicht! Es wird gesagt, dass noch nie jemand von dort zurückkam.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Death's Stench");
-talkEntry:addTrigger("deaths stench");
-talkEntry:addResponse("These area north of the Dragon's Lair has been turned into a swamp by dragons years ago.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Todes Gestank");
-talkEntry:addResponse("Dieser Bereich nördlich der Drachenhöhle wurde von Drachen in einen Sumpf verwandelt vor einigen Jahren.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Dragon's Lair");
-talkEntry:addTrigger("dragons lair");
-talkEntry:addResponse("The Dragon's Lair is north of the Bear Cave. Don't go there alone!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Drachenhöhle");
-talkEntry:addResponse("Die Drachenhöhle ist nördlich der Bärenhöhle. Geht dort nicht alleine hin!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Dewy Swamps");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Darter's Shop, Shadow Gate"));
-talkEntry:addResponse("The Dewy Swamps are north from Runewick. Walk to Yewdale, then northeast, pass Merryglade and you are there. You find there Darter's Shop and the Shadow Gate.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Frische Sümpfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Darters Laden, Schattentor"));
-talkEntry:addResponse("Die Frischen Sümpfe ligen nördlich von Runwick. Geht nach Eibental, von dort nordöstlich, passiert die Fröhliche Lichtung und schon seid ihr dort. Ihr findet dort Darters Laden und das Schattentor.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Darter Shop");
-talkEntry:addResponse("That is a part of Dewy Swamps. This shop belongs to the Darter family, but it collapsed years ago. I think you can still find a member there.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Darter Laden");
-talkEntry:addResponse("Das ist ein Teil der Frischen Sümpfe. Dieser Laden gehört der Darter Familie, welcher aber vor Jahren zugrunde ging. Ich denke man findet immer noch ein Mitglieder der Familie dort.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Shadow Gate");
-talkEntry:addResponse("That is a part of Dewy Swamps. It was once a place for experiments. We tried to open a large permanent portal to distant lands there. But it failed and thus it is a ruin now.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Schattentor");
-talkEntry:addResponse("Das ist ein Teil der Frischen Sümpfe. Es war einst ein Ort für Experimente. Wir versuchten ein permanentes Portal zu fernen Ländern zu öffnen. Aber wir scheiterten und so ist dort lediglich eine Ruine nun zu finden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Merryglade");
-talkEntry:addResponse("It was once the home of a stable hand who disappeared to Galmair after he failed to protect his animals. It is northeast from Yewdale.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Fröhliche Lichtung");
-talkEntry:addResponse("Es war einst das Haus eines Stalljungen, welcher nach Galmair verschwand nachdem es ihm nicht gelungen ist seine Tiere zu behüten. Es liegt nordöstlich von Eibental.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra Tower");
-talkEntry:addResponse("It is northeast from Yewdale close at Merryglade. Druids and Alchemists are often traveling there. Ask them for further information.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldras Turm");
-talkEntry:addResponse("Der liegt nordöstlich von Eibental in der Nähe der Fröhlichen Lichtung. Druiden und Alchemisten reisen oft dorthin. Fragt die wenn ihr weitere Information wünscht.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Coward last stand");
-talkEntry:addResponse("It is northeast from Yewdale on the way to Merryclade. The coward is noone else than Sir Luvwick from Cadomyr. There is rumour that he ran faster than an arrow of Malachin when he was attacked by Galmair supporters.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Feiglings letztes Gefecht");
-talkEntry:addResponse("Dieser Ort liegt nordöstlich von Eibental am Weg zur Fröhlichen Lichtung. Der angesprochene Feigling ist Sir Luvwick von Cadomyr. Es heißt, er lief schneller als ein Pfeil von Malachin als er dort von Galmair Anhängern angegriffen wurde.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Outpost");
-talkEntry:addResponse("This outpost is northeast from Yewdale at a bridge. We used it in the past to protect ourselves.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Außenposten");
-talkEntry:addResponse("Dieser Außernposten liegt nordöstlich von Yewdale an einer Brücke. Wir verwendeten ihn in der Vergangenheit um uns zu schützen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Anthil Brook");
-talkEntry:addResponse("Anthil Brook is north of Yewdale. You will find there some sign of our glorious victory during the Halfling-war against Galmair years ago.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ameisenhügelbach");
-talkEntry:addResponse("Der Ameisenhügelbach liegt nördlich von Eibental. Du findest dort Hinweise über unseren glorreichen Sieg im Halblingkrieg über Glamair vor einigen Jahren.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bear cave");
-talkEntry:addResponse("The Bear cave is north of Anthil Brook. The cave was used by bears until warriors from Galmair killed them. Nowadays you can find some wolfs and other animals there. A good place to practice some combat-skills for unexperienced warriors.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bärenhöhle");
-talkEntry:addResponse("Die Bärenhöhle ist nördlich vom Ameisenhügelbach. Die Höhle wurde einst von Bären bewohnt bis sie alle von Kriegern aus Galmair getötet wurden. Nun leben dort Wölfe und andere Tiere. Ein guter Ort für unerfahrene Krieger um sich an ihre Waffe zu gewöhnen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron Covert");
-talkEntry:addResponse("This place is west of Anthil Brook. A blind and coward person will have troubles to find it.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron Versteck");
-talkEntry:addResponse("Dieser Ort liegt westlich vom Ameisenhügelbach. Eine blinde und feige Person wird Probleme haben ihn zu finden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Yewdale");
-talkEntry:addResponse("This place west of Runewick beyond the Lurnord-bridge is a place that offers an opportunity for farmers and to use the ferry.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Eibental");
-talkEntry:addResponse("Dieser Ort westlich von Runewick am anderen Ende der Lurnord-Brücke ist ein Ort für unsere Bauern und bietet Zugang zu den Fähren.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
