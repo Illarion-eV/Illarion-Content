@@ -749,8 +749,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Norbuk");
-talkEntry:addResponse("Hurr, long time gone, orcs traveling to Norbuk, the 'Strong Land'. It's big Plateau, splitted by the Black Current. - Cause his water is black in spring.");
-talkEntry:addResponse("Once a falcon appeard and led Grubuk Thunderhand, seer of the Bloody Skull Clan down the path to a the 'Strong Land'. Since these days, this land is orc land.");
+talkEntry:addResponse("Hurr, long time gone, orcs traveling to Norbuk, the 'Strong Land'. It's big plateau, splitted by the Black Current. - Cause his water is black in spring.");
+talkEntry:addResponse("Once a falcon appeared and led Grubuk Thunderhand, seer of the Bloody Skull Clan down the path to the 'Strong Land'. Since these days, this land is orc land.");
 talkEntry:addResponse("After spans of life of crusader, the old orc tribes found a big strong land. It's surrounded by Armon's Mountains. There's Kroch'Gurak the big winter camp.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -767,9 +767,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragg-Thu");
 talkEntry:addTrigger("Bragg Thu");
-talkEntry:addResponse("In winter orks do the poetry! Growling tales about their ancestors! In rythm to drums, the poet, following plenty of comlipcated rules. This be called the Bragg-Thuu!");
-talkEntry:addResponse("Bragg-Thuu is about rythm of words, not about melody or rhyme. It's done according to heavy slow drums and tells about tales and legends of the ancestors.");
-talkEntry:addResponse("Bragg-Thuu sounds easy to you. But mes never saw a non-ork doin it right. There's plenty of rules you have to follow. Yubba.");
+talkEntry:addResponse("In winter orcs do the poetry! Growling tales about their ancestors! In rhythm to drums, the poet speaks, following plenty of complicated rules. This be called the Bragg-Thuu!");
+talkEntry:addResponse("Bragg-Thuu is about rhythm of words, not about melody or rhyme. It's done according to heavy slow drums and tells about tales and legends of the ancestors.");
+talkEntry:addResponse("Bragg-Thuu sounds easy to you, but mes never saw a non-orc doin it right. There's plenty of rules you have to follow. Yubba.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
