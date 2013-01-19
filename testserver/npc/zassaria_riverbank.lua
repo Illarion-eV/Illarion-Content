@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -935,7 +935,7 @@ talkingNPC:addCycleText("Ssss!", "Ssss!");
 talkingNPC:addCycleText("#me zischt.", "#me hisses.");
 talkingNPC:addCycleText("Zss!", "Zss!");
 talkingNPC:addCycleText("Tsss...", "Tsss...");
-talkingNPC:addCycleText("lässt ihren Schwanz hin und her schnellen.", "#me wags her tail back and forth.");
+talkingNPC:addCycleText("#me lässt ihren Schwanz hin und her schnellen.", "#me wags her tail back and forth.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(4);
 mainNPC:setDefaultLanguage(0);
@@ -958,7 +958,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
