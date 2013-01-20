@@ -120,16 +120,6 @@ function UseItem(User, SourceItem, ltstate)
     "Sowing seeds is only possible on farm land.");
     return
   end
-  
-  -- not in winter
-  local month=world:getTime("month");
-  local season=math.ceil(month/4);
-  if (season == 4) then
-    base.common.HighInformNLS(User,
-    "Der Boden ist tief gefroren. Im Winter wirst du nichts anbauen können.",
-    "The ground is frozen deeply. You won't be able to plant anything in winter.");
-    return
-  end
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil);
