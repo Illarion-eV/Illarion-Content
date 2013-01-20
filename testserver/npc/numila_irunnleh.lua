@@ -286,14 +286,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("southwest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Shadowland, Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert, Ruzuss."));
-talkEntry:addResponse("I know following places: Shadowland, The Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert. But for more detailed information ask Ruzuss in Cadomyr.");
+talkEntry:addResponse("I know following places: Shadowland, Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert. But for more detailed information ask Ruzuss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Südwest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Schattenland, Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste, Ruzuss."));
-talkEntry:addResponse("Ich habe Informationen zu folgenden Orten: Schattenland, Der Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste. Aber für ausführlichere Informationen frage Ruzuss in Cadomyr.");
+talkEntry:addResponse("Ich habe Informationen zu folgenden Orten: Schattenland, Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste. Aber für ausführlichere Informationen frage Ruzuss in Cadomyr.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -984,13 +984,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("That is here and if you want to know more about it ask Elesil Daelwon for further information.");
+talkEntry:addResponse("That is here and if you want to know more about it ask Elesil Daelwon at the teleporter outside for further information.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Das ist hier und wenn du mehr darüber wissen möchtest, dann frag Elesil Daelwon nach weiterer Information.");
+talkEntry:addResponse("Das ist hier und wenn du mehr darüber wissen möchtest, dann frag Elesil Daelwon beim Teleporter draußen nach weiterer Information.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
