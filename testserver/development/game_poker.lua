@@ -275,8 +275,8 @@ function newPokerTable(
     end;
     
     local talkDealer = function(german, english)
-        self.npcDealer:talkLanguage(Character.say, Character.german, german)
-        self.npcDealer:talkLanguage(Character.say, Character.english, english)
+        self.npcDealer:talkLanguage(Character.say, Player.german, german)
+        self.npcDealer:talkLanguage(Character.say, Player.english, english)
     end
     
     local showHand = function()
