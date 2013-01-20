@@ -1142,14 +1142,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("eastern part");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Chapel Five, Lumpskrump's Band, Moshran's Brood, Oasis Star, Raptor Hole, Sarakas Home, Khesra, Akaltut Chamber, Cursed Place, Wizard Bane."));
-talkEntry:addResponse("The eastern part of the Katanbi Desert contains: Chapel of the Five, Lumpskrump's Band, Moshran's Brood, Oasis of Stars, Raptor Hole, Sarakas Home, Khesra, Akaltut's Chamber, Cursed Place, Wizard Bane.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Chapel Five, Lumpskrump's Band, Moshran's Brood, Oasis Star, Raptor Hole, Sarakas' Home, Khesra, Akaltut's Chamber, Cursed Place, Wizard Bane."));
+talkEntry:addResponse("The eastern part of the Katanbi Desert contains: Chapel of the Five, Lumpskrump's Band, Moshran's Brood, Oasis of Stars, Raptor Hole, Sarakas' Home, Khesra, Akaltut's Chamber, Cursed Place, Wizard Bane.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("östlichen teile");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Kapelle Fünf, Lumpskrump Band, Moshran Brut, Oasis Stern, Raptor Loch, Sarakas Heim, Khesra, Akaltut Kammer, Verfluchter Platz, Hexer Fluch."));
+talkEntry:addTrigger("östliche teile");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Kapelle Fünf, Lumpskrump Band, Moshran Brut, Oasis Stern, Raptoren Loch, Sarakas Heim, Khesra, Akaltut Kammer, Verfluchter Platz, Hexer Fluch."));
 talkEntry:addResponse("Der östliche Teil der Katanbi Wüste beinhaltet: Kapelle der Fünf, Lumpskrumps Bande, Moshrans Brut, Oasis der Sterne, Raptoren Loch, Sarakas Heim, Khesra, Akaltuts Kammer, Verfluchter Platz, Hexer Fluch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1230,13 +1231,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Raptor Loch");
-talkEntry:addResponse("Die Raptoren Loch ist eine Höhle im Süden der Grenzberge nördlich von Akaltuts Kammer.");
+talkEntry:addTrigger("Raptoren Loch");
+talkEntry:addResponse("Das Raptoren Loch ist eine Höhle im Süden der Grenzberge nördlich von Akaltuts Kammer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sarakas Home");
+talkEntry:addTrigger("Sarakas' Home");
 talkEntry:addResponse("The home of this old murder can be found in the Border Mountains between the entrance to the Shadowland and the Raptor Hole.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1273,7 +1274,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Akaltut Chamber");
+talkEntry:addTrigger("Akaltut's Chamber");
+talkEntry:addTrigger("Akaltuts Chamber");
 talkEntry:addResponse("Akaltut's Chamber can be found on the very south end of the Border Mountains. I hope you can run fast if you dare to show up there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
