@@ -33,6 +33,8 @@ Location[8] = "Arena";
 Coordina[8] = {600,400,0};
 Location[9]="Runewick Market";
 Coordina[9]={900,800,1};
+Location[10]="Poker";
+Coordina[10]={250,290,-5};
 
 skillNames = {Character.alchemy,Character.carpentry,Character.concussionWeapons,Character.cookingAndBaking,Character.distanceWeapons,Character.dodge,
 			Character.farming,Character.firingBricks,Character.fishing,Character.flute,Character.gemcutting,Character.glassBlowing,Character.goldsmithing,
