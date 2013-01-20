@@ -292,7 +292,7 @@ function newPokerTable(
         strDe = strDe .. " ]";
         strEn = strEn .. " ]";
         local eval = evaluateHand();
-        self.talkDealer("Sitz "..self.activePlayer.." zeigt die Karten: "..str.. " ("..eval.descDe..")",
+        talkDealer("Sitz "..self.activePlayer.." zeigt die Karten: "..str.. " ("..eval.descDe..")",
                         "Seat "..self.activePlayer.." shows his cards: "..str.. " ("..eval.descEn..")");
         
         i = 1;
@@ -398,7 +398,7 @@ function newPokerTable(
     local gameReset = function() -- reset and print a message
         local n    = self.numberPlayer;
         local list = self.listPlayer;
-        self.talkDealer("Nicht genug Spieler, Runde beendet. Warten wir auf weitere Mitspieler.", "Not enough players, round ended. We will wait for more to join.");
+        talkDealer("Nicht genug Spieler, Runde beendet. Warten wir auf weitere Mitspieler.", "Not enough players, round ended. We will wait for more to join.");
         reset();
         self.numberPlayer = n;
         self.listPlayer   = list;
@@ -425,16 +425,16 @@ function newPokerTable(
             if self.gameState < 3 then -- still blinds -> out of game
                 self.listPlayer[self.activePlayer] = nil;
                 self.numberPlayer = self.numberPlayer - 1;
-                self.talkDealer("Sitz "..self.activePlayer.." hat den Blind nicht gesetzt und das Spiel verlassen.", "Seat "..self.activePlayer.." did not place the blind and has left the game.");
+                talkDealer("Sitz "..self.activePlayer.." hat den Blind nicht gesetzt und das Spiel verlassen.", "Seat "..self.activePlayer.." did not place the blind and has left the game.");
             else
-                self.talkDealer("Sitz "..self.activePlayer.." hat gepasst.", "Seat "..self.activePlayer.." has folded.");                
+                talkDealer("Sitz "..self.activePlayer.." hat gepasst.", "Seat "..self.activePlayer.." has folded.");                
             end;
             return true;
         elseif self.timeoutCounter == self.timeoutWarning2 then
-            self.talkDealer("Sitz "..self.activePlayer.." hat "..math.floor((self.timeoutFinal-self.timeoutWarning2)/10).." Sekunden um zu handeln.",
+            talkDealer("Sitz "..self.activePlayer.." hat "..math.floor((self.timeoutFinal-self.timeoutWarning2)/10).." Sekunden um zu handeln.",
                             "Seat "..self.activePlayer.." has "..math.floor((self.timeoutFinal-self.timeoutWarning2)/10).." seconds to act.");
         elseif self.timeoutCounter == self.timeoutWarning1 then
-            self.talkDealer("Sitz "..self.activePlayer.." hat "..math.floor((self.timeoutFinal-self.timeoutWarning1)/10).." Sekunden um zu handeln.",
+            talkDealer("Sitz "..self.activePlayer.." hat "..math.floor((self.timeoutFinal-self.timeoutWarning1)/10).." Sekunden um zu handeln.",
                             "Seat "..self.activePlayer.." has "..math.floor((self.timeoutFinal-self.timeoutWarning1)/10).." seconds to act.");
         end;
         self.timeoutCounter = self.timeoutCounter + 1;
@@ -510,7 +510,7 @@ function newPokerTable(
         self.activePlayer       = self.buttonPlayer;
         nextPlayer();
         self.buttonPlayer       = self.activePlayer;
-        self.talkDealer("Sitz "..self.buttonPlayer.." ist jetzt am Button.", "Seat "..self.buttonPlayer.." is now on the button.");
+        talkDealer("Sitz "..self.buttonPlayer.." ist jetzt am Button.", "Seat "..self.buttonPlayer.." is now on the button.");
         bet(0);
         nextPlayer();
     end;
@@ -538,7 +538,7 @@ function newPokerTable(
             end;
         end;
         payPlayer( self.activePlayer, money );
-        self.talkDealer("Sitz "..self.activePlayer.." gewinnt "..money..".", "Seat "..self.activePlayer.." wins "..money..".");
+        talkDealer("Sitz "..self.activePlayer.." gewinnt "..money..".", "Seat "..self.activePlayer.." wins "..money..".");
     end;
     
     local informSeat = function(german, english, seat)
@@ -562,7 +562,7 @@ function newPokerTable(
         end;
         strDe = strDe .. " ]";
         strEn = strEn .. " ]";
-        self.informSeat("Verfügbare Karten: "..strDe, "Available cards: "..strEn);
+        informSeat("Verfügbare Karten: "..strDe, "Available cards: "..strEn);
     end;
     
     local nextCycle = function()
@@ -577,29 +577,29 @@ function newPokerTable(
                     if not self.listPlayer[i] or (self.listPlayer[i].id ~= char.id) then
                         self.listPlayer[i] = char;
                         self.numberPlayer = self.numberPlayer + 1;
-                        self.talkDealer("Sitz "..i.." wurde belegt.", "Seat "..i.." has been taken.");
+                        talkDealer("Sitz "..i.." wurde belegt.", "Seat "..i.." has been taken.");
                     end;
                 else
                     if self.listPlayer[i] then
                         self.listPlayer[i] = nil;
                         self.numberPlayer = self.numberPlayer - 1;
-                        self.talkDealer("Sitz "..i.." wurde frei.", "Seat "..i.." has become vacant.");
+                        talkDealer("Sitz "..i.." wurde frei.", "Seat "..i.." has become vacant.");
                     end;                    
                 end;
             end;
             if self.numberPlayer >= 2 then -- enough players, but wait some seconds if more want to join
                 if oldNumberPlayer < 2 then
-                    self.talkDealer("Die nächste Runde beginnt in "..math.ceil(self.initialDelay/10).." Sekunden.", "The next round will start in "..math.ceil(self.initialDelay/10).." seconds.");
+                    talkDealer("Die nächste Runde beginnt in "..math.ceil(self.initialDelay/10).." Sekunden.", "The next round will start in "..math.ceil(self.initialDelay/10).." seconds.");
                 end;
                 self.timeoutCounter = self.timeoutCounter + 1;
                 if self.timeoutCounter >= self.initialDelay then
                     self.timeoutCounter = 0;
                     self.gameState = 1;
-                    self.talkDealer("Willkommen zu einer weiteren Runde Poker!", "Welcome to another round of poker!");
+                    talkDealer("Willkommen zu einer weiteren Runde Poker!", "Welcome to another round of poker!");
                 end;
             else
                 if oldNumberPlayer >= 2 then
-                    self.talkDealer("Zu viele Spieler haben den Tisch verlassen, wir werden warten müssen.",
+                    talkDealer("Zu viele Spieler haben den Tisch verlassen, wir werden warten müssen.",
                                     "Too many players left the table, we will have to wait.");
                 end;
                 self.timeoutCounter = 0;
@@ -618,19 +618,19 @@ function newPokerTable(
                             cardHigh = card;
                             self.buttonPlayer = i;
                         end;
-                        self.informSeat("Du erhältst "..card.getGerman(), "You got the "..card.getEnglish(), i);
+                        informSeat("Du erhältst "..card.getGerman(), "You got the "..card.getEnglish(), i);
                     end;
                 end;
                 self.activePlayer = self.buttonPlayer;
                 bet( 0 );
-                self.talkDealer("Sitz "..self.buttonPlayer.." hat die höchste Karte ("..cardHigh.getGermanShort()..") und ist jetzt am Button.",
+                talkDealer("Sitz "..self.buttonPlayer.." hat die höchste Karte ("..cardHigh.getGermanShort()..") und ist jetzt am Button.",
                                 "Seat "..self.buttonPlayer.." has the highest card ("..cardHigh.getEnglishShort()..") and is now on the button.");
                 nextPlayer();
             else                           -- wait for small blind
                 if self.timeoutCounter == 0 then
                     self.numberInHand = self.numberPlayer;
-                    self.talkDealer("Sitz "..self.activePlayer..", bitte setze den Small Blind.", "Seat "..self.activePlayer..", please place the small blind.");
-                    self.informSeat("Du kannst jetzt den Small Blind setzen", "You can now place the small blind");
+                    talkDealer("Sitz "..self.activePlayer..", bitte setze den Small Blind.", "Seat "..self.activePlayer..", please place the small blind.");
+                    informSeat("Du kannst jetzt den Small Blind setzen", "You can now place the small blind");
                 end;
                 if isTimeout() then
                     if self.numberPlayer < 2 then
@@ -642,13 +642,13 @@ function newPokerTable(
             end;
         elseif (self.gameState == 2) then -- wait for big blind  
             if self.timeoutCounter == 0 then
-                self.talkDealer("Sitz "..self.activePlayer..", bitte setze den Big Blind.", "Seat "..self.activePlayer..", please place the big blind.");
-                self.informSeat("Du kannst jetzt den Big Blind setzen", "You can now place the big blind");
+                talkDealer("Sitz "..self.activePlayer..", bitte setze den Big Blind.", "Seat "..self.activePlayer..", please place the big blind.");
+                informSeat("Du kannst jetzt den Big Blind setzen", "You can now place the big blind");
             end;
             if isTimeout() then
                 if self.numberPlayer < 2 then
                     payPlayer( self.smallPlayer, self.smallBlind );
-                    self.talkDealer("Sitz "..self.smallPlayer.." erhält den Small Blind zurück.", "Seat "..self.smallPlayer.." gets back the small blind.");
+                    talkDealer("Sitz "..self.smallPlayer.." erhält den Small Blind zurück.", "Seat "..self.smallPlayer.." gets back the small blind.");
                     gameReset();
                 else
                     nextPlayer();
@@ -656,7 +656,7 @@ function newPokerTable(
             end;
         elseif (self.gameState >= 3) and (self.gameState <= 6) then -- betting
             if self.timeoutCounter == 0 then
-                self.talkDealer("Sitz "..self.activePlayer..", du bist dran.", "Seat "..self.activePlayer..", it is your turn.");
+                talkDealer("Sitz "..self.activePlayer..", du bist dran.", "Seat "..self.activePlayer..", it is your turn.");
                
                 showAvailableCards();
                 
@@ -670,7 +670,7 @@ function newPokerTable(
                     strDe = "call und raise";
                     strEn = "call and raise";
                 end;
-                self.informSeat("Mögliche Aktionen: fold, "..strDe, "You can now fold, "..strEn);
+                informSeat("Mögliche Aktionen: fold, "..strDe, "You can now fold, "..strEn);
             end;
             if isTimeout() then
                 if self.numberInHand < 2 then
@@ -683,9 +683,9 @@ function newPokerTable(
             end;
 	    elseif self.gameState == 7 then -- showdown
 	        if self.timeoutCounter == 0 then
-	            self.talkDealer("Was möchtest du mit deinen Karten machen, Sitz "..self.activePlayer.."?", "What will you do with your cards, seat "..self.activePlayer.."?");
+	            talkDealer("Was möchtest du mit deinen Karten machen, Sitz "..self.activePlayer.."?", "What will you do with your cards, seat "..self.activePlayer.."?");
 	            showAvailableCards();
-                self.informSeat("Mögliche Aktionen: fold oder show", "You can now fold or show your cards");
+                informSeat("Mögliche Aktionen: fold oder show", "You can now fold or show your cards");
 	        end;
             if isTimeout() then
 	            if self.numberInHand < 2 then
@@ -714,33 +714,33 @@ function newPokerTable(
                 if string.find( message, "[Bb]lind" ) then
                     if bet( self.smallBlind ) then
                         self.smallPlayer = self.activePlayer;
-                        self.talkDealer("Sitz "..self.activePlayer.." setzt den Small Blind.", "Seat "..self.activePlayer.." places the small blind.");
+                        talkDealer("Sitz "..self.activePlayer.." setzt den Small Blind.", "Seat "..self.activePlayer.." places the small blind.");
                         nextPlayer();
                         self.gameState = 2;
                         self.timeoutCounter = 0;
                     else
-                        self.informSeat("Du hast nicht genug Geld um den Small Blind zu bezahlen", "You do not have enough money to cover the small blind");
+                        informSeat("Du hast nicht genug Geld um den Small Blind zu bezahlen", "You do not have enough money to cover the small blind");
                     end;
                 end;
             elseif (self.gameState == 2) then -- big blind
                 if string.find( message, "[Bb]lind" ) then
                     if bet( self.bigBlind ) then
                         self.bigPlayer = self.activePlayer;
-                        self.talkDealer("Sitz "..self.activePlayer.." setzt den Big Blind.", "Seat "..self.activePlayer.." places the big blind.");
-                        self.talkDealer("#me teilt die Pocket Cards aus.", "#me deals the pocket cards.");
+                        talkDealer("Sitz "..self.activePlayer.." setzt den Big Blind.", "Seat "..self.activePlayer.." places the big blind.");
+                        talkDealer("#me teilt die Pocket Cards aus.", "#me deals the pocket cards.");
                         self.cardDeck52.shuffle();
                         local i;
                         for i=1,self.tableSize do
                             if self.listPlayer[i] then
                                 self.listPocket1[i] = self.cardDeck52.draw();
-                                self.informSeat("Du erhältst "..self.listPocket1[i].getGerman().." als erste Pocket Card",
+                                informSeat("Du erhältst "..self.listPocket1[i].getGerman().." als erste Pocket Card",
                                                 "You got the "..self.listPocket1[i].getEnglish().." as first pocket card", i);
                             end;
                         end;
                         for i=1,self.tableSize do
                             if self.listPlayer[i] then
                                 self.listPocket2[i] = self.cardDeck52.draw();
-                                self.informSeat("Du erhältst "..self.listPocket2[i].getGerman().." als zweite Pocket Card",
+                                informSeat("Du erhältst "..self.listPocket2[i].getGerman().." als zweite Pocket Card",
                                                 "You got the "..self.listPocket2[i].getEnglish().." as second pocket card", i);
                             end;
                         end;
@@ -749,7 +749,7 @@ function newPokerTable(
                         self.gameState = 3;
                         self.timeoutCounter = 0;
                     else
-                        self.informSeat("Du hast nicht genug Geld um den Big Blind zu bezahlen", "You do not have enough money to cover the big blind");
+                        informSeat("Du hast nicht genug Geld um den Big Blind zu bezahlen", "You do not have enough money to cover the big blind");
                     end;
                 end;                
             elseif (self.gameState >= 3) and (self.gameState <= 6) then -- betting
@@ -758,7 +758,7 @@ function newPokerTable(
                     self.listHasFolded[self.activePlayer] = true;
                     self.listBets[self.activePlayer] = self.listBets[self.activePlayer] or 0;
                     self.numberInHand = self.numberInHand - 1;
-                    self.talkDealer("Sitz "..self.activePlayer.." passt.", "Seat "..self.activePlayer.." folds.");
+                    talkDealer("Sitz "..self.activePlayer.." passt.", "Seat "..self.activePlayer.." folds.");
                     if self.numberInHand < 2 then
                         nextPlayer();
                         payPotsToPlayer();
@@ -772,7 +772,7 @@ function newPokerTable(
                         if self.maxBet == 0 then
                             self.listBets[self.activePlayer] = 0;
                         end;
-                        self.talkDealer("Sitz "..self.activePlayer.." wartet ab.", "Seat "..self.activePlayer.." checks.");
+                        talkDealer("Sitz "..self.activePlayer.." wartet ab.", "Seat "..self.activePlayer.." checks.");
                         cont = true;
                     elseif string.find( message, "[Bb]et" ) then
                         local amount;
@@ -783,16 +783,16 @@ function newPokerTable(
                                 if bet( amount ) then
                                     self.listBets[self.activePlayer] = amount;
                                     self.maxBet = amount;
-                                    self.talkDealer("Sitz "..self.activePlayer.." setzt "..amount..".", "Seat "..self.activePlayer.." bets "..amount..".");
+                                    talkDealer("Sitz "..self.activePlayer.." setzt "..amount..".", "Seat "..self.activePlayer.." bets "..amount..".");
                                     cont = true;
                                 else
-                                    self.informSeat("Du hast nicht genug Geld für diesen Einsatz", "You do not have enough money to cover this bet");
+                                    informSeat("Du hast nicht genug Geld für diesen Einsatz", "You do not have enough money to cover this bet");
                                 end;
                             else
-                                self.informSeat("Du musst mindestens den Big Blind setzen ("..self.bigBlind..")", "You have to bet at least the big blind ("..self.bigBlind..")");
+                                informSeat("Du musst mindestens den Big Blind setzen ("..self.bigBlind..")", "You have to bet at least the big blind ("..self.bigBlind..")");
                             end;
                         else
-                            self.informSeat("Du musst einen bestimmten Betrag setzen", "You have to bet a certain amount");
+                            informSeat("Du musst einen bestimmten Betrag setzen", "You have to bet a certain amount");
                         end;                            
                     end;                        
                 else
@@ -803,13 +803,13 @@ function newPokerTable(
                         success, pMoney = bet( self.maxBet - (self.listBets[self.activePlayer] or 0) );
                         if success then
                             self.listBets[self.activePlayer] = self.maxBet;
-                            self.talkDealer("Sitz "..self.activePlayer.." geht "..self.maxBet.." mit.", "Seat "..self.activePlayer.." calls "..self.maxBet..".");
+                            talkDealer("Sitz "..self.activePlayer.." geht "..self.maxBet.." mit.", "Seat "..self.activePlayer.." calls "..self.maxBet..".");
                             cont = true;
                         else
                             bet( pMoney );
                             self.listIsAllIn[self.activePlayer] = true;
                             self.numberAllIn = self.numberAllIn + 1;
-                            self.talkDealer("Sitz "..self.activePlayer.." geht mit und ist mit "..self.listBets[self.activePlayer].." all-in.",
+                            talkDealer("Sitz "..self.activePlayer.." geht mit und ist mit "..self.listBets[self.activePlayer].." all-in.",
                                             "Seat "..self.activePlayer.." calls all in with "..self.listBets[self.activePlayer]..".");
                             cont = true;
                         end;
@@ -822,17 +822,17 @@ function newPokerTable(
                                 if bet( amount - (self.listBets[self.activePlayer] or 0) ) then
                                     self.listBets[self.activePlayer] = amount;
                                     self.maxBet = amount;
-                                    self.talkDealer("Sitz "..self.activePlayer.." erhöht auf "..amount..".", "Seat "..self.activePlayer.." raises to "..amount..".");
+                                    talkDealer("Sitz "..self.activePlayer.." erhöht auf "..amount..".", "Seat "..self.activePlayer.." raises to "..amount..".");
                                     cont = true;
                                 else
-                                    self.informSeat("Du hast nicht genug Geld für diese Erhöhung", "You do not have enough money to cover this raise");
+                                    informSeat("Du hast nicht genug Geld für diese Erhöhung", "You do not have enough money to cover this raise");
                                 end;
                             else
-                                self.informSeat("Du musst mindestens auf den aktuellen Einsatz plus Big Blind erhöhen ("..(self.bigBlind+self.maxBet)..")",
+                                informSeat("Du musst mindestens auf den aktuellen Einsatz plus Big Blind erhöhen ("..(self.bigBlind+self.maxBet)..")",
                                                 "You have to raise to the current maximum bet/raise plus the big blind ("..(self.bigBlind+self.maxBet)..") at least");
                             end;
                         else
-                            self.informSeat("Du musst auf einen bestimmten Betrag erhöhen", "You have to raise to a certain amount");
+                            informSeat("Du musst auf einen bestimmten Betrag erhöhen", "You have to raise to a certain amount");
                         end;
                     end;
                 end;
@@ -863,7 +863,7 @@ function newPokerTable(
                             if self.listBets[ idx ] and self.listBets[ idx ] > 0 then
                                 if i == self.tableSize then
                                     payPlayer( idx, self.listBets[ idx ] );
-                                    self.talkDealer("Sitz "..idx.." erhält "..self.listBets[ idx ].." zurück.",
+                                    talkDealer("Sitz "..idx.." erhält "..self.listBets[ idx ].." zurück.",
                                                     "Seat "..idx.." receives back "..self.listBets[ idx ]..".");
                                     self.listBets[ idx ] = 0;
                                 else
@@ -882,7 +882,7 @@ function newPokerTable(
 		                            self.listBets[ idx ] = 0;
 		                            pot.listPlayersInPot[ idx ] = true;
 		                            if self.listBets[ self.listIndex[ self.tableSize ] ] > 0 then
-		                                self.talkDealer("#me nimmt einen Pot von "..pot.value.." beiseite.", "#me moves a pot of "..pot.value.." aside.");
+		                                talkDealer("#me nimmt einen Pot von "..pot.value.." beiseite.", "#me moves a pot of "..pot.value.." aside.");
                                         table.insert( self.listPots, { value=0, listPlayersInPot = {}, maxHandValue = 0, listPotCandidates = {} } );
 		                            end;
 		                        end;
@@ -918,24 +918,24 @@ function newPokerTable(
                             self.listBoard[1] = self.cardDeck52.draw();
                             self.listBoard[2] = self.cardDeck52.draw();
                             self.listBoard[3] = self.cardDeck52.draw();
-                            self.talkDealer("#me zeigt den Flop: "..self.listBoard[1].getGerman()..", "..self.listBoard[2].getGerman()..", "..self.listBoard[3].getGerman(),
+                            talkDealer("#me zeigt den Flop: "..self.listBoard[1].getGerman()..", "..self.listBoard[2].getGerman()..", "..self.listBoard[3].getGerman(),
                                             "#me shows the flop: "..self.listBoard[1].getEnglish()..", "..self.listBoard[2].getEnglish()..", "..self.listBoard[3].getEnglish());
                             self.gameState = self.gameState + (drawall and 1 or 0);
                         end;
                         if self.gameState == 5 then -- show turn
                             self.cardDeck52.draw();
                             self.listBoard[4] = self.cardDeck52.draw();
-                            self.talkDealer("#me zeigt den Turn: "..self.listBoard[4].getGerman(), "#me shows the turn: "..self.listBoard[4].getEnglish());
+                            talkDealer("#me zeigt den Turn: "..self.listBoard[4].getGerman(), "#me shows the turn: "..self.listBoard[4].getEnglish());
                             self.gameState = self.gameState + (drawall and 1 or 0);
                         end;
                         if self.gameState == 6 then -- show river
                             self.cardDeck52.draw();
                             self.listBoard[5] = self.cardDeck52.draw();
-                            self.talkDealer("#me zeigt den River: "..self.listBoard[5].getGerman(), "#me shows the river: "..self.listBoard[5].getEnglish());
+                            talkDealer("#me zeigt den River: "..self.listBoard[5].getGerman(), "#me shows the river: "..self.listBoard[5].getEnglish());
                             self.gameState = self.gameState + (drawall and 1 or 0);
                         end;
                         if self.gameState == 7 then -- prepare showdown
-                            self.talkDealer("Der Showdown beginnt!", "The showdown begins!");
+                            talkDealer("Der Showdown beginnt!", "The showdown begins!");
                             showHand();
                             nextPlayer();
                         end;
@@ -946,7 +946,7 @@ function newPokerTable(
                     self.listHasFolded[self.activePlayer] = true;
                     self.listBets[self.activePlayer] = self.listBets[self.activePlayer] or 0;
                     self.numberInHand = self.numberInHand - 1;
-                    self.talkDealer("Sitz "..self.activePlayer.." passt.", "Seat "..self.activePlayer.." folds.");
+                    talkDealer("Sitz "..self.activePlayer.." passt.", "Seat "..self.activePlayer.." folds.");
                     if self.numberInHand < 2 then
                         nextPlayer();
                         payPotsToPlayer();
@@ -970,7 +970,7 @@ function newPokerTable(
                             money = math.floor( money / n * 100 ) / 100;
                             for z=1,n do
                                 payPlayer( pot.listPotCandidates[z], money );
-                                self.talkDealer("Sitz "..pot.listPotCandidates[z].." gewinnt "..money.." aus Pot #"..i..".",
+                                talkDealer("Sitz "..pot.listPotCandidates[z].." gewinnt "..money.." aus Pot #"..i..".",
                                                 "Seat "..pot.listPotCandidates[z].." wins "..money.." of pot #"..i..".");
                             end;
                         end;
@@ -983,7 +983,7 @@ function newPokerTable(
     end
     
     local beforeReload = function()
-        self.talkDealer("Entschuldigung, wir müssen eine kurze Auszeit vom Pokern nehmen. Ihr bekommt euer Geld zurück.",
+        talkDealer("Entschuldigung, wir müssen eine kurze Auszeit vom Pokern nehmen. Ihr bekommt euer Geld zurück.",
                         "Sorry, but we have to take a short break from poker. You will get your money back.");
         -- pay players
         local i,z;
@@ -1006,7 +1006,7 @@ function newPokerTable(
         for z=1,self.tableSize do
             if self.listBets[ z ] and self.listBets[ z ] > 0 then
                 payPlayer( z, self.listBets[ z ] );
-                self.talkDealer("Sitz "..z.." bekommt "..self.listBets[ z ].." zurück.",
+                talkDealer("Sitz "..z.." bekommt "..self.listBets[ z ].." zurück.",
                                 "Seat "..z.." gets "..self.listBets[ z ].." back.");
             end;
         end;
