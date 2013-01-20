@@ -85,8 +85,7 @@ english, "inform" -> inform("[Keywords] Illarion, northeast, northwest, southwes
 "inform" -> inform("[Schlüsselwörter] Platz"), "Ich habe Informationen zu den Orten in der Nähe von Cadomyr geben. Frag einfach!"
 "question" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "I have information about placesss clossse to Cadomyr. Just asssk me!"
 "Frage", "Auskunft" -> inform("[Schlüsselwörter] Platz"), "Ich habe Informationen zu den Orten in der Nähe von Cadomyr geben. Frag einfach!"
-"place" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Illarion?"
-"Orte" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Orte? Welche Orte meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Illarion?"
+-- places-trigger is below after the optional triggers
 english, "Frizza" -> "You can find her outssside of the town clossse to the teleporter. Sssshe hasss a lot of information and sssome tasksss for you."
 "Frizza" -> "Du findest sssie draußen vor der Stadt, nahe am Teleporter. Sssie hat eine Menge Informationen und Aufträge für dich."
 
@@ -217,12 +216,12 @@ english, "Lotta", "Medborgar" -> "You can find her in Galmair and she knows seve
 "Gefängnis" -> "Das Gefängnis kann südlich der Königlichen Akademie der Gladiatioren gefunden werden. Du möchtest dort nicht enden."
 "Druid's Tear","Druids Tear" -> "The Druid Tear can be found southeast of the Royal Academy of Gladiators. Ask a druid for further information."
 "Druiden Träne" -> "Die Druiden Träne kann südöstlich der Königlichen Akademie der Gladiatioren gefunden werden. Frage einen Druiden für weitere Information."
-"Royal places" -> inform("[Keywords] Royal Academy, Academy Gladiators,Blood Circle Arena, Royal Slave Market"), "There are Royal Academy of Gladiators, Blood Circle Arena, Royal Slave Market."
-"Königliche Orte" -> inform("[Schlüsselwörter] Königliche Akademie, Akademie Gladiatoren, Blurtkreisarena, Königlicher Sklaven Markt"), "Königliche Akademie der Gladiatoren, Blurtkreisarena, Königlicher Sklaven Markt."
+"Royal places" -> inform("[Keywords] Royal Academy, Academy Gladiators,Blood Circle Arena, Royal Slave Market"), "There are the Royal Academy of Gladiators, the Blood Circle Arena and the Royal Slave Market."
+"Königliche Orte" -> inform("[Schlüsselwörter] Königliche Akademie, Akademie Gladiatoren, Blurtkreisarena, Königlicher Sklaven Markt"), "Da wären die Königliche Akademie der Gladiatoren, die Blurtkreisarena und der Königliche Sklaven Markt."
 "Royal Academy", "Academy Gladiators" -> "Our Royal Academy of Gladiators is south on the road to the east. It is a place where participents in the Blood Circle Arena can train."
 "Königliche Akademie", "Akademie Gladiatoren" -> "Unsere Königliche Akademie der Gladiatoren ist südlich an der Straße in den Osten. Sie dient als Trainingsstätte für jene die sich in der Blurtkreisarena beweisen wollen."
 "Blood Circle Arena" -> "The Blood Circle Arena was built by Sir Reginald in the year 6. It is a place for warriors and it is north on the road to the east"
-"Blurtkreisarena" -> "Die Blurtkreisarena wurde von Sir Reginald im Jahre 6 erbaut. Sie dient als Platz für Krieger und kann nördlich an der Straße in den Osten gefunden werden."
+"Blutkreisarena" -> "Die Blutkreisarena wurde von Sir Reginald im Jahre 6 erbaut. Sie dient als Platz für Krieger und kann nördlich an der Straße in den Osten gefunden werden."
 "Royal Slave Market" -> "The Royal Slave Market can be found northeast of the Blood Circle Arena. For some coins you will find some productive slaves there."
 "Königlicher Sklaven Markt" -> "Der Königliche Sklaven Markt kann nordöstlich der Blutkreisarena gefundne werden. Für wenige Münzen findest du dort produktive Sklaven."
 "Desert Hole" -> "The Desert Hole southeast of the Blood Circle Arena ist a former mine and used by creatures like worms now."
@@ -371,6 +370,8 @@ german, chance(20.0), ".*" -> "Huh, über welche Orte wünssscht ihr Information
 
 "Farewell", "Bye", "Fare well", "See you" -> "Sssee you again if you need more information."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Wir sssehen unsss wenn mehr Information benötigt wird."
+"place" -> inform("[Keywords] Illarion, northeast, northwest, southwest, southeast"), "Places? Which places to you mean? These could be in the northeast, northwest, southwest or southeast of Illarion?"
+"Orte" -> inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"), "Orte? Welche Orte meinst du? Diese könnten sein im Nordosten, Nordwesten, Südwesten oder Südosten von Illarion?"
 
 ------------------------------------------------------------------------------AC
 -- Cycle Texts - Messages spoken automatically in random intervals.
