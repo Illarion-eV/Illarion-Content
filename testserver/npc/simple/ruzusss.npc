@@ -208,8 +208,8 @@ english, "Lotta", "Medborgar" -> "You can find her in Galmair and she knows seve
 "Freiheitsbruch" -> "Der Freiheitsbruch ist im Nordosten am westlichen Ufer des Katanbi Flusses. Du kannst dort Eisen, Gold oder Kupfer finden."
 "Grugmutz's cave","Grugmutzs cave" -> "Grugmutz's cave is the north of Liberty Quarry. Grugmutz and his oger clan have tried to raid us several times. Be careful!"
 "Grugmutz Höhle" -> "Grugmutzs Höhle ist nördlich des Freiheitsbruch. Grugmutz und sein Oger Klan haben immer wieder versucht uns zu plündern. Sei vorsicht!"
-"Creek Settlement" -> "The Creek Settlement was once on of our rich places. It was at the northern end of the Katanbi River. It was destroyed by either dwarfs from Fortress Hammerfall, Buccaneers or Grugmutz's ogers. We don't know yet."
-"Bach Siedlung" -> "Die Bach Siedlung war einst einer unserer reichen Orte. Es war am nördlichen Ende des Katanbi Flusses. Es wurde zerstört entweder von den Zwergen der Festung Hammerfall, Seeräubern oder Grugmutzs Ogers zerstört. Wir wissen es nicht."
+"Creek Settlement" -> "The Creek Settlement was once on of our richest places. It was at the northern end of the Katanbi River. It was destroyed by either dwarfs from Fortress Hammerfall, Buccaneers or Grugmutz's ogers. We don't know yet."
+"Bach Siedlung" -> "Die Bach Siedlung war einst einer unserer reichsten Orte. Es war am nördlichen Ende des Katanbi Flusses. Es wurde zerstört entweder von den Zwergen der Festung Hammerfall, von Seeräubern oder von Grugmutzs Ogers zerstört. Wir wissen es nicht."
 
 -- Katanbi Desert
 "Katanbi Desert" -> inform("[Keywords] Prison, Druid Tear, Royal places, Desert Hole, Pyramide Discord, Pearl Sirani, Frontus Farm, Queens Corner, Irundar, Zumbrass Tomb, Mount Zotmore, Buccaneers Lurk, Envy Creek, Weary Inn, eastern parts"), "Which place there do you mean: Prison, Druid's Tear, Royal places, Desert Hole, Pyramide of Discord, Pearl of Sirani, Frontus Farm, Queens Corner, Irundar, Zumbrass Tomb, Mount Zotmore, Buccaneers Lurk, Envy Creek, Weary Inn or its eastern parts?"

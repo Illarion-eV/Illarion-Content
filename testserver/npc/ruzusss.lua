@@ -935,13 +935,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Creek Settlement");
-talkEntry:addResponse("The Creek Settlement was once on of our rich places. It was at the northern end of the Katanbi River. It was destroyed by either dwarfs from Fortress Hammerfall, Buccaneers or Grugmutz's ogers. We don't know yet.");
+talkEntry:addResponse("The Creek Settlement was once on of our richest places. It was at the northern end of the Katanbi River. It was destroyed by either dwarfs from Fortress Hammerfall, Buccaneers or Grugmutz's ogers. We don't know yet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bach Siedlung");
-talkEntry:addResponse("Die Bach Siedlung war einst einer unserer reichen Orte. Es war am nördlichen Ende des Katanbi Flusses. Es wurde zerstört entweder von den Zwergen der Festung Hammerfall, Seeräubern oder Grugmutzs Ogers zerstört. Wir wissen es nicht.");
+talkEntry:addResponse("Die Bach Siedlung war einst einer unserer reichsten Orte. Es war am nördlichen Ende des Katanbi Flusses. Es wurde zerstört entweder von den Zwergen der Festung Hammerfall, von Seeräubern oder von Grugmutzs Ogers zerstört. Wir wissen es nicht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
