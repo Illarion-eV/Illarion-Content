@@ -29,7 +29,7 @@ function UseItem(User, SourceItem)
     if (User.lastSpokenText == "kill") then
         myTargets = world:getMonstersInRangeOf(User.pos,8)
 		for i=1,#myTargets do
-		    #myTargets[i]:increaseAttrib("hitpoints",-15000)
+		    myTargets[i]:increaseAttrib("hitpoints",-15000)
         end			
     end	
 end
