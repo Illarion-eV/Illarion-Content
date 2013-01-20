@@ -292,8 +292,8 @@ function newPokerTable(
         strDe = strDe .. " ]";
         strEn = strEn .. " ]";
         local eval = evaluateHand();
-        talkDealer("Sitz "..self.activePlayer.." zeigt die Karten: "..str.. " ("..eval.descDe..")",
-                        "Seat "..self.activePlayer.." shows his cards: "..str.. " ("..eval.descEn..")");
+        talkDealer("Sitz "..self.activePlayer.." zeigt die Karten: "..strDe.. " ("..eval.descDe..")",
+                        "Seat "..self.activePlayer.." shows his cards: "..strEn.. " ("..eval.descEn..")");
         
         i = 1;
 
