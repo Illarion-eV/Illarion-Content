@@ -1352,14 +1352,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lost Harbour");
-talkEntry:addResponse("The Lost Harbour has been destroyed by an attack of Runewick forces once in the year 10. Some ruins are left at the southern point of Katanbi Delta.");
+talkEntry:addResponse("The Lost Harbour has been destroyed by an attack of Runewick forces once in the year 10 after the sorcerer. Some ruins are left at the southern point of Katanbi Delta.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Verlorener Hafen");
 talkEntry:addTrigger("Verlorene Hafen");
-talkEntry:addResponse("Der Verlorene Hafen wurde durch einen Angriff von Runewick Streitkräften im Jahre 10 zerstört. Einige Ruinen können am südlichsten Punkt im Katanbi Delta gefunden werden.");
+talkEntry:addResponse("Der Verlorene Hafen wurde durch einen Angriff von Runewick Streitkräften im Jahre 10 nach dem Hexenmeister zerstört. Einige Ruinen können am südlichsten Punkt im Katanbi Delta gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
