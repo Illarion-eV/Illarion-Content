@@ -552,7 +552,7 @@ function newPokerTable(
     
     local showAvailableCards = function()
         local strDe, strEn;
-        strEn = self.listPocket1[self.activePlayer].getGermanShort() .. " " .. self.listPocket2[self.activePlayer].getGermanShort() .. " [";
+        strDe = self.listPocket1[self.activePlayer].getGermanShort() .. " " .. self.listPocket2[self.activePlayer].getGermanShort() .. " [";
         strEn = self.listPocket1[self.activePlayer].getEnglishShort() .. " " .. self.listPocket2[self.activePlayer].getEnglishShort() .. " [";
         local i=1;
         while self.listBoard[i] do
