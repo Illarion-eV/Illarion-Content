@@ -179,10 +179,10 @@ english, "Katanbi Delta" -> "Well, as I said, it is in the southwest and you bet
 "Katanbi Delta" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
 english, "Ruzusss" -> "You can find him in Cadomyr and he knows several places in the southwest, thus around Cadomyr."
 "Ruzusss" -> "Den findet man in Cadomyr und der kennt sämtliche Orte im Südwesten, sprich um Cadomyr."
-"Chapel Five" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert."
-"Kapelle Fünf" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste."
-"Chapel" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert."
-"Kapelle" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste."
+"Chapel Five" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert. Ask Ruzuss in Cadomyr if you cannot find it."
+"Kapelle Fünf" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste. Frage Ruzuss in Cadomyr falls du sie nicht finden kannst."
+"Chapel" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert. Ask Ruzuss in Cadomyr if you cannot find it."
+"Kapelle" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste. Frage Ruzuss in Cadomyr falls du sie nicht finden kannst."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_cadomyr_1.quest belongs to this NPC: Quest-ID.: 652 - IN PROGRESS
