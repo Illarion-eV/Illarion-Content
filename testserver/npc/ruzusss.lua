@@ -1150,8 +1150,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("östlichen teile");
 talkEntry:addTrigger("östliche teile");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Kapelle Fünf, Lumpskrump Band, Moshran Brut, Oasis Stern, Raptoren Loch, Sarakas Heim, Khesra, Akaltut Kammer, Verfluchter Platz, Hexer Fluch."));
-talkEntry:addResponse("Der östliche Teil der Katanbi Wüste beinhaltet: Kapelle der Fünf, Lumpskrumps Bande, Moshrans Brut, Oasis der Sterne, Raptoren Loch, Sarakas Heim, Khesra, Akaltuts Kammer, Verfluchter Platz, Hexer Fluch.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Kapelle Fünf, Lumpskrump Band, Moshran Brut, Oasis Stern, Raptoren Loch, Sarakas Heim, Khesra, Akaltut Kammer, Verfluchte Platz, Hexer Fluch."));
+talkEntry:addResponse("Der östliche Teil der Katanbi Wüste beinhaltet: Kapelle der Fünf, Lumpskrumps Bande, Moshrans Brut, Oasis der Sterne, Raptoren Loch, Sarakas Heim, Khesra, Akaltuts Kammer, Verfluchte Platz, Hexer Fluch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1268,7 +1268,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Verflucht Platz");
+talkEntry:addTrigger("Verfluchte Platz");
 talkEntry:addResponse("Der Verfluchte Platz ist östlich von Frontus Hof. Sei vorsichtig, dass du dort nicht vergiftet wirst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1300,27 +1300,28 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Katanbi Delta");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Merchant Folly, Cadomyr Harbour, Harp Pain, Lost Harbour, Tear Sirani, Kata Island, Mount Letma"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Merchants Folly, Cadomyr Harbour, Harp Pain, Lost Harbour, Tear Sirani, Kata Island, Mount Letma"));
 talkEntry:addResponse("Which place there do you mean: Merchants' Folly, Cadomyr Harbour, Harp of Pain, Lost Harbour, Tear of Sirani, Kata Island, Mount Letma");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Katanbi Delta");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Händler Unsinn, Cadomyr, Hafen, Schmerzvolle Harfe, Verlorener Hafen, Träne Sirani, Kata Insel, Berg Letma"));
-talkEntry:addResponse("Welchen Platz dort meinst du? Händler Unsinn, Cadomyr, Hafen, Schmerzvolle Harfe, Verlorener Hafen, Träne der Sirani, Kata Insel, Berg Letma?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Händlers Unsinn, Cadomyr, Hafen, Schmerzvolle Harfe, Verlorener Hafen, Träne Sirani, Kata Insel, Berg Letma"));
+talkEntry:addResponse("Welchen Platz dort meinst du? Händlers Unsinn, Cadomyr, Hafen, Schmerzvolle Harfe, Verlorener Hafen, Träne der Sirani, Kata Insel, Berg Letma?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Merchants Folly");
+talkEntry:addTrigger("Merchants' Folly");
 talkEntry:addResponse("It can be found close to the Cadomyr Harbour.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Händler Unsinn");
-talkEntry:addResponse("Es kann nahe des Cadomyr Hafen gefundne werden.");
+talkEntry:addTrigger("Händlers Unsinn");
+talkEntry:addResponse("Es kann nahe des Cadomyr Hafen gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1356,7 +1357,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Verloren Hafen");
+talkEntry:addTrigger("Verlorener Hafen");
+talkEntry:addTrigger("Verlorene Hafen");
 talkEntry:addResponse("Der Verlorene Hafen wurde durch einen Angriff von Runewick Streitkräften im Jahre 10 zerstört. Einige Ruinen können am südlichsten Punkt im Katanbi Delta gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
