@@ -198,7 +198,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("inform");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Platz"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"));
 talkEntry:addResponse("Ich habe Informationen zu den Orten in der Nähe von Cadomyr geben. Frag einfach!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -213,7 +213,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Frage");
 talkEntry:addTrigger("Auskunft");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Platz"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Illarion, Nordosten, Nordwesten, Südwesten, Südosten"));
 talkEntry:addResponse("Ich habe Informationen zu den Orten in der Nähe von Cadomyr geben. Frag einfach!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -915,14 +915,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Katanbi Desert");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Prison, Druid's Tear, Royal places, Desert Hole, Pyramide Discord, Pearl Sirani, Frontus Farm, Queens Corner, Irundar, Zumbrass Tomb, Mount Zotmore, Buccaneers Lurk, Envy Creek, Weary Inn, eastern parts"));
-talkEntry:addResponse("Which place there do you mean: Prison, Druid's Tear, Royal places, Desert Hole, Pyramide of Discord, Pearl of Sirani, Frontus Farm, Queen's Corner, Irundar, Zumbrass Tomb, Mount Zotmore, Buccaneers Lurk, Envy Creek, Weary Inn or its eastern parts of Katanbi desert?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Prison, Druid's Tear, Royal places, Desert Hole, Pyramid Discord, Pearl Sirani, Frontus Farm, Queen's Corner, Irundar, Zumbrass Tomb, Mount Zotmore, Buccaneers Lurk, Envy Creek, Weary Inn, eastern parts"));
+talkEntry:addResponse("Which place there do you mean: Prison, Druid's Tear, Royal places, Desert Hole, Pyramid of Discord, Pearl of Sirani, Frontus Farm, Queen's Corner, Irundar, Zumbrass Tomb, Mount Zotmore, Buccaneers Lurk, Envy Creek, Weary Inn or its eastern parts of Katanbi desert?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Katanbi Wüste");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gefängnis, Druiden Träne, Königliche Orte, Wüstenloch, Pyramide Zwietracht, Perle Sirani, Frontus Hof, Königin Eck, Irundar, Zumbrass Grab, Berg Zotmore, Seeräuber Lauer, Neidbach, Matter Gasthof, östlichen Teile"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gefängnis, Druiden Träne, Königliche Orte, Wüstenloch, Pyramide Zwietracht, Perle Sirani, Frontus Hof, Königins Eck, Irundar, Zumbrass Grab, Berg Zotmore, Seeräuber Lauer, Neidbach, Matter Gasthof, östlichen Teile"));
 talkEntry:addResponse("Welchen Platz? Gefängnis, Druiden Träne, Königliche Orte, Wüstenloch, Pyramide der Zwietracht, Perle der Sirani, Frontus Hof, Königins Eck, Irundar, Zumbrass Grab, Berg Zotmore, Seeräuber Lauer, Neidbach, Matter Gasthof oder die östlichen Teile der Katanbi Wüste?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -954,7 +954,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Royal places");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Royal Academy, Academy Gladiators,Blood Circle Arena, Royal Slave Market"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Royal Academy, Academy Gladiators, Blood Circle Arena, Royal Slave Market"));
 talkEntry:addResponse("There are the Royal Academy of Gladiators, the Blood Circle Arena and the Royal Slave Market.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1017,8 +1017,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Pyramide Discord");
-talkEntry:addResponse("The Pyramide of Discord in the north of the Blood Circle Arena was probably a temple of a former civiliazation. But we are not sure about that.");
+talkEntry:addTrigger("Pyramid Discord");
+talkEntry:addResponse("The Pyramid of Discord in the north of the Blood Circle Arena was probably a temple of a former civiliazation. But we are not sure about that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1030,7 +1030,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Pearl Sirani");
-talkEntry:addResponse("This place north of the Pyramide of Discord was used for royal weddings, but also by the aristocracy.");
+talkEntry:addResponse("This place north of the Pyramid of Discord was used for royal weddings, but also by the aristocracy.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1053,13 +1053,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Queen's Corner");
 talkEntry:addTrigger("Queens Corner");
 talkEntry:addResponse("There are sore rumors about this place, I do not want to tell them. But you can find this place close to the Weary Inn in the north.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Königin Eck");
+talkEntry:addTrigger("Königins Eck");
 talkEntry:addResponse("Es gibt dazu einige Gerüchte, die ich nicht mit dir teilen möchte. Aber du kannst diesen Platz beim Matter Gasthof im Norden finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1141,7 +1142,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("eastern part");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Chapel Five, Lumpskrump Band, Moshran Brood, Oasis Star, Raptor Hole, Sarakas Home, Khesra, Akaltut Chamber, Cursed Place, Wizard Bane."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Chapel Five, Lumpskrump's Band, Moshran's Brood, Oasis Star, Raptor Hole, Sarakas Home, Khesra, Akaltut Chamber, Cursed Place, Wizard Bane."));
 talkEntry:addResponse("The eastern part of the Katanbi Desert contains: Chapel of the Five, Lumpskrump's Band, Moshran's Brood, Oasis of Stars, Raptor Hole, Sarakas Home, Khesra, Akaltut's Chamber, Cursed Place, Wizard Bane.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1178,26 +1179,34 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Lumpskrump Band");
+talkEntry:addTrigger("Lumpskrump's Band");
 talkEntry:addResponse("This place of bandits on the road to the east after the Desert Hole.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Lumpskrump Band");
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Lumpskrumps Band");
+talkEntry:addTrigger("Lumpskrump");
+talkEntry:addResponse("This place of bandits on the road to the east after the Desert Hole.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Lumpskrumps Band");
+talkEntry:addTrigger("Lumpskrump");
 talkEntry:addResponse("Dieser Platz mit Banditen ist an der Straße in den Osten kurz nach dem Wüstenloch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran Brood");
+talkEntry:addTrigger("Moshran's Brood");
 talkEntry:addResponse("The Moshran Brood, an orc-clan, can be found eastwards of Lumpskrump Band.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Moshran Brut");
+talkEntry:addTrigger("Moshrans Brut");
 talkEntry:addResponse("Die Moshran Brut, ein Orkklan, kann östlich von Lumpskrump Bande gefunden werden");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
