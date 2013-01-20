@@ -309,14 +309,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("southwest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Shadowland, Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert"));
-talkEntry:addResponse("I know following places: Shadowland, The Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert.");
+talkEntry:addResponse("I know following places: Shadowland, Wight Canal, Sentry Forest, Great Ocean, Border Mountains, Katanbi Desert, Katanbi Delta, Western Katanbi Desert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Südwest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Schattenland, Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste"));
-talkEntry:addResponse("Ich habe Informationen zu folgenden Orten: Schattenland, Der Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste");
+talkEntry:addResponse("Ich habe Informationen zu folgenden Orten: Schattenland, Wichtkanal, Wachwald, Großer Ozean, Grenzberge, Katanbi Wüste, Katanbi Delta, Westliche Katanbi Wüste");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -715,25 +715,25 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Shadowland");
-talkEntry:addResponse("It has two entrances. One at the Malachite mine, one at the southwest of the Border Mountains. No one has ever passed it. It is very dangerous there. The gate, therefore, is looked and only the faction leaders know how to enter.");
+talkEntry:addResponse("It has two entrances. One at the Malachite mine and one at the southwest of the Border Mountains. No one has ever passed it. It is very dangerous there. The gate, therefore, is looked and only the three rulers know how to enter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schattenland");
-talkEntry:addResponse("Es hat zwei Eingänge. Einen bei der Malachit Mine, einen südwestlich der Grenzberge. Niemand hat es je durchquert. Viel zu gefährlich! Die Tore sind daher verschlossen und nur die Fraktionsführer wissen wie man sie öffnet.");
+talkEntry:addResponse("Es hat zwei Eingänge. Einen bei der Malachit Mine und einen südwestlich der Grenzberge. Niemand hat es je durchquert. Viel zu gefährlich! Die Tore sind daher verschlossen und nur die drei Herrscher wissen wie man sie öffnet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wight Canal");
-talkEntry:addResponse("The Wight Canal can be found at the eastside of the Border Mountains, where it connects these Mountains with the Snakehead Bay. You can find Sssumroz's Home, the Firelimes and the Lighthouse Ruins, Fisherhouse and Cemetery very close to it.");
+talkEntry:addResponse("The Wight Canal can be found at the eastside of the Border Mountains, where it connects these Mountains with the Snakehead Bay. You can find Sssumroz's Home, the Firelimes, the Lighthouse Ruins, the Fisherhouse and the Cemetery very close to it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wichtkanal");
-talkEntry:addResponse("Der Wichtkanal kann an der Ostseite der Grenzberge gefunden werden, wo er diese Berge mit der Schlangenkopf Bucht verbindet. Du findes dort Sssumrozs Haus, den Feuerlimes, die Leuchthaus Ruinen, Fischerhütte und Friedhof in der Nähe.");
+talkEntry:addResponse("Der Wichtkanal kann an der Ostseite der Grenzberge gefunden werden, wo er dieses Gebierge mit der Schlangenkopf Bucht verbindet. Du findes dort Sssumrozs Heim, den Feuerlimes, die Leuchthaus Ruinen, die Fischerhütte und den Friedhof in der Nähe.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -745,13 +745,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wachwald");
-talkEntry:addResponse("Der Wachwald kann im südosten der Grenzberge gefunden werden. Du wird dort und herum den Ushara Schrein, den Wachaußenposten, Oldras Ecke, Gnuremgrund und den Gequälten Berg finden.");
+talkEntry:addResponse("Der Wachwald kann im Südosten der Grenzberge gefunden werden. Du wird dort und herum den Ushara Schrein, den Wachaußenposten, Oldras Ecke, Gnuremgrund und den Gequälten Berg finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Great Ocean");
-talkEntry:addResponse("The Great Ocean is the water in south, which is ruled by our ships. The Katanbi River flows into this Ocean.");
+talkEntry:addResponse("The Great Ocean is the water in the south, which is ruled by our ships. The Katanbi River flows into this Ocean.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -775,15 +775,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Western Katanbi Desert");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Mount Siba, Milkhouse, Cornerstone Candour, Rosaline Cube, Cube Camp, Faber Guardhouse, Remote Dwelling, Pirate cove, Cape Farewell, Katanbi River, Liberty Quarry, Grugmutz cave, Creek Settlement"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Mount Siba, Milkhouse, Cornerstone Candour, Rosaline Cube, Cube Camp, Faber's Guardhouse, Remote Dwelling, Pirate cove, Cape Farewell, Katanbi River, Liberty Quarry, Grugmutz's cave, Creek Settlement"));
 talkEntry:addResponse("Which place there do you mean: Mount Siba, Milkhouse, Cornerstone of Candour, Rosaline Cube, Cube Camp, Faber's Guardhouse, Remote Dwelling, Pirate cove, Cape Farewell, Katanbi River, Liberty Quarry, Grugmutz's cave, Creek Settlement.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Westliche Katanbi Wüste");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Berg Siba, Milchhaus, Grundstein Aufrichtigkeit, Rosaline Würfel, Würfel Lager, Faber Wachhaus, Entfernte Wohnstätte, Piratenbucht, Kap Abschied, Katanbi Fluss, Freiheitsbruch, Grugmutz Höhle, Bach Siedlung."));
-talkEntry:addResponse("Welchen Platz meinst du? Berg Siba, Milchhaus, Grundstein der Aufrechtigkeit, Rosaline Würfel, Würfel Lager, Fabers Wachhaus, Entfernte Wohnstätte, Piratenbucht, Kap des Abschiedes, Katanbi Fluss, Freiheitsbruch, Grugmutzs Höhle, Bach Siedlung.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Berg Siba, Milchhaus, Grundstein Aufrichtigkeit, Rosaline Würfel, Würfel Lager, Fabers Wachhaus, Entfernte Wohnstätte, Piratenbucht, Kap Abschied, Katanbi Fluss, Freiheitsbruch, Grugmutz Höhle, Bach Siedlung."));
+talkEntry:addResponse("Welchen Platz meinst du? Berg Siba, Milchhaus, Grundstein der Aufrichtigkeit, Rosaline Würfel, Würfel Lager, Fabers Wachhaus, Entfernte Wohnstätte, Piratenbucht, Kap des Abschieds, Katanbi Fluss, Freiheitsbruch, Grugmutz Höhle, Bach Siedlung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -801,13 +801,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Milkhouse");
-talkEntry:addResponse("That isss the name of a ssshop for foreignrsss. It isss in the eassst from here.");
+talkEntry:addResponse("That is the name of a shop for foreignrs. It is in the east from here before you cross the Katanbi Bridge.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Milchhaus");
-talkEntry:addResponse("Dasss issst der Name einesss Laden der von fremden Händlern verwendet wird. Er kann im Osssten von hier gefunden werden.");
+talkEntry:addResponse("Das ist der Name eines Laden der von fremden Händlern verwendet wird. Er kann im Osten von hier bevor man die Katanbi Brücke überquert gefunden werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1547,13 +1547,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("That isss here and if you want to know more about it asssk Frizza for further information.");
+talkEntry:addResponse("That isss here and if you want to know more about it asssk Frizza at the teleporter outside for further information.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Das issst hier und wenn du mehr darüber wisssen möchtest, dann frag Frizza nach weiterer Information.");
+talkEntry:addResponse("Das issst hier und wenn du mehr darüber wisssen möchtest, dann frag Frizza beim Teleporter draußen nach weiterer Information.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
