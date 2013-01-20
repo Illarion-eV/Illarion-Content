@@ -216,8 +216,8 @@ english, "Cadomyr" -> "Cadomyr is in the southwest. If you are stupid enough and
 -- Optional: Last catch - Think about keywords the player might say and that are not caught until here
 "my name" -> "Hmm... you want some information? But about what?"
 "mein Name" -> "Hmm... und ihr wünscht nach Information? Aber welche?"
-english, "Numila", "Irunnleh" -> "Yes, that is my name. About which places do you want information?"
-"Numila", "Irunnleh" -> "Ja, das ist mein Name. Über welche Orte wollt ihr Information?"
+english, "Wulfgorda" -> "Yes, that is my name. About which places do you want information?"
+"Wulfgorda" -> "Ja, das ist mein Name. Über welche Orte wollt ihr Information?"
 "Yes" -> "A bit more precise, please!"
 "Ja" -> "Etwas konkreter wenn ich bitten darf!"
 "No" -> "A bit more precise, please!"
