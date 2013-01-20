@@ -850,13 +850,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Faber's Guardhouse");
 talkEntry:addTrigger("Fabers Guardhouse");
-talkEntry:addResponse("Faber's Guardhouse ist on the westcoast and was destroyed when pirates attacked us in 23 and Faber was able to stop them.");
+talkEntry:addResponse("Faber's Guardhouse ist on the westcoast and was destroyed when pirates attacked us in the year 23 after the sorcerer and Faber was able to stop them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fabers Wachhaus");
-talkEntry:addResponse("Faber's Wachhaus ist an der Westküste und wurde zerstört als Piraten uns attackierten in 23 und Faber war es möglich sie aufzuhalten.");
+talkEntry:addResponse("Fabers Wachhaus ist an der Westküste und wurde zerstört als Piraten uns attackierten im Jahre 23 nach dem Hexenmeister und Faber war es möglich sie aufzuhalten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -868,7 +868,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Entfernte Wohnstätte");
-talkEntry:addResponse("Dieses Gebäude ist das letzte bevor du die Piraten Bucht im nordwesten betreten wirst und beinhaltet einige Rätseln.");
+talkEntry:addResponse("Dieses Gebäude ist das letzte bevor du die Piraten Bucht im Nordwesten betreten wirst und beinhaltet einige Rätseln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -921,7 +921,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Grugmutz cave");
+talkEntry:addTrigger("Grugmutz's cave");
+talkEntry:addTrigger("Grugmutzs cave");
 talkEntry:addResponse("Grugmutz's cave is the north of Liberty Quarry. Grugmutz and his oger clan have tried to raid us several times. Be careful!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
