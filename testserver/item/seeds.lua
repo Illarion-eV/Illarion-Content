@@ -140,7 +140,16 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 	User:learn( farming.LeadSkill, farming.SavedWorkTime[User.id], farming.LearnLimit);
-	local amount = math.random(1,3); -- set the amount of items that are produced
+	-- you always get at least one
+  local amount = 1;
+  -- in 50% of all cases one more
+  if (math.random(1,2) == 1) then
+    amount = amount + 1;
+  end
+  -- and another one depending on the skill
+  if (User:getSkill(farming.LeadSkill) > math.random(1,100)) then
+    amount = amount + 1;
+  end
 	world:createItemFromId( seedPlantList[SourceItem.id], 1, TargetPos, true, 333 ,{["amount"] = "" .. amount});
 	world:erase( SourceItem, 1 ); -- erase the seed
 end
