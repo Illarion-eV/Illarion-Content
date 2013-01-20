@@ -248,8 +248,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nordost");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Elstree Wald, Elstree Ebene, Ostland, Schulterplatte Insel, Todes Sumpf, Spinnen Maul, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen."));
-talkEntry:addResponse("Dort gibt es: Elstree Wald, Elstree Ebene, Ostland, Schulterplatte Insel, Todes Sumpf, Spinnen Maul, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebene der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Elstree Wald, Elstree Ebene, Ostland, Schulterplatte Insel, Todes Sumpf, Spinnen Maul, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebenen der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen."));
+talkEntry:addResponse("Dort gibt es: Elstree Wald, Elstree Ebene, Ostland, Schulterplatte Insel, Todes Sumpf, Spinnen Maul, Gasthof zur Hanfschlinge, Grenzstrom, Glühender Fluss, Ebenen der Stille, Nördliche Wälder, Unüberwindbarer Limes, Böser Fels, Dreifingerspitzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,13 +321,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eastland");
-talkEntry:addResponse("You find it east form the Elstree Forest and there you can find the Eastport, Twin Mountains, Paddock Farm, the Wonderland with the Wishing Fountain and the Naganorium.");
+talkEntry:addResponse("You find it east from the Elstree Forest and there you can find the Eastport, Twin Mountains, Paddock Farm, the Wonderland with the Wishing Fountain and the Naganorium.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ostland");
-talkEntry:addResponse("Du findest es östlich vom Elstree Wald und dort wiederum kannst du den Osthafen, die Zwillingsberge, Paddock Hof, das Wunderland mit dem Wunschbrunnen und das Naganorium finden.");
+talkEntry:addResponse("Du findest es östlich vom Elstree Wald und dort wiederum kannst du den Osthafen, die Zwillingsberge, den Paddock Hof, das Wunderland mit dem Wunschbrunnen und das Naganorium finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -339,7 +339,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schulterplatte");
-talkEntry:addResponse("Die Schulterplatte Insel ist östlich vom Ostland. Du findest die Tanora Ruinen, Epphurds Häuser, den Friedhof, der Spießstollen und die ehemalige Schulterplattensiedlung.");
+talkEntry:addResponse("Die Schulterplatte Insel ist östlich vom Ostland. Du findest die Tanora Ruinen, Epphurds Häuser, den Friedhof, den Spießstollen und die ehemalige Schulterplattesiedlung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -356,7 +356,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Spider Mouth");
+talkEntry:addTrigger("Spider's Mouth");
+talkEntry:addTrigger("Spiders Mouth");
 talkEntry:addResponse("This island here is the so called Spider's Mouth. It is very famous for the Hemp Necktie Inn or also known as the neutral tavern. On the eastside you can find a temple of Adron, on the westside the Tears of Lost Love.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -410,7 +411,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ebene Stille");
+talkEntry:addTrigger("Ebenen Stille");
 talkEntry:addResponse("Die Ebene der Stille sind nördlich von hier und südlich der Nördlichen Wäldern. Im Südosten kannst du den Versunkenen Tempel und das Fleischfresser Haus finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -423,6 +424,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nördliche Wälder");
+talkEntry:addTrigger("Nördlichen Wälder");
 talkEntry:addResponse("Die Nördlichen Wälder sind wie der Name vermuten lässt nördlich von hier und in der Mitte kann Rabans Hain gefundne werden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -435,6 +437,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Unüberwindbarer Limes");
+talkEntry:addTrigger("Unüberwindbare Limes");
 talkEntry:addResponse("Der Unüberwindbare Limes ist eine rießige Mauer nördlich von den Nördlichen Wäldern. Niemand hat sie je überwunden. Es wird gesagt, dass man ins Nirgendwo fällt wenn man sie überwindet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -447,6 +450,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Böse Fels");
+talkEntry:addTrigger("Böser Fels");
 talkEntry:addResponse("Der Böse Fels ist eine Insel nördlich der Schulterplatten Insel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
