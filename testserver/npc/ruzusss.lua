@@ -855,7 +855,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Faber Wachhaus");
+talkEntry:addTrigger("Fabers Wachhaus");
 talkEntry:addResponse("Faber's Wachhaus ist an der Westküste und wurde zerstört als Piraten uns attackierten in 23 und Faber war es möglich sie aufzuhalten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
