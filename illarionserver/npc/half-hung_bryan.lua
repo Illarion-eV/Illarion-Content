@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -47,7 +47,7 @@ talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Welcome to my inn.");
 talkEntry:addResponse("Greetings, how may I help you?");
-talkEntry:addResponse("#me turns his stiff neck to look at you.'Greetings'.");
+talkEntry:addResponse("#me turns his stiff neck to look at you, 'Greetings'.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -142,7 +142,7 @@ talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
 talkEntry:addResponse("It's hard to breath...");
 talkEntry:addResponse("#me hisses slightly. 'My neck hurts.'");
-talkEntry:addResponse("#me touches his neck with a thoughtfull gaze. 'Hm-hm... How's your neck?'");
+talkEntry:addResponse("#me touches his neck with a thoughtful gaze. 'Hm-hm... How's your neck?'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -161,7 +161,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am Bryan, and that is my inn. The Hemp Necktie Inn. You like the name?");
+talkEntry:addResponse("I am Bryan, and this my inn, The Hemp Necktie Inn. You like the name?");
 talkEntry:addResponse("I am Half-hung Bryan. What do you want?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -211,7 +211,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("Well, this nice and beautiful inn here in the wilderness is mine. The Hemp Necktie Inn always has a lot of customers.");
+talkEntry:addResponse("Well, this nice, beautiful inn here in the wilderness is mine. The Hemp Necktie Inn always has a lot of customers.");
 talkEntry:addResponse("I care for my inn. Do you want to rent a room?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -227,7 +227,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Well, this nice and beautiful inn here in the wilderness is mine. The Hemp Necktie Inn always has a lot of customers.");
+talkEntry:addResponse("Well, this nice, beautiful inn here in the wilderness is mine. The Hemp Necktie Inn always has a lot of customers.");
 talkEntry:addResponse("I care for my inn. Do you want to rent a room?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -260,7 +260,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
 talkEntry:addResponse("Good. What do you want?");
-talkEntry:addResponse("#me laughs a bit: 'And I am Bryan. They tried to hang me two times and yet here I stand in front of you.'");
+talkEntry:addResponse("#me laughs a bit, 'And I am Bryan. They've tried to hang me twice and yet here I stand in front of you.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -301,7 +301,7 @@ talkEntry:addTrigger("hung");
 talkEntry:addTrigger("hemp");
 talkEntry:addTrigger("neck");
 talkEntry:addTrigger("gibbet");
-talkEntry:addResponse("The first time the rope broke. The second time the branch snapped.");
+talkEntry:addResponse("The first time the rope broke, the second time the branch snapped.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,7 +321,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("knecht");
 talkEntry:addTrigger("bauer");
 talkEntry:addTrigger("farmer");
-talkEntry:addResponse("I once was a farmer. And during war times farmers become soldiers. Farmers live long, soldiers don't. I deserted and the punishment for that was the noose.");
+talkEntry:addResponse("I once was a farmer, and during war times farmers become soldiers. Farmers live long, soldiers don't. I deserted and the punishment for that was the noose.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -389,7 +389,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.");
+talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will be. This is the reason the inn exists, and everybody knows that.");
 talkEntry:addResponse("Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.");
 talkEntry:addResponse("We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -407,7 +407,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.");
+talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will be. This is the reason the inn exists, and everybody knows that.");
 talkEntry:addResponse("Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.");
 talkEntry:addResponse("We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -425,7 +425,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.");
+talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will be. This is the reason the inn exists, and everybody knows that.");
 talkEntry:addResponse("Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.");
 talkEntry:addResponse("We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -444,7 +444,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.");
+talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will be. This is the reason the inn exists, and everybody knows that.");
 talkEntry:addResponse("Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.");
 talkEntry:addResponse("We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -463,7 +463,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.");
+talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will be. This is the reason the inn exists, and everybody knows that.");
 talkEntry:addResponse("Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.");
 talkEntry:addResponse("We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -479,7 +479,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.");
+talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will be. This is the reason the inn exists, and everybody knows that.");
 talkEntry:addResponse("Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.");
 talkEntry:addResponse("We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -497,7 +497,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.");
+talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will be. This is the reason the inn exists, and everybody knows that.");
 talkEntry:addResponse("Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.");
 talkEntry:addResponse("We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -515,7 +515,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will. This is the reason the inn is alive, and everybody knows that.");
+talkEntry:addResponse("Who is on this side? Who is on the other side? Half-hung Bryan is on his own side. It's always been like this and it always will be. This is the reason the inn exists, and everybody knows that.");
 talkEntry:addResponse("Here, in the middle of the wilderness, my inn is independent of all political matters. That is a blessing.");
 talkEntry:addResponse("We don't ask such questions here. I don't wanna know where you are from, what you do or what you are going to do.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -572,7 +572,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat, 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -586,7 +586,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat, 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -600,7 +600,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -614,7 +614,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -627,7 +627,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -640,7 +640,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -653,7 +653,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -666,7 +666,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -680,7 +680,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,7 +694,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -709,7 +709,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -724,7 +724,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -737,7 +737,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -750,7 +750,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -764,7 +764,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -778,7 +778,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -791,7 +791,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the gods with and you aren't one of them.'");
+talkEntry:addResponse("#me clears his throat. 'There's only two people I talk about the Gods with and you aren't one of them.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -806,7 +806,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("You can rent a room. Or just a bed for the night. What do you want?");
+talkEntry:addResponse("You can rent a room, or just a bed for the night. What do you want?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -823,7 +823,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
 talkEntry:addResponse("Everyone calls me Half-hung Bryan. Do you see the scar on my neck? That's from the noose.");
 talkEntry:addResponse("Hm. My neck wasn't always this crooked, but well..that was a long time ago.");
-talkEntry:addResponse("Years ago I was a servant in an Albarian court. I thought I had to leave and see the big world. Now my neck is snapped and people like you always want something from me.");
+talkEntry:addResponse("Years ago I was a servant in an Albarian court, I thought I had to leave and see the big world. Now my neck is snapped and people like you always want something from me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -913,13 +913,13 @@ talkingNPC:addCycleText("Hr-hrm", "Hr-hrm");
 talkingNPC:addCycleText("#me reibt sich den Nacken.", "#me rubs his neck.");
 talkingNPC:addCycleText("#me legt seine Hand auf den Schwertknauf, an seinem Gürtel und mustert mit finsterem Blick die Umgebung.", "#me's right hand touches his sword pommel at his belt and he glances around with a dirty look.");
 talkingNPC:addCycleText("#me leckt sich über die vertockneten Lippen.", "#me licks over dried out lips.");
-talkingNPC:addCycleText("#me faltet die Hände vor seiner Brust. 'Ausgezeichnet.'", "#me folds his hands across his chest. 'Excellent!'");
+talkingNPC:addCycleText("#me faltet die Hände vor seiner Brust. 'Ausgezeichnet.'", "#me folds his hands across his chest, 'Excellent!'");
 talkingNPC:addCycleText("#me kratzt sich am Hals.", "#me scratches his neck.");
 talkingNPC:addCycleText("#me hustet laut und würgend.", "#me coughs loudly, choking a little.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein kräftiger Mann mit schräg verenktem Hals und Hakennase, der mit heiserer Stimme spricht. Eine gerippte, dunkel gefärbte Narbe zieht sich quer über seinen Hals.", "A burly man with a bent neck and a hooked nose who speaks in a gruff voice. A ribbed, dark coloured scar covers his neck.");
+mainNPC:setLookat("Ein kräftiger Mann mit schräg verenktem Hals und Hakennase, der mit heiserer Stimme spricht. Eine gerippte, dunkel gefärbte Narbe zieht sich quer über seinen Hals.", "A burly man with a bent neck and a hooked nose who speaks in a gruff voice has a ribbed, dark coloured scar covering his neck.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
@@ -938,7 +938,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

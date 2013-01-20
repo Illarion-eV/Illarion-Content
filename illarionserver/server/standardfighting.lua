@@ -92,9 +92,18 @@ function onAttack(Attacker, Defender)
         
         -- Place some ammo on the ground in case ammo was used
         DropAmmo(Attacker, Defender.Char, true);
+        
+        if isTestserver() then
+            -- Still learn even if you miss
+            LearnSuccess(Attacker, Defender, APreduction)
+            LearnParry(Attacker, Defender, APreduction);
+        end;
+        
         return true;
     end;
-	
+    
+    
+    
     LearnParry(Attacker, Defender, APreduction);
     -- Calculate the chance to parry
     if ChanceToParry(Attacker, Defender) then

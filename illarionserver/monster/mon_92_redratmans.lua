@@ -2,6 +2,7 @@ require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
+require("monster.base.kills")
 module("monster.mon_92_redratmans", package.seeall)
 
 
@@ -13,7 +14,7 @@ killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
 msgs = base.messages.Messages();
-msgs:addMessage("#me cackles.", "#me gackert.");
+msgs:addMessage("#me gackert.", "#me cackles.");
 
 end
 

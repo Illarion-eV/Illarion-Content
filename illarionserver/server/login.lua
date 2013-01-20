@@ -149,8 +149,8 @@ function onLogin( player )
 		--English
 		messageE={};
 		messageE[1]="[Hint] Light armours, such as those made of leather, offer good protection against blunt weapons but perform poorly against slashing weapons.";
-		messageE[2]="[Hint] Medium armours, such as chain mail, offer good protection against slashing weapons but are more vulnerable to puncture weapons.";
-		messageE[3]="[Hint] Heavy armours, such as those made from sturdy metal plates, offer good protection against puncture weapons but are vulnerable to blunt weapons.";
+		messageE[2]="[Hint] Medium armours, such as chain mail, offer good protection against slashing weapons but are more vulnerable to stabbing weapons.";
+		messageE[3]="[Hint] Heavy armours, such as those made from sturdy metal plates, offer good protection against stabbing weapons but are vulnerable to blunt weapons.";
 		messageE[4]="[Hint] We play with, not against each other. Have fun playing!";
 		messageE[5]="[Hint] Please join our IRC chat: #illarion on Quakenet.";
 		messageE[6]="[Hint] The forum contains many interesting discussions and a lot of useful information. Register today!";
@@ -176,9 +176,9 @@ function onLogin( player )
 		messageE[26]="[Hint] Galmair is the realm of wealth.";
 		messageE[27]="[Hint] There are some monsters which you should avoid while adventuring alone.";
 		messageE[28]="[Hint] Items of low durability might break any time. A specialist can repair them.";
-		messageE[29]="[Hint] Distance weapons have their name for a reason; they are useful for distant targets, but useless in a melee.";
+		messageE[29]="[Hint] Ranged weapons have their name for a reason; they are useful for distant targets, but useless in a melee.";
 		messageE[30]="[Hint] Slashing weapons are good against light armour.";
-		messageE[31]="[Hint] Puncture weapons are good against medium armour.";
+		messageE[31]="[Hint] Stabbing weapons are good against medium armour.";
 		messageE[32]="[Hint] Blunt weapons are good against heavy armour.";
 		messageE[33]="[Hint] A single silver coin equals a hundred copper coins. One hundred silver coins equal one gold coin.";
 		messageE[34]="[Hint] The best alchemists are living in Runewick.";
@@ -224,13 +224,11 @@ function onLogin( player )
 		exchangeFactionLeader( player.name );
 	end
 
-	--TEMPORARY SOLUTION TO CATCH NEW PLAYERS
-	if player:getMentalCapacity() < 1999 or player:getQuestProgress(122) == 0 then --Mental Capacity CANNOT drop below 1999 -> New player or cheater. However, new players should start with a higher value
+	--TEMPORARY SOLUTION TO CATCH BUGGED PLAYERS
+	if player:getMentalCapacity() < 1999 then --Mental Capacity CANNOT drop below 1999 -> Bugged player or cheater
 
-        player:increaseMentalCapacity(2000000); --Maybe reduce to 200000 for brand new players. This is for existing players.
-		--base.common.InformNLS(player,"[Skillsystem] Mental Capacity zwangsangepasst!","[Skill system] Adjustment of mental capacity enforced."); --Debuggin'
-		player:setQuestProgress(122,1); --Saving the information that the player went throuh this process
-	
+        player:increaseMentalCapacity(2000000); --This is default for new players.
+
 	end
 	--TEMPORARY SOLUTION END
 

@@ -86,7 +86,7 @@ queststatus(309) = 4, english, "#me" -> queststatus(309) = 5, "Very good! You ha
 queststatus(309) = 4, "#me" -> queststatus(309) = 5, "Sehr gut! Du hast nun alles gelernt, was ich dir beibringen kann. Viel Spaß bei dem Rest des Tutorials, %CHARNAME. Nun folge der Straße zur nächsten Lektion über Gegenstände."
 
 -- Player seems to have a problem with emoting
-queststatus(309) = 4, english, ".*" -> inform("[Tutorial] Emoting is done by placing a '#me' in front of your action."), "Emoting is very important - it is the only way to show other players your character's actions that cannot be represented graphically. Please try to emote once more."
+queststatus(309) = 4, english, ".*" -> inform("[Tutorial] Emoting is done by placing a '#me' in front of your action."), "Emoting is very important as it is the only way to show other players your character's actions that cannot be represented graphically. Please try to emote once more."
 queststatus(309) = 4, ".*" -> inform("[Tutorial] Zum Emoten muss man einfach '#me' vor die Handlung schreibt."), "Emoten ist sehr wichtig - es ist die einzige Möglichkeit, um anderen Spielern zu zeigen, was dein Charakter gerade tut, wenn es nicht grafisch unterstützt wird. Bitte versuch erneut zu emoten."
 
 -- Player did all the lessons

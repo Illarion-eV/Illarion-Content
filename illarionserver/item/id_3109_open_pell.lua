@@ -128,7 +128,7 @@ function Init()
 			  )
     AddPotion("Cadomyr",		  
 			  605,
-			  {"a stock containing no Adrazin, dominant pronounced Illidrium, slightly pronounced Caprazin, slightly marked Hyperborelium, saturated solution of Echolon, enriched Dracolin, slightly pronounced Orcanol, enriched Fenolin","einen Sud, der kein Adrazin, konzentriertes Illidrium, geringe Mengen Caprazin, schwache Konzentration an Hyperborelium, ges??ttigte Anreicherung von Echolon, etwas Dracolin, geringe Mengen Orcanol, etwas Fenolin enthält"},
+			  {"a stock containing no Adrazin, dominant pronounced Illidrium, slightly pronounced Caprazin, slightly marked Hyperborelium, saturated solution of Echolon, enriched Dracolin, slightly pronounced Orcanol, enriched Fenolin","einen Sud, der kein Adrazin, konzentriertes Illidrium, geringe Mengen Caprazin, schwache Konzentration an Hyperborelium, gesättigte Anreicherung von Echolon, etwas Dracolin, geringe Mengen Orcanol, etwas Fenolin enthält"},
 			  {331,false,{"filledWith","stock"},{"AdrazinConcentration","5"},{"IllidriumConcentration","8"},{"CaprazinConcentration","6"},{"HyperboreliumConcentration","4"},{"EcholonConcentration","1"},{"DracolinConcentration","7"},{"OrcanolConcentration","6"},{"FenolinConcentration","7"}}
 			  )
     AddPotion("Cadomyr",		  
@@ -341,12 +341,13 @@ function UseItem(User, SourceItem, ltstate)
 end
 
 function LookAtItem(User, Item)
-    local lookAt = ItemLookAt()
-	local town = getTown(Item)
+    local town = getTown(Item)
 	if town then
+		local lookAt = ItemLookAt()
 		lookAt.name = base.common.GetNLS(User, "Schriftrolle", "Scroll")
 		lookAt.description = base.common.GetNLS(User, "Alchemierezepte", "Alchemy recipes")
-	end	
-	world:itemInform(User, Item, lookAt)
-    return true    
+		world:itemInform(User, Item, lookAt)
+	else
+		world:itemInform( User, Item, base.lookat.GenerateLookAt(User, Item, base.lookat.NONE) );
+	end    
 end

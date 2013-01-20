@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -53,8 +53,8 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("Be greeted. You interrupt me, so it has to be important.");
-talkEntry:addResponse("#me closes a book and grumbles: 'What is it again?'");
-talkEntry:addResponse("Speak or be quiet. The latter is preferred.");
+talkEntry:addResponse("#me closes a book and grumbles, 'What is it again?'");
+talkEntry:addResponse("Speak or be quiet, the latter is preferred.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -82,8 +82,8 @@ talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addResponse("Be greeted. You interrupt me, so it has to be important.");
-talkEntry:addResponse("#me closes a book and grumbles: 'What is it again?'");
-talkEntry:addResponse("Speak or be quiet. The latter is preferred.");
+talkEntry:addResponse("#me closes a book and grumbles, 'What is it again?'");
+talkEntry:addResponse("Speak or be quiet, the latter is preferred.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -147,7 +147,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("Just work! But what do I say, you look like somebody with lost of esteem. How about you fulfill a royal mission?");
+talkEntry:addResponse("Just work! But what do I say, you look like somebody with loss of esteem. How about you fulfil a royal mission?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -184,8 +184,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Delayed Mail I"));
-talkEntry:addResponse("I see you are a loyal minion of her queen and want to help one of her officials. I have to write down the queen's latest order. Could you bring me five quills?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 1));
+talkEntry:addResponse("I see you are a loyal minion of Her Majesty the Queen and want to help one of her officials. I have to write down the Queen's latest order. Could you bring me five quills?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -194,8 +194,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Späte Post I"));
-talkEntry:addResponse("Wunderbar, ihr wollt als treuer Diener einem Beamten der Königin helfen. Holt mir bitte fünf Federkiele, ich muss noch die neuesten Befehle der Königin in Worte fassen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 1));
+talkEntry:addResponse("Wunderbar, ihr wollt als treuer Diener einem Beamten der Königin helfen. Holt mir bitte fünf Federkiele, ich muss noch die neuesten Befehle der Königin in Worte fassen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -205,8 +205,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Delayed Mail I"));
-talkEntry:addResponse("I see you are a loyal minion of her queen and want to help one of her officials. I have to write down the queen's latest order. Could you bring me five quills?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 1));
+talkEntry:addResponse("I see you are a loyal minion of Her Majesty the Queen and want to help one of her officials. I have to write down the Queen's latest order. Could you bring me five quills?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -218,8 +218,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Späte Post I"));
-talkEntry:addResponse("Wunderbar, ihr wollt als treuer Diener einem Beamten der Königin helfen. Holt mir bitte fünf Federkiele, ich muss noch die neuesten Befehle der Königin in Worte fassen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 1));
+talkEntry:addResponse("Wunderbar, ihr wollt als treuer Diener einem Beamten der Königin helfen. Holt mir bitte fünf Federkiele, ich muss noch die neuesten Befehle der Königin in Worte fassen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -229,7 +229,7 @@ talkEntry:addCondition(npc.base.condition.item.item(463, "all", "<", 5, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("How am I supposed to write down the latest orders of her majesty without quills? Bring me at least five if you are loyal.");
+talkEntry:addResponse("How am I supposed to write down the latest orders of Her Majesty without quills? Bring me at least five if you are loyal.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -248,7 +248,7 @@ talkEntry:addCondition(npc.base.condition.item.item(463, "all", "<", 5, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("message");
-talkEntry:addResponse("How am I supposed to write down the latest orders of her majesty without quills? Bring me at least five if you are loyal.");
+talkEntry:addResponse("How am I supposed to write down the latest orders of Her Majesty without quills? Bring me at least five if you are loyal.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -271,11 +271,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Very good! With those quills, I can write down today's orders. If you wait a brief moment, you could go on a mission to issue the orders.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(463, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Very good! With those quills, I can write down today's orders. If you wait a brief moment, you could go on a mission to issue those orders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -285,10 +285,10 @@ talkEntry:addCondition(npc.base.condition.item.item(463, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins."));
-talkEntry:addResponse("Very good! With those quills, I can write down today's orders. If you wait a brief moment, you could go on a mission to issue the orders.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(463, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 2));
+talkEntry:addResponse("Very good! With those quills, I can write down today's orders. If you wait a brief moment, you could go on a mission to issue those orders.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -298,11 +298,11 @@ talkEntry:addCondition(npc.base.condition.item.item(463, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Sehr gut! Mit diesen Federkielen kann ich die Tagesbefehle niederschreiben. Wenn ihr kurz wartet, könnt ihr auf die Mission gehen, die Befehle auszuteilen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(463, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Sehr gut! Mit diesen Federkielen kann ich die Tagesbefehle niederschreiben. Wenn ihr kurz wartet, könnt ihr auf die Mission gehen, die Befehle auszuteilen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -311,10 +311,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(463, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke."));
-talkEntry:addResponse("Sehr gut! Mit diesen Federkielen kann ich die Tagesbefehle niederschreiben. Wenn ihr kurz wartet, könnt ihr auf die Mission gehen, die Befehle auszuteilen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(463, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 2));
+talkEntry:addResponse("Sehr gut! Mit diesen Federkielen kann ich die Tagesbefehle niederschreiben. Wenn ihr kurz wartet, könnt ihr auf die Mission gehen, die Befehle auszuteilen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -324,8 +324,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Delayed Mail II: You received a message for Robertus."));
-talkEntry:addResponse("The queen has important orders for her royal builder, Robertus is his name. It is about his latest project. Rush to Robertus at once!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 3));
+talkEntry:addResponse("The Queen has important orders for her royal builder, Robertus is his name. It is about his latest project. Rush to Robertus at once!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -334,8 +334,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Späte Post II: Du hast eine Nachricht für Robertus erhalten."));
-talkEntry:addResponse("Die Königin hat wichtige Befehle für Robertus, der königlichen Baumeister. Es geht um sein derzeitiges Bauprojekt. Lauft sofort zu Robertus!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 3));
+talkEntry:addResponse("Die Königin hat wichtige Befehle für Robertus, der königlichen Baumeister. Es geht um sein derzeitiges Bauprojekt. Lauft sofort zu Robertus!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -345,8 +345,8 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Delayed Mail II: You received a message for Robertus."));
-talkEntry:addResponse("The queen has important orders for her royal builder, Robertus is his name. It is about his latest project. Rush to Robertus at once!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 3));
+talkEntry:addResponse("The Queen has important orders for her royal builder, Robertus is his name. It is about his latest project. Rush to Robertus at once!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -358,8 +358,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Späte Post II: Du hast eine Nachricht für Robertus erhalten."));
-talkEntry:addResponse("Die Königin hat wichtige Befehle für Robertus, der königlichen Baumeister. Es geht um sein derzeitiges Bauprojekt. Lauft sofort zu Robertus!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 3));
+talkEntry:addResponse("Die Königin hat wichtige Befehle für Robertus, der königlichen Baumeister. Es geht um sein derzeitiges Bauprojekt. Lauft sofort zu Robertus!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -368,7 +368,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Maybe you did not understand: Important orders means: 'Deliver them now!'. Run to Robertus at once!");
+talkEntry:addResponse("Maybe you did not understand? Important orders means, 'Deliver them now!'. Run to Robertus at once!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -385,7 +385,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 3));
 talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
-talkEntry:addResponse("Maybe you did not understand: Important orders means: 'Deliver them now!'. Run to Robertus at once!");
+talkEntry:addResponse("Maybe you did not understand? Important orders means, 'Deliver them now!'. Run to Robertus at once!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -406,11 +406,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins and a large metal shield. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Very good, now Robertus has the sketch the queen drew. As messenger of the queen, you deserve this shield with her crest.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.item.item(20, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 5));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Very good, now Robertus has the sketch the Queen drew. As messenger of the Queen, you deserve this shield with her crest.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -419,10 +419,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins and a large metal shield."));
-talkEntry:addResponse("Very good, now Robertus has the sketch the queen drew. As messenger of the queen, you deserve this shield with her crest.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.item.item(20, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 5));
+talkEntry:addResponse("Very good, now Robertus has the sketch the Queen drew. As messenger of the Queen, you deserve this shield with her crest.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -431,11 +431,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 4));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünf Silberstücke und einen großen Metallschild. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Sehr gut, nun hat Robertus die Skizze der Königin. Als Bote der Königin verdient ihr diesen Schild mit ihrem Wappen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.item.item(20, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 5));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Sehr gut, nun hat Robertus die Skizze der Königin. Als Bote der Königin verdient ihr diesen Schild mit ihrem Wappen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -443,10 +443,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 4));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünf Silberstücke und einen großen Metallschild."));
-talkEntry:addResponse("Sehr gut, nun hat Robertus die Skizze der Königin. Als Bote der Königin verdient ihr diesen Schild mit ihrem Wappen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.item.item(20, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 5));
+talkEntry:addResponse("Sehr gut, nun hat Robertus die Skizze der Königin. Als Bote der Königin verdient ihr diesen Schild mit ihrem Wappen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -456,8 +456,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Delayed Mail III: You received a message for Arenius Batavius."));
-talkEntry:addResponse("Ah, I almost forgot. Arenius Batavius, a self proclaimed hero, asked for information from the library. Please, bring him this scroll.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 6));
+talkEntry:addResponse("Ah, I almost forgot, Arenius Batavius, a self proclaimed hero, asked for information from the library. Please, take him this scroll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -466,8 +466,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 5));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Späte Post III: Du hast eine Nachricht für Arenius Batavius erhalten."));
-talkEntry:addResponse("Ah, ich hab da noch was. Arenius Batavius, ein selbsternannter Held, fragte nach Informationen aus der Bibliothek. Überbringt ihm bitte diese Schriftrolle.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 6));
+talkEntry:addResponse("Ah, ich hab da noch was. Arenius Batavius, ein selbsternannter Held, fragte nach Informationen aus der Bibliothek. Überbringt ihm bitte diese Schriftrolle.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -477,8 +477,8 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Delayed Mail III: You received a message for Arenius Batavius."));
-talkEntry:addResponse("Ah, I almost forgot. Arenius Batavius, a self proclaimed hero, asked for information from the library. Please, bring him this scroll.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 6));
+talkEntry:addResponse("Ah, I almost forgot, Arenius Batavius, a self proclaimed hero, asked for information from the library. Please, take him this scroll.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -490,8 +490,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Späte Post III: Du hast eine Nachricht für Arenius Batavius erhalten."));
-talkEntry:addResponse("Ah, ich hab da noch was. Arenius Batavius, ein selbsternannter Held, fragte nach Informationen aus der Bibliothek. Überbringt ihm bitte diese Schriftrolle.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 6));
+talkEntry:addResponse("Ah, ich hab da noch was. Arenius Batavius, ein selbsternannter Held, fragte nach Informationen aus der Bibliothek. Überbringt ihm bitte diese Schriftrolle.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -500,7 +500,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Don't hurry too much, that hurts your heart. But I think Arenius Batavius eagerly awaits the information you have.");
+talkEntry:addResponse("Don't hurry so much that it hurts your heart, but I think Arenius Batavius eagerly awaits the information you have.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -517,7 +517,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 6));
 talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
-talkEntry:addResponse("Don't hurry too much, that hurts your heart. But I think Arenius Batavius eagerly awaits the information you have.");
+talkEntry:addResponse("Don't hurry so much that it hurts your heart, but I think Arenius Batavius eagerly awaits the information you have.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -538,10 +538,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a merinium plated dagger. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Thank you for delivering the information to Arenius Batavius. Whoever those Salavesh are - after rereading the books about them, I guess you might need a good dagger for self defense.");
 talkEntry:addConsequence(npc.base.consequence.item.item(444, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Thank you for delivering the information to Arenius Batavius. Whoever those Salavesh are, after rereading the books about them, I guess you might need a good dagger for self defense.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -550,9 +550,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a merinium plated dagger."));
-talkEntry:addResponse("Thank you for delivering the information to Arenius Batavius. Whoever those Salavesh are - after rereading the books about them, I guess you might need a good dagger for self defense.");
 talkEntry:addConsequence(npc.base.consequence.item.item(444, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 8));
+talkEntry:addResponse("Thank you for delivering the information to Arenius Batavius. Whoever those Salavesh are, after rereading the books about them, I guess you might need a good dagger for self defense.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -561,10 +561,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 7));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen meriniumbeschichteten Dolch. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Ich danke für das Überbringen der Informationen an Arenius Batavius. Wer auch immer diese Salavesh sind; nach einem erneutem Studium denke ich, dass ihr einen guten Dolch zur Selbstverteidigung braucht.");
 talkEntry:addConsequence(npc.base.consequence.item.item(444, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Ich danke für das Überbringen der Informationen an Arenius Batavius. Wer auch immer diese Salavesh sind; nach einem erneutem Studium denke ich, dass ihr einen guten Dolch zur Selbstverteidigung braucht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -572,9 +572,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 7));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen meriniumbeschichteten Dolch."));
-talkEntry:addResponse("Ich danke für das Überbringen der Informationen an Arenius Batavius. Wer auch immer diese Salavesh sind; nach einem erneutem Studium denke ich, dass ihr einen guten Dolch zur Selbstverteidigung braucht.");
 talkEntry:addConsequence(npc.base.consequence.item.item(444, 1, 699, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 8));
+talkEntry:addResponse("Ich danke für das Überbringen der Informationen an Arenius Batavius. Wer auch immer diese Salavesh sind; nach einem erneutem Studium denke ich, dass ihr einen guten Dolch zur Selbstverteidigung braucht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -584,8 +584,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Delayed Mail IV: You received a message for Daerbur Wimbert."));
-talkEntry:addResponse("So, the queen once again needs your help as messenger. Venture to Daerbur Wimbert, the queen has an order for sparkling gems from the dark hole mine.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 9));
+talkEntry:addResponse("So, the Queen once again needs your help as messenger. Venture to Daerbur Wimbert, the Queen has an order for sparkling gems from the Dark Hole Mine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -594,8 +594,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 8));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Späte Post IV: Du hast eine Nachricht für Daerbur Wimbert erhalten."));
-talkEntry:addResponse("Nun, die Königin braucht ein weiteres mal eure Botendienste. Geht zu Daerbur Wimbert, die Königin hat eine Order über funkelnde Edelsteine aus der Dunkellochmine.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 9));
+talkEntry:addResponse("Nun, die Königin braucht ein weiteres mal eure Botendienste. Geht zu Daerbur Wimbert, die Königin hat eine Order über funkelnde Edelsteine aus der Dunkellochmine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -605,8 +605,8 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Delayed Mail IV: You received a message for Daerbur Wimbert."));
-talkEntry:addResponse("So, the queen once again needs your help as messenger. Venture to Daerbur Wimbert, the queen has an order for sparkling gems from the dark hole mine.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 9));
+talkEntry:addResponse("So, the Queen once again needs your help as messenger. Venture to Daerbur Wimbert, the Queen has an order for sparkling gems from the Dark Hole Mine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -618,8 +618,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Späte Post IV: Du hast eine Nachricht für Daerbur Wimbert erhalten."));
-talkEntry:addResponse("Nun, die Königin braucht ein weiteres mal eure Botendienste. Geht zu Daerbur Wimbert, die Königin hat eine Order über funkelnde Edelsteine aus der Dunkellochmine.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 9));
+talkEntry:addResponse("Nun, die Königin braucht ein weiteres mal eure Botendienste. Geht zu Daerbur Wimbert, die Königin hat eine Order über funkelnde Edelsteine aus der Dunkellochmine.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -628,7 +628,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("The queen does not appreciate to wait. And she'll get word soon that you are responsible if her gems won't come from dark hole mine in time.");
+talkEntry:addResponse("The Queen does not appreciate having to wait. She'll get word soon that you are responsible if her gems don't come from the Dark Hole Mine in time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -645,7 +645,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 9));
 talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
-talkEntry:addResponse("The queen does not appreciate to wait. And she'll get word soon that you are responsible if her gems won't come from dark hole mine in time.");
+talkEntry:addResponse("The Queen does not appreciate having to wait. She'll get word soon that you are responsible if her gems don't come from Dark Hole Mine in time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -666,10 +666,10 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 40 silver coins. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Great! Now the treasury of Cadomyr will have more trumpery. Here is your reward.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 4000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Great! Now the treasury of Cadomyr will have more riches. Here is your reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -678,9 +678,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 40 silver coins."));
-talkEntry:addResponse("Great! Now the treasury of Cadomyr will have more trumpery. Here is your reward.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 4000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 11));
+talkEntry:addResponse("Great! Now the treasury of Cadomyr will have more riches. Here is your reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -689,10 +689,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 10));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 40 Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Großartig! Nun wird noch mehr Kitsch die Schatzkammer Cadomyrs überfluten. Hier, eure Belohnung.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 4000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 11));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Großartig! Nun wird noch mehr Kitsch die Schatzkammer Cadomyrs überfluten. Hier, eure Belohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -700,9 +700,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 10));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 40 Silberstücke."));
-talkEntry:addResponse("Großartig! Nun wird noch mehr Kitsch die Schatzkammer Cadomyrs überfluten. Hier, eure Belohnung.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 4000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 11));
+talkEntry:addResponse("Großartig! Nun wird noch mehr Kitsch die Schatzkammer Cadomyrs überfluten. Hier, eure Belohnung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -712,8 +712,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Delayed Mail V: You received a message for Archmage Elvaine Morgan."));
-talkEntry:addResponse("Are you ready for a secret diplomatic mission? Deliver this royal despatch to Archmage Morgan of Runewick. Do not even think about breaking its seal!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 12));
+talkEntry:addResponse("Are you ready for a secret diplomatic mission? Deliver this royal despatch to Archmage Morgan of Runewick. Do not even think about breaking its seal!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -722,8 +722,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 11));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Späte Post V: Du hast eine Nachricht für Erzmagier Elvaine Morgan erhalten."));
-talkEntry:addResponse("Seid ihr bereit für eine geheime diplomatische Mission? Bringt diese königliche Depesche zu Erzmagier Morgan von Runewick. Und denkt nichtmal dran, das Siegel zu brechen!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 12));
+talkEntry:addResponse("Seid ihr bereit für eine geheime diplomatische Mission? Bringt diese königliche Depesche zu Erzmagier Morgan von Runewick. Und denkt nichtmal dran, das Siegel zu brechen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -733,8 +733,8 @@ talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Delayed Mail V: You received a message for Archmage Elvaine Morgan."));
-talkEntry:addResponse("Are you ready for a secret diplomatic mission? Deliver this royal despatch to Archmage Morgan of Runewick. Do not even think about breaking its seal!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 12));
+talkEntry:addResponse("Are you ready for a secret diplomatic mission? Deliver this royal despatch to Archmage Morgan of Runewick. Do not even think about breaking its seal!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -746,8 +746,8 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Botschaft");
 talkEntry:addTrigger("Nachricht");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Späte Post V: Du hast eine Nachricht für Erzmagier Elvaine Morgan erhalten."));
-talkEntry:addResponse("Seid ihr bereit für eine geheime diplomatische Mission? Bringt diese königliche Depesche zu Erzmagier Morgan von Runewick. Und denkt nichtmal dran, das Siegel zu brechen!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 12));
+talkEntry:addResponse("Seid ihr bereit für eine geheime diplomatische Mission? Bringt diese königliche Depesche zu Erzmagier Morgan von Runewick. Und denkt nichtmal dran, das Siegel zu brechen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -794,11 +794,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a magical topaz and a topaz ring. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("You helped her majesty a lot. Please maintain silence about your journey. Your silence is worth your life and for me, it is worth this ring.");
 talkEntry:addConsequence(npc.base.consequence.item.item(198, 1, 333, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.item.item(282, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 14));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("You helped Her Majesty a lot. Please maintain silence about your journey. Your silence is worth your life and for me, it is worth this ring.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -807,10 +807,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 13));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a magical topaz and a topaz ring."));
-talkEntry:addResponse("You helped her majesty a lot. Please maintain silence about your journey. Your silence is worth your life and for me, it is worth this ring.");
 talkEntry:addConsequence(npc.base.consequence.item.item(198, 1, 333, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.item.item(282, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 14));
+talkEntry:addResponse("You helped Her Majesty a lot. Please maintain silence about your journey. Your silence is worth your life and for me, it is worth this ring.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -819,11 +819,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 13));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen magischen Topas und einen Topasring. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Ihr habt ihrer Majestät sehr geholfen. Bitte bewahrt Stillschweigen über eure Reise. Euer Schweigen ist euch euer Leben und mir diesen Ring wert.");
 talkEntry:addConsequence(npc.base.consequence.item.item(198, 1, 333, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.item.item(282, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 14));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Ihr habt ihrer Majestät sehr geholfen. Bitte bewahrt Stillschweigen über eure Reise. Euer Schweigen ist euch euer Leben und mir diesen Ring wert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -831,10 +831,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 13));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen magischen Topas und einen Topasring."));
-talkEntry:addResponse("Ihr habt ihrer Majestät sehr geholfen. Bitte bewahrt Stillschweigen über eure Reise. Euer Schweigen ist euch euer Leben und mir diesen Ring wert.");
 talkEntry:addConsequence(npc.base.consequence.item.item(198, 1, 333, {["gemLevel"] = "1"}));
 talkEntry:addConsequence(npc.base.consequence.item.item(282, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(108, "=", 14));
+talkEntry:addResponse("Ihr habt ihrer Majestät sehr geholfen. Bitte bewahrt Stillschweigen über eure Reise. Euer Schweigen ist euch euer Leben und mir diesen Ring wert.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -843,7 +843,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 14));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("At this moment, you cannot help me anymore. I guess the both of us should do what we can do best again. For me, that is reading my book.");
+talkEntry:addResponse("At this moment, you cannot help me anymore. I guess the both of us should do what we do best again... For me, that is reading my book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -860,7 +860,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(108, "=", 14));
 talkEntry:addTrigger("Task");
 talkEntry:addTrigger("Adventure");
 talkEntry:addTrigger("Message");
-talkEntry:addResponse("At this moment, you cannot help me anymore. I guess the both of us should do what we can do best again. For me, that is reading my book.");
+talkEntry:addResponse("At this moment, you cannot help me anymore. I guess the both of us should do what we do best again... For me, that is reading my book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -877,7 +877,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am the royal ambassador. That means I issue the orders of the queen and diplomatic despatches.");
+talkEntry:addResponse("I am the royal ambassador, that means I issue the orders of the Queen and diplomatic despatches.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -890,7 +890,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I am the royal ambassador. That means I issue the orders of the queen and diplomatic despatches.");
+talkEntry:addResponse("I am the royal ambassador, that means I issue the orders of the Queen and diplomatic despatches.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -904,7 +904,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("You aren't from Gobaith, are you? If so, my condolescence.");
+talkEntry:addResponse("You aren't from Gobaith, are you? If so, my condolescences.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -917,7 +917,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("You are none of the officals, right? So, what do you require - orders?");
+talkEntry:addResponse("You are not one of the officals, right? So, what do you require? Orders?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -929,16 +929,16 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("seal");
-talkEntry:addResponse("Never ever even think about breaking the queen's seal. You'll regret it...");
+talkEntry:addResponse("Never ever even think about breaking the Queen's seal. You'll regret it...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ambassador");
 talkEntry:addTrigger("embassador");
-talkEntry:addResponse("Did you ever wonder why ambassador sits in an embassy and not an ambassy? Or why he isn't called embassador?");
-talkEntry:addResponse("Indeed, I am the royal ambassador. That means that you receive orders from the queen by my hand.");
-talkEntry:addResponse("I used to travel a lot in diplomatic mission, but now I prefer to read a good book.");
+talkEntry:addResponse("Did you ever wonder why an ambassador sits in an embassy and not an ambassy? Or why he isn't called embassador?");
+talkEntry:addResponse("Indeed, I am the royal ambassador. That means that you receive orders from the Queen by my hand.");
+talkEntry:addResponse("I used to travel a lot on diplomatic missions, but now I prefer to read a good book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -950,14 +950,14 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Order");
-talkEntry:addResponse("The orders of the queen all cross my desk. Except for those she yells right in the faces of her lackeys. That makes me somehow... special, no?");
+talkEntry:addResponse("The orders of the Queen all cross my desk, except for those she yells right in the faces of her lackeys. That makes me somehow... special, no?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("despatch");
 talkEntry:addTrigger("dispatch");
-talkEntry:addResponse("Whenever there is an issue with Galmair or Runewick, the queen issues despatches. She rarely leaves her palace to deal with our neighbours.");
+talkEntry:addResponse("Whenever there is an issue with Galmair or Runewick, the Queen issues despatches. She rarely leaves her palace to deal with our neighbours.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -965,14 +965,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hastings");
 talkEntry:addTrigger("Baron");
-talkEntry:addResponse("Let me see... yes, I have orders for the Baron, it reads: 'Drop dead!'");
+talkEntry:addResponse("Let me see... yes, I have orders for the Baron, it reads, 'Drop dead!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("diplomat");
-talkEntry:addResponse("The fine art of diplomacy isn't a strength of Cadomyr; but for such things, there is me!");
+talkEntry:addResponse("The fine art of diplomacy isn't a strength of Cadomyr, but for such things, there is me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1025,7 +1025,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Daerbur");
 talkEntry:addTrigger("Wimbert");
-talkEntry:addResponse("You might want to search for Daerbur Wimbert in the darkhole mine. That is very far to the north. Better ask in Galmair, they are familiar with... dark holes.");
+talkEntry:addResponse("You might want to search for Daerbur Wimbert in the Dark Hole Mine. That is very far to the north. Better ask in Galmair, they are familiar with... dark holes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1039,7 +1039,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Robertus");
-talkEntry:addResponse("Oh, if you are looking for the royal builder Robertus, just head for the market place. He usually corrects his plans there. I wonder what he is building currently.");
+talkEntry:addResponse("Oh, if you are looking for the royal builder Robertus, just head for the market place. He usually corrects his plans there. I wonder what he is building currently?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1079,7 +1079,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("The archmage is, indeed, intelligent. But he has problems deriving the right deeds from his thoughts.");
+talkEntry:addResponse("The Archmage is, indeed, intelligent, but he has problems deriving the right deeds from his thoughts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1093,7 +1093,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("The archmage is, indeed, intelligent. But he has problems deriving the right deeds from his thoughts.");
+talkEntry:addResponse("The Archmage is, indeed, intelligent, but he has problems deriving the right deeds from his thoughts.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1107,7 +1107,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick is far to the east. There is a secret passage under the mountains but it is a dangerous path. But the travel is worth it.");
+talkEntry:addResponse("Runewick is far to the east. There is a secret passage under the mountains but it is a dangerous path. The travel is worth it though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1122,7 +1122,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Negotiations with the Don used to be difficult in the past. But strangely, since Queen Rosaline inherited the throne, his behaviour changed.");
+talkEntry:addResponse("Negotiations with the Don used to be difficult in the past, but strangely, since Queen Rosaline inherited the throne, his behaviour has changed.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1137,7 +1137,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair you can find when travelling far to the north. But don't take to much money with you, you will return without it.");
+talkEntry:addResponse("Galmair, you can find when travelling far to the north, but don't take to much money with you, you will return without it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1177,7 +1177,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr is my home and I do my share to make it prosper. Maybe not every day, but once in a while.");
+talkEntry:addResponse("Cadomyr is my home and I do my share to make it prosper, maybe not every day, but once in a while.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1190,7 +1190,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("Back in my youth, I once travelled in diplomatic mission to Albar. It was... I think we sent a host to there afterwards.");
+talkEntry:addResponse("Back in my youth, I once travelled on diplomatic mission to Albar. There was ordered... I mean, afterwards we sent an army there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1204,7 +1204,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("Diplomacy is not a skill of the Gynkeesh. They have many, but not that one.");
+talkEntry:addResponse("Diplomacy is not a skill of the Gynkeesh. They have many skills, but not that one.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1230,7 +1230,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkEntry:addResponse("My faith in the Gods is strong, but I prefer not to talk about something as private as this.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1244,7 +1244,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkEntry:addResponse("My faith in the Gods is strong, but I prefer not to talk about something as private as this.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1258,7 +1258,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkEntry:addResponse("My faith in the Gods is strong, but I prefer not to talk about something as private as this.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1272,7 +1272,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkEntry:addResponse("My faith in the Gods is strong, but I prefer not to talk about something as private as this.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1298,7 +1298,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkEntry:addResponse("My faith in the Gods is strong, but I prefer not to talk about something as private as this.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1311,7 +1311,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkEntry:addResponse("My faith in the Gods is strong, but I prefer not to talk about something as private as this.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1324,7 +1324,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkEntry:addResponse("My faith in the Gods is strong, but I prefer not to talk about something as private as this.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1367,7 +1367,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkEntry:addResponse("My faith in the Gods is strong, but I prefer not to talk about something as private as this.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1382,7 +1382,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkEntry:addResponse("My faith in the Gods is strong, but I prefer not to talk about something as private as this.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1395,7 +1395,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("Ronagan is the god of travellers, don't you know? So, why don't you travel a bit for me with Ronagan's blessing?");
+talkEntry:addResponse("Ronagan is the God of travellers, don't you know? So, why don't you travel a bit for me with Ronagan's blessing?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1408,7 +1408,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkEntry:addResponse("My faith in the Gods is strong, but I prefer not to talk about something as private as this.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1422,7 +1422,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkEntry:addResponse("My faith in the Gods is strong, but I prefer not to talk about something as private as this.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1436,7 +1436,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("My faith in the gods is strong, but I prefer not to talk about something as private as this.");
+talkEntry:addResponse("My faith in the Gods is strong, but I prefer not to talk about something as private as this.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1449,7 +1449,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("I am loyal, for Zhambra smiled upon me. I wouldn't do anything without an explicite, written order of her majesty.");
+talkEntry:addResponse("I am loyal, for Zhambra smiled upon me. I wouldn't do anything without an explicit, written order of Her Majesty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1464,7 +1464,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("The only thing I'd buy is my peace. Sometimes, I wish I'd be a less important man.");
+talkEntry:addResponse("The only thing I'd buy is my peace. Sometimes, I wish I was a less important man.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1533,7 +1533,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
-talkEntry:addResponse("I guess I forgot on which page I was.");
+talkEntry:addResponse("I guess I forgot which page I was on.");
 talkEntry:addResponse("My book is really interesting. Does the same hold for what you just said?");
 talkEntry:addResponse("Shh!");
 talkEntry:addResponse("Pardon?");
@@ -1552,12 +1552,12 @@ talkingNPC:addCycleText("Ups, die Post ist da!", "Ups, I have mail.");
 talkingNPC:addCycleText("#me gähnt gelangweilt.", "#me yawns lazily.");
 talkingNPC:addCycleText("#me blättert in einem Buch.", "#me browses a book.");
 talkingNPC:addCycleText("Ich hoffe nur, ich muss nicht schon wieder irgendwelche Depeschen überbringen.", "I just hope I don't have to deliver any despatches.");
-talkingNPC:addCycleText("Wann soll ich hier eigentlich mal ungestört zum Lesen kommen?", "When do I get to read my way?");
+talkingNPC:addCycleText("Wann soll ich hier eigentlich mal ungestört zum Lesen kommen?", "When do I get to read undisturbed?");
 talkingNPC:addCycleText("Ob das Volk heute oder morgen seine Befehle bekommt, was macht das für einen Unterschied? Cadomyr wird es ewig geben!", "Does it make a difference whether the people get their orders today or tomorrow? Cadomyr will last forever!");
 talkingNPC:addCycleText("Gut, gut, gut...", "Good, good, good...");
 talkingNPC:addCycleText("Eindeutig zu viel Arbeit. Ich sollte erstmal ein wenig lesen, wahrscheinlich überlegt sie es sich nochmal.", "Simply too much work. I should read a bit, most probably, she'll reconsider anyway.");
-talkingNPC:addCycleText("Ich hätte heiraten sollen als noch die Zeit dafür war.", "I should have merried when I still had the time.");
-talkingNPC:addCycleText("Wenn das Leben nicht so läuft, wie man will, sollte man was dagegen tun.", "If life does not turn out how you'd like it to be one should do something about this.");
+talkingNPC:addCycleText("Ich hätte heiraten sollen als noch die Zeit dafür war.", "I should have married when I still had the time.");
+talkingNPC:addCycleText("Wenn das Leben nicht so läuft, wie man will, sollte man was dagegen tun.", "If life does not turn out how you'd like it, one should do something about it.");
 talkingNPC:addCycleText("Ruhe! Ich lese!", "Silence! I am reading!");
 talkingNPC:addCycleText("#me betrachtet missmutig eine Schriftrolle, die das königliche Siegel Cadomyrs trägt.", "#me stares morosely at a scroll that bears the royal seal of Cadomyr.");
 mainNPC:addLanguage(0);
@@ -1582,7 +1582,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

@@ -69,7 +69,7 @@ function CharacterOnField( User )
 	end
 
 	if destFound then -- destination was defined
-		world:makeSound( 4, dest )
+		world:makeSound( 13, dest )
 		world:gfx( 41, User.pos )
 		User:warp( dest );
 		world:gfx( 41, User.pos )

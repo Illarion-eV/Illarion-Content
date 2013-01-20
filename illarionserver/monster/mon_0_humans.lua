@@ -1,6 +1,7 @@
 require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
+require("monster.base.kills")
 require("base.messages");
 module("monster.mon_0_humans", package.seeall)
 
@@ -98,6 +99,19 @@ function onCasted(Monster,Enemy)
 end
 
 function onDeath(Monster)
+
+    if killer and killer[Monster.id] ~= nil then
+
+        murderer=getCharForId(killer[Monster.id]);
+    
+        if murderer then --Checking for quests
+
+            monster.base.quests.checkQuest(murderer,Monster);
+            killer[Monster.id]=nil;
+            murderer=nil;
+
+        end
+    end
     
 	monster.base.drop.ClearDropping();
     local MonID=Monster:getMonsterType();
