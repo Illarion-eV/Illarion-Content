@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
 --           Magdha Tiefenerz                                                 --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -210,9 +210,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale I"));
-talkEntry:addResponse("For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the spikes myself.");
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
+talkEntry:addResponse("For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the spikes myself.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -221,9 +221,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal I"));
-talkEntry:addResponse("Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen.");
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
+talkEntry:addResponse("Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -233,9 +233,9 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale I"));
-talkEntry:addResponse("For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the spikes myself.");
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
+talkEntry:addResponse("For my recipe, I need wheat. Please take this this scythe and get me ten bundles of grain. I will then handpick the grain from the spikes myself.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -246,9 +246,9 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal I"));
-talkEntry:addResponse("Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen.");
 talkEntry:addConsequence(npc.base.consequence.item.item(271, 1, 399, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 1));
+talkEntry:addResponse("Für mein Rezept brauche ich Weizen. Bitte nehmt diese Sense und bringt mir zehn Getreidebündel. Ich werde dann selbst die Samen von Hand aus den Ähren lesen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -260,12 +260,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Yes, this should give plenty of fine grain. Thank you very much! Please take these silver coins as a sign of my gratitude.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Yes, this should give plenty of fine grain. Thank you very much! Please take these silver coins as a sign of my gratitude.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -276,11 +276,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins. You advance in Archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Yes, this should give plenty of fine grain. Thank you very much! Please take these silver coins as a sign of my gratitude.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Yes, this should give plenty of fine grain. Thank you very much! Please take these silver coins as a sign of my gratitude.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -291,12 +291,12 @@ talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -306,11 +306,11 @@ talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünf Silberstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,11 +321,11 @@ talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins and your peasantry skill increases."));
-talkEntry:addResponse("Yes, this should give plenty of fine grain. Thank you very much! Please take these silver coins as a sign of my gratitude.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 2));
+talkEntry:addResponse("Yes, this should give plenty of fine grain. Thank you very much! Please take these silver coins as a sign of my gratitude.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -335,10 +335,10 @@ talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded five silver coins."));
-talkEntry:addResponse("Yes, this should give plenty of fine grain. Thank you very much! Please take these silver coins as a sign of my gratitude.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 2));
+talkEntry:addResponse("Yes, this should give plenty of fine grain. Thank you very much! Please take these silver coins as a sign of my gratitude.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -348,11 +348,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünf Silberstücke und deine Landwirtschaftsfertigkeit steigt."));
-talkEntry:addResponse("Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 2));
+talkEntry:addResponse("Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -361,10 +361,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(249, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst fünf Silberstücke."));
-talkEntry:addResponse("Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(249, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 2));
+talkEntry:addResponse("Ja, das sollte ausreichend feines Getreide sein. Vielen herzlichen Dank! Bitte nehmt diese Kupfermünzen als Zeichen meiner Dankbarkeit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -442,8 +442,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale II"));
-talkEntry:addResponse("I'd like to cook fish in a crust with tomato sauce. I need twenty tomatoes for the sauce to the fish. Care to help me?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 3));
+talkEntry:addResponse("I'd like to cook fish in a crust with tomato sauce. I need twenty tomatoes for the sauce to the fish. Care to help me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -452,8 +452,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal II"));
-talkEntry:addResponse("I möchte Fisch im Teigmantel mit Tomatensoße kochen. Ich brauchen zwanzig Tomaten für die Soße. Könnt ihr mir helfen?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 3));
+talkEntry:addResponse("I möchte Fisch im Teigmantel mit Tomatensoße kochen. Ich brauchen zwanzig Tomaten für die Soße. Könnt ihr mir helfen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -463,8 +463,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale II"));
-talkEntry:addResponse("I'd like to cook fish in a crust with tomato sauce. I need twenty tomatoes for the sauce to the fish. Care to help me?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 3));
+talkEntry:addResponse("I'd like to cook fish in a crust with tomato sauce. I need twenty tomatoes for the sauce to the fish. Care to help me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -475,8 +475,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal II"));
-talkEntry:addResponse("I möchte Fisch im Teigmantel mit Tomatensoße kochen. Ich brauchen zwanzig Tomaten für die Soße. Könnt ihr mir helfen?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 3));
+talkEntry:addResponse("I möchte Fisch im Teigmantel mit Tomatensoße kochen. Ich brauchen zwanzig Tomaten für die Soße. Könnt ihr mir helfen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -488,12 +488,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these silver coins. But my recipe is still not finished.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these silver coins. But my recipe is still not finished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -504,11 +504,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins. You advance in Archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these silver coins. But my recipe is still not finished.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these silver coins. But my recipe is still not finished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -519,12 +519,12 @@ talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -534,11 +534,11 @@ talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -549,11 +549,11 @@ talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your peasantry skill increases."));
-talkEntry:addResponse("Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these silver coins. But my recipe is still not finished.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
+talkEntry:addResponse("Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these silver coins. But my recipe is still not finished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -563,10 +563,10 @@ talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins."));
-talkEntry:addResponse("Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these silver coins. But my recipe is still not finished.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
+talkEntry:addResponse("Great! Twenty ripe tomatoes. That will give a very fine sauce indeed. Please take these silver coins. But my recipe is still not finished.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -576,11 +576,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Landwirtschaftsfertigkeit steigt."));
-talkEntry:addResponse("Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
+talkEntry:addResponse("Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -589,10 +589,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(200, "all", ">", 19, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke."));
-talkEntry:addResponse("Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(200, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 4));
+talkEntry:addResponse("Großartig! Zwanzig reife Tomaten. Das wird in der Tat eine feine Soße ergeben. Bitte nehmt diese Kupfermünzen. Aber mein Gericht ist noch nicht fertig.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -662,8 +662,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale III"));
-talkEntry:addResponse("I think some onions would spice up the sauce. See if you can find at least five onions, please.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 5));
+talkEntry:addResponse("I think some onions would spice up the sauce. See if you can find at least five onions, please.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -672,8 +672,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 4));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal III"));
-talkEntry:addResponse("Ich denke, ein paar Zwiebeln würden die Soße etwas aufpeppen. Versucht bitte, mindestens fünf Zwiebeln zu finden.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 5));
+talkEntry:addResponse("Ich denke, ein paar Zwiebeln würden die Soße etwas aufpeppen. Versucht bitte, mindestens fünf Zwiebeln zu finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -683,8 +683,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale III"));
-talkEntry:addResponse("I think some onions would spice up the sauce. See if you can find at least five onions, please.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 5));
+talkEntry:addResponse("I think some onions would spice up the sauce. See if you can find at least five onions, please.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -695,8 +695,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal III"));
-talkEntry:addResponse("Ich denke, ein paar Zwiebeln würden die Soße etwas aufpeppen. Versucht bitte, mindestens fünf Zwiebeln zu finden.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 5));
+talkEntry:addResponse("Ich denke, ein paar Zwiebeln würden die Soße etwas aufpeppen. Versucht bitte, mindestens fünf Zwiebeln zu finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -708,12 +708,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins. But how embarrassing, I have a probem with the recipe now.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins. But how embarrassing, I have a probem with the recipe now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -724,11 +724,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins. You advance in Archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins. But how embarrassing, I have a problem with the recipe now.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins. But how embarrassing, I have a problem with the recipe now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -739,12 +739,12 @@ talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -754,11 +754,11 @@ talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -769,11 +769,11 @@ talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins and your peasantry skill increases."));
-talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins. But how embarrassing, I have a probem with the recipe now.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
+talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins. But how embarrassing, I have a probem with the recipe now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -783,10 +783,10 @@ talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded ten silver coins."));
-talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins. But how embarrassing, I have a problem with the recipe now.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
+talkEntry:addResponse("Fantastic! You've really managed to come up with five onions. Here, have some silver coins. But how embarrassing, I have a problem with the recipe now.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -796,11 +796,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke und deine Landwirtschaftsfertigkeit steigt."));
-talkEntry:addResponse("Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
+talkEntry:addResponse("Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -809,10 +809,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(201, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zehn Silberstücke."));
-talkEntry:addResponse("Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(201, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 6));
+talkEntry:addResponse("Fantastisch! Ihr habt wirklich fünf Zwiebeln auftreiben können. Hier, nehmt ein paar Kupferstücke im Austausch. Aber wie peinlich, ich habe nun ein Problem mit dem Rezept.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -897,8 +897,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale IV"));
-talkEntry:addResponse("I usually buy fish from Zerarisa. I am really sorry, but I always forget what this fish is called. But I need ten of these fish again.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 7));
+talkEntry:addResponse("I usually buy fish from Zerarisa. I am really sorry, but I always forget what this fish is called. But I need ten of these fish again.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -907,8 +907,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 6));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal IV"));
-talkEntry:addResponse("Normalerweise kaufe ich Fisch von Zerarisa. Tut mir wirklich leid, aber ich vergesse immer, wie dieser Fisch heißt. Aber ich bräuchte wieder zehn von diesen Fischen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 7));
+talkEntry:addResponse("Normalerweise kaufe ich Fisch von Zerarisa. Tut mir wirklich leid, aber ich vergesse immer, wie dieser Fisch heißt. Aber ich bräuchte wieder zehn von diesen Fischen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -918,8 +918,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Yewdale IV"));
-talkEntry:addResponse("I usually buy fish from Zerarisa. I am really sorry, but I always forget what this fish is called. But I need ten of these fish again.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 7));
+talkEntry:addResponse("I usually buy fish from Zerarisa. I am really sorry, but I always forget what this fish is called. But I need ten of these fish again.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -930,8 +930,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eibenthal IV"));
-talkEntry:addResponse("Normalerweise kaufe ich Fisch von Zerarisa. Tut mir wirklich leid, aber ich vergesse immer, wie dieser Fisch heißt. Aber ich bräuchte wieder zehn von diesen Fischen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 7));
+talkEntry:addResponse("Normalerweise kaufe ich Fisch von Zerarisa. Tut mir wirklich leid, aber ich vergesse immer, wie dieser Fisch heißt. Aber ich bräuchte wieder zehn von diesen Fischen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -943,12 +943,12 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins and your peasantry skill increases. You advance in Archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -959,11 +959,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins. You advance in Archmage Elvaine Morgan's favour."));
-talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -974,12 +974,12 @@ talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke und deine Landwirtschaftsfertigkeit steigt. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -989,11 +989,11 @@ talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
-talkEntry:addResponse("Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
+talkEntry:addResponse("Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1004,11 +1004,11 @@ talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins and your peasantry skill increases."));
-talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
+talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1018,10 +1018,10 @@ talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins."));
-talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
+talkEntry:addResponse("Wonderful! Yes, this is exactly the fish I need. Here, this is more than worth the silver. I'm so happy that I have everything for my recipe now. May Oldra bless you!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1031,11 +1031,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke und deine Landwirtschaftsfertigkeit steigt."));
-talkEntry:addResponse("Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!");
 talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.farming, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
+talkEntry:addResponse("Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1044,10 +1044,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(70, "=", 7));
 talkEntry:addCondition(npc.base.condition.item.item(355, "all", ">", 9, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke."));
-talkEntry:addResponse("Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(355, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(70, "=", 8));
+talkEntry:addResponse("Wunderbar! Ja, dies ist genau der Fisch, den ich brauche. Hier, sie sind jedes Kupferstück wert. Ich bin so glücklich, dass ich jetzt alles für meine Rezpet habe. Möge Oldra Euch segnen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1340,6 +1340,21 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sichel");
 talkEntry:addResponse("Ihr könnt eine Sichel verwenden um Gemüse einzusammeln sobald es reif ist. Oder Ihr verwendet sie um Kräuter und Pilze zu sammeln.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Valandil");
+talkEntry:addTrigger("Elensar");
+talkEntry:addResponse("My best regards to Valandil!");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Valandil");
+talkEntry:addTrigger("Elensar");
+talkEntry:addResponse("Grüßt Valandil fein von mir!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1642,7 +1657,7 @@ talkingNPC:addCycleText("Und noch etwas Knoblauch... oder besser nicht?", "And a
 talkingNPC:addCycleText("Ohje, ohje.", "O my dear.");
 talkingNPC:addCycleText("Das wird lecker!", "That's going to be tasty!");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(5);
+mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist die Köchin Nana Winterbutter.", "This NPC is the cook Nana Winterbutter.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
@@ -1663,7 +1678,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

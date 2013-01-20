@@ -102,36 +102,34 @@ function UseItem(User, SourceItem, ltstate)
 	if not base.common.IsLookingAt( User, TargetPos ) then -- check looking direction
 		base.common.TurnTo( User, TargetPos ); -- turn if necessary
 	end
+  
+  -- should not stack plants on top of anything
+  if (world:isItemOnField(TargetPosition)) then
+    base.common.HighInformNLS(User,
+    "Du kannst nur auf einem freien Feld Saatgut aussäen.",
+    "Sowing seeds is only possible at a free spot.");
+    return;
+  end
 	
-    -- only on farm land
+  -- only on farm land
 	local Field = world:getField( TargetPos )
-    local groundType = base.common.GetGroundType( Field:tile() );
-    if ( groundType ~= 1 ) then
-        base.common.HighInformNLS(User,
-        "Du kannst nur auf Ackerboden Saatgut aussäen.",
-        "Sowing seeds is only possible on farm land.");
-        return
-    end
-    
-    -- not in winter
-    local month=world:getTime("month");
-    local season=math.ceil(month/4);
-    if (season == 4) then
-        base.common.HighInformNLS(User,
-        "Der Boden ist tief gefroren. Im Winter wirst du nichts anbauen können.",
-        "The ground is frozen deeply. You won't be able to plant anything in winter.");
-        return
-    end
+  local groundType = base.common.GetGroundType( Field:tile() );
+  if ( groundType ~= 1 ) then
+    base.common.HighInformNLS(User,
+    "Du kannst nur auf Ackerboden Saatgut aussäen.",
+    "Sowing seeds is only possible on farm land.");
+    return
+  end
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil);
 		User:startAction( farming.SavedWorkTime[User.id], 0, 0, 0, 0);
-        -- this is no batch action => no emote message, only inform player
+    -- this is no batch action => no emote message, only inform player
 		if farming.SavedWorkTime[User.id] > 15 then
-            base.common.InformNLS(User,
-            "Du säst Saatgut aus.",
-            "You sow seeds.");
-        end
+      base.common.InformNLS(User,
+      "Du säst Saatgut aus.",
+      "You sow seeds.");
+    end
 		return
 	end
 
@@ -142,7 +140,16 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 	User:learn( farming.LeadSkill, farming.SavedWorkTime[User.id], farming.LearnLimit);
-	local amount = math.random(1,3); -- set the amount of items that are produced
+	-- you always get at least one
+  local amount = 1;
+  -- in 50% of all cases one more
+  if (math.random(1,2) == 1) then
+    amount = amount + 1;
+  end
+  -- and another one depending on the skill
+  if (User:getSkill(farming.LeadSkill) > math.random(1,100)) then
+    amount = amount + 1;
+  end
 	world:createItemFromId( seedPlantList[SourceItem.id], 1, TargetPos, true, 333 ,{["amount"] = "" .. amount});
 	world:erase( SourceItem, 1 ); -- erase the seed
 end

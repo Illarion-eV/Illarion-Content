@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -378,113 +378,12 @@ talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A spark to a flame III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 6));
-talkEntry:addResponse("I see you are really serious in your faith in Brágon. I think you are worthy to become a devotee of Brágon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 5));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Feuer und Flamme III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 6));
-talkEntry:addResponse("Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Brágon. Ich denke, ihr seid würdig, einer seiner Anhänger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zurück, um meinen Segen zu empfangen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 5));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A spark to a flame III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 6));
-talkEntry:addResponse("I see you are really serious in your faith in Brágon. I think you are worthy to become a devotee of Brágon. Enter his shrine and sacrifice what is already his and then come back to me to receive my blessings.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 5));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Feuer und Flamme III"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 6));
-talkEntry:addResponse("Ich sehe, ihr meint es wirklich ernst mit dem Glauben an Brágon. Ich denke, ihr seid würdig, einer seiner Anhänger zu werden. Gehet zu seinem Schrein und opfert, was ohnehin sein ist. Kommt dann zu mir zurück, um meinen Segen zu empfangen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 6));
-talkEntry:addCondition(npc.base.condition.quest.quest(401, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a red priest robe."));
-talkEntry:addConsequence(npc.base.consequence.item.item(2419, 1, 799, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 7));
-talkEntry:addResponse("#me raises his hands and chants: 'Be blessed in the name of Brágon! Go forth and accomplish deeds in his name.'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 6));
-talkEntry:addCondition(npc.base.condition.quest.quest(401, "=", 2));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine rote Priesterrobe."));
-talkEntry:addConsequence(npc.base.consequence.item.item(2419, 1, 799, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(113, "=", 7));
-talkEntry:addResponse("#me hebt seine Hände und singt: 'Seid gesegnet in Brágons Namen! Gehet hin und vollbringt Taten in seinem Namen.'");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 6));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("You hesitate to sacrifice your mudane wealth Brágon? It will go up in flames one day anyway, trust me!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 6));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Zögert ihr, euren weltlichen Besitz Brágon zu opfern? Er wird sowieso eines Tages in Flammen aufgehen, glaubt es mir.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 6));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addResponse("You hesitate to sacrifice your mudane wealth to Brágon? It will go up in flames one day anyway, trust me!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 6));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Zögert ihr, euren weltlichen Besitz Brágon zu opfern? Er wird sowieso eines Tages in Flammen aufgehen, glaubt es mir.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 7));
-talkEntry:addCondition(npc.base.condition.quest.quest(401, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
 talkEntry:addResponse("I see your faith in Brágon is still strong. Renounce him and he will renounce you. He will care little, but you will probably end up scorched.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 7));
-talkEntry:addCondition(npc.base.condition.quest.quest(401, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 5));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Wie ich sehe, ist euer Glaube an Brágon noch immer stark. Entsagt ihm und er entsagt euch. Ihn kümmert es wenig, aber ihr werdet wohl versengt werden.");
@@ -492,8 +391,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 7));
-talkEntry:addCondition(npc.base.condition.quest.quest(401, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 5));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addResponse("I see your faith in Brágon is still strong. Renounce him and he will renounce you. He will care little, but you will probably end up scorched.");
@@ -501,46 +399,11 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 7));
-talkEntry:addCondition(npc.base.condition.quest.quest(401, "=", 2));
+talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 5));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addResponse("Wie ich sehe, ist euer Glaube an Brágon noch immer stark. Entsagt ihm und er entsagt euch. Ihn kümmert es wenig, aber ihr werdet wohl versengt werden.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 7));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Out of my sight, you traitor! Blasphemer! Infidel!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 7));
-talkEntry:addTrigger("quest");
-talkEntry:addTrigger("mission");
-talkEntry:addResponse("Aus meinen Augen, ihr Verräter! Gotteslästerer! Ungläubiger!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 7));
-talkEntry:addTrigger("task");
-talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Out of my sight, you traitor! Blasphemer! Infidel!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(113, "=", 7));
-talkEntry:addTrigger("Auftrag");
-talkEntry:addTrigger("Aufgabe");
-talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Aus meinen Augen, ihr Verräter! Gotteslästerer! Ungläubiger!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1018,7 +881,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

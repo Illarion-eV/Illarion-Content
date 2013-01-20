@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: north                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -23,6 +23,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.state")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.henning_broomshrub", package.seeall)
 
@@ -107,7 +108,7 @@ talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
 talkEntry:addResponse("Yes, yes, and come back with more money!");
 talkEntry:addResponse("Bye! May your purse fill again.");
-talkEntry:addResponse("Goodbye and please don't tell what I am doing here.");
+talkEntry:addResponse("Goodbye and please don't tell anyone what I am doing here.");
 talkEntry:addResponse("Ronagan may bless you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -132,7 +133,7 @@ talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
 talkEntry:addResponse("Yes, yes, and come back with more money!");
 talkEntry:addResponse("Bye! May your purse fill again.");
-talkEntry:addResponse("Goodbye and please don't tell what I am doing here.");
+talkEntry:addResponse("Goodbye and please don't tell anybody what I am doing here.");
 talkEntry:addResponse("Ronagan may bless you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -236,7 +237,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("~=", 0));
 talkEntry:addTrigger("bet");
 talkEntry:addResponse("You already bet, choose a nut: Left, middle or right?");
-talkEntry:addResponse("You still have to choose a nut. Left, middle or maybe right?");
+talkEntry:addResponse("You still have to choose a nut: Left, middle or maybe right?");
 talkEntry:addResponse("I await your decision. Under which nut might the ball be hidden?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -256,14 +257,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.state.state("=", 0));
 talkEntry:addCondition(npc.base.condition.money.money(">", 999));
 talkEntry:addTrigger("bet");
-talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the left one.");
-talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the right one.");
-talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the one in the middle.");
-talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You have no clue where the ball is now.");
-talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. The ball might be anywhere, his hands were too fast for you.");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
 talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(21, "+", 1));
+talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the left one.");
+talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the right one.");
+talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You are pretty sure the ball is under the one in the middle.");
+talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. You have no idea where the ball is now.");
+talkEntry:addResponse("#me accepts your bet and places the ball under a nut. He shuffles the nuts and gestures you to choose one. The ball might be anywhere, his hands were too fast for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -284,11 +285,11 @@ talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
 talkEntry:addTrigger("right");
 talkEntry:addTrigger("left");
 talkEntry:addTrigger("middle");
-talkEntry:addResponse("#me lifts the nut. You see... a ball! You won twice your bet.");
-talkEntry:addResponse("We have a winner! Here, the ball was under your nut. Take your won money.");
-talkEntry:addResponse("#me curses as he lifts the nut and a ball can be seen. You win twice your bet!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
+talkEntry:addResponse("#me lifts the nut. You see... a ball! You won twice your bet.");
+talkEntry:addResponse("We have a winner! Here, the ball was under your nut. Take your prize money.");
+talkEntry:addResponse("#me curses as he lifts the nut and a ball can be seen. You win twice your bet!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -297,11 +298,11 @@ talkEntry:addCondition(npc.base.condition.state.state("~=", 0));
 talkEntry:addTrigger("right");
 talkEntry:addTrigger("left");
 talkEntry:addTrigger("middle");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("#me lifts the nut. There is no ball, so you lost your bet.");
 talkEntry:addResponse("Bad luck today, chap. No ball under your nut, sorry. Your bet is mine.");
 talkEntry:addResponse("#me lifts the nut with a grin. No ball is under it, so you've lost your bet.");
-talkEntry:addResponse("Oh, how sad, no ball under this nut. But maybe you'll have more luck next time?");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Oh, how sad, no ball under this nut, but maybe you'll have more luck next time?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -322,7 +323,7 @@ talkEntry:addTrigger("setze");
 talkEntry:addTrigger("wette");
 talkEntry:addTrigger("setz");
 talkEntry:addResponse("Du hast ja nichtmal zehn Silbermünzen.");
-talkEntry:addResponse("Du solltest nicht mehr setzen als du eigentlich hast. Zack, eine Silbermünze auf den Tisch!");
+talkEntry:addResponse("Du solltest nicht mehr setzen als du eigentlich hast. Zack, zehn Silbermünzen auf den Tisch!");
 talkEntry:addResponse("Willst du mich veräppeln? Zähl mal dein Geld!");
 talkEntry:addResponse("Netter Versuch. Hol erstmal dein Geld, bevor wir spielen.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -334,14 +335,14 @@ talkEntry:addCondition(npc.base.condition.money.money(">", 999));
 talkEntry:addTrigger("setze");
 talkEntry:addTrigger("wette");
 talkEntry:addTrigger("setz");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
+talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(21, "+", 1));
 talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du bist ziemlich sicher, dass die Kugel unter der linken Nuß ist.");
 talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du bist ziemlich sicher, dass die Kugel unter der rechten Nuß ist.");
 talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du bist ziemlich sicher, dass die Kugel unter der mittleren Nuß ist.");
 talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Du hast keine Ahnung, wo die Kugel nun ist.");
 talkEntry:addResponse("#me nimmt deine Wette an und legt die Kugel unter eine Nuß. Er schiebt die Nüße hin und her und deutet dir, eine zu wählen. Die Kugel könnte überall sein, so schnell waren seine Hände.");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 1));
-talkEntry:addConsequence(npc.base.consequence.money.money("-", 1000));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(21, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -362,11 +363,11 @@ talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
 talkEntry:addTrigger("rechts");
 talkEntry:addTrigger("links");
 talkEntry:addTrigger("mitte");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addResponse("#me hebt die Nuß. Du siehst... eine Kugel! Du hast deinen Einsatz verdoppelt.");
 talkEntry:addResponse("Wir haben einen Gewinner! Hier, die Kugel war unter deiner Nuß. Nimm dein gewonnenes Geld.");
 talkEntry:addResponse("#me flucht als er die Nuß anhebt und eine Kugel zum Vorschein kommt. Du gewinnst deinen doppelten Einsatz.");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -375,11 +376,11 @@ talkEntry:addCondition(npc.base.condition.state.state("~=", 0));
 talkEntry:addTrigger("rechts");
 talkEntry:addTrigger("links");
 talkEntry:addTrigger("mitte");
+talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("#me hebt die Nuß. Es ist keine Kugel drunter, also hast du deinen Einsatz verloren.");
 talkEntry:addResponse("Kein Glück heute, was? Keine Kugel unter dieser Nuß, dein Einsatz ist mein.");
 talkEntry:addResponse("#me hebt die Kugel mit einem Grinsen. Keine Kugel ist drunter, also hast du deinen Einsatz verloren.");
 talkEntry:addResponse("Oh, wie schade, keine Kugel unter dieser Nuß. Vielleicht hast du beim nächsten mal mehr Glück?");
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -442,7 +443,7 @@ talkEntry:addTrigger("spielchen");
 talkEntry:addTrigger("nüsse");
 talkEntry:addTrigger("nüße");
 talkEntry:addTrigger("Einsatz");
-talkEntry:addResponse("Das Hütchenspiel ist eigentlich ganz einfach. Du setzt ein Silberstück und ich verstecke eine Kugel unter einer von drei Nüßen. Ich mische dann die Nüße und du wählst einfach die Richtige. Du bekommst deinen doppelten Einsatz, wenn du meinen Händen folgen kannst.");
+talkEntry:addResponse("Das Hütchenspiel ist eigentlich ganz einfach. Du setzt zehn Silberstücke und ich verstecke eine Kugel unter einer von drei Nüßen. Ich mische dann die Nüße und du wählst einfach die Richtige. Du bekommst deinen doppelten Einsatz, wenn du meinen Händen folgen kannst.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -524,7 +525,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Dwarf");
 talkEntry:addTrigger("dwarv");
-talkEntry:addResponse("Dwarves have lots of gold, don't they? I wish I'd be a dwarf...");
+talkEntry:addResponse("Dwarves have lots of gold, don't they? I wish I was a dwarf...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -580,9 +581,9 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Halfling");
-talkEntry:addResponse("Without a doubt, I am a halfling. And a poor one.");
+talkEntry:addResponse("Without a doubt, I am a halfling, and a poor one.");
 talkEntry:addResponse("What is it you want from me?");
-talkEntry:addResponse("Sure, I am a halfling, or do you see me having a beard and wielding an axe?");
+talkEntry:addResponse("Sure, I am a halfling, or do you see me with a beard and wielding an axe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -598,9 +599,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Halfer");
 talkEntry:addTrigger("Hobbit");
-talkEntry:addResponse("Without a doubt, I am a halfling. And a poor one.");
+talkEntry:addResponse("Without a doubt, I am a halfling, and a poor one.");
 talkEntry:addResponse("What is it you want from me?");
-talkEntry:addResponse("Sure, I am a halfling, or do you see me having a beard and wielding an axe?");
+talkEntry:addResponse("Sure, I am a halfling, or do you see me with a beard and wielding an axe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -618,8 +619,8 @@ talkEntry:addTrigger("Hemp");
 talkEntry:addTrigger("Necktie");
 talkEntry:addTrigger("inn");
 talkEntry:addResponse("Welcome to the Hemp Necktie Inn.");
-talkEntry:addResponse("Indeed, this is a tavern. So, how about we do what is done best in a tavern: Gambling!");
-talkEntry:addResponse("A nice name for a tavern: Hemp Necktie Inn. Why don't you make me happy and do some thimblerig with me?");
+talkEntry:addResponse("Indeed, this is a tavern. So, how about we do what is done best in a tavern, Gambling!");
+talkEntry:addResponse("A nice name for a tavern, Hemp Necktie Inn. Why don't you make me happy and do some thimblerig with me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -637,8 +638,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tavern");
 talkEntry:addTrigger("Bar");
 talkEntry:addResponse("Welcome to the Hemp Necktie Inn.");
-talkEntry:addResponse("Indeed, this is a tavern. So, how about we do what is done best in a tavern: Gambling!");
-talkEntry:addResponse("A nice name for a tavern: Hemp Necktie Inn. Why don't you make me happy and do some thimblerig with me?");
+talkEntry:addResponse("Indeed, this is a tavern. So, how about we do what is done best in a tavern, Gambling!");
+talkEntry:addResponse("A nice name for a tavern, Hemp Necktie Inn. Why don't you make me happy and do some thimblerig with me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -654,8 +655,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Wilderland");
-talkEntry:addResponse("Wilderland is a nice place for a thimblerig like me. You know, few guards, lots of money...");
-talkEntry:addResponse("There is no place like Wilderland. This tavern is a good place for gambling, isn't it?");
+talkEntry:addResponse("The Wilderland is a nice place for a thimblerig like me. You know, few guards, lots of money...");
+talkEntry:addResponse("There is no place like the Wilderland. This tavern is a good place for gambling, isn't it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -670,8 +671,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("townguard");
 talkEntry:addTrigger("guard");
 talkEntry:addResponse("Guards? Uhm, I better be goin'...");
-talkEntry:addResponse("#me gathers his three nuts and grubs the money, hiding it.");
-talkEntry:addResponse("Oh, a thug just left the tavern, maybe you catch him when you leave now.");
+talkEntry:addResponse("#me gathers his three nuts and grabs the money, hiding it.");
+talkEntry:addResponse("Oh, a thug just left the tavern, maybe you could catch him when you leave now?");
 talkEntry:addResponse("#me whistles innocently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -732,7 +733,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("I prefer not to talk to or about the Don. That's better for my business.");
+talkEntry:addResponse("I prefer not to talk to or about the Don, that's better for my business.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -802,7 +803,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("albar");
-talkEntry:addResponse("I'll never play with an Albarian again. Last time, one slammed on the table so hard after losing that all three nuts flew around, revealing that there was no ball... uhm, nevermind.");
+talkEntry:addResponse("I'll never play with an Albarian again. Last time, one slammed on the table so hard after losing that all three nuts flew up, revealing that there was no ball... uhm, nevermind.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -816,7 +817,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("I'll never play with an Gynkeesh again. Last time, I lost thirty times in a row! If there is folk that can cheat better than me, it's the Gynkeesh!");
+talkEntry:addResponse("I'll never play with an Gynkeesh again. Last time, I lost thirty times in a row! If there are folk that can cheat better than me, it's the Gynkeesh!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -830,7 +831,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("I'll never play with an Salkamaerian again. Last time, one argued half an hour with me that he ment the right nut from 'my' point of view, not 'his'...");
+talkEntry:addResponse("I'll never play with an Salkamaerian again. Last time, one argued half an hour with me that he meant the right nut from 'my' point of view, not 'his'...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -858,7 +859,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
 talkEntry:addResponse("Hail Ronagan!");
 talkEntry:addResponse("My religion is called gold.");
-talkEntry:addResponse("How come Ronagan has no temple on this island? ... He could not lift it as he tried to steal one!");
+talkEntry:addResponse("How come Ronagan has no temple in this land? ... He could not lift it as he tried to steal one!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -875,8 +876,9 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Do I look like a trader!?");
-talkEntry:addResponse("Oh, I forgot my vendor's tray at home. Want to play a game instead?");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Do I look like ar!?");
+talkEntry:addResponse("Oh, I left my vendor's tray at home. Want to play a game instead?");
 talkEntry:addResponse("You must be kidding me. I am not a huckster!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -894,7 +896,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I don't tell no nothing, no!");
+talkEntry:addResponse("I don't tell nobody nothing, no!");
 talkEntry:addResponse("Who are you anyway, the town guard?");
 talkEntry:addResponse("I don't cheat! I would never, would I...?");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -943,7 +945,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addResponse("No... what?");
-talkEntry:addResponse("#me shrugs and replies: I don't quite understand...");
+talkEntry:addResponse("#me shrugs and replies, 'I don't quite understand...'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -953,12 +955,12 @@ talkEntry:addResponse("Nein... was?");
 talkEntry:addResponse("#me zuckt mit den Schultern und erwidert: Ich versteh' nicht recht...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me schiebt gelangweilt drei Nüße hin und her.", "#me shuffels three nuts around, seeming rather bored.");
+talkingNPC:addCycleText("#me schiebt gelangweilt drei Nüße hin und her.", "#me shuffles three nuts around, seeming rather bored.");
 talkingNPC:addCycleText("#me pfeift vor sich hin.", "#me whistles innocently.");
 talkingNPC:addCycleText("#me zählt sein Geld nach und grinst", "#me counts his money and grins.");
 talkingNPC:addCycleText("#me sitzt vor einem Brett mit drei Nüßen darauf. Seine Finger spielen mit einer kleinen, grauen Kugel.", "#me is sitting in front of a board. On the board are three nuts. He is playing around with a small, grey ball.");
 talkingNPC:addCycleText("Shh, Lust auf ein Spiel?", "Shh, want to play?");
-talkingNPC:addCycleText("Psst, du, komm mal her. Ich kann dich reich machen.", "Hush, you, come here. I can make you rich.");
+talkingNPC:addCycleText("Psst, du, komm mal her. Ich kann dich reich machen.", "Hush, you, come here, I can make you rich.");
 talkingNPC:addCycleText("Zeit für die Krötenwanderung. Die Kröten wandern von euren in meinen Geldbeutel.", "Time for a coin march from your purse to mine.");
 talkingNPC:addCycleText("#me nimmt ein Schluck aus seinem Krug.", "#me takes a sip from his mug.");
 talkingNPC:addCycleText("Denn Geld regiert die Welt...", "Money makes the world go round, the world go round...");
@@ -986,7 +988,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
