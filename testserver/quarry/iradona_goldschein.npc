@@ -164,7 +164,7 @@ english, "Tavern" -> "This place in the Scoria Mine has two entrances. The main 
 
 -- "Rooms" -> "" --placeholder for rooms if they can be rent
 -- "Guild" -> ""
-english, "Hinterland" -> inform("[Keywords] Sleepy Bujhaar Inn, Census office, Sport Hole, Malachite Mine, Miner's club, Miner's spring, Woodcorner, Stinky Fisherman, The Platform, Black Hole Mine, Farmland, Copperbridge, Blackbridge"), "In the so called Hinterlands you can find: Sleepy Bujhaar Inn, Census office, Sport Hole, Malachite Mine, Miner's club, Miner's spring, Woodcorner, Stinky Fisherman, The Platform, Black Hole Mine, Farmland, Copperbridge and Blackbridge."
+english, "Hinterland" -> inform("[Keywords] Sleepy Bujhaar Inn, Census office, Sport Hole, Malachite Mine, Miner's club, Miner's spring, Woodcorner, Stinky Fisherman, The Platform, Dark Hole Mine, Farmland, Copperbridge, Blackbridge"), "In the so called Hinterlands you can find: Sleepy Bujhaar Inn, Census office, Sport Hole, Malachite Mine, Miner's club, Miner's spring, Woodcorner, Stinky Fisherman, The Platform, Black Hole Mine, Farmland, Copperbridge and Blackbridge."
 "Hinterland" -> inform("[Schlüsselwörter] Gasthof zum schläfrigen Bujhaar, Zensusbüro, Tollloch, Malachitmine, Schürfer Club, Schürfer Quelle, Waldeck, Stinkender Fischer, Plattform, Dunkellochmine, Ackerland, Kupferbrücke, Schwarzbrücke."), "In dem sogenannten Hinterland findest du: Gasthof zum schläfrigen Bujhaar, Zensusbüro, Tollloch, Malachitmine, Schüfer Club, Schüfer Quelle, Waldeck, Stinkender Fischer, Plattform, Dunkellochmine, Ackerland, Kupferbrücke and Schwarzbrücke."
 "Sleepy Bujhaar Inn" -> "The Sleepy Bjhaar Inn can be found on the road to the Malachite Mine after the Census office. Just look for signposts. You can rest and eat there if you want."
 "Gasthof Bujhaar" -> "Das Gasthaus zum Schlafenden Bujhaar kann an der Straße zur Malachitmine nach dem Zensusbüro gefunden werden. Folge einfach den Wegschildern. Du kannst dort essen oder rasten wenn du möchtest."
@@ -184,7 +184,7 @@ english, "Hinterland" -> inform("[Keywords] Sleepy Bujhaar Inn, Census office, S
 "Stinkende Fischer" -> "Der Stinkende Fischer ist ein Ort für Fischer und ist südlich von hier am Nordufer des Malachit Bach."
 "Platform" -> "The Platform is a place for fishers close at the Copperbridge. *points east* It was also used by lizards to rise and pray their in the past. "
 "Plattform" -> "Die Plattform ist ein Ort für Fischer nahe der Kupferbrücke. *zeigt in den Osten* Sie wurde früher auch von Echsen genutzt zum Entspringen und Beten."
-"Black Hole Mine" -> "The Black Hole Mine is far in the north. You have walk east, over the Copperbridge, the north to Blackbridge, pass the harbour and then you are there. You can find coal there."
+"Dark Hole Mine" -> "The Dark Hole Mine is far in the north. You have walk east, over the Copperbridge, the north to Blackbridge, pass the harbour and then you are there. You can find coal there."
 "Dunkellochmine" -> "Die Dunkellochmine ist weit im Norden. Du musst in den Osten gehen, über die Kupferbrücke, dann in den Norden über die Schwarzbrücke, beim Hafen vorbei und dann bist du dort. Du wirst Kohle dort finden."
 "Farmland" -> "The Farmland is just here. *points south*"
 "Ackerland" -> "Das Ackerland ist gleich hier. *zeigt in den Süden*"

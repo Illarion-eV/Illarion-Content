@@ -1,3 +1,5 @@
+module("development.game_card", package.seeall)
+
 -- color: 1=diamonds, 2=hearts, 3=spades, 4=clubs
 -- value: 1=2, 2=3, 3=4, 4=5, ..., 9=10, 10=J, 11=Q, 12=K, 13=A
 

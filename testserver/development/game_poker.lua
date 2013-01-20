@@ -1,5 +1,9 @@
-require( "game_carddeck" );
-module("game_poker", package.seeall(game_carddeck))
+require("development.game_carddeck");
+
+module("development.game_poker", package.seeall)
+
+newCardDeck13 = development.game_carddeck.newCardDeck13
+newCardDeck52 = development.game_carddeck.newCardDeck52
 
 function newPokerTable( 
                         npcDealer,           -- Dealer npc
@@ -11,15 +15,12 @@ function newPokerTable(
                         bigBlind,            -- The big blind
                         listPosSeat,         -- A list with positions of player seats
                         listPosBetUnits,     -- A list with positions of player bet units
-                        listPosBetHundreds,  -- A list with positions of player bet hundreds
-                        posPotHundredths,    -- Position where the hundredths will be displayed
                         posPotUnits,         -- Position where the units will be displayed
-                        posPotHundreds,      -- Position where the hundreds will be displayed
                         rake,                -- Rake in Percent
                         fileRake             -- Path to the rake file
                       )
                       
-    npcDealer:increaseSkill(1,"common language",100);
+    npcDealer:increaseSkill(Character.commonLanguage, 100);
 
     local indexSet = function()
         local t = {};
@@ -43,18 +44,15 @@ function newPokerTable(
     local self = {
         -- static part
         npcDealer          = npcDealer,
-        unitId             = unitId,
         hundredthId        = hundredthId,
+        unitId             = unitId,
         hundredId          = hundredId,
         buttonId           = buttonId,
         smallBlind         = smallBlind,
         bigBlind           = bigBlind,
         listPosSeat        = listPosSeat,
-        listPosBetHundreds = listPosBetHundreds,
         listPosBetUnits    = listPosBetUnits,
-        posPotHundredths   = posPotHundredths,        
         posPotUnits        = posPotUnits,
-        posPotHundreds     = posPotHundreds,
         rake               = rake/100,
         fileRake           = fileRake,
         initialDelay       = 100,
@@ -93,10 +91,6 @@ function newPokerTable(
     };
     
     local compareBets = function( index1, index2 )
-        --self.npcDealer:talk(Character.yell, "Entering..." );
-        --self.npcDealer:talk(Character.yell, "Compare: "..index1.." and "..index2);
-        --local txt = (not self.listBets[index1] or ( self.listBets[index2] and self.listBets[index1] < self.listBets[index2] )) and "true" or "false";
-        --self.npcDealer:talk(Character.yell, "Return: "..txt);
         return not self.listBets[index1] or ( self.listBets[index2] and self.listBets[index1] < self.listBets[index2] );
     end;
     
@@ -310,7 +304,7 @@ function newPokerTable(
         local delete = true;
         while delete and world:isItemOnField( p ) do
             item = world:getItemOnField( p );
-            if ( item.wear < 255 ) or ( ( item.wear == 255 ) and ( ( item.id == self.hundredId ) or ( item.id == self.unitId ) or ( item.id == self.hundredthId ) or ( item.id == self.buttonId ) ) ) then
+            if ( item.wear < 255 ) or ( ( item.wear == 255 ) and ( ( item.id == self.unitId ) or ( item.id == self.buttonId ) ) ) then
                 world:erase( item, item.number );
             else
                 delete = false;
@@ -321,17 +315,14 @@ function newPokerTable(
     local clearFields = function()
         local i;
         for i=1,self.tableSize do
-            clearField( self.listPosBetHundreds[ i ] );
             clearField( self.listPosBetUnits[ i ] );
         end;
-        clearField( self.posPotHundreds );
         clearField( self.posPotUnits );
-        clearField( self.posPotHundredths );
     end;
     
     local setFixedItemOnField = function( id, amount, pos )
         if amount > 0 then
-            local item = world:createItemFromId( id, amount, pos, true, 333, 0 );
+            local item = world:createItemFromId( id, amount, pos, true, 333, nil );
             item.wear = 255;
             world:changeItem( item );
         end;
@@ -340,28 +331,18 @@ function newPokerTable(
     local setPlayerMoneyOnTable = function()
         local seat   = self.activePlayer;
         local amount = self.listBets[ seat ] or 0;
-        local posH   = self.listPosBetHundreds[ seat ];
         local posU   = self.listPosBetUnits[ seat ];
-        clearField( posH );
         clearField( posU );
         if seat == self.buttonPlayer then
             setFixedItemOnField( self.buttonId, 1, posU );
         end;
-        setFixedItemOnField( self.unitId, math.mod( amount, 100 ), posU );
-        setFixedItemOnField( self.hundredId, math.floor( amount / 100 ), posH );
+        setFixedItemOnField( self.unitId, amount, posU );
     end;
     
     local setPotOnTable = function( amount )
-        local ints = math.floor( amount );
-        local posH = self.posPotHundreds;
         local posU = self.posPotUnits;
-        local posf = self.posPotHundredths;
-        clearField( posH );
         clearField( posU );
-        clearField( posf );
-        setFixedItemOnField( self.hundredthId, amount*100 - ints*100, posf );
-        setFixedItemOnField( self.unitId, math.mod( ints, 100 ), posU );
-        setFixedItemOnField( self.hundredId, math.floor( ints / 100 ), posH );
+        setFixedItemOnField( self.unitId, amount, posU );
     end;
 
     local init = function()
@@ -474,7 +455,7 @@ function newPokerTable(
             if units > 0 then
                 p:eraseItem( self.unitId, units );
             elseif units < 0 then
-                p:createItem( self.unitId, -units, 333, 0);
+                p:createItem( self.unitId, -units, 333, nil);
             end;
         end;
         
@@ -525,9 +506,9 @@ function newPokerTable(
     
     local payPlayer = function( pid, amount )
         local ints = math.floor( amount );
-        self.listPlayer[pid]:createItem( self.hundredthId, ( amount - ints ) * 100, 333, 0 );
-        self.listPlayer[pid]:createItem( self.unitId, math.mod( ints, 100 ), 333, 0 );
-        self.listPlayer[pid]:createItem( self.hundredId, math.floor( ints / 100 ), 333, 0 );
+        self.listPlayer[pid]:createItem( self.hundredthId, ( amount - ints ) * 100, 333, nil );
+        self.listPlayer[pid]:createItem( self.unitId, math.mod( ints, 100 ), 333, nil );
+        self.listPlayer[pid]:createItem( self.hundredId, math.floor( ints / 100 ), 333, nil );
     end;
     
     local payPotsToPlayer = function()
@@ -554,7 +535,7 @@ function newPokerTable(
             i=i+1;
         end;
         str = str .. " ]";
-        self.listPlayer[self.activePlayer]:inform("#w ##### Available cards are: "..str.." #####");
+        self.listPlayer[self.activePlayer]:inform("Available cards are: "..str, Character.highPriority);
     end;
     
     local nextCycle = function()
@@ -569,8 +550,6 @@ function newPokerTable(
                     if not self.listPlayer[i] or (self.listPlayer[i].id ~= char.id) then
                         self.listPlayer[i] = char;
                         self.numberPlayer = self.numberPlayer + 1;
-                        char:introduce(self.npcDealer);
-                        char:setAttrib( "perception", 254 );
                         self.npcDealer:talk(Character.say, "Seat "..i.." has been taken.");
                     end;
                 else
@@ -611,7 +590,7 @@ function newPokerTable(
                             cardHigh = card;
                             self.buttonPlayer = i;
                         end;
-                        self.listPlayer[i]:inform("#w ##### You got the "..card.getEnglish().." #####");
+                        self.listPlayer[i]:inform("You got the "..card.getEnglish(), Character.highPriority);
                     end;
                 end;
                 self.activePlayer = self.buttonPlayer;
@@ -622,7 +601,7 @@ function newPokerTable(
                 if self.timeoutCounter == 0 then
                     self.numberInHand = self.numberPlayer;
                     self.npcDealer:talk(Character.say, "Seat "..self.activePlayer..", please place the small blind.");
-                    self.listPlayer[self.activePlayer]:inform("#w ##### You can now place the small blind #####");
+                    self.listPlayer[self.activePlayer]:inform("You can now place the small blind", Character.highPriority);
                 end;
                 if isTimeout() then
                     if self.numberPlayer < 2 then
@@ -635,7 +614,7 @@ function newPokerTable(
         elseif (self.gameState == 2) then -- wait for big blind  
             if self.timeoutCounter == 0 then
                 self.npcDealer:talk(Character.say, "Seat "..self.activePlayer..", please place the big blind.");
-                self.listPlayer[self.activePlayer]:inform("#w ##### You can now place the big blind #####");
+                self.listPlayer[self.activePlayer]:inform("You can now place the big blind", Character.highPriority);
             end;
             if isTimeout() then
                 if self.numberPlayer < 2 then
@@ -659,7 +638,7 @@ function newPokerTable(
                 else
                     str = "call and raise";
                 end;
-                self.listPlayer[self.activePlayer]:inform("#w ##### You can now fold, "..str.." #####");
+                self.listPlayer[self.activePlayer]:inform("You can now fold, "..str, Character.highPriority);
             end;
             if isTimeout() then
                 if self.numberInHand < 2 then
@@ -674,7 +653,7 @@ function newPokerTable(
 	        if self.timeoutCounter == 0 then
 	            self.npcDealer:talk(Character.say, "What will you do with your cards seat "..self.activePlayer.."?");
 	            showAvailableCards();
-                self.listPlayer[self.activePlayer]:inform("#w ##### You can now fold or show your cards #####");
+                self.listPlayer[self.activePlayer]:inform("You can now fold or show your cards", Character.highPriority);
 	        end;
             if isTimeout() then
 	            if self.numberInHand < 2 then
@@ -705,7 +684,7 @@ function newPokerTable(
                         self.gameState = 2;
                         self.timeoutCounter = 0;
                     else
-                        self.listPlayer[self.activePlayer]:inform("#w ##### You have not enough money to cover the small blind #####");
+                        self.listPlayer[self.activePlayer]:inform("You have not enough money to cover the small blind", Character.highPriority);
                     end;
                 end;
             elseif (self.gameState == 2) then -- big blind
@@ -719,13 +698,13 @@ function newPokerTable(
                         for i=1,self.tableSize do
                             if self.listPlayer[i] then
                                 self.listPocket1[i] = self.cardDeck52.draw();
-                                self.listPlayer[i]:inform("#w ##### You got the "..self.listPocket1[i].getEnglish().." as first pocket card #####");
+                                self.listPlayer[i]:inform("You got the "..self.listPocket1[i].getEnglish().." as first pocket card", Character.highPriority);
                             end;
                         end;
                         for i=1,self.tableSize do
                             if self.listPlayer[i] then
                                 self.listPocket2[i] = self.cardDeck52.draw();
-                                self.listPlayer[i]:inform("#w ##### You got the "..self.listPocket2[i].getEnglish().." as second pocket card #####");
+                                self.listPlayer[i]:inform("You got the "..self.listPocket2[i].getEnglish().." as second pocket card", Character.highPriority);
                             end;
                         end;
                         nextPlayer();
@@ -733,7 +712,7 @@ function newPokerTable(
                         self.gameState = 3;
                         self.timeoutCounter = 0;
                     else
-                        self.listPlayer[self.activePlayer]:inform("#w ##### You have not enough money to cover the big blind #####");
+                        self.listPlayer[self.activePlayer]:inform("You have not enough money to cover the big blind", Character.highPriority);
                     end;
                 end;                
             elseif (self.gameState >= 3) and (self.gameState <= 6) then -- betting
@@ -770,13 +749,13 @@ function newPokerTable(
                                     self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." bets "..amount..".");
                                     cont = true;
                                 else
-                                    self.listPlayer[self.activePlayer]:inform("#w ##### You do not have enough money to cover this bet #####");
+                                    self.listPlayer[self.activePlayer]:inform("You do not have enough money to cover this bet", Character.highPriority);
                                 end;
                             else
-                                self.listPlayer[self.activePlayer]:inform("#w ##### You have to bet at least the big blind ("..self.bigBlind..") #####");
+                                self.listPlayer[self.activePlayer]:inform("You have to bet at least the big blind ("..self.bigBlind..")", Character.highPriority);
                             end;
                         else
-                            self.listPlayer[self.activePlayer]:inform("#w ##### You have to bet a certain amount #####");
+                            self.listPlayer[self.activePlayer]:inform("You have to bet a certain amount", Character.highPriority);
                         end;                            
                     end;                        
                 else
@@ -808,13 +787,13 @@ function newPokerTable(
                                     self.npcDealer:talk(Character.say, "Seat "..self.activePlayer.." raises to "..amount..".");
                                     cont = true;
                                 else
-                                    self.listPlayer[self.activePlayer]:inform("#w ##### You do not have enough money to cover this raise #####");
+                                    self.listPlayer[self.activePlayer]:inform("You do not have enough money to cover this raise", Character.highPriority);
                                 end;
                             else
-                                self.listPlayer[self.activePlayer]:inform("#w ##### You have to raise to the current maximum bet/raise plus the big blind ("..(self.bigBlind+self.maxBet)..") at least #####");
+                                self.listPlayer[self.activePlayer]:inform("You have to raise to the current maximum bet/raise plus the big blind ("..(self.bigBlind+self.maxBet)..") at least", Character.highPriority);
                             end;
                         else
-                            self.listPlayer[self.activePlayer]:inform("#w ##### You have to raise to a certain amount #####");
+                            self.listPlayer[self.activePlayer]:inform("You have to raise to a certain amount", Character.highPriority);
                         end;
                     end;
                 end;
@@ -856,7 +835,7 @@ function newPokerTable(
 		                            local money = self.listBets[ idx ] * ( self.tableSize - i + 1 );
 		                            
 		                            -- Rake
-		                            local currentRake = money * self.rake;
+		                            local currentRake = math.floor(money * self.rake);
 		                            self.roundRake = self.roundRake + currentRake;
 		                            
                                     pot.value = pot.value + money - currentRake;
@@ -974,7 +953,7 @@ function newPokerTable(
                     table.insert( pot.listPotCandidates, z );
                 end;
             end;
-            money = pot.value / (1 - self.rake);
+            money = pot.value;
             local n = table.getn( pot.listPotCandidates );
             money = math.floor( money / n * 100 ) / 100;
             for z=1,n do

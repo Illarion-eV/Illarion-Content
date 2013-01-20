@@ -1,4 +1,8 @@
-dofile( "game_card.lua" );
+require("development.game_card");
+
+module("development.game_carddeck", package.seeall)
+
+newCard = development.game_card.newCard
 
 function newCardDeck( cardList )
     local self = {
@@ -11,7 +15,7 @@ function newCardDeck( cardList )
         local i,j;
         local newCardList = {};
         local indexList = {};
-        math.randomseed(os.time());
+        math.randomseed(world:getTime("unix"));
         for i=1,self.numCards do
             indexList[i] = i;
         end;
