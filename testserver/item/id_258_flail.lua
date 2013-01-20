@@ -66,7 +66,16 @@ function UseItem(User, SourceItem, ltstate)
 
 	User:learn( flailing.LeadSkill, flailing.SavedWorkTime[User.id], flailing.LearnLimit);
 	User:eraseItem( 249, 1 ); -- erase the item we're working on
-	local amount = math.random(1,4); -- set the amount of items that are produced
+	-- you always get at least one
+  local amount = 1;
+  -- in 50% of all cases one more
+  if (math.random(1,2) == 1) then
+    amount = amount + 1;
+  end
+  -- and another one depending on the skill
+  if (User:getSkill(farming.LeadSkill) > math.random(1,100)) then
+    amount = amount + 1;
+  end
 	local notCreated = User:createItem( 259, amount, 333, nil ); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 		world:createItemFromId( 259, notCreated, User.pos, true, 333, nil );

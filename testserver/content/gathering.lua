@@ -19,7 +19,7 @@ function InitGathering()
 		claydigging = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.mining, LearnLimit = 100}; -- id_24_shovel
 		herbgathering = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.herblore, LearnLimit = 100}; -- id_126_sickle
 		fishing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.fishing, LearnLimit = 100}; -- id_72_fishingrod
-		woolcutting = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.farming, LearnLimit = 100}; -- id_6_scissors
+		woolcutting = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_6_scissors
 		potashproducing = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.woodcutting}; -- item.id_12_campfire
         
 		entrailscutting = base.gatheringcraft.GatheringCraft:new{LeadSkill = Character.tailoring}; -- id_6_scissors

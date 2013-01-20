@@ -120,16 +120,6 @@ function UseItem(User, SourceItem, ltstate)
     "Sowing seeds is only possible on farm land.");
     return
   end
-  
-  -- not in winter
-  local month=world:getTime("month");
-  local season=math.ceil(month/4);
-  if (season == 4) then
-    base.common.HighInformNLS(User,
-    "Der Boden ist tief gefroren. Im Winter wirst du nichts anbauen können.",
-    "The ground is frozen deeply. You won't be able to plant anything in winter.");
-    return
-  end
 
 	if ( ltstate == Action.none ) then -- currently not working -> let's go
 		farming.SavedWorkTime[User.id] = farming:GenWorkTime(User,nil);
@@ -150,7 +140,16 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 	User:learn( farming.LeadSkill, farming.SavedWorkTime[User.id], farming.LearnLimit);
-	local amount = math.random(1,3); -- set the amount of items that are produced
+	-- you always get at least one
+  local amount = 1;
+  -- in 50% of all cases one more
+  if (math.random(1,2) == 1) then
+    amount = amount + 1;
+  end
+  -- and another one depending on the skill
+  if (User:getSkill(farming.LeadSkill) > math.random(1,100)) then
+    amount = amount + 1;
+  end
 	world:createItemFromId( seedPlantList[SourceItem.id], 1, TargetPos, true, 333 ,{["amount"] = "" .. amount});
 	world:erase( SourceItem, 1 ); -- erase the seed
 end

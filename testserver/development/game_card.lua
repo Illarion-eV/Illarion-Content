@@ -35,7 +35,7 @@ function newCard( color, value )
     end;
     
     local getGerman = function()
-        return GERMAN_VALUE[getValue()] .. GERMAN_COLOR[getColor()];
+        return GERMAN_COLOR[getColor()] .. GERMAN_VALUE[getValue()];
     end;
     
     local getGermanShort = function()
