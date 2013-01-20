@@ -848,7 +848,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Faber Guardhouse");
+talkEntry:addTrigger("Faber's Guardhouse");
+talkEntry:addTrigger("Fabers Guardhouse");
 talkEntry:addResponse("Faber's Guardhouse ist on the westcoast and was destroyed when pirates attacked us in 23 and Faber was able to stop them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
