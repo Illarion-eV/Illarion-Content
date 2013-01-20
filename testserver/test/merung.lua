@@ -26,7 +26,13 @@ function UseItem(User, SourceItem)
 		myItem:setData("lockId",lockId)
 		world:changeItem(myItem)
 	end
-    if (User.lastSpokenText == "kill") then
+    local a,b,monsterId = string.find(User.lastSpokenText,"monster (%d+)")
+    if a ~= nil then
+	    local monsterId = tonumber(monsterId)
+		local posi = base.common.GetFrontPosition(User, 5)
+		world:createMonster(monsterId, posi, 10)
+	end
+	if (User.lastSpokenText == "kill") then
         myTargets = world:getMonstersInRangeOf(User.pos,8)
 		for i=1,#myTargets do
 		    myTargets[i]:increaseAttrib("hitpoints",-15000)
