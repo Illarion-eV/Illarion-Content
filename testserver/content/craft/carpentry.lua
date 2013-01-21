@@ -87,6 +87,7 @@ product:addIngredient(50, 2) -- Thread: 2x1
 product = carpentry:addProduct(catId, 2727, 50, 70, 102, 204)
 product:addIngredient(546, 4) -- Naldor Wooden Boards: 4x1
 product:addIngredient(50, 2) -- Thread: 2x1
+product:addIngredient(2553, 1) -- Pure fire
 
 --Ebony Wooden Bow
 product = carpentry:addProduct(catId, 2780, 60, 80, 140, 280)
