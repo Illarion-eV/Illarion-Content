@@ -23,18 +23,6 @@ local product = carpentry:addProduct(catId, 2715, 0, 20, 10, 20)
 product:addIngredient(2716) -- Apple Wooden Boards: 1x1
 product:addIngredient(2535) -- Iron Ingot: 1x1
 
---Plate
-product = carpentry:addProduct(catId, 2952, 0, 20, 5, 10)
-product:addIngredient(2716) -- Apple Wooden Boards: 1x1
-
---Bowl
-product = carpentry:addProduct(catId, 2935, 0, 20, 5, 10)
-product:addIngredient(2716) -- Apple Wooden Boards: 1x1
-
---Wooden Cup
-product = carpentry:addProduct(catId, 2185, 3, 23, 6, 12)
-product:addIngredient(2716) -- Apple Wooden Boards: 1x1
-
 --Comb
 product = carpentry:addProduct(catId, 2719, 6, 26, 6, 12)
 product:addIngredient(2716) -- Apple Wooden Boards: 1x1
@@ -64,6 +52,20 @@ product:addIngredient(2716, 3) -- Apple Wooden Boards: 3x1
 product = carpentry:addProduct(catId, 121, 21, 41, 20, 40)
 product:addIngredient(2716, 2) -- Apple Wooden Boards: 2x1
 
+catId = carpentry:addCategory("tableware", "Tischgeschirr") --tableware
+
+--Plate
+product = carpentry:addProduct(catId, 2952, 0, 20, 5, 10)
+product:addIngredient(2716) -- Apple Wooden Boards: 1x1
+
+--Bowl
+product = carpentry:addProduct(catId, 2935, 0, 20, 5, 10)
+product:addIngredient(2716) -- Apple Wooden Boards: 1x1
+
+--Wooden Cup
+product = carpentry:addProduct(catId, 2185, 3, 23, 6, 12)
+product:addIngredient(2716) -- Apple Wooden Boards: 1x1
+
 catId = carpentry:addCategory("bows", "Bögen") --bows
 
 --Shortbow
@@ -85,6 +87,7 @@ product:addIngredient(50, 2) -- Thread: 2x1
 product = carpentry:addProduct(catId, 2727, 50, 70, 102, 204)
 product:addIngredient(546, 4) -- Naldor Wooden Boards: 4x1
 product:addIngredient(50, 2) -- Thread: 2x1
+product:addIngredient(2553) -- Pure fire
 
 --Ebony Wooden Bow
 product = carpentry:addProduct(catId, 2780, 60, 80, 140, 280)
