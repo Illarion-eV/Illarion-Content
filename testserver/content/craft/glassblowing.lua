@@ -26,15 +26,15 @@ product:addIngredient(41) -- Glass Ingot: 1x
 
 --Large Empty Bottle
 product = glassblowing:addProduct(catId, 2498, 15, 50, 7, 14)
-product:addIngredient(41) -- Glass Ingot: 1x
+product:addIngredient(41) -- Glass Ingot: 2x
 
 --Empty Bottle(518) (Rum)
 product = glassblowing:addProduct(catId, 518, 20, 50, 7, 14)
-product:addIngredient(41) -- Glass Ingot: 1x
+product:addIngredient(41) -- Glass Ingot: 2x
 
 --Empty Bottle
 product = glassblowing:addProduct(catId, 164, 30, 70, 12, 24)
-product:addIngredient(41) -- Glass Ingot: 1x
+product:addIngredient(41) -- Glass Ingot: 3x
 
 --Glass
 product = glassblowing:addProduct(catId, 2055, 50, 90, 17, 34)
