@@ -5,7 +5,6 @@
 
 require("base.common")
 require("base.factions")
-require("quest.enduranceCave")
 
 module("item.teleportgate", package.seeall)
 
@@ -61,13 +60,6 @@ function CharacterOnField( User )
         destFound = true
 	end	
 	
-    --check if we are in the endurance cave and change the destination if needed
-	local PlayerInCave, t_dest = quest.enduranceCave.InCave(User);
-	if (PlayerInCave) then
-		dest = position(t_dest[1],t_dest[2],t_dest[3]);
-        destFound = true
-	end
-
 	if destFound then -- destination was defined
 		world:makeSound( 13, dest )
 		world:gfx( 41, User.pos )
