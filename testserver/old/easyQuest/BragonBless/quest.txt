@@ -1,5 +1,0 @@
-item,361,LookAtItem,trigger1
-item,61,UseItem,trigger2
-item,234,UseItem,trigger3
-item,0,LookAtItem,trigger4
-item,236,UseItem,trigger5

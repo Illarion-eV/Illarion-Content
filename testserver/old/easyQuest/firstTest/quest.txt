@@ -1,4 +1,0 @@
-npc,246,receiveText,node0
-item,506,LookAtItem,node1
-item,507,LookAtItem,node2
-npc,246,receiveText,node3
