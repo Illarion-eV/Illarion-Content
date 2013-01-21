@@ -38,11 +38,11 @@ product:addIngredient(41) -- Glass Ingot: 3x
 
 --Glass
 product = glassblowing:addProduct(catId, 2055, 50, 90, 17, 34)
-product:addIngredient(41) -- Glass Ingot: 1x
+product:addIngredient(41) -- Glass Ingot: 2x
 
 --Glass Mug
 product = glassblowing:addProduct(catId, 1908, 60, 100, 20, 40)
-product:addIngredient(41) -- Glass Ingot: 1x
+product:addIngredient(41) -- Glass Ingot: 2x
 
 catId = glassblowing:addCategory("decoration", "Dekoration")
 
