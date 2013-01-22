@@ -22,6 +22,28 @@
 --15: Ronagan – God of thieves and shadows
 --16: Moshran – God of blood and bones
 
+--[[
+The five: 553,137,0
+Cherga: 892,388,0
+Adron: 734,312,0
+Adron: 955,835,3
+Moshran: 673,391,2
+Moshran: 563,548,-6
+Nargun: 255,293,-5
+Nargun: 786,443,0
+Ronagan: 414,275,-6
+Irmorom: 312,232,1
+Ushara: 657,681,0
+Tanora: 630,594,0
+Eldan: 959,790,0
+Findari: 899,835,5
+Elara: 909,829,2
+Bragon: 903,773,5
+Malachin: 137,678,1
+Zhambra: 142,564,0
+Sirani: 176,761,0
+Oldra: 799, 757 0]]
+
 require("base.common")
 require("content.gods")
 
