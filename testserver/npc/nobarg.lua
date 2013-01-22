@@ -457,7 +457,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 'Bring requested items to Nobarg' is solved] Ask him your question from Sir Fludnar Yednos"));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2553, 1, nil));
-talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2553, 1, nil));
+talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2419, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(224, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(603, "=", 8));
 talkEntry:addResponse("You have done everything I've asked of you. Tell me what you seek?");
