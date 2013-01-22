@@ -213,6 +213,7 @@ function UseItem(User, SourceItem, ltstate)
 			local index = dialog:getSelectedIndex();
 			chosenPlayer = players[dialog:getSelectedIndex()+1];				
 			local changeDialog = function (dialog)	
+				inputString = dialog:getInput()
 				if (string.find(inputString,"(%d+)") ~= nil) then
 					a, b, quest = string.find(inputString,"(%d+)");
 					quest=tonumber(quest);
@@ -232,7 +233,7 @@ function UseItem(User, SourceItem, ltstate)
 			User:requestInputDialog(sdChange);
 		end
 		--Dialog to choose the player
-		local sdPlayer = SelectionDialog("Change a skill.", "First choose a character:", cbChoosePlayer);
+		local sdPlayer = SelectionDialog("Get/ Set Queststatus", "First choose a character:", cbChoosePlayer);
 		local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
         for _,player in ipairs(players) do 
 			local race = math.min(player:getRace()+1, table.getn(raceNames));
