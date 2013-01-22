@@ -45,7 +45,7 @@ function UseItem(User, SourceItem, ltstate)
 	
 	-- First check for mode change
 	if (string.find(User.lastSpokenText, "setmode")~=nil) then
-		local modes = {"Eraser", "Teleport", "Char Info", "Change skills", "Instant kill/ revive"}
+		local modes = {"Eraser", "Teleport", "Char Info", "Change skills","Queststatus Info", "Instant kill/ revive"}
 		local cbSetMode = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
@@ -196,6 +196,49 @@ function UseItem(User, SourceItem, ltstate)
 			sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
         end		
 		User:requestSelectionDialog(sdPlayer);	
+
+	elseif (SourceItem:getData("mode")=="Get/ Set Queststatus") then	
+		local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
+		local players = {User};
+		for _,player in pairs(playersTmp) do 
+			if (player.id ~= User.id) then 
+				table.insert(players, player);
+			end
+		end
+			
+		local cbChoosePlayer = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			local index = dialog:getSelectedIndex();
+			chosenPlayer = players[dialog:getSelectedIndex()+1];				
+			local changeDialog = function (dialog)	
+				if (string.find(inputString,"(%d+)") ~= nil) then
+					a, b, quest = string.find(inputString,"(%d+)");
+					quest=tonumber(quest);
+					User:inform("Quest " .. quest .. " has the status " .. chosenPlayer:getQuestProgress(quest) .. ".");
+				elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
+					a, b, quest,status= string.find(inputString,"(%d+) (%d+)");
+					quest=tonumber(quest);
+					status=tonumber(status);
+					chosenPlayer:setQuestProgress(quest, status);
+					User:inform("Quest " .. quest .. " has been set to " .. status .. "!");
+				else
+					User:inform("Sorry, I didn't understand you.");
+					User:requestInputDialog(InputDialog("Get/ Set Queststatus for "..chosenPlayer.name, "Usage: To get the value type in the questnumber.\n To set the value type in questnumber and the new status.", false, 255, changeDialog));
+				end
+			end
+			local sdChange = InputDialog("Get/ Set Queststatus for "..chosenPlayer.name, "Usage: To get the value type in the questnumber.\n To set the value type in questnumber and the new status.",false,255, changeDialog)
+			User:requestInputDialog(sdChange);
+		end
+		--Dialog to choose the player
+		local sdPlayer = SelectionDialog("Change a skill.", "First choose a character:", cbChoosePlayer);
+		local raceNames = {"Human", "Dwarf", "Halfling", "Elf", "Orc", "Lizardman", "Other"}
+        for _,player in ipairs(players) do 
+			local race = math.min(player:getRace()+1, table.getn(raceNames));
+			sdPlayer:addOption(0,player.name .. " (" .. raceNames[race] .. ") " .. player.id);
+        end		
+		User:requestSelectionDialog(sdPlayer);		
 		
 	elseif (SourceItem:getData("mode")=="Instant kill/ revive") then		
 		local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
