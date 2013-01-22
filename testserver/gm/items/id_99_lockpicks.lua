@@ -218,7 +218,7 @@ function UseItem(User, SourceItem, ltstate)
 					a, b, quest = string.find(inputString,"(%d+)");
 					quest=tonumber(quest);
 					User:inform("Quest " .. quest .. " has the status " .. chosenPlayer:getQuestProgress(quest) .. ".");
-				elseif (string.find(inputString,"(%a+) (%d+)") ~= nil) then
+				elseif (string.find(inputString,"(%d+) (%d+)") ~= nil) then
 					a, b, quest,status= string.find(inputString,"(%d+) (%d+)");
 					quest=tonumber(quest);
 					status=tonumber(status);
