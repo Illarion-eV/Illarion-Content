@@ -214,16 +214,16 @@ function UseItem(User, SourceItem, ltstate)
 			chosenPlayer = players[dialog:getSelectedIndex()+1];				
 			local changeDialog = function (dialog)	
 				inputString = dialog:getInput()
-				if (string.find(inputString,"(%d+)") ~= nil) then
-					a, b, quest = string.find(inputString,"(%d+)");
-					quest=tonumber(quest);
-					User:inform("Quest " .. quest .. " has the status " .. chosenPlayer:getQuestProgress(quest) .. ".");
-				elseif (string.find(inputString,"(%d+) (%d+)") ~= nil) then
+				if (string.find(inputString,"(%d+) (%d+)") ~= nil) then
 					a, b, quest,status= string.find(inputString,"(%d+) (%d+)");
 					quest=tonumber(quest);
 					status=tonumber(status);
 					chosenPlayer:setQuestProgress(quest, status);
 					User:inform("Quest " .. quest .. " has been set to " .. status .. "!");
+				elseif (string.find(inputString,"(%d+)") ~= nil) then
+					a, b, quest = string.find(inputString,"(%d+)");
+					quest=tonumber(quest);
+					User:inform("Quest " .. quest .. " has the status " .. chosenPlayer:getQuestProgress(quest) .. ".");
 				else
 					User:inform("Sorry, I didn't understand you.");
 					User:requestInputDialog(InputDialog("Get/ Set Queststatus for "..chosenPlayer.name, "Usage: To get the value type in the questnumber.\n To set the value type in questnumber and the new status.", false, 255, changeDialog));
