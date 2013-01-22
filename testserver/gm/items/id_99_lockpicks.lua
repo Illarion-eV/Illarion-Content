@@ -45,7 +45,7 @@ function UseItem(User, SourceItem, ltstate)
 	
 	-- First check for mode change
 	if (string.find(User.lastSpokenText, "setmode")~=nil) then
-		local modes = {"Eraser", "Teleport", "Char Info", "Change skills","Queststatus Info", "Instant kill/ revive"}
+		local modes = {"Eraser", "Teleport", "Char Info", "Change skills","Get/ Set Queststatus", "Instant kill/ revive"}
 		local cbSetMode = function (dialog)
 			if (not dialog:getSuccess()) then
 				return;
