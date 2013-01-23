@@ -2,16 +2,16 @@
 -- NPC Name: Elesil Daelwon                                          Runewick --
 -- NPC Job:  Informant                                                        --
 --                                                                            --
--- NPC Race: elf                        NPC Position:  856, 810, 0            --
+-- NPC Race: elf                        NPC Position:  790, 819, 0            --
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
 INSERT INTO "npc" ("npc_type", "npc_posx", "npc_posy", "npc_posz", "npc_faceto", "npc_name", "npc_script", "npc_sex", "npc_hair", "npc_beard", "npc_hairred", "npc_hairgreen", "npc_hairblue", "npc_skinred", "npc_skingreen", "npc_skinblue") 
-VALUES (3, 856, 810, 0, 6, 'Elesil Daelwon', 'npc.elesil_daelwon', 1, 7, 0, 25, 25, 112, 230, 230, 250);
+VALUES (3, 790, 819, 0, 6, 'Elesil Daelwon', 'npc.elesil_daelwon', 1, 7, 0, 25, 25, 112, 230, 230, 250);
 ---]]
 
 require("npc.base.basic")
@@ -45,8 +45,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("You can talk with Elesil now. Ask for 'help' if you do not know what to ask! You can also go back to Hummi to collect your reward and come back later."));
-talkEntry:addResponse("How can I help you? Do you like to have any information? Or do you like to have a task?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 2));
+talkEntry:addResponse("How can I help you? Do you like to have any information? Or do you like to have a task?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -54,8 +54,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(604, "=", 1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Da kannst nun mit Elesil sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst.! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."));
-talkEntry:addResponse("Wie kann ich euch helfen? Wünscht ihr eine Information? Oder wünscht ihr eine Aufgabe?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(604, "=", 2));
+talkEntry:addResponse("Wie kann ich euch helfen? Wünscht ihr eine Information? Oder wünscht ihr eine Aufgabe?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,8 +266,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Numila");
 talkEntry:addTrigger("Irunnleh");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Numila Irunnleh and get your reward."));
-talkEntry:addResponse("She is geographer and can be found in the Library of Earth. She will tell you information about locations outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Illarion, Shadowland and other places you like to know.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
+talkEntry:addResponse("She is geographer and can be found in the Library of Earth. She will tell you information about locations outside of Runewick like Yewdale, Bear cave, Snakehead Bay, Illarion, Shadowland and other places you like to know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -276,8 +276,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(620, "<", 1));
 talkEntry:addTrigger("Numila");
 talkEntry:addTrigger("Irunnleh");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Numila Irunnleh und erhalte deine Belohnung."));
-talkEntry:addResponse("Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Orte wie Eibental, Bärenhöhle, Schlangekopfbucht, Illarion, Schattenland und andere Orte die du gerne wissen möchtest.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
+talkEntry:addResponse("Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Orte wie Eibental, Bärenhöhle, Schlangekopfbucht, Illarion, Schattenland und andere Orte die du gerne wissen möchtest.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -304,7 +304,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Leute");
-talkEntry:addResponse("Leute? Mit wem ausser dem Erzmagier möchtet ihr ansonsten sprechen? Ich kenne niemanden der größere Weisheit als er besitzt. Daher verschwendet nicht eure Zeit und ärgert mich nicht mit Fragen über andere Leute.");
+talkEntry:addResponse("Leute? Mit wem außer dem Erzmagier möchtet ihr ansonsten sprechen? Ich kenne niemanden der größere Weisheit als er besitzt. Daher verschwendet nicht eure Zeit und ärgert mich nicht mit Fragen über andere Leute.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -411,14 +411,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Donkey stable");
 talkEntry:addTrigger("stable");
-talkEntry:addResponse("Over there. *points south*");
+talkEntry:addResponse("Right after the Lurnord Bridge. *points behind her*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eselstall");
 talkEntry:addTrigger("Stall");
-talkEntry:addResponse("Dort drüben *zeigt in den Süden*");
+talkEntry:addResponse("Gleich nach der Lurnord Brücke *zeigt hinter sich*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -437,14 +437,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Garden Eldan");
 talkEntry:addTrigger("Eldan Garden");
-talkEntry:addResponse("Garden of Eldan is a place which inspires us with wisdom. You can find it if you walk through the portal around the corner into the town and take the other, red one then. There you find also a shrine of Eldan.");
+talkEntry:addResponse("Garden of Eldan is a place which inspires us with wisdom. You can find it if you walk through the portal into the town on the other side of the Lurnord Bridge and take the other, red one then. There you find also a shrine of Eldan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Garten Eldan");
 talkEntry:addTrigger("Eldan Garten");
-talkEntry:addResponse("Der Garten des Eldan ist ein Ort der uns mit Weisheit inspiriert. Ihr findet ihn wenn ihr in die Stadt durch das Portal um die Ecke reist und dann durch das nächste, rote, Portal tretet. Dort findet ihr auch einen Schrein für Eldan.");
+talkEntry:addResponse("Der Garten des Eldan ist ein Ort der uns mit Weisheit inspiriert. Ihr findet ihn wenn ihr in die Stadt durch das Portal an der anderen Seite der Lurnord Brücke reist und dann durch das nächste, rote, Portal tretet. Dort findet ihr auch einen Schrein für Eldan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -878,86 +878,162 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Fire Triumph");
 talkEntry:addTrigger("Triumph Fire");
-talkEntry:addResponse("It can be found north of here, after the Holy Oak. This place reminds on our involvement and victory in a compain between Cadomyr and Galmair. Unfortunately, some actions went wrong.");
+talkEntry:addResponse("It can be found north after the Lurnord Bridge and the Holy Oak. This place reminds on our involvement and victory in a compain between Cadomyr and Galmair. Unfortunately, some actions went wrong.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Feuer Triumph");
 talkEntry:addTrigger("Triumph Feuer");
-talkEntry:addResponse("Dieser Ort kann nördlich von hier, nach der Heiligen Eiche gefunden werden und erinnert an unsere Einflussnahme und unseren Sieg in einer Auseinandersetzung zwichen Cadomyr und Galmair. Leider ging einiges schief.");
+talkEntry:addResponse("Dieser Ort kann nördlich nach der Lurnord Brücke und der Heiligen Eiche gefunden werden und erinnert an unsere Einflussnahme und unseren Sieg in einer Auseinandersetzung zwichen Cadomyr und Galmair. Leider ging einiges schief.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Holy Oak");
-talkEntry:addResponse("This is a holy and very old tree in the north of here. You will find more information there.");
+talkEntry:addResponse("This is a holy and very old tree in the north after the Lurnord Bridge. You will find more information there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Heilige Eiche");
-talkEntry:addResponse("Das ist ein heiliger und sehr alter Baum im Norden von hier. Ihr werdet weitere Informationen dort finden.");
+talkEntry:addResponse("Das ist ein heiliger und sehr alter Baum nördlich nach der Lurnord Brücke. Dort werdet ihr weitere Informationen finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Woodcutter Camp");
-talkEntry:addResponse("This place can be found in the south of here and is a champ for lumberjacks.");
+talkEntry:addResponse("This place can be found in the south after the Lurnord Bridge and is a champ for lumberjacks.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Holzfäller Lager");
-talkEntry:addResponse("Dieser Ort kann im Süden von hier aus gefunden werden und ist ein Lager für Holzfäller.");
+talkEntry:addResponse("Dieser Ort kann südlich nach der Lurnord Brücke gefunden werden und ist ein Lager für Holzfäller.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Twin Eyes Islands");
-talkEntry:addResponse("This place is the very south of here. Two islands, which... uhh... I forgot, but you will find there what you want to know.");
+talkEntry:addResponse("This place is very south of here. *points first to the bridge and then to the south* Two islands, which... uhh... I forgot, but you will find there what you want to know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zwillingsaugeninseln");
-talkEntry:addResponse("Dieser Ort ist ganz im Süden. Zwei Inseln, welche...uhh... ich hab es vergessen, aber ihr werdet herausfinden was ihr zu wissen wünscht.");
+talkEntry:addResponse("Dieser Ort ist ganz im Süden. *zeigt erst zur Brücke und dann in den Süden* Zwei Inseln, welche...uhh... ich hab es vergessen, aber ihr werdet herausfinden was ihr zu wissen wünscht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra Column");
-talkEntry:addResponse("This place can be found in the south of here. Some information about Oldra and what she likes are waiting for you. Look for the column and trees over there.");
+talkEntry:addResponse("This place can be found in the south of here. *points first to the bridge and then to the south* Some information about Oldra and what she likes are waiting for you. Look for the column and trees over there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Oldra Säule");
-talkEntry:addResponse("Dieser Ort kann im Süden von hier aus gefunden werden. Einige Informationen über Oldra und Dinge die sie mag warten dort auf euch. Haltet Ausschau nach der Säule und den Bäumen dort.");
+talkEntry:addResponse("Dieser Ort kann im Süden von hier aus gefunden werden. *zeigt erst zur Brücke und dann in den Süden* Einige Informationen über Oldra und Dinge die sie mag warten dort auf euch. Haltet Ausschau nach der Säule und den Bäumen dort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mermaid");
-talkEntry:addResponse("Just follow the westcost to the south and you will find this place with a statue of a beautiful woman. This place is also used by fishers who are waiting to get in touch with the mermaid.");
+talkEntry:addResponse("Just follow the westcost to the south after the Lurnord Bridge and you will find this place with a statue of a beautiful woman. This place is also used by fishers who are waiting to get in touch with the mermaid.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Meerjungfrau");
-talkEntry:addResponse("Folget der Westküste in den Süden und ihr werdet diesen Ort mit einer Statue einer schönen Frau finden. Dieser Ort ist auch von vielen Fischern verwendet, die auf die Meerjungfrau warten.");
+talkEntry:addResponse("Folget der Westküste in den Süden nach der Lurnord Brücke und ihr werdet diesen Ort mit einer Statue einer schönen Frau finden. Dieser Ort ist auch von vielen Fischern verwendet, die auf die Meerjungfrau warten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lurnord bridge");
-talkEntry:addResponse("This is the bridge between here and Yewdale. *points west* It was destroyed years ago after a war with Galmair and rebuild by a friend of mine who left afterwards. Lunord was his name.");
+talkEntry:addResponse("This is the bridge between Runewick and the Yewdale here. *points at the bridge* It was destroyed years ago after a war with Galmair and rebuild by a friend of mine who left afterwards. Lunord was his name.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lurnord Brücke");
-talkEntry:addResponse("Das ist die Brücke zwischen hier und Eibental. *zeigt in den Westen* Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welch nun gegangen ist. Sein Name war Lunord.");
+talkEntry:addResponse("Das ist die Brücke zwischen Runewick und hier dem Eibental. *zeigt zur Brücke* Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welch nun gegangen ist. Sein Name war Lunord.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(620, "<", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Numila Irunnleh and get your reward."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
+talkEntry:addResponse("I do not have a task for you yet. Probably in two or three months. If you like you can try to find Numila Irunnleh. But if you desire a real task you should better ask other people in Runewick. *points over her shoulder* Otherwise, you are very welcome to come back in two or three months when I will have definitely some tasks for you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(620, "<", 1));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Numila Irunnleh und erhalte deine Belohnung."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
+talkEntry:addResponse("Ich habe momentan nichts für euch zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls ihr möchtet könnt ihr versuchen Numila Irunnleh zu finden. Aber wenn ihr einen richtigen Auftrag erwünscht dann solltet ihr besser die Leute in Runewick fragen. *zeigt über ihre Schulter* In jeden Fall seid ihr herzlich willkommen in zwei oder drei Monaten zurück zu kommen. Da sollte ich dann einige Aufgaben für euch haben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(620, "<", 1));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Numila Irunnleh and get your reward."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
+talkEntry:addResponse("I do not have a task for you yet. Probably in one or two months.  If you like you can try to find Numila Irunnleh. But if you desire a real task you should ask other people in Runewick. *points over her shoulder* Otherwise, you are very welcome to come back in two or three months when I will have definitely some tasks for you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(620, "<", 1));
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Numila Irunnleh und erhalte deine Belohnung."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
+talkEntry:addResponse("Ich habe momentan nichts für euch zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls ihr möchtet könnt ihr versuchen Numila Irunnleh zu finden. Aber wenn ihr einen richtigen Auftrag erwünscht dann solltet ihr besser die Leute in Runewick fragen. *zeigt über ihre Schulter* In jeden Fall seid ihr herzlich willkommen in zwei oder drei Monaten zurück zu kommen. Da sollte ich dann einige Aufgaben für euch haben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("As I said, you should ask other people in Runewick. *points over her shoulder* Or you come back in two or three months when I will have definitely some tasks for you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Wie ich sagte, ihr solltet besser die Leute in Runewick fragen. *zeigt über ihre Schulter* Oder ihr kommt in zwei oder drei Monaten zurück. Da sollte ich dann einige Aufgaben für euch haben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("As I said, you should ask other people in Runewick. *points over her shoulder* Or you come back in two or three months when I will have definitely some tasks for you.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Wie ich sagte, ihr solltet besser die Leute in Runewick fragen. *zeigt über ihre Schulter* Oder ihr kommt in zwei oder drei Monaten zurück. Da sollte ich dann einige Aufgaben für euch haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1240,17 +1316,17 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("#me narrows her eyes and takes a blade which she swings immediately without a single word against her opposite.");
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 6666));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
+talkEntry:addResponse("#me narrows her eyes and takes a blade which she swings immediately without a single word against her opposite.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("#me verengt ihre Augen, zieht ein Schwert und schlägt sogleich ohne ein einzelnes Wort damit herum.");
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "-", 6666));
 talkEntry:addConsequence(npc.base.consequence.attribute.attribute("hitpoints", "+", 1));
+talkEntry:addResponse("#me verengt ihre Augen, zieht ein Schwert und schlägt sogleich ohne ein einzelnes Wort damit herum.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1464,10 +1540,10 @@ mainNPC:setAutoIntroduceMode(true);
 mainNPC:initDone();
 end;
 
-function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, speaker, message); end;
+function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
