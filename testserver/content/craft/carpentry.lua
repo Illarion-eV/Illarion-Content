@@ -106,7 +106,7 @@ product:addIngredient(50, 2) -- Thread: 2x1
 product:addIngredient(2535, 2) -- Iron Ingots: 2x1
 
 --Magical Elven Bow
-product = carpentry:addProduct(catId, 2685, 90, 110, 324, 648)
+product = carpentry:addProduct(catId, 2685, 90, 100, 324, 648)
 product:addIngredient(546, 7) -- Naldor Wooden Boards: 7x1
 product:addIngredient(50, 2) -- Thread: 2x1
 product:addIngredient(2551) -- Pure Air: 1x1
@@ -199,26 +199,28 @@ product:addIngredient(2543, 6) -- Conifer Wooden Boards: 6x1
 product:addIngredient(2547, 2) -- Leather: 2x1
 
 --Steel Tower shield
-product = carpentry:addProduct(catId, 96, 80, 100, 300, 600)
+product = carpentry:addProduct(catId, 96, 80, 100, 325, 650)
 product:addIngredient(2543, 6) -- Conifer Wooden Boards: 6x1
 product:addIngredient(2547, 3) -- Leather: 3x1
 product:addIngredient(2535, 3) -- Iron Ingots: 3x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Ornate Tower Shield
-product = carpentry:addProduct(catId, 916, 87, 107, 324, 648)
+product = carpentry:addProduct(catId, 916, 87, 100, 351, 702)
 product:addIngredient(2543, 6) -- Conifer Wooden Boards: 6x1
 product:addIngredient(2547, 3) -- Leather: 3x1
 product:addIngredient(2535, 3) -- Iron Ingots: 3x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Shield of the sky
-product = carpentry:addProduct(catId, 2284, 90, 110, 378, 756)
+product = carpentry:addProduct(catId, 2284, 90, 100, 378, 756)
 product:addIngredient(2543, 7) -- Conifer Wooden Boards: 7x1
 product:addIngredient(2547, 3) -- Leather: 3x1
 product:addIngredient(2551) -- Pure Air: 1x1
 product:addIngredient(284, 3) -- Sapphire: 3x1
 
 --Cloud Shield
-product = carpentry:addProduct(catId, 2439, 100, 120, 480, 960)
+product = carpentry:addProduct(catId, 2439, 100, 100, 480, 960)
 product:addIngredient(2543, 7) -- Conifer Wooden Boards: 7x1
 product:addIngredient(2547, 3) -- Leather: 3x1
 product:addIngredient(2551) -- Pure Air: 1x1

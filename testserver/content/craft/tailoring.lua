@@ -474,12 +474,12 @@ product:addIngredient(179, 4) -- Blue Cloth: 4x1
 product:addIngredient(50, 4*2) -- Thread: 4x2
 
 --Blue Coat
-product = tailoring:addProduct(catId, 2380, 82, 102, 250, 500)
+product = tailoring:addProduct(catId, 2380, 82, 100, 250, 500)
 product:addIngredient(179, 5) -- Blue Cloth: 5x1
 product:addIngredient(50, 5*2) -- Thread: 5x2
 
 --Mage Robe
-product = tailoring:addProduct(catId, 548, 84, 104, 416, 832)
+product = tailoring:addProduct(catId, 548, 84, 100, 416, 832)
 product:addIngredient(174, 3) -- Red Cloth: 3x1
 product:addIngredient(50, 5*2) -- Thread: 5x2
 product:addIngredient(177) -- Yellow Cloth: 1x1
@@ -489,7 +489,7 @@ product:addIngredient(198, 2) -- Topas: 2x1
 product:addIngredient(285, 2) -- Diamond: 2x1
 
 --Master Mage Robe
-product = tailoring:addProduct(catId, 558, 87, 107, 540, 1080)
+product = tailoring:addProduct(catId, 558, 87, 100, 540, 1080)
 product:addIngredient(174, 3) -- Red Cloth: 3x1
 product:addIngredient(50, 6*2) -- Thread: 6x2
 product:addIngredient(177, 2) -- Yellow Cloth: 2x1
