@@ -4,7 +4,7 @@ require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
 require("monster.base.kills")
-module("monster.mon_91_blueirongolems", package.seeall)
+module("monster.mon_91_blue_goldenirongolems", package.seeall)
 
 
 function ini(Monster)
@@ -112,6 +112,35 @@ if (MonID==911) then -- Merinium Golem, Level: 9, Armourtype: medium, Weapontype
 
         --Category 4: Perma Loot
         monster.base.drop.AddDropItem(3077,math.random(90,250),100,773,0,4); --silver coins
+		
+	elseif (MonID==912) then -- Gold Golem, Level: 8, Armourtype: medium, Weapontype: concussion
+	
+        --Category 1: Raw gems
+
+        local done=monster.base.drop.AddDropItem(257,5,20,(100*math.random(7,8)+math.random(77,88)),0,1); --raw topaz
+        if not done then done=monster.base.drop.AddDropItem(253,5,10,(100*math.random(7,8)+math.random(77,88)),0,1); end --raw sapphire
+        if not done then done=monster.base.drop.AddDropItem(251,5,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --raw amethyst
+        if not done then done=monster.base.drop.AddDropItem(252,5,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --raw obsidian
+        if not done then done=monster.base.drop.AddDropItem(255,5,1,(100*math.random(7,8)+math.random(77,88)),0,1); end --raw ruby
+
+        --Category 2: Gems
+
+        local done=monster.base.drop.AddDropItem(198,5,20,(100*math.random(7,8)+math.random(77,88)),0,2); --topaz
+        if not done then done=monster.base.drop.AddDropItem(284,5,10,(100*math.random(7,8)+math.random(77,88)),0,2); end --sapphire
+        if not done then done=monster.base.drop.AddDropItem(197,5,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --amethyst
+        if not done then done=monster.base.drop.AddDropItem(item.gems.getMagicGemId(item.gems.OBSIDIAN),1,1,999,item.gems.getMagicGemData(1),2); end --magic obsidian
+        if not done then done=monster.base.drop.AddDropItem(46,5,1,(100*math.random(7,8)+math.random(77,88)),0,2); end --ruby
+
+        --Category 3: Special Loot
+
+        local done=monster.base.drop.AddDropItem(234,5,20,(100*math.random(7,8)+math.random(77,88)),0,3); --gold nugget
+        if not done then done=monster.base.drop.AddDropItem(733,5,10,(100*math.random(7,8)+math.random(77,88)),0,3); end --stone block
+        if not done then done=monster.base.drop.AddDropItem(22,10,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --iron ore
+        if not done then done=monster.base.drop.AddDropItem(2536,10,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --copper ore
+        if not done then done=monster.base.drop.AddDropItem(1266,20,1,(100*math.random(7,8)+math.random(77,88)),0,3); end --stone
+
+        --Category 4: Perma Loot
+        monster.base.drop.AddDropItem(3077,math.random(30,90),100,773,0,4); --silver coins
 		
     end
     monster.base.drop.Dropping(Monster);
