@@ -257,9 +257,9 @@ function unsocketGems(user)
                         local level = tonumber(item:getData(itemKey))
         
                         if level and level > 0 then
-                            notCreated = user:createItemFromId(gemItem[i], 1, 999, {levelDataKey = level})
+                            notCreated = user:createItem(gemItem[i], 1, 999, {levelDataKey = level})
                             if notCreated > 0 then
-                                world:createItem(gemItem[i], 1, 999, {levelDataKey = level})
+                                world:createItemFromId(gemItem[i], 1, user.pos, true, 999, {levelDataKey = level})
                             end
 
                             item:setData(itemKey, "")
@@ -278,7 +278,7 @@ function unsocketGems(user)
     local language = user:getPlayerLanguage()
     local caption = base.common.GetNLS(user, "Entsockeln", "Unsocketing")
     local description = base.common.GetNLS(user, "Bitte wähle eine Waffe die entsockelt werden soll (dies kostet dich 10g):",
-                                                 "Please select a weapon to remove all gem from (this will cost you 10g):")
+                                                 "Please select a weapon to remove all gems from (this will cost you 10g):")
     local dialog = SelectionDialog(caption, description, callback)
 
     for i=1,#unsocketPositions do
