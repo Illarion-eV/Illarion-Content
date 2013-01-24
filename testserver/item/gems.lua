@@ -148,7 +148,7 @@ function handleSocketing(user, gem)
 
 	local callback = function(dialog)
         local success = dialog:getSuccess()
-        if success and base.common.CheckItem(user, gem) then
+        if success and gem.owner.id == user.id then
             local selected = dialog:getSelectedIndex() + 1
             local slot = socketablePositions[selected]
             local item = user:getItemAt(slot)
