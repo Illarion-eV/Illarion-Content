@@ -369,26 +369,31 @@ end
 -- @param altIDs alternative ItemIDs the item could have changed to and is still valid
 -- @return True if everything is fine, else false
 function CheckItem(User, Item, altIDs)
-    local ItemCheck = nil;
-    if (Item:getType() == 3) then
+    local ItemCheck = nil
+    if Item:getType() == scriptItem.field then
         if world:isItemOnField(Item.pos) then
-            ItemCheck = world:getItemOnField(Item.pos);
-        end;
+            ItemCheck = world:getItemOnField(Item.pos)
+        end
+    elseif Item:getType() == scriptItem.container then
+        found, ItemCheck = User:getBackPack():viewItemNr(Item.itempos)
+        if not found then
+            ItemCheck = nil
+        end
     else
-        ItemCheck = User:getItemAt(Item.itempos);
-    end;
+        ItemCheck = User:getItemAt(Item.itempos)
+    end
     if ItemCheck then
-        if (Item.id == ItemCheck.id) then
-            return true;
-        elseif (altIDs ~= nil) then
+        if Item.id == ItemCheck.id then
+            return true
+        elseif altIDs ~= nil then
             for _, altID in pairs(altIDs) do
-                if (ItemCheck.id == altID) then
-                    return true;
-                end;
-            end;
-        end;
-    end;
-    return false;
+                if ItemCheck.id == altID then
+                    return true
+                end
+            end
+        end
+    end
+    return false
 end;
 
 --- Checks if the Character has a minimal default amount of food points. If not
