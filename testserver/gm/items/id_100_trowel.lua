@@ -17,7 +17,7 @@ function UseItem(User, SourceItem)
 			local a,b, value = string.find(string.lower(User.lastSpokenText), "setnumber (%d+)");
             world:increase(TargetItem, value - TargetItem.number);
 			return;
-		elseif (TargetItem:getType() == scriptItem.field) then
+		elseif --[[(TargetItem:getType() == scriptItem.field)]] then
             UseItemWithField(User, SourceItem, TargetItem.pos);
 			return;
         end;
