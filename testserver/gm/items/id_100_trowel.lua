@@ -19,8 +19,8 @@ function UseItem(User, SourceItem)
 			return;
 		--[[elseif (TargetItem:getType() == scriptItem.field) then
             UseItemWithField(User, SourceItem, TargetItem.pos);
-			return;
-        end;]]
+			return;]]
+        end;
     end;
 
     -- check if a number was said, if not: don't do anything
