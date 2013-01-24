@@ -15,6 +15,7 @@ killer={}; --A list that keeps track of who attacked the monster last
 --Random Messages
 
 msgs = base.messages.Messages();
+
 msgs:addMessage("#me atmet laut ein und aus.", "#me takes deep breaths.");
 msgs:addMessage("#me ist mit Wunden übersäht", "#me is littered with wounds.");
 msgs:addMessage("#me macht ächzende Geräusche.", "#me makes groaning noises.");

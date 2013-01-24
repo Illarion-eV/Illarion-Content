@@ -47,7 +47,6 @@ function EssenceBrewAnalysis(User, gem, brew, ltstate)
 			        break
 			else		
 				local myId = tonumber(brew:getData("essenceHerb"..i))
-				User:inform(""..myId)
 				analysisResultDE = analysisResultDE..world:getItemName(myId,Player.german).."\n"
 				analysisResultEN = analysisResultEN..world:getItemName(myId,Player.english).."\n"	
 			end

@@ -1,8 +1,10 @@
+require("base.gems")
 require("content.lookat.unique")
 require("base.common")
 require("base.lookat")
 require("base.factions")
 require("alchemy.base.analysis")
+require("base.money")
 
 -- UPDATE common SET com_script='item.gems' WHERE com_itemid IN (45, 46, 197, 198, 283, 284, 285);
 
@@ -42,6 +44,8 @@ gemDataKey[OBSIDIAN] = "magicalObsidian"
 gemDataKey[SAPPHIRE] = "magicalSapphire"
 gemDataKey[AMETHYST] = "magicalAmethyst"
 gemDataKey[TOPAZ] = "magicalTopaz"
+
+levelDataKey = "gemLevel"
 
 gemPrefixDE = {"latent", "bedingt", "leicht", "mäßig", "durchschnittlich", "bemerkenswert", "stark", "sehr stark", "unglaublich", "einzigartig"}
 gemPrefixEN = {"latent", "limited", "slight", "moderate", "average", "notable", "strong", "very strong", "unbelievable", "unique"}
@@ -117,7 +121,7 @@ function LookAtItem(user, item)
     local lookAt = base.lookat.GenerateLookAt(user, item)
 
     local data = {}
-    data.gemLevel = tonumber(item:getData("gemLevel"))
+    data.gemLevel = tonumber(item:getData(levelDataKey))
 
     lookAt = lookAtFilter(user, lookAt, data)    
 
@@ -125,7 +129,7 @@ function LookAtItem(user, item)
 end
 
 function UseItem(User, SourceItem, ltstate)
-    if SourceItem:getData("gemLevel") == "" then
+    if SourceItem:getData(levelDataKey) == "" then
 	    alchemy.base.analysis.CauldronPotionCheck(User, SourceItem, TargetItem, ltstate)
 		return
 	end    
@@ -134,21 +138,28 @@ function UseItem(User, SourceItem, ltstate)
 end
 
 function handleSocketing(user, gem)
-    local weaponPositions = getWeaponPositions(user)
+    local socketablePositions = getSocketablePositions(user)
 
 	local callback = function(dialog)
         local success = dialog:getSuccess()
         if success and base.common.CheckItem(user, gem) then
             local selected = dialog:getSelectedIndex() + 1
-            local slot = weaponPositions[selected]
+            local slot = socketablePositions[selected]
             local item = user:getItemAt(slot)
 
-            if world:getWeaponStruct(item.id) then
+            if isSocketable(item.id) then
                 local key = gemDataKey[gemId[gem.id]]
-                local level = gem:getData("gemLevel")
-                item:setData(key, level)
-                world:erase(gem, 1)
-                world:changeItem(item)
+                local level = item:getData(key)
+
+                if level == "" then
+                    local newLevel = gem:getData(levelDataKey)
+                    item:setData(key, newLevel)
+                    world:erase(gem, 1)
+                    world:changeItem(item)
+                else
+                    user:inform("Dieser Gegenstand beinhaltet bereits einen Edelstein dieser Art!",
+                                "This item contains a gem of this kind already!", Character.highPriority)
+                end
             end
         end
     end
@@ -158,8 +169,8 @@ function handleSocketing(user, gem)
     local description = base.common.GetNLS(user, "Bitte wähle eine Waffe die gesockelt werden soll:", "Please select a weapon to insert the gem into:")
     local dialog = SelectionDialog(caption, description, callback)
    
-    for i=1,#weaponPositions do
-        local slot = weaponPositions[i]
+    for i=1,#socketablePositions do
+        local slot = socketablePositions[i]
         local itemId = user:getItemAt(slot).id
         local name = world:getItemName(itemId, language)
         dialog:addOption(itemId, name)
@@ -168,27 +179,118 @@ function handleSocketing(user, gem)
     user:requestSelectionDialog(dialog)
 end
 
-weaponSlots = {}
-table.insert(weaponSlots, Character.left_tool)
-table.insert(weaponSlots, Character.right_tool)
-table.insert(weaponSlots, Character.belt_pos_1)
-table.insert(weaponSlots, Character.belt_pos_2)
-table.insert(weaponSlots, Character.belt_pos_3)
-table.insert(weaponSlots, Character.belt_pos_4)
-table.insert(weaponSlots, Character.belt_pos_5)
-table.insert(weaponSlots, Character.belt_pos_6)
+slots = {}
+table.insert(slots, Character.left_tool)
+table.insert(slots, Character.right_tool)
+table.insert(slots, Character.belt_pos_1)
+table.insert(slots, Character.belt_pos_2)
+table.insert(slots, Character.belt_pos_3)
+table.insert(slots, Character.belt_pos_4)
+table.insert(slots, Character.belt_pos_5)
+table.insert(slots, Character.belt_pos_6)
 
-function getWeaponPositions(user)
-    weaponTable = {}
+function getSocketablePositions(user, filter)
+    socketableTable = {}
 
-    for i=1,#weaponSlots do
-        local slot = weaponSlots[i]
-        local itemId = user:getItemAt(slot).id
+    for i=1,#slots do
+        local slot = slots[i]
+        local item = user:getItemAt(slot)
+
+        if not filter or filter(item) then
+            local itemId = item.id
         
-        if world:getWeaponStruct(itemId) then
-            table.insert(weaponTable, slot)
+            if isSocketable(itemId) then
+                table.insert(socketableTable, slot)
+            end
         end
     end
 
-    return weaponTable
+    return socketableTable
+end
+
+function isSocketable(itemId)
+    -- currently only weapons can be socketed
+    return world:getWeaponStruct(itemId)
+end
+
+function magicSmith(npc, player)
+    local callback = function(dialog)
+        success = dialog:getSuccess()
+
+        if success then
+            selected = dialog:getSelectedIndex()
+
+            if selected == 0 then
+                gemCraft:showDialog(player, npc)
+            elseif selected == 1 then
+                unsocketGems(player)
+            end
+        end
+    end
+    
+    local title = base.common.GetNLS(player, "Magieschmied", "Magic Blacksmith")
+    local text = base.common.GetNLS(player, "Wie kann ich behilflich sein?", "How may I be of assistance?")
+    local dialog = SelectionDialog(title, text, callback)
+    local hammer = 122
+    local tongs = 2140
+    
+    dialog:addOption(hammer, base.common.GetNLS(player, "Edelsteine vereinigen", "Combine gems"))
+    dialog:addOption(tongs, base.common.GetNLS(player, "Edelsteine herauslösen", "Unsocket gems"))
+    
+    player:requestSelectionDialog(dialog)
+end
+
+function unsocketGems(user)
+    local unsocketPositions = getSocketablePositions(user, itemHasGems)
+
+    local callback = function(dialog)
+        local success = dialog:getSuccess()
+        if success then
+            local selected = dialog:getSelectedIndex() + 1
+            local slot = unsocketPositions[selected]
+            local item = user:getItemAt(slot)
+
+            if isSocketable(item.id) and itemHasGems(item) then
+                if base.money.CharHasMoney(user, 100000) then
+                    for i = 1, #gemDataKey do
+                        local itemKey = gemDataKey[i]
+                        local level = tonumber(item:getData(itemKey))
+        
+                        if level and level > 0 then
+                            notCreated = user:createItem(gemItem[i], 1, 999, {[levelDataKey] = level})
+                            if notCreated > 0 then
+                                world:createItemFromId(gemItem[i], 1, user.pos, true, 999, {[levelDataKey] = level})
+                            end
+
+                            item:setData(itemKey, "")
+                        end
+                    end
+                    
+                    base.money.TakeMoneyFromChar(user, 100000)
+                    world:changeItem(item)
+                else
+                    user:inform("Du hast keine zehn Goldmünzen!", "You do not have ten gold coins!", Character.highPriority)
+                end
+            end
+        end
+    end
+
+    local language = user:getPlayerLanguage()
+    local caption = base.common.GetNLS(user, "Entsockeln", "Unsocketing")
+    local description = base.common.GetNLS(user, "Bitte wähle eine Waffe die entsockelt werden soll (dies kostet dich 10g):",
+                                                 "Please select a weapon to remove all gems from (this will cost you 10g):")
+    local dialog = SelectionDialog(caption, description, callback)
+
+    for i=1,#unsocketPositions do
+        local slot = unsocketPositions[i]
+        local itemId = user:getItemAt(slot).id
+        local name = world:getItemName(itemId, language)
+        dialog:addOption(itemId, name)
+    end
+
+    user:requestSelectionDialog(dialog)    
+end
+
+function itemHasGems(item)
+    return base.gems.getGemBonus(item) > 0    
 end

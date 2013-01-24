@@ -170,7 +170,7 @@ talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("I am Henry the butcher.");
-talkEntry:addResponse("Just the good, old Henry");
+talkEntry:addResponse("Just good, old Henry");
 talkEntry:addResponse("Henry Darter.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -394,7 +394,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dewy Swamps II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 3));
-talkEntry:addResponse("You did it very well with the pork. Now you can try to bring twenty slabs of raw leather to me. Your reward will be ten silver coins.");
+talkEntry:addResponse("You did very well with the pork. Now you can try to bring twenty pieces of raw leather to me. Your reward will be ten silver coins.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -415,7 +415,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dewy Swamps II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 3));
-talkEntry:addResponse("You did it very well with the pork. Now you can try to bring twenty slabs of raw leather to me to me. Your reward will be ten silver coins.");
+talkEntry:addResponse("You did very well with the pork. Now you can try to bring twenty pieces of raw leather to me to me. Your reward will be ten silver coins.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -444,7 +444,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(69, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
-talkEntry:addResponse("Very good pieces of leather. Here is your money and tell me, if you want an other task.");
+talkEntry:addResponse("Very good pieces of leather. Here is your money and tell me if you want an other task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -459,7 +459,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(69, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
-talkEntry:addResponse("Very good pieces of leather. Here is your money and tell me, if you want an other task.");
+talkEntry:addResponse("Very good pieces of leather. Here is your money and tell me if you want an other task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -504,7 +504,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.cookingAndBa
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(69, 20, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 4));
-talkEntry:addResponse("Very good pieces of leather. Here is your money and tell me, if you want an other task.");
+talkEntry:addResponse("Very good pieces of leather. Here is your money and tell me if you want an other task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -552,7 +552,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("And? Where are my twenty slabs of raw leather?");
+talkEntry:addResponse("And? Where are my twenty pieces of raw leather?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -569,7 +569,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 3));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("And? Where are my twenty slabs of raw leather?");
+talkEntry:addResponse("And? Where are my twenty pieces of raw leather?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -640,7 +640,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2934, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
-talkEntry:addResponse("That's meat with a great quality. Here are your coins for this work.");
+talkEntry:addResponse("That's meat of great quality, here are your coins for this work.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -655,7 +655,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2934, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
-talkEntry:addResponse("That's meat with a great quality. Here are your coins for this work.");
+talkEntry:addResponse("That's meat of great quality, here are your coins for this work.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -700,7 +700,7 @@ talkEntry:addConsequence(npc.base.consequence.skill.skill(Character.cookingAndBa
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2934, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 6));
-talkEntry:addResponse("That's meat with a great quality. Here are your coins for this work.");
+talkEntry:addResponse("That's meat of great quality, here are your coins for this work.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -713,7 +713,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You 
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2934, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 6));
-talkEntry:addResponse("That's meat with a great quality. Here are your coins for this work.");
+talkEntry:addResponse("That's meat of great quality, here are your coins for this work.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -786,7 +786,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dewy Swamps IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 7));
-talkEntry:addResponse("Of course I have an other task for you. For a barbecue, I need ten lumps of coal. Head for the Malachite mine, my buddy Bruno will help you. And believe it or not, your reward will be 20 silver coins!");
+talkEntry:addResponse("Of course I have another task for you. For a barbecue, I need ten lumps of coal. Head to the Malachite mine, my buddy Bruno will help you, and believe it or not your reward will be 20 silver coins!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -807,7 +807,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Dewy Swamps IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(64, "=", 7));
-talkEntry:addResponse("Of course I have an other task for you. For a barbecue, I need ten lumps of coal. Head for the Malachite mine, my buddy Bruno will help you. And believe it or not, your reward will be 20 silver coins!");
+talkEntry:addResponse("Of course I have another task for you. For a barbecue, I need ten lumps of coal. Head to the Malachite mine, my buddy Bruno will help you, and believe it or not your reward will be 20 silver coins!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -980,7 +980,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 8));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("I'm sorry, but you really did enough for me. You were a great help. But maybe you go to the Malachite mine close to Galmair. There is someone who can need your help, too.");
+talkEntry:addResponse("I'm sorry, but you really did enough for me. You were a great help. Maybe you should go to the Malachite mine, close to Galmair, where there is someone who needs your help as well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -997,7 +997,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(64, "=", 8));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("I'm sorry, but you really did enough for me. You were a great help. But maybe you go to the Malachite mine close to Galmair. There is someone who can need your help, too.");
+talkEntry:addResponse("I'm sorry, but you really did enough for me. You were a great help. Maybe you should go to the Malachite mine, close to Galmair, where there is someone who needs your help as well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1015,7 +1015,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addResponse("I am a butcher and proud of it!");
 talkEntry:addResponse("Yes, I am a butcher.");
-talkEntry:addResponse("Butchering is a hard but good work.");
+talkEntry:addResponse("Butchering is hard but good work.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1032,7 +1032,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
 talkEntry:addResponse("I am a butcher and proud of it!");
 talkEntry:addResponse("Yes, I am a butcher.");
-talkEntry:addResponse("Butchering is a hard but good work.");
+talkEntry:addResponse("Butchering is hard but good work.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1091,7 +1091,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("swamp");
 talkEntry:addTrigger("dew");
 talkEntry:addResponse("It's beautiful here, isn't it? So wet and full of life.");
-talkEntry:addResponse("This place wasn't always a swamp. I like it much better this way, though.");
+talkEntry:addResponse("This place wasn't always a swamp, I like it much better this way, though.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1115,7 +1115,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("knife");
 talkEntry:addTrigger("dagger");
 talkEntry:addTrigger("hatchet");
-talkEntry:addResponse("Butchering is done best with a knife. A hatchet is so... brute.");
+talkEntry:addResponse("Butchering is done best with a knife. A hatchet is so... brutal.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1150,7 +1150,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("cow");
 talkEntry:addTrigger("cattle");
-talkEntry:addResponse("You can find cattle on the plains. The steaks from the cattle there are really good. But somehow, the elves don't like me visiting them...");
+talkEntry:addResponse("You can find cattle on the plains. The steaks from the cattle there are really good, but for some reason the elves don't like me visiting them...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1162,7 +1162,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sheep");
-talkEntry:addResponse("You can find sheep in the stockyards.");
+talkEntry:addResponse("You can find sheep in the pastures.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1174,7 +1174,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Mr Morgan is a strange person. I think he smokes too many flowers.");
+talkEntry:addResponse("Mr Morgan is a strange person, I think he smokes too many flowers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1188,7 +1188,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Mr. Morgan is a strange person. I think he smokes too many flowers.");
+talkEntry:addResponse("Mr. Morgan is a strange person, I think he smokes too many flowers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1202,7 +1202,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("It is peaceful in the vicinity of Runewick. But sometimes, those animal lovers enerve me, what do they eat? Flowers?");
+talkEntry:addResponse("It is peaceful in the vicinity of Runewick, but sometimes, those animal lovers worry me. What do they eat? Flowers?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1217,7 +1217,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("No, I do not owe money to the Don. You must be searching for someone else.");
+talkEntry:addResponse("No, I do not owe money to the Don, you must be searching for someone else.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1232,7 +1232,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("It is quite nice in Galmair, but I don't want to pay for my safety; I earn not much with my meat.");
+talkEntry:addResponse("It is quite nice in Galmair, but I don't want to pay for my safety. I don't earn that much with my meat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1244,7 +1244,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Ruling Cadomyr isn't a nice thing to do; sand, wind, sun, scorpions and thirst!");
+talkEntry:addResponse("Ruling Cadomyr isn't a nice thing to do... sand, wind, sun, scorpions and thirst!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1258,7 +1258,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Ruling Cadomyr isn't a nice thing to do; sand, wind, sun, scorpions and thirst!");
+talkEntry:addResponse("Ruling Cadomyr isn't a nice thing to do... sand, wind, sun, scorpions and thirst!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1299,7 +1299,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("My grandfather was born in Gynk. And murdered. So be careful there!");
+talkEntry:addResponse("My grandfather was born in Gynk, and murdered, so be careful there!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1325,7 +1325,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Honour the gods! All of them!");
+talkEntry:addResponse("Honour the Gods! All of them!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1339,7 +1339,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Adron");
-talkEntry:addResponse("Adron is the god of yum yum! My very special god he is.");
+talkEntry:addResponse("Adron is the God of yum yum! My very special god he is.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1399,7 +1399,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("If you want to butcher, make sure that you're using a sharp knife.");
+talkEntry:addResponse("If you want to butcher, make sure that you use a sharp knife.");
 talkEntry:addResponse("You better smoke meat rather than cook it.");
 talkEntry:addResponse("Work carefully with deer meat! It is expensive.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -1418,7 +1418,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Henry");
 talkEntry:addTrigger("Darter");
-talkEntry:addResponse("My mother once told me that she named my Henry because of a famous cook in Gynk. Strangely, I was never able to ask my unknown father about this.");
+talkEntry:addResponse("My mother once told me that she named me Henry because of a famous cook in Gynk. Strangely, I was never able to ask my unknown father about this.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1434,7 +1434,7 @@ talkEntry:addTrigger("mother");
 talkEntry:addTrigger("father");
 talkEntry:addTrigger("family");
 talkEntry:addTrigger("shop");
-talkEntry:addResponse("My family - my mother and me - once had a shop here. But then, the water came... I am still here, though! And I won't yield!");
+talkEntry:addResponse("My family - my mother and me - once had a shop here, but then, the water came... I am still here, though, and I won't yield!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1479,16 +1479,16 @@ talkEntry:addResponse("Kann ich helfen?");
 talkEntry:addResponse("Lasst uns was schlachten!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("#me wischt etwas Blut von seinem Schlachtermesser.", "#me wipes off some blood from his knife.");
+talkingNPC:addCycleText("#me wischt etwas Blut von seinem Schlachtermesser.", "#me wipes some blood from his knife.");
 talkingNPC:addCycleText("Frisches Fleisch! Beste Qualität!", "Fresh meat! Best quality!");
-talkingNPC:addCycleText("#me spricht leise zu sich selbst: 'Ich brauche neues Fleisch.'", "#me speaks quietly to himself: 'I need more meat.'");
-talkingNPC:addCycleText("#me singt: 'Ich hack das Schwein, ich hack es klein'", "#me sings: 'I butcher the pig, I butcher until it's dead.'");
-talkingNPC:addCycleText("Will man es richtig geschlachtet haben, muss man es selbst schlachten.", "If you want to have it butchered the right way, you need to butcher it by your own.");
-talkingNPC:addCycleText("Brust oder Keule? Was räuchere ich zuerst?", "Chest or ham? What shall I smoke first?");
+talkingNPC:addCycleText("#me spricht leise zu sich selbst: 'Ich brauche neues Fleisch.'", "#me speaks quietly to himself, 'I need more meat.'");
+talkingNPC:addCycleText("#me singt: 'Ich hack das Schwein, ich hack es klein'", "#me sings, 'I butcher the pig, I butcher until it's dead.'");
+talkingNPC:addCycleText("Will man es richtig geschlachtet haben, muss man es selbst schlachten.", "If you want to have it butchered the right way, you need to butcher it yourself.");
+talkingNPC:addCycleText("Brust oder Keule? Was räuchere ich zuerst?", "Breast or leg? What shall I smoke first?");
 talkingNPC:addCycleText("Willst du ein Schnitzel?", "Do you want a Schnitzel?");
 talkingNPC:addCycleText("Jägerschnitzel, hmm...", "Escalope chasseur, hmm...");
 talkingNPC:addCycleText("Wer würde so wahnsinnig sein und Hackfleisch zwischen zwei Brothälften packen!?", "Who would dare to put minced meat between two bread halfs?");
-talkingNPC:addCycleText("Pürierte Tomaten zu einem Steak? Wer macht denn sowas!", "Mashed tomatoes to a steak? Who would do such a thing!");
+talkingNPC:addCycleText("Pürierte Tomaten zu einem Steak? Wer macht denn sowas!", "Mashed tomatoes with a steak? Who would do such a thing!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
@@ -1511,7 +1511,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

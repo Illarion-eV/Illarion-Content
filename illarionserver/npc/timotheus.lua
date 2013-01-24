@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
 --           Mesha                                                            --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -35,9 +35,9 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ah, so you're interested in my wares.");
 talkEntry:addResponse("Take your time to look around.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -48,9 +48,9 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ah, dann interessiert Ihr Euch also für meine Waren.");
 talkEntry:addResponse("Schaut Euch ruhig in Ruhe um.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -638,16 +638,16 @@ talkEntry:addResponse("Nein zu was?");
 talkEntry:addResponse("Nein? Ihr mögt meine Roben nicht?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Die feinsten Roben, Westen und Hemden! Niemals mehr wie ein Landstreicher herumlaufen!", "The finest robes, vests, shirts! Never walk around like a tramp again!");
-talkingNPC:addCycleText("#me streicht seine blaue Satinrobe glatt. Orangene Stickereien zieren die Ärmel.", "#me straightens his blue satin robes. They are adorned with orange filigree on the sleeves.");
+talkingNPC:addCycleText("Die feinsten Roben, Westen und Hemden! Niemals mehr wie ein Landstreicher herumlaufen!", "The finest robes, vests, shirts! Never be deemed a tramp again!");
+talkingNPC:addCycleText("#me streicht seine blaue Satinrobe glatt. Orangene Stickereien zieren die Ärmel.", "#me straightens his blue satin robes. They are adorned with orange filigree on each sleeve.");
 talkingNPC:addCycleText("#me schaut sich kurz um und wendet sich dann wieder einem Buch zu.", "#me looks around for a moment before returning to his book.");
-talkingNPC:addCycleText("#me blättert die Seiten eines Buches um.", "#me turns the page of his book.");
+talkingNPC:addCycleText("#me blättert eine Seite seines Buches um.", "#me turns a page of his book.");
 talkingNPC:addCycleText("#me kichert auf einmal: 'Oh, entschuldigt. Der Mann, der dies hier schrieb, ist einfach brilliant.", "#me suddenly giggles: 'Oh, my apologies. The man who wrote this is simply brilliant.'");
 talkingNPC:addCycleText("#me murmelt vor sich hin: '...und so verließ Mesha Gobblesworth den Rat nach seinem Wutanfall. Er würde nicht mehr sehen, wie...'. Er verstummt anschließend.", "#me begins to mumble: '...and so Mesha Gobblesworth left the council after an outburst of aggression. He wouldn't see...'. He turns silent again.");
-talkingNPC:addCycleText("Heda! Eure Kleidung sieht schäbig aus, ich hätte da was passendes.", "Lo! Your clothes look ugly! I have something fitting for you.");
-talkingNPC:addCycleText("Ich habe die besten Umhänge weit und breit. Kauft oder seht häßlich aus.", "I have the best cloaks around. Buy them or look ugly, your decision.");
+talkingNPC:addCycleText("Heda! Eure Kleidung sieht schäbig aus, ich hätte da was passenderes.", "You! Your outfit looks terrible! I have something more fitting for you.");
+talkingNPC:addCycleText("Ich habe die besten Umhänge weit und breit. Kauft oder gebt der Hässlichkeit das Ja-Wort!", "I have the best cloaks around. Buy them or say Yes to ugliness , it is up to you!");
 talkingNPC:addCycleText("Satin! Brokat! Seide! Leinen!", "Satin! Brocade! Silk! Linen!");
-talkingNPC:addCycleText("Ihr da! Ein Hut würde eurem Kopf gut tun. Schlimmer kanns ja nicht mehr werden...", "You! A hat would suit your head well. Can't become any worse...");
+talkingNPC:addCycleText("Ihr da! Einer meiner Hüte würde eurem Kopf gut tun. Schlimmer kanns ja nicht mehr werden...", "You! A hat of mine would suit your head particularly well. Can't get any worse than now...");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(6,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(47,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(51,"sell"));
@@ -909,7 +909,7 @@ tradingNPC:addDialogClosedMsg("Vielen Dank, beehrt mich bald wieder!", "Thank yo
 tradingNPC:addDialogClosedNoTradeMsg("Auf Bald!", "Farewell!");
 tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(5);
+mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Dieser NPC ist der Schneider Timotheus.", "This NPC is the tailor Timotheus.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
@@ -930,7 +930,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

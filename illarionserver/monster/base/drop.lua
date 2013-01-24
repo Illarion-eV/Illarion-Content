@@ -338,10 +338,14 @@ function SuddenWarp(Monster,Enemy,showGFX)
 end
 
 function DefaultSlowdown( monster )
+--[[
+    vilarion says: outdated, should be removed; monsters are slower than players anyway
+
     if (math.random(1,30)==1) then
         monster.movepoints = monster.movepoints - 40;
         return true;
     end
+--]]
     return false;
 end
 

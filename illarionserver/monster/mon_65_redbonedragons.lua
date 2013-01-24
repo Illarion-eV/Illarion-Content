@@ -2,6 +2,7 @@ require("monster.base.drop")
 require("monster.base.lookat")
 require("monster.base.quests")
 require("base.messages");
+require("monster.base.kills")
 module("monster.mon_65_redbonedragons", package.seeall)
 
 function ini(Monster)

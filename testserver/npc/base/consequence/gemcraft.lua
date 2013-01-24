@@ -12,5 +12,5 @@ function(self)
 end);
 
 function _craft_helper(self, npcChar, player)
-    item.gems.gemCraft:showDialog(player, npcChar) 
+    item.gems.magicSmith(npcChar, player) 
 end;

@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -63,8 +63,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(311, "<", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You can attack other creatures by clicking them once with the right mouse button."));
-talkEntry:addResponse("Hurr! Fresh meat! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Choose a weapon and crush three of those pigs over there.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2664, 1, 366, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 2));
+talkEntry:addResponse("Hurr! Fresh meat! I be Groknar, mightiest hunter of my clan. I will teach you how to smash puny creatures. Take this club and crush three of those pigs over there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -72,8 +73,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "<", 2));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du kannst andere Kreaturen angreifen, indem du sie mit der rechten Maustaste einmal anklickst."));
-talkEntry:addResponse("Hurr! Frischfleisch! Ich bin Groknar, der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm eine Waffe deiner Wahl in die Hand und erschlage drei dieser Schweine dort drüben.");
+talkEntry:addConsequence(npc.base.consequence.item.item(2664, 1, 366, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 2));
+talkEntry:addResponse("Hurr! Frischfleisch! Ich bin Groknar, der mächtigste Jäger meines Clans. Ich bring dir bei, erbärmliche Kreaturen zu erschlagen. Nimm diesen Knüppel in die Hand und erschlage drei dieser Schweine dort drüben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -98,20 +100,20 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are awarded a club."));
-talkEntry:addResponse("Good. You might just survive out there. Here, take this club. It will crush good. Follow the road, Hammerfist is expecting you. Good travels, %CHARNAME!");
-talkEntry:addConsequence(npc.base.consequence.item.item(2664, 1, 599, nil));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are awarded a simple dagger."));
+talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 366, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 6));
+talkEntry:addResponse("Good. You might just survive out there. Here, take this dagger. It will stab good. Follow the road, Hammerfist is expecting you. Good travels, %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(311, "=", 5));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du erhältst eine Keule."));
-talkEntry:addResponse("Gut. Vielleicht wirst du da draußen nun überleben. Hier, nimm diese Keule, sie wird dir gute Dienste leisten. Folge nun der Straße, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!");
-talkEntry:addConsequence(npc.base.consequence.item.item(2664, 1, 599, nil));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du erhältst einen Dolch."));
+talkEntry:addConsequence(npc.base.consequence.item.item(27, 1, 366, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(311, "=", 6));
+talkEntry:addResponse("Gut. Vielleicht wirst du da draußen nun überleben. Hier, nimm diesen Dolch, er wird dir gute Dienste leisten. Folge nun der Straße, Nargon Hammerfist erwartet dich. Gute Reise, %CHARNAME!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -152,7 +154,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

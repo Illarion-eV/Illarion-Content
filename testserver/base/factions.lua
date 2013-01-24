@@ -24,28 +24,28 @@ function InitFactionLists()
 	TownJailKey={};
 
 	--A list with the Ranks, Rank 8 and Rank 9 can not be reached with faction points(e.g. npc quests), only with GM help, don't give any normal player rank 9!
-	CadomyrRankListMale = { {gRank = "Rekrut", eRank = "Recruit"},        	--rank 1
-					 {gRank = "Knappe", eRank = "Squire"},           	--rank 2
-					 {gRank = "Herr", eRank = "Lord"},         	--rank 3
-					 {gRank = "Ritter", eRank = "Knight"},       --rank 4
-					 {gRank = "Vogt", eRank = "Reeve"},         --rank 5
-					 {gRank = "Baron", eRank = "Baron"},        		--rank 6
-					 {gRank = "Graf", eRank = "Count"},     			--rank 7
-					 {gRank = "Fürst", eRank = "Earl"},           	--rank 8
-					 {gRank = "Herzog", eRank = "Duke"},				--rank 9
-					 {gRank = "Erzherzog", eRank = "Archduke"},				--rank 10
+	CadomyrRankListMale = { {gRank = "Bürger", eRank = "Commoner"},        	--rank 1
+					 {gRank = "Rekrut", eRank = "Recruit"},           	--rank 2	
+					 {gRank = "Page", eRank = "Page"},           	--rank 3					 
+					 {gRank = "Knappe", eRank = "Squire"},           	--rank 4
+					 {gRank = "Ritter", eRank = "Knight"},       --rank 5
+					 {gRank = "Freiherr", eRank = "Lord"},         --rank 6
+					 {gRank = "Baron", eRank = "Baron"},        		--rank 7
+					 {gRank = "Graf", eRank = "Count"},     			--rank 8
+					 {gRank = "Fürst", eRank = "Earl"},           	--rank 9
+					 {gRank = "Herzog", eRank = "Duke"},				--rank 10
 					 {gRank = "König", eRank = "King"}};				--rank leader
 	
-	CadomyrRankListFemale = { {gRank = "Rekrutin", eRank = "Recruit"},        	--rank 1
-					 {gRank = "Magd", eRank = "Maid"},           	--rank 2
-					 {gRank = "Herrin", eRank = "Lady"},         	--rank 3
-					 {gRank = "Dame", eRank = "Dame"},       --rank 4
-					 {gRank = "Vogtin", eRank = "Reeve"},         --rank 5
-					 {gRank = "Baronin", eRank = "Baroness"},        		--rank 6
-					 {gRank = "Gräfin", eRank = "Countess"},     			--rank 7
-					 {gRank = "Fürstin", eRank = "Earl"},           	--rank 8
-					 {gRank = "Herzogin", eRank = "Duchess"},				--rank 9
-					 {gRank = "Erzherzogin", eRank = "Archduchess"},				--rank 10
+	CadomyrRankListFemale = { {gRank = "Bürgerin", eRank = "Commoner"},        	--rank 1
+					 {gRank = "Rekrutin", eRank = "Recruit"},           	--rank 2	
+					 {gRank = "Magd", eRank = "Maiden"},           	--rank 3
+					 {gRank = "Zofe", eRank = "Maid"},       --rank 4			 
+					 {gRank = "Hofdame", eRank = "Dame"},         --rank 5
+					 {gRank = "Freifrau", eRank = "Lady"},        		--rank 6					 
+					 {gRank = "Baronin", eRank = "Baroness"},        		--rank 7
+					 {gRank = "Gräfin", eRank = "Countess"},     			--rank 8
+					 {gRank = "Fürstin", eRank = "Earl"},           	--rank 9
+					 {gRank = "Herzogin", eRank = "Duchess"},				--rank 10
 					 {gRank = "Königin", eRank = "Queen"}};				--rank leader
 
 	RunewickRankListMale = { {gRank = "Novize", eRank = "Novice"},    		--rank 1

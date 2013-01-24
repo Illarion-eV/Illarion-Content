@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -18,7 +18,6 @@ require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
-require("npc.base.consequence.state")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
 require("npc.base.trade")
@@ -56,7 +55,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Krudash the arms dealer. Keywords: buy, sell, trade, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Me, Krudash sell and buy lots of stuff! Taghta?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -64,7 +62,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Krudash die Waffenhändlerin. Schlüsselwörter: kaufe, verkaufe, Handel, Er'hja, Kroch'Gurak, Snaga, Alice, Tom"));
-talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
 talkEntry:addResponse("Ich, Krudash verkaufe und kaufe viele Dinger! Taghta?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -756,6 +753,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(2710,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2751,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(325,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(326,"sell"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(528,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(529,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(530,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(531,"sell"));
@@ -862,6 +860,7 @@ tradingNPC:addItem(npc.base.trade.tradeNPCItem(2710,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2751,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(325,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(326,"buyPrimary"));
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(528,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(529,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(530,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(531,"buyPrimary"));
@@ -970,7 +969,7 @@ mainNPC:addLanguage(0);
 mainNPC:addLanguage(5);
 mainNPC:setDefaultLanguage(0);
 mainNPC:setLookat("Eine sinnliche Orkfrau mit druchdringenden rotbraunen Augen. Sie hat ein süßes Näschen und kleine spitze Hauer. Achtsam überblickt sie den Marktplatz.", "A voluptous orcess with rebbrown eyes. She has a cute nose and small pointy tusks. She watches the marketplace observantly.");
-mainNPC:setUseMessage("Fass mich nicht an! Oder ich mach disch Kebab! Alda!", "Do not touch me!");
+mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(3, 362);
 mainNPC:setEquipment(5, 23);
@@ -984,7 +983,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

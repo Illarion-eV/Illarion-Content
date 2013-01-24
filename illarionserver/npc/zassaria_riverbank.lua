@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -445,7 +445,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 8));
 talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happend to my colcction of oil lampsss. I sssaw him carring them away. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -454,7 +454,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 7));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 8));
 talkEntry:addResponse("Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -464,7 +464,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 7));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 8));
 talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happend to my collection of oil lampsss. I sssaw him carring them away. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -475,13 +475,13 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 7));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 8));
 talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happend to my colcction of oil lampsss. I sssaw him carring them away. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 8));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You solved the quest. You are awarded 12 silver coins, and two new robes in the colors of the ocean."));
@@ -494,7 +494,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 8));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 9));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] Du hast den Quest gelöst. Du wirst mit 12 Silbermünzen und zwei neuen Roben in den Farben des Ozeans belohnt."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
@@ -507,47 +507,50 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 9));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me IV"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 10));
-talkEntry:addResponse("...");
+talkEntry:addConsequence(npc.base.consequence.item.item(73, 1, 440, {["nameDe"] = "Echt großer Fisch", ["nameEn"] = "Really big fish", ["descriptionEn"] = "This trout is as large as a salmon.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Forelle ist so groß wie ein Lachs!"}));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 11));
+talkEntry:addResponse("Zss! Zss! Look, I caught thiss trout. Itsss asss large asss a salmon. But, Marinna Forgeron, magical sssmith from galmair does not belive me! Zss! Zss! Sssshow her thisss fischsss, please. Ssss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 9));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich II"));
 talkEntry:addConsequence(npc.base.consequence.item.item(73, 1, 440, {["nameDe"] = "Echt großer Fisch", ["nameEn"] = "Really big fish", ["descriptionEn"] = "This trout is as large as a salmon.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Forelle ist so groß wie ein Lachs!"}));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 10));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 11));
 talkEntry:addResponse("Zss! Zss! Ssschaut, ich habe eine Forelle gefangen, die issst ssso großsss wie ein Lachssss. Aber, zss, Marianne Forgeron, magisssche Ssschmied auss Galmair sssagt, ich lüge! Zss! Zzzeigt ihr diesssen Fisssch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 9));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me IV"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 10));
-talkEntry:addResponse("....");
+talkEntry:addConsequence(npc.base.consequence.item.item(73, 1, 440, {["nameDe"] = "Echt großer Fisch", ["nameEn"] = "Really big fish", ["descriptionEn"] = "This trout is as large as a salmon.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Forelle ist so groß wie ein Lachs!"}));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 11));
+talkEntry:addResponse("Zss! Zss! Look, I caught thiss trout. Itsss asss large asss a salmon. But, Marinna Forgeron, magical sssmith from galmair does not belive me! Zss! Zss! Sssshow her thisss fischsss, please. Ssss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 9));
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich II"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 10));
-talkEntry:addResponse("...");
+talkEntry:addConsequence(npc.base.consequence.item.item(73, 1, 440, {["nameDe"] = "Echt großer Fisch", ["nameEn"] = "Really big fish", ["descriptionEn"] = "This trout is as large as a salmon.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Forelle ist so groß wie ein Lachs!"}));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 11));
+talkEntry:addResponse("Zss! Zss! Ssschaut, ich habe eine Forelle gefangen, die issst ssso großsss wie ein Lachssss. Aber, zss, Marianne Forgeron, magisssche Ssschmied auss Galmair sssagt, ich lüge! Zss! Zzzeigt ihr diesssen Fisssch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -935,7 +938,7 @@ talkingNPC:addCycleText("Ssss!", "Ssss!");
 talkingNPC:addCycleText("#me zischt.", "#me hisses.");
 talkingNPC:addCycleText("Zss!", "Zss!");
 talkingNPC:addCycleText("Tsss...", "Tsss...");
-talkingNPC:addCycleText("lässt ihren Schwanz hin und her schnellen.", "#me wags her tail back and forth.");
+talkingNPC:addCycleText("#me lässt ihren Schwanz hin und her schnellen.", "#me wags her tail back and forth.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(4);
 mainNPC:setDefaultLanguage(0);
@@ -958,7 +961,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

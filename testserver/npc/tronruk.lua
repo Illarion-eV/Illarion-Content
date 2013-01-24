@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -47,8 +47,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(607, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("You found Tronuk. Now, ask him for his story in order to get the name of the winner. Listen the whole story."));
-talkEntry:addResponse("Grebbas! How can Tronuk help?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 2));
+talkEntry:addResponse("Grebbas! How can Tronuk help?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -56,8 +56,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(607, "=", 1));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Du hast Tronuk gefunden. Nun frage ihn nach seiner Geschichte um den Namen des Gewinner zu erfahren. Höre dir die ganze Geschichte an."));
-talkEntry:addResponse("Grebbha! Wie kann Tronuk helfen?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 2));
+talkEntry:addResponse("Grebbha! Wie kann Tronuk helfen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -212,8 +212,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 started] Bring Tronuk a full bottle beer."));
-talkEntry:addResponse("A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
+talkEntry:addResponse("A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -222,8 +222,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."));
-talkEntry:addResponse("Eine Mission du haben wollen. Hurr, nur kleine Aufgabe. Bringe Tronruk Flasche Bier. Bier sein immer gut. Aber nix warmes Stumpie Bier!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
+talkEntry:addResponse("Eine Mission du haben wollen. Hurr, nur kleine Aufgabe. Bringe Tronruk Flasche Bier. Bier sein immer gut. Aber nix warmes Stumpie Bier!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -233,8 +233,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 started] Bring Tronuk a full bottle beer."));
-talkEntry:addResponse("A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
+talkEntry:addResponse("A mission you wish. Hurr, onlhe little task. Bring Tronruk bottle beer. Beer beh alwaehs guud. But nub warm stumpie beer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -243,8 +243,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 0));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."));
-talkEntry:addResponse("Eine Mission du haben wollen. Hurr, nur kleine Aufgabe. Bringe Tronruk Flasche Bier. Bier sein immer gut. Aber nix warmes Stumpie Bier!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
+talkEntry:addResponse("Eine Mission du haben wollen. Hurr, nur kleine Aufgabe. Bringe Tronruk Flasche Bier. Bier sein immer gut. Aber nix warmes Stumpie Bier!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -253,11 +253,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2501, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest end 602] You gained some coins."));
-talkEntry:addResponse("Hurr, you hub beer! Great! For dhat you shall hub some coins.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest end 602] You received 10 silvercoins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2501, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 2));
+talkEntry:addResponse("Hurr, you hub beer! Great! For dhat you shall hub some coins.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,11 +266,11 @@ talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2501, "all", ">", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 602] Du hast ein paar Münzen erhalten."));
-talkEntry:addResponse("Hurr, du haben Bier! Gut! Für das du sollen haben einige Münzen.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 602] Du hast 10 Silbermünzen erhalten."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2501, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 2));
+talkEntry:addResponse("Hurr, du haben Bier! Gut! Für das du sollen haben einige Münzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -339,8 +339,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 started] Bring Tronuk a full bottle beer."));
-talkEntry:addResponse("Anodha bottle beer might beh guud. Yubba! Get more beer!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
+talkEntry:addResponse("Anodha bottle beer might beh guud. Yubba! Get more beer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -349,8 +349,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."));
-talkEntry:addResponse("Andere Flasche Bier sein gut. Yubba! Bring mehr Bier!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
+talkEntry:addResponse("Andere Flasche Bier sein gut. Yubba! Bring mehr Bier!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -360,8 +360,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 started] Bring Tronuk a full bottle beer."));
-talkEntry:addResponse("Anodha bottle beer might beh guud. Yubba! Get more beer!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
+talkEntry:addResponse("Anodha bottle beer might beh guud. Yubba! Get more beer!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -370,8 +370,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(602, "=", 2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest 602 gestartet] Bringe Tronuk eine volle Flasche Bier."));
-talkEntry:addResponse("Andere Flasche Bier sein gut. Yubba! Bring mehr Bier!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(602, "=", 1));
+talkEntry:addResponse("Andere Flasche Bier sein gut. Yubba! Bring mehr Bier!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1153,16 +1153,16 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hammer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Hurrkeh, meh tell yoo da storeh about dat day. Say 'yubba' or 'more' ib yoo want meh tell more and 'stop' ib yoo habs heard enub!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Hurrkeh, meh tell yoo da storeh about dat day. Say 'yubba' or 'more' ib yoo want meh tell more and 'stop' ib yoo habs heard enub!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hammer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1173,8 +1173,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Meh tell da story as da Warlord once did. *His voice deepens and becomes hoarse* Bruddahs and sistahs, be proud! Today, da might ob da clan be known!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1186,8 +1186,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Mich erzählen Geschichte wie Kriegsherr eins tat. *Seine Stimme wird tiefer und heiser* Büder und Schwester, jubelt! Heute, Geschichte wurde geschrieben!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Mich erzählen Geschichte wie Kriegsherr eins tat. *Seine Stimme wird tiefer und heiser* Büder und Schwester, jubelt! Heute, Geschichte wurde geschrieben!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1197,8 +1197,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Meh tell da story as da Warlord once did. *his voice deepens and becomes hoarse* Bruddahs and sistahs, rejoice! Today, da might ob da clan be known!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1207,8 +1207,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 1));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Mich erzählen Geschichte wie Kriegsherr eins tat. *Seine Stimme wird tiefer und heiser* Büder und Schwester, jubelt! Heute, Geschichte wurde geschrieben!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1219,8 +1219,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1230,8 +1230,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1242,8 +1242,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("When da Warlord wubs going into da human city ob Trolls Bane after a meeting wib da chief, he met da army ob da dwarves led by da stumpie queen herself!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("When da Warlord wubs going into da human city ob Trolls Bane after a meeting wib da chief, he met da army ob da dwarves led by da stumpie queen herself!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1255,8 +1255,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Als der Kriegsherr die Menschenstadt Trolls Bane betretten wollte nach einem Treffen mit dem Häuptling, er lief in eine Zwergenarmee, angeführt von der Königin ihrerselbst!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1266,8 +1266,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("When da Warlord wubs going into da human city ob Trolls Bane after a meeting wib da chief, he met da army ob da dwarves led by da stumpie queen herself!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1276,8 +1276,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 2));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Als der Kriegsherr die Menschenstadt betretten wollte nach einem Treffen mit dem Häuptling, er lief in eine Zwergenarmee, angeführt von der Königin ihrerselbst!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1288,8 +1288,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1299,8 +1299,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1311,8 +1311,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Dem stumpies wubs tinking dat da Warlord, wubs easy for dem ta beat!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1324,8 +1324,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Die dachten, dass ich, der Kriegsherr sei ein einfaches Ziel für sie!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Die dachten, dass ich, der Kriegsherr sei ein einfaches Ziel für sie!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1335,8 +1335,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Dem stumpies wubs tinking dat da Warlord, wubs easy for dem ta beat!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1345,8 +1345,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 3));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Die dachten, dass ich, der Kriegsherr sei ein einfaches Ziel für sie!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1357,8 +1357,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1368,8 +1368,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1380,8 +1380,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Dem stumpies wubs hurling insults at him but da Warlord stood his ground and when dey wubs ready to attack, da lizard Taliss, friend ob da Warlord and ally ob da clan, came from dah back and stood by da side ob da Warlord!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Dem stumpies wubs hurling insults at him but da Warlord stood his ground and when dey wubs ready to attack, da lizard Taliss, friend ob da Warlord and ally ob da clan, came from dah back and stood by da side ob da Warlord!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1393,8 +1393,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Ich stand wie ein Fels in der Brandung gegen ihre Beleidigungne und als sie mich angriffen, Taliss, unser verbündete Echsenfreund erschien von hinten und stand an meiner Seite!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Ich stand wie ein Fels in der Brandung gegen ihre Beleidigungne und als sie mich angriffen, Taliss, unser verbündete Echsenfreund erschien von hinten und stand an meiner Seite!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1404,8 +1404,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Dem stumpies wubs hurling insults at him but da Warlord stood his ground and when dey wubs ready to attack, da lizard Taliss, friend ob da Warlord and ally ob da clan, came from dah back and stood by da side ob da Warlord!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Dem stumpies wubs hurling insults at him but da Warlord stood his ground and when dey wubs ready to attack, da lizard Taliss, friend ob da Warlord and ally ob da clan, came from dah back and stood by da side ob da Warlord!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1414,8 +1414,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 4));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Ich stand wie ein Fels in der Brandung gegen ihre Beleidigungne und als sie mich angriffen, Taliss, unser verbündete Echsenfreund erschien von hinten und stand an meiner Seite!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Ich stand wie ein Fels in der Brandung gegen ihre Beleidigungne und als sie mich angriffen, Taliss, unser verbündete Echsenfreund erschien von hinten und stand an meiner Seite!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1426,8 +1426,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1437,8 +1437,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1449,8 +1449,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Togeddah dey fought like bruddahs, cutting down stumpies on one side and da oddha!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Togeddah dey fought like bruddahs, cutting down stumpies on one side and da oddha!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1462,8 +1462,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Zusammen kämpften wir wie Brüder, schnitten durch die Zwerge wie ein heißes Messer durch Butter!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Zusammen kämpften wir wie Brüder, schnitten durch die Zwerge wie ein heißes Messer durch Butter!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1473,8 +1473,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Togeddah dey fought like bruddahs, cutting down stumpies on one side and da oddha!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Togeddah dey fought like bruddahs, cutting down stumpies on one side and da oddha!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1483,8 +1483,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 5));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Zusammen kämpften wir wie Brüder, schnitten durch die Zwerge wie ein heißes Messer durch Butter!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Zusammen kämpften wir wie Brüder, schnitten durch die Zwerge wie ein heißes Messer durch Butter!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1495,8 +1495,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1506,8 +1506,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1518,8 +1518,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Da stumpie queen herself wubs filled wib fear ob da Faddah and ob da Warlord..");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1531,8 +1531,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Die Königin sleber began herum zu laufen wie ein erschrockenes Scwein welches zur Schlachtbank geführt wird.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Die Königin sleber began herum zu laufen wie ein erschrockenes Scwein welches zur Schlachtbank geführt wird.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1542,8 +1542,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Da stumpie queen herself wubs filled wib fear ob da Faddah and ob da Warlord.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1552,8 +1552,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 6));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Die Königin sleber began herum zu laufen wie ein erschrockenes Scwein welches zur Schlachtbank geführt wird.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1564,8 +1564,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1575,8 +1575,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1587,8 +1587,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Da stumpies had fiery magic weapons dat nearly sent da Warlord to da grave but dey still fell under his might and drowned in puddles ob dey own blood!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Da stumpies had fiery magic weapons dat nearly sent da Warlord to da grave but dey still fell under his might and drowned in puddles ob dey own blood!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1600,8 +1600,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Und obwohl die Zwerge feurige, magische Waffen benützten, welche mich beinahe ins Grab beförderten, schon bald fielen sie in ihr eigenes Becken von Blut!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Und obwohl die Zwerge feurige, magische Waffen benützten, welche mich beinahe ins Grab beförderten, schon bald fielen sie in ihr eigenes Becken von Blut!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1611,8 +1611,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Da stumpies had fiery magic weapons dat nearly sent da Warlord to da grave but dey still fell under his might and drowned in puddles ob dey own blood!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Da stumpies had fiery magic weapons dat nearly sent da Warlord to da grave but dey still fell under his might and drowned in puddles ob dey own blood!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1621,8 +1621,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 7));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Und obwohl die Zwerge feurige, magische Waffen benützten, welche mich beinahe ins Grab beförderten, schon bald fielen sie in ihr eigenes Becken von Blut!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Und obwohl die Zwerge feurige, magische Waffen benützten, welche mich beinahe ins Grab beförderten, schon bald fielen sie in ihr eigenes Becken von Blut!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1633,8 +1633,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1644,8 +1644,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1656,8 +1656,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Da stumpie queen was sent to da cross dat day and da Warlord, Taliss and da human Tirrend captured da queen, bound her and dragged her all da way back to da cave where dey shoved her into da jail! *He grins mischievously.*");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1669,8 +1669,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Die Königin schleppte sich zum Kreuz, wo ich, Taliss und der Mensch Tirrend sie fesselten und den ganzen Weg zur Höhle schleppten und sie ins Gefängnis worfen! *Er grinst boshaft.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Die Königin schleppte sich zum Kreuz, wo ich, Taliss und der Mensch Tirrend sie fesselten und den ganzen Weg zur Höhle schleppten und sie ins Gefängnis worfen! *Er grinst boshaft.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1680,8 +1680,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse(" Da stumpie queen was sent to da cross dat day and da Warlord, Taliss and da human Tirrend captured da queen, bound her and dragged her all da way back to da cave where dey shoved her into da jail! *He grins mischievously.[/ .*");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1690,8 +1690,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 8));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Die Königin schleppte sich zum Kreuz, wo ich, Taliss und der Mensch Tirrend sie fesselten und den ganzen Weg zur Höhle schleppten und sie ins Gefängnis worfen! *Er grinst boshaft.*");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1702,8 +1702,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1713,8 +1713,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1725,8 +1725,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Da Warlord spoke to da clan, ?Bruddahs and sistahs, rejoice! We habs captured da stumpie queen! Now she will face da trial ob da orcs, she will face our anger!'...Yubba, dat how it happened. Da Faddah appeared dat day and ordered dem to throw her from da holy mountain!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1738,8 +1738,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Brüder, jubelt! Wir haben die Königin gefangen genommen! Nun wird sie dem Gericht der Orks entgegentreten, Sie wird all unserer Wut entgegentreten!...Yubba, es geschah. Sie wurfen sie von heiligen Berg!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Brüder, jubelt! Wir haben die Königin gefangen genommen! Nun wird sie dem Gericht der Orks entgegentreten, Sie wird all unserer Wut entgegentreten!...Yubba, es geschah. Sie wurfen sie von heiligen Berg!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1749,8 +1749,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Da Warlord spoke to da clan, ?Bruddahs and sistahs, rejoice! We habs captured da stumpie queen! Now she will face da trial ob da orcs, she will face our anger!'...Yubba, dat how it happened. Da Faddah appeared dat day and ordered dem to throw her from dah holy mountain!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Da Warlord spoke to da clan, ?Bruddahs and sistahs, rejoice! We habs captured da stumpie queen! Now she will face da trial ob da orcs, she will face our anger!'...Yubba, dat how it happened. Da Faddah appeared dat day and ordered dem to throw her from dah holy mountain!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1759,8 +1759,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 9));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Brüder, jubelt! Wir haben die Königin gefangen genommen! Nun wird sie dem Gericht der Orks entgegentreten, Sie wird all unserer Wut entgegentreten!...Yubba, es geschah. Sie wurfen sie von heiligen Berg!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Brüder, jubelt! Wir haben die Königin gefangen genommen! Nun wird sie dem Gericht der Orks entgegentreten, Sie wird all unserer Wut entgegentreten!...Yubba, es geschah. Sie wurfen sie von heiligen Berg!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1771,8 +1771,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1782,8 +1782,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1794,8 +1794,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] The story is over. Have you already listen to the other one? Ask for 'story' if not."));
-talkEntry:addResponse("Let dis be known as da Day ob da Hammer! Da day when da stumpie army got crushed under da feet ob dem dat fought for honour! *He closes his eyes as he finishes.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Let dis be known as da Day ob da Hammer! Da day when da stumpie army got crushed under da feet ob dem dat fought for honour! *He closes his eyes as he finishes.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1807,8 +1807,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Die Geschichte ist vorbei. Hast du schon die andere Geschichte gehört? Frage nach 'Geschichte' falls nicht."));
-talkEntry:addResponse("Lasst diesen Tag als Tag des Hammer in Erinnerung halten! Der Tag an dem die Zwergenarme wurde zerschmettert und den Füssen von jenen die für Ehre kämpfen! *Er schließt die Augen nachdem er fertig ist.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Lasst diesen Tag als Tag des Hammer in Erinnerung halten! Der Tag an dem die Zwergenarme wurde zerschmettert und den Füssen von jenen die für Ehre kämpfen! *Er schließt die Augen nachdem er fertig ist.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1818,8 +1818,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] The story is over. Have you already listen to the other one? Ask for 'story' if not."));
-talkEntry:addResponse("Let dis be known as da Day ob da Hammer! , da day when da stumpie army got crushed under da feet ob dem dat fought for honour! *He closes his eyes as he finishes.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Let dis be known as da Day ob da Hammer! , da day when da stumpie army got crushed under da feet ob dem dat fought for honour! *He closes his eyes as he finishes.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1828,8 +1828,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 10));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Die Geschichte ist vorbei. Hast du schon die andere Geschichte gehört? Frage nach 'Geschichte' falls nicht."));
-talkEntry:addResponse("Lasst diesen Tag als Tag des Hammer in Erinnerung halten! Der Tag an dem die Zwergenarme wurde zerschmettert und den Füssen von jenen die für Ehre kämpfen! *Er schließt die Augen nachdem er fertig ist.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Lasst diesen Tag als Tag des Hammer in Erinnerung halten! Der Tag an dem die Zwergenarme wurde zerschmettert und den Füssen von jenen die für Ehre kämpfen! *Er schließt die Augen nachdem er fertig ist.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1840,8 +1840,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1851,24 +1851,24 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Growl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Me tell da story as da Chief once did. Say 'yubba' or 'more' ib yoo want me tell more and 'stop' ib yoo habs heard enub! *His voice deepens and becomes hoarse* Bruddahs and sistahs!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 11));
+talkEntry:addResponse("Me tell da story as da Chief once did. Say 'yubba' or 'more' ib yoo want me tell more and 'stop' ib yoo habs heard enub! *His voice deepens and becomes hoarse* Bruddahs and sistahs!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Knurren");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Mich erzählen Geschichte wie Häuptling eins tat. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen! *Seine Stimme wird tiefer und heiser* Büder und Schwester!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 11));
+talkEntry:addResponse("Mich erzählen Geschichte wie Häuptling eins tat. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen! *Seine Stimme wird tiefer und heiser* Büder und Schwester!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1879,8 +1879,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Once again da Orcs hab shown dey superior strength! Da 24. Elos ob da year 30 shall beh know as da Day ob Green Growl!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Once again da Orcs hab shown dey superior strength! Da 24. Elos ob da year 30 shall beh know as da Day ob Green Growl!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1892,8 +1892,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Einmal mehr haben die Orks ihre übermächtige Stärke gezeigt! Der 24. Elos im Jahre 30 soll für immer als der Tag des Grünen Knurren in Erinnerung bleiben!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Einmal mehr haben die Orks ihre übermächtige Stärke gezeigt! Der 24. Elos im Jahre 30 soll für immer als der Tag des Grünen Knurren in Erinnerung bleiben!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1903,8 +1903,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Once again da Orcs hab shown dey superior strength! Da 24. Elos ob da year 30 shall beh know as da Day ob Green Growl!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Once again da Orcs hab shown dey superior strength! Da 24. Elos ob da year 30 shall beh know as da Day ob Green Growl!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1913,8 +1913,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 11));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Einmal mehr haben die Orks ihre übermächtige Stärke gezeigt! Der 24. Elos im Jahre 30 soll für immer als der Tag des Grünen Knurren in Erinnerung bleiben!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Einmal mehr haben die Orks ihre übermächtige Stärke gezeigt! Der 24. Elos im Jahre 30 soll für immer als der Tag des Grünen Knurren in Erinnerung bleiben!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1925,8 +1925,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1936,8 +1936,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1948,8 +1948,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Dese Orcs ob da Horde wus dere: Silver Skull Murgo, Red Skull Jag, Sistah Kry`Rack, Bruddah Slug, Chief Rugh'toh.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1961,8 +1961,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Diese Orks der Horde waren dort: Silver Skull Murgo, Red Skull Jag, Sistah Kry`Rack, Bruddah Slug, Chief Rugh'toh.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Diese Orks der Horde waren dort: Silver Skull Murgo, Red Skull Jag, Sistah Kry`Rack, Bruddah Slug, Chief Rugh'toh.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1972,8 +1972,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Dese Orcs ob da Horde wus dere: Silver Skull Murgo,Red Skull Jag, Sistah Kry`Rack, Bruddah Slug, Chief Rugh'toh.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1982,8 +1982,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 12));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Diese Orks der Horde waren dort: Silver Skull Murgo, Red Skull Jag, Sistah Kry`Rack, Bruddah Slug, Chief Rugh'toh.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1994,8 +1994,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2005,8 +2005,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2017,8 +2017,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Due to our deep faith in da Faddah we mastered da fighting tournament organised by da Prince ob oomie town Trolls Bane AND we smashed da oomies ob da Temple!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2030,8 +2030,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Danke unserem tiefen Glauben an den Vater wir meisterten es das von Prinzen der Menschen in Menschenstadt Trolls Bane organisierte Turnier zu gewinnen UND die Menschen des Tempel nieder zu schlagen!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2041,8 +2041,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Due to our deep faith in da Faddah we mastered da fighting tournament organised by da Prince ob oomie town AND we smashed da oomies ob da Temple!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2051,8 +2051,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 13));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Danke unserem tiefen Glauben an den Vater wir meisterten es das von Prinzen der Menschen organisierte Turnier zu gewinnen UND die Menschen des Tempel nieder zu schlagen!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2063,8 +2063,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2074,8 +2074,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2086,8 +2086,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] You can choose between 'tournament' and 'aftermath' now. What ever you choose, you can choose the other one later."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Hurr, meh remember dat storeh habs two parts. Da 'Tournament' and da 'Aftermath'. Whub one yoo want hear?");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2099,8 +2099,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Du hast die Wahl nun zwichen 'Turnier' und 'Nachspiel'. Welche du auch immer nun wählst, du kannst die andere dir jederzeit anhören."));
-talkEntry:addResponse("Hurr, mich erinnern dies Geschichte haben zwei Teile. 'Turnier' und 'Nachspiel'. Welche du wollen hören?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Hurr, mich erinnern dies Geschichte haben zwei Teile. 'Turnier' und 'Nachspiel'. Welche du wollen hören?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2110,8 +2110,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] You can choose between 'tournament' and 'aftermath' now. What ever you choose, you can choose the other one later."));
-talkEntry:addResponse("Hurr, meh remember dat storeh habs two parts. Da 'Tournament' and da 'Aftermath'. Whub ona yoo want hear?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Hurr, meh remember dat storeh habs two parts. Da 'Tournament' and da 'Aftermath'. Whub ona yoo want hear?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2120,8 +2120,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 14));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Du hast die Wahl nun zwichen 'Turnier' und 'Nachspiel'. Welche du auch immer nun wählst, du kannst die andere dir jederzeit anhören."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Hurr, mich erinnern dies Geschichte haben zwei Teile. 'Turnier' und 'Nachspiel'. Welche du wollen hören?");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2132,8 +2132,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2143,24 +2143,24 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tournament");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 21));
 talkEntry:addResponse("Hurrkeh, meh tell yoo da storeh about dat day. Say 'yubba' or 'more' ib yoo wants me tell more and 'stop' ib yoo habs heard enub!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 21));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turnier");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 21));
+talkEntry:addResponse("Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2168,8 +2168,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 15));
 talkEntry:addTrigger("Tournament");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Hurrkeh, meh tell yoo da storeh about dat day. Say 'yubba' or 'more' ib yoo want me tell more and 'stop' ib yoo habs heard enub!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 21));
+talkEntry:addResponse("Hurrkeh, meh tell yoo da storeh about dat day. Say 'yubba' or 'more' ib yoo want me tell more and 'stop' ib yoo habs heard enub!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2177,24 +2177,24 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 15));
 talkEntry:addTrigger("Turnier");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 21));
+talkEntry:addResponse("Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Aftermath");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Hurrkeh, meh tell yoo da storeh about dat day. Say 'yubba' or 'more' ib yoo want me tell more and 'stop' ib yoo habs heard enub!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 31));
+talkEntry:addResponse("Hurrkeh, meh tell yoo da storeh about dat day. Say 'yubba' or 'more' ib yoo want me tell more and 'stop' ib yoo habs heard enub!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Nachspiel");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 31));
+talkEntry:addResponse("Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2202,8 +2202,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 15));
 talkEntry:addTrigger("Aftermath");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Hurrkeh, meh tell yoo da storeh about dat day. Say 'yubba' or 'more' ib yoo want me tell more and 'stop' ib yoo habs heard enub!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 31));
+talkEntry:addResponse("Hurrkeh, meh tell yoo da storeh about dat day. Say 'yubba' or 'more' ib yoo want me tell more and 'stop' ib yoo habs heard enub!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2211,8 +2211,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 15));
 talkEntry:addTrigger("Nachspiel");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 31));
+talkEntry:addResponse("Hurrkeh, mich erzählen Geschichte über das Tag. Sag 'Yubba' oder 'Weiter' wenn hören wollen mehr, und 'Stop' wenn nix mehr hören wollen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2223,8 +2223,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("First rounds ob three. Da smelly oomies tried to betray us! In da very first fight dey let fight Murgo gainst Jag! By doing so dey could get rid ob one ob da orcs!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2236,8 +2236,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Erste Runde von Drei. Stinkende Ommies versuchen uns betrügen! In aller ersten Kampf die lassen kämpfen Murgo gegen Jag! Bei tuen so die konnten los werden einen von sehr schnell!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Erste Runde von Drei. Stinkende Ommies versuchen uns betrügen! In aller ersten Kampf die lassen kämpfen Murgo gegen Jag! Bei tuen so die konnten los werden einen von sehr schnell!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2246,8 +2246,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 21));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("First rounds ob three. Da smelly oomies tried to betray us! In da very first fight dey let fight Murgo gainst Jag! By doing so dey could get rid ob one ob da orcs!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2256,8 +2256,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 21));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Erste Runde von Drei. Stinkende Ommies versuchen uns betrügen! In aller ersten Kampf die lassen kämpfen Murgo gegen Jag! Bei tuen so die konnten los werden einen von sehr schnell!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2268,8 +2268,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2279,8 +2279,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2291,8 +2291,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("In a great struggle Jag succeeded ober Murgo. But dis smelly decision to let Orcs fight gainst each other in first round made da Horde angry!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("In a great struggle Jag succeeded ober Murgo. But dis smelly decision to let Orcs fight gainst each other in first round made da Horde angry!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2304,8 +2304,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("In großen Schlacht Jag bestand gegen Murgo. Aber stinkende Entscheidung zu lassne Orks kämpfen gegeneinander in erster Runde machte Horde böse!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("In großen Schlacht Jag bestand gegen Murgo. Aber stinkende Entscheidung zu lassne Orks kämpfen gegeneinander in erster Runde machte Horde böse!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2315,8 +2315,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("In a great struggle Jag succeeded ober Murgo. But dis smelly decision to let Orcs fight gainst each other in first round made da Horde angry!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("In a great struggle Jag succeeded ober Murgo. But dis smelly decision to let Orcs fight gainst each other in first round made da Horde angry!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2325,8 +2325,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 22));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("In großen Schlacht Jag bestand gegen Murgo. Aber stinkende Entscheidung zu lassne Orks kämpfen gegeneinander in erster Runde machte Horde böse!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("In großen Schlacht Jag bestand gegen Murgo. Aber stinkende Entscheidung zu lassne Orks kämpfen gegeneinander in erster Runde machte Horde böse!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2337,8 +2337,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2348,8 +2348,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2360,8 +2360,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("In da first round da Chief got a weak halfer to smash. Da hardest ting wus nub to kill da halfer wit heavy blow since it wus against da rules.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("In da first round da Chief got a weak halfer to smash. Da hardest ting wus nub to kill da halfer wit heavy blow since it wus against da rules.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2373,8 +2373,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("In erster Runde Chief bekam schwachen Halbing zu schlagen. Meist schwerste Ding war nicht zu töten Halbing mit schweren Schlag weil gegen Regeln.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("In erster Runde Chief bekam schwachen Halbing zu schlagen. Meist schwerste Ding war nicht zu töten Halbing mit schweren Schlag weil gegen Regeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2384,8 +2384,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("In da first round da Chief got a weak halfer to smash. Da hardest ting wus nub to kill da halfer wit heavy blow since it wus against da rules.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("In da first round da Chief got a weak halfer to smash. Da hardest ting wus nub to kill da halfer wit heavy blow since it wus against da rules.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2394,8 +2394,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 23));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("In erster Runde Chief bekam schwachen Halbing zu schlagen. Meist schwerste Ding war nicht zu töten Halbing mit schweren Schlag weil gegen Regeln.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("In erster Runde Chief bekam schwachen Halbing zu schlagen. Meist schwerste Ding war nicht zu töten Halbing mit schweren Schlag weil gegen Regeln.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2406,8 +2406,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2417,8 +2417,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2429,8 +2429,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("In second round bruddah Jag fought against a brave oomie and won in good fight! Da Chief had to fight da oomie Don Andrews. Dis usually easy but on dis day da Faddah decided to test da faith ob Orcs.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2442,8 +2442,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Zweit Runde. In zweit Runde Bruder Jag kämpft gegen tapfer Ommie und gewann in guter Kampf! Chief haben kämpfen müssen gegen Ommie Don Andrews. Normalerweise leichte Aufgabe, aber diesen Tag Vater entschied zu testen Glauben von Orks.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2453,8 +2453,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("In second round bruddah Jag fought against a brave oomie and won in good fight! Da Chief had to fight da oomie Don Andrews. Dis usually easy but on dis day da Father decided to test da faith ob Orcs.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2463,8 +2463,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 24));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Zweit Runde. In zweit Runde Bruder Jag kämpfte gegen taper Ommie und gewann in guter Kampf! Chief haben kämpfen müssen gegen Ommie Don Andrews. Normalerweise leichte Aufgabe, aber diesen Tag Vater entschied zu testen Glauben von Orks.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2475,8 +2475,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2486,8 +2486,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2498,8 +2498,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("In da middle ob da fight smelly Don made a lucky slash and broke da armor ob da Chief on da legs. The Chief stumbled and almost fell into da water.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2511,8 +2511,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("In Mitte von Kampf stinkender Don machte glücklichen Schlag und zerbrach Rüstung von Chief auf Bein. Chief schwankte ein wenig und stürzte fast in Wasser.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("In Mitte von Kampf stinkender Don machte glücklichen Schlag und zerbrach Rüstung von Chief auf Bein. Chief schwankte ein wenig und stürzte fast in Wasser.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2522,8 +2522,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("In da middle ob da fight smelly Don made a lucky slash and broke da armor ob da Chief on da legs. The Chief stumbled and almost fell into da water.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2532,8 +2532,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 25));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("In Mitte von Kampf stinkender Don machte glücklichen Schlag und zerbrach Rüstung von Chief auf Bein. Chief schwankte ein wenig und stürzte fast in Wasser.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2544,8 +2544,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2555,8 +2555,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2567,8 +2567,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Aftah he lost his stance da Chief got more hard blows and finally lost da fight against Don. Orcs wus shocked and dey wanted bloody revenge.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2580,8 +2580,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Durch verlorenes Gleichgeweicht Chief steckte ein mehr harte Schläge und verlor schlußendlich Kampf gegen Don. Orks waren geschockt und suchten nach blutiger Rache.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Durch verlorenes Gleichgeweicht Chief steckte ein mehr harte Schläge und verlor schlußendlich Kampf gegen Don. Orks waren geschockt und suchten nach blutiger Rache.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2591,8 +2591,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Aftah he lost his stance da Chief got more hard blows and finally lost da fight against Don. Orcs wus shocked and dey wanted bloody revenge.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2601,8 +2601,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 26));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Durch verlorenes Gleichgeweicht Chief steckte ein mehr harte Schläge und verlor schlußendlich Kampf gegen Don. Orks waren geschockt und suchten nach blutiger Rache.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2613,8 +2613,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2624,8 +2624,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2636,8 +2636,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("In da final round da Chief had to fight against a oomie warrior. Due to his anger it was a quick and bloody fight. Da Chief made da third rank. In very final round, bruddah Jag fought against Don. Da oomie used his swords, Jag his powerful maces.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2649,8 +2649,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Endrund. Chief musste kämpfen gegen Ommie Krieger. Aufgrund den Ärger es war kurz und blutig Kampf. Chief machte dritten Rang. In finaler Runde, Bruder Jag kampfte gegen Don. Ommie verwendete sein Schwerter, Jag seine mächtig Streitkolben.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Endrund. Chief musste kämpfen gegen Ommie Krieger. Aufgrund den Ärger es war kurz und blutig Kampf. Chief machte dritten Rang. In finaler Runde, Bruder Jag kampfte gegen Don. Ommie verwendete sein Schwerter, Jag seine mächtig Streitkolben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2660,8 +2660,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("In da final round da Chief had to fight against a oomie warrior. Due to his anger it was a quick and bloody fight. Da Chief made da third rank. In very final round, bruddah Jag fought against Don. Da oomie used his swords, Jag his powerful maces.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2670,8 +2670,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 27));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Endrund. Chief musste kämpfen gegen Ommie Krieger. Aufgrund den Ärger es war kurz und blutig Kampf. Chief machte dritten Rang. In finaler Runde, Bruder Jag kampfte gegen Don. Ommie verwendete sein Schwerter, Jag seine mächtig Streitkolben.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2682,8 +2682,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2693,8 +2693,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2705,8 +2705,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("In a long fight dey hacked at each oddha wib such strength and speed dat yoo could barely see dey weapons. Ib one ob dey blows would habs missed and hit da wooden arena ground, dey would habs fallen into da water.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("In a long fight dey hacked at each oddha wib such strength and speed dat yoo could barely see dey weapons. Ib one ob dey blows would habs missed and hit da wooden arena ground, dey would habs fallen into da water.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2718,8 +2718,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("In langer Kampf die schlugen sich mit solch Stärke und Schnelligkeit, dass kaum zu sehen war Waffen. Wenn einer Schlag daneben gesetzt und Holzbühne getroffen hätte, die würden gefallen in Wasser.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("In langer Kampf die schlugen sich mit solch Stärke und Schnelligkeit, dass kaum zu sehen war Waffen. Wenn einer Schlag daneben gesetzt und Holzbühne getroffen hätte, die würden gefallen in Wasser.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2729,8 +2729,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("In a long fight dey hacked at each oddha wib such strength and speed dat yoo could barely see dey weapons. Ib one ob dey blows would habs missed and hit da wooden arena ground, dey would habs fallen into da water.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("In a long fight dey hacked at each oddha wib such strength and speed dat yoo could barely see dey weapons. Ib one ob dey blows would habs missed and hit da wooden arena ground, dey would habs fallen into da water.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2739,8 +2739,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 28));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("In langer Kampf die schlugen sich mit solch Stärke und Schnelligkeit, dass kaum zu sehen war Waffen. Wenn einer Schlag daneben gesetzt und Holzbühne getroffen hätte, die würden gefallen in Wasser.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("In langer Kampf die schlugen sich mit solch Stärke und Schnelligkeit, dass kaum zu sehen war Waffen. Wenn einer Schlag daneben gesetzt und Holzbühne getroffen hätte, die würden gefallen in Wasser.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2751,8 +2751,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2762,8 +2762,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2774,8 +2774,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("When it seemed dat Jag would lose, da Orcs at da tribune shouted louder, growled and grunted from da side of da Arena. Jag heard dat, felt da spirit ob da Faddah and did two sudden blows wib his maces - Don was done!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("When it seemed dat Jag would lose, da Orcs at da tribune shouted louder, growled and grunted from da side of da Arena. Jag heard dat, felt da spirit ob da Faddah and did two sudden blows wib his maces - Don was done!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2787,8 +2787,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Wenn scheinen dass Jag verlieren, Orks neben Bühne brüllten lauter, knurrten und grunzten von Seite von Arena. Jag hörte das, spürte Geist von Vater und machte zwei schnell Schlag mit Streitkolben - Don war fertig!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Wenn scheinen dass Jag verlieren, Orks neben Bühne brüllten lauter, knurrten und grunzten von Seite von Arena. Jag hörte das, spürte Geist von Vater und machte zwei schnell Schlag mit Streitkolben - Don war fertig!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2798,8 +2798,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("When it seemed dat Jag would lose, da Orcs at da tribune shouted louder, growled and grunted from da side of da Arena. Jag heard dat, felt da spirit ob da Faddah and did two sudden blows wib his maces - Don was done!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("When it seemed dat Jag would lose, da Orcs at da tribune shouted louder, growled and grunted from da side of da Arena. Jag heard dat, felt da spirit ob da Faddah and did two sudden blows wib his maces - Don was done!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2808,8 +2808,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 29));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Wenn scheinen dass Jag verlieren, Orks neben Bühne brüllten lauter, knurrten und grunzten von Seite von Arena. Jag hörte das, spürte Geist von Vater und machte zwei schnell Schlag mit Streitkolben - Don war fertig!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Wenn scheinen dass Jag verlieren, Orks neben Bühne brüllten lauter, knurrten und grunzten von Seite von Arena. Jag hörte das, spürte Geist von Vater und machte zwei schnell Schlag mit Streitkolben - Don war fertig!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2820,8 +2820,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2831,8 +2831,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2843,8 +2843,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Da Orcs became da glory winners ob da tournament!...yoo want hear da rest ob da glory day now?");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2856,8 +2856,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Orks wurden glorreich Sieger von Turnier!...du wollen hören Rest von glorreich Tag nun?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Orks wurden glorreich Sieger von Turnier!...du wollen hören Rest von glorreich Tag nun?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2869,9 +2869,9 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("You know the name now. When you are back at Hummi, tell him the name of the ork who one. The name starts with a 'J'. ;) If you like to listen to the rest of the story, use 'yubba' or 'more'. Use 'stop' in order to break up the story."));
-talkEntry:addResponse("Da Orcs became da glory winners ob da tournament!...yoo want hear da rest ob da glory day now?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 3));
+talkEntry:addResponse("Da Orcs became da glory winners ob da tournament!...yoo want hear da rest ob da glory day now?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2884,9 +2884,9 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Du weißt nun den Namen. Wenn du zurück bei Hummi bist, nenne ihm den Namen des Orks der gewonnen hat. Der Name beginnt mit einem 'J'. ;) Den Rest der Geschichte kannst du dir mit 'Yubba' oder 'Weiter' anhören, oder eben mit 'Stop' die Geschichte abbrechen."));
-talkEntry:addResponse("Orks wurden glorreich Sieger von Turnier!...du wollen hören Rest von glorreich Tag nun?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 3));
+talkEntry:addResponse("Orks wurden glorreich Sieger von Turnier!...du wollen hören Rest von glorreich Tag nun?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2897,9 +2897,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("You know the name now. When you are back at Hummi, tell him the name of the ork who one. The name starts with a 'J'. ;) If you like to listen to the rest of the story, use 'yubba' or 'more'. Use 'stop' in order to break up the story."));
-talkEntry:addResponse("Da Orcs became da glory winners ob da tournament!...yoo want hear da rest ob da glory day now?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 3));
+talkEntry:addResponse("Da Orcs became da glory winners ob da tournament!...yoo want hear da rest ob da glory day now?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2909,30 +2909,30 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 30));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Du weißt nun den Namen. Wenn du zurück bei Hummi bist, nenne ihm den Namen des Orks der gewonnen hat. Der Name beginnt mit einem 'J'. ;) Den Rest der Geschichte kannst du dir mit 'Yubba' oder 'Weiter' anhören, oder eben mit 'Stop' die Geschichte abbrechen."));
-talkEntry:addResponse("Orks wurden glorreich Sieger von Turnier!...du wollen hören Rest von glorreich Tag nun?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 3));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 30));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Yeah");
-talkEntry:addTrigger("Yubba");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Da Orcs became da glory winners ob da tournament!...yoo want hear da rest ob da glory day now?");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 30));
-talkEntry:addTrigger("Yeah");
-talkEntry:addTrigger("Yubba");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
 talkEntry:addResponse("Orks wurden glorreich Sieger von Turnier!...du wollen hören Rest von glorreich Tag nun?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 30));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Yeah");
+talkEntry:addTrigger("Yubba");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Da Orcs became da glory winners ob da tournament!...yoo want hear da rest ob da glory day now?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 30));
+talkEntry:addTrigger("Yeah");
+talkEntry:addTrigger("Yubba");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Orks wurden glorreich Sieger von Turnier!...du wollen hören Rest von glorreich Tag nun?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2943,8 +2943,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2954,8 +2954,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2966,8 +2966,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Naturally, after da tournament maneh othurr warriors wanted to test their weakness against da mighty Orcs. Jag and da Chief smashed dem all, one after da other.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Naturally, after da tournament maneh othurr warriors wanted to test their weakness against da mighty Orcs. Jag and da Chief smashed dem all, one after da other.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2979,8 +2979,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Natürlich nach Turnier viel andere Krieger wollten testen ihre Schwäche gegen mächtig Orks. Jag und Chief schlugen alle, einen nach anderen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Natürlich nach Turnier viel andere Krieger wollten testen ihre Schwäche gegen mächtig Orks. Jag und Chief schlugen alle, einen nach anderen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2990,8 +2990,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Naturally, after da tournament maneh othurr warriors wanted to test their weakness against da mighty Orcs. Jag and da Chief smashed dem all, one after da other.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Naturally, after da tournament maneh othurr warriors wanted to test their weakness against da mighty Orcs. Jag and da Chief smashed dem all, one after da other.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3000,8 +3000,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 31));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Natürlich nach Turnier viel andere Krieger wollten testen ihre Schwäche gegen mächtig Orks. Jag und Chief schlugen alle, einen nach anderen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Natürlich nach Turnier viel andere Krieger wollten testen ihre Schwäche gegen mächtig Orks. Jag und Chief schlugen alle, einen nach anderen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3012,8 +3012,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3023,8 +3023,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3035,8 +3035,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("One ob da opponents wus da oomie Gerron Lavence. Da Chief recognized him immediately: It wus one ob da Temple memburs who once broke da law and entered da holy lands ob da Father without permission.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("One ob da opponents wus da oomie Gerron Lavence. Da Chief recognized him immediately: It wus one ob da Temple memburs who once broke da law and entered da holy lands ob da Father without permission.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3048,8 +3048,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Ein Gegner war Ommie Gerron Lavence. Chief erkannte sofort: Es waren einer von Tempel Mitglieder wo einmal brachen Gesetz und betraten heilig Land von Vater ohne Erlaubnis.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Ein Gegner war Ommie Gerron Lavence. Chief erkannte sofort: Es waren einer von Tempel Mitglieder wo einmal brachen Gesetz und betraten heilig Land von Vater ohne Erlaubnis.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3059,8 +3059,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("One ob da opponents wus da oomie Gerron Lavence. Da Chief recognized him immediately: It wus one ob da Temple memburs who once broke da law and entered da holy lands ob da Father without permission.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("One ob da opponents wus da oomie Gerron Lavence. Da Chief recognized him immediately: It wus one ob da Temple memburs who once broke da law and entered da holy lands ob da Father without permission.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3069,8 +3069,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 32));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Ein Gegner war Ommie Gerron Lavence. Chief erkannte sofort: Es waren einer von Tempel Mitglieder wo einmal brachen Gesetz und betraten heilig Land von Vater ohne Erlaubnis.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Ein Gegner war Ommie Gerron Lavence. Chief erkannte sofort: Es waren einer von Tempel Mitglieder wo einmal brachen Gesetz und betraten heilig Land von Vater ohne Erlaubnis.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3081,8 +3081,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3092,8 +3092,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3104,8 +3104,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Eben worse, he dared to attack da Orcs who wanted tomake him go and also smashed da Chief wit da help ob a mage.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3117,8 +3117,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Viel schlimmer, er traute angreifen Orks die wollten vertreiben ihn und auch schlagen Chief mit Hilfe von Zauberer.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Viel schlimmer, er traute angreifen Orks die wollten vertreiben ihn und auch schlagen Chief mit Hilfe von Zauberer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3128,8 +3128,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Eben worse, he dared to attack da Orcs who wanted to make him go and also smashed da Chief wit da help ob a mage.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3138,8 +3138,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 33));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Viel schlimmer, er traute angreifen Orks die wollten vertreiben ihn und auch schlagen Chief mit Hilfe von Zauberer.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3150,8 +3150,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3161,8 +3161,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3173,8 +3173,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Wif dat in da mind ob da smart Chief, he called for all his bruddahs and sistahs. Da horde surrounded da oomie Gerron and blocked da gate.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3186,8 +3186,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Haben das in Erinnerung von schlauer Chief, er ruffen alle Brüder und Schwester erreichbar. Horde umkesselte Ommie Gerron und blockiert Tor.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Haben das in Erinnerung von schlauer Chief, er ruffen alle Brüder und Schwester erreichbar. Horde umkesselte Ommie Gerron und blockiert Tor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3197,8 +3197,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Wif dat in da mind ob da smart Chief, he called for all his bruddahs and sistahs. Da horde surrounded da oomie Gerron and blocked da gate.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3207,8 +3207,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 34));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Haben das in Erinnerung von schlauer Chief, er ruffen alle Brüder und Schwester erreichbar. Horde umkesselte Ommie Gerron und blockiert Tor.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3219,8 +3219,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3230,8 +3230,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3242,8 +3242,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Orcs wus angry. Orcs hab fought all day. Orcs wus hungry for revenge. Den da slaughtering began.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3255,8 +3255,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Orks war wütend. Orks haben gekämpft ganz Tag. Orks war hungrig nach Rache. Dann Gemetzel begonnen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Orks war wütend. Orks haben gekämpft ganz Tag. Orks war hungrig nach Rache. Dann Gemetzel begonnen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3266,8 +3266,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Orcs wus angry. Orcs hab fought all day. Orcs wus hungry for revenge. Den da slaughtering began.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3276,8 +3276,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 35));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Orks war wütend. Orks haben gekämpft ganz Tag. Orks war hungrig nach Rache. Dann Gemetzel begonnen.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3288,8 +3288,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3299,8 +3299,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3311,8 +3311,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Da coward Gerron began to flee after few slashes, but da horde chased him and blocked the way many times. Then a lizard helped da oomie Gerron to reach the gates.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3324,8 +3324,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Feigling Gerron beginnen fliehen nach wenig Schläge, aber Horde jagd ihn, blockiert Weg viel mal. Dann Echse griff ein und helfen Ommie Gerron zu erreichen Tor.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Feigling Gerron beginnen fliehen nach wenig Schläge, aber Horde jagd ihn, blockiert Weg viel mal. Dann Echse griff ein und helfen Ommie Gerron zu erreichen Tor.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3335,8 +3335,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Da coward Gerron began to flee after few slashes, but da horde chased him and blocked the way many times. Then a lizard helped da oomie Gerron to reach the gates.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3345,8 +3345,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 36));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Feigling Gerron beginnen fliehen nach wenig Schläge, aber Horde jagd ihn, blockiert Weg viel mal. Dann Echse griff ein und helfen Ommie Gerron zu erreichen Tor.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3357,8 +3357,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3368,8 +3368,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3380,8 +3380,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Smart and mighty bruddah Jag saw da oomie might be able to flee and threw a Gynk fire for da oomie. Da explosion wus loud, da fire bright and hot. When oomie Gerron fell to his knees, being nuttin but a flaming oomie, his end wus sealed.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3393,8 +3393,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Schlau und mächtig Bruder Jag sah Ommie können fähig sein fliehen und warf Gynk Feuer nach Ommie. Explosion war laut, Feuer hell und heiß. Wenn Ommie stürzen zu Knie, nix sein außer flammiger Ommie, sein Ende besiegelt.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Schlau und mächtig Bruder Jag sah Ommie können fähig sein fliehen und warf Gynk Feuer nach Ommie. Explosion war laut, Feuer hell und heiß. Wenn Ommie stürzen zu Knie, nix sein außer flammiger Ommie, sein Ende besiegelt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3404,8 +3404,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Smart and mighty bruddah Jag saw da oomie might be able to flee and threw a Gynk fire for da oomie. Da explosion wus loud, da fire bright and hot. When oomie Gerron fell to his knees, being nuttin but a flaming oomie, his end wus sealed.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3414,8 +3414,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 37));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Schlau und mächtig Bruder Jag sah Ommie können fähig sein fliehen und warf Gynk Feuer nach Ommie. Explosion war laut, Feuer hell und heiß. Wenn Ommie stürzen zu Knie, nix sein außer flammiger Ommie, sein Ende besiegelt.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3426,8 +3426,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3437,8 +3437,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3449,8 +3449,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("His gods might hab welcomed his fouled soul on da othurr side. Though, da fight wus nub ober yet.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3462,8 +3462,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Sein Gott mögen willkommen nehmen sein faule Seele auf anderer Seite. Denoch Kampf nicht vorbei nun.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Sein Gott mögen willkommen nehmen sein faule Seele auf anderer Seite. Denoch Kampf nicht vorbei nun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3473,8 +3473,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("His gods might hab welcomed his fouled soul on da othurr side. Though, da fight wus nub ober yet.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3483,8 +3483,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 38));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Sein Gott mögen willkommen nehmen sein faule Seele auf anderer Seite. Denoch Kampf nicht vorbei nun.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3495,8 +3495,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3506,8 +3506,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3518,8 +3518,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Da lizard still attacked da Orcs as well as an oomie called Jefferson. Da Orcs formed up again and slashed dem one after da other!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3531,8 +3531,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Echse weiter angreifen wie auch Ommie mit namen Jefferson. Orks formen noch einmal und schlugen einen nach anderen bis fallen nach anderen!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Echse weiter angreifen wie auch Ommie mit namen Jefferson. Orks formen noch einmal und schlugen einen nach anderen bis fallen nach anderen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3542,8 +3542,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Da lizard still attacked da Orcs as well as an oomie called Jefferson. Da Orcs formed up again and slashed dem one after da other!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3552,8 +3552,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 39));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("Echse weiter angreifen wie auch Ommie mit namen Jefferson. Orks formen noch einmal und schlugen einen nach anderen bis fallen nach anderen!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3564,8 +3564,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3575,8 +3575,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3587,8 +3587,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("In da end ob battle da victorious Orcs stood alone on da Arena in da blood ob da oomies. Though, oomies nub whud beh oomies and da Temple nub whud beh da Temple if dey nub beh very stoopid!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3600,8 +3600,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("In Ende von Schlacht siegreich Orks stehen alleine in Arena in Blut von Ommies. Doch Ommies nix sein Ommies und Tempel nix sein Tempel wenn die nix sein sehr dumm!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("In Ende von Schlacht siegreich Orks stehen alleine in Arena in Blut von Ommies. Doch Ommies nix sein Ommies und Tempel nix sein Tempel wenn die nix sein sehr dumm!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3611,8 +3611,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("In da end ob battle da victorious Orcs stood alone on da Arena in da blood ob da oomies. Though, oomies nub whud beh oomies and da Temple nub whud beh da Temple if dey nub beh very stoopid!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3621,8 +3621,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 40));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("In Ende von Schlacht siegreich Orks stehen alleine in Arena in Blut von Ommies. Doch Ommies nix sein Ommies und Tempel nix sein Tempel wenn die nix sein sehr dumm!");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3633,8 +3633,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3644,8 +3644,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3656,8 +3656,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("So dey came back and wunted to fight da Orcs. But Orcs beh smart! We had our victory on dat day and left da oomie town. We returned to holy lands into our cave.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3669,8 +3669,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("So die kommen zurück und wollen kämpfen gegen Orks. Aber Orks schlau! Wir haben unser Sieg am Tag und verlassen Ommie Stadt. Wir zurück zu heilig Land in unser Höhle.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("So die kommen zurück und wollen kämpfen gegen Orks. Aber Orks schlau! Wir haben unser Sieg am Tag und verlassen Ommie Stadt. Wir zurück zu heilig Land in unser Höhle.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3680,8 +3680,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("So dey came back and wunted to fight da Orcs. But Orcs beh smart! We had our victory on dat day and left da oomie town. We returned to holy lands into our cave.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3690,8 +3690,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 41));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
+talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addResponse("So die kommen zurück und wollen kämpfen gegen Orks. Aber Orks schlau! Wir haben unser Sieg am Tag und verlassen Ommie Stadt. Wir zurück zu heilig Land in unser Höhle.");
-talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3702,8 +3702,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3713,8 +3713,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3725,8 +3725,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Nub much later da oomies ob da Temple came to Orc gates and wunted us to get out. We knew dat wus a trap. We knew dat Father whud judge dem fer entering Orc lands once again.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Nub much later da oomies ob da Temple came to Orc gates and wunted us to get out. We knew dat wus a trap. We knew dat Father whud judge dem fer entering Orc lands once again.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3738,8 +3738,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Nix viel später Ommies von Tempel kommen zu Ork Tor und wollen uns raus kommen. Wir wissen das sein Falle. Wir wissen das Vater werden richten die für betreten Ork Land wieder.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Nix viel später Ommies von Tempel kommen zu Ork Tor und wollen uns raus kommen. Wir wissen das sein Falle. Wir wissen das Vater werden richten die für betreten Ork Land wieder.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3749,8 +3749,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("Nub much later da oomies ob da Temple came to Orc gates and wunted us to get out. We knew dat wus a trap. We knew dat Father whud judge dem fer entering Orc lands once again.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Nub much later da oomies ob da Temple came to Orc gates and wunted us to get out. We knew dat wus a trap. We knew dat Father whud judge dem fer entering Orc lands once again.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3759,8 +3759,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 42));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("Nix viel später Ommies von Tempel kommen zu Ork Tor und wollen uns raus kommen. Wir wissen das sein Falle. Wir wissen das Vater werden richten die für betreten Ork Land wieder.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("Nix viel später Ommies von Tempel kommen zu Ork Tor und wollen uns raus kommen. Wir wissen das sein Falle. Wir wissen das Vater werden richten die für betreten Ork Land wieder.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3771,8 +3771,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3782,8 +3782,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3794,8 +3794,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("So we made jokes ob dem and let dem rot in front ob our gates under da eyes ob our brave gate guard.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("So we made jokes ob dem and let dem rot in front ob our gates under da eyes ob our brave gate guard.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3807,8 +3807,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("So wir machen Witze über die und lassen die verrotten vor unser Tor unter Auge unser tapfer Torwache.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("So wir machen Witze über die und lassen die verrotten vor unser Tor unter Auge unser tapfer Torwache.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3818,8 +3818,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
-talkEntry:addResponse("So we made jokes ob dem and let dem rot in front ob our gates under da eyes ob our brave gate guard.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("So we made jokes ob dem and let dem rot in front ob our gates under da eyes ob our brave gate guard.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3828,8 +3828,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 43));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Verwende 'Yubba' oder 'Weiter' um weiterzulauschen. Verwende 'Stop' um seine Geschichte abzubrechen."));
-talkEntry:addResponse("So wir machen Witze über die und lassen die verrotten vor unser Tor unter Auge unser tapfer Torwache.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
+talkEntry:addResponse("So wir machen Witze über die und lassen die verrotten vor unser Tor unter Auge unser tapfer Torwache.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3840,8 +3840,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3851,8 +3851,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3863,8 +3863,8 @@ talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] The story is over. Have you already listen to the other one? Ask for 'story' if not."));
-talkEntry:addResponse("Dat wus da Day ob Green Growl! Meh proud to beh an Orc! Remembur ob dat glory day. And beh prepared fer next Orc meeting! Chief Rugh'toh ...*He grunts, closes his eyes and falls silent.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Dat wus da Day ob Green Growl! Meh proud to beh an Orc! Remembur ob dat glory day. And beh prepared fer next Orc meeting! Chief Rugh'toh ...*He grunts, closes his eyes and falls silent.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3876,8 +3876,8 @@ talkEntry:addTrigger("Gerne");
 talkEntry:addTrigger("Jawohl");
 talkEntry:addTrigger("Weiter");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Die Geschichte ist vorbei. Hast du schon die andere Geschichte gehört? Frage nach 'Geschichte' falls nicht."));
-talkEntry:addResponse("Das war Tag von Grün Knurren! Mich stolz zu sein Ork! Erinnert glorreichen Tag. Und seit bereit für nächstes Ork Treffen! Chief Rugh'toh...*Er grunzt, schließt seine Augen und wir leise.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Das war Tag von Grün Knurren! Mich stolz zu sein Ork! Erinnert glorreichen Tag. Und seit bereit für nächstes Ork Treffen! Chief Rugh'toh...*Er grunzt, schließt seine Augen und wir leise.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3887,8 +3887,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] The story is over. Have you already listen to the other one? Ask for 'story' if not."));
-talkEntry:addResponse("Dat wus da Day ob Green Growl! Meh proud to beh an Orc! Remembur ob dat glory day. And beh prepared fer next Orc meeting! Chief Rugh'toh ...*He grunts, closes his eyes and falls silent.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Dat wus da Day ob Green Growl! Meh proud to beh an Orc! Remembur ob dat glory day. And beh prepared fer next Orc meeting! Chief Rugh'toh ...*He grunts, closes his eyes and falls silent.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3897,8 +3897,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 44));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Die Geschichte ist vorbei. Hast du schon die andere Geschichte gehört? Frage nach 'Geschichte' falls nicht."));
-talkEntry:addResponse("Das war Tag von Grün Knurren! Mich stolz zu sein Ork! Erinnert glorreichen Tag. Und seit bereit für nächstes Ork Treffen! Chief Rugh'toh...*Er grunzt, schließt seine Augen und wir leise.*");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Das war Tag von Grün Knurren! Mich stolz zu sein Ork! Erinnert glorreichen Tag. Und seit bereit für nächstes Ork Treffen! Chief Rugh'toh...*Er grunzt, schließt seine Augen und wir leise.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3909,8 +3909,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nub more storeh? Hurrkeh, meh nub tell more.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -3920,8 +3920,8 @@ talkEntry:addTrigger("Nay");
 talkEntry:addTrigger("Nubba");
 talkEntry:addTrigger("Nope");
 talkEntry:addTrigger("Stop");
-talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "=", 0));
+talkEntry:addResponse("Nix mehr Geschichte? Hurrkeh, mich nix weiter erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -4333,7 +4333,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

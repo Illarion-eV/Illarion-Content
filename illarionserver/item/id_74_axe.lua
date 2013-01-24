@@ -121,7 +121,7 @@ function UseItem(User, SourceItem, ltstate)
 		return
 	end
 
-	User:learn( woodchopping.LeadSkill, woodchopping.SavedWorkTime[User.id], 100 );
+	User:learn( woodchopping.LeadSkill, woodchopping.SavedWorkTime[User.id], woodchopping.LearnLimit);
 	amount = amount - 1;
 	TargetItem:setData("wood_amount", "" .. amount);
 	local producedItemId = tree.LogId;

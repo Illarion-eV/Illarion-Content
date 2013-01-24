@@ -59,8 +59,10 @@ itemShoes = 369
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Numila Irunnleh die Wissenschaftlerin. Schlüsselwörter: Auskunft, Information, Runewick, Orte.")
 
 -- Mandatory: General speech
-queststatus(620) = 1, english, ".*" -> "Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers a silvercoin and turns back to her book*", money + 1000, queststatus(620) = 2
-queststatus(620) = 1, ".*" -> "Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht eine Silbermünze und wendet sich wieder ihrem Buch zu*", money + 1000, queststatus(620) = 2
+queststatus(620) = 1, town = Runewick, english, ".*" -> inform("[Quest End] You received 10 silvercoins and 5 rankpoints."), "Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers some silvercoin and turns back to her book*", money + 1000, queststatus(620) = 2, rankpoints+5
+queststatus(620) = 1, town = Runewick, ".*" -> inform("[Quest Ende] Du hast 10 Silberstücke und 5 Rangpunkte erhalten."), "Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht einige Silbermünzen und wendet sich wieder ihrem Buch zu*", money + 1000, queststatus(620) = 2, rankpoints+5
+queststatus(620) = 1, english, ".*" -> inform("[Quest End] You received 10 silvercoins."), "Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers a silvercoin and turns back to her book*", money + 1000, queststatus(620) = 2
+queststatus(620) = 1, ".*" -> inform("[Quest Ende] Du hast 10 Silberstücke erhalten."), "Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht eine Silbermünze und wendet sich wieder ihrem Buch zu*", money + 1000, queststatus(620) = 2
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail Oldra. *Turns back to her book*"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Heil Oldra. *Wendet sich wieder ihrem Buch zu*"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail Oldra. *Turns back to her book*"
@@ -197,10 +199,10 @@ english, "Katanbi Delta" -> "Well, as I said, it is in the southwest and you bet
 "Katanbi Delta" -> "Nun, wie ich schon sagte, dieser Ort ist im Südwesten zu finden. Bezüglich mehr Details bietet es sich an jemanden dort wohnhaften zu fragen. Zum Beispiel Ruzusss in Cadomyr."
 english, "Ruzusss" -> "You can find him in Cadomyr and he knows several places in the southwest, thus around Cadomyr."
 "Ruzusss" -> "Den findet man in Cadomyr und der kennt sämtliche Orte im Südwesten, sprich um Cadomyr."
-"Chapel Five" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert."
-"Kapelle Fünf" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste."
-"Chapel" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert."
-"Kapelle" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste."
+"Chapel Five" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert. Ask Ruzuss in Cadomyr if you cannot find it."
+"Kapelle Fünf" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste. Frage Ruzuss in Cadomyr falls du sie nicht finden kannst."
+"Chapel" -> "The Chapel of the Five is on the southern end of the Border Mountains and at the eastern border of Katanbi Desert. Ask Ruzuss in Cadomyr if you cannot find it."
+"Kapelle" -> "Die Kapelle der Fünf ist am südlichen Ende der Grenzberge und an der östlichen Grenze der Katanbi Wüste. Frage Ruzuss in Cadomyr falls du sie nicht finden kannst."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_runewick_2.quest belongs to this NPC: Quest-ID.: 622
