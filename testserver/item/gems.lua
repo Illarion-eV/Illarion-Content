@@ -210,7 +210,7 @@ end
 
 function isSocketable(itemId)
     -- currently only weapons can be socketed
-    return world:getWeaponStruct(itemId) ~= nil
+    return world:getWeaponStruct(itemId)
 end
 
 function magicSmith(npc, player)
