@@ -149,9 +149,9 @@ function handleSocketing(user, gem)
 
             if isSocketable(item.id) then
                 local key = gemDataKey[gemId[gem.id]]
-                local gemExists = item:getData(key)
+                local level = item:getData(key)
 
-                if not gemExists then
+                if level == "" then
                     local newLevel = gem:getData(levelDataKey)
                     item:setData(key, newLevel)
                     world:erase(gem, 1)
