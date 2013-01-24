@@ -140,9 +140,15 @@ end
 function handleSocketing(user, gem)
     local socketablePositions = getSocketablePositions(user)
 
+    if #socketablePositions == 0 then
+        user:inform("Es ist kein sockelbarer Gegenstand in deinem Inventar!",
+                    "There is no socketable item in your inventory!", Character.highPriority)
+        return
+    end
+
 	local callback = function(dialog)
         local success = dialog:getSuccess()
-        if success and base.common.CheckItem(user, gem) then
+        if success and gem.owner.id == user.id then
             local selected = dialog:getSelectedIndex() + 1
             local slot = socketablePositions[selected]
             local item = user:getItemAt(slot)
@@ -156,6 +162,8 @@ function handleSocketing(user, gem)
                     item:setData(key, newLevel)
                     world:erase(gem, 1)
                     world:changeItem(item)
+                    user:inform("Der gewählte Gegenstand wurde gesockelt.",
+                                "The selected item has been socketed.")
                 else
                     user:inform("Dieser Gegenstand beinhaltet bereits einen Edelstein dieser Art!",
                                 "This item contains a gem of this kind already!", Character.highPriority)
@@ -243,6 +251,12 @@ end
 function unsocketGems(user)
     local unsocketPositions = getSocketablePositions(user, itemHasGems)
 
+    if #unsocketPositions == 0 then
+        user:inform("Es ist kein entsockelbarer Gegenstand in deinem Inventar!",
+                    "There is no unsocketable item in your inventory!", Character.highPriority)
+        return
+    end
+
     local callback = function(dialog)
         local success = dialog:getSuccess()
         if success then
@@ -268,6 +282,9 @@ function unsocketGems(user)
                     
                     base.money.TakeMoneyFromChar(user, 100000)
                     world:changeItem(item)
+
+                    user:inform("Alle Edelsteine wurden aus dem Gegenstand entfernt und dir zurückgegeben.",
+                                "All gems were removed from the item and returned to you.")
                 else
                     user:inform("Du hast keine zehn Goldmünzen!", "You do not have ten gold coins!", Character.highPriority)
                 end
@@ -277,8 +294,8 @@ function unsocketGems(user)
 
     local language = user:getPlayerLanguage()
     local caption = base.common.GetNLS(user, "Entsockeln", "Unsocketing")
-    local description = base.common.GetNLS(user, "Bitte wähle eine Waffe die entsockelt werden soll (dies kostet dich 10g):",
-                                                 "Please select a weapon to remove all gems from (this will cost you 10g):")
+    local description = base.common.GetNLS(user, "Bitte wähle einen Gegenstand der entsockelt werden soll. Kosten: Zehn Goldmünzen",
+                                                 "Please select an item to remove all gems from. Cost: ten gold coins")
     local dialog = SelectionDialog(caption, description, callback)
 
     for i=1,#unsocketPositions do
