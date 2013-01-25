@@ -364,3 +364,8 @@ function doubleEffect( e, c )
     local found, n = e:findValue("n");
     c:inform("--- tried to add effect, but it is still active (n == "..n..") ---");
 end;
+
+function MoveItemAfterMove(user, source, target)
+    user:inform("MoveItemAfterMove (source): " .. source.pos.x .. ", " .. source.pos.y .. ", " .. source.pos.z)
+    user:inform("MoveItemAfterMove (target): " .. target.pos.x .. ", " .. target.pos.y .. ", " .. target.pos.z)
+end
