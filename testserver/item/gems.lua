@@ -176,7 +176,8 @@ function handleSocketing(user, gem)
     local caption = base.common.GetNLS(user, "Sockeln", "Socketing")
     local description = base.common.GetNLS(user, "Bitte wähle eine Waffe die gesockelt werden soll:", "Please select a weapon to insert the gem into:")
     local dialog = SelectionDialog(caption, description, callback)
-   
+    dialog:setCloseOnMove()
+
     for i=1,#socketablePositions do
         local slot = socketablePositions[i]
         local itemId = user:getItemAt(slot).id
@@ -239,6 +240,8 @@ function magicSmith(npc, player)
     local title = base.common.GetNLS(player, "Magieschmied", "Magic Blacksmith")
     local text = base.common.GetNLS(player, "Wie kann ich behilflich sein?", "How may I be of assistance?")
     local dialog = SelectionDialog(title, text, callback)
+    dialog:setCloseOnMove()
+    
     local hammer = 122
     local tongs = 2140
     
@@ -297,6 +300,7 @@ function unsocketGems(user)
     local description = base.common.GetNLS(user, "Bitte wähle einen Gegenstand der entsockelt werden soll. Kosten: Zehn Goldmünzen",
                                                  "Please select an item to remove all gems from. Cost: ten gold coins")
     local dialog = SelectionDialog(caption, description, callback)
+    dialog:setCloseOnMove()
 
     for i=1,#unsocketPositions do
         local slot = unsocketPositions[i]
