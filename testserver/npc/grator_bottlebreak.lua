@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   merung                                                           --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -17,22 +17,44 @@ VALUES (1, 377, 223, 0, 6, 'Grator Bottlebreak', 'npc.grator_bottlebreak', 0, 1,
 require("npc.base.basic")
 require("npc.base.condition.language")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.trade")
 require("npc.base.talk")
+require("npc.base.trade")
 module("npc.grator_bottlebreak", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
 local talkingNPC = npc.base.talk.talkNPC(mainNPC);
+local tradingNPC = npc.base.trade.tradeNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Grator Bottlebreak the alchemist. Keywords: recipes, alchemy"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Grator Bottlebreak the alchemist. Keywords: recipes, alchemy, book"));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Grator Bottlebreak der Alchemist. Schlüsselwörter: Rezepte, Alchemie"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Grator Bottlebreak der Alchemist. Schlüsselwörter: Rezepte, Alchemie, Buch"));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("handel");
+talkEntry:addTrigger("kauf");
+talkEntry:addTrigger("Buch");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Bei mir könnt Ihr das Standardwerk der Alchemie erwerben.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("buy");
+talkEntry:addTrigger("sell,");
+talkEntry:addTrigger("trade");
+talkEntry:addTrigger("book");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("You can buy the standard work of alchemy from me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -141,7 +163,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I was doing better. I was doing worse.");
+talkEntry:addResponse("I have done better, I have done worse.");
 talkEntry:addResponse("I am fine.");
 talkEntry:addResponse("Thanks for asking. I am doing well.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -255,7 +277,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("druid");
-talkEntry:addResponse("Druids are actually rather strange people. Most of them are excellent alchemists, true. But well. They indded have some mazy ideas: spirits of natur, will of nature and all those things.");
+talkEntry:addResponse("Druids are actually rather strange people. Most of them are excellent alchemists, true, but well, they indeed have some crazy ideas: spirits of nature, will of nature and all those things.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -269,7 +291,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("alchemy");
 talkEntry:addTrigger("alchemist");
-talkEntry:addResponse("Alchemists are masters of potions, have profound knowledge about the herbs, and are keen observer of the world.");
+talkEntry:addResponse("Alchemists are masters of potions, have profound knowledge about the herbs, and are keen observers of the world.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -285,7 +307,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("heal");
 talkEntry:addTrigger("medicine");
 talkEntry:addTrigger("medical");
-talkEntry:addResponse("Medicine. If you know the arte of creating medicine very well, you can fight against all diseases.");
+talkEntry:addResponse("Medicine... If you know the art of creating medicine very well, you can fight against all diseases.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -298,7 +320,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("potion");
-talkEntry:addResponse("Potions are true wonders. They may cause great benefaction or great disaster.");
+talkEntry:addResponse("Potions are true wonders, they may cause great benefits or catastrophic disasters.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -311,7 +333,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("herb");
-talkEntry:addResponse("Herbs are the foundation of alchemy. More powerful than any sword or spell.");
+talkEntry:addResponse("Herbs are the foundation of alchemy, more powerful than any sword or spell.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -324,7 +346,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("dust");
-talkEntry:addResponse("O, what would be a potion without gem dust - a stock! Right!");
+talkEntry:addResponse("Oh, what would a potion be without gem dust? A stock! Right!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -377,7 +399,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sickle");
-talkEntry:addResponse("The way you treat it, the way will the sickel treat you.");
+talkEntry:addResponse("The way you treat it, is the way the sickle will treat you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -429,13 +451,14 @@ end;
 talkingNPC:addCycleText("#me betrachtet eine Flasche.", "#me looks closely at a bottle.");
 talkingNPC:addCycleText("Wo bleibt er nur mit meinem Trank?", "What takes him so long to bring me my potion?");
 talkingNPC:addCycleText("#me hackt Kräuter klein.", "#me chops some herbs.");
-talkingNPC:addCycleText("#me sortiert einige Kräuter.", "#me assorts some herbs.");
+talkingNPC:addCycleText("#me sortiert einige Kräuter.", "#me sorts some herbs.");
 talkingNPC:addCycleText("#me beschriftet eine Flasche.", "#me labels a bottle.");
-talkingNPC:addCycleText("#me füllt einen Trank ab.", "#me fills a potion into a bottle.");
-talkingNPC:addCycleText("#me lässt einen Rubin fallen und hebt ihn seufzend wieder auf.", "#me drops a ruby and picks it up with a sigh.");
-talkingNPC:addCycleText("Adrazin...Adrazin...immwer wieder Adrazin!", "Adrazin...Adrazin...and again: Adrazin!");
-talkingNPC:addCycleText("Das nächste mal sollte ich darauf achten, was ich in den Kessel tue.", "Next time, I should take care what I fill into the cauldron.");
-talkingNPC:addCycleText("Jemand, der noch nie was zum explodieren gebracht hat, ist kein richtiger Alchemist.", "Someone who never have caused and explosion can hardly be called an alchemist.");
+talkingNPC:addCycleText("#me füllt einen Trank ab.", "#me pours a potion into a bottle.");
+talkingNPC:addCycleText("#me lässt einen Rubin fallen und hebt ihn seufzend wieder auf.", "#me drops a ruby, picking it up again with a sigh.");
+talkingNPC:addCycleText("Adrazin...Adrazin...immwer wieder Adrazin!", "Adrazin...Adrazin...and again, Adrazin!");
+talkingNPC:addCycleText("Das nächste mal sollte ich darauf achten, was ich in den Kessel tue.", "Next time, I should take care what I pour into the cauldron.");
+talkingNPC:addCycleText("Jemand, der noch nie was zum explodieren gebracht hat, ist kein richtiger Alchemist.", "Someone who has never caused an explosion can hardly be called an alchemist.");
+tradingNPC:addItem(npc.base.trade.tradeNPCItem(2622,"sell","Buch der Alchemie","Book Of Alchemy",1000,1,333,nil));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
@@ -458,7 +481,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
