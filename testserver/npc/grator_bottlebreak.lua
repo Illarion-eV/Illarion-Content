@@ -4,15 +4,9 @@
 --                                                                            --
 -- NPC Race: dwarf                      NPC Position:  377, 223, 0            --
 -- NPC Sex:  male                       NPC Direction: west                   --
-<<<<<<< HEAD
 --                                                                            --
 -- Author:   merung                                                           --
 --                                                       easyNPC Parser v1.22 --
-=======
---                                                                            --
--- Author:   merung                                                           --
---                                                       easyNPC Parser v1.22 --
->>>>>>> 84a6ca0598cc2916814da6428e5e78a91204ff8d
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -405,11 +399,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sickle");
-<<<<<<< HEAD
 talkEntry:addResponse("The way you treat it, is the way the sickle will treat you.");
-=======
-talkEntry:addResponse("The way you treat it is the way the sickle will treat you.");
->>>>>>> 84a6ca0598cc2916814da6428e5e78a91204ff8d
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
