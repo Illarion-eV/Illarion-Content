@@ -1,4 +1,4 @@
-------------------------------------------------------------------------------AC
+------------------------------------------------------------------------------
 -- NPC Name: Joseph Quatrilla                                         Cadomyr --
 -- NPC Job:  Alchemist                                                        --
 --                                                                            --
@@ -57,6 +57,15 @@ sellItem = id(2622), de("Buch der Alchemie"), en("Book Of Alchemy"), price(1000)
 "handel", "kauf", "Buch" -> trade, "Bei mir könnt Ihr das Standardwerk der Alchemie erwerben."
 "buy", "sell,", "trade", "book" -> trade, "You can buy the standard work of alchemy from me."
 
+------------------------------------------------------------------------------
+-- help
+"Help" -> inform("[Game Help] This NPC is Joseph Quatrilla the master of alchemy. Keywords: recipes, alchemy, book")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Joseph Quatrilla der Lehrmeister der Alchemie. Schlüsselwörter: Rezepte, Alchemie, Buch")
+
+sellItem = id(2622), de("Buch der Alchemie"), en("Book Of Alchemy"), price(1000), stack(1), quality(333)
+"handel","kauf","Buch" -> "Bei mir könnt Ihr das Standardwerk der Alchemie erwerben.",trade
+"buy","sell,","trade","book" -> "You can buy the standard work of alchemy from me.",trade
+
 -- general speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetings!", "Hello.", "Be greeted!"
 "Grüß", "Gruß", "Gruss", "Grüss", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüße.", "Hallo.", "Seid gegrüßt!"
@@ -111,6 +120,7 @@ english, "adrazin", "echolon", "hyperborelium", "dracolin", "orcanol", "fenolin"
 english, "Joseph", "Quatrilla" -> "That's me. Correct."
 "Joseph", "Quatrilla" -> "Das bin ich. Richtig erkannt."
 
+------------------------------------------------------------------------------
 -- cycle Texts
 
 ------------------------------------------------------------------------------AC
