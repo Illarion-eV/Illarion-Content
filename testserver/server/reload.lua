@@ -4,6 +4,7 @@
 
 require("base.common")
 require("base.doors")
+require("content.doors")
 require("content.signpost")
 require("content.gods")
 require("item.lever")
