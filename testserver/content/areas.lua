@@ -33,6 +33,15 @@ function Init()
   AddArea("runewick guard 1", {
     {{position(839,825,0),position(839,819,0),position(846,819,0),position(846,825,0)}, {0}}
   });
+  
+  
+  -- flats to be rented in Cadomyr
+  if isTestserver() then -- work in progress!
+  AddArea("cadomyr flat 1", {
+    {{position(138,602,0),position(144,602,0),position(144,606,0),position(138,606,0)}, {0}}
+  });
+  end -- testserver check end
+  
 end
 
 --- adds an area
