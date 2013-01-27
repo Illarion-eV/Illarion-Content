@@ -37,6 +37,7 @@ function UseItem(User, SourceItem, ltstate)
   
   -- look for fire
   TargetItem = base.common.GetItemInArea(User.pos, 12, 1, true);
+	debug("targetitem x: "..TargetItem.pos.x.." y: "..TargetItem.pos.y);
   if (TargetItem == nil or TargetItem.wear == 255) then
     local i = base.common.GetItemInArea(User.pos, 12, 1, true);
     if (i ~= nil) then
