@@ -1,5 +1,5 @@
 require("base.common")
-require("development.doors")
+
 
 
 -- UPDATE common SET com_script = 'test.merung' WHERE com_itemid = 1266;
