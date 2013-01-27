@@ -1,5 +1,5 @@
 require("base.common")
-
+require("base.lookat")
 
 
 -- UPDATE common SET com_script = 'test.merung' WHERE com_itemid = 1266;
@@ -39,7 +39,11 @@ function UseItem(User, SourceItem)
 		    myTargets[i]:increaseAttrib("hitpoints",-15000)
         end			
     end
-    if (User.lastSpokenText == "doors") then
-        development.doors.initDoors()
-	end	
+    
+    if (User.lastSpokenText == "look") then
+        local myPos = base.common.GetFrontPosition(User)
+		local thisItem = world:getItemOnField(myPos);
+		base.lookat.SetSpecialDescription(thisItem,"ich bin toll","i am great")
+	end
+	
 end
