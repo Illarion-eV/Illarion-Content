@@ -123,8 +123,8 @@ function setRanklist(User, NPC, points)
 	else
 		for i=2, #(ranklist), 2 do
 			if ranklist[i] < tostring(points) then
-				table.insert(ranklist, i, points);
-				table.insert(ranklist, i, User.name);
+				table.insert(ranklist, i+1, points);
+				table.insert(ranklist, i+1, User.name);
 				table.remove(ranklist, 1);
 				table.remove(ranklist, 1);
 				break;
