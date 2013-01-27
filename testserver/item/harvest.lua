@@ -33,7 +33,7 @@ function UseItem(User, SourceItem, ltstate)
 	-- if not base.common.FitForWork( User ) then -- check minimal food points
 		-- return
 	-- end
-
+	debug("SourceItem "..SourceItem.pos.x.." y: "..SourceItem.pos.y)
 	if not base.common.IsLookingAt( User, SourceItem.pos ) then -- check looking direction
 		base.common.TurnTo( User, SourceItem.pos ); -- turn if necessary
 	end
