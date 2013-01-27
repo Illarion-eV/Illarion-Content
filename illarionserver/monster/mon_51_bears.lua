@@ -84,7 +84,9 @@ function onDeath(Monster)
 
         end
     end
-
+    
+	monster.base.drop.ClearDropping();
+    local MonID=Monster:getMonsterType();
    if (MonID==511) then --Grizzly Bear, Level: 5, Armourtype: heavy, Weapontype: concussion
 
         --Category 1: Special Loot
@@ -94,7 +96,7 @@ function onDeath(Monster)
         --Category 2: Perma Loot
         monster.base.drop.AddDropItem(2856,math.random(1,3),100,333,0,2); --fur
 		
-		elseif (MonID==512) then --Young Grizzly Bear, Level: 4, Armourtype: heavy, Weapontype: wrestling
+	elseif (MonID==512) then --Young Grizzly Bear, Level: 4, Armourtype: heavy, Weapontype: wrestling
 
         --Category 1: Special Loot
 

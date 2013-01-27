@@ -66,7 +66,7 @@ product:addIngredient(45, 4) -- Schritt 1: Smaragd(45) 4x
 ------------- SMARAGDSTAUB - FERTIG -----------------
 
 --------------- TOPAS - 198 --------------------
-product = gemcutting:addProduct(catGems, 198, 50, 110, 35, 70)
+product = gemcutting:addProduct(catGems, 198, 50, 100, 35, 70)
 product:addIngredient(257) -- Schritt 1: Roher Topas(257) 1x
 --------------- TOPAS - FERTIG -----------------
 
@@ -76,11 +76,11 @@ product:addIngredient(198, 4) -- Schritt 1: Topas(198) 4x
 --------------- TOPASSTAUB - FERTIG -----------------
 
 --------------- DIAMANT - 285 --------------------
-product = gemcutting:addProduct(catGems, 285, 60, 130, 40, 80)
+product = gemcutting:addProduct(catGems, 285, 60, 100, 40, 80)
 product:addIngredient(254) -- Schritt 1: Rohdiamanten(254) 1x
 --------------- DIAMANT - FERTIG -----------------
 
 --------------- DIAMANTSTAUB - 452 --------------------
-product = gemcutting:addProduct(catDust, 452, 60, 120, 80, 160)
+product = gemcutting:addProduct(catDust, 452, 60, 100, 80, 160)
 product:addIngredient(285, 4) -- Schritt 1: Diamant(285) 4x
 --------------- DIAMANTSTAUB - FERTIG -----------------

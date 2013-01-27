@@ -30,7 +30,7 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the royal treasurere of Cadomyr, Ioannes Faber. Keywords: Be greeted, quest, treasurer, gold."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the royal treasurer of Cadomyr, Ioannes Faber. Keywords: Be greeted, quest, treasurer, gold."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -48,7 +48,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
-talkEntry:addResponse("Hail and may Malachín bless you. I assume you obey the queen.");
+talkEntry:addResponse("Hail and may Malachín bless you. I assume you obey the Queen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -73,7 +73,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hail and may Malachín bless you. I assume you obey the queen.");
+talkEntry:addResponse("Hail and may Malachín bless you. I assume you obey the Queen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -91,7 +91,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Go forth and do as the queen tells you.");
+talkEntry:addResponse("Go forth and do as the Queen tells you.");
 talkEntry:addResponse("Farewell and may your journey be a pleasant one.");
 talkEntry:addResponse("Good bye and don't forget to come back.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -114,7 +114,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Go forth and do as the queen tells you.");
+talkEntry:addResponse("Go forth and do as the Queen tells you.");
 talkEntry:addResponse("Farewell and may your journey be a pleasant one.");
 talkEntry:addResponse("Good bye and don't forget to come back.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -135,8 +135,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("The grin of the queen makes me spin, spinning within.");
-talkEntry:addResponse("Every word of the queen is like caress.");
+talkEntry:addResponse("The smile of the Queen makes me spin, spinning within.");
+talkEntry:addResponse("Every word of the Queen is like caress.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -154,7 +154,7 @@ talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addResponse("Faber. Ioannes Faber. I am the royal treasurer, do not underestimate my importance at the palace.");
-talkEntry:addResponse("My name is Ioannes Faber, the royal treasurer of Cadomyr. The queen relies on me, indeed.");
+talkEntry:addResponse("My name is Ioannes Faber, the royal treasurer of Cadomyr. The Queen relies on me, indeed.");
 talkEntry:addResponse("You don't know my name? Better write it down then: Ioannes Faber.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -212,7 +212,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("While I admire the wisdom of Runewick, I have my orders not to issue any tasks to citizens of it.");
+talkEntry:addResponse("While I admire the wisdom of Runewick, I have my orders not to issue any tasks to its citizens.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -230,7 +230,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("While I admire the wisdom of Runewick, I have my orders not to issue any tasks to citizens of it.");
+talkEntry:addResponse("While I admire the wisdom of Runewick, I have my orders not to issue any tasks to its citizens.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -252,7 +252,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr Treasury"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 1));
-talkEntry:addResponse("As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to her majesty's throne, place your donation on it. But don't you dare to donate just alms!");
+talkEntry:addResponse("As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to Her Majesty's throne, place your donation on it, but don't you dare to donate just alms!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -275,7 +275,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr Treasury"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 1));
-talkEntry:addResponse("As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to her majesty's throne, place your donation on it. But don't you dare to donate just alms!");
+talkEntry:addResponse("As a loyal citizen of Cadomyr, it is your duty to donate a share of your mudane wealth to the treasury. The donation place is right next to Her Majesty's throne, place your donation on it, but don't you dare to donate just alms!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -300,7 +300,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You advance in Queen Rosaline Edwards' favour."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(151, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 20));
-talkEntry:addResponse("I see that you have learned how you can donate your wealth to the treasury. Next time, donate more! I will mention your name when talking to the queen next time.");
+talkEntry:addResponse("I see that you have learnt how you can donate your wealth to the treasury. Next time, donate more! I will mention your name when talking to the Queen next time.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -321,7 +321,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Donating is quite easy: Just drop your items on the donation place. Obey!");
+talkEntry:addResponse("Donating is quite easy, just drop your items on the donation place. Obey!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -340,7 +340,7 @@ talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Donating is quite easy: Just drop your items on the donation place. Obey!");
+talkEntry:addResponse("Donating is quite easy, just drop your items on the donation place. Obey!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -430,7 +430,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am the royal treasurer. The queen entrusted me the wealth of Cadomyr; and I am not the one who will disappoint her. Will you?");
+talkEntry:addResponse("I am the royal treasurer. The Queen entrusted me with the wealth of Cadomyr and I am not the one who will disappoint her. Will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -443,7 +443,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I am the royal treasurer. The queen entrusted me the wealth of Cadomyr; and I am not the one who will disappoint her. Will you?");
+talkEntry:addResponse("I am the royal treasurer. The Queen entrusted me the wealth of Cadomyr and I am not the one who will disappoint her. Will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -457,7 +457,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Well, I heard many refugees came from Gobaith to Cadomyr. But I do not deal that much with refugees, I have to admit.");
+talkEntry:addResponse("Well, I heard many refugees came from Gobaith to Cadomyr, but I do not deal that much with refugees, I have to admit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -470,7 +470,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("my name");
-talkEntry:addResponse("Welcome to the palace. I hope you didn't come here to rob from the treasury.");
+talkEntry:addResponse("Welcome to the Palace. I hope you haven't come here to rob the treasury.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -483,7 +483,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("treasurer");
 talkEntry:addTrigger("treasury");
-talkEntry:addResponse("The office of treasurere requires loyality, integrity and meekness. And you won't find anyone of Cadomyr who suits the office better than Ioannes Faber.");
+talkEntry:addResponse("The office of treasurer requires loyality, integrity and meekness, and you won't find anyone in Cadomyr who suits the office better than Ioannes Faber.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -503,13 +503,13 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("glas");
-talkEntry:addResponse("The queen uses to have banquets with her nobley from time to time. Thus, finest tableware is needed frequently.");
+talkEntry:addResponse("The Queen uses to have banquets with her nobley from time to time, thus, the finest tableware is needed frequently.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("wealth");
-talkEntry:addResponse("I hold the keys to the treasury. And there is nothing even Baron Hastings could offer me to betray my queen. I'd rather die... like my wife.");
+talkEntry:addResponse("I hold the keys to the treasury, and there is nothing even Baron Hastings could offer me to betray my Queen. I'd rather die... like my wife.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -529,7 +529,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("wife");
-talkEntry:addResponse("It is not a secret anymore; my wife was slain by henchmen of Baron Hastings in an attempt to blackmail me. But I did not surrender the treasury to them... Instead...");
+talkEntry:addResponse("It is not a secret anymore, my wife was slain by henchmen of Baron Hastings in an attempt to blackmail me, but I did not surrender the treasury to them... Instead...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -586,7 +586,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("The archmage seems to be quite a charismatic person. I can't explain elsewise how such a honourless person gathered so many followers.");
+talkEntry:addResponse("The Archmage seems to be quite a charismatic person. I can't explain otherwise how such a honourless person gathered so many followers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -600,7 +600,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("The archmage seems to be quite a charismatic person. I can't explain elsewise how such a honourless person gathered so many followers.");
+talkEntry:addResponse("The Archmage seems to be quite a charismatic person. I can't explain otherwise how such a honourless person gathered so many followers.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -614,7 +614,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("What makes me wonder: Runewick is admittedly a magnificent town, but they don't really care about mudane wealth there. That... simply does not fit.");
+talkEntry:addResponse("What makes me wonder, Runewick is admittedly a magnificent town, but they don't really care about mundane wealth there. That... simply does not fit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,7 +629,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("There is a difference between me and the Don; he keeps all his wealth for himself, and I keep it for the queen.");
+talkEntry:addResponse("There is a difference between me and the Don, he keeps all his wealth for himself, and I keep it for the Queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -644,7 +644,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("I'd be king of Galmair if I claim all the treasury of Cadomyr for myself. But I am rather an honourable serf than a heinous lord.");
+talkEntry:addResponse("I'd be king of Galmair if I could claim all the treasury of Cadomyr for myself, but I am rather an honourable serf than a heinous lord.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -656,7 +656,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Since my wife died, queen Rosaline is the only woman in my life. I serve her with every fibre of my body.");
+talkEntry:addResponse("Since my wife died, Queen Rosaline is the only woman in my life. I serve her with every fibre of my body.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -670,7 +670,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Since my wife died, queen Rosaline is the only woman in my life. I serve her with every fibre of my body.");
+talkEntry:addResponse("Since my wife died, Queen Rosaline is the only woman in my life. I serve her with every fibre of my body.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -684,7 +684,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Cadomyr is a glorious realm, founded by honourable men of albarian origin. Be proud to stand here!");
+talkEntry:addResponse("Cadomyr is a glorious realm, founded by honourable men of Albarian origin. Be proud to stand here!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -737,7 +737,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("I pray to Malachín. And only to Malachín!");
+talkEntry:addResponse("I pray to Malachín and only to Malachín!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -752,7 +752,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("Malachín is the patron of Cadomyr. Never displease him nor the queen and you will have a long life.");
+talkEntry:addResponse("Malachín is the patron of Cadomyr. Never displease him nor the Queen and you will have a long life.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -766,7 +766,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addResponse("The dwarves pray to Irmorom to gain wealth; so far, so good. But I pray to Malachín to help me guard the wealth of Cadomyr with my sword.");
+talkEntry:addResponse("The dwarves pray to Irmorom to gain wealth, so far, so good, but I pray to Malachín to help me guard the wealth of Cadomyr with my sword.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -781,7 +781,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I'm not merchant, I am the royal treasurere.");
+talkEntry:addResponse("I'm not merchant, I am the royal treasurer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -796,7 +796,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Let me tell you something: A whip can make people work. But a crown makes them obey.");
+talkEntry:addResponse("Let me tell you something, a whip can make people work but a crown makes them obey.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -811,7 +811,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ioannes");
 talkEntry:addTrigger("Faber");
-talkEntry:addResponse("I am the royal treasurer Ioannes Faber. I obey her majesty and only her majesty.");
+talkEntry:addResponse("I am the royal treasurer Ioannes Faber. I obey Her Majesty and only Her Majesty.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -855,18 +855,18 @@ talkEntry:addResponse("Eine interessante Sichtweise.");
 talkEntry:addResponse("Wieso das?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Hoch lebe die Königin!", "Long live the queen!");
+talkingNPC:addCycleText("Hoch lebe die Königin!", "Long live the Queen!");
 talkingNPC:addCycleText("Für die Ehre von Cadomyr!", "For the glory of Cadomyr!");
 talkingNPC:addCycleText("Cadomyr, oh Cadomyr, wie lieb ich dir!", "Cadomyr, O Cadomyr, you are my dear!");
 talkingNPC:addCycleText("Rosaline und Cadomyr - Liebe geben sie uns, unschätzbar und unerreicht.", "Rosaline and Cadomyr - Love she gives us, passing measure.");
 talkingNPC:addCycleText("Nur ein toter Hastings ist ein guter Hastings.", "Only a dead Hastings is a good Hastings.");
 talkingNPC:addCycleText("Ein Halblingsgewicht in Gold für den Kopf von Baron Hastings!", "The weight of a halfling in gold for the head of Baron Hastings!");
-talkingNPC:addCycleText("Vor jedem verborgenen Feind, vor den Anschlägen der Mörder, schütze Malachín die Königin!", "From every latent foe, from the assassins blow, Malachín save the queen!");
+talkingNPC:addCycleText("Vor jedem verborgenen Feind, vor den Anschlägen der Mörder, schütze Malachín die Königin!", "From every latent foe, from the assassins blow, Malachín save the Queen!");
 talkingNPC:addCycleText("Und wie ein reißender Strom losbrechen, um rebellische Hastings niederzuwerfen!", "And like a torrent rush, rebellious Hastings to crush.");
-talkingNPC:addCycleText("Malachín schütze die Königin!", "Malachín save the queen!");
+talkingNPC:addCycleText("Malachín schütze die Königin!", "Malachín save the Queen!");
 mainNPC:addLanguage(0);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber.", "This NPC is the royal treasurere of Cadomyr, Ioannes Faber.");
+mainNPC:setLookat("Dieser NPC ist der königliche Kämmerer von Cadomyr, Ioannes Faber.", "This NPC is the royal treasurer of Cadomyr, Ioannes Faber.");
 mainNPC:setUseMessage("Fasst mich nicht an!", "Don't you touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
@@ -885,7 +885,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

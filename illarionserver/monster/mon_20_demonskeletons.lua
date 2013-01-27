@@ -56,9 +56,9 @@ function enemyNear(Monster,Enemy)
 	
     local MonID=Monster:getMonsterType();
     if (MonID==202) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{1500,3500},{{36,5},{9,5}},{},40,1) == true );
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{1500,3500},{{36,5},{9,5}},{},40,1,{25,65}) == true );
 	elseif (MonID==204) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{3,5},{6,5}},{},40,1) == true );
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{3,5},{6,5}},{},40,1,{25,65}) == true );
     elseif (MonID==205) then
         return ( monster.base.drop.SuddenWarp(Monster,Enemy,true) or monster.base.drop.CastMonster(Monster,Enemy,10,{103,763},40) );
     else
@@ -78,9 +78,9 @@ function enemyOnSight(Monster,Enemy)
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
     elseif (MonID==202) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{1500,3500},{{36,5},{9,5}},{},40,1) == true );
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{1500,3500},{{36,5},{9,5}},{},40,1,{25,65}) == true );
 	elseif (MonID==204) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{3,5},{6,5}},{},40,1) == true );
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{3,5},{6,5}},{},40,1,{25,65}) == true );
     elseif (MonID==205) then
         return ( monster.base.drop.CastMonster(Monster,Enemy,10,{103,763},40) );
     else
