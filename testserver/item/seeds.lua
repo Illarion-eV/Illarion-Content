@@ -1,5 +1,6 @@
 -- sowing seeds
 require("base.common")
+require("content.gathering")
 
 module("item.seeds", package.seeall)
 
