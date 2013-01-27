@@ -6,9 +6,14 @@ module("test.lillian", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
 	ScriptVars:set("ArenaListCadomyr", "Hans Zwei;543;Peter Drei;321;Wolfgang Eins;987;Klaus Fünf;111;Holger Vier;222")
-	local splitTable = {}
+	local testTable = {"Hans Zwei", 543, "Peter Drei", 321, "Wolfgang Eins", 987, "Klaus Fünf", 111, "Holger Vier", 222}
 	if (User.lastSpokenText == "list") then
 		getRanklist(User, User, true)
+	end
+	
+	if (User.lastSpokenText == "join") then
+		local testString = join(testTable, ";");
+		User:inform("String: "..testString);
 	end
 	
 	if (User.lastSpokenText == "sound") then
@@ -20,6 +25,14 @@ function LookAtItem(User, Item)
 	base.lookat.SetSpecialDescription(Item, "Lillians rasp of doom", "Lillians rasp of doom");
 	world:itemInform(User,Item,base.lookat.GenerateLookAt(User, Item, base.lookat.NONE));
     return true    
+end
+
+function join(joinTable, pattern)
+	local joinString = joinTable[1];
+	for i=2, #(joinTable) do
+		joinString = joinString..pattern..joinTable[i];
+	end	
+	return joinString;
 end
 
 arenaInformations = {{playerPos=position(10,10,0), monsterPos=position(10,0,0), npcName="Alsaya", town="Cadomyr"}, 
