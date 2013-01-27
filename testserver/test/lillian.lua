@@ -10,6 +10,10 @@ function UseItem(User, SourceItem, ltstate)
 	if (User.lastSpokenText == "list") then
 		getRanklist(User, User, true)
 	end
+	
+	if (User.lastSpokenText == "sound") then
+		world:makeSound( 13, User.pos )
+	end
 end
 
 function LookAtItem(User, Item)
