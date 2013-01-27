@@ -56,7 +56,7 @@ function UseItem(User, SourceItem, ltstate)
       "The water vaporises in the fire but it does not extinguish it.");
     else
       local bool = world:erase(TargetItem, 1);
-	  debug("Bool: "..bool);
+	  debug("Bool: "..tostring(bool));
       base.common.InformNLS(User,
       "Du löschst das Feuer.",
       "You extinguish the fire.");
