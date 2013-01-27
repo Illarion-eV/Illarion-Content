@@ -81,11 +81,11 @@ tradeWrongItemMsg "Das kaufe ich nicht.", "I'm not buying this."
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin" -> "Seid gegrüßt. Seid ihr hier um Geld zu wechseln?", "Grüße. Braucht ihr Geld?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetings.", "Hello."
 "Hiho", "Hallo", "Hey", "Greeb" -> "Grüße.", "Hallo."
-"Farewell", "Bye", "Fare well", "See you" -> "Save Paths.", "Fare well."
+"Farewell", "Bye", "Fare well", "See you" -> "Safe Paths.", "Farewell."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Sichere Pfade.", "Lebt Wohl."
-english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Save Paths.", "Fare well."
+english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Safe Paths.", "Farewell."
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sichere Pfade.", "Lebt Wohl."
-"How are you", "How feel", "How do you do" -> "I'm fine. Thank you. Do you want to change money?"
+"How are you", "How feel", "How do you do" -> "I'm fine, thank you. Do you want to change money?"
 "Wie geht", "Wie fÃ¼hlst", "Wie ist es ergangen", "Wie Befind" -> "Mir geht es gut, danke der Nachfrage. Möchtet Ihr Geld eintauchen?"
 "your name", "who are you", "who art thou" -> "My name is Laura Pepperbags, I'm the best money changer in Galmair.", "My name is Laura Pepperbags, I'm the the only money changer in Galmair."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Ich heiße Laura Pepperbags, ich bin die beste Geldwechslerin in Galmair.", "Ich heiße Laura Pepperbags, ich bin die einzige Geldwechslerin in Galmair."
@@ -93,15 +93,15 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Save Paths.", "Fare well."
 -- OPTIONAL TRIGGERS
 
 -- Optional: Trade Hooks, use only for traders
-"sell", "buy", "wares", "price", "trade", "purchase" -> "I'm a money changer. Want to change?", "You can change your money here.", trade
+"sell", "buy", "wares", "price", "trade", "purchase" -> "I'm a money changer. Want to change some?", "You can change your money here.", trade
 "kauf", "waren", "preis", "Handel", "veräußer", "erwerb" -> "Ich bin Geldwechsler. Mögt Ihr wechseln?", "Ihr könnt hier Münzen eintauschen.", trade
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "I like my job. I like money."
+"profession" -> "I like my job, I like money."
 "beruf" -> "Ich mag meinen Beruf. Ich mag Geld."
-english, "job" -> "I like my job. I like money."
+english, "job" -> "I like my job, I like money."
 "job" -> "Ich mag meinen Beruf. Ich mag Geld."
-"tell something" -> "I like my job. I like money."
+"tell something" -> "I like my job, I like money."
 "erzähl was", "erzähl etwas" -> "Ich mag meinen Beruf. Ich mag Geld."
 
 -- Optional: Gods - use the triggers of the god the NPC worships or fights
@@ -111,7 +111,7 @@ english, "Ronagan" -> "Ronagan is almost as evil as the unnamed one, but that's 
 "Ronagan" -> "Ronagan ist fast so schlimm wie der Ungenannte, aber das ist bloß meine Meinung."
 
 -- Optional: Faction stuff
-english, "Runewick" -> "Runewick? That are five towers filled with thoses crazy spellcasters."
+english, "Runewick" -> "Runewick? Where there are five towers filled with those crazy spellcasters."
 "Runewick" -> "Runewick? Das sind fünf Türme voll mit so verrückten Zauberern."
 english, "Galmair" -> "Yes, here you are in Galmair."
 "Galmair" -> "Ganz recht, hier seid Ihr in Galmair."
@@ -119,7 +119,7 @@ english, "Cadomyr" -> "Cadomyr is Cadomyr, right?"
 "Cadomyr" -> "Cadomyr ist halt Cadomyr, nich'?"
 
 -- Optional: Main land factions
-english, "gynk", "gync" -> "I was born in Gynk. It's nice there."
+english, "gynk", "gync" -> "I was born in Gynk, it's nice there."
 "gync", "gynk" -> "I wurde in Gync geboren. Dort ist es hübsch."
 
 -- Optional: Gobaith
@@ -133,4 +133,4 @@ english, "Gobaith", "Gobiath" -> "Where is this place supposed to be?", "I've ne
 
 cycletext "#me zählt emsig Münzen.", "#me assiduously counts money."
 cycletext "#me betrachtet ihr Spiegelbild in einer Silbermünze.", "#me looks at her reflection in a silver coin."
-cycletext "Wenn ihn euer Kupfer gegen funkelndes Silber tauschen möchtet, so sprecht mich ruhig an.", "If you want to change your copper to some nice shining silver coins, just talk to me!"
+cycletext "Wenn ihn euer Kupfer gegen funkelndes Silber tauschen möchtet, so sprecht mich ruhig an.", "If you want to change your copper into some nice shining silver coins, just talk to me!"

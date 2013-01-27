@@ -49,7 +49,7 @@ product:addIngredient(52)
 product:addRemnant(51) -- Schritt 4: Eimer mit Wasser(52) 1x
 ------------------ FLASCHE MIT WEIN - FERTIG --------------------------       
 
-catId = brewing:addCategory("heavy alcohol", "Harter Alkohol") -- Das harte Zeug 
+catId = brewing:addCategory("strong alcohol", "Harter Alkohol") -- Das harte Zeug 
 
 ------------------- FLASCHE MIT RUM - 517 ---------------------------
 product = brewing:addProduct(catId, 517, 52, 70, 102, 204)

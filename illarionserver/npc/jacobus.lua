@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -34,9 +34,9 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("I sell any kind of jewellery.");
 talkEntry:addResponse("Things made of gold, of copper, of gems... What do you need?");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -47,9 +47,9 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ich handele mit allerlei Juwelen.");
 talkEntry:addResponse("Dinge aus Gold, aus Kupfer, aus Edelsteinen... was braucht ihr?");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -263,7 +263,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("Gobaith was said to be a gem in the ocean. Now it is... a gem in the water.");
+talkEntry:addResponse("Gobaith was said to be a gem in the ocean. Now it is... a gem under the water.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -346,7 +346,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("The Archmage hides behind his books instead of ruling Runewick. I am so glad we have our queen.");
+talkEntry:addResponse("The Archmage hides behind his books instead of ruling Runewick. I am so glad we have our Queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -360,7 +360,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("The Archmage hides behind his books instead of ruling Runewick. I am so glad we have our queen.");
+talkEntry:addResponse("The Archmage hides behind his books instead of ruling Runewick. I am so glad we have our Queen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -374,7 +374,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick is far to the east. You have to walk through a dense forest.");
+talkEntry:addResponse("Runewick is far to the east, you have to walk through a dense forest.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -404,7 +404,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Galmair is far to the north, but better don't go there with too much money.");
+talkEntry:addResponse("Galmair is far to the north, but better you don't go there with too much money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -416,7 +416,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("All of us like queen Rosaline, she rules Cadomyr like nobody else could.");
+talkEntry:addResponse("All of us like Queen Rosaline, she rules Cadomyr like nobody else could.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -430,7 +430,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("All of us like queen Rosaline, she rules Cadomyr like nobody else could.");
+talkEntry:addResponse("All of us like Queen Rosaline, she rules Cadomyr like nobody else could.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -444,7 +444,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("This is our home: Cadomyr. Do you smell the sea? Do you feel the honour?");
+talkEntry:addResponse("This is our home, Cadomyr. Do you smell the sea? Do you feel the honour?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -515,7 +515,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("Oh, Ronagan! Well, he may just like gems as much as I do and he guarantees that people will buy new ones... still, I cannot honour a god who promotes crimes.");
+talkEntry:addResponse("Oh, Ronagan! Well, he may just like gems as much as I do and he guarantees that people will buy new ones... still, I cannot honour a God who promotes crimes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -528,7 +528,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("Zhambra is the god of friendship, and what token is more suitable to seal a friendship than a ring. I have a special offer for you...");
+talkEntry:addResponse("Zhambra is the God of friendship, and what token is more suitable to seal a friendship than a ring. I have a special offer for you...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -606,9 +606,9 @@ talkingNPC:addCycleText("Funkelnde Edelsteine im Angebot!", "Sparkling gem stone
 talkingNPC:addCycleText("Goldener Schmuck, genau das Richtige für einen Damenhals.", "Gold jewellery, just the right thing for a maiden's neck.");
 talkingNPC:addCycleText("Braucht ihr ein besonderes Geschenk? Eine Kette soll es sein!", "Need a special gift? A necklace it should be!");
 talkingNPC:addCycleText("Ein Ring sie zu finden, ein Ring sie ins Licht zu treiben...", "One Ring to bring them all and in the light bind them.");
-talkingNPC:addCycleText("Ein Edelstein hält ein Leben lang.", "A gem stone lasts for a lifetime.");
+talkingNPC:addCycleText("Ein Edelstein hält ein Leben lang.", "A gemstone lasts for a lifetime.");
 talkingNPC:addCycleText("Goldringe mit Inschriften und magischen Kräften für wenige Silberstücke!", "Gold rings with inscriptions and magical powers for a few silver coins!");
-talkingNPC:addCycleText("Habt ihr Edelsteine?", "Do you have gem stones?");
+talkingNPC:addCycleText("Habt ihr Edelsteine?", "Do you have gemstones?");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(122,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(21,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(22,"sell"));
@@ -747,7 +747,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

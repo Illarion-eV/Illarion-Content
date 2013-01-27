@@ -66,7 +66,7 @@ function GenerateLookAt(user, item, material)
     local function tchelper(first, rest)
         return first:upper()..rest:lower()
     end
-    usedName = usedName:gsub("(%a)([%wäöüß_']*)", tchelper)
+    usedName = usedName:gsub("([%aäöüÄÖÜ])([%wäöüÄÖÜß_']*)", tchelper)
 
 	lookAt.name = usedName;
 	

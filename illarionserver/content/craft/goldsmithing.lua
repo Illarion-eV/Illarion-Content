@@ -54,15 +54,15 @@ product:addIngredient(2550, 2) -- Copper Ingot: 2x1
 product:addIngredient(236) -- Gold Ingot: 1x1
 
 --Plate
-product = goldsmithing:addProduct(catId, 2031, 63, 103, 63, 126)
+product = goldsmithing:addProduct(catId, 2031, 63, 100, 63, 126)
 product:addIngredient(2550, 3) -- Copper Ingot: 3x1
 
 --Cutlery
-product = goldsmithing:addProduct(catId, 2647, 72, 112, 69, 138)
+product = goldsmithing:addProduct(catId, 2647, 72, 100, 69, 138)
 product:addIngredient(2550, 3) -- Copper Ingot: 3x1
 
 --Mirror
-product = goldsmithing:addProduct(catId, 336, 81, 101, 100, 200)
+product = goldsmithing:addProduct(catId, 336, 81, 100, 100, 200)
 product:addIngredient(236, 3) -- Gold Ingot: 3x1
 product:addIngredient(41) -- Glass Ingot: 1x1
 
@@ -108,7 +108,7 @@ product:addIngredient(236) -- Gold Ingot: 1x1
 product:addIngredient(198) -- Topas: 1x1
 
 --Charm of the Icebird
-product = goldsmithing:addProduct(catId, 334, 90, 110, 135, 270)
+product = goldsmithing:addProduct(catId, 334, 90, 100, 135, 270)
 product:addIngredient(236, 2) -- Gold Ingot: 2x1
 product:addIngredient(285, 2) -- Diamond: 2x1
 product:addIngredient(2571) -- Mernium Ingot: 1x1
@@ -179,7 +179,7 @@ product:addIngredient(236) -- Gold Ingot: 1x1
 product:addIngredient(285) -- Diamond: 1x1
 
 --Ring of the Archmage
-product = goldsmithing:addProduct(catId, 2559, 90, 110, 243, 486)
+product = goldsmithing:addProduct(catId, 2559, 90, 100, 243, 486)
 product:addIngredient(2550, 2) -- Copper Ingot: 2x1
 product:addIngredient(236, 3) -- Gold Ingot: 3x1
 product:addIngredient(285) -- Diamond: 1x1

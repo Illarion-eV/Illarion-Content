@@ -173,7 +173,7 @@ talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Evera, the portal book merchant. That's me.");
-talkEntry:addResponse("I am the merchant Evera.");
+talkEntry:addResponse("I am the merchant, Evera.");
 talkEntry:addResponse("Evera is my name, Iportal books.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -251,7 +251,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("With a little luck I can get a book to take you there! Nah, not really, just kidding.");
+talkEntry:addResponse("With a little luck, I can get a book to take you there! Nah, not really, just kidding.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -448,7 +448,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("The gods created this world for us to discover and travel within.");
+talkEntry:addResponse("The Gods created this world for us to discover and travel within it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -464,7 +464,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I sell various portal books that can take you to places. Handy if you're lost in the wild.");
+talkEntry:addResponse("I sell various portal books that can take you to places, handy if you're lost in the wild.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -501,7 +501,7 @@ tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Evera die Portalbuchhändlerin.", "This NPC is Evera the portalbook merchant");
+mainNPC:setLookat("Dieser NPC ist Evera die Portalbuchhändlerin.", "This NPC is Evera the portal book merchant");
 mainNPC:setUseMessage("Fass mich nicht an!", "Stop touching me!");
 mainNPC:setConfusedMessage("#me blickt dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);
@@ -519,7 +519,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
