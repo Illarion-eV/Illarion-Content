@@ -118,7 +118,7 @@ function setRanklist(User, NPC, points)
 	
 	User:setQuestProgress(quest, points);
 	
-	if ranklist[table.getn(ranklist)] > tostring(points) then
+	if tostring(ranklist[table.getn(ranklist)]) > tostring(points) then
 		return;
 	else
 		for i=2, #(ranklist), 2 do
