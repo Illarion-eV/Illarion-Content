@@ -41,11 +41,11 @@ function UseItem(User, SourceItem)
     end
     
     if (User.lastSpokenText == "look") then
-        debug("in der funktion")
+        
 		local myPos = base.common.GetFrontPosition(User)
 		local thisItem = world:getItemOnField(myPos);
 		base.lookat.SetSpecialDescription(thisItem,"ich bin toll","i am great")
-		debug("ende")
+		world:changeItem(thisItem)
 	end
 	
 end
