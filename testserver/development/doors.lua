@@ -1,6 +1,6 @@
 -- by Merung
 require("base.common")
-require("development.doors")
+
 
 module("development.doors", package.seeall)
 
