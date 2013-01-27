@@ -203,7 +203,7 @@ end;
 function TurnTo(User, Location)
     local oldDir = User:getFaceTo();
     local newDir = GetDirection(User.pos, Location);
-	debug("newDir "..newDir)
+
     if (newDir ~= oldDir) then
         User:setAttrib("faceto", newDir);
     end;
