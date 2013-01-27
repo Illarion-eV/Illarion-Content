@@ -55,7 +55,11 @@ function UseItem(User, SourceItem, ltstate)
       "Das Wasser verdampft in dem Feuer ohne es zu löschen.",
       "The water vaporises in the fire but it does not extinguish it.");
     else
-      world:erase(TargetItem, TargetItem.number);
+	  local frontitem = base.common.GetFrontItem(User);
+	  if frontitem~=nil then
+		world:erase(frontitem,frontitem.number);
+	  end
+      --world:erase(TargetItem, TargetItem.number);
       base.common.InformNLS(User,
       "Du löschst das Feuer.",
       "You extinguish the fire.");
