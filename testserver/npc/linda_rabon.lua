@@ -1183,7 +1183,7 @@ talkingNPC:addCycleText("Hier im Einhörnigen Löwen gibt es den besten Eintopf vo
 talkingNPC:addCycleText("Hier sieht es mal wieder aus... Vater sollte mal wieder wischen.", "This place is starting to look a mess, I should make father mop this place up.");
 talkingNPC:addCycleText("Jedes mal, wenn der Geruch meines Eintopfs mir in die Nase steigt, lacht mein Herz.", "Every time I smell a stew I have cooked my heart smiles.");
 talkingNPC:addCycleText("Oh, entschuldigt, ich wollte euch nicht in die Quere kommen.", "Oh sorry, excuse me. I did not mean to get in your way.");
-talkingNPC:addCycleText("Was soll ich nur Vater zum Geburtstag schenken?", "I wonder what I should get father for his birthday.");
+talkingNPC:addCycleText("Was soll ich nur Vater zum Geburtstag schenken?", "I wonder what I should get father for his birthday?");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
