@@ -14,7 +14,7 @@ module("server.reload", package.seeall)
 
 function onReload()
     -- logToFile("start onReload");
-    initDoors();
+    content.doors.initDoors();
     initDepots();
     --initExplorerStones();
     initAltars();
@@ -29,28 +29,6 @@ function onReload()
     return true;
 end
 
-function initDoors()
-    --Zipcode for different regions and settlements
-
-    -- Irundar 1xx
-    --AddDoor( -42, 193, -9,  100,false); -- Irundar Gate
-    --AddDoor( -49, 174, -9,  101,false); -- Irundar Smith
-    --AddDoor( -49, 175, -9,  101,false); -- Irundar Smith
-    --AddDoor( -35, 195, -9,  102,false); -- Irundar Mage Tower
-    --AddDoor( -35, 196, -9,  102,false); -- Irundar Mage Tower
-    --AddDoor( -30, 194, -7,  103,false); -- Irundar Mage Tower
-    --AddDoor( -53, 159, -9,  104,false); -- Irundar General Store
-    --AddDoor( -50, 166, -9,  104,false); -- Irundar General Store
-    --AddDoor( -51, 166, -9,  104,false); -- Irundar General Store
-    --AddDoor( -47, 147, -9,  105,false); -- Irundar Castle - Advisor
-    --AddDoor( -45, 149, -9,  105,false); -- Irundar Castle - Advisor
-    --AddDoor( -44, 150, -8,  106,false); -- Irundar Castle - Bedroom
-    --AddDoor( -44, 151, -8,  106,false); -- Irundar Castle - Bedroom
-    --AddDoor( -44, 143, -8,  107,false); -- Irundar Castle - Storage Room
-    --AddDoor( -49, 142, -8,  108,false); -- Irundar Castle - Tower
-
-end
-
 function initDepots()
     -- AddDepot(x, y, z, data)
 end
@@ -61,30 +39,6 @@ end
 
 function initAltars()
     -- AddAltar(x, y, z, god);
-end
-
-function AddDoor(DoorX,DoorY,DoorZ,DoorData,Open)
-    DoorPos=position(DoorX,DoorY,DoorZ);
-    if world:isItemOnField(DoorPos) then
-        thisDoor = world:getItemOnField(DoorPos);
-        doorOOK = base.doors.CheckOpenDoor(thisDoor.id);
-        doorCOK = base.doors.CheckClosedDoor(thisDoor.id);
-        if (doorOOK or doorCOK) then
-            thisDoor:setData("lockData", DoorData);
-            if Open then
-                if (doorCOK) then
-                    thisDoor.quality = 233;
-                end
-            else
-                if (doorOOK) then
-                    world:changeItem(thisDoor);
-                    base.doors.CloseDoor(thisDoor);
-                    thisDoor.quality = 333;
-                end
-            end
-            world:changeItem(thisDoor);
-        end
-    end
 end
 
 function AddDepot(DepotX,DepotY,DepotZ,DepotData)
