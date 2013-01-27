@@ -147,7 +147,7 @@ function IsLookingAt(User, Location)
                 ((Location.y < User.pos.y) or (Location.x > User.pos.x))) or
             ((richtung == Character.east) and (Location.x > User.pos.x)) or
             ((richtung == Character.southeast) and
-                ((Location.y > User.pos.y) or (Location.x > User.pos.x))) or
+                ((Location.y < User.pos.y) or (Location.x > User.pos.x))) or
             ((richtung == Character.south) and (Location.y > User.pos.y)) or
             ((richtung == Character.southwest) and
                 ((Location.y > User.pos.y) or (Location.x < User.pos.x))) or
