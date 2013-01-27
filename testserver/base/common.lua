@@ -140,7 +140,7 @@ function IsLookingAt(User, Location)
     end
 
     local richtung = User:getFaceTo();
-	debug("richtung "..richtung)
+	debug("richtung "..richtung.." char "..tostring(Character.southeast))
 	debug("Loc y: "..Location.y.." x: "..Location.x)
 	debug("User y: "..User.pos.y.." y: "..User.pos.x)
 	
