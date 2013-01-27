@@ -55,8 +55,7 @@ function UseItem(User, SourceItem, ltstate)
       "Das Wasser verdampft in dem Feuer ohne es zu löschen.",
       "The water vaporises in the fire but it does not extinguish it.");
     else
-      world:erase(TargetItem, 1);
-	  world:swap(TargetItem, 1, 222)
+      world:erase(TargetItem, TargetItem.number);
       base.common.InformNLS(User,
       "Du löschst das Feuer.",
       "You extinguish the fire.");
