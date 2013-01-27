@@ -26,12 +26,10 @@ function AddDoor(DoorX,DoorY,DoorZ,lockId)
         doorCOK = base.doors.CheckClosedDoor(thisDoor.id);
         if (doorOOK or doorCOK) then
             if (doorOOK) then
-                    base.doors.CloseDoor(thisDoor);
-				end
-            end
+                base.doors.CloseDoor(thisDoor);
+			end
 			thisDoor:setData("lockId", lockId);
             thisDoor:setData("doorLock","locked")
             world:changeItem(thisDoor);
         end
     end
-end
