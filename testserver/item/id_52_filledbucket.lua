@@ -159,7 +159,9 @@ function CreateEmptyBucket(User, SourceItem,amount)
 	    world:erase(SourceItem,amount)
 		local notCreated=User:createItem(51,amount,333,nil)
 		debug("not created: "..notCreated)
-		world:createItemFromId(51,amount,User.pos,true,333,nil)
+		if notCreated ~= 0 then
+			world:createItemFromId(51,amount,User.pos,true,333,nil)
+		end
 	else	
 		SourceItem.id = 51
 		SourceItem.quality = 333
