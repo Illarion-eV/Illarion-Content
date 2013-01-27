@@ -33,3 +33,4 @@ function AddDoor(DoorX,DoorY,DoorZ,lockId)
             world:changeItem(thisDoor);
         end
     end
+end	
