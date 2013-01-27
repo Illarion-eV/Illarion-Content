@@ -116,7 +116,7 @@ function setRanklist(User, NPC, points)
 	local newRanklist = {};
 	local arenaListName = "ArenaList"..town;
 	
-	User:setQuestState(quest, points);
+	User:setQuestProgress(quest, points);
 	
 	if ranklist[table.getn(ranklist)] > points then
 		return;
