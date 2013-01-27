@@ -57,6 +57,7 @@ function UseItem(User, SourceItem, ltstate)
       "The water vaporises in the fire but it does not extinguish it.");
     else
 	  local frontitem = base.common.GetFrontItem(User);
+	  debug("frontitem x: "..frontitem.pos.x.." y: "..frontitem.pos.y);
 	  if frontitem~=nil then
 		world:erase(frontitem,frontitem.number);
 		base.common.InformNLS(User,
