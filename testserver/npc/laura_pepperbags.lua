@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: southeast              --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -93,8 +93,8 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Save Paths.");
-talkEntry:addResponse("Fare well.");
+talkEntry:addResponse("Safe Paths.");
+talkEntry:addResponse("Farewell.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -114,8 +114,8 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Save Paths.");
-talkEntry:addResponse("Fare well.");
+talkEntry:addResponse("Safe Paths.");
+talkEntry:addResponse("Farewell.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -133,7 +133,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("I'm fine. Thank you. Do you want to change money?");
+talkEntry:addResponse("I'm fine, thank you. Do you want to change money?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -173,9 +173,9 @@ talkEntry:addTrigger("wares");
 talkEntry:addTrigger("price");
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("purchase");
-talkEntry:addResponse("I'm a money changer. Want to change?");
-talkEntry:addResponse("You can change your money here.");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("I'm a money changer. Want to change some?");
+talkEntry:addResponse("You can change your money here.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -186,15 +186,15 @@ talkEntry:addTrigger("preis");
 talkEntry:addTrigger("Handel");
 talkEntry:addTrigger("veräußer");
 talkEntry:addTrigger("erwerb");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Ich bin Geldwechsler. Mögt Ihr wechseln?");
 talkEntry:addResponse("Ihr könnt hier Münzen eintauschen.");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I like my job. I like money.");
+talkEntry:addResponse("I like my job, I like money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -207,7 +207,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I like my job. I like money.");
+talkEntry:addResponse("I like my job, I like money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -219,7 +219,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("I like my job. I like money.");
+talkEntry:addResponse("I like my job, I like money.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -259,7 +259,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Runewick? That are five towers filled with thoses crazy spellcasters.");
+talkEntry:addResponse("Runewick? Where there are five towers filled with those crazy spellcasters.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -299,7 +299,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("gynk");
 talkEntry:addTrigger("gync");
-talkEntry:addResponse("I was born in Gynk. It's nice there.");
+talkEntry:addResponse("I was born in Gynk, it's nice there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -328,7 +328,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("#me zählt emsig Münzen.", "#me assiduously counts money.");
 talkingNPC:addCycleText("#me betrachtet ihr Spiegelbild in einer Silbermünze.", "#me looks at her reflection in a silver coin.");
-talkingNPC:addCycleText("Wenn ihn euer Kupfer gegen funkelndes Silber tauschen möchtet, so sprecht mich ruhig an.", "If you want to change your copper to some nice shining silver coins, just talk to me!");
+talkingNPC:addCycleText("Wenn ihn euer Kupfer gegen funkelndes Silber tauschen möchtet, so sprecht mich ruhig an.", "If you want to change your copper into some nice shining silver coins, just talk to me!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(61,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3076,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(3077,"sell"));
@@ -358,7 +358,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
