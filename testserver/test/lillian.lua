@@ -27,9 +27,9 @@ function LookAtItem(User, Item)
     return true    
 end
 
-arenaInformations = {{playerPos=position(10,10,0), monsterPos=position(10,0,0), npcName="Alsaya", town="Cadomyr"}, 
-					{playerPos=position(10,10,0), monsterPos=position(10,0,0), npcName="Alsaya", town="Runewick"}, 
-					{playerPos=position(10,10,0), monsterPos=position(10,0,0), npcName="Alsaya", town="Galmair"}}
+arenaInformations = {{playerPos=position(0,0,0), monsterPos=position(0,0,0), npcName="Test", town="Cadomyr", quest=801}, 
+					{playerPos=position(0,0,0), monsterPos=position(0,0,0), npcName="Test", town="Runewick", quest=802}, 
+					{playerPos=position(0,0,0), monsterPos=position(0,0,0), npcName="Test", town="Galmair", quest=803}}
 
 function getRanklist(User, NPC, message)
 	local arena = getArena(User, NPC);
