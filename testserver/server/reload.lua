@@ -15,7 +15,7 @@ module("server.reload", package.seeall)
 
 function onReload()
     -- logToFile("start onReload");
-    content.doors.initDoors();
+   -- content.doors.initDoors();
     initDepots();
     --initExplorerStones();
     initAltars();
