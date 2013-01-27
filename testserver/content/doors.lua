@@ -1,7 +1,7 @@
 require("base.common")
 require("base.lookat")
 
-module("development.doors", package.seeall)
+module("content.doors", package.seeall)
 
 
 function initDoors()
