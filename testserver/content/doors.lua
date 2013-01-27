@@ -1,23 +1,21 @@
 require("base.common")
+require("base.lookat")
 
+module("development.doors", package.seeall)
 
-module("content.doors", package.seeall)
 
 function initDoors()
-    -- AddDoor(x, y, z, lockId) -- description
-	
-	-- lockId is the data value of the key "lockId".
-	-- if a key is supposed to fit into a door lock, it needs to have the same lockId value as the door
+    -- AddDoor({x, y, z}, lockId, lookAtEN, lookAtDE) -- description
+	-- if you want no lookat, just use false: AddDoor({1, 1, 1}, 343, false, false)
+	-- if you just want lookats, but no lock: AddDoor({1, 1, 1}, false, "Door without lock", "Tür ohne Schloss")
 	
 	-- Galmair 1xx
-	AddDoor(341, 207, 0, 100); -- Don's private room
+	AddDoor({341, 207, 0}, 100,"Private chamber of the Don","Privatkammer des Dons"); -- Don's private room
 
     -- Runewick 2xx
 
 	-- Cadomyr 3xx
 	
-	
-	-- Irundar: needs a rework!
 	-- Irundar xxx
     --AddDoor( -42, 193, -9,  X00); -- Irundar Gate
     --AddDoor( -49, 174, -9,  X01); -- Irundar Smith
@@ -37,19 +35,24 @@ function initDoors()
 	
 end
 
-function AddDoor(DoorX,DoorY,DoorZ,lockId)
-    local DoorPos=position(DoorX,DoorY,DoorZ);
+function AddDoor(posList,lockId, lookAtEN, lookAtDE)
+    local DoorPos=position(posList[1],posList[2],posList[3]);
 	if world:isItemOnField(DoorPos) then
         local thisDoor = world:getItemOnField(DoorPos);
         local doorOOK = base.doors.CheckOpenDoor(thisDoor.id);
         local doorCOK = base.doors.CheckClosedDoor(thisDoor.id);
         if (doorOOK or doorCOK) then
-            thisDoor:setData("lockId", lockId);
-            thisDoor:setData("doorLock","locked")
-            world:changeItem(thisDoor);
+            if lockId then
+				thisDoor:setData("lockId", lockId);
+				thisDoor:setData("doorLock","locked")
+			end
+			if lookAtEN and LookAtDE then
+			    base.lookat.SetSpecialDescription(thisDoor,LookAtDE,lookAtEN)
+			end	
+			world:changeItem(thisDoor);
 			if (doorOOK) then
                 base.doors.CloseDoor(thisDoor);
 			end
 		end
     end
-end
+end	
