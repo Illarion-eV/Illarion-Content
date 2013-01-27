@@ -36,23 +36,23 @@ function UseItem(User, SourceItem, ltstate)
   end
   
   -- look for fire
-  TargetItem = base.common.GetItemInArea(User.pos, 12, 1, true);
-	debug("targetitem x: "..TargetItem.pos.x.." y: "..TargetItem.pos.y);
-  if (TargetItem == nil or TargetItem.wear == 255) then
+  FireItem = base.common.GetItemInArea(User.pos, 12, 1, true);
+	debug("FireItem x: "..FireItem.pos.x.." y: "..FireItem.pos.y);
+  if (FireItem == nil or FireItem.wear == 255) then
     local i = base.common.GetItemInArea(User.pos, 12, 1, true);
     if (i ~= nil) then
-      TargetItem = i;
+      FireItem = i;
     end
   end
-  if (TargetItem ~= nil) then
-	debug("looking: "..tostring(base.common.IsLookingAt( User, TargetItem.pos )));
-    if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
-      base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
+  if (FireItem ~= nil) then
+	debug("looking: "..tostring(base.common.IsLookingAt( User, FireItem.pos )));
+    if not base.common.IsLookingAt( User, FireItem.pos ) then -- check looking direction
+      base.common.TurnTo( User, FireItem.pos ); -- turn if necessary
     end
     -- TODO is a noobia check needed?
     -- Don't extinguish static fires.
-    world:makeSound(9, TargetItem.pos);
-    if (TargetItem.wear == 255) then
+    world:makeSound(9, FireItem.pos);
+    if (FireItem.wear == 255) then
       base.common.InformNLS(User,
       "Das Wasser verdampft in dem Feuer ohne es zu löschen.",
       "The water vaporises in the fire but it does not extinguish it.");
@@ -66,7 +66,7 @@ function UseItem(User, SourceItem, ltstate)
 			"You extinguish the fire.");
 	  end
     end
-    world:gfx(11,TargetItem.pos)
+    world:gfx(11,FireItem.pos)
 	CreateEmptyBucket(User, SourceItem,1)
     return;
   end
