@@ -47,7 +47,7 @@ function AddDoor(posList,lockId, lookAtEN, lookAtDE)
 				thisDoor:setData("doorLock","locked")
 			end
 			if lookAtEN and lookAtDE then
-			    base.lookat.SetSpecialDescription(thisDoor,LookAtDE,lookAtEN)
+			    base.lookat.SetSpecialDescription(thisDoor,lookAtDE,lookAtEN)
 			end	
 			world:changeItem(thisDoor);
 			if (doorOOK) then
