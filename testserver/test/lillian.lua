@@ -27,7 +27,7 @@ function LookAtItem(User, Item)
     return true    
 end
 
-arenaInformations = {{playerPos=position(0,0,0), monsterPos=position(0,0,0), npcName="Test", town="Cadomyr", quest=801}, 
+arenaInformations = {{playerPos=position(0,0,0), monsterPos=position(0,0,0), npcName="Alsaya", town="Cadomyr", quest=801}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), npcName="Test", town="Runewick", quest=802}, 
 					{playerPos=position(0,0,0), monsterPos=position(0,0,0), npcName="Test", town="Galmair", quest=803}}
 
