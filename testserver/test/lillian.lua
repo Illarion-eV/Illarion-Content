@@ -118,11 +118,11 @@ function setRanklist(User, NPC, points)
 	
 	User:setQuestProgress(quest, points);
 	
-	if tostring(ranklist[table.getn(ranklist)]) > tostring(points) then
+	if ranklist[table.getn(ranklist)] > tostring(points) then
 		return;
 	else
 		for i=2, #(ranklist), 2 do
-			if ranklist[i] < points then
+			if ranklist[i] < tostring(points) then
 				table.insert(ranklist, i, points);
 				table.insert(ranklist, i, User.name);
 				table.remove(ranklist, 1);
