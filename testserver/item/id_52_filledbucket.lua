@@ -58,11 +58,10 @@ function UseItem(User, SourceItem, ltstate)
 	  local frontitem = base.common.GetFrontItem(User);
 	  if frontitem~=nil then
 		world:erase(frontitem,frontitem.number);
+		base.common.InformNLS(User,
+			"Du löschst das Feuer.",
+			"You extinguish the fire.");
 	  end
-      --world:erase(TargetItem, TargetItem.number);
-      base.common.InformNLS(User,
-      "Du löschst das Feuer.",
-      "You extinguish the fire.");
     end
     world:gfx(11,TargetItem.pos)
 	CreateEmptyBucket(User, SourceItem,1)
