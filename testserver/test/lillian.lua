@@ -130,7 +130,7 @@ function setRanklist(User, NPC, points)
 				break;
 			end
 		end
-		stringList = base.common.base.common.join(ranklist);
+		stringList = base.common.join(ranklist, ";");
 		ScriptVars:set(arenaListName, stringList)
 		return stringList;
 	end
