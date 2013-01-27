@@ -41,7 +41,7 @@ function enemyNear(Monster,Enemy)
 	
     local MonID=Monster:getMonsterType();
     if (MonID==232) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{3,5},{6,5}},{},40,1) == true );
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{3,5},{6,5}},{},40,1,{25,65}) == true );
     else
         return false;
     end
@@ -59,7 +59,7 @@ function enemyOnSight(Monster,Enemy)
     if monster.base.drop.DefaultSlowdown( Monster ) then
         return true
     elseif (MonID==232) then
-        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{3,5},{6,5}},{},40,1) == true );
+        return ( monster.base.drop.CastMonMagic(Monster,Enemy,5,{2000,4000},{{3,5},{6,5}},{},40,1,{25,65}) == true );
     else
         return false
     end

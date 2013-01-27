@@ -944,13 +944,13 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnDodge(Attacker, Defender, AP)
---debug("          NOW LEARNING dodge: "..Character.dodge..", "..(AP/3)..", "..(Attacker.skill + 10));
+--debug("          NOW LEARNING dodge: "..Character.dodge..", "..(AP/3)..", "..(Attacker.skill + 20));
     -- Divide AP by three, since you can learn three skills with one AP reduction while fighting
-    Defender.Char:learn(Character.dodge, AP/3, Attacker.skill + 10)
+    Defender.Char:learn(Character.dodge, AP/3, Attacker.skill + 20)
 --debug("          DONE LEARNING");   
 	--OLD. Tactics is redundant. No more attackers learning when attacking
 	--[[	
-	Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.dodge + 10)
+	Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.dodge + 20)
     if base.common.Chance(0.25) then
         Attacker.Char:learn(Character.tactics, AP/4, 100);
     end;]]
@@ -963,8 +963,8 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnSuccess(Attacker, Defender, AP)
---debug("          NOW LEARNING att: "..Attacker.Skillname..", "..(AP/3)..", "..(math.max(Defender.dodge, Defender.parry) + 10));
-    Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.dodge, Defender.parry) + 10)
+--debug("          NOW LEARNING att: "..Attacker.Skillname..", "..(AP/3)..", "..(math.max(Defender.dodge, Defender.parry) + 20));
+    Attacker.Char:learn(Attacker.Skillname, AP/3, math.max(Defender.dodge, Defender.parry) + 20)
 --debug("          DONE LEARNING");    
 	--OLD
 	--[[
@@ -974,7 +974,7 @@ function LearnSuccess(Attacker, Defender, AP)
 	
 	-- Tactics is redundant
 	
-	--Attacker.Char:learn(Character.tactics, AP/3, math.max(Defender.dodge, Defender.parry) + 10);
+	--Attacker.Char:learn(Character.tactics, AP/3, math.max(Defender.dodge, Defender.parry) + 20);
 	
 	--PROPOSAL END
 end;
@@ -985,14 +985,14 @@ end;
 -- @param Attacker The table containing the attacker data
 -- @param Defender The table containing the defender data
 function LearnParry(Attacker, Defender, AP)
---debug("          NOW LEARNING parry: "..Character.parry..", "..(AP/3)..", "..(Attacker.skill + 10));
+--debug("          NOW LEARNING parry: "..Character.parry..", "..(AP/3)..", "..(Attacker.skill + 20));
     --Defender.Char:inform("Learn limit is 10 above" .. Attacker.skill);
-    Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 10)
+    Defender.Char:learn(Character.parry, AP/3, Attacker.skill + 20)
 --debug("          DONE LEARNING");   	
 	--OLD - No more tactics, no more learning attacking
 	--[[
 	
-	Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.parry + 10)
+	Attacker.Char:learn(Attacker.Skillname, AP/3, Defender.parry + 20)
     if base.common.Chance(0.25) then
         Attacker.Char:learn(Character.tactics, AP/4, 100);
     end;]]

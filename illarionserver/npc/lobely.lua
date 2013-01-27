@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Zot, Faladron                                                    --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -31,8 +31,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("handel");
 talkEntry:addTrigger("verkauf");
 talkEntry:addTrigger("portal");
-talkEntry:addResponse("Hiho, lass uns handeln!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Hiho, lass uns handeln!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -40,14 +40,15 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("trade");
 talkEntry:addTrigger("sell");
 talkEntry:addTrigger("portal");
-talkEntry:addResponse("Hiho, let's trade!");
 talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Hiho, let's!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the portal merchant Lobely. Keywords: Hello, portal, trade."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is the portal book merchant Lobely. Keywords: Hello, portal, trade."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -170,9 +171,10 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("Lobely, portalbook merchant. That's me.");
-talkEntry:addResponse("I am the merchant Lobely.");
-talkEntry:addResponse("Lobely is my name, I trade portalbooks.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Lobely, the portal book merchant. That's me.");
+talkEntry:addResponse("I am the merchant, Lobely.");
+talkEntry:addResponse("Lobely is my name, Iportal books.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -222,7 +224,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("I am a merchant of portalbooks.");
+talkEntry:addResponse("I am a merchant of portal books.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -235,7 +237,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("I am a merchant of portalbooks.");
+talkEntry:addResponse("I am a merchant of portal books.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -249,7 +251,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("With a little luck I can get a book to take you there! Nah, not really just kidding.");
+talkEntry:addResponse("With a little luck, I can get a book to take you there! Nah, not really just kidding.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -279,7 +281,7 @@ talkEntry:addTrigger("family");
 talkEntry:addTrigger("siblings");
 talkEntry:addTrigger("sister");
 talkEntry:addTrigger("brother");
-talkEntry:addResponse("Me and my family like to hike and explore, I bet you can find my other siblings at other places if you just look closely!");
+talkEntry:addResponse("Me and my family like to hike and explore, I bet you can find my siblings at other places if you just look closely!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -295,7 +297,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -309,7 +311,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -323,7 +325,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -338,7 +340,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -353,7 +355,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -365,7 +367,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -379,7 +381,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -393,7 +395,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well saught in all of the three towns.");
+talkEntry:addResponse("Luckily me and my family stay out of politics. Our services are well sought in all three towns.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -446,7 +448,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("The gods created this world for us to discover and travel within.");
+talkEntry:addResponse("The Gods created this world for us to discover and travel within it.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,7 +464,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("I sell various portal books that can take you to places. Handy if you're lost in the wild.");
+talkEntry:addResponse("I sell various portal books that can take you to places, handy if you're lost in the wild.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -477,7 +479,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Me and my family like to hike and explore, I bet you can find my other siblings at other places if you just look closely!");
+talkEntry:addResponse("Me and my family like to hike and explore, I bet you can find my siblings at other places if you just look closely!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -497,9 +499,9 @@ tradingNPC:addDialogClosedMsg("Danke, komm doch bald wieder.", "Thanks, come bac
 tradingNPC:addDialogClosedNoTradeMsg("Nichts gefunden was euch gefällt?", "Don't you like my wares?");
 tradingNPC:addWrongItemMsg("Das kaufe ich nicht.", "I'm not buying this.");
 mainNPC:addLanguage(0);
-mainNPC:addLanguage(5);
+mainNPC:addLanguage(6);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dieser NPC ist Lobely der Portalbuchhändler.", "This NPC is Lobely the portalbook merchant");
+mainNPC:setLookat("Dieser NPC ist Lobely der Portalbuchhändler.", "This NPC is Lobely the portal book merchant");
 mainNPC:setUseMessage("Fass mich nicht an!", "Stop touching me!");
 mainNPC:setConfusedMessage("#me blickt dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 829);
@@ -517,7 +519,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

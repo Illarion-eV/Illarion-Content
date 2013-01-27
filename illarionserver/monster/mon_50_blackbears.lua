@@ -84,7 +84,9 @@ function onDeath(Monster)
 
         end
     end
-
+    
+	monster.base.drop.ClearDropping();
+    local MonID=Monster:getMonsterType();
    if (MonID==501) then --Black Bear, Level: 4, Armourtype: light, Weapontype: concussion
 
         --Category 1: Special Loot

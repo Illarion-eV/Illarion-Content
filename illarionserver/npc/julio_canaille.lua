@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Rincewind                                                        --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -35,16 +35,16 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Julio Canaille the ghost. Keywords: Peg Leg, Quest, Gods, Tell something."));
-talkEntry:addResponse("Ask me for my 'peg leg'! If you need other things, its better to search a settlement and ask there. Lubber!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Ask me for my 'peg leg'! If you need other things, it's better to search a settlement and ask there. Landlubber!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Julio Canaille der Geist. Schlüsselwörter: Holzbein, Quest, Götter, Erzähl was."));
-talkEntry:addResponse("Frag mich nach meen 'Holzbein'! Wenn du andere Dinge brauchst gehst du besser zu ner Siedlung, deswegen. Landratte!");
 talkEntry:addConsequence(npc.base.consequence.state.state("=", 0));
+talkEntry:addResponse("Frag mich nach mein 'Holzbein'! Wenn du andere Dinge brauchst gehst du besser zu ner Siedlung, deswegen. Landratte!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -111,7 +111,7 @@ talkEntry:addTrigger("Farewell");
 talkEntry:addTrigger("Bye");
 talkEntry:addTrigger("Fare well");
 talkEntry:addTrigger("See you");
-talkEntry:addResponse("Arr! Don't get bite by seadogs!");
+talkEntry:addResponse("Arr! Don't get bitten by the seadogs!");
 talkEntry:addResponse("Aye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -132,7 +132,7 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Arr! Don't get bit by seadogs!");
+talkEntry:addResponse("Arr! Don't get bitten by the seadogs!");
 talkEntry:addResponse("Aye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -167,7 +167,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I'm Julio Canaille. Aye! But everyone yells Peg Leg-Jack! And you lubber have to call me Capt'n!");
+talkEntry:addResponse("I'm Julio Canaille. Aye! But everyone yells Peg Leg Jack! And you landlubber, kindly call me Capt'n! Clear?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -190,13 +190,13 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Meanwhile speaking this words, a rapier rises from the tomb, when raeching for it, it starts to glow gentle. Then the shine disappears."));
-talkEntry:addResponse("Aye myn Peg Leg! Here it is, ch! You made me a happy ghost, today. Thank you - thousand times, aye may the wind blow your sail.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Even as the spirit is speaking these words, a rapier rises from the tomb; as you reach out it starts to glow but then the light disappears."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(283, 1, 333, {["gemLevel"] = "2"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Aye my peg leg! Here it is, ch! I'm so glad!. Thank you a thousand times, and may the wind blow your sails.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -210,12 +210,12 @@ talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht."));
-talkEntry:addResponse("Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blasen!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(283, 1, 333, {["gemLevel"] = "2"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blasen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -226,13 +226,13 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("Meanwhile speaking this words, a rapier rises from the tomb, when raeching for it, it starts to glow gentle. Then the shine disappears."));
-talkEntry:addResponse("Aye myn Peg Leg! Here it is, ch! You made me a happy ghost, today. Thank you - thousand times, aye may the wind blow your sail.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("Even as the spirit is speaking these words, a rapier rises from the tomb; as you reach out it starts to glow but then the light disappears."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(283, 1, 333, {["gemLevel"] = "2"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Aye my Peg Leg! Here it is, ch! I'm so glad! Thank you a thousand times, and may the wind blow your sails.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -244,12 +244,12 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("Noch während der Geist diese Worte spricht, steigt ein Rapier aus seinem Grab empor, als du es mit den Händen berührst beginnt es spährisch zu glühen. Dann erlischt das Licht."));
-talkEntry:addResponse("Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(208, 1, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(2675, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(283, 1, 333, {["gemLevel"] = "2"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 5));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Aye Mein Holzbein! Dah isses Ja! Ch! Ich bin ja so froh darüber! Dir sei Gedankt! Tausende Male, möge der Wind immer in dein Segel blaßen!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -261,7 +261,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
-talkEntry:addResponse("Ch... I feel my Peg Leg - it's close. But you don't put it in your belt! Where you got it? Expect richly reard, should you bring it! Aye.");
+talkEntry:addResponse("Ch... I feel my peg leg, it's close. Don't you put it on your belt! Where have you got it? Expect to be richly rewarded, should you bring it to me! Aye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -283,7 +283,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addResponse("Ch... I feel my Peg Leg - it's close. But you don't put it in your belt! Where you got it? Expect richly reard, should you bring it! Aye.");
+talkEntry:addResponse("Ch... I feel my peg leg, it's close. Don't you put it on your belt! Where have you got it? Expect to be richly rewarded, should you bring it to me! Aye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -305,7 +305,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
-talkEntry:addResponse("Aye-ch. Have fun with the rapier. I hope you will become a great hero. Ch. Always remember, %CHARNAME: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'");
+talkEntry:addResponse("Aye-ch. Have fun with the rapier, I hope you will become a great hero. Ch. Always remember, %CHARNAME, it doesn't matter if you win or lose, as long as you look really good doing it!'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -327,7 +327,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addResponse("Aye-ch. Have fun with the rapier. I hope you will become a great hero. Ch. Always remember, %CHARNAME: 'It doesn't matter if you win or lose, as long as you look really cool doing it!'");
+talkEntry:addResponse("Aye-ch. Have fun with the rapier, I hope you will become a great hero. Ch. Always remember, %CHARNAME, it doesn't matter if you win or lose, as long as you look really good doing it!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -350,7 +350,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
-talkEntry:addResponse("Arr! Do you try to fool me? This isn't myn Peg Leg! Ch! Ch! Ch!");
+talkEntry:addResponse("Arr! Do you try to fool me? This isn't my peg leg! Ch! Ch! Ch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -374,7 +374,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addResponse("Arr! Do you try to fool me? This isn't myn Peg Leg! Ch! Ch! Ch!");
+talkEntry:addResponse("Arr! Do you try to fool me? This isn't my peg leg! Ch! Ch! Ch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -397,7 +397,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
-talkEntry:addResponse("Aye, aye. I can't rest. Myn old Peg Leg causes pain. The old Prandlin, damn - DAMN!... he have stolen it. Arr! Curse on you Prandlin! Heard that, Prandlin? CURSE on you! Eh Lubber, do me a favour and get my peg leg back!");
+talkEntry:addResponse("Aye, aye, I can't rest, my old peg leg causes pain. That old Prandlin, damn - DAMN!... he must have stolen it. Arr! Curse you Prandlin! Hear that, Prandlin? CURSE on you! Eh landlubber, do me a favour and get my peg leg back!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -419,7 +419,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addResponse("Aye, aye. I can't rest. Myn old Peg Leg causes pain. The old Prandlin, damn - he have stolen it. Arr! Curse on you Prandlin! Heard that, Prandlin? CURSE on you! Eh Lubber, do me a favour and get my peg leg back!");
+talkEntry:addResponse("Aye, aye, I can't rest, my old peg leg causes pain. That old Prandlin, damn - DAMN!... he must have stolen it. Arr! Curse you Prandlin! Hear that, Prandlin? CURSE on you! Eh landubber, do me a favour and get my peg leg back!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -440,8 +440,8 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("mission");
 talkEntry:addTrigger("money");
 talkEntry:addTrigger("earn");
-talkEntry:addResponse("Aye, aye. I can't rest. Myn old Peg Leg causes pain. The old Prandlin, damn - DAMN!... he have stolen it. Arr! Curse on you Prandlin! Heard that, Prandlin? CURSE on you! Eh Lubber, do me a favour and get my peg leg back!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 1));
+talkEntry:addResponse("Aye, aye, I can't rest, my old peg leg causes pain. That old Prandlin, damn - DAMN!... he must have stolen it. Arr! Curse you Prandlin! Hear that, Prandlin? CURSE on you! Eh landlubber, do me a favour and get my peg leg back!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -452,8 +452,8 @@ talkEntry:addTrigger("bein");
 talkEntry:addTrigger("verdienen");
 talkEntry:addTrigger("aufgabe");
 talkEntry:addTrigger("abenteuer");
-talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr! Du - Landratte! Geh Prandlin suchen und bring meen Holzbein zurück!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 1));
+talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr! Du - Landratte! Geh Prandlin suchen und bring meen Holzbein zurück!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -462,8 +462,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addResponse("Aye, aye. I can't rest. Myn old Peg Leg causes pain. The old Prandlin, damn - DAMN!... he have stolen it. Arr! Curse on you Prandlin! Heard that, Prandlin? CURSE on you! Eh Lubber, do me a favour and get my peg leg back!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 1));
+talkEntry:addResponse("Aye, aye, I can't rest, my old Peg Leg causes pain. That old Prandlin, damn - DAMN!... he must have stolen it. Arr! Curse you Prandlin! Hear that, Prandlin? CURSE on you! Eh landlubber, do me a favour and get my peg leg back!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -472,14 +472,14 @@ talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("job");
 talkEntry:addTrigger("problem");
-talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr! Du - Landratte! Geh Prandlin suchen und bring meen Holzbein zurück!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(304, "=", 1));
+talkEntry:addResponse("Aye, aye. Ich kann nich Ruhn. Meen altes Holzbeen schmerzt! Der alte Prandlin hat's mir gestohln! Ver-VERFLUCHT! ...sei der alte Prandlin. Arr! Du - Landratte! Geh Prandlin suchen und bring meen Holzbein zurück!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
-talkEntry:addResponse("Ch-h. I'm a ghost... Got no legs got no arm.");
+talkEntry:addResponse("Ch-h. I'm a ghost... Got no legs got no arms.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,7 +492,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Ch-h. I'm a ghost... Got no legs got no arm.");
+talkEntry:addResponse("Ch-h. I'm a ghost... Got no legs got no arms.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -506,7 +506,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("I heared Gobaith got some trouble. Whatever, it's backwater anyway.");
+talkEntry:addResponse("I heard Gobaith had some trouble, whatever, it's backwater anyway.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -533,7 +533,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Skipper");
 talkEntry:addTrigger("Captn");
 talkEntry:addTrigger("Captain");
-talkEntry:addResponse("Aye-aye! Whos don't know the fameous tales of Peg Leg-Jack? Ahoy, that's me! Also the god's called it a shame when they tied me to gallows.");
+talkEntry:addResponse("Aye-aye! Who doesn't know the famous tales of Peg Leg Jack? Ahoy, that's me! Even the God's called it a shame when they tied me to gallows.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -548,7 +548,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("prandlin");
-talkEntry:addResponse("Aye, old Prandlin lives somwhere in Runewick and awaits death while sleeping. Once he waz Pirate Hunter... some day he became to old. But before that he managed to execute me at gallows.");
+talkEntry:addResponse("Aye, old Prandlin lives somwhere in Runewick and awaits death while he's sleeping. Once he was a pirate hunter... but some day he grew to old. Before that though he managed to have me executed at gallows.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -561,7 +561,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("archmage");
 talkEntry:addResponse("The dead don't care about... politics.");
-talkEntry:addResponse("A fat lot I care about those meatballs. Ch-h!");
+talkEntry:addResponse("A fat lot I care about that meatball. Ch-h!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -577,7 +577,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elvaine");
 talkEntry:addTrigger("Morgan");
 talkEntry:addResponse("The dead don't care about... politics.");
-talkEntry:addResponse("A fat lot I care about those meatballs. Ch-h!");
+talkEntry:addResponse("A fat lot I care about that meatball. Ch-h!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -592,8 +592,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addResponse("Some day, Runewick will be only one name, beetween thousands in a dirty scruffy old book.");
-talkEntry:addResponse("#me rattles his bones. 'Runewick, Runewick, Runewick. Everyone there's a inhibited couch potato.'");
+talkEntry:addResponse("Some day, Runewick will just be a name, between thousands of others, in a dirty, scruffy old book.");
+talkEntry:addResponse("#me rattles his bones. 'Runewick, Runewick, Runewick. Everyone there's an uptight couch potato.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -610,7 +610,7 @@ talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
 talkEntry:addResponse("The dead don't care about... politics.");
-talkEntry:addResponse("A fat lot I care about those meatballs. Ch-h!");
+talkEntry:addResponse("A fat lot I care about that meatball. Ch-h!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -626,7 +626,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Galmair");
-talkEntry:addResponse("Some day, Galmair will be only one name, beetween thousands in a dirty scruffy old book.");
+talkEntry:addResponse("Some day, Galmair will just be a name, between thousands of others, in a dirty, scruffy old book.");
 talkEntry:addResponse("#me rattles his bones. 'Galmair, Galmair, Galmair. Everyone there's a grasping cutthroat.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -641,7 +641,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Queen");
 talkEntry:addResponse("The dead don't care about... politics.");
-talkEntry:addResponse("A fat lot I care about those meatballs. Ch-h!");
+talkEntry:addResponse("A fat lot I care about that meatball. Ch-h!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -657,7 +657,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("rosaline");
 talkEntry:addTrigger("edwards");
 talkEntry:addResponse("The dead don't care about... politics.");
-talkEntry:addResponse("A fat lot I care about those meatballs. Ch-h!");
+talkEntry:addResponse("A fat lot I care about that meatball. Ch-h!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -672,7 +672,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cadomyr");
-talkEntry:addResponse("Some day, Cadomyr will be only one name, beetween thousands in a dirty scruffy old book.");
+talkEntry:addResponse("Some day, Cadomyr will just be a name, beetween thousands of others, in a dirty, scruffy old book.");
 talkEntry:addResponse("#me rattles his bones. 'Cadomyr, Cadomyr, Cadomyr. Everyone there's a dumb bull.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -727,7 +727,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("god");
-talkEntry:addResponse("Well I'm quite old. Therefore much prudent. Ask me about each single one of them. Adron - Bragon - Cherga - Elara - Eldan - Findari - Irmorom - Malachin - Moshran - Nargun - Oldra - Ronagan - Sirani - Tanora - Ushara - Zhambra.");
+talkEntry:addResponse("Well I'm quite old, and therefore rather prudent. Ask me about each single one of them. Adron - Bragon - Cherga - Elara - Eldan - Findari - Irmorom - Malachin - Moshran - Nargun - Oldra - Ronagan - Sirani - Tanora - Ushara - Zhambra.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -769,7 +769,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("Cherga! Why - WHY? Pleas take me with you - let me rest.");
+talkEntry:addResponse("Cherga! Why - WHY? Please take me with you - let me rest.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -782,7 +782,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("Condescensiones and smart-assnes was never on my use. The goddes of mages.");
+talkEntry:addResponse("Condescension and arrogance were nevr much use to me. The Goddess of mages.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -795,7 +795,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Eldan");
-talkEntry:addResponse("A old clever god. but don't nail me with questions about that.");
+talkEntry:addResponse("A clever, Old God, but do not question me about that.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -808,7 +808,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("Elven-goddes. I don't know. Cha-cha!");
+talkEntry:addResponse("Elven Goddess... I don't know. Cha-cha!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -849,7 +849,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Moshran");
-talkEntry:addResponse("The Bonelord. My advice? Keep distance.");
+talkEntry:addResponse("The Bonelord. My advice? Keep your distance.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -864,7 +864,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Nargun");
 talkEntry:addTrigger("Nargún");
 talkEntry:addTrigger("Nargùn");
-talkEntry:addResponse("Such a friendly fella! I think I won his last shirt, when playing cards. Or was the guy called Norbert? Ch-ch...");
+talkEntry:addResponse("Such a friendly fella! I think I won his last shirt, when playing cards... Or was the guy called Norbert? Ch-ch...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -879,7 +879,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Oldra make the trees grow - at least that's waht the halfers say. Ch.");
+talkEntry:addResponse("Oldra makes the trees grow, at least that's what the halfers say. Ch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -892,7 +892,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("Aye, Ronagan allways watched my back. Barly I belive he guarded my doings all the years I got. Ch.");
+talkEntry:addResponse("Aye, Ronagan always watched my back. I believe all these years he has guarded me well. Ch.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -905,7 +905,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Sirani");
-talkEntry:addResponse("Thie, hie! My first and third wife were priestess of Sirani. They know to shag the hammer, if you know waht I mean. Ch-ch!");
+talkEntry:addResponse("Thie, hie! My first and third wives were priestesses of Sirani. They know where the hammer hangs to put it quite bluntly. Ch-ch!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -919,7 +919,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("Tanora aye! Praise to the sea - praise Tanora... altough she braought all this snakefaces over us.");
+talkEntry:addResponse("Tanora aye! Praise to the sea, praise Tanora... although she brought all these fish faces over us.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -933,7 +933,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("Another thing, why I canÄt understand elves.");
+talkEntry:addResponse("Another reason why I can't understand elves.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -946,7 +946,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("God of brodderhood and freindship. On the ship we have to stand together.");
+talkEntry:addResponse("God of brotherhood and friendship. On the ship we have to stand together.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -961,8 +961,8 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addResponse("Cha - no tradings...");
-talkEntry:addResponse("Ch... don beggar me, idiot!");
+talkEntry:addResponse("Cha - no trading...");
+talkEntry:addResponse("Ch... leave me alone!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -972,22 +972,22 @@ talkEntry:addTrigger("was kauf");
 talkEntry:addTrigger("warenliste");
 talkEntry:addTrigger("preis von");
 talkEntry:addResponse("Ich handle nich.");
-talkEntry:addResponse("Ch... lass mich in Friedn.");
+talkEntry:addResponse("Ch... lass mich in Frieden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("tell something");
-talkEntry:addResponse("Aye... 'n giant kraken ate my leg! It was big like the boat pulling it under the wather! Arr, but I never surrender - never did.");
-talkEntry:addResponse("Aye, sworn! I made love with five mermaids all in all.");
-talkEntry:addResponse("Each harbour a girl, each day another harbour. This' the sailor's live. Aye.");
+talkEntry:addResponse("Aye... 'n a giant octopus ate my leg! It was so big it pulled the ship under the water! Arr, but I never give up. That I never have...");
+talkEntry:addResponse("Aye, I swear! I had five mermaids in the bed.");
+talkEntry:addResponse("Each girl in every harbour, that's the sailor's life, aye.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("erzähl was");
 talkEntry:addTrigger("erzähl etwas");
-talkEntry:addResponse("Aye... 'n rießiger Krake hat men Bein gefressn. Er war so groß das er das ganze Schiff in die See gezogen hat. Arr. Aber Ich hab nich aufgegeben. Das hab ich nie gemacht...");
+talkEntry:addResponse("Aye... 'n rießiger Krake hat mein Bein gefressen. Er war so groß das er das ganze Schiff in die See gezogen hat. Arr. Aber Ich hab nich aufgegeben. Das hab ich nie gemacht...");
 talkEntry:addResponse("Aye, geschworen! Ich hatte schon fünf Meerjungfrauen im Bett! Ch-ch...");
 talkEntry:addResponse("In jedem hafn n' Mädl, jaja. Das ist das Seemannsleben!");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -997,7 +997,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Julio");
 talkEntry:addTrigger("Canaille");
-talkEntry:addResponse("Aye-aye! Whos don't know the fameous tales of Peg Leg-Jack? Ahoy, that's me! Also the god's called it a shame when they tied me to gallows.");
+talkEntry:addResponse("Aye-aye! Who doesn't know the famous tales of Peg Leg Jack? Ahoy, that's me! Even the God's called it a shame when they tied me to gallows.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1012,7 +1012,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Yes");
 talkEntry:addResponse("Ch-h!");
 talkEntry:addResponse("Aye! Get ready to board! Thie-hi!");
-talkEntry:addResponse("'Yes Captain!', you have to say! Got it?");
+talkEntry:addResponse("'Yes Captain!', you have to say... Got it?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1027,7 +1027,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("No");
 talkEntry:addResponse("Bummer!");
-talkEntry:addResponse("Well.. when I was alive the problems of the dead wasn't mine either.");
+talkEntry:addResponse("Well.. when I was alive the problems of the dead weren't mine either.");
 talkEntry:addResponse("Argh-ha! Go 'nd blow a flute.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1044,9 +1044,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("The dead be dead. Everywhere should it be that way.");
+talkEntry:addResponse("The dead be dead, everywhere should it be that way.");
 talkEntry:addResponse("Argh-ch...");
-talkEntry:addResponse("...Lubber!");
+talkEntry:addResponse("...landlubber!");
 talkEntry:addResponse("Har-har-har-ha!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1062,16 +1062,16 @@ talkEntry:addResponse("Har-har-har-ha!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Aye, men verlorenes Bein schmerzt wieder!", "Aye, my missing leg hurts again!");
-talkingNPC:addCycleText("Arr, verdammte Landratten!", "Arr, damn lubbers!");
+talkingNPC:addCycleText("Arr, verdammte Landratten!", "Arr, damn landlubbers!");
 talkingNPC:addCycleText("Booo! Har, har, har!", "Booo! Har, har, har!");
-talkingNPC:addCycleText("#me klappert mit seinen schemenhaft vorhandenen Knochen.", "#me clatters with his apparitional bones.");
+talkingNPC:addCycleText("#me klappert mit seinen schemenhaft vorhandenen Knochen.", "#me clatters about with his apparitional bones.");
 talkingNPC:addCycleText("#me pfeift eine schaurige Melodie.", "#me whistles a scary melody.");
-talkingNPC:addCycleText("#me's Augen beginnen plötzlich in gruseligen sphärischen Blau zu glühen.", "#me's eyes start to glow for a few seconds in a spherical blue.");
-talkingNPC:addCycleText("Zeit mit den Säbeln zu rasseln! Arr!", "Time to buckle our swash! Arr!");
+talkingNPC:addCycleText("#me's Augen beginnen plötzlich in gruseligen sphärischen Blau zu glühen.", "#me's eyes start to glow as eerie blue spheres.");
+talkingNPC:addCycleText("Zeit mit den Säbeln zu rasseln! Arr!", "Time to rattle the sabres! Arr!");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Ein modriger Geist, der unruhig über einem Grab schwebt.", "A moldy ghost, flaoting above his tomb.");
+mainNPC:setLookat("Ein modriger Geist, der unruhig über einem Grab schwebt.", "A mouldy ghost is floating above his tomb.");
 mainNPC:setUseMessage("Ch-h! Fass mich nicht an!", "Ch-h! Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 185);
@@ -1090,7 +1090,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

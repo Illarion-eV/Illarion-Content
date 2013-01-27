@@ -104,7 +104,7 @@ function UseItem(User, SourceItem, ltstate)
 	end
   
   -- should not stack plants on top of anything
-  if (world:isItemOnField(TargetPosition)) then
+  if (world:isItemOnField(TargetPos)) then
     base.common.HighInformNLS(User,
     "Du kannst nur auf einem freien Feld Saatgut aussäen.",
     "Sowing seeds is only possible at a free spot.");

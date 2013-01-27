@@ -193,7 +193,7 @@ product = carving:addProduct(catId, 237, 30, 50, 12, 24, 10)
 product:addIngredient(56) -- Bough: 1x1
 
 --Wind Arrows
-product = carving:addProduct(catId, 322, 90, 110, 54, 108, 10)
+product = carving:addProduct(catId, 322, 90, 100, 54, 108, 10)
 product:addIngredient(56) -- Bough: 1x1
 product:addIngredient(2551) -- Pure Air: 1x1
 
@@ -231,7 +231,7 @@ product:addIngredient(284, 3) -- Sapphire: 3x1
 product:addIngredient(2554) -- Pure Water: 1x1
 
 --Wand of Wind
-product = carving:addProduct(catId, 2785, 90, 110, 324, 648)
+product = carving:addProduct(catId, 2785, 90, 100, 324, 648)
 product:addIngredient(56) -- Bough: 1x1
 product:addIngredient(545, 6) -- Cherry Wooden Boards: 6x1
 product:addIngredient(2527) -- Large Ornated Staff Handle: 1x1

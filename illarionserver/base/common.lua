@@ -139,19 +139,19 @@ function IsLookingAt(User, Location)
     end
 
     local richtung = User:getFaceTo();
-
+	
     return (((richtung == Character.north) and (Location.y < User.pos.y)) or
             ((richtung == Character.northeast) and
-                ((Location.y < User.pos.y) or (Location.x > User.pos.x))) or
+                ((Location.y < User.pos.y) and (Location.x > User.pos.x))) or
             ((richtung == Character.east) and (Location.x > User.pos.x)) or
             ((richtung == Character.southeast) and
-                ((Location.y > User.pos.y) or (Location.x > User.pos.x))) or
+                ((Location.y > User.pos.y) and (Location.x > User.pos.x))) or
             ((richtung == Character.south) and (Location.y > User.pos.y)) or
             ((richtung == Character.southwest) and
-                ((Location.y > User.pos.y) or (Location.x < User.pos.x))) or
+                ((Location.y > User.pos.y) and (Location.x < User.pos.x))) or
             ((richtung == Character.west) and (Location.x < User.pos.x)) or
             ((richtung == Character.northwest) and
-                ((Location.y < User.pos.y) or (Location.x < User.pos.x))));
+                ((Location.y < User.pos.y) and (Location.x < User.pos.x))));
 end;
 
 --- Check if a character sequence (string) is nil or empty.
@@ -369,26 +369,31 @@ end
 -- @param altIDs alternative ItemIDs the item could have changed to and is still valid
 -- @return True if everything is fine, else false
 function CheckItem(User, Item, altIDs)
-    local ItemCheck = nil;
-    if (Item:getType() == 3) then
+    local ItemCheck = nil
+    if Item:getType() == scriptItem.field then
         if world:isItemOnField(Item.pos) then
-            ItemCheck = world:getItemOnField(Item.pos);
-        end;
+            ItemCheck = world:getItemOnField(Item.pos)
+        end
+    elseif Item:getType() == scriptItem.container then
+        found, ItemCheck = User:getBackPack():viewItemNr(Item.itempos)
+        if not found then
+            ItemCheck = nil
+        end
     else
-        ItemCheck = User:getItemAt(Item.itempos);
-    end;
+        ItemCheck = User:getItemAt(Item.itempos)
+    end
     if ItemCheck then
-        if (Item.id == ItemCheck.id) then
-            return true;
-        elseif (altIDs ~= nil) then
+        if Item.id == ItemCheck.id then
+            return true
+        elseif altIDs ~= nil then
             for _, altID in pairs(altIDs) do
-                if (ItemCheck.id == altID) then
-                    return true;
-                end;
-            end;
-        end;
-    end;
-    return false;
+                if ItemCheck.id == altID then
+                    return true
+                end
+            end
+        end
+    end
+    return false
 end;
 
 --- Checks if the Character has a minimal default amount of food points. If not
@@ -1748,6 +1753,8 @@ function GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
         for i=0,itemCount-1 do 
           local item = field:getStackItem(i);
           if (item.id == ItemId) then
+			item.pos.x = CenterPos.x + x;
+			item.pos.y = CenterPos.y + y;
             return item, (i==0);
           end
         end

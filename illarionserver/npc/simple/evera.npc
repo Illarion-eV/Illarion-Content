@@ -25,7 +25,7 @@ autointroduce = on
 author = "Zot, Faladron"
 
 lookatDE = "Dieser NPC ist Evera die Portalbuchhändlerin."
-lookatUS = "This NPC is Evera the portalbook merchant"
+lookatUS = "This NPC is Evera the portal book merchant"
 useMsgDE = "Fass mich nicht an!"
 useMsgUS = "Stop touching me!"
 wrongLangDE = "#me blickt dich verwirrt an."
@@ -86,7 +86,7 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Always keep moving!", "Tood
 "Ciao", "Adieu", "Au revoir", "Farebba" -> "Immer in Bewegung bleiben!", "Tschüssi!", "Auf wiedersehen."
 "How are you", "How feel", "How do you do" -> "I feel excited, thinking about all the places to travel to.", "I'm itching to make another journey."
 "Wie geht", "Wie fühlst", "Wie ist es ergangen" -> "Ich bin so aufgeregt, wenn ich nur an all die Orte denke an die man Reisen kann.", "Es juckt mich in den Füßen, eine Reise zu machen."
-"your name", "who are you", "who art thou" -> "Evera, the portal book merchant. That's me.", "I am the merchant Evera.", "Evera is my name, I trade portal books."
+"your name", "who are you", "who art thou" -> "Evera, the portal book merchant. That's me.", "I am the merchant, Evera.", "Evera is my name, I trade portal books."
 "ihr name", "dein name", "wer bist du", "wer seid ihr", "wie heißt" -> "Evera, Portalbuchhändlerin. Das bin ich.", "Ich bin die Händlerin Evera", "Evera mein Name, ich handle mit Portalbüchern"
 
 -- Catching quest triggers
@@ -102,7 +102,7 @@ english, "quest", "mission" -> "I do not issue any quests, but I can sell you bo
 "beruf" -> "Ich handle mit Portalbüchern."
 english, "job" -> "I am a merchant of portal books."
 "job" -> "Ich handle mit Portalbüchern."
-english, "Gobaith", "Gobiath" -> "With a little luck I can get a book to take you there! Nah, not really, just kidding."
+english, "Gobaith", "Gobiath" -> "With a little luck, I can get a book to take you there! Nah, not really, just kidding."
 "Gobaith", "Gobiath" -> "Mit etwas Glück kann ich dir ein Buch besorgen, das dich dorthin bringt! Nö, nicht wirklich nur'n Scherz."
 "my name" -> "Nice to meet you. If you want to 'book' some travel just ask me, hihi.", "A nice name, indeed."
 "mein Name" -> "Schön dich kennenzulernen. Wenn du eine Reise 'buch'-en willst, frag mich einfach, hihi.", "Ein netter Name."
@@ -138,11 +138,11 @@ english, "salkama" -> "Nice place. They have some very tasty food there as well.
 "salkama" -> "Netter Ort. Die haben dort auch ziemlich wohlschmeckendes Essen."
 
 -- Gods; each NPC should at react on at least one god, being a follower of said god
-"god" -> "The gods created this world for us to discover and travel within."
+"god" -> "The Gods created this world for us to discover and travel within it."
 "Gott", "Götter" -> "Die Götter haben diese Welt für uns erschaffen um sie zu entdecken und darin zu reisen."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I sell various portal books that can take you to places. Handy if you're lost in the wild."
+"what sell", "what buy", "list wares", "price of" -> "I sell various portal books that can take you to places, handy if you're lost in the wild."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich verkaufe verschiedene Portalbücher die dich an Orte bringen können. Ziemlich nützlich wenn man sich in der Wildnis verlaufen hat."
 "tell something" -> "Me and my family like to hike and explore, I bet you can find my siblings at other places if you just look closely!"
 "erzähl was", "erzähl etwas" -> "Ich und meine Familie wandern und entdecken gern. Ich bin mir sicher du kannst meine anderen Geschwister an anderen Orten finden wenn du nur genau guckst!"

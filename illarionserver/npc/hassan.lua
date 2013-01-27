@@ -74,7 +74,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories don't you?");
+talkEntry:addResponse("Wine! I told you to bring me a glass of wine! You want to hear my stories don't you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -86,7 +86,7 @@ talkEntry:addTrigger("Hail");
 talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
-talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories, so grease my throat.");
+talkEntry:addResponse("Wine! I told you to bring me a glass of wine! You want to hear my stories, so grease my throat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -99,7 +99,7 @@ talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Cadomyr's Gossiper"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(75, "=", 1));
-talkEntry:addResponse("#me frowns, ?Mere peasant you dare greet me in such a way! Make up for you lack of consideration by giving me an offering of red wine so I may quench my thirst.'");
+talkEntry:addResponse("#me frowns, ?Mere peasant you dare greet me in such a way! Make up for you lack of consideration by giving me a glass of wine so I may quench my thirst.'");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -111,7 +111,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories, so grease my throat.");
+talkEntry:addResponse("Wine! I told you to bring me a glass of wine! You want to hear my stories, so grease my throat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -145,7 +145,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
 talkEntry:addTrigger("How do you do");
-talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories, so grease my throat.");
+talkEntry:addResponse("Wine! I told you to bring me a glass of wine! You want to hear my stories, so grease my throat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -335,7 +335,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories, so grease my throat.");
+talkEntry:addResponse("Wine! I told you to bring me a glass of wine! You want to hear my stories, so grease my throat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -392,7 +392,7 @@ talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("question");
-talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories, so grease my throat.");
+talkEntry:addResponse("Wine! I told you to bring me a glass of wine! You want to hear my stories, so grease my throat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -490,7 +490,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(75, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2057, "all", "<", 1, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
-talkEntry:addResponse("Wine! I told you to bring me wine! You want to hear my stories, so grease my throat.");
+talkEntry:addResponse("Wine! I told you to bring me a glass of wine! You want to hear my stories, so grease my throat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1267,7 +1267,7 @@ talkingNPC:addCycleText("Wein ist fein.", "Wine is divine.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
-mainNPC:setLookat("Dies ist der königliche Fechelwedler Hassan.", "This is the royal fan waver Hassan.");
+mainNPC:setLookat("Dies ist der königliche Fechlwedler Hassan.", "This is the royal fan waver Hassan.");
 mainNPC:setUseMessage("Fass mich nicht an!", "Do not touch me!");
 mainNPC:setConfusedMessage("#me schaut dich verwirrt an.", "#me looks at you confused.");
 mainNPC:setEquipment(1, 0);

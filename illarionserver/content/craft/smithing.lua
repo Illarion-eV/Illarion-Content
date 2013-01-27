@@ -126,11 +126,13 @@ product:addIngredient(2535, 6) -- Iron Ingot: 6x1
 product:addIngredient(176) -- Grey Cloth: 1x1
 
 --Flame Helmet
-product = smithing:addProduct(catId, 2286, 51, 71, 216, 432)
+product = smithing:addProduct(catId, 2286, 51, 71, 252, 504)
 product:addIngredient(2535, 8) -- Iron Ingot: 8x1
 product:addIngredient(176) -- Grey Cloth: 1x1
 product:addIngredient(2550, 2) -- Copper Ingot: 2x1
 product:addIngredient(236) -- Gold Ingot: 1x1
+product:addIngredient(2553) -- Pure Fire: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Round Steel Helmets
 product = smithing:addProduct(catId, 2290, 0, 20, 15, 30)
@@ -157,9 +159,10 @@ product:addIngredient(176) -- Grey Cloth: 1x1
 
 --Black Visored Helm
 product = smithing:addProduct(catId, 185, 51, 71, 216, 432)
-product:addIngredient(2535, 9) -- Iron Ingot: 9x1
+product:addIngredient(2535, 8) -- Iron Ingot: 8x1
 product:addIngredient(176) -- Grey Cloth: 1x1
 product:addIngredient(2550, 2) -- Copper Ingot: 2x1
+product:addIngredient(2571) -- Merinium Ingot
 
 catId = smithing:addCategory("armour", "Rüstungen")
 
@@ -170,27 +173,28 @@ product:addIngredient(176, 3) -- Grey Cloth: 3x1
 product:addIngredient(2550, 2) -- Copper Ingot: 2x1
 
 --Light Mercenary Armour
-product = smithing:addProduct(catId, 2359, 82, 102, 575, 1150)
+product = smithing:addProduct(catId, 2359, 82, 100, 575, 1150)
 product:addIngredient(2535, 13) -- Iron Ingot: 13x1
 product:addIngredient(176, 5) -- Grey Cloth: 5x1
 product:addIngredient(2550, 3) -- Copper Ingot: 3x1
 product:addIngredient(2547, 2) -- Leather: 2x1
 
 --Light Elven Armour
-product = smithing:addProduct(catId, 2399, 90, 110, 648, 1296)
+product = smithing:addProduct(catId, 2399, 90, 100, 675, 1350)
 product:addIngredient(2535, 15) -- Iron Ingot: 15x1
 product:addIngredient(236, 2) -- Gold Ingot: 2x1
 product:addIngredient(2550, 4) -- Copper Ingot: 4x1
 product:addIngredient(2547, 2) -- Leather: 2x1
+product:addIngredient(2571) -- Merinium Ingot
 product:addIngredient(2554) -- Pure Water
 
 --Chain Shirt
-product = smithing:addProduct(catId, 101, 33, 53, 65, 130)
-product:addIngredient(2535, 5) -- Iron Ingot: 5x1
+product = smithing:addProduct(catId, 101, 33, 53, 140, 280)
+product:addIngredient(2535, 10) -- Iron Ingot: 10x1
 
 --Dwarven State armour
-product = smithing:addProduct(catId, 2390, 43, 63, 144, 288)
-product:addIngredient(2535, 7) -- Iron Ingot: 7x1
+product = smithing:addProduct(catId, 2390, 43, 63, 192, 384)
+product:addIngredient(2535, 10) -- Iron Ingot: 10x1
 product:addIngredient(176, 2) -- Grey Cloth: 2x1
 
 --Elven Silversteel
@@ -212,15 +216,16 @@ product:addIngredient(176, 5) -- Grey Cloth: 5x1
 product:addIngredient(2550, 3) -- Copper Ingot: 3x1
 
 --Salkmaerian Officers Armour
-product = smithing:addProduct(catId, 2365, 83, 103, 780, 1560)
+product = smithing:addProduct(catId, 2365, 83, 100, 806, 1612)
 product:addIngredient(2535, 17) -- Iron Ingot: 17x1
 product:addIngredient(176, 6) -- Grey Cloth: 6x1
 product:addIngredient(2550, 4) -- Copper Ingot: 4x1
 product:addIngredient(2547, 2) -- Leather: 2x1
 product:addIngredient(236) -- Gold Ingot: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Albarian Noble Armour
-product = smithing:addProduct(catId, 2367, 90, 110, 1242, 2484)
+product = smithing:addProduct(catId, 2367, 90, 100, 1269, 2538)
 product:addIngredient(2535, 20) -- Iron Ingot: 20x1
 product:addIngredient(176, 7) -- Grey Cloth: 7x1
 product:addIngredient(2550, 5) -- Copper Ingot: 5x1
@@ -228,10 +233,11 @@ product:addIngredient(2547, 5) -- Leather: 5x1
 product:addIngredient(236, 3) -- Gold Ingot: 3x1
 product:addIngredient(284, 3) -- Sapphire: 3x1
 product:addIngredient(198, 3) -- Topas: 3x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Plate Armour
-product = smithing:addProduct(catId, 4, 31, 51, 169, 338)
-product:addIngredient(2535, 7) -- Iron Ingot: 7x1
+product = smithing:addProduct(catId, 4, 31, 51, 208, 416)
+product:addIngredient(2535, 10) -- Iron Ingot: 10x1
 product:addIngredient(176, 5) -- Grey Cloth: 5x1
 product:addIngredient(2547) -- Leather: 1x1
 
@@ -256,22 +262,24 @@ product:addIngredient(2547, 4) -- Leather: 4x1
 product:addIngredient(2550, 3) -- Copper Ingot: 3x1
 
 --Nightplate
-product = smithing:addProduct(catId, 2363, 71, 91, 805, 1610)
+product = smithing:addProduct(catId, 2363, 71, 91, 828, 1656)
 product:addIngredient(2535, 17) -- Iron Ingot: 17x1
 product:addIngredient(176, 9) -- Grey Cloth: 9x1
 product:addIngredient(2547, 5) -- Leather: 5x1
 product:addIngredient(2550, 4) -- Copper Ingot: 4x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Shadowplate
-product = smithing:addProduct(catId, 2357, 81, 101, 1150, 2300)
+product = smithing:addProduct(catId, 2357, 81, 100, 1175, 2350)
 product:addIngredient(2535, 20) -- Iron Ingot: 20x1
 product:addIngredient(176, 10) -- Grey Cloth: 10x1
 product:addIngredient(2547, 6) -- Leather: 6x1
 product:addIngredient(2550, 5) -- Copper Ingot: 5x1
 product:addIngredient(283, 5) -- Obsidian: 5x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Heavy Plate
-product = smithing:addProduct(catId, 2393, 90, 110, 1350, 2700)
+product = smithing:addProduct(catId, 2393, 90, 100, 1350, 2700)
 product:addIngredient(2535, 25) -- Iron Ingot: 25x1
 product:addIngredient(176, 10) -- Grey Cloth: 10x1
 product:addIngredient(2547, 7) -- Leather: 7x1
@@ -287,13 +295,15 @@ product:addIngredient(2550, 5) -- Copper Ingot: 5x1
 product:addIngredient(284, 3) -- Sapphire: 3x1
 
 --Magical Elven Armour
-product = smithing:addProduct(catId, 2400, 70, 90, 792, 1584)
+product = smithing:addProduct(catId, 2400, 70, 90, 836, 1672)
 product:addIngredient(2535, 15) -- Iron Ingot: 15x1
 product:addIngredient(176, 7) -- Grey Cloth: 7x1
 product:addIngredient(236, 3) -- Gold: 3x1
 product:addIngredient(2550, 5) -- Copper Ingot: 5x1
 product:addIngredient(46, 3) -- Ruby: 3x1
 product:addIngredient(198, 3) -- Topas: 3x1
+product:addIngredient(2571) -- Merinium Ingot
+product:addIngredient(2554) -- Pure Water
 
 catId = smithing:addCategory("gloves", "Handschuhe")
 
@@ -330,8 +340,8 @@ product = smithing:addProduct(catId, 2111, 70, 90, 286, 572)
 product:addIngredient(2535, 13) -- Iron Ingot: 13x1
 
 --Short Iron Greaves
-product = smithing:addProduct(catId, 2117, 30, 50, 84, 168)
-product:addIngredient(2535, 7) -- Iron Ingot: 7x1
+product = smithing:addProduct(catId, 2117, 30, 50, 120, 240)
+product:addIngredient(2535, 10) -- Iron Ingot: 10x1
 
 --Steel Greaves
 product = smithing:addProduct(catId, 2172, 50, 70, 204, 408)
@@ -339,10 +349,9 @@ product:addIngredient(2535, 10) -- Iron Ingot: 10x1
 product:addIngredient(2547, 2) -- Leather: 2x1
 
 --Iron Greaves
-product = smithing:addProduct(catId, 2116, 70, 90, 484, 968)
+product = smithing:addProduct(catId, 2116, 70, 90, 374, 748)
 product:addIngredient(2535, 15) -- Iron Ingot: 15x1
 product:addIngredient(2547, 2) -- Leather: 2x1
-product:addIngredient(176, 5) -- Grey Cloth: 5x1
 
 catId = smithing:addCategory("boots", "Schuhe")
 
@@ -356,13 +365,13 @@ product:addIngredient(2535, 10) -- Iron Ingot: 10x1
 product:addIngredient(2550) -- Copper: 1x1
 
 --Albarian Steel Boots
-product = smithing:addProduct(catId, 771, 60, 80, 300, 600)
-product:addIngredient(2535, 13) -- Iron Ingot: 13x1
+product = smithing:addProduct(catId, 771, 60, 80, 240, 480)
+product:addIngredient(2535, 10) -- Iron Ingot: 10x1
 product:addIngredient(2550, 2) -- Copper: 2x1
 
 --Knight Boots
-product = smithing:addProduct(catId, 770, 70, 90, 440, 880)
-product:addIngredient(2535, 15) -- Iron Ingot: 15x1
+product = smithing:addProduct(catId, 770, 70, 90, 330, 660)
+product:addIngredient(2535, 10) -- Iron Ingot: 10x1
 product:addIngredient(2550, 3) -- Copper: 3x1
 product:addIngredient(2547, 2) -- Leather: 2x1
 
@@ -490,65 +499,75 @@ product:addIngredient(2525) -- AxeHandle: 1x1
 product:addIngredient(2571) -- Merinium Ingot: 1x1
 
 --Elvensword
-product = smithing:addProduct(catId, 2778, 82, 102, 125, 250)
+product = smithing:addProduct(catId, 2778, 82, 100, 150, 300)
 product:addIngredient(2535, 3) -- Iron Ingot: 3x1
 product:addIngredient(2584) -- Sword Handle: 1x1
 product:addIngredient(284) -- Sapphire: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Dwarven Axe
-product = smithing:addProduct(catId, 2660, 85, 105, 156, 312)
+product = smithing:addProduct(catId, 2660, 85, 100, 182, 364)
 product:addIngredient(2535, 4) -- Iron Ingot: 4x1
-product:addIngredient(2525) -- AxeHandle: 1x1
+product:addIngredient(2525) -- Axe Handle: 1x1
 product:addIngredient(198) -- Topas: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Snakesword
-product = smithing:addProduct(catId, 2788, 89, 109, 135, 270)
+product = smithing:addProduct(catId, 2788, 89, 100, 162, 324)
 product:addIngredient(2535, 3) -- Iron Ingot: 3x1
-product:addIngredient(2584) -- SwordHandle: 1x1
+product:addIngredient(2584) -- Sword Handle: 1x1
 product:addIngredient(197) -- Amethyst: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Elven rainbowsword
-product = smithing:addProduct(catId, 2775, 89, 109, 162, 324)
+product = smithing:addProduct(catId, 2775, 89, 100, 189, 378)
 product:addIngredient(2535, 3) -- Iron Ingot: 3x1
 product:addIngredient(2584) -- Sword Handle: 1x1
 product:addIngredient(46) -- Ruby: 1x1
 product:addIngredient(284) -- Sapphire: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Fire Broadsword
-product = smithing:addProduct(catId, 2656, 92, 112, 196, 392)
+product = smithing:addProduct(catId, 2656, 92, 100, 224, 448)
 product:addIngredient(2535, 5) -- Iron Ingot: 5x1
 product:addIngredient(2584) -- Sword Handle: 1x1
 product:addIngredient(2553) -- Pure Fire: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Fire Longsword
-product = smithing:addProduct(catId, 206, 94, 114, 224, 448)
+product = smithing:addProduct(catId, 206, 94, 100, 252, 504)
 product:addIngredient(2535, 6) -- Iron Ingot: 6x1
 product:addIngredient(2584) -- Sword Handle: 1x1
 product:addIngredient(2553) -- Pure Fire: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Magical Serinjah Sword
-product = smithing:addProduct(catId, 2693, 96, 116, 203, 406)
+product = smithing:addProduct(catId, 2693, 96, 100, 232, 464)
 product:addIngredient(2535, 5) -- Iron Ingot: 5x1
 product:addIngredient(2584) -- Sword Handle: 1x1
 product:addIngredient(2551) -- Pure Air: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Magical Broadsword
-product = smithing:addProduct(catId, 2654, 98, 118, 203, 406)
+product = smithing:addProduct(catId, 2654, 98, 100, 232, 464)
 product:addIngredient(2535, 5) -- Iron Ingot: 5x1
 product:addIngredient(2584) -- Sword Handle: 1x1
 product:addIngredient(2551) -- Pure Air: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Magical Longsword
-product = smithing:addProduct(catId, 2704, 99, 119, 240, 480)
+product = smithing:addProduct(catId, 2704, 99, 100, 270, 540)
 product:addIngredient(2535, 6) -- Iron Ingot: 6x1
 product:addIngredient(2584) -- Sword Handle: 1x1
 product:addIngredient(2551) -- Pure Air: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Magical Dwarven Axe
-product = smithing:addProduct(catId, 2662, 100, 120, 270, 540)
+product = smithing:addProduct(catId, 2662, 100, 100, 300, 600)
 product:addIngredient(2535, 7) -- Iron Ingot: 7x1
-product:addIngredient(2525) -- AxeHandle: 1x1
-product:addIngredient(2571) -- Merinium Ingot: 1x1
+product:addIngredient(2525) -- Axe Handle: 1x1
+product:addIngredient(2551) -- Pure Air: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 catId = smithing:addCategory("stabbing weapons", "Stichwaffen")
 
@@ -579,7 +598,7 @@ product:addIngredient(2535) -- Iron Ingot: 1x1
 product:addIngredient(2530) -- Dagger Handle: 1x1
 product:addIngredient(104) -- Silver Ingot: 1x1
 
---Copped Dagger
+--Coppered Dagger
 product = smithing:addProduct(catId, 398, 56, 76, 57, 114)
 product:addIngredient(2535) -- Iron Ingot: 1x1
 product:addIngredient(2530) -- Dagger Handle: 1x1
@@ -592,17 +611,19 @@ product:addIngredient(2530) -- Dagger Handle: 1x1
 product:addIngredient(2571) -- Merinium Ingot: 1x1
 
 --Red Dagger
-product = smithing:addProduct(catId, 2740, 80, 100, 75, 150)
+product = smithing:addProduct(catId, 2740, 80, 100, 100, 200)
 product:addIngredient(2535, 2) -- Iron Ingot: 2x1
 product:addIngredient(2530) -- Dagger Handle: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Rapier
-product = smithing:addProduct(catId, 2675, 88, 108, 108, 216)
+product = smithing:addProduct(catId, 2675, 88, 100, 135, 270)
 product:addIngredient(2535, 3) -- Iron Ingot: 3x1
 product:addIngredient(2584) -- Sword Handle: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Malachin Dagger
-product = smithing:addProduct(catId, 91, 93, 113, 168, 336)
+product = smithing:addProduct(catId, 91, 93, 100, 168, 336)
 product:addIngredient(2535) -- Iron Ingot: 1x1
 product:addIngredient(2530) -- Dagger Handle: 1x1
 product:addIngredient(2550) -- Copper Ingot: 1x1
@@ -610,19 +631,21 @@ product:addIngredient(236, 2) -- Gold Ingot: 2x1
 product:addIngredient(2571) -- Merinium: 1x1
 
 --Red Fire Dagger
-product = smithing:addProduct(catId, 2742, 97, 117, 203, 406)
+product = smithing:addProduct(catId, 2742, 97, 100, 232, 464)
 product:addIngredient(2535) -- Iron Ingot: 1x1
 product:addIngredient(2530) -- Dagger Handle: 1x1
 product:addIngredient(2550, 2) -- Copper Ingot: 2x1
 product:addIngredient(236, 2) -- Gold Ingot: 2x1
 product:addIngredient(2553) -- Pure Fire: 1x1
+product:addIngredient(2571) -- Merinium Ingot
 
 --Magical Dagger
-product = smithing:addProduct(catId, 2671, 100, 120, 270, 540)
+product = smithing:addProduct(catId, 2671, 100, 100, 300, 600)
 product:addIngredient(2535) -- Iron Ingot: 1x1
 product:addIngredient(2530) -- Dagger Handle: 1x1
 product:addIngredient(2550, 3) -- Copper Ingot: 3x1
 product:addIngredient(236, 3) -- Gold Ingot: 3x1
+product:addIngredient(2551) -- Pure Air: 1x1
 product:addIngredient(2571) -- Merinium: 1x1
 
 catId = smithing:addCategory("two-hand weapons", "Zweihandwaffen")
@@ -668,27 +691,30 @@ product:addIngredient(2535, 5) -- Iron Ingot: 5x1
 product:addIngredient(2525) -- AxeHandle: 1x1
 
 --Firewaraxe
-product = smithing:addProduct(catId, 2627, 93, 113, 252, 504)
+product = smithing:addProduct(catId, 2627, 93, 100, 280, 560)
 product:addIngredient(2535, 5) -- Iron Ingot: 5x1
-product:addIngredient(2525) -- AxeHandle: 1x1
+product:addIngredient(2525) -- Axe Handle: 1x1
 product:addIngredient(2550) -- Copper Ingot: 1x1
 product:addIngredient(236) -- Gold Ingot: 1x1
 product:addIngredient(2553) -- Pure Fire: 1x1
+product:addIngredient(2571) -- Merinium: 1x1
 
 --Fireaxe
-product = smithing:addProduct(catId, 2640, 97, 117, 319, 638)
+product = smithing:addProduct(catId, 2640, 97, 100, 348, 696)
 product:addIngredient(2535, 5) -- Iron Ingot: 5x1
-product:addIngredient(2525) -- AxeHandle: 1x1
+product:addIngredient(2525) -- Axe Handle: 1x1
 product:addIngredient(2550, 2) -- Copper Ingot: 2x1
 product:addIngredient(236, 2) -- Gold Ingot: 2x1
 product:addIngredient(2553) -- Pure Fire: 1x1
+product:addIngredient(2571) -- Merinium: 1x1
 
 --Magical Waraxe
-product = smithing:addProduct(catId, 2626, 100, 120, 390, 780)
+product = smithing:addProduct(catId, 2626, 100, 100, 420, 840)
 product:addIngredient(2535, 5) -- Iron Ingot: 5x1
 product:addIngredient(2525) -- AxeHandle: 1x1
 product:addIngredient(2550, 3) -- Copper Ingot: 3x1
 product:addIngredient(236, 3) -- Gold Ingot: 3x1
+product:addIngredient(2551) -- Pure Air: 1x1
 product:addIngredient(2571) -- Merinium: 1x1
 
 catId = smithing:addCategory("throwing weapons", "Wurfwaffen")

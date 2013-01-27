@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Regallo                                                          --
 --           Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -54,8 +54,8 @@ talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
 talkEntry:addResponse("If you want to order please talk to my father.");
-talkEntry:addResponse("Oh hello. I'm very busy. I will have to talk to you later.");
-talkEntry:addResponse("Oh hello. I'm so tired. I feel like I'm going to pass out.");
+talkEntry:addResponse("Oh hello, I'm very busy, I will have to talk to you later.");
+talkEntry:addResponse("Oh hello, I'm so tired, I feel like I'm going to pass out.");
 talkEntry:addResponse("Good day potential customers. How may I assist you today?");
 talkEntry:addResponse("Welcome to the Unicorn Lion.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -77,6 +77,20 @@ talkEntry:addResponse("Oh, hallo, ich bin gerade beschäftigt. Wir können nachher
 talkEntry:addResponse("Oh hallo. Ich bin so müde. Ich kipp bald aus den Latschen.");
 talkEntry:addResponse("Guten Tag, zukünftiger Kunde. Was kann ich für euch tun?");
 talkEntry:addResponse("Willkommen im Einhörnigen Löwen.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Hiho");
+talkEntry:addTrigger("Hallo");
+talkEntry:addTrigger("Hey");
+talkEntry:addTrigger("Greeb");
+talkEntry:addResponse("If you want to order please talk to my father.");
+talkEntry:addResponse("Oh hello, I'm very busy, I will have to talk to you later.");
+talkEntry:addResponse("Oh hello, I'm so tired, I feel like I'm going to pass out.");
+talkEntry:addResponse("Good day potential customers. How may I assist you today?");
+talkEntry:addResponse("Welcome to the Unicorn Lion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -149,11 +163,11 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("How are you");
 talkEntry:addTrigger("How feel");
-talkEntry:addResponse("Haha, I think I forgot what a real bad day looks like.");
+talkEntry:addResponse("Haha, I think I forgot what a really bad day was like.");
 talkEntry:addResponse("I am enjoying my day and you?");
 talkEntry:addResponse("I think I'm a little bit sleepy, but how are you?");
-talkEntry:addResponse("I feel like a thousand suns shineing upon a cloudless sky.");
-talkEntry:addResponse("I'm very busy. No time to chat.");
+talkEntry:addResponse("I feel like a thousand suns shining upon a cloudless sky.");
+talkEntry:addResponse("I'm very busy, no time to chat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -202,8 +216,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Noble Celebration I"));
-talkEntry:addResponse("Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 1));
+talkEntry:addResponse("Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -212,8 +226,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 0));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine edle Feier I"));
-talkEntry:addResponse("Oh, ihr wollt mirhelfen? Edelleute wollen eine Feier im Einhörnigen Löwen abhalten und es ist nichts vorbereitet! Uns fehlen fünf Gedecke Besteck, könntet ihr die bitte besorgen?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 1));
+talkEntry:addResponse("Oh, ihr wollt mirhelfen? Edelleute wollen eine Feier im Einhörnigen Löwen abhalten und es ist nichts vorbereitet! Uns fehlen fünf Gedecke Besteck, könntet ihr die bitte besorgen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -223,8 +237,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Noble Celebration I"));
-talkEntry:addResponse("Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 1));
+talkEntry:addResponse("Oh, you want to help me? A celebration of noble men is scheduled in the Unicorn Lion and nothing is prepared, my dear! We lack five sets of cutlery, please get them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -235,8 +249,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine edle Feier I"));
-talkEntry:addResponse("Oj, ihr wollt mirhelfen? Edelleute wollen eine Feier im Einhörnigen Löwen abhalten und es ist nichts vorbereitet! Uns fehlen fünf Gedecke Besteck, könntet ihr die bitte besorgen?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 1));
+talkEntry:addResponse("Oj, ihr wollt mirhelfen? Edelleute wollen eine Feier im Einhörnigen Löwen abhalten und es ist nichts vorbereitet! Uns fehlen fünf Gedecke Besteck, könntet ihr die bitte besorgen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -247,11 +261,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Cutlery, great! I mean, shall noble men dine with their hands? Thank you! We don't have much, but take these coins as compensation.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2647, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Cutlery, great! I mean, shall we have noble men dine with their hands? Thank you! We don't have much, but take these coins as compensation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -261,11 +275,11 @@ talkEntry:addCondition(npc.base.condition.item.item(2647, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Bestecke, wunderbar! Ich meine, sollen Edelleute etwa mit der Hand essen? Danke! Wir haben nicht viel, aber nehmt diese Münzen als Bezahlung.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2647, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
+talkEntry:addResponse("Bestecke, wunderbar! Ich meine, sollen Edelleute etwa mit der Hand essen? Danke! Wir haben nicht viel, aber nehmt diese Münzen als Bezahlung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -275,10 +289,10 @@ talkEntry:addCondition(npc.base.condition.item.item(2647, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins."));
-talkEntry:addResponse("Cutlery, great! I mean, shall noble men dine with their hands? Thank you! We don't have much, but take these coins as compensation.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2647, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 2));
+talkEntry:addResponse("Cutlery, great! I mean, shall we have noble men dine with their hands? Thank you! We don't have much, but take these coins as compensation.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -287,10 +301,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 1));
 talkEntry:addCondition(npc.base.condition.item.item(2647, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke."));
-talkEntry:addResponse("Bestecke, wunderbar! Ich meine, sollen Edelleute etwa mit der Hand essen? Danke! Wir haben nicht viel, aber nehmt diese Münzen als Bezahlung.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2647, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 2));
+talkEntry:addResponse("Bestecke, wunderbar! Ich meine, sollen Edelleute etwa mit der Hand essen? Danke! Wir haben nicht viel, aber nehmt diese Münzen als Bezahlung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -299,7 +313,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("The celebration of the noble men is anytime soon - please, we need the five sets of cutlery.");
+talkEntry:addResponse("The celebration of the noble men is anytime soon, please, we need the five sets of cutlery.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -316,7 +330,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 1));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("The celebration of the noble men is anytime soon - please, we need the five sets of cutlery.");
+talkEntry:addResponse("The celebration of the noble men is anytime soon, please, we need the five sets of cutlery.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -337,8 +351,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Noble Celebration II"));
-talkEntry:addResponse("We still don't have all the things we need for the noblemen's celebration. We want to serve best wine from Albar, but we lack suitable wine glasses? Will you bring me five of them?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 3));
+talkEntry:addResponse("We still don't have all the things we need for the noblemen's celebration. We want to serve best wine from Albar, but we lack suitable wine glasses. Will you bring me five of them?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -347,8 +361,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine edle Feier II"));
-talkEntry:addResponse("Wir haben noch immer nicht alles für die Feier der Edelleute beisammen. Wir wollen besten Wein aus Albar ausschenken, aber wir haben keine Weingläser. Bringt doch bitte fünf davon.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 3));
+talkEntry:addResponse("Wir haben noch immer nicht alles für die Feier der Edelleute beisammen. Wir wollen besten Wein aus Albar ausschenken, aber wir haben keine Weingläser. Bringt doch bitte fünf davon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -358,8 +372,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Noble Celebration II"));
-talkEntry:addResponse("We still don't have all the things we need for the noblemen's celebration. We want to serve best wine from Albar, but we lack suitable wine glasses? Will you bring me five of them?");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 3));
+talkEntry:addResponse("We still don't have all the things we need for the noblemen's celebration. We want to serve best wine from Albar, but we lack suitable wine glasses. Will you bring me five of them?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -370,8 +384,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine edle Feier II"));
-talkEntry:addResponse("Wir haben noch immer nicht alles für die Feier der Edelleute beisammen. Wir wollen besten Wein aus Albar ausschenken, aber wir haben keine Weingläser. Bringt doch bitte fünf davon.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 3));
+talkEntry:addResponse("Wir haben noch immer nicht alles für die Feier der Edelleute beisammen. Wir wollen besten Wein aus Albar ausschenken, aber wir haben keine Weingläser. Bringt doch bitte fünf davon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -382,11 +396,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("Noblemen don't drink from buckets! You are my hero. Just one thing is missing for the celebration, perhaps you can help me with that order as well.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Noblemen don't drink from buckets! You are my hero. Just one thing is missing for the celebration now , perhaps you can help me with that order as well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -396,11 +410,11 @@ talkEntry:addCondition(npc.base.condition.item.item(2457, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Edelleute trinken nunmal nicht aus Kübeln! Ihr seid mein Held. Jetzt fehlt nur noch eine Sache für die Feier. Vielleicht könnt ihr mir bei diesem Auftrag auch helfen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 4));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 10));
+talkEntry:addResponse("Edelleute trinken nunmal nicht aus Kübeln! Ihr seid mein Held. Jetzt fehlt nur noch eine Sache für die Feier. Vielleicht könnt ihr mir bei diesem Auftrag auch helfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -410,10 +424,10 @@ talkEntry:addCondition(npc.base.condition.item.item(2457, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded 20 silver coins."));
-talkEntry:addResponse("Noblemen don't drink from buckets! You are my hero. Just one thing is missing for the celebration, perhaps you can help me with that order as well.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 4));
+talkEntry:addResponse("Noblemen don't drink from buckets! You are my hero. Just one thing is missing for the celebration now, perhaps you can help me with that order as well.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -422,10 +436,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 3));
 talkEntry:addCondition(npc.base.condition.item.item(2457, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst 20 Silberstücke."));
-talkEntry:addResponse("Edelleute trinken nunmal nicht aus Kübeln! Ihr seid mein Held. Jetzt fehlt nur noch eine Sache für die Feier. Vielleicht könnt ihr mir bei diesem Auftrag auch helfen.");
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2457, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 4));
+talkEntry:addResponse("Edelleute trinken nunmal nicht aus Kübeln! Ihr seid mein Held. Jetzt fehlt nur noch eine Sache für die Feier. Vielleicht könnt ihr mir bei diesem Auftrag auch helfen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -471,8 +485,8 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Noble Celebration III"));
-talkEntry:addResponse("The last thing that is missing is the most important one for dining: wooden plates. We need, again, five wooden plates and something tells me you will bring them to us.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 5));
+talkEntry:addResponse("The last thing that is missing is the most important one for dining, wooden plates. We need five wooden plates and something tells me you will bring them to us.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -481,8 +495,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 4));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine edle Feier III"));
-talkEntry:addResponse("Das Letzte, was uns noch fehlt, ist das Wichtigste für ein Gelage: Holzteller. Wir brauchen erneut fünf davon und irgendwas sagt mir, dass ihr sie uns bringen werdet.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 5));
+talkEntry:addResponse("Das Letzte, was uns noch fehlt, ist das Wichtigste für ein Gelage: Holzteller. Wir brauchen erneut fünf davon und irgendwas sagt mir, dass ihr sie uns bringen werdet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,8 +506,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A Noble Celebration III"));
-talkEntry:addResponse("The last thing that is missing is the most important one for dining: wooden plates. We need, again, five wooden plates and something tells me you will bring them to us.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 5));
+talkEntry:addResponse("The last thing that is missing is the most important one for dining, wooden plates. We need five wooden plates and something tells me you will bring them to us.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -504,8 +518,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Eine edle Feier III"));
-talkEntry:addResponse("Das Letzte, was uns noch fehlt, ist das Wichtigste für ein Gelage: Holzteller. Wir brauchen erneut fünf davon und irgendwas sagt mir, dass ihr sie uns bringen werdet.");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 5));
+talkEntry:addResponse("Das Letzte, was uns noch fehlt, ist das Wichtigste für ein Gelage: Holzteller. Wir brauchen erneut fünf davon und irgendwas sagt mir, dass ihr sie uns bringen werdet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -516,11 +530,11 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a ruby amulet. You advance in Queen Rosaline Edwards' favour."));
-talkEntry:addResponse("I am so relieved, now we have plates for the noblemen. Let's get the celebration started! I give you one of the few items my mother gave to me before... a trinket. Keep it safe, will you?");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 677, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("I am so relieved, now we have plates for the noblemen. Let's get the celebration started! I give you one of the few items my mother gave to me before... a trinket. Keep it safe, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -530,11 +544,11 @@ talkEntry:addCondition(npc.base.condition.item.item(2952, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.town.town(1));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Rubinamulet. Dein Ansehen bei Königin Rosaline Edwards steigt."));
-talkEntry:addResponse("Ich bin ja so erleichtert, jetzt haben wir endlich Teller für die Edelleute. Die Feier kann beginnen! Ich gebe euch eines der wenigen Dingen, die mir meine Mutter hinterließ als sie... Ein Schmuckstück. Passt darauf auf, bitte.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 677, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 6));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 15));
+talkEntry:addResponse("Ich bin ja so erleichtert, jetzt haben wir endlich Teller für die Edelleute. Die Feier kann beginnen! Ich gebe euch eines der wenigen Dingen, die mir meine Mutter hinterließ als sie... Ein Schmuckstück. Passt darauf auf, bitte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -544,10 +558,10 @@ talkEntry:addCondition(npc.base.condition.item.item(2952, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a ruby amulet."));
-talkEntry:addResponse("I am so relieved, now we have plates for the noblemen. Let's get the celebration started! I give you one of the few items my mother gave to me before... a trinket. Keep it safe, will you?");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 677, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 6));
+talkEntry:addResponse("I am so relieved, now we have plates for the noblemen. Let's get the celebration started! I give you one of the few items my mother gave to me before... a trinket. Keep it safe, will you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -556,10 +570,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2952, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Rubinamulet."));
-talkEntry:addResponse("Ich bin ja so erleichtert, jetzt haben wir endlich Teller für die Edelleute. Die Feier kann beginnen! Ich gebe euch eines der wenigen Dingen, die mir meine Mutter hinterließ als sie... Ein Schmuckstück. Passt darauf auf, bitte.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2952, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(67, 1, 677, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(126, "=", 6));
+talkEntry:addResponse("Ich bin ja so erleichtert, jetzt haben wir endlich Teller für die Edelleute. Die Feier kann beginnen! Ich gebe euch eines der wenigen Dingen, die mir meine Mutter hinterließ als sie... Ein Schmuckstück. Passt darauf auf, bitte.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -604,7 +618,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Oh, well, you cannot help me. But I can help you: ask father for a stew, it will taste good to you.");
+talkEntry:addResponse("Oh, well, you cannot help me further, but I can help you... ask father for a stew, it will taste good to you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -621,7 +635,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(126, "=", 6));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Oh, well, you cannot help me. But I can help you: ask father for a stew, it will taste good to you.");
+talkEntry:addResponse("Oh, well, you cannot help me further, but I can help you.. ask father for a stew, it will taste good to you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -638,9 +652,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("profession");
 talkEntry:addTrigger("cook");
-talkEntry:addResponse("You want to know what I do? I am the cook. I cook for the costumers when they visit our tavern.");
+talkEntry:addResponse("You want to know what I do? I am the cook. I cook for the customers when they visit our tavern.");
 talkEntry:addResponse("I am the cook here. My father is the waiter, and I get to talk to customers all day without taking orders.");
-talkEntry:addResponse("I'm a cook. Well, I'm the cook. I can make soups, boiled noodle leaf, breaded red sweet and my specialty is stew.");
+talkEntry:addResponse("I'm a cook. Well, I'm the cook. I can make soups, noodles, bread and my specialty is stew.");
 talkEntry:addResponse("I make the food that you all eat.");
 talkEntry:addResponse("Father says that I am part owner of this tavern.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -661,9 +675,9 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("job");
-talkEntry:addResponse("You want to know what I do? I am the cook. I cook for the costumers when they visit our tavern.");
+talkEntry:addResponse("You want to know what I do? I am the cook. I cook for the customers when they visit our tavern.");
 talkEntry:addResponse("I am the cook here. My father is the waiter, and I get to talk to customers all day without taking orders.");
-talkEntry:addResponse("I'm a cook. Well I'm the cook. I can make soups, boiled noodle leaf, breaded red sweet and my specialty is stew.");
+talkEntry:addResponse("I'm a cook. Well I'm the cook. I can make soups, noodles, bread and my specialty is stew.");
 talkEntry:addResponse("I make the food that you all eat.");
 talkEntry:addResponse("Father says that I am part owner of this tavern.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -699,9 +713,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Father");
 talkEntry:addTrigger("Daddy");
 talkEntry:addResponse("This tavern is his dream and we run it together.");
-talkEntry:addResponse("He says he is the best father in Cadomyr. And if anyone says he's not, well, they get no dinner from me.");
+talkEntry:addResponse("He says he is the best father in Cadomyr, and if anyone says he's not, well, they get no dinner from me.");
 talkEntry:addResponse("I wonder what father is going to get me for my birthday?");
-talkEntry:addResponse("Father wishes he could be as good of a cook as me.");
+talkEntry:addResponse("Father wishes he could be as good a cook as me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -719,9 +733,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Severus");
 talkEntry:addResponse("This tavern is his dream and we run it together.");
-talkEntry:addResponse("He says he is the best father in Cadomyr. And if anyone says he's not, well, they get no dinner from me.");
+talkEntry:addResponse("He says he is the best father in Cadomyr, and if anyone says he's not, well, they get no dinner from me.");
 talkEntry:addResponse("I wonder what father is going to get me for my birthday?");
-talkEntry:addResponse("Father wishes he could be as good of a cook as me.");
+talkEntry:addResponse("Father wishes he could be as good a cook as me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -738,8 +752,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Mommy");
 talkEntry:addTrigger("Mother");
 talkEntry:addResponse("Father used to be the cook and mother the waitress, but since mother is no more...");
-talkEntry:addResponse("Mother used to say when I grow up I'm going to be beautiful.");
-talkEntry:addResponse("Mother was too nice. She was even nice to mean people.");
+talkEntry:addResponse("Mother used to say when I grew up I would be beautiful.");
+talkEntry:addResponse("Mother was too nice, she was even nice to mean people.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -756,8 +770,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Rose");
 talkEntry:addResponse("Father used to be the cook and mother the waitress, but since mother is no more...");
-talkEntry:addResponse("Mother used to say when I grow up I'm going to be beautiful.");
-talkEntry:addResponse("Mother was too nice. She was even nice to mean people.");
+talkEntry:addResponse("Mother used to say when I grew up I would be beautiful.");
+talkEntry:addResponse("Mother was too nice, she was even nice to mean people.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -774,9 +788,9 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hassan");
 talkEntry:addResponse("He's cute, don't you think?");
 talkEntry:addResponse("I wish he would tell stories, but Hassan never talks.");
-talkEntry:addResponse("He rarely speaks. It's kind of weird. Don't you think?");
-talkEntry:addResponse("He's so big. He picked me up once. I felt like I was touching the stars.");
-talkEntry:addResponse("He's so big. He used to have to duck to enter this place. My father is so nice though. He made the entrance taller.");
+talkEntry:addResponse("He rarely speaks. It's kind of weird, don't you think?");
+talkEntry:addResponse("He's so big, he picked me up once. I felt like I was touching the stars.");
+talkEntry:addResponse("He's so big, he used to have to duck to enter this place. My father is so nice though, he made the entrance taller.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -795,7 +809,7 @@ talkEntry:addTrigger("Queen");
 talkEntry:addResponse("She should come try our food. I promise she will declare it the most delicious food in all of Cadomyr.");
 talkEntry:addResponse("She is beautiful isn't she.");
 talkEntry:addResponse("My mother used to say that Rosaline is very smart.");
-talkEntry:addResponse("I want to be like queen Rosaline when I grow up.");
+talkEntry:addResponse("I want to be like Queen Rosaline when I grow up.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -815,7 +829,7 @@ talkEntry:addTrigger("edwards");
 talkEntry:addResponse("She should come try our food. I promise she will declare it the most delicious food in all of Cadomyr.");
 talkEntry:addResponse("She is beautiful isn't she.");
 talkEntry:addResponse("My mother used to say that Rosaline is very smart.");
-talkEntry:addResponse("I want to be like queen Rosaline when I grow up.");
+talkEntry:addResponse("I want to be like Queen Rosaline when I grow up.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -899,7 +913,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Bragon");
 talkEntry:addTrigger("Brágon");
-talkEntry:addResponse("He's a giant with a beard of fire. He is a good god.");
+talkEntry:addResponse("He's a giant with a beard of fire. He is a good God.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -913,7 +927,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Cherga");
-talkEntry:addResponse("I don't like Cherga. She's scary.");
+talkEntry:addResponse("I don't like Cherga, she's scary.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -926,7 +940,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Elara");
-talkEntry:addResponse("The goddess of wisdom. That's all I know about her.");
+talkEntry:addResponse("The Goddess of wisdom, that's all I know about her.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -952,7 +966,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Findari");
-talkEntry:addResponse("The goddess of air. She is very beautiful.");
+talkEntry:addResponse("The Goddess of air, she is very beautiful.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -979,7 +993,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Malachin");
 talkEntry:addTrigger("Malachín");
-talkEntry:addResponse("He's the wolf god. I want a wolf. I'm going to ask father tonight if I can have a wolf.");
+talkEntry:addResponse("He's the wolf God. I want a wolf. I'm going to ask father tonight if I can have a wolf.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1023,7 +1037,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Oldra");
-talkEntry:addResponse("Oldra has to be the favourite god of any woman.");
+talkEntry:addResponse("Oldra has to be the favourite God of any woman.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1036,7 +1050,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ronagan");
-talkEntry:addResponse("I'm sorry I have not made it to that god yet.");
+talkEntry:addResponse("I'm sorry, I have not made it to that God yet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1063,7 +1077,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Tanora");
 talkEntry:addTrigger("Zelphia");
-talkEntry:addResponse("I'm sorry I have not made it to that god yet.");
+talkEntry:addResponse("I'm sorry, I have not made it to that God yet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1077,7 +1091,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Ushara");
-talkEntry:addResponse("I'm sorry I have not made it to that god yet.");
+talkEntry:addResponse("I'm sorry, I have not made it to that God yet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1090,7 +1104,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zhambra");
-talkEntry:addResponse("I'm sorry I have not made it to that god yet.");
+talkEntry:addResponse("I'm sorry, I have not made it to that God yet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1106,7 +1120,7 @@ talkEntry:addTrigger("Linda");
 talkEntry:addTrigger("Rabon");
 talkEntry:addResponse("Good day, how are you?");
 talkEntry:addResponse("Today is a great day for cooking.");
-talkEntry:addResponse("That is me. Do you want something.");
+talkEntry:addResponse("That is me, do you want something.");
 talkEntry:addResponse("Oh, did you need something?");
 talkEntry:addResponse("That is me.");
 talkEntry:addResponse("Hello. I am Linda Rabon. I would be glad to help you with anything that you need.");
@@ -1156,20 +1170,20 @@ talkEntry:addResponse("Hab ich irgendwas gefragt?");
 talkEntry:addResponse("Wie jetzt?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
-talkingNPC:addCycleText("Feuer und Glut, das wird gut, Bier und Wein, das wird fein.", "Salt, spice, everything nice, beer, wine everthing fine.");
+talkingNPC:addCycleText("Feuer und Glut, das wird gut, Bier und Wein, das wird fein.", "Salt, spice, everything nice, beer, wine everything fine.");
 talkingNPC:addCycleText("Heute koche ich was Besonderes. Dafür brauche ich flambierte Schnecken, Pfeffer aus dem Elsbaumwald, Saft der Sauerampfer und noch drei weitere Dinge, die ich euch aber nicht verrate. Das wird klasse!", "Today I am cooking a unique dish. It requires snails lightly touched in flame, pepper from the Elstree forest, juice from a sour fruit, and like three other things I can't tell you. This is going to be good.");
 talkingNPC:addCycleText("Irgendwann versuche ich nochmal, Lesen zu lernen. Ich koche einfach zu viel.", "One of these days I'm going to try and learn to read a book. It's just that all my time goes to cooking.");
 talkingNPC:addCycleText("Hassan! Trink nicht wieder so viel!", "Hassan! Don't drink too much!");
-talkingNPC:addCycleText("Diese Leute essen einfach viel zu schnell.", "These people eat to fast.");
+talkingNPC:addCycleText("Diese Leute essen einfach viel zu schnell.", "These people eat too fast.");
 talkingNPC:addCycleText("Ich frage mich, ob es sowas wie Kochschulen gibt. Ich wäre eine klasse Lehrerin.", "I wonder if there are schools for cooking. I would be the best teacher ever.");
 talkingNPC:addCycleText("Wenn ihr fragen habt, kommt einfach zu mir. Es ist meine Aufgabe, sie zu beantworten.", "If you have any questions please come to me. It is my job to answer them if that's alright with you.");
 talkingNPC:addCycleText("Willkommen im Einhörnigen Löwen.", "Welcome to the Unicorn Lion.");
-talkingNPC:addCycleText("Kommt doch gerne mal wieder in den Einhörnigen Löwen. Wir würden euch sonst sehr vermissen.", "Please come visit us again at the Unicorn Lion. We miss your presence.");
+talkingNPC:addCycleText("Kommt doch gerne mal wieder in den Einhörnigen Löwen. Wir würden euch sonst sehr vermissen.", "Please come visit us again at the Unicorn Lion, we miss your presence.");
 talkingNPC:addCycleText("Hier im Einhörnigen Löwen gibt es den besten Eintopf von ganz Cadomyr.", "Here at the Unicorn Lion we have the best stew in all of Cadomyr.");
-talkingNPC:addCycleText("Hier sieht es mal wieder aus... Vater sollte mal wieder wischen.", "This place is starting to be a mess. I should make father mop this place up.");
+talkingNPC:addCycleText("Hier sieht es mal wieder aus... Vater sollte mal wieder wischen.", "This place is starting to look a mess, I should make father mop this place up.");
 talkingNPC:addCycleText("Jedes mal, wenn der Geruch meines Eintopfs mir in die Nase steigt, lacht mein Herz.", "Every time I smell a stew I have cooked my heart smiles.");
 talkingNPC:addCycleText("Oh, entschuldigt, ich wollte euch nicht in die Quere kommen.", "Oh sorry, excuse me. I did not mean to get in your way.");
-talkingNPC:addCycleText("Was soll ich nur Vater zum Geburtstag schenken?", "I wonder what I should get father for his birthday.");
+talkingNPC:addCycleText("Was soll ich nur Vater zum Geburtstag schenken?", "I wonder what I should get father for his birthday?");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
@@ -1192,7 +1206,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

@@ -1,5 +1,6 @@
 require("base.common")
-
+require("base.lookat")
+require("content.areas")
 
 -- UPDATE common SET com_script = 'test.merung' WHERE com_itemid = 1266;
 
@@ -37,5 +38,15 @@ function UseItem(User, SourceItem)
 		for i=1,#myTargets do
 		    myTargets[i]:increaseAttrib("hitpoints",-15000)
         end			
-    end	
+    end
+    
+    if (User.lastSpokenText == "area") then
+        local checkArea = content.areas.PointInArea(User.pos, "cadomyr flat 1")
+		if checkArea then
+		    User:inform("im gebiet")
+		else
+          	User:inform("nicht im gebiet")
+        end			
+	end
+	
 end

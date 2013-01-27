@@ -301,19 +301,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Ama-shoon");
-talkEntry:addResponse("The Ama-shoon are the warriors of our folk. There are many tales told about those brave women.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Ama-shoon");
-talkEntry:addResponse("Die Ama-shoon sind die Kriger unsere Volkes. Es gibt viele Geschichten über diese mutigen Frauen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Secret");
 talkEntry:addResponse("Exactly! It is a secret! So it's secret!");
 talkEntry:addResponse("I can't tell you the secret of my profession. Some things you're better off not knowing.");

@@ -2,7 +2,6 @@
 -- Envi
 require("base.common")
 require("content.pillar")
-require("quest.enduranceCave")
 
 module("item.pillar", package.seeall)
 
@@ -86,7 +85,6 @@ function LookAtItem(User,Item)
 			end
 		end
 	
-		User:inform(quest.enduranceCave.StatusInfo[stage][lang]); -- send an crypted inform about current
 		return;								    --stage to the player
 	end
 	-------------------------------- ENDURANCE CAVE QUEST LOOKAT DONE -----------------------------------------

@@ -17,9 +17,9 @@ function UseItem(User, SourceItem)
 			local a,b, value = string.find(string.lower(User.lastSpokenText), "setnumber (%d+)");
             world:increase(TargetItem, value - TargetItem.number);
 			return;
-		elseif (TargetItem:getType() == scriptItem.field) then
+		--[[elseif (TargetItem:getType() == scriptItem.field) then
             UseItemWithField(User, SourceItem, TargetItem.pos);
-			return;
+			return;]]
         end;
     end;
 
@@ -36,7 +36,7 @@ function UseItem(User, SourceItem)
     local itemData = nil
     world:createItemFromId(itemId, 1, target, true, itemQual, itemData);
 end;
-
+--[[ -- seems to be a useless function. 
 function UseItemWithField(User,SourceItem,TargetPos)
     if (ListName == nil) then
         Ini();
@@ -58,7 +58,7 @@ function UseItemWithField(User,SourceItem,TargetPos)
         User:inform("ItemID: "..Param.." mit Qual.: "..quality)
     end;
 end;
-
+]]
 function Ini()
     ListName={};
     ItemList={};

@@ -96,6 +96,14 @@ function GatheringCraft:FindRandomItem(User)
 		-- end
     -- end
 	base.common.GetHungry(User, self.FoodLevel);
+  
+  -- FindRandomItem is called when the User is currently working. If there was
+  -- a reload, the working time will be nil. Check for this case.
+  if (self.SavedWorkTime[User.id] == nil) then
+    -- Just generate the work time again. Does not matter really if this is not
+    -- exactly the original value.
+    self.SavedWorkTime[User.id] = self:GenWorkTime(User,nil);
+  end
 	
 	-- check for Noobia
 	if (base.common.IsOnNoobia(User.pos)) then
