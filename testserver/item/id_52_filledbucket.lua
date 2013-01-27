@@ -36,8 +36,7 @@ function UseItem(User, SourceItem, ltstate)
   end
   
   -- look for fire
-  local FireItem, bool = base.common.GetItemInArea(User.pos, 12, 1, false);
-	debug("Bool: "..tostring(bool).." FireItem x: "..FireItem.pos.x.." y: "..FireItem.pos.y);
+  local FireItem, bool = base.common.GetItemInArea(User.pos, 12, 1, true);
   if (FireItem == nil or FireItem.wear == 255) then
     local i = base.common.GetItemInArea(User.pos, 12, 1, true);
     if (i ~= nil) then
@@ -45,7 +44,6 @@ function UseItem(User, SourceItem, ltstate)
     end
   end
   if (FireItem ~= nil) then
-	debug("looking: "..tostring(base.common.IsLookingAt( User, FireItem.pos )));
     if not base.common.IsLookingAt( User, FireItem.pos ) then -- check looking direction
       base.common.TurnTo( User, FireItem.pos ); -- turn if necessary
     end
@@ -58,7 +56,6 @@ function UseItem(User, SourceItem, ltstate)
       "The water vaporises in the fire but it does not extinguish it.");
     else
 	  local frontitem = base.common.GetFrontItem(User);
-	  debug("frontitem x: "..frontitem.pos.x.." y: "..frontitem.pos.y);
 	  if frontitem~=nil then
 		world:erase(frontitem,frontitem.number);
 		base.common.InformNLS(User,
