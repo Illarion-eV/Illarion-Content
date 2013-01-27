@@ -146,16 +146,16 @@ function IsLookingAt(User, Location)
 	
     return (((richtung == Character.north) and (Location.y < User.pos.y)) or
             ((richtung == Character.northeast) and
-                ((Location.y < User.pos.y) or (Location.x > User.pos.x))) or
+                ((Location.y < User.pos.y) and (Location.x > User.pos.x))) or
             ((richtung == Character.east) and (Location.x > User.pos.x)) or
             ((richtung == Character.southeast) and
                 ((Location.y > User.pos.y) and (Location.x > User.pos.x))) or
             ((richtung == Character.south) and (Location.y > User.pos.y)) or
             ((richtung == Character.southwest) and
-                ((Location.y > User.pos.y) or (Location.x < User.pos.x))) or
+                ((Location.y > User.pos.y) and (Location.x < User.pos.x))) or
             ((richtung == Character.west) and (Location.x < User.pos.x)) or
             ((richtung == Character.northwest) and
-                ((Location.y < User.pos.y) or (Location.x < User.pos.x))));
+                ((Location.y < User.pos.y) and (Location.x < User.pos.x))));
 end;
 
 --- Check if a character sequence (string) is nil or empty.
