@@ -263,7 +263,7 @@ function getNPC(SourceItem)
     return myNPC	
 end
 
-function RecipeInform( User, SourceItem, TargetItem, ltstate )
+function RecipeInform( User, SourceItem)
 
     if (ListEffectId["Runewick"] == nil) then
 	    Init()
@@ -335,7 +335,7 @@ function UseItem(User, SourceItem, ltstate)
 	if town == false then
 	    return
 	else
-	    RecipeInform( User, SourceItem, TargetItem, ltstate )
+	    RecipeInform( User, SourceItem)
 	end	
 	
 end
