@@ -135,11 +135,13 @@ function IsLookingAt(User, Location)
     end;
 
     if User.pos == Location then
+		debug("equal")
         return true;
     end
 
     local richtung = User:getFaceTo();
-
+	debug("richtung "..richtung)
+	
     return (((richtung == Character.north) and (Location.y < User.pos.y)) or
             ((richtung == Character.northeast) and
                 ((Location.y < User.pos.y) or (Location.x > User.pos.x))) or
@@ -201,7 +203,7 @@ end;
 function TurnTo(User, Location)
     local oldDir = User:getFaceTo();
     local newDir = GetDirection(User.pos, Location);
-
+	debug("newDir "..newDir)
     if (newDir ~= oldDir) then
         User:setAttrib("faceto", newDir);
     end;
