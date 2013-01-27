@@ -1756,6 +1756,7 @@ function GetItemInArea(CenterPos, ItemId, Radius, OnlyWriteable)
         for i=0,itemCount-1 do 
           local item = field:getStackItem(i);
           if (item.id == ItemId) then
+			debug("item: "..item.pos.x.." y: "..item.pos.y)
             return item, (i==0);
           end
         end
