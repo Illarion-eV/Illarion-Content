@@ -13,7 +13,7 @@ function UseItem(User, SourceItem, ltstate)
 	
 	if (User.lastSpokenText == "set") then
 		 local list = setRanklist(User, User, 666);
-		 User.inform("List: "..list);
+		 User:inform("List: "..list);
 	end
 	
 	if (User.lastSpokenText == "sound") then
