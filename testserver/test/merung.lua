@@ -1,4 +1,5 @@
 require("base.common")
+require("development.doors")
 
 
 -- UPDATE common SET com_script = 'test.merung' WHERE com_itemid = 1266;
@@ -37,5 +38,8 @@ function UseItem(User, SourceItem)
 		for i=1,#myTargets do
 		    myTargets[i]:increaseAttrib("hitpoints",-15000)
         end			
-    end	
+    end
+    if (User.lastSpokenText == "doors") then
+        development.doors.initDoors()
+	end	
 end
