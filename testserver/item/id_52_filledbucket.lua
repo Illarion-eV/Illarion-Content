@@ -56,7 +56,7 @@ function UseItem(User, SourceItem, ltstate)
       "The water vaporises in the fire but it does not extinguish it.");
     else
       world:erase(TargetItem, 1);
-	  world:changeItem(TargetItem)
+	  world:swap(TargetItem, 1, 222)
       base.common.InformNLS(User,
       "Du löschst das Feuer.",
       "You extinguish the fire.");
@@ -158,10 +158,7 @@ function CreateEmptyBucket(User, SourceItem,amount)
     if SourceItem.number > 1 then
 	    world:erase(SourceItem,amount)
 		local notCreated=User:createItem(51,amount,333,nil)
-		debug("not created: "..notCreated)
-		if notCreated ~= 0 then
-			world:createItemFromId(51,amount,User.pos,true,333,nil)
-		end
+		world:createItemFromId(51,notCreated,User.pos,true,333,nil)
 	else	
 		SourceItem.id = 51
 		SourceItem.quality = 333
