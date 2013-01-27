@@ -399,7 +399,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("sickle");
-talkEntry:addResponse("The way you treat it is the way the sickle will treat you.");
+talkEntry:addResponse("The way you treat it, is the way the sickle will treat you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -451,7 +451,7 @@ end;
 talkingNPC:addCycleText("#me betrachtet eine Flasche.", "#me looks closely at a bottle.");
 talkingNPC:addCycleText("Wo bleibt er nur mit meinem Trank?", "What takes him so long to bring me my potion?");
 talkingNPC:addCycleText("#me hackt Kräuter klein.", "#me chops some herbs.");
-talkingNPC:addCycleText("#me sortiert einige Kräuter.", "#me assorts some herbs.");
+talkingNPC:addCycleText("#me sortiert einige Kräuter.", "#me sorts some herbs.");
 talkingNPC:addCycleText("#me beschriftet eine Flasche.", "#me labels a bottle.");
 talkingNPC:addCycleText("#me füllt einen Trank ab.", "#me pours a potion into a bottle.");
 talkingNPC:addCycleText("#me lässt einen Rubin fallen und hebt ihn seufzend wieder auf.", "#me drops a ruby, picking it up again with a sigh.");

@@ -36,31 +36,34 @@ function UseItem(User, SourceItem, ltstate)
   end
   
   -- look for fire
-  TargetItem = base.common.GetItemInArea(User.pos, 12, 1, true);
-  if (TargetItem == nil or TargetItem.wear == 255) then
+  local FireItem, bool = base.common.GetItemInArea(User.pos, 12, 1, true);
+  if (FireItem == nil or FireItem.wear == 255) then
     local i = base.common.GetItemInArea(User.pos, 12, 1, true);
     if (i ~= nil) then
-      TargetItem = i;
+      FireItem = i;
     end
   end
-  if (TargetItem ~= nil) then
-    if not base.common.IsLookingAt( User, TargetItem.pos ) then -- check looking direction
-      base.common.TurnTo( User, TargetItem.pos ); -- turn if necessary
+  if (FireItem ~= nil) then
+    if not base.common.IsLookingAt( User, FireItem.pos ) then -- check looking direction
+      base.common.TurnTo( User, FireItem.pos ); -- turn if necessary
     end
     -- TODO is a noobia check needed?
     -- Don't extinguish static fires.
-    world:makeSound(9, TargetItem.pos);
-    if (TargetItem.wear == 255) then
+    world:makeSound(9, FireItem.pos);
+    if (FireItem.wear == 255) then
       base.common.InformNLS(User,
       "Das Wasser verdampft in dem Feuer ohne es zu löschen.",
       "The water vaporises in the fire but it does not extinguish it.");
     else
-      world:erase(TargetItem, 1);
-      base.common.InformNLS(User,
-      "Du löschst das Feuer.",
-      "You extinguish the fire.");
+	  local frontitem = base.common.GetFrontItem(User);
+	  if frontitem~=nil then
+		world:erase(frontitem,frontitem.number);
+		base.common.InformNLS(User,
+			"Du löschst das Feuer.",
+			"You extinguish the fire.");
+	  end
     end
-    world:gfx(11,TargetItem.pos)
+    world:gfx(11,FireItem.pos)
 	CreateEmptyBucket(User, SourceItem,1)
     return;
   end
@@ -157,7 +160,9 @@ function CreateEmptyBucket(User, SourceItem,amount)
     if SourceItem.number > 1 then
 	    world:erase(SourceItem,amount)
 		local notCreated=User:createItem(51,amount,333,nil)
-		world:createItemFromId(51,amount,User.pos,true,333,nil)
+		if notCreated ~= 0 then
+			world:createItemFromId(51,notCreated,User.pos,true,333,nil)
+		end
 	else	
 		SourceItem.id = 51
 		SourceItem.quality = 333
