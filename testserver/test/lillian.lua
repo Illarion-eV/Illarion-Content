@@ -11,9 +11,9 @@ function UseItem(User, SourceItem, ltstate)
 		getRanklist(User, User, true)
 	end
 	
-	if (User.lastSpokenText == "join") then
-		local testString = join(testTable, ";");
-		User:inform("String: "..testString);
+	if (User.lastSpokenText == "set") then
+		 local list = setRanklist(User, User, 666);
+		 User:inform("List: "..list);
 	end
 	
 	if (User.lastSpokenText == "sound") then
@@ -27,17 +27,9 @@ function LookAtItem(User, Item)
     return true    
 end
 
-function join(joinTable, pattern)
-	local joinString = joinTable[1];
-	for i=2, #(joinTable) do
-		joinString = joinString..pattern..joinTable[i];
-	end	
-	return joinString;
-end
-
-arenaInformations = {{playerPos=position(10,10,0), monsterPos=position(10,0,0), npcName="Alsaya", town="Cadomyr"}, 
-					{playerPos=position(10,10,0), monsterPos=position(10,0,0), npcName="Alsaya", town="Runewick"}, 
-					{playerPos=position(10,10,0), monsterPos=position(10,0,0), npcName="Alsaya", town="Galmair"}}
+arenaInformations = {{playerPos=position(0,0,0), monsterPos=position(0,0,0), npcName="Alsaya", town="Cadomyr", quest=801}, 
+					{playerPos=position(0,0,0), monsterPos=position(0,0,0), npcName="Test", town="Runewick", quest=802}, 
+					{playerPos=position(0,0,0), monsterPos=position(0,0,0), npcName="Test", town="Galmair", quest=803}}
 
 function getRanklist(User, NPC, message)
 	local arena = getArena(User, NPC);
@@ -51,7 +43,7 @@ function getRanklist(User, NPC, message)
 	for i=1, 5 do  -- get the top 5
 		found, arenaEntry = ScriptVars:find("ArenaListCadomyr");
 		if found then
-			arenaList = sortTable(split(arenaEntry, ";"));
+			arenaList = sortTable(base.common.split(arenaEntry, ";"));
 		elseif found == false or table.getn(arenaList) ~= 10 then
 			User:inform("[ERROR] An error occured please contact a developer.")
 		end
@@ -113,30 +105,33 @@ function sortTable(inputTable)
 end
 
 --[[
-Splits a string at a given pattern and puts then
-resulting substrings into a table.
-
-Usage: result = split("Hans;Dampf",";") -> result = {"Hans", "Dampf"}
+Saves the points of the player and if he reached the 
+top five, also saves the new top five.
 ]]
-function split(splitString,pattern)
-	local splitTable = {};
-	local tempTable = {};
-	local tempString;
-	local index = 0;
+function setRanklist(User, NPC, points) 
+	local ranklist = getRanklist(User, NPC, false)
+	local arena = getArena(User, NPC);
+	local town = arenaInformations[arena].town;
+	local quest = arenaInformations[arena].quest;
+	local newRanklist = {};
+	local arenaListName = "ArenaList"..town;
 	
-	while true do
-		index = string.find(splitString, pattern, index+1);
-		if index == nil then
-			break;
-		end;
-		table.insert(tempTable, index)
-	end;
-	tempString,_ = string.gsub(string.sub(splitString, 0, tempTable[1]), ";", "")
-	table.insert(splitTable, tempString);
-	for i=1, table.getn(tempTable) do
-		tempString,_ = string.gsub(string.sub(splitString, tempTable[i], tempTable[i+1]), ";", "")
-		table.insert(splitTable, tempString);
+	User:setQuestProgress(quest, points);
+	
+	if ranklist[table.getn(ranklist)] > tostring(points) then
+		return;
+	else
+		for i=2, #(ranklist), 2 do
+			if ranklist[i] < tostring(points) then
+				table.insert(ranklist, i-1, points);
+				table.insert(ranklist, i-1, User.name);
+				table.remove(ranklist, table.getn(ranklist));
+				table.remove(ranklist, table.getn(ranklist));
+				break;
+			end
+		end
+		stringList = base.common.join(ranklist, ";");
+		ScriptVars:set(arenaListName, stringList)
+		return stringList;
 	end
-	
-	return splitTable;
 end
