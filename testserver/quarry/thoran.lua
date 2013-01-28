@@ -88,7 +88,7 @@ function init()
     AddItemToPool(5,myOrderNPC,2782,6, 7, 1, 3);--Wand of Earth
     AddItemToPool(5,myOrderNPC,2783,6, 7, 1, 3);--Wand of Fire
     AddItemToPool(5,myOrderNPC,2784,6, 7, 1, 3);--Wand of Water
-    AddItemToPool(5,myOrderNPC,2785,6, 7, 1, 3);--Wand of Wind
+    AddItemToPool(5,myOrderNPC,2785,6, 7, 1, 3);--wand of air
     AddItemToPool(5,myOrderNPC,2448,5,10, 1,10);--Legionaire's Tower shield
     AddItemToPool(5,myOrderNPC,  95,5,10, 1,10);--heraldic shield
     AddItemToPool(5,myOrderNPC,2284,6, 7, 1, 4);--Shield of the sky
@@ -102,7 +102,7 @@ function init()
     AddItemToPool(6,myOrderNPC,2629,4,15, 1,15);--Heavy Battleaxe
     AddItemToPool(6,myOrderNPC,2778,4,15, 1,10);--Elvensword
     AddItemToPool(6,myOrderNPC,2784,6, 5, 1, 3);--Wand of Water
-    AddItemToPool(6,myOrderNPC,2785,6, 5, 1, 3);--Wand of Wind
+    AddItemToPool(6,myOrderNPC,2785,6, 5, 1, 3);--wand of air
     AddItemToPool(6,myOrderNPC,2448,5,10, 1,10);--Legionaire's Tower shield
 	myOrderNPC.orderPool:setQualityChancesForPool(6,{60,35,5,0,0,0,0,0,0,0});
 
@@ -783,7 +783,7 @@ if not InitPrices then
 	price [   2782   ] =    6000   ; --    earthwand   ,   Wand   wood
 	price [   2783   ] =    6000   ; --    wand of fire   ,   Wand   wood
 	price [   2784   ] =    6000   ; --    wand of water   ,   Wand   wood
-	price [   2785   ] =    6000   ; --    wand of wind   ,   Wand   wood
+	price [   2785   ] =    6000   ; --    wand of air   ,   Wand   wood
 end
 	if price[id]~=nil then
 		return price[id];

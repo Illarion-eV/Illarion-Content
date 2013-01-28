@@ -243,7 +243,7 @@ function InitializeHelpList()
     PraeLBon[6]={-60  ,-40   ,-40   ,-40   ,-40  };
     -- Staffs & Wands
 	-- {skull staff, cleric's staff, simple mage's staff, mage's staff, battle staff, ornate mage's staff, elven mage's staff
-	-- wand, wand of earth, wand of fire, wand of water, wand of wind }
+	-- wand, wand of earth, wand of fire, wand of water, wand of air }
     PraeList[7]={39    ,40    ,57    ,76    ,207   ,208   ,209   ,323   ,2782  ,2783  ,2784  ,2785  };
     PraeLBon[7]={15    ,15    ,10    ,15    ,15    ,20    ,20    ,50    ,70    ,80    ,80    ,85    };
     -- Distance Weapons

@@ -775,7 +775,7 @@ if not InitPrices then
 	price [   2782   ] =    6000   ; --    earthwand   ,   Wand   wood
 	price [   2783   ] =    6000   ; --    wand of fire   ,   Wand   wood
 	price [   2784   ] =    6000   ; --    wand of water   ,   Wand   wood
-	price [   2785   ] =    6000   ; --    wand of wind   ,   Wand   wood
+	price [   2785   ] =    6000   ; --    wand of air   ,   Wand   wood
 end
 	if price[id]~=nil then
 		return price[id];
