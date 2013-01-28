@@ -82,6 +82,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Closes her eyes
 english, "job" -> "If necessary I'm an informant. In this case I will inform you about Runewick, its buildings, locations, events, people, history or gods. If you require even more, at least one task is also pending."
 "job" -> "Wenn notwendig diene ich als Auskunftsgeberin. In diesem Fall würde ich euch über Runewick informieren, seine Gebäude, Orte, Ereignisse, Leute, Geschichte oder Götter. Und wenn erwünscht, wären auch mindestens eine Aufgabe zu lösen."
 
+english, "telep" -> "This teleporter here can lead you to Cadomyr, Galmair or to the Hemp Necktie Inn."
+"telep" -> "Dieser Teleporter hier vermag euch nach Cadomyr, Galmair oder zum Gasthof zur Hanfschlinge zu bringen."
+
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
 english, "inform" -> inform("[Keywords] building, location, event, people, history, god, ruler, law."), "I have information about buildings, locations, events, people, history, our ruler, laws and gods of Runewick for you if you want to know them."
 "inform" -> inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter, Herrscher, Gesetz."), "Ich habe Informationen über Gebäude, Orte, Ereignisse, Leute, Geschichte, unseren Herrscher, Gesetze und Götter von Runewick für euch wenn ihr wünscht."
@@ -108,10 +111,8 @@ english, "Numila", "Irunnleh" -> "She is geographer and can be found in the Libr
 
 "market" -> "Through the portal after the Lurnord Bridge and you are there *points behind her*."
 "Markt" -> "Durch das Portal nach der Lurnord Brücke und ihr seid dort *zeigt hinter sich*."
-"temple" -> inform("[Keywords] Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Bragon"), "Let me think... You can find four here: Garden of Eldan, Shrine of Elara, Shrine of Findari and Shrine of Bragon."
-"Tempel" -> inform("[Schlüsselwörter] Garten des Eldans, Schrein der Elara, Schrein der Findari, Schrein des Bragons"), "Lasst mich nachdenken... Ihr findet hier vier: Garten des Eldans, Schrein der Elara, Schrein der Findari und Schrein des Bragons."
-english, "telep" -> "This teleporter here can lead you to Cadomyr, Galmair or to the Hemp Necktie Inn."
-"telep" -> "Dieser Teleporter hier vermag euch nach Cadomyr, Galmair oder zum Gasthof zur Hanfschlinge zu bringen."
+"temple" -> inform("[Keywords] Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Bragon"), "Let me think... You can find four here: Garden of Eldan, Shrine of Elara, Shrine of Findari and Shrine of Brágon."
+"Tempel" -> inform("[Schlüsselwörter] Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein des Bragon"), "Lasst mich nachdenken... Ihr findet hier vier: Garten des Eldan, Schrein der Elara, Schrein der Findari und Schrein des Brágon."
 "Census office" -> "The census office can be found in the Tower of Fire next the Library of Fire. You will find Reret Odohir there. He will help you further."
 "Zensusbüro" -> "Das Zensusbüro kann im Turm des Feuers neben der Bibliothek des Feuers gefunden werden werden. Man findet dort Reret Odohir. Er wird einem weiterhelfen."
 "Donkey stable", "stable" -> "Right after the Lurnord Bridge. *points behind her*"
