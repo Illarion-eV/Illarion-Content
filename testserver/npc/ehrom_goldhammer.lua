@@ -981,8 +981,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("I don't have anything I want toat the moment, but I have a special task for you.");
+talkEntry:addResponse("I don't have anything I want to sell at the moment, but I have a special task for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

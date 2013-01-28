@@ -207,7 +207,7 @@ english, "Ronagan" -> "I pray to Ronagan, but it is more a matter of respect tha
 "Ronagan" -> "Ich bete zu Ronagan, aber das hat viel mehr mit Respekt als mit Ehrerbietung zu tun."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> trade, "I don't have anything I want toat the moment, but I have a special task for you."
+"what sell", "what buy", "list wares", "price of" -> "I don't have anything I want to sell at the moment, but I have a special task for you."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich gibt momentan nichts, was ich handeln möchte. Aber ich habe einen Sonderauftrag für euch."
 "tell something" -> "I don't have time to tell stories. Ronagan be my witness, I'm a dwarf of deeds not of words."
 "erzähl was", "erzähl etwas" -> "Ich habe keine Zeit Geschichten zu erzählen. Ronagan sei mein Zeug, ich bin ein Zwerg der Taten, nicht der Worte."
