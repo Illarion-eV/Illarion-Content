@@ -401,8 +401,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Census office");
-talkEntry:addResponse("The census office can be found in the Tower of Fire next the Library of Fire. You will find Reret Odohir there. He will help you further.");
+talkEntry:addTrigger("Census");
+talkEntry:addResponse("The census office can be found in the Tower of Fire next to the Library of Fire. You will find Reret Odohir there. He will help you further.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -427,18 +427,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Donkey");
-talkEntry:addResponse("You can rent them at the donkey stable.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Esel");
-talkEntry:addResponse("Du kannst diese im Eselstall ausleihen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Garden Eldan");
 talkEntry:addTrigger("Eldan Garden");
 talkEntry:addResponse("Garden of Eldan is a place which inspires us with wisdom. You can find it if you walk through the portal into the town on the other side of the Lurnord Bridge and take the other, red one then. There you find also a shrine of Eldan.");
@@ -454,7 +442,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Slum");
-talkEntry:addResponse("The slums are under the market. A Ladder will lead you there. I assume I do not have to explain who lives there. Those who lack on knowledge or have spent to much time on praising Adron.");
+talkEntry:addResponse("The slums are under the market. A Ladder will lead you there. I assume I do not have to explain who lives there. Those who lack on knowledge or have spent too much time on praising Adron.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -467,14 +455,26 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tomb");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Room of Light, Room of Darkness, Room of  Twilight"));
-talkEntry:addResponse("To reach the tomb you have to pass the market first and then the slums. The tomb is devided in three rooms: Room of Light, Room of Darkness, Room of  Twilight.");
+talkEntry:addResponse("To reach the tomb you have to pass the market first and then the slums. The tomb is devided in three rooms: Room of Light, Room of Darkness, Room of Twilight.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gruft");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Raum des Lichts, Raum der Finsterniss, Raum des Zwielichts"));
-talkEntry:addResponse("Um die Gruft zu erreichen müsst erst zum Markt und dann zu den Slums. Die Gruft ist unterteilt in drei Räume: Raum des Lichts, Raum der Finsterniss, und Raum des Zwielichts.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Raum des Lichts, Raum der Finsternis, Raum des Zwielichts"));
+talkEntry:addResponse("Um die Gruft zu erreichen müsst erst zum Markt und dann zu den Slums. Die Gruft ist unterteilt in drei Räume: Raum des Lichts, Raum der Finsternis, und Raum des Zwielichts.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Room Twilight");
+talkEntry:addResponse("The Room of Twilight is the place who were neither at the top nor on the bottom of the god given hierarchy. Gregor, a human whom you sould find on your way to the tomb, will tell you more.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Raum Zwielicht");
+talkEntry:addResponse("Der Raum des Zwielichts ist der Ort für jene welche weder an der Spitze noch am unteren Ende der Hierarchie gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -499,18 +499,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Raum Finsternis");
 talkEntry:addResponse("Der Raum der Finsternis ist jener Ort an denen die Leichen jener aufgehoben werden, welche zuvor an der Sohle der Gesellschaft gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Room Twilight");
-talkEntry:addResponse("The Room of Twilight is the place who were neither at the top nor on the bottom of the god given hierarchy. Gregor, a human whom you sould find on your way to the tomb, will tell you more.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Raum Zwielicht");
-talkEntry:addResponse("Der Raum des Zwielichts ist der Ort für jene welche weder an der Spitze noch am unteren Ende der Hierarchie gelebt haben. Gregor, ein Mensch dem ihr auf euren Weg zur Gruft begegnen werdet, wird euch mehr darüber erzählen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
