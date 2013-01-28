@@ -716,16 +716,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Adron Swill");
-talkEntry:addTrigger("Swill Adron");
+talkEntry:addTrigger("Adron's Swill");
+talkEntry:addTrigger("Adrons Swill");
 talkEntry:addResponse("Adron's Swill can be found in the first floor of the Tower of Water and serves as our taverne. But it is closed as the whole Tower of Water as you can read in our hisorty book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Adrons Gesöff");
 talkEntry:addTrigger("Adron Gesöff");
-talkEntry:addTrigger("Gesöff Adron");
-talkEntry:addResponse("Adron's Swill kann im Erdgeschoß des Turm des Wasser gefunden werden und dient als unsere Taverne. Sie ist aber gesperrt wie der ganze Turm des Wasser, wie ihr unserem Geschichtsbuch entnehmen könnt.");
+talkEntry:addResponse("Adrons Gesöff kann im Erdgeschoß des Turm des Wasser gefunden werden und dient als unsere Taverne. Sie ist aber gesperrt wie der ganze Turm des Wasser, wie ihr unserem Geschichtsbuch entnehmen könnt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
