@@ -120,17 +120,17 @@ queststatus(72) = 5, "quest", "mission" -> "Fünf schwarze Priesterroben sind al
 queststatus(72) = 5, "task", "adventure" -> "Just five black priest robes is all I still need for my customer... and no questions."
 queststatus(72) = 5, "Auftrag", "Aufgabe", "Abenteuer" -> "Fünf schwarze Priesterroben sind alles, was ich für meinen Kunden brauche. Und keine Fragen."
 
--- 4th quest: Get a wand of wind.
-queststatus(72) = 6, english, "quest", "mission" -> inform("[New quest] The Smuggler IV"), queststatus(72) = 7, "Psst! I need you for a very special task. Sneak into Runewick and get me a wand of wind. For what? None of your business!"
-queststatus(72) = 6, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler IV"), queststatus(72) = 7, "Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab des Windes. Wofür? Das geht euch nichts an!"
-queststatus(72) = 6, "task", "adventure" -> inform("[New quest] The Smuggler II"), queststatus(72) = 7, "Psst! I need you for a very special task. Sneak into Runewick and get me a wand of wind. For what? None of your business!"
-queststatus(72) = 6, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler IV"), queststatus(72) = 7, "Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab des Windes. Wofür? Das geht euch nichts an!"
+-- 4th quest: Get a wand of air.
+queststatus(72) = 6, english, "quest", "mission" -> inform("[New quest] The Smuggler IV"), queststatus(72) = 7, "Psst! I need you for a very special task. Sneak into Runewick and get me a wand of air. For what? None of your business!"
+queststatus(72) = 6, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler IV"), queststatus(72) = 7, "Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab der Luft. Wofür? Das geht euch nichts an!"
+queststatus(72) = 6, "task", "adventure" -> inform("[New quest] The Smuggler II"), queststatus(72) = 7, "Psst! I need you for a very special task. Sneak into Runewick and get me a wand of air. For what? None of your business!"
+queststatus(72) = 6, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler IV"), queststatus(72) = 7, "Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab der Luft. Wofür? Das geht euch nichts an!"
 queststatus(72) = 7, item(2785, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a fire longsword."), deleteItem(2785, 1), item(206, 1, 999), queststatus(72) = 8, "Ronagan's thanks... yes, this wand should be good enough. I just have this sword for your, I want to get rid of it. Do not ask why and accept it."
 queststatus(72) = 7, item(2785, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst ein Feuerlangschwert."), deleteItem(2785, 1), item(206, 1, 999), queststatus(72) = 8, "Ronagans Dank... ja, dieser Zauberstab sollte gut genug sein. Ich habe nur dieses Schwert für euch, welches ich gerne loswerden würde. Fragt nicht, warum und nehmt es an."
-queststatus(72) = 7, english, "quest", "mission" -> "Ronagan knows that I do my best. Do your best and bring me a wand of wind for my customer."
-queststatus(72) = 7, "quest", "mission" -> "Ronagan weiß, dass ich mich bemühe. Bemüht euch auch und bringt mir einen Stab des Windes für meinen Kunden."
-queststatus(72) = 7, "task", "adventure" -> "Ronagan knows that I do my best. Do your best and bring me a wand of wind for my customer."
-queststatus(72) = 7, "Auftrag", "Aufgabe", "Abenteuer" -> "Ronagan knows that I do my best. Do your best and bring me a wand of wind for my customer."
+queststatus(72) = 7, english, "quest", "mission" -> "Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer."
+queststatus(72) = 7, "quest", "mission" -> "Ronagan weiß, dass ich mich bemühe. Bemüht euch auch und bringt mir einen Stab der Luft für meinen Kunden."
+queststatus(72) = 7, "task", "adventure" -> "Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer."
+queststatus(72) = 7, "Auftrag", "Aufgabe", "Abenteuer" -> "Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer."
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(72) = 8, english, "quest", "mission" -> "Ronagan be with you... there is nothing left that you can do for me at the moment."

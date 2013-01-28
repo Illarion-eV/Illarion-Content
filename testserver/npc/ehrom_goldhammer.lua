@@ -472,7 +472,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Smuggler IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 7));
-talkEntry:addResponse("Psst! I need you for a very special task. Sneak into Runewick and get me a wand of wind. For what? None of your business!");
+talkEntry:addResponse("Psst! I need you for a very special task. Sneak into Runewick and get me a wand of air. For what? None of your business!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -482,7 +482,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schmuggler IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 7));
-talkEntry:addResponse("Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab des Windes. Wofür? Das geht euch nichts an!");
+talkEntry:addResponse("Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab der Luft. Wofür? Das geht euch nichts an!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,7 +492,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Smuggler II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 7));
-talkEntry:addResponse("Psst! I need you for a very special task. Sneak into Runewick and get me a wand of wind. For what? None of your business!");
+talkEntry:addResponse("Psst! I need you for a very special task. Sneak into Runewick and get me a wand of air. For what? None of your business!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -503,7 +503,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schmuggler IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 7));
-talkEntry:addResponse("Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab des Windes. Wofür? Das geht euch nichts an!");
+talkEntry:addResponse("Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab der Luft. Wofür? Das geht euch nichts an!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -537,7 +537,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ronagan knows that I do my best. Do your best and bring me a wand of wind for my customer.");
+talkEntry:addResponse("Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -545,7 +545,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 7));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ronagan weiß, dass ich mich bemühe. Bemüht euch auch und bringt mir einen Stab des Windes für meinen Kunden.");
+talkEntry:addResponse("Ronagan weiß, dass ich mich bemühe. Bemüht euch auch und bringt mir einen Stab der Luft für meinen Kunden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -553,7 +553,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 7));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Ronagan knows that I do my best. Do your best and bring me a wand of wind for my customer.");
+talkEntry:addResponse("Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -562,7 +562,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 7));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Ronagan knows that I do my best. Do your best and bring me a wand of wind for my customer.");
+talkEntry:addResponse("Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
