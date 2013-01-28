@@ -22,7 +22,7 @@ require("npc.base.consequence.attribute")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("development.elesil_daelwon", package.seeall)
+module("npc.elesil_daelwon", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -737,7 +737,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Lärm Kammer");
+talkEntry:addTrigger("Lärmkammer");
 talkEntry:addTrigger("Kammer Lärm");
 talkEntry:addResponse("Die Lärmkammer ist im zweiten Stock des Turm des Wassers und dient als Übungsraum für unsere Barden. Sie ist aber gesperrt wie der ganze Turm des Wassers, wie ihr unserem Geschichtsbuch entnehmen könnt.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -746,16 +746,16 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tower Earth");
 talkEntry:addTrigger("Earth Tower");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Library of Earth, Kettle Champer, Root Chamber, Test Champer"));
-talkEntry:addResponse("This is the second northern tower and is mainly made for druids. You can find there following rooms: Library of Earth, Kettle Champer, Root Chamber, and Test Champer.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Library of Earth, Kettle Chamber, Root Chamber, Test Chamber"));
+talkEntry:addResponse("This is the second northern tower and is mainly made for druids. You can find there following rooms: Library of Earth, Kettle Chamber, Root Chamber, and Test Chamber.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turm Erd");
 talkEntry:addTrigger("Erd Turm");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Bibliothek der Erde, Kesselkammer, Wurzelkammer, Versuchkammer"));
-talkEntry:addResponse("Dieser Turm ist der zweite nördliche Turm und ist hauptsächlich für Druiden gebaut worden. Ihr findet folgende Räume dort: Bibliothek der Erde, Kesselkammer, Wurzelkammer, und Versuchkammer.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Bibliothek der Erde, Kesselkammer, Wurzelkammer, Versuchskammer"));
+talkEntry:addResponse("Dieser Turm ist der zweite nördliche Turm und ist hauptsächlich für Druiden gebaut worden. Ihr findet folgende Räume dort: Bibliothek der Erde, Kesselkammer, Wurzelkammer, und Versuchskammer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -774,52 +774,51 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Kettle Champer");
-talkEntry:addTrigger("Champer Kettle");
-talkEntry:addResponse("The Kettle Champer in the fourth floor of the Tower of Earth serves as conference and study room for druids and alchemists.");
+talkEntry:addTrigger("Kettle Chamber");
+talkEntry:addTrigger("Chamber Kettle");
+talkEntry:addResponse("The Kettle Chamber in the fourth floor of the Tower of Earth serves as conference and study room for druids and alchemists.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Kessel Kammer");
+talkEntry:addTrigger("Kesselkammer");
 talkEntry:addTrigger("Kammer Kessel");
 talkEntry:addResponse("Die Kesselkammer im dritten Stock im Turm der Erde dient als Konferenz- und Lehrraum für die Druiden und Alchemisten.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Root Champer");
-talkEntry:addTrigger("Champer Root");
-talkEntry:addResponse("In the Root Champer in the third floor of the Tower of Earth, druids and alchemists can share their knowledge with their students.");
+talkEntry:addTrigger("Root Chamber");
+talkEntry:addTrigger("Chamber Root");
+talkEntry:addResponse("In the Root Chamber in the third floor of the Tower of Earth, druids and alchemists can share their knowledge with their students.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Wurzel Kammer");
+talkEntry:addTrigger("Wurzelkammer");
 talkEntry:addTrigger("Kammer Wurzel");
 talkEntry:addResponse("In der Wurzelkammer im zweiten Stock des Turm der Erde können Druiden und Alchemisten ihr Wissen mit ihren Studenten teilen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Test Champer");
-talkEntry:addTrigger("Champer Test");
-talkEntry:addResponse("In the Test Champer in the fist floor of the Tower of Earth, alchemists can work and try their potion.");
+talkEntry:addTrigger("Test Chamber");
+talkEntry:addTrigger("Chamber Test");
+talkEntry:addResponse("In the Test Chamber in the fist floor of the Tower of Earth, alchemists can work and try their potion.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Test Champer");
+talkEntry:addTrigger("Testkammer");
 talkEntry:addTrigger("Kammer Test");
-talkEntry:addResponse("In der Testkammer im Grundgeschoß des Turm der Erde können Alchemisten an ihren Tränken arbeiten und testen.");
+talkEntry:addResponse("In der Versuchskammer im Grundgeschoß des Turm der Erde können Alchemisten an ihren Tränken arbeiten und testen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Versuch Kammer");
+talkEntry:addTrigger("Versuchskammer");
 talkEntry:addTrigger("Kammer Versuch");
-talkEntry:addResponse("In der Testkammer im Grundgeschoß des Turm der Erde können Alchemisten an ihren Tränken arbeiten und testen.");
+talkEntry:addResponse("In der Versuchskammer im Grundgeschoß des Turm der Erde können Alchemisten an ihren Tränken arbeiten und testen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
