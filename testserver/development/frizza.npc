@@ -55,16 +55,16 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Frizza the informant. Keywords: Question, information, Cadomyr, building, game, mission, faction.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frizza die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Cadomyr, Gebäude, Spiel, Auftrag, Fraktion.")
+"Help" -> inform("[Game Help] This NPC is Frizza the informant. Keywords: Question, information, Cadomyr, building, game, mission, town.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Frizza die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Cadomyr, Gebäude, Spiel, Auftrag, Stadt.")
 
 -- Mandatory: General speech
 queststatus(605) = 1, english, ".*" -> inform("You can speak with Frizza now. Ask for 'help' if you do not know what to say! You can also go back to Hummi to collect your reward and come back later."), "How can I help you? Are you looking for any information? Or would you like to be given a task?", queststatus(605)=2
 queststatus(605) = 1, ".*" -> inform("Da kannst nun mit Frizza sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst.! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."), "Wie kann ich helfen? Wird eine Information erwünssscht? Oder eine Aufgabe?", queststatus(605)=2
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss, can I help you?"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüsssse, kann ich helfen?"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss, can I help you?"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Grüsssse, kann ich helfen?"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Greetingsss, can I help you?"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"),"Grüsssse, kann ich helfen?"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Greetingsss, can I help you?"
+"Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"),"Grüsssse, kann ich helfen?"
 "Farewell", "Bye", "Fare well", "See you" -> "Sssee you again, when you need more information."
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Wir sssehen unsss wenn mehr Information benötigt wird."
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sssee you again, when you need more information."
@@ -82,11 +82,14 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Sssee you again, when you n
 "tell something" -> "I can tell you many things about Cadomyr. Just asssk me about buildingsss, locationsss, eventsss, people, history or gods of Cadomyr. Additionaly, I have a little tasssk."
 "erzähl was", "erzähl etwas" -> "Ich kann dir viele Dinge über Cadomyr erzählen. Frag nur nach Gebäude, Orte, Ereignissse, Leute, Gessschichte oder Götter von Cadomyr. Zusssätzlich hätte ich noch eine kleine Aufgabe."
 
+english, "teleport" -> "A possiblity to teleport to Runewick, Galmair or the Hemp Necktie Inn isss here asss yoo ssshould sssee. *points the teleporter*"
+"teleport" -> "Eine Möglichkeit sich nach Runewick, Galmair oder zum Gasthof zur Hanfschlinge zu teleportieren findet man hier wie du sssehen sssolltessst. *Zeigt auf den Teleporter*"
+
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
-english, "inform" -> inform("[Keywords] building, locations, event, people, history, god"), "I have information about buildingsss, locationsss, eventsss, people, hissstory, lawsss and godsss of Cadomyr. Just asssk me!"
-"inform" -> inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter"), "Ich habe Informationen über Gebäude, Orte, Ereignissse, Leute, Geschichte, Gesetze und Götter von Cadomyr geben. Frag einfach!"
-"question" -> inform("[Keywords] building, locations, event, people, history, god"), "I have information about buildings, locationsss, eventsss, people, hissstory and godsss of Cadomyr. Just asssk me!"
-"Frage", "Auskunft" -> inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter"), "Ich habe Informationen über Gebäude, Orte, Ereignissse, Leute, Geschichte und Götter von Cadomyr geben. Frag einfach!"
+english, "inform" -> inform("[Keywords] building, location, event, people, history,, god, ruler, law."), "I have information about buildingsss, locationsss, eventsss, people, hissstory, lawsss, our ruler, lawsss and godsss of Cadomyr. Just asssk me!"
+"inform" -> inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter, Herrscher, Gesetz."), "Ich habe Informationen über Gebäude, Orte, Ereignissse, Leute, Geschichte, Gesetze, unsere Herrssscherin, Gesetze und Götter von Cadomyr geben. Frag einfach!"
+"question" -> inform("[Keywords] building, location, event, people, history, god, ruler, law."), "I have information about buildings, locationsss, eventsss, people, hissstory, our ruler, lawsss and godsss of Cadomyr. Just asssk me!"
+"Frage", "Auskunft" -> inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter, Herrscher, Gesetz."), "Ich habe Informationen über Gebäude, Orte, Ereignissse, Leute, Geschichte, unsere Herrssscherin, Gesetze und Götter von Cadomyr geben. Frag einfach!"
 "building" -> inform("[Keywords] Palace, Tavern Unicorn Lion, Inn Lakeshore, Town wall, Villa, Quartermaster Store, Flat quarter, Sir Reginald Tomb, market, library, temple, census office, teleport, donkey stable"), "We have following buildingsss: Palace, Tavern Unicorn Lion, Inn Lakeshore, Town wall, Villa, Quartermaster's Store, Flat quarter and Sir Reginald Tomb. We have alssso a market, library, temple, census office, teleport and donkey stable."
 "Gebäude" -> inform("[Schlüsselwörter] Palast, Taverne Einhörniger Löwe, Gasthaus Seeufer, Stadtmauer, Villa, Quartiermeister Laden, Wohnungsquartier, Sir Reginald Gruft, Markt, Bibliothek, Tempel, Zensusbüro, Teleporter, Eselstall"), "Wir haben folgende Gebäude: Palast, Taverne Einhörniger Löwe, Gasthaus Seeufer, Stadtmauer, Villa, Quartiermeister Laden, Wohnungsquartier und Sir Reginald Gruft, sowie Markt, Bibliothek, Tempel, Zensusbüro, Teleporter und Eselstall."
 "location" -> inform("[Keywords] Ruzusss"), "If you like to know anything about locationsss outssside, like Katanbi Desert, Western Katanbi Desert, Katanbi Delta, Illarion or Shadowland just asssk Ruzusss behind the towngate."
@@ -94,7 +97,7 @@ english, "inform" -> inform("[Keywords] building, locations, event, people, hist
 queststatus(640) < 1, english, "Ruzusss" -> inform("[New Quest] Try to find Ruzusss and get your reward."), "You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the North.*", queststatus(640) = 1
 queststatus(640) < 1, "Ruzusss" -> inform("[Neues Quest] Finde Ruzusss und erhalte deine Belohnung."), "Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt auf das Stadttor im Norden.*", queststatus(640) = 1
 english, "Ruzusss" -> "You are looking for Ruzusss? Well, Ruzusss staysss behind the gate. *points at the towngate in the North.*"
-"Ruzusss" -> "Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt auf das Stadttor im Norden.*"
+"Ruzusss" -> "Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt zum Stadttor im Norden.*"
 "people" -> "Many people leaving here. Many people from different placesss. Most are jussst passsing me when the travel. It ssseemsss they are in thoughtsss of a god."
 "Leute" -> "Viele Leute wohnen hier. Viele Leute von verssschiedenen Orten. Viele gehen wortlosss an mir vorbei wenn herumreisen. Esss ssscheint die sssind in Gedanken an irgendwelche Götter. "
 "history" -> "We have a glory hissstory here and you can find more information about it at ssseveral picturesss here in our town. There you can find illustrationsss of the actionsss of our rulersss."
@@ -105,18 +108,17 @@ english, "Ruzusss" -> "You are looking for Ruzusss? Well, Ruzusss staysss behind
 "Gesetz" -> "Wir haben nicht wirklich Gesetze hier. Wir haben eher einen Kodex der an einer Reiterssstatue vor dem Palast gefunden werden kann."
 "ruler" -> "Our current ruler isss our wonderful queen Rosaline Edwards. You find her in our palace. The namesss of our former rulesss can be found at a rider-ssstatue in front of the palace."
 "Herrscher" -> "Unsere aktuelle Herrscherin ist unsssere wunderbare Königin Rosaline Edwards. Man findet sssie in unserem Palast. Die Namen unserer früheren Herrscher können auf einer Reiterssstatue vor dem Palast gefunden werden."
+
 "market" -> "The market isss behind thisss town wall. Jussst passs the towngate and the Quartermaster's store. You can buy a lot of thingsss there."
 "Markt" -> "Der Markt ist hinter dieser Ssstadtmauer hier. Einfach das Stadttor und den Quartiermeister Laden durchqueren. Du kannst dort viele Dinge kaufen."
 "temple" -> "We have one temple here. The temple of Zambra. Other temples are outside of Cadomyr, but I have no idea where. However, the temple of Zambra is on the right ssside between palace and market."
 "Tempel" -> "Wir haben einen Tempel hier und dasss issst der Zambratempel. Andere Tempeln sssind außerhalb von Cadomyr, aber ich weiß nicht wo. Egal auch, den Zambratempel findessst du auf der rechten Ssseite zwischen Palassst und Markt."
-english, "teleport" -> "A possiblity to teleport to Runewick, Galmair or the Hemp Necktie Inn isss here asss yoo ssshould sssee. *points the teleporter*"
-"teleport" -> "Eine Möglichkeit sich nach Runewick, Galmair oder zum Gasthof zur Hanfschlinge zu teleportieren findet man hier wie du sssehen sssolltessst. *Zeigt auf den Teleporter*"
-"Census office" -> "The Census office can be found in front of the palace on the left ssside. There you register yourssself and become one of usss "
+"Census" -> "The Census office can be found in front of the palace on the left ssside. There you register yourssself and become one of usss "
 "Zensusbüro" -> "Dasss Zensusbüro kann vor dem Palassst auf der linken Ssseite gefunden werden. Dort kann man sssich registrieren lasssen und einer von unsss werden."
 "Donkey stable", "stable" -> "Our donkey stable isss close to the Quartermaster's Store. Jussst go inssside town."
 "Eselstall", "Stall" -> "Unser Essselssstall ist den Quartiermeister Laden. Geh einfach in die Ssstad rein."
-"Donkey" -> "A donkey can be rent at the Donkey stable. In Galmair and Runewick are running ssseveral around and they are free for hunt. Sss!"
-"Esel" -> "Ein Esssel kann im Eselstall geliehen werden. In Galmair und Runewick laufen viele herum und die sssind auch zur Jagd frei gegeben. Sss!"
+--"Donkey" -> "A donkey can be rent at the Donkey stable. In Galmair and Runewick are running ssseveral around and they are free for hunt. Sss!"
+--"Esel" -> "Ein Esssel kann im Eselstall geliehen werden. In Galmair und Runewick laufen viele herum und die sssind auch zur Jagd frei gegeben. Sss!"
 "Palace" -> inform("[Keywords] queen, Royal Champer, Treasureroom, library"), "Our palace isss on the other ssside of the town. Just go inssside and run through. You can find there our wonderful queen, the Royal Champer, her Treasureroom and the library."
 "Palast" -> inform("[Schlüsselwörter] Königin, Königliche Kammer, Schatzraum, Bibliothek"), "Unssser Palassst issst auf der anderen Ssseite der Ssstadt. Geh einfach rein und lauf durch die Ssstadt. Dort findet man unsssere wunderbare Königin, die Königliche Kammer, ihren Schatzraum und die Bibliothek."
 "Royal Champer" -> "The Royal Champer in the palace isss the private room of our queen Rosaline."
@@ -165,8 +167,8 @@ english, "quest", "mission" -> "As I said, you should ask other people in Cadomy
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wie ich sagte, du solltest besser die Leute in Cadomyr fragen. *zeigt zum Tor* Oder du kommst in zwei oder drei Monaten zurück. Da sollte ich dann einige Aufgaben für dich haben."
 
 -- Faction stuff
-"faction" -> "There are three factions: Our faction Cadomyr, ruled by our brave Queen Rosaline Edwards. Then the two cowardly factions of Galmair and Runewick, ruled by Don Valerio Guilianni and Archmage Elvaine Morgan."
-"Fraktion" -> "Es gibt drei Fraktionen: Unsere Fraktion Cadomyr, geführt von unserer tapferen Königin Rosaline Edwards. Dann diese zwei feigen Fraktionen Galmair und Runewick, geführt von Don Valerio Guilianni und Erzmagier Elvaine Morgan."
+"town" -> "There are three towns: Our town Cadomyr, ruled by our brave Queen Rosaline Edwards. Then the two cowardly towns of Galmair and Runewick, ruled by Don Valerio Guilianni and Archmage Elvaine Morgan."
+"stadt" -> "Es gibt drei Städte: Unsere Stadt Cadomyr, geführt von unserer tapferen Königin Rosaline Edwards. Dann diese zwei feigen Städte Galmair und Runewick, geführt von Don Valerio Guilianni und Erzmagier Elvaine Morgan."
 "archmage" -> "Morgan? Zzzz. That isss an evil sorcerer in Runewick and rulesss there."
 "Erzmagier" -> "Morgan? Zzzz. Dasss issst ein bössser Zauberer in Runewick der auch dort herrssscht."
 english, "Elvaine", "Morgan" -> "Morgan? Zzzz. That isss an evil sorcerer in Runewick and rulesss there."
