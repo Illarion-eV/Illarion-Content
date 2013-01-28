@@ -55,16 +55,16 @@ itemShoes = 369
 -- MANDATORY TRIGGERS
 
 -- Mandatory: Help
-"Help" -> inform("[Game Help] This NPC is Elesil Daelwon the informant. Keywords: Question, information, Runewick, building, mission, faction.")
-"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Elesil Daelwon die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Auftrag, Fraktion.")
+"Help" -> inform("[Game Help] This NPC is Elesil Daelwon the informant. Keywords: Question, information, Runewick, building, mission, town.")
+"Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Elesil Daelwon die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Runewick, Gebäude, Auftrag, Stadt.")
 
 -- Mandatory: General speech
 queststatus(604) = 1, english, ".*" -> inform("You can talk with Elesil now. Ask for 'help' if you do not know what to ask! You can also go back to Hummi to collect your reward and come back later."), "How can I help you? Do you like to have any information? Or do you like to have a task?", queststatus(604) = 2
 queststatus(604) = 1, ".*" -> inform("Da kannst nun mit Elesil sprechen. Frage nach 'Hilfe' wenn du nicht weißt nach was du fragen sollst.! Du kannst auch zurück zu Hummi gehen um deine Belohnung abzuholen und später nochmals vorbei kommen."), "Wie kann ich euch helfen? Wünscht ihr eine Information? Oder wünscht ihr eine Aufgabe?", queststatus(604) = 2
-"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Hail Elara. *Closes her eyes*"
-"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Heil Elara. *Schließt ihre Augen*"
-english, "Hiho", "Hallo", "Hey", "Greeb" -> "Hail Elara. *Closes her eyes*"
-"Hiho", "Hallo", "Hey", "Greeb" -> "Heil Elara. *Schließt ihre Augen*"
+"Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Hail Elara. *Closes her eyes*"
+"Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"),"Heil Elara. *Schließt ihre Augen*"
+english, "Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hint] Have you already asked her for 'information' or her 'quest'?"),"Hail Elara. *Closes her eyes*"
+"Hiho", "Hallo", "Hey", "Greeb" -> inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"),"Heil Elara. *Schließt ihre Augen*"
 "Farewell", "Bye", "Fare well", "See you" -> "Au revoir. *Closes her eyes*"
 "Tschüß", "Tschüss", "Wiedersehen", "Gehab wohl" -> "Au revoir. *Schließt ihre Augen*"
 english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Closes her eyes*"
@@ -77,9 +77,9 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Au revoir. *Closes her eyes
 -- OPTIONAL TRIGGERS
 
 -- Optional: Small talk - The talk here should focus on possible questions. Feel free to add more!
-"profession" -> "If necessary I'm an informant. In this case I will inform you about Runewick, its buildings, locations, events, people, history or gods. If you require even more, at least one task is alos pending."
+"profession" -> "If necessary I'm an informant. In this case I will inform you about Runewick, its buildings, locations, events, people, history or gods. If you require even more, at least one task is also pending."
 "beruf" -> "Wenn notwendig diene ich als Auskunftsgeberin. In diesem Fall würde ich euch über Runewick informieren, seine Gebäude, Orte, Ereignisse, Leute, Geschichte oder Götter. Und wenn erwünscht, wären auch mindestens eine Aufgabe zu lösen."
-english, "job" -> "If necessary I'm an informant. In this case I will inform you about Runewick, its buildings, locations, events, people, history or gods. If you require even more, at least one task is alos pending."
+english, "job" -> "If necessary I'm an informant. In this case I will inform you about Runewick, its buildings, locations, events, people, history or gods. If you require even more, at least one task is also pending."
 "job" -> "Wenn notwendig diene ich als Auskunftsgeberin. In diesem Fall würde ich euch über Runewick informieren, seine Gebäude, Orte, Ereignisse, Leute, Geschichte oder Götter. Und wenn erwünscht, wären auch mindestens eine Aufgabe zu lösen."
 
 -- Optional: More small talk - add at least five triggers, e.g. about the profession of the NPC or his enviroment
@@ -210,8 +210,8 @@ english, "quest", "mission" -> "As I said, you should ask other people in Runewi
 "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Wie ich sagte, ihr solltet besser die Leute in Runewick fragen. *zeigt über ihre Schulter* Oder ihr kommt in zwei oder drei Monaten zurück. Da sollte ich dann einige Aufgaben für euch haben."
 
 -- Faction stuff
-"faction" -> "There are three factions: Our faction Runewick, ruled by our great leader Elvaine Morgan. Then the two foolish factions of Galmair and Cadomyr, ruled by Don Valerio Guilianni and Queen Rosaline Edwards."
-"Fraktion" -> "Es gibt drei Fraktionen: Unsere Fraktion Runewick, geführt von unserem Herrscher Elvaine Morgan. Dann diese zwei närrischen Fraktionen Galmair und Cadomyr, geführt von Don Valerio Guilianni und Königin Rosaline Edwards."
+"town" -> "There are three factions: Our faction Runewick, ruled by our great leader Elvaine Morgan. Then the two foolish factions of Galmair and Cadomyr, ruled by Don Valerio Guilianni and Queen Rosaline Edwards."
+"stadt" -> "Es gibt drei Fraktionen: Unsere Fraktion Runewick, geführt von unserem Herrscher Elvaine Morgan. Dann diese zwei närrischen Fraktionen Galmair und Cadomyr, geführt von Don Valerio Guilianni und Königin Rosaline Edwards."
 "archmage" -> "Our leader can be found in the Hall of Elara in the Fire Tower if you want to talk with him."
 "Erzmagier" -> "Unser Herrscher kann in der Halle der Elara im Turm des Feuers gefunden werden, wenn ihr ihn zu sprechen wünscht."
 english, "Elvaine", "Morgan" -> "Our leader can be found in the Hall of Elara in the Fire Tower if you want to talk with him."
