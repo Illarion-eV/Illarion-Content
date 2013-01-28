@@ -364,7 +364,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ruler");
-talkEntry:addResponse("Our highest advisor is Archmage Elvaine Morgan. He founded this place of wisdom and might be found either in his champer - the Archmage champer - or in the Hall of Elara.");
+talkEntry:addResponse("Our highest advisor is Archmage Elvaine Morgan. He founded this place of wisdom and might be found either in his chamber - the Chamber of the Archmage - or in the Hall of Elara.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -589,8 +589,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tower Fire");
 talkEntry:addTrigger("Fire Tower");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Workshop, Library of Fire, Archmage Champer, Hall of Elara, Bragon's Stronghold, Shrine of Bragon"));
-talkEntry:addResponse("This is the first northern tower and it is tower is mainly made for mages. You can find there following rooms: Workshop, Library of Fire, Archmage Champer, Hall of Elara, Bragon's Stronghold and Shrine of Bragon.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Workshop, Library of Fire, Archmage Chamber, Hall of Elara, Bragon's Stronghold, Shrine of Bragon"));
+talkEntry:addResponse("This is the first northern tower and it is tower is mainly made for mages. You can find there following rooms: Workshop, Library of Fire, Chamber of the Archmage, Hall of Elara, Bragon's Stronghold and Shrine of Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,16 +629,16 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Archmage Champer");
-talkEntry:addTrigger("Champer Archmage");
-talkEntry:addResponse("The Archmage Champer can be found in the third floor of the Tower of Fire. It is the private room of our Archmage Elvaine Morgan.");
+talkEntry:addTrigger("Archmage Chamber");
+talkEntry:addTrigger("Chamber Archmage");
+talkEntry:addResponse("The Chamber of the Archmage can be found in the third floor of the Tower of Fire. It is the private room of our Archmage Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Erzmagier Kammer");
 talkEntry:addTrigger("Kammer Erzmagier");
-talkEntry:addResponse("Die Erzmagier Kammer kann im zweiten Stock des Turm des Feuers gefunden werden. Es ist der private Raum unserers Erzmagier Elvaine Morgan.");
+talkEntry:addResponse("Die Kammer des Erzmagier kann im zweiten Stock des Turm des Feuers gefunden werden. Es ist der private Raum unserers Erzmagier Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -646,7 +646,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hall Elara");
 talkEntry:addTrigger("Elara Hall");
-talkEntry:addResponse("The Hall of Elara can be found in the third floor of the Tower of Fire. It serves as an audience champer or conference room to listen and meet our Archmage Elvaine Morgan.");
+talkEntry:addResponse("The Hall of Elara can be found in the third floor of the Tower of Fire. It serves as an audience chamber or conference room to listen and meet our Archmage Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -665,8 +665,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Bragons Bollwerk");
 talkEntry:addTrigger("Bragon Bollwerk");
-talkEntry:addTrigger("Bollwerk Bragon");
 talkEntry:addResponse("Bragon's Bollwerk ist im dritten Stock des Turm des Feuers und ermöglicht jeder Person seine Kampffähigkeiten zu verbessern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -688,8 +688,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tower Water");
 talkEntry:addTrigger("Water Tower");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Library of Water, Adron's Swill, Hubbub Champer"));
-talkEntry:addResponse("This is the second southern tower and is mainly made for bards. You can find there following rooms: Library of Water, Adron's Swill and Hubbub Champer. Unfortunately, this tower is closed due to an incident as you can read in our history book.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Library of Water, Adron's Swill, Hubbub Chamber"));
+talkEntry:addResponse("This is the second southern tower and is mainly made for bards. You can find there following rooms: Library of Water, Adron's Swill and Hubbub Chamber. Unfortunately, this tower is closed due to an incident as you can read in our history book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -730,9 +730,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Hubbub Champer");
-talkEntry:addTrigger("Champer Hubbub");
-talkEntry:addResponse("The Hubbub Champer is in the third floor of the Tower of Water and serves as practice room for our bards. But it is closed as the whole Tower of Water as you can read in our hisorty book.");
+talkEntry:addTrigger("Hubbub Chamber");
+talkEntry:addTrigger("Chamber Hubbub");
+talkEntry:addResponse("The Hubbub Chamber is in the third floor of the Tower of Water and serves as practice room for our bards. But it is closed as the whole Tower of Water as you can read in our hisorty book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
