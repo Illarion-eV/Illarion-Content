@@ -514,7 +514,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turm Luft");
 talkEntry:addTrigger("Luft turm");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Baumküche, Bibliothek der Luft, Haus der Götter, Schrein der Elara, Schrein der Findari"));
-talkEntry:addResponse("Dieser Turm ist der erste südliche Turm und hauptsächlich für Priester. Ihr findet folgende Räume dort: Baumküche, Bibliothek der Luft, Haus der Götter, Schrein der Findari, und Schrein der Elara.");
+talkEntry:addResponse("Dieser Turm ist der erste südliche Turm und ist hauptsächlich für Priester gebaut worden. Ihr findet folgende Räume dort: Baumküche, Bibliothek der Luft, Haus der Götter, Schrein der Findari, und Schrein der Elara.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -526,7 +526,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Baumküche");
-talkEntry:addResponse("Die Baumküche ist Keller des Turm der Luft zu finden. Man findet dort Köche beziehungsweise die Möglichkeit zu kochen oder zu schreinern.");
+talkEntry:addResponse("Die Baumküche ist im Keller des Turm der Luft zu finden. Man findet dort Köche beziehungsweise die Möglichkeit zu kochen oder zu schreinern.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -589,16 +589,16 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tower Fire");
 talkEntry:addTrigger("Fire Tower");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Workshop, Library of Fire, Archmage Champer, Hall of Elara, Bragon Stronghold, Shrine of Bragon"));
-talkEntry:addResponse("This is the first northern tower and it is tower is mainly made for mages. You can find there following rooms: Workshop, Library of Fire, Archmage Champer, Hall of Elara, Bragon Stronghold and Shrine of Bragon.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Workshop, Library of Fire, Archmage Champer, Hall of Elara, Bragon's Stronghold, Shrine of Bragon"));
+talkEntry:addResponse("This is the first northern tower and it is tower is mainly made for mages. You can find there following rooms: Workshop, Library of Fire, Archmage Champer, Hall of Elara, Bragon's Stronghold and Shrine of Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turm Feuer");
 talkEntry:addTrigger("Feuer Turm");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Hall der Elara, Bragon Bollwerk, Schrein des Bragon"));
-talkEntry:addResponse("Dieser Turm ist der erste nördliche Turm und hauptsächlich für Magier. Ihr findet folgende Räume dort: Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Halle der Elara, Bragon Bollwerk und Schrein des Bragon.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Werkstatt, Bibliothek des Feuers, Erzmagier Kammer, Halle der Elara, Bragons Bollwerk, Schrein des Bragon"));
+talkEntry:addResponse("Dieser Turm ist der erste nördliche Turm und ist hauptsächlich für Magier gebaut worden. Ihr findet folgende Räume dort: Werkstatt, Bibliothek des Feuers, Kammer des Erzmagier, Halle der Elara, Bragons Bollwerk und Schrein des Bragon.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -646,7 +646,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hall Elara");
 talkEntry:addTrigger("Elara Hall");
-talkEntry:addResponse("The Hall of Elara can be found in the third floor of the Tower of Fire. It serves an audience champer or conference room to listen and meet our Archmage Elvaine Morgan.");
+talkEntry:addResponse("The Hall of Elara can be found in the third floor of the Tower of Fire. It serves as an audience champer or conference room to listen and meet our Archmage Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -658,8 +658,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Bragon Stronghold");
-talkEntry:addTrigger("Stronghold Bragon");
+talkEntry:addTrigger("Bragon's Stronghold");
+talkEntry:addTrigger("Bragons Stronghold");
 talkEntry:addResponse("Bragon's Stronghold is in the fourth floor of the Tower of Fire and offers a posibility to improve one's combat skills.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -697,14 +697,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turm Wasser");
 talkEntry:addTrigger("Wasser Turm");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Bibliothek des Wassers, Adrons Gesöff, Lärmkammer"));
-talkEntry:addResponse("Dieser Turm ist der zweite südliche Turm und hauptsächlich für Barden. Ihr findet folgende Räume dort: Bibliothek des Wassers, Adrons Gesöff und Lärmkammer. Unglücklicherweis ist dieser Turm gesperrt, wie ihr unserem Geschichtsbuch entnehmen könnt.");
+talkEntry:addResponse("Dieser Turm ist der zweite südliche Turm und ist hauptsächlich für Barden gebaut worden. Ihr findet folgende Räume dort: Bibliothek des Wassers, Adrons Gesöff und Lärmkammer. Unglücklicherweis ist dieser Turm gesperrt, wie ihr unserem Geschichtsbuch entnehmen könnt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Library Water");
 talkEntry:addTrigger("Water Library");
-talkEntry:addResponse("The Library of Water can be found in the second floor of the Tower of Water. But it is closed as the whole Tower of Water as you can read in our hisorty book.");
+talkEntry:addResponse("The Library of Water can be found in the second floor of the Tower of Water. But it is closed as the whole Tower of Water as you can read in our history book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -755,7 +755,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turm Erd");
 talkEntry:addTrigger("Erd Turm");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Bibliothek der Erde, Kesselkammer, Wurzelkammer, Versuchkammer"));
-talkEntry:addResponse("Dieser Turm ist der zweite nördliche Turm und hauptsächlich für Druiden. Ihr findet folgende Räume dort: Bibliothek der Erde, Kesselkammer, Wurzelkammer, und Versuchkammer.");
+talkEntry:addResponse("Dieser Turm ist der zweite nördliche Turm und ist hauptsächlich für Druiden gebaut worden. Ihr findet folgende Räume dort: Bibliothek der Erde, Kesselkammer, Wurzelkammer, und Versuchkammer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -826,7 +826,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tower");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Tower of Air, Tower of Fire, Tower of Earth, Tower of Water"));
-talkEntry:addResponse("There are four towers: Tower of Air, Tower of Fire, Tower of Earth and Tower of Water. You can all leave and enter them at the top as well as at the bottom, after you entered the town through the portal over there. *points southeast*");
+talkEntry:addResponse("There are four towers: Tower of Air, Tower of Fire, Tower of Earth and Tower of Water. You can all leave and enter them at the top as well as through the bottom, after you entered the town through the portal over there. *points over her shoulders*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -834,7 +834,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Turm");
 talkEntry:addTrigger("Türme");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Turm der Luft, Turm des Feuers, Turm der Erde, Turm des Wassers"));
-talkEntry:addResponse("Es gibt vier Türme: Turm der Luft, Turm des Feuers, Turm der Erde und Turm des Wassers. Ihr könnt jeden Turm am Dach oder Erdgeschoss betretten oder verlassen, nachdem ihr über das Portal dort drüben die Stadt betreten habt. *zeigt südöstlich*");
+talkEntry:addResponse("Es gibt vier Türme: Turm der Luft, Turm des Feuers, Turm der Erde und Turm des Wassers. Ihr könnt jeden Turm übers Dach oder durchs Erdgeschoss betretten oder verlassen, nachdem ihr über das Portal dort drüben die Stadt betreten habt. *zeigt nach hinten*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
