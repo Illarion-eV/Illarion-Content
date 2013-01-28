@@ -106,12 +106,12 @@ english, "Numila", "Irunnleh" -> "She is geographer and can be found in the Libr
 "ruler" -> "Our highest advisor is Archmage Elvaine Morgan. He founded this place of wisdom and might be found either in his champer - the Archmage champer - or in the Hall of Elara."
 "Herrscher" -> "Unser höchster Ratgeber ist Erzmagier Elvaine Morgan. Er hat diesen Ort der Weisheit erschaffen und entweder in seiner Kammer - der Erzmagier Kammer - oder in den Hallen der Elara gefunden werden."
 
-"market" -> "Through the portal abround the corner and you are there *points southeast*."
-"Markt" -> "Durch das Portal hier um das Eck und ihr seid dort. *zeigt in dne Südosten*"
+"market" -> "Through the portal after the Lurnord Bridge and you are there *points behind her*."
+"Markt" -> "Durch das Portal nach der Lurnord Brücke und ihr seid dort *zeigt hinter sich*."
 "temple" -> inform("[Keywords] Garden of Eldan, Shrine of Elara, Shrine of Findari, Shrine of Bragon"), "Let me think... You can find four here: Garden of Eldan, Shrine of Elara, Shrine of Findari and Shrine of Bragon."
-"Tempel" -> inform("[Schlüsselwörter] Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein des Bragon"), "Lasst mich nachdenken... Ihr findet hier vier: Garten des Eldan, Schrein der Elara, Schrein der Findari und Schrein des Bragon."
-english, "teleport" -> "This teleporter here can lead you to Cadomyr, Galmair or to the Hemp Necktie Inn."
-"teleport" -> "Dieser Teleporter hier vermag euch nach Cadomyr, Galmair oder zum Gasthof zur Hanfschlinge zu bringen."
+"Tempel" -> inform("[Schlüsselwörter] Garten des Eldans, Schrein der Elara, Schrein der Findari, Schrein des Bragons"), "Lasst mich nachdenken... Ihr findet hier vier: Garten des Eldans, Schrein der Elara, Schrein der Findari und Schrein des Bragons."
+english, "telep" -> "This teleporter here can lead you to Cadomyr, Galmair or to the Hemp Necktie Inn."
+"telep" -> "Dieser Teleporter hier vermag euch nach Cadomyr, Galmair oder zum Gasthof zur Hanfschlinge zu bringen."
 "Census office" -> "The census office can be found in the Tower of Fire next the Library of Fire. You will find Reret Odohir there. He will help you further."
 "Zensusbüro" -> "Das Zensusbüro kann im Turm des Feuers neben der Bibliothek des Feuers gefunden werden werden. Man findet dort Reret Odohir. Er wird einem weiterhelfen."
 "Donkey stable", "stable" -> "Right after the Lurnord Bridge. *points behind her*"
@@ -182,7 +182,7 @@ english, "Test Champer", "Champer Test" -> "In the Test Champer in the fist floo
 
 -- "Rooms" -> "" --placeholder for rooms if they can be rent
 -- "Guild" -> ""
-english, "Hinterland" -> inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutter Camp, Twin Eyes Islands, Oldra Column, Mermaid, Lurnord bridge"), "The Hinterland of Runewick contains following locations: Fire of Triumph, Holy Oak, Woodcutter's Camp, Twin Eyes Islands, Oldra's Column, Lurnord bridge and Mermaid"
+english, "Hinterland" -> inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutter Camp, Twin Eyes Islands, Oldra's Column, Mermaid, Lurnord bridge"), "The Hinterland of Runewick contains following locations: Fire of Triumph, Holy Oak, Woodcutter's Camp, Twin Eyes Islands, Oldra's Column, Lurnord bridge and Mermaid"
 "Hinterland" -> inform("[Schlüsselwörter] Feuer des Triumphes, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninseln, Oldras Säule, Meerjungfrau, Lurnord Brücke"), "Das Hinterland von Runewick enthält folgende Orte: Feuer des Triumphes, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninseln, Oldras Säule, Lurnord Brücke und Meerjungfrau"
 "Fire Triumph", "Triumph Fire" -> "It can be found north after the Lurnord Bridge and the Holy Oak. This place reminds on our involvement and victory in a compain between Cadomyr and Galmair. Unfortunately, some actions went wrong."
 "Feuer Triumph", "Triumph Feuer" -> "Dieser Ort kann nördlich nach der Lurnord Brücke und der Heiligen Eiche gefunden werden und erinnert an unsere Einflussnahme und unseren Sieg in einer Auseinandersetzung zwichen Cadomyr und Galmair. Leider ging einiges schief."
@@ -190,14 +190,14 @@ english, "Hinterland" -> inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutte
 "Heilige Eiche" -> "Das ist ein heiliger und sehr alter Baum nördlich nach der Lurnord Brücke. Dort werdet ihr weitere Informationen finden."
 "Woodcutter's Camp","Woodcutters Camp" -> "This place can be found in the south after the Lurnord Bridge and is a camp for lumberjacks."
 "Holzfäller Lager" -> "Dieser Ort kann südlich nach der Lurnord Brücke gefunden werden und ist ein Lager für Holzfäller."
-"Twin Eyes" -> "This place is very south of here. *points first to the bridge and then to the south* Two islands, which... uhh... I forgot, but you will find there what you want to know."
-"Zwillingsaugen" -> "Dieser Ort ist ganz im Süden. *zeigt erst zur Brücke und dann in den Süden* Zwei Inseln, welche...uhh... ich hab es vergessen, aber ihr werdet herausfinden was ihr zu wissen wünscht."
-"Oldra Column" -> "This place can be found in the south of here. *points first to the bridge and then to the south* Some information about Oldra and what she likes are waiting for you. Look for the column and trees over there."
-"Oldra Säule" -> "Dieser Ort kann im Süden von hier aus gefunden werden. *zeigt erst zur Brücke und dann in den Süden* Einige Informationen über Oldra und Dinge die sie mag warten dort auf euch. Haltet Ausschau nach der Säule und den Bäumen dort."
+"Twin Eyes" -> "This place is very south of here *points first to the bridge and then to the south*. Two islands, which... uhh... I forgot, but you will find there what you want to know."
+"Zwillingsaugen" -> "Dieser Ort ist ganz im Süden *zeigt erst zur Brücke und dann in den Süden*. Zwei Inseln, welche...uhh... ich hab es vergessen, aber ihr werdet herausfinden was ihr zu wissen wünscht."
+"Oldra's Column","Oldras Column" -> "This place can be found in the south of here *points first to the bridge and then to the south*. Some information about Oldra and what she likes are waiting for you. Look for the column and trees over there."
+"Oldras Säule" -> "Dieser Ort kann im Süden von hier aus gefunden werden *zeigt erst zur Brücke und dann in den Süden*. Einige Informationen über Oldra und Dinge die sie mag warten dort auf euch. Haltet Ausschau nach der Säule und den Bäumen dort."
 "Mermaid" -> "Just follow the westcost to the south after the Lurnord Bridge and you will find this place with a statue of a beautiful woman. This place is also used by fishers who are waiting to get in touch with the mermaid."
 "Meerjungfrau" -> "Folget der Westküste in den Süden nach der Lurnord Brücke und ihr werdet diesen Ort mit einer Statue einer schönen Frau finden. Dieser Ort ist auch von vielen Fischern verwendet, die auf die Meerjungfrau warten."
-"Lurnord bridge" -> "This is the bridge between Runewick and the Yewdale here. *points at the bridge* It was destroyed years ago after a war with Galmair and rebuild by a friend of mine who left afterwards. Lunord was his name."
-"Lurnord Brücke" -> "Das ist die Brücke zwischen Runewick und hier dem Eibental. *zeigt zur Brücke* Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welch nun gegangen ist. Sein Name war Lunord."
+"Lurnord bridge" -> "This is the bridge between Runewick and the Yewdale here *points at the bridge*. It was destroyed years ago after a war with Galmair and rebuild by a friend of mine who left afterwards. Lunord was his name."
+"Lurnord Brücke" -> "Das ist die Brücke zwischen Runewick und hier dem Eibental *zeigt zur Brücke*. Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welch nun gegangen ist. Sein Name war Lunord."
 
 -- Optional: Catching quest triggers. Modify if the NPC does quests
 -- quest information_runewick_1.quest belongs to this NPC: Quest-ID.: 621

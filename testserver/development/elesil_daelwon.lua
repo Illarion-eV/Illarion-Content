@@ -363,13 +363,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("market");
-talkEntry:addResponse("Through the portal abround the corner and you are there *points southeast*.");
+talkEntry:addResponse("Through the portal after the Lurnord Bridge and you are there *points behind her*.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Markt");
-talkEntry:addResponse("Durch das Portal hier um das Eck und ihr seid dort. *zeigt in dne Südosten*");
+talkEntry:addResponse("Durch das Portal nach der Lurnord Brücke und ihr seid dort *zeigt hinter sich*.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -382,20 +382,20 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tempel");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Garten des Eldan, Schrein der Elara, Schrein der Findari, Schrein des Bragon"));
-talkEntry:addResponse("Lasst mich nachdenken... Ihr findet hier vier: Garten des Eldan, Schrein der Elara, Schrein der Findari und Schrein des Bragon.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Garten des Eldans, Schrein der Elara, Schrein der Findari, Schrein des Bragons"));
+talkEntry:addResponse("Lasst mich nachdenken... Ihr findet hier vier: Garten des Eldans, Schrein der Elara, Schrein der Findari und Schrein des Bragons.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("teleport");
+talkEntry:addTrigger("telep");
 talkEntry:addResponse("This teleporter here can lead you to Cadomyr, Galmair or to the Hemp Necktie Inn.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("teleport");
+talkEntry:addTrigger("telep");
 talkEntry:addResponse("Dieser Teleporter hier vermag euch nach Cadomyr, Galmair oder zum Gasthof zur Hanfschlinge zu bringen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -867,7 +867,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hinterland");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutter Camp, Twin Eyes Islands, Oldra Column, Mermaid, Lurnord bridge"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutter Camp, Twin Eyes Islands, Oldra's Column, Mermaid, Lurnord bridge"));
 talkEntry:addResponse("The Hinterland of Runewick contains following locations: Fire of Triumph, Holy Oak, Woodcutter's Camp, Twin Eyes Islands, Oldra's Column, Lurnord bridge and Mermaid");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -920,25 +920,26 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Twin Eyes");
-talkEntry:addResponse("This place is very south of here. *points first to the bridge and then to the south* Two islands, which... uhh... I forgot, but you will find there what you want to know.");
+talkEntry:addResponse("This place is very south of here *points first to the bridge and then to the south*. Two islands, which... uhh... I forgot, but you will find there what you want to know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Zwillingsaugen");
-talkEntry:addResponse("Dieser Ort ist ganz im Süden. *zeigt erst zur Brücke und dann in den Süden* Zwei Inseln, welche...uhh... ich hab es vergessen, aber ihr werdet herausfinden was ihr zu wissen wünscht.");
+talkEntry:addResponse("Dieser Ort ist ganz im Süden *zeigt erst zur Brücke und dann in den Süden*. Zwei Inseln, welche...uhh... ich hab es vergessen, aber ihr werdet herausfinden was ihr zu wissen wünscht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra Column");
-talkEntry:addResponse("This place can be found in the south of here. *points first to the bridge and then to the south* Some information about Oldra and what she likes are waiting for you. Look for the column and trees over there.");
+talkEntry:addTrigger("Oldra's Column");
+talkEntry:addTrigger("Oldras Column");
+talkEntry:addResponse("This place can be found in the south of here *points first to the bridge and then to the south*. Some information about Oldra and what she likes are waiting for you. Look for the column and trees over there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Oldra Säule");
-talkEntry:addResponse("Dieser Ort kann im Süden von hier aus gefunden werden. *zeigt erst zur Brücke und dann in den Süden* Einige Informationen über Oldra und Dinge die sie mag warten dort auf euch. Haltet Ausschau nach der Säule und den Bäumen dort.");
+talkEntry:addTrigger("Oldras Säule");
+talkEntry:addResponse("Dieser Ort kann im Süden von hier aus gefunden werden *zeigt erst zur Brücke und dann in den Süden*. Einige Informationen über Oldra und Dinge die sie mag warten dort auf euch. Haltet Ausschau nach der Säule und den Bäumen dort.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -956,13 +957,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lurnord bridge");
-talkEntry:addResponse("This is the bridge between Runewick and the Yewdale here. *points at the bridge* It was destroyed years ago after a war with Galmair and rebuild by a friend of mine who left afterwards. Lunord was his name.");
+talkEntry:addResponse("This is the bridge between Runewick and the Yewdale here *points at the bridge*. It was destroyed years ago after a war with Galmair and rebuild by a friend of mine who left afterwards. Lunord was his name.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Lurnord Brücke");
-talkEntry:addResponse("Das ist die Brücke zwischen Runewick und hier dem Eibental. *zeigt zur Brücke* Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welch nun gegangen ist. Sein Name war Lunord.");
+talkEntry:addResponse("Das ist die Brücke zwischen Runewick und hier dem Eibental *zeigt zur Brücke*. Sie war einige Jahre zuvor zerstört durch einen Krieg mit Galmair und wurde von einen Freund von mir wiederaufgebaut, welch nun gegangen ist. Sein Name war Lunord.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
