@@ -99,7 +99,7 @@ function UseItemWoolCutting( User, SourceItem, ltstate, Sheep )
 		return
 	end
 
-	User:learn( woolcutting.LeadSkill, woolcutting.SavedWorkTime[User.id], woolcutting.LearnLimit); if isTestserver() then User:inform(""..woolcutting.LearnLimit) end;
+	User:learn( woolcutting.LeadSkill, woolcutting.SavedWorkTime[User.id], woolcutting.LearnLimit);
 	local amount = 1; -- set the amount of items that are produced
 	local notCreated = User:createItem( 170, amount, 333, nil); -- create the new produced items
 	if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
