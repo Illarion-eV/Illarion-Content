@@ -422,7 +422,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2420, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Obsidianring und einen magischen Obsidianring."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Obsidianring und einen magischen Obsidian."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2420, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(278, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(283, 1, 333, {["gemLevel"] = "1"}));
@@ -1082,7 +1082,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
