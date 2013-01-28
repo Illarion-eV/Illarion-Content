@@ -209,30 +209,30 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("inform");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] building, locations, event, people, history, god"));
-talkEntry:addResponse("I have information about buildings, locations, events, people, history and gods of Runewick for you if you want to know them.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] building, location, event, people, history, god, ruler, law."));
+talkEntry:addResponse("I have information about buildings, locations, events, people, history, our ruler, laws and gods of Runewick for you if you want to know them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("inform");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter"));
-talkEntry:addResponse("Ich habe Informationen über Gebäude, Orte, Ereignisse, Leute, Geschichte und Götter von Runewick für euch wenn ihr wünscht.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter, Herrscher, Gesetz."));
+talkEntry:addResponse("Ich habe Informationen über Gebäude, Orte, Ereignisse, Leute, Geschichte, unseren Herrscher, Gesetze und Götter von Runewick für euch wenn ihr wünscht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("question");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] building, locations, event, people, history, god"));
-talkEntry:addResponse("I have information about buildings, locations, events, people, history and gods of Runewick for you if you want to know them.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] building, location, event, people, history, god, ruler, law."));
+talkEntry:addResponse("I have information about buildings, locations, events, people, history, our ruler, laws and gods of Runewick for you if you want to know them.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Frage");
 talkEntry:addTrigger("Auskunft");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte und Götter"));
-talkEntry:addResponse("Ich habe Informationen über Gebäude, Orte, Ereignisse, Leute, Geschichte und Götter von Runewick für euch wenn ihr wünscht.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter, Herrscher, Gesetz."));
+talkEntry:addResponse("Ich habe Informationen über Gebäude, Orte, Ereignisse, Leute, Geschichte, unseren Herrscher, Gesetze und Götter von Runewick für euch wenn ihr wünscht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -245,15 +245,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gebäude");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Markt, Tempel, Teleport, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, Türme, Turm der Luft, Turm des Feuers, Turm des Wassers, Turm der Erde"));
-talkEntry:addResponse("Welches Gebäude meint ihr? Markt, Tempel, Teleport, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, oder unsere Türme, sprich Turm der Luft, Turm des Feuers, Turm des Wassers, Turm der Erde?");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Markt, Tempel, Teleporter, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, Türme, Turm der Luft, Turm des Feuers, Turm des Wassers, Turm der Erde"));
+talkEntry:addResponse("Welches Gebäude meint ihr? Markt, Tempel, Teleporter, Zensusbüro, Eselstall, Bibliothek, Garten des Eldan, Slums, Gruft, oder unsere Türme, sprich Turm der Luft, Turm des Feuers, Turm des Wassers, Turm der Erde?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("location");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Hinterland, Numila Irunnleh"));
-talkEntry:addResponse("Locations? Which locations of the hinterland to you mean? I recommend also to talk with a geographer about them. The one I can recommend can be found in the Library of Earth and is called Numila Irunnleh.");
+talkEntry:addResponse("Locations? Which locations of the hinterland do you mean? I recommend also to talk with a geographer about them. The one I can recommend can be found in the Library of Earth and is called Numila Irunnleh.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -281,7 +281,7 @@ talkEntry:addTrigger("Numila");
 talkEntry:addTrigger("Irunnleh");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Numila Irunnleh und erhalte deine Belohnung."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 1));
-talkEntry:addResponse("Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Orte wie Eibental, Bärenhöhle, Schlangekopfbucht, Illarion, Schattenland und andere Orte die du gerne wissen möchtest.");
+talkEntry:addResponse("Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Orte wie Eibental, Bärenhöhle, Schlangekopfbucht, Illarion, Schattenland und andere Orte informieren über die ihr gerne mehr wissen möchtet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -296,7 +296,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Numila");
 talkEntry:addTrigger("Irunnleh");
-talkEntry:addResponse("Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Orte wie Eibental, Bärenhöhle, Schlangekopfbucht, Illarion, Schattenland und andere Orte die du gerne wissen möchtest.");
+talkEntry:addResponse("Sie ist eine Geographin und kann in der Bibliothek der Erde gefunden werden. Sie wird euch über Orte wie Eibental, Bärenhöhle, Schlangekopfbucht, Illarion, Schattenland und andere Orte informieren über die ihr gerne mehr wissen möchtet.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -351,7 +351,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ruler");
-talkEntry:addResponse("Our highest advisor is Archmage Elvaine Morgan. He has founded this place of wisedom and might be found either in his champer - the Archmage champer - or in the Hall of Elara.");
+talkEntry:addResponse("Our highest advisor is Archmage Elvaine Morgan. He founded this place of wisdom and might be found either in his champer - the Archmage champer - or in the Hall of Elara.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -867,14 +867,14 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Hinterland");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutter Camp, Twin Eyes Island, Oldra Column, Mermaid, Lurnord bridge"));
-talkEntry:addResponse("The Hinterland of Runewick contains following locations: Fire of Triumph, Holy Oak, Woodcutter's Camp, Twin Eyes Island, Oldra's Column, Lurnord bridge and Mermaid");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Fire of Triumph, Holy Oak, Woodcutter Camp, Twin Eyes Islands, Oldra Column, Mermaid, Lurnord bridge"));
+talkEntry:addResponse("The Hinterland of Runewick contains following locations: Fire of Triumph, Holy Oak, Woodcutter's Camp, Twin Eyes Islands, Oldra's Column, Lurnord bridge and Mermaid");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hinterland");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Feuer des Triumphes, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninsel, Oldras Säule, Meerjungfrau, Lurnord Brücke"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Feuer des Triumphes, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninseln, Oldras Säule, Meerjungfrau, Lurnord Brücke"));
 talkEntry:addResponse("Das Hinterland von Runewick enthält folgende Orte: Feuer des Triumphes, Heilige Eiche, Holzfäller Lager, Zwillingsaugeninseln, Oldras Säule, Lurnord Brücke und Meerjungfrau");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -906,8 +906,9 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Woodcutter Camp");
-talkEntry:addResponse("This place can be found in the south after the Lurnord Bridge and is a champ for lumberjacks.");
+talkEntry:addTrigger("Woodcutter's Camp");
+talkEntry:addTrigger("Woodcutters Camp");
+talkEntry:addResponse("This place can be found in the south after the Lurnord Bridge and is a camp for lumberjacks.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -918,13 +919,13 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Twin Eyes Islands");
+talkEntry:addTrigger("Twin Eyes");
 talkEntry:addResponse("This place is very south of here. *points first to the bridge and then to the south* Two islands, which... uhh... I forgot, but you will find there what you want to know.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Zwillingsaugeninseln");
+talkEntry:addTrigger("Zwillingsaugen");
 talkEntry:addResponse("Dieser Ort ist ganz im Süden. *zeigt erst zur Brücke und dann in den Süden* Zwei Inseln, welche...uhh... ich hab es vergessen, aber ihr werdet herausfinden was ihr zu wissen wünscht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -1043,13 +1044,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("town");
-talkEntry:addResponse("There are three factions: Our faction Runewick, ruled by our great leader Elvaine Morgan. Then the two foolish factions of Galmair and Cadomyr, ruled by Don Valerio Guilianni and Queen Rosaline Edwards.");
+talkEntry:addResponse("There are three towns: Our town Runewick, ruled by our great leader Elvaine Morgan. Then the two foolish towns of Galmair and Cadomyr, ruled by Don Valerio Guilianni and Queen Rosaline Edwards.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("stadt");
-talkEntry:addResponse("Es gibt drei Fraktionen: Unsere Fraktion Runewick, geführt von unserem Herrscher Elvaine Morgan. Dann diese zwei närrischen Fraktionen Galmair und Cadomyr, geführt von Don Valerio Guilianni und Königin Rosaline Edwards.");
+talkEntry:addResponse("Es gibt drei Städte: Unsere Stadt Runewick, geführt von unserem Herrscher Elvaine Morgan. Dann diese zwei närrischen Städte Galmair und Cadomyr, geführt von Don Valerio Guilianni und Königin Rosaline Edwards.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
