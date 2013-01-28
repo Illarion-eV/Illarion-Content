@@ -4,6 +4,7 @@ require("base.common")
 require("base.money")
 require("base.factions")
 require("base.townTreasure")
+require("item.gems")
 
 -- UPDATE common SET com_script='test.martin' WHERE com_itemid = ID;
 
@@ -72,38 +73,40 @@ end
 
 function PayOutWage(Recipient,town)
 debug("GOING TO GTPN "..town)
-	totalTaxes=base.townTreasure.GetPaymentAmount(town)
+	local totalTaxes=base.townTreasure.GetPaymentAmount(town)
 	Recipient:inform("now calling gettaxpayernuber: "..totalTaxes);
-	totalPayers=base.townTreasure.GetTaxpayerNumber(town)
+	local totalPayers=base.townTreasure.GetTaxpayerNumber(town)
 	
 	Recipient:inform("done with gtpn:");
 
 	if tonumber(totalPayers)>0 then
-	Recipient:inform("we have payers: "..totalPayers);
+    Recipient:inform("we have payers: "..totalPayers);
 		if tonumber(totalTaxes)>0 then
-		Recipient:inform("we have taxes: "..totalTaxes);
-			baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
-			RecipientRk=base.factions.getRank(Recipient)
-			RecipientRk=2 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			RankedWage=math.ceil(RecipientRk*baseWageUnit);
-Recipient:inform("RankedWage= "..RankedWage);
+      Recipient:inform("we have taxes: "..totalTaxes);
+			local baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
+			local RecipientRk=base.factions.getRank(Recipient)
+			local RecipientRk=2 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			local RankedWage=math.ceil(RecipientRk*baseWageUnit);
+      Recipient:inform("RankedWage= "..RankedWage);
 			while RankedWage>0 do
-				randomGem=math.random(1,2)
-				maxGemLevel=math.floor(RankedWage^(1/3))
-				gemLevel=math.random(1,maxGemLevel)
+				local randomGem=math.random(1,2);
+				local maxGemLevel=math.floor(RankedWage^(1/3))
+				local gemLevel=math.random(1,maxGemLevel)
 				Recipient:inform("You would now get the following gem: type "..randomGem.." level "..maxGemLevel);
-				-- ID: item.gems.getMagicGemId(gem, level)
-				-- data: item.gems.getMagicGemData(level) (1-10)
-				-- gems:  item.gems.DIAMOND, EMERALD, RUBY, OBSIDIAN, SAPPHIRE, AMETHYST, TOPAZ
-				
-				--Runewick: Emerald and Ruby
-				--Cadomyr: Topaz and Amethyst
-				--Galmair: Bluestond and Blackstone
+        
+        local gemsByTown = {
+          {item.gems.TOPAZ, item.gems.AMETHYST}, -- ID 1: Cadomyr
+          {item.gems.EMERALD, item.gems.RUBY}, -- ID 2: Runewick
+          {item.gems.SAPPHIRE, item.gems.OBSIDIAN} -- ID 3: Galmair
+        }
+        
+        local gemId = item.gems.getMagicGemId(gemsByTown[randomGem]);
+        local gemData = item.gems.getMagicGemData(gemLevel);
 
-				local notCreated = User:createItem( productId, amount, 333, nil ); -- create the new produced items
+				local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
 				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
-					world:createItemFromId( productId, notCreated, User.pos, true, 333, nil );
-					base.common.HighInformNLS(User,
+					world:createItemFromId( gemId, notCreated, Recipient.pos, true, 333, gemData );
+					base.common.HighInformNLS(Recipient,
 						"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
 						"You can't carry any more and the rest drops to the ground.");
 				end
