@@ -23,7 +23,6 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.ehrom_goldhammer", package.seeall)
 
@@ -562,7 +561,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 7));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer.");
+talkEntry:addResponse("Ronagan weiß, dass ich mich bemühe. Bemüht euch auch und bringt mir einen Stab der Luft für meinen Kunden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,8 +628,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("I used toSibanac with some halfling fellow on Gobaith... Brendan Mason was his name.");
+talkEntry:addResponse("I used to sell Sibanac to some halfling fellow on Gobaith... Brendan Mason was his name.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -759,8 +757,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hammer");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("The hammer is themark of any smith. There are different hammers for each and every purpose. It is important to use the right hammer for each task.");
+talkEntry:addResponse("The hammer is the token of any smith. There are different hammers for each and every purpose. It is important to use the right hammer for each task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -814,8 +811,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("The people of Runewick come to me tofor metals and minerals. If you look for them you have to travel south and east.");
+talkEntry:addResponse("The people of Runewick come to me to buy metals and minerals. If you look for them you have to travel south and east.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -130,7 +130,7 @@ queststatus(72) = 7, item(2785, all) > 0, ".+" -> inform("[Quest gelöst] Du erh
 queststatus(72) = 7, english, "quest", "mission" -> "Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer."
 queststatus(72) = 7, "quest", "mission" -> "Ronagan weiß, dass ich mich bemühe. Bemüht euch auch und bringt mir einen Stab der Luft für meinen Kunden."
 queststatus(72) = 7, "task", "adventure" -> "Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer."
-queststatus(72) = 7, "Auftrag", "Aufgabe", "Abenteuer" -> "Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer."
+queststatus(72) = 7, "Auftrag", "Aufgabe", "Abenteuer" -> "Ronagan weiß, dass ich mich bemühe. Bemüht euch auch und bringt mir einen Stab der Luft für meinen Kunden."
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(72) = 8, english, "quest", "mission" -> "Ronagan be with you... there is nothing left that you can do for me at the moment."
@@ -143,7 +143,7 @@ queststatus(72) = 8, "Auftrag", "Aufgabe", "Abenteuer" -> "Ronagan mit Euch... e
 "beruf" -> "Schmuggler, das ist so ein vorbelastetes Wort. Ich mache Waren denen zugänglich, die sie normalerweise nicht bekommen würden... für eine Gebühr."
 english, "job" -> "Smuggler is such a loaded word. I make goods available to those who have no access to them... at a cost."
 "job" -> "Schmuggler, das ist so ein vorbelastetes Wort. Ich mache Waren denen zugänglich, die sie normalerweise nicht bekommen würden... für eine Gebühr."
-english, "Gobaith", "Gobiath" -> trade, "I used toSibanac with some halfling fellow on Gobaith... Brendan Mason was his name."
+english, "Gobaith", "Gobiath" -> "I used to sell Sibanac to some halfling fellow on Gobaith... Brendan Mason was his name."
 "Gobaith", "Gobiath" -> "Ich hab damals Sibanac mit einem Halbling auf Gobaith gehandelt... Brendan Mason war sein Name."
 "my name" -> "You gave me your name, what do you want from me now? Money?"
 "mein Name" -> "Danke für euren Namen, was wollt ihr jetzt von mir? Geld?"
@@ -167,7 +167,7 @@ english, "portal" -> "I have heard that there are portals all over the land. The
 -- Tool hints
 "pickaxe" -> "The pickaxe is the best tool for mining, but don't be fooled by the simple appearance. It is difficult to master. You wouldn't be the first to end up with a pickaxe in your leg, so please be careful!"
 "Spitzhacke" -> "Die Spitzhacke ist das beste Werkzeug für den Bergbau. Aber laßt Euch nicht vom einfachen Äußeren täuschen. Es ist schwer zu meistern. Ihr wäret nicht der Erste mit einer Spitzhacke im Bein endet, also seid bitte vorsichtig!"
-english, "hammer" -> trade, "The hammer is themark of any smith. There are different hammers for each and every purpose. It is important to use the right hammer for each task."
+english, "hammer" -> "The hammer is the token of any smith. There are different hammers for each and every purpose. It is important to use the right hammer for each task."
 german, "Hammer" -> "Der Hammer ist das Erkennungsmerkmaler aller Schmiede. Es gibt verschiedene Hämmer für jeden Zweck. Es ist wichtig den richtigen Hammer für die entsprechende Aufgabe zu benutzen."
 "gem" -> "Gems are the true treasures of the mountains. There are many different gems but they all have something in common, they are all rare and you'll need a lot of luck to find suitable raw pieces, I can tell you."
 "Edelstein" -> "Edelsteine sind der wahre Schatz des Berges. Es gibt viele verschiedene Edelsteine, aber alle haben etwas gemeinsam. Sie sind alle sehr selten und Ihr braucht schon viel Glück passende rohe Stücke zu finden, das kann ich Euch sagen."
@@ -177,7 +177,7 @@ english, "archmage" -> "If Archmage Morgan knew that his minions ordered things 
 "Erzmagier" -> "Wenn Erzmagier Morgan wüßte, dass seine Leute bei mir Waren bestellen, dann würde er sie sicher mit einem Buch verprügeln."
 english, "Elvaine", "Morgan" -> "If Archmage Morgan knew that his minions ordered things from me, I think he would slap them with a book."
 "Elvaine", "Morgan" -> "Wenn Erzmagier Morgan wüßte, dass seine Leute bei mir Waren bestellen, dann würde er sie sicher mit einem Buch verprügeln."
-english, "Runewick" -> trade, "The people of Runewick come to me tofor metals and minerals. If you look for them you have to travel south and east."
+english, "Runewick" -> "The people of Runewick come to me to buy metals and minerals. If you look for them you have to travel south and east."
 "Runewick" -> "Die Leute aus Runewick kommen zu mir, um Metalle und Mineralien einzutauschen. Wenn Ihr sie sucht, so müßt Ihr nach Süden und Osten reisen."
 english, "Valerio", "Guilianni", "don" -> "If the Don did not rule Galmair, I'd be there again. He interfered with my business too much, so I... had to leave."
 "Valerio", "Guilianni", "don" -> "Wenn der Don nicht Galmair kontrollieren würde, wäre ich längst wieder da. Er hat sich zu sehr in mein Geschäft eingemischt, also... musste ich das Weite suchen."
