@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -17,8 +17,10 @@ VALUES (0, 910, 801, 1, 4, 'Nizar', 'npc.nizar', 0, 3, 0, 150, 79, 0, 3, 5, 20);
 require("npc.base.basic")
 require("npc.base.condition.chance")
 require("npc.base.condition.language")
+require("npc.base.condition.quest")
 require("npc.base.consequence.gemcraft")
 require("npc.base.consequence.inform")
+require("npc.base.consequence.quest")
 require("npc.base.talk")
 require("npc.base.trade")
 module("npc.nizar", package.seeall)
@@ -174,9 +176,9 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("gem");
 talkEntry:addTrigger("magical smithing");
 talkEntry:addTrigger("smithing");
+talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkEntry:addResponse("Ah. I'd love to work for you.");
 talkEntry:addResponse("Of course I'll help you with magical gems.");
-talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -184,9 +186,34 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Edelstein");
 talkEntry:addTrigger("magisches Schmieden");
 talkEntry:addTrigger("Schmieden");
+talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
 talkEntry:addResponse("Ah. Ich arbeite gern für Euch. Nun denn ...");
 talkEntry:addResponse("Natürlich helfe ich Euch was diese magischen Edelsteinen betrifft!");
-talkEntry:addConsequence(npc.base.consequence.gemcraft.gemcraft(craftNPC));
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 1));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("Zassaria");
+talkEntry:addTrigger("lizard");
+talkEntry:addTrigger("oil");
+talkEntry:addTrigger("lamp");
+talkEntry:addTrigger("riverbank");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 2));
+talkEntry:addResponse("Ah yes, thank you for passing the message. Go talk to Zassaria, I'm sure she will reward you for your service.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 1));
+talkEntry:addTrigger("Zassaria");
+talkEntry:addTrigger("echse");
+talkEntry:addTrigger("öllampe");
+talkEntry:addTrigger("lampe");
+talkEntry:addTrigger("riverbank");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 2));
+talkEntry:addResponse("Ah ja, vielen Dank dass ihr die Nachricht überbracht habt. Geht und sprecht mit Zassaria, ich bin sicher sie wird euch für eure Arbeit belohnen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -911,11 +938,8 @@ talkingNPC:addCycleText("#w Ich vermisse dich, Serinjah-Steppe...", "#w I miss y
 talkingNPC:addCycleText("Lasst mich Eure magischen Edelsteine aufbessern!", "Let me upgrade your magical gem stones!");
 talkingNPC:addCycleText("#me breitet die Arme aus.'Egal welche Farbe und welche Qualität Eure magischen Edelsteine sind bei Nizar in guten Händen.'", "#me spreads his arms: 'No matter the colour or length of your hems, Nizar will take care of your magical gems!'.");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"buySecondary"));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
@@ -938,7 +962,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

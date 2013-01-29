@@ -189,8 +189,8 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 3));
-talkEntry:addResponse("Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 2));
+talkEntry:addResponse("Could you help me jussst a little? Sss... Nizar assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -200,8 +200,8 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 3));
-talkEntry:addResponse("Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 2));
+talkEntry:addResponse("Könntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -212,8 +212,8 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Frag für mich I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 3));
-talkEntry:addResponse("Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 2));
+talkEntry:addResponse("Could you help me jussst a little? Sss... Nizar assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -225,8 +225,8 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich I"));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 3));
-talkEntry:addResponse("Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.");
+talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 2));
+talkEntry:addResponse("Könntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -236,7 +236,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Sss... William Daloire   assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?");
+talkEntry:addResponse("Sss... Nizar assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -245,7 +245,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 1));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("William Daloire fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss.");
+talkEntry:addResponse("Nizar fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -255,7 +255,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Sss... William Daloire assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?");
+talkEntry:addResponse("Sss... Nizar assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -266,7 +266,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("William Daloire fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss.");
+talkEntry:addResponse("Nizar fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -89,16 +89,16 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia be with you
 
 -- A message Quest
 -- 1st quest starts, if you are citizen of Runewick
-queststatus(701) = 0, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me I"), queststatus(701) = 3, "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?"
-queststatus(701) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag für mich I"), queststatus(701) = 3, "Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss."
-queststatus(701) = 0, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Frag für mich I"), queststatus(701) = 3, "Could you help me jussst a little? Sss... Jonathan Idler assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?"
-queststatus(701) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich I"), queststatus(701) = 3, "Könntet Ihr mit Helfen? Sss ... Jonathan Idler fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss."
+queststatus(701) = 0, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me I"), queststatus(701) = 2, "Could you help me jussst a little? Sss... Nizar assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?"
+queststatus(701) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag für mich I"), queststatus(701) = 2, "Könntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss."
+queststatus(701) = 0, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Frag für mich I"), queststatus(701) = 2, "Could you help me jussst a little? Sss... Nizar assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?"
+queststatus(701) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich I"), queststatus(701) = 2, "Könntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss."
 
 -- 1st quest not solved, repeat the instructions
-queststatus(701) = 1, english, town = Runewick, "quest", "mission" -> "Sss... William Daloire   assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
-queststatus(701) = 1, town = Runewick, "quest", "mission" -> "William Daloire fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
-queststatus(701) = 1, town = Runewick, "task", "adventure", "order" -> "Sss... William Daloire assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
-queststatus(701) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "William Daloire fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
+queststatus(701) = 1, english, town = Runewick, "quest", "mission" -> "Sss... Nizar assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
+queststatus(701) = 1, town = Runewick, "quest", "mission" -> "Nizar fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
+queststatus(701) = 1, town = Runewick, "task", "adventure", "order" -> "Sss... Nizar assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
+queststatus(701) = 1, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Nizar fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss."
 
 -- 1st quest solved, reward sabre,boots, rankpoints +3
 queststatus(701) = 2, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with some coins, an old sabre from the ground of the sea and a pair of new boots."), money + 60, item(25, 1, 277), item(53, 1, 277), queststatus(701) = 3, rankpoints + 0, "Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss..."
