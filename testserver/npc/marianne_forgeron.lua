@@ -232,7 +232,7 @@ talkEntry:addTrigger("trout");
 talkEntry:addTrigger("salmon");
 talkEntry:addTrigger("riverbank");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 11));
-talkEntry:addResponse("Unbelivable! This tout is as large as a slamon! Please, tell Miss Riverbank I'm soory, I called her a liar.");
+talkEntry:addResponse("Unbelivable! This tout is as large as a slamon! Please, tell Miss Riverbank I'm sorry, I called her a liar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
