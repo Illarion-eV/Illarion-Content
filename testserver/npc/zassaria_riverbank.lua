@@ -147,7 +147,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("your name");
 talkEntry:addTrigger("who are you");
 talkEntry:addTrigger("who art thou");
-talkEntry:addResponse("I am the one called Zassaria Riverbank.Nice to meet you. Sss.");
+talkEntry:addResponse("I am the one called Zassaria Riverbank. Nice to meet you. Sss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -190,7 +190,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me I"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 1));
-talkEntry:addResponse("Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?");
+talkEntry:addResponse("Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -213,7 +213,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Frag für mich I"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 1));
-talkEntry:addResponse("Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?");
+talkEntry:addResponse("Could you help me jussst a little? Sss... Nizar assked me for an oil lamp some time ago. Tsss. I found one while fissshing just yesssterday. Zss. Can you tell him he ssshould talk to me?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -281,7 +281,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(25, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(53, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 0));
-talkEntry:addResponse("Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...");
+talkEntry:addResponse("Ssso you talked to Missster Nizar? Tsss. Well, thank you for your help... Zss...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -295,7 +295,7 @@ talkEntry:addConsequence(npc.base.consequence.item.item(25, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(53, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 0));
-talkEntry:addResponse("Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für Eure Hilfe..Zss...");
+talkEntry:addResponse("Ihr habt also mit Missster Nizar gessssprochen? Tsss. Nun, danke für Eure Hilfe..Zss...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -318,7 +318,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 4));
-talkEntry:addResponse("Sssso, du kommssst um mir zzzu helfen? Wie nett. Zss. Argenutsss Almsbag hat sssich ssschon lange nicht mehr bei mir blicken lassssen. Ffragt ihn, ob er noch Fisssch kaufen möchter. Zss. Der Fisssch beginnt zzzu riechen.");
+talkEntry:addResponse("Sssso, du kommssst um mir zzzu helfen? Wie nett. Zss. Argenutsss Almsbag hat sssich ssschon lange nicht mehr bei mir blicken lassssen. Fragt ihn, ob er noch Fisssch kaufen möchte. Zss. Der Fisssch beginnt zzzu riechen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -392,7 +392,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You solved the quest. You are awarded 10 silver coins, and an old wizard hat."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You solved the quest. You are awarded 10 silver coins and an old wizard hat."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.item.item(357, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 6));
@@ -422,7 +422,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 7));
-talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happend to my colcction of oil lampsss. I sssaw him carring them away. Zss Zss.");
+talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happend to my collection of oil lampsss. I sssaw him carrying them away. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -445,7 +445,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 7));
-talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happend to my colcction of oil lampsss. I sssaw him carring them away. Zss Zss.");
+talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happend to my colcction of oil lampsss. I sssaw him carrying them away. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -458,7 +458,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich III"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 7));
-talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happend to my colcction of oil lampsss. I sssaw him carring them away. Zss Zss.");
+talkEntry:addResponse("Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -498,7 +498,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Pleassse asssk Neiran el Nyarale what happend to my colcction of oil lampsss. I sssaw him carring them away. Zss Zss.");
+talkEntry:addResponse("Bitte fragt Neiran el Nyarale wass er mit meiner Sssammlung Öllampen gemacht hat. Ich sssah wie er ssie davon trug. Zss Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -538,7 +538,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me IV"));
 talkEntry:addConsequence(npc.base.consequence.item.item(73, 1, 440, {["nameDe"] = "Echt großer Fisch", ["nameEn"] = "Really big fish", ["descriptionEn"] = "This trout is as large as a salmon.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Forelle ist so groß wie ein Lachs!"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 10));
-talkEntry:addResponse("Zss! Zss! Look, I caught thiss trout. Itsss asss large asss a salmon. But, Marinna Forgeron, magical sssmith from galmair does not belive me! Zss! Zss! Sssshow her thisss fischsss, please. Ssss.");
+talkEntry:addResponse("Zss! Zss! Look, I caught thiss trout. It'sss asss large asss a salmon. But, Marinna Forgeron, magical sssmith from Galmair does not believe me! Zss! Zss! Sssshow her thisss fisssh, please. Ssss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -563,7 +563,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me IV"));
 talkEntry:addConsequence(npc.base.consequence.item.item(73, 1, 440, {["nameDe"] = "Echt großer Fisch", ["nameEn"] = "Really big fish", ["descriptionEn"] = "This trout is as large as a salmon.", ["rareness"] = "2", ["descriptionDe"] = "Dieser Forelle ist so groß wie ein Lachs!"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 10));
-talkEntry:addResponse("Zss! Zss! Look, I caught thiss trout. Itsss asss large asss a salmon. But, Marinna Forgeron, magical sssmith from galmair does not belive me! Zss! Zss! Sssshow her thisss fischsss, please. Ssss.");
+talkEntry:addResponse("Zss! Zss! Look, I caught thiss trout. It'sss asss large asss a salmon. But, Marinna Forgeron, magical sssmith from Galmair does not believe me! Zss! Zss! Sssshow her thisss fisssh, please. Ssss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -587,7 +587,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Pleassse, ssshow thiss fischss to Marinanne Forgeron in Galmair.");
+talkEntry:addResponse("Pleassse, ssshow thiss fisssh to Marinanne Forgeron in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -606,7 +606,7 @@ talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("Pleassse, ssshow thiss fischss to Marinanne Forgeron in Galmair.");
+talkEntry:addResponse("Pleassse, ssshow thiss fisssh to Marinanne Forgeron in Galmair.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -632,7 +632,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.item.item(62, 1, 877, {["rareness"] = "1", ["craftedBy"] = "Zassaria Riverbank"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 9));
-talkEntry:addResponse("Thank you. Please take thisss asss reward. And keep the fissch as souvenir, I caught a lager one than thisss.");
+talkEntry:addResponse("Thank you. Please take thisss asss reward. And keep the fisssh as a souvenir, I caught a larger one than thisss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -645,7 +645,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.item.item(62, 1, 877, {["rareness"] = "1", ["craftedBy"] = "Zassaria Riverbank"}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 12));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 9));
-talkEntry:addResponse("Danke ssschön. Bitte nehmt diess. Und behaltet den Fisssch als Suvernir, ich habe bereits einen größeren gefangen. Zss.");
+talkEntry:addResponse("Danke ssschön. Bitte nehmt diess. Und behaltet den Fisssch als Souvenir, ich habe bereits einen größeren gefangen. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -658,7 +658,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me V"));
 talkEntry:addConsequence(npc.base.consequence.item.item(225, 1, 999, {["descriptionEn"] = "This crown belongs to Rosaline Edwarts.", ["descriptionDe"] = "Diese Krone gehört Rosaline Edwarts."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 13));
-talkEntry:addResponse("I was lucky today. Zss! Zss! I found the crown of Rosaline Edwards. She will sssurely misss it, please go and bring her cown back.");
+talkEntry:addResponse("I was lucky today. Zss! Zss! I found the crown of Rosaline Edwards. She will sssurely misss it, please go and bring her her crown back.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -670,7 +670,7 @@ talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich V"));
 talkEntry:addConsequence(npc.base.consequence.item.item(225, 1, 999, {["descriptionEn"] = "This crown belongs to Rosaline Edwarts.", ["descriptionDe"] = "Diese Krone gehört Rosaline Edwarts."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 13));
-talkEntry:addResponse("Ich habe wirklich Anglerglück. Zss! Zss! Ich habe die Krone von Rosaline Edwards gefissscht. Sicher vermisst sie ihren Kopfssschuck ssschon. Geht und birngt ihr die Krone zurück. Zss! Zss!");
+talkEntry:addResponse("Ich habe wirklich Anglerglück. Zss! Zss! Ich habe die Krone von Rosaline Edwards gefissscht. Sicher vermisst sie ihren Kopfssschuck ssschon. Geht und bringt ihr die Krone zurück. Zss! Zss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -683,7 +683,7 @@ talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me V"));
 talkEntry:addConsequence(npc.base.consequence.item.item(225, 1, 999, {["descriptionEn"] = "This crown belongs to Rosaline Edwarts.", ["descriptionDe"] = "Diese Krone gehört Rosaline Edwarts."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 13));
-talkEntry:addResponse("I was lucky today. Zss! Zss! I found the crown of Rosaline Edwards. She will sssurely misss it, please go and bring her cown back.");
+talkEntry:addResponse("I was lucky today. Zss! Zss! I found the crown of Rosaline Edwards. She will sssurely misss it, please go and bring her her crown back.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -697,7 +697,7 @@ talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich V"));
 talkEntry:addConsequence(npc.base.consequence.item.item(225, 1, 999, {["descriptionEn"] = "This crown belongs to Rosaline Edwarts.", ["descriptionDe"] = "Diese Krone gehört Rosaline Edwarts."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 13));
-talkEntry:addResponse("Ich habe wirklich Anglerglück. Zss! Zss! Ich habe die Krone von Rosaline Edwards gefissscht. Sicher vermisst sie ihren Kopfssschuck ssschon. Geht und birngt ihr die Krone zurück. Zss! Zss!");
+talkEntry:addResponse("Ich habe wirklich Anglerglück. Zss! Zss! Ich habe die Krone von Rosaline Edwards gefissscht. Sicher vermisst sie ihren Kopfssschuck ssschon. Geht und bringt ihr die Krone zurück. Zss! Zss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -751,7 +751,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.item.item(98, 1, 222, {["descriptionEn"] = "This sword was a present by Zassaria Riverbank", ["rareness"] = "1", ["descriptionDe"] = "Dieses Schwert war ein Geschenk von Zassaria Riverbank."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 15));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 12));
-talkEntry:addResponse("It'sss not her crown? Then, keep it. and take thisss as reward.");
+talkEntry:addResponse("It'sss not her crown? Then keep it and take thisss as reward.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -764,7 +764,7 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 500));
 talkEntry:addConsequence(npc.base.consequence.item.item(98, 1, 222, {["descriptionEn"] = "This wand was a present by Zassaria Riverbank", ["rareness"] = "1", ["descriptionDe"] = "Dieses Schwert war ein Geschenk von Zassaria Riverbank."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 15));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 12));
-talkEntry:addResponse("Esss issst nicht ihre Krone. Dann behaltet sssie doch. Und nehmt diess als Belohung.");
+talkEntry:addResponse("Esss issst nicht ihre Krone? Dann behaltet sssie und nehmt diess als Belohung.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -984,21 +984,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("salkama");
-talkEntry:addResponse("Esss gibt sssolch einen Ort Unterwassser nicht. Zss.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("Gobaith");
-talkEntry:addTrigger("Gobiath");
-talkEntry:addResponse("There isss no place like thisss under the sssea. Zss.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Gobaith");
-talkEntry:addTrigger("Gobiath");
 talkEntry:addResponse("Esss gibt sssolch einen Ort Unterwassser nicht. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
