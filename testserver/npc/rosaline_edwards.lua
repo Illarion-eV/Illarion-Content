@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Estralis Seborian                                                --
 --           Nitram                                                           --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -528,6 +528,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 13));
 talkEntry:addCondition(npc.base.condition.item.item(225, "all", ">", 0, {["descriptionEn"] = "This crown belongs to Rosaline Edwarts."}));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zassaria");
 talkEntry:addTrigger("lizzard");
 talkEntry:addTrigger("crown");
@@ -1526,7 +1527,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -223,7 +223,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
-talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 0, {["nameDe"] = "Echt großer Fisch"}));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 0, {["nameDe"] = "Really big fish"}));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zassaria");
 talkEntry:addTrigger("lizzard");
@@ -239,7 +239,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
 talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 0, {["nameDe"] = "Echt großer Fisch"}));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zassaria");
 talkEntry:addTrigger("lizzard");
 talkEntry:addTrigger("fisch");
@@ -824,11 +823,8 @@ talkingNPC:addCycleText("#me summt eine rhytmische Melodie.", "#me humms a rhytm
 talkingNPC:addCycleText("#me schaut sich um.", "#me lookes abound.");
 talkingNPC:addCycleText("Schönes Wetter heute.", "Nice weather today!");
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"sell"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"sell"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(1,"buyPrimary"));
 tradingNPC:addItem(npc.base.trade.tradeNPCItem(2,"buySecondary"));
-tradingNPC:addItem(npc.base.trade.tradeNPCItem(3,"buySecondary"));
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(2);
 mainNPC:setDefaultLanguage(0);
@@ -851,7 +847,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END
