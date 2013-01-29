@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: east                   --
 --                                                                            --
 -- Author:   Miriam                                                           --
---                                                       easyNPC Parser v1.22 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -233,6 +233,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Sss... William Daloire   assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?");
@@ -241,6 +242,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("William Daloire fragte mich nach einer Öllampe. Zss. Ssso sssagt ihm, er möge mit mir reden. Zss.");
@@ -249,6 +251,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -258,6 +261,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -269,10 +273,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You solved the Quest and are rewarded by Zarissa with some coins, an old sabre from the ground of the sea and a pair of new boots."));
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
-talkEntry:addConsequence(npc.base.consequence.item.item(0, 0, 0, nil));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
+talkEntry:addConsequence(npc.base.consequence.item.item(25, 1, 277, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(53, 1, 277, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 0));
 talkEntry:addResponse("Ssso you talked to Missster Idler? Thatss what he'd sssay. Tsss. Well, thank you for you help... Zss...");
@@ -281,10 +287,12 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 2));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] Du hast den Quest gelöst und erhälst zum Dank etwas Geld, einen Säbel den Zarissa auf dem Grund des Meeres gefunden hat und ein Paar neue Stiefel."));
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 600));
-talkEntry:addConsequence(npc.base.consequence.item.item(0, 0, 0, nil));
+talkEntry:addConsequence(npc.base.consequence.money.money("+", 60));
+talkEntry:addConsequence(npc.base.consequence.item.item(25, 1, 277, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(53, 1, 277, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 3));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 0));
 talkEntry:addResponse("Ihr habt also mit Missster Idler gessssprochen? Dass hat er gesssagt.Tsss. Nun, danke für Eure Hilfe..Zss...");
@@ -294,6 +302,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 3));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me II"));
@@ -304,6 +313,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 3));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich II"));
@@ -314,6 +324,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 3));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -325,6 +336,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 3));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -338,6 +350,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 4));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Pleassse asssk Argentusss Almsssbag about hisss fisssh order. Zsss.");
@@ -346,6 +359,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 4));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Bitte fragt bei Argentuss Almsssbag wegen ssseiner Fisschbestellung nach. Sss.");
@@ -354,6 +368,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 4));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -363,6 +378,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 4));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -374,6 +390,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 5));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You solved the quest. You are awarded 10 silver coins, and an old wizard hat."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
@@ -386,6 +403,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 5));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] Du hast den Quest gelöst. Du wirst mit 10 Silbermünzen und einem alten Zauberhut belohnt."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
@@ -399,6 +417,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 6));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me III"));
@@ -409,6 +428,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 6));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich III"));
@@ -419,6 +439,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 6));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -430,6 +451,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 6));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -443,6 +465,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 8));
@@ -452,6 +475,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 8));
@@ -461,6 +485,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -471,6 +496,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 7));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -483,10 +509,12 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 9));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You solved the quest. You are awarded 12 silver coins, and two new robes in the colors of the ocean."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
-talkEntry:addConsequence(npc.base.consequence.item.item(193, 1, 277, nil));
+talkEntry:addConsequence(npc.base.consequence.item.item(193, 1, 277, {["descriptionEn"] = "This robe has the colour of the sea.", ["descriptionDe"] = "Diese Robe hat die Farbe des Meers."}));
+talkEntry:addConsequence(npc.base.consequence.item.item(55, 1, 277, {["descriptionEn"] = "This robe has the colour of the sea.", ["descriptionDe"] = "Diese Robe hat die Farbe des Meers."}));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(701, "=", 9));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkEntry:addResponse("What? He saisss he threw them away? Zss! Zss! Firssst I ssshall thank you for assking Neiran el Nyarale. Zzzs. Take thisss as a present. Then I will talk to him! Zss... ");
@@ -495,6 +523,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 9));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] Du hast den Quest gelöst. Du wirst mit 12 Silbermünzen und zwei neuen Roben in den Farben des Ozeans belohnt."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1200));
@@ -509,6 +538,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me IV"));
@@ -520,6 +550,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich II"));
@@ -531,6 +562,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -543,6 +575,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -557,6 +590,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Pleassse, ssshow thiss fischss to Marinanne Forgeron in Galmair.");
@@ -565,6 +599,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Zzzeigt Marianne Forgeron auss Galmair diesssen großssen Fisssch!");
@@ -573,6 +608,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -582,6 +618,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -594,6 +631,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 11));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You solved the quest. You are awarded with some coins and jewlry."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 3000));
@@ -607,6 +645,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 11));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] Du hast den Quest gelöst. Du wirst mit Münzen und Schmuck belohnt."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 2500));
@@ -622,6 +661,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 12));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] Ask for me V"));
@@ -633,6 +673,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 12));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Frag für mich V"));
@@ -644,6 +685,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 12));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -656,6 +698,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 12));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -670,6 +713,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 13));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Pleassse bring the crown back to Rosaline Edwards. Ssshe will misss it.");
@@ -678,6 +722,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 13));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Bitte bringt Rosaline Edwards ihre Krone zzzurück. Ssssie wird sie vermisssen.");
@@ -686,6 +731,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 13));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -695,6 +741,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 13));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -706,6 +753,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 14));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You solved the quest. You are awarded a wand of water, a old magical broadsword, and some coins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50000));
@@ -719,6 +767,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 14));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelößt] Du hast den Quest gelöst. Du wirst mit einem Stab des Wassers, einem alten magischen Breitschwert und ein paar Silbermünzen belohnt."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 50000));
@@ -763,6 +812,38 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addResponse("Danke ssschön. Zss.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("I have no tasssk for people who do not belong to Runewick. You can go to Torina to become a citizzzen. Zss.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Ich habe keine Aufgabe für Leute die nicht Runewick angehören. Ihr könnt zzzu Torina gehen, um Bürger zzzu werden. Zss.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("I have no tasssk for people who do not belong to Runewick. You can go to Torina to become a citizzzen. Zss.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Ich habe keine Aufgabe für Leute die nicht Runewick angehören. Ihr könnt zzzu Torina gehen, um Bürger zzzu werden. Zss.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
