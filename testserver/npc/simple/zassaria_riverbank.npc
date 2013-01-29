@@ -133,7 +133,7 @@ queststatus(701) = 7, town = Runewick, "quest", "mission" -> "Bitte fragt Neiran
 queststatus(701) = 7, town = Runewick, "task", "adventure", "order" -> "Pleassse asssk Neiran el Nyarale what happend to my collection of oil lampsss. I sssaw him carring them away. Zss Zss."
 queststatus(701) = 7, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Pleassse asssk Neiran el Nyarale what happend to my colcction of oil lampsss. I sssaw him carring them away. Zss Zss."
 
--- 3rd quest solved, Talk to Neiran el Nyarale, reward  robe (green), robe (blue), 12 silver, + 5 rankpoints
+-- 3rd quest solved, Talk to Neiran el Nyarale, reward robe (blue), 12 silver, + 5 rankpoints
 queststatus(701) = 8, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the quest. You are awarded 12 silver coins and a new robe in the color of the ocean."), money + 1200, item(193, 1, 333, "descriptionEn" = "This robe has the colour of the sea.", "descriptionDe" = "Diese Robe hat die Farbe des Meers."), queststatus(701) = 9, rankpoints + 5, "What? He saisss he threw them away? Zss! Zss! Firssst I ssshall thank you for assking Neiran el Nyarale. Zzzs. Take thisss as a present. Then I will talk to him! Zss... "
 queststatus(701) = 8, town = Runewick, ".+" -> inform("[Quest gelößt] Du hast das Quest gelöst. Du wirst mit 12 Silbermünzen und eine neue Robe in der Farbe des Ozeans belohnt."), money + 1200, item(193, 1, 333, "descriptionEn" = "This robe has the colour of the sea.", "descriptionDe" = "Diese Robe hat die Farbe des Meers."), queststatus(701) = 9, rankpoints + 5, "Wasss? Veggeworfen hat er sssie? Zss! Zss! Zzzuerssst will ich Euch danken, dassss Ihr mit Neiran el Nyarale spracht. Nehmt diesss alsss Gessschenk. Dann werde ich mir ihm ssssprechen! Zss..."
 
@@ -149,8 +149,8 @@ queststatus(701) = 10, town = Runewick, "quest", "mission" -> "Zzzeigt Marianne 
 queststatus(701) = 10, town = Runewick, "task", "adventure", "order" -> "Pleassse, ssshow thiss fischss to Marinanne Forgeron in Galmair."
 queststatus(701) = 10, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Zzzeigt Marianne Forgeron auss Galmair diesssen großssen Fisssch!"
 
--- 4th quest solved, reward
-queststatus(701) = 11, english, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the quest. You are awarded with some coins and jewlry."), money + 1000, item(62, 1, 877, "rareness" = "1", "craftedBy" = "Zassaria Riverbank"), queststatus(701) = 12, rankpoints + 9, "Thank you. Please take thisss asss reward. And keep the fissch as souvenir, I caught a lager one than thisss."
+-- 4th quest solved, reward a necklace ans 10 silver
+queststatus(701) = 11, english, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the quest. You are awarded with some coins and jewellery."), money + 1000, item(62, 1, 877, "rareness" = "1", "craftedBy" = "Zassaria Riverbank"), queststatus(701) = 12, rankpoints + 9, "Thank you. Please take thisss asss reward. And keep the fissch as souvenir, I caught a lager one than thisss."
 queststatus(701) = 11, town = Runewick, ".+" -> inform("[Quest gelößt] Du hast das Quest gelöst. Du wirst mit Münzen und Schmuck belohnt."), money + 1000, item(62, 1, 877, "rareness" = "1", "craftedBy" = "Zassaria Riverbank"), queststatus(701) = 12, rankpoints + 9, "Danke ssschön. Bitte nehmt diess. Und behaltet den Fisssch als Suvernir, ich habe bereits einen größeren gefangen. Zss."
 
 -- 5th quest talk to Rosaline Edwards
@@ -165,9 +165,9 @@ queststatus(701) = 13, town = Runewick, "quest", "mission" -> "Bitte bringt Rosa
 queststatus(701) = 13, town = Runewick, "task", "adventure", "order" -> "Pleassse bring the crown back to Rosaline Edwards. Ssshe will misss it."
 queststatus(701) = 13, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> "Bitte bringt Rosaline Edwards ihre Krone zzzurück. Ssssie wird sie vermisssen."
 
--- 5th quest solved, reward Stab des Wassers 2784, magisches Breitschwert, 15 rankpoints, 40 Silber
-queststatus(701) = 14, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the quest. You are awarded a wand of water, a old magical broadsword, and some coins."), money + 500, item(98, 1, 222, "descriptionEn" = "This sword was a present by Zassaria Riverbank", "rareness" = "1", "descriptionDe" = "Dieses Schwert war ein Geschenk von Zassaria Riverbank."), queststatus(701) = 15, rankpoints + 12, "It'sss not her crown? Then, keep it. and take thisss as reward."
-queststatus(701) = 14, town = Runewick, ".+" -> inform("[Quest gelößt] Du hast das Quest gelöst. Du wirst mit einem Stab des Wassers, einem alten magischen Breitschwert und ein paar Silbermünzen belohnt."), money + 500, item(98, 1, 222, "descriptionEn" = "This wand was a present by Zassaria Riverbank", "rareness" = "1", "descriptionDe" = "Dieses Schwert war ein Geschenk von Zassaria Riverbank."), queststatus(701) = 15, rankpoints + 12, "Esss issst nicht ihre Krone. Dann behaltet sssie doch. Und nehmt diess als Belohung."
+-- 5th quest solved, reward silvered sword 98, 5 Silver
+queststatus(701) = 14, english, town = Runewick, ".+" -> inform("[Quest solved] You solved the quest. You are awarded a silvered longsword and some coins."), money + 500, item(98, 1, 222, "descriptionEn" = "This sword was a present by Zassaria Riverbank", "rareness" = "1", "descriptionDe" = "Dieses Schwert war ein Geschenk von Zassaria Riverbank."), queststatus(701) = 15, rankpoints + 12, "It'sss not her crown? Then, keep it. and take thisss as reward."
+queststatus(701) = 14, town = Runewick, ".+" -> inform("[Quest gelößt] Du hast das Quest gelöst. Du wirst mit einem versilberten Langschwert und ein paar Silbermünzen belohnt."), money + 500, item(98, 1, 222, "descriptionEn" = "This wand was a present by Zassaria Riverbank", "rareness" = "1", "descriptionDe" = "Dieses Schwert war ein Geschenk von Zassaria Riverbank."), queststatus(701) = 15, rankpoints + 12, "Esss issst nicht ihre Krone. Dann behaltet sssie doch. Und nehmt diess als Belohung."
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(701) = 15, english, "quest", "mission" -> "Thank you. Zss."
