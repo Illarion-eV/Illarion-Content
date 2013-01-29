@@ -89,10 +89,10 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ssss. Zzzelphia be with you
 
 -- A message Quest
 -- 1st quest starts, if you are citizen of Runewick
-queststatus(701) = 0, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me I"), queststatus(701) = 2, "Could you help me jussst a little? Sss... Nizar assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?"
-queststatus(701) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag für mich I"), queststatus(701) = 2, "Könntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss."
-queststatus(701) = 0, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Frag für mich I"), queststatus(701) = 2, "Could you help me jussst a little? Sss... Nizar assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?"
-queststatus(701) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich I"), queststatus(701) = 2, "Könntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss."
+queststatus(701) = 0, english, town = Runewick, "quest", "mission" -> inform("[New quest] Ask for me I"), queststatus(701) = 1, "Could you help me jussst a little? Sss... Nizar assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?"
+queststatus(701) = 0, town = Runewick, "quest", "mission" -> inform("[Neues Quest] Frag für mich I"), queststatus(701) = 1, "Könntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss."
+queststatus(701) = 0, town = Runewick, "task", "adventure", "order" -> inform("[New quest] Frag für mich I"), queststatus(701) = 1, "Could you help me jussst a little? Sss... Nizar assked me for an oli lamp some time ago. Tsss. I found one while fissshing, just yesssterday. Zss. Can you tell him he ssshould talk to me?"
+queststatus(701) = 0, town = Runewick, "Auftrag", "Aufgabe", "Abenteuer", "Befehl" -> inform("[Neues Quest] Frag für mich I"), queststatus(701) = 1, "Könntet Ihr mit Helfen? Sss ... Nizar fragte mich nach einer Öllampe. Zss. Gessstern habe ich eine beim Fissschen gefunden. Ssso sssagt ihm, er möge mit mir reden. Zss."
 
 -- 1st quest not solved, repeat the instructions
 queststatus(701) = 1, english, town = Runewick, "quest", "mission" -> "Sss... Nizar assked me for an oli lamp some time ago. Can you tell him he ssshould talk to me?"
