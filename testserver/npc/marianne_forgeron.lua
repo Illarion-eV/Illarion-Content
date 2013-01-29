@@ -223,7 +223,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 10));
-talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 0, {["nameDe"] = "Really big fish"}));
+talkEntry:addCondition(npc.base.condition.item.item(73, "all", ">", 0, {["nameEn"] = "Really big fish"}));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zassaria");
 talkEntry:addTrigger("lizzard");
