@@ -320,6 +320,8 @@ function PayOutWage(Recipient,town)
 		totalPayers=150
 	end
 	Recipient:inform("in payoutwage "..totalPayers)
+	Recipient:inform("totaltaxes "..totalTaxes)
+	
 	if tonumber(totalPayers)>0 then
 	Recipient:inform("payers = "..totalPayers)
 		if tonumber(totalTaxes)>0 then
