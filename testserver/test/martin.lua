@@ -100,8 +100,17 @@ function PayOutWage(Recipient,town)
 				local gemData = item.gems.getMagicGemData(gemLevel);
 				
 				local basename={}
-				basename["name"]=world:getItemName(gemId, Recipient:getPlayerLanguage());
-				basename["name"]=item.gems.lookAtFilter(Recipient, basename.name, gemData) 
+				basename=world:getItemName(gemId, Recipient:getPlayerLanguage());
+				
+				if user:getPlayerLanguage() == 0 then
+					basename = item.gems.gemPrefixDE[gemLevel] .. " magischer " .. basename
+				else
+					basename = item.gems.gemPrefixEN[gemLevel] .. " magical " .. basename
+				end
+
+        lookAt.rareness = gemLevelRareness[gemLevel]
+				
+				basename=item.gems.lookAtFilter(Recipient, basename, gemData) 
 				
 				Recipient:inform("CREATED: "..basename);
 				
