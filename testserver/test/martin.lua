@@ -83,7 +83,7 @@ function PayOutWage(Recipient,town)
       -- Recipient:inform("we have taxes: "..totalTaxes);
 			local baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
 			local RecipientRk=base.factions.getRank(Recipient)
-			--local RecipientRk=2 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			local RecipientRk=2 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			local RankedWage=math.ceil(RecipientRk*baseWageUnit);
       --Recipient:inform("RankedWage= "..RankedWage);
 			while RankedWage>0 do
