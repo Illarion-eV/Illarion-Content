@@ -284,6 +284,7 @@ gemRecipient:inform("in receive gems")
 	--fnd=1
 	--lastSwitch=1
 	if not fnd then	-- first payout ever:
+		gemRecipient:inform("switch to : "..timeStmp)
 		base.townTreasure.NewMonthSwitch(town,timeStmp)
 		local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	end
