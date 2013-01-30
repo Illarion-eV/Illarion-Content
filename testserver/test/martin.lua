@@ -86,7 +86,7 @@ function PayOutWage(Recipient,town)
 			local RecipientRk=2 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			local RankedWage=math.ceil(RecipientRk*baseWageUnit);
       --Recipient:inform("RankedWage= "..RankedWage);
-			endname="* "
+
 			while RankedWage>0 do
 				local randomGem=math.random(1,2);
 				local maxGemLevel=math.floor(RankedWage^(1/3))
@@ -110,7 +110,7 @@ function PayOutWage(Recipient,town)
 				end
 
 				
-				endname=endname..basename.."\n* ";
+				endname=endname.."\n* "..basename;
 				Recipient:inform("endname= "..endname);
 				local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
 				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -121,9 +121,10 @@ function PayOutWage(Recipient,town)
 				end
 				RankedWage=RankedWage-gemLevel^3;
 			end
+			Recepient:inform("now starting dialog")
 			local infText = base.common.GetNLS(Recipient, 
-	                                   "Du erhältst als Monatlichen Lohn von "..town..":\n"..endname, 
-	                                   "You receive as a monthly wage from"..town..":\n"..endname)
+	                                   "Du erhältst als Monatlichen Lohn von "..town..":"..endname, 
+	                                   "You receive as a monthly wage from"..town..":"..endname)
 			local title = base.common.GetNLS(Recipient,"Lohn","Wage")
 	
 			local dialog=MessageDialog(title,infText,closeTrib);
