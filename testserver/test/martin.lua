@@ -108,8 +108,6 @@ function PayOutWage(Recipient,town)
 					basename = item.gems.gemPrefixEN[gemLevel] .. " magical " .. basename
 				end
 
-        lookAt.rareness = gemLevelRareness[gemLevel]
-				
 				basename=item.gems.lookAtFilter(Recipient, basename, gemData) 
 				
 				Recipient:inform("CREATED: "..basename);
