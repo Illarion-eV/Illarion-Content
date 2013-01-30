@@ -110,7 +110,7 @@ function PayOutWage(Recipient,town)
 				end
 
 				
-				endname=endname..basename.."\n* ");
+				endname=endname..basename.."\n* ";
 				
 				local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
 				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
