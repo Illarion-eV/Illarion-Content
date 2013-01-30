@@ -316,7 +316,7 @@ function PayOutWage(Recipient,town)
 	local totalTaxes=base.townTreasure.GetPaymentAmount(town)
 	local totalPayers=base.townTreasure.GetTaxpayerNumber(town)
 	
-	if totalPayers==0 then	-- just for starters
+	if tonumber(totalPayers)==0 then	-- just for starters
 		totalPayers=150
 	end
 	Recipient:inform("in payoutwage "..totalPayers)
