@@ -121,10 +121,10 @@ function PayOutWage(Recipient,town)
 				end
 				RankedWage=RankedWage-gemLevel^3;
 			end
-			local infText = base.common.GetNLS(User, 
+			local infText = base.common.GetNLS(Recipient, 
 	                                   "Du erhältst als Monatlichen Lohn von "..town..":\n"..endname, 
 	                                   "You receive as a monthly wage from"..town..":\n"..endname)
-			local title = base.common.GetNLS(User,"Lohn","Wage")
+			local title = base.common.GetNLS(Recipient,"Lohn","Wage")
 	
 			local dialog=MessageDialog(title,infText,closeTrib);
 			
