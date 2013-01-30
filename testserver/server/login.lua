@@ -271,6 +271,7 @@ function payTaxes(taxPayer)
 end
 
 function receiveGems(gemRecipient)
+gemRecipient:inform("in receive gems")
 	local yr=world:getTime("hour");
 	local mon=world:getTime("minute"); --- TODO
 	local timeStmp=yr*1000+mon;
@@ -286,6 +287,8 @@ function receiveGems(gemRecipient)
 		base.townTreasure.NewMonthSwitch(town,timeStmp)
 		local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	end
+
+gemRecipient:inform("last: "..lastSwitch.." actual "..timeStmp)
 	
 	if fnd and tonumber(lastSwitch)<timeStmp then
 		base.townTreasure.NewMonthSwitch(town,timeStmp)
