@@ -95,13 +95,20 @@ debug("GOING TO GTPN "..town)
 				local gemLevel=math.random(1,maxGemLevel)
 				Recipient:inform("You would now get the following gem: type "..randomGem.." level "..gemLevel);
         
-				local gemsByTown = {
-				  {item.gems.TOPAZ, item.gems.AMETHYST}, -- ID 1: Cadomyr
-				  {item.gems.EMERALD, item.gems.RUBY}, -- ID 2: Runewick
-				  {item.gems.SAPPHIRE, item.gems.OBSIDIAN} -- ID 3: Galmair
-				}
+				local gemsByTown={};
+				gemsByTown["Cadomyr"]={item.gems.TOPAZ, item.gems.AMETHYST}
+				gemsByTown["Runewick"]={item.gems.EMERALD, item.gems.RUBY}
+				gemsByTown["Galmair"]={item.gems.SAPPHIRE, item.gems.OBSIDIAN}
+		
+			--	local gemsByTown = {
+		--		  {item.gems.TOPAZ, item.gems.AMETHYST}, -- ID 1: Cadomyr
+			--	  {item.gems.EMERALD, item.gems.RUBY}, -- ID 2: Runewick
+			--	  {item.gems.SAPPHIRE, item.gems.OBSIDIAN} -- ID 3: Galmair
+			--	}
 				
-				local gemId = item.gems.getMagicGemId(gemsByTown[randomGem]);
+				
+				
+				local gemId = item.gems.getMagicGemId(gemsByTown[town][randomGem]);
 				local gemData = item.gems.getMagicGemData(gemLevel);
 				
 				for k,v in pairs(gemData) do
