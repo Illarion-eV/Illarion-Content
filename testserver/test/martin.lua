@@ -73,51 +73,40 @@ end
 
 -- transfer
 function PayOutWage(Recipient,town)
-debug("GOING TO GTPN "..town)
+--debug("GOING TO GTPN "..town)
 	local totalTaxes=base.townTreasure.GetPaymentAmount(town)
-	Recipient:inform("now calling gettaxpayernuber: "..totalTaxes);
 	local totalPayers=base.townTreasure.GetTaxpayerNumber(town)
 	
-	Recipient:inform("done with gtpn:");
-
 	if tonumber(totalPayers)>0 then
-    Recipient:inform("we have payers: "..totalPayers);
+    -- Recipient:inform("we have payers: "..totalPayers);
 		if tonumber(totalTaxes)>0 then
-      Recipient:inform("we have taxes: "..totalTaxes);
+      -- Recipient:inform("we have taxes: "..totalTaxes);
 			local baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
 			local RecipientRk=base.factions.getRank(Recipient)
-			local RecipientRk=2 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			--local RecipientRk=2 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			local RankedWage=math.ceil(RecipientRk*baseWageUnit);
-      Recipient:inform("RankedWage= "..RankedWage);
+      --Recipient:inform("RankedWage= "..RankedWage);
 			while RankedWage>0 do
 				local randomGem=math.random(1,2);
 				local maxGemLevel=math.floor(RankedWage^(1/3))
 				local gemLevel=math.random(1,maxGemLevel)
-				Recipient:inform("You would now get the following gem: type "..randomGem.." level "..gemLevel);
-        
+				
+				 
+				
 				local gemsByTown={};
 				gemsByTown["Cadomyr"]={item.gems.TOPAZ, item.gems.AMETHYST}
 				gemsByTown["Runewick"]={item.gems.EMERALD, item.gems.RUBY}
 				gemsByTown["Galmair"]={item.gems.SAPPHIRE, item.gems.OBSIDIAN}
-		
-			--	local gemsByTown = {
-		--		  {item.gems.TOPAZ, item.gems.AMETHYST}, -- ID 1: Cadomyr
-			--	  {item.gems.EMERALD, item.gems.RUBY}, -- ID 2: Runewick
-			--	  {item.gems.SAPPHIRE, item.gems.OBSIDIAN} -- ID 3: Galmair
-			--	}
-				
-				
-				
+
 				local gemId = item.gems.getMagicGemId(gemsByTown[town][randomGem]);
 				local gemData = item.gems.getMagicGemData(gemLevel);
 				
-				for k,v in pairs(gemData) do
-					Recipient:inform("key = "..k);
-					Recipient:inform("val = "..v);
-				end
-
+				local basename=world:getItemName(gemId, Recipient:getPlayerLanguage());
+				basename=item.gems.lookAtFilter(Recipient, basename, gemData) 
+				
+				Recipient:inform("CREATED: "..basename);
+				
 				local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
-				Recipient:inform("Attempted creation");
 				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 					world:createItemFromId( gemId, notCreated, Recipient.pos, true, 333, gemData );
 					base.common.HighInformNLS(Recipient,
@@ -126,6 +115,12 @@ debug("GOING TO GTPN "..town)
 				end
 				RankedWage=RankedWage-gemLevel^3;
 			end
+			local infText = base.common.GetNLS(User, 
+	                                   "Du erhältst "..town.." als Monatlichen Lohn von "..town, 
+	                                   "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
+	local title = base.common.GetNLS(User,"Abgabenbenachrichtigung","Tribute information")
+	
+	local dialog=MessageDialog(title,infText,closeTrib);
 		end
 	end
 end

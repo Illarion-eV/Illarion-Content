@@ -78,6 +78,7 @@ function lookAtFilter(user, lookAt, data)
     return lookAt
 end
 
+
 gemCraft = item.base.crafts.Craft:new{
     craftEN = "Magic Blacksmith",
     craftDE = "Magieschmied",
