@@ -319,7 +319,7 @@ function PayOutWage(Recipient,town)
 	if totalPayers==nil then	-- just for starters
 		totalPayers=150
 	end
-	
+	Recipient:inform("in payoutwage")
 	if tonumber(totalPayers)>0 then
 	Recipient:inform("payers = "..totalPayers)
 		if tonumber(totalTaxes)>0 then
