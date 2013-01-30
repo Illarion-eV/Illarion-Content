@@ -316,7 +316,7 @@ function PayOutWage(Recipient,town)
 	local totalTaxes=base.townTreasure.GetPaymentAmount(town)
 	local totalPayers=base.townTreasure.GetTaxpayerNumber(town)
 	
-	if totalPayers=nil then	-- just for starters
+	if totalPayers==nil then	-- just for starters
 		totalPayers=150
 	end
 	
