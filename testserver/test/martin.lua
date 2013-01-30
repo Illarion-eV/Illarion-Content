@@ -93,7 +93,7 @@ debug("GOING TO GTPN "..town)
 				local randomGem=math.random(1,2);
 				local maxGemLevel=math.floor(RankedWage^(1/3))
 				local gemLevel=math.random(1,maxGemLevel)
-				Recipient:inform("You would now get the following gem: type "..randomGem.." level "..maxGemLevel);
+				Recipient:inform("You would now get the following gem: type "..randomGem.." level "..gemLevel);
         
 				local gemsByTown = {
 				  {item.gems.TOPAZ, item.gems.AMETHYST}, -- ID 1: Cadomyr
@@ -103,6 +103,11 @@ debug("GOING TO GTPN "..town)
 				
 				local gemId = item.gems.getMagicGemId(gemsByTown[randomGem]);
 				local gemData = item.gems.getMagicGemData(gemLevel);
+				
+				for k,v in pairs(gemData) do
+					Recipient:inform("key = "..k);
+					Recipient:inform("val = "..v);
+				end
 
 				local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
 				Recipient:inform("Attempted creation");
