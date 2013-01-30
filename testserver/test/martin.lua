@@ -86,7 +86,7 @@ function PayOutWage(Recipient,town)
 			local RecipientRk=2 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			local RankedWage=math.ceil(RecipientRk*baseWageUnit);
       --Recipient:inform("RankedWage= "..RankedWage);
-
+endname="";
 			while RankedWage>0 do
 				local randomGem=math.random(1,2);
 				local maxGemLevel=math.floor(RankedWage^(1/3))
