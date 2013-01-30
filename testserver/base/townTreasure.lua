@@ -44,14 +44,13 @@ end
 -- @town Town which treasure we want to get as a string: "Cadomyr"|"Runewick"|"Galmair"
 function GetTaxpayerNumber(town)
 debug("in gtpn");
-	--local foundPayers, currentNoPayer = ScriptVars:find("OldPayers"..town)
-	--if not foundPayers then
-	--debug("TAXPAYERS RETURN 0")
---		currentNoPayer = 0
---	end
+	local foundPayers, currentNoPayer = ScriptVars:find("OldPayers"..town)
+	if not foundPayers then
+	debug("TAXPAYERS RETURN 0")
+		currentNoPayer = 0
+	end
 --	debug("TAXPAERS RETURN "..currentNoPayer);
---	return currentNoPayer
-return 1
+	return currentNoPayer
 end
 
 -- change treasure of a town

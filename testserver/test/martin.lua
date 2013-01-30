@@ -32,23 +32,23 @@ function UseItem(User, SourceItem, ltstate)
 end;
 
 
-
+-- transfer
 function receiveGems(gemRecipient)
 	local yr=world:getTime("hour");
-	local mon=world:getTime("minute"); --- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+	local mon=world:getTime("minute"); --- TODO
 	local timeStmp=yr*1000+mon;
 	gemRecipient:inform("time stmp = "..timeStmp);
 	local town = base.factions.getMembershipByName(gemRecipient)
-	town="Cadomyr";	 --- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+	town="Cadomyr";	 --- TODO
 	if town == "" then
 		return;
 	end	-- LASTSWITCH >> TIMESTAMP??
-	-- first check if there was a switch already: 
+	-- first check if there was a switch from collecting taxes to pay out gems already: 
 	local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	--fnd=1
 	--lastSwitch=1
-	if not fnd then	-- there is nothing to pay out yet, just set the time of last payout to the actual one.
-		ScriptVars:set("SwitchedToPayment"..town,timeStmp)
+	if not fnd then	-- first payout ever:
+		base.townTreasure.NewMonthSwitch(town,timeStmp)
 	end
 	
 	if fnd then gemRecipient:inform("lastSwitch: = "..lastSwitch) end
@@ -71,6 +71,7 @@ function receiveGems(gemRecipient)
 	end
 end
 
+-- transfer
 function PayOutWage(Recipient,town)
 debug("GOING TO GTPN "..town)
 	local totalTaxes=base.townTreasure.GetPaymentAmount(town)
@@ -94,16 +95,17 @@ debug("GOING TO GTPN "..town)
 				local gemLevel=math.random(1,maxGemLevel)
 				Recipient:inform("You would now get the following gem: type "..randomGem.." level "..maxGemLevel);
         
-        local gemsByTown = {
-          {item.gems.TOPAZ, item.gems.AMETHYST}, -- ID 1: Cadomyr
-          {item.gems.EMERALD, item.gems.RUBY}, -- ID 2: Runewick
-          {item.gems.SAPPHIRE, item.gems.OBSIDIAN} -- ID 3: Galmair
-        }
-        
-        local gemId = item.gems.getMagicGemId(gemsByTown[randomGem]);
-        local gemData = item.gems.getMagicGemData(gemLevel);
+				local gemsByTown = {
+				  {item.gems.TOPAZ, item.gems.AMETHYST}, -- ID 1: Cadomyr
+				  {item.gems.EMERALD, item.gems.RUBY}, -- ID 2: Runewick
+				  {item.gems.SAPPHIRE, item.gems.OBSIDIAN} -- ID 3: Galmair
+				}
+				
+				local gemId = item.gems.getMagicGemId(gemsByTown[randomGem]);
+				local gemData = item.gems.getMagicGemData(gemLevel);
 
 				local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
+				Recipient:inform("Attempted creation");
 				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 					world:createItemFromId( gemId, notCreated, Recipient.pos, true, 333, gemData );
 					base.common.HighInformNLS(Recipient,
@@ -114,7 +116,6 @@ debug("GOING TO GTPN "..town)
 			end
 		end
 	end
-
 end
 
 function UseItemMartin(User, SourceItem, ltstate)
