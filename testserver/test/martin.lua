@@ -133,6 +133,8 @@ endname="";
 				-- do nothing
 			end
 			
+			Recipient:requestMessageDialog(dialog);
+			
 		end
 	end
 end
