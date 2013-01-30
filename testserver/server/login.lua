@@ -317,6 +317,7 @@ function PayOutWage(Recipient,town)
 	local totalPayers=base.townTreasure.GetTaxpayerNumber(town)
 	
 	if tonumber(totalPayers)>0 then
+	Recipient:inform("payers = " totalPayers)
 		if tonumber(totalTaxes)>0 then
 			local baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
 			local RecipientRk=base.factions.getRankAsNumber(Recipient)
