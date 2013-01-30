@@ -21,7 +21,7 @@ function UseItem(User, SourceItem, ltstate)
 	
 	if User.lastSpokenText=="reset" then
 		local yr=world:getTime("hour");
-		local mon=world:getTime("minute"); --- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+		local mon=world:getTime("minute"); --- TODO
 		local timeStmp=yr*1000+mon;
 		User:setQuestProgress(124,timeStmp);
 		base.townTreasure.NewMonthSwitch("Cadomyr",timeStmp)
@@ -37,12 +37,10 @@ function receiveGems(gemRecipient)
 	local yr=world:getTime("hour");
 	local mon=world:getTime("minute"); --- TODO
 	local timeStmp=yr*1000+mon;
-	gemRecipient:inform("time stmp = "..timeStmp);
 	local town = base.factions.getMembershipByName(gemRecipient)
-	town="Cadomyr";	 --- TODO
 	if town == "" then
 		return;
-	end	-- LASTSWITCH >> TIMESTAMP??
+	end	
 	-- first check if there was a switch from collecting taxes to pay out gems already: 
 	local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	--fnd=1
@@ -51,19 +49,14 @@ function receiveGems(gemRecipient)
 		base.townTreasure.NewMonthSwitch(town,timeStmp)
 	end
 	
-	if fnd then gemRecipient:inform("lastSwitch: = "..lastSwitch) end
 	if fnd and tonumber(lastSwitch)<timeStmp then
-		gemRecipient:inform("now switching!")
 		base.townTreasure.NewMonthSwitch(town,timeStmp)
 	end
 	-- now check if last payment was before actual month and actual month is the one to pay out.
 	lastGem=gemRecipient:getQuestProgress(124);
 	if (lastGem~=nil) then
-		gemRecipient:inform("last gem: "..lastGem)
-		gemRecipient:inform("ts="..timeStmp.." lastSwitch="..lastSwitch.." lastGem="..lastGem)
 		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
 			gemRecipient:setQuestProgress(124,timeStmp);
-			gemRecipient:inform("Paying NOW! "..base.townTreasure.GetPaymentAmount(town));
 			PayOutWage(gemRecipient,town)
 		end
 	else
@@ -73,20 +66,15 @@ end
 
 -- transfer
 function PayOutWage(Recipient,town)
---debug("GOING TO GTPN "..town)
 	local totalTaxes=base.townTreasure.GetPaymentAmount(town)
 	local totalPayers=base.townTreasure.GetTaxpayerNumber(town)
 	
 	if tonumber(totalPayers)>0 then
-    -- Recipient:inform("we have payers: "..totalPayers);
 		if tonumber(totalTaxes)>0 then
-      -- Recipient:inform("we have taxes: "..totalTaxes);
 			local baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
-			local RecipientRk=base.factions.getRank(Recipient)
-			local RecipientRk=10 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			local RecipientRk=base.factions.getRankAsNumber(Recipient)
 			local RankedWage=math.ceil(RecipientRk*baseWageUnit);
-      --Recipient:inform("RankedWage= "..RankedWage);
-endname="";
+			endname="";
 			while RankedWage>0 do
 				local randomGem=math.random(1,2);
 				local maxGemLevel=math.floor(RankedWage^(1/3))
@@ -108,10 +96,9 @@ endname="";
 				else
 					basename = item.gems.gemPrefixEN[gemLevel] .. " magical " .. basename
 				end
-
 				
 				endname=endname.."\n* "..basename;
-				Recipient:inform("endname= "..endname);
+				--Recipient:inform("endname= "..endname);
 				local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
 				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
 					world:createItemFromId( gemId, notCreated, Recipient.pos, true, 333, gemData );
@@ -121,7 +108,6 @@ endname="";
 				end
 				RankedWage=RankedWage-gemLevel^3;
 			end
-			Recipient:inform("now starting dialog")
 			local infText = base.common.GetNLS(Recipient, 
 	                                   "Du erhältst als Monatlichen Lohn von "..town..":"..endname, 
 	                                   "You receive as a monthly wage from"..town..":"..endname)
