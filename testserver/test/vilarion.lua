@@ -6,6 +6,30 @@ require("item.gems")
 
 module("test.vilarion", package.seeall)
 
+function QuestTitle(user)
+    return "Test Quest"
+end
+
+function QuestDescription(user, status)
+    return "Status " .. status
+end
+
+function QuestTargets(user, status)
+    if status == 1 then
+        return position(5, 5, 0)
+    elseif status == 2 then
+        return {position(5, 10, 0), position(3, 10, 0)}
+    elseif status == 3 then
+        return {}
+    elseif status == 4 then
+        return nil
+    end
+end
+
+function QuestFinalStatus()
+    return 42
+end
+
 function getTestLookAt()
     local lookAt = ItemLookAt()
 
