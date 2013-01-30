@@ -91,8 +91,6 @@ function PayOutWage(Recipient,town)
 				local maxGemLevel=math.floor(RankedWage^(1/3))
 				local gemLevel=math.random(1,maxGemLevel)
 				
-				 
-				
 				local gemsByTown={};
 				gemsByTown["Cadomyr"]={item.gems.TOPAZ, item.gems.AMETHYST}
 				gemsByTown["Runewick"]={item.gems.EMERALD, item.gems.RUBY}
@@ -101,8 +99,9 @@ function PayOutWage(Recipient,town)
 				local gemId = item.gems.getMagicGemId(gemsByTown[town][randomGem]);
 				local gemData = item.gems.getMagicGemData(gemLevel);
 				
-				local basename=world:getItemName(gemId, Recipient:getPlayerLanguage());
-				basename=item.gems.lookAtFilter(Recipient, basename, gemData) 
+				local basename={}
+				basename["name"]=world:getItemName(gemId, Recipient:getPlayerLanguage());
+				basename["name"]=item.gems.lookAtFilter(Recipient, basename.name, gemData) 
 				
 				Recipient:inform("CREATED: "..basename);
 				
