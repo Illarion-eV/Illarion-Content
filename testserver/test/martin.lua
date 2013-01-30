@@ -102,7 +102,7 @@ function PayOutWage(Recipient,town)
 				local basename={}
 				basename=world:getItemName(gemId, Recipient:getPlayerLanguage());
 				
-				if user:getPlayerLanguage() == 0 then
+				if Recipient:getPlayerLanguage() == 0 then
 					basename = item.gems.gemPrefixDE[gemLevel] .. " magischer " .. basename
 				else
 					basename = item.gems.gemPrefixEN[gemLevel] .. " magical " .. basename

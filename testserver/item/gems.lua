@@ -5,6 +5,7 @@ require("base.lookat")
 require("base.factions")
 require("alchemy.base.analysis")
 require("base.money")
+require("item.base.crafts")
 
 -- UPDATE common SET com_script='item.gems' WHERE com_itemid IN (45, 46, 197, 198, 283, 284, 285);
 
