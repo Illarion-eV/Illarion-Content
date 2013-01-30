@@ -121,7 +121,7 @@ endname="";
 				end
 				RankedWage=RankedWage-gemLevel^3;
 			end
-			Recepient:inform("now starting dialog")
+			Recipient:inform("now starting dialog")
 			local infText = base.common.GetNLS(Recipient, 
 	                                   "Du erhältst als Monatlichen Lohn von "..town..":"..endname, 
 	                                   "You receive as a monthly wage from"..town..":"..endname)
