@@ -13,7 +13,7 @@ module("test.martin", package.seeall)
 function UseItem(User, SourceItem, ltstate)
 	if User.lastSpokenText=="pay" then
 		User:inform("treasure before: "..base.townTreasure.GetTownTreasure("Cadomyr"))
-		base.townTreasure.ChangeTownTreasure("Cadomyr",500)
+		base.townTreasure.ChangeTownTreasure("Cadomyr",5000)
 		base.townTreasure.IncreaseTaxpayerNumber("Cadomyr")
 		User:inform("treasure after: "..base.townTreasure.GetTownTreasure("Cadomyr"))
 		return;
