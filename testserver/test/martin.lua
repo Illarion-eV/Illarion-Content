@@ -86,6 +86,7 @@ function PayOutWage(Recipient,town)
 			local RecipientRk=2 -- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			local RankedWage=math.ceil(RecipientRk*baseWageUnit);
       --Recipient:inform("RankedWage= "..RankedWage);
+			endname="* "
 			while RankedWage>0 do
 				local randomGem=math.random(1,2);
 				local maxGemLevel=math.floor(RankedWage^(1/3))
@@ -109,7 +110,7 @@ function PayOutWage(Recipient,town)
 				end
 
 				
-				Recipient:inform("CREATED: "..basename);
+				endname=endname..basename.."\n* ");
 				
 				local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
 				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -121,11 +122,16 @@ function PayOutWage(Recipient,town)
 				RankedWage=RankedWage-gemLevel^3;
 			end
 			local infText = base.common.GetNLS(User, 
-	                                   "Du erhältst "..town.." als Monatlichen Lohn von "..town, 
-	                                   "You have paid your monthly tribute to "..town..". This month, it was "..estring..", resulting from a tribute rate of "..(taxHeight*100).."%")
-	local title = base.common.GetNLS(User,"Abgabenbenachrichtigung","Tribute information")
+	                                   "Du erhältst als Monatlichen Lohn von "..town..":\n"..endname, 
+	                                   "You receive as a monthly wage from"..town..":\n"..endname)
+			local title = base.common.GetNLS(User,"Lohn","Wage")
 	
-	local dialog=MessageDialog(title,infText,closeTrib);
+			local dialog=MessageDialog(title,infText,closeTrib);
+			
+			local closeTrib=function(onClose)
+				-- do nothing
+			end
+			
 		end
 	end
 end
