@@ -24,6 +24,7 @@ function QuestTargets(user, status)
     elseif status == 4 then
         return nil
     elseif status == 5 then
+        -- ILLEGAL, do NOT set quest progress in quest entrypoints
         user:setQuestProgress(12344, 1);
     end
 end
