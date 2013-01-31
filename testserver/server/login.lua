@@ -272,8 +272,8 @@ function payTaxes(taxPayer)
 end
 
 function receiveGems(gemRecipient)
-	local yr=world:getTime("hour");
-	local mon=world:getTime("minute"); --- TODO
+	local yr=world:getTime("year");
+	local mon=world:getTime("month"); --- TODO
 	local timeStmp=yr*1000+mon;
 	local town = base.factions.getMembershipByName(gemRecipient)
 	if town == "" then
