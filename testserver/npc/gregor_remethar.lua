@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.22 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -163,6 +163,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 0));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] A light at the end of the tunnel"));
@@ -174,6 +175,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 0));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Ein Licht am Ende des Tunnels"));
@@ -211,6 +213,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Well, did you make sure the lights are burning in honour of the tomb? If you do ever light the lamps, come to me for a little compensation.");
@@ -219,6 +222,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addResponse("Nun, habt ihr schon sichergestellt, dass die Ehrenlichter in der Gruft brennen? Wenn immer ihr die Leuchten angezündet habt, kommt zu mir für eine kleine Aufwandsentschädigung.");
@@ -227,6 +231,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
@@ -236,6 +241,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 1));
+talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
@@ -260,6 +266,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(30.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -268,29 +275,6 @@ talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese zwanzig Kupfermünzen für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(30.0));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded two silver coins."));
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take these two silver coins for your efforts. Come again to me if you ever rekindle the lights.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addCondition(npc.base.condition.chance.chance(30.0));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst zwei Silberstücke."));
-talkEntry:addConsequence(npc.base.consequence.money.money("+", 200));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese zwei Silberstücke für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -310,6 +294,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(14.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -317,29 +302,6 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Lampenöl für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(14.0));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a bottle of lamp oil."));
-talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this lamp oil for your efforts. Come again to me if you ever rekindle the lights.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addCondition(npc.base.condition.chance.chance(14.0));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Flasche Lampenöl."));
-talkEntry:addConsequence(npc.base.consequence.item.item(390, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Lampenöl für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -360,6 +322,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(17.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -367,29 +330,6 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addConsequence(npc.base.consequence.item.item(431, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Stück Wachs für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(17.0));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a piece of wax."));
-talkEntry:addConsequence(npc.base.consequence.item.item(431, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this piece of waxfor your efforts. Come again to me if you ever rekindle the lights.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addCondition(npc.base.condition.chance.chance(17.0));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Stück Wachs."));
-talkEntry:addConsequence(npc.base.consequence.item.item(431, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Stück Wachs für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -410,6 +350,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -417,29 +358,6 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addConsequence(npc.base.consequence.item.item(43, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Kerze für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a candle."));
-talkEntry:addConsequence(npc.base.consequence.item.item(43, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this candle for your efforts. Come again to me if you ever rekindle the lights.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addCondition(npc.base.condition.chance.chance(20.0));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Kerze."));
-talkEntry:addConsequence(npc.base.consequence.item.item(43, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Kerze für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -460,6 +378,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(25.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -467,29 +386,6 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Fackel für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(25.0));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a torch."));
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this torch for your efforts. Come again to me if you ever rekindle the lights.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addCondition(npc.base.condition.chance.chance(25.0));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst eine Fackel."));
-talkEntry:addConsequence(npc.base.consequence.item.item(391, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diese Fackel für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -510,6 +406,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -518,29 +415,6 @@ talkEntry:addConsequence(npc.base.consequence.item.item(453, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
 talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diesen Keks für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a cookie."));
-talkEntry:addConsequence(npc.base.consequence.item.item(453, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this cookie for your efforts. Come again to me if you ever rekindle the lights.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addCondition(npc.base.condition.chance.chance(33.0));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Keks."));
-talkEntry:addConsequence(npc.base.consequence.item.item(453, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Keks für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -560,6 +434,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.chance.chance(50.0));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
@@ -567,29 +442,6 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du e
 talkEntry:addConsequence(npc.base.consequence.item.item(2745, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 2));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Pergament für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addCondition(npc.base.condition.chance.chance(50.0));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a parchment."));
-talkEntry:addConsequence(npc.base.consequence.item.item(2745, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this parchment for your efforts. Come again to me if you ever rekindle the lights.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addCondition(npc.base.condition.chance.chance(50.0));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst ein Pergament."));
-talkEntry:addConsequence(npc.base.consequence.item.item(2745, 1, 333, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
 talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt dieses Pergament für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -609,6 +461,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
+talkEntry:addCondition(npc.base.condition.language.language("german"));
 talkEntry:addCondition(npc.base.condition.town.town(2));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Goldring. Dein Ansehen bei Erzmagier Elvaine Morgan steigt."));
@@ -620,30 +473,34 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest solved] You are awarded a golden ring."));
-talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 577, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addResponse("Ah, you lit the lights of honour. Here, take this golden ring for your efforts. Come again to me if you ever rekindle the lights.");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("There is nothing you can do for me. Except one thing, but that happens soon enough...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Goldring."));
-talkEntry:addConsequence(npc.base.consequence.item.item(235, 1, 577, nil));
-talkEntry:addConsequence(npc.base.consequence.quest.quest(105, "=", 1));
-talkEntry:addResponse("Ah, ihr habt also die Ehrenlichter angezündet. Hier, nehmt diesen Goldring für eure Mühen. Kommt erneut zu mir, wenn ihr die Lichte erneut entzündet habt.");
+talkEntry:addTrigger("quest");
+talkEntry:addTrigger("mission");
+talkEntry:addResponse("Ihr könnt mir nicht helfen. Nunja, es gäbe da etwas, aber das widerfährt euch schon früh genug...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.quest.quest(105, "=", 2));
-talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Chance error] Something went wrong, please inform a developer."));
+talkEntry:addTrigger("task");
+talkEntry:addTrigger("adventure");
+talkEntry:addTrigger("order");
+talkEntry:addResponse("There is nothing you can do for me. Except one thing, but that happens soon enough...");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Auftrag");
+talkEntry:addTrigger("Aufgabe");
+talkEntry:addTrigger("Abenteuer");
+talkEntry:addTrigger("Befehl");
+talkEntry:addResponse("Ihr könnt mir nicht helfen. Nunja, es gäbe da etwas, aber das widerfährt euch schon früh genug...");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
