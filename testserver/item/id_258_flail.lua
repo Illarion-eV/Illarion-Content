@@ -73,7 +73,7 @@ function UseItem(User, SourceItem, ltstate)
     amount = amount + 1;
   end
   -- and another one depending on the skill
-  if (User:getSkill(farming.LeadSkill) > math.random(1,100)) then
+  if (User:getSkill(flailing.LeadSkill) > math.random(1,100)) then
     amount = amount + 1;
   end
 	local notCreated = User:createItem( 259, amount, 333, nil ); -- create the new produced items

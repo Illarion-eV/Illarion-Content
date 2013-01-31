@@ -29,13 +29,13 @@ local talkingNPC = npc.base.talk.talkNPC(mainNPC);
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Help");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Frizza the informant. Keywords: Question, information, Cadomyr, building, game, mission, faction."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Game Help] This NPC is Frizza the informant. Keywords: Question, information, Cadomyr, building, game, mission, town."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hilfe");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Frizza die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Cadomyr, Gebäude, Spiel, Auftrag, Fraktion."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Spielhilfe] Dieser NPC ist Frizza die Auskunftgeberin. Schlüsselwörter: Auskunft, Information, Cadomyr, Gebäude, Spiel, Auftrag, Stadt."));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -66,6 +66,7 @@ talkEntry:addTrigger("Good day");
 talkEntry:addTrigger("Good morning");
 talkEntry:addTrigger("Good evening");
 talkEntry:addTrigger("Good night");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Hint] Have you already asked her for 'information' or her 'quest'?"));
 talkEntry:addResponse("Greetingsss, can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -81,6 +82,7 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"));
 talkEntry:addResponse("Grüsssse, kann ich helfen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -91,6 +93,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Hint] Have you already asked her for 'information' or her 'quest'?"));
 talkEntry:addResponse("Greetingsss, can I help you?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -100,6 +103,7 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Hinweis] Hast du sie bereits nach 'Information' oder 'Quest' befragt?"));
 talkEntry:addResponse("Grüsssse, kann ich helfen?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -209,31 +213,44 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
+talkEntry:addTrigger("teleport");
+talkEntry:addResponse("A possiblity to teleport to Runewick, Galmair or the Hemp Necktie Inn isss here asss yoo ssshould sssee. *points the teleporter*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("teleport");
+talkEntry:addResponse("Eine Möglichkeit sich nach Runewick, Galmair oder zum Gasthof zur Hanfschlinge zu teleportieren findet man hier wie du sssehen sssolltessst. *Zeigt auf den Teleporter*");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("inform");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] building, locations, event, people, history, god"));
-talkEntry:addResponse("I have information about buildingsss, locationsss, eventsss, people, hissstory, lawsss and godsss of Cadomyr. Just asssk me!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] building, location, event, people, history,, god, ruler, law."));
+talkEntry:addResponse("I have information about buildingsss, locationsss, eventsss, people, hissstory, lawsss, our ruler, lawsss and godsss of Cadomyr. Just asssk me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("inform");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter"));
-talkEntry:addResponse("Ich habe Informationen über Gebäude, Orte, Ereignissse, Leute, Geschichte, Gesetze und Götter von Cadomyr geben. Frag einfach!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter, Herrscher, Gesetz."));
+talkEntry:addResponse("Ich habe Informationen über Gebäude, Orte, Ereignissse, Leute, Geschichte, Gesetze, unsere Herrssscherin, Gesetze und Götter von Cadomyr geben. Frag einfach!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("question");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] building, locations, event, people, history, god"));
-talkEntry:addResponse("I have information about buildings, locationsss, eventsss, people, hissstory and godsss of Cadomyr. Just asssk me!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] building, location, event, people, history, god, ruler, law."));
+talkEntry:addResponse("I have information about buildings, locationsss, eventsss, people, hissstory, our ruler, lawsss and godsss of Cadomyr. Just asssk me!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Frage");
 talkEntry:addTrigger("Auskunft");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter"));
-talkEntry:addResponse("Ich habe Informationen über Gebäude, Orte, Ereignissse, Leute, Geschichte und Götter von Cadomyr geben. Frag einfach!");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter, Herrscher, Gesetz."));
+talkEntry:addResponse("Ich habe Informationen über Gebäude, Orte, Ereignissse, Leute, Geschichte, unsere Herrssscherin, Gesetze und Götter von Cadomyr geben. Frag einfach!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -293,7 +310,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ruzusss");
-talkEntry:addResponse("Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt auf das Stadttor im Norden.*");
+talkEntry:addResponse("Ruzusss wird gesucht? Nun, Ruzuss steht hinterm Tor. *zeigt zum Stadttor im Norden.*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -383,20 +400,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addCondition(npc.base.condition.language.language("english"));
-talkEntry:addTrigger("teleport");
-talkEntry:addResponse("A possiblity to teleport to Runewick, Galmair or the Hemp Necktie Inn isss here asss yoo ssshould sssee. *points the teleporter*");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("teleport");
-talkEntry:addResponse("Eine Möglichkeit sich nach Runewick, Galmair oder zum Gasthof zur Hanfschlinge zu teleportieren findet man hier wie du sssehen sssolltessst. *Zeigt auf den Teleporter*");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Census office");
+talkEntry:addTrigger("Census");
 talkEntry:addResponse("The Census office can be found in front of the palace on the left ssside. There you register yourssself and become one of usss ");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -418,18 +422,6 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Eselstall");
 talkEntry:addTrigger("Stall");
 talkEntry:addResponse("Unser Essselssstall ist den Quartiermeister Laden. Geh einfach in die Ssstad rein.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Donkey");
-talkEntry:addResponse("A donkey can be rent at the Donkey stable. In Galmair and Runewick are running ssseveral around and they are free for hunt. Sss!");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Esel");
-talkEntry:addResponse("Ein Esssel kann im Eselstall geliehen werden. In Galmair und Runewick laufen viele herum und die sssind auch zur Jagd frei gegeben. Sss!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -710,14 +702,14 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("faction");
-talkEntry:addResponse("There are three factions: Our faction Cadomyr, ruled by our brave Queen Rosaline Edwards. Then the two cowardly factions of Galmair and Runewick, ruled by Don Valerio Guilianni and Archmage Elvaine Morgan.");
+talkEntry:addTrigger("town");
+talkEntry:addResponse("There are three towns: Our town Cadomyr, ruled by our brave Queen Rosaline Edwards. Then the two cowardly towns of Galmair and Runewick, ruled by Don Valerio Guilianni and Archmage Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Fraktion");
-talkEntry:addResponse("Es gibt drei Fraktionen: Unsere Fraktion Cadomyr, geführt von unserer tapferen Königin Rosaline Edwards. Dann diese zwei feigen Fraktionen Galmair und Runewick, geführt von Don Valerio Guilianni und Erzmagier Elvaine Morgan.");
+talkEntry:addTrigger("stadt");
+talkEntry:addResponse("Es gibt drei Städte: Unsere Stadt Cadomyr, geführt von unserer tapferen Königin Rosaline Edwards. Dann diese zwei feigen Städte Galmair und Runewick, geführt von Don Valerio Guilianni und Erzmagier Elvaine Morgan.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

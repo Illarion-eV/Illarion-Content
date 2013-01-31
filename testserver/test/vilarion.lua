@@ -6,6 +6,32 @@ require("item.gems")
 
 module("test.vilarion", package.seeall)
 
+function QuestTitle(user)
+    return "Test Quest"
+end
+
+function QuestDescription(user, status)
+    return "Status " .. status
+end
+
+function QuestTargets(user, status)
+    if status == 1 then
+        return position(5, 5, 0)
+    elseif status == 2 then
+        return {position(5, 10, 0), position(3, 10, 0)}
+    elseif status == 3 then
+        return {}
+    elseif status == 4 then
+        return nil
+    elseif status == 5 then
+        user:setQuestProgress(12344, 1);
+    end
+end
+
+function QuestFinalStatus()
+    return 42
+end
+
 function getTestLookAt()
     local lookAt = ItemLookAt()
 
@@ -224,7 +250,7 @@ Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et
     --end;
 
     if (User.lastSpokenText == "ltelarge") then
-        User.effects:addEffect(LongTimeEffect(777, 30))
+        User.effects:addEffect(LongTimeEffect(777, 100))
     end
 
     --pos = User.pos
@@ -339,13 +365,13 @@ end
 
 function addEffect( e, c )
     c:inform("--- effect added ---");
-    e:addValue("n",4294967294);
+    e:addValue("n",4000000000);
 end
 
 function callEffect( e, c )
     local found, n = e:findValue("n");
     c:inform("--- effect called, n == "..n.." ---");
-    e.nextCalled = 30;
+    e.nextCalled = 100;
     return true;
 --[[
     c:inform("idleTime: "..c:idleTime());

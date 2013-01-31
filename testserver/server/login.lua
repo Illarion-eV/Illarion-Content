@@ -271,38 +271,114 @@ function payTaxes(taxPayer)
 end
 
 function receiveGems(gemRecipient)
-	local yr=world:getTime("year");
-	local mon=world:getTime("minute"); --- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+gemRecipient:inform("in receive gems")
+	local yr=world:getTime("hour");
+	local mon=world:getTime("minute"); --- TODO
 	local timeStmp=yr*1000+mon;
-	gemRecipient:inform("time stmp = "..timeStmp);
 	local town = base.factions.getMembershipByName(gemRecipient)
-	town="Cadomyr";	 --- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 	if town == "" then
 		return;
-	end	-- LASTSWITCH >> TIMESTAMP??
-	-- first check if there was a switch already: 
+	end	
+	-- first check if there was a switch from collecting taxes to pay out gems already: 
 	local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	--fnd=1
 	--lastSwitch=1
-	if fnd then gemRecipient:inform("lastSwitch: = "..lastSwitch) end
-	if fnd and tonumber(lastSwitch)<timeStmp then
-		gemRecipient:inform("now switching!")
+	if not fnd then	-- first payout ever:
+		gemRecipient:inform("switch to : "..timeStmp)
 		base.townTreasure.NewMonthSwitch(town,timeStmp)
+		local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	end
+
+gemRecipient:inform("last: "..lastSwitch.." actual "..timeStmp)
+	
+	if fnd and tonumber(lastSwitch)~=timeStmp then
+		base.townTreasure.NewMonthSwitch(town,timeStmp)
+		lastSwitch=timeStmp
+	end
+gemRecipient:inform("past ~=")	
 	-- now check if last payment was before actual month and actual month is the one to pay out.
 	lastGem=gemRecipient:getQuestProgress(124);
+gemRecipient:inform("past lastgem")
 	if (lastGem~=nil) then
-		gemRecipient:inform("last gem: "..lastGem)
-		gemRecipient:inform("ts="..timeStmp.." lastSwitch="..lastSwitch.." lastGem="..lastGem)
+	gemRecipient:inform("inside if 1")
 		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
+		gemRecipient:inform("inside if 2")
 			gemRecipient:setQuestProgress(124,timeStmp);
-			gemRecipient:inform("Paying NOW! ")
-			--payNow(gemRecipient)
+			PayOutWage(gemRecipient,town)
 		end
 	else
 		gemRecipient:setQuestProgress(124,timeStmp);
 	end
 end
+
+-- transfer
+function PayOutWage(Recipient,town)
+	local totalTaxes=base.townTreasure.GetPaymentAmount(town)
+	local totalPayers=base.townTreasure.GetTaxpayerNumber(town)
+	
+	if tonumber(totalPayers)==0 then	-- just for starters
+		totalPayers=150
+	end
+	Recipient:inform("in payoutwage "..totalPayers)
+	Recipient:inform("totaltaxes "..totalTaxes)
+	
+	if tonumber(totalPayers)>0 then
+	Recipient:inform("payers = "..totalPayers)
+		if tonumber(totalTaxes)>0 then
+			local baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
+			local RecipientRk=base.factions.getRankAsNumber(Recipient)
+			local RankedWage=math.ceil(RecipientRk*baseWageUnit);
+			endname="";
+			while RankedWage>0 do
+				local randomGem=math.random(1,2);
+				local maxGemLevel=math.floor(RankedWage^(1/3))
+				local gemLevel=math.random(1,maxGemLevel)
+				
+				local gemsByTown={};
+				gemsByTown["Cadomyr"]={item.gems.TOPAZ, item.gems.AMETHYST}
+				gemsByTown["Runewick"]={item.gems.EMERALD, item.gems.RUBY}
+				gemsByTown["Galmair"]={item.gems.SAPPHIRE, item.gems.OBSIDIAN}
+
+				local gemId = item.gems.getMagicGemId(gemsByTown[town][randomGem]);
+				local gemData = item.gems.getMagicGemData(gemLevel);
+				
+				local basename={}
+				basename=world:getItemName(gemId, Recipient:getPlayerLanguage());
+				
+				if Recipient:getPlayerLanguage() == 0 then
+					basename = item.gems.gemPrefixDE[gemLevel] .. " magischer " .. basename
+				else
+					basename = item.gems.gemPrefixEN[gemLevel] .. " magical " .. basename
+				end
+				
+				endname=endname.."\n* "..basename;
+				--Recipient:inform("endname= "..endname);
+				local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
+				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
+					world:createItemFromId( gemId, notCreated, Recipient.pos, true, 333, gemData );
+					base.common.HighInformNLS(Recipient,
+						"Du kannst nichts mehr halten und der Rest fällt zu Boden.",
+						"You can't carry any more and the rest drops to the ground.");
+				end
+				RankedWage=RankedWage-gemLevel^3;
+			end
+			local infText = base.common.GetNLS(Recipient, 
+	                                   "Du erhältst als Monatlichen Lohn von "..town..":"..endname, 
+	                                   "You receive as a monthly wage from"..town..":"..endname)
+			local title = base.common.GetNLS(Recipient,"Lohn","Wage")
+	
+			local dialog=MessageDialog(title,infText,closeTrib);
+			
+			local closeTrib=function(onClose)
+				-- do nothing
+			end
+			
+			Recipient:requestMessageDialog(dialog);
+			
+		end
+	end
+end
+
 
 function payNow(User)
 --Cadomyr = 100
