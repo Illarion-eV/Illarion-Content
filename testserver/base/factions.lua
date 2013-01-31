@@ -23,7 +23,7 @@ function InitFactionLists()
 	TownMainKey={};
 	TownJailKey={};
 
-	--A list with the Ranks, Rank 8 and Rank 9 can not be reached with faction points(e.g. npc quests), only with GM help, don't give any normal player rank 9!
+	--A list with the ranks
 	CadomyrRankListMale = { {gRank = "Höriger", eRank = "Serf"},        	--rank 1
 					 {gRank = "Rekrut", eRank = "Recruit"},           	--rank 2	
 					 {gRank = "Page", eRank = "Page"},           	--rank 3					 
