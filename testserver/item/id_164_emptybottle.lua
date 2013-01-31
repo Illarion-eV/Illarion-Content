@@ -69,7 +69,7 @@ function UseItem(User, SourceItem, ltstate)
 					User:createItem(reBottle, 1, 0, data)
                                         
                 elseif cauldron:getData("filledWith") == "potion" then
-				        User:createItem(reBottle, 1, cauldron:getData("potionQuality"), { potionEffectId=cauldron:getData("potionEffectId")})
+				        User:createItem(reBottle, 1, tonumber(cauldron:getData("potionQuality")), { potionEffectId=cauldron:getData("potionEffectId")})
 				end		              
                 world:erase(SourceItem,1)
 			else
