@@ -10,8 +10,8 @@ module("item.lights", package.seeall)
 
 -- UPDATE common SET com_script='item.lights' WHERE com_itemid IN (92, 397, 393, 394, 2856, 2855, 391, 392, 401, 402, 403, 404, 2851, 2852, 2853, 2854, 399, 400, 395, 396);
 
-PORTABLE_WEAR = 5; -- default wear value for portable items, when put off
-DEFAULT_WEAR = 5; -- default wear value for light sources, when put on
+PORTABLE_WEAR = 10; -- default wear value for portable items, when put off
+DEFAULT_WEAR = 10; -- default wear value for light sources, when put on
 
 LightsOff = {};
 LightsOn = {};
@@ -77,12 +77,15 @@ function UseItem(User, SourceItem, ltstate)
             if SourceItem.id == 395 and (SourceItem.pos == position (906, 823, -3) or SourceItem.pos == position (906, 825, -3) ) and User:getQuestProgress(105) == 1 then
                 base.common.InformNLS(User, "[Queststatus] Du entfachst die Ehrenfeuer von Runewick. Kehre zu Gregor Remethar zurück, um deine Belohnung einzufordern.", "[Quest status] You lit the lights of honour of Runewick. Return to Gregor Remethar to claim your reward.")
                 User:setQuestProgress(105,2);
-            end
+				putOn(SourceItem,20,false); --these lights burn quite long
+            else
 
-            --Quest end
+            --Quest end, default below
 
-			putOn(SourceItem,wear,false);
+			    putOn(SourceItem,wear,false);
 
+			end
+			
 		elseif this.req then
 			base.common.InformNLS(User,
 				"Dafür brauchst du ".. ReqTexts.german[this.req.id] .. " in der Hand oder im Gürtel.",
