@@ -319,11 +319,15 @@ function PayOutWage(Recipient,town)
 	if tonumber(totalPayers)==0 then	-- just for starters
 		totalPayers=150
 	end
-	Recipient:inform("in payoutwage "..totalPayers)
-	Recipient:inform("totaltaxes "..totalTaxes)
+	
+	if tonumber(totalTaxes)==0 then	-- just for starters
+		totalTaxes=420000
+	end
+	--Recipient:inform("in payoutwage "..totalPayers)
+	--Recipient:inform("totaltaxes "..totalTaxes)
 	
 	if tonumber(totalPayers)>0 then
-	Recipient:inform("payers = "..totalPayers)
+	--Recipient:inform("payers = "..totalPayers)
 		if tonumber(totalTaxes)>0 then
 			local baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
 			local RecipientRk=base.factions.getRankAsNumber(Recipient)
