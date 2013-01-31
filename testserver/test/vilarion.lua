@@ -24,6 +24,8 @@ function QuestTargets(user, status)
     elseif status == 4 then
         return nil
     end
+
+    user:setQuestProgress(12344, 1);
 end
 
 function QuestFinalStatus()
