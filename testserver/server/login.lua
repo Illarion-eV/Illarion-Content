@@ -32,11 +32,12 @@ function onLogin( player )
 				
 	end
 		
+	receiveGems(player);
+		
 	if isTestserver() then
 		if player.name == "Alsaya" then
 			payNow(player)
 		end
-		receiveGems(player);
 	end
 
 	--Noobia handling
@@ -271,7 +272,6 @@ function payTaxes(taxPayer)
 end
 
 function receiveGems(gemRecipient)
-gemRecipient:inform("in receive gems")
 	local yr=world:getTime("hour");
 	local mon=world:getTime("minute"); --- TODO
 	local timeStmp=yr*1000+mon;
@@ -284,25 +284,18 @@ gemRecipient:inform("in receive gems")
 	--fnd=1
 	--lastSwitch=1
 	if not fnd then	-- first payout ever:
-		gemRecipient:inform("switch to : "..timeStmp)
 		base.townTreasure.NewMonthSwitch(town,timeStmp)
 		local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	end
-
-gemRecipient:inform("last: "..lastSwitch.." actual "..timeStmp)
 	
 	if fnd and tonumber(lastSwitch)~=timeStmp then
 		base.townTreasure.NewMonthSwitch(town,timeStmp)
 		lastSwitch=timeStmp
 	end
-gemRecipient:inform("past ~=")	
 	-- now check if last payment was before actual month and actual month is the one to pay out.
 	lastGem=gemRecipient:getQuestProgress(124);
-gemRecipient:inform("past lastgem")
 	if (lastGem~=nil) then
-	gemRecipient:inform("inside if 1")
 		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
-		gemRecipient:inform("inside if 2")
 			gemRecipient:setQuestProgress(124,timeStmp);
 			PayOutWage(gemRecipient,town)
 		end
@@ -327,7 +320,6 @@ function PayOutWage(Recipient,town)
 	--Recipient:inform("totaltaxes "..totalTaxes)
 	
 	if tonumber(totalPayers)>0 then
-	--Recipient:inform("payers = "..totalPayers)
 		if tonumber(totalTaxes)>0 then
 			local baseWageUnit=totalTaxes/(totalPayers*1000);		-- 1000: "base unit"; change accordingly if necessary.
 			local RecipientRk=base.factions.getRankAsNumber(Recipient)
