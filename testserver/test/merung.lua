@@ -50,7 +50,7 @@ function UseItem(User, SourceItem)
         end			
 	end
 	
-	local a,b,recipe = string.find(User.lastSpokenText,"monster (%d+)")
+	local a,b,recipe = string.find(User.lastSpokenText,"recipe (%d+)")
     if a ~= nil then
 	    local recipe = tonumber(recipe)
 		triggerfield.potionToTeacher.TellRecipe(User, recipe)
