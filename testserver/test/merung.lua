@@ -1,6 +1,7 @@
 require("base.common")
 require("base.lookat")
 require("content.areas")
+require("triggerfield.potionToTeacher")
 
 -- UPDATE common SET com_script = 'test.merung' WHERE com_itemid = 1266;
 
@@ -47,6 +48,12 @@ function UseItem(User, SourceItem)
 		else
           	User:inform("nicht im gebiet")
         end			
+	end
+	
+	local a,b,recipe = string.find(User.lastSpokenText,"recipe (%d+)")
+    if a ~= nil then
+	    local recipe = tonumber(recipe)
+		triggerfield.potionToTeacher.TellRecipe(User, recipe)
 	end
 	
 end
