@@ -23,6 +23,8 @@ function QuestTargets(user, status)
         return {}
     elseif status == 4 then
         return nil
+    elseif status == 5 then
+        user:setQuestProgress(12344, 1);
     end
 end
 
