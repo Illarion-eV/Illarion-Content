@@ -633,7 +633,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Ruzusss and get your reward."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
-talkEntry:addResponse("I do not have a task for you yet. Probably in two or three months. If you like you can try to find Ruzusss. But if you desire a real task you should better ask other people in Cadomyr *points to the gate*. Otherwise, you are very welcome to come back in two or three months when I will have definitely some tasks for you.");
+talkEntry:addResponse("I do not have a tasssk for you yet. Probably in two or three monthsss. If you like you can try to find Ruzusss. But if you desssire a real tasssk you should better asssk other people in Cadomyr *points to the gate*. Otherwissse, you are very welcome to come back in two or three monthsss when I will have definitely sssome tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -643,7 +643,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Ruzusss und erhalte deine Belohnung."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
-talkEntry:addResponse("Ich habe momentan nichts für dich zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls du möchtet kannst du versuchen Ruzusss zu finden. Aber wenn du einen richtigen Auftrag erwünscht dann solltets du besser die Leute in Cadomyr fragen *zeigt zum Tor*. In jeden Fall bist du herzlich willkommen in zwei oder drei Monaten zurück zu kommen. Da sollte ich dann einige Aufgaben für dich haben.");
+talkEntry:addResponse("Ich habe momentan nichtsss für dich zu tun. Wahrssscheinlich in zwei oder drei Monaten. Fallsss du möchtet kannst du versuchen Ruzusss zu finden. Aber wenn du einen richtigen Auftrag erwünscht dann sssolltets du besser die Leute in Cadomyr fragen *zeigt zum Tor*. In jeden Fall bissst du herzlich willkommen in zwei oder drei Monaten zurück zu kommen. Da sssollte ich dann einige Aufgaben für dich haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -654,7 +654,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Ruzusss and get your reward."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
-talkEntry:addResponse("I do not have a task for you yet. Probably in one or two months.  If you like you can try to find Ruzusss. But if you desire a real task you should ask other people in Cadomyr *points to the gate*. Otherwise, you are very welcome to come back in two or three months when I will have definitely some tasks for you.");
+talkEntry:addResponse("I do not have a tasssk for you yet. Probably in one or two monthsss.  If you like you can try to find Ruzusss. But if you desssire a real tasssk you should asssk other people in Cadomyr *points to the gate*. Otherwissse, you are very welcome to come back in two or three monthsss when I will have definitely sssome tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -666,7 +666,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Ruzusss und erhalte deine Belohnung."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 1));
-talkEntry:addResponse("Ich habe momentan nichts für dich zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls du möchtet kannst du versuchen Ruzusss zu finden. Aber wenn du einen richtigen Auftrag erwünscht dann solltest du besser die Leute in Cadomyr fragen *zeigt zum Tor*. In jeden Fall bist du herzlich willkommen in zwei oder drei Monaten zurück zu kommen. Da sollte ich dann einige Aufgaben für dich haben.");
+talkEntry:addResponse("Ich habe momentan nichtsss für dich zu tun. Wahrssscheinlich in zwei oder drei Monaten. Fallsss du möchtet kannst du versuchen Ruzusss zu finden. Aber wenn du einen richtigen Auftrag erwünscht dann sssolltest du besser die Leute in Cadomyr fragen *zeigt zum Tor*. In jeden Fall bissst du herzlich willkommen in zwei oder drei Monaten zurück zu kommen. Da sssollte ich dann einige Aufgaben für dich haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -674,14 +674,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("As I said, you should ask other people in Cadomyr *points to the gate*. Or you come back in two or three months when I will have definitely some tasks for you.");
+talkEntry:addResponse("As I sssaid, you ssshould asssk other people in Cadomyr *points to the gate*. Or you come back in two or three monthsss when I will have definitely sssome tasksss for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Wie ich sagte, du solltest besser die Leute in Cadomyr fragen *zeigt zum Tor*. Oder du kommst in zwei oder drei Monaten zurück. Da sollte ich dann einige Aufgaben für dich haben.");
+talkEntry:addResponse("Wie ich sagte, du sssolltest besser die Leute in Cadomyr fragen *zeigt zum Tor*. Oder du kommst in zwei oder drei Monaten zurück. Da sssollte ich dann einige Aufgaben für dich haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -689,7 +689,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("As I said, you should ask other people in Cadomyr *points to the gate*. Or you come back in two or three months when I will have definitely some tasks for you.");
+talkEntry:addResponse("As I sssaid, you ssshould asssk other people in Cadomyr *points to the gate*. Or you come back in two or three monthsss when I will have definitely sssome tasksss for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -698,7 +698,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Wie ich sagte, du solltest besser die Leute in Cadomyr fragen *zeigt zum Tor*. Oder du kommst in zwei oder drei Monaten zurück. Da sollte ich dann einige Aufgaben für dich haben.");
+talkEntry:addResponse("Wie ich sagte, du solltest besser die Leute in Cadomyr fragen *zeigt zum Tor*. Oder du kommst in zwei oder drei Monaten zurück. Da sssollte ich dann einige Aufgaben für dich haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
