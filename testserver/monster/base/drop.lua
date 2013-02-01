@@ -155,6 +155,10 @@ end
 	CastingTry = {minSkill, maxSkill} Skillbounds for Monster Casting, influence Damage Output, Sucess against Mag Resi of player etc.]]
 	
 function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlight,CastingTry)
+-- Disabled this shit with it's 1000 parameters where all sorts of junk is passed in.
+-- Unless someone rewrites it in a clean way, I _will_ soon delete this for good! -- vilarion
+
+--[[
     if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then
         local EffectTry=math.random(1,table.getn(Effect)+table.getn(Item));
         if ( EffectTry > table.getn(Effect) ) then
@@ -214,6 +218,7 @@ function CastMonMagic(Monster,Enemy,rndTry,DamageRange,Effect,Item,AP,LineOfFlig
             return true;
         end
     end
+--]]
     return false;
 end
 
