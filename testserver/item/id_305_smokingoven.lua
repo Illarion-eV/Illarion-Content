@@ -25,17 +25,15 @@ function CreateCraftItem(sourceItem, productItem)
   return {source = sourceItem, product = productItem};
 end
 
+craftList = {
+  CreateCraftItem(CreateItem(307), CreateItem(306)),
+  CreateCraftItem(CreateItem(73), CreateItem(455)),
+  CreateCraftItem(CreateItem(355), CreateItem(455))
+};
+
 function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local smokefood = content.gathering.smokefood;
-  
-  if (craftList == nil) then
-    craftList = {
-      CreateCraftItem(CreateItem(307), CreateItem(306)),
-      CreateCraftItem(CreateItem(73), CreateItem(455)),
-      CreateCraftItem(CreateItem(355), CreateItem(455))
-    };
-  end
   
 	base.common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted
