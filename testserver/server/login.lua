@@ -285,7 +285,7 @@ function receiveGems(gemRecipient)
 	--lastSwitch=1
 	if not fnd then	-- first payout ever:
 		base.townTreasure.NewMonthSwitch(town,timeStmp)
-		local fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
+		fnd, lastSwitch = ScriptVars:find("SwitchedToPayment"..town)
 	end
 	
 	if fnd and tonumber(lastSwitch)~=timeStmp then
