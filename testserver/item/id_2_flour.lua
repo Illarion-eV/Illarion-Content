@@ -2,6 +2,8 @@
 
 module("item.id_2_flour", package.seeall)
 
+if isTestserver() then
+
 require("test.martin")
 
 function UseItem(User, SourceItem, ltstate)
@@ -10,4 +12,6 @@ function UseItem(User, SourceItem, ltstate)
 	end
 
 	return;
+end
+
 end
