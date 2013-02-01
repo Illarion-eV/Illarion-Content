@@ -218,7 +218,10 @@ function UseItem(User, SourceItem, ltstate)
 			end
 			local index = dialog:getSelectedIndex();
 			chosenPlayer = players[dialog:getSelectedIndex()+1];				
-			local changeDialog = function (dialog)	
+			local changeDialog = function (dialog)
+				if (not dialog:getSuccess()) then
+					return;
+				end				
 				inputString = dialog:getInput()
 				if (string.find(inputString,"(%d+) (%d+)") ~= nil) then
 					a, b, quest,status= string.find(inputString,"(%d+) (%d+)");
@@ -311,6 +314,9 @@ function LookAtItem(User,Item)
 	elseif (Item:getData("mode")=="Change skills") then
 		base.lookat.SetSpecialDescription(Item, "Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
         base.lookat.SetSpecialName(Item, "Dietriche (Skills ändern)", "Lockpicks (Change skills)");
+	elseif (Item:getData("mode")=="Get/ Set Queststatus") then
+		base.lookat.SetSpecialDescription(Item, "Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
+        base.lookat.SetSpecialName(Item, "Dietriche (Get/ Set Queststatus)", "Lockpicks (Get/ Set Queststatus)");
 	elseif (Item:getData("mode")=="Instant kill/ revive") then
         base.lookat.SetSpecialName(Item, "Dietriche (Godmode)","Lockpicks (Godmode)");
 		base.lookat.SetSpecialDescription(Item, "Instant kill/ revive. Benutze die Dietriche. Um einen Modus zu setzen sage 'setmode' und benutzt die Dietriche.", "Instant kill/ revive. Use the lockpicks. To set a mode type 'setmode' and use the lockpicks.");
