@@ -102,7 +102,7 @@ english, "Numila", "Irunnleh" -> "She is geographer and can be found in the Libr
 "Leute" -> "Leute? Mit wem außer dem Erzmagier möchtet ihr ansonsten sprechen? Ich kenne niemanden der größere Weisheit als er besitzt. Daher verschwendet nicht eure Zeit und ärgert mich nicht mit Fragen über andere Leute."
 "history" -> "I do not think that you have time to listen to all my knowledge about our history. Therefore, I recommend our history book in our libraries."
 "Geschichte" -> "Ich denke nicht, dass ihr die Zeit habt all meinem Wissen über unsere Geschichte euer Gehör zu schenken. Daher empfehle ich unser Geschichtsbuch in unseren Bibliotheken."
-"events" -> "I do not think that you have time to listen to all my knowledge about several events at this place. Therefore, I recommend our history book in our libraries."
+"event" -> "I do not think that you have time to listen to all my knowledge about several events at this place. Therefore, I recommend our history book in our libraries."
 "Ereignis", "Geschehnis" -> "Ich denke nicht, dass ihr die Zeit habt all meinem Wissen über sämtliche stattgefunde Ereignisse euer Gehör zu schenken. Daher empfehle ich unser Geschichtsbuch in unseren Bibliotheken."
 "law" -> "If you can read, I suggest to read our law-book in our libraries. If you cannot read, I suggest to move either to Galmair or Cadomyr."
 "Gesetz" -> "Wenn ihr des Lesen mächtig seid, dann empfehle ich unser Gesetzesbuch in unseren Bibliotheken. Wenn ihr es nicht seid, dann empfehle ich nach Galmair oder Cadomyr umzuziehen."

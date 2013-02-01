@@ -338,7 +338,7 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("events");
+talkEntry:addTrigger("event");
 talkEntry:addResponse("I do not think that you have time to listen to all my knowledge about several events at this place. Therefore, I recommend our history book in our libraries.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;

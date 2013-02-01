@@ -147,8 +147,8 @@ english, "Villa" -> inform("[Keywords] Villa Edward, Villa Rosaline, Villa Regin
 "Villa" -> inform("[Schlüsselwörter] Villa Edward, Villa Rosaline, Villa Reginald"), "Welche issst gemeint? Wir haben drei von ihnen: Villa Edward, Villa Rosaline und Villa Reginald."
 "Quartermaster's Store","Quartermasters Store" -> "The Quartermaster's Store isss right of the town gate and you can look for further misssions there."
 "Quartiermeisters Laden" -> "Der Quartiermeisters Laden issst rechtsss vom Ssstadttor und du kannssst dort nach weiteren Befehlen Ausssschau halten."
-"Flat quarter" -> "The Flat quarter isss the eassstern part our town. These are the homesss for thossse on the bottom of our sssocial hierarchy."
-"Wohnungsquartier" -> "Das Wohnungsquartier issst der össstliche Teil unssserer Ssstadt. Sssie ssstellen das Heim der ssschlechter gessstelteren unter unsss dar."
+"Flat quarter" -> "The Flat quarter isss the eassstern part our town. It isss the home for thossse on the bottom of our sssocial hierarchy."
+"Wohnungsquartier" -> "Das Wohnungsquartier issst der össstliche Teil unssserer Ssstadt. Esss ssstellt das Heim der ssschlechter gessstelteren unter unsss dar."
 "Sir Reginald Tomb" -> "The Sir Reginald Tomb issss right in front of the entrance to the townwall to honour one of our former kingsss. It can become quite bloody down there."
 "Sir Reginald Gruft" -> "Die Sir Regniald Gruft issst rechtsss vor dem Eingang zur Ssstadtmauer zu Ehren einesss unssserer früheren Könige. Esss kann sssehr blutig da unten werden."
 

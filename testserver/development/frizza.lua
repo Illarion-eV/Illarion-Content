@@ -604,13 +604,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Flat quarter");
-talkEntry:addResponse("The Flat quarter isss the eassstern part our town. These are the homesss for thossse on the bottom of our sssocial hierarchy.");
+talkEntry:addResponse("The Flat quarter isss the eassstern part our town. It isss the home for thossse on the bottom of our sssocial hierarchy.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Wohnungsquartier");
-talkEntry:addResponse("Das Wohnungsquartier issst der össstliche Teil unssserer Ssstadt. Sssie ssstellen das Heim der ssschlechter gessstelteren unter unsss dar.");
+talkEntry:addResponse("Das Wohnungsquartier issst der össstliche Teil unssserer Ssstadt. Esss ssstellt das Heim der ssschlechter gessstelteren unter unsss dar.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
