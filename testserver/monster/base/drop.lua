@@ -285,48 +285,43 @@ function CastParalyze( Caster, Enemy, rndTry, APPunishment, Range, Effect, AP ,C
 end
 
 function CastMonster(Monster,Enemy,rndTry,monsters,AP)
-    if (math.random(1,rndTry)==1) then
-		
-	
-		local XPos=math.random(-2,2);
-		local YPos=math.random(-2,2);
+    if math.random(1, rndTry) == 1 then	
+		local SpawnPos
 
-		if (XPos==0 and YPos==0) then YPos=-1 end
-		local SpawnPos=position(Monster.pos.x+XPos,Monster.pos.y+YPos,Monster.pos.z);
+		local selectedMonsterIndex = math.random(1, table.getn(monsters))
+		local selectedMonsterId = monsters[selectedMonsterIndex]
 
-		if (world:isCharacterOnField(SpawnPos)) then
-			return false;
-		end
+        local i = 0
+        
+        while i < 20 do
+            local XPos = math.random(-2, 2)
+            local YPos = math.random(-2, 2)
 
-		local selectedMonsterIndex = math.random(1,table.getn(monsters));
-		local selectedMonsterId = monsters[selectedMonsterIndex];
+            if XPos == 0 and YPos == 0 then
+                YPos = -1
+            end
+            
+            local SpawnPos = position(Monster.pos.x + XPos, Monster.pos.y + YPos, Monster.pos.z)
 
-        local i=0
-        local created = false
-        while i<10 and not created do
+            if world:isCharacterOnField(SpawnPos) then
+                return false
+            end
+
             if world:getField(SpawnPos) then
-		        world:createMonster(selectedMonsterId,SpawnPos,-15)
-                created = true
+		        world:createMonster(selectedMonsterId, SpawnPos, -15)
+                world:gfx(41, SpawnPos)
+                Monster.movepoints = Monster.movepoints - AP
+                base.common.TalkNLS(Monster, Character.say,
+                "#me murmelt eine mystische Formel.",
+                "#me mumbles a mystical formula.")
+                return true
             else
                 i = i + 1
             end
         end
-
-		--if (world:isCharacterOnField(SpawnPos)) then
-		--	SpawnMonster = world:getCharacterOnField(SpawnPos);
-		--	world:gfx(41,SpawnMonster.pos);
-		--end
-
-		world:gfx(41,SpawnPos);
-		Monster.movepoints=Monster.movepoints-AP;
-		base.common.TalkNLS( Monster, Character.say,
-		"#me murmelt eine mystische Formel.",
-		"#me mumbles a mystical formula.");
-		
-		return true;	
-	else
-	return false;
 	end
+
+	return false
 end
 
 
