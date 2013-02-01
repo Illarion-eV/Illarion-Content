@@ -167,7 +167,10 @@ function UseItem(User, SourceItem, ltstate)
 			chosenPlayer = players[dialog:getSelectedIndex()+1];
 			local skillDialog = function (dialog)					
 				chosenSkill = skillNames[dialog:getSelectedIndex()+1]
-				local changeDialog = function (dialog)	
+				local changeDialog = function (dialog)
+					if (not dialog:getSuccess()) then
+						return;
+					end				
 					local skillValue, okay = String2Number(dialog:getInput());
 					if (not okay) then
 						User:inform("no number");
