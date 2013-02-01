@@ -309,13 +309,6 @@ function PayOutWage(Recipient,town)
 	local totalTaxes=base.townTreasure.GetPaymentAmount(town)
 	local totalPayers=base.townTreasure.GetTaxpayerNumber(town)
 	
-	if tonumber(totalPayers)==0 then	-- just for starters
-		totalPayers=150
-	end
-	
-	if tonumber(totalTaxes)==0 then	-- just for starters
-		totalTaxes=420000
-	end
 	--Recipient:inform("in payoutwage "..totalPayers)
 	--Recipient:inform("totaltaxes "..totalTaxes)
 	
@@ -347,7 +340,7 @@ function PayOutWage(Recipient,town)
 					basename = item.gems.gemPrefixEN[gemLevel] .. " magical " .. basename
 				end
 				
-				endname=endname.."\n* "..basename;
+				endname=endname.."\n"..basename;
 				--Recipient:inform("endname= "..endname);
 				local notCreated = Recipient:createItem( gemId, 1, 333, gemData );
 				if ( notCreated > 0 ) then -- too many items -> character can't carry anymore
@@ -359,8 +352,8 @@ function PayOutWage(Recipient,town)
 				RankedWage=RankedWage-gemLevel^3;
 			end
 			local infText = base.common.GetNLS(Recipient, 
-	                                   "Du erhältst als Monatlichen Lohn von "..town..":"..endname, 
-	                                   "You receive as a monthly wage from"..town..":"..endname)
+	                                   "Deine loyalen Dienste für "..town.." werden mit den folgenden magischen Edelsteinen belohnt:"..endname, 
+	                                   "Your loyal service to "..town.." is awarded with the following magical gems:"..endname)
 			local title = base.common.GetNLS(Recipient,"Lohn","Wage")
 	
 			local dialog=MessageDialog(title,infText,closeTrib);
