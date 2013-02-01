@@ -128,10 +128,10 @@ function WaterIntoCauldron(User,SourceItem,TargetItem,ltstate)
 		world:gfx(1,cauldron.pos)
 		base.common.InformNLS(User, "Der Inhalt des Kessels verpufft, als du das Wasser hinzu tust.", 
 		                            "The substance in the cauldron blows out, as you fill the water in.")
-		base.alchemy.base.RemoveAll(cauldron)		
+		alchemy.base.alchemy.RemoveAll(cauldron)		
 									
 	elseif cauldron:getData("filledWith") == "potion" then
-		base.alchemy.base.RemoveAll(cauldron)
+		alchemy.base.alchemy.RemoveAll(cauldron)
 		if cauldron.id == 1013 then
 		    world:makeSound(10,cauldron.pos)
 		    cauldron:setData("filledWith","water")
