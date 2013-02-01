@@ -165,7 +165,10 @@ function UseItem(User, SourceItem, ltstate)
 			end
 			local index = dialog:getSelectedIndex();
 			chosenPlayer = players[dialog:getSelectedIndex()+1];
-			local skillDialog = function (dialog)					
+			local skillDialog = function (dialog)	
+				if (not dialog:getSuccess()) then
+					return;
+				end				
 				chosenSkill = skillNames[dialog:getSelectedIndex()+1]
 				local changeDialog = function (dialog)
 					if (not dialog:getSuccess()) then
