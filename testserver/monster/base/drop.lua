@@ -261,7 +261,7 @@ function CastHealing( Caster, rndTry, HealAmmount, Range, Effect, AP )
 end
 
 function CastParalyze( Caster, Enemy, rndTry, APPunishment, Range, Effect, AP ,CastingTry )
-    if (math.random(1,rndTry)==1) and (Monster.pos.z==Enemy.pos.z) then
+    if (math.random(1,rndTry)==1) and (Caster.pos.z==Enemy.pos.z) then
         local CastTry = math.random(CastingTry[1],CastingTry[2]) - SpellResistence( Enemy );
         CastTry = ( CastTry - CastingTry[1] ) / ( CastingTry[2] - CastingTry[1] ) * 100;
         local Damage = base.common.ScaleUnlimited( APPunishment[1], APPunishment[2], CastTry );
