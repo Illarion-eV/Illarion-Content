@@ -14,6 +14,7 @@ monster.base.quests.iniQuests();
 killer={}; --A list that keeps track of who attacked the monster last
 
 --Random Messages
+msgs:addMessage("#me hat Schaum vor dem Mund.", "#me foams at the mouth.");
 
 end
 
