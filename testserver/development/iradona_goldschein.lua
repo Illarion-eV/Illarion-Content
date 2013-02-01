@@ -22,7 +22,7 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.consequence.trade")
 require("npc.base.talk")
-module("development.iradona_goldschein", package.seeall)
+module("npc.iradona_goldschein", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
@@ -430,7 +430,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("market");
-talkEntry:addResponse("Argh, everything has to be explained to you. Just run through the town to the Well of Dreams and you will see it. You cannot miss it. *points the towngate*");
+talkEntry:addResponse("Argh, everything has to be explained to you. Just run through the town to the Well of Dreams and you will see it. You cannot miss it. *points to the towngate*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1027,7 +1027,7 @@ talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Valerio");
 talkEntry:addTrigger("Guilianni");
 talkEntry:addTrigger("Don");
-talkEntry:addResponse("Our ruler. You can find him at his residence in the Galmair's Crest. Just follow the road to the Well of Dreams. *points the towngate*");
+talkEntry:addResponse("Our ruler. You can find him at his residence in the Galmair's Crest. Just follow the road to the Well of Dreams. *points to the towngate*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
