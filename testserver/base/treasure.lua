@@ -182,7 +182,7 @@ module("base.treasure", package.seeall)
         while true do
             tarPos = position(CenterPos.x+math.random(-Rad,Rad),CenterPos.y+math.random(-Rad,Rad),CenterPos.z);
             if not world:isItemOnField( tarPos ) and not world:isCharacterOnField( tarPos ) then
-                tileID = world:getField( TargetPos ):tile();
+                tileID = world:getField( tarPos ):tile();
                 if tileID ~= 0 and tileID ~= 5 and tileID ~= 6 and tileID~=42 and tileID ~= 43 and tileID~= 34 then --no inpassable tiles
                     return tarPos;
                 end
@@ -280,7 +280,7 @@ module("base.treasure", package.seeall)
         local MapQuality = (10-math.floor(math.sqrt(math.random(1,99))))*100+99;
         if Char:createItem(505,1,MapQuality,MapData) ~= 0 then
             world:createItemFromId(505, 1, Char.pos, true, MapQuality, MapData);
-			base.common.InformNLS(User,
+			base.common.InformNLS(Char,
 				"Du kannst nichts mehr tragen.",
 				"You can't carry any more.");
         end
