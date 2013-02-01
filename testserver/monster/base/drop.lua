@@ -301,7 +301,16 @@ function CastMonster(Monster,Enemy,rndTry,monsters,AP)
 		local selectedMonsterIndex = math.random(1,table.getn(monsters));
 		local selectedMonsterId = monsters[selectedMonsterIndex];
 
-		world:createMonster(selectedMonsterId,SpawnPos,-15);
+        local i=0
+        local created = false
+        while i<10 and not created do
+            if world:getField(SpawnPos) then
+		        world:createMonster(selectedMonsterId,SpawnPos,-15)
+                created = true
+            else
+                i = i + 1
+            end
+        end
 
 		--if (world:isCharacterOnField(SpawnPos)) then
 		--	SpawnMonster = world:getCharacterOnField(SpawnPos);
