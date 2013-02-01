@@ -262,6 +262,18 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Sport Hole");
+talkEntry:addResponse("The Sport Hole is used for those people who think they can betray the Don. It is on the road to the Malachite mine close to the bridge over the Malachite creek there.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tollloch");
+talkEntry:addResponse("Das Tolloch wird für jene Leute verwendet, die der Meinung sind den Don betrügen zu können. Es ist an der Straße zur Malachitmine kurz vor der Brücke über den Malachit Bach dort.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("inform");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] building, location, event, people, history, god, ruler, law."));
@@ -715,8 +727,8 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Hinterland");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gasthof zum schläfrigen Bujhaar, Zensusbüro, Tollloch, Malachitmine, Schürfer Club, Schürfer Quelle, Waldeck, Stinkender Fischer, Plattform, Dunkellochmine, Ackerland, Kupferbrücke, Schwarzbrücke."));
-talkEntry:addResponse("In dem sogenannten Hinterland findest du: Gasthof zum schläfrigen Bujhaar, Zensusbüro, Tollloch, Malachitmine, Schüfer Club, Schüfer Quelle, Waldeck, Stinkender Fischer, Plattform, Dunkellochmine, Ackerland, Kupferbrücke and Schwarzbrücke.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gasthof zum schläfrigen Bujhaar, Zensusbüro, Tollloch, Malachitmine, Schürfers Club, Schürfers Quelle, Waldeck, Stinkender Fischer, Plattform, Dunkellochmine, Ackerland, Kupferbrücke, Schwarzbrücke."));
+talkEntry:addResponse("In dem sogenannten Hinterland findest du: Gasthof zum schläfrigen Bujhaar, Zensusbüro, Tollloch, Malachitmine, Schüfers Club, Schüfers Quelle, Waldeck, Stinkender Fischer, Plattform, Dunkellochmine, Ackerland, Kupferbrücke and Schwarzbrücke.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -745,18 +757,6 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Sport Hole");
-talkEntry:addResponse("The Sport Hole is used for those people who think they can betray the Don. It is on the road to the Malachite mine close to the bridge over the Malachite creek there.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tollloch");
-talkEntry:addResponse("Das Tolloch wird für jene Leute verwendet, die der Meinung sind den Don betrügen zu können. Es ist an der Straße zur Malachitmine kurz vor der Brücke über den Malachit Bach dort.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Malachite Mine");
 talkEntry:addResponse("The Malachite mine is in the south of Galmair. Just enter the town and walk south while you follow the signposts. You can get iron, copper and gold there. It has also an entrance to the Shadowland.");
 talkingNPC:addTalkingEntry(talkEntry);
@@ -769,25 +769,27 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Miner Club");
+talkEntry:addTrigger("Miner's Club");
+talkEntry:addTrigger("Miners Club");
 talkEntry:addResponse("The Miner's Club is a place to rest for the miners in the Malachite mine, which is very close. The club was founded by the Father of the Don, Don Tommaso Guilianni and he spent a lot of time there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Schürfer Club");
+talkEntry:addTrigger("Schürfers Club");
 talkEntry:addResponse("Der Schürfer Club ist ein Ort zum Rasten für die Schürfer in der Malachitmine, welche sehr nahe ist. Der Club wurde errichtet vom Vater des Don, Don Tommaso Guilianni und er hat dort viel Zeit verbracht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Miner Spring");
+talkEntry:addTrigger("Miner's Spring");
+talkEntry:addTrigger("Miners Spring");
 talkEntry:addResponse("The Miner's spring is next to the Miner's Club, and rumors tell that people who rest there become better miners.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Schürfer Quelle");
+talkEntry:addTrigger("Schürfers Quelle");
 talkEntry:addResponse("Die Schürfer Quelle ist neben dem Schürfer Club, und Gerüchten zufolge werden Leute die dort rasten bessere Schürfer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -899,7 +901,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Lotta Medborgar and get your reward."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 1));
-talkEntry:addResponse("I do not have a task for you yet. Probably in two or three months. If you like you can try to find Lotta Medborgar. But if you desire a real task you should better ask other people in Galmair. *points to the gate* Otherwise, you are very welcome to come back in two or three months when I will have definitely some tasks for you.");
+talkEntry:addResponse("I do not have a task for you yet. Probably in two or three months. If you like you can try to find Lotta Medborgar. But if you desire a real task you should better ask other people in Galmair *points to the gate*. Otherwise, you are very welcome to come back in two or three months when I will have definitely some tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -909,7 +911,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Lotta Medborgar und erhalte deine Belohnung."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 1));
-talkEntry:addResponse("Ich habe momentan nichts für dich zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls du möchtet kannst du versuchen Lotta Medborgar zu finden. Aber wenn du einen richtigen Auftrag erwünscht dann solltets du besser die Leute in Galmair fragen. *zeigt zum Tor* In jeden Fall bist du herzlich willkommen in zwei oder drei Monaten zurück zu kommen. Da sollte ich dann einige Aufgaben für dich haben.");
+talkEntry:addResponse("Ich habe momentan nichts für dich zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls du möchtet kannst du versuchen Lotta Medborgar zu finden. Aber wenn du einen richtigen Auftrag erwünscht dann solltets du besser die Leute in Galmair fragen *zeigt zum Tor*. In jeden Fall bist du herzlich willkommen in zwei oder drei Monaten zurück zu kommen. Da sollte ich dann einige Aufgaben für dich haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -920,7 +922,7 @@ talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New Quest] Try to find Lotta Medborgar and get your reward."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 1));
-talkEntry:addResponse("I do not have a task for you yet. Probably in one or two months.  If you like you can try to find Lotta Medborgar. But if you desire a real task you should ask other people in Galmair. *points to the gate* Otherwise, you are very welcome to come back in two or three months when I will have definitely some tasks for you.");
+talkEntry:addResponse("I do not have a task for you yet. Probably in one or two months.  If you like you can try to find Lotta Medborgar. But if you desire a real task you should ask other people in Galmair *points to the gate*. Otherwise, you are very welcome to come back in two or three months when I will have definitely some tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -932,7 +934,7 @@ talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Finde Lotta Medborgar und erhalte deine Belohnung."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 1));
-talkEntry:addResponse("Ich habe momentan nichts für dich zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls du möchtet kannst du versuchen Lotta Medborgar zu finden. Aber wenn du einen richtigen Auftrag erwünscht dann solltest du besser die Leute in Galmair fragen. *zeigt zum Tor* In jeden Fall bist du herzlich willkommen in zwei oder drei Monaten zurück zu kommen. Da sollte ich dann einige Aufgaben für dich haben.");
+talkEntry:addResponse("Ich habe momentan nichts für dich zu tun. Wahrscheinlich in zwei oder drei Monaten. Falls du möchtet kannst du versuchen Lotta Medborgar zu finden. Aber wenn du einen richtigen Auftrag erwünscht dann solltest du besser die Leute in Galmair fragen *zeigt zum Tor*. In jeden Fall bist du herzlich willkommen in zwei oder drei Monaten zurück zu kommen. Da sollte ich dann einige Aufgaben für dich haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -940,14 +942,14 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("As I said, you should ask other people in Galmair. *points to the gate* Or you come back in two or three months when I will have definitely some tasks for you.");
+talkEntry:addResponse("As I said, you should ask other people in Galmair *points to the gate*. Or you come back in two or three months when I will have definitely some tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Wie ich sagte, du solltest besser die Leute in Galmair fragen. *zeigt zum Tor* Oder du kommst in zwei oder drei Monaten zurück. Da sollte ich dann einige Aufgaben für dich haben.");
+talkEntry:addResponse("Wie ich sagte, du solltest besser die Leute in Galmair fragen *zeigt zum Tor*. Oder du kommst in zwei oder drei Monaten zurück. Da sollte ich dann einige Aufgaben für dich haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -955,7 +957,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addTrigger("order");
-talkEntry:addResponse("As I said, you should ask other people in Galmair. *points to the gate* Or you come back in two or three months when I will have definitely some tasks for you.");
+talkEntry:addResponse("As I said, you should ask other people in Galmair *points to the gate*. Or you come back in two or three months when I will have definitely some tasks for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -964,7 +966,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Wie ich sagte, du solltest besser die Leute in Galmair fragen. *zeigt zum Tor* Oder du kommst in zwei oder drei Monaten zurück. Da sollte ich dann einige Aufgaben für dich haben.");
+talkEntry:addResponse("Wie ich sagte, du solltest besser die Leute in Galmair fragen *zeigt zum Tor*. Oder du kommst in zwei oder drei Monaten zurück. Da sollte ich dann einige Aufgaben für dich haben.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

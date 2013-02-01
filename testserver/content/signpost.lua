@@ -97,14 +97,14 @@ function InitWegweiser()
     AddWeg({376,274,0},"Werkstatt","Workshop",2,0);
     AddWeg({398,292,0},"Werkstatt","Workshop",6,0);
     AddWeg({397,253,0},"Galmairs Krone, Guilianni-Residenz, Markt, Werkstatt, Schlackengrube, Tempel des Irmorom, Villa 'Goldader', Quelle der Träume","Galmair's Crest, Guilianni-Residence, Market, Workshop, Scoria Mine, Temple of Irmorom, Villa 'Goldvein', Well of Dreams",6,0);
-    AddWeg({398,254,0},"Zensusbüro, Gasthof zum schläfrigen Bujhaar, Werkstatt, Tollloch, Schürfer Club, Malachitmine, Galmair Hochebene, Cadomyr, Katanbi Wüste, Schattenland","Census office, Sleepy Bujhaar Inn, Workshop, Sporthole, Miners Club, Malachite Mine, Galmair Plateau, Cadomyr, Katanbi Desert, Shadowland",4,0);
+    AddWeg({398,254,0},"Zensusbüro, Gasthof zum schläfrigen Bujhaar, Werkstatt, Tollloch, Schürfers Club, Malachitmine, Galmair Hochebene, Cadomyr, Katanbi Wüste, Schattenland","Census office, Sleepy Bujhaar Inn, Workshop, Sporthole, Miners Club, Malachite Mine, Galmair Plateau, Cadomyr, Katanbi Desert, Shadowland",4,0);
     AddWeg({394,273,0},"Zensusbüro","Census office",2,0);
     AddWeg({401,293,0},"Gasthof zum schläfrigen Bujhaar","Sleepy Bujhaar Inn",2,0);
     AddWeg({398,305,0},"Tollloch","Sporthole",2,0);
     AddWeg({387,346,0},"Galmair","Galmair",0,0);
-    AddWeg({387,347,0},"Schürferclub, Schürfer Quelle, Malachitmine, Cadomyr, Katanbi Wüste, Schattenland","Miners' Club, Miner's Spring, Malachite Mine, Cadomyr, Katanbi Desert, Shadowland",2,0);
+    AddWeg({387,347,0},"Schürfers Club, Schürfers Quelle, Malachitmine, Cadomyr, Katanbi Wüste, Schattenland","Miners' Club, Miner's Spring, Malachite Mine, Cadomyr, Katanbi Desert, Shadowland",2,0);
     AddWeg({386,346,0},"Galmair Hochebene mit Fort Schnellbeil und Goldener Rumil","Galmair Plateau with Fort Schnellbeil and Golden Rumil",6,0);
-    AddWeg({417,357,0},"Schürferclub","Miners' Club",0,0);
+    AddWeg({417,357,0},"Schürfers Club","Miners' Club",0,0);
     AddWeg({418,357,0},"Malachitmine, Cadomyr, Katanbi Wüste, Schattenland","Malachite Mine, Cadomyr, Katanbi Desert, Shadowland",2,0);
     AddWeg({418,371,0},"Cadomyr, Katanbi Wüste, Schattenland - Gefahr!","Cadomyr, Katanbi Desert, Shadowland - Danger!",4,0);
     AddWeg({417,385,0},"Galmair","Galmair",0,0);

@@ -10,7 +10,7 @@ function initDoors()
 	-- if you just want lookats, but no lock: AddDoor({1, 1, 1}, false, "Door without lock", "Tür ohne Schloss")
 	
 	-- Galmair 1xx
-	AddDoor({341, 207, 0}, 100,"Private chamber of the Don","Privatkammer des Dons"); -- Don's private room
+	AddDoor({341, 207, 0}, 100,"Golden Dreams, the private chamber of the Don","Goldträume, die Privatkammer des Dons"); -- Don's private room
 
     -- Runewick 2xx
 
