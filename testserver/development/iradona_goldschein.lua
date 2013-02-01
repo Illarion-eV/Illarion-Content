@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.22 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -220,6 +220,48 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Temple Ronagan");
+talkEntry:addTrigger("Ronagan Temple");
+talkEntry:addResponse("The Temple of Ronagan can be found in the Scoria Mine. Just follow the signposts, but keep in mind that the temple is flooded currently.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tempel Ronagan");
+talkEntry:addTrigger("Ronagan Tempel");
+talkEntry:addResponse("Der Tempel von Ronagan kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern, aber beachte, dass der Tempel momentan überflutet ist.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Temple Irmorom");
+talkEntry:addTrigger("Irmorom Temple");
+talkEntry:addResponse("The Temple of Irmorom is close to Villa Goldvein. You can pray to Irmorom there and hope that you become a rich person.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tempel Irmorom");
+talkEntry:addTrigger("Irmorom Tempel");
+talkEntry:addResponse("Der Tempel des Irmorom ist nahe der Villa Goldader. Du kannst dort zu Irmorom beten und hoffen, dass du reich wirst.");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Temple Nargun");
+talkEntry:addTrigger("Nargun Temple");
+talkEntry:addResponse("The Temple of Nargun in the Flicker Swale is a place for all those who follow Nagrun. Obvious, isn't it?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Tempel Nargun");
+talkEntry:addTrigger("Nargun Tempel");
+talkEntry:addResponse("Der Temepl des Nargun in der Schimmersenke ist ein Ort für jene die Nagrun folgen. Klar, oder?");
+talkingNPC:addTalkingEntry(talkEntry);
+end;
+if (true) then
+local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("inform");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] building, location, event, people, history, god, ruler, law."));
@@ -230,7 +272,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("inform");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter, Herrscher, Gesetz."));
-talkEntry:addResponse("Ich kann dir Informationen über Gebäude, Orte, Ereignisse, Leute, Geschichte und Götter von Galmair geben. Frag einfach!");
+talkEntry:addResponse("Ich kann dir Informationen über Gebäude, Orte, Ereignisse, Leute, Geschichte, unseren Herrscher, Gesetze und die Götter von Galmair geben. Frag einfach!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -245,13 +287,13 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Frage");
 talkEntry:addTrigger("Auskunft");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Gebäude, Orte, Ereignisse, Leute, Geschichte, Götter, Herrscher, Gesetz."));
-talkEntry:addResponse("Ich kann dir Informationen über Gebäude, Orte, Ereignisse, Leute, Geschichte und Götter von Galmair geben. Frag einfach!");
+talkEntry:addResponse("Ich kann dir Informationen über Gebäude, Orte, Ereignisse, Leute, Geschichte, unseren Herrscher, Gesetze und die Götter von Galmair geben. Frag einfach!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("building");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Market, temple, teleport, donkey stable, library, Well of Dreams, Villa Goldvein, workshop, guardroom, Dark Ally, Galmair Crest, Scoria Mine"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Market, temple, teleport, donkey stable, library, Well of Dreams, Villa Goldvein, workshop, guardroom, Dark Ally, Galmair's Crest, Scoria Mine"));
 talkEntry:addResponse("Argh, be more precisely! Market, temple, teleport, donkey stable, library, Well of Dreams, Villa Goldvein, workshop, guardroom, Dark Ally, Galmair's Crest or the Scoria Mine?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -273,7 +315,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ort");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Hinterland, Lotta Medborgar"));
-talkEntry:addResponse("Ich empfehle du suchst nach Lotta Medborgar, wenn du mehr als die Hinterlande kennen lernen möchtest. Sie ist Jägerin und hat etliche Orte erkundet. Frag sie daher besser. Du kannst sie unten in der Taverne zur Geflügelten Sau finden.");
+talkEntry:addResponse("Ich empfehle, dass du nach Lotta Medborgar suchst, wenn du mehr über die Hinterlande kennen lernen möchtest. Sie ist Jägerin und hat etliche Orte erkundet. Frag sie daher besser. Du kannst sie unten in der Taverne zur Geflügelten Sau finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -327,44 +369,44 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("history");
-talkEntry:addResponse("The history of our faction can be read in our library. Unfortunately, we lost our actual history book. But our Don so kindly to provide his personal notes.");
+talkEntry:addResponse("The history of our town can be read in our library. Unfortunately, we lost our actual history book. But our Don was so kindly to provide his personal notes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Geschichte");
-talkEntry:addResponse("Die Geschichte unserer Fraktion kannst du in unserer Bibliothek nachlesen. Leider wurde das eigentliche Geschichtsbuch verloren. Aber der Don war so nett und hat uns seine persönlichen Notizen zur Verfügung gestellt.");
+talkEntry:addResponse("Die Geschichte unserer Stadt kannst du in unserer Bibliothek nachlesen. Leider wurde das eigentliche Geschichtsbuch verloren. Aber der Don war so nett und hat uns seine persönlichen Notizen zur Verfügung gestellt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("events");
-talkEntry:addResponse("Several events regarding our faction can be read in our library. Unfortunately, we lost our actual history book. But our Don so kindly to provide his personal notes.");
+talkEntry:addTrigger("event");
+talkEntry:addResponse("Several events regarding our town can be read in our library. Unfortunately, we lost our actual history book. But our Don was so kindly to provide his personal notes.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Ereignis");
 talkEntry:addTrigger("Geschehnis");
-talkEntry:addResponse("Sämtliche Ereignisse betreffend unserer Fraktion kannst du in unserer Bibliothek nachlesen. Leider wurde das eigentliche Geschichtsbuch verloren. Aber der Don war so nett und hat uns seine persönlichen Notizen zur Verfügung gestellt.");
+talkEntry:addResponse("Sämtliche Ereignisse betreffend unserer Stadt kannst du in unserer Bibliothek nachlesen. Leider wurde das eigentliche Geschichtsbuch verloren. Aber der Don war so nett und hat uns seine persönlichen Notizen zur Verfügung gestellt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("law");
-talkEntry:addResponse("Actually, we have only one rule. You just have to know, the Don rules and you have to obey him. But you wil more advices how you should act down in the Scoria Mine at some columns around Hog Dens and Cameo Pit.");
+talkEntry:addResponse("Actually, we have only one rule. You just have to know, the Don rules and you have to obey him. But you will find more recommendations in the Scoria Mine at some columns around Hog Dens and Cameo Pit.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Gesetz");
-talkEntry:addResponse("Wir haben eigentlich keine Gesetze. Du musst nur wissen, der Don herrscht und du hast zu befolgen. Aber du kannst mehr Hinweise unten in der Schlackengrube bei den Schweinebaue und dem Gemmenschacht finden.");
+talkEntry:addResponse("Wir haben eigentlich keine Gesetze. Du musst nur wissen, der Don herrscht und du hast zu befolgen. Aber du kannst mehr Empfehlungen unten in der Schlackengrube um und zwichen Gemmenschacht und Schweinebaue finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("ruler");
-talkEntry:addResponse("We have had only tow rulers so far. Our Don Valerio Guilianni and his father Tommaso Guilianni. You can find more information about the latter in the notes of the Don, our new history book. Information ");
+talkEntry:addResponse("We have had only two rulers so far. Our Don Valerio Guilianni and his father Tommaso Guilianni. You can find more information about the latter in the notes of the Don, our new history book.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -388,15 +430,15 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("temple");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Tempel of Irmorom, Tempel of Ronagan, Temple of Nagrun"));
-talkEntry:addResponse("We have temples for each of our three gods here: Tempel of Irmorom, Tempel of Ronagan and Temple of Nagrun.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Temple of Irmorom, Temple of Ronagan, Temple of Nargun"));
+talkEntry:addResponse("We have temples for each of our three gods here: Temple of Irmorom, Temple of Ronagan and Temple of Nargun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tempel");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Irmoromtempel, Ronagantempel, Nagruntempel"));
-talkEntry:addResponse("Wir haben je einen Tempel für unsere drei Götter hier. Irmoromtempel, Ronagantempel und Nagruntempel.");
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Tempel des Irmorom, Tempel des Ronagan, Tempel des Nargun"));
+talkEntry:addResponse("Wir haben je einen Tempel für unsere drei Götter hier. Tempel des Irmorom, Tempel des Ronagan and Tempel des Nargun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -440,13 +482,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Workshop");
-talkEntry:addResponse("The Workshop is on the left side behind the road to the Malachite Mine. It is a place for smiths and other crafters. You find also a slave inside there who will help you.");
+talkEntry:addResponse("The Workshop is on the left side behind the road to the Malachite Mine. It is a place for smiths and other crafters.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Werkstatt");
-talkEntry:addResponse("Die Werkstatt is auf der linken Seite nach der Straße zur Malachitmine. Sie ist ein Ort für Schmiede und andere Handwerker. Du findest auch einen Sklaven drinen der dir helfen wird.");
+talkEntry:addResponse("Die Werkstatt is auf der linken Seite nach der Straße zur Malachitmine. Sie ist ein Ort für Schmiede und andere Handwerker.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -475,43 +517,30 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Temple Irmorom");
-talkEntry:addTrigger("Irmorom Temple");
-talkEntry:addResponse("The Temple of Irmorom is close to Villa Goldvein. You can pray to Irmorom there and hope that you become a rich person.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tempel Irmorom");
-talkEntry:addTrigger("Irmorom Tempel");
-talkEntry:addResponse("Der Tempel des Irmorom ist nahe der Villa Goldader. Du kannst dort zu Irmorom beten und hoffen, dass du reich wirst.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Galmair's Crest");
-talkEntry:addTrigger("Galmair Crest");
+talkEntry:addTrigger("Galmairs Crest");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keywords] Guilianni Residence, Council Chamber, Golden Dreams, Treasury, Library"));
-talkEntry:addResponse("Galmair's Crest is the heart of Galmair and the residence of our Don. It is close to the market and you find there: Guilianni Residence, Don's Council Chamber, Golden Dreams, Treasury and Library.");
+talkEntry:addResponse("Galmair's Crest is the heart of Galmair and the residence of our Don. The building is close to the market and you find inside: Guilianni Residence, Don's Council Chamber, Golden Dreams, Treasury and Library.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
+talkEntry:addTrigger("Galmairs Krone");
 talkEntry:addTrigger("Galmair Krone");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwörter] Guilianni Residenz, Konzil Kammer, Goldträume, Schatzkammer, Bibliothek"));
-talkEntry:addResponse("Galmairs Krone ist das Herz von Galmair und die Residenz unseres Don. Es ist nahe dem Markt und findest dort: Guilianni Residenz, Don's Konzil Kammer, Goldträume, Schatzkammer, Bibliothek.");
+talkEntry:addResponse("Galmairs Krone ist das Herz von Galmair und die Residenz unseres Don. Das Gebäude ist nahe dem Markt und du findest drinnen: Guilianni Residenz, Don's Konzil Kammer, Goldträume, Schatzkammer, Bibliothek.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Library");
-talkEntry:addResponse("Our library in Galmair's Crest contains all our books. Among those are our history book, books about locations, gods, factions and so on. Just take a look there.");
+talkEntry:addResponse("Our library in Galmair's Crest contains all our books. Among those are our history book, books about locations, gods, towns and so on. Just take a look there.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Bibliothek");
-talkEntry:addResponse("Unsere Bibliothek in Galmairs Krone enthällt all unsere Bücher. Unter diesen findest du unser Geschichtebuch, Bücher über Orte, Götter, Fraktionen und so weiter. Sieh einfach nach.");
+talkEntry:addResponse("Unsere Bibliothek in Galmairs Krone enthält all unsere Bücher. Unter diesen findest du unser Geschichtsbuch, Bücher über Orte, Götter, Städte und so weiter. Siehe einfach nach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -535,13 +564,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Konzil Kammer");
-talkEntry:addResponse("Dies ist ein Konferenezraum in Galmairs Krone zum diskutieren wie man die Schatzkammer verbessern könnte zum Beispiel.");
+talkEntry:addResponse("Dies ist ein Konferenezraum in Galmairs Krone zum diskutieren wie man die Schatzkammer vergrößern könnte zum Beispiel.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Golden Dreams");
-talkEntry:addResponse("The room Golden dreams in Galmair's Crest is the private room of the Don.");
+talkEntry:addResponse("The room Golden Dreams in Galmair's Crest is the private room of the Don.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -597,7 +626,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Taverne Geflügelten Sau");
-talkEntry:addResponse("Dieser Ort in der Schlackengrube hat zwei Eingänge. Den Haupteingang über die Schlackengrube Aufzug und den zweiten über eine Leiter knapp vor dem Aufzug. Folge den Wegweisern. Wie dem auch sei, du wirst gutes Bier und Unterhaltung dort finden.");
+talkEntry:addResponse("Dieser Ort in der Schlackengrube hat zwei Eingänge. Den Haupteingang über den Aufzug der Schlackengrube und den zweiten über eine Leiter knapp vor dem Aufzug. Folge den Wegweisern. Wie dem auch sei, du wirst gutes Bier und gute Unterhaltung dort finden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -615,29 +644,15 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Temple Ronagan");
-talkEntry:addTrigger("Ronagan Temple");
-talkEntry:addResponse("The Temple of Ronagan can be found in the Scoria Mine. Just follow the signposts, but keep in mind that it is flooded currently.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tempel Ronagan");
-talkEntry:addTrigger("Ronagan Tempel");
-talkEntry:addResponse("Der Tempel von Ronagan kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern, aber beachte, dass er momentan überflutet ist.");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Flicker Swale");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keyword]Gameroom, Temple of Nagrun"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Keyword]Gameroom, Temple of Nargun"));
 talkEntry:addResponse("The Flicker Swale can be found in the Scoria Mine. Just follow the signposts. There you also find the Gameroom and the Temple of Nagrun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Schimmersenke");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwort]Spielruam, Tempel des Nagrun"));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Schlüsselwort]Spielraum, Tempel des Nargun"));
 talkEntry:addResponse("Die Schimmersenke kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern. Dort findest du auch den Spielraum und den Tempel des Nagrun.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -651,20 +666,6 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Spielraum");
 talkEntry:addResponse("Der Spielraum in der Schlimmersenke ermöglicht dir das Geld anderer abzuknüpfen...oder dein eigenes zu verlieren. *kichert*");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Temple Nagrun");
-talkEntry:addTrigger("Nagrun Temple");
-talkEntry:addResponse("The Temple of Nagrun in the Flicker Swale is a place for all those who follow Nagrun. Obvious, isn't it?");
-talkingNPC:addTalkingEntry(talkEntry);
-end;
-if (true) then
-local talkEntry = npc.base.talk.talkNPCEntry();
-talkEntry:addTrigger("Tempel Nagrun");
-talkEntry:addTrigger("Nagrun Tempel");
-talkEntry:addResponse("Der Temepl des Nagrun in der Schimmersenke ist ein Ort für jene die Nagrun folgen. Klar, oder?");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -694,13 +695,13 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Sewers");
-talkEntry:addResponse("The Sewers can be found in the Scoria Mine. Just follow the signposts. At this place are leaving some ratemen and other creatures. You can try it there. *smirks*");
+talkEntry:addResponse("The Sewers can be found in the Scoria Mine. Just follow the signposts. At this place are leaving some creatures. You can try your luck there. *smirks*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Abwassersch");
-talkEntry:addResponse("Die Abwasserschächte kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern. Dort findest du Rattenmänner und andere Kreaturen. Versuchs einfach. *kichert*");
+talkEntry:addResponse("Die Abwasserschächte kann in der Schlackengrube gefunden werde. Folge einfach den Wegweisern. Dort findest du diverse Kreaturen. Versuch einfach dein Glück dort. *kichert*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1216,8 +1217,8 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Irmorom");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkEntry:addResponse("Most dwarves, businessmen and crafters, i.e. blacksmiths, pray to Irmorom. They believe that in life, they will be rewarded for their doings with wealth, and they pray for enchantment of crafted things, for a goodriches, and things like this.");
+talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
