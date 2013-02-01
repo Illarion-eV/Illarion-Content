@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.22 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -78,7 +78,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End] You received 10 silvercoins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 2));
-talkEntry:addResponse("Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have a sssilvercoin for that you found me.");
+talkEntry:addResponse("Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have sssome sssilvercoinsss for that you found me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -88,7 +88,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende] Du hast 10 Silberstücke erhalten."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(640, "=", 2));
-talkEntry:addResponse("Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdiente Münze.");
+talkEntry:addResponse("Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdienten Münzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
