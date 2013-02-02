@@ -2,17 +2,13 @@
 -- Nitram
 require("base.common")
 require("content.signpost")
+require("base.lookat")
 
 module("item.signpost", package.seeall)
 
 -- UPDATE common SET com_script='item.signpost' WHERE com_itemid IN (1817,1809,1808,1807,308,1804,586,3084,3081,3082,3083,519,520,521,337,1914,1915,2046,2069,512,2924,2925,2926,2927);
 
 function LookAtItemIdent(User,Item)
-	if (first==nil) then
-        content.signpost.InitWegweiser()
-        first=1;
-    end
-    
     -- fetching local references
     local signTextDe     = content.signpost.signTextDe;
     local signTextEn     = content.signpost.signTextEn;
