@@ -18,7 +18,7 @@ function MoveToField(Character)
     -- we define our destination
 	
 	if isTestserver() then
-		-- We guide him to the first NPC to tell him where to find tasks.
+	   -- Message box for guiding him to the first NPC to give him tasks. This has to be defined before the dialogNewbie is defined, since it should be the callback of the newbie dialog!
 		callbackNewbie = function(dialogNewbie) 
 			local NPCName
 			if factionID == 1 then
@@ -36,6 +36,8 @@ function MoveToField(Character)
 			end
 			Character:requestMessageDialog(dialogNewbieTask)
 		end
+	else
+	    callbackNewbie = function(dialogNewbie) end; --empty callback
 	end
 	
     if Character.pos == position(56,96,100) then --Cadomyr
@@ -82,7 +84,7 @@ function MoveToField(Character)
 	FactionCheck = base.factions.getFaction(Character);
 	                                                            -- "Jupiter" check for testing. Merung
 	if (not Character:isAdmin() and not (FactionCheck.tid~=0)) or Character.name == "Jupiter" then -- admins and chars who are already members of a faction are unaffected and just warped 
-	    if isTestserver() then Character:inform("after admin check") end
+	    
 		-- We delete some items, if the char has more than one of them
 		local DeleteList = {23,391,2763} --hammer, torch, pick-axe
 		for i=1,#DeleteList do
@@ -106,30 +108,8 @@ function MoveToField(Character)
 		Character:setAttrib("foodlevel",30000)
 		
 		-- We send him a message box
-		if isTestserver() then
-		  --[[  if isTestserver() then Character:inform("after ts check") end
-			-- We guide him to the first NPC to tell him where to find tasks.
-			callbackNewbie = function(dialogNewbie) 
-				local NPCName
-				if factionID == 1 then
-				    NPCName = "Cadomyr_NPC" -- !!!
-				elseif factionID == 2 then
-				    NPCName = "Florain Dreyndel"
-				else
-				    NPCName = "Galmair_NPC" -- !!!
-				end
-				local callbackNewbieTask = function(dialogNewbieTask) end
-				if Character:getPlayerLanguage() == 0 then
-					dialogNewbieTask = MessageDialog("Ein guter Anfang", "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. "..NPCName.." ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!", callbackNewbieTask)
-				else
-					dialogNewbieTask = MessageDialog("A good beginning" , "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. "..NPCName.." is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life! ", callbackNewbieTask)
-				end
-				Character:requestMessageDialog(dialogNewbieTask)
-			end]]
-		else
-	        callbackNewbie = function(dialogNewbie) end; --empty callback
-	    end
-		Character:requestMessageDialog(dialogNewbie); --sending the dialog box
+		Character:requestMessageDialog(dialogNewbie); --sending the dialog box to tell him that he finshed the tutorial 
+													  --the callback of this box contains the dialog box to tell him to see the first quest giving NPC
 		
         -- We tell other players about our noob
 		
