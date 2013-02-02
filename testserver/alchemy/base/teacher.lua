@@ -399,7 +399,7 @@ function AskQuestion(User,SourceItem)
 	end
 	local dialog = SelectionDialog(title, theQuestion, callback)
 	for i=1,#answersList do
-		dialog:addOption(15, answersList[i])
+		dialog:addOption(0, answersList[i])
 	end
 	User:requestSelectionDialog(dialog)
 	
