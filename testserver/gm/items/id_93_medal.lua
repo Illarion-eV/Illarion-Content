@@ -54,7 +54,7 @@ function UseItemWithField(User,SourceItem,TargetPos)
 				number = tonumber(number);
 				world:gfx(number,TargetPos);
 			else
-				User:requestInputDialog(InputDialog("Play a graphics effect.", "Usage: Type in graphic effects id. Will be played in front of character." ,false, 255, cbInputDialog))
+				User:inform("No number");
 			end
 		end
 		User:requestInputDialog(InputDialog("Play a graphics effect.", "Usage: Type in graphic effects id. Will be played in front of character." ,false, 255, cbInputDialog))
