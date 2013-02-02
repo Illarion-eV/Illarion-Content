@@ -54,10 +54,10 @@ function UseItemWithField(User,SourceItem,TargetPos)
 				number = tonumber(number);
 				world:gfx(number,TargetPos);
 			else
-				User:requestInputDialog(InputDialog("Play a graphics effect.", "Usage: Type in graphic effects id. Will be played in front of character." ,false, 255, nil))
+				User:requestInputDialog(InputDialog("Play a graphics effect.", "Usage: Type in graphic effects id. Will be played in front of character." ,false, 255, cbInputDialog))
 			end
-			User:requestInputDialog(InputDialog("Play a graphics effect.", "Usage: Type in graphic effects id. Will be played in front of character." ,false, 255, nil))
 		end
+		User:requestInputDialog(InputDialog("Play a graphics effect.", "Usage: Type in graphic effects id. Will be played in front of character." ,false, 255, cbInputDialog))
 		
 	elseif (SourceItem:getData("mode")=="SFX") then		
         world:makeSound(Counter,TargetPos);
