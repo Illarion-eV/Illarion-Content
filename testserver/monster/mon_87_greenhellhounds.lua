@@ -109,7 +109,7 @@ if (MonID==871) then --Crippled Swampbeast, Level: 3, Armourtype: light, Weapont
         if not done then done=monster.base.drop.AddDropItem(198,1,1,(100*math.random(2,3)+math.random(22,33)),0,3); end --topaz
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(2586,math.random(1,1),100,773,0,4); --fur
+        monster.base.drop.AddDropItem(3076,math.random(20,60),100,773,0,4); --copper coins
 
 
     elseif (MonID==872) then --Swampbeast, Level: 4, Armourtype: medium, Weapontype: slashing
@@ -139,7 +139,7 @@ if (MonID==871) then --Crippled Swampbeast, Level: 3, Armourtype: light, Weapont
         if not done then done=monster.base.drop.AddDropItem(83,1,1,(100*math.random(3,4)+math.random(33,44)),0,3); end --topaz amulet
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(2586,math.random(1,1),100,773,0,4); --fur
+        monster.base.drop.AddDropItem(3076,math.random(30,90),100,773,0,4); --copper coins
 
 
     elseif (MonID==873) then --Giant Swampbeast, Level: 5, Armourtype: heavy, Weapontype: concussion
@@ -169,7 +169,7 @@ if (MonID==871) then --Crippled Swampbeast, Level: 3, Armourtype: light, Weapont
         if not done then done=monster.base.drop.AddDropItem(2553,1,1,(100*math.random(4,5)+math.random(44,55)),0,3); end --pure fire
 
         --Category 4: Perma Loot
-        monster.base.drop.AddDropItem(2586,math.random(1,1),100,773,0,4); --fur
+        monster.base.drop.AddDropItem(3076,math.random(60,180),100,333,0,4); --copper coins
 
     end
     monster.base.drop.Dropping(Monster);
