@@ -48,7 +48,7 @@ function UseItemWithField(User,SourceItem,TargetPos)
 			if (not dialog:getSuccess()) then
 				return;
 			end
-			local inputString = dialog:getInput();
+			local inputNumber = dialog:getInput();
 			if (string.find(inputNumber,"(%d+)") ~= nil) then
 				a, b, number = string.find(inputNumber,"(%d+)");
 				number = tonumber(number);
