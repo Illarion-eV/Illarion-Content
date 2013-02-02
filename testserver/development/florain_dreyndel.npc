@@ -47,8 +47,8 @@ itemShoes = 53
 -- Help
 "Help" -> inform("[Game Help] This NPC is Florain Dreyndel the helper. Keywords: quest, information, job")
 "Hilfe" -> inform("[Spielhilfe] Dieser NPC ist Florain Dreyndel der Helfer. Schlüsselwörter: Quest, Information, Beruf")
-queststatus(820) = 0, ".+" -> queststatus(820) = 1, "Willkommen in Runewick. Ich habe gehört das meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an dessen Ende um dorthin zu gelangen."
 queststatus(820) = 0, english, ".+" -> queststatus(820) = 1, "Welcome to Runewick. I heard that my friend Zassaria Riverbank needs help. You can find her on the marketplace, just go over the bridge and trough the blue portal on its end to reach it."
+queststatus(820) = 0, ".+" -> queststatus(820) = 1, "Willkommen in Runewick. Ich habe gehört das meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an dessen Ende um dorthin zu gelangen."
 
 -- General speech
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good Evening" -> "Hello, would you like some help with getting to know the place?", "Nice to meet you, I'm Florain Dreyndel, would you like to know who needs help in this realm?"
