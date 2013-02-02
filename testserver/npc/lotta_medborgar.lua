@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.22 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -78,7 +78,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End] You received 10 silvercoins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 2));
-talkEntry:addResponse("Good day. Finally you found me! Iradona has already informed me about your visit. There you have a silvercoin for that you found me.");
+talkEntry:addResponse("Good day. Finally you found me! Iradona has already informed me about your visit. There you have some silvercoins for that you found me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -88,7 +88,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende] Du hast 10 Silberstücke erhalten."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(630, "=", 2));
-talkEntry:addResponse("Tach. Endlich hast du mich gefunden. Iradona hat mich bereits informiert über deinen Besuch. Hier hast du deine wohlverdiente Münze.");
+talkEntry:addResponse("Tach. Endlich hast du mich gefunden. Iradona hat mich bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

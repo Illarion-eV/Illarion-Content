@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: north                  --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.22 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -55,7 +55,7 @@ talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End] You rec
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 2));
 talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
-talkEntry:addResponse("Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers some silvercoin and turns back to her book*");
+talkEntry:addResponse("Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers some silvercoins and turns back to her book*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -78,7 +78,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End] You received 10 silvercoins."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 2));
-talkEntry:addResponse("Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers a silvercoin and turns back to her book*");
+talkEntry:addResponse("Hail Oldra. Finally you found me! Elesil has already informed me about your visit. *Offers some silvercoins and turns back to her book*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -88,7 +88,7 @@ talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende] Du hast 10 Silberstücke erhalten."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(620, "=", 2));
-talkEntry:addResponse("Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht eine Silbermünze und wendet sich wieder ihrem Buch zu*");
+talkEntry:addResponse("Heil Oldra. Endlich habt ihr mich gefunden. Elesil hat mich bereits informiert über euren Besuch. *Überreicht einige Silbermünzen und wendet sich wieder ihrem Buch zu*");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then

@@ -61,8 +61,8 @@ itemShoes = 369
 -- Mandatory: General speech
 queststatus(640) = 1, town = Cadomyr, english, ".*" -> inform("[Quest End] You received 10 silvercoins and 5 rankpoints."), "Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have sssome sssilvercoinsss for that you found me.", money + 1000, queststatus(640) = 2, rankpoints+5
 queststatus(640) = 1, town = Cadomyr, ".*" -> inform("[Quest Ende] Du hast 10 Silberstücke und 5 Rangpunkte erhalten."), "Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdienten Münzen.", money + 1000, queststatus(640) = 2, rankpoints+5
-queststatus(640) = 1, english, ".*" -> inform("[Quest End] You received 10 silvercoins."), "Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have a sssilvercoin for that you found me.", money + 1000, queststatus(640) = 2
-queststatus(640) = 1, ".*" -> inform("[Quest Ende] Du hast 10 Silberstücke erhalten."), "Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdiente Münze.", money + 1000, queststatus(640) = 2
+queststatus(640) = 1, english, ".*" -> inform("[Quest End] You received 10 silvercoins."), "Greetingsss. Finally you found me! Frizza hasss already informed me about your visit. There you have sssome sssilvercoinsss for that you found me.", money + 1000, queststatus(640) = 2
+queststatus(640) = 1, ".*" -> inform("[Quest Ende] Du hast 10 Silberstücke erhalten."), "Grüsssse. Endlich habssst du mich gefunden. Frizza hat mich bereitsss informiert über deinen Besssuch. Hier hassst du deine wohlverdienten Münzen.", money + 1000, queststatus(640) = 2
 "Hello", "Greet", "Hail", "Good day", "Good morning", "Good evening", "Good night" -> "Greetingsss, can I help you?"
 "Grüß", "Gruß", "Guten Morgen", "Guten Tag", "Guten Abend", "Gute Nacht", "Mahlzeit", "Tach", "Moin", "Mohltied" -> "Grüsssse, kann ich helfen?"
 english, "Hiho", "Hallo", "Hey", "Greeb" -> "Greetingsss, can I help you?"
