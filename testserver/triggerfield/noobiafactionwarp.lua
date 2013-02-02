@@ -89,9 +89,9 @@ function MoveToField(Character)
 		    -- We guide him to the first NPC to tell him where to find tasks.
 			callbackNewbie = function(dialogNewbie) 
 				local NPCName
-				if factionID = 1 then
+				if factionID == 1 then
 				    NPCName = "Cadomyr_NPC" -- !!!
-				elseif factionID = 2 then
+				elseif factionID == 2 then
 				    NPCName = "Florain Dreyndel"
 				else
 				    NPCName = "Galmair_NPC" -- !!!
