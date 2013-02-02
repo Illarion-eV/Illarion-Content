@@ -1,7 +1,7 @@
 -- UPDATE common SET com_script='item.id_463_quill' WHERE com_itemid IN (463);
 require("base.common")
 require("alchemy.base.alchemy")
-
+require("base.lookat")
 
 module("item.id_463_quill", package.seeall)
 

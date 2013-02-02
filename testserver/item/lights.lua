@@ -5,6 +5,7 @@
 --				if data is <500, set wear to 255 or default portable wear
 -- special data for on items: 2 => do not give anything back (e.g. a night watchman has put it on)
 require("base.common")
+require("base.lookat")
 
 module("item.lights", package.seeall)
 

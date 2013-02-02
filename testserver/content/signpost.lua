@@ -238,3 +238,5 @@ function DirToItemID(Value)
         return 3083
     end
 end
+
+InitWegweiser();

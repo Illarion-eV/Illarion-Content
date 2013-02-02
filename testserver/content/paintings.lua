@@ -220,3 +220,5 @@ function DirToItemID(Value)
         return 751
 	end
 end
+
+InitPaintings();

@@ -3,10 +3,7 @@ require("base.common")
 
 module("item.id_3076_coppercoins", package.seeall)
 
-if not InitTime then
-	InitTime=true;
-	TimeList = {};
-end
+TimeList = {};
 
 function UseItem(User, SourceItem)
 	if ( SourceItem.number == 1 ) then  --works only with 1 coin

@@ -4,10 +4,7 @@ module("item.id_3077_silvercoins", package.seeall)
 
 -- UPDATE common SET com_script='item.id_3077_silvercoins' WHERE com_itemid IN (3077);
 
-if not InitTime then
-	InitTime=true;
-	TimeList = {};
-end
+TimeList = {};
 
 function UseItem(User, SourceItem)
 	if ( SourceItem.number == 1 ) then  --works only with 1 coin

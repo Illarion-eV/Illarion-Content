@@ -530,7 +530,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(701, "=", 13));
 talkEntry:addCondition(npc.base.condition.item.item(225, "all", ">", 0, {["descriptionEn"] = "This crown belongs to Rosaline Edwarts."}));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Zassaria");
-talkEntry:addTrigger("lizzard");
+talkEntry:addTrigger("lizard");
 talkEntry:addTrigger("crown");
 talkEntry:addTrigger("missing");
 talkEntry:addTrigger("belong");
