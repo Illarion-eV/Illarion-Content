@@ -21,7 +21,7 @@ require("npc.base.condition.quest")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.quest")
 require("npc.base.talk")
-module("npc.florain_dreyndel", package.seeall)
+module("development.florain_dreyndel", package.seeall)
 
 function initNpc()
 mainNPC = npc.base.basic.baseNPC();
