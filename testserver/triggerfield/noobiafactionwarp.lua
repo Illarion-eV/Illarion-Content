@@ -16,6 +16,28 @@ function MoveToField(Character)
     -- Galmair: 424 245 0
 	
     -- we define our destination
+	
+	if isTestserver() then
+		-- We guide him to the first NPC to tell him where to find tasks.
+		callbackNewbie = function(dialogNewbie) 
+			local NPCName
+			if factionID == 1 then
+				NPCName = "Cadomyr_NPC" -- !!!
+			elseif factionID == 2 then
+				NPCName = "Florain Dreyndel"
+			else
+				NPCName = "Galmair_NPC" -- !!!
+			end
+			local callbackNewbieTask = function(dialogNewbieTask) end
+			if Character:getPlayerLanguage() == 0 then
+				dialogNewbieTask = MessageDialog("Ein guter Anfang", "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. "..NPCName.." ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!", callbackNewbieTask)
+			else
+				dialogNewbieTask = MessageDialog("A good beginning" , "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. "..NPCName.." is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life! ", callbackNewbieTask)
+			end
+			Character:requestMessageDialog(dialogNewbieTask)
+		end
+	end
+	
     if Character.pos == position(56,96,100) then --Cadomyr
 	
 	    destination = position(127,647,0);
@@ -85,7 +107,7 @@ function MoveToField(Character)
 		
 		-- We send him a message box
 		if isTestserver() then
-		    if isTestserver() then Character:inform("after ts check") end
+		  --[[  if isTestserver() then Character:inform("after ts check") end
 			-- We guide him to the first NPC to tell him where to find tasks.
 			callbackNewbie = function(dialogNewbie) 
 				local NPCName
@@ -103,7 +125,7 @@ function MoveToField(Character)
 					dialogNewbieTask = MessageDialog("A good beginning" , "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. "..NPCName.." is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life! ", callbackNewbieTask)
 				end
 				Character:requestMessageDialog(dialogNewbieTask)
-			end
+			end]]
 		else
 	        callbackNewbie = function(dialogNewbie) end; --empty callback
 	    end
