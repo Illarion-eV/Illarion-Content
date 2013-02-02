@@ -60,7 +60,7 @@ function MoveToField(Character)
 	FactionCheck = base.factions.getFaction(Character);
 	                                                            -- "Jupiter" check for testing. Merung
 	if (not Character:isAdmin() and not (FactionCheck.tid~=0)) or Character.name == "Jupiter" then -- admins and chars who are already members of a faction are unaffected and just warped 
-	
+	    if isTestServer() then Character:inform("after admin check") end
 		-- We delete some items, if the char has more than one of them
 		local DeleteList = {23,391,2763} --hammer, torch, pick-axe
 		for i=1,#DeleteList do
@@ -86,8 +86,10 @@ function MoveToField(Character)
 		-- We send him a message box
 		local callbackNewbie
 		if isTestserver() then
-		    -- We guide him to the first NPC to tell him where to find tasks.
+		    if isTestServer() then Character:inform("after ts check") end
+			-- We guide him to the first NPC to tell him where to find tasks.
 			callbackNewbie = function(dialogNewbie) 
+				if isTestServer() then Character:inform("in callback") end
 				local NPCName
 				if factionID == 1 then
 				    NPCName = "Cadomyr_NPC" -- !!!
