@@ -4,7 +4,7 @@
 require("base.common")
 module("gm.items.id_93_medal", package.seeall)
 
-function UseItemWithField(User,SourceItem, TargetPos)
+function UseItemWithField(User,SourceItem,TargetPos)
 
 	-- First check for mode change
 	if (string.find(User.lastSpokenText, "setmode")~=nil) then
@@ -42,8 +42,22 @@ function UseItemWithField(User,SourceItem, TargetPos)
 	if (SourceItem:getData("mode")=="Monster") then
         local monster = world:createMonster(Counter,TargetPos,20);
 		User:inform("Creating monster with ID "..Counter);
+	
 	elseif (SourceItem:getData("mode")=="GFX") then
-		world:gfx(Counter,TargetPos);
+		local cbInputDialog = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			local inputString = dialog:getInput();
+			if (string.find(inputNumber,"(%d+)") ~= nil) then
+				a, b, number = string.find(inputNumber,"(%d+)");
+				number = tonumber(number);
+				world:gfx(number,TargetPos);
+			else
+				User:requestInputDialog(InputDialog("Play a graphics effect.", "Usage: Type in graphic effects id. Will be played in front of character." ,false, 255, nil))
+			end
+			User:requestInputDialog(InputDialog("Play a graphics effect.", "Usage: Type in graphic effects id. Will be played in front of character." ,false, 255, nil))
+		end
 		
 	elseif (SourceItem:getData("mode")=="SFX") then		
         world:makeSound(Counter,TargetPos);
