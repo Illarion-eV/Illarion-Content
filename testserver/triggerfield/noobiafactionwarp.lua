@@ -85,11 +85,11 @@ function MoveToField(Character)
 		
 		-- We send him a message box
 		local callbackNewbie
-		if isTestserver() then
-		    if isTestServer() then Character:inform("after ts check") end
+		if isTestserver() then if
+		    if isTestserver() then Character:inform("after ts check") end
 			-- We guide him to the first NPC to tell him where to find tasks.
 			callbackNewbie = function(dialogNewbie) 
-				if isTestServer() then Character:inform("in callback") end
+				if isTestserver() then Character:inform("in callback") end
 				local NPCName
 				if factionID == 1 then
 				    NPCName = "Cadomyr_NPC" -- !!!
