@@ -41,7 +41,6 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 0));
-talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 1));
 talkEntry:addResponse("Willkommen in Runewick. Ich habe gehört das meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an dessen Ende um dorthin zu gelangen.");
@@ -50,6 +49,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 0));
+talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 1));
 talkEntry:addResponse("Welcome to Runewick. I heard that my friend Zassaria Riverbank needs help. You can find her on the marketplace, just go over the bridge and trough the blue portal on its end to reach it.");
