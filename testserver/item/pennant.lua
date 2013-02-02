@@ -2,6 +2,7 @@
 -- Envi
 require("base.common")
 require("content.pennant")
+require("base.lookat")
 
 module("item.pennant", package.seeall)
 
@@ -20,10 +21,6 @@ PennantListEnglish =
 
 function LookAtItemIdent(User,Item)
     local test = "no value";
-	if (first==nil) then
-        content.pennant.InitPennant()
-        first=1;
-    end
 
     -- fetching local references
     local signTextDe     = content.pennant.signTextDe;

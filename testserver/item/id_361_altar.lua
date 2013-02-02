@@ -2,6 +2,7 @@
 
 require("base.common")
 require("content.gods")
+require("base.lookat")
 
 module("item.id_361_altar", package.seeall, package.seeall(content.gods))
 
