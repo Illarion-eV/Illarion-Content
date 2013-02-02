@@ -6,7 +6,7 @@
 -- NPC Sex:  female                     NPC Direction: west                   --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.22 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -22,6 +22,7 @@ require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
+require("npc.base.consequence.rankpoints")
 require("npc.base.talk")
 module("npc.wulfgorda", package.seeall)
 
@@ -45,10 +46,11 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(650, "=", 1));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End] You received 10 silvercoins."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest End  'Find Wulfgorda'] You received 10 silvercoins and 5 rankpoints."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(155, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(650, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkEntry:addResponse("#me tips her helmet. 'Finally you found me! I have already been informed about your visit. There you have some silvercoins for that you found me.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
@@ -56,10 +58,11 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(650, "=", 1));
 talkEntry:addTrigger(".*");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende] Du hast 10 Silberstücke erhalten."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest Ende 'Find Wulfgorda'] Du hast 10 Silberstücke und 5 Rangpunkte erhalten."));
 talkEntry:addConsequence(npc.base.consequence.money.money("+", 1000));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(155, 10, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(650, "=", 2));
+talkEntry:addConsequence(npc.base.consequence.rankpoints.rankpoints("+", 5));
 talkEntry:addResponse("Tach. Endlich hast du mich gefunden. Ich wurde bereits informiert über deinen Besuch. Hier hast du deine wohlverdienten Münzen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
