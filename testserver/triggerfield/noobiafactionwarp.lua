@@ -58,9 +58,9 @@ function MoveToField(Character)
     world:gfx(41,Character.pos);
 	
 	FactionCheck = base.factions.getFaction(Character);
-	
-	if not Character:isAdmin() and not (FactionCheck.tid~=0) then -- admins and chars who are already members of a faction are unaffected and just warped 
-	
+	                                                            -- "Jupiter" check for testing. Merung
+	if (not Character:isAdmin() and not (FactionCheck.tid~=0)) or Character.name == "Jupiter" then -- admins and chars who are already members of a faction are unaffected and just warped 
+	    if isTestserver() then Character:inform("after admin check") end
 		-- We delete some items, if the char has more than one of them
 		local DeleteList = {23,391,2763} --hammer, torch, pick-axe
 		for i=1,#DeleteList do
@@ -84,9 +84,32 @@ function MoveToField(Character)
 		Character:setAttrib("foodlevel",30000)
 		
 		-- We send him a message box
-		
-	    local callbackNewbie = function(dialogNewbie) end; --empty callback
-	    Character:requestMessageDialog(dialogNewbie); --sending the dialog box
+		local callbackNewbie
+		if isTestserver() then
+		    if isTestserver() then Character:inform("after ts check") end
+			-- We guide him to the first NPC to tell him where to find tasks.
+			callbackNewbie = function(dialogNewbie) 
+				if isTestserver() then Character:inform("in callback") end
+				local NPCName
+				if factionID == 1 then
+				    NPCName = "Cadomyr_NPC" -- !!!
+				elseif factionID == 2 then
+				    NPCName = "Florain Dreyndel"
+				else
+				    NPCName = "Galmair_NPC" -- !!!
+				end
+				local callbackNewbieTask = function(dialogNewbieTask) end
+				if Character:getPlayerLanguage() == 0 then
+					dialogNewbieTask = MessageDialog("Ein guter Anfang", "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. "..NPCName.." ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!", callbackNewbieTask)
+				else
+					dialogNewbieTask = MessageDialog("A good beginning" , "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. "..NPCName.." is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life! ", callbackNewbieTask)
+				end
+				User:requestMessageDialog(dialogNewbieTask)
+			end
+		else
+	        callbackNewbie = function(dialogNewbie) end; --empty callback
+	    end
+		Character:requestMessageDialog(dialogNewbie); --sending the dialog box
 		
         -- We tell other players about our noob
 		
