@@ -34,7 +34,7 @@ function UseItemWithField(User,SourceItem,TargetPos)
     if number then
 	    Counter = 1 * number;
 	else
-		counter=1;
+		Counter=1;
 	end
 	
 	--Additions end
@@ -60,7 +60,20 @@ function UseItemWithField(User,SourceItem,TargetPos)
 		User:requestInputDialog(InputDialog("Play a graphics effect.", "Usage: Type in graphic effects id. Will be played in front of character." ,false, 255, cbInputDialog))
 		
 	elseif (SourceItem:getData("mode")=="SFX") then		
-        world:makeSound(Counter,TargetPos);
+		local cbInputDialog = function (dialog)
+			if (not dialog:getSuccess()) then
+				return;
+			end
+			local inputNumber = dialog:getInput();
+			if (string.find(inputNumber,"(%d+)") ~= nil) then
+				a, b, number = string.find(inputNumber,"(%d+)");
+				number = tonumber(number);
+				world:makeSound(number,TargetPos);
+			else
+				User:inform("No number");
+			end
+		end
+		User:requestInputDialog(InputDialog("Play a graphics effect.", "Usage: Type in graphic effects id. Will be played in front of character." ,false, 255, cbInputDialog))
 		
 	elseif (SourceItem:getData("mode")=="Avatar changes") then			
 		local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
