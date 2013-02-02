@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: south                  --
 --                                                                            --
 -- Author:   envi                                                             --
---                                                       easyNPC Parser v1.22 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -1973,7 +1973,7 @@ talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Information] Use 'yubba' or 'more' if you like to continue. Use 'stop' to break up."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
-talkEntry:addResponse("Dese Orcs ob da Horde wus dere: Silver Skull Murgo,Red Skull Jag, Sistah Kry`Rack, Bruddah Slug, Chief Rugh'toh.");
+talkEntry:addResponse("Dese Orcs ob da Horde wus dere: Silver Skull Murgo, Red Skull Jag, Sistah Kry`Rack, Bruddah Slug, Chief Rugh'toh.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -2868,7 +2868,7 @@ talkEntry:addTrigger("Sure");
 talkEntry:addTrigger("Of course");
 talkEntry:addTrigger("more");
 talkEntry:addTrigger("continue");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("You know the name now. When you are back at Hummi, tell him the name of the ork who one. The name starts with a 'J'. ;) If you like to listen to the rest of the story, use 'yubba' or 'more'. Use 'stop' in order to break up the story."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("You know the name now. When you are back at Hummi, tell him the name of the ork who won. The name starts with a 'J'. ;) If you like to listen to the rest of the story, use 'yubba' or 'more'. Use 'stop' in order to break up the story."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 3));
 talkEntry:addResponse("Da Orcs became da glory winners ob da tournament!...yoo want hear da rest ob da glory day now?");
@@ -2896,7 +2896,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(601, "=", 30));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Yeah");
 talkEntry:addTrigger("Yubba");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("You know the name now. When you are back at Hummi, tell him the name of the ork who one. The name starts with a 'J'. ;) If you like to listen to the rest of the story, use 'yubba' or 'more'. Use 'stop' in order to break up the story."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("You know the name now. When you are back at Hummi, tell him the name of the ork who won. The name starts with a 'J'. ;) If you like to listen to the rest of the story, use 'yubba' or 'more'. Use 'stop' in order to break up the story."));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(601, "+", 1));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(607, "=", 3));
 talkEntry:addResponse("Da Orcs became da glory winners ob da tournament!...yoo want hear da rest ob da glory day now?");
