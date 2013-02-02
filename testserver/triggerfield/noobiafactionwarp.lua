@@ -103,7 +103,7 @@ function MoveToField(Character)
 				else
 					dialogNewbieTask = MessageDialog("A good beginning" , "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. "..NPCName.." is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life! ", callbackNewbieTask)
 				end
-				User:requestMessageDialog(dialogNewbieTask)
+				Character:requestMessageDialog(dialogNewbieTask)
 			end
 		else
 	        callbackNewbie = function(dialogNewbie) end; --empty callback
