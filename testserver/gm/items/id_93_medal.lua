@@ -73,7 +73,7 @@ function UseItemWithField(User,SourceItem,TargetPos)
 				User:inform("No number");
 			end
 		end
-		User:requestInputDialog(InputDialog("Play a graphics effect.", "Usage: Type in graphic effects id. Will be played in front of character." ,false, 255, cbInputDialog))
+		User:requestInputDialog(InputDialog("Play a sound effect.", "Usage: Type in sound effects id." ,false, 255, cbInputDialog))
 		
 	elseif (SourceItem:getData("mode")=="Avatar changes") then			
 		local playersTmp = world:getPlayersInRangeOf(User.pos, 4);
