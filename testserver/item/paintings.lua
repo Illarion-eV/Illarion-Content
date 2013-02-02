@@ -1,5 +1,6 @@
 require("base.common")
 require("content.paintings")
+require("base.lookat")
 
 module("item.paintings", package.seeall)
 
@@ -102,11 +103,7 @@ PaintingListEnglish =
 
 function LookAtItemIdent(User,Item)
     local test = "no value";
-	if (first==nil) then
-        content.paintings.InitPaintings()
-        first=1
-    end
-        
+    
     -- fetching local references
     local signTextDe     = content.paintings.signTextDe;
     local signTextEn     = content.paintings.signTextEn;

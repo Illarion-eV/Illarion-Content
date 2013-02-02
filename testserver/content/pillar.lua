@@ -561,3 +561,5 @@ function DirToItemID(Value)
 		return 467
 	end
 end
+
+InitPillar();
