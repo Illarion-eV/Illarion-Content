@@ -86,7 +86,7 @@ end
 --@town Town
 --@timeStmp Timestamp of the new month
 function NewMonthSwitch(town,timeStmp)
-	debug("NewMonthSwitch with "..town.." and "..timeStmp);
+	--debug("NewMonthSwitch with "..town.." and "..timeStmp);
 	local foundTreasure, currentTreasure = ScriptVars:find("Treasure"..town)
 	if foundTreasure then
 		--debug("found treasure"..currentTreasure);
