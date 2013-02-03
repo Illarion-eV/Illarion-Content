@@ -1,5 +1,6 @@
 -- UPDATE common SET com_script='item.id_2_flour' WHERE com_itemid IN (2);
 require("server.login")
+require("base.factions")
 module("item.id_2_flour", package.seeall)
 
 if isTestserver() then
