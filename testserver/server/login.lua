@@ -302,6 +302,7 @@ function receiveGems(gemRecipient)
 		end
 	else
 		gemRecipient:setQuestProgress(124,timeStmp);
+		PayOutWage(gemRecipient,town)
 	end
 end
 
