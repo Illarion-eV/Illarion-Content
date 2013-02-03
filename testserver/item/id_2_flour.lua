@@ -3,7 +3,7 @@ require("server.login")
 require("base.factions")
 module("item.id_2_flour", package.seeall)
 
-if isTestserver() then
+--if isTestserver() then
 
 require("test.martin")
 
@@ -24,4 +24,4 @@ function UseItem(User, SourceItem, ltstate)
 	return;
 end
 
-end
+--end
