@@ -6,7 +6,7 @@
 -- NPC Sex:  male                       NPC Direction: west                   --
 --                                                                            --
 -- Author:   Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.22 --
 --------------------------------------------------------------------------------
 
 name = "Ehrom Goldhammer"
@@ -85,52 +85,52 @@ english, "Ciao", "Adieu", "Au revoir", "Farebba" -> "Ronagan's blessing and watc
 
 -- Catching quest triggers. Modify if the NPC does quests.
 -- 1st quest: Get five copper goblets.
-queststatus(72) = 0, english, "quest", "mission" -> inform("[New quest] The Smuggler I"), "So you want to help me? A client of mine needs five copper goblets for a banquet, but I cannot get to Cadomyr's finesmiths to obtain them. I'll reward you generously!", queststatus(72) = 1
-queststatus(72) = 0, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler I"), "Ihr wollt mir also helfen. Einer meiner Klienten benötigt fünf Kupferkelche für ein Bankett. Ich kann allerdings nicht nach Cadomyr gehen, um sie von den Schmieden dort zu besorgen. Ich werde euch großzügig belohnen!", queststatus(72) = 1
-queststatus(72) = 0, "task", "adventure" -> inform("[New quest] The Smuggler I"), "So you want to help me? A client of mine needs five copper goblets for a banquet, but I cannot get to Cadomyr's finesmiths to obtain them. I'll reward you generously!", queststatus(72) = 1
-queststatus(72) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler I"), "Ihr wollt mir also helfen. Einer meiner Klienten benötigt fünf Kupferkelche für ein Bankett. Ich kann allerdings nicht nach Cadomyr gehen, um sie von den Schmieden dort zu besorgen. Ich werde euch großzügig belohnen!", queststatus(72) = 1
-queststatus(72) = 1, item(1840, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 50 silver coins."), "By Ronagan, you brought copper goblets. Take these silver coins as a small appreciation. I could use your service again for another order as well.", money + 5000, deleteItem(1840, 5), queststatus(72) = 2
-queststatus(72) = 1, item(1840, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 50 Silberstücke."), "Bei Ronagan, ihr habt tatsächlich die Kupferkelche gebracht. Nehmt diese Silberstücke als kleine Anerkennung. Allerdings könnte ich nochmal Eure Dienste bei einem Auftrag brauchen.", money + 5000, deleteItem(1840, 5), queststatus(72) = 2
+queststatus(72) = 0, english, "quest", "mission" -> inform("[New quest] The Smuggler I"), queststatus(72) = 1, "So you want to help me? A client of mine needs five copper goblets for a banquet, but I cannot get to Cadomyr's finesmiths to obtain them. I'll reward you generously!"
+queststatus(72) = 0, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler I"), queststatus(72) = 1, "Ihr wollt mir also helfen. Einer meiner Klienten benötigt fünf Kupferkelche für ein Bankett. Ich kann allerdings nicht nach Cadomyr gehen, um sie von den Schmieden dort zu besorgen. Ich werde euch großzügig belohnen!"
+queststatus(72) = 0, "task", "adventure" -> inform("[New quest] The Smuggler I"), queststatus(72) = 1, "So you want to help me? A client of mine needs five copper goblets for a banquet, but I cannot get to Cadomyr's finesmiths to obtain them. I'll reward you generously!"
+queststatus(72) = 0, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler I"), queststatus(72) = 1, "Ihr wollt mir also helfen. Einer meiner Klienten benötigt fünf Kupferkelche für ein Bankett. Ich kann allerdings nicht nach Cadomyr gehen, um sie von den Schmieden dort zu besorgen. Ich werde euch großzügig belohnen!"
+queststatus(72) = 1, item(1840, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded 50 silver coins."), money + 5000, deleteItem(1840, 5), queststatus(72) = 2, "By Ronagan, you brought copper goblets. Take these silver coins as a small appreciation. I could use your service again for another order as well."
+queststatus(72) = 1, item(1840, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst 50 Silberstücke."), money + 5000, deleteItem(1840, 5), queststatus(72) = 2, "Bei Ronagan, ihr habt tatsächlich die Kupferkelche gebracht. Nehmt diese Silberstücke als kleine Anerkennung. Allerdings könnte ich nochmal Eure Dienste bei einem Auftrag brauchen."
 queststatus(72) = 1, english, "quest", "mission" -> "I need at least five copper goblets. Return to me when you have them."
 queststatus(72) = 1, "quest", "mission" -> "Ich brauche wenigstens fünf Kupferkelche. Kehrt zurück wenn ihr sie habt."
 queststatus(72) = 1, "task", "adventure" -> "I need at least five copper goblets. Return to me when you have them."
 queststatus(72) = 1, "Auftrag", "Aufgabe", "Abenteuer" -> "Ich brauche wenigstens fünf Kupferkelche. Kehrt zurück wenn ihr sie habt."
 
 -- 2nd quest: Get two dwarven state armour.
-queststatus(72) = 2, english, "quest", "mission" -> inform("[New quest] The Smuggler II"), "I got a new order from abroad. A dwarven sovereign has ordered two dwarven state armours but I cannot get to Galmair to get them due to... personal reasons. Please help me for a reward.", queststatus(72) = 3
-queststatus(72) = 2, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler II"), "Ich habe eine neue Bestellung aus einem fernen Land bekommen. Ein Zwergenherrscher benötigt zwei Zwergenprunkrüstungen, ich kann aber aus... persönlichen Gründen nicht einfach nach Galmair spazieren, um sie zu holen. Helft mir bitte, für eine angemessene Belohnung.", queststatus(72) = 3
-queststatus(72) = 2, "task", "adventure" -> inform("[New quest] The Smuggler II"), "I got a new order from abroad. A dwarven sovereign has ordered two dwarven state armours but I cannot get to Galmair to get them due to... personal reasons. Please help me for a reward.", queststatus(72) = 3
-queststatus(72) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler II"), "Ich habe eine neue Bestellung aus einem fernen Land bekommen. Ein Zwergenherrscher benötigt zwei Zwergenprunkrüstungen, ich kann aber aus... persönlichen Gründen nicht einfach nach Galmair spazieren, um sie zu holen. Helft mir bitte, für eine angemessene Belohnung.", queststatus(72) = 3
-queststatus(72) = 3, item(2390, all) > 1, english, ".+" -> inform("[Quest solved] You are awarded five gold coins."), "Aye aye, I have to say that you are getting better and better. These silver coins are yours now.", money + 50000, deleteItem(2390, 2), queststatus(72) = 4
-queststatus(72) = 3, item(2390, all) > 1, ".+" -> inform("[Quest gelöst] Du erhältst fünf Goldstücke."), "Aye aye, ich muß schon sagen, Ihr werdet immer besser. Diese Silberstücke gehören nun Euch.", money + 50000, deleteItem(2390, 2), queststatus(72) = 4
+queststatus(72) = 2, english, "quest", "mission" -> inform("[New quest] The Smuggler II"), queststatus(72) = 3, "I got a new order from abroad. A dwarven sovereign has ordered two dwarven state armours but I cannot get to Galmair to get them due to... personal reasons. Please help me for a reward."
+queststatus(72) = 2, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler II"), queststatus(72) = 3, "Ich habe eine neue Bestellung aus einem fernen Land bekommen. Ein Zwergenherrscher benötigt zwei Zwergenprunkrüstungen, ich kann aber aus... persönlichen Gründen nicht einfach nach Galmair spazieren, um sie zu holen. Helft mir bitte, für eine angemessene Belohnung."
+queststatus(72) = 2, "task", "adventure" -> inform("[New quest] The Smuggler II"), queststatus(72) = 3, "I got a new order from abroad. A dwarven sovereign has ordered two dwarven state armours but I cannot get to Galmair to get them due to... personal reasons. Please help me for a reward."
+queststatus(72) = 2, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler II"), queststatus(72) = 3, "Ich habe eine neue Bestellung aus einem fernen Land bekommen. Ein Zwergenherrscher benötigt zwei Zwergenprunkrüstungen, ich kann aber aus... persönlichen Gründen nicht einfach nach Galmair spazieren, um sie zu holen. Helft mir bitte, für eine angemessene Belohnung."
+queststatus(72) = 3, item(2390, all) > 1, english, ".+" -> inform("[Quest solved] You are awarded five gold coins."), money + 50000, deleteItem(2390, 2), queststatus(72) = 4, "Aye aye, I have to say that you are getting better and better. These silver coins are yours now."
+queststatus(72) = 3, item(2390, all) > 1, ".+" -> inform("[Quest gelöst] Du erhältst fünf Goldstücke."), money + 50000, deleteItem(2390, 2), queststatus(72) = 4, "Aye aye, ich muß schon sagen, Ihr werdet immer besser. Diese Silberstücke gehören nun Euch."
 queststatus(72) = 3, english, "quest", "mission" -> "My customer needs two dwarven state armours, discrete and fast."
 queststatus(72) = 3, "quest", "mission" -> "Mein Kunde benötigt zwei diskret erworbene Zwergenprunkrüstungen. Bitte beeilt euch."
 queststatus(72) = 3, "task", "adventure" -> "My customer needs two dwarven state armours, discrete and fast."
 queststatus(72) = 3, "Auftrag", "Aufgabe", "Abenteuer" -> "Mein Kunde benötigt zwei diskret erworbene Zwergenprunkrüstungen. Bitte beeilt euch."
 
 -- 3rd quest: Get 5 black priest robe.
-queststatus(72) = 4, english, "quest", "mission" -> inform("[New quest] The Smuggler III"), "A customer, who prefers to remain unnamed, ordered five black priest robes of Runewick origin, 'For his freshmen', he said. Will you bring me those?", queststatus(72) = 5
-queststatus(72) = 4, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler III"), "Einer meiner Auftraggeber, der unerkannt bleiben möchte, hat fünf schwarze Priesterroben nach Runewick-Machart bestellt. 'Für seine Frischlinge', hat er gesagt. Besorgt ihr mir die?", queststatus(72) = 5
-queststatus(72) = 4, "task", "adventure" -> inform("[New quest] The Smuggler III"), "A customer, who prefers to remain unnamed, ordered five black priest robes of Runewick origin, 'For his freshmen', he said. Will you bring me those?", queststatus(72) = 5
-queststatus(72) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler III"), "Einer meiner Auftraggeber, der unerkannt bleiben möchte, hat fünf schwarze Priesterroben nach Runewick-Machart bestellt. 'Für seine Frischlinge', hat er gesagt. Besorgt ihr mir die?", queststatus(72) = 5
-queststatus(72) = 5, item(2420, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded an obsidian ring and a magical obsidian."), "It seems as though Ronagan is looking on you benevolently. My customer gave me this ring in advance, it is now yours.", deleteItem(2420, 5), item(278, 1, 999), item(283, 1, 333, "gemLevel" = "1"), queststatus(72) = 6
-queststatus(72) = 5, item(2420, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst einen Obsidianring und einen magischen Obsidianring."), "Es scheint, als wäre Ronagan Euch wohlgesonnen. Mein Auftraggeber gab mir diesen Ring als Anzahlung, er ist nun Euer.", deleteItem(2420, 5), item(278, 1, 999), item(283, 1, 333, "gemLevel" = "1"), queststatus(72) = 6
+queststatus(72) = 4, english, "quest", "mission" -> inform("[New quest] The Smuggler III"), queststatus(72) = 5, "A customer, who prefers to remain unnamed, ordered five black priest robes of Runewick origin, 'For his freshmen', he said. Will you bring me those?"
+queststatus(72) = 4, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler III"), queststatus(72) = 5, "Einer meiner Auftraggeber, der unerkannt bleiben möchte, hat fünf schwarze Priesterroben nach Runewick-Machart bestellt. 'Für seine Frischlinge', hat er gesagt. Besorgt ihr mir die?"
+queststatus(72) = 4, "task", "adventure" -> inform("[New quest] The Smuggler III"), queststatus(72) = 5, "A customer, who prefers to remain unnamed, ordered five black priest robes of Runewick origin, 'For his freshmen', he said. Will you bring me those?"
+queststatus(72) = 4, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler III"), queststatus(72) = 5, "Einer meiner Auftraggeber, der unerkannt bleiben möchte, hat fünf schwarze Priesterroben nach Runewick-Machart bestellt. 'Für seine Frischlinge', hat er gesagt. Besorgt ihr mir die?"
+queststatus(72) = 5, item(2420, all) > 4, english, ".+" -> inform("[Quest solved] You are awarded an obsidian ring and a magical obsidian."), deleteItem(2420, 5), item(278, 1, 999), item(283, 1, 333, "gemLevel" = "1"), queststatus(72) = 6, "It seems as though Ronagan is looking on you benevolently. My customer gave me this ring in advance, it is now yours."
+queststatus(72) = 5, item(2420, all) > 4, ".+" -> inform("[Quest gelöst] Du erhältst einen Obsidianring und einen magischen Obsidian."), deleteItem(2420, 5), item(278, 1, 999), item(283, 1, 333, "gemLevel" = "1"), queststatus(72) = 6, "Es scheint, als wäre Ronagan Euch wohlgesonnen. Mein Auftraggeber gab mir diesen Ring als Anzahlung, er ist nun Euer."
 queststatus(72) = 5, english, "quest", "mission" -> "Just five black priest robes is all I still need for my customer... and no questions."
 queststatus(72) = 5, "quest", "mission" -> "Fünf schwarze Priesterroben sind alles, was ich für meinen Kunden brauche. Und keine Fragen."
 queststatus(72) = 5, "task", "adventure" -> "Just five black priest robes is all I still need for my customer... and no questions."
 queststatus(72) = 5, "Auftrag", "Aufgabe", "Abenteuer" -> "Fünf schwarze Priesterroben sind alles, was ich für meinen Kunden brauche. Und keine Fragen."
 
--- 4th quest: Get a wand of wind.
-queststatus(72) = 6, english, "quest", "mission" -> inform("[New quest] The Smuggler IV"), "Psst! I need you for a very special task. Sneak into Runewick and get me a wand of wind. For what? None of your business!", queststatus(72) = 7
-queststatus(72) = 6, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler IV"), "Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab des Windes. Wofür? Das geht euch nichts an!", queststatus(72) = 7
-queststatus(72) = 6, "task", "adventure" -> inform("[New quest] The Smuggler II"), "Psst! I need you for a very special task. Sneak into Runewick and get me a wand of wind. For what? None of your business!", queststatus(72) = 7
-queststatus(72) = 6, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler IV"), "Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab des Windes. Wofür? Das geht euch nichts an!", queststatus(72) = 7
-queststatus(72) = 7, item(2785, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a fire longsword."), "Ronagan's thanks... yes, this wand should be good enough. I just have this sword for your, I want to get rid of it. Do not ask why and accept it.", deleteItem(2785, 1), item(206, 1, 999), queststatus(72) = 8
-queststatus(72) = 7, item(2785, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst ein Feuerlangschwert."), "Ronagans Dank... ja, dieser Zauberstab sollte gut genug sein. Ich habe nur dieses Schwert für euch, welches ich gerne loswerden würde. Fragt nicht, warum und nehmt es an.", deleteItem(2785, 1), item(206, 1, 999), queststatus(72) = 8
-queststatus(72) = 7, english, "quest", "mission" -> "Ronagan knows that I do my best. Do your best and bring me a wand of wind for my customer."
-queststatus(72) = 7, "quest", "mission" -> "Ronagan weiß, dass ich mich bemühe. Bemüht euch auch und bringt mir einen Stab des Windes für meinen Kunden."
-queststatus(72) = 7, "task", "adventure" -> "Ronagan knows that I do my best. Do your best and bring me a wand of wind for my customer."
-queststatus(72) = 7, "Auftrag", "Aufgabe", "Abenteuer" -> "Ronagan knows that I do my best. Do your best and bring me a wand of wind for my customer."
+-- 4th quest: Get a wand of air.
+queststatus(72) = 6, english, "quest", "mission" -> inform("[New quest] The Smuggler IV"), queststatus(72) = 7, "Psst! I need you for a very special task. Sneak into Runewick and get me a wand of air. For what? None of your business!"
+queststatus(72) = 6, "quest", "mission" -> inform("[Neues Quest] Der Schmuggler IV"), queststatus(72) = 7, "Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab der Luft. Wofür? Das geht euch nichts an!"
+queststatus(72) = 6, "task", "adventure" -> inform("[New quest] The Smuggler II"), queststatus(72) = 7, "Psst! I need you for a very special task. Sneak into Runewick and get me a wand of air. For what? None of your business!"
+queststatus(72) = 6, "Auftrag", "Aufgabe", "Abenteuer" -> inform("[Neues Quest] Der Schmuggler IV"), queststatus(72) = 7, "Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab der Luft. Wofür? Das geht euch nichts an!"
+queststatus(72) = 7, item(2785, all) > 0, english, ".+" -> inform("[Quest solved] You are awarded a fire longsword."), deleteItem(2785, 1), item(206, 1, 999), queststatus(72) = 8, "Ronagan's thanks... yes, this wand should be good enough. I just have this sword for your, I want to get rid of it. Do not ask why and accept it."
+queststatus(72) = 7, item(2785, all) > 0, ".+" -> inform("[Quest gelöst] Du erhältst ein Feuerlangschwert."), deleteItem(2785, 1), item(206, 1, 999), queststatus(72) = 8, "Ronagans Dank... ja, dieser Zauberstab sollte gut genug sein. Ich habe nur dieses Schwert für euch, welches ich gerne loswerden würde. Fragt nicht, warum und nehmt es an."
+queststatus(72) = 7, english, "quest", "mission" -> "Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer."
+queststatus(72) = 7, "quest", "mission" -> "Ronagan weiß, dass ich mich bemühe. Bemüht euch auch und bringt mir einen Stab der Luft für meinen Kunden."
+queststatus(72) = 7, "task", "adventure" -> "Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer."
+queststatus(72) = 7, "Auftrag", "Aufgabe", "Abenteuer" -> "Ronagan weiß, dass ich mich bemühe. Bemüht euch auch und bringt mir einen Stab der Luft für meinen Kunden."
 
 -- Final dialogue: No more quests, just nice hints
 queststatus(72) = 8, english, "quest", "mission" -> "Ronagan be with you... there is nothing left that you can do for me at the moment."
@@ -143,7 +143,7 @@ queststatus(72) = 8, "Auftrag", "Aufgabe", "Abenteuer" -> "Ronagan mit Euch... e
 "beruf" -> "Schmuggler, das ist so ein vorbelastetes Wort. Ich mache Waren denen zugänglich, die sie normalerweise nicht bekommen würden... für eine Gebühr."
 english, "job" -> "Smuggler is such a loaded word. I make goods available to those who have no access to them... at a cost."
 "job" -> "Schmuggler, das ist so ein vorbelastetes Wort. Ich mache Waren denen zugänglich, die sie normalerweise nicht bekommen würden... für eine Gebühr."
-english, "Gobaith", "Gobiath" -> "I used to trade Sibanac with some halfling fellow on Gobaith... Brendan Mason was his name."
+english, "Gobaith", "Gobiath" -> "I used to sell Sibanac to some halfling fellow on Gobaith... Brendan Mason was his name."
 "Gobaith", "Gobiath" -> "Ich hab damals Sibanac mit einem Halbling auf Gobaith gehandelt... Brendan Mason war sein Name."
 "my name" -> "You gave me your name, what do you want from me now? Money?"
 "mein Name" -> "Danke für euren Namen, was wollt ihr jetzt von mir? Geld?"
@@ -167,7 +167,7 @@ english, "portal" -> "I have heard that there are portals all over the land. The
 -- Tool hints
 "pickaxe" -> "The pickaxe is the best tool for mining, but don't be fooled by the simple appearance. It is difficult to master. You wouldn't be the first to end up with a pickaxe in your leg, so please be careful!"
 "Spitzhacke" -> "Die Spitzhacke ist das beste Werkzeug für den Bergbau. Aber laßt Euch nicht vom einfachen Äußeren täuschen. Es ist schwer zu meistern. Ihr wäret nicht der Erste mit einer Spitzhacke im Bein endet, also seid bitte vorsichtig!"
-english, "hammer" -> "The hammer is the trademark of any smith. There are different hammers for each and every purpose. It is important to use the right hammer for each task."
+english, "hammer" -> "The hammer is the token of any smith. There are different hammers for each and every purpose. It is important to use the right hammer for each task."
 german, "Hammer" -> "Der Hammer ist das Erkennungsmerkmaler aller Schmiede. Es gibt verschiedene Hämmer für jeden Zweck. Es ist wichtig den richtigen Hammer für die entsprechende Aufgabe zu benutzen."
 "gem" -> "Gems are the true treasures of the mountains. There are many different gems but they all have something in common, they are all rare and you'll need a lot of luck to find suitable raw pieces, I can tell you."
 "Edelstein" -> "Edelsteine sind der wahre Schatz des Berges. Es gibt viele verschiedene Edelsteine, aber alle haben etwas gemeinsam. Sie sind alle sehr selten und Ihr braucht schon viel Glück passende rohe Stücke zu finden, das kann ich Euch sagen."
@@ -177,7 +177,7 @@ english, "archmage" -> "If Archmage Morgan knew that his minions ordered things 
 "Erzmagier" -> "Wenn Erzmagier Morgan wüßte, dass seine Leute bei mir Waren bestellen, dann würde er sie sicher mit einem Buch verprügeln."
 english, "Elvaine", "Morgan" -> "If Archmage Morgan knew that his minions ordered things from me, I think he would slap them with a book."
 "Elvaine", "Morgan" -> "Wenn Erzmagier Morgan wüßte, dass seine Leute bei mir Waren bestellen, dann würde er sie sicher mit einem Buch verprügeln."
-english, "Runewick" -> "The people of Runewick come to me to trade for metals and minerals. If you look for them you have to travel south and east."
+english, "Runewick" -> "The people of Runewick come to me to buy metals and minerals. If you look for them you have to travel south and east."
 "Runewick" -> "Die Leute aus Runewick kommen zu mir, um Metalle und Mineralien einzutauschen. Wenn Ihr sie sucht, so müßt Ihr nach Süden und Osten reisen."
 english, "Valerio", "Guilianni", "don" -> "If the Don did not rule Galmair, I'd be there again. He interfered with my business too much, so I... had to leave."
 "Valerio", "Guilianni", "don" -> "Wenn der Don nicht Galmair kontrollieren würde, wäre ich längst wieder da. Er hat sich zu sehr in mein Geschäft eingemischt, also... musste ich das Weite suchen."
@@ -207,7 +207,7 @@ english, "Ronagan" -> "I pray to Ronagan, but it is more a matter of respect tha
 "Ronagan" -> "Ich bete zu Ronagan, aber das hat viel mehr mit Respekt als mit Ehrerbietung zu tun."
 
 -- Catching typical NPC phrases
-"what sell", "what buy", "list wares", "price of" -> "I don't have anything I want to trade at the moment, but I have a special task for you."
+"what sell", "what buy", "list wares", "price of" -> "I don't have anything I want to sell at the moment, but I have a special task for you."
 "was verkauf", "was kauf", "warenliste", "preis von" -> "Ich gibt momentan nichts, was ich handeln möchte. Aber ich habe einen Sonderauftrag für euch."
 "tell something" -> "I don't have time to tell stories. Ronagan be my witness, I'm a dwarf of deeds not of words."
 "erzähl was", "erzähl etwas" -> "Ich habe keine Zeit Geschichten zu erzählen. Ronagan sei mein Zeug, ich bin ein Zwerg der Taten, nicht der Worte."

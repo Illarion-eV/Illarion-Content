@@ -544,7 +544,7 @@ function Craft:craftItem(user, productId)
         "Du bist nicht fähig genug um das zu tun.",
         "You are not skilled enough to do this.")
         self:swapToInactiveItem(user)
-        return
+        return false
     end
     
     local neededFood = 0
@@ -553,7 +553,7 @@ function Craft:craftItem(user, productId)
         foodOK, neededFood = self:checkRequiredFood(user, product.foodConsumption, product.difficulty)
         if not foodOK then
             self:swapToInactiveItem(user)
-            return
+            return false
         end
     end
 

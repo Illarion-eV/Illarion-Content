@@ -1,5 +1,6 @@
 -- sowing seeds
 require("base.common")
+require("content.gathering")
 
 module("item.seeds", package.seeall)
 
@@ -46,21 +47,19 @@ module("item.seeds", package.seeall)
 -- UPDATE common SET com_agingspeed = 2, com_objectafterrot = 779 WHERE com_itemid = 782;
 -- UPDATE common SET com_agingspeed = 4, com_objectafterrot = 779 WHERE com_itemid = 779;
 
+seedPlantList = {};
+seedPlantList[259] = 246; -- grain
+seedPlantList[291] = 288; --cabbage
+seedPlantList[534] = 535; --onions
+seedPlantList[2494] = 2490; --carrots
+seedPlantList[2917] = 538; --tomatoes
+seedPlantList[728] = 729; --hop
+seedPlantList[773] = 774; --tobacco
+seedPlantList[779] = 780; --sugarcane
+
 function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local farming = content.gathering.farming;
-    
-    if ( seedPlantList == nil ) then
-        seedPlantList = {};
-        seedPlantList[259] = 246; -- grain
-        seedPlantList[291] = 288; --cabbage
-        seedPlantList[534] = 535; --onions
-        seedPlantList[2494] = 2490; --carrots
-        seedPlantList[2917] = 538; --tomatoes
-        seedPlantList[728] = 729; --hop
-        seedPlantList[773] = 774; --tobacco
-        seedPlantList[779] = 780; --sugarcane
-    end
     
     if ( seedPlantList[SourceItem.id] == nil ) then
         User:inform("[ERROR] Unknown seed item id: " .. SourceItem.id .. ". Please inform a developer.");

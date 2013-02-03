@@ -151,8 +151,8 @@ function InitGrave()
     AddGrave({410,726,0},"Bald deines!","Soon yours!", 1,0);
     AddGrave({409,734,0},"~Als du den Grabstein näher untersuchst vernimmst du einen schmerzerfüllten Schrei.~","~You hear a painful cry when you investigate the tomb stone.~", 3,0);
     --Mount Zotmore
-    AddGrave({366,500,0},"Hier ruht Zot's Freizeit!","Zot's spare time rests here!", 1,0);
-    AddGrave({348,503,0},"Zu Ehren jenen die Zot's Opfer wurden.","To honour Zot's victims.", 3,0);
+    AddGrave({366,500,0},"Hier ruht Zots Freizeit!","Zot's spare time rests here!", 1,0);
+    AddGrave({348,503,0},"Zu Ehren jenen die Zots Opfer wurden.","To honour Zot's victims.", 3,0);
 	--[[--Nagrun's Plain
     AddGrave({519,207,0},"","", 1,0);
     AddGrave({538,250,0},"","", 1,0);

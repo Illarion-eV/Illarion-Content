@@ -8,5 +8,5 @@ setTile = base.class.class(function(settl, posi, tlId)
 end);
 
 function setTile:execute()
-    world:changeTile(self.tlId, self.pos);
+    world:changeTile(self.tileId, self.pos);
 end

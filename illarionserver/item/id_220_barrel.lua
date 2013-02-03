@@ -10,21 +10,19 @@ require("content.gathering")
 
 module("item.id_220_barrel", package.seeall)
 
+-- format: {dyeID, neededClothID, producedClothID}
+dyersList = {
+  {2678, 178, 175},  -- black
+  {2679, 178, 54},   -- green
+  {2680, 178, 179},  -- blue
+  {2681, 178, 174},  -- red
+  {2682, 178, 177},  -- yellow
+  {2683, 176, 178}   -- white
+};
+
 function UseItem(User, SourceItem, ltstate)
 	content.gathering.InitGathering();
 	local dyeing = content.gathering.dyeing;
-  
-  if (dyersList == nil) then
-    -- format: {dyeID, neededClothID, producedClothID}
-    dyersList = {
-     {2678, 178, 175},  -- black
-     {2679, 178, 54},   -- green
-     {2680, 178, 179},  -- blue
-     {2681, 178, 174},  -- red
-     {2682, 178, 177},  -- yellow
-     {2683, 176, 178}   -- white
-    };
-  end
 
 	base.common.ResetInterruption( User, ltstate );
 	if ( ltstate == Action.abort ) then -- work interrupted

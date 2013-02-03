@@ -23,7 +23,6 @@ require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.money")
 require("npc.base.consequence.quest")
-require("npc.base.consequence.trade")
 require("npc.base.talk")
 module("npc.ehrom_goldhammer", package.seeall)
 
@@ -422,7 +421,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 5));
 talkEntry:addCondition(npc.base.condition.item.item(2420, "all", ">", 4, nil));
 talkEntry:addTrigger(".+");
-talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Obsidianring und einen magischen Obsidianring."));
+talkEntry:addConsequence(npc.base.consequence.inform.inform("[Quest gelöst] Du erhältst einen Obsidianring und einen magischen Obsidian."));
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(2420, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(278, 1, 999, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(283, 1, 333, {["gemLevel"] = "1"}));
@@ -472,7 +471,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Smuggler IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 7));
-talkEntry:addResponse("Psst! I need you for a very special task. Sneak into Runewick and get me a wand of wind. For what? None of your business!");
+talkEntry:addResponse("Psst! I need you for a very special task. Sneak into Runewick and get me a wand of air. For what? None of your business!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -482,7 +481,7 @@ talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schmuggler IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 7));
-talkEntry:addResponse("Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab des Windes. Wofür? Das geht euch nichts an!");
+talkEntry:addResponse("Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab der Luft. Wofür? Das geht euch nichts an!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -492,7 +491,7 @@ talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[New quest] The Smuggler II"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 7));
-talkEntry:addResponse("Psst! I need you for a very special task. Sneak into Runewick and get me a wand of wind. For what? None of your business!");
+talkEntry:addResponse("Psst! I need you for a very special task. Sneak into Runewick and get me a wand of air. For what? None of your business!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -503,7 +502,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Neues Quest] Der Schmuggler IV"));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(72, "=", 7));
-talkEntry:addResponse("Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab des Windes. Wofür? Das geht euch nichts an!");
+talkEntry:addResponse("Psst! Ich brauche euch für eine besondere Aufgabe. Schleicht euch nach Runewick und bringt mir einen Zauberstab der Luft. Wofür? Das geht euch nichts an!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -537,7 +536,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 7));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ronagan knows that I do my best. Do your best and bring me a wand of wind for my customer.");
+talkEntry:addResponse("Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -545,7 +544,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 7));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ronagan weiß, dass ich mich bemühe. Bemüht euch auch und bringt mir einen Stab des Windes für meinen Kunden.");
+talkEntry:addResponse("Ronagan weiß, dass ich mich bemühe. Bemüht euch auch und bringt mir einen Stab der Luft für meinen Kunden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -553,7 +552,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 7));
 talkEntry:addTrigger("task");
 talkEntry:addTrigger("adventure");
-talkEntry:addResponse("Ronagan knows that I do my best. Do your best and bring me a wand of wind for my customer.");
+talkEntry:addResponse("Ronagan knows that I do my best. Do your best and bring me a wand of air for my customer.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -562,7 +561,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(72, "=", 7));
 talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
-talkEntry:addResponse("Ronagan knows that I do my best. Do your best and bring me a wand of wind for my customer.");
+talkEntry:addResponse("Ronagan weiß, dass ich mich bemühe. Bemüht euch auch und bringt mir einen Stab der Luft für meinen Kunden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -629,8 +628,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Gobaith");
 talkEntry:addTrigger("Gobiath");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("I used toSibanac with some halfling fellow on Gobaith... Brendan Mason was his name.");
+talkEntry:addResponse("I used to sell Sibanac to some halfling fellow on Gobaith... Brendan Mason was his name.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -759,8 +757,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("hammer");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("The hammer is themark of any smith. There are different hammers for each and every purpose. It is important to use the right hammer for each task.");
+talkEntry:addResponse("The hammer is the token of any smith. There are different hammers for each and every purpose. It is important to use the right hammer for each task.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -814,8 +811,7 @@ if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger("Runewick");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("The people of Runewick come to me tofor metals and minerals. If you look for them you have to travel south and east.");
+talkEntry:addResponse("The people of Runewick come to me to buy metals and minerals. If you look for them you have to travel south and east.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -981,8 +977,7 @@ talkEntry:addTrigger("what sell");
 talkEntry:addTrigger("what buy");
 talkEntry:addTrigger("list wares");
 talkEntry:addTrigger("price of");
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
-talkEntry:addResponse("I don't have anything I want toat the moment, but I have a special task for you.");
+talkEntry:addResponse("I don't have anything I want to sell at the moment, but I have a special task for you.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -1082,7 +1077,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

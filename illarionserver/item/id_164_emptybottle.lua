@@ -8,19 +8,7 @@ require("alchemy.base.alchemy")
 module("item.id_164_emptybottle", package.seeall)
 
 function UseItem(User, SourceItem, ltstate)
-if (User.lastSpokenText == "set") then
-    SourceItem:setData("dataTest","1")
-	world:changeItem(SourceItem)
-	User:inform("dataTest set to: "..SourceItem:getData("dataTest"))
-	return
-end
-if (User.lastSpokenText == "remove") then
-    SourceItem:setData("dataTest","")
-	world:changeItem(SourceItem)
-	User:inform("dataTest set to: "..SourceItem:getData("dataTest"))
-	return
-end
-	
+
 	-- alchemy
 	-- infront of a cauldron?
 	local cauldron = alchemy.base.alchemy.GetCauldronInfront(User)
@@ -81,7 +69,7 @@ end
 					User:createItem(reBottle, 1, 0, data)
                                         
                 elseif cauldron:getData("filledWith") == "potion" then
-				        User:createItem(reBottle, 1, cauldron:getData("potionQuality"), { potionEffectId=cauldron:getData("potionEffectId")})
+				        User:createItem(reBottle, 1, tonumber(cauldron:getData("potionQuality")), { potionEffectId=cauldron:getData("potionEffectId")})
 				end		              
                 world:erase(SourceItem,1)
 			else

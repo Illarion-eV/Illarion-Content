@@ -2,6 +2,8 @@
 --Quest 112: The Ghost Oak, NPC Madoquar
 
 require("base.common")
+require("base.lookat")
+
 module("item.id_2937_skeleton", package.seeall)
 
 function LookAtItem(User,Item)

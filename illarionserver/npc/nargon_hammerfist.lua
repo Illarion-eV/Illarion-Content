@@ -7,7 +7,7 @@
 --                                                                            --
 -- Authors:  Rincewind                                                        --
 --           Estralis Seborian                                                --
---                                                       easyNPC Parser v1.21 --
+--                                                       easyNPC Parser v1.23 --
 --------------------------------------------------------------------------------
 
 --[[SQL
@@ -23,7 +23,6 @@ require("npc.base.consequence.deleteitem")
 require("npc.base.consequence.inform")
 require("npc.base.consequence.item")
 require("npc.base.consequence.quest")
-require("npc.base.consequence.trade")
 require("npc.base.consequence.warp")
 require("npc.base.talk")
 module("npc.nargon_hammerfist", package.seeall)
@@ -67,9 +66,9 @@ talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe which must be held in your hands. Note that not every rock will yield coal."));
-talkEntry:addResponse("Arr, the name be Nargon, Nargon Hammerfist. Ye want coin? Harr. Only through hard labour can ye become wealthy. Don't fear, Nargon will get ye started. Here, have this pick-axe. Head into the mine behind me and gather five lumps of coal. It won't be in vain!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
+talkEntry:addResponse("Arr, the name be Nargon, Nargon Hammerfist. Ye want coin? Harr. Only through hard labour can ye become wealthy. Don't fear, Nargon will get ye started. Here, have this pick-axe. Head into the mine behind me and gather five lumps of coal. It won't be in vain!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -78,9 +77,9 @@ talkEntry:addCondition(npc.base.condition.quest.quest(312, "<", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Um zu schürfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."));
-talkEntry:addResponse("Arr, mein Name ist Nargon, Nargon Hammerfist. Wilste 'ne Münze? Harr. Nur mit harter Arbeit kannste Reich werden. Keine Sorge, Nargon wird dir helfen. Hier haste 'ne Spitzhacke. Geh in die Mine hinter mir und sammel fünf Brocken Kohle. Es wird nicht umsonst sein!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 599, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
+talkEntry:addResponse("Arr, mein Name ist Nargon, Nargon Hammerfist. Wilste 'ne Münze? Harr. Nur mit harter Arbeit kannste Reich werden. Keine Sorge, Nargon wird dir helfen. Hier haste 'ne Spitzhacke. Geh in die Mine hinter mir und sammel fünf Brocken Kohle. Es wird nicht umsonst sein!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -89,8 +88,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(312, "<", 2));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] In order to mine, stand in front of a rock and use (double click) the pick-axe, which must be held in your hands. Note that not every rock yields coal."));
-talkEntry:addResponse("Arr, the name is Nargon, Nargon Hammerfist. Ye want coin? Harr. Only through hard labour can ye become wealthy. Don't fear, Nargon will get ye started. Remember the pick-axe that wicked elfess gave you? Head into the mine behind me and gather five lumps of coal. It won't be in vain!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
+talkEntry:addResponse("Arr, the name is Nargon, Nargon Hammerfist. Ye want coin? Harr. Only through hard labour can ye become wealthy. Don't fear, Nargon will get ye started. Remember the pick-axe that wicked elfess gave you? Head into the mine behind me and gather five lumps of coal. It won't be in vain!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -98,8 +97,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "<", 2));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Um zu schürfen, stell dich vor einen Stein und benutze (Doppelklick) die in der Hand gehaltene Spitzhacke. Beachte aber, dass nicht in jedem Stein Kohle zu finden ist."));
-talkEntry:addResponse("Arr, mein Name ist Nargon, Nargon Hammerfist. Wilste 'ne Münze? Harr. Nur mit harter Arbeit kannste Reich werden. Keine Sorge, Nargon wird dir helfen. Kannste dich noch an die Spitzhacke erinnern, die dir die verruchte Elfe gegeben hat? Geh in die Mine hinter mir und sammel fünf Brocken Kohle. Es wird nicht umsonst sein!");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 2));
+talkEntry:addResponse("Arr, mein Name ist Nargon, Nargon Hammerfist. Wilste 'ne Münze? Harr. Nur mit harter Arbeit kannste Reich werden. Keine Sorge, Nargon wird dir helfen. Kannste dich noch an die Spitzhacke erinnern, die dir die verruchte Elfe gegeben hat? Geh in die Mine hinter mir und sammel fünf Brocken Kohle. Es wird nicht umsonst sein!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -109,11 +108,10 @@ talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] You are awarded a ruby."));
-talkEntry:addResponse("Oi! Ye did it, thanks for the coal! As an honest dwarvensman, I'll give you this ruby in exchange. Harr! Told ye the work wouldn't be in vain! My kinsman Nimbur, down at the brick house, can teach ye another lesson about dwarven craft.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 3));
-talkEntry:addConsequence(npc.base.consequence.trade.trade(tradingNPC));
+talkEntry:addResponse("Oi! Ye did it, thanks for the coal! As an honest dwarvensman, I'll give you this ruby in exchange. Harr! Told ye the work wouldn't be in vain! My kinsman Nimbur, down at the brick house, can teach ye another lesson about dwarven craft.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -122,10 +120,10 @@ talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(21, "all", ">", 4, nil));
 talkEntry:addTrigger(".*");
 talkEntry:addConsequence(npc.base.consequence.inform.inform("[Tutorial] Du erhältst einen Rubin."));
-talkEntry:addResponse("Ui! Du hast es geschafft, danke für die Kohle! Als 'nen anständiger Zwergenhändler, will ich dir diesen Rubin als Ausgleich geben. Harr! Hab' ja gesagt, dass es nicht umsonst sein wird! Mein Zwergenbruder Nimbur, da unten beim Steinhaus, kann dir noch was in Sachen Zwergenhandwerk beibringen.");
 talkEntry:addConsequence(npc.base.consequence.deleteitem.deleteitem(21, 5, nil));
 talkEntry:addConsequence(npc.base.consequence.item.item(46, 1, 333, nil));
 talkEntry:addConsequence(npc.base.consequence.quest.quest(312, "=", 3));
+talkEntry:addResponse("Ui! Du hast es geschafft, danke für die Kohle! Als 'nen anständiger Zwergenhändler, will ich dir diesen Rubin als Ausgleich geben. Harr! Hab' ja gesagt, dass es nicht umsonst sein wird! Mein Zwergenbruder Nimbur, da unten beim Steinhaus, kann dir noch was in Sachen Zwergenhandwerk beibringen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -134,8 +132,8 @@ talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addCondition(npc.base.condition.language.language("english"));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("What!? Ye lost your pick-axe? How do ye expect to become rich if ye keep losing yer belongings? Take this replacement; now off to the mines with ye!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 599, nil));
+talkEntry:addResponse("What!? Ye lost your pick-axe? How do ye expect to become rich if ye keep losing yer belongings? Take this replacement; now off to the mines with ye!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -143,8 +141,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(312, "=", 2));
 talkEntry:addCondition(npc.base.condition.item.item(2763, "all", "=", 0, nil));
 talkEntry:addTrigger(".*");
-talkEntry:addResponse("Was? Du hast deine Spitzhacke verloren? Wie denkste denn reich zu werden, wenn du deine Sachen verlierst? Nimm die als Ersatz und ab mir dir in die Mine!");
 talkEntry:addConsequence(npc.base.consequence.item.item(2763, 1, 599, nil));
+talkEntry:addResponse("Was? Du hast deine Spitzhacke verloren? Wie denkste denn reich zu werden, wenn du deine Sachen verlierst? Nimm die als Ersatz und ab mir dir in die Mine!");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -204,7 +202,7 @@ end;
 function receiveText(npcChar, texttype, message, speaker) mainNPC:receiveText(npcChar, texttype, speaker, message); end;
 function nextCycle(npcChar) mainNPC:nextCycle(npcChar); end;
 function lookAtNpc(npcChar, char, mode) mainNPC:lookAt(npcChar, char, mode); end;
-function useNPC(npcChar, char) mainNPC:use(npcChar, char); end;
+function useNPC(npcChar, char, counter, param) mainNPC:use(npcChar, char); end;
 initNpc();
 initNpc = nil;
 -- END

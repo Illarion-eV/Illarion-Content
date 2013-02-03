@@ -230,7 +230,7 @@ product:addIngredient(2527) -- Large Ornated Staff Handle: 1x1
 product:addIngredient(284, 3) -- Sapphire: 3x1
 product:addIngredient(2554) -- Pure Water: 1x1
 
---Wand of Wind
+--wand of air
 product = carving:addProduct(catId, 2785, 90, 100, 324, 648)
 product:addIngredient(56) -- Bough: 1x1
 product:addIngredient(545, 6) -- Cherry Wooden Boards: 6x1
