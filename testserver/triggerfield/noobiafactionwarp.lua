@@ -17,31 +17,18 @@ function MoveToField(Character)
 	
     -- we define our destination
 	
-	-- !!! INFO !!!: 
-	-- I have added some things for the newbie quests right at the beginning when leaving Noobia
-	-- for now, I commeted it out! NOT FINISHED!
-	
-	--[[if isTestserver() then
-	   -- Message box for guiding him to the first NPC to give him tasks. This has to be defined before the dialogNewbie is defined, since it should be the callback of the newbie dialog!
-		callbackNewbie = function(dialogNewbie) 
-			local callbackNewbieTask = function(dialogNewbieTask) end
-			Character:requestMessageDialog(dialogNewbieTask)
-		end
-	else
-	    callbackNewbie = function(dialogNewbie) end; --empty callback
-	end]]
-	
-    if Character.pos == position(56,96,100) then --Cadomyr
+	local destination, factionID, dialogNewbieText, dialogNewbieTaskText
+	if Character.pos == position(56,96,100) then --Cadomyr
 	
 	    destination = position(127,647,0);
 		factionID = 1;
 		
 	    if Character:getPlayerLanguage() == 0 then
-		    dialogNewbie = MessageDialog("Tutorial","Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Cadomyr beizutreten, dem Reich von Ruhm und Ehre. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein nobler Ritter, ein unterwürfiger Diener oder ein edler Diplomat.", callbackNewbie)
-	        --dialogNewbieTask = MessageDialog("Ein guter Anfang", "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Cadomyr_NPC ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!", callbackNewbieTask)
+		    dialogNewbieText = "Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Cadomyr beizutreten, dem Reich von Ruhm und Ehre. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein nobler Ritter, ein unterwürfiger Diener oder ein edler Diplomat."
+	        dialogNewbieTaskText = "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Cadomyr_NPC ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!"
 		else	
-		    dialogNewbie = MessageDialog("Tutorial", "Congratulations, you have completed the tutorial. You have chosen to join Cadomyr, the realm of honour and glory. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a proud knight, a humble servant or a noble diplomat.", callbackNewbie)
-			--dialogNewbieTask = MessageDialog("A good beginning" , "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Cadomyr_NPC is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!", callbackNewbieTask)
+		    dialogNewbieText = "Congratulations, you have completed the tutorial. You have chosen to join Cadomyr, the realm of honour and glory. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a proud knight, a humble servant or a noble diplomat."
+			dialogNewbieTaskText = "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Cadomyr_NPC is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!"
 	    end	
 		
 	elseif Character.pos == position(20,99,100) then --Runewick
@@ -50,11 +37,11 @@ function MoveToField(Character)
 	    factionID = 2;
 		
 	   	if Character:getPlayerLanguage() == 0 then
-		    dialogNewbie = MessageDialog("Tutorial","Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Runewick beizutreten, dem Reich der Weisheit und der Magie. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein geheimnisvoller Magier, ein weiser Gelehrter oder ein friedliebender Waldläufer.", callbackNewbie)
-			--dialogNewbieTask = MessageDialog("Ein guter Anfang", "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Florain Dreyndel ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!", callbackNewbieTask)
+		    dialogNewbieText = "Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Runewick beizutreten, dem Reich der Weisheit und der Magie. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein geheimnisvoller Magier, ein weiser Gelehrter oder ein friedliebender Waldläufer."
+			dialogNewbieTaskText = "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Florain Dreyndel ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!"
 	    else	
-		    dialogNewbie = MessageDialog("Tutorial", "Congratulations, you have completed the tutorial. You have chosen to join Runewick, the realm of wisdom and magic. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a mysterious mage, a wise scholar or a peaceful ranger.", callbackNewbie)
-			--dialogNewbieTask = MessageDialog("A good beginning" , "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Florain Dreyndel is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!", callbackNewbieTask)
+		    dialogNewbieText = "Congratulations, you have completed the tutorial. You have chosen to join Runewick, the realm of wisdom and magic. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a mysterious mage, a wise scholar or a peaceful ranger."
+			dialogNewbieTaskText = "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. Florain Dreyndel is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!"
 	    end	
 		
     elseif Character.pos == position(40,111,100) then --Galmair
@@ -63,11 +50,11 @@ function MoveToField(Character)
 	    factionID = 3;
 		
         if Character:getPlayerLanguage() == 0 then
-		    dialogNewbie = MessageDialog("Tutorial","Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Galmair beizutreten, dem Reich des aufstrebenden Wohlstands. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein fleißiger Handwerker, ein durchtriebener Gauner oder ein reicher Händler.", callbackNewbie)
-			--dialogNewbieTask = MessageDialog("Ein guter Anfang", "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Galmair_NPC ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!", callbackNewbieTask)
+		    dialogNewbieText = "Herzlichen Glückwunsch, du hast das Tutorial erfolgreich abgeschlossen. Du hast dich dazu entschlossen, Galmair beizutreten, dem Reich des aufstrebenden Wohlstands. Beachte bitte, dass von nun an jeder, dem du begegnest, erwarten wird, dass du in deiner Rolle bleibst - sei also ein fleißiger Handwerker, ein durchtriebener Gauner oder ein reicher Händler."
+			dialogNewbieTaskText = "Als Neuling hat man es nicht leicht. Man kennt die Gegend und die Leute nicht; und die Leute kennen dich nicht. Galmair_NPC ist ein freundlicher und hilfsbereiter Mensch, der Neuankömmlingen hilft. Geh zu ihm herüber und sprich mit ihm, wenn du Hilfe am Beginn deines neuen Lebens wünscht!"
 	    else	
-		    dialogNewbie = MessageDialog("Tutorial", "Congratulations, you have completed the tutorial. You have chosen to join Galmair, the realm of prosperity and wealth. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a sturdy craftsman, a shady thug or a wealthy merchant.", callbackNewbie)
-			--dialogNewbieTask = MessageDialog("A good beginning" , "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. FGalmair_NPC is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!", callbackNewbieTask)
+		    dialogNewbieText = "Congratulations, you have completed the tutorial. You have chosen to join Galmair, the realm of prosperity and wealth. Please note that from this point on everyone that you encounter will expect you to stay 'in character', by remaining true to your chosen role - be it a sturdy craftsman, a shady thug or a wealthy merchant."
+			dialogNewbieTaskText = "Being new in town isn't easy. You don't know the area or the people, and neither do they know you. FGalmair_NPC is a friendly and helpful person, who is happy to help newcomers. Go and talk to him if you want to get some help at the beginning of your new life!"
 	    end	
 		
 	end
@@ -104,11 +91,25 @@ function MoveToField(Character)
 		Character:setAttrib("mana",10000)
 		Character:setAttrib("foodlevel",30000)
 		
+		-- Build the dialogs
+		local callbackNewbie, callbackNewbieTask
+        if isTestserver() then
+			callbackNewbie = function(dialogNewbie) 
+				callbackNewbieTask = function(dialogNewbieTask) end
+				dialogNewbieTask = MessageDialog("Ein guter Anfang", dialogNewbieTaskText, callbackNewbieTask)
+				Character:requestMessageDialog(dialogNewbieTask)
+		    end
+	    else
+	        callbackNewbie = function(dialogNewbie) end; --empty callback
+	    end
+		dialogNewbie = MessageDialog("Tutorial",dialogNewbieText, callbackNewbie)
+		
 		-- We send him a message box
 		Character:requestMessageDialog(dialogNewbie); --sending the dialog box to tell him that he finshed the tutorial 
 													  --the callback of this box contains the dialog box to tell him to see the first quest giving NPC
 		
-        -- We tell other players about our noob
+		
+		-- We tell other players about our noob
 		
 	    playerlist = world:getPlayersOnline();
 		
