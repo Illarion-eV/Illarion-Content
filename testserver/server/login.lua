@@ -310,8 +310,8 @@ function PayOutWage(Recipient,town)
 	local totalTaxes=base.townTreasure.GetPaymentAmount(town)
 	local totalPayers=base.townTreasure.GetTaxpayerNumber(town)
 	
-	--Recipient:inform("in payoutwage "..totalPayers)
-	--Recipient:inform("totaltaxes "..totalTaxes)
+	Recipient:inform("in payoutwage "..totalPayers)
+	Recipient:inform("totaltaxes "..totalTaxes)
 	
 	if tonumber(totalPayers)>0 then
 		if tonumber(totalTaxes)>0 then
