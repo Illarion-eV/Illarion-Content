@@ -355,7 +355,7 @@ function PayOutWage(Recipient,town)
 			local infText = base.common.GetNLS(Recipient, 
 	                                   "Deine loyalen Dienste für "..town.." werden mit den folgenden magischen Edelsteinen belohnt:"..endname, 
 	                                   "Your loyal service to "..town.." is awarded with the following magical gems:"..endname)
-			local title = base.common.GetNLS(Recipient,"Lohn","Wage")
+			local title = base.common.GetNLS(Recipient,"Belohnung","Gratification")
 	
 			local dialog=MessageDialog(title,infText,closeTrib);
 			
