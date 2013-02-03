@@ -257,10 +257,10 @@ end
 
 
 function payTaxes(taxPayer)
-	yr=world:getTime("year");
-	mon=world:getTime("month");
-	timeStmp=yr*1000+mon;
-	lastTax=taxPayer:getQuestProgress(123);
+	local yr=world:getTime("year");
+	local mon=world:getTime("month");
+	local timeStmp=yr*1000+mon;
+	local lastTax=taxPayer:getQuestProgress(123);
 	if (lastTax~=0) then
 		if lastTax<timeStmp then
 			taxPayer:setQuestProgress(123,timeStmp);
