@@ -9,9 +9,11 @@ require("test.martin")
 
 function UseItem(User, SourceItem, ltstate)
 	if User.name=="Ciryon" then
+	User:inform("drin")
 		players=world:getPlayersOnline();
 		
 		for k, gemRecipient in ipairs(players) do
+		User:inform("drin: "..gemRecipient.name)
 			local town = base.factions.getMembershipByName(gemRecipient)
 			server.login.PayOutWage(gemRecipient,town)
 		end
