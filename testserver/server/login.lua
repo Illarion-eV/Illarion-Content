@@ -261,7 +261,7 @@ function payTaxes(taxPayer)
 	mon=world:getTime("month");
 	timeStmp=yr*1000+mon;
 	lastTax=taxPayer:getQuestProgress(123);
-	if (lastTax~=nil) then
+	if (lastTax~=0) then
 		if lastTax<timeStmp then
 			taxPayer:setQuestProgress(123,timeStmp);
 			payNow(taxPayer)
@@ -295,7 +295,7 @@ function receiveGems(gemRecipient)
 	end
 	-- now check if last payment was before actual month and actual month is the one to pay out.
 	lastGem=gemRecipient:getQuestProgress(124);
-	if (lastGem~=nil) then
+	if (lastGem~=0) then
 		if timeStmp>=tonumber(lastSwitch) and tonumber(lastGem)<timeStmp then
 			gemRecipient:setQuestProgress(124,timeStmp);
 			PayOutWage(gemRecipient,town)
