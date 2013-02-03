@@ -52,7 +52,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 0));
 talkEntry:addTrigger(".+");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 1));
-talkEntry:addResponse("Willkommen in Runewick. Ich habe gehört, dass meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an dessen Ende um dorthin zu gelangen.");
+talkEntry:addResponse("Willkommen in Runewick. Ich habe gehört, dass meine Freundin Zassaria Riverbank Hilfe benötigt. Ihr könnt sie auf dem Marktplatz finden, geht einfach über die Brücke und durch das blaue Portal an dessen Ende, um dorthin zu gelangen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -79,8 +79,8 @@ talkEntry:addTrigger("Mahlzeit");
 talkEntry:addTrigger("Tach");
 talkEntry:addTrigger("Moin");
 talkEntry:addTrigger("Mohltied");
-talkEntry:addResponse("Hallo, ich kann euch sagen wer in Runewick Aufgaben für euch hat.");
-talkEntry:addResponse("Freut mich euch zu treffen. Ich bin Florain Dreyndel, ich kann euch sagen wer in Runewick Aufgaben für euch hat.");
+talkEntry:addResponse("Hallo, ich kann Euch sagen, wer in Runewick Aufgaben für Euch hat.");
+talkEntry:addResponse("Freut mich, Euch zu treffen. Ich bin Florain Dreyndel. Ich kann Euch sagen, wer in Runewick Aufgaben für Euch hat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -100,8 +100,8 @@ talkEntry:addTrigger("Hiho");
 talkEntry:addTrigger("Hallo");
 talkEntry:addTrigger("Hey");
 talkEntry:addTrigger("Greeb");
-talkEntry:addResponse("Hallo, ich kann euch sagen wer in Runewick Aufgaben für euch hat.");
-talkEntry:addResponse("Freut mich euch zu treffen. Ich bin Florain Dreyndel, ich kann euch sagen wer in Runewick Aufgaben für euch hat.");
+talkEntry:addResponse("Hallo, ich kann Euch sagen, wer in Runewick Aufgaben für Euch hat.");
+talkEntry:addResponse("Freut mich, Euch zu treffen. Ich bin Florain Dreyndel. Ich kann Euch sagen, wer in Runewick Aufgaben für Euch hat.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -119,8 +119,8 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("Tschüß");
 talkEntry:addTrigger("Tschüss");
 talkEntry:addTrigger("Wiedersehen");
-talkEntry:addResponse("Vielen Dank, dass Ihr mit mir gesprochen habt. Wenn Ihr Hilfe braucht etwas zu tun zu finden, kommt einfach zurück.");
-talkEntry:addResponse("Ich wünsche Euch einen schönen Tag. Wenn Ihr Hilfe braucht etwas zu tun zu finden, kommt einfach zurück.");
+talkEntry:addResponse("Vielen Dank, dass Ihr mit mir gesprochen habt. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück.");
+talkEntry:addResponse("Ich wünsche Euch einen schönen Tag. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -140,8 +140,8 @@ talkEntry:addTrigger("Ciao");
 talkEntry:addTrigger("Adieu");
 talkEntry:addTrigger("Au revoir");
 talkEntry:addTrigger("Farebba");
-talkEntry:addResponse("Vielen Dank, dass Ihr mit mir gesprochen habt. Wenn Ihr Hilfe braucht etwas zu tun zu finden, kommt einfach zurück.");
-talkEntry:addResponse("Ich wünsche Euch einen schönen Tag. Wenn Ihr Hilfe braucht etwas zu tun zu finden, kommt einfach zurück.");
+talkEntry:addResponse("Vielen Dank, dass Ihr mit mir gesprochen habt. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück.");
+talkEntry:addResponse("Ich wünsche Euch einen schönen Tag. Wenn Ihr Hilfe braucht, etwas zu tun zu finden, kommt einfach zurück.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -188,7 +188,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("beruf");
-talkEntry:addResponse("Mein Beruf ist zu helfen. Also wenn ihr etwas zu tun sucht, fragt einfach.");
+talkEntry:addResponse("Mein Beruf ist zu helfen. Also wenn Ihr etwas zu tun sucht, fragt einfach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -201,7 +201,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("job");
-talkEntry:addResponse("Mein Beruf ist zu helfen. Also wenn ihr etwas zu tun sucht, fragt einfach.");
+talkEntry:addResponse("Mein Beruf ist zu helfen. Also wenn Ihr etwas zu tun sucht, fragt einfach.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -213,7 +213,7 @@ end;
 if (true) then
 local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addTrigger("markt");
-talkEntry:addResponse("Folgt einfach der Brücke bis zum Ende und geht durch das blaue Portal. Fragt Elesil Dealwon wenn Ihr mehr über die Orte um Runewick herum wissen wollt.");
+talkEntry:addResponse("Folgt einfach der Brücke bis zum Ende und geht durch das blaue Portal. Fragt Elesil Dealwon, wenn Ihr mehr über die Orte um Runewick herum wissen wollt.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -232,7 +232,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 1));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
-talkEntry:addResponse("Ich nehme an ihr habt meine Freundin Zassaria Riverbank bereits besucht und ihr geholfen. Ich habe gehört das Neiran El Nayale euch etwas beibringen kann.");
+talkEntry:addResponse("Ich nehme an, Ihr habt meine Freundin Zassaria Riverbank bereits besucht und ihr geholfen. Ich habe gehört, dass Neiran El Nayale Euch etwas beibringen kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -253,7 +253,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 2));
-talkEntry:addResponse("Ich nehme an ihr habt meine Freundin Zassaria Riverbank bereits besucht und ihr geholfen. Ich habe gehört das Neiran El Nayale euch etwas beibringen kann.");
+talkEntry:addResponse("Ich nehme an, Ihr habt meine Freundin Zassaria Riverbank bereits besucht und ihr geholfen. Ich habe gehört, dasss Neiran El Nayale euch etwas beibringen kann.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -312,7 +312,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 3));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Nana Winterbutter, eine größartige Köchin wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich westlich von hier finden, auf der anderen Seite der Hecke.");
+talkEntry:addResponse("Nana Winterbutter, eine größartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich westlich von hier finden, auf der anderen Seite der Hecke.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -333,7 +333,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 4));
-talkEntry:addResponse("Nana Winterbutter, eine größartige Köchin wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich westlich von hier finden, auf der anderen Seite der Hecke.");
+talkEntry:addResponse("Nana Winterbutter, eine größartige Köchin, wenn ich das so sagen darf, sucht auch immer nach fleißigen Helfern. Ihr könnt sie gleich westlich von hier finden, auf der anderen Seite der Hecke.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -352,7 +352,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 4));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 5));
-talkEntry:addResponse("Ein Vogel hat mir erzählt das die Anwärterin Madeline Clarbelis hilfe benötigt. Es ist einfach sie zu finden. Geht einfach zurück zum Marktplatz, durch das Gebäude im Westen und verlasst es über die Brücke im Norden.");
+talkEntry:addResponse("Ein Vogel hat mir erzählt, dass die Anwärterin Madeline Clarbelis hilfe benötigt. Es ist einfach, sie zu finden. Geht einfach zurück zum Marktplatz, durch das Gebäude im Westen und verlasst es über die Brücke im Norden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -373,7 +373,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 5));
-talkEntry:addResponse("Ein Vogel hat mir erzählt das die Anwärterin Madeline Clarbelis hilfe benötigt. Es ist einfach sie zu finden. Geht einfach zurück zum Marktplatz, durch das Gebäude im Westen und verlasst es über die Brücke im Norden.");
+talkEntry:addResponse("Ein Vogel hat mir erzählt, dass die Anwärterin Madeline Clarbelis hilfe benötigt. Es ist einfach, sie zu finden. Geht einfach zurück zum Marktplatz, durch das Gebäude im Westen und verlasst es über die Brücke im Norden.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -392,7 +392,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 5));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 6));
-talkEntry:addResponse("Uriel Urch könnte jemanden gebrauchen der Zeit mit ihm verbringt und seiner Geschichte lauscht. Er wird euch sicher für eure Zeit belohnen. Ihr könnt ihn finden, wenn ihr in dem Gebäude westlich vom Marktplatz die Treppe nach unten geht.");
+talkEntry:addResponse("Uriel Urch könnte jemanden gebrauchen, der Zeit mit ihm verbringt und seiner Geschichte lauscht. Er wird Euch sicher für Eure Zeit belohnen. Ihr könnt ihn finden, wenn Ihr in dem Gebäude westlich vom Marktplatz die Treppe nach unten geht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -413,7 +413,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 6));
-talkEntry:addResponse("Uriel Urch könnte jemanden gebrauchen der Zeit mit ihm verbringt und seiner Geschichte lauscht. Er wird euch sicher für eure Zeit belohnen. Ihr könnt ihn finden, wenn ihr in dem Gebäude westlich vom Marktplatz die Treppe nach unten geht.");
+talkEntry:addResponse("Uriel Urch könnte jemanden gebrauchen, der Zeit mit ihm verbringt und seiner Geschichte lauscht. Er wird Euch sicher für Eure Zeit belohnen. Ihr könnt ihn finden, wenn Ihr in dem Gebäude westlich vom Marktplatz die Treppe nach unten geht.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -432,7 +432,7 @@ talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 6));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 7));
-talkEntry:addResponse("Lilith Needlehand sucht jemanden der ihr behilflich ist. Ihr könnt sie in der Nähe von Uriel finden. Die Treppe runter in dem Gebäude westlich vom Marktplatz.");
+talkEntry:addResponse("Lilith Needlehand sucht jemanden, der ihr behilflich ist. Ihr könnt sie in der Nähe von Uriel finden. Die Treppe runter in dem Gebäude westlich vom Marktplatz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -453,7 +453,7 @@ talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
 talkEntry:addConsequence(npc.base.consequence.quest.quest(820, "=", 7));
-talkEntry:addResponse("Lilith Needlehand sucht jemanden der ihr behilflich ist. Ihr könnt sie in der Nähe von Uriel finden. Die Treppe runter in dem Gebäude westlich vom Marktplatz.");
+talkEntry:addResponse("Lilith Needlehand sucht jemanden, der ihr behilflich ist. Ihr könnt sie in der Nähe von Uriel finden. Die Treppe runter in dem Gebäude westlich vom Marktplatz.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -470,7 +470,7 @@ local talkEntry = npc.base.talk.talkNPCEntry();
 talkEntry:addCondition(npc.base.condition.quest.quest(820, "=", 7));
 talkEntry:addTrigger("quest");
 talkEntry:addTrigger("mission");
-talkEntry:addResponse("Ich bin sicher ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die ihr trefft ob sie Aufgaben für euch haben und ihr werdet zurechtkommen.");
+talkEntry:addResponse("Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -489,7 +489,7 @@ talkEntry:addTrigger("Auftrag");
 talkEntry:addTrigger("Aufgabe");
 talkEntry:addTrigger("Abenteuer");
 talkEntry:addTrigger("Befehl");
-talkEntry:addResponse("Ich bin sicher ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute die ihr trefft ob sie Aufgaben für euch haben und ihr werdet zurechtkommen.");
+talkEntry:addResponse("Ich bin sicher, Ihr kommt nun auch ohne meine Hilfe zurecht. Fragt einfach die Leute, die Ihr trefft, ob sie Aufgaben für Euch haben und Ihr werdet zurechtkommen.");
 talkingNPC:addTalkingEntry(talkEntry);
 end;
 if (true) then
@@ -523,8 +523,8 @@ talkingNPC:addTalkingEntry(talkEntry);
 end;
 talkingNPC:addCycleText("Willkommen in Runewick!", "Welcome to Runewick!");
 talkingNPC:addCycleText("Wenn ihr Hilfe benötigt, sprecht mich einfach an.", "If you need help, just speak to me.");
-talkingNPC:addCycleText("Ich kann euch sagen wer in diesem Reich eure Hilfe benötigt.", "I can tell you who in this realm needs your help.");
-talkingNPC:addCycleText("Wenn ihr Neu hier seid, bin ich euer Mann.", "If you're new to this realm, I'm your man.");
+talkingNPC:addCycleText("Ich kann Euch sagen, wer in diesem Reich eure Hilfe benötigt.", "I can tell you who in this realm needs your help.");
+talkingNPC:addCycleText("Wenn Ihr neu hier seid, bin ich Euer Mann.", "If you're new to this realm, I'm your man.");
 mainNPC:addLanguage(0);
 mainNPC:addLanguage(1);
 mainNPC:setDefaultLanguage(0);
